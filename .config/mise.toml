@@ -17,7 +17,7 @@ python = '3.11.8'
 java = 'corretto-11'
 
 # Executable tools
-pulumi = "{{ get_env(name='PULUMI_VERSION_MISE', default='latest') }}"
+"github:pulumi/pulumi" = "{{ get_env(name='PULUMI_VERSION_MISE', default='latest') }}"
 "github:pulumi/pulumictl" = '0.0.50'
 "github:pulumi/schema-tools" = "0.6.0"
 "aqua:gradle/gradle-distributions" = '7.6.6'
@@ -29,6 +29,7 @@ experimental = true # Required for Go binaries (e.g. pulumictl).
 lockfile = false
 http_retries = 3
 pin = true # `mise use` should pin versions instead of defaulting to latest.
+fetch_remote_versions_cache = "24h" # Mise queries versions even if they're pinned to confirm they exist. Reduce GitHub API calls by doing that less often.
 
 [plugins]
 vfox-pulumi = "https://github.com/pulumi/vfox-pulumi"
