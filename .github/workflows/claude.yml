@@ -1,0 +1,98 @@
+name: Claude Code
+
+on:
+  # Responds to @claude mentions in comments.
+  issue_comment:
+    types: [created]
+  pull_request_review_comment:
+    types: [created]
+  issues:
+    types: [opened]
+  pull_request_review:
+    types: [submitted]
+
+jobs:
+  claude:
+    # Only run when @claude is mentioned by a trusted user (OWNER, MEMBER, or COLLABORATOR)
+    # Note: the claude-code-action can only be triggered by users with write access to the repository so this is extra
+    # see https://github.com/anthropics/claude-code-action/blob/main/docs/security.md
+    if: |
+      (github.event_name == 'issue_comment' &&
+        contains(github.event.comment.body, '@claude') &&
+        contains(fromJSON('["OWNER", "MEMBER", "COLLABORATOR"]'), github.event.comment.author_association)) ||
+      (github.event_name == 'pull_request_review_comment' &&
+        contains(github.event.comment.body, '@claude') &&
+        contains(fromJSON('["OWNER", "MEMBER", "COLLABORATOR"]'), github.event.comment.author_association)) ||
+      (github.event_name == 'pull_request_review' &&
+        contains(github.event.review.body, '@claude') &&
+        contains(fromJSON('["OWNER", "MEMBER", "COLLABORATOR"]'), github.event.review.author_association)) ||
+      (github.event_name == 'issues' &&
+        (contains(github.event.issue.body, '@claude') || contains(github.event.issue.title, '@claude')) &&
+        contains(fromJSON('["OWNER", "MEMBER", "COLLABORATOR"]'), github.event.issue.author_association))
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: write
+      issues: write
+      id-token: write
+    steps:
+      - env:
+          ESC_ACTION_ENVIRONMENT: github-secrets/${{ github.repository_owner }}-${{ github.event.repository.name }}
+          ESC_ACTION_EXPORT_ENVIRONMENT_VARIABLES: "false"
+          ESC_ACTION_OIDC_AUTH: "true"
+          ESC_ACTION_OIDC_ORGANIZATION: pulumi
+          ESC_ACTION_OIDC_REQUESTED_TOKEN_TYPE: urn:pulumi:token-type:access_token:organization
+        id: esc-secrets
+        name: Fetch secrets from ESC
+        uses: pulumi/esc-action@9eb774255b1a4afb7855678ae8d4a77359da0d9b
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
+        with:
+          fetch-depth: 1
+      - name: Setup mise
+        uses: blampe/mise-action@blampe/plugins
+        env:
+          MISE_FETCH_REMOTE_VERSIONS_TIMEOUT: 30s
+        with:
+          version: 2026.1.1
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          plugin_install: https://github.com/pulumi/vfox-pulumi
+          # only saving the cache in the prerequisites job
+          cache_save: false
+      - name: Prepare local workspace
+        # this runs install_plugins and upstream
+        run: make prepare_local_workspace
+      - name: Run Claude Code Review
+        # Comment must contain '@claude review'
+        if: |
+          (github.event_name == 'issue_comment' && contains(github.event.comment.body, '@claude review')) ||
+          (github.event_name == 'pull_request_review_comment' && contains(github.event.comment.body, '@claude review')) ||
+          (github.event_name == 'pull_request_review' && contains(github.event.review.body, '@claude review'))
+        id: claude-review
+        uses: anthropics/claude-code-action@8341a564b0c1693e9fa29c681852ee3714980098 # v1
+        with:
+          anthropic_api_key: ${{ steps.esc-secrets.outputs.ANTHROPIC_API_KEY }}
+          prompt: |
+            REPO: ${{ github.repository }}
+            PR NUMBER: ${{ github.event.pull_request.number || github.event.issue.number }}
+
+            Review this pull request using the provider-code-review skill for guidelines.
+            The PR branch is already checked out in the current working directory.
+
+            Use `gh pr comment` for top-level feedback.
+            Use `mcp__github_inline_comment__create_inline_comment` to highlight specific code issues.
+            Only post GitHub comments - don't submit review text as messages.
+          # Taken from https://github.com/anthropics/claude-code/blob/main/plugins/code-review/commands/code-review.md
+          claude_args: |
+            --allowedTools "Bash(gh issue view:*),Bash(gh search:*),Bash(gh issue list:*),Bash(gh pr comment:*),Bash(gh pr diff:*),Bash(gh pr view:*),Bash(gh pr list:*),mcp__github_inline_comment__create_inline_comment"
+      - name: Run Claude Code
+        # Comment must contain '@claude', but not '@claude review'
+        if: |
+          !contains(github.event.comment.body, '@claude review') &&
+          !contains(github.event.review.body, '@claude review')
+        id: claude-action
+        uses: anthropics/claude-code-action@8341a564b0c1693e9fa29c681852ee3714980098 # v1
+        with:
+          anthropic_api_key: ${{ steps.esc-secrets.outputs.ANTHROPIC_API_KEY }}
+          claude_args: |
+            # --max-turns 10 # this is the default
+            --allowedTools "Edit,MultiEdit,Write,Read,Glob,Grep,LS,Bash(upgrade-provider:*),Bash(./scripts/upstream.sh:*),Bash(git:*),Bash(GIT_EDITOR=*),Bash(make:*),Bash(gh:*),Bash(mkdir:*),Bash(cd:*),Bash(go install:*)"
