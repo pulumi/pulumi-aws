@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     name: Stale issue job
     steps:
-    - uses: pose/stale-issue-cleanup@40050776bcfdf0e518aa89e2871e3f1e0b7b4209
+    - uses: pose/stale-issue-cleanup@d2922f61fc5669f4154408689f9bb2a981996112
       with:
         issue-types: issues # only look at issues (ignore pull-requests)
 
