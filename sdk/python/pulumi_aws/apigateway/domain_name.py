@@ -35,6 +35,7 @@ class DomainNameArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  regional_certificate_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  regional_certificate_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 routing_mode: Optional[pulumi.Input[_builtins.str]] = None,
                  security_policy: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
@@ -55,6 +56,7 @@ class DomainNameArgs:
                
                When uploading a certificate, the following arguments are supported:
         :param pulumi.Input[_builtins.str] regional_certificate_name: User-friendly name of the certificate that will be used by regional endpoint for this domain name. Conflicts with `certificate_arn`, `certificate_name`, `certificate_body`, `certificate_chain`, and `certificate_private_key`.
+        :param pulumi.Input[_builtins.str] routing_mode: Mode to route traffic for the domain name. Valid values: `BASE_PATH_MAPPING_ONLY`, `ROUTING_RULE_ONLY`, `ROUTING_RULE_THEN_BASE_PATH_MAPPING`.
         :param pulumi.Input[_builtins.str] security_policy: Transport Layer Security (TLS) version + cipher suite for this DomainName. Must be configured to perform drift detection. For a list of valid security policies, see [DomainName](https://docs.aws.amazon.com/apigateway/latest/api/API_DomainName.html) in the Amazon API Gateway API Reference.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
                
@@ -87,6 +89,8 @@ class DomainNameArgs:
             pulumi.set(__self__, "regional_certificate_arn", regional_certificate_arn)
         if regional_certificate_name is not None:
             pulumi.set(__self__, "regional_certificate_name", regional_certificate_name)
+        if routing_mode is not None:
+            pulumi.set(__self__, "routing_mode", routing_mode)
         if security_policy is not None:
             pulumi.set(__self__, "security_policy", security_policy)
         if tags is not None:
@@ -263,6 +267,18 @@ class DomainNameArgs:
         pulumi.set(self, "regional_certificate_name", value)
 
     @_builtins.property
+    @pulumi.getter(name="routingMode")
+    def routing_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Mode to route traffic for the domain name. Valid values: `BASE_PATH_MAPPING_ONLY`, `ROUTING_RULE_ONLY`, `ROUTING_RULE_THEN_BASE_PATH_MAPPING`.
+        """
+        return pulumi.get(self, "routing_mode")
+
+    @routing_mode.setter
+    def routing_mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "routing_mode", value)
+
+    @_builtins.property
     @pulumi.getter(name="securityPolicy")
     def security_policy(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
@@ -313,6 +329,7 @@ class _DomainNameState:
                  regional_certificate_name: Optional[pulumi.Input[_builtins.str]] = None,
                  regional_domain_name: Optional[pulumi.Input[_builtins.str]] = None,
                  regional_zone_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 routing_mode: Optional[pulumi.Input[_builtins.str]] = None,
                  security_policy: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
@@ -341,6 +358,7 @@ class _DomainNameState:
         :param pulumi.Input[_builtins.str] regional_certificate_name: User-friendly name of the certificate that will be used by regional endpoint for this domain name. Conflicts with `certificate_arn`, `certificate_name`, `certificate_body`, `certificate_chain`, and `certificate_private_key`.
         :param pulumi.Input[_builtins.str] regional_domain_name: Hostname for the custom domain's regional endpoint.
         :param pulumi.Input[_builtins.str] regional_zone_id: Hosted zone ID that can be used to create a Route53 alias record for the regional endpoint.
+        :param pulumi.Input[_builtins.str] routing_mode: Mode to route traffic for the domain name. Valid values: `BASE_PATH_MAPPING_ONLY`, `ROUTING_RULE_ONLY`, `ROUTING_RULE_THEN_BASE_PATH_MAPPING`.
         :param pulumi.Input[_builtins.str] security_policy: Transport Layer Security (TLS) version + cipher suite for this DomainName. Must be configured to perform drift detection. For a list of valid security policies, see [DomainName](https://docs.aws.amazon.com/apigateway/latest/api/API_DomainName.html) in the Amazon API Gateway API Reference.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
                
@@ -389,6 +407,8 @@ class _DomainNameState:
             pulumi.set(__self__, "regional_domain_name", regional_domain_name)
         if regional_zone_id is not None:
             pulumi.set(__self__, "regional_zone_id", regional_zone_id)
+        if routing_mode is not None:
+            pulumi.set(__self__, "routing_mode", routing_mode)
         if security_policy is not None:
             pulumi.set(__self__, "security_policy", security_policy)
         if tags is not None:
@@ -651,6 +671,18 @@ class _DomainNameState:
         pulumi.set(self, "regional_zone_id", value)
 
     @_builtins.property
+    @pulumi.getter(name="routingMode")
+    def routing_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Mode to route traffic for the domain name. Valid values: `BASE_PATH_MAPPING_ONLY`, `ROUTING_RULE_ONLY`, `ROUTING_RULE_THEN_BASE_PATH_MAPPING`.
+        """
+        return pulumi.get(self, "routing_mode")
+
+    @routing_mode.setter
+    def routing_mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "routing_mode", value)
+
+    @_builtins.property
     @pulumi.getter(name="securityPolicy")
     def security_policy(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
@@ -709,6 +741,7 @@ class DomainName(pulumi.CustomResource):
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  regional_certificate_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  regional_certificate_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 routing_mode: Optional[pulumi.Input[_builtins.str]] = None,
                  security_policy: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
@@ -838,6 +871,7 @@ class DomainName(pulumi.CustomResource):
                
                When uploading a certificate, the following arguments are supported:
         :param pulumi.Input[_builtins.str] regional_certificate_name: User-friendly name of the certificate that will be used by regional endpoint for this domain name. Conflicts with `certificate_arn`, `certificate_name`, `certificate_body`, `certificate_chain`, and `certificate_private_key`.
+        :param pulumi.Input[_builtins.str] routing_mode: Mode to route traffic for the domain name. Valid values: `BASE_PATH_MAPPING_ONLY`, `ROUTING_RULE_ONLY`, `ROUTING_RULE_THEN_BASE_PATH_MAPPING`.
         :param pulumi.Input[_builtins.str] security_policy: Transport Layer Security (TLS) version + cipher suite for this DomainName. Must be configured to perform drift detection. For a list of valid security policies, see [DomainName](https://docs.aws.amazon.com/apigateway/latest/api/API_DomainName.html) in the Amazon API Gateway API Reference.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
                
@@ -986,6 +1020,7 @@ class DomainName(pulumi.CustomResource):
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  regional_certificate_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  regional_certificate_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 routing_mode: Optional[pulumi.Input[_builtins.str]] = None,
                  security_policy: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
@@ -1013,6 +1048,7 @@ class DomainName(pulumi.CustomResource):
             __props__.__dict__["region"] = region
             __props__.__dict__["regional_certificate_arn"] = regional_certificate_arn
             __props__.__dict__["regional_certificate_name"] = regional_certificate_name
+            __props__.__dict__["routing_mode"] = routing_mode
             __props__.__dict__["security_policy"] = security_policy
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
@@ -1056,6 +1092,7 @@ class DomainName(pulumi.CustomResource):
             regional_certificate_name: Optional[pulumi.Input[_builtins.str]] = None,
             regional_domain_name: Optional[pulumi.Input[_builtins.str]] = None,
             regional_zone_id: Optional[pulumi.Input[_builtins.str]] = None,
+            routing_mode: Optional[pulumi.Input[_builtins.str]] = None,
             security_policy: Optional[pulumi.Input[_builtins.str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'DomainName':
@@ -1089,6 +1126,7 @@ class DomainName(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] regional_certificate_name: User-friendly name of the certificate that will be used by regional endpoint for this domain name. Conflicts with `certificate_arn`, `certificate_name`, `certificate_body`, `certificate_chain`, and `certificate_private_key`.
         :param pulumi.Input[_builtins.str] regional_domain_name: Hostname for the custom domain's regional endpoint.
         :param pulumi.Input[_builtins.str] regional_zone_id: Hosted zone ID that can be used to create a Route53 alias record for the regional endpoint.
+        :param pulumi.Input[_builtins.str] routing_mode: Mode to route traffic for the domain name. Valid values: `BASE_PATH_MAPPING_ONLY`, `ROUTING_RULE_ONLY`, `ROUTING_RULE_THEN_BASE_PATH_MAPPING`.
         :param pulumi.Input[_builtins.str] security_policy: Transport Layer Security (TLS) version + cipher suite for this DomainName. Must be configured to perform drift detection. For a list of valid security policies, see [DomainName](https://docs.aws.amazon.com/apigateway/latest/api/API_DomainName.html) in the Amazon API Gateway API Reference.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
                
@@ -1120,6 +1158,7 @@ class DomainName(pulumi.CustomResource):
         __props__.__dict__["regional_certificate_name"] = regional_certificate_name
         __props__.__dict__["regional_domain_name"] = regional_domain_name
         __props__.__dict__["regional_zone_id"] = regional_zone_id
+        __props__.__dict__["routing_mode"] = routing_mode
         __props__.__dict__["security_policy"] = security_policy
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
@@ -1294,6 +1333,14 @@ class DomainName(pulumi.CustomResource):
         Hosted zone ID that can be used to create a Route53 alias record for the regional endpoint.
         """
         return pulumi.get(self, "regional_zone_id")
+
+    @_builtins.property
+    @pulumi.getter(name="routingMode")
+    def routing_mode(self) -> pulumi.Output[_builtins.str]:
+        """
+        Mode to route traffic for the domain name. Valid values: `BASE_PATH_MAPPING_ONLY`, `ROUTING_RULE_ONLY`, `ROUTING_RULE_THEN_BASE_PATH_MAPPING`.
+        """
+        return pulumi.get(self, "routing_mode")
 
     @_builtins.property
     @pulumi.getter(name="securityPolicy")

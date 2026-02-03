@@ -127,7 +127,6 @@ public class Collaboration extends com.pulumi.resources.CustomResource {
     }
     /**
      * Date and time the collaboration was created.
-     * * `member status` - For each member included in the collaboration an additional computed attribute of status is added. These values [may be found here](https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_MemberSummary.html#API-Type-MemberSummary-status).
      * 
      */
     @Export(name="createTime", refs={String.class}, tree="[0]")
@@ -135,121 +134,97 @@ public class Collaboration extends com.pulumi.resources.CustomResource {
 
     /**
      * @return Date and time the collaboration was created.
-     * * `member status` - For each member included in the collaboration an additional computed attribute of status is added. These values [may be found here](https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_MemberSummary.html#API-Type-MemberSummary-status).
      * 
      */
     public Output<String> createTime() {
         return this.createTime;
     }
     /**
-     * The name for the member record for the collaboration creator.
+     * Name for the member record for the collaboration creator.
      * 
      */
     @Export(name="creatorDisplayName", refs={String.class}, tree="[0]")
     private Output<String> creatorDisplayName;
 
     /**
-     * @return The name for the member record for the collaboration creator.
+     * @return Name for the member record for the collaboration creator.
      * 
      */
     public Output<String> creatorDisplayName() {
         return this.creatorDisplayName;
     }
     /**
-     * The list of member abilities for the creator of the collaboration.  Valid values [may be found here](https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_CreateCollaboration.html#API-CreateCollaboration-request-creatorMemberAbilities).
+     * List of member abilities for the creator of the collaboration. Valid values [may be found here](https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_CreateCollaboration.html#API-CreateCollaboration-request-creatorMemberAbilities).
      * 
      */
     @Export(name="creatorMemberAbilities", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> creatorMemberAbilities;
 
     /**
-     * @return The list of member abilities for the creator of the collaboration.  Valid values [may be found here](https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_CreateCollaboration.html#API-CreateCollaboration-request-creatorMemberAbilities).
+     * @return List of member abilities for the creator of the collaboration. Valid values [may be found here](https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_CreateCollaboration.html#API-CreateCollaboration-request-creatorMemberAbilities).
      * 
      */
     public Output<List<String>> creatorMemberAbilities() {
         return this.creatorMemberAbilities;
     }
     /**
-     * a collection of settings which determine how the [c3r client](https://docs.aws.amazon.com/clean-rooms/latest/userguide/crypto-computing.html) will encrypt data for use within this collaboration.
-     * * `data_encryption_metadata.allow_clear_text` - (Required - Forces new resource) - Indicates whether encrypted tables can contain cleartext data. This is a boolea
-     *   field.
-     * * `data_encryption_metadata.allow_duplicates` - (Required - Forces new resource ) - Indicates whether Fingerprint columns can contain duplicate entries. This is a
-     *   boolean field.
-     * * `data_encryption_metadata.allow_joins_on_columns_with_different_names` - (Required - Forces new resource) - Indicates whether Fingerprint columns can be joined
-     *   n any other Fingerprint column with a different name. This is a boolean field.
-     * * `data_encryption_metadata.preserve_nulls` - (Required - Forces new resource) - Indicates whether NULL values are to be copied as NULL to encrypted tables (true)
-     *   or cryptographically processed (false).
+     * Collection of settings which determine how the [c3r client](https://docs.aws.amazon.com/clean-rooms/latest/userguide/crypto-computing.html) will encrypt data for use within this collaboration. See below.
      * 
      */
     @Export(name="dataEncryptionMetadata", refs={CollaborationDataEncryptionMetadata.class}, tree="[0]")
     private Output</* @Nullable */ CollaborationDataEncryptionMetadata> dataEncryptionMetadata;
 
     /**
-     * @return a collection of settings which determine how the [c3r client](https://docs.aws.amazon.com/clean-rooms/latest/userguide/crypto-computing.html) will encrypt data for use within this collaboration.
-     * * `data_encryption_metadata.allow_clear_text` - (Required - Forces new resource) - Indicates whether encrypted tables can contain cleartext data. This is a boolea
-     *   field.
-     * * `data_encryption_metadata.allow_duplicates` - (Required - Forces new resource ) - Indicates whether Fingerprint columns can contain duplicate entries. This is a
-     *   boolean field.
-     * * `data_encryption_metadata.allow_joins_on_columns_with_different_names` - (Required - Forces new resource) - Indicates whether Fingerprint columns can be joined
-     *   n any other Fingerprint column with a different name. This is a boolean field.
-     * * `data_encryption_metadata.preserve_nulls` - (Required - Forces new resource) - Indicates whether NULL values are to be copied as NULL to encrypted tables (true)
-     *   or cryptographically processed (false).
+     * @return Collection of settings which determine how the [c3r client](https://docs.aws.amazon.com/clean-rooms/latest/userguide/crypto-computing.html) will encrypt data for use within this collaboration. See below.
      * 
      */
     public Output<Optional<CollaborationDataEncryptionMetadata>> dataEncryptionMetadata() {
         return Codegen.optional(this.dataEncryptionMetadata);
     }
     /**
-     * A description for a collaboration.
+     * Description for a collaboration.
      * 
      */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output<String> description;
 
     /**
-     * @return A description for a collaboration.
+     * @return Description for a collaboration.
      * 
      */
     public Output<String> description() {
         return this.description;
     }
     /**
-     * Additional members of the collaboration which will be invited to join the collaboration.
-     * * `member.account_id` - (Required - Forces new resource) - The account id for the invited member.
-     * * `member.display_name` - (Required - Forces new resource) - The display name for the invited member.
-     * * `member.member_abilities` - (Required - Forces new resource) - The list of abilities for the invited member. Valid values [may be found here](https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_CreateCollaboration.html#API-CreateCollaboration-request-creatorMemberAbilities).
+     * Additional members of the collaboration which will be invited to join the collaboration. See below.
      * 
      */
     @Export(name="members", refs={List.class,CollaborationMember.class}, tree="[0,1]")
     private Output</* @Nullable */ List<CollaborationMember>> members;
 
     /**
-     * @return Additional members of the collaboration which will be invited to join the collaboration.
-     * * `member.account_id` - (Required - Forces new resource) - The account id for the invited member.
-     * * `member.display_name` - (Required - Forces new resource) - The display name for the invited member.
-     * * `member.member_abilities` - (Required - Forces new resource) - The list of abilities for the invited member. Valid values [may be found here](https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_CreateCollaboration.html#API-CreateCollaboration-request-creatorMemberAbilities).
+     * @return Additional members of the collaboration which will be invited to join the collaboration. See below.
      * 
      */
     public Output<Optional<List<CollaborationMember>>> members() {
         return Codegen.optional(this.members);
     }
     /**
-     * The name of the collaboration.  Collaboration names do not need to be unique.
+     * Name of the collaboration.  Collaboration names do not need to be unique.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return The name of the collaboration.  Collaboration names do not need to be unique.
+     * @return Name of the collaboration.  Collaboration names do not need to be unique.
      * 
      */
     public Output<String> name() {
         return this.name;
     }
     /**
-     * Determines if members of the collaboration can enable query logs within their own.
-     * emberships. Valid values [may be found here](https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_CreateCollaboration.html#API-CreateCollaboration-request-queryLogStatus).
+     * Whether members of the collaboration can enable query logs within their own memberships. Valid values [may be found here](https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_CreateCollaboration.html#API-CreateCollaboration-request-queryLogStatus).
      * 
      * The following arguments are optional:
      * 
@@ -258,8 +233,7 @@ public class Collaboration extends com.pulumi.resources.CustomResource {
     private Output<String> queryLogStatus;
 
     /**
-     * @return Determines if members of the collaboration can enable query logs within their own.
-     * emberships. Valid values [may be found here](https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_CreateCollaboration.html#API-CreateCollaboration-request-queryLogStatus).
+     * @return Whether members of the collaboration can enable query logs within their own memberships. Valid values [may be found here](https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_CreateCollaboration.html#API-CreateCollaboration-request-queryLogStatus).
      * 
      * The following arguments are optional:
      * 
@@ -301,9 +275,17 @@ public class Collaboration extends com.pulumi.resources.CustomResource {
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
+    /**
+     * Date and time the collaboration was last updated.
+     * 
+     */
     @Export(name="updateTime", refs={String.class}, tree="[0]")
     private Output<String> updateTime;
 
+    /**
+     * @return Date and time the collaboration was last updated.
+     * 
+     */
     public Output<String> updateTime() {
         return this.updateTime;
     }

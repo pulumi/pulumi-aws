@@ -5,6 +5,11 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { AnycastIpListArgs, AnycastIpListState } from "./anycastIpList";
+export type AnycastIpList = import("./anycastIpList").AnycastIpList;
+export const AnycastIpList: typeof import("./anycastIpList").AnycastIpList = null as any;
+utilities.lazyLoad(exports, ["AnycastIpList"], () => require("./anycastIpList"));
+
 export { CachePolicyArgs, CachePolicyState } from "./cachePolicy";
 export type CachePolicy = import("./cachePolicy").CachePolicy;
 export const CachePolicy: typeof import("./cachePolicy").CachePolicy = null as any;
@@ -185,6 +190,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "aws:cloudfront/anycastIpList:AnycastIpList":
+                return new AnycastIpList(name, <any>undefined, { urn })
             case "aws:cloudfront/cachePolicy:CachePolicy":
                 return new CachePolicy(name, <any>undefined, { urn })
             case "aws:cloudfront/connectionFunction:ConnectionFunction":
@@ -236,6 +243,7 @@ const _module = {
         }
     },
 };
+pulumi.runtime.registerResourceModule("aws", "cloudfront/anycastIpList", _module)
 pulumi.runtime.registerResourceModule("aws", "cloudfront/cachePolicy", _module)
 pulumi.runtime.registerResourceModule("aws", "cloudfront/connectionFunction", _module)
 pulumi.runtime.registerResourceModule("aws", "cloudfront/connectionGroup", _module)

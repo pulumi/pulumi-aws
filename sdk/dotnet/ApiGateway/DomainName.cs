@@ -289,6 +289,12 @@ namespace Pulumi.Aws.ApiGateway
         public Output<string> RegionalZoneId { get; private set; } = null!;
 
         /// <summary>
+        /// Mode to route traffic for the domain name. Valid values: `BASE_PATH_MAPPING_ONLY`, `ROUTING_RULE_ONLY`, `ROUTING_RULE_THEN_BASE_PATH_MAPPING`.
+        /// </summary>
+        [Output("routingMode")]
+        public Output<string> RoutingMode { get; private set; } = null!;
+
+        /// <summary>
         /// Transport Layer Security (TLS) version + cipher suite for this DomainName. Must be configured to perform drift detection. For a list of valid security policies, see [DomainName](https://docs.aws.amazon.com/apigateway/latest/api/API_DomainName.html) in the Amazon API Gateway API Reference.
         /// </summary>
         [Output("securityPolicy")]
@@ -455,6 +461,12 @@ namespace Pulumi.Aws.ApiGateway
         public Input<string>? RegionalCertificateName { get; set; }
 
         /// <summary>
+        /// Mode to route traffic for the domain name. Valid values: `BASE_PATH_MAPPING_ONLY`, `ROUTING_RULE_ONLY`, `ROUTING_RULE_THEN_BASE_PATH_MAPPING`.
+        /// </summary>
+        [Input("routingMode")]
+        public Input<string>? RoutingMode { get; set; }
+
+        /// <summary>
         /// Transport Layer Security (TLS) version + cipher suite for this DomainName. Must be configured to perform drift detection. For a list of valid security policies, see [DomainName](https://docs.aws.amazon.com/apigateway/latest/api/API_DomainName.html) in the Amazon API Gateway API Reference.
         /// </summary>
         [Input("securityPolicy")]
@@ -619,6 +631,12 @@ namespace Pulumi.Aws.ApiGateway
         /// </summary>
         [Input("regionalZoneId")]
         public Input<string>? RegionalZoneId { get; set; }
+
+        /// <summary>
+        /// Mode to route traffic for the domain name. Valid values: `BASE_PATH_MAPPING_ONLY`, `ROUTING_RULE_ONLY`, `ROUTING_RULE_THEN_BASE_PATH_MAPPING`.
+        /// </summary>
+        [Input("routingMode")]
+        public Input<string>? RoutingMode { get; set; }
 
         /// <summary>
         /// Transport Layer Security (TLS) version + cipher suite for this DomainName. Must be configured to perform drift detection. For a list of valid security policies, see [DomainName](https://docs.aws.amazon.com/apigateway/latest/api/API_DomainName.html) in the Amazon API Gateway API Reference.

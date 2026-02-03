@@ -16,6 +16,10 @@ from .. import _utilities
 from . import outputs
 
 __all__ = [
+    'ApplicationAppConfig',
+    'ApplicationDataSource',
+    'ApplicationIamIdentityCenterOptions',
+    'ApplicationTimeouts',
     'AuthorizeVpcEndpointAccessAuthorizedPrincipal',
     'DomainAdvancedSecurityOptions',
     'DomainAdvancedSecurityOptionsMasterUserOptions',
@@ -77,6 +81,202 @@ __all__ = [
     'GetDomainVpcOptionResult',
     'GetServerlessSecurityConfigSamlOptionResult',
 ]
+
+@pulumi.output_type
+class ApplicationAppConfig(dict):
+    def __init__(__self__, *,
+                 key: Optional[_builtins.str] = None,
+                 value: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str key: The configuration item to set. Valid values are `opensearchDashboards.dashboardAdmin.users` and `opensearchDashboards.dashboardAdmin.groups`.
+        :param _builtins.str value: The value assigned to the configuration key, such as an IAM user ARN or group name. Must be between 1 and 4096 characters.
+        """
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> Optional[_builtins.str]:
+        """
+        The configuration item to set. Valid values are `opensearchDashboards.dashboardAdmin.users` and `opensearchDashboards.dashboardAdmin.groups`.
+        """
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> Optional[_builtins.str]:
+        """
+        The value assigned to the configuration key, such as an IAM user ARN or group name. Must be between 1 and 4096 characters.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class ApplicationDataSource(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dataSourceArn":
+            suggest = "data_source_arn"
+        elif key == "dataSourceDescription":
+            suggest = "data_source_description"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationDataSource. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationDataSource.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationDataSource.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 data_source_arn: Optional[_builtins.str] = None,
+                 data_source_description: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str data_source_arn: The Amazon Resource Name (ARN) of the OpenSearch domain or collection. Must be between 20 and 2048 characters.
+        :param _builtins.str data_source_description: A detailed description of the data source. Must be at most 1000 characters and contain only alphanumeric characters, underscores, spaces, and the following special characters: `@#%*+=:?./!-`.
+        """
+        if data_source_arn is not None:
+            pulumi.set(__self__, "data_source_arn", data_source_arn)
+        if data_source_description is not None:
+            pulumi.set(__self__, "data_source_description", data_source_description)
+
+    @_builtins.property
+    @pulumi.getter(name="dataSourceArn")
+    def data_source_arn(self) -> Optional[_builtins.str]:
+        """
+        The Amazon Resource Name (ARN) of the OpenSearch domain or collection. Must be between 20 and 2048 characters.
+        """
+        return pulumi.get(self, "data_source_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="dataSourceDescription")
+    def data_source_description(self) -> Optional[_builtins.str]:
+        """
+        A detailed description of the data source. Must be at most 1000 characters and contain only alphanumeric characters, underscores, spaces, and the following special characters: `@#%*+=:?./!-`.
+        """
+        return pulumi.get(self, "data_source_description")
+
+
+@pulumi.output_type
+class ApplicationIamIdentityCenterOptions(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "iamIdentityCenterApplicationArn":
+            suggest = "iam_identity_center_application_arn"
+        elif key == "iamIdentityCenterInstanceArn":
+            suggest = "iam_identity_center_instance_arn"
+        elif key == "iamRoleForIdentityCenterApplicationArn":
+            suggest = "iam_role_for_identity_center_application_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationIamIdentityCenterOptions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationIamIdentityCenterOptions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationIamIdentityCenterOptions.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 enabled: Optional[_builtins.bool] = None,
+                 iam_identity_center_application_arn: Optional[_builtins.str] = None,
+                 iam_identity_center_instance_arn: Optional[_builtins.str] = None,
+                 iam_role_for_identity_center_application_arn: Optional[_builtins.str] = None):
+        """
+        :param _builtins.bool enabled: Specifies whether IAM Identity Center is enabled or disabled.
+        :param _builtins.str iam_identity_center_instance_arn: The Amazon Resource Name (ARN) of the IAM Identity Center instance. Must be between 20 and 2048 characters.
+        :param _builtins.str iam_role_for_identity_center_application_arn: The ARN of the IAM role associated with the IAM Identity Center application. Must be between 20 and 2048 characters and match the pattern for IAM role ARNs.
+        """
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if iam_identity_center_application_arn is not None:
+            pulumi.set(__self__, "iam_identity_center_application_arn", iam_identity_center_application_arn)
+        if iam_identity_center_instance_arn is not None:
+            pulumi.set(__self__, "iam_identity_center_instance_arn", iam_identity_center_instance_arn)
+        if iam_role_for_identity_center_application_arn is not None:
+            pulumi.set(__self__, "iam_role_for_identity_center_application_arn", iam_role_for_identity_center_application_arn)
+
+    @_builtins.property
+    @pulumi.getter
+    def enabled(self) -> Optional[_builtins.bool]:
+        """
+        Specifies whether IAM Identity Center is enabled or disabled.
+        """
+        return pulumi.get(self, "enabled")
+
+    @_builtins.property
+    @pulumi.getter(name="iamIdentityCenterApplicationArn")
+    def iam_identity_center_application_arn(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "iam_identity_center_application_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="iamIdentityCenterInstanceArn")
+    def iam_identity_center_instance_arn(self) -> Optional[_builtins.str]:
+        """
+        The Amazon Resource Name (ARN) of the IAM Identity Center instance. Must be between 20 and 2048 characters.
+        """
+        return pulumi.get(self, "iam_identity_center_instance_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="iamRoleForIdentityCenterApplicationArn")
+    def iam_role_for_identity_center_application_arn(self) -> Optional[_builtins.str]:
+        """
+        The ARN of the IAM role associated with the IAM Identity Center application. Must be between 20 and 2048 characters and match the pattern for IAM role ARNs.
+        """
+        return pulumi.get(self, "iam_role_for_identity_center_application_arn")
+
+
+@pulumi.output_type
+class ApplicationTimeouts(dict):
+    def __init__(__self__, *,
+                 create: Optional[_builtins.str] = None,
+                 delete: Optional[_builtins.str] = None,
+                 update: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str create: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        :param _builtins.str delete: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        :param _builtins.str update: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        if create is not None:
+            pulumi.set(__self__, "create", create)
+        if delete is not None:
+            pulumi.set(__self__, "delete", delete)
+        if update is not None:
+            pulumi.set(__self__, "update", update)
+
+    @_builtins.property
+    @pulumi.getter
+    def create(self) -> Optional[_builtins.str]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "create")
+
+    @_builtins.property
+    @pulumi.getter
+    def delete(self) -> Optional[_builtins.str]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        """
+        return pulumi.get(self, "delete")
+
+    @_builtins.property
+    @pulumi.getter
+    def update(self) -> Optional[_builtins.str]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "update")
+
 
 @pulumi.output_type
 class AuthorizeVpcEndpointAccessAuthorizedPrincipal(dict):

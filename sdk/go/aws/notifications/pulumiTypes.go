@@ -169,9 +169,188 @@ func (o NotificationHubTimeoutsPtrOutput) Delete() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type OrganizationsAccessTimeouts struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create *string `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+	Delete *string `pulumi:"delete"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Update *string `pulumi:"update"`
+}
+
+// OrganizationsAccessTimeoutsInput is an input type that accepts OrganizationsAccessTimeoutsArgs and OrganizationsAccessTimeoutsOutput values.
+// You can construct a concrete instance of `OrganizationsAccessTimeoutsInput` via:
+//
+//	OrganizationsAccessTimeoutsArgs{...}
+type OrganizationsAccessTimeoutsInput interface {
+	pulumi.Input
+
+	ToOrganizationsAccessTimeoutsOutput() OrganizationsAccessTimeoutsOutput
+	ToOrganizationsAccessTimeoutsOutputWithContext(context.Context) OrganizationsAccessTimeoutsOutput
+}
+
+type OrganizationsAccessTimeoutsArgs struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create pulumi.StringPtrInput `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+	Delete pulumi.StringPtrInput `pulumi:"delete"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Update pulumi.StringPtrInput `pulumi:"update"`
+}
+
+func (OrganizationsAccessTimeoutsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OrganizationsAccessTimeouts)(nil)).Elem()
+}
+
+func (i OrganizationsAccessTimeoutsArgs) ToOrganizationsAccessTimeoutsOutput() OrganizationsAccessTimeoutsOutput {
+	return i.ToOrganizationsAccessTimeoutsOutputWithContext(context.Background())
+}
+
+func (i OrganizationsAccessTimeoutsArgs) ToOrganizationsAccessTimeoutsOutputWithContext(ctx context.Context) OrganizationsAccessTimeoutsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrganizationsAccessTimeoutsOutput)
+}
+
+func (i OrganizationsAccessTimeoutsArgs) ToOrganizationsAccessTimeoutsPtrOutput() OrganizationsAccessTimeoutsPtrOutput {
+	return i.ToOrganizationsAccessTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i OrganizationsAccessTimeoutsArgs) ToOrganizationsAccessTimeoutsPtrOutputWithContext(ctx context.Context) OrganizationsAccessTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrganizationsAccessTimeoutsOutput).ToOrganizationsAccessTimeoutsPtrOutputWithContext(ctx)
+}
+
+// OrganizationsAccessTimeoutsPtrInput is an input type that accepts OrganizationsAccessTimeoutsArgs, OrganizationsAccessTimeoutsPtr and OrganizationsAccessTimeoutsPtrOutput values.
+// You can construct a concrete instance of `OrganizationsAccessTimeoutsPtrInput` via:
+//
+//	        OrganizationsAccessTimeoutsArgs{...}
+//
+//	or:
+//
+//	        nil
+type OrganizationsAccessTimeoutsPtrInput interface {
+	pulumi.Input
+
+	ToOrganizationsAccessTimeoutsPtrOutput() OrganizationsAccessTimeoutsPtrOutput
+	ToOrganizationsAccessTimeoutsPtrOutputWithContext(context.Context) OrganizationsAccessTimeoutsPtrOutput
+}
+
+type organizationsAccessTimeoutsPtrType OrganizationsAccessTimeoutsArgs
+
+func OrganizationsAccessTimeoutsPtr(v *OrganizationsAccessTimeoutsArgs) OrganizationsAccessTimeoutsPtrInput {
+	return (*organizationsAccessTimeoutsPtrType)(v)
+}
+
+func (*organizationsAccessTimeoutsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OrganizationsAccessTimeouts)(nil)).Elem()
+}
+
+func (i *organizationsAccessTimeoutsPtrType) ToOrganizationsAccessTimeoutsPtrOutput() OrganizationsAccessTimeoutsPtrOutput {
+	return i.ToOrganizationsAccessTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i *organizationsAccessTimeoutsPtrType) ToOrganizationsAccessTimeoutsPtrOutputWithContext(ctx context.Context) OrganizationsAccessTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrganizationsAccessTimeoutsPtrOutput)
+}
+
+type OrganizationsAccessTimeoutsOutput struct{ *pulumi.OutputState }
+
+func (OrganizationsAccessTimeoutsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OrganizationsAccessTimeouts)(nil)).Elem()
+}
+
+func (o OrganizationsAccessTimeoutsOutput) ToOrganizationsAccessTimeoutsOutput() OrganizationsAccessTimeoutsOutput {
+	return o
+}
+
+func (o OrganizationsAccessTimeoutsOutput) ToOrganizationsAccessTimeoutsOutputWithContext(ctx context.Context) OrganizationsAccessTimeoutsOutput {
+	return o
+}
+
+func (o OrganizationsAccessTimeoutsOutput) ToOrganizationsAccessTimeoutsPtrOutput() OrganizationsAccessTimeoutsPtrOutput {
+	return o.ToOrganizationsAccessTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (o OrganizationsAccessTimeoutsOutput) ToOrganizationsAccessTimeoutsPtrOutputWithContext(ctx context.Context) OrganizationsAccessTimeoutsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OrganizationsAccessTimeouts) *OrganizationsAccessTimeouts {
+		return &v
+	}).(OrganizationsAccessTimeoutsPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o OrganizationsAccessTimeoutsOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OrganizationsAccessTimeouts) *string { return v.Create }).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+func (o OrganizationsAccessTimeoutsOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OrganizationsAccessTimeouts) *string { return v.Delete }).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o OrganizationsAccessTimeoutsOutput) Update() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v OrganizationsAccessTimeouts) *string { return v.Update }).(pulumi.StringPtrOutput)
+}
+
+type OrganizationsAccessTimeoutsPtrOutput struct{ *pulumi.OutputState }
+
+func (OrganizationsAccessTimeoutsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OrganizationsAccessTimeouts)(nil)).Elem()
+}
+
+func (o OrganizationsAccessTimeoutsPtrOutput) ToOrganizationsAccessTimeoutsPtrOutput() OrganizationsAccessTimeoutsPtrOutput {
+	return o
+}
+
+func (o OrganizationsAccessTimeoutsPtrOutput) ToOrganizationsAccessTimeoutsPtrOutputWithContext(ctx context.Context) OrganizationsAccessTimeoutsPtrOutput {
+	return o
+}
+
+func (o OrganizationsAccessTimeoutsPtrOutput) Elem() OrganizationsAccessTimeoutsOutput {
+	return o.ApplyT(func(v *OrganizationsAccessTimeouts) OrganizationsAccessTimeouts {
+		if v != nil {
+			return *v
+		}
+		var ret OrganizationsAccessTimeouts
+		return ret
+	}).(OrganizationsAccessTimeoutsOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o OrganizationsAccessTimeoutsPtrOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OrganizationsAccessTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Create
+	}).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+func (o OrganizationsAccessTimeoutsPtrOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OrganizationsAccessTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Delete
+	}).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o OrganizationsAccessTimeoutsPtrOutput) Update() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OrganizationsAccessTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Update
+	}).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*NotificationHubTimeoutsInput)(nil)).Elem(), NotificationHubTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NotificationHubTimeoutsPtrInput)(nil)).Elem(), NotificationHubTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationsAccessTimeoutsInput)(nil)).Elem(), OrganizationsAccessTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationsAccessTimeoutsPtrInput)(nil)).Elem(), OrganizationsAccessTimeoutsArgs{})
 	pulumi.RegisterOutputType(NotificationHubTimeoutsOutput{})
 	pulumi.RegisterOutputType(NotificationHubTimeoutsPtrOutput{})
+	pulumi.RegisterOutputType(OrganizationsAccessTimeoutsOutput{})
+	pulumi.RegisterOutputType(OrganizationsAccessTimeoutsPtrOutput{})
 }

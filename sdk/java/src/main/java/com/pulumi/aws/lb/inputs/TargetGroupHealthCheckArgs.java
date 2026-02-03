@@ -66,6 +66,7 @@ public final class TargetGroupHealthCheckArgs extends com.pulumi.resources.Resou
      * The HTTP or gRPC codes to use when checking for a successful response from a target.
      * The `health_check.protocol` must be one of `HTTP` or `HTTPS` or the `targetType` must be `lambda`.
      * Values can be comma-separated individual values (e.g., &#34;200,202&#34;) or a range of values (e.g., &#34;200-299&#34;).
+     * Once the value has been set, removing it has no effect. To unset it, set it to an empty string `&#34;&#34;`.
      * * For gRPC-based target groups (i.e., the `protocol` is one of `HTTP` or `HTTPS` and the `protocolVersion` is `GRPC`), values can be between `0` and `99`. The default is `12`.
      * * When used with an Application Load Balancer (i.e., the `protocol` is one of `HTTP` or `HTTPS` and the `protocolVersion` is not `GRPC`), values can be between `200` and `499`. The default is `200`.
      * * When used with a Network Load Balancer (i.e., the `protocol` is one of `TCP`, `TCP_UDP`, `UDP`, or `TLS`), values can be between `200` and `599`. The default is `200-399`.
@@ -79,6 +80,7 @@ public final class TargetGroupHealthCheckArgs extends com.pulumi.resources.Resou
      * @return The HTTP or gRPC codes to use when checking for a successful response from a target.
      * The `health_check.protocol` must be one of `HTTP` or `HTTPS` or the `targetType` must be `lambda`.
      * Values can be comma-separated individual values (e.g., &#34;200,202&#34;) or a range of values (e.g., &#34;200-299&#34;).
+     * Once the value has been set, removing it has no effect. To unset it, set it to an empty string `&#34;&#34;`.
      * * For gRPC-based target groups (i.e., the `protocol` is one of `HTTP` or `HTTPS` and the `protocolVersion` is `GRPC`), values can be between `0` and `99`. The default is `12`.
      * * When used with an Application Load Balancer (i.e., the `protocol` is one of `HTTP` or `HTTPS` and the `protocolVersion` is not `GRPC`), values can be between `200` and `499`. The default is `200`.
      * * When used with a Network Load Balancer (i.e., the `protocol` is one of `TCP`, `TCP_UDP`, `UDP`, or `TLS`), values can be between `200` and `599`. The default is `200-399`.
@@ -91,6 +93,7 @@ public final class TargetGroupHealthCheckArgs extends com.pulumi.resources.Resou
 
     /**
      * Destination for the health check request. Required for HTTP/HTTPS ALB and HTTP NLB. Only applies to HTTP/HTTPS.
+     * Once the value has been set, removing it has no effect. To unset it, set it to an empty string `&#34;&#34;`.
      * * For HTTP and HTTPS health checks, the default is `/`.
      * * For gRPC health checks, the default is `/AWS.ALB/healthcheck`.
      * 
@@ -100,6 +103,7 @@ public final class TargetGroupHealthCheckArgs extends com.pulumi.resources.Resou
 
     /**
      * @return Destination for the health check request. Required for HTTP/HTTPS ALB and HTTP NLB. Only applies to HTTP/HTTPS.
+     * Once the value has been set, removing it has no effect. To unset it, set it to an empty string `&#34;&#34;`.
      * * For HTTP and HTTPS health checks, the default is `/`.
      * * For gRPC health checks, the default is `/AWS.ALB/healthcheck`.
      * 
@@ -279,6 +283,7 @@ public final class TargetGroupHealthCheckArgs extends com.pulumi.resources.Resou
          * @param matcher The HTTP or gRPC codes to use when checking for a successful response from a target.
          * The `health_check.protocol` must be one of `HTTP` or `HTTPS` or the `targetType` must be `lambda`.
          * Values can be comma-separated individual values (e.g., &#34;200,202&#34;) or a range of values (e.g., &#34;200-299&#34;).
+         * Once the value has been set, removing it has no effect. To unset it, set it to an empty string `&#34;&#34;`.
          * * For gRPC-based target groups (i.e., the `protocol` is one of `HTTP` or `HTTPS` and the `protocolVersion` is `GRPC`), values can be between `0` and `99`. The default is `12`.
          * * When used with an Application Load Balancer (i.e., the `protocol` is one of `HTTP` or `HTTPS` and the `protocolVersion` is not `GRPC`), values can be between `200` and `499`. The default is `200`.
          * * When used with a Network Load Balancer (i.e., the `protocol` is one of `TCP`, `TCP_UDP`, `UDP`, or `TLS`), values can be between `200` and `599`. The default is `200-399`.
@@ -296,6 +301,7 @@ public final class TargetGroupHealthCheckArgs extends com.pulumi.resources.Resou
          * @param matcher The HTTP or gRPC codes to use when checking for a successful response from a target.
          * The `health_check.protocol` must be one of `HTTP` or `HTTPS` or the `targetType` must be `lambda`.
          * Values can be comma-separated individual values (e.g., &#34;200,202&#34;) or a range of values (e.g., &#34;200-299&#34;).
+         * Once the value has been set, removing it has no effect. To unset it, set it to an empty string `&#34;&#34;`.
          * * For gRPC-based target groups (i.e., the `protocol` is one of `HTTP` or `HTTPS` and the `protocolVersion` is `GRPC`), values can be between `0` and `99`. The default is `12`.
          * * When used with an Application Load Balancer (i.e., the `protocol` is one of `HTTP` or `HTTPS` and the `protocolVersion` is not `GRPC`), values can be between `200` and `499`. The default is `200`.
          * * When used with a Network Load Balancer (i.e., the `protocol` is one of `TCP`, `TCP_UDP`, `UDP`, or `TLS`), values can be between `200` and `599`. The default is `200-399`.
@@ -310,6 +316,7 @@ public final class TargetGroupHealthCheckArgs extends com.pulumi.resources.Resou
 
         /**
          * @param path Destination for the health check request. Required for HTTP/HTTPS ALB and HTTP NLB. Only applies to HTTP/HTTPS.
+         * Once the value has been set, removing it has no effect. To unset it, set it to an empty string `&#34;&#34;`.
          * * For HTTP and HTTPS health checks, the default is `/`.
          * * For gRPC health checks, the default is `/AWS.ALB/healthcheck`.
          * 
@@ -323,6 +330,7 @@ public final class TargetGroupHealthCheckArgs extends com.pulumi.resources.Resou
 
         /**
          * @param path Destination for the health check request. Required for HTTP/HTTPS ALB and HTTP NLB. Only applies to HTTP/HTTPS.
+         * Once the value has been set, removing it has no effect. To unset it, set it to an empty string `&#34;&#34;`.
          * * For HTTP and HTTPS health checks, the default is `/`.
          * * For gRPC health checks, the default is `/AWS.ALB/healthcheck`.
          * 

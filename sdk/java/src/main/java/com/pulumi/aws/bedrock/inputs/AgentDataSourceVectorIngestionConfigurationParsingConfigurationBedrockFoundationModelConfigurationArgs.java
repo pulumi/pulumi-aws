@@ -33,6 +33,21 @@ public final class AgentDataSourceVectorIngestionConfigurationParsingConfigurati
     }
 
     /**
+     * Specifies whether to enable parsing of multimodal data, including both text and images. Valid values: `MULTIMODAL`.
+     * 
+     */
+    @Import(name="parsingModality")
+    private @Nullable Output<String> parsingModality;
+
+    /**
+     * @return Specifies whether to enable parsing of multimodal data, including both text and images. Valid values: `MULTIMODAL`.
+     * 
+     */
+    public Optional<Output<String>> parsingModality() {
+        return Optional.ofNullable(this.parsingModality);
+    }
+
+    /**
      * Instructions for interpreting the contents of the document. See `parsingPrompt` block for details.
      * 
      */
@@ -51,6 +66,7 @@ public final class AgentDataSourceVectorIngestionConfigurationParsingConfigurati
 
     private AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationArgs(AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationArgs $) {
         this.modelArn = $.modelArn;
+        this.parsingModality = $.parsingModality;
         this.parsingPrompt = $.parsingPrompt;
     }
 
@@ -91,6 +107,27 @@ public final class AgentDataSourceVectorIngestionConfigurationParsingConfigurati
          */
         public Builder modelArn(String modelArn) {
             return modelArn(Output.of(modelArn));
+        }
+
+        /**
+         * @param parsingModality Specifies whether to enable parsing of multimodal data, including both text and images. Valid values: `MULTIMODAL`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder parsingModality(@Nullable Output<String> parsingModality) {
+            $.parsingModality = parsingModality;
+            return this;
+        }
+
+        /**
+         * @param parsingModality Specifies whether to enable parsing of multimodal data, including both text and images. Valid values: `MULTIMODAL`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder parsingModality(String parsingModality) {
+            return parsingModality(Output.of(parsingModality));
         }
 
         /**

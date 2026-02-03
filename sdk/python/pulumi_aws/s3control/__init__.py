@@ -15,7 +15,9 @@ from .bucket import *
 from .bucket_lifecycle_configuration import *
 from .bucket_policy import *
 from .directory_bucket_access_point_scope import *
+from .get_access_points import *
 from .get_multi_region_access_point import *
+from .get_multi_region_access_points import *
 from .multi_region_access_point import *
 from .multi_region_access_point_policy import *
 from .object_lambda_access_point import *

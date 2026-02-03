@@ -26,7 +26,7 @@ namespace Pulumi.Aws.MemoryDb
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Random.Index.Password("example", new()
+    ///     var example = new Random.RandomPassword("example", new()
     ///     {
     ///         Length = 16,
     ///     });

@@ -64,7 +64,7 @@ class HealthCheckArgs:
         :param pulumi.Input[_builtins.int] port: The port of the endpoint to be checked.
         :param pulumi.Input[_builtins.str] reference_name: This is a reference name used in Caller Reference
                (helpful for identifying single health_check set amongst others)
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] regions: A list of AWS regions that you want Amazon Route 53 health checkers to check the specified endpoint from.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] regions: List of AWS Regions from which Amazon Route 53 health checkers check the specified endpoint. Valid values are `us-east-1`, `us-west-1`, `us-west-2`, `eu-west-1`, `ap-southeast-1`, `ap-southeast-2`, `ap-northeast-1`, and `sa-east-1`. If not specified, all of the regions listed under **Valid values** are used by default. Once this argument is set, removing it has no effect.
         :param pulumi.Input[_builtins.int] request_interval: The number of seconds between the time that Amazon Route 53 gets a response from your endpoint and the time that it sends the next health-check request.
         :param pulumi.Input[_builtins.str] resource_path: The path that you want Amazon Route 53 to request when performing health checks.
         :param pulumi.Input[_builtins.str] routing_control_arn: The Amazon Resource Name (ARN) for the Route 53 Application Recovery Controller routing control. This is used when health check type is `RECOVERY_CONTROL`
@@ -306,7 +306,7 @@ class HealthCheckArgs:
     @pulumi.getter
     def regions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        A list of AWS regions that you want Amazon Route 53 health checkers to check the specified endpoint from.
+        List of AWS Regions from which Amazon Route 53 health checkers check the specified endpoint. Valid values are `us-east-1`, `us-west-1`, `us-west-2`, `eu-west-1`, `ap-southeast-1`, `ap-southeast-2`, `ap-northeast-1`, and `sa-east-1`. If not specified, all of the regions listed under **Valid values** are used by default. Once this argument is set, removing it has no effect.
         """
         return pulumi.get(self, "regions")
 
@@ -437,7 +437,7 @@ class _HealthCheckState:
         :param pulumi.Input[_builtins.int] port: The port of the endpoint to be checked.
         :param pulumi.Input[_builtins.str] reference_name: This is a reference name used in Caller Reference
                (helpful for identifying single health_check set amongst others)
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] regions: A list of AWS regions that you want Amazon Route 53 health checkers to check the specified endpoint from.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] regions: List of AWS Regions from which Amazon Route 53 health checkers check the specified endpoint. Valid values are `us-east-1`, `us-west-1`, `us-west-2`, `eu-west-1`, `ap-southeast-1`, `ap-southeast-2`, `ap-northeast-1`, and `sa-east-1`. If not specified, all of the regions listed under **Valid values** are used by default. Once this argument is set, removing it has no effect.
         :param pulumi.Input[_builtins.int] request_interval: The number of seconds between the time that Amazon Route 53 gets a response from your endpoint and the time that it sends the next health-check request.
         :param pulumi.Input[_builtins.str] resource_path: The path that you want Amazon Route 53 to request when performing health checks.
         :param pulumi.Input[_builtins.str] routing_control_arn: The Amazon Resource Name (ARN) for the Route 53 Application Recovery Controller routing control. This is used when health check type is `RECOVERY_CONTROL`
@@ -686,7 +686,7 @@ class _HealthCheckState:
     @pulumi.getter
     def regions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        A list of AWS regions that you want Amazon Route 53 health checkers to check the specified endpoint from.
+        List of AWS Regions from which Amazon Route 53 health checkers check the specified endpoint. Valid values are `us-east-1`, `us-west-1`, `us-west-2`, `eu-west-1`, `ap-southeast-1`, `ap-southeast-2`, `ap-northeast-1`, and `sa-east-1`. If not specified, all of the regions listed under **Valid values** are used by default. Once this argument is set, removing it has no effect.
         """
         return pulumi.get(self, "regions")
 
@@ -956,7 +956,7 @@ class HealthCheck(pulumi.CustomResource):
         :param pulumi.Input[_builtins.int] port: The port of the endpoint to be checked.
         :param pulumi.Input[_builtins.str] reference_name: This is a reference name used in Caller Reference
                (helpful for identifying single health_check set amongst others)
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] regions: A list of AWS regions that you want Amazon Route 53 health checkers to check the specified endpoint from.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] regions: List of AWS Regions from which Amazon Route 53 health checkers check the specified endpoint. Valid values are `us-east-1`, `us-west-1`, `us-west-2`, `eu-west-1`, `ap-southeast-1`, `ap-southeast-2`, `ap-northeast-1`, and `sa-east-1`. If not specified, all of the regions listed under **Valid values** are used by default. Once this argument is set, removing it has no effect.
         :param pulumi.Input[_builtins.int] request_interval: The number of seconds between the time that Amazon Route 53 gets a response from your endpoint and the time that it sends the next health-check request.
         :param pulumi.Input[_builtins.str] resource_path: The path that you want Amazon Route 53 to request when performing health checks.
         :param pulumi.Input[_builtins.str] routing_control_arn: The Amazon Resource Name (ARN) for the Route 53 Application Recovery Controller routing control. This is used when health check type is `RECOVERY_CONTROL`
@@ -1219,7 +1219,7 @@ class HealthCheck(pulumi.CustomResource):
         :param pulumi.Input[_builtins.int] port: The port of the endpoint to be checked.
         :param pulumi.Input[_builtins.str] reference_name: This is a reference name used in Caller Reference
                (helpful for identifying single health_check set amongst others)
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] regions: A list of AWS regions that you want Amazon Route 53 health checkers to check the specified endpoint from.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] regions: List of AWS Regions from which Amazon Route 53 health checkers check the specified endpoint. Valid values are `us-east-1`, `us-west-1`, `us-west-2`, `eu-west-1`, `ap-southeast-1`, `ap-southeast-2`, `ap-northeast-1`, and `sa-east-1`. If not specified, all of the regions listed under **Valid values** are used by default. Once this argument is set, removing it has no effect.
         :param pulumi.Input[_builtins.int] request_interval: The number of seconds between the time that Amazon Route 53 gets a response from your endpoint and the time that it sends the next health-check request.
         :param pulumi.Input[_builtins.str] resource_path: The path that you want Amazon Route 53 to request when performing health checks.
         :param pulumi.Input[_builtins.str] routing_control_arn: The Amazon Resource Name (ARN) for the Route 53 Application Recovery Controller routing control. This is used when health check type is `RECOVERY_CONTROL`
@@ -1387,9 +1387,9 @@ class HealthCheck(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
-    def regions(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
+    def regions(self) -> pulumi.Output[Sequence[_builtins.str]]:
         """
-        A list of AWS regions that you want Amazon Route 53 health checkers to check the specified endpoint from.
+        List of AWS Regions from which Amazon Route 53 health checkers check the specified endpoint. Valid values are `us-east-1`, `us-west-1`, `us-west-2`, `eu-west-1`, `ap-southeast-1`, `ap-southeast-2`, `ap-northeast-1`, and `sa-east-1`. If not specified, all of the regions listed under **Valid values** are used by default. Once this argument is set, removing it has no effect.
         """
         return pulumi.get(self, "regions")
 

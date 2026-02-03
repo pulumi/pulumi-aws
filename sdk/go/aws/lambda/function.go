@@ -805,7 +805,7 @@ type Function struct {
 	Layers pulumi.StringArrayOutput `pulumi:"layers"`
 	// Configuration block for advanced logging settings. See below.
 	LoggingConfig FunctionLoggingConfigOutput `pulumi:"loggingConfig"`
-	// Amount of memory in MB your Lambda Function can use at runtime. Valid value between 128 MB to 10,240 MB (10 GB), in 1 MB increments. Defaults to 128.
+	// Amount of memory in MB your Lambda Function can use at runtime. Valid value between 128 MB to 32,768 MB (32 GB), in 1 MB increments. Defaults to 128.
 	MemorySize pulumi.IntPtrOutput `pulumi:"memorySize"`
 	// Unique name for your Lambda Function.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -944,7 +944,7 @@ type functionState struct {
 	Layers []string `pulumi:"layers"`
 	// Configuration block for advanced logging settings. See below.
 	LoggingConfig *FunctionLoggingConfig `pulumi:"loggingConfig"`
-	// Amount of memory in MB your Lambda Function can use at runtime. Valid value between 128 MB to 10,240 MB (10 GB), in 1 MB increments. Defaults to 128.
+	// Amount of memory in MB your Lambda Function can use at runtime. Valid value between 128 MB to 32,768 MB (32 GB), in 1 MB increments. Defaults to 128.
 	MemorySize *int `pulumi:"memorySize"`
 	// Unique name for your Lambda Function.
 	Name *string `pulumi:"name"`
@@ -1051,7 +1051,7 @@ type FunctionState struct {
 	Layers pulumi.StringArrayInput
 	// Configuration block for advanced logging settings. See below.
 	LoggingConfig FunctionLoggingConfigPtrInput
-	// Amount of memory in MB your Lambda Function can use at runtime. Valid value between 128 MB to 10,240 MB (10 GB), in 1 MB increments. Defaults to 128.
+	// Amount of memory in MB your Lambda Function can use at runtime. Valid value between 128 MB to 32,768 MB (32 GB), in 1 MB increments. Defaults to 128.
 	MemorySize pulumi.IntPtrInput
 	// Unique name for your Lambda Function.
 	Name pulumi.StringPtrInput
@@ -1156,7 +1156,7 @@ type functionArgs struct {
 	Layers []string `pulumi:"layers"`
 	// Configuration block for advanced logging settings. See below.
 	LoggingConfig *FunctionLoggingConfig `pulumi:"loggingConfig"`
-	// Amount of memory in MB your Lambda Function can use at runtime. Valid value between 128 MB to 10,240 MB (10 GB), in 1 MB increments. Defaults to 128.
+	// Amount of memory in MB your Lambda Function can use at runtime. Valid value between 128 MB to 32,768 MB (32 GB), in 1 MB increments. Defaults to 128.
 	MemorySize *int `pulumi:"memorySize"`
 	// Unique name for your Lambda Function.
 	Name *string `pulumi:"name"`
@@ -1242,7 +1242,7 @@ type FunctionArgs struct {
 	Layers pulumi.StringArrayInput
 	// Configuration block for advanced logging settings. See below.
 	LoggingConfig FunctionLoggingConfigPtrInput
-	// Amount of memory in MB your Lambda Function can use at runtime. Valid value between 128 MB to 10,240 MB (10 GB), in 1 MB increments. Defaults to 128.
+	// Amount of memory in MB your Lambda Function can use at runtime. Valid value between 128 MB to 32,768 MB (32 GB), in 1 MB increments. Defaults to 128.
 	MemorySize pulumi.IntPtrInput
 	// Unique name for your Lambda Function.
 	Name pulumi.StringPtrInput
@@ -1479,7 +1479,7 @@ func (o FunctionOutput) LoggingConfig() FunctionLoggingConfigOutput {
 	return o.ApplyT(func(v *Function) FunctionLoggingConfigOutput { return v.LoggingConfig }).(FunctionLoggingConfigOutput)
 }
 
-// Amount of memory in MB your Lambda Function can use at runtime. Valid value between 128 MB to 10,240 MB (10 GB), in 1 MB increments. Defaults to 128.
+// Amount of memory in MB your Lambda Function can use at runtime. Valid value between 128 MB to 32,768 MB (32 GB), in 1 MB increments. Defaults to 128.
 func (o FunctionOutput) MemorySize() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Function) pulumi.IntPtrOutput { return v.MemorySize }).(pulumi.IntPtrOutput)
 }

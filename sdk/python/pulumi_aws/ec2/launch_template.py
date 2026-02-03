@@ -47,6 +47,7 @@ class LaunchTemplateArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  name_prefix: Optional[pulumi.Input[_builtins.str]] = None,
                  network_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input['LaunchTemplateNetworkInterfaceArgs']]]] = None,
+                 network_performance_options: Optional[pulumi.Input['LaunchTemplateNetworkPerformanceOptionsArgs']] = None,
                  placement: Optional[pulumi.Input['LaunchTemplatePlacementArgs']] = None,
                  private_dns_name_options: Optional[pulumi.Input['LaunchTemplatePrivateDnsNameOptionsArgs']] = None,
                  ram_disk_id: Optional[pulumi.Input[_builtins.str]] = None,
@@ -156,6 +157,8 @@ class LaunchTemplateArgs:
             pulumi.set(__self__, "name_prefix", name_prefix)
         if network_interfaces is not None:
             pulumi.set(__self__, "network_interfaces", network_interfaces)
+        if network_performance_options is not None:
+            pulumi.set(__self__, "network_performance_options", network_performance_options)
         if placement is not None:
             pulumi.set(__self__, "placement", placement)
         if private_dns_name_options is not None:
@@ -497,6 +500,15 @@ class LaunchTemplateArgs:
         pulumi.set(self, "network_interfaces", value)
 
     @_builtins.property
+    @pulumi.getter(name="networkPerformanceOptions")
+    def network_performance_options(self) -> Optional[pulumi.Input['LaunchTemplateNetworkPerformanceOptionsArgs']]:
+        return pulumi.get(self, "network_performance_options")
+
+    @network_performance_options.setter
+    def network_performance_options(self, value: Optional[pulumi.Input['LaunchTemplateNetworkPerformanceOptionsArgs']]):
+        pulumi.set(self, "network_performance_options", value)
+
+    @_builtins.property
     @pulumi.getter
     def placement(self) -> Optional[pulumi.Input['LaunchTemplatePlacementArgs']]:
         """
@@ -649,6 +661,7 @@ class _LaunchTemplateState:
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  name_prefix: Optional[pulumi.Input[_builtins.str]] = None,
                  network_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input['LaunchTemplateNetworkInterfaceArgs']]]] = None,
+                 network_performance_options: Optional[pulumi.Input['LaunchTemplateNetworkPerformanceOptionsArgs']] = None,
                  placement: Optional[pulumi.Input['LaunchTemplatePlacementArgs']] = None,
                  private_dns_name_options: Optional[pulumi.Input['LaunchTemplatePrivateDnsNameOptionsArgs']] = None,
                  ram_disk_id: Optional[pulumi.Input[_builtins.str]] = None,
@@ -766,6 +779,8 @@ class _LaunchTemplateState:
             pulumi.set(__self__, "name_prefix", name_prefix)
         if network_interfaces is not None:
             pulumi.set(__self__, "network_interfaces", network_interfaces)
+        if network_performance_options is not None:
+            pulumi.set(__self__, "network_performance_options", network_performance_options)
         if placement is not None:
             pulumi.set(__self__, "placement", placement)
         if private_dns_name_options is not None:
@@ -1133,6 +1148,15 @@ class _LaunchTemplateState:
         pulumi.set(self, "network_interfaces", value)
 
     @_builtins.property
+    @pulumi.getter(name="networkPerformanceOptions")
+    def network_performance_options(self) -> Optional[pulumi.Input['LaunchTemplateNetworkPerformanceOptionsArgs']]:
+        return pulumi.get(self, "network_performance_options")
+
+    @network_performance_options.setter
+    def network_performance_options(self, value: Optional[pulumi.Input['LaunchTemplateNetworkPerformanceOptionsArgs']]):
+        pulumi.set(self, "network_performance_options", value)
+
+    @_builtins.property
     @pulumi.getter
     def placement(self) -> Optional[pulumi.Input['LaunchTemplatePlacementArgs']]:
         """
@@ -1298,6 +1322,7 @@ class LaunchTemplate(pulumi.CustomResource):
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  name_prefix: Optional[pulumi.Input[_builtins.str]] = None,
                  network_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LaunchTemplateNetworkInterfaceArgs', 'LaunchTemplateNetworkInterfaceArgsDict']]]]] = None,
+                 network_performance_options: Optional[pulumi.Input[Union['LaunchTemplateNetworkPerformanceOptionsArgs', 'LaunchTemplateNetworkPerformanceOptionsArgsDict']]] = None,
                  placement: Optional[pulumi.Input[Union['LaunchTemplatePlacementArgs', 'LaunchTemplatePlacementArgsDict']]] = None,
                  private_dns_name_options: Optional[pulumi.Input[Union['LaunchTemplatePrivateDnsNameOptionsArgs', 'LaunchTemplatePrivateDnsNameOptionsArgsDict']]] = None,
                  ram_disk_id: Optional[pulumi.Input[_builtins.str]] = None,
@@ -1425,6 +1450,7 @@ class LaunchTemplate(pulumi.CustomResource):
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  name_prefix: Optional[pulumi.Input[_builtins.str]] = None,
                  network_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LaunchTemplateNetworkInterfaceArgs', 'LaunchTemplateNetworkInterfaceArgsDict']]]]] = None,
+                 network_performance_options: Optional[pulumi.Input[Union['LaunchTemplateNetworkPerformanceOptionsArgs', 'LaunchTemplateNetworkPerformanceOptionsArgsDict']]] = None,
                  placement: Optional[pulumi.Input[Union['LaunchTemplatePlacementArgs', 'LaunchTemplatePlacementArgsDict']]] = None,
                  private_dns_name_options: Optional[pulumi.Input[Union['LaunchTemplatePrivateDnsNameOptionsArgs', 'LaunchTemplatePrivateDnsNameOptionsArgsDict']]] = None,
                  ram_disk_id: Optional[pulumi.Input[_builtins.str]] = None,
@@ -1470,6 +1496,7 @@ class LaunchTemplate(pulumi.CustomResource):
             __props__.__dict__["name"] = name
             __props__.__dict__["name_prefix"] = name_prefix
             __props__.__dict__["network_interfaces"] = network_interfaces
+            __props__.__dict__["network_performance_options"] = network_performance_options
             __props__.__dict__["placement"] = placement
             __props__.__dict__["private_dns_name_options"] = private_dns_name_options
             __props__.__dict__["ram_disk_id"] = ram_disk_id
@@ -1521,6 +1548,7 @@ class LaunchTemplate(pulumi.CustomResource):
             name: Optional[pulumi.Input[_builtins.str]] = None,
             name_prefix: Optional[pulumi.Input[_builtins.str]] = None,
             network_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input[Union['LaunchTemplateNetworkInterfaceArgs', 'LaunchTemplateNetworkInterfaceArgsDict']]]]] = None,
+            network_performance_options: Optional[pulumi.Input[Union['LaunchTemplateNetworkPerformanceOptionsArgs', 'LaunchTemplateNetworkPerformanceOptionsArgsDict']]] = None,
             placement: Optional[pulumi.Input[Union['LaunchTemplatePlacementArgs', 'LaunchTemplatePlacementArgsDict']]] = None,
             private_dns_name_options: Optional[pulumi.Input[Union['LaunchTemplatePrivateDnsNameOptionsArgs', 'LaunchTemplatePrivateDnsNameOptionsArgsDict']]] = None,
             ram_disk_id: Optional[pulumi.Input[_builtins.str]] = None,
@@ -1619,6 +1647,7 @@ class LaunchTemplate(pulumi.CustomResource):
         __props__.__dict__["name"] = name
         __props__.__dict__["name_prefix"] = name_prefix
         __props__.__dict__["network_interfaces"] = network_interfaces
+        __props__.__dict__["network_performance_options"] = network_performance_options
         __props__.__dict__["placement"] = placement
         __props__.__dict__["private_dns_name_options"] = private_dns_name_options
         __props__.__dict__["ram_disk_id"] = ram_disk_id
@@ -1862,6 +1891,11 @@ class LaunchTemplate(pulumi.CustomResource):
         Interfaces below for more details.
         """
         return pulumi.get(self, "network_interfaces")
+
+    @_builtins.property
+    @pulumi.getter(name="networkPerformanceOptions")
+    def network_performance_options(self) -> pulumi.Output[Optional['outputs.LaunchTemplateNetworkPerformanceOptions']]:
+        return pulumi.get(self, "network_performance_options")
 
     @_builtins.property
     @pulumi.getter

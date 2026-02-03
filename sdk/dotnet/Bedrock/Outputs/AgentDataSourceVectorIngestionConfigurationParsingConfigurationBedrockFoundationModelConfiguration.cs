@@ -18,6 +18,10 @@ namespace Pulumi.Aws.Bedrock.Outputs
         /// </summary>
         public readonly string ModelArn;
         /// <summary>
+        /// Specifies whether to enable parsing of multimodal data, including both text and images. Valid values: `MULTIMODAL`.
+        /// </summary>
+        public readonly string? ParsingModality;
+        /// <summary>
         /// Instructions for interpreting the contents of the document. See `ParsingPrompt` block for details.
         /// </summary>
         public readonly Outputs.AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationParsingPrompt? ParsingPrompt;
@@ -26,9 +30,12 @@ namespace Pulumi.Aws.Bedrock.Outputs
         private AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfiguration(
             string modelArn,
 
+            string? parsingModality,
+
             Outputs.AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationParsingPrompt? parsingPrompt)
         {
             ModelArn = modelArn;
+            ParsingModality = parsingModality;
             ParsingPrompt = parsingPrompt;
         }
     }

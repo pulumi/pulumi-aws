@@ -65,6 +65,73 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * 
+ * ### Multimodal Parsing
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.bedrock.AgentDataSource;
+ * import com.pulumi.aws.bedrock.AgentDataSourceArgs;
+ * import com.pulumi.aws.bedrock.inputs.AgentDataSourceDataSourceConfigurationArgs;
+ * import com.pulumi.aws.bedrock.inputs.AgentDataSourceDataSourceConfigurationS3ConfigurationArgs;
+ * import com.pulumi.aws.bedrock.inputs.AgentDataSourceVectorIngestionConfigurationArgs;
+ * import com.pulumi.aws.bedrock.inputs.AgentDataSourceVectorIngestionConfigurationChunkingConfigurationArgs;
+ * import com.pulumi.aws.bedrock.inputs.AgentDataSourceVectorIngestionConfigurationChunkingConfigurationFixedSizeChunkingConfigurationArgs;
+ * import com.pulumi.aws.bedrock.inputs.AgentDataSourceVectorIngestionConfigurationParsingConfigurationArgs;
+ * import com.pulumi.aws.bedrock.inputs.AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationArgs;
+ * import com.pulumi.aws.bedrock.inputs.AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationParsingPromptArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new AgentDataSource("example", AgentDataSourceArgs.builder()
+ *             .knowledgeBaseId(exampleAwsBedrockagentKnowledgeBase.id())
+ *             .name("multimodal-example")
+ *             .dataSourceConfiguration(AgentDataSourceDataSourceConfigurationArgs.builder()
+ *                 .type("S3")
+ *                 .s3Configuration(AgentDataSourceDataSourceConfigurationS3ConfigurationArgs.builder()
+ *                     .bucketArn(exampleAwsS3Bucket.arn())
+ *                     .build())
+ *                 .build())
+ *             .vectorIngestionConfiguration(AgentDataSourceVectorIngestionConfigurationArgs.builder()
+ *                 .chunkingConfiguration(AgentDataSourceVectorIngestionConfigurationChunkingConfigurationArgs.builder()
+ *                     .chunkingStrategy("FIXED_SIZE")
+ *                     .fixedSizeChunkingConfiguration(AgentDataSourceVectorIngestionConfigurationChunkingConfigurationFixedSizeChunkingConfigurationArgs.builder()
+ *                         .maxTokens(512)
+ *                         .overlapPercentage(20)
+ *                         .build())
+ *                     .build())
+ *                 .parsingConfiguration(AgentDataSourceVectorIngestionConfigurationParsingConfigurationArgs.builder()
+ *                     .parsingStrategy("BEDROCK_FOUNDATION_MODEL")
+ *                     .bedrockFoundationModelConfiguration(AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationArgs.builder()
+ *                         .modelArn("arn:aws:bedrock:us-east-1::foundation-model/anthropic.claude-3-sonnet-20240229-v1:0")
+ *                         .parsingModality("MULTIMODAL")
+ *                         .parsingPrompt(AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationParsingPromptArgs.builder()
+ *                             .parsingPromptString("Extract and transcribe all text and visual content from the document.")
+ *                             .build())
+ *                         .build())
+ *                     .build())
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
  * ## Import
  * 
  * Using `pulumi import`, import Agents for Amazon Bedrock Data Source using the data source ID and the knowledge base ID. For example:

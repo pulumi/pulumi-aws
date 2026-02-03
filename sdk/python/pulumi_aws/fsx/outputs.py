@@ -2494,6 +2494,8 @@ class WindowsFileSystemSelfManagedActiveDirectory(dict):
             suggest = "dns_ips"
         elif key == "domainName":
             suggest = "domain_name"
+        elif key == "domainJoinServiceAccountSecret":
+            suggest = "domain_join_service_account_secret"
         elif key == "fileSystemAdministratorsGroup":
             suggest = "file_system_administrators_group"
         elif key == "organizationalUnitDistinguishedName":
@@ -2513,26 +2515,32 @@ class WindowsFileSystemSelfManagedActiveDirectory(dict):
     def __init__(__self__, *,
                  dns_ips: Sequence[_builtins.str],
                  domain_name: _builtins.str,
-                 password: _builtins.str,
-                 username: _builtins.str,
+                 domain_join_service_account_secret: Optional[_builtins.str] = None,
                  file_system_administrators_group: Optional[_builtins.str] = None,
-                 organizational_unit_distinguished_name: Optional[_builtins.str] = None):
+                 organizational_unit_distinguished_name: Optional[_builtins.str] = None,
+                 password: Optional[_builtins.str] = None,
+                 username: Optional[_builtins.str] = None):
         """
         :param Sequence[_builtins.str] dns_ips: A list of up to two IP addresses of DNS servers or domain controllers in the self-managed AD directory. The IP addresses need to be either in the same VPC CIDR range as the file system or in the private IP version 4 (IPv4) address ranges as specified in [RFC 1918](https://tools.ietf.org/html/rfc1918).
         :param _builtins.str domain_name: The fully qualified domain name of the self-managed AD directory. For example, `corp.example.com`.
-        :param _builtins.str password: The password for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain.
-        :param _builtins.str username: The user name for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain.
+        :param _builtins.str domain_join_service_account_secret: The Amazon Resource Name (ARN) for the AWS Secrets Manager secret that contains the credentials for the service account on your self-managed AD domain. Conflicts with `username` and `password`.
         :param _builtins.str file_system_administrators_group: The name of the domain group whose members are granted administrative privileges for the file system. Administrative privileges include taking ownership of files and folders, and setting audit controls (audit ACLs) on files and folders. The group that you specify must already exist in your domain. Defaults to `Domain Admins`.
         :param _builtins.str organizational_unit_distinguished_name: The fully qualified distinguished name of the organizational unit within your self-managed AD directory that the Windows File Server instance will join. For example, `OU=FSx,DC=yourdomain,DC=corp,DC=com`. Only accepts OU as the direct parent of the file system. If none is provided, the FSx file system is created in the default location of your self-managed AD directory. To learn more, see [RFC 2253](https://tools.ietf.org/html/rfc2253).
+        :param _builtins.str password: The password for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain. Conflicts with `domain_join_service_account_secret`.
+        :param _builtins.str username: The user name for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain. Conflicts with `domain_join_service_account_secret`.
         """
         pulumi.set(__self__, "dns_ips", dns_ips)
         pulumi.set(__self__, "domain_name", domain_name)
-        pulumi.set(__self__, "password", password)
-        pulumi.set(__self__, "username", username)
+        if domain_join_service_account_secret is not None:
+            pulumi.set(__self__, "domain_join_service_account_secret", domain_join_service_account_secret)
         if file_system_administrators_group is not None:
             pulumi.set(__self__, "file_system_administrators_group", file_system_administrators_group)
         if organizational_unit_distinguished_name is not None:
             pulumi.set(__self__, "organizational_unit_distinguished_name", organizational_unit_distinguished_name)
+        if password is not None:
+            pulumi.set(__self__, "password", password)
+        if username is not None:
+            pulumi.set(__self__, "username", username)
 
     @_builtins.property
     @pulumi.getter(name="dnsIps")
@@ -2551,20 +2559,12 @@ class WindowsFileSystemSelfManagedActiveDirectory(dict):
         return pulumi.get(self, "domain_name")
 
     @_builtins.property
-    @pulumi.getter
-    def password(self) -> _builtins.str:
+    @pulumi.getter(name="domainJoinServiceAccountSecret")
+    def domain_join_service_account_secret(self) -> Optional[_builtins.str]:
         """
-        The password for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain.
+        The Amazon Resource Name (ARN) for the AWS Secrets Manager secret that contains the credentials for the service account on your self-managed AD domain. Conflicts with `username` and `password`.
         """
-        return pulumi.get(self, "password")
-
-    @_builtins.property
-    @pulumi.getter
-    def username(self) -> _builtins.str:
-        """
-        The user name for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain.
-        """
-        return pulumi.get(self, "username")
+        return pulumi.get(self, "domain_join_service_account_secret")
 
     @_builtins.property
     @pulumi.getter(name="fileSystemAdministratorsGroup")
@@ -2581,6 +2581,22 @@ class WindowsFileSystemSelfManagedActiveDirectory(dict):
         The fully qualified distinguished name of the organizational unit within your self-managed AD directory that the Windows File Server instance will join. For example, `OU=FSx,DC=yourdomain,DC=corp,DC=com`. Only accepts OU as the direct parent of the file system. If none is provided, the FSx file system is created in the default location of your self-managed AD directory. To learn more, see [RFC 2253](https://tools.ietf.org/html/rfc2253).
         """
         return pulumi.get(self, "organizational_unit_distinguished_name")
+
+    @_builtins.property
+    @pulumi.getter
+    def password(self) -> Optional[_builtins.str]:
+        """
+        The password for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain. Conflicts with `domain_join_service_account_secret`.
+        """
+        return pulumi.get(self, "password")
+
+    @_builtins.property
+    @pulumi.getter
+    def username(self) -> Optional[_builtins.str]:
+        """
+        The user name for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain. Conflicts with `domain_join_service_account_secret`.
+        """
+        return pulumi.get(self, "username")
 
 
 @pulumi.output_type

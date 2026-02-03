@@ -12,20 +12,33 @@ namespace Pulumi.Aws.CleanRooms.Inputs
 
     public sealed class CollaborationMemberGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Account ID for the invited member.
+        /// </summary>
         [Input("accountId", required: true)]
         public Input<string> AccountId { get; set; } = null!;
 
+        /// <summary>
+        /// Display name for the invited member.
+        /// </summary>
         [Input("displayName", required: true)]
         public Input<string> DisplayName { get; set; } = null!;
 
         [Input("memberAbilities", required: true)]
         private InputList<string>? _memberAbilities;
+
+        /// <summary>
+        /// List of abilities for the invited member. Valid values [may be found here](https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_CreateCollaboration.html#API-CreateCollaboration-request-creatorMemberAbilities).
+        /// </summary>
         public InputList<string> MemberAbilities
         {
             get => _memberAbilities ?? (_memberAbilities = new InputList<string>());
             set => _memberAbilities = value;
         }
 
+        /// <summary>
+        /// For each member included in the collaboration an additional computed attribute of status is added. These values [may be found here](https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_MemberSummary.html#API-Type-MemberSummary-status).
+        /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
 

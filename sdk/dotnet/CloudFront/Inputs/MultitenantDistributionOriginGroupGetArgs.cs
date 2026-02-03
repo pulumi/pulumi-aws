@@ -18,6 +18,12 @@ namespace Pulumi.Aws.CloudFront.Inputs
         [Input("failoverCriteria")]
         public Input<Inputs.MultitenantDistributionOriginGroupFailoverCriteriaGetArgs>? FailoverCriteria { get; set; }
 
+        /// <summary>
+        /// Identifier for the distribution.
+        /// </summary>
+        [Input("id", required: true)]
+        public Input<string> Id { get; set; } = null!;
+
         [Input("members")]
         private InputList<Inputs.MultitenantDistributionOriginGroupMemberGetArgs>? _members;
 
@@ -29,12 +35,6 @@ namespace Pulumi.Aws.CloudFront.Inputs
             get => _members ?? (_members = new InputList<Inputs.MultitenantDistributionOriginGroupMemberGetArgs>());
             set => _members = value;
         }
-
-        /// <summary>
-        /// Unique identifier for the origin group.
-        /// </summary>
-        [Input("originId", required: true)]
-        public Input<string> OriginId { get; set; } = null!;
 
         public MultitenantDistributionOriginGroupGetArgs()
         {

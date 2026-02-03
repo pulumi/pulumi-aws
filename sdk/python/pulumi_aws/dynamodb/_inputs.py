@@ -35,6 +35,8 @@ __all__ = [
     'TableExportIncrementalExportSpecificationArgsDict',
     'TableGlobalSecondaryIndexArgs',
     'TableGlobalSecondaryIndexArgsDict',
+    'TableGlobalSecondaryIndexKeySchemaArgs',
+    'TableGlobalSecondaryIndexKeySchemaArgsDict',
     'TableGlobalSecondaryIndexOnDemandThroughputArgs',
     'TableGlobalSecondaryIndexOnDemandThroughputArgsDict',
     'TableGlobalSecondaryIndexWarmThroughputArgs',
@@ -559,10 +561,6 @@ class TableExportIncrementalExportSpecificationArgs:
 
 if not MYPY:
     class TableGlobalSecondaryIndexArgsDict(TypedDict):
-        hash_key: pulumi.Input[_builtins.str]
-        """
-        Name of the hash key in the index; must be defined as an attribute in the resource.
-        """
         name: pulumi.Input[_builtins.str]
         """
         Name of the index.
@@ -571,6 +569,11 @@ if not MYPY:
         """
         One of `ALL`, `INCLUDE` or `KEYS_ONLY` where `ALL` projects every attribute into the index, `KEYS_ONLY` projects  into the index only the table and index hash_key and sort_key attributes ,  `INCLUDE` projects into the index all of the attributes that are defined in `non_key_attributes` in addition to the attributes that that`KEYS_ONLY` project.
         """
+        hash_key: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        and `hash_keys` are `mutually exclusive`, but one is `required`. Refer to [AWS SDK Documentation](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GSI.DesignPattern.MultiAttributeKeys.html)
+        """
+        key_schemas: NotRequired[pulumi.Input[Sequence[pulumi.Input['TableGlobalSecondaryIndexKeySchemaArgsDict']]]]
         non_key_attributes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
         """
         Only required with `INCLUDE` as a projection type; a list of attributes to project into the index. These do not need to be defined as attributes on the table.
@@ -581,7 +584,7 @@ if not MYPY:
         """
         range_key: NotRequired[pulumi.Input[_builtins.str]]
         """
-        Name of the range key; must be defined
+        and `range_keys` are `mutually exclusive`, but are both `optional`. Refer to [AWS SDK Documentation](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GSI.DesignPattern.MultiAttributeKeys.html)
         """
         read_capacity: NotRequired[pulumi.Input[_builtins.int]]
         """
@@ -601,9 +604,10 @@ elif False:
 @pulumi.input_type
 class TableGlobalSecondaryIndexArgs:
     def __init__(__self__, *,
-                 hash_key: pulumi.Input[_builtins.str],
                  name: pulumi.Input[_builtins.str],
                  projection_type: pulumi.Input[_builtins.str],
+                 hash_key: Optional[pulumi.Input[_builtins.str]] = None,
+                 key_schemas: Optional[pulumi.Input[Sequence[pulumi.Input['TableGlobalSecondaryIndexKeySchemaArgs']]]] = None,
                  non_key_attributes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  on_demand_throughput: Optional[pulumi.Input['TableGlobalSecondaryIndexOnDemandThroughputArgs']] = None,
                  range_key: Optional[pulumi.Input[_builtins.str]] = None,
@@ -611,23 +615,32 @@ class TableGlobalSecondaryIndexArgs:
                  warm_throughput: Optional[pulumi.Input['TableGlobalSecondaryIndexWarmThroughputArgs']] = None,
                  write_capacity: Optional[pulumi.Input[_builtins.int]] = None):
         """
-        :param pulumi.Input[_builtins.str] hash_key: Name of the hash key in the index; must be defined as an attribute in the resource.
         :param pulumi.Input[_builtins.str] name: Name of the index.
         :param pulumi.Input[_builtins.str] projection_type: One of `ALL`, `INCLUDE` or `KEYS_ONLY` where `ALL` projects every attribute into the index, `KEYS_ONLY` projects  into the index only the table and index hash_key and sort_key attributes ,  `INCLUDE` projects into the index all of the attributes that are defined in `non_key_attributes` in addition to the attributes that that`KEYS_ONLY` project.
+        :param pulumi.Input[_builtins.str] hash_key: and `hash_keys` are `mutually exclusive`, but one is `required`. Refer to [AWS SDK Documentation](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GSI.DesignPattern.MultiAttributeKeys.html)
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] non_key_attributes: Only required with `INCLUDE` as a projection type; a list of attributes to project into the index. These do not need to be defined as attributes on the table.
         :param pulumi.Input['TableGlobalSecondaryIndexOnDemandThroughputArgs'] on_demand_throughput: Sets the maximum number of read and write units for the specified on-demand index. See below.
-        :param pulumi.Input[_builtins.str] range_key: Name of the range key; must be defined
+        :param pulumi.Input[_builtins.str] range_key: and `range_keys` are `mutually exclusive`, but are both `optional`. Refer to [AWS SDK Documentation](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GSI.DesignPattern.MultiAttributeKeys.html)
         :param pulumi.Input[_builtins.int] read_capacity: Number of read units for this index. Must be set if billing_mode is set to PROVISIONED.
         :param pulumi.Input['TableGlobalSecondaryIndexWarmThroughputArgs'] warm_throughput: Sets the number of warm read and write units for this index. See below.
         :param pulumi.Input[_builtins.int] write_capacity: Number of write units for this index. Must be set if billing_mode is set to PROVISIONED.
         """
-        pulumi.set(__self__, "hash_key", hash_key)
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "projection_type", projection_type)
+        if hash_key is not None:
+            warnings.warn("""hash_key is deprecated. Use key_schema instead.""", DeprecationWarning)
+            pulumi.log.warn("""hash_key is deprecated: hash_key is deprecated. Use key_schema instead.""")
+        if hash_key is not None:
+            pulumi.set(__self__, "hash_key", hash_key)
+        if key_schemas is not None:
+            pulumi.set(__self__, "key_schemas", key_schemas)
         if non_key_attributes is not None:
             pulumi.set(__self__, "non_key_attributes", non_key_attributes)
         if on_demand_throughput is not None:
             pulumi.set(__self__, "on_demand_throughput", on_demand_throughput)
+        if range_key is not None:
+            warnings.warn("""range_key is deprecated. Use key_schema instead.""", DeprecationWarning)
+            pulumi.log.warn("""range_key is deprecated: range_key is deprecated. Use key_schema instead.""")
         if range_key is not None:
             pulumi.set(__self__, "range_key", range_key)
         if read_capacity is not None:
@@ -636,18 +649,6 @@ class TableGlobalSecondaryIndexArgs:
             pulumi.set(__self__, "warm_throughput", warm_throughput)
         if write_capacity is not None:
             pulumi.set(__self__, "write_capacity", write_capacity)
-
-    @_builtins.property
-    @pulumi.getter(name="hashKey")
-    def hash_key(self) -> pulumi.Input[_builtins.str]:
-        """
-        Name of the hash key in the index; must be defined as an attribute in the resource.
-        """
-        return pulumi.get(self, "hash_key")
-
-    @hash_key.setter
-    def hash_key(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "hash_key", value)
 
     @_builtins.property
     @pulumi.getter
@@ -672,6 +673,28 @@ class TableGlobalSecondaryIndexArgs:
     @projection_type.setter
     def projection_type(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "projection_type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="hashKey")
+    @_utilities.deprecated("""hash_key is deprecated. Use key_schema instead.""")
+    def hash_key(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        and `hash_keys` are `mutually exclusive`, but one is `required`. Refer to [AWS SDK Documentation](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GSI.DesignPattern.MultiAttributeKeys.html)
+        """
+        return pulumi.get(self, "hash_key")
+
+    @hash_key.setter
+    def hash_key(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "hash_key", value)
+
+    @_builtins.property
+    @pulumi.getter(name="keySchemas")
+    def key_schemas(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TableGlobalSecondaryIndexKeySchemaArgs']]]]:
+        return pulumi.get(self, "key_schemas")
+
+    @key_schemas.setter
+    def key_schemas(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TableGlobalSecondaryIndexKeySchemaArgs']]]]):
+        pulumi.set(self, "key_schemas", value)
 
     @_builtins.property
     @pulumi.getter(name="nonKeyAttributes")
@@ -699,9 +722,10 @@ class TableGlobalSecondaryIndexArgs:
 
     @_builtins.property
     @pulumi.getter(name="rangeKey")
+    @_utilities.deprecated("""range_key is deprecated. Use key_schema instead.""")
     def range_key(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Name of the range key; must be defined
+        and `range_keys` are `mutually exclusive`, but are both `optional`. Refer to [AWS SDK Documentation](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GSI.DesignPattern.MultiAttributeKeys.html)
         """
         return pulumi.get(self, "range_key")
 
@@ -744,6 +768,52 @@ class TableGlobalSecondaryIndexArgs:
     @write_capacity.setter
     def write_capacity(self, value: Optional[pulumi.Input[_builtins.int]]):
         pulumi.set(self, "write_capacity", value)
+
+
+if not MYPY:
+    class TableGlobalSecondaryIndexKeySchemaArgsDict(TypedDict):
+        attribute_name: pulumi.Input[_builtins.str]
+        """
+        Name of the table attribute to store the TTL timestamp in.
+        Required if `enabled` is `true`, must not be set otherwise.
+        """
+        key_type: pulumi.Input[_builtins.str]
+elif False:
+    TableGlobalSecondaryIndexKeySchemaArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class TableGlobalSecondaryIndexKeySchemaArgs:
+    def __init__(__self__, *,
+                 attribute_name: pulumi.Input[_builtins.str],
+                 key_type: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.str] attribute_name: Name of the table attribute to store the TTL timestamp in.
+               Required if `enabled` is `true`, must not be set otherwise.
+        """
+        pulumi.set(__self__, "attribute_name", attribute_name)
+        pulumi.set(__self__, "key_type", key_type)
+
+    @_builtins.property
+    @pulumi.getter(name="attributeName")
+    def attribute_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Name of the table attribute to store the TTL timestamp in.
+        Required if `enabled` is `true`, must not be set otherwise.
+        """
+        return pulumi.get(self, "attribute_name")
+
+    @attribute_name.setter
+    def attribute_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "attribute_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="keyType")
+    def key_type(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "key_type")
+
+    @key_type.setter
+    def key_type(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "key_type", value)
 
 
 if not MYPY:

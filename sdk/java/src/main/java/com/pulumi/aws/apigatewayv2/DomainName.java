@@ -214,6 +214,20 @@ public class DomainName extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
+     * Mode to route traffic for the domain name. Valid values: `API_MAPPING_ONLY`, `ROUTING_RULE_ONLY`, `ROUTING_RULE_THEN_API_MAPPING`.
+     * 
+     */
+    @Export(name="routingMode", refs={String.class}, tree="[0]")
+    private Output<String> routingMode;
+
+    /**
+     * @return Mode to route traffic for the domain name. Valid values: `API_MAPPING_ONLY`, `ROUTING_RULE_ONLY`, `ROUTING_RULE_THEN_API_MAPPING`.
+     * 
+     */
+    public Output<String> routingMode() {
+        return this.routingMode;
+    }
+    /**
      * Map of tags to assign to the domain name. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */

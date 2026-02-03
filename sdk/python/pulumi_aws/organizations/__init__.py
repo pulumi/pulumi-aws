@@ -11,6 +11,7 @@ from .delegated_administrator import *
 from .get_account import *
 from .get_delegated_administrators import *
 from .get_delegated_services import *
+from .get_entity_path import *
 from .get_organization import *
 from .get_organizational_unit import *
 from .get_organizational_unit_child_accounts import *

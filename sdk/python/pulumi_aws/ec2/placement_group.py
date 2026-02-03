@@ -32,7 +32,7 @@ class PlacementGroupArgs:
         :param pulumi.Input[_builtins.str] name: The name of the placement group.
         :param pulumi.Input[_builtins.int] partition_count: The number of partitions to create in the
                placement group.  Can only be specified when the `strategy` is set to
-               `partition`.  Valid values are 1 - 7 (default is `2`).
+               `partition`.  Must be at least `1`. (default is `2`).
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] spread_level: Determines how placement groups spread instances. Can only be used
                when the `strategy` is set to `spread`. Can be `host` or `rack`. `host` can only be used for Outpost placement groups. Defaults to `rack`.
@@ -80,7 +80,7 @@ class PlacementGroupArgs:
         """
         The number of partitions to create in the
         placement group.  Can only be specified when the `strategy` is set to
-        `partition`.  Valid values are 1 - 7 (default is `2`).
+        `partition`.  Must be at least `1`. (default is `2`).
         """
         return pulumi.get(self, "partition_count")
 
@@ -144,7 +144,7 @@ class _PlacementGroupState:
         :param pulumi.Input[_builtins.str] name: The name of the placement group.
         :param pulumi.Input[_builtins.int] partition_count: The number of partitions to create in the
                placement group.  Can only be specified when the `strategy` is set to
-               `partition`.  Valid values are 1 - 7 (default is `2`).
+               `partition`.  Must be at least `1`. (default is `2`).
         :param pulumi.Input[_builtins.str] placement_group_id: The ID of the placement group.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] spread_level: Determines how placement groups spread instances. Can only be used
@@ -202,7 +202,7 @@ class _PlacementGroupState:
         """
         The number of partitions to create in the
         placement group.  Can only be specified when the `strategy` is set to
-        `partition`.  Valid values are 1 - 7 (default is `2`).
+        `partition`.  Must be at least `1`. (default is `2`).
         """
         return pulumi.get(self, "partition_count")
 
@@ -325,7 +325,7 @@ class PlacementGroup(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] name: The name of the placement group.
         :param pulumi.Input[_builtins.int] partition_count: The number of partitions to create in the
                placement group.  Can only be specified when the `strategy` is set to
-               `partition`.  Valid values are 1 - 7 (default is `2`).
+               `partition`.  Must be at least `1`. (default is `2`).
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] spread_level: Determines how placement groups spread instances. Can only be used
                when the `strategy` is set to `spread`. Can be `host` or `rack`. `host` can only be used for Outpost placement groups. Defaults to `rack`.
@@ -432,7 +432,7 @@ class PlacementGroup(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] name: The name of the placement group.
         :param pulumi.Input[_builtins.int] partition_count: The number of partitions to create in the
                placement group.  Can only be specified when the `strategy` is set to
-               `partition`.  Valid values are 1 - 7 (default is `2`).
+               `partition`.  Must be at least `1`. (default is `2`).
         :param pulumi.Input[_builtins.str] placement_group_id: The ID of the placement group.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] spread_level: Determines how placement groups spread instances. Can only be used
@@ -478,7 +478,7 @@ class PlacementGroup(pulumi.CustomResource):
         """
         The number of partitions to create in the
         placement group.  Can only be specified when the `strategy` is set to
-        `partition`.  Valid values are 1 - 7 (default is `2`).
+        `partition`.  Must be at least `1`. (default is `2`).
         """
         return pulumi.get(self, "partition_count")
 

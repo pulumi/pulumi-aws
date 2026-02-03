@@ -53,7 +53,7 @@ public final class JobDefinitionEksPropertiesPodPropertiesInitContainer {
      */
     private @Nullable JobDefinitionEksPropertiesPodPropertiesInitContainerResources resources;
     /**
-     * @return Security context for a job.
+     * @return Security context for a job. See `securityContext` below.
      * 
      */
     private @Nullable JobDefinitionEksPropertiesPodPropertiesInitContainerSecurityContext securityContext;
@@ -114,7 +114,7 @@ public final class JobDefinitionEksPropertiesPodPropertiesInitContainer {
         return Optional.ofNullable(this.resources);
     }
     /**
-     * @return Security context for a job.
+     * @return Security context for a job. See `securityContext` below.
      * 
      */
     public Optional<JobDefinitionEksPropertiesPodPropertiesInitContainerSecurityContext> securityContext() {

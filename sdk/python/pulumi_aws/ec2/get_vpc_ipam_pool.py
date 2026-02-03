@@ -28,7 +28,7 @@ class GetVpcIpamPoolResult:
     """
     A collection of values returned by getVpcIpamPool.
     """
-    def __init__(__self__, address_family=None, allocation_default_netmask_length=None, allocation_max_netmask_length=None, allocation_min_netmask_length=None, allocation_resource_tags=None, arn=None, auto_import=None, aws_service=None, description=None, filters=None, id=None, ipam_pool_id=None, ipam_scope_id=None, ipam_scope_type=None, locale=None, pool_depth=None, publicly_advertisable=None, region=None, source_ipam_pool_id=None, state=None, tags=None):
+    def __init__(__self__, address_family=None, allocation_default_netmask_length=None, allocation_max_netmask_length=None, allocation_min_netmask_length=None, allocation_resource_tags=None, arn=None, auto_import=None, aws_service=None, description=None, filters=None, id=None, ipam_pool_id=None, ipam_scope_id=None, ipam_scope_type=None, locale=None, pool_depth=None, publicly_advertisable=None, region=None, source_ipam_pool_id=None, source_resources=None, state=None, tags=None):
         if address_family and not isinstance(address_family, str):
             raise TypeError("Expected argument 'address_family' to be a str")
         pulumi.set(__self__, "address_family", address_family)
@@ -86,6 +86,9 @@ class GetVpcIpamPoolResult:
         if source_ipam_pool_id and not isinstance(source_ipam_pool_id, str):
             raise TypeError("Expected argument 'source_ipam_pool_id' to be a str")
         pulumi.set(__self__, "source_ipam_pool_id", source_ipam_pool_id)
+        if source_resources and not isinstance(source_resources, list):
+            raise TypeError("Expected argument 'source_resources' to be a list")
+        pulumi.set(__self__, "source_resources", source_resources)
         if state and not isinstance(state, str):
             raise TypeError("Expected argument 'state' to be a str")
         pulumi.set(__self__, "state", state)
@@ -231,6 +234,14 @@ class GetVpcIpamPoolResult:
         return pulumi.get(self, "source_ipam_pool_id")
 
     @_builtins.property
+    @pulumi.getter(name="sourceResources")
+    def source_resources(self) -> Sequence['outputs.GetVpcIpamPoolSourceResourceResult']:
+        """
+        Resource used to create the resource planning pool.
+        """
+        return pulumi.get(self, "source_resources")
+
+    @_builtins.property
     @pulumi.getter
     def state(self) -> _builtins.str:
         return pulumi.get(self, "state")
@@ -269,6 +280,7 @@ class AwaitableGetVpcIpamPoolResult(GetVpcIpamPoolResult):
             publicly_advertisable=self.publicly_advertisable,
             region=self.region,
             source_ipam_pool_id=self.source_ipam_pool_id,
+            source_resources=self.source_resources,
             state=self.state,
             tags=self.tags)
 
@@ -350,6 +362,7 @@ def get_vpc_ipam_pool(allocation_resource_tags: Optional[Mapping[str, _builtins.
         publicly_advertisable=pulumi.get(__ret__, 'publicly_advertisable'),
         region=pulumi.get(__ret__, 'region'),
         source_ipam_pool_id=pulumi.get(__ret__, 'source_ipam_pool_id'),
+        source_resources=pulumi.get(__ret__, 'source_resources'),
         state=pulumi.get(__ret__, 'state'),
         tags=pulumi.get(__ret__, 'tags'))
 def get_vpc_ipam_pool_output(allocation_resource_tags: Optional[pulumi.Input[Optional[Mapping[str, _builtins.str]]]] = None,
@@ -428,5 +441,6 @@ def get_vpc_ipam_pool_output(allocation_resource_tags: Optional[pulumi.Input[Opt
         publicly_advertisable=pulumi.get(__response__, 'publicly_advertisable'),
         region=pulumi.get(__response__, 'region'),
         source_ipam_pool_id=pulumi.get(__response__, 'source_ipam_pool_id'),
+        source_resources=pulumi.get(__response__, 'source_resources'),
         state=pulumi.get(__response__, 'state'),
         tags=pulumi.get(__response__, 'tags')))

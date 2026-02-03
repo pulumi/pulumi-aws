@@ -68,6 +68,18 @@ namespace Pulumi.Aws.Odb
         public Output<string> DisplayName { get; private set; } = null!;
 
         /// <summary>
+        /// Specifies the configuration for KMS access from the ODB network.
+        /// </summary>
+        [Output("kmsAccess")]
+        public Output<string> KmsAccess { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies the endpoint policy for KMS access from the ODB network.
+        /// </summary>
+        [Output("kmsPolicyDocument")]
+        public Output<string?> KmsPolicyDocument { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the OCI resource anchor for the Exadata infrastructure.
         /// </summary>
         [Output("managedServices")]
@@ -150,6 +162,18 @@ namespace Pulumi.Aws.Odb
         /// </summary>
         [Output("statusReason")]
         public Output<string> StatusReason { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies the configuration for STS access from the ODB network.
+        /// </summary>
+        [Output("stsAccess")]
+        public Output<string> StsAccess { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies the endpoint policy for STS access from the ODB network.
+        /// </summary>
+        [Output("stsPolicyDocument")]
+        public Output<string?> StsPolicyDocument { get; private set; } = null!;
 
         /// <summary>
         /// A map of tags to assign to the exadata infrastructure. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -248,6 +272,18 @@ namespace Pulumi.Aws.Odb
         public Input<string> DisplayName { get; set; } = null!;
 
         /// <summary>
+        /// Specifies the configuration for KMS access from the ODB network.
+        /// </summary>
+        [Input("kmsAccess")]
+        public Input<string>? KmsAccess { get; set; }
+
+        /// <summary>
+        /// Specifies the endpoint policy for KMS access from the ODB network.
+        /// </summary>
+        [Input("kmsPolicyDocument")]
+        public Input<string>? KmsPolicyDocument { get; set; }
+
+        /// <summary>
         /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         /// </summary>
         [Input("region")]
@@ -264,6 +300,18 @@ namespace Pulumi.Aws.Odb
         /// </summary>
         [Input("s3PolicyDocument")]
         public Input<string>? S3PolicyDocument { get; set; }
+
+        /// <summary>
+        /// Specifies the configuration for STS access from the ODB network.
+        /// </summary>
+        [Input("stsAccess")]
+        public Input<string>? StsAccess { get; set; }
+
+        /// <summary>
+        /// Specifies the endpoint policy for STS access from the ODB network.
+        /// </summary>
+        [Input("stsPolicyDocument")]
+        public Input<string>? StsPolicyDocument { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -337,6 +385,18 @@ namespace Pulumi.Aws.Odb
 
         [Input("displayName")]
         public Input<string>? DisplayName { get; set; }
+
+        /// <summary>
+        /// Specifies the configuration for KMS access from the ODB network.
+        /// </summary>
+        [Input("kmsAccess")]
+        public Input<string>? KmsAccess { get; set; }
+
+        /// <summary>
+        /// Specifies the endpoint policy for KMS access from the ODB network.
+        /// </summary>
+        [Input("kmsPolicyDocument")]
+        public Input<string>? KmsPolicyDocument { get; set; }
 
         [Input("managedServices")]
         private InputList<Inputs.NetworkManagedServiceGetArgs>? _managedServices;
@@ -439,6 +499,18 @@ namespace Pulumi.Aws.Odb
         /// </summary>
         [Input("statusReason")]
         public Input<string>? StatusReason { get; set; }
+
+        /// <summary>
+        /// Specifies the configuration for STS access from the ODB network.
+        /// </summary>
+        [Input("stsAccess")]
+        public Input<string>? StsAccess { get; set; }
+
+        /// <summary>
+        /// Specifies the endpoint policy for STS access from the ODB network.
+        /// </summary>
+        [Input("stsPolicyDocument")]
+        public Input<string>? StsPolicyDocument { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

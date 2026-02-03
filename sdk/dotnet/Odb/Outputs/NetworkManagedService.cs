@@ -13,6 +13,10 @@ namespace Pulumi.Aws.Odb.Outputs
     [OutputType]
     public sealed class NetworkManagedService
     {
+        /// <summary>
+        /// Specifies the configuration for KMS access from the ODB network.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.NetworkManagedServiceKmsAccess> KmsAccesses;
         public readonly ImmutableArray<Outputs.NetworkManagedServiceManagedS3BackupAccess> ManagedS3BackupAccesses;
         public readonly ImmutableArray<string> ManagedServiceIpv4Cidrs;
         public readonly string ResourceGatewayArn;
@@ -23,6 +27,10 @@ namespace Pulumi.Aws.Odb.Outputs
         public readonly string ServiceNetworkArn;
         public readonly ImmutableArray<Outputs.NetworkManagedServiceServiceNetworkEndpoint> ServiceNetworkEndpoints;
         /// <summary>
+        /// Specifies the configuration for STS access from the ODB network.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.NetworkManagedServiceStsAccess> StsAccesses;
+        /// <summary>
         /// Specifies the configuration for Zero-ETL access from the ODB network.
         /// 
         /// The following arguments are optional:
@@ -31,6 +39,8 @@ namespace Pulumi.Aws.Odb.Outputs
 
         [OutputConstructor]
         private NetworkManagedService(
+            ImmutableArray<Outputs.NetworkManagedServiceKmsAccess> kmsAccesses,
+
             ImmutableArray<Outputs.NetworkManagedServiceManagedS3BackupAccess> managedS3BackupAccesses,
 
             ImmutableArray<string> managedServiceIpv4Cidrs,
@@ -43,14 +53,18 @@ namespace Pulumi.Aws.Odb.Outputs
 
             ImmutableArray<Outputs.NetworkManagedServiceServiceNetworkEndpoint> serviceNetworkEndpoints,
 
+            ImmutableArray<Outputs.NetworkManagedServiceStsAccess> stsAccesses,
+
             ImmutableArray<Outputs.NetworkManagedServiceZeroEtlAccess> zeroEtlAccesses)
         {
+            KmsAccesses = kmsAccesses;
             ManagedS3BackupAccesses = managedS3BackupAccesses;
             ManagedServiceIpv4Cidrs = managedServiceIpv4Cidrs;
             ResourceGatewayArn = resourceGatewayArn;
             S3Accesses = s3Accesses;
             ServiceNetworkArn = serviceNetworkArn;
             ServiceNetworkEndpoints = serviceNetworkEndpoints;
+            StsAccesses = stsAccesses;
             ZeroEtlAccesses = zeroEtlAccesses;
         }
     }

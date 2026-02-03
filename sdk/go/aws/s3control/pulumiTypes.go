@@ -5779,6 +5779,274 @@ func (o StorageLensConfigurationStorageLensConfigurationIncludePtrOutput) Region
 	}).(pulumi.StringArrayOutput)
 }
 
+type GetAccessPointsAccessPoint struct {
+	// Access point ARN.
+	AccessPointArn string `pulumi:"accessPointArn"`
+	// Access point alias.
+	Alias string `pulumi:"alias"`
+	// Name of the bucket associated with the access points.
+	Bucket string `pulumi:"bucket"`
+	// AWS account ID associated with the S3 bucket associated with the access point.
+	BucketAccountId string `pulumi:"bucketAccountId"`
+	// Unique identifier for the access points data source.
+	DataSourceId string `pulumi:"dataSourceId"`
+	// Type of the data source that the access points are attached to. To return all access points set this argument to `ALL`.
+	DataSourceType string `pulumi:"dataSourceType"`
+	// Name of the access point.
+	Name string `pulumi:"name"`
+	// Indicates whether the access point allows access from the public Internet.
+	NetworkOrigin string `pulumi:"networkOrigin"`
+	// VPC configuration for the access point. See `vpcConfiguration` below.
+	VpcConfigurations []GetAccessPointsAccessPointVpcConfiguration `pulumi:"vpcConfigurations"`
+}
+
+// GetAccessPointsAccessPointInput is an input type that accepts GetAccessPointsAccessPointArgs and GetAccessPointsAccessPointOutput values.
+// You can construct a concrete instance of `GetAccessPointsAccessPointInput` via:
+//
+//	GetAccessPointsAccessPointArgs{...}
+type GetAccessPointsAccessPointInput interface {
+	pulumi.Input
+
+	ToGetAccessPointsAccessPointOutput() GetAccessPointsAccessPointOutput
+	ToGetAccessPointsAccessPointOutputWithContext(context.Context) GetAccessPointsAccessPointOutput
+}
+
+type GetAccessPointsAccessPointArgs struct {
+	// Access point ARN.
+	AccessPointArn pulumi.StringInput `pulumi:"accessPointArn"`
+	// Access point alias.
+	Alias pulumi.StringInput `pulumi:"alias"`
+	// Name of the bucket associated with the access points.
+	Bucket pulumi.StringInput `pulumi:"bucket"`
+	// AWS account ID associated with the S3 bucket associated with the access point.
+	BucketAccountId pulumi.StringInput `pulumi:"bucketAccountId"`
+	// Unique identifier for the access points data source.
+	DataSourceId pulumi.StringInput `pulumi:"dataSourceId"`
+	// Type of the data source that the access points are attached to. To return all access points set this argument to `ALL`.
+	DataSourceType pulumi.StringInput `pulumi:"dataSourceType"`
+	// Name of the access point.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Indicates whether the access point allows access from the public Internet.
+	NetworkOrigin pulumi.StringInput `pulumi:"networkOrigin"`
+	// VPC configuration for the access point. See `vpcConfiguration` below.
+	VpcConfigurations GetAccessPointsAccessPointVpcConfigurationArrayInput `pulumi:"vpcConfigurations"`
+}
+
+func (GetAccessPointsAccessPointArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAccessPointsAccessPoint)(nil)).Elem()
+}
+
+func (i GetAccessPointsAccessPointArgs) ToGetAccessPointsAccessPointOutput() GetAccessPointsAccessPointOutput {
+	return i.ToGetAccessPointsAccessPointOutputWithContext(context.Background())
+}
+
+func (i GetAccessPointsAccessPointArgs) ToGetAccessPointsAccessPointOutputWithContext(ctx context.Context) GetAccessPointsAccessPointOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAccessPointsAccessPointOutput)
+}
+
+// GetAccessPointsAccessPointArrayInput is an input type that accepts GetAccessPointsAccessPointArray and GetAccessPointsAccessPointArrayOutput values.
+// You can construct a concrete instance of `GetAccessPointsAccessPointArrayInput` via:
+//
+//	GetAccessPointsAccessPointArray{ GetAccessPointsAccessPointArgs{...} }
+type GetAccessPointsAccessPointArrayInput interface {
+	pulumi.Input
+
+	ToGetAccessPointsAccessPointArrayOutput() GetAccessPointsAccessPointArrayOutput
+	ToGetAccessPointsAccessPointArrayOutputWithContext(context.Context) GetAccessPointsAccessPointArrayOutput
+}
+
+type GetAccessPointsAccessPointArray []GetAccessPointsAccessPointInput
+
+func (GetAccessPointsAccessPointArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAccessPointsAccessPoint)(nil)).Elem()
+}
+
+func (i GetAccessPointsAccessPointArray) ToGetAccessPointsAccessPointArrayOutput() GetAccessPointsAccessPointArrayOutput {
+	return i.ToGetAccessPointsAccessPointArrayOutputWithContext(context.Background())
+}
+
+func (i GetAccessPointsAccessPointArray) ToGetAccessPointsAccessPointArrayOutputWithContext(ctx context.Context) GetAccessPointsAccessPointArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAccessPointsAccessPointArrayOutput)
+}
+
+type GetAccessPointsAccessPointOutput struct{ *pulumi.OutputState }
+
+func (GetAccessPointsAccessPointOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAccessPointsAccessPoint)(nil)).Elem()
+}
+
+func (o GetAccessPointsAccessPointOutput) ToGetAccessPointsAccessPointOutput() GetAccessPointsAccessPointOutput {
+	return o
+}
+
+func (o GetAccessPointsAccessPointOutput) ToGetAccessPointsAccessPointOutputWithContext(ctx context.Context) GetAccessPointsAccessPointOutput {
+	return o
+}
+
+// Access point ARN.
+func (o GetAccessPointsAccessPointOutput) AccessPointArn() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccessPointsAccessPoint) string { return v.AccessPointArn }).(pulumi.StringOutput)
+}
+
+// Access point alias.
+func (o GetAccessPointsAccessPointOutput) Alias() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccessPointsAccessPoint) string { return v.Alias }).(pulumi.StringOutput)
+}
+
+// Name of the bucket associated with the access points.
+func (o GetAccessPointsAccessPointOutput) Bucket() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccessPointsAccessPoint) string { return v.Bucket }).(pulumi.StringOutput)
+}
+
+// AWS account ID associated with the S3 bucket associated with the access point.
+func (o GetAccessPointsAccessPointOutput) BucketAccountId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccessPointsAccessPoint) string { return v.BucketAccountId }).(pulumi.StringOutput)
+}
+
+// Unique identifier for the access points data source.
+func (o GetAccessPointsAccessPointOutput) DataSourceId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccessPointsAccessPoint) string { return v.DataSourceId }).(pulumi.StringOutput)
+}
+
+// Type of the data source that the access points are attached to. To return all access points set this argument to `ALL`.
+func (o GetAccessPointsAccessPointOutput) DataSourceType() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccessPointsAccessPoint) string { return v.DataSourceType }).(pulumi.StringOutput)
+}
+
+// Name of the access point.
+func (o GetAccessPointsAccessPointOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccessPointsAccessPoint) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Indicates whether the access point allows access from the public Internet.
+func (o GetAccessPointsAccessPointOutput) NetworkOrigin() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccessPointsAccessPoint) string { return v.NetworkOrigin }).(pulumi.StringOutput)
+}
+
+// VPC configuration for the access point. See `vpcConfiguration` below.
+func (o GetAccessPointsAccessPointOutput) VpcConfigurations() GetAccessPointsAccessPointVpcConfigurationArrayOutput {
+	return o.ApplyT(func(v GetAccessPointsAccessPoint) []GetAccessPointsAccessPointVpcConfiguration {
+		return v.VpcConfigurations
+	}).(GetAccessPointsAccessPointVpcConfigurationArrayOutput)
+}
+
+type GetAccessPointsAccessPointArrayOutput struct{ *pulumi.OutputState }
+
+func (GetAccessPointsAccessPointArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAccessPointsAccessPoint)(nil)).Elem()
+}
+
+func (o GetAccessPointsAccessPointArrayOutput) ToGetAccessPointsAccessPointArrayOutput() GetAccessPointsAccessPointArrayOutput {
+	return o
+}
+
+func (o GetAccessPointsAccessPointArrayOutput) ToGetAccessPointsAccessPointArrayOutputWithContext(ctx context.Context) GetAccessPointsAccessPointArrayOutput {
+	return o
+}
+
+func (o GetAccessPointsAccessPointArrayOutput) Index(i pulumi.IntInput) GetAccessPointsAccessPointOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetAccessPointsAccessPoint {
+		return vs[0].([]GetAccessPointsAccessPoint)[vs[1].(int)]
+	}).(GetAccessPointsAccessPointOutput)
+}
+
+type GetAccessPointsAccessPointVpcConfiguration struct {
+	// Access point will only allow connections from this VPC.
+	VpcId string `pulumi:"vpcId"`
+}
+
+// GetAccessPointsAccessPointVpcConfigurationInput is an input type that accepts GetAccessPointsAccessPointVpcConfigurationArgs and GetAccessPointsAccessPointVpcConfigurationOutput values.
+// You can construct a concrete instance of `GetAccessPointsAccessPointVpcConfigurationInput` via:
+//
+//	GetAccessPointsAccessPointVpcConfigurationArgs{...}
+type GetAccessPointsAccessPointVpcConfigurationInput interface {
+	pulumi.Input
+
+	ToGetAccessPointsAccessPointVpcConfigurationOutput() GetAccessPointsAccessPointVpcConfigurationOutput
+	ToGetAccessPointsAccessPointVpcConfigurationOutputWithContext(context.Context) GetAccessPointsAccessPointVpcConfigurationOutput
+}
+
+type GetAccessPointsAccessPointVpcConfigurationArgs struct {
+	// Access point will only allow connections from this VPC.
+	VpcId pulumi.StringInput `pulumi:"vpcId"`
+}
+
+func (GetAccessPointsAccessPointVpcConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAccessPointsAccessPointVpcConfiguration)(nil)).Elem()
+}
+
+func (i GetAccessPointsAccessPointVpcConfigurationArgs) ToGetAccessPointsAccessPointVpcConfigurationOutput() GetAccessPointsAccessPointVpcConfigurationOutput {
+	return i.ToGetAccessPointsAccessPointVpcConfigurationOutputWithContext(context.Background())
+}
+
+func (i GetAccessPointsAccessPointVpcConfigurationArgs) ToGetAccessPointsAccessPointVpcConfigurationOutputWithContext(ctx context.Context) GetAccessPointsAccessPointVpcConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAccessPointsAccessPointVpcConfigurationOutput)
+}
+
+// GetAccessPointsAccessPointVpcConfigurationArrayInput is an input type that accepts GetAccessPointsAccessPointVpcConfigurationArray and GetAccessPointsAccessPointVpcConfigurationArrayOutput values.
+// You can construct a concrete instance of `GetAccessPointsAccessPointVpcConfigurationArrayInput` via:
+//
+//	GetAccessPointsAccessPointVpcConfigurationArray{ GetAccessPointsAccessPointVpcConfigurationArgs{...} }
+type GetAccessPointsAccessPointVpcConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToGetAccessPointsAccessPointVpcConfigurationArrayOutput() GetAccessPointsAccessPointVpcConfigurationArrayOutput
+	ToGetAccessPointsAccessPointVpcConfigurationArrayOutputWithContext(context.Context) GetAccessPointsAccessPointVpcConfigurationArrayOutput
+}
+
+type GetAccessPointsAccessPointVpcConfigurationArray []GetAccessPointsAccessPointVpcConfigurationInput
+
+func (GetAccessPointsAccessPointVpcConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAccessPointsAccessPointVpcConfiguration)(nil)).Elem()
+}
+
+func (i GetAccessPointsAccessPointVpcConfigurationArray) ToGetAccessPointsAccessPointVpcConfigurationArrayOutput() GetAccessPointsAccessPointVpcConfigurationArrayOutput {
+	return i.ToGetAccessPointsAccessPointVpcConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i GetAccessPointsAccessPointVpcConfigurationArray) ToGetAccessPointsAccessPointVpcConfigurationArrayOutputWithContext(ctx context.Context) GetAccessPointsAccessPointVpcConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAccessPointsAccessPointVpcConfigurationArrayOutput)
+}
+
+type GetAccessPointsAccessPointVpcConfigurationOutput struct{ *pulumi.OutputState }
+
+func (GetAccessPointsAccessPointVpcConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAccessPointsAccessPointVpcConfiguration)(nil)).Elem()
+}
+
+func (o GetAccessPointsAccessPointVpcConfigurationOutput) ToGetAccessPointsAccessPointVpcConfigurationOutput() GetAccessPointsAccessPointVpcConfigurationOutput {
+	return o
+}
+
+func (o GetAccessPointsAccessPointVpcConfigurationOutput) ToGetAccessPointsAccessPointVpcConfigurationOutputWithContext(ctx context.Context) GetAccessPointsAccessPointVpcConfigurationOutput {
+	return o
+}
+
+// Access point will only allow connections from this VPC.
+func (o GetAccessPointsAccessPointVpcConfigurationOutput) VpcId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccessPointsAccessPointVpcConfiguration) string { return v.VpcId }).(pulumi.StringOutput)
+}
+
+type GetAccessPointsAccessPointVpcConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (GetAccessPointsAccessPointVpcConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAccessPointsAccessPointVpcConfiguration)(nil)).Elem()
+}
+
+func (o GetAccessPointsAccessPointVpcConfigurationArrayOutput) ToGetAccessPointsAccessPointVpcConfigurationArrayOutput() GetAccessPointsAccessPointVpcConfigurationArrayOutput {
+	return o
+}
+
+func (o GetAccessPointsAccessPointVpcConfigurationArrayOutput) ToGetAccessPointsAccessPointVpcConfigurationArrayOutputWithContext(ctx context.Context) GetAccessPointsAccessPointVpcConfigurationArrayOutput {
+	return o
+}
+
+func (o GetAccessPointsAccessPointVpcConfigurationArrayOutput) Index(i pulumi.IntInput) GetAccessPointsAccessPointVpcConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetAccessPointsAccessPointVpcConfiguration {
+		return vs[0].([]GetAccessPointsAccessPointVpcConfiguration)[vs[1].(int)]
+	}).(GetAccessPointsAccessPointVpcConfigurationOutput)
+}
+
 type GetMultiRegionAccessPointPublicAccessBlock struct {
 	// Specifies whether Amazon S3 should block public access control lists (ACLs). When set to `true` causes the following behavior:
 	// * PUT Bucket acl and PUT Object acl calls fail if the specified ACL is public.
@@ -6036,6 +6304,391 @@ func (o GetMultiRegionAccessPointRegionArrayOutput) Index(i pulumi.IntInput) Get
 	}).(GetMultiRegionAccessPointRegionOutput)
 }
 
+type GetMultiRegionAccessPointsAccessPoint struct {
+	// Alias for the multi-region access point.
+	Alias string `pulumi:"alias"`
+	// Time the multi-region access point was created.
+	CreatedAt string `pulumi:"createdAt"`
+	// Name of the multi-region access point.
+	Name string `pulumi:"name"`
+	// Public access block configuration for this multi-region access point. See `publicAccessBlock` below.
+	PublicAccessBlocks []GetMultiRegionAccessPointsAccessPointPublicAccessBlock `pulumi:"publicAccessBlocks"`
+	// List of AWS Regions where the multi-region access point has data support. See `regions` below.
+	Regions []GetMultiRegionAccessPointsAccessPointRegion `pulumi:"regions"`
+	// Current status of the multi-region access point.
+	Status string `pulumi:"status"`
+}
+
+// GetMultiRegionAccessPointsAccessPointInput is an input type that accepts GetMultiRegionAccessPointsAccessPointArgs and GetMultiRegionAccessPointsAccessPointOutput values.
+// You can construct a concrete instance of `GetMultiRegionAccessPointsAccessPointInput` via:
+//
+//	GetMultiRegionAccessPointsAccessPointArgs{...}
+type GetMultiRegionAccessPointsAccessPointInput interface {
+	pulumi.Input
+
+	ToGetMultiRegionAccessPointsAccessPointOutput() GetMultiRegionAccessPointsAccessPointOutput
+	ToGetMultiRegionAccessPointsAccessPointOutputWithContext(context.Context) GetMultiRegionAccessPointsAccessPointOutput
+}
+
+type GetMultiRegionAccessPointsAccessPointArgs struct {
+	// Alias for the multi-region access point.
+	Alias pulumi.StringInput `pulumi:"alias"`
+	// Time the multi-region access point was created.
+	CreatedAt pulumi.StringInput `pulumi:"createdAt"`
+	// Name of the multi-region access point.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Public access block configuration for this multi-region access point. See `publicAccessBlock` below.
+	PublicAccessBlocks GetMultiRegionAccessPointsAccessPointPublicAccessBlockArrayInput `pulumi:"publicAccessBlocks"`
+	// List of AWS Regions where the multi-region access point has data support. See `regions` below.
+	Regions GetMultiRegionAccessPointsAccessPointRegionArrayInput `pulumi:"regions"`
+	// Current status of the multi-region access point.
+	Status pulumi.StringInput `pulumi:"status"`
+}
+
+func (GetMultiRegionAccessPointsAccessPointArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetMultiRegionAccessPointsAccessPoint)(nil)).Elem()
+}
+
+func (i GetMultiRegionAccessPointsAccessPointArgs) ToGetMultiRegionAccessPointsAccessPointOutput() GetMultiRegionAccessPointsAccessPointOutput {
+	return i.ToGetMultiRegionAccessPointsAccessPointOutputWithContext(context.Background())
+}
+
+func (i GetMultiRegionAccessPointsAccessPointArgs) ToGetMultiRegionAccessPointsAccessPointOutputWithContext(ctx context.Context) GetMultiRegionAccessPointsAccessPointOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetMultiRegionAccessPointsAccessPointOutput)
+}
+
+// GetMultiRegionAccessPointsAccessPointArrayInput is an input type that accepts GetMultiRegionAccessPointsAccessPointArray and GetMultiRegionAccessPointsAccessPointArrayOutput values.
+// You can construct a concrete instance of `GetMultiRegionAccessPointsAccessPointArrayInput` via:
+//
+//	GetMultiRegionAccessPointsAccessPointArray{ GetMultiRegionAccessPointsAccessPointArgs{...} }
+type GetMultiRegionAccessPointsAccessPointArrayInput interface {
+	pulumi.Input
+
+	ToGetMultiRegionAccessPointsAccessPointArrayOutput() GetMultiRegionAccessPointsAccessPointArrayOutput
+	ToGetMultiRegionAccessPointsAccessPointArrayOutputWithContext(context.Context) GetMultiRegionAccessPointsAccessPointArrayOutput
+}
+
+type GetMultiRegionAccessPointsAccessPointArray []GetMultiRegionAccessPointsAccessPointInput
+
+func (GetMultiRegionAccessPointsAccessPointArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetMultiRegionAccessPointsAccessPoint)(nil)).Elem()
+}
+
+func (i GetMultiRegionAccessPointsAccessPointArray) ToGetMultiRegionAccessPointsAccessPointArrayOutput() GetMultiRegionAccessPointsAccessPointArrayOutput {
+	return i.ToGetMultiRegionAccessPointsAccessPointArrayOutputWithContext(context.Background())
+}
+
+func (i GetMultiRegionAccessPointsAccessPointArray) ToGetMultiRegionAccessPointsAccessPointArrayOutputWithContext(ctx context.Context) GetMultiRegionAccessPointsAccessPointArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetMultiRegionAccessPointsAccessPointArrayOutput)
+}
+
+type GetMultiRegionAccessPointsAccessPointOutput struct{ *pulumi.OutputState }
+
+func (GetMultiRegionAccessPointsAccessPointOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetMultiRegionAccessPointsAccessPoint)(nil)).Elem()
+}
+
+func (o GetMultiRegionAccessPointsAccessPointOutput) ToGetMultiRegionAccessPointsAccessPointOutput() GetMultiRegionAccessPointsAccessPointOutput {
+	return o
+}
+
+func (o GetMultiRegionAccessPointsAccessPointOutput) ToGetMultiRegionAccessPointsAccessPointOutputWithContext(ctx context.Context) GetMultiRegionAccessPointsAccessPointOutput {
+	return o
+}
+
+// Alias for the multi-region access point.
+func (o GetMultiRegionAccessPointsAccessPointOutput) Alias() pulumi.StringOutput {
+	return o.ApplyT(func(v GetMultiRegionAccessPointsAccessPoint) string { return v.Alias }).(pulumi.StringOutput)
+}
+
+// Time the multi-region access point was created.
+func (o GetMultiRegionAccessPointsAccessPointOutput) CreatedAt() pulumi.StringOutput {
+	return o.ApplyT(func(v GetMultiRegionAccessPointsAccessPoint) string { return v.CreatedAt }).(pulumi.StringOutput)
+}
+
+// Name of the multi-region access point.
+func (o GetMultiRegionAccessPointsAccessPointOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetMultiRegionAccessPointsAccessPoint) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Public access block configuration for this multi-region access point. See `publicAccessBlock` below.
+func (o GetMultiRegionAccessPointsAccessPointOutput) PublicAccessBlocks() GetMultiRegionAccessPointsAccessPointPublicAccessBlockArrayOutput {
+	return o.ApplyT(func(v GetMultiRegionAccessPointsAccessPoint) []GetMultiRegionAccessPointsAccessPointPublicAccessBlock {
+		return v.PublicAccessBlocks
+	}).(GetMultiRegionAccessPointsAccessPointPublicAccessBlockArrayOutput)
+}
+
+// List of AWS Regions where the multi-region access point has data support. See `regions` below.
+func (o GetMultiRegionAccessPointsAccessPointOutput) Regions() GetMultiRegionAccessPointsAccessPointRegionArrayOutput {
+	return o.ApplyT(func(v GetMultiRegionAccessPointsAccessPoint) []GetMultiRegionAccessPointsAccessPointRegion {
+		return v.Regions
+	}).(GetMultiRegionAccessPointsAccessPointRegionArrayOutput)
+}
+
+// Current status of the multi-region access point.
+func (o GetMultiRegionAccessPointsAccessPointOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v GetMultiRegionAccessPointsAccessPoint) string { return v.Status }).(pulumi.StringOutput)
+}
+
+type GetMultiRegionAccessPointsAccessPointArrayOutput struct{ *pulumi.OutputState }
+
+func (GetMultiRegionAccessPointsAccessPointArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetMultiRegionAccessPointsAccessPoint)(nil)).Elem()
+}
+
+func (o GetMultiRegionAccessPointsAccessPointArrayOutput) ToGetMultiRegionAccessPointsAccessPointArrayOutput() GetMultiRegionAccessPointsAccessPointArrayOutput {
+	return o
+}
+
+func (o GetMultiRegionAccessPointsAccessPointArrayOutput) ToGetMultiRegionAccessPointsAccessPointArrayOutputWithContext(ctx context.Context) GetMultiRegionAccessPointsAccessPointArrayOutput {
+	return o
+}
+
+func (o GetMultiRegionAccessPointsAccessPointArrayOutput) Index(i pulumi.IntInput) GetMultiRegionAccessPointsAccessPointOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetMultiRegionAccessPointsAccessPoint {
+		return vs[0].([]GetMultiRegionAccessPointsAccessPoint)[vs[1].(int)]
+	}).(GetMultiRegionAccessPointsAccessPointOutput)
+}
+
+type GetMultiRegionAccessPointsAccessPointPublicAccessBlock struct {
+	// Whether Amazon S3 should block public ACLs for buckets in this account.
+	BlockPublicAcls bool `pulumi:"blockPublicAcls"`
+	// Whether Amazon S3 should block public bucket policies for buckets in this account.
+	BlockPublicPolicy bool `pulumi:"blockPublicPolicy"`
+	// Whether Amazon S3 should ignore public ACLs for buckets in this account.
+	IgnorePublicAcls bool `pulumi:"ignorePublicAcls"`
+	// Whether Amazon S3 should restrict public bucket policies for buckets in this account.
+	RestrictPublicBuckets bool `pulumi:"restrictPublicBuckets"`
+}
+
+// GetMultiRegionAccessPointsAccessPointPublicAccessBlockInput is an input type that accepts GetMultiRegionAccessPointsAccessPointPublicAccessBlockArgs and GetMultiRegionAccessPointsAccessPointPublicAccessBlockOutput values.
+// You can construct a concrete instance of `GetMultiRegionAccessPointsAccessPointPublicAccessBlockInput` via:
+//
+//	GetMultiRegionAccessPointsAccessPointPublicAccessBlockArgs{...}
+type GetMultiRegionAccessPointsAccessPointPublicAccessBlockInput interface {
+	pulumi.Input
+
+	ToGetMultiRegionAccessPointsAccessPointPublicAccessBlockOutput() GetMultiRegionAccessPointsAccessPointPublicAccessBlockOutput
+	ToGetMultiRegionAccessPointsAccessPointPublicAccessBlockOutputWithContext(context.Context) GetMultiRegionAccessPointsAccessPointPublicAccessBlockOutput
+}
+
+type GetMultiRegionAccessPointsAccessPointPublicAccessBlockArgs struct {
+	// Whether Amazon S3 should block public ACLs for buckets in this account.
+	BlockPublicAcls pulumi.BoolInput `pulumi:"blockPublicAcls"`
+	// Whether Amazon S3 should block public bucket policies for buckets in this account.
+	BlockPublicPolicy pulumi.BoolInput `pulumi:"blockPublicPolicy"`
+	// Whether Amazon S3 should ignore public ACLs for buckets in this account.
+	IgnorePublicAcls pulumi.BoolInput `pulumi:"ignorePublicAcls"`
+	// Whether Amazon S3 should restrict public bucket policies for buckets in this account.
+	RestrictPublicBuckets pulumi.BoolInput `pulumi:"restrictPublicBuckets"`
+}
+
+func (GetMultiRegionAccessPointsAccessPointPublicAccessBlockArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetMultiRegionAccessPointsAccessPointPublicAccessBlock)(nil)).Elem()
+}
+
+func (i GetMultiRegionAccessPointsAccessPointPublicAccessBlockArgs) ToGetMultiRegionAccessPointsAccessPointPublicAccessBlockOutput() GetMultiRegionAccessPointsAccessPointPublicAccessBlockOutput {
+	return i.ToGetMultiRegionAccessPointsAccessPointPublicAccessBlockOutputWithContext(context.Background())
+}
+
+func (i GetMultiRegionAccessPointsAccessPointPublicAccessBlockArgs) ToGetMultiRegionAccessPointsAccessPointPublicAccessBlockOutputWithContext(ctx context.Context) GetMultiRegionAccessPointsAccessPointPublicAccessBlockOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetMultiRegionAccessPointsAccessPointPublicAccessBlockOutput)
+}
+
+// GetMultiRegionAccessPointsAccessPointPublicAccessBlockArrayInput is an input type that accepts GetMultiRegionAccessPointsAccessPointPublicAccessBlockArray and GetMultiRegionAccessPointsAccessPointPublicAccessBlockArrayOutput values.
+// You can construct a concrete instance of `GetMultiRegionAccessPointsAccessPointPublicAccessBlockArrayInput` via:
+//
+//	GetMultiRegionAccessPointsAccessPointPublicAccessBlockArray{ GetMultiRegionAccessPointsAccessPointPublicAccessBlockArgs{...} }
+type GetMultiRegionAccessPointsAccessPointPublicAccessBlockArrayInput interface {
+	pulumi.Input
+
+	ToGetMultiRegionAccessPointsAccessPointPublicAccessBlockArrayOutput() GetMultiRegionAccessPointsAccessPointPublicAccessBlockArrayOutput
+	ToGetMultiRegionAccessPointsAccessPointPublicAccessBlockArrayOutputWithContext(context.Context) GetMultiRegionAccessPointsAccessPointPublicAccessBlockArrayOutput
+}
+
+type GetMultiRegionAccessPointsAccessPointPublicAccessBlockArray []GetMultiRegionAccessPointsAccessPointPublicAccessBlockInput
+
+func (GetMultiRegionAccessPointsAccessPointPublicAccessBlockArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetMultiRegionAccessPointsAccessPointPublicAccessBlock)(nil)).Elem()
+}
+
+func (i GetMultiRegionAccessPointsAccessPointPublicAccessBlockArray) ToGetMultiRegionAccessPointsAccessPointPublicAccessBlockArrayOutput() GetMultiRegionAccessPointsAccessPointPublicAccessBlockArrayOutput {
+	return i.ToGetMultiRegionAccessPointsAccessPointPublicAccessBlockArrayOutputWithContext(context.Background())
+}
+
+func (i GetMultiRegionAccessPointsAccessPointPublicAccessBlockArray) ToGetMultiRegionAccessPointsAccessPointPublicAccessBlockArrayOutputWithContext(ctx context.Context) GetMultiRegionAccessPointsAccessPointPublicAccessBlockArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetMultiRegionAccessPointsAccessPointPublicAccessBlockArrayOutput)
+}
+
+type GetMultiRegionAccessPointsAccessPointPublicAccessBlockOutput struct{ *pulumi.OutputState }
+
+func (GetMultiRegionAccessPointsAccessPointPublicAccessBlockOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetMultiRegionAccessPointsAccessPointPublicAccessBlock)(nil)).Elem()
+}
+
+func (o GetMultiRegionAccessPointsAccessPointPublicAccessBlockOutput) ToGetMultiRegionAccessPointsAccessPointPublicAccessBlockOutput() GetMultiRegionAccessPointsAccessPointPublicAccessBlockOutput {
+	return o
+}
+
+func (o GetMultiRegionAccessPointsAccessPointPublicAccessBlockOutput) ToGetMultiRegionAccessPointsAccessPointPublicAccessBlockOutputWithContext(ctx context.Context) GetMultiRegionAccessPointsAccessPointPublicAccessBlockOutput {
+	return o
+}
+
+// Whether Amazon S3 should block public ACLs for buckets in this account.
+func (o GetMultiRegionAccessPointsAccessPointPublicAccessBlockOutput) BlockPublicAcls() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetMultiRegionAccessPointsAccessPointPublicAccessBlock) bool { return v.BlockPublicAcls }).(pulumi.BoolOutput)
+}
+
+// Whether Amazon S3 should block public bucket policies for buckets in this account.
+func (o GetMultiRegionAccessPointsAccessPointPublicAccessBlockOutput) BlockPublicPolicy() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetMultiRegionAccessPointsAccessPointPublicAccessBlock) bool { return v.BlockPublicPolicy }).(pulumi.BoolOutput)
+}
+
+// Whether Amazon S3 should ignore public ACLs for buckets in this account.
+func (o GetMultiRegionAccessPointsAccessPointPublicAccessBlockOutput) IgnorePublicAcls() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetMultiRegionAccessPointsAccessPointPublicAccessBlock) bool { return v.IgnorePublicAcls }).(pulumi.BoolOutput)
+}
+
+// Whether Amazon S3 should restrict public bucket policies for buckets in this account.
+func (o GetMultiRegionAccessPointsAccessPointPublicAccessBlockOutput) RestrictPublicBuckets() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetMultiRegionAccessPointsAccessPointPublicAccessBlock) bool { return v.RestrictPublicBuckets }).(pulumi.BoolOutput)
+}
+
+type GetMultiRegionAccessPointsAccessPointPublicAccessBlockArrayOutput struct{ *pulumi.OutputState }
+
+func (GetMultiRegionAccessPointsAccessPointPublicAccessBlockArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetMultiRegionAccessPointsAccessPointPublicAccessBlock)(nil)).Elem()
+}
+
+func (o GetMultiRegionAccessPointsAccessPointPublicAccessBlockArrayOutput) ToGetMultiRegionAccessPointsAccessPointPublicAccessBlockArrayOutput() GetMultiRegionAccessPointsAccessPointPublicAccessBlockArrayOutput {
+	return o
+}
+
+func (o GetMultiRegionAccessPointsAccessPointPublicAccessBlockArrayOutput) ToGetMultiRegionAccessPointsAccessPointPublicAccessBlockArrayOutputWithContext(ctx context.Context) GetMultiRegionAccessPointsAccessPointPublicAccessBlockArrayOutput {
+	return o
+}
+
+func (o GetMultiRegionAccessPointsAccessPointPublicAccessBlockArrayOutput) Index(i pulumi.IntInput) GetMultiRegionAccessPointsAccessPointPublicAccessBlockOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetMultiRegionAccessPointsAccessPointPublicAccessBlock {
+		return vs[0].([]GetMultiRegionAccessPointsAccessPointPublicAccessBlock)[vs[1].(int)]
+	}).(GetMultiRegionAccessPointsAccessPointPublicAccessBlockOutput)
+}
+
+type GetMultiRegionAccessPointsAccessPointRegion struct {
+	// Name of the associated bucket for the Region.
+	Bucket string `pulumi:"bucket"`
+	// AWS account ID that owns the Amazon S3 bucket associated with this multi-region access point.
+	BucketAccountId string `pulumi:"bucketAccountId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region string `pulumi:"region"`
+}
+
+// GetMultiRegionAccessPointsAccessPointRegionInput is an input type that accepts GetMultiRegionAccessPointsAccessPointRegionArgs and GetMultiRegionAccessPointsAccessPointRegionOutput values.
+// You can construct a concrete instance of `GetMultiRegionAccessPointsAccessPointRegionInput` via:
+//
+//	GetMultiRegionAccessPointsAccessPointRegionArgs{...}
+type GetMultiRegionAccessPointsAccessPointRegionInput interface {
+	pulumi.Input
+
+	ToGetMultiRegionAccessPointsAccessPointRegionOutput() GetMultiRegionAccessPointsAccessPointRegionOutput
+	ToGetMultiRegionAccessPointsAccessPointRegionOutputWithContext(context.Context) GetMultiRegionAccessPointsAccessPointRegionOutput
+}
+
+type GetMultiRegionAccessPointsAccessPointRegionArgs struct {
+	// Name of the associated bucket for the Region.
+	Bucket pulumi.StringInput `pulumi:"bucket"`
+	// AWS account ID that owns the Amazon S3 bucket associated with this multi-region access point.
+	BucketAccountId pulumi.StringInput `pulumi:"bucketAccountId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	Region pulumi.StringInput `pulumi:"region"`
+}
+
+func (GetMultiRegionAccessPointsAccessPointRegionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetMultiRegionAccessPointsAccessPointRegion)(nil)).Elem()
+}
+
+func (i GetMultiRegionAccessPointsAccessPointRegionArgs) ToGetMultiRegionAccessPointsAccessPointRegionOutput() GetMultiRegionAccessPointsAccessPointRegionOutput {
+	return i.ToGetMultiRegionAccessPointsAccessPointRegionOutputWithContext(context.Background())
+}
+
+func (i GetMultiRegionAccessPointsAccessPointRegionArgs) ToGetMultiRegionAccessPointsAccessPointRegionOutputWithContext(ctx context.Context) GetMultiRegionAccessPointsAccessPointRegionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetMultiRegionAccessPointsAccessPointRegionOutput)
+}
+
+// GetMultiRegionAccessPointsAccessPointRegionArrayInput is an input type that accepts GetMultiRegionAccessPointsAccessPointRegionArray and GetMultiRegionAccessPointsAccessPointRegionArrayOutput values.
+// You can construct a concrete instance of `GetMultiRegionAccessPointsAccessPointRegionArrayInput` via:
+//
+//	GetMultiRegionAccessPointsAccessPointRegionArray{ GetMultiRegionAccessPointsAccessPointRegionArgs{...} }
+type GetMultiRegionAccessPointsAccessPointRegionArrayInput interface {
+	pulumi.Input
+
+	ToGetMultiRegionAccessPointsAccessPointRegionArrayOutput() GetMultiRegionAccessPointsAccessPointRegionArrayOutput
+	ToGetMultiRegionAccessPointsAccessPointRegionArrayOutputWithContext(context.Context) GetMultiRegionAccessPointsAccessPointRegionArrayOutput
+}
+
+type GetMultiRegionAccessPointsAccessPointRegionArray []GetMultiRegionAccessPointsAccessPointRegionInput
+
+func (GetMultiRegionAccessPointsAccessPointRegionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetMultiRegionAccessPointsAccessPointRegion)(nil)).Elem()
+}
+
+func (i GetMultiRegionAccessPointsAccessPointRegionArray) ToGetMultiRegionAccessPointsAccessPointRegionArrayOutput() GetMultiRegionAccessPointsAccessPointRegionArrayOutput {
+	return i.ToGetMultiRegionAccessPointsAccessPointRegionArrayOutputWithContext(context.Background())
+}
+
+func (i GetMultiRegionAccessPointsAccessPointRegionArray) ToGetMultiRegionAccessPointsAccessPointRegionArrayOutputWithContext(ctx context.Context) GetMultiRegionAccessPointsAccessPointRegionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetMultiRegionAccessPointsAccessPointRegionArrayOutput)
+}
+
+type GetMultiRegionAccessPointsAccessPointRegionOutput struct{ *pulumi.OutputState }
+
+func (GetMultiRegionAccessPointsAccessPointRegionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetMultiRegionAccessPointsAccessPointRegion)(nil)).Elem()
+}
+
+func (o GetMultiRegionAccessPointsAccessPointRegionOutput) ToGetMultiRegionAccessPointsAccessPointRegionOutput() GetMultiRegionAccessPointsAccessPointRegionOutput {
+	return o
+}
+
+func (o GetMultiRegionAccessPointsAccessPointRegionOutput) ToGetMultiRegionAccessPointsAccessPointRegionOutputWithContext(ctx context.Context) GetMultiRegionAccessPointsAccessPointRegionOutput {
+	return o
+}
+
+// Name of the associated bucket for the Region.
+func (o GetMultiRegionAccessPointsAccessPointRegionOutput) Bucket() pulumi.StringOutput {
+	return o.ApplyT(func(v GetMultiRegionAccessPointsAccessPointRegion) string { return v.Bucket }).(pulumi.StringOutput)
+}
+
+// AWS account ID that owns the Amazon S3 bucket associated with this multi-region access point.
+func (o GetMultiRegionAccessPointsAccessPointRegionOutput) BucketAccountId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetMultiRegionAccessPointsAccessPointRegion) string { return v.BucketAccountId }).(pulumi.StringOutput)
+}
+
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+func (o GetMultiRegionAccessPointsAccessPointRegionOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v GetMultiRegionAccessPointsAccessPointRegion) string { return v.Region }).(pulumi.StringOutput)
+}
+
+type GetMultiRegionAccessPointsAccessPointRegionArrayOutput struct{ *pulumi.OutputState }
+
+func (GetMultiRegionAccessPointsAccessPointRegionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetMultiRegionAccessPointsAccessPointRegion)(nil)).Elem()
+}
+
+func (o GetMultiRegionAccessPointsAccessPointRegionArrayOutput) ToGetMultiRegionAccessPointsAccessPointRegionArrayOutput() GetMultiRegionAccessPointsAccessPointRegionArrayOutput {
+	return o
+}
+
+func (o GetMultiRegionAccessPointsAccessPointRegionArrayOutput) ToGetMultiRegionAccessPointsAccessPointRegionArrayOutputWithContext(ctx context.Context) GetMultiRegionAccessPointsAccessPointRegionArrayOutput {
+	return o
+}
+
+func (o GetMultiRegionAccessPointsAccessPointRegionArrayOutput) Index(i pulumi.IntInput) GetMultiRegionAccessPointsAccessPointRegionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetMultiRegionAccessPointsAccessPointRegion {
+		return vs[0].([]GetMultiRegionAccessPointsAccessPointRegion)[vs[1].(int)]
+	}).(GetMultiRegionAccessPointsAccessPointRegionOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AccessGrantAccessGrantsLocationConfigurationInput)(nil)).Elem(), AccessGrantAccessGrantsLocationConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AccessGrantAccessGrantsLocationConfigurationPtrInput)(nil)).Elem(), AccessGrantAccessGrantsLocationConfigurationArgs{})
@@ -6111,10 +6764,20 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*StorageLensConfigurationStorageLensConfigurationExcludePtrInput)(nil)).Elem(), StorageLensConfigurationStorageLensConfigurationExcludeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StorageLensConfigurationStorageLensConfigurationIncludeInput)(nil)).Elem(), StorageLensConfigurationStorageLensConfigurationIncludeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StorageLensConfigurationStorageLensConfigurationIncludePtrInput)(nil)).Elem(), StorageLensConfigurationStorageLensConfigurationIncludeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAccessPointsAccessPointInput)(nil)).Elem(), GetAccessPointsAccessPointArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAccessPointsAccessPointArrayInput)(nil)).Elem(), GetAccessPointsAccessPointArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAccessPointsAccessPointVpcConfigurationInput)(nil)).Elem(), GetAccessPointsAccessPointVpcConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAccessPointsAccessPointVpcConfigurationArrayInput)(nil)).Elem(), GetAccessPointsAccessPointVpcConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetMultiRegionAccessPointPublicAccessBlockInput)(nil)).Elem(), GetMultiRegionAccessPointPublicAccessBlockArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetMultiRegionAccessPointPublicAccessBlockArrayInput)(nil)).Elem(), GetMultiRegionAccessPointPublicAccessBlockArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetMultiRegionAccessPointRegionInput)(nil)).Elem(), GetMultiRegionAccessPointRegionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetMultiRegionAccessPointRegionArrayInput)(nil)).Elem(), GetMultiRegionAccessPointRegionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetMultiRegionAccessPointsAccessPointInput)(nil)).Elem(), GetMultiRegionAccessPointsAccessPointArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetMultiRegionAccessPointsAccessPointArrayInput)(nil)).Elem(), GetMultiRegionAccessPointsAccessPointArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetMultiRegionAccessPointsAccessPointPublicAccessBlockInput)(nil)).Elem(), GetMultiRegionAccessPointsAccessPointPublicAccessBlockArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetMultiRegionAccessPointsAccessPointPublicAccessBlockArrayInput)(nil)).Elem(), GetMultiRegionAccessPointsAccessPointPublicAccessBlockArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetMultiRegionAccessPointsAccessPointRegionInput)(nil)).Elem(), GetMultiRegionAccessPointsAccessPointRegionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetMultiRegionAccessPointsAccessPointRegionArrayInput)(nil)).Elem(), GetMultiRegionAccessPointsAccessPointRegionArray{})
 	pulumi.RegisterOutputType(AccessGrantAccessGrantsLocationConfigurationOutput{})
 	pulumi.RegisterOutputType(AccessGrantAccessGrantsLocationConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(AccessGrantGranteeOutput{})
@@ -6189,8 +6852,18 @@ func init() {
 	pulumi.RegisterOutputType(StorageLensConfigurationStorageLensConfigurationExcludePtrOutput{})
 	pulumi.RegisterOutputType(StorageLensConfigurationStorageLensConfigurationIncludeOutput{})
 	pulumi.RegisterOutputType(StorageLensConfigurationStorageLensConfigurationIncludePtrOutput{})
+	pulumi.RegisterOutputType(GetAccessPointsAccessPointOutput{})
+	pulumi.RegisterOutputType(GetAccessPointsAccessPointArrayOutput{})
+	pulumi.RegisterOutputType(GetAccessPointsAccessPointVpcConfigurationOutput{})
+	pulumi.RegisterOutputType(GetAccessPointsAccessPointVpcConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(GetMultiRegionAccessPointPublicAccessBlockOutput{})
 	pulumi.RegisterOutputType(GetMultiRegionAccessPointPublicAccessBlockArrayOutput{})
 	pulumi.RegisterOutputType(GetMultiRegionAccessPointRegionOutput{})
 	pulumi.RegisterOutputType(GetMultiRegionAccessPointRegionArrayOutput{})
+	pulumi.RegisterOutputType(GetMultiRegionAccessPointsAccessPointOutput{})
+	pulumi.RegisterOutputType(GetMultiRegionAccessPointsAccessPointArrayOutput{})
+	pulumi.RegisterOutputType(GetMultiRegionAccessPointsAccessPointPublicAccessBlockOutput{})
+	pulumi.RegisterOutputType(GetMultiRegionAccessPointsAccessPointPublicAccessBlockArrayOutput{})
+	pulumi.RegisterOutputType(GetMultiRegionAccessPointsAccessPointRegionOutput{})
+	pulumi.RegisterOutputType(GetMultiRegionAccessPointsAccessPointRegionArrayOutput{})
 }

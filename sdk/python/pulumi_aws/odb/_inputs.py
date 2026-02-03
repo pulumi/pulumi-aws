@@ -43,12 +43,16 @@ __all__ = [
     'CloudVmClusterTimeoutsArgsDict',
     'NetworkManagedServiceArgs',
     'NetworkManagedServiceArgsDict',
+    'NetworkManagedServiceKmsAccessArgs',
+    'NetworkManagedServiceKmsAccessArgsDict',
     'NetworkManagedServiceManagedS3BackupAccessArgs',
     'NetworkManagedServiceManagedS3BackupAccessArgsDict',
     'NetworkManagedServiceS3AccessArgs',
     'NetworkManagedServiceS3AccessArgsDict',
     'NetworkManagedServiceServiceNetworkEndpointArgs',
     'NetworkManagedServiceServiceNetworkEndpointArgsDict',
+    'NetworkManagedServiceStsAccessArgs',
+    'NetworkManagedServiceStsAccessArgsDict',
     'NetworkManagedServiceZeroEtlAccessArgs',
     'NetworkManagedServiceZeroEtlAccessArgsDict',
     'NetworkOciDnsForwardingConfigArgs',
@@ -860,6 +864,10 @@ class CloudVmClusterTimeoutsArgs:
 
 if not MYPY:
     class NetworkManagedServiceArgsDict(TypedDict):
+        kms_accesses: pulumi.Input[Sequence[pulumi.Input['NetworkManagedServiceKmsAccessArgsDict']]]
+        """
+        Specifies the configuration for KMS access from the ODB network.
+        """
         managed_s3_backup_accesses: pulumi.Input[Sequence[pulumi.Input['NetworkManagedServiceManagedS3BackupAccessArgsDict']]]
         managed_service_ipv4_cidrs: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
         resource_gateway_arn: pulumi.Input[_builtins.str]
@@ -869,6 +877,10 @@ if not MYPY:
         """
         service_network_arn: pulumi.Input[_builtins.str]
         service_network_endpoints: pulumi.Input[Sequence[pulumi.Input['NetworkManagedServiceServiceNetworkEndpointArgsDict']]]
+        sts_accesses: pulumi.Input[Sequence[pulumi.Input['NetworkManagedServiceStsAccessArgsDict']]]
+        """
+        Specifies the configuration for STS access from the ODB network.
+        """
         zero_etl_accesses: pulumi.Input[Sequence[pulumi.Input['NetworkManagedServiceZeroEtlAccessArgsDict']]]
         """
         Specifies the configuration for Zero-ETL access from the ODB network.
@@ -881,26 +893,44 @@ elif False:
 @pulumi.input_type
 class NetworkManagedServiceArgs:
     def __init__(__self__, *,
+                 kms_accesses: pulumi.Input[Sequence[pulumi.Input['NetworkManagedServiceKmsAccessArgs']]],
                  managed_s3_backup_accesses: pulumi.Input[Sequence[pulumi.Input['NetworkManagedServiceManagedS3BackupAccessArgs']]],
                  managed_service_ipv4_cidrs: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
                  resource_gateway_arn: pulumi.Input[_builtins.str],
                  s3_accesses: pulumi.Input[Sequence[pulumi.Input['NetworkManagedServiceS3AccessArgs']]],
                  service_network_arn: pulumi.Input[_builtins.str],
                  service_network_endpoints: pulumi.Input[Sequence[pulumi.Input['NetworkManagedServiceServiceNetworkEndpointArgs']]],
+                 sts_accesses: pulumi.Input[Sequence[pulumi.Input['NetworkManagedServiceStsAccessArgs']]],
                  zero_etl_accesses: pulumi.Input[Sequence[pulumi.Input['NetworkManagedServiceZeroEtlAccessArgs']]]):
         """
+        :param pulumi.Input[Sequence[pulumi.Input['NetworkManagedServiceKmsAccessArgs']]] kms_accesses: Specifies the configuration for KMS access from the ODB network.
         :param pulumi.Input[Sequence[pulumi.Input['NetworkManagedServiceS3AccessArgs']]] s3_accesses: Specifies the configuration for Amazon S3 access from the ODB network.
+        :param pulumi.Input[Sequence[pulumi.Input['NetworkManagedServiceStsAccessArgs']]] sts_accesses: Specifies the configuration for STS access from the ODB network.
         :param pulumi.Input[Sequence[pulumi.Input['NetworkManagedServiceZeroEtlAccessArgs']]] zero_etl_accesses: Specifies the configuration for Zero-ETL access from the ODB network.
                
                The following arguments are optional:
         """
+        pulumi.set(__self__, "kms_accesses", kms_accesses)
         pulumi.set(__self__, "managed_s3_backup_accesses", managed_s3_backup_accesses)
         pulumi.set(__self__, "managed_service_ipv4_cidrs", managed_service_ipv4_cidrs)
         pulumi.set(__self__, "resource_gateway_arn", resource_gateway_arn)
         pulumi.set(__self__, "s3_accesses", s3_accesses)
         pulumi.set(__self__, "service_network_arn", service_network_arn)
         pulumi.set(__self__, "service_network_endpoints", service_network_endpoints)
+        pulumi.set(__self__, "sts_accesses", sts_accesses)
         pulumi.set(__self__, "zero_etl_accesses", zero_etl_accesses)
+
+    @_builtins.property
+    @pulumi.getter(name="kmsAccesses")
+    def kms_accesses(self) -> pulumi.Input[Sequence[pulumi.Input['NetworkManagedServiceKmsAccessArgs']]]:
+        """
+        Specifies the configuration for KMS access from the ODB network.
+        """
+        return pulumi.get(self, "kms_accesses")
+
+    @kms_accesses.setter
+    def kms_accesses(self, value: pulumi.Input[Sequence[pulumi.Input['NetworkManagedServiceKmsAccessArgs']]]):
+        pulumi.set(self, "kms_accesses", value)
 
     @_builtins.property
     @pulumi.getter(name="managedS3BackupAccesses")
@@ -960,6 +990,18 @@ class NetworkManagedServiceArgs:
         pulumi.set(self, "service_network_endpoints", value)
 
     @_builtins.property
+    @pulumi.getter(name="stsAccesses")
+    def sts_accesses(self) -> pulumi.Input[Sequence[pulumi.Input['NetworkManagedServiceStsAccessArgs']]]:
+        """
+        Specifies the configuration for STS access from the ODB network.
+        """
+        return pulumi.get(self, "sts_accesses")
+
+    @sts_accesses.setter
+    def sts_accesses(self, value: pulumi.Input[Sequence[pulumi.Input['NetworkManagedServiceStsAccessArgs']]]):
+        pulumi.set(self, "sts_accesses", value)
+
+    @_builtins.property
     @pulumi.getter(name="zeroEtlAccesses")
     def zero_etl_accesses(self) -> pulumi.Input[Sequence[pulumi.Input['NetworkManagedServiceZeroEtlAccessArgs']]]:
         """
@@ -972,6 +1014,80 @@ class NetworkManagedServiceArgs:
     @zero_etl_accesses.setter
     def zero_etl_accesses(self, value: pulumi.Input[Sequence[pulumi.Input['NetworkManagedServiceZeroEtlAccessArgs']]]):
         pulumi.set(self, "zero_etl_accesses", value)
+
+
+if not MYPY:
+    class NetworkManagedServiceKmsAccessArgsDict(TypedDict):
+        domain_name: pulumi.Input[_builtins.str]
+        ipv4_addresses: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+        kms_policy_document: pulumi.Input[_builtins.str]
+        """
+        Specifies the endpoint policy for KMS access from the ODB network.
+        """
+        status: pulumi.Input[_builtins.str]
+        """
+        The status of the network resource.
+        """
+elif False:
+    NetworkManagedServiceKmsAccessArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class NetworkManagedServiceKmsAccessArgs:
+    def __init__(__self__, *,
+                 domain_name: pulumi.Input[_builtins.str],
+                 ipv4_addresses: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
+                 kms_policy_document: pulumi.Input[_builtins.str],
+                 status: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.str] kms_policy_document: Specifies the endpoint policy for KMS access from the ODB network.
+        :param pulumi.Input[_builtins.str] status: The status of the network resource.
+        """
+        pulumi.set(__self__, "domain_name", domain_name)
+        pulumi.set(__self__, "ipv4_addresses", ipv4_addresses)
+        pulumi.set(__self__, "kms_policy_document", kms_policy_document)
+        pulumi.set(__self__, "status", status)
+
+    @_builtins.property
+    @pulumi.getter(name="domainName")
+    def domain_name(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "domain_name")
+
+    @domain_name.setter
+    def domain_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "domain_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="ipv4Addresses")
+    def ipv4_addresses(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
+        return pulumi.get(self, "ipv4_addresses")
+
+    @ipv4_addresses.setter
+    def ipv4_addresses(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        pulumi.set(self, "ipv4_addresses", value)
+
+    @_builtins.property
+    @pulumi.getter(name="kmsPolicyDocument")
+    def kms_policy_document(self) -> pulumi.Input[_builtins.str]:
+        """
+        Specifies the endpoint policy for KMS access from the ODB network.
+        """
+        return pulumi.get(self, "kms_policy_document")
+
+    @kms_policy_document.setter
+    def kms_policy_document(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "kms_policy_document", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def status(self) -> pulumi.Input[_builtins.str]:
+        """
+        The status of the network resource.
+        """
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "status", value)
 
 
 if not MYPY:
@@ -1123,6 +1239,80 @@ class NetworkManagedServiceServiceNetworkEndpointArgs:
     @vpc_endpoint_type.setter
     def vpc_endpoint_type(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "vpc_endpoint_type", value)
+
+
+if not MYPY:
+    class NetworkManagedServiceStsAccessArgsDict(TypedDict):
+        domain_name: pulumi.Input[_builtins.str]
+        ipv4_addresses: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+        status: pulumi.Input[_builtins.str]
+        """
+        The status of the network resource.
+        """
+        sts_policy_document: pulumi.Input[_builtins.str]
+        """
+        Specifies the endpoint policy for STS access from the ODB network.
+        """
+elif False:
+    NetworkManagedServiceStsAccessArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class NetworkManagedServiceStsAccessArgs:
+    def __init__(__self__, *,
+                 domain_name: pulumi.Input[_builtins.str],
+                 ipv4_addresses: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
+                 status: pulumi.Input[_builtins.str],
+                 sts_policy_document: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.str] status: The status of the network resource.
+        :param pulumi.Input[_builtins.str] sts_policy_document: Specifies the endpoint policy for STS access from the ODB network.
+        """
+        pulumi.set(__self__, "domain_name", domain_name)
+        pulumi.set(__self__, "ipv4_addresses", ipv4_addresses)
+        pulumi.set(__self__, "status", status)
+        pulumi.set(__self__, "sts_policy_document", sts_policy_document)
+
+    @_builtins.property
+    @pulumi.getter(name="domainName")
+    def domain_name(self) -> pulumi.Input[_builtins.str]:
+        return pulumi.get(self, "domain_name")
+
+    @domain_name.setter
+    def domain_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "domain_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="ipv4Addresses")
+    def ipv4_addresses(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
+        return pulumi.get(self, "ipv4_addresses")
+
+    @ipv4_addresses.setter
+    def ipv4_addresses(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        pulumi.set(self, "ipv4_addresses", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def status(self) -> pulumi.Input[_builtins.str]:
+        """
+        The status of the network resource.
+        """
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "status", value)
+
+    @_builtins.property
+    @pulumi.getter(name="stsPolicyDocument")
+    def sts_policy_document(self) -> pulumi.Input[_builtins.str]:
+        """
+        Specifies the endpoint policy for STS access from the ODB network.
+        """
+        return pulumi.get(self, "sts_policy_document")
+
+    @sts_policy_document.setter
+    def sts_policy_document(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "sts_policy_document", value)
 
 
 if not MYPY:

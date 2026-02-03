@@ -8,6 +8,7 @@ import typing
 # Export this package's modules as members:
 from .api_key import *
 from .get_ip_set import *
+from .get_managed_rule_group import *
 from .get_regex_pattern_set import *
 from .get_rule_group import *
 from .get_web_acl import *

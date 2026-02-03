@@ -5,14 +5,9 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Provides an DocumentDB Cluster Resource Instance. A Cluster Instance Resource defines
- * attributes that are specific to a single instance in a [DocumentDB Cluster][1].
+ * Provides an DocumentDB Cluster Resource Instance. A Cluster Instance Resource defines attributes that are specific to a single instance in a DocumentDB Cluster.
  *
- * You do not designate a primary and subsequent replicas. Instead, you simply add DocumentDB
- * Instances and DocumentDB manages the replication. You can use the [count][3]
- * meta-parameter to make multiple instances and join them all to the same DocumentDB
- * Cluster, or you may specify different Cluster Instance resources with various
- * `instanceClass` sizes.
+ * You do not designate a primary and subsequent replicas. Instead, you simply add DocumentDB Instances and DocumentDB manages the replication. You can use the count meta-parameter to make multiple instances and join them all to the same DocumentDB Cluster, or you may specify different Cluster Instance resources with various `instanceClass` sizes.
  *
  * ## Example Usage
  *
@@ -77,28 +72,31 @@ export class ClusterInstance extends pulumi.CustomResource {
     }
 
     /**
-     * Specifies whether any database modifications
-     * are applied immediately, or during the next maintenance window. Default is`false`.
+     * Whether any database modifications are applied immediately, or during the next maintenance window. Default is`false`.
      */
     declare public readonly applyImmediately: pulumi.Output<boolean | undefined>;
     /**
-     * Amazon Resource Name (ARN) of cluster instance
+     * ARN of cluster instance
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
-     * This parameter does not apply to Amazon DocumentDB. Amazon DocumentDB does not perform minor version upgrades regardless of the value set (see [docs](https://docs.aws.amazon.com/documentdb/latest/developerguide/API_DBInstance.html)). Default `true`.
+     * Parameter does not apply to Amazon DocumentDB. Amazon DocumentDB does not perform minor version upgrades regardless of the value set (see [docs](https://docs.aws.amazon.com/documentdb/latest/developerguide/API_DBInstance.html)). Default `true`.
      */
     declare public readonly autoMinorVersionUpgrade: pulumi.Output<boolean | undefined>;
     /**
-     * The EC2 Availability Zone that the DB instance is created in. See [docs](https://docs.aws.amazon.com/documentdb/latest/developerguide/API_CreateDBInstance.html) about the details.
+     * EC2 Availability Zone that the DB instance is created in. See [docs](https://docs.aws.amazon.com/documentdb/latest/developerguide/API_CreateDBInstance.html) about the details.
      */
     declare public readonly availabilityZone: pulumi.Output<string>;
     /**
-     * The identifier of the certificate authority (CA) certificate for the DB instance.
+     * Identifier of the certificate authority (CA) certificate for the DB instance.
      */
     declare public readonly caCertIdentifier: pulumi.Output<string>;
     /**
-     * The identifier of the `aws.docdb.Cluster` in which to launch this instance.
+     * Whether to restart the DB instance when rotating its SSL/TLS certificate. By default, AWS restarts the DB instance when you rotate your SSL/TLS certificate. The certificate is not updated until the DB instance is restarted. Set to `false` only if you are not using SSL/TLS to connect to the DB instance.
+     */
+    declare public readonly certificateRotationRestart: pulumi.Output<string | undefined>;
+    /**
+     * Identifier of the `aws.docdb.Cluster` in which to launch this instance.
      */
     declare public readonly clusterIdentifier: pulumi.Output<string>;
     /**
@@ -106,27 +104,27 @@ export class ClusterInstance extends pulumi.CustomResource {
      */
     declare public readonly copyTagsToSnapshot: pulumi.Output<boolean | undefined>;
     /**
-     * The DB subnet group to associate with this DB instance.
+     * DB subnet group to associate with this DB instance.
      */
     declare public /*out*/ readonly dbSubnetGroupName: pulumi.Output<string>;
     /**
-     * The region-unique, immutable identifier for the DB instance.
+     * Region-unique, immutable identifier for the DB instance.
      */
     declare public /*out*/ readonly dbiResourceId: pulumi.Output<string>;
     /**
-     * A value that indicates whether to enable Performance Insights for the DB Instance. Default `false`. See [docs] (https://docs.aws.amazon.com/documentdb/latest/developerguide/performance-insights.html) about the details.
+     * Value that indicates whether to enable Performance Insights for the DB Instance. Default `false`. See [docs] (https://docs.aws.amazon.com/documentdb/latest/developerguide/performance-insights.html) about the details.
      */
     declare public readonly enablePerformanceInsights: pulumi.Output<boolean | undefined>;
     /**
-     * The DNS address for this instance. May not be writable
+     * DNS address for this instance. May not be writable
      */
     declare public /*out*/ readonly endpoint: pulumi.Output<string>;
     /**
-     * The name of the database engine to be used for the DocumentDB instance. Defaults to `docdb`. Valid Values: `docdb`.
+     * Name of the database engine to be used for the DocumentDB instance. Defaults to `docdb`. Valid Values: `docdb`.
      */
     declare public readonly engine: pulumi.Output<string | undefined>;
     /**
-     * The database engine version
+     * Database engine version
      */
     declare public /*out*/ readonly engineVersion: pulumi.Output<string>;
     /**
@@ -138,55 +136,31 @@ export class ClusterInstance extends pulumi.CustomResource {
      */
     declare public readonly identifierPrefix: pulumi.Output<string>;
     /**
-     * The instance class to use. For details on CPU and memory, see [Scaling for DocumentDB Instances](https://docs.aws.amazon.com/documentdb/latest/developerguide/db-cluster-manage-performance.html#db-cluster-manage-scaling-instance).
-     * DocumentDB currently supports the below instance classes.
-     * Please see [AWS Documentation](https://docs.aws.amazon.com/documentdb/latest/developerguide/db-instance-classes.html#db-instance-class-specs) for complete details.
-     * - db.r6g.large
-     * - db.r6g.xlarge
-     * - db.r6g.2xlarge
-     * - db.r6g.4xlarge
-     * - db.r6g.8xlarge
-     * - db.r6g.12xlarge
-     * - db.r6g.16xlarge
-     * - db.r5.large
-     * - db.r5.xlarge
-     * - db.r5.2xlarge
-     * - db.r5.4xlarge
-     * - db.r5.12xlarge
-     * - db.r5.24xlarge
-     * - db.r4.large
-     * - db.r4.xlarge
-     * - db.r4.2xlarge
-     * - db.r4.4xlarge
-     * - db.r4.8xlarge
-     * - db.r4.16xlarge
-     * - db.t4g.medium
-     * - db.t3.medium
+     * Instance class to use. For details on CPU and memory, see [Scaling for DocumentDB Instances](https://docs.aws.amazon.com/documentdb/latest/developerguide/db-cluster-manage-performance.html#db-cluster-manage-scaling-instance). See the `aws.docdb.getOrderableDbInstance` data source. See [AWS Documentation](https://docs.aws.amazon.com/documentdb/latest/developerguide/db-instance-classes.html#db-instance-class-specs) for complete details.
      */
     declare public readonly instanceClass: pulumi.Output<string>;
     /**
-     * The ARN for the KMS encryption key if one is set to the cluster.
+     * ARN for the KMS encryption key if one is set to the cluster.
      */
     declare public /*out*/ readonly kmsKeyId: pulumi.Output<string>;
     /**
-     * The KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key. If you do not specify a value for PerformanceInsightsKMSKeyId, then Amazon DocumentDB uses your default KMS key.
+     * KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key. If you do not specify a value for PerformanceInsightsKMSKeyId, then Amazon DocumentDB uses your default KMS key.
      */
     declare public readonly performanceInsightsKmsKeyId: pulumi.Output<string>;
     /**
-     * The database port
+     * Database port
      */
     declare public /*out*/ readonly port: pulumi.Output<number>;
     /**
-     * The daily time range during which automated backups are created if automated backups are enabled.
+     * Daily time range during which automated backups are created if automated backups are enabled.
      */
     declare public /*out*/ readonly preferredBackupWindow: pulumi.Output<string>;
     /**
-     * The window to perform maintenance in.
-     * Syntax: "ddd:hh24:mi-ddd:hh24:mi". Eg: "Mon:00:00-Mon:03:00".
+     * Window to perform maintenance in. Syntax: "ddd:hh24:mi-ddd:hh24:mi". Eg: "Mon:00:00-Mon:03:00".
      */
     declare public readonly preferredMaintenanceWindow: pulumi.Output<string>;
     /**
-     * Default 0. Failover Priority setting on instance level. The reader who has lower tier has higher priority to get promoter to writer.
+     * Failover Priority setting on instance level. Default `0`. The reader who has lower tier has higher priority to get promoter to writer.
      */
     declare public readonly promotionTier: pulumi.Output<number | undefined>;
     declare public /*out*/ readonly publiclyAccessible: pulumi.Output<boolean>;
@@ -195,19 +169,19 @@ export class ClusterInstance extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * Specifies whether the DB cluster is encrypted.
+     * Whether the DB cluster is encrypted.
      */
     declare public /*out*/ readonly storageEncrypted: pulumi.Output<boolean>;
     /**
-     * A map of tags to assign to the instance. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the instance. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     /**
-     * Boolean indicating if this instance is writable. `False` indicates this instance is a read replica.
+     * Whether this instance is writable. `False` indicates this instance is a read replica.
      */
     declare public /*out*/ readonly writer: pulumi.Output<boolean>;
 
@@ -229,6 +203,7 @@ export class ClusterInstance extends pulumi.CustomResource {
             resourceInputs["autoMinorVersionUpgrade"] = state?.autoMinorVersionUpgrade;
             resourceInputs["availabilityZone"] = state?.availabilityZone;
             resourceInputs["caCertIdentifier"] = state?.caCertIdentifier;
+            resourceInputs["certificateRotationRestart"] = state?.certificateRotationRestart;
             resourceInputs["clusterIdentifier"] = state?.clusterIdentifier;
             resourceInputs["copyTagsToSnapshot"] = state?.copyTagsToSnapshot;
             resourceInputs["dbSubnetGroupName"] = state?.dbSubnetGroupName;
@@ -264,6 +239,7 @@ export class ClusterInstance extends pulumi.CustomResource {
             resourceInputs["autoMinorVersionUpgrade"] = args?.autoMinorVersionUpgrade;
             resourceInputs["availabilityZone"] = args?.availabilityZone;
             resourceInputs["caCertIdentifier"] = args?.caCertIdentifier;
+            resourceInputs["certificateRotationRestart"] = args?.certificateRotationRestart;
             resourceInputs["clusterIdentifier"] = args?.clusterIdentifier;
             resourceInputs["copyTagsToSnapshot"] = args?.copyTagsToSnapshot;
             resourceInputs["enablePerformanceInsights"] = args?.enablePerformanceInsights;
@@ -299,28 +275,31 @@ export class ClusterInstance extends pulumi.CustomResource {
  */
 export interface ClusterInstanceState {
     /**
-     * Specifies whether any database modifications
-     * are applied immediately, or during the next maintenance window. Default is`false`.
+     * Whether any database modifications are applied immediately, or during the next maintenance window. Default is`false`.
      */
     applyImmediately?: pulumi.Input<boolean>;
     /**
-     * Amazon Resource Name (ARN) of cluster instance
+     * ARN of cluster instance
      */
     arn?: pulumi.Input<string>;
     /**
-     * This parameter does not apply to Amazon DocumentDB. Amazon DocumentDB does not perform minor version upgrades regardless of the value set (see [docs](https://docs.aws.amazon.com/documentdb/latest/developerguide/API_DBInstance.html)). Default `true`.
+     * Parameter does not apply to Amazon DocumentDB. Amazon DocumentDB does not perform minor version upgrades regardless of the value set (see [docs](https://docs.aws.amazon.com/documentdb/latest/developerguide/API_DBInstance.html)). Default `true`.
      */
     autoMinorVersionUpgrade?: pulumi.Input<boolean>;
     /**
-     * The EC2 Availability Zone that the DB instance is created in. See [docs](https://docs.aws.amazon.com/documentdb/latest/developerguide/API_CreateDBInstance.html) about the details.
+     * EC2 Availability Zone that the DB instance is created in. See [docs](https://docs.aws.amazon.com/documentdb/latest/developerguide/API_CreateDBInstance.html) about the details.
      */
     availabilityZone?: pulumi.Input<string>;
     /**
-     * The identifier of the certificate authority (CA) certificate for the DB instance.
+     * Identifier of the certificate authority (CA) certificate for the DB instance.
      */
     caCertIdentifier?: pulumi.Input<string>;
     /**
-     * The identifier of the `aws.docdb.Cluster` in which to launch this instance.
+     * Whether to restart the DB instance when rotating its SSL/TLS certificate. By default, AWS restarts the DB instance when you rotate your SSL/TLS certificate. The certificate is not updated until the DB instance is restarted. Set to `false` only if you are not using SSL/TLS to connect to the DB instance.
+     */
+    certificateRotationRestart?: pulumi.Input<string>;
+    /**
+     * Identifier of the `aws.docdb.Cluster` in which to launch this instance.
      */
     clusterIdentifier?: pulumi.Input<string>;
     /**
@@ -328,27 +307,27 @@ export interface ClusterInstanceState {
      */
     copyTagsToSnapshot?: pulumi.Input<boolean>;
     /**
-     * The DB subnet group to associate with this DB instance.
+     * DB subnet group to associate with this DB instance.
      */
     dbSubnetGroupName?: pulumi.Input<string>;
     /**
-     * The region-unique, immutable identifier for the DB instance.
+     * Region-unique, immutable identifier for the DB instance.
      */
     dbiResourceId?: pulumi.Input<string>;
     /**
-     * A value that indicates whether to enable Performance Insights for the DB Instance. Default `false`. See [docs] (https://docs.aws.amazon.com/documentdb/latest/developerguide/performance-insights.html) about the details.
+     * Value that indicates whether to enable Performance Insights for the DB Instance. Default `false`. See [docs] (https://docs.aws.amazon.com/documentdb/latest/developerguide/performance-insights.html) about the details.
      */
     enablePerformanceInsights?: pulumi.Input<boolean>;
     /**
-     * The DNS address for this instance. May not be writable
+     * DNS address for this instance. May not be writable
      */
     endpoint?: pulumi.Input<string>;
     /**
-     * The name of the database engine to be used for the DocumentDB instance. Defaults to `docdb`. Valid Values: `docdb`.
+     * Name of the database engine to be used for the DocumentDB instance. Defaults to `docdb`. Valid Values: `docdb`.
      */
     engine?: pulumi.Input<string>;
     /**
-     * The database engine version
+     * Database engine version
      */
     engineVersion?: pulumi.Input<string>;
     /**
@@ -360,55 +339,31 @@ export interface ClusterInstanceState {
      */
     identifierPrefix?: pulumi.Input<string>;
     /**
-     * The instance class to use. For details on CPU and memory, see [Scaling for DocumentDB Instances](https://docs.aws.amazon.com/documentdb/latest/developerguide/db-cluster-manage-performance.html#db-cluster-manage-scaling-instance).
-     * DocumentDB currently supports the below instance classes.
-     * Please see [AWS Documentation](https://docs.aws.amazon.com/documentdb/latest/developerguide/db-instance-classes.html#db-instance-class-specs) for complete details.
-     * - db.r6g.large
-     * - db.r6g.xlarge
-     * - db.r6g.2xlarge
-     * - db.r6g.4xlarge
-     * - db.r6g.8xlarge
-     * - db.r6g.12xlarge
-     * - db.r6g.16xlarge
-     * - db.r5.large
-     * - db.r5.xlarge
-     * - db.r5.2xlarge
-     * - db.r5.4xlarge
-     * - db.r5.12xlarge
-     * - db.r5.24xlarge
-     * - db.r4.large
-     * - db.r4.xlarge
-     * - db.r4.2xlarge
-     * - db.r4.4xlarge
-     * - db.r4.8xlarge
-     * - db.r4.16xlarge
-     * - db.t4g.medium
-     * - db.t3.medium
+     * Instance class to use. For details on CPU and memory, see [Scaling for DocumentDB Instances](https://docs.aws.amazon.com/documentdb/latest/developerguide/db-cluster-manage-performance.html#db-cluster-manage-scaling-instance). See the `aws.docdb.getOrderableDbInstance` data source. See [AWS Documentation](https://docs.aws.amazon.com/documentdb/latest/developerguide/db-instance-classes.html#db-instance-class-specs) for complete details.
      */
     instanceClass?: pulumi.Input<string>;
     /**
-     * The ARN for the KMS encryption key if one is set to the cluster.
+     * ARN for the KMS encryption key if one is set to the cluster.
      */
     kmsKeyId?: pulumi.Input<string>;
     /**
-     * The KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key. If you do not specify a value for PerformanceInsightsKMSKeyId, then Amazon DocumentDB uses your default KMS key.
+     * KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key. If you do not specify a value for PerformanceInsightsKMSKeyId, then Amazon DocumentDB uses your default KMS key.
      */
     performanceInsightsKmsKeyId?: pulumi.Input<string>;
     /**
-     * The database port
+     * Database port
      */
     port?: pulumi.Input<number>;
     /**
-     * The daily time range during which automated backups are created if automated backups are enabled.
+     * Daily time range during which automated backups are created if automated backups are enabled.
      */
     preferredBackupWindow?: pulumi.Input<string>;
     /**
-     * The window to perform maintenance in.
-     * Syntax: "ddd:hh24:mi-ddd:hh24:mi". Eg: "Mon:00:00-Mon:03:00".
+     * Window to perform maintenance in. Syntax: "ddd:hh24:mi-ddd:hh24:mi". Eg: "Mon:00:00-Mon:03:00".
      */
     preferredMaintenanceWindow?: pulumi.Input<string>;
     /**
-     * Default 0. Failover Priority setting on instance level. The reader who has lower tier has higher priority to get promoter to writer.
+     * Failover Priority setting on instance level. Default `0`. The reader who has lower tier has higher priority to get promoter to writer.
      */
     promotionTier?: pulumi.Input<number>;
     publiclyAccessible?: pulumi.Input<boolean>;
@@ -417,19 +372,19 @@ export interface ClusterInstanceState {
      */
     region?: pulumi.Input<string>;
     /**
-     * Specifies whether the DB cluster is encrypted.
+     * Whether the DB cluster is encrypted.
      */
     storageEncrypted?: pulumi.Input<boolean>;
     /**
-     * A map of tags to assign to the instance. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the instance. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * Boolean indicating if this instance is writable. `False` indicates this instance is a read replica.
+     * Whether this instance is writable. `False` indicates this instance is a read replica.
      */
     writer?: pulumi.Input<boolean>;
 }
@@ -439,24 +394,27 @@ export interface ClusterInstanceState {
  */
 export interface ClusterInstanceArgs {
     /**
-     * Specifies whether any database modifications
-     * are applied immediately, or during the next maintenance window. Default is`false`.
+     * Whether any database modifications are applied immediately, or during the next maintenance window. Default is`false`.
      */
     applyImmediately?: pulumi.Input<boolean>;
     /**
-     * This parameter does not apply to Amazon DocumentDB. Amazon DocumentDB does not perform minor version upgrades regardless of the value set (see [docs](https://docs.aws.amazon.com/documentdb/latest/developerguide/API_DBInstance.html)). Default `true`.
+     * Parameter does not apply to Amazon DocumentDB. Amazon DocumentDB does not perform minor version upgrades regardless of the value set (see [docs](https://docs.aws.amazon.com/documentdb/latest/developerguide/API_DBInstance.html)). Default `true`.
      */
     autoMinorVersionUpgrade?: pulumi.Input<boolean>;
     /**
-     * The EC2 Availability Zone that the DB instance is created in. See [docs](https://docs.aws.amazon.com/documentdb/latest/developerguide/API_CreateDBInstance.html) about the details.
+     * EC2 Availability Zone that the DB instance is created in. See [docs](https://docs.aws.amazon.com/documentdb/latest/developerguide/API_CreateDBInstance.html) about the details.
      */
     availabilityZone?: pulumi.Input<string>;
     /**
-     * The identifier of the certificate authority (CA) certificate for the DB instance.
+     * Identifier of the certificate authority (CA) certificate for the DB instance.
      */
     caCertIdentifier?: pulumi.Input<string>;
     /**
-     * The identifier of the `aws.docdb.Cluster` in which to launch this instance.
+     * Whether to restart the DB instance when rotating its SSL/TLS certificate. By default, AWS restarts the DB instance when you rotate your SSL/TLS certificate. The certificate is not updated until the DB instance is restarted. Set to `false` only if you are not using SSL/TLS to connect to the DB instance.
+     */
+    certificateRotationRestart?: pulumi.Input<string>;
+    /**
+     * Identifier of the `aws.docdb.Cluster` in which to launch this instance.
      */
     clusterIdentifier: pulumi.Input<string>;
     /**
@@ -464,11 +422,11 @@ export interface ClusterInstanceArgs {
      */
     copyTagsToSnapshot?: pulumi.Input<boolean>;
     /**
-     * A value that indicates whether to enable Performance Insights for the DB Instance. Default `false`. See [docs] (https://docs.aws.amazon.com/documentdb/latest/developerguide/performance-insights.html) about the details.
+     * Value that indicates whether to enable Performance Insights for the DB Instance. Default `false`. See [docs] (https://docs.aws.amazon.com/documentdb/latest/developerguide/performance-insights.html) about the details.
      */
     enablePerformanceInsights?: pulumi.Input<boolean>;
     /**
-     * The name of the database engine to be used for the DocumentDB instance. Defaults to `docdb`. Valid Values: `docdb`.
+     * Name of the database engine to be used for the DocumentDB instance. Defaults to `docdb`. Valid Values: `docdb`.
      */
     engine?: pulumi.Input<string>;
     /**
@@ -480,43 +438,19 @@ export interface ClusterInstanceArgs {
      */
     identifierPrefix?: pulumi.Input<string>;
     /**
-     * The instance class to use. For details on CPU and memory, see [Scaling for DocumentDB Instances](https://docs.aws.amazon.com/documentdb/latest/developerguide/db-cluster-manage-performance.html#db-cluster-manage-scaling-instance).
-     * DocumentDB currently supports the below instance classes.
-     * Please see [AWS Documentation](https://docs.aws.amazon.com/documentdb/latest/developerguide/db-instance-classes.html#db-instance-class-specs) for complete details.
-     * - db.r6g.large
-     * - db.r6g.xlarge
-     * - db.r6g.2xlarge
-     * - db.r6g.4xlarge
-     * - db.r6g.8xlarge
-     * - db.r6g.12xlarge
-     * - db.r6g.16xlarge
-     * - db.r5.large
-     * - db.r5.xlarge
-     * - db.r5.2xlarge
-     * - db.r5.4xlarge
-     * - db.r5.12xlarge
-     * - db.r5.24xlarge
-     * - db.r4.large
-     * - db.r4.xlarge
-     * - db.r4.2xlarge
-     * - db.r4.4xlarge
-     * - db.r4.8xlarge
-     * - db.r4.16xlarge
-     * - db.t4g.medium
-     * - db.t3.medium
+     * Instance class to use. For details on CPU and memory, see [Scaling for DocumentDB Instances](https://docs.aws.amazon.com/documentdb/latest/developerguide/db-cluster-manage-performance.html#db-cluster-manage-scaling-instance). See the `aws.docdb.getOrderableDbInstance` data source. See [AWS Documentation](https://docs.aws.amazon.com/documentdb/latest/developerguide/db-instance-classes.html#db-instance-class-specs) for complete details.
      */
     instanceClass: pulumi.Input<string>;
     /**
-     * The KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key. If you do not specify a value for PerformanceInsightsKMSKeyId, then Amazon DocumentDB uses your default KMS key.
+     * KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key. If you do not specify a value for PerformanceInsightsKMSKeyId, then Amazon DocumentDB uses your default KMS key.
      */
     performanceInsightsKmsKeyId?: pulumi.Input<string>;
     /**
-     * The window to perform maintenance in.
-     * Syntax: "ddd:hh24:mi-ddd:hh24:mi". Eg: "Mon:00:00-Mon:03:00".
+     * Window to perform maintenance in. Syntax: "ddd:hh24:mi-ddd:hh24:mi". Eg: "Mon:00:00-Mon:03:00".
      */
     preferredMaintenanceWindow?: pulumi.Input<string>;
     /**
-     * Default 0. Failover Priority setting on instance level. The reader who has lower tier has higher priority to get promoter to writer.
+     * Failover Priority setting on instance level. Default `0`. The reader who has lower tier has higher priority to get promoter to writer.
      */
     promotionTier?: pulumi.Input<number>;
     /**
@@ -524,7 +458,7 @@ export interface ClusterInstanceArgs {
      */
     region?: pulumi.Input<string>;
     /**
-     * A map of tags to assign to the instance. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the instance. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

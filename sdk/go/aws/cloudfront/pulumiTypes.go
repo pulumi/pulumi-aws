@@ -13,6 +13,143 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type AnycastIpListTimeouts struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create *string `pulumi:"create"`
+}
+
+// AnycastIpListTimeoutsInput is an input type that accepts AnycastIpListTimeoutsArgs and AnycastIpListTimeoutsOutput values.
+// You can construct a concrete instance of `AnycastIpListTimeoutsInput` via:
+//
+//	AnycastIpListTimeoutsArgs{...}
+type AnycastIpListTimeoutsInput interface {
+	pulumi.Input
+
+	ToAnycastIpListTimeoutsOutput() AnycastIpListTimeoutsOutput
+	ToAnycastIpListTimeoutsOutputWithContext(context.Context) AnycastIpListTimeoutsOutput
+}
+
+type AnycastIpListTimeoutsArgs struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create pulumi.StringPtrInput `pulumi:"create"`
+}
+
+func (AnycastIpListTimeoutsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnycastIpListTimeouts)(nil)).Elem()
+}
+
+func (i AnycastIpListTimeoutsArgs) ToAnycastIpListTimeoutsOutput() AnycastIpListTimeoutsOutput {
+	return i.ToAnycastIpListTimeoutsOutputWithContext(context.Background())
+}
+
+func (i AnycastIpListTimeoutsArgs) ToAnycastIpListTimeoutsOutputWithContext(ctx context.Context) AnycastIpListTimeoutsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnycastIpListTimeoutsOutput)
+}
+
+func (i AnycastIpListTimeoutsArgs) ToAnycastIpListTimeoutsPtrOutput() AnycastIpListTimeoutsPtrOutput {
+	return i.ToAnycastIpListTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i AnycastIpListTimeoutsArgs) ToAnycastIpListTimeoutsPtrOutputWithContext(ctx context.Context) AnycastIpListTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnycastIpListTimeoutsOutput).ToAnycastIpListTimeoutsPtrOutputWithContext(ctx)
+}
+
+// AnycastIpListTimeoutsPtrInput is an input type that accepts AnycastIpListTimeoutsArgs, AnycastIpListTimeoutsPtr and AnycastIpListTimeoutsPtrOutput values.
+// You can construct a concrete instance of `AnycastIpListTimeoutsPtrInput` via:
+//
+//	        AnycastIpListTimeoutsArgs{...}
+//
+//	or:
+//
+//	        nil
+type AnycastIpListTimeoutsPtrInput interface {
+	pulumi.Input
+
+	ToAnycastIpListTimeoutsPtrOutput() AnycastIpListTimeoutsPtrOutput
+	ToAnycastIpListTimeoutsPtrOutputWithContext(context.Context) AnycastIpListTimeoutsPtrOutput
+}
+
+type anycastIpListTimeoutsPtrType AnycastIpListTimeoutsArgs
+
+func AnycastIpListTimeoutsPtr(v *AnycastIpListTimeoutsArgs) AnycastIpListTimeoutsPtrInput {
+	return (*anycastIpListTimeoutsPtrType)(v)
+}
+
+func (*anycastIpListTimeoutsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AnycastIpListTimeouts)(nil)).Elem()
+}
+
+func (i *anycastIpListTimeoutsPtrType) ToAnycastIpListTimeoutsPtrOutput() AnycastIpListTimeoutsPtrOutput {
+	return i.ToAnycastIpListTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i *anycastIpListTimeoutsPtrType) ToAnycastIpListTimeoutsPtrOutputWithContext(ctx context.Context) AnycastIpListTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AnycastIpListTimeoutsPtrOutput)
+}
+
+type AnycastIpListTimeoutsOutput struct{ *pulumi.OutputState }
+
+func (AnycastIpListTimeoutsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AnycastIpListTimeouts)(nil)).Elem()
+}
+
+func (o AnycastIpListTimeoutsOutput) ToAnycastIpListTimeoutsOutput() AnycastIpListTimeoutsOutput {
+	return o
+}
+
+func (o AnycastIpListTimeoutsOutput) ToAnycastIpListTimeoutsOutputWithContext(ctx context.Context) AnycastIpListTimeoutsOutput {
+	return o
+}
+
+func (o AnycastIpListTimeoutsOutput) ToAnycastIpListTimeoutsPtrOutput() AnycastIpListTimeoutsPtrOutput {
+	return o.ToAnycastIpListTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (o AnycastIpListTimeoutsOutput) ToAnycastIpListTimeoutsPtrOutputWithContext(ctx context.Context) AnycastIpListTimeoutsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AnycastIpListTimeouts) *AnycastIpListTimeouts {
+		return &v
+	}).(AnycastIpListTimeoutsPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o AnycastIpListTimeoutsOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AnycastIpListTimeouts) *string { return v.Create }).(pulumi.StringPtrOutput)
+}
+
+type AnycastIpListTimeoutsPtrOutput struct{ *pulumi.OutputState }
+
+func (AnycastIpListTimeoutsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AnycastIpListTimeouts)(nil)).Elem()
+}
+
+func (o AnycastIpListTimeoutsPtrOutput) ToAnycastIpListTimeoutsPtrOutput() AnycastIpListTimeoutsPtrOutput {
+	return o
+}
+
+func (o AnycastIpListTimeoutsPtrOutput) ToAnycastIpListTimeoutsPtrOutputWithContext(ctx context.Context) AnycastIpListTimeoutsPtrOutput {
+	return o
+}
+
+func (o AnycastIpListTimeoutsPtrOutput) Elem() AnycastIpListTimeoutsOutput {
+	return o.ApplyT(func(v *AnycastIpListTimeouts) AnycastIpListTimeouts {
+		if v != nil {
+			return *v
+		}
+		var ret AnycastIpListTimeouts
+		return ret
+	}).(AnycastIpListTimeoutsOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o AnycastIpListTimeoutsPtrOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AnycastIpListTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Create
+	}).(pulumi.StringPtrOutput)
+}
+
 type CachePolicyParametersInCacheKeyAndForwardedToOrigin struct {
 	// Whether any cookies in viewer requests are included in the cache key and automatically included in requests that CloudFront sends to the origin. See Cookies Config for more information.
 	CookiesConfig CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfig `pulumi:"cookiesConfig"`
@@ -12851,10 +12988,10 @@ func (o MultitenantDistributionOriginCustomOriginConfigArrayOutput) Index(i pulu
 type MultitenantDistributionOriginGroup struct {
 	// Failover criteria for when to failover to the secondary origin. See Failover Criteria below.
 	FailoverCriteria *MultitenantDistributionOriginGroupFailoverCriteria `pulumi:"failoverCriteria"`
+	// Identifier for the distribution.
+	Id string `pulumi:"id"`
 	// List of origins in this origin group. Must contain exactly 2 members. See Origin Group Member below.
 	Members []MultitenantDistributionOriginGroupMember `pulumi:"members"`
-	// Unique identifier for the origin group.
-	OriginId string `pulumi:"originId"`
 }
 
 // MultitenantDistributionOriginGroupInput is an input type that accepts MultitenantDistributionOriginGroupArgs and MultitenantDistributionOriginGroupOutput values.
@@ -12871,10 +13008,10 @@ type MultitenantDistributionOriginGroupInput interface {
 type MultitenantDistributionOriginGroupArgs struct {
 	// Failover criteria for when to failover to the secondary origin. See Failover Criteria below.
 	FailoverCriteria MultitenantDistributionOriginGroupFailoverCriteriaPtrInput `pulumi:"failoverCriteria"`
+	// Identifier for the distribution.
+	Id pulumi.StringInput `pulumi:"id"`
 	// List of origins in this origin group. Must contain exactly 2 members. See Origin Group Member below.
 	Members MultitenantDistributionOriginGroupMemberArrayInput `pulumi:"members"`
-	// Unique identifier for the origin group.
-	OriginId pulumi.StringInput `pulumi:"originId"`
 }
 
 func (MultitenantDistributionOriginGroupArgs) ElementType() reflect.Type {
@@ -12935,16 +13072,16 @@ func (o MultitenantDistributionOriginGroupOutput) FailoverCriteria() Multitenant
 	}).(MultitenantDistributionOriginGroupFailoverCriteriaPtrOutput)
 }
 
+// Identifier for the distribution.
+func (o MultitenantDistributionOriginGroupOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v MultitenantDistributionOriginGroup) string { return v.Id }).(pulumi.StringOutput)
+}
+
 // List of origins in this origin group. Must contain exactly 2 members. See Origin Group Member below.
 func (o MultitenantDistributionOriginGroupOutput) Members() MultitenantDistributionOriginGroupMemberArrayOutput {
 	return o.ApplyT(func(v MultitenantDistributionOriginGroup) []MultitenantDistributionOriginGroupMember {
 		return v.Members
 	}).(MultitenantDistributionOriginGroupMemberArrayOutput)
-}
-
-// Unique identifier for the origin group.
-func (o MultitenantDistributionOriginGroupOutput) OriginId() pulumi.StringOutput {
-	return o.ApplyT(func(v MultitenantDistributionOriginGroup) string { return v.OriginId }).(pulumi.StringOutput)
 }
 
 type MultitenantDistributionOriginGroupArrayOutput struct{ *pulumi.OutputState }
@@ -23612,6 +23749,8 @@ func (o GetResponseHeadersPolicyServerTimingHeadersConfigArrayOutput) Index(i pu
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AnycastIpListTimeoutsInput)(nil)).Elem(), AnycastIpListTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AnycastIpListTimeoutsPtrInput)(nil)).Elem(), AnycastIpListTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CachePolicyParametersInCacheKeyAndForwardedToOriginInput)(nil)).Elem(), CachePolicyParametersInCacheKeyAndForwardedToOriginArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CachePolicyParametersInCacheKeyAndForwardedToOriginPtrInput)(nil)).Elem(), CachePolicyParametersInCacheKeyAndForwardedToOriginArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigInput)(nil)).Elem(), CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigArgs{})
@@ -23946,6 +24085,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetResponseHeadersPolicySecurityHeadersConfigXssProtectionArrayInput)(nil)).Elem(), GetResponseHeadersPolicySecurityHeadersConfigXssProtectionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetResponseHeadersPolicyServerTimingHeadersConfigInput)(nil)).Elem(), GetResponseHeadersPolicyServerTimingHeadersConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetResponseHeadersPolicyServerTimingHeadersConfigArrayInput)(nil)).Elem(), GetResponseHeadersPolicyServerTimingHeadersConfigArray{})
+	pulumi.RegisterOutputType(AnycastIpListTimeoutsOutput{})
+	pulumi.RegisterOutputType(AnycastIpListTimeoutsPtrOutput{})
 	pulumi.RegisterOutputType(CachePolicyParametersInCacheKeyAndForwardedToOriginOutput{})
 	pulumi.RegisterOutputType(CachePolicyParametersInCacheKeyAndForwardedToOriginPtrOutput{})
 	pulumi.RegisterOutputType(CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigOutput{})

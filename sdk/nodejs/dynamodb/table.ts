@@ -78,6 +78,89 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
+ * ### Basic Example containing Global Secondary Indexs using Multi-attribute keys pattern
+ *
+ * The following dynamodb table description models the table and GSIs shown in the [AWS SDK example documentation](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GSI.DesignPattern.MultiAttributeKeys.html)
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const basic_dynamodb_table = new aws.dynamodb.Table("basic-dynamodb-table", {
+ *     name: "TournamentMatches",
+ *     billingMode: "PROVISIONED",
+ *     readCapacity: 20,
+ *     writeCapacity: 20,
+ *     hashKey: "matchId",
+ *     attributes: [
+ *         {
+ *             name: "matchId",
+ *             type: "S",
+ *         },
+ *         {
+ *             name: "tournamentId",
+ *             type: "S",
+ *         },
+ *         {
+ *             name: "region",
+ *             type: "S",
+ *         },
+ *         {
+ *             name: "round",
+ *             type: "S",
+ *         },
+ *         {
+ *             name: "bracket",
+ *             type: "S",
+ *         },
+ *         {
+ *             name: "playerId",
+ *             type: N,
+ *         },
+ *         {
+ *             name: "matchDate",
+ *             type: S,
+ *         },
+ *     ],
+ *     ttl: {
+ *         attributeName: "TimeToExist",
+ *         enabled: true,
+ *     },
+ *     globalSecondaryIndexes: [
+ *         {
+ *             name: "TournamentRegionIndex",
+ *             hashKeys: [
+ *                 "tournamentId",
+ *                 "region",
+ *             ],
+ *             rangeKeys: [
+ *                 "round",
+ *                 "bracket",
+ *                 "matchId",
+ *             ],
+ *             writeCapacity: 10,
+ *             readCapacity: 10,
+ *             projectionType: "ALL",
+ *         },
+ *         {
+ *             name: "PlayerMatchHistoryIndex",
+ *             hashKey: "playerId",
+ *             rangeKeys: [
+ *                 "matchDate",
+ *                 "round",
+ *             ],
+ *             writeCapacity: 10,
+ *             readCapacity: 10,
+ *             projectionType: "ALL",
+ *         },
+ *     ],
+ *     tags: {
+ *         Name: "dynamodb-table-1",
+ *         Environment: "production",
+ *     },
+ * });
+ * ```
+ *
  * ### Global Tables
  *
  * This resource implements support for [DynamoDB Global Tables V2 (version 2019.11.21)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html) via `replica` configuration blocks. For working with [DynamoDB Global Tables V1 (version 2017.11.29)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V1.html), see the `aws.dynamodb.GlobalTable` resource.
@@ -356,7 +439,9 @@ export class Table extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly streamLabel: pulumi.Output<string>;
     /**
-     * When an item in the table is modified, StreamViewType determines what information is written to the table's stream. Valid values are `KEYS_ONLY`, `NEW_IMAGE`, `OLD_IMAGE`, `NEW_AND_OLD_IMAGES`.
+     * When an item in the table is modified, StreamViewType determines what information is written to the table's stream.
+     * Valid values are `KEYS_ONLY`, `NEW_IMAGE`, `OLD_IMAGE`, `NEW_AND_OLD_IMAGES`.
+     * Only valid when `streamEnabled` is true.
      */
     declare public readonly streamViewType: pulumi.Output<string>;
     /**
@@ -572,7 +657,9 @@ export interface TableState {
      */
     streamLabel?: pulumi.Input<string>;
     /**
-     * When an item in the table is modified, StreamViewType determines what information is written to the table's stream. Valid values are `KEYS_ONLY`, `NEW_IMAGE`, `OLD_IMAGE`, `NEW_AND_OLD_IMAGES`.
+     * When an item in the table is modified, StreamViewType determines what information is written to the table's stream.
+     * Valid values are `KEYS_ONLY`, `NEW_IMAGE`, `OLD_IMAGE`, `NEW_AND_OLD_IMAGES`.
+     * Only valid when `streamEnabled` is true.
      */
     streamViewType?: pulumi.Input<string>;
     /**
@@ -694,7 +781,9 @@ export interface TableArgs {
      */
     streamEnabled?: pulumi.Input<boolean>;
     /**
-     * When an item in the table is modified, StreamViewType determines what information is written to the table's stream. Valid values are `KEYS_ONLY`, `NEW_IMAGE`, `OLD_IMAGE`, `NEW_AND_OLD_IMAGES`.
+     * When an item in the table is modified, StreamViewType determines what information is written to the table's stream.
+     * Valid values are `KEYS_ONLY`, `NEW_IMAGE`, `OLD_IMAGE`, `NEW_AND_OLD_IMAGES`.
+     * Only valid when `streamEnabled` is true.
      */
     streamViewType?: pulumi.Input<string>;
     /**

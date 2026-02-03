@@ -1308,8 +1308,11 @@ func (o TableExportIncrementalExportSpecificationPtrOutput) ExportViewType() pul
 }
 
 type TableGlobalSecondaryIndex struct {
-	// Name of the hash key in the index; must be defined as an attribute in the resource.
-	HashKey string `pulumi:"hashKey"`
+	// and `hashKeys` are `mutually exclusive`, but one is `required`. Refer to [AWS SDK Documentation](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GSI.DesignPattern.MultiAttributeKeys.html)
+	//
+	// Deprecated: hash_key is deprecated. Use keySchema instead.
+	HashKey    *string                              `pulumi:"hashKey"`
+	KeySchemas []TableGlobalSecondaryIndexKeySchema `pulumi:"keySchemas"`
 	// Name of the index.
 	Name string `pulumi:"name"`
 	// Only required with `INCLUDE` as a projection type; a list of attributes to project into the index. These do not need to be defined as attributes on the table.
@@ -1318,7 +1321,9 @@ type TableGlobalSecondaryIndex struct {
 	OnDemandThroughput *TableGlobalSecondaryIndexOnDemandThroughput `pulumi:"onDemandThroughput"`
 	// One of `ALL`, `INCLUDE` or `KEYS_ONLY` where `ALL` projects every attribute into the index, `KEYS_ONLY` projects  into the index only the table and index hashKey and sortKey attributes ,  `INCLUDE` projects into the index all of the attributes that are defined in `nonKeyAttributes` in addition to the attributes that that`KEYS_ONLY` project.
 	ProjectionType string `pulumi:"projectionType"`
-	// Name of the range key; must be defined
+	// and `rangeKeys` are `mutually exclusive`, but are both `optional`. Refer to [AWS SDK Documentation](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GSI.DesignPattern.MultiAttributeKeys.html)
+	//
+	// Deprecated: range_key is deprecated. Use keySchema instead.
 	RangeKey *string `pulumi:"rangeKey"`
 	// Number of read units for this index. Must be set if billingMode is set to PROVISIONED.
 	ReadCapacity *int `pulumi:"readCapacity"`
@@ -1340,8 +1345,11 @@ type TableGlobalSecondaryIndexInput interface {
 }
 
 type TableGlobalSecondaryIndexArgs struct {
-	// Name of the hash key in the index; must be defined as an attribute in the resource.
-	HashKey pulumi.StringInput `pulumi:"hashKey"`
+	// and `hashKeys` are `mutually exclusive`, but one is `required`. Refer to [AWS SDK Documentation](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GSI.DesignPattern.MultiAttributeKeys.html)
+	//
+	// Deprecated: hash_key is deprecated. Use keySchema instead.
+	HashKey    pulumi.StringPtrInput                        `pulumi:"hashKey"`
+	KeySchemas TableGlobalSecondaryIndexKeySchemaArrayInput `pulumi:"keySchemas"`
 	// Name of the index.
 	Name pulumi.StringInput `pulumi:"name"`
 	// Only required with `INCLUDE` as a projection type; a list of attributes to project into the index. These do not need to be defined as attributes on the table.
@@ -1350,7 +1358,9 @@ type TableGlobalSecondaryIndexArgs struct {
 	OnDemandThroughput TableGlobalSecondaryIndexOnDemandThroughputPtrInput `pulumi:"onDemandThroughput"`
 	// One of `ALL`, `INCLUDE` or `KEYS_ONLY` where `ALL` projects every attribute into the index, `KEYS_ONLY` projects  into the index only the table and index hashKey and sortKey attributes ,  `INCLUDE` projects into the index all of the attributes that are defined in `nonKeyAttributes` in addition to the attributes that that`KEYS_ONLY` project.
 	ProjectionType pulumi.StringInput `pulumi:"projectionType"`
-	// Name of the range key; must be defined
+	// and `rangeKeys` are `mutually exclusive`, but are both `optional`. Refer to [AWS SDK Documentation](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GSI.DesignPattern.MultiAttributeKeys.html)
+	//
+	// Deprecated: range_key is deprecated. Use keySchema instead.
 	RangeKey pulumi.StringPtrInput `pulumi:"rangeKey"`
 	// Number of read units for this index. Must be set if billingMode is set to PROVISIONED.
 	ReadCapacity pulumi.IntPtrInput `pulumi:"readCapacity"`
@@ -1411,9 +1421,15 @@ func (o TableGlobalSecondaryIndexOutput) ToTableGlobalSecondaryIndexOutputWithCo
 	return o
 }
 
-// Name of the hash key in the index; must be defined as an attribute in the resource.
-func (o TableGlobalSecondaryIndexOutput) HashKey() pulumi.StringOutput {
-	return o.ApplyT(func(v TableGlobalSecondaryIndex) string { return v.HashKey }).(pulumi.StringOutput)
+// and `hashKeys` are `mutually exclusive`, but one is `required`. Refer to [AWS SDK Documentation](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GSI.DesignPattern.MultiAttributeKeys.html)
+//
+// Deprecated: hash_key is deprecated. Use keySchema instead.
+func (o TableGlobalSecondaryIndexOutput) HashKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v TableGlobalSecondaryIndex) *string { return v.HashKey }).(pulumi.StringPtrOutput)
+}
+
+func (o TableGlobalSecondaryIndexOutput) KeySchemas() TableGlobalSecondaryIndexKeySchemaArrayOutput {
+	return o.ApplyT(func(v TableGlobalSecondaryIndex) []TableGlobalSecondaryIndexKeySchema { return v.KeySchemas }).(TableGlobalSecondaryIndexKeySchemaArrayOutput)
 }
 
 // Name of the index.
@@ -1438,7 +1454,9 @@ func (o TableGlobalSecondaryIndexOutput) ProjectionType() pulumi.StringOutput {
 	return o.ApplyT(func(v TableGlobalSecondaryIndex) string { return v.ProjectionType }).(pulumi.StringOutput)
 }
 
-// Name of the range key; must be defined
+// and `rangeKeys` are `mutually exclusive`, but are both `optional`. Refer to [AWS SDK Documentation](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GSI.DesignPattern.MultiAttributeKeys.html)
+//
+// Deprecated: range_key is deprecated. Use keySchema instead.
 func (o TableGlobalSecondaryIndexOutput) RangeKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TableGlobalSecondaryIndex) *string { return v.RangeKey }).(pulumi.StringPtrOutput)
 }
@@ -1476,6 +1494,112 @@ func (o TableGlobalSecondaryIndexArrayOutput) Index(i pulumi.IntInput) TableGlob
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TableGlobalSecondaryIndex {
 		return vs[0].([]TableGlobalSecondaryIndex)[vs[1].(int)]
 	}).(TableGlobalSecondaryIndexOutput)
+}
+
+type TableGlobalSecondaryIndexKeySchema struct {
+	// Name of the table attribute to store the TTL timestamp in.
+	// Required if `enabled` is `true`, must not be set otherwise.
+	AttributeName string `pulumi:"attributeName"`
+	KeyType       string `pulumi:"keyType"`
+}
+
+// TableGlobalSecondaryIndexKeySchemaInput is an input type that accepts TableGlobalSecondaryIndexKeySchemaArgs and TableGlobalSecondaryIndexKeySchemaOutput values.
+// You can construct a concrete instance of `TableGlobalSecondaryIndexKeySchemaInput` via:
+//
+//	TableGlobalSecondaryIndexKeySchemaArgs{...}
+type TableGlobalSecondaryIndexKeySchemaInput interface {
+	pulumi.Input
+
+	ToTableGlobalSecondaryIndexKeySchemaOutput() TableGlobalSecondaryIndexKeySchemaOutput
+	ToTableGlobalSecondaryIndexKeySchemaOutputWithContext(context.Context) TableGlobalSecondaryIndexKeySchemaOutput
+}
+
+type TableGlobalSecondaryIndexKeySchemaArgs struct {
+	// Name of the table attribute to store the TTL timestamp in.
+	// Required if `enabled` is `true`, must not be set otherwise.
+	AttributeName pulumi.StringInput `pulumi:"attributeName"`
+	KeyType       pulumi.StringInput `pulumi:"keyType"`
+}
+
+func (TableGlobalSecondaryIndexKeySchemaArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableGlobalSecondaryIndexKeySchema)(nil)).Elem()
+}
+
+func (i TableGlobalSecondaryIndexKeySchemaArgs) ToTableGlobalSecondaryIndexKeySchemaOutput() TableGlobalSecondaryIndexKeySchemaOutput {
+	return i.ToTableGlobalSecondaryIndexKeySchemaOutputWithContext(context.Background())
+}
+
+func (i TableGlobalSecondaryIndexKeySchemaArgs) ToTableGlobalSecondaryIndexKeySchemaOutputWithContext(ctx context.Context) TableGlobalSecondaryIndexKeySchemaOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableGlobalSecondaryIndexKeySchemaOutput)
+}
+
+// TableGlobalSecondaryIndexKeySchemaArrayInput is an input type that accepts TableGlobalSecondaryIndexKeySchemaArray and TableGlobalSecondaryIndexKeySchemaArrayOutput values.
+// You can construct a concrete instance of `TableGlobalSecondaryIndexKeySchemaArrayInput` via:
+//
+//	TableGlobalSecondaryIndexKeySchemaArray{ TableGlobalSecondaryIndexKeySchemaArgs{...} }
+type TableGlobalSecondaryIndexKeySchemaArrayInput interface {
+	pulumi.Input
+
+	ToTableGlobalSecondaryIndexKeySchemaArrayOutput() TableGlobalSecondaryIndexKeySchemaArrayOutput
+	ToTableGlobalSecondaryIndexKeySchemaArrayOutputWithContext(context.Context) TableGlobalSecondaryIndexKeySchemaArrayOutput
+}
+
+type TableGlobalSecondaryIndexKeySchemaArray []TableGlobalSecondaryIndexKeySchemaInput
+
+func (TableGlobalSecondaryIndexKeySchemaArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TableGlobalSecondaryIndexKeySchema)(nil)).Elem()
+}
+
+func (i TableGlobalSecondaryIndexKeySchemaArray) ToTableGlobalSecondaryIndexKeySchemaArrayOutput() TableGlobalSecondaryIndexKeySchemaArrayOutput {
+	return i.ToTableGlobalSecondaryIndexKeySchemaArrayOutputWithContext(context.Background())
+}
+
+func (i TableGlobalSecondaryIndexKeySchemaArray) ToTableGlobalSecondaryIndexKeySchemaArrayOutputWithContext(ctx context.Context) TableGlobalSecondaryIndexKeySchemaArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TableGlobalSecondaryIndexKeySchemaArrayOutput)
+}
+
+type TableGlobalSecondaryIndexKeySchemaOutput struct{ *pulumi.OutputState }
+
+func (TableGlobalSecondaryIndexKeySchemaOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TableGlobalSecondaryIndexKeySchema)(nil)).Elem()
+}
+
+func (o TableGlobalSecondaryIndexKeySchemaOutput) ToTableGlobalSecondaryIndexKeySchemaOutput() TableGlobalSecondaryIndexKeySchemaOutput {
+	return o
+}
+
+func (o TableGlobalSecondaryIndexKeySchemaOutput) ToTableGlobalSecondaryIndexKeySchemaOutputWithContext(ctx context.Context) TableGlobalSecondaryIndexKeySchemaOutput {
+	return o
+}
+
+// Name of the table attribute to store the TTL timestamp in.
+// Required if `enabled` is `true`, must not be set otherwise.
+func (o TableGlobalSecondaryIndexKeySchemaOutput) AttributeName() pulumi.StringOutput {
+	return o.ApplyT(func(v TableGlobalSecondaryIndexKeySchema) string { return v.AttributeName }).(pulumi.StringOutput)
+}
+
+func (o TableGlobalSecondaryIndexKeySchemaOutput) KeyType() pulumi.StringOutput {
+	return o.ApplyT(func(v TableGlobalSecondaryIndexKeySchema) string { return v.KeyType }).(pulumi.StringOutput)
+}
+
+type TableGlobalSecondaryIndexKeySchemaArrayOutput struct{ *pulumi.OutputState }
+
+func (TableGlobalSecondaryIndexKeySchemaArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]TableGlobalSecondaryIndexKeySchema)(nil)).Elem()
+}
+
+func (o TableGlobalSecondaryIndexKeySchemaArrayOutput) ToTableGlobalSecondaryIndexKeySchemaArrayOutput() TableGlobalSecondaryIndexKeySchemaArrayOutput {
+	return o
+}
+
+func (o TableGlobalSecondaryIndexKeySchemaArrayOutput) ToTableGlobalSecondaryIndexKeySchemaArrayOutputWithContext(ctx context.Context) TableGlobalSecondaryIndexKeySchemaArrayOutput {
+	return o
+}
+
+func (o TableGlobalSecondaryIndexKeySchemaArrayOutput) Index(i pulumi.IntInput) TableGlobalSecondaryIndexKeySchemaOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TableGlobalSecondaryIndexKeySchema {
+		return vs[0].([]TableGlobalSecondaryIndexKeySchema)[vs[1].(int)]
+	}).(TableGlobalSecondaryIndexKeySchemaOutput)
 }
 
 type TableGlobalSecondaryIndexOnDemandThroughput struct {
@@ -3818,7 +3942,8 @@ func (o GetTableAttributeArrayOutput) Index(i pulumi.IntInput) GetTableAttribute
 }
 
 type GetTableGlobalSecondaryIndex struct {
-	HashKey string `pulumi:"hashKey"`
+	HashKey    string                                  `pulumi:"hashKey"`
+	KeySchemas []GetTableGlobalSecondaryIndexKeySchema `pulumi:"keySchemas"`
 	// Name of the DynamoDB table.
 	Name                string                                           `pulumi:"name"`
 	NonKeyAttributes    []string                                         `pulumi:"nonKeyAttributes"`
@@ -3842,7 +3967,8 @@ type GetTableGlobalSecondaryIndexInput interface {
 }
 
 type GetTableGlobalSecondaryIndexArgs struct {
-	HashKey pulumi.StringInput `pulumi:"hashKey"`
+	HashKey    pulumi.StringInput                              `pulumi:"hashKey"`
+	KeySchemas GetTableGlobalSecondaryIndexKeySchemaArrayInput `pulumi:"keySchemas"`
 	// Name of the DynamoDB table.
 	Name                pulumi.StringInput                                       `pulumi:"name"`
 	NonKeyAttributes    pulumi.StringArrayInput                                  `pulumi:"nonKeyAttributes"`
@@ -3909,6 +4035,10 @@ func (o GetTableGlobalSecondaryIndexOutput) HashKey() pulumi.StringOutput {
 	return o.ApplyT(func(v GetTableGlobalSecondaryIndex) string { return v.HashKey }).(pulumi.StringOutput)
 }
 
+func (o GetTableGlobalSecondaryIndexOutput) KeySchemas() GetTableGlobalSecondaryIndexKeySchemaArrayOutput {
+	return o.ApplyT(func(v GetTableGlobalSecondaryIndex) []GetTableGlobalSecondaryIndexKeySchema { return v.KeySchemas }).(GetTableGlobalSecondaryIndexKeySchemaArrayOutput)
+}
+
 // Name of the DynamoDB table.
 func (o GetTableGlobalSecondaryIndexOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetTableGlobalSecondaryIndex) string { return v.Name }).(pulumi.StringOutput)
@@ -3964,6 +4094,106 @@ func (o GetTableGlobalSecondaryIndexArrayOutput) Index(i pulumi.IntInput) GetTab
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetTableGlobalSecondaryIndex {
 		return vs[0].([]GetTableGlobalSecondaryIndex)[vs[1].(int)]
 	}).(GetTableGlobalSecondaryIndexOutput)
+}
+
+type GetTableGlobalSecondaryIndexKeySchema struct {
+	AttributeName string `pulumi:"attributeName"`
+	KeyType       string `pulumi:"keyType"`
+}
+
+// GetTableGlobalSecondaryIndexKeySchemaInput is an input type that accepts GetTableGlobalSecondaryIndexKeySchemaArgs and GetTableGlobalSecondaryIndexKeySchemaOutput values.
+// You can construct a concrete instance of `GetTableGlobalSecondaryIndexKeySchemaInput` via:
+//
+//	GetTableGlobalSecondaryIndexKeySchemaArgs{...}
+type GetTableGlobalSecondaryIndexKeySchemaInput interface {
+	pulumi.Input
+
+	ToGetTableGlobalSecondaryIndexKeySchemaOutput() GetTableGlobalSecondaryIndexKeySchemaOutput
+	ToGetTableGlobalSecondaryIndexKeySchemaOutputWithContext(context.Context) GetTableGlobalSecondaryIndexKeySchemaOutput
+}
+
+type GetTableGlobalSecondaryIndexKeySchemaArgs struct {
+	AttributeName pulumi.StringInput `pulumi:"attributeName"`
+	KeyType       pulumi.StringInput `pulumi:"keyType"`
+}
+
+func (GetTableGlobalSecondaryIndexKeySchemaArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTableGlobalSecondaryIndexKeySchema)(nil)).Elem()
+}
+
+func (i GetTableGlobalSecondaryIndexKeySchemaArgs) ToGetTableGlobalSecondaryIndexKeySchemaOutput() GetTableGlobalSecondaryIndexKeySchemaOutput {
+	return i.ToGetTableGlobalSecondaryIndexKeySchemaOutputWithContext(context.Background())
+}
+
+func (i GetTableGlobalSecondaryIndexKeySchemaArgs) ToGetTableGlobalSecondaryIndexKeySchemaOutputWithContext(ctx context.Context) GetTableGlobalSecondaryIndexKeySchemaOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTableGlobalSecondaryIndexKeySchemaOutput)
+}
+
+// GetTableGlobalSecondaryIndexKeySchemaArrayInput is an input type that accepts GetTableGlobalSecondaryIndexKeySchemaArray and GetTableGlobalSecondaryIndexKeySchemaArrayOutput values.
+// You can construct a concrete instance of `GetTableGlobalSecondaryIndexKeySchemaArrayInput` via:
+//
+//	GetTableGlobalSecondaryIndexKeySchemaArray{ GetTableGlobalSecondaryIndexKeySchemaArgs{...} }
+type GetTableGlobalSecondaryIndexKeySchemaArrayInput interface {
+	pulumi.Input
+
+	ToGetTableGlobalSecondaryIndexKeySchemaArrayOutput() GetTableGlobalSecondaryIndexKeySchemaArrayOutput
+	ToGetTableGlobalSecondaryIndexKeySchemaArrayOutputWithContext(context.Context) GetTableGlobalSecondaryIndexKeySchemaArrayOutput
+}
+
+type GetTableGlobalSecondaryIndexKeySchemaArray []GetTableGlobalSecondaryIndexKeySchemaInput
+
+func (GetTableGlobalSecondaryIndexKeySchemaArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetTableGlobalSecondaryIndexKeySchema)(nil)).Elem()
+}
+
+func (i GetTableGlobalSecondaryIndexKeySchemaArray) ToGetTableGlobalSecondaryIndexKeySchemaArrayOutput() GetTableGlobalSecondaryIndexKeySchemaArrayOutput {
+	return i.ToGetTableGlobalSecondaryIndexKeySchemaArrayOutputWithContext(context.Background())
+}
+
+func (i GetTableGlobalSecondaryIndexKeySchemaArray) ToGetTableGlobalSecondaryIndexKeySchemaArrayOutputWithContext(ctx context.Context) GetTableGlobalSecondaryIndexKeySchemaArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTableGlobalSecondaryIndexKeySchemaArrayOutput)
+}
+
+type GetTableGlobalSecondaryIndexKeySchemaOutput struct{ *pulumi.OutputState }
+
+func (GetTableGlobalSecondaryIndexKeySchemaOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTableGlobalSecondaryIndexKeySchema)(nil)).Elem()
+}
+
+func (o GetTableGlobalSecondaryIndexKeySchemaOutput) ToGetTableGlobalSecondaryIndexKeySchemaOutput() GetTableGlobalSecondaryIndexKeySchemaOutput {
+	return o
+}
+
+func (o GetTableGlobalSecondaryIndexKeySchemaOutput) ToGetTableGlobalSecondaryIndexKeySchemaOutputWithContext(ctx context.Context) GetTableGlobalSecondaryIndexKeySchemaOutput {
+	return o
+}
+
+func (o GetTableGlobalSecondaryIndexKeySchemaOutput) AttributeName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetTableGlobalSecondaryIndexKeySchema) string { return v.AttributeName }).(pulumi.StringOutput)
+}
+
+func (o GetTableGlobalSecondaryIndexKeySchemaOutput) KeyType() pulumi.StringOutput {
+	return o.ApplyT(func(v GetTableGlobalSecondaryIndexKeySchema) string { return v.KeyType }).(pulumi.StringOutput)
+}
+
+type GetTableGlobalSecondaryIndexKeySchemaArrayOutput struct{ *pulumi.OutputState }
+
+func (GetTableGlobalSecondaryIndexKeySchemaArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetTableGlobalSecondaryIndexKeySchema)(nil)).Elem()
+}
+
+func (o GetTableGlobalSecondaryIndexKeySchemaArrayOutput) ToGetTableGlobalSecondaryIndexKeySchemaArrayOutput() GetTableGlobalSecondaryIndexKeySchemaArrayOutput {
+	return o
+}
+
+func (o GetTableGlobalSecondaryIndexKeySchemaArrayOutput) ToGetTableGlobalSecondaryIndexKeySchemaArrayOutputWithContext(ctx context.Context) GetTableGlobalSecondaryIndexKeySchemaArrayOutput {
+	return o
+}
+
+func (o GetTableGlobalSecondaryIndexKeySchemaArrayOutput) Index(i pulumi.IntInput) GetTableGlobalSecondaryIndexKeySchemaOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetTableGlobalSecondaryIndexKeySchema {
+		return vs[0].([]GetTableGlobalSecondaryIndexKeySchema)[vs[1].(int)]
+	}).(GetTableGlobalSecondaryIndexKeySchemaOutput)
 }
 
 type GetTableGlobalSecondaryIndexOnDemandThroughput struct {
@@ -4860,6 +5090,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TableExportIncrementalExportSpecificationPtrInput)(nil)).Elem(), TableExportIncrementalExportSpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableGlobalSecondaryIndexInput)(nil)).Elem(), TableGlobalSecondaryIndexArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableGlobalSecondaryIndexArrayInput)(nil)).Elem(), TableGlobalSecondaryIndexArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TableGlobalSecondaryIndexKeySchemaInput)(nil)).Elem(), TableGlobalSecondaryIndexKeySchemaArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*TableGlobalSecondaryIndexKeySchemaArrayInput)(nil)).Elem(), TableGlobalSecondaryIndexKeySchemaArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableGlobalSecondaryIndexOnDemandThroughputInput)(nil)).Elem(), TableGlobalSecondaryIndexOnDemandThroughputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableGlobalSecondaryIndexOnDemandThroughputPtrInput)(nil)).Elem(), TableGlobalSecondaryIndexOnDemandThroughputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TableGlobalSecondaryIndexWarmThroughputInput)(nil)).Elem(), TableGlobalSecondaryIndexWarmThroughputArgs{})
@@ -4892,6 +5124,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTableAttributeArrayInput)(nil)).Elem(), GetTableAttributeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTableGlobalSecondaryIndexInput)(nil)).Elem(), GetTableGlobalSecondaryIndexArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTableGlobalSecondaryIndexArrayInput)(nil)).Elem(), GetTableGlobalSecondaryIndexArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTableGlobalSecondaryIndexKeySchemaInput)(nil)).Elem(), GetTableGlobalSecondaryIndexKeySchemaArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTableGlobalSecondaryIndexKeySchemaArrayInput)(nil)).Elem(), GetTableGlobalSecondaryIndexKeySchemaArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTableGlobalSecondaryIndexOnDemandThroughputInput)(nil)).Elem(), GetTableGlobalSecondaryIndexOnDemandThroughputArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTableGlobalSecondaryIndexOnDemandThroughputArrayInput)(nil)).Elem(), GetTableGlobalSecondaryIndexOnDemandThroughputArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTableGlobalSecondaryIndexWarmThroughputInput)(nil)).Elem(), GetTableGlobalSecondaryIndexWarmThroughputArgs{})
@@ -4928,6 +5162,8 @@ func init() {
 	pulumi.RegisterOutputType(TableExportIncrementalExportSpecificationPtrOutput{})
 	pulumi.RegisterOutputType(TableGlobalSecondaryIndexOutput{})
 	pulumi.RegisterOutputType(TableGlobalSecondaryIndexArrayOutput{})
+	pulumi.RegisterOutputType(TableGlobalSecondaryIndexKeySchemaOutput{})
+	pulumi.RegisterOutputType(TableGlobalSecondaryIndexKeySchemaArrayOutput{})
 	pulumi.RegisterOutputType(TableGlobalSecondaryIndexOnDemandThroughputOutput{})
 	pulumi.RegisterOutputType(TableGlobalSecondaryIndexOnDemandThroughputPtrOutput{})
 	pulumi.RegisterOutputType(TableGlobalSecondaryIndexWarmThroughputOutput{})
@@ -4960,6 +5196,8 @@ func init() {
 	pulumi.RegisterOutputType(GetTableAttributeArrayOutput{})
 	pulumi.RegisterOutputType(GetTableGlobalSecondaryIndexOutput{})
 	pulumi.RegisterOutputType(GetTableGlobalSecondaryIndexArrayOutput{})
+	pulumi.RegisterOutputType(GetTableGlobalSecondaryIndexKeySchemaOutput{})
+	pulumi.RegisterOutputType(GetTableGlobalSecondaryIndexKeySchemaArrayOutput{})
 	pulumi.RegisterOutputType(GetTableGlobalSecondaryIndexOnDemandThroughputOutput{})
 	pulumi.RegisterOutputType(GetTableGlobalSecondaryIndexOnDemandThroughputArrayOutput{})
 	pulumi.RegisterOutputType(GetTableGlobalSecondaryIndexWarmThroughputOutput{})

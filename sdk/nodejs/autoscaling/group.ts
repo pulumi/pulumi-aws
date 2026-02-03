@@ -659,7 +659,7 @@ export class Group extends pulumi.CustomResource {
      */
     declare public readonly tags: pulumi.Output<outputs.autoscaling.GroupTag[] | undefined>;
     /**
-     * Set of `aws.alb.TargetGroup` ARNs, for use with Application or Network Load Balancing. To remove all target group attachments an empty list should be specified.
+     * Set of `aws.lb.TargetGroup` ARNs, for use with Application or Network Load Balancing. To remove all target group attachments an empty list should be specified.
      */
     declare public readonly targetGroupArns: pulumi.Output<string[]>;
     /**
@@ -995,7 +995,7 @@ export interface GroupState {
      */
     tags?: pulumi.Input<pulumi.Input<inputs.autoscaling.GroupTag>[]>;
     /**
-     * Set of `aws.alb.TargetGroup` ARNs, for use with Application or Network Load Balancing. To remove all target group attachments an empty list should be specified.
+     * Set of `aws.lb.TargetGroup` ARNs, for use with Application or Network Load Balancing. To remove all target group attachments an empty list should be specified.
      */
     targetGroupArns?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -1207,7 +1207,7 @@ export interface GroupArgs {
      */
     tags?: pulumi.Input<pulumi.Input<inputs.autoscaling.GroupTag>[]>;
     /**
-     * Set of `aws.alb.TargetGroup` ARNs, for use with Application or Network Load Balancing. To remove all target group attachments an empty list should be specified.
+     * Set of `aws.lb.TargetGroup` ARNs, for use with Application or Network Load Balancing. To remove all target group attachments an empty list should be specified.
      */
     targetGroupArns?: pulumi.Input<pulumi.Input<string>[]>;
     /**

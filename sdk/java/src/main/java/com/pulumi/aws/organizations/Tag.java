@@ -24,6 +24,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.organizations.OrganizationsFunctions;
+ * import com.pulumi.aws.organizations.inputs.GetOrganizationArgs;
  * import com.pulumi.aws.organizations.OrganizationalUnit;
  * import com.pulumi.aws.organizations.OrganizationalUnitArgs;
  * import com.pulumi.aws.organizations.Tag;
@@ -41,7 +42,8 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var example = OrganizationsFunctions.getOrganization(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+ *         final var example = OrganizationsFunctions.getOrganization(GetOrganizationArgs.builder()
+ *             .build());
  * 
  *         var exampleOrganizationalUnit = new OrganizationalUnit("exampleOrganizationalUnit", OrganizationalUnitArgs.builder()
  *             .name("ExampleOU")

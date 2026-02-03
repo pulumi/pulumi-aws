@@ -27,7 +27,7 @@ class GetOrganizationResult:
     """
     A collection of values returned by getOrganization.
     """
-    def __init__(__self__, accounts=None, arn=None, aws_service_access_principals=None, enabled_policy_types=None, feature_set=None, id=None, master_account_arn=None, master_account_email=None, master_account_id=None, master_account_name=None, non_master_accounts=None, roots=None):
+    def __init__(__self__, accounts=None, arn=None, aws_service_access_principals=None, enabled_policy_types=None, feature_set=None, id=None, master_account_arn=None, master_account_email=None, master_account_id=None, master_account_name=None, non_master_accounts=None, return_organization_only=None, roots=None):
         if accounts and not isinstance(accounts, list):
             raise TypeError("Expected argument 'accounts' to be a list")
         pulumi.set(__self__, "accounts", accounts)
@@ -61,6 +61,9 @@ class GetOrganizationResult:
         if non_master_accounts and not isinstance(non_master_accounts, list):
             raise TypeError("Expected argument 'non_master_accounts' to be a list")
         pulumi.set(__self__, "non_master_accounts", non_master_accounts)
+        if return_organization_only and not isinstance(return_organization_only, bool):
+            raise TypeError("Expected argument 'return_organization_only' to be a bool")
+        pulumi.set(__self__, "return_organization_only", return_organization_only)
         if roots and not isinstance(roots, list):
             raise TypeError("Expected argument 'roots' to be a list")
         pulumi.set(__self__, "roots", roots)
@@ -154,6 +157,11 @@ class GetOrganizationResult:
         return pulumi.get(self, "non_master_accounts")
 
     @_builtins.property
+    @pulumi.getter(name="returnOrganizationOnly")
+    def return_organization_only(self) -> Optional[_builtins.bool]:
+        return pulumi.get(self, "return_organization_only")
+
+    @_builtins.property
     @pulumi.getter
     def roots(self) -> Sequence['outputs.GetOrganizationRootResult']:
         """
@@ -179,10 +187,12 @@ class AwaitableGetOrganizationResult(GetOrganizationResult):
             master_account_id=self.master_account_id,
             master_account_name=self.master_account_name,
             non_master_accounts=self.non_master_accounts,
+            return_organization_only=self.return_organization_only,
             roots=self.roots)
 
 
-def get_organization(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetOrganizationResult:
+def get_organization(return_organization_only: Optional[_builtins.bool] = None,
+                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetOrganizationResult:
     """
     Get information about the organization that the users account belongs to.
 
@@ -227,8 +237,12 @@ def get_organization(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGe
         arn=sns_topic.arn,
         policy=sns_topic_policy.json)
     ```
+
+
+    :param _builtins.bool return_organization_only: Return (as attributes) only the results of the [`DescribeOrganization`](https://docs.aws.amazon.com/organizations/latest/APIReference/API_DescribeOrganization.html) API to avoid [API limits](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_reference_limits.html#throttling-limits). When configured to `true` only the `arn`, `feature_set`, `master_account_arn`, `master_account_email` and `master_account_id` attributes will be returned. All others will be empty. Default: `false`.
     """
     __args__ = dict()
+    __args__['returnOrganizationOnly'] = return_organization_only
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:organizations/getOrganization:getOrganization', __args__, opts=opts, typ=GetOrganizationResult).value
 
@@ -244,8 +258,10 @@ def get_organization(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGe
         master_account_id=pulumi.get(__ret__, 'master_account_id'),
         master_account_name=pulumi.get(__ret__, 'master_account_name'),
         non_master_accounts=pulumi.get(__ret__, 'non_master_accounts'),
+        return_organization_only=pulumi.get(__ret__, 'return_organization_only'),
         roots=pulumi.get(__ret__, 'roots'))
-def get_organization_output(opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetOrganizationResult]:
+def get_organization_output(return_organization_only: Optional[pulumi.Input[Optional[_builtins.bool]]] = None,
+                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetOrganizationResult]:
     """
     Get information about the organization that the users account belongs to.
 
@@ -290,8 +306,12 @@ def get_organization_output(opts: Optional[Union[pulumi.InvokeOptions, pulumi.In
         arn=sns_topic.arn,
         policy=sns_topic_policy.json)
     ```
+
+
+    :param _builtins.bool return_organization_only: Return (as attributes) only the results of the [`DescribeOrganization`](https://docs.aws.amazon.com/organizations/latest/APIReference/API_DescribeOrganization.html) API to avoid [API limits](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_reference_limits.html#throttling-limits). When configured to `true` only the `arn`, `feature_set`, `master_account_arn`, `master_account_email` and `master_account_id` attributes will be returned. All others will be empty. Default: `false`.
     """
     __args__ = dict()
+    __args__['returnOrganizationOnly'] = return_organization_only
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:organizations/getOrganization:getOrganization', __args__, opts=opts, typ=GetOrganizationResult)
     return __ret__.apply(lambda __response__: GetOrganizationResult(
@@ -306,4 +326,5 @@ def get_organization_output(opts: Optional[Union[pulumi.InvokeOptions, pulumi.In
         master_account_id=pulumi.get(__response__, 'master_account_id'),
         master_account_name=pulumi.get(__response__, 'master_account_name'),
         non_master_accounts=pulumi.get(__response__, 'non_master_accounts'),
+        return_organization_only=pulumi.get(__response__, 'return_organization_only'),
         roots=pulumi.get(__response__, 'roots')))

@@ -21,6 +21,7 @@ from .get_permission_sets import *
 from .get_principal_application_assignments import *
 from .instance_access_control_attributes import *
 from .managed_policy_attachment import *
+from .managed_policy_attachments_exclusive import *
 from .permission_set import *
 from .permission_set_inline_policy import *
 from .permissions_boundary_attachment import *

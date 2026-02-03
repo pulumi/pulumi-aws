@@ -42,7 +42,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			currentGetOrganization, err := organizations.LookupOrganization(ctx, map[string]interface{}{}, nil)
+//			currentGetOrganization, err := organizations.LookupOrganization(ctx, &organizations.LookupOrganizationArgs{}, nil)
 //			if err != nil {
 //				return err
 //			}
@@ -100,7 +100,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			currentGetOrganization, err := organizations.LookupOrganization(ctx, map[string]interface{}{}, nil)
+//			currentGetOrganization, err := organizations.LookupOrganization(ctx, &organizations.LookupOrganizationArgs{}, nil)
 //			if err != nil {
 //				return err
 //			}
@@ -168,7 +168,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			currentGetOrganization, err := organizations.LookupOrganization(ctx, map[string]interface{}{}, nil)
+//			currentGetOrganization, err := organizations.LookupOrganization(ctx, &organizations.LookupOrganizationArgs{}, nil)
 //			if err != nil {
 //				return err
 //			}

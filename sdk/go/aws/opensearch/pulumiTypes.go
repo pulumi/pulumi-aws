@@ -13,6 +13,583 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type ApplicationAppConfig struct {
+	// The configuration item to set. Valid values are `opensearchDashboards.dashboardAdmin.users` and `opensearchDashboards.dashboardAdmin.groups`.
+	Key *string `pulumi:"key"`
+	// The value assigned to the configuration key, such as an IAM user ARN or group name. Must be between 1 and 4096 characters.
+	Value *string `pulumi:"value"`
+}
+
+// ApplicationAppConfigInput is an input type that accepts ApplicationAppConfigArgs and ApplicationAppConfigOutput values.
+// You can construct a concrete instance of `ApplicationAppConfigInput` via:
+//
+//	ApplicationAppConfigArgs{...}
+type ApplicationAppConfigInput interface {
+	pulumi.Input
+
+	ToApplicationAppConfigOutput() ApplicationAppConfigOutput
+	ToApplicationAppConfigOutputWithContext(context.Context) ApplicationAppConfigOutput
+}
+
+type ApplicationAppConfigArgs struct {
+	// The configuration item to set. Valid values are `opensearchDashboards.dashboardAdmin.users` and `opensearchDashboards.dashboardAdmin.groups`.
+	Key pulumi.StringPtrInput `pulumi:"key"`
+	// The value assigned to the configuration key, such as an IAM user ARN or group name. Must be between 1 and 4096 characters.
+	Value pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (ApplicationAppConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationAppConfig)(nil)).Elem()
+}
+
+func (i ApplicationAppConfigArgs) ToApplicationAppConfigOutput() ApplicationAppConfigOutput {
+	return i.ToApplicationAppConfigOutputWithContext(context.Background())
+}
+
+func (i ApplicationAppConfigArgs) ToApplicationAppConfigOutputWithContext(ctx context.Context) ApplicationAppConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationAppConfigOutput)
+}
+
+// ApplicationAppConfigArrayInput is an input type that accepts ApplicationAppConfigArray and ApplicationAppConfigArrayOutput values.
+// You can construct a concrete instance of `ApplicationAppConfigArrayInput` via:
+//
+//	ApplicationAppConfigArray{ ApplicationAppConfigArgs{...} }
+type ApplicationAppConfigArrayInput interface {
+	pulumi.Input
+
+	ToApplicationAppConfigArrayOutput() ApplicationAppConfigArrayOutput
+	ToApplicationAppConfigArrayOutputWithContext(context.Context) ApplicationAppConfigArrayOutput
+}
+
+type ApplicationAppConfigArray []ApplicationAppConfigInput
+
+func (ApplicationAppConfigArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ApplicationAppConfig)(nil)).Elem()
+}
+
+func (i ApplicationAppConfigArray) ToApplicationAppConfigArrayOutput() ApplicationAppConfigArrayOutput {
+	return i.ToApplicationAppConfigArrayOutputWithContext(context.Background())
+}
+
+func (i ApplicationAppConfigArray) ToApplicationAppConfigArrayOutputWithContext(ctx context.Context) ApplicationAppConfigArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationAppConfigArrayOutput)
+}
+
+type ApplicationAppConfigOutput struct{ *pulumi.OutputState }
+
+func (ApplicationAppConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationAppConfig)(nil)).Elem()
+}
+
+func (o ApplicationAppConfigOutput) ToApplicationAppConfigOutput() ApplicationAppConfigOutput {
+	return o
+}
+
+func (o ApplicationAppConfigOutput) ToApplicationAppConfigOutputWithContext(ctx context.Context) ApplicationAppConfigOutput {
+	return o
+}
+
+// The configuration item to set. Valid values are `opensearchDashboards.dashboardAdmin.users` and `opensearchDashboards.dashboardAdmin.groups`.
+func (o ApplicationAppConfigOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApplicationAppConfig) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+// The value assigned to the configuration key, such as an IAM user ARN or group name. Must be between 1 and 4096 characters.
+func (o ApplicationAppConfigOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApplicationAppConfig) *string { return v.Value }).(pulumi.StringPtrOutput)
+}
+
+type ApplicationAppConfigArrayOutput struct{ *pulumi.OutputState }
+
+func (ApplicationAppConfigArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ApplicationAppConfig)(nil)).Elem()
+}
+
+func (o ApplicationAppConfigArrayOutput) ToApplicationAppConfigArrayOutput() ApplicationAppConfigArrayOutput {
+	return o
+}
+
+func (o ApplicationAppConfigArrayOutput) ToApplicationAppConfigArrayOutputWithContext(ctx context.Context) ApplicationAppConfigArrayOutput {
+	return o
+}
+
+func (o ApplicationAppConfigArrayOutput) Index(i pulumi.IntInput) ApplicationAppConfigOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ApplicationAppConfig {
+		return vs[0].([]ApplicationAppConfig)[vs[1].(int)]
+	}).(ApplicationAppConfigOutput)
+}
+
+type ApplicationDataSource struct {
+	// The Amazon Resource Name (ARN) of the OpenSearch domain or collection. Must be between 20 and 2048 characters.
+	DataSourceArn *string `pulumi:"dataSourceArn"`
+	// A detailed description of the data source. Must be at most 1000 characters and contain only alphanumeric characters, underscores, spaces, and the following special characters: `@#%*+=:?./!-`.
+	DataSourceDescription *string `pulumi:"dataSourceDescription"`
+}
+
+// ApplicationDataSourceInput is an input type that accepts ApplicationDataSourceArgs and ApplicationDataSourceOutput values.
+// You can construct a concrete instance of `ApplicationDataSourceInput` via:
+//
+//	ApplicationDataSourceArgs{...}
+type ApplicationDataSourceInput interface {
+	pulumi.Input
+
+	ToApplicationDataSourceOutput() ApplicationDataSourceOutput
+	ToApplicationDataSourceOutputWithContext(context.Context) ApplicationDataSourceOutput
+}
+
+type ApplicationDataSourceArgs struct {
+	// The Amazon Resource Name (ARN) of the OpenSearch domain or collection. Must be between 20 and 2048 characters.
+	DataSourceArn pulumi.StringPtrInput `pulumi:"dataSourceArn"`
+	// A detailed description of the data source. Must be at most 1000 characters and contain only alphanumeric characters, underscores, spaces, and the following special characters: `@#%*+=:?./!-`.
+	DataSourceDescription pulumi.StringPtrInput `pulumi:"dataSourceDescription"`
+}
+
+func (ApplicationDataSourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationDataSource)(nil)).Elem()
+}
+
+func (i ApplicationDataSourceArgs) ToApplicationDataSourceOutput() ApplicationDataSourceOutput {
+	return i.ToApplicationDataSourceOutputWithContext(context.Background())
+}
+
+func (i ApplicationDataSourceArgs) ToApplicationDataSourceOutputWithContext(ctx context.Context) ApplicationDataSourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationDataSourceOutput)
+}
+
+// ApplicationDataSourceArrayInput is an input type that accepts ApplicationDataSourceArray and ApplicationDataSourceArrayOutput values.
+// You can construct a concrete instance of `ApplicationDataSourceArrayInput` via:
+//
+//	ApplicationDataSourceArray{ ApplicationDataSourceArgs{...} }
+type ApplicationDataSourceArrayInput interface {
+	pulumi.Input
+
+	ToApplicationDataSourceArrayOutput() ApplicationDataSourceArrayOutput
+	ToApplicationDataSourceArrayOutputWithContext(context.Context) ApplicationDataSourceArrayOutput
+}
+
+type ApplicationDataSourceArray []ApplicationDataSourceInput
+
+func (ApplicationDataSourceArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ApplicationDataSource)(nil)).Elem()
+}
+
+func (i ApplicationDataSourceArray) ToApplicationDataSourceArrayOutput() ApplicationDataSourceArrayOutput {
+	return i.ToApplicationDataSourceArrayOutputWithContext(context.Background())
+}
+
+func (i ApplicationDataSourceArray) ToApplicationDataSourceArrayOutputWithContext(ctx context.Context) ApplicationDataSourceArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationDataSourceArrayOutput)
+}
+
+type ApplicationDataSourceOutput struct{ *pulumi.OutputState }
+
+func (ApplicationDataSourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationDataSource)(nil)).Elem()
+}
+
+func (o ApplicationDataSourceOutput) ToApplicationDataSourceOutput() ApplicationDataSourceOutput {
+	return o
+}
+
+func (o ApplicationDataSourceOutput) ToApplicationDataSourceOutputWithContext(ctx context.Context) ApplicationDataSourceOutput {
+	return o
+}
+
+// The Amazon Resource Name (ARN) of the OpenSearch domain or collection. Must be between 20 and 2048 characters.
+func (o ApplicationDataSourceOutput) DataSourceArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApplicationDataSource) *string { return v.DataSourceArn }).(pulumi.StringPtrOutput)
+}
+
+// A detailed description of the data source. Must be at most 1000 characters and contain only alphanumeric characters, underscores, spaces, and the following special characters: `@#%*+=:?./!-`.
+func (o ApplicationDataSourceOutput) DataSourceDescription() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApplicationDataSource) *string { return v.DataSourceDescription }).(pulumi.StringPtrOutput)
+}
+
+type ApplicationDataSourceArrayOutput struct{ *pulumi.OutputState }
+
+func (ApplicationDataSourceArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ApplicationDataSource)(nil)).Elem()
+}
+
+func (o ApplicationDataSourceArrayOutput) ToApplicationDataSourceArrayOutput() ApplicationDataSourceArrayOutput {
+	return o
+}
+
+func (o ApplicationDataSourceArrayOutput) ToApplicationDataSourceArrayOutputWithContext(ctx context.Context) ApplicationDataSourceArrayOutput {
+	return o
+}
+
+func (o ApplicationDataSourceArrayOutput) Index(i pulumi.IntInput) ApplicationDataSourceOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ApplicationDataSource {
+		return vs[0].([]ApplicationDataSource)[vs[1].(int)]
+	}).(ApplicationDataSourceOutput)
+}
+
+type ApplicationIamIdentityCenterOptions struct {
+	// Specifies whether IAM Identity Center is enabled or disabled.
+	Enabled                         *bool   `pulumi:"enabled"`
+	IamIdentityCenterApplicationArn *string `pulumi:"iamIdentityCenterApplicationArn"`
+	// The Amazon Resource Name (ARN) of the IAM Identity Center instance. Must be between 20 and 2048 characters.
+	IamIdentityCenterInstanceArn *string `pulumi:"iamIdentityCenterInstanceArn"`
+	// The ARN of the IAM role associated with the IAM Identity Center application. Must be between 20 and 2048 characters and match the pattern for IAM role ARNs.
+	IamRoleForIdentityCenterApplicationArn *string `pulumi:"iamRoleForIdentityCenterApplicationArn"`
+}
+
+// ApplicationIamIdentityCenterOptionsInput is an input type that accepts ApplicationIamIdentityCenterOptionsArgs and ApplicationIamIdentityCenterOptionsOutput values.
+// You can construct a concrete instance of `ApplicationIamIdentityCenterOptionsInput` via:
+//
+//	ApplicationIamIdentityCenterOptionsArgs{...}
+type ApplicationIamIdentityCenterOptionsInput interface {
+	pulumi.Input
+
+	ToApplicationIamIdentityCenterOptionsOutput() ApplicationIamIdentityCenterOptionsOutput
+	ToApplicationIamIdentityCenterOptionsOutputWithContext(context.Context) ApplicationIamIdentityCenterOptionsOutput
+}
+
+type ApplicationIamIdentityCenterOptionsArgs struct {
+	// Specifies whether IAM Identity Center is enabled or disabled.
+	Enabled                         pulumi.BoolPtrInput   `pulumi:"enabled"`
+	IamIdentityCenterApplicationArn pulumi.StringPtrInput `pulumi:"iamIdentityCenterApplicationArn"`
+	// The Amazon Resource Name (ARN) of the IAM Identity Center instance. Must be between 20 and 2048 characters.
+	IamIdentityCenterInstanceArn pulumi.StringPtrInput `pulumi:"iamIdentityCenterInstanceArn"`
+	// The ARN of the IAM role associated with the IAM Identity Center application. Must be between 20 and 2048 characters and match the pattern for IAM role ARNs.
+	IamRoleForIdentityCenterApplicationArn pulumi.StringPtrInput `pulumi:"iamRoleForIdentityCenterApplicationArn"`
+}
+
+func (ApplicationIamIdentityCenterOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationIamIdentityCenterOptions)(nil)).Elem()
+}
+
+func (i ApplicationIamIdentityCenterOptionsArgs) ToApplicationIamIdentityCenterOptionsOutput() ApplicationIamIdentityCenterOptionsOutput {
+	return i.ToApplicationIamIdentityCenterOptionsOutputWithContext(context.Background())
+}
+
+func (i ApplicationIamIdentityCenterOptionsArgs) ToApplicationIamIdentityCenterOptionsOutputWithContext(ctx context.Context) ApplicationIamIdentityCenterOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationIamIdentityCenterOptionsOutput)
+}
+
+func (i ApplicationIamIdentityCenterOptionsArgs) ToApplicationIamIdentityCenterOptionsPtrOutput() ApplicationIamIdentityCenterOptionsPtrOutput {
+	return i.ToApplicationIamIdentityCenterOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i ApplicationIamIdentityCenterOptionsArgs) ToApplicationIamIdentityCenterOptionsPtrOutputWithContext(ctx context.Context) ApplicationIamIdentityCenterOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationIamIdentityCenterOptionsOutput).ToApplicationIamIdentityCenterOptionsPtrOutputWithContext(ctx)
+}
+
+// ApplicationIamIdentityCenterOptionsPtrInput is an input type that accepts ApplicationIamIdentityCenterOptionsArgs, ApplicationIamIdentityCenterOptionsPtr and ApplicationIamIdentityCenterOptionsPtrOutput values.
+// You can construct a concrete instance of `ApplicationIamIdentityCenterOptionsPtrInput` via:
+//
+//	        ApplicationIamIdentityCenterOptionsArgs{...}
+//
+//	or:
+//
+//	        nil
+type ApplicationIamIdentityCenterOptionsPtrInput interface {
+	pulumi.Input
+
+	ToApplicationIamIdentityCenterOptionsPtrOutput() ApplicationIamIdentityCenterOptionsPtrOutput
+	ToApplicationIamIdentityCenterOptionsPtrOutputWithContext(context.Context) ApplicationIamIdentityCenterOptionsPtrOutput
+}
+
+type applicationIamIdentityCenterOptionsPtrType ApplicationIamIdentityCenterOptionsArgs
+
+func ApplicationIamIdentityCenterOptionsPtr(v *ApplicationIamIdentityCenterOptionsArgs) ApplicationIamIdentityCenterOptionsPtrInput {
+	return (*applicationIamIdentityCenterOptionsPtrType)(v)
+}
+
+func (*applicationIamIdentityCenterOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationIamIdentityCenterOptions)(nil)).Elem()
+}
+
+func (i *applicationIamIdentityCenterOptionsPtrType) ToApplicationIamIdentityCenterOptionsPtrOutput() ApplicationIamIdentityCenterOptionsPtrOutput {
+	return i.ToApplicationIamIdentityCenterOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *applicationIamIdentityCenterOptionsPtrType) ToApplicationIamIdentityCenterOptionsPtrOutputWithContext(ctx context.Context) ApplicationIamIdentityCenterOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationIamIdentityCenterOptionsPtrOutput)
+}
+
+type ApplicationIamIdentityCenterOptionsOutput struct{ *pulumi.OutputState }
+
+func (ApplicationIamIdentityCenterOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationIamIdentityCenterOptions)(nil)).Elem()
+}
+
+func (o ApplicationIamIdentityCenterOptionsOutput) ToApplicationIamIdentityCenterOptionsOutput() ApplicationIamIdentityCenterOptionsOutput {
+	return o
+}
+
+func (o ApplicationIamIdentityCenterOptionsOutput) ToApplicationIamIdentityCenterOptionsOutputWithContext(ctx context.Context) ApplicationIamIdentityCenterOptionsOutput {
+	return o
+}
+
+func (o ApplicationIamIdentityCenterOptionsOutput) ToApplicationIamIdentityCenterOptionsPtrOutput() ApplicationIamIdentityCenterOptionsPtrOutput {
+	return o.ToApplicationIamIdentityCenterOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o ApplicationIamIdentityCenterOptionsOutput) ToApplicationIamIdentityCenterOptionsPtrOutputWithContext(ctx context.Context) ApplicationIamIdentityCenterOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationIamIdentityCenterOptions) *ApplicationIamIdentityCenterOptions {
+		return &v
+	}).(ApplicationIamIdentityCenterOptionsPtrOutput)
+}
+
+// Specifies whether IAM Identity Center is enabled or disabled.
+func (o ApplicationIamIdentityCenterOptionsOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ApplicationIamIdentityCenterOptions) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+func (o ApplicationIamIdentityCenterOptionsOutput) IamIdentityCenterApplicationArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApplicationIamIdentityCenterOptions) *string { return v.IamIdentityCenterApplicationArn }).(pulumi.StringPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the IAM Identity Center instance. Must be between 20 and 2048 characters.
+func (o ApplicationIamIdentityCenterOptionsOutput) IamIdentityCenterInstanceArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApplicationIamIdentityCenterOptions) *string { return v.IamIdentityCenterInstanceArn }).(pulumi.StringPtrOutput)
+}
+
+// The ARN of the IAM role associated with the IAM Identity Center application. Must be between 20 and 2048 characters and match the pattern for IAM role ARNs.
+func (o ApplicationIamIdentityCenterOptionsOutput) IamRoleForIdentityCenterApplicationArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApplicationIamIdentityCenterOptions) *string { return v.IamRoleForIdentityCenterApplicationArn }).(pulumi.StringPtrOutput)
+}
+
+type ApplicationIamIdentityCenterOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (ApplicationIamIdentityCenterOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationIamIdentityCenterOptions)(nil)).Elem()
+}
+
+func (o ApplicationIamIdentityCenterOptionsPtrOutput) ToApplicationIamIdentityCenterOptionsPtrOutput() ApplicationIamIdentityCenterOptionsPtrOutput {
+	return o
+}
+
+func (o ApplicationIamIdentityCenterOptionsPtrOutput) ToApplicationIamIdentityCenterOptionsPtrOutputWithContext(ctx context.Context) ApplicationIamIdentityCenterOptionsPtrOutput {
+	return o
+}
+
+func (o ApplicationIamIdentityCenterOptionsPtrOutput) Elem() ApplicationIamIdentityCenterOptionsOutput {
+	return o.ApplyT(func(v *ApplicationIamIdentityCenterOptions) ApplicationIamIdentityCenterOptions {
+		if v != nil {
+			return *v
+		}
+		var ret ApplicationIamIdentityCenterOptions
+		return ret
+	}).(ApplicationIamIdentityCenterOptionsOutput)
+}
+
+// Specifies whether IAM Identity Center is enabled or disabled.
+func (o ApplicationIamIdentityCenterOptionsPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ApplicationIamIdentityCenterOptions) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o ApplicationIamIdentityCenterOptionsPtrOutput) IamIdentityCenterApplicationArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApplicationIamIdentityCenterOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.IamIdentityCenterApplicationArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the IAM Identity Center instance. Must be between 20 and 2048 characters.
+func (o ApplicationIamIdentityCenterOptionsPtrOutput) IamIdentityCenterInstanceArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApplicationIamIdentityCenterOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.IamIdentityCenterInstanceArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// The ARN of the IAM role associated with the IAM Identity Center application. Must be between 20 and 2048 characters and match the pattern for IAM role ARNs.
+func (o ApplicationIamIdentityCenterOptionsPtrOutput) IamRoleForIdentityCenterApplicationArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApplicationIamIdentityCenterOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.IamRoleForIdentityCenterApplicationArn
+	}).(pulumi.StringPtrOutput)
+}
+
+type ApplicationTimeouts struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create *string `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+	Delete *string `pulumi:"delete"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Update *string `pulumi:"update"`
+}
+
+// ApplicationTimeoutsInput is an input type that accepts ApplicationTimeoutsArgs and ApplicationTimeoutsOutput values.
+// You can construct a concrete instance of `ApplicationTimeoutsInput` via:
+//
+//	ApplicationTimeoutsArgs{...}
+type ApplicationTimeoutsInput interface {
+	pulumi.Input
+
+	ToApplicationTimeoutsOutput() ApplicationTimeoutsOutput
+	ToApplicationTimeoutsOutputWithContext(context.Context) ApplicationTimeoutsOutput
+}
+
+type ApplicationTimeoutsArgs struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create pulumi.StringPtrInput `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+	Delete pulumi.StringPtrInput `pulumi:"delete"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Update pulumi.StringPtrInput `pulumi:"update"`
+}
+
+func (ApplicationTimeoutsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationTimeouts)(nil)).Elem()
+}
+
+func (i ApplicationTimeoutsArgs) ToApplicationTimeoutsOutput() ApplicationTimeoutsOutput {
+	return i.ToApplicationTimeoutsOutputWithContext(context.Background())
+}
+
+func (i ApplicationTimeoutsArgs) ToApplicationTimeoutsOutputWithContext(ctx context.Context) ApplicationTimeoutsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationTimeoutsOutput)
+}
+
+func (i ApplicationTimeoutsArgs) ToApplicationTimeoutsPtrOutput() ApplicationTimeoutsPtrOutput {
+	return i.ToApplicationTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i ApplicationTimeoutsArgs) ToApplicationTimeoutsPtrOutputWithContext(ctx context.Context) ApplicationTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationTimeoutsOutput).ToApplicationTimeoutsPtrOutputWithContext(ctx)
+}
+
+// ApplicationTimeoutsPtrInput is an input type that accepts ApplicationTimeoutsArgs, ApplicationTimeoutsPtr and ApplicationTimeoutsPtrOutput values.
+// You can construct a concrete instance of `ApplicationTimeoutsPtrInput` via:
+//
+//	        ApplicationTimeoutsArgs{...}
+//
+//	or:
+//
+//	        nil
+type ApplicationTimeoutsPtrInput interface {
+	pulumi.Input
+
+	ToApplicationTimeoutsPtrOutput() ApplicationTimeoutsPtrOutput
+	ToApplicationTimeoutsPtrOutputWithContext(context.Context) ApplicationTimeoutsPtrOutput
+}
+
+type applicationTimeoutsPtrType ApplicationTimeoutsArgs
+
+func ApplicationTimeoutsPtr(v *ApplicationTimeoutsArgs) ApplicationTimeoutsPtrInput {
+	return (*applicationTimeoutsPtrType)(v)
+}
+
+func (*applicationTimeoutsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationTimeouts)(nil)).Elem()
+}
+
+func (i *applicationTimeoutsPtrType) ToApplicationTimeoutsPtrOutput() ApplicationTimeoutsPtrOutput {
+	return i.ToApplicationTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i *applicationTimeoutsPtrType) ToApplicationTimeoutsPtrOutputWithContext(ctx context.Context) ApplicationTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ApplicationTimeoutsPtrOutput)
+}
+
+type ApplicationTimeoutsOutput struct{ *pulumi.OutputState }
+
+func (ApplicationTimeoutsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ApplicationTimeouts)(nil)).Elem()
+}
+
+func (o ApplicationTimeoutsOutput) ToApplicationTimeoutsOutput() ApplicationTimeoutsOutput {
+	return o
+}
+
+func (o ApplicationTimeoutsOutput) ToApplicationTimeoutsOutputWithContext(ctx context.Context) ApplicationTimeoutsOutput {
+	return o
+}
+
+func (o ApplicationTimeoutsOutput) ToApplicationTimeoutsPtrOutput() ApplicationTimeoutsPtrOutput {
+	return o.ToApplicationTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (o ApplicationTimeoutsOutput) ToApplicationTimeoutsPtrOutputWithContext(ctx context.Context) ApplicationTimeoutsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ApplicationTimeouts) *ApplicationTimeouts {
+		return &v
+	}).(ApplicationTimeoutsPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o ApplicationTimeoutsOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApplicationTimeouts) *string { return v.Create }).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+func (o ApplicationTimeoutsOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApplicationTimeouts) *string { return v.Delete }).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o ApplicationTimeoutsOutput) Update() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ApplicationTimeouts) *string { return v.Update }).(pulumi.StringPtrOutput)
+}
+
+type ApplicationTimeoutsPtrOutput struct{ *pulumi.OutputState }
+
+func (ApplicationTimeoutsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ApplicationTimeouts)(nil)).Elem()
+}
+
+func (o ApplicationTimeoutsPtrOutput) ToApplicationTimeoutsPtrOutput() ApplicationTimeoutsPtrOutput {
+	return o
+}
+
+func (o ApplicationTimeoutsPtrOutput) ToApplicationTimeoutsPtrOutputWithContext(ctx context.Context) ApplicationTimeoutsPtrOutput {
+	return o
+}
+
+func (o ApplicationTimeoutsPtrOutput) Elem() ApplicationTimeoutsOutput {
+	return o.ApplyT(func(v *ApplicationTimeouts) ApplicationTimeouts {
+		if v != nil {
+			return *v
+		}
+		var ret ApplicationTimeouts
+		return ret
+	}).(ApplicationTimeoutsOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o ApplicationTimeoutsPtrOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApplicationTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Create
+	}).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+func (o ApplicationTimeoutsPtrOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApplicationTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Delete
+	}).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o ApplicationTimeoutsPtrOutput) Update() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ApplicationTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Update
+	}).(pulumi.StringPtrOutput)
+}
+
 type AuthorizeVpcEndpointAccessAuthorizedPrincipal struct {
 	// IAM principal that is allowed to access to the domain.
 	Principal string `pulumi:"principal"`
@@ -8756,6 +9333,14 @@ func (o GetServerlessSecurityConfigSamlOptionArrayOutput) Index(i pulumi.IntInpu
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationAppConfigInput)(nil)).Elem(), ApplicationAppConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationAppConfigArrayInput)(nil)).Elem(), ApplicationAppConfigArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationDataSourceInput)(nil)).Elem(), ApplicationDataSourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationDataSourceArrayInput)(nil)).Elem(), ApplicationDataSourceArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationIamIdentityCenterOptionsInput)(nil)).Elem(), ApplicationIamIdentityCenterOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationIamIdentityCenterOptionsPtrInput)(nil)).Elem(), ApplicationIamIdentityCenterOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationTimeoutsInput)(nil)).Elem(), ApplicationTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationTimeoutsPtrInput)(nil)).Elem(), ApplicationTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AuthorizeVpcEndpointAccessAuthorizedPrincipalInput)(nil)).Elem(), AuthorizeVpcEndpointAccessAuthorizedPrincipalArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AuthorizeVpcEndpointAccessAuthorizedPrincipalArrayInput)(nil)).Elem(), AuthorizeVpcEndpointAccessAuthorizedPrincipalArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainAdvancedSecurityOptionsInput)(nil)).Elem(), DomainAdvancedSecurityOptionsArgs{})
@@ -8874,6 +9459,14 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetDomainVpcOptionArrayInput)(nil)).Elem(), GetDomainVpcOptionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetServerlessSecurityConfigSamlOptionInput)(nil)).Elem(), GetServerlessSecurityConfigSamlOptionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetServerlessSecurityConfigSamlOptionArrayInput)(nil)).Elem(), GetServerlessSecurityConfigSamlOptionArray{})
+	pulumi.RegisterOutputType(ApplicationAppConfigOutput{})
+	pulumi.RegisterOutputType(ApplicationAppConfigArrayOutput{})
+	pulumi.RegisterOutputType(ApplicationDataSourceOutput{})
+	pulumi.RegisterOutputType(ApplicationDataSourceArrayOutput{})
+	pulumi.RegisterOutputType(ApplicationIamIdentityCenterOptionsOutput{})
+	pulumi.RegisterOutputType(ApplicationIamIdentityCenterOptionsPtrOutput{})
+	pulumi.RegisterOutputType(ApplicationTimeoutsOutput{})
+	pulumi.RegisterOutputType(ApplicationTimeoutsPtrOutput{})
 	pulumi.RegisterOutputType(AuthorizeVpcEndpointAccessAuthorizedPrincipalOutput{})
 	pulumi.RegisterOutputType(AuthorizeVpcEndpointAccessAuthorizedPrincipalArrayOutput{})
 	pulumi.RegisterOutputType(DomainAdvancedSecurityOptionsOutput{})

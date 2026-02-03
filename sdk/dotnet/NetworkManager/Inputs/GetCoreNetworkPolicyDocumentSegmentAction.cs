@@ -60,6 +60,18 @@ namespace Pulumi.Aws.NetworkManager.Inputs
         [Input("mode")]
         public string? Mode { get; set; }
 
+        [Input("routingPolicyNames")]
+        private List<string>? _routingPolicyNames;
+
+        /// <summary>
+        /// A list of routing policy names to apply to segment sharing. The routing policies control how routes are propagated between the shared segments. Only applicable when `Action` is `Share`. Available in policy version `2025.11` and later.
+        /// </summary>
+        public List<string> RoutingPolicyNames
+        {
+            get => _routingPolicyNames ?? (_routingPolicyNames = new List<string>());
+            set => _routingPolicyNames = value;
+        }
+
         /// <summary>
         /// Name of the segment.
         /// </summary>

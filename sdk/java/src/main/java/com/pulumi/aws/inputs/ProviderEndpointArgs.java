@@ -2914,6 +2914,21 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
      * Use this to override the default service endpoint URL
      * 
      */
+    @Import(name="mpa")
+    private @Nullable Output<String> mpa;
+
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
+    public Optional<Output<String>> mpa() {
+        return Optional.ofNullable(this.mpa);
+    }
+
+    /**
+     * Use this to override the default service endpoint URL
+     * 
+     */
     @Import(name="mq")
     private @Nullable Output<String> mq;
 
@@ -3904,6 +3919,21 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
      * Use this to override the default service endpoint URL
      * 
      */
+    @Import(name="savingsplans")
+    private @Nullable Output<String> savingsplans;
+
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
+    public Optional<Output<String>> savingsplans() {
+        return Optional.ofNullable(this.savingsplans);
+    }
+
+    /**
+     * Use this to override the default service endpoint URL
+     * 
+     */
     @Import(name="scheduler")
     private @Nullable Output<String> scheduler;
 
@@ -4816,6 +4846,7 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
         this.mediastore = $.mediastore;
         this.memorydb = $.memorydb;
         this.mgn = $.mgn;
+        this.mpa = $.mpa;
         this.mq = $.mq;
         this.msk = $.msk;
         this.mwaa = $.mwaa;
@@ -4882,6 +4913,7 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
         this.s3tables = $.s3tables;
         this.s3vectors = $.s3vectors;
         this.sagemaker = $.sagemaker;
+        this.savingsplans = $.savingsplans;
         this.scheduler = $.scheduler;
         this.schemas = $.schemas;
         this.secretsmanager = $.secretsmanager;
@@ -9004,6 +9036,27 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
+         * @param mpa Use this to override the default service endpoint URL
+         * 
+         * @return builder
+         * 
+         */
+        public Builder mpa(@Nullable Output<String> mpa) {
+            $.mpa = mpa;
+            return this;
+        }
+
+        /**
+         * @param mpa Use this to override the default service endpoint URL
+         * 
+         * @return builder
+         * 
+         */
+        public Builder mpa(String mpa) {
+            return mpa(Output.of(mpa));
+        }
+
+        /**
          * @param mq Use this to override the default service endpoint URL
          * 
          * @return builder
@@ -10387,6 +10440,27 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
          */
         public Builder sagemaker(String sagemaker) {
             return sagemaker(Output.of(sagemaker));
+        }
+
+        /**
+         * @param savingsplans Use this to override the default service endpoint URL
+         * 
+         * @return builder
+         * 
+         */
+        public Builder savingsplans(@Nullable Output<String> savingsplans) {
+            $.savingsplans = savingsplans;
+            return this;
+        }
+
+        /**
+         * @param savingsplans Use this to override the default service endpoint URL
+         * 
+         * @return builder
+         * 
+         */
+        public Builder savingsplans(String savingsplans) {
+            return savingsplans(Output.of(savingsplans));
         }
 
         /**

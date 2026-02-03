@@ -130,6 +130,34 @@ public class Network extends com.pulumi.resources.CustomResource {
         return this.displayName;
     }
     /**
+     * Specifies the configuration for KMS access from the ODB network.
+     * 
+     */
+    @Export(name="kmsAccess", refs={String.class}, tree="[0]")
+    private Output<String> kmsAccess;
+
+    /**
+     * @return Specifies the configuration for KMS access from the ODB network.
+     * 
+     */
+    public Output<String> kmsAccess() {
+        return this.kmsAccess;
+    }
+    /**
+     * Specifies the endpoint policy for KMS access from the ODB network.
+     * 
+     */
+    @Export(name="kmsPolicyDocument", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> kmsPolicyDocument;
+
+    /**
+     * @return Specifies the endpoint policy for KMS access from the ODB network.
+     * 
+     */
+    public Output<Optional<String>> kmsPolicyDocument() {
+        return Codegen.optional(this.kmsPolicyDocument);
+    }
+    /**
      * The name of the OCI resource anchor for the Exadata infrastructure.
      * 
      */
@@ -324,6 +352,34 @@ public class Network extends com.pulumi.resources.CustomResource {
      */
     public Output<String> statusReason() {
         return this.statusReason;
+    }
+    /**
+     * Specifies the configuration for STS access from the ODB network.
+     * 
+     */
+    @Export(name="stsAccess", refs={String.class}, tree="[0]")
+    private Output<String> stsAccess;
+
+    /**
+     * @return Specifies the configuration for STS access from the ODB network.
+     * 
+     */
+    public Output<String> stsAccess() {
+        return this.stsAccess;
+    }
+    /**
+     * Specifies the endpoint policy for STS access from the ODB network.
+     * 
+     */
+    @Export(name="stsPolicyDocument", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> stsPolicyDocument;
+
+    /**
+     * @return Specifies the endpoint policy for STS access from the ODB network.
+     * 
+     */
+    public Output<Optional<String>> stsPolicyDocument() {
+        return Codegen.optional(this.stsPolicyDocument);
     }
     /**
      * A map of tags to assign to the exadata infrastructure. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

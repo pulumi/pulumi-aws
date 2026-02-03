@@ -21,6 +21,7 @@ __all__ = [
     'CustomerManagedPolicyAttachmentCustomerManagedPolicyReference',
     'InstanceAccessControlAttributesAttribute',
     'InstanceAccessControlAttributesAttributeValue',
+    'ManagedPolicyAttachmentsExclusiveTimeouts',
     'PermissionsBoundaryAttachmentPermissionsBoundary',
     'PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReference',
     'TrustedTokenIssuerTrustedTokenIssuerConfiguration',
@@ -209,6 +210,37 @@ class InstanceAccessControlAttributesAttributeValue(dict):
         The identity source to use when mapping a specified attribute to AWS SSO.
         """
         return pulumi.get(self, "sources")
+
+
+@pulumi.output_type
+class ManagedPolicyAttachmentsExclusiveTimeouts(dict):
+    def __init__(__self__, *,
+                 create: Optional[_builtins.str] = None,
+                 update: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str create: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        :param _builtins.str update: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        if create is not None:
+            pulumi.set(__self__, "create", create)
+        if update is not None:
+            pulumi.set(__self__, "update", update)
+
+    @_builtins.property
+    @pulumi.getter
+    def create(self) -> Optional[_builtins.str]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "create")
+
+    @_builtins.property
+    @pulumi.getter
+    def update(self) -> Optional[_builtins.str]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "update")
 
 
 @pulumi.output_type

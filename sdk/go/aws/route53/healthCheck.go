@@ -255,7 +255,7 @@ type HealthCheck struct {
 	// This is a reference name used in Caller Reference
 	// (helpful for identifying single healthCheck set amongst others)
 	ReferenceName pulumi.StringPtrOutput `pulumi:"referenceName"`
-	// A list of AWS regions that you want Amazon Route 53 health checkers to check the specified endpoint from.
+	// List of AWS Regions from which Amazon Route 53 health checkers check the specified endpoint. Valid values are `us-east-1`, `us-west-1`, `us-west-2`, `eu-west-1`, `ap-southeast-1`, `ap-southeast-2`, `ap-northeast-1`, and `sa-east-1`. If not specified, all of the regions listed under **Valid values** are used by default. Once this argument is set, removing it has no effect.
 	Regions pulumi.StringArrayOutput `pulumi:"regions"`
 	// The number of seconds between the time that Amazon Route 53 gets a response from your endpoint and the time that it sends the next health-check request.
 	RequestInterval pulumi.IntPtrOutput `pulumi:"requestInterval"`
@@ -344,7 +344,7 @@ type healthCheckState struct {
 	// This is a reference name used in Caller Reference
 	// (helpful for identifying single healthCheck set amongst others)
 	ReferenceName *string `pulumi:"referenceName"`
-	// A list of AWS regions that you want Amazon Route 53 health checkers to check the specified endpoint from.
+	// List of AWS Regions from which Amazon Route 53 health checkers check the specified endpoint. Valid values are `us-east-1`, `us-west-1`, `us-west-2`, `eu-west-1`, `ap-southeast-1`, `ap-southeast-2`, `ap-northeast-1`, and `sa-east-1`. If not specified, all of the regions listed under **Valid values** are used by default. Once this argument is set, removing it has no effect.
 	Regions []string `pulumi:"regions"`
 	// The number of seconds between the time that Amazon Route 53 gets a response from your endpoint and the time that it sends the next health-check request.
 	RequestInterval *int `pulumi:"requestInterval"`
@@ -401,7 +401,7 @@ type HealthCheckState struct {
 	// This is a reference name used in Caller Reference
 	// (helpful for identifying single healthCheck set amongst others)
 	ReferenceName pulumi.StringPtrInput
-	// A list of AWS regions that you want Amazon Route 53 health checkers to check the specified endpoint from.
+	// List of AWS Regions from which Amazon Route 53 health checkers check the specified endpoint. Valid values are `us-east-1`, `us-west-1`, `us-west-2`, `eu-west-1`, `ap-southeast-1`, `ap-southeast-2`, `ap-northeast-1`, and `sa-east-1`. If not specified, all of the regions listed under **Valid values** are used by default. Once this argument is set, removing it has no effect.
 	Regions pulumi.StringArrayInput
 	// The number of seconds between the time that Amazon Route 53 gets a response from your endpoint and the time that it sends the next health-check request.
 	RequestInterval pulumi.IntPtrInput
@@ -460,7 +460,7 @@ type healthCheckArgs struct {
 	// This is a reference name used in Caller Reference
 	// (helpful for identifying single healthCheck set amongst others)
 	ReferenceName *string `pulumi:"referenceName"`
-	// A list of AWS regions that you want Amazon Route 53 health checkers to check the specified endpoint from.
+	// List of AWS Regions from which Amazon Route 53 health checkers check the specified endpoint. Valid values are `us-east-1`, `us-west-1`, `us-west-2`, `eu-west-1`, `ap-southeast-1`, `ap-southeast-2`, `ap-northeast-1`, and `sa-east-1`. If not specified, all of the regions listed under **Valid values** are used by default. Once this argument is set, removing it has no effect.
 	Regions []string `pulumi:"regions"`
 	// The number of seconds between the time that Amazon Route 53 gets a response from your endpoint and the time that it sends the next health-check request.
 	RequestInterval *int `pulumi:"requestInterval"`
@@ -514,7 +514,7 @@ type HealthCheckArgs struct {
 	// This is a reference name used in Caller Reference
 	// (helpful for identifying single healthCheck set amongst others)
 	ReferenceName pulumi.StringPtrInput
-	// A list of AWS regions that you want Amazon Route 53 health checkers to check the specified endpoint from.
+	// List of AWS Regions from which Amazon Route 53 health checkers check the specified endpoint. Valid values are `us-east-1`, `us-west-1`, `us-west-2`, `eu-west-1`, `ap-southeast-1`, `ap-southeast-2`, `ap-northeast-1`, and `sa-east-1`. If not specified, all of the regions listed under **Valid values** are used by default. Once this argument is set, removing it has no effect.
 	Regions pulumi.StringArrayInput
 	// The number of seconds between the time that Amazon Route 53 gets a response from your endpoint and the time that it sends the next health-check request.
 	RequestInterval pulumi.IntPtrInput
@@ -700,7 +700,7 @@ func (o HealthCheckOutput) ReferenceName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *HealthCheck) pulumi.StringPtrOutput { return v.ReferenceName }).(pulumi.StringPtrOutput)
 }
 
-// A list of AWS regions that you want Amazon Route 53 health checkers to check the specified endpoint from.
+// List of AWS Regions from which Amazon Route 53 health checkers check the specified endpoint. Valid values are `us-east-1`, `us-west-1`, `us-west-2`, `eu-west-1`, `ap-southeast-1`, `ap-southeast-2`, `ap-northeast-1`, and `sa-east-1`. If not specified, all of the regions listed under **Valid values** are used by default. Once this argument is set, removing it has no effect.
 func (o HealthCheckOutput) Regions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *HealthCheck) pulumi.StringArrayOutput { return v.Regions }).(pulumi.StringArrayOutput)
 }

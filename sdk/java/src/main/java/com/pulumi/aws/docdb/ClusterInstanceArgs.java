@@ -20,16 +20,14 @@ public final class ClusterInstanceArgs extends com.pulumi.resources.ResourceArgs
     public static final ClusterInstanceArgs Empty = new ClusterInstanceArgs();
 
     /**
-     * Specifies whether any database modifications
-     * are applied immediately, or during the next maintenance window. Default is`false`.
+     * Whether any database modifications are applied immediately, or during the next maintenance window. Default is`false`.
      * 
      */
     @Import(name="applyImmediately")
     private @Nullable Output<Boolean> applyImmediately;
 
     /**
-     * @return Specifies whether any database modifications
-     * are applied immediately, or during the next maintenance window. Default is`false`.
+     * @return Whether any database modifications are applied immediately, or during the next maintenance window. Default is`false`.
      * 
      */
     public Optional<Output<Boolean>> applyImmediately() {
@@ -37,14 +35,14 @@ public final class ClusterInstanceArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * This parameter does not apply to Amazon DocumentDB. Amazon DocumentDB does not perform minor version upgrades regardless of the value set (see [docs](https://docs.aws.amazon.com/documentdb/latest/developerguide/API_DBInstance.html)). Default `true`.
+     * Parameter does not apply to Amazon DocumentDB. Amazon DocumentDB does not perform minor version upgrades regardless of the value set (see [docs](https://docs.aws.amazon.com/documentdb/latest/developerguide/API_DBInstance.html)). Default `true`.
      * 
      */
     @Import(name="autoMinorVersionUpgrade")
     private @Nullable Output<Boolean> autoMinorVersionUpgrade;
 
     /**
-     * @return This parameter does not apply to Amazon DocumentDB. Amazon DocumentDB does not perform minor version upgrades regardless of the value set (see [docs](https://docs.aws.amazon.com/documentdb/latest/developerguide/API_DBInstance.html)). Default `true`.
+     * @return Parameter does not apply to Amazon DocumentDB. Amazon DocumentDB does not perform minor version upgrades regardless of the value set (see [docs](https://docs.aws.amazon.com/documentdb/latest/developerguide/API_DBInstance.html)). Default `true`.
      * 
      */
     public Optional<Output<Boolean>> autoMinorVersionUpgrade() {
@@ -52,14 +50,14 @@ public final class ClusterInstanceArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The EC2 Availability Zone that the DB instance is created in. See [docs](https://docs.aws.amazon.com/documentdb/latest/developerguide/API_CreateDBInstance.html) about the details.
+     * EC2 Availability Zone that the DB instance is created in. See [docs](https://docs.aws.amazon.com/documentdb/latest/developerguide/API_CreateDBInstance.html) about the details.
      * 
      */
     @Import(name="availabilityZone")
     private @Nullable Output<String> availabilityZone;
 
     /**
-     * @return The EC2 Availability Zone that the DB instance is created in. See [docs](https://docs.aws.amazon.com/documentdb/latest/developerguide/API_CreateDBInstance.html) about the details.
+     * @return EC2 Availability Zone that the DB instance is created in. See [docs](https://docs.aws.amazon.com/documentdb/latest/developerguide/API_CreateDBInstance.html) about the details.
      * 
      */
     public Optional<Output<String>> availabilityZone() {
@@ -67,14 +65,14 @@ public final class ClusterInstanceArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The identifier of the certificate authority (CA) certificate for the DB instance.
+     * Identifier of the certificate authority (CA) certificate for the DB instance.
      * 
      */
     @Import(name="caCertIdentifier")
     private @Nullable Output<String> caCertIdentifier;
 
     /**
-     * @return The identifier of the certificate authority (CA) certificate for the DB instance.
+     * @return Identifier of the certificate authority (CA) certificate for the DB instance.
      * 
      */
     public Optional<Output<String>> caCertIdentifier() {
@@ -82,14 +80,29 @@ public final class ClusterInstanceArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The identifier of the `aws.docdb.Cluster` in which to launch this instance.
+     * Whether to restart the DB instance when rotating its SSL/TLS certificate. By default, AWS restarts the DB instance when you rotate your SSL/TLS certificate. The certificate is not updated until the DB instance is restarted. Set to `false` only if you are not using SSL/TLS to connect to the DB instance.
+     * 
+     */
+    @Import(name="certificateRotationRestart")
+    private @Nullable Output<String> certificateRotationRestart;
+
+    /**
+     * @return Whether to restart the DB instance when rotating its SSL/TLS certificate. By default, AWS restarts the DB instance when you rotate your SSL/TLS certificate. The certificate is not updated until the DB instance is restarted. Set to `false` only if you are not using SSL/TLS to connect to the DB instance.
+     * 
+     */
+    public Optional<Output<String>> certificateRotationRestart() {
+        return Optional.ofNullable(this.certificateRotationRestart);
+    }
+
+    /**
+     * Identifier of the `aws.docdb.Cluster` in which to launch this instance.
      * 
      */
     @Import(name="clusterIdentifier", required=true)
     private Output<String> clusterIdentifier;
 
     /**
-     * @return The identifier of the `aws.docdb.Cluster` in which to launch this instance.
+     * @return Identifier of the `aws.docdb.Cluster` in which to launch this instance.
      * 
      */
     public Output<String> clusterIdentifier() {
@@ -112,14 +125,14 @@ public final class ClusterInstanceArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * A value that indicates whether to enable Performance Insights for the DB Instance. Default `false`. See [docs] (https://docs.aws.amazon.com/documentdb/latest/developerguide/performance-insights.html) about the details.
+     * Value that indicates whether to enable Performance Insights for the DB Instance. Default `false`. See [docs] (https://docs.aws.amazon.com/documentdb/latest/developerguide/performance-insights.html) about the details.
      * 
      */
     @Import(name="enablePerformanceInsights")
     private @Nullable Output<Boolean> enablePerformanceInsights;
 
     /**
-     * @return A value that indicates whether to enable Performance Insights for the DB Instance. Default `false`. See [docs] (https://docs.aws.amazon.com/documentdb/latest/developerguide/performance-insights.html) about the details.
+     * @return Value that indicates whether to enable Performance Insights for the DB Instance. Default `false`. See [docs] (https://docs.aws.amazon.com/documentdb/latest/developerguide/performance-insights.html) about the details.
      * 
      */
     public Optional<Output<Boolean>> enablePerformanceInsights() {
@@ -127,14 +140,14 @@ public final class ClusterInstanceArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The name of the database engine to be used for the DocumentDB instance. Defaults to `docdb`. Valid Values: `docdb`.
+     * Name of the database engine to be used for the DocumentDB instance. Defaults to `docdb`. Valid Values: `docdb`.
      * 
      */
     @Import(name="engine")
     private @Nullable Output<String> engine;
 
     /**
-     * @return The name of the database engine to be used for the DocumentDB instance. Defaults to `docdb`. Valid Values: `docdb`.
+     * @return Name of the database engine to be used for the DocumentDB instance. Defaults to `docdb`. Valid Values: `docdb`.
      * 
      */
     public Optional<Output<String>> engine() {
@@ -172,60 +185,14 @@ public final class ClusterInstanceArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The instance class to use. For details on CPU and memory, see [Scaling for DocumentDB Instances](https://docs.aws.amazon.com/documentdb/latest/developerguide/db-cluster-manage-performance.html#db-cluster-manage-scaling-instance).
-     * DocumentDB currently supports the below instance classes.
-     * Please see [AWS Documentation](https://docs.aws.amazon.com/documentdb/latest/developerguide/db-instance-classes.html#db-instance-class-specs) for complete details.
-     * - db.r6g.large
-     * - db.r6g.xlarge
-     * - db.r6g.2xlarge
-     * - db.r6g.4xlarge
-     * - db.r6g.8xlarge
-     * - db.r6g.12xlarge
-     * - db.r6g.16xlarge
-     * - db.r5.large
-     * - db.r5.xlarge
-     * - db.r5.2xlarge
-     * - db.r5.4xlarge
-     * - db.r5.12xlarge
-     * - db.r5.24xlarge
-     * - db.r4.large
-     * - db.r4.xlarge
-     * - db.r4.2xlarge
-     * - db.r4.4xlarge
-     * - db.r4.8xlarge
-     * - db.r4.16xlarge
-     * - db.t4g.medium
-     * - db.t3.medium
+     * Instance class to use. For details on CPU and memory, see [Scaling for DocumentDB Instances](https://docs.aws.amazon.com/documentdb/latest/developerguide/db-cluster-manage-performance.html#db-cluster-manage-scaling-instance). See the `aws.docdb.getOrderableDbInstance` data source. See [AWS Documentation](https://docs.aws.amazon.com/documentdb/latest/developerguide/db-instance-classes.html#db-instance-class-specs) for complete details.
      * 
      */
     @Import(name="instanceClass", required=true)
     private Output<String> instanceClass;
 
     /**
-     * @return The instance class to use. For details on CPU and memory, see [Scaling for DocumentDB Instances](https://docs.aws.amazon.com/documentdb/latest/developerguide/db-cluster-manage-performance.html#db-cluster-manage-scaling-instance).
-     * DocumentDB currently supports the below instance classes.
-     * Please see [AWS Documentation](https://docs.aws.amazon.com/documentdb/latest/developerguide/db-instance-classes.html#db-instance-class-specs) for complete details.
-     * - db.r6g.large
-     * - db.r6g.xlarge
-     * - db.r6g.2xlarge
-     * - db.r6g.4xlarge
-     * - db.r6g.8xlarge
-     * - db.r6g.12xlarge
-     * - db.r6g.16xlarge
-     * - db.r5.large
-     * - db.r5.xlarge
-     * - db.r5.2xlarge
-     * - db.r5.4xlarge
-     * - db.r5.12xlarge
-     * - db.r5.24xlarge
-     * - db.r4.large
-     * - db.r4.xlarge
-     * - db.r4.2xlarge
-     * - db.r4.4xlarge
-     * - db.r4.8xlarge
-     * - db.r4.16xlarge
-     * - db.t4g.medium
-     * - db.t3.medium
+     * @return Instance class to use. For details on CPU and memory, see [Scaling for DocumentDB Instances](https://docs.aws.amazon.com/documentdb/latest/developerguide/db-cluster-manage-performance.html#db-cluster-manage-scaling-instance). See the `aws.docdb.getOrderableDbInstance` data source. See [AWS Documentation](https://docs.aws.amazon.com/documentdb/latest/developerguide/db-instance-classes.html#db-instance-class-specs) for complete details.
      * 
      */
     public Output<String> instanceClass() {
@@ -233,14 +200,14 @@ public final class ClusterInstanceArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key. If you do not specify a value for PerformanceInsightsKMSKeyId, then Amazon DocumentDB uses your default KMS key.
+     * KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key. If you do not specify a value for PerformanceInsightsKMSKeyId, then Amazon DocumentDB uses your default KMS key.
      * 
      */
     @Import(name="performanceInsightsKmsKeyId")
     private @Nullable Output<String> performanceInsightsKmsKeyId;
 
     /**
-     * @return The KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key. If you do not specify a value for PerformanceInsightsKMSKeyId, then Amazon DocumentDB uses your default KMS key.
+     * @return KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key. If you do not specify a value for PerformanceInsightsKMSKeyId, then Amazon DocumentDB uses your default KMS key.
      * 
      */
     public Optional<Output<String>> performanceInsightsKmsKeyId() {
@@ -248,16 +215,14 @@ public final class ClusterInstanceArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The window to perform maintenance in.
-     * Syntax: &#34;ddd:hh24:mi-ddd:hh24:mi&#34;. Eg: &#34;Mon:00:00-Mon:03:00&#34;.
+     * Window to perform maintenance in. Syntax: &#34;ddd:hh24:mi-ddd:hh24:mi&#34;. Eg: &#34;Mon:00:00-Mon:03:00&#34;.
      * 
      */
     @Import(name="preferredMaintenanceWindow")
     private @Nullable Output<String> preferredMaintenanceWindow;
 
     /**
-     * @return The window to perform maintenance in.
-     * Syntax: &#34;ddd:hh24:mi-ddd:hh24:mi&#34;. Eg: &#34;Mon:00:00-Mon:03:00&#34;.
+     * @return Window to perform maintenance in. Syntax: &#34;ddd:hh24:mi-ddd:hh24:mi&#34;. Eg: &#34;Mon:00:00-Mon:03:00&#34;.
      * 
      */
     public Optional<Output<String>> preferredMaintenanceWindow() {
@@ -265,14 +230,14 @@ public final class ClusterInstanceArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * Default 0. Failover Priority setting on instance level. The reader who has lower tier has higher priority to get promoter to writer.
+     * Failover Priority setting on instance level. Default `0`. The reader who has lower tier has higher priority to get promoter to writer.
      * 
      */
     @Import(name="promotionTier")
     private @Nullable Output<Integer> promotionTier;
 
     /**
-     * @return Default 0. Failover Priority setting on instance level. The reader who has lower tier has higher priority to get promoter to writer.
+     * @return Failover Priority setting on instance level. Default `0`. The reader who has lower tier has higher priority to get promoter to writer.
      * 
      */
     public Optional<Output<Integer>> promotionTier() {
@@ -295,14 +260,14 @@ public final class ClusterInstanceArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * A map of tags to assign to the instance. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the instance. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the instance. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the instance. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -316,6 +281,7 @@ public final class ClusterInstanceArgs extends com.pulumi.resources.ResourceArgs
         this.autoMinorVersionUpgrade = $.autoMinorVersionUpgrade;
         this.availabilityZone = $.availabilityZone;
         this.caCertIdentifier = $.caCertIdentifier;
+        this.certificateRotationRestart = $.certificateRotationRestart;
         this.clusterIdentifier = $.clusterIdentifier;
         this.copyTagsToSnapshot = $.copyTagsToSnapshot;
         this.enablePerformanceInsights = $.enablePerformanceInsights;
@@ -349,8 +315,7 @@ public final class ClusterInstanceArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param applyImmediately Specifies whether any database modifications
-         * are applied immediately, or during the next maintenance window. Default is`false`.
+         * @param applyImmediately Whether any database modifications are applied immediately, or during the next maintenance window. Default is`false`.
          * 
          * @return builder
          * 
@@ -361,8 +326,7 @@ public final class ClusterInstanceArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param applyImmediately Specifies whether any database modifications
-         * are applied immediately, or during the next maintenance window. Default is`false`.
+         * @param applyImmediately Whether any database modifications are applied immediately, or during the next maintenance window. Default is`false`.
          * 
          * @return builder
          * 
@@ -372,7 +336,7 @@ public final class ClusterInstanceArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param autoMinorVersionUpgrade This parameter does not apply to Amazon DocumentDB. Amazon DocumentDB does not perform minor version upgrades regardless of the value set (see [docs](https://docs.aws.amazon.com/documentdb/latest/developerguide/API_DBInstance.html)). Default `true`.
+         * @param autoMinorVersionUpgrade Parameter does not apply to Amazon DocumentDB. Amazon DocumentDB does not perform minor version upgrades regardless of the value set (see [docs](https://docs.aws.amazon.com/documentdb/latest/developerguide/API_DBInstance.html)). Default `true`.
          * 
          * @return builder
          * 
@@ -383,7 +347,7 @@ public final class ClusterInstanceArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param autoMinorVersionUpgrade This parameter does not apply to Amazon DocumentDB. Amazon DocumentDB does not perform minor version upgrades regardless of the value set (see [docs](https://docs.aws.amazon.com/documentdb/latest/developerguide/API_DBInstance.html)). Default `true`.
+         * @param autoMinorVersionUpgrade Parameter does not apply to Amazon DocumentDB. Amazon DocumentDB does not perform minor version upgrades regardless of the value set (see [docs](https://docs.aws.amazon.com/documentdb/latest/developerguide/API_DBInstance.html)). Default `true`.
          * 
          * @return builder
          * 
@@ -393,7 +357,7 @@ public final class ClusterInstanceArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param availabilityZone The EC2 Availability Zone that the DB instance is created in. See [docs](https://docs.aws.amazon.com/documentdb/latest/developerguide/API_CreateDBInstance.html) about the details.
+         * @param availabilityZone EC2 Availability Zone that the DB instance is created in. See [docs](https://docs.aws.amazon.com/documentdb/latest/developerguide/API_CreateDBInstance.html) about the details.
          * 
          * @return builder
          * 
@@ -404,7 +368,7 @@ public final class ClusterInstanceArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param availabilityZone The EC2 Availability Zone that the DB instance is created in. See [docs](https://docs.aws.amazon.com/documentdb/latest/developerguide/API_CreateDBInstance.html) about the details.
+         * @param availabilityZone EC2 Availability Zone that the DB instance is created in. See [docs](https://docs.aws.amazon.com/documentdb/latest/developerguide/API_CreateDBInstance.html) about the details.
          * 
          * @return builder
          * 
@@ -414,7 +378,7 @@ public final class ClusterInstanceArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param caCertIdentifier The identifier of the certificate authority (CA) certificate for the DB instance.
+         * @param caCertIdentifier Identifier of the certificate authority (CA) certificate for the DB instance.
          * 
          * @return builder
          * 
@@ -425,7 +389,7 @@ public final class ClusterInstanceArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param caCertIdentifier The identifier of the certificate authority (CA) certificate for the DB instance.
+         * @param caCertIdentifier Identifier of the certificate authority (CA) certificate for the DB instance.
          * 
          * @return builder
          * 
@@ -435,7 +399,28 @@ public final class ClusterInstanceArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param clusterIdentifier The identifier of the `aws.docdb.Cluster` in which to launch this instance.
+         * @param certificateRotationRestart Whether to restart the DB instance when rotating its SSL/TLS certificate. By default, AWS restarts the DB instance when you rotate your SSL/TLS certificate. The certificate is not updated until the DB instance is restarted. Set to `false` only if you are not using SSL/TLS to connect to the DB instance.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder certificateRotationRestart(@Nullable Output<String> certificateRotationRestart) {
+            $.certificateRotationRestart = certificateRotationRestart;
+            return this;
+        }
+
+        /**
+         * @param certificateRotationRestart Whether to restart the DB instance when rotating its SSL/TLS certificate. By default, AWS restarts the DB instance when you rotate your SSL/TLS certificate. The certificate is not updated until the DB instance is restarted. Set to `false` only if you are not using SSL/TLS to connect to the DB instance.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder certificateRotationRestart(String certificateRotationRestart) {
+            return certificateRotationRestart(Output.of(certificateRotationRestart));
+        }
+
+        /**
+         * @param clusterIdentifier Identifier of the `aws.docdb.Cluster` in which to launch this instance.
          * 
          * @return builder
          * 
@@ -446,7 +431,7 @@ public final class ClusterInstanceArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param clusterIdentifier The identifier of the `aws.docdb.Cluster` in which to launch this instance.
+         * @param clusterIdentifier Identifier of the `aws.docdb.Cluster` in which to launch this instance.
          * 
          * @return builder
          * 
@@ -477,7 +462,7 @@ public final class ClusterInstanceArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param enablePerformanceInsights A value that indicates whether to enable Performance Insights for the DB Instance. Default `false`. See [docs] (https://docs.aws.amazon.com/documentdb/latest/developerguide/performance-insights.html) about the details.
+         * @param enablePerformanceInsights Value that indicates whether to enable Performance Insights for the DB Instance. Default `false`. See [docs] (https://docs.aws.amazon.com/documentdb/latest/developerguide/performance-insights.html) about the details.
          * 
          * @return builder
          * 
@@ -488,7 +473,7 @@ public final class ClusterInstanceArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param enablePerformanceInsights A value that indicates whether to enable Performance Insights for the DB Instance. Default `false`. See [docs] (https://docs.aws.amazon.com/documentdb/latest/developerguide/performance-insights.html) about the details.
+         * @param enablePerformanceInsights Value that indicates whether to enable Performance Insights for the DB Instance. Default `false`. See [docs] (https://docs.aws.amazon.com/documentdb/latest/developerguide/performance-insights.html) about the details.
          * 
          * @return builder
          * 
@@ -498,7 +483,7 @@ public final class ClusterInstanceArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param engine The name of the database engine to be used for the DocumentDB instance. Defaults to `docdb`. Valid Values: `docdb`.
+         * @param engine Name of the database engine to be used for the DocumentDB instance. Defaults to `docdb`. Valid Values: `docdb`.
          * 
          * @return builder
          * 
@@ -509,7 +494,7 @@ public final class ClusterInstanceArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param engine The name of the database engine to be used for the DocumentDB instance. Defaults to `docdb`. Valid Values: `docdb`.
+         * @param engine Name of the database engine to be used for the DocumentDB instance. Defaults to `docdb`. Valid Values: `docdb`.
          * 
          * @return builder
          * 
@@ -561,30 +546,7 @@ public final class ClusterInstanceArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param instanceClass The instance class to use. For details on CPU and memory, see [Scaling for DocumentDB Instances](https://docs.aws.amazon.com/documentdb/latest/developerguide/db-cluster-manage-performance.html#db-cluster-manage-scaling-instance).
-         * DocumentDB currently supports the below instance classes.
-         * Please see [AWS Documentation](https://docs.aws.amazon.com/documentdb/latest/developerguide/db-instance-classes.html#db-instance-class-specs) for complete details.
-         * - db.r6g.large
-         * - db.r6g.xlarge
-         * - db.r6g.2xlarge
-         * - db.r6g.4xlarge
-         * - db.r6g.8xlarge
-         * - db.r6g.12xlarge
-         * - db.r6g.16xlarge
-         * - db.r5.large
-         * - db.r5.xlarge
-         * - db.r5.2xlarge
-         * - db.r5.4xlarge
-         * - db.r5.12xlarge
-         * - db.r5.24xlarge
-         * - db.r4.large
-         * - db.r4.xlarge
-         * - db.r4.2xlarge
-         * - db.r4.4xlarge
-         * - db.r4.8xlarge
-         * - db.r4.16xlarge
-         * - db.t4g.medium
-         * - db.t3.medium
+         * @param instanceClass Instance class to use. For details on CPU and memory, see [Scaling for DocumentDB Instances](https://docs.aws.amazon.com/documentdb/latest/developerguide/db-cluster-manage-performance.html#db-cluster-manage-scaling-instance). See the `aws.docdb.getOrderableDbInstance` data source. See [AWS Documentation](https://docs.aws.amazon.com/documentdb/latest/developerguide/db-instance-classes.html#db-instance-class-specs) for complete details.
          * 
          * @return builder
          * 
@@ -595,30 +557,7 @@ public final class ClusterInstanceArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param instanceClass The instance class to use. For details on CPU and memory, see [Scaling for DocumentDB Instances](https://docs.aws.amazon.com/documentdb/latest/developerguide/db-cluster-manage-performance.html#db-cluster-manage-scaling-instance).
-         * DocumentDB currently supports the below instance classes.
-         * Please see [AWS Documentation](https://docs.aws.amazon.com/documentdb/latest/developerguide/db-instance-classes.html#db-instance-class-specs) for complete details.
-         * - db.r6g.large
-         * - db.r6g.xlarge
-         * - db.r6g.2xlarge
-         * - db.r6g.4xlarge
-         * - db.r6g.8xlarge
-         * - db.r6g.12xlarge
-         * - db.r6g.16xlarge
-         * - db.r5.large
-         * - db.r5.xlarge
-         * - db.r5.2xlarge
-         * - db.r5.4xlarge
-         * - db.r5.12xlarge
-         * - db.r5.24xlarge
-         * - db.r4.large
-         * - db.r4.xlarge
-         * - db.r4.2xlarge
-         * - db.r4.4xlarge
-         * - db.r4.8xlarge
-         * - db.r4.16xlarge
-         * - db.t4g.medium
-         * - db.t3.medium
+         * @param instanceClass Instance class to use. For details on CPU and memory, see [Scaling for DocumentDB Instances](https://docs.aws.amazon.com/documentdb/latest/developerguide/db-cluster-manage-performance.html#db-cluster-manage-scaling-instance). See the `aws.docdb.getOrderableDbInstance` data source. See [AWS Documentation](https://docs.aws.amazon.com/documentdb/latest/developerguide/db-instance-classes.html#db-instance-class-specs) for complete details.
          * 
          * @return builder
          * 
@@ -628,7 +567,7 @@ public final class ClusterInstanceArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param performanceInsightsKmsKeyId The KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key. If you do not specify a value for PerformanceInsightsKMSKeyId, then Amazon DocumentDB uses your default KMS key.
+         * @param performanceInsightsKmsKeyId KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key. If you do not specify a value for PerformanceInsightsKMSKeyId, then Amazon DocumentDB uses your default KMS key.
          * 
          * @return builder
          * 
@@ -639,7 +578,7 @@ public final class ClusterInstanceArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param performanceInsightsKmsKeyId The KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key. If you do not specify a value for PerformanceInsightsKMSKeyId, then Amazon DocumentDB uses your default KMS key.
+         * @param performanceInsightsKmsKeyId KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key. If you do not specify a value for PerformanceInsightsKMSKeyId, then Amazon DocumentDB uses your default KMS key.
          * 
          * @return builder
          * 
@@ -649,8 +588,7 @@ public final class ClusterInstanceArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param preferredMaintenanceWindow The window to perform maintenance in.
-         * Syntax: &#34;ddd:hh24:mi-ddd:hh24:mi&#34;. Eg: &#34;Mon:00:00-Mon:03:00&#34;.
+         * @param preferredMaintenanceWindow Window to perform maintenance in. Syntax: &#34;ddd:hh24:mi-ddd:hh24:mi&#34;. Eg: &#34;Mon:00:00-Mon:03:00&#34;.
          * 
          * @return builder
          * 
@@ -661,8 +599,7 @@ public final class ClusterInstanceArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param preferredMaintenanceWindow The window to perform maintenance in.
-         * Syntax: &#34;ddd:hh24:mi-ddd:hh24:mi&#34;. Eg: &#34;Mon:00:00-Mon:03:00&#34;.
+         * @param preferredMaintenanceWindow Window to perform maintenance in. Syntax: &#34;ddd:hh24:mi-ddd:hh24:mi&#34;. Eg: &#34;Mon:00:00-Mon:03:00&#34;.
          * 
          * @return builder
          * 
@@ -672,7 +609,7 @@ public final class ClusterInstanceArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param promotionTier Default 0. Failover Priority setting on instance level. The reader who has lower tier has higher priority to get promoter to writer.
+         * @param promotionTier Failover Priority setting on instance level. Default `0`. The reader who has lower tier has higher priority to get promoter to writer.
          * 
          * @return builder
          * 
@@ -683,7 +620,7 @@ public final class ClusterInstanceArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param promotionTier Default 0. Failover Priority setting on instance level. The reader who has lower tier has higher priority to get promoter to writer.
+         * @param promotionTier Failover Priority setting on instance level. Default `0`. The reader who has lower tier has higher priority to get promoter to writer.
          * 
          * @return builder
          * 
@@ -714,7 +651,7 @@ public final class ClusterInstanceArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param tags A map of tags to assign to the instance. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the instance. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -725,7 +662,7 @@ public final class ClusterInstanceArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param tags A map of tags to assign to the instance. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the instance. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 

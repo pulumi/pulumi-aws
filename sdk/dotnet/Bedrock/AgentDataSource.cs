@@ -41,6 +41,58 @@ namespace Pulumi.Aws.Bedrock
     /// });
     /// ```
     /// 
+    /// ### Multimodal Parsing
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.Bedrock.AgentDataSource("example", new()
+    ///     {
+    ///         KnowledgeBaseId = exampleAwsBedrockagentKnowledgeBase.Id,
+    ///         Name = "multimodal-example",
+    ///         DataSourceConfiguration = new Aws.Bedrock.Inputs.AgentDataSourceDataSourceConfigurationArgs
+    ///         {
+    ///             Type = "S3",
+    ///             S3Configuration = new Aws.Bedrock.Inputs.AgentDataSourceDataSourceConfigurationS3ConfigurationArgs
+    ///             {
+    ///                 BucketArn = exampleAwsS3Bucket.Arn,
+    ///             },
+    ///         },
+    ///         VectorIngestionConfiguration = new Aws.Bedrock.Inputs.AgentDataSourceVectorIngestionConfigurationArgs
+    ///         {
+    ///             ChunkingConfiguration = new Aws.Bedrock.Inputs.AgentDataSourceVectorIngestionConfigurationChunkingConfigurationArgs
+    ///             {
+    ///                 ChunkingStrategy = "FIXED_SIZE",
+    ///                 FixedSizeChunkingConfiguration = new Aws.Bedrock.Inputs.AgentDataSourceVectorIngestionConfigurationChunkingConfigurationFixedSizeChunkingConfigurationArgs
+    ///                 {
+    ///                     MaxTokens = 512,
+    ///                     OverlapPercentage = 20,
+    ///                 },
+    ///             },
+    ///             ParsingConfiguration = new Aws.Bedrock.Inputs.AgentDataSourceVectorIngestionConfigurationParsingConfigurationArgs
+    ///             {
+    ///                 ParsingStrategy = "BEDROCK_FOUNDATION_MODEL",
+    ///                 BedrockFoundationModelConfiguration = new Aws.Bedrock.Inputs.AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationArgs
+    ///                 {
+    ///                     ModelArn = "arn:aws:bedrock:us-east-1::foundation-model/anthropic.claude-3-sonnet-20240229-v1:0",
+    ///                     ParsingModality = "MULTIMODAL",
+    ///                     ParsingPrompt = new Aws.Bedrock.Inputs.AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationParsingPromptArgs
+    ///                     {
+    ///                         ParsingPromptString = "Extract and transcribe all text and visual content from the document.",
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Agents for Amazon Bedrock Data Source using the data source ID and the knowledge base ID. For example:

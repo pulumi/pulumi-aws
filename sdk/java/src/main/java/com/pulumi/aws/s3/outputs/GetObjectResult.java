@@ -21,10 +21,15 @@ public final class GetObjectResult {
      */
     private String arn;
     /**
-     * @return Object data (see **limitations above** to understand cases in which this field is actually available)
+     * @return Object data (see **limitations above** to understand cases in which this field is actually available). If `downloadBody` is set to `false`, `body` is not available.
      * 
      */
     private String body;
+    /**
+     * @return Object data as base64 encoded string. **This is only available if `downloadBody` is set to `true`.**
+     * 
+     */
+    private String bodyBase64;
     private String bucket;
     /**
      * @return (Optional) Whether or not to use [Amazon S3 Bucket Keys](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html) for SSE-KMS.
@@ -87,6 +92,7 @@ public final class GetObjectResult {
      * 
      */
     private String contentType;
+    private @Nullable String downloadBody;
     /**
      * @return [ETag](https://en.wikipedia.org/wiki/HTTP_ETag) generated for the object (an MD5 sum of the object content in case it&#39;s not encrypted)
      * 
@@ -175,11 +181,18 @@ public final class GetObjectResult {
         return this.arn;
     }
     /**
-     * @return Object data (see **limitations above** to understand cases in which this field is actually available)
+     * @return Object data (see **limitations above** to understand cases in which this field is actually available). If `downloadBody` is set to `false`, `body` is not available.
      * 
      */
     public String body() {
         return this.body;
+    }
+    /**
+     * @return Object data as base64 encoded string. **This is only available if `downloadBody` is set to `true`.**
+     * 
+     */
+    public String bodyBase64() {
+        return this.bodyBase64;
     }
     public String bucket() {
         return this.bucket;
@@ -270,6 +283,9 @@ public final class GetObjectResult {
      */
     public String contentType() {
         return this.contentType;
+    }
+    public Optional<String> downloadBody() {
+        return Optional.ofNullable(this.downloadBody);
     }
     /**
      * @return [ETag](https://en.wikipedia.org/wiki/HTTP_ETag) generated for the object (an MD5 sum of the object content in case it&#39;s not encrypted)
@@ -397,6 +413,7 @@ public final class GetObjectResult {
     public static final class Builder {
         private String arn;
         private String body;
+        private String bodyBase64;
         private String bucket;
         private Boolean bucketKeyEnabled;
         private String cacheControl;
@@ -411,6 +428,7 @@ public final class GetObjectResult {
         private String contentLanguage;
         private Integer contentLength;
         private String contentType;
+        private @Nullable String downloadBody;
         private String etag;
         private String expiration;
         private String expires;
@@ -434,6 +452,7 @@ public final class GetObjectResult {
     	      Objects.requireNonNull(defaults);
     	      this.arn = defaults.arn;
     	      this.body = defaults.body;
+    	      this.bodyBase64 = defaults.bodyBase64;
     	      this.bucket = defaults.bucket;
     	      this.bucketKeyEnabled = defaults.bucketKeyEnabled;
     	      this.cacheControl = defaults.cacheControl;
@@ -448,6 +467,7 @@ public final class GetObjectResult {
     	      this.contentLanguage = defaults.contentLanguage;
     	      this.contentLength = defaults.contentLength;
     	      this.contentType = defaults.contentType;
+    	      this.downloadBody = defaults.downloadBody;
     	      this.etag = defaults.etag;
     	      this.expiration = defaults.expiration;
     	      this.expires = defaults.expires;
@@ -482,6 +502,14 @@ public final class GetObjectResult {
               throw new MissingRequiredPropertyException("GetObjectResult", "body");
             }
             this.body = body;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder bodyBase64(String bodyBase64) {
+            if (bodyBase64 == null) {
+              throw new MissingRequiredPropertyException("GetObjectResult", "bodyBase64");
+            }
+            this.bodyBase64 = bodyBase64;
             return this;
         }
         @CustomType.Setter
@@ -592,6 +620,12 @@ public final class GetObjectResult {
               throw new MissingRequiredPropertyException("GetObjectResult", "contentType");
             }
             this.contentType = contentType;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder downloadBody(@Nullable String downloadBody) {
+
+            this.downloadBody = downloadBody;
             return this;
         }
         @CustomType.Setter
@@ -740,6 +774,7 @@ public final class GetObjectResult {
             final var _resultValue = new GetObjectResult();
             _resultValue.arn = arn;
             _resultValue.body = body;
+            _resultValue.bodyBase64 = bodyBase64;
             _resultValue.bucket = bucket;
             _resultValue.bucketKeyEnabled = bucketKeyEnabled;
             _resultValue.cacheControl = cacheControl;
@@ -754,6 +789,7 @@ public final class GetObjectResult {
             _resultValue.contentLanguage = contentLanguage;
             _resultValue.contentLength = contentLength;
             _resultValue.contentType = contentType;
+            _resultValue.downloadBody = downloadBody;
             _resultValue.etag = etag;
             _resultValue.expiration = expiration;
             _resultValue.expires = expires;

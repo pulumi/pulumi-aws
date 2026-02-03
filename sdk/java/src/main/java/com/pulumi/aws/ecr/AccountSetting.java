@@ -14,7 +14,7 @@ import java.lang.String;
 import javax.annotation.Nullable;
 
 /**
- * Provides a resource to manage AWS ECR Basic Scan Type
+ * Provides a resource to manage AWS ECR account settings
  * 
  * ## Example Usage
  * 
@@ -45,6 +45,40 @@ import javax.annotation.Nullable;
  *         var basicScanTypeVersion = new AccountSetting("basicScanTypeVersion", AccountSettingArgs.builder()
  *             .name("BASIC_SCAN_TYPE_VERSION")
  *             .value("AWS_NATIVE")
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
+ * ### Configuring Blob Mounting (Cross-Repository Layer Sharing)
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.ecr.AccountSetting;
+ * import com.pulumi.aws.ecr.AccountSettingArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var blobMounting = new AccountSetting("blobMounting", AccountSettingArgs.builder()
+ *             .name("BLOB_MOUNTING")
+ *             .value("ENABLED")
  *             .build());
  * 
  *     }
@@ -98,14 +132,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:ecr/accountSetting:AccountSetting")
 public class AccountSetting extends com.pulumi.resources.CustomResource {
     /**
-     * Name of the account setting. One of: `BASIC_SCAN_TYPE_VERSION`, `REGISTRY_POLICY_SCOPE`.
+     * Name of the account setting. One of: `BASIC_SCAN_TYPE_VERSION`, `BLOB_MOUNTING`, `REGISTRY_POLICY_SCOPE`.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return Name of the account setting. One of: `BASIC_SCAN_TYPE_VERSION`, `REGISTRY_POLICY_SCOPE`.
+     * @return Name of the account setting. One of: `BASIC_SCAN_TYPE_VERSION`, `BLOB_MOUNTING`, `REGISTRY_POLICY_SCOPE`.
      * 
      */
     public Output<String> name() {
@@ -128,6 +162,7 @@ public class AccountSetting extends com.pulumi.resources.CustomResource {
     /**
      * Setting value that is specified. Valid values are:
      * * If `name` is specified as `BASIC_SCAN_TYPE_VERSION`, one of: `AWS_NATIVE`, `CLAIR`.
+     * * If `name` is specified as `BLOB_MOUNTING`, one of: `ENABLED`, `DISABLED`.
      * * If `name` is specified as `REGISTRY_POLICY_SCOPE`, one of: `V1`, `V2`.
      * 
      */
@@ -137,6 +172,7 @@ public class AccountSetting extends com.pulumi.resources.CustomResource {
     /**
      * @return Setting value that is specified. Valid values are:
      * * If `name` is specified as `BASIC_SCAN_TYPE_VERSION`, one of: `AWS_NATIVE`, `CLAIR`.
+     * * If `name` is specified as `BLOB_MOUNTING`, one of: `ENABLED`, `DISABLED`.
      * * If `name` is specified as `REGISTRY_POLICY_SCOPE`, one of: `V1`, `V2`.
      * 
      */

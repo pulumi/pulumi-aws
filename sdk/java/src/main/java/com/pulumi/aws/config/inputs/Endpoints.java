@@ -980,6 +980,11 @@ public final class Endpoints {
      * @return Use this to override the default service endpoint URL
      * 
      */
+    private @Nullable String mpa;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String mq;
     /**
      * @return Use this to override the default service endpoint URL
@@ -1306,6 +1311,11 @@ public final class Endpoints {
      * 
      */
     private @Nullable String sagemaker;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
+    private @Nullable String savingsplans;
     /**
      * @return Use this to override the default service endpoint URL
      * 
@@ -2903,6 +2913,13 @@ public final class Endpoints {
      * @return Use this to override the default service endpoint URL
      * 
      */
+    public Optional<String> mpa() {
+        return Optional.ofNullable(this.mpa);
+    }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> mq() {
         return Optional.ofNullable(this.mq);
     }
@@ -3360,6 +3377,13 @@ public final class Endpoints {
      */
     public Optional<String> sagemaker() {
         return Optional.ofNullable(this.sagemaker);
+    }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
+    public Optional<String> savingsplans() {
+        return Optional.ofNullable(this.savingsplans);
     }
     /**
      * @return Use this to override the default service endpoint URL
@@ -3900,6 +3924,7 @@ public final class Endpoints {
         private @Nullable String mediastore;
         private @Nullable String memorydb;
         private @Nullable String mgn;
+        private @Nullable String mpa;
         private @Nullable String mq;
         private @Nullable String msk;
         private @Nullable String mwaa;
@@ -3966,6 +3991,7 @@ public final class Endpoints {
         private @Nullable String s3tables;
         private @Nullable String s3vectors;
         private @Nullable String sagemaker;
+        private @Nullable String savingsplans;
         private @Nullable String scheduler;
         private @Nullable String schemas;
         private @Nullable String secretsmanager;
@@ -4210,6 +4236,7 @@ public final class Endpoints {
     	      this.mediastore = defaults.mediastore;
     	      this.memorydb = defaults.memorydb;
     	      this.mgn = defaults.mgn;
+    	      this.mpa = defaults.mpa;
     	      this.mq = defaults.mq;
     	      this.msk = defaults.msk;
     	      this.mwaa = defaults.mwaa;
@@ -4276,6 +4303,7 @@ public final class Endpoints {
     	      this.s3tables = defaults.s3tables;
     	      this.s3vectors = defaults.s3vectors;
     	      this.sagemaker = defaults.sagemaker;
+    	      this.savingsplans = defaults.savingsplans;
     	      this.scheduler = defaults.scheduler;
     	      this.schemas = defaults.schemas;
     	      this.secretsmanager = defaults.secretsmanager;
@@ -5485,6 +5513,12 @@ public final class Endpoints {
             return this;
         }
         @CustomType.Setter
+        public Builder mpa(@Nullable String mpa) {
+
+            this.mpa = mpa;
+            return this;
+        }
+        @CustomType.Setter
         public Builder mq(@Nullable String mq) {
 
             this.mq = mq;
@@ -5878,6 +5912,12 @@ public final class Endpoints {
         public Builder sagemaker(@Nullable String sagemaker) {
 
             this.sagemaker = sagemaker;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder savingsplans(@Nullable String savingsplans) {
+
+            this.savingsplans = savingsplans;
             return this;
         }
         @CustomType.Setter
@@ -6363,6 +6403,7 @@ public final class Endpoints {
             _resultValue.mediastore = mediastore;
             _resultValue.memorydb = memorydb;
             _resultValue.mgn = mgn;
+            _resultValue.mpa = mpa;
             _resultValue.mq = mq;
             _resultValue.msk = msk;
             _resultValue.mwaa = mwaa;
@@ -6429,6 +6470,7 @@ public final class Endpoints {
             _resultValue.s3tables = s3tables;
             _resultValue.s3vectors = s3vectors;
             _resultValue.sagemaker = sagemaker;
+            _resultValue.savingsplans = savingsplans;
             _resultValue.scheduler = scheduler;
             _resultValue.schemas = schemas;
             _resultValue.secretsmanager = secretsmanager;

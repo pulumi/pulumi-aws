@@ -21,15 +21,15 @@ public final class MultitenantDistributionOriginGroup {
      */
     private @Nullable MultitenantDistributionOriginGroupFailoverCriteria failoverCriteria;
     /**
+     * @return Identifier for the distribution.
+     * 
+     */
+    private String id;
+    /**
      * @return List of origins in this origin group. Must contain exactly 2 members. See Origin Group Member below.
      * 
      */
     private @Nullable List<MultitenantDistributionOriginGroupMember> members;
-    /**
-     * @return Unique identifier for the origin group.
-     * 
-     */
-    private String originId;
 
     private MultitenantDistributionOriginGroup() {}
     /**
@@ -40,18 +40,18 @@ public final class MultitenantDistributionOriginGroup {
         return Optional.ofNullable(this.failoverCriteria);
     }
     /**
+     * @return Identifier for the distribution.
+     * 
+     */
+    public String id() {
+        return this.id;
+    }
+    /**
      * @return List of origins in this origin group. Must contain exactly 2 members. See Origin Group Member below.
      * 
      */
     public List<MultitenantDistributionOriginGroupMember> members() {
         return this.members == null ? List.of() : this.members;
-    }
-    /**
-     * @return Unique identifier for the origin group.
-     * 
-     */
-    public String originId() {
-        return this.originId;
     }
 
     public static Builder builder() {
@@ -64,20 +64,28 @@ public final class MultitenantDistributionOriginGroup {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable MultitenantDistributionOriginGroupFailoverCriteria failoverCriteria;
+        private String id;
         private @Nullable List<MultitenantDistributionOriginGroupMember> members;
-        private String originId;
         public Builder() {}
         public Builder(MultitenantDistributionOriginGroup defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.failoverCriteria = defaults.failoverCriteria;
+    	      this.id = defaults.id;
     	      this.members = defaults.members;
-    	      this.originId = defaults.originId;
         }
 
         @CustomType.Setter
         public Builder failoverCriteria(@Nullable MultitenantDistributionOriginGroupFailoverCriteria failoverCriteria) {
 
             this.failoverCriteria = failoverCriteria;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder id(String id) {
+            if (id == null) {
+              throw new MissingRequiredPropertyException("MultitenantDistributionOriginGroup", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
@@ -89,19 +97,11 @@ public final class MultitenantDistributionOriginGroup {
         public Builder members(MultitenantDistributionOriginGroupMember... members) {
             return members(List.of(members));
         }
-        @CustomType.Setter
-        public Builder originId(String originId) {
-            if (originId == null) {
-              throw new MissingRequiredPropertyException("MultitenantDistributionOriginGroup", "originId");
-            }
-            this.originId = originId;
-            return this;
-        }
         public MultitenantDistributionOriginGroup build() {
             final var _resultValue = new MultitenantDistributionOriginGroup();
             _resultValue.failoverCriteria = failoverCriteria;
+            _resultValue.id = id;
             _resultValue.members = members;
-            _resultValue.originId = originId;
             return _resultValue;
         }
     }

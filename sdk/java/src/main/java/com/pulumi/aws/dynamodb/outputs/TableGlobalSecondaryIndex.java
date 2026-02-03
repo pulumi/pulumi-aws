@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.dynamodb.outputs;
 
+import com.pulumi.aws.dynamodb.outputs.TableGlobalSecondaryIndexKeySchema;
 import com.pulumi.aws.dynamodb.outputs.TableGlobalSecondaryIndexOnDemandThroughput;
 import com.pulumi.aws.dynamodb.outputs.TableGlobalSecondaryIndexWarmThroughput;
 import com.pulumi.core.annotations.CustomType;
@@ -17,10 +18,15 @@ import javax.annotation.Nullable;
 @CustomType
 public final class TableGlobalSecondaryIndex {
     /**
-     * @return Name of the hash key in the index; must be defined as an attribute in the resource.
+     * @return and `hashKeys` are `mutually exclusive`, but one is `required`. Refer to [AWS SDK Documentation](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GSI.DesignPattern.MultiAttributeKeys.html)
+     * 
+     * @deprecated
+     * hash_key is deprecated. Use keySchema instead.
      * 
      */
-    private String hashKey;
+    @Deprecated /* hash_key is deprecated. Use keySchema instead. */
+    private @Nullable String hashKey;
+    private @Nullable List<TableGlobalSecondaryIndexKeySchema> keySchemas;
     /**
      * @return Name of the index.
      * 
@@ -42,9 +48,13 @@ public final class TableGlobalSecondaryIndex {
      */
     private String projectionType;
     /**
-     * @return Name of the range key; must be defined
+     * @return and `rangeKeys` are `mutually exclusive`, but are both `optional`. Refer to [AWS SDK Documentation](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GSI.DesignPattern.MultiAttributeKeys.html)
+     * 
+     * @deprecated
+     * range_key is deprecated. Use keySchema instead.
      * 
      */
+    @Deprecated /* range_key is deprecated. Use keySchema instead. */
     private @Nullable String rangeKey;
     /**
      * @return Number of read units for this index. Must be set if billingMode is set to PROVISIONED.
@@ -64,11 +74,18 @@ public final class TableGlobalSecondaryIndex {
 
     private TableGlobalSecondaryIndex() {}
     /**
-     * @return Name of the hash key in the index; must be defined as an attribute in the resource.
+     * @return and `hashKeys` are `mutually exclusive`, but one is `required`. Refer to [AWS SDK Documentation](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GSI.DesignPattern.MultiAttributeKeys.html)
+     * 
+     * @deprecated
+     * hash_key is deprecated. Use keySchema instead.
      * 
      */
-    public String hashKey() {
-        return this.hashKey;
+    @Deprecated /* hash_key is deprecated. Use keySchema instead. */
+    public Optional<String> hashKey() {
+        return Optional.ofNullable(this.hashKey);
+    }
+    public List<TableGlobalSecondaryIndexKeySchema> keySchemas() {
+        return this.keySchemas == null ? List.of() : this.keySchemas;
     }
     /**
      * @return Name of the index.
@@ -99,9 +116,13 @@ public final class TableGlobalSecondaryIndex {
         return this.projectionType;
     }
     /**
-     * @return Name of the range key; must be defined
+     * @return and `rangeKeys` are `mutually exclusive`, but are both `optional`. Refer to [AWS SDK Documentation](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GSI.DesignPattern.MultiAttributeKeys.html)
+     * 
+     * @deprecated
+     * range_key is deprecated. Use keySchema instead.
      * 
      */
+    @Deprecated /* range_key is deprecated. Use keySchema instead. */
     public Optional<String> rangeKey() {
         return Optional.ofNullable(this.rangeKey);
     }
@@ -136,7 +157,8 @@ public final class TableGlobalSecondaryIndex {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String hashKey;
+        private @Nullable String hashKey;
+        private @Nullable List<TableGlobalSecondaryIndexKeySchema> keySchemas;
         private String name;
         private @Nullable List<String> nonKeyAttributes;
         private @Nullable TableGlobalSecondaryIndexOnDemandThroughput onDemandThroughput;
@@ -149,6 +171,7 @@ public final class TableGlobalSecondaryIndex {
         public Builder(TableGlobalSecondaryIndex defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.hashKey = defaults.hashKey;
+    	      this.keySchemas = defaults.keySchemas;
     	      this.name = defaults.name;
     	      this.nonKeyAttributes = defaults.nonKeyAttributes;
     	      this.onDemandThroughput = defaults.onDemandThroughput;
@@ -160,12 +183,19 @@ public final class TableGlobalSecondaryIndex {
         }
 
         @CustomType.Setter
-        public Builder hashKey(String hashKey) {
-            if (hashKey == null) {
-              throw new MissingRequiredPropertyException("TableGlobalSecondaryIndex", "hashKey");
-            }
+        public Builder hashKey(@Nullable String hashKey) {
+
             this.hashKey = hashKey;
             return this;
+        }
+        @CustomType.Setter
+        public Builder keySchemas(@Nullable List<TableGlobalSecondaryIndexKeySchema> keySchemas) {
+
+            this.keySchemas = keySchemas;
+            return this;
+        }
+        public Builder keySchemas(TableGlobalSecondaryIndexKeySchema... keySchemas) {
+            return keySchemas(List.of(keySchemas));
         }
         @CustomType.Setter
         public Builder name(String name) {
@@ -225,6 +255,7 @@ public final class TableGlobalSecondaryIndex {
         public TableGlobalSecondaryIndex build() {
             final var _resultValue = new TableGlobalSecondaryIndex();
             _resultValue.hashKey = hashKey;
+            _resultValue.keySchemas = keySchemas;
             _resultValue.name = name;
             _resultValue.nonKeyAttributes = nonKeyAttributes;
             _resultValue.onDemandThroughput = onDemandThroughput;

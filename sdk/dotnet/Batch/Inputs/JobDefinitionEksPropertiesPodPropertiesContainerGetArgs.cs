@@ -73,7 +73,7 @@ namespace Pulumi.Aws.Batch.Inputs
         public Input<Inputs.JobDefinitionEksPropertiesPodPropertiesContainerResourcesGetArgs>? Resources { get; set; }
 
         /// <summary>
-        /// Security context for a job.
+        /// Security context for a job. See `SecurityContext` below.
         /// </summary>
         [Input("securityContext")]
         public Input<Inputs.JobDefinitionEksPropertiesPodPropertiesContainerSecurityContextGetArgs>? SecurityContext { get; set; }

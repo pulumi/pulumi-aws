@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Provides a resource to manage AWS ECR Basic Scan Type
+ * Provides a resource to manage AWS ECR account settings
  *
  * ## Example Usage
  *
@@ -18,6 +18,18 @@ import * as utilities from "../utilities";
  * const basicScanTypeVersion = new aws.ecr.AccountSetting("basic_scan_type_version", {
  *     name: "BASIC_SCAN_TYPE_VERSION",
  *     value: "AWS_NATIVE",
+ * });
+ * ```
+ *
+ * ### Configuring Blob Mounting (Cross-Repository Layer Sharing)
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const blobMounting = new aws.ecr.AccountSetting("blob_mounting", {
+ *     name: "BLOB_MOUNTING",
+ *     value: "ENABLED",
  * });
  * ```
  *
@@ -70,7 +82,7 @@ export class AccountSetting extends pulumi.CustomResource {
     }
 
     /**
-     * Name of the account setting. One of: `BASIC_SCAN_TYPE_VERSION`, `REGISTRY_POLICY_SCOPE`.
+     * Name of the account setting. One of: `BASIC_SCAN_TYPE_VERSION`, `BLOB_MOUNTING`, `REGISTRY_POLICY_SCOPE`.
      */
     declare public readonly name: pulumi.Output<string>;
     /**
@@ -80,6 +92,7 @@ export class AccountSetting extends pulumi.CustomResource {
     /**
      * Setting value that is specified. Valid values are:
      * * If `name` is specified as `BASIC_SCAN_TYPE_VERSION`, one of: `AWS_NATIVE`, `CLAIR`.
+     * * If `name` is specified as `BLOB_MOUNTING`, one of: `ENABLED`, `DISABLED`.
      * * If `name` is specified as `REGISTRY_POLICY_SCOPE`, one of: `V1`, `V2`.
      */
     declare public readonly value: pulumi.Output<string>;
@@ -119,7 +132,7 @@ export class AccountSetting extends pulumi.CustomResource {
  */
 export interface AccountSettingState {
     /**
-     * Name of the account setting. One of: `BASIC_SCAN_TYPE_VERSION`, `REGISTRY_POLICY_SCOPE`.
+     * Name of the account setting. One of: `BASIC_SCAN_TYPE_VERSION`, `BLOB_MOUNTING`, `REGISTRY_POLICY_SCOPE`.
      */
     name?: pulumi.Input<string>;
     /**
@@ -129,6 +142,7 @@ export interface AccountSettingState {
     /**
      * Setting value that is specified. Valid values are:
      * * If `name` is specified as `BASIC_SCAN_TYPE_VERSION`, one of: `AWS_NATIVE`, `CLAIR`.
+     * * If `name` is specified as `BLOB_MOUNTING`, one of: `ENABLED`, `DISABLED`.
      * * If `name` is specified as `REGISTRY_POLICY_SCOPE`, one of: `V1`, `V2`.
      */
     value?: pulumi.Input<string>;
@@ -139,7 +153,7 @@ export interface AccountSettingState {
  */
 export interface AccountSettingArgs {
     /**
-     * Name of the account setting. One of: `BASIC_SCAN_TYPE_VERSION`, `REGISTRY_POLICY_SCOPE`.
+     * Name of the account setting. One of: `BASIC_SCAN_TYPE_VERSION`, `BLOB_MOUNTING`, `REGISTRY_POLICY_SCOPE`.
      */
     name?: pulumi.Input<string>;
     /**
@@ -149,6 +163,7 @@ export interface AccountSettingArgs {
     /**
      * Setting value that is specified. Valid values are:
      * * If `name` is specified as `BASIC_SCAN_TYPE_VERSION`, one of: `AWS_NATIVE`, `CLAIR`.
+     * * If `name` is specified as `BLOB_MOUNTING`, one of: `ENABLED`, `DISABLED`.
      * * If `name` is specified as `REGISTRY_POLICY_SCOPE`, one of: `V1`, `V2`.
      */
     value: pulumi.Input<string>;

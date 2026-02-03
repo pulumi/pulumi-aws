@@ -6,6 +6,7 @@ import builtins as _builtins
 from .. import _utilities
 import typing
 # Export this package's modules as members:
+from .application import *
 from .authorize_vpc_endpoint_access import *
 from .domain import *
 from .domain_policy import *

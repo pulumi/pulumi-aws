@@ -590,7 +590,7 @@ export class Function extends pulumi.CustomResource {
      */
     declare public readonly loggingConfig: pulumi.Output<outputs.lambda.FunctionLoggingConfig>;
     /**
-     * Amount of memory in MB your Lambda Function can use at runtime. Valid value between 128 MB to 10,240 MB (10 GB), in 1 MB increments. Defaults to 128.
+     * Amount of memory in MB your Lambda Function can use at runtime. Valid value between 128 MB to 32,768 MB (32 GB), in 1 MB increments. Defaults to 128.
      */
     declare public readonly memorySize: pulumi.Output<number | undefined>;
     /**
@@ -927,7 +927,7 @@ export interface FunctionState {
      */
     loggingConfig?: pulumi.Input<inputs.lambda.FunctionLoggingConfig>;
     /**
-     * Amount of memory in MB your Lambda Function can use at runtime. Valid value between 128 MB to 10,240 MB (10 GB), in 1 MB increments. Defaults to 128.
+     * Amount of memory in MB your Lambda Function can use at runtime. Valid value between 128 MB to 32,768 MB (32 GB), in 1 MB increments. Defaults to 128.
      */
     memorySize?: pulumi.Input<number>;
     /**
@@ -1127,7 +1127,7 @@ export interface FunctionArgs {
      */
     loggingConfig?: pulumi.Input<inputs.lambda.FunctionLoggingConfig>;
     /**
-     * Amount of memory in MB your Lambda Function can use at runtime. Valid value between 128 MB to 10,240 MB (10 GB), in 1 MB increments. Defaults to 128.
+     * Amount of memory in MB your Lambda Function can use at runtime. Valid value between 128 MB to 32,768 MB (32 GB), in 1 MB increments. Defaults to 128.
      */
     memorySize?: pulumi.Input<number>;
     /**

@@ -97,6 +97,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.organizations.OrganizationsFunctions;
+ * import com.pulumi.aws.organizations.inputs.GetOrganizationArgs;
  * import com.pulumi.aws.ec2.AmiLaunchPermission;
  * import com.pulumi.aws.ec2.AmiLaunchPermissionArgs;
  * import java.util.List;
@@ -112,7 +113,8 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var current = OrganizationsFunctions.getOrganization(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+ *         final var current = OrganizationsFunctions.getOrganization(GetOrganizationArgs.builder()
+ *             .build());
  * 
  *         var example = new AmiLaunchPermission("example", AmiLaunchPermissionArgs.builder()
  *             .imageId("ami-12345678")

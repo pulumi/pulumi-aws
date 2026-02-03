@@ -13,16 +13,20 @@ namespace Pulumi.Aws.Odb.Outputs
     [OutputType]
     public sealed class GetNetworkManagedServiceResult
     {
+        public readonly ImmutableArray<Outputs.GetNetworkManagedServiceKmsAccessResult> KmsAccesses;
         public readonly ImmutableArray<Outputs.GetNetworkManagedServiceManagedS3BackupAccessResult> ManagedS3BackupAccesses;
         public readonly ImmutableArray<string> ManagedServiceIpv4Cidrs;
         public readonly string ResourceGatewayArn;
         public readonly ImmutableArray<Outputs.GetNetworkManagedServiceS3AccessResult> S3Accesses;
         public readonly string ServiceNetworkArn;
         public readonly ImmutableArray<Outputs.GetNetworkManagedServiceServiceNetworkEndpointResult> ServiceNetworkEndpoints;
+        public readonly ImmutableArray<Outputs.GetNetworkManagedServiceStsAccessResult> StsAccesses;
         public readonly ImmutableArray<Outputs.GetNetworkManagedServiceZeroTlAccessResult> ZeroTlAccesses;
 
         [OutputConstructor]
         private GetNetworkManagedServiceResult(
+            ImmutableArray<Outputs.GetNetworkManagedServiceKmsAccessResult> kmsAccesses,
+
             ImmutableArray<Outputs.GetNetworkManagedServiceManagedS3BackupAccessResult> managedS3BackupAccesses,
 
             ImmutableArray<string> managedServiceIpv4Cidrs,
@@ -35,14 +39,18 @@ namespace Pulumi.Aws.Odb.Outputs
 
             ImmutableArray<Outputs.GetNetworkManagedServiceServiceNetworkEndpointResult> serviceNetworkEndpoints,
 
+            ImmutableArray<Outputs.GetNetworkManagedServiceStsAccessResult> stsAccesses,
+
             ImmutableArray<Outputs.GetNetworkManagedServiceZeroTlAccessResult> zeroTlAccesses)
         {
+            KmsAccesses = kmsAccesses;
             ManagedS3BackupAccesses = managedS3BackupAccesses;
             ManagedServiceIpv4Cidrs = managedServiceIpv4Cidrs;
             ResourceGatewayArn = resourceGatewayArn;
             S3Accesses = s3Accesses;
             ServiceNetworkArn = serviceNetworkArn;
             ServiceNetworkEndpoints = serviceNetworkEndpoints;
+            StsAccesses = stsAccesses;
             ZeroTlAccesses = zeroTlAccesses;
         }
     }

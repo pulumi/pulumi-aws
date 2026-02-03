@@ -948,6 +948,27 @@ class WindowsFileSystem(pulumi.CustomResource):
             })
         ```
 
+        ### Using a Self-Managed Microsoft Active Directory with Secrets Manager
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.fsx.WindowsFileSystem("example",
+            kms_key_id=example_aws_kms_key["arn"],
+            storage_capacity=32,
+            subnet_ids=[example_aws_subnet["id"]],
+            throughput_capacity=32,
+            self_managed_active_directory={
+                "dns_ips": [
+                    "10.0.0.111",
+                    "10.0.0.222",
+                ],
+                "domain_name": "corp.example.com",
+                "domain_join_service_account_secret": example_aws_secretsmanager_secret["arn"],
+            })
+        ```
+
         ## Import
 
         Using `pulumi import`, import FSx File Systems using the `id`. For example:
@@ -1034,6 +1055,27 @@ class WindowsFileSystem(pulumi.CustomResource):
                 "domain_name": "corp.example.com",
                 "password": "avoid-plaintext-passwords",
                 "username": "Admin",
+            })
+        ```
+
+        ### Using a Self-Managed Microsoft Active Directory with Secrets Manager
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.fsx.WindowsFileSystem("example",
+            kms_key_id=example_aws_kms_key["arn"],
+            storage_capacity=32,
+            subnet_ids=[example_aws_subnet["id"]],
+            throughput_capacity=32,
+            self_managed_active_directory={
+                "dns_ips": [
+                    "10.0.0.111",
+                    "10.0.0.222",
+                ],
+                "domain_name": "corp.example.com",
+                "domain_join_service_account_secret": example_aws_secretsmanager_secret["arn"],
             })
         ```
 

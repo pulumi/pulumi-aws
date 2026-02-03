@@ -119,6 +119,12 @@ namespace Pulumi.Aws.Organizations
         public Output<ImmutableArray<Outputs.OrganizationNonMasterAccount>> NonMasterAccounts { get; private set; } = null!;
 
         /// <summary>
+        /// Return (as attributes) only the results of the [`DescribeOrganization`](https://docs.aws.amazon.com/organizations/latest/APIReference/API_DescribeOrganization.html) API to avoid [API limits](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_reference_limits.html#throttling-limits). When configured to `True` only the `Arn`, `FeatureSet`, `MasterAccountArn`, `MasterAccountEmail` and `MasterAccountId` attributes will be returned. All others will be empty. Default: `False`.
+        /// </summary>
+        [Output("returnOrganizationOnly")]
+        public Output<bool?> ReturnOrganizationOnly { get; private set; } = null!;
+
+        /// <summary>
         /// List of organization roots. All elements have these attributes:
         /// </summary>
         [Output("roots")]
@@ -199,6 +205,12 @@ namespace Pulumi.Aws.Organizations
         /// </summary>
         [Input("featureSet")]
         public Input<string>? FeatureSet { get; set; }
+
+        /// <summary>
+        /// Return (as attributes) only the results of the [`DescribeOrganization`](https://docs.aws.amazon.com/organizations/latest/APIReference/API_DescribeOrganization.html) API to avoid [API limits](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_reference_limits.html#throttling-limits). When configured to `True` only the `Arn`, `FeatureSet`, `MasterAccountArn`, `MasterAccountEmail` and `MasterAccountId` attributes will be returned. All others will be empty. Default: `False`.
+        /// </summary>
+        [Input("returnOrganizationOnly")]
+        public Input<bool>? ReturnOrganizationOnly { get; set; }
 
         public OrganizationArgs()
         {
@@ -291,6 +303,12 @@ namespace Pulumi.Aws.Organizations
             get => _nonMasterAccounts ?? (_nonMasterAccounts = new InputList<Inputs.OrganizationNonMasterAccountGetArgs>());
             set => _nonMasterAccounts = value;
         }
+
+        /// <summary>
+        /// Return (as attributes) only the results of the [`DescribeOrganization`](https://docs.aws.amazon.com/organizations/latest/APIReference/API_DescribeOrganization.html) API to avoid [API limits](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_reference_limits.html#throttling-limits). When configured to `True` only the `Arn`, `FeatureSet`, `MasterAccountArn`, `MasterAccountEmail` and `MasterAccountId` attributes will be returned. All others will be empty. Default: `False`.
+        /// </summary>
+        [Input("returnOrganizationOnly")]
+        public Input<bool>? ReturnOrganizationOnly { get; set; }
 
         [Input("roots")]
         private InputList<Inputs.OrganizationRootGetArgs>? _roots;

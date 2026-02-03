@@ -13,9 +13,21 @@ namespace Pulumi.Aws.CleanRooms.Outputs
     [OutputType]
     public sealed class CollaborationMember
     {
+        /// <summary>
+        /// Account ID for the invited member.
+        /// </summary>
         public readonly string AccountId;
+        /// <summary>
+        /// Display name for the invited member.
+        /// </summary>
         public readonly string DisplayName;
+        /// <summary>
+        /// List of abilities for the invited member. Valid values [may be found here](https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_CreateCollaboration.html#API-CreateCollaboration-request-creatorMemberAbilities).
+        /// </summary>
         public readonly ImmutableArray<string> MemberAbilities;
+        /// <summary>
+        /// For each member included in the collaboration an additional computed attribute of status is added. These values [may be found here](https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_MemberSummary.html#API-Type-MemberSummary-status).
+        /// </summary>
         public readonly string? Status;
 
         [OutputConstructor]

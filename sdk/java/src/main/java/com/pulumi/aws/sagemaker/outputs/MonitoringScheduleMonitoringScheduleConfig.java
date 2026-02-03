@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.sagemaker.outputs;
 
+import com.pulumi.aws.sagemaker.outputs.MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinition;
 import com.pulumi.aws.sagemaker.outputs.MonitoringScheduleMonitoringScheduleConfigScheduleConfig;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
@@ -14,10 +15,15 @@ import javax.annotation.Nullable;
 @CustomType
 public final class MonitoringScheduleMonitoringScheduleConfig {
     /**
+     * @return Defines the monitoring job. Fields are documented below.
+     * 
+     */
+    private @Nullable MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinition monitoringJobDefinition;
+    /**
      * @return The name of the monitoring job definition to schedule.
      * 
      */
-    private String monitoringJobDefinitionName;
+    private @Nullable String monitoringJobDefinitionName;
     /**
      * @return The type of the monitoring job definition to schedule. Valid values are `DataQuality`, `ModelQuality`, `ModelBias` or `ModelExplainability`
      * 
@@ -31,11 +37,18 @@ public final class MonitoringScheduleMonitoringScheduleConfig {
 
     private MonitoringScheduleMonitoringScheduleConfig() {}
     /**
+     * @return Defines the monitoring job. Fields are documented below.
+     * 
+     */
+    public Optional<MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinition> monitoringJobDefinition() {
+        return Optional.ofNullable(this.monitoringJobDefinition);
+    }
+    /**
      * @return The name of the monitoring job definition to schedule.
      * 
      */
-    public String monitoringJobDefinitionName() {
-        return this.monitoringJobDefinitionName;
+    public Optional<String> monitoringJobDefinitionName() {
+        return Optional.ofNullable(this.monitoringJobDefinitionName);
     }
     /**
      * @return The type of the monitoring job definition to schedule. Valid values are `DataQuality`, `ModelQuality`, `ModelBias` or `ModelExplainability`
@@ -61,22 +74,28 @@ public final class MonitoringScheduleMonitoringScheduleConfig {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String monitoringJobDefinitionName;
+        private @Nullable MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinition monitoringJobDefinition;
+        private @Nullable String monitoringJobDefinitionName;
         private String monitoringType;
         private @Nullable MonitoringScheduleMonitoringScheduleConfigScheduleConfig scheduleConfig;
         public Builder() {}
         public Builder(MonitoringScheduleMonitoringScheduleConfig defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.monitoringJobDefinition = defaults.monitoringJobDefinition;
     	      this.monitoringJobDefinitionName = defaults.monitoringJobDefinitionName;
     	      this.monitoringType = defaults.monitoringType;
     	      this.scheduleConfig = defaults.scheduleConfig;
         }
 
         @CustomType.Setter
-        public Builder monitoringJobDefinitionName(String monitoringJobDefinitionName) {
-            if (monitoringJobDefinitionName == null) {
-              throw new MissingRequiredPropertyException("MonitoringScheduleMonitoringScheduleConfig", "monitoringJobDefinitionName");
-            }
+        public Builder monitoringJobDefinition(@Nullable MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinition monitoringJobDefinition) {
+
+            this.monitoringJobDefinition = monitoringJobDefinition;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder monitoringJobDefinitionName(@Nullable String monitoringJobDefinitionName) {
+
             this.monitoringJobDefinitionName = monitoringJobDefinitionName;
             return this;
         }
@@ -96,6 +115,7 @@ public final class MonitoringScheduleMonitoringScheduleConfig {
         }
         public MonitoringScheduleMonitoringScheduleConfig build() {
             final var _resultValue = new MonitoringScheduleMonitoringScheduleConfig();
+            _resultValue.monitoringJobDefinition = monitoringJobDefinition;
             _resultValue.monitoringJobDefinitionName = monitoringJobDefinitionName;
             _resultValue.monitoringType = monitoringType;
             _resultValue.scheduleConfig = scheduleConfig;

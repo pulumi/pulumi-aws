@@ -16,10 +16,51 @@ from .. import _utilities
 from . import outputs
 
 __all__ = [
+    'GetRequiredTagsRequiredTagResult',
     'GetResourcesResourceTagMappingListResult',
     'GetResourcesResourceTagMappingListComplianceDetailResult',
     'GetResourcesTagFilterResult',
 ]
+
+@pulumi.output_type
+class GetRequiredTagsRequiredTagResult(dict):
+    def __init__(__self__, *,
+                 cloud_formation_resource_types: Sequence[_builtins.str],
+                 reporting_tag_keys: Sequence[_builtins.str],
+                 resource_type: _builtins.str):
+        """
+        :param Sequence[_builtins.str] cloud_formation_resource_types: CloudFormation resource types assigned the required tag keys.
+        :param Sequence[_builtins.str] reporting_tag_keys: Tag keys marked as required in the `report_required_tag_for` block of the effective tag policy.
+        :param _builtins.str resource_type: Resource type for the required tag keys.
+        """
+        pulumi.set(__self__, "cloud_formation_resource_types", cloud_formation_resource_types)
+        pulumi.set(__self__, "reporting_tag_keys", reporting_tag_keys)
+        pulumi.set(__self__, "resource_type", resource_type)
+
+    @_builtins.property
+    @pulumi.getter(name="cloudFormationResourceTypes")
+    def cloud_formation_resource_types(self) -> Sequence[_builtins.str]:
+        """
+        CloudFormation resource types assigned the required tag keys.
+        """
+        return pulumi.get(self, "cloud_formation_resource_types")
+
+    @_builtins.property
+    @pulumi.getter(name="reportingTagKeys")
+    def reporting_tag_keys(self) -> Sequence[_builtins.str]:
+        """
+        Tag keys marked as required in the `report_required_tag_for` block of the effective tag policy.
+        """
+        return pulumi.get(self, "reporting_tag_keys")
+
+    @_builtins.property
+    @pulumi.getter(name="resourceType")
+    def resource_type(self) -> _builtins.str:
+        """
+        Resource type for the required tag keys.
+        """
+        return pulumi.get(self, "resource_type")
+
 
 @pulumi.output_type
 class GetResourcesResourceTagMappingListResult(dict):

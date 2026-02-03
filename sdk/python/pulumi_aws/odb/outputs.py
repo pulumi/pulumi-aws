@@ -30,9 +30,11 @@ __all__ = [
     'CloudVmClusterIormConfigCacheDbPlan',
     'CloudVmClusterTimeouts',
     'NetworkManagedService',
+    'NetworkManagedServiceKmsAccess',
     'NetworkManagedServiceManagedS3BackupAccess',
     'NetworkManagedServiceS3Access',
     'NetworkManagedServiceServiceNetworkEndpoint',
+    'NetworkManagedServiceStsAccess',
     'NetworkManagedServiceZeroEtlAccess',
     'NetworkOciDnsForwardingConfig',
     'NetworkPeeringConnectionTimeouts',
@@ -57,9 +59,11 @@ __all__ = [
     'GetDbSystemShapesDbSystemShapeResult',
     'GetGiVersionsGiVersionResult',
     'GetNetworkManagedServiceResult',
+    'GetNetworkManagedServiceKmsAccessResult',
     'GetNetworkManagedServiceManagedS3BackupAccessResult',
     'GetNetworkManagedServiceS3AccessResult',
     'GetNetworkManagedServiceServiceNetworkEndpointResult',
+    'GetNetworkManagedServiceStsAccessResult',
     'GetNetworkManagedServiceZeroTlAccessResult',
     'GetNetworkOciDnsForwardingConfigResult',
     'GetNetworkPeeringConnectionsOdbPeeringConnectionResult',
@@ -647,7 +651,9 @@ class NetworkManagedService(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "managedS3BackupAccesses":
+        if key == "kmsAccesses":
+            suggest = "kms_accesses"
+        elif key == "managedS3BackupAccesses":
             suggest = "managed_s3_backup_accesses"
         elif key == "managedServiceIpv4Cidrs":
             suggest = "managed_service_ipv4_cidrs"
@@ -659,6 +665,8 @@ class NetworkManagedService(dict):
             suggest = "service_network_arn"
         elif key == "serviceNetworkEndpoints":
             suggest = "service_network_endpoints"
+        elif key == "stsAccesses":
+            suggest = "sts_accesses"
         elif key == "zeroEtlAccesses":
             suggest = "zero_etl_accesses"
 
@@ -674,26 +682,40 @@ class NetworkManagedService(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 kms_accesses: Sequence['outputs.NetworkManagedServiceKmsAccess'],
                  managed_s3_backup_accesses: Sequence['outputs.NetworkManagedServiceManagedS3BackupAccess'],
                  managed_service_ipv4_cidrs: Sequence[_builtins.str],
                  resource_gateway_arn: _builtins.str,
                  s3_accesses: Sequence['outputs.NetworkManagedServiceS3Access'],
                  service_network_arn: _builtins.str,
                  service_network_endpoints: Sequence['outputs.NetworkManagedServiceServiceNetworkEndpoint'],
+                 sts_accesses: Sequence['outputs.NetworkManagedServiceStsAccess'],
                  zero_etl_accesses: Sequence['outputs.NetworkManagedServiceZeroEtlAccess']):
         """
+        :param Sequence['NetworkManagedServiceKmsAccessArgs'] kms_accesses: Specifies the configuration for KMS access from the ODB network.
         :param Sequence['NetworkManagedServiceS3AccessArgs'] s3_accesses: Specifies the configuration for Amazon S3 access from the ODB network.
+        :param Sequence['NetworkManagedServiceStsAccessArgs'] sts_accesses: Specifies the configuration for STS access from the ODB network.
         :param Sequence['NetworkManagedServiceZeroEtlAccessArgs'] zero_etl_accesses: Specifies the configuration for Zero-ETL access from the ODB network.
                
                The following arguments are optional:
         """
+        pulumi.set(__self__, "kms_accesses", kms_accesses)
         pulumi.set(__self__, "managed_s3_backup_accesses", managed_s3_backup_accesses)
         pulumi.set(__self__, "managed_service_ipv4_cidrs", managed_service_ipv4_cidrs)
         pulumi.set(__self__, "resource_gateway_arn", resource_gateway_arn)
         pulumi.set(__self__, "s3_accesses", s3_accesses)
         pulumi.set(__self__, "service_network_arn", service_network_arn)
         pulumi.set(__self__, "service_network_endpoints", service_network_endpoints)
+        pulumi.set(__self__, "sts_accesses", sts_accesses)
         pulumi.set(__self__, "zero_etl_accesses", zero_etl_accesses)
+
+    @_builtins.property
+    @pulumi.getter(name="kmsAccesses")
+    def kms_accesses(self) -> Sequence['outputs.NetworkManagedServiceKmsAccess']:
+        """
+        Specifies the configuration for KMS access from the ODB network.
+        """
+        return pulumi.get(self, "kms_accesses")
 
     @_builtins.property
     @pulumi.getter(name="managedS3BackupAccesses")
@@ -729,6 +751,14 @@ class NetworkManagedService(dict):
         return pulumi.get(self, "service_network_endpoints")
 
     @_builtins.property
+    @pulumi.getter(name="stsAccesses")
+    def sts_accesses(self) -> Sequence['outputs.NetworkManagedServiceStsAccess']:
+        """
+        Specifies the configuration for STS access from the ODB network.
+        """
+        return pulumi.get(self, "sts_accesses")
+
+    @_builtins.property
     @pulumi.getter(name="zeroEtlAccesses")
     def zero_etl_accesses(self) -> Sequence['outputs.NetworkManagedServiceZeroEtlAccess']:
         """
@@ -737,6 +767,70 @@ class NetworkManagedService(dict):
         The following arguments are optional:
         """
         return pulumi.get(self, "zero_etl_accesses")
+
+
+@pulumi.output_type
+class NetworkManagedServiceKmsAccess(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "domainName":
+            suggest = "domain_name"
+        elif key == "ipv4Addresses":
+            suggest = "ipv4_addresses"
+        elif key == "kmsPolicyDocument":
+            suggest = "kms_policy_document"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NetworkManagedServiceKmsAccess. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NetworkManagedServiceKmsAccess.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NetworkManagedServiceKmsAccess.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 domain_name: _builtins.str,
+                 ipv4_addresses: Sequence[_builtins.str],
+                 kms_policy_document: _builtins.str,
+                 status: _builtins.str):
+        """
+        :param _builtins.str kms_policy_document: Specifies the endpoint policy for KMS access from the ODB network.
+        :param _builtins.str status: The status of the network resource.
+        """
+        pulumi.set(__self__, "domain_name", domain_name)
+        pulumi.set(__self__, "ipv4_addresses", ipv4_addresses)
+        pulumi.set(__self__, "kms_policy_document", kms_policy_document)
+        pulumi.set(__self__, "status", status)
+
+    @_builtins.property
+    @pulumi.getter(name="domainName")
+    def domain_name(self) -> _builtins.str:
+        return pulumi.get(self, "domain_name")
+
+    @_builtins.property
+    @pulumi.getter(name="ipv4Addresses")
+    def ipv4_addresses(self) -> Sequence[_builtins.str]:
+        return pulumi.get(self, "ipv4_addresses")
+
+    @_builtins.property
+    @pulumi.getter(name="kmsPolicyDocument")
+    def kms_policy_document(self) -> _builtins.str:
+        """
+        Specifies the endpoint policy for KMS access from the ODB network.
+        """
+        return pulumi.get(self, "kms_policy_document")
+
+    @_builtins.property
+    @pulumi.getter
+    def status(self) -> _builtins.str:
+        """
+        The status of the network resource.
+        """
+        return pulumi.get(self, "status")
 
 
 @pulumi.output_type
@@ -881,6 +975,70 @@ class NetworkManagedServiceServiceNetworkEndpoint(dict):
     @pulumi.getter(name="vpcEndpointType")
     def vpc_endpoint_type(self) -> _builtins.str:
         return pulumi.get(self, "vpc_endpoint_type")
+
+
+@pulumi.output_type
+class NetworkManagedServiceStsAccess(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "domainName":
+            suggest = "domain_name"
+        elif key == "ipv4Addresses":
+            suggest = "ipv4_addresses"
+        elif key == "stsPolicyDocument":
+            suggest = "sts_policy_document"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NetworkManagedServiceStsAccess. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NetworkManagedServiceStsAccess.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NetworkManagedServiceStsAccess.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 domain_name: _builtins.str,
+                 ipv4_addresses: Sequence[_builtins.str],
+                 status: _builtins.str,
+                 sts_policy_document: _builtins.str):
+        """
+        :param _builtins.str status: The status of the network resource.
+        :param _builtins.str sts_policy_document: Specifies the endpoint policy for STS access from the ODB network.
+        """
+        pulumi.set(__self__, "domain_name", domain_name)
+        pulumi.set(__self__, "ipv4_addresses", ipv4_addresses)
+        pulumi.set(__self__, "status", status)
+        pulumi.set(__self__, "sts_policy_document", sts_policy_document)
+
+    @_builtins.property
+    @pulumi.getter(name="domainName")
+    def domain_name(self) -> _builtins.str:
+        return pulumi.get(self, "domain_name")
+
+    @_builtins.property
+    @pulumi.getter(name="ipv4Addresses")
+    def ipv4_addresses(self) -> Sequence[_builtins.str]:
+        return pulumi.get(self, "ipv4_addresses")
+
+    @_builtins.property
+    @pulumi.getter
+    def status(self) -> _builtins.str:
+        """
+        The status of the network resource.
+        """
+        return pulumi.get(self, "status")
+
+    @_builtins.property
+    @pulumi.getter(name="stsPolicyDocument")
+    def sts_policy_document(self) -> _builtins.str:
+        """
+        Specifies the endpoint policy for STS access from the ODB network.
+        """
+        return pulumi.get(self, "sts_policy_document")
 
 
 @pulumi.output_type
@@ -2383,20 +2541,29 @@ class GetGiVersionsGiVersionResult(dict):
 @pulumi.output_type
 class GetNetworkManagedServiceResult(dict):
     def __init__(__self__, *,
+                 kms_accesses: Sequence['outputs.GetNetworkManagedServiceKmsAccessResult'],
                  managed_s3_backup_accesses: Sequence['outputs.GetNetworkManagedServiceManagedS3BackupAccessResult'],
                  managed_service_ipv4_cidrs: Sequence[_builtins.str],
                  resource_gateway_arn: _builtins.str,
                  s3_accesses: Sequence['outputs.GetNetworkManagedServiceS3AccessResult'],
                  service_network_arn: _builtins.str,
                  service_network_endpoints: Sequence['outputs.GetNetworkManagedServiceServiceNetworkEndpointResult'],
+                 sts_accesses: Sequence['outputs.GetNetworkManagedServiceStsAccessResult'],
                  zero_tl_accesses: Sequence['outputs.GetNetworkManagedServiceZeroTlAccessResult']):
+        pulumi.set(__self__, "kms_accesses", kms_accesses)
         pulumi.set(__self__, "managed_s3_backup_accesses", managed_s3_backup_accesses)
         pulumi.set(__self__, "managed_service_ipv4_cidrs", managed_service_ipv4_cidrs)
         pulumi.set(__self__, "resource_gateway_arn", resource_gateway_arn)
         pulumi.set(__self__, "s3_accesses", s3_accesses)
         pulumi.set(__self__, "service_network_arn", service_network_arn)
         pulumi.set(__self__, "service_network_endpoints", service_network_endpoints)
+        pulumi.set(__self__, "sts_accesses", sts_accesses)
         pulumi.set(__self__, "zero_tl_accesses", zero_tl_accesses)
+
+    @_builtins.property
+    @pulumi.getter(name="kmsAccesses")
+    def kms_accesses(self) -> Sequence['outputs.GetNetworkManagedServiceKmsAccessResult']:
+        return pulumi.get(self, "kms_accesses")
 
     @_builtins.property
     @pulumi.getter(name="managedS3BackupAccesses")
@@ -2429,9 +2596,53 @@ class GetNetworkManagedServiceResult(dict):
         return pulumi.get(self, "service_network_endpoints")
 
     @_builtins.property
+    @pulumi.getter(name="stsAccesses")
+    def sts_accesses(self) -> Sequence['outputs.GetNetworkManagedServiceStsAccessResult']:
+        return pulumi.get(self, "sts_accesses")
+
+    @_builtins.property
     @pulumi.getter(name="zeroTlAccesses")
     def zero_tl_accesses(self) -> Sequence['outputs.GetNetworkManagedServiceZeroTlAccessResult']:
         return pulumi.get(self, "zero_tl_accesses")
+
+
+@pulumi.output_type
+class GetNetworkManagedServiceKmsAccessResult(dict):
+    def __init__(__self__, *,
+                 domain_name: _builtins.str,
+                 ipv4_addresses: Sequence[_builtins.str],
+                 kms_policy_document: _builtins.str,
+                 status: _builtins.str):
+        """
+        :param _builtins.str status: The status of the network resource.
+        """
+        pulumi.set(__self__, "domain_name", domain_name)
+        pulumi.set(__self__, "ipv4_addresses", ipv4_addresses)
+        pulumi.set(__self__, "kms_policy_document", kms_policy_document)
+        pulumi.set(__self__, "status", status)
+
+    @_builtins.property
+    @pulumi.getter(name="domainName")
+    def domain_name(self) -> _builtins.str:
+        return pulumi.get(self, "domain_name")
+
+    @_builtins.property
+    @pulumi.getter(name="ipv4Addresses")
+    def ipv4_addresses(self) -> Sequence[_builtins.str]:
+        return pulumi.get(self, "ipv4_addresses")
+
+    @_builtins.property
+    @pulumi.getter(name="kmsPolicyDocument")
+    def kms_policy_document(self) -> _builtins.str:
+        return pulumi.get(self, "kms_policy_document")
+
+    @_builtins.property
+    @pulumi.getter
+    def status(self) -> _builtins.str:
+        """
+        The status of the network resource.
+        """
+        return pulumi.get(self, "status")
 
 
 @pulumi.output_type
@@ -2515,6 +2726,45 @@ class GetNetworkManagedServiceServiceNetworkEndpointResult(dict):
     @pulumi.getter(name="vpcEndpointType")
     def vpc_endpoint_type(self) -> _builtins.str:
         return pulumi.get(self, "vpc_endpoint_type")
+
+
+@pulumi.output_type
+class GetNetworkManagedServiceStsAccessResult(dict):
+    def __init__(__self__, *,
+                 domain_name: _builtins.str,
+                 ipv4_addresses: Sequence[_builtins.str],
+                 status: _builtins.str,
+                 sts_policy_document: _builtins.str):
+        """
+        :param _builtins.str status: The status of the network resource.
+        """
+        pulumi.set(__self__, "domain_name", domain_name)
+        pulumi.set(__self__, "ipv4_addresses", ipv4_addresses)
+        pulumi.set(__self__, "status", status)
+        pulumi.set(__self__, "sts_policy_document", sts_policy_document)
+
+    @_builtins.property
+    @pulumi.getter(name="domainName")
+    def domain_name(self) -> _builtins.str:
+        return pulumi.get(self, "domain_name")
+
+    @_builtins.property
+    @pulumi.getter(name="ipv4Addresses")
+    def ipv4_addresses(self) -> Sequence[_builtins.str]:
+        return pulumi.get(self, "ipv4_addresses")
+
+    @_builtins.property
+    @pulumi.getter
+    def status(self) -> _builtins.str:
+        """
+        The status of the network resource.
+        """
+        return pulumi.get(self, "status")
+
+    @_builtins.property
+    @pulumi.getter(name="stsPolicyDocument")
+    def sts_policy_document(self) -> _builtins.str:
+        return pulumi.get(self, "sts_policy_document")
 
 
 @pulumi.output_type

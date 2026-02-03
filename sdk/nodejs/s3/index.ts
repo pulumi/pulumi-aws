@@ -210,6 +210,11 @@ export const getBucketObject: typeof import("./getBucketObject").getBucketObject
 export const getBucketObjectOutput: typeof import("./getBucketObject").getBucketObjectOutput = null as any;
 utilities.lazyLoad(exports, ["getBucketObject","getBucketObjectOutput"], () => require("./getBucketObject"));
 
+export { GetBucketObjectLockConfigurationArgs, GetBucketObjectLockConfigurationResult, GetBucketObjectLockConfigurationOutputArgs } from "./getBucketObjectLockConfiguration";
+export const getBucketObjectLockConfiguration: typeof import("./getBucketObjectLockConfiguration").getBucketObjectLockConfiguration = null as any;
+export const getBucketObjectLockConfigurationOutput: typeof import("./getBucketObjectLockConfiguration").getBucketObjectLockConfigurationOutput = null as any;
+utilities.lazyLoad(exports, ["getBucketObjectLockConfiguration","getBucketObjectLockConfigurationOutput"], () => require("./getBucketObjectLockConfiguration"));
+
 export { GetBucketObjectsArgs, GetBucketObjectsResult, GetBucketObjectsOutputArgs } from "./getBucketObjects";
 export const getBucketObjects: typeof import("./getBucketObjects").getBucketObjects = null as any;
 export const getBucketObjectsOutput: typeof import("./getBucketObjects").getBucketObjectsOutput = null as any;
@@ -219,6 +224,11 @@ export { GetBucketPolicyArgs, GetBucketPolicyResult, GetBucketPolicyOutputArgs }
 export const getBucketPolicy: typeof import("./getBucketPolicy").getBucketPolicy = null as any;
 export const getBucketPolicyOutput: typeof import("./getBucketPolicy").getBucketPolicyOutput = null as any;
 utilities.lazyLoad(exports, ["getBucketPolicy","getBucketPolicyOutput"], () => require("./getBucketPolicy"));
+
+export { GetBucketReplicationConfigurationArgs, GetBucketReplicationConfigurationResult, GetBucketReplicationConfigurationOutputArgs } from "./getBucketReplicationConfiguration";
+export const getBucketReplicationConfiguration: typeof import("./getBucketReplicationConfiguration").getBucketReplicationConfiguration = null as any;
+export const getBucketReplicationConfigurationOutput: typeof import("./getBucketReplicationConfiguration").getBucketReplicationConfigurationOutput = null as any;
+utilities.lazyLoad(exports, ["getBucketReplicationConfiguration","getBucketReplicationConfigurationOutput"], () => require("./getBucketReplicationConfiguration"));
 
 export { GetCanonicalUserIdResult } from "./getCanonicalUserId";
 export const getCanonicalUserId: typeof import("./getCanonicalUserId").getCanonicalUserId = null as any;

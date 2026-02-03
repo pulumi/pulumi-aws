@@ -103,6 +103,102 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * 
+ * ### IPAM-Managed Subnets
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.AwsFunctions;
+ * import com.pulumi.aws.inputs.GetRegionArgs;
+ * import com.pulumi.aws.ec2.VpcIpam;
+ * import com.pulumi.aws.ec2.VpcIpamArgs;
+ * import com.pulumi.aws.ec2.inputs.VpcIpamOperatingRegionArgs;
+ * import com.pulumi.aws.ec2.VpcIpamPool;
+ * import com.pulumi.aws.ec2.VpcIpamPoolArgs;
+ * import com.pulumi.aws.ec2.VpcIpamPoolCidr;
+ * import com.pulumi.aws.ec2.VpcIpamPoolCidrArgs;
+ * import com.pulumi.aws.ec2.Vpc;
+ * import com.pulumi.aws.ec2.VpcArgs;
+ * import com.pulumi.aws.ec2.inputs.VpcIpamPoolSourceResourceArgs;
+ * import com.pulumi.aws.ec2.Subnet;
+ * import com.pulumi.aws.ec2.SubnetArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         final var current = AwsFunctions.getRegion(GetRegionArgs.builder()
+ *             .build());
+ * 
+ *         var test = new VpcIpam("test", VpcIpamArgs.builder()
+ *             .operatingRegions(VpcIpamOperatingRegionArgs.builder()
+ *                 .regionName(current.region())
+ *                 .build())
+ *             .build());
+ * 
+ *         var testVpcIpamPool = new VpcIpamPool("testVpcIpamPool", VpcIpamPoolArgs.builder()
+ *             .addressFamily("ipv4")
+ *             .ipamScopeId(test.privateDefaultScopeId())
+ *             .locale(current.name())
+ *             .build());
+ * 
+ *         var testVpcIpamPoolCidr = new VpcIpamPoolCidr("testVpcIpamPoolCidr", VpcIpamPoolCidrArgs.builder()
+ *             .ipamPoolId(testVpcIpamPool.id())
+ *             .cidr("10.0.0.0/16")
+ *             .build());
+ * 
+ *         var testVpc = new Vpc("testVpc", VpcArgs.builder()
+ *             .ipv4IpamPoolId(testVpcIpamPool.id())
+ *             .ipv4NetmaskLength(24)
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(testVpcIpamPoolCidr)
+ *                 .build());
+ * 
+ *         var vpc = new VpcIpamPool("vpc", VpcIpamPoolArgs.builder()
+ *             .addressFamily("ipv4")
+ *             .ipamScopeId(test.privateDefaultScopeId())
+ *             .locale(current.name())
+ *             .sourceIpamPoolId(testVpcIpamPool.id())
+ *             .sourceResource(VpcIpamPoolSourceResourceArgs.builder()
+ *                 .resourceId(testVpc.id())
+ *                 .resourceOwner(currentAwsCallerIdentity.accountId())
+ *                 .resourceRegion(current.name())
+ *                 .resourceType("vpc")
+ *                 .build())
+ *             .build());
+ * 
+ *         var vpcVpcIpamPoolCidr = new VpcIpamPoolCidr("vpcVpcIpamPoolCidr", VpcIpamPoolCidrArgs.builder()
+ *             .ipamPoolId(vpc.id())
+ *             .cidr(testVpc.cidrBlock())
+ *             .build());
+ * 
+ *         var testSubnet = new Subnet("testSubnet", SubnetArgs.builder()
+ *             .vpcId(testVpc.id())
+ *             .ipv4IpamPoolId(vpc.id())
+ *             .ipv4NetmaskLength(28)
+ *             .availabilityZone(available.names()[0])
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(vpcVpcIpamPoolCidr)
+ *                 .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
  * ## Import
  * 
  * ### Identity Schema
@@ -189,14 +285,14 @@ public class Subnet extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="cidrBlock", refs={String.class}, tree="[0]")
-    private Output</* @Nullable */ String> cidrBlock;
+    private Output<String> cidrBlock;
 
     /**
      * @return The IPv4 CIDR block for the subnet.
      * 
      */
-    public Output<Optional<String>> cidrBlock() {
-        return Codegen.optional(this.cidrBlock);
+    public Output<String> cidrBlock() {
+        return this.cidrBlock;
     }
     /**
      * The customer owned IPv4 address pool. Typically used with the `mapCustomerOwnedIpOnLaunch` argument. The `outpostArn` argument must be specified when configured.
@@ -269,20 +365,48 @@ public class Subnet extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.enableResourceNameDnsAaaaRecordOnLaunch);
     }
     /**
+     * ID of an IPv4 VPC Resource Planning IPAM Pool. The CIDR of this pool is used to allocate the CIDR for the subnet.
+     * 
+     */
+    @Export(name="ipv4IpamPoolId", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> ipv4IpamPoolId;
+
+    /**
+     * @return ID of an IPv4 VPC Resource Planning IPAM Pool. The CIDR of this pool is used to allocate the CIDR for the subnet.
+     * 
+     */
+    public Output<Optional<String>> ipv4IpamPoolId() {
+        return Codegen.optional(this.ipv4IpamPoolId);
+    }
+    /**
+     * Netmask. Requires specifying a `ipv4IpamPoolId`.
+     * 
+     */
+    @Export(name="ipv4NetmaskLength", refs={Integer.class}, tree="[0]")
+    private Output</* @Nullable */ Integer> ipv4NetmaskLength;
+
+    /**
+     * @return Netmask. Requires specifying a `ipv4IpamPoolId`.
+     * 
+     */
+    public Output<Optional<Integer>> ipv4NetmaskLength() {
+        return Codegen.optional(this.ipv4NetmaskLength);
+    }
+    /**
      * The IPv6 network range for the subnet,
-     * in CIDR notation. The subnet size must use a /64 prefix length.
+     * in CIDR notation. The subnet size must use a /64 prefix length. If the existing IPv6 subnet was created with `assignIpv6AddressOnCreation = true`, changing this value will force resource recreation.
      * 
      */
     @Export(name="ipv6CidrBlock", refs={String.class}, tree="[0]")
-    private Output</* @Nullable */ String> ipv6CidrBlock;
+    private Output<String> ipv6CidrBlock;
 
     /**
      * @return The IPv6 network range for the subnet,
-     * in CIDR notation. The subnet size must use a /64 prefix length.
+     * in CIDR notation. The subnet size must use a /64 prefix length. If the existing IPv6 subnet was created with `assignIpv6AddressOnCreation = true`, changing this value will force resource recreation.
      * 
      */
-    public Output<Optional<String>> ipv6CidrBlock() {
-        return Codegen.optional(this.ipv6CidrBlock);
+    public Output<String> ipv6CidrBlock() {
+        return this.ipv6CidrBlock;
     }
     /**
      * The association ID for the IPv6 CIDR block.
@@ -299,6 +423,20 @@ public class Subnet extends com.pulumi.resources.CustomResource {
         return this.ipv6CidrBlockAssociationId;
     }
     /**
+     * ID of an IPv6 VPC Resource Planning IPAM Pool. The CIDR of this pool is used to allocate the CIDR for the subnet.
+     * 
+     */
+    @Export(name="ipv6IpamPoolId", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> ipv6IpamPoolId;
+
+    /**
+     * @return ID of an IPv6 VPC Resource Planning IPAM Pool. The CIDR of this pool is used to allocate the CIDR for the subnet.
+     * 
+     */
+    public Output<Optional<String>> ipv6IpamPoolId() {
+        return Codegen.optional(this.ipv6IpamPoolId);
+    }
+    /**
      * Indicates whether to create an IPv6-only subnet. Default: `false`.
      * 
      */
@@ -311,6 +449,20 @@ public class Subnet extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<Boolean>> ipv6Native() {
         return Codegen.optional(this.ipv6Native);
+    }
+    /**
+     * Netmask. Requires specifying a `ipv6IpamPoolId`. Valid values are from 44 to 64 in increments of 4.
+     * 
+     */
+    @Export(name="ipv6NetmaskLength", refs={Integer.class}, tree="[0]")
+    private Output</* @Nullable */ Integer> ipv6NetmaskLength;
+
+    /**
+     * @return Netmask. Requires specifying a `ipv6IpamPoolId`. Valid values are from 44 to 64 in increments of 4.
+     * 
+     */
+    public Output<Optional<Integer>> ipv6NetmaskLength() {
+        return Codegen.optional(this.ipv6NetmaskLength);
     }
     /**
      * Specify `true` to indicate that network interfaces created in the subnet should be assigned a customer owned IP address. The `customerOwnedIpv4Pool` and `outpostArn` arguments must be specified when set to `true`. Default is `false`.
@@ -327,18 +479,14 @@ public class Subnet extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.mapCustomerOwnedIpOnLaunch);
     }
     /**
-     * Specify true to indicate
-     * that instances launched into the subnet should be assigned
-     * a public IP address. Default is `false`.
+     * Specify true to indicate that instances launched into the subnet should be assigned a public IP address. Default is `false`.
      * 
      */
     @Export(name="mapPublicIpOnLaunch", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> mapPublicIpOnLaunch;
 
     /**
-     * @return Specify true to indicate
-     * that instances launched into the subnet should be assigned
-     * a public IP address. Default is `false`.
+     * @return Specify true to indicate that instances launched into the subnet should be assigned a public IP address. Default is `false`.
      * 
      */
     public Output<Optional<Boolean>> mapPublicIpOnLaunch() {

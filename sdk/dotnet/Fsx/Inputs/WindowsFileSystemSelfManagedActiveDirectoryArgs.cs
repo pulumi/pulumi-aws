@@ -25,6 +25,12 @@ namespace Pulumi.Aws.Fsx.Inputs
         }
 
         /// <summary>
+        /// The Amazon Resource Name (ARN) for the AWS Secrets Manager secret that contains the credentials for the service account on your self-managed AD domain. Conflicts with `Username` and `Password`.
+        /// </summary>
+        [Input("domainJoinServiceAccountSecret")]
+        public Input<string>? DomainJoinServiceAccountSecret { get; set; }
+
+        /// <summary>
         /// The fully qualified domain name of the self-managed AD directory. For example, `corp.example.com`.
         /// </summary>
         [Input("domainName", required: true)]
@@ -42,11 +48,11 @@ namespace Pulumi.Aws.Fsx.Inputs
         [Input("organizationalUnitDistinguishedName")]
         public Input<string>? OrganizationalUnitDistinguishedName { get; set; }
 
-        [Input("password", required: true)]
+        [Input("password")]
         private Input<string>? _password;
 
         /// <summary>
-        /// The password for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain.
+        /// The password for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain. Conflicts with `DomainJoinServiceAccountSecret`.
         /// </summary>
         public Input<string>? Password
         {
@@ -59,10 +65,10 @@ namespace Pulumi.Aws.Fsx.Inputs
         }
 
         /// <summary>
-        /// The user name for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain.
+        /// The user name for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain. Conflicts with `DomainJoinServiceAccountSecret`.
         /// </summary>
-        [Input("username", required: true)]
-        public Input<string> Username { get; set; } = null!;
+        [Input("username")]
+        public Input<string>? Username { get; set; }
 
         public WindowsFileSystemSelfManagedActiveDirectoryArgs()
         {

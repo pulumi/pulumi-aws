@@ -2,10 +2,15 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
  * Provides an IP address pool resource for IPAM.
+ *
+ * > **NOTE:** When provisioning resource planning IPAM pools, it can take upto 30 minutes for the CIDR to be managed by IPAM.
  *
  * ## Example Usage
  *
@@ -53,6 +58,44 @@ import * as utilities from "../utilities";
  * const childTest = new aws.ec2.VpcIpamPoolCidr("child_test", {
  *     ipamPoolId: child.id,
  *     cidr: "172.20.0.0/24",
+ * });
+ * ```
+ *
+ * Resource Planning Pools:
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const current = aws.getRegion({});
+ * const example = new aws.ec2.VpcIpam("example", {operatingRegions: [{
+ *     regionName: current.then(current => current.region),
+ * }]});
+ * const test = new aws.ec2.VpcIpamPool("test", {
+ *     addressFamily: "ipv4",
+ *     ipamScopeId: example.privateDefaultScopeId,
+ * });
+ * const testVpcIpamPoolCidr = new aws.ec2.VpcIpamPoolCidr("test", {
+ *     ipamPoolId: parent.id,
+ *     cidr: "10.0.0.0/16",
+ * });
+ * const testVpc = new aws.ec2.Vpc("test", {
+ *     ipv4IpamPoolId: test.id,
+ *     ipv4NetmaskLength: 24,
+ * }, {
+ *     dependsOn: [testVpcIpamPoolCidr],
+ * });
+ * const vpc = new aws.ec2.VpcIpamPool("vpc", {
+ *     addressFamily: "ipv4",
+ *     ipamScopeId: testAwsVpcIpam.privateDefaultScopeId,
+ *     locale: current.then(current => current.name),
+ *     sourceIpamPoolId: test.id,
+ *     sourceResource: {
+ *         resourceId: testVpc.id,
+ *         resourceOwner: currentAwsCallerIdentity.accountId,
+ *         resourceRegion: current.then(current => current.name),
+ *         resourceType: "vpc",
+ *     },
  * });
  * ```
  *
@@ -160,6 +203,10 @@ export class VpcIpamPool extends pulumi.CustomResource {
      */
     declare public readonly sourceIpamPoolId: pulumi.Output<string | undefined>;
     /**
+     * Resource to use to use to configure a resource planning IPAM Pool. If configured, the `locale` of the parent pool must match the region that the vpc resides in.
+     */
+    declare public readonly sourceResource: pulumi.Output<outputs.ec2.VpcIpamPoolSourceResource | undefined>;
+    /**
      * The ID of the IPAM
      */
     declare public /*out*/ readonly state: pulumi.Output<string>;
@@ -203,6 +250,7 @@ export class VpcIpamPool extends pulumi.CustomResource {
             resourceInputs["publiclyAdvertisable"] = state?.publiclyAdvertisable;
             resourceInputs["region"] = state?.region;
             resourceInputs["sourceIpamPoolId"] = state?.sourceIpamPoolId;
+            resourceInputs["sourceResource"] = state?.sourceResource;
             resourceInputs["state"] = state?.state;
             resourceInputs["tags"] = state?.tags;
             resourceInputs["tagsAll"] = state?.tagsAll;
@@ -229,6 +277,7 @@ export class VpcIpamPool extends pulumi.CustomResource {
             resourceInputs["publiclyAdvertisable"] = args?.publiclyAdvertisable;
             resourceInputs["region"] = args?.region;
             resourceInputs["sourceIpamPoolId"] = args?.sourceIpamPoolId;
+            resourceInputs["sourceResource"] = args?.sourceResource;
             resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["ipamScopeType"] = undefined /*out*/;
@@ -313,6 +362,10 @@ export interface VpcIpamPoolState {
      */
     sourceIpamPoolId?: pulumi.Input<string>;
     /**
+     * Resource to use to use to configure a resource planning IPAM Pool. If configured, the `locale` of the parent pool must match the region that the vpc resides in.
+     */
+    sourceResource?: pulumi.Input<inputs.ec2.VpcIpamPoolSourceResource>;
+    /**
      * The ID of the IPAM
      */
     state?: pulumi.Input<string>;
@@ -391,6 +444,10 @@ export interface VpcIpamPoolArgs {
      * The ID of the source IPAM pool. Use this argument to create a child pool within an existing pool.
      */
     sourceIpamPoolId?: pulumi.Input<string>;
+    /**
+     * Resource to use to use to configure a resource planning IPAM Pool. If configured, the `locale` of the parent pool must match the region that the vpc resides in.
+     */
+    sourceResource?: pulumi.Input<inputs.ec2.VpcIpamPoolSourceResource>;
     /**
      * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

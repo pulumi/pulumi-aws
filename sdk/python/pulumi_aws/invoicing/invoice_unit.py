@@ -35,7 +35,7 @@ class InvoiceUnitArgs:
         :param pulumi.Input[_builtins.str] description: Description of the invoice unit.
         :param pulumi.Input[_builtins.str] name: Unique name of the invoice unit. Cannot be changed after creation.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input['InvoiceUnitRuleArgs']]] rules: Configuration block for invoice unit rules. See below.
+        :param pulumi.Input[Sequence[pulumi.Input['InvoiceUnitRuleArgs']]] rules: Configuration block for invoice unit rules. See `rule` below.
                
                The following arguments are optional:
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -46,6 +46,9 @@ class InvoiceUnitArgs:
             pulumi.set(__self__, "description", description)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if region is not None:
+            warnings.warn("""This attribute will be removed in a future verion of the provider.""", DeprecationWarning)
+            pulumi.log.warn("""region is deprecated: This attribute will be removed in a future verion of the provider.""")
         if region is not None:
             pulumi.set(__self__, "region", region)
         if rules is not None:
@@ -95,6 +98,7 @@ class InvoiceUnitArgs:
 
     @_builtins.property
     @pulumi.getter
+    @_utilities.deprecated("""This attribute will be removed in a future verion of the provider.""")
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -109,7 +113,7 @@ class InvoiceUnitArgs:
     @pulumi.getter
     def rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InvoiceUnitRuleArgs']]]]:
         """
-        Configuration block for invoice unit rules. See below.
+        Configuration block for invoice unit rules. See `rule` below.
 
         The following arguments are optional:
         """
@@ -175,7 +179,7 @@ class _InvoiceUnitState:
         :param pulumi.Input[_builtins.str] last_modified: Timestamp when the invoice unit was last modified.
         :param pulumi.Input[_builtins.str] name: Unique name of the invoice unit. Cannot be changed after creation.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input['InvoiceUnitRuleArgs']]] rules: Configuration block for invoice unit rules. See below.
+        :param pulumi.Input[Sequence[pulumi.Input['InvoiceUnitRuleArgs']]] rules: Configuration block for invoice unit rules. See `rule` below.
                
                The following arguments are optional:
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -192,6 +196,9 @@ class _InvoiceUnitState:
             pulumi.set(__self__, "last_modified", last_modified)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if region is not None:
+            warnings.warn("""This attribute will be removed in a future verion of the provider.""", DeprecationWarning)
+            pulumi.log.warn("""region is deprecated: This attribute will be removed in a future verion of the provider.""")
         if region is not None:
             pulumi.set(__self__, "region", region)
         if rules is not None:
@@ -267,6 +274,7 @@ class _InvoiceUnitState:
 
     @_builtins.property
     @pulumi.getter
+    @_utilities.deprecated("""This attribute will be removed in a future verion of the provider.""")
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -281,7 +289,7 @@ class _InvoiceUnitState:
     @pulumi.getter
     def rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InvoiceUnitRuleArgs']]]]:
         """
-        Configuration block for invoice unit rules. See below.
+        Configuration block for invoice unit rules. See `rule` below.
 
         The following arguments are optional:
         """
@@ -387,7 +395,7 @@ class InvoiceUnit(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] invoice_receiver: AWS account ID that receives invoices for this unit. Cannot be changed after creation.
         :param pulumi.Input[_builtins.str] name: Unique name of the invoice unit. Cannot be changed after creation.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['InvoiceUnitRuleArgs', 'InvoiceUnitRuleArgsDict']]]] rules: Configuration block for invoice unit rules. See below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['InvoiceUnitRuleArgs', 'InvoiceUnitRuleArgsDict']]]] rules: Configuration block for invoice unit rules. See `rule` below.
                
                The following arguments are optional:
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -507,7 +515,7 @@ class InvoiceUnit(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] last_modified: Timestamp when the invoice unit was last modified.
         :param pulumi.Input[_builtins.str] name: Unique name of the invoice unit. Cannot be changed after creation.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['InvoiceUnitRuleArgs', 'InvoiceUnitRuleArgsDict']]]] rules: Configuration block for invoice unit rules. See below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['InvoiceUnitRuleArgs', 'InvoiceUnitRuleArgsDict']]]] rules: Configuration block for invoice unit rules. See `rule` below.
                
                The following arguments are optional:
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -573,6 +581,7 @@ class InvoiceUnit(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
+    @_utilities.deprecated("""This attribute will be removed in a future verion of the provider.""")
     def region(self) -> pulumi.Output[_builtins.str]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -583,7 +592,7 @@ class InvoiceUnit(pulumi.CustomResource):
     @pulumi.getter
     def rules(self) -> pulumi.Output[Optional[Sequence['outputs.InvoiceUnitRule']]]:
         """
-        Configuration block for invoice unit rules. See below.
+        Configuration block for invoice unit rules. See `rule` below.
 
         The following arguments are optional:
         """

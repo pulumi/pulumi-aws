@@ -3489,6 +3489,8 @@ type GetCoreNetworkPolicyDocumentSegmentAction struct {
 	EdgeLocationAssociation *GetCoreNetworkPolicyDocumentSegmentActionEdgeLocationAssociation `pulumi:"edgeLocationAssociation"`
 	// String. When `action` is `share`, a `mode` value of `attachment-route` places the attachment and return routes in each of the `shareWith` segments. When `action` is `send-via`, indicates the mode used for packets. Valid values: `attachment-route`, `single-hop`, `dual-hop`.
 	Mode *string `pulumi:"mode"`
+	// A list of routing policy names to apply to segment sharing. The routing policies control how routes are propagated between the shared segments. Only applicable when `action` is `share`. Available in policy version `2025.11` and later.
+	RoutingPolicyNames []string `pulumi:"routingPolicyNames"`
 	// Name of the segment.
 	Segment string `pulumi:"segment"`
 	// A set subtraction of segments to not share with.
@@ -3525,6 +3527,8 @@ type GetCoreNetworkPolicyDocumentSegmentActionArgs struct {
 	EdgeLocationAssociation GetCoreNetworkPolicyDocumentSegmentActionEdgeLocationAssociationPtrInput `pulumi:"edgeLocationAssociation"`
 	// String. When `action` is `share`, a `mode` value of `attachment-route` places the attachment and return routes in each of the `shareWith` segments. When `action` is `send-via`, indicates the mode used for packets. Valid values: `attachment-route`, `single-hop`, `dual-hop`.
 	Mode pulumi.StringPtrInput `pulumi:"mode"`
+	// A list of routing policy names to apply to segment sharing. The routing policies control how routes are propagated between the shared segments. Only applicable when `action` is `share`. Available in policy version `2025.11` and later.
+	RoutingPolicyNames pulumi.StringArrayInput `pulumi:"routingPolicyNames"`
 	// Name of the segment.
 	Segment pulumi.StringInput `pulumi:"segment"`
 	// A set subtraction of segments to not share with.
@@ -3618,6 +3622,11 @@ func (o GetCoreNetworkPolicyDocumentSegmentActionOutput) EdgeLocationAssociation
 // String. When `action` is `share`, a `mode` value of `attachment-route` places the attachment and return routes in each of the `shareWith` segments. When `action` is `send-via`, indicates the mode used for packets. Valid values: `attachment-route`, `single-hop`, `dual-hop`.
 func (o GetCoreNetworkPolicyDocumentSegmentActionOutput) Mode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetCoreNetworkPolicyDocumentSegmentAction) *string { return v.Mode }).(pulumi.StringPtrOutput)
+}
+
+// A list of routing policy names to apply to segment sharing. The routing policies control how routes are propagated between the shared segments. Only applicable when `action` is `share`. Available in policy version `2025.11` and later.
+func (o GetCoreNetworkPolicyDocumentSegmentActionOutput) RoutingPolicyNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetCoreNetworkPolicyDocumentSegmentAction) []string { return v.RoutingPolicyNames }).(pulumi.StringArrayOutput)
 }
 
 // Name of the segment.

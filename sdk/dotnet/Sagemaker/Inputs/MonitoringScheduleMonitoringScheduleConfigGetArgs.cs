@@ -13,10 +13,16 @@ namespace Pulumi.Aws.Sagemaker.Inputs
     public sealed class MonitoringScheduleMonitoringScheduleConfigGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Defines the monitoring job. Fields are documented below.
+        /// </summary>
+        [Input("monitoringJobDefinition")]
+        public Input<Inputs.MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionGetArgs>? MonitoringJobDefinition { get; set; }
+
+        /// <summary>
         /// The name of the monitoring job definition to schedule.
         /// </summary>
-        [Input("monitoringJobDefinitionName", required: true)]
-        public Input<string> MonitoringJobDefinitionName { get; set; } = null!;
+        [Input("monitoringJobDefinitionName")]
+        public Input<string>? MonitoringJobDefinitionName { get; set; }
 
         /// <summary>
         /// The type of the monitoring job definition to schedule. Valid values are `DataQuality`, `ModelQuality`, `ModelBias` or `ModelExplainability`

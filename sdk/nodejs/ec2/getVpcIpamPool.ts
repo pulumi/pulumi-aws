@@ -150,6 +150,10 @@ export interface GetVpcIpamPoolResult {
      * ID of the source IPAM pool.
      */
     readonly sourceIpamPoolId: string;
+    /**
+     * Resource used to create the resource planning pool.
+     */
+    readonly sourceResources: outputs.ec2.GetVpcIpamPoolSourceResource[];
     readonly state: string;
     /**
      * Map of tags to assigned to the resource.

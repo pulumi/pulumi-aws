@@ -41,6 +41,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Route{}
 	case "aws:apigatewayv2/routeResponse:RouteResponse":
 		r = &RouteResponse{}
+	case "aws:apigatewayv2/routingRule:RoutingRule":
+		r = &RoutingRule{}
 	case "aws:apigatewayv2/stage:Stage":
 		r = &Stage{}
 	case "aws:apigatewayv2/vpcLink:VpcLink":
@@ -106,6 +108,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"apigatewayv2/routeResponse",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"apigatewayv2/routingRule",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

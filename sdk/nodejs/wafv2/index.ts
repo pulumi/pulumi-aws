@@ -15,6 +15,11 @@ export const getIpSet: typeof import("./getIpSet").getIpSet = null as any;
 export const getIpSetOutput: typeof import("./getIpSet").getIpSetOutput = null as any;
 utilities.lazyLoad(exports, ["getIpSet","getIpSetOutput"], () => require("./getIpSet"));
 
+export { GetManagedRuleGroupArgs, GetManagedRuleGroupResult, GetManagedRuleGroupOutputArgs } from "./getManagedRuleGroup";
+export const getManagedRuleGroup: typeof import("./getManagedRuleGroup").getManagedRuleGroup = null as any;
+export const getManagedRuleGroupOutput: typeof import("./getManagedRuleGroup").getManagedRuleGroupOutput = null as any;
+utilities.lazyLoad(exports, ["getManagedRuleGroup","getManagedRuleGroupOutput"], () => require("./getManagedRuleGroup"));
+
 export { GetRegexPatternSetArgs, GetRegexPatternSetResult, GetRegexPatternSetOutputArgs } from "./getRegexPatternSet";
 export const getRegexPatternSet: typeof import("./getRegexPatternSet").getRegexPatternSet = null as any;
 export const getRegexPatternSetOutput: typeof import("./getRegexPatternSet").getRegexPatternSetOutput = null as any;

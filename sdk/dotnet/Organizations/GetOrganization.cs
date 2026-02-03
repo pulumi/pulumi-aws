@@ -104,8 +104,8 @@ namespace Pulumi.Aws.Organizations
         /// });
         /// ```
         /// </summary>
-        public static Task<GetOrganizationResult> InvokeAsync(InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.InvokeAsync<GetOrganizationResult>("aws:organizations/getOrganization:getOrganization", InvokeArgs.Empty, options.WithDefaults());
+        public static Task<GetOrganizationResult> InvokeAsync(GetOrganizationArgs? args = null, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetOrganizationResult>("aws:organizations/getOrganization:getOrganization", args ?? new GetOrganizationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get information about the organization that the users account belongs to.
@@ -200,8 +200,8 @@ namespace Pulumi.Aws.Organizations
         /// });
         /// ```
         /// </summary>
-        public static Output<GetOrganizationResult> Invoke(InvokeOptions? options = null)
-            => global::Pulumi.Deployment.Instance.Invoke<GetOrganizationResult>("aws:organizations/getOrganization:getOrganization", InvokeArgs.Empty, options.WithDefaults());
+        public static Output<GetOrganizationResult> Invoke(GetOrganizationInvokeArgs? args = null, InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.Invoke<GetOrganizationResult>("aws:organizations/getOrganization:getOrganization", args ?? new GetOrganizationInvokeArgs(), options.WithDefaults());
 
         /// <summary>
         /// Get information about the organization that the users account belongs to.
@@ -296,8 +296,37 @@ namespace Pulumi.Aws.Organizations
         /// });
         /// ```
         /// </summary>
-        public static Output<GetOrganizationResult> Invoke(InvokeOutputOptions options)
-            => global::Pulumi.Deployment.Instance.Invoke<GetOrganizationResult>("aws:organizations/getOrganization:getOrganization", InvokeArgs.Empty, options.WithDefaults());
+        public static Output<GetOrganizationResult> Invoke(GetOrganizationInvokeArgs args, InvokeOutputOptions options)
+            => global::Pulumi.Deployment.Instance.Invoke<GetOrganizationResult>("aws:organizations/getOrganization:getOrganization", args ?? new GetOrganizationInvokeArgs(), options.WithDefaults());
+    }
+
+
+    public sealed class GetOrganizationArgs : global::Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Return (as attributes) only the results of the [`DescribeOrganization`](https://docs.aws.amazon.com/organizations/latest/APIReference/API_DescribeOrganization.html) API to avoid [API limits](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_reference_limits.html#throttling-limits). When configured to `True` only the `Arn`, `FeatureSet`, `MasterAccountArn`, `MasterAccountEmail` and `MasterAccountId` attributes will be returned. All others will be empty. Default: `False`.
+        /// </summary>
+        [Input("returnOrganizationOnly")]
+        public bool? ReturnOrganizationOnly { get; set; }
+
+        public GetOrganizationArgs()
+        {
+        }
+        public static new GetOrganizationArgs Empty => new GetOrganizationArgs();
+    }
+
+    public sealed class GetOrganizationInvokeArgs : global::Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Return (as attributes) only the results of the [`DescribeOrganization`](https://docs.aws.amazon.com/organizations/latest/APIReference/API_DescribeOrganization.html) API to avoid [API limits](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_reference_limits.html#throttling-limits). When configured to `True` only the `Arn`, `FeatureSet`, `MasterAccountArn`, `MasterAccountEmail` and `MasterAccountId` attributes will be returned. All others will be empty. Default: `False`.
+        /// </summary>
+        [Input("returnOrganizationOnly")]
+        public Input<bool>? ReturnOrganizationOnly { get; set; }
+
+        public GetOrganizationInvokeArgs()
+        {
+        }
+        public static new GetOrganizationInvokeArgs Empty => new GetOrganizationInvokeArgs();
     }
 
 
@@ -348,6 +377,7 @@ namespace Pulumi.Aws.Organizations
         /// List of organization accounts excluding the master account. For a list including the master account, see the `Accounts` attribute. All elements have these attributes:
         /// </summary>
         public readonly ImmutableArray<Outputs.GetOrganizationNonMasterAccountResult> NonMasterAccounts;
+        public readonly bool? ReturnOrganizationOnly;
         /// <summary>
         /// List of organization roots. All elements have these attributes:
         /// </summary>
@@ -377,6 +407,8 @@ namespace Pulumi.Aws.Organizations
 
             ImmutableArray<Outputs.GetOrganizationNonMasterAccountResult> nonMasterAccounts,
 
+            bool? returnOrganizationOnly,
+
             ImmutableArray<Outputs.GetOrganizationRootResult> roots)
         {
             Accounts = accounts;
@@ -390,6 +422,7 @@ namespace Pulumi.Aws.Organizations
             MasterAccountId = masterAccountId;
             MasterAccountName = masterAccountName;
             NonMasterAccounts = nonMasterAccounts;
+            ReturnOrganizationOnly = returnOrganizationOnly;
             Roots = roots;
         }
     }

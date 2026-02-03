@@ -210,6 +210,8 @@ __all__ = [
     'LaunchTemplateNetworkInterfaceEnaSrdSpecificationArgsDict',
     'LaunchTemplateNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationArgs',
     'LaunchTemplateNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationArgsDict',
+    'LaunchTemplateNetworkPerformanceOptionsArgs',
+    'LaunchTemplateNetworkPerformanceOptionsArgsDict',
     'LaunchTemplatePlacementArgs',
     'LaunchTemplatePlacementArgsDict',
     'LaunchTemplatePrivateDnsNameOptionsArgs',
@@ -520,8 +522,12 @@ __all__ = [
     'VpcIpamOperatingRegionArgsDict',
     'VpcIpamPoolCidrCidrAuthorizationContextArgs',
     'VpcIpamPoolCidrCidrAuthorizationContextArgsDict',
+    'VpcIpamPoolSourceResourceArgs',
+    'VpcIpamPoolSourceResourceArgsDict',
     'VpcIpamResourceDiscoveryOperatingRegionArgs',
     'VpcIpamResourceDiscoveryOperatingRegionArgsDict',
+    'VpcIpamResourceDiscoveryOrganizationalUnitExclusionArgs',
+    'VpcIpamResourceDiscoveryOrganizationalUnitExclusionArgsDict',
     'VpcPeeringConnectionAccepterArgs',
     'VpcPeeringConnectionAccepterArgsDict',
     'VpcPeeringConnectionAccepterAccepterArgs',
@@ -9936,6 +9942,38 @@ class LaunchTemplateNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationArg
     @ena_srd_udp_enabled.setter
     def ena_srd_udp_enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
         pulumi.set(self, "ena_srd_udp_enabled", value)
+
+
+if not MYPY:
+    class LaunchTemplateNetworkPerformanceOptionsArgsDict(TypedDict):
+        bandwidth_weighting: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Specify the bandwidth weighting option to boost the associated type of baseline bandwidth. Valid values: `default`, `vpc-1`, `ebs-1`. Default value is `default`. Setting `vpc-1` boosts networking baseline bandwidth and reduces EBS baseline bandwidth. Setting `ebs-1` boosts EBS baseline bandwidth and reduces networking baseline bandwidth. Only supported on select instance types. See [AWS Documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configure-bandwidth-weighting.html) for more information.
+        """
+elif False:
+    LaunchTemplateNetworkPerformanceOptionsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class LaunchTemplateNetworkPerformanceOptionsArgs:
+    def __init__(__self__, *,
+                 bandwidth_weighting: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] bandwidth_weighting: Specify the bandwidth weighting option to boost the associated type of baseline bandwidth. Valid values: `default`, `vpc-1`, `ebs-1`. Default value is `default`. Setting `vpc-1` boosts networking baseline bandwidth and reduces EBS baseline bandwidth. Setting `ebs-1` boosts EBS baseline bandwidth and reduces networking baseline bandwidth. Only supported on select instance types. See [AWS Documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configure-bandwidth-weighting.html) for more information.
+        """
+        if bandwidth_weighting is not None:
+            pulumi.set(__self__, "bandwidth_weighting", bandwidth_weighting)
+
+    @_builtins.property
+    @pulumi.getter(name="bandwidthWeighting")
+    def bandwidth_weighting(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Specify the bandwidth weighting option to boost the associated type of baseline bandwidth. Valid values: `default`, `vpc-1`, `ebs-1`. Default value is `default`. Setting `vpc-1` boosts networking baseline bandwidth and reduces EBS baseline bandwidth. Setting `ebs-1` boosts EBS baseline bandwidth and reduces networking baseline bandwidth. Only supported on select instance types. See [AWS Documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configure-bandwidth-weighting.html) for more information.
+        """
+        return pulumi.get(self, "bandwidth_weighting")
+
+    @bandwidth_weighting.setter
+    def bandwidth_weighting(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "bandwidth_weighting", value)
 
 
 if not MYPY:
@@ -22831,6 +22869,94 @@ class VpcIpamPoolCidrCidrAuthorizationContextArgs:
 
 
 if not MYPY:
+    class VpcIpamPoolSourceResourceArgsDict(TypedDict):
+        resource_id: pulumi.Input[_builtins.str]
+        """
+        ID of the resource.
+        """
+        resource_owner: pulumi.Input[_builtins.str]
+        """
+        Owner of the resource.
+        """
+        resource_region: pulumi.Input[_builtins.str]
+        """
+        Region where the resource exists. Must match the `locale` of the parent IPAM Pool.
+        """
+        resource_type: pulumi.Input[_builtins.str]
+        """
+        Type of the resource. (`vpc`)
+        """
+elif False:
+    VpcIpamPoolSourceResourceArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class VpcIpamPoolSourceResourceArgs:
+    def __init__(__self__, *,
+                 resource_id: pulumi.Input[_builtins.str],
+                 resource_owner: pulumi.Input[_builtins.str],
+                 resource_region: pulumi.Input[_builtins.str],
+                 resource_type: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.str] resource_id: ID of the resource.
+        :param pulumi.Input[_builtins.str] resource_owner: Owner of the resource.
+        :param pulumi.Input[_builtins.str] resource_region: Region where the resource exists. Must match the `locale` of the parent IPAM Pool.
+        :param pulumi.Input[_builtins.str] resource_type: Type of the resource. (`vpc`)
+        """
+        pulumi.set(__self__, "resource_id", resource_id)
+        pulumi.set(__self__, "resource_owner", resource_owner)
+        pulumi.set(__self__, "resource_region", resource_region)
+        pulumi.set(__self__, "resource_type", resource_type)
+
+    @_builtins.property
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        ID of the resource.
+        """
+        return pulumi.get(self, "resource_id")
+
+    @resource_id.setter
+    def resource_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "resource_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="resourceOwner")
+    def resource_owner(self) -> pulumi.Input[_builtins.str]:
+        """
+        Owner of the resource.
+        """
+        return pulumi.get(self, "resource_owner")
+
+    @resource_owner.setter
+    def resource_owner(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "resource_owner", value)
+
+    @_builtins.property
+    @pulumi.getter(name="resourceRegion")
+    def resource_region(self) -> pulumi.Input[_builtins.str]:
+        """
+        Region where the resource exists. Must match the `locale` of the parent IPAM Pool.
+        """
+        return pulumi.get(self, "resource_region")
+
+    @resource_region.setter
+    def resource_region(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "resource_region", value)
+
+    @_builtins.property
+    @pulumi.getter(name="resourceType")
+    def resource_type(self) -> pulumi.Input[_builtins.str]:
+        """
+        Type of the resource. (`vpc`)
+        """
+        return pulumi.get(self, "resource_type")
+
+    @resource_type.setter
+    def resource_type(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "resource_type", value)
+
+
+if not MYPY:
     class VpcIpamResourceDiscoveryOperatingRegionArgsDict(TypedDict):
         region_name: pulumi.Input[_builtins.str]
         """
@@ -22859,6 +22985,37 @@ class VpcIpamResourceDiscoveryOperatingRegionArgs:
     @region_name.setter
     def region_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "region_name", value)
+
+
+if not MYPY:
+    class VpcIpamResourceDiscoveryOrganizationalUnitExclusionArgsDict(TypedDict):
+        organizations_entity_path: pulumi.Input[_builtins.str]
+        """
+        AWS Organizations entity path. Build the path for the OU(s) using AWS Organizations IDs separated by a `/`. Include all child OUs by ending the path with `/*`.
+        """
+elif False:
+    VpcIpamResourceDiscoveryOrganizationalUnitExclusionArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class VpcIpamResourceDiscoveryOrganizationalUnitExclusionArgs:
+    def __init__(__self__, *,
+                 organizations_entity_path: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.str] organizations_entity_path: AWS Organizations entity path. Build the path for the OU(s) using AWS Organizations IDs separated by a `/`. Include all child OUs by ending the path with `/*`.
+        """
+        pulumi.set(__self__, "organizations_entity_path", organizations_entity_path)
+
+    @_builtins.property
+    @pulumi.getter(name="organizationsEntityPath")
+    def organizations_entity_path(self) -> pulumi.Input[_builtins.str]:
+        """
+        AWS Organizations entity path. Build the path for the OU(s) using AWS Organizations IDs separated by a `/`. Include all child OUs by ending the path with `/*`.
+        """
+        return pulumi.get(self, "organizations_entity_path")
+
+    @organizations_entity_path.setter
+    def organizations_entity_path(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "organizations_entity_path", value)
 
 
 if not MYPY:

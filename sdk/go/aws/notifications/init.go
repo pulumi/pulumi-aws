@@ -27,10 +27,18 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &ContactsEmailContact{}
 	case "aws:notifications/eventRule:EventRule":
 		r = &EventRule{}
+	case "aws:notifications/managedNotificationAccountContactAssociation:ManagedNotificationAccountContactAssociation":
+		r = &ManagedNotificationAccountContactAssociation{}
+	case "aws:notifications/managedNotificationAdditionalChannelAssociation:ManagedNotificationAdditionalChannelAssociation":
+		r = &ManagedNotificationAdditionalChannelAssociation{}
 	case "aws:notifications/notificationConfiguration:NotificationConfiguration":
 		r = &NotificationConfiguration{}
 	case "aws:notifications/notificationHub:NotificationHub":
 		r = &NotificationHub{}
+	case "aws:notifications/organizationalUnitAssociation:OrganizationalUnitAssociation":
+		r = &OrganizationalUnitAssociation{}
+	case "aws:notifications/organizationsAccess:OrganizationsAccess":
+		r = &OrganizationsAccess{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -61,12 +69,32 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"aws",
+		"notifications/managedNotificationAccountContactAssociation",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"notifications/managedNotificationAdditionalChannelAssociation",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
 		"notifications/notificationConfiguration",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
 		"aws",
 		"notifications/notificationHub",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"notifications/organizationalUnitAssociation",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"notifications/organizationsAccess",
 		&module{version},
 	)
 }

@@ -65,6 +65,8 @@ if typing.TYPE_CHECKING:
     appstream = __appstream
     import pulumi_aws.appsync as __appsync
     appsync = __appsync
+    import pulumi_aws.arcregionswitch as __arcregionswitch
+    arcregionswitch = __arcregionswitch
     import pulumi_aws.athena as __athena
     athena = __athena
     import pulumi_aws.auditmanager as __auditmanager
@@ -401,6 +403,8 @@ if typing.TYPE_CHECKING:
     s3tables = __s3tables
     import pulumi_aws.sagemaker as __sagemaker
     sagemaker = __sagemaker
+    import pulumi_aws.savingsplans as __savingsplans
+    savingsplans = __savingsplans
     import pulumi_aws.scheduler as __scheduler
     scheduler = __scheduler
     import pulumi_aws.schemas as __schemas
@@ -500,6 +504,7 @@ else:
     apprunner = _utilities.lazy_import('pulumi_aws.apprunner')
     appstream = _utilities.lazy_import('pulumi_aws.appstream')
     appsync = _utilities.lazy_import('pulumi_aws.appsync')
+    arcregionswitch = _utilities.lazy_import('pulumi_aws.arcregionswitch')
     athena = _utilities.lazy_import('pulumi_aws.athena')
     auditmanager = _utilities.lazy_import('pulumi_aws.auditmanager')
     autoscaling = _utilities.lazy_import('pulumi_aws.autoscaling')
@@ -668,6 +673,7 @@ else:
     s3outposts = _utilities.lazy_import('pulumi_aws.s3outposts')
     s3tables = _utilities.lazy_import('pulumi_aws.s3tables')
     sagemaker = _utilities.lazy_import('pulumi_aws.sagemaker')
+    savingsplans = _utilities.lazy_import('pulumi_aws.savingsplans')
     scheduler = _utilities.lazy_import('pulumi_aws.scheduler')
     schemas = _utilities.lazy_import('pulumi_aws.schemas')
     secretsmanager = _utilities.lazy_import('pulumi_aws.secretsmanager')
@@ -1241,6 +1247,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "apigatewayv2/routingRule",
+  "fqn": "pulumi_aws.apigatewayv2",
+  "classes": {
+   "aws:apigatewayv2/routingRule:RoutingRule": "RoutingRule"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "apigatewayv2/stage",
   "fqn": "pulumi_aws.apigatewayv2",
   "classes": {
@@ -1701,6 +1715,14 @@ _utilities.register(
   "fqn": "pulumi_aws.appsync",
   "classes": {
    "aws:appsync/type:Type": "Type"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "arcregionswitch/plan",
+  "fqn": "pulumi_aws.arcregionswitch",
+  "classes": {
+   "aws:arcregionswitch/plan:Plan": "Plan"
   }
  },
  {
@@ -2573,6 +2595,14 @@ _utilities.register(
   "fqn": "pulumi_aws.cloudformation",
   "classes": {
    "aws:cloudformation/stackSetInstance:StackSetInstance": "StackSetInstance"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "cloudfront/anycastIpList",
+  "fqn": "pulumi_aws.cloudfront",
+  "classes": {
+   "aws:cloudfront/anycastIpList:AnycastIpList": "AnycastIpList"
   }
  },
  {
@@ -5397,6 +5427,14 @@ _utilities.register(
   "fqn": "pulumi_aws.ec2",
   "classes": {
    "aws:ec2/vpcPeeringConnectionAccepter:VpcPeeringConnectionAccepter": "VpcPeeringConnectionAccepter"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "ec2/vpcSecurityGroupRulesExclusive",
+  "fqn": "pulumi_aws.ec2",
+  "classes": {
+   "aws:ec2/vpcSecurityGroupRulesExclusive:VpcSecurityGroupRulesExclusive": "VpcSecurityGroupRulesExclusive"
   }
  },
  {
@@ -9057,6 +9095,22 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "notifications/managedNotificationAccountContactAssociation",
+  "fqn": "pulumi_aws.notifications",
+  "classes": {
+   "aws:notifications/managedNotificationAccountContactAssociation:ManagedNotificationAccountContactAssociation": "ManagedNotificationAccountContactAssociation"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "notifications/managedNotificationAdditionalChannelAssociation",
+  "fqn": "pulumi_aws.notifications",
+  "classes": {
+   "aws:notifications/managedNotificationAdditionalChannelAssociation:ManagedNotificationAdditionalChannelAssociation": "ManagedNotificationAdditionalChannelAssociation"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "notifications/notificationConfiguration",
   "fqn": "pulumi_aws.notifications",
   "classes": {
@@ -9069,6 +9123,22 @@ _utilities.register(
   "fqn": "pulumi_aws.notifications",
   "classes": {
    "aws:notifications/notificationHub:NotificationHub": "NotificationHub"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "notifications/organizationalUnitAssociation",
+  "fqn": "pulumi_aws.notifications",
+  "classes": {
+   "aws:notifications/organizationalUnitAssociation:OrganizationalUnitAssociation": "OrganizationalUnitAssociation"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "notifications/organizationsAccess",
+  "fqn": "pulumi_aws.notifications",
+  "classes": {
+   "aws:notifications/organizationsAccess:OrganizationsAccess": "OrganizationsAccess"
   }
  },
  {
@@ -9141,6 +9211,14 @@ _utilities.register(
   "fqn": "pulumi_aws.odb",
   "classes": {
    "aws:odb/networkPeeringConnection:NetworkPeeringConnection": "NetworkPeeringConnection"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "opensearch/application",
+  "fqn": "pulumi_aws.opensearch",
+  "classes": {
+   "aws:opensearch/application:Application": "Application"
   }
  },
  {
@@ -9705,6 +9783,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "ram/permission",
+  "fqn": "pulumi_aws.ram",
+  "classes": {
+   "aws:ram/permission:Permission": "Permission"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "ram/principalAssociation",
   "fqn": "pulumi_aws.ram",
   "classes": {
@@ -9733,6 +9819,14 @@ _utilities.register(
   "fqn": "pulumi_aws.ram",
   "classes": {
    "aws:ram/resourceShareAccepter:ResourceShareAccepter": "ResourceShareAccepter"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "ram/resourceShareAssociationsExclusive",
+  "fqn": "pulumi_aws.ram",
+  "classes": {
+   "aws:ram/resourceShareAssociationsExclusive:ResourceShareAssociationsExclusive": "ResourceShareAssociationsExclusive"
   }
  },
  {
@@ -11289,6 +11383,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "sagemaker/labelingJob",
+  "fqn": "pulumi_aws.sagemaker",
+  "classes": {
+   "aws:sagemaker/labelingJob:LabelingJob": "LabelingJob"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "sagemaker/mlflowTrackingServer",
   "fqn": "pulumi_aws.sagemaker",
   "classes": {
@@ -11301,6 +11403,22 @@ _utilities.register(
   "fqn": "pulumi_aws.sagemaker",
   "classes": {
    "aws:sagemaker/model:Model": "Model"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "sagemaker/modelCard",
+  "fqn": "pulumi_aws.sagemaker",
+  "classes": {
+   "aws:sagemaker/modelCard:ModelCard": "ModelCard"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "sagemaker/modelCardExportJob",
+  "fqn": "pulumi_aws.sagemaker",
+  "classes": {
+   "aws:sagemaker/modelCardExportJob:ModelCardExportJob": "ModelCardExportJob"
   }
  },
  {
@@ -11405,6 +11523,14 @@ _utilities.register(
   "fqn": "pulumi_aws.sagemaker",
   "classes": {
    "aws:sagemaker/workteam:Workteam": "Workteam"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "savingsplans/savingsPlan",
+  "fqn": "pulumi_aws.savingsplans",
+  "classes": {
+   "aws:savingsplans/savingsPlan:SavingsPlan": "SavingsPlan"
   }
  },
  {
@@ -12065,6 +12191,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "sesv2/tenantResourceAssociation",
+  "fqn": "pulumi_aws.sesv2",
+  "classes": {
+   "aws:sesv2/tenantResourceAssociation:TenantResourceAssociation": "TenantResourceAssociation"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "sfn/activity",
   "fqn": "pulumi_aws.sfn",
   "classes": {
@@ -12469,6 +12603,14 @@ _utilities.register(
   "fqn": "pulumi_aws.ssoadmin",
   "classes": {
    "aws:ssoadmin/managedPolicyAttachment:ManagedPolicyAttachment": "ManagedPolicyAttachment"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "ssoadmin/managedPolicyAttachmentsExclusive",
+  "fqn": "pulumi_aws.ssoadmin",
+  "classes": {
+   "aws:ssoadmin/managedPolicyAttachmentsExclusive:ManagedPolicyAttachmentsExclusive": "ManagedPolicyAttachmentsExclusive"
   }
  },
  {

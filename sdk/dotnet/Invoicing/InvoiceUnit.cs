@@ -94,7 +94,7 @@ namespace Pulumi.Aws.Invoicing
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// Configuration block for invoice unit rules. See below.
+        /// Configuration block for invoice unit rules. See `Rule` below.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -196,7 +196,7 @@ namespace Pulumi.Aws.Invoicing
         private InputList<Inputs.InvoiceUnitRuleArgs>? _rules;
 
         /// <summary>
-        /// Configuration block for invoice unit rules. See below.
+        /// Configuration block for invoice unit rules. See `Rule` below.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -275,7 +275,7 @@ namespace Pulumi.Aws.Invoicing
         private InputList<Inputs.InvoiceUnitRuleGetArgs>? _rules;
 
         /// <summary>
-        /// Configuration block for invoice unit rules. See below.
+        /// Configuration block for invoice unit rules. See `Rule` below.
         /// 
         /// The following arguments are optional:
         /// </summary>

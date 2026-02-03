@@ -48,8 +48,10 @@ from .get_access_point import *
 from .get_account_public_access_block import *
 from .get_bucket import *
 from .get_bucket_object import *
+from .get_bucket_object_lock_configuration import *
 from .get_bucket_objects import *
 from .get_bucket_policy import *
+from .get_bucket_replication_configuration import *
 from .get_canonical_user_id import *
 from .get_directory_buckets import *
 from .get_object import *

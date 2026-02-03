@@ -26,6 +26,7 @@ __all__ = [
     'TableAttribute',
     'TableExportIncrementalExportSpecification',
     'TableGlobalSecondaryIndex',
+    'TableGlobalSecondaryIndexKeySchema',
     'TableGlobalSecondaryIndexOnDemandThroughput',
     'TableGlobalSecondaryIndexWarmThroughput',
     'TableGlobalTableWitness',
@@ -42,6 +43,7 @@ __all__ = [
     'TableWarmThroughput',
     'GetTableAttributeResult',
     'GetTableGlobalSecondaryIndexResult',
+    'GetTableGlobalSecondaryIndexKeySchemaResult',
     'GetTableGlobalSecondaryIndexOnDemandThroughputResult',
     'GetTableGlobalSecondaryIndexWarmThroughputResult',
     'GetTableLocalSecondaryIndexResult',
@@ -481,10 +483,12 @@ class TableGlobalSecondaryIndex(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "hashKey":
-            suggest = "hash_key"
-        elif key == "projectionType":
+        if key == "projectionType":
             suggest = "projection_type"
+        elif key == "hashKey":
+            suggest = "hash_key"
+        elif key == "keySchemas":
+            suggest = "key_schemas"
         elif key == "nonKeyAttributes":
             suggest = "non_key_attributes"
         elif key == "onDemandThroughput":
@@ -510,9 +514,10 @@ class TableGlobalSecondaryIndex(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 hash_key: _builtins.str,
                  name: _builtins.str,
                  projection_type: _builtins.str,
+                 hash_key: Optional[_builtins.str] = None,
+                 key_schemas: Optional[Sequence['outputs.TableGlobalSecondaryIndexKeySchema']] = None,
                  non_key_attributes: Optional[Sequence[_builtins.str]] = None,
                  on_demand_throughput: Optional['outputs.TableGlobalSecondaryIndexOnDemandThroughput'] = None,
                  range_key: Optional[_builtins.str] = None,
@@ -520,19 +525,22 @@ class TableGlobalSecondaryIndex(dict):
                  warm_throughput: Optional['outputs.TableGlobalSecondaryIndexWarmThroughput'] = None,
                  write_capacity: Optional[_builtins.int] = None):
         """
-        :param _builtins.str hash_key: Name of the hash key in the index; must be defined as an attribute in the resource.
         :param _builtins.str name: Name of the index.
         :param _builtins.str projection_type: One of `ALL`, `INCLUDE` or `KEYS_ONLY` where `ALL` projects every attribute into the index, `KEYS_ONLY` projects  into the index only the table and index hash_key and sort_key attributes ,  `INCLUDE` projects into the index all of the attributes that are defined in `non_key_attributes` in addition to the attributes that that`KEYS_ONLY` project.
+        :param _builtins.str hash_key: and `hash_keys` are `mutually exclusive`, but one is `required`. Refer to [AWS SDK Documentation](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GSI.DesignPattern.MultiAttributeKeys.html)
         :param Sequence[_builtins.str] non_key_attributes: Only required with `INCLUDE` as a projection type; a list of attributes to project into the index. These do not need to be defined as attributes on the table.
         :param 'TableGlobalSecondaryIndexOnDemandThroughputArgs' on_demand_throughput: Sets the maximum number of read and write units for the specified on-demand index. See below.
-        :param _builtins.str range_key: Name of the range key; must be defined
+        :param _builtins.str range_key: and `range_keys` are `mutually exclusive`, but are both `optional`. Refer to [AWS SDK Documentation](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GSI.DesignPattern.MultiAttributeKeys.html)
         :param _builtins.int read_capacity: Number of read units for this index. Must be set if billing_mode is set to PROVISIONED.
         :param 'TableGlobalSecondaryIndexWarmThroughputArgs' warm_throughput: Sets the number of warm read and write units for this index. See below.
         :param _builtins.int write_capacity: Number of write units for this index. Must be set if billing_mode is set to PROVISIONED.
         """
-        pulumi.set(__self__, "hash_key", hash_key)
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "projection_type", projection_type)
+        if hash_key is not None:
+            pulumi.set(__self__, "hash_key", hash_key)
+        if key_schemas is not None:
+            pulumi.set(__self__, "key_schemas", key_schemas)
         if non_key_attributes is not None:
             pulumi.set(__self__, "non_key_attributes", non_key_attributes)
         if on_demand_throughput is not None:
@@ -545,14 +553,6 @@ class TableGlobalSecondaryIndex(dict):
             pulumi.set(__self__, "warm_throughput", warm_throughput)
         if write_capacity is not None:
             pulumi.set(__self__, "write_capacity", write_capacity)
-
-    @_builtins.property
-    @pulumi.getter(name="hashKey")
-    def hash_key(self) -> _builtins.str:
-        """
-        Name of the hash key in the index; must be defined as an attribute in the resource.
-        """
-        return pulumi.get(self, "hash_key")
 
     @_builtins.property
     @pulumi.getter
@@ -569,6 +569,20 @@ class TableGlobalSecondaryIndex(dict):
         One of `ALL`, `INCLUDE` or `KEYS_ONLY` where `ALL` projects every attribute into the index, `KEYS_ONLY` projects  into the index only the table and index hash_key and sort_key attributes ,  `INCLUDE` projects into the index all of the attributes that are defined in `non_key_attributes` in addition to the attributes that that`KEYS_ONLY` project.
         """
         return pulumi.get(self, "projection_type")
+
+    @_builtins.property
+    @pulumi.getter(name="hashKey")
+    @_utilities.deprecated("""hash_key is deprecated. Use key_schema instead.""")
+    def hash_key(self) -> Optional[_builtins.str]:
+        """
+        and `hash_keys` are `mutually exclusive`, but one is `required`. Refer to [AWS SDK Documentation](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GSI.DesignPattern.MultiAttributeKeys.html)
+        """
+        return pulumi.get(self, "hash_key")
+
+    @_builtins.property
+    @pulumi.getter(name="keySchemas")
+    def key_schemas(self) -> Optional[Sequence['outputs.TableGlobalSecondaryIndexKeySchema']]:
+        return pulumi.get(self, "key_schemas")
 
     @_builtins.property
     @pulumi.getter(name="nonKeyAttributes")
@@ -588,9 +602,10 @@ class TableGlobalSecondaryIndex(dict):
 
     @_builtins.property
     @pulumi.getter(name="rangeKey")
+    @_utilities.deprecated("""range_key is deprecated. Use key_schema instead.""")
     def range_key(self) -> Optional[_builtins.str]:
         """
-        Name of the range key; must be defined
+        and `range_keys` are `mutually exclusive`, but are both `optional`. Refer to [AWS SDK Documentation](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GSI.DesignPattern.MultiAttributeKeys.html)
         """
         return pulumi.get(self, "range_key")
 
@@ -617,6 +632,52 @@ class TableGlobalSecondaryIndex(dict):
         Number of write units for this index. Must be set if billing_mode is set to PROVISIONED.
         """
         return pulumi.get(self, "write_capacity")
+
+
+@pulumi.output_type
+class TableGlobalSecondaryIndexKeySchema(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "attributeName":
+            suggest = "attribute_name"
+        elif key == "keyType":
+            suggest = "key_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TableGlobalSecondaryIndexKeySchema. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TableGlobalSecondaryIndexKeySchema.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TableGlobalSecondaryIndexKeySchema.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 attribute_name: _builtins.str,
+                 key_type: _builtins.str):
+        """
+        :param _builtins.str attribute_name: Name of the table attribute to store the TTL timestamp in.
+               Required if `enabled` is `true`, must not be set otherwise.
+        """
+        pulumi.set(__self__, "attribute_name", attribute_name)
+        pulumi.set(__self__, "key_type", key_type)
+
+    @_builtins.property
+    @pulumi.getter(name="attributeName")
+    def attribute_name(self) -> _builtins.str:
+        """
+        Name of the table attribute to store the TTL timestamp in.
+        Required if `enabled` is `true`, must not be set otherwise.
+        """
+        return pulumi.get(self, "attribute_name")
+
+    @_builtins.property
+    @pulumi.getter(name="keyType")
+    def key_type(self) -> _builtins.str:
+        return pulumi.get(self, "key_type")
 
 
 @pulumi.output_type
@@ -1478,6 +1539,7 @@ class GetTableAttributeResult(dict):
 class GetTableGlobalSecondaryIndexResult(dict):
     def __init__(__self__, *,
                  hash_key: _builtins.str,
+                 key_schemas: Sequence['outputs.GetTableGlobalSecondaryIndexKeySchemaResult'],
                  name: _builtins.str,
                  non_key_attributes: Sequence[_builtins.str],
                  on_demand_throughputs: Sequence['outputs.GetTableGlobalSecondaryIndexOnDemandThroughputResult'],
@@ -1490,6 +1552,7 @@ class GetTableGlobalSecondaryIndexResult(dict):
         :param _builtins.str name: Name of the DynamoDB table.
         """
         pulumi.set(__self__, "hash_key", hash_key)
+        pulumi.set(__self__, "key_schemas", key_schemas)
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "non_key_attributes", non_key_attributes)
         pulumi.set(__self__, "on_demand_throughputs", on_demand_throughputs)
@@ -1503,6 +1566,11 @@ class GetTableGlobalSecondaryIndexResult(dict):
     @pulumi.getter(name="hashKey")
     def hash_key(self) -> _builtins.str:
         return pulumi.get(self, "hash_key")
+
+    @_builtins.property
+    @pulumi.getter(name="keySchemas")
+    def key_schemas(self) -> Sequence['outputs.GetTableGlobalSecondaryIndexKeySchemaResult']:
+        return pulumi.get(self, "key_schemas")
 
     @_builtins.property
     @pulumi.getter
@@ -1546,6 +1614,25 @@ class GetTableGlobalSecondaryIndexResult(dict):
     @pulumi.getter(name="writeCapacity")
     def write_capacity(self) -> _builtins.int:
         return pulumi.get(self, "write_capacity")
+
+
+@pulumi.output_type
+class GetTableGlobalSecondaryIndexKeySchemaResult(dict):
+    def __init__(__self__, *,
+                 attribute_name: _builtins.str,
+                 key_type: _builtins.str):
+        pulumi.set(__self__, "attribute_name", attribute_name)
+        pulumi.set(__self__, "key_type", key_type)
+
+    @_builtins.property
+    @pulumi.getter(name="attributeName")
+    def attribute_name(self) -> _builtins.str:
+        return pulumi.get(self, "attribute_name")
+
+    @_builtins.property
+    @pulumi.getter(name="keyType")
+    def key_type(self) -> _builtins.str:
+        return pulumi.get(self, "key_type")
 
 
 @pulumi.output_type

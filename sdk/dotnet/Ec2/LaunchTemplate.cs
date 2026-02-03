@@ -198,6 +198,9 @@ namespace Pulumi.Aws.Ec2
         [Output("networkInterfaces")]
         public Output<ImmutableArray<Outputs.LaunchTemplateNetworkInterface>> NetworkInterfaces { get; private set; } = null!;
 
+        [Output("networkPerformanceOptions")]
+        public Output<Outputs.LaunchTemplateNetworkPerformanceOptions?> NetworkPerformanceOptions { get; private set; } = null!;
+
         /// <summary>
         /// The placement of the instance. See Placement below for more details.
         /// </summary>
@@ -492,6 +495,9 @@ namespace Pulumi.Aws.Ec2
             set => _networkInterfaces = value;
         }
 
+        [Input("networkPerformanceOptions")]
+        public Input<Inputs.LaunchTemplateNetworkPerformanceOptionsArgs>? NetworkPerformanceOptions { get; set; }
+
         /// <summary>
         /// The placement of the instance. See Placement below for more details.
         /// </summary>
@@ -777,6 +783,9 @@ namespace Pulumi.Aws.Ec2
             get => _networkInterfaces ?? (_networkInterfaces = new InputList<Inputs.LaunchTemplateNetworkInterfaceGetArgs>());
             set => _networkInterfaces = value;
         }
+
+        [Input("networkPerformanceOptions")]
+        public Input<Inputs.LaunchTemplateNetworkPerformanceOptionsGetArgs>? NetworkPerformanceOptions { get; set; }
 
         /// <summary>
         /// The placement of the instance. See Placement below for more details.

@@ -17,6 +17,7 @@ import com.pulumi.aws.ec2.inputs.LaunchTemplateMaintenanceOptionsArgs;
 import com.pulumi.aws.ec2.inputs.LaunchTemplateMetadataOptionsArgs;
 import com.pulumi.aws.ec2.inputs.LaunchTemplateMonitoringArgs;
 import com.pulumi.aws.ec2.inputs.LaunchTemplateNetworkInterfaceArgs;
+import com.pulumi.aws.ec2.inputs.LaunchTemplateNetworkPerformanceOptionsArgs;
 import com.pulumi.aws.ec2.inputs.LaunchTemplatePlacementArgs;
 import com.pulumi.aws.ec2.inputs.LaunchTemplatePrivateDnsNameOptionsArgs;
 import com.pulumi.aws.ec2.inputs.LaunchTemplateTagSpecificationArgs;
@@ -440,6 +441,13 @@ public final class LaunchTemplateArgs extends com.pulumi.resources.ResourceArgs 
         return Optional.ofNullable(this.networkInterfaces);
     }
 
+    @Import(name="networkPerformanceOptions")
+    private @Nullable Output<LaunchTemplateNetworkPerformanceOptionsArgs> networkPerformanceOptions;
+
+    public Optional<Output<LaunchTemplateNetworkPerformanceOptionsArgs>> networkPerformanceOptions() {
+        return Optional.ofNullable(this.networkPerformanceOptions);
+    }
+
     /**
      * The placement of the instance. See Placement below for more details.
      * 
@@ -621,6 +629,7 @@ public final class LaunchTemplateArgs extends com.pulumi.resources.ResourceArgs 
         this.name = $.name;
         this.namePrefix = $.namePrefix;
         this.networkInterfaces = $.networkInterfaces;
+        this.networkPerformanceOptions = $.networkPerformanceOptions;
         this.placement = $.placement;
         this.privateDnsNameOptions = $.privateDnsNameOptions;
         this.ramDiskId = $.ramDiskId;
@@ -1241,6 +1250,15 @@ public final class LaunchTemplateArgs extends com.pulumi.resources.ResourceArgs 
          */
         public Builder networkInterfaces(LaunchTemplateNetworkInterfaceArgs... networkInterfaces) {
             return networkInterfaces(List.of(networkInterfaces));
+        }
+
+        public Builder networkPerformanceOptions(@Nullable Output<LaunchTemplateNetworkPerformanceOptionsArgs> networkPerformanceOptions) {
+            $.networkPerformanceOptions = networkPerformanceOptions;
+            return this;
+        }
+
+        public Builder networkPerformanceOptions(LaunchTemplateNetworkPerformanceOptionsArgs networkPerformanceOptions) {
+            return networkPerformanceOptions(Output.of(networkPerformanceOptions));
         }
 
         /**

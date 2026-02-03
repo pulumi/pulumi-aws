@@ -13,6 +13,143 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type PermissionTimeouts struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+	Delete *string `pulumi:"delete"`
+}
+
+// PermissionTimeoutsInput is an input type that accepts PermissionTimeoutsArgs and PermissionTimeoutsOutput values.
+// You can construct a concrete instance of `PermissionTimeoutsInput` via:
+//
+//	PermissionTimeoutsArgs{...}
+type PermissionTimeoutsInput interface {
+	pulumi.Input
+
+	ToPermissionTimeoutsOutput() PermissionTimeoutsOutput
+	ToPermissionTimeoutsOutputWithContext(context.Context) PermissionTimeoutsOutput
+}
+
+type PermissionTimeoutsArgs struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+	Delete pulumi.StringPtrInput `pulumi:"delete"`
+}
+
+func (PermissionTimeoutsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PermissionTimeouts)(nil)).Elem()
+}
+
+func (i PermissionTimeoutsArgs) ToPermissionTimeoutsOutput() PermissionTimeoutsOutput {
+	return i.ToPermissionTimeoutsOutputWithContext(context.Background())
+}
+
+func (i PermissionTimeoutsArgs) ToPermissionTimeoutsOutputWithContext(ctx context.Context) PermissionTimeoutsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PermissionTimeoutsOutput)
+}
+
+func (i PermissionTimeoutsArgs) ToPermissionTimeoutsPtrOutput() PermissionTimeoutsPtrOutput {
+	return i.ToPermissionTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i PermissionTimeoutsArgs) ToPermissionTimeoutsPtrOutputWithContext(ctx context.Context) PermissionTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PermissionTimeoutsOutput).ToPermissionTimeoutsPtrOutputWithContext(ctx)
+}
+
+// PermissionTimeoutsPtrInput is an input type that accepts PermissionTimeoutsArgs, PermissionTimeoutsPtr and PermissionTimeoutsPtrOutput values.
+// You can construct a concrete instance of `PermissionTimeoutsPtrInput` via:
+//
+//	        PermissionTimeoutsArgs{...}
+//
+//	or:
+//
+//	        nil
+type PermissionTimeoutsPtrInput interface {
+	pulumi.Input
+
+	ToPermissionTimeoutsPtrOutput() PermissionTimeoutsPtrOutput
+	ToPermissionTimeoutsPtrOutputWithContext(context.Context) PermissionTimeoutsPtrOutput
+}
+
+type permissionTimeoutsPtrType PermissionTimeoutsArgs
+
+func PermissionTimeoutsPtr(v *PermissionTimeoutsArgs) PermissionTimeoutsPtrInput {
+	return (*permissionTimeoutsPtrType)(v)
+}
+
+func (*permissionTimeoutsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PermissionTimeouts)(nil)).Elem()
+}
+
+func (i *permissionTimeoutsPtrType) ToPermissionTimeoutsPtrOutput() PermissionTimeoutsPtrOutput {
+	return i.ToPermissionTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i *permissionTimeoutsPtrType) ToPermissionTimeoutsPtrOutputWithContext(ctx context.Context) PermissionTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PermissionTimeoutsPtrOutput)
+}
+
+type PermissionTimeoutsOutput struct{ *pulumi.OutputState }
+
+func (PermissionTimeoutsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PermissionTimeouts)(nil)).Elem()
+}
+
+func (o PermissionTimeoutsOutput) ToPermissionTimeoutsOutput() PermissionTimeoutsOutput {
+	return o
+}
+
+func (o PermissionTimeoutsOutput) ToPermissionTimeoutsOutputWithContext(ctx context.Context) PermissionTimeoutsOutput {
+	return o
+}
+
+func (o PermissionTimeoutsOutput) ToPermissionTimeoutsPtrOutput() PermissionTimeoutsPtrOutput {
+	return o.ToPermissionTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (o PermissionTimeoutsOutput) ToPermissionTimeoutsPtrOutputWithContext(ctx context.Context) PermissionTimeoutsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PermissionTimeouts) *PermissionTimeouts {
+		return &v
+	}).(PermissionTimeoutsPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+func (o PermissionTimeoutsOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PermissionTimeouts) *string { return v.Delete }).(pulumi.StringPtrOutput)
+}
+
+type PermissionTimeoutsPtrOutput struct{ *pulumi.OutputState }
+
+func (PermissionTimeoutsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PermissionTimeouts)(nil)).Elem()
+}
+
+func (o PermissionTimeoutsPtrOutput) ToPermissionTimeoutsPtrOutput() PermissionTimeoutsPtrOutput {
+	return o
+}
+
+func (o PermissionTimeoutsPtrOutput) ToPermissionTimeoutsPtrOutputWithContext(ctx context.Context) PermissionTimeoutsPtrOutput {
+	return o
+}
+
+func (o PermissionTimeoutsPtrOutput) Elem() PermissionTimeoutsOutput {
+	return o.ApplyT(func(v *PermissionTimeouts) PermissionTimeouts {
+		if v != nil {
+			return *v
+		}
+		var ret PermissionTimeouts
+		return ret
+	}).(PermissionTimeoutsOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+func (o PermissionTimeoutsPtrOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PermissionTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Delete
+	}).(pulumi.StringPtrOutput)
+}
+
 type GetResourceShareFilter struct {
 	// Name of the tag key to filter on.
 	Name string `pulumi:"name"`
@@ -120,8 +257,12 @@ func (o GetResourceShareFilterArrayOutput) Index(i pulumi.IntInput) GetResourceS
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*PermissionTimeoutsInput)(nil)).Elem(), PermissionTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PermissionTimeoutsPtrInput)(nil)).Elem(), PermissionTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetResourceShareFilterInput)(nil)).Elem(), GetResourceShareFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetResourceShareFilterArrayInput)(nil)).Elem(), GetResourceShareFilterArray{})
+	pulumi.RegisterOutputType(PermissionTimeoutsOutput{})
+	pulumi.RegisterOutputType(PermissionTimeoutsPtrOutput{})
 	pulumi.RegisterOutputType(GetResourceShareFilterOutput{})
 	pulumi.RegisterOutputType(GetResourceShareFilterArrayOutput{})
 }

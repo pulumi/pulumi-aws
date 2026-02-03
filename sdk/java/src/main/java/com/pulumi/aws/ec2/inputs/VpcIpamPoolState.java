@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.ec2.inputs;
 
+import com.pulumi.aws.ec2.inputs.VpcIpamPoolSourceResourceArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Boolean;
@@ -275,6 +276,21 @@ public final class VpcIpamPoolState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Resource to use to use to configure a resource planning IPAM Pool. If configured, the `locale` of the parent pool must match the region that the vpc resides in.
+     * 
+     */
+    @Import(name="sourceResource")
+    private @Nullable Output<VpcIpamPoolSourceResourceArgs> sourceResource;
+
+    /**
+     * @return Resource to use to use to configure a resource planning IPAM Pool. If configured, the `locale` of the parent pool must match the region that the vpc resides in.
+     * 
+     */
+    public Optional<Output<VpcIpamPoolSourceResourceArgs>> sourceResource() {
+        return Optional.ofNullable(this.sourceResource);
+    }
+
+    /**
      * The ID of the IPAM
      * 
      */
@@ -340,6 +356,7 @@ public final class VpcIpamPoolState extends com.pulumi.resources.ResourceArgs {
         this.publiclyAdvertisable = $.publiclyAdvertisable;
         this.region = $.region;
         this.sourceIpamPoolId = $.sourceIpamPoolId;
+        this.sourceResource = $.sourceResource;
         this.state = $.state;
         this.tags = $.tags;
         this.tagsAll = $.tagsAll;
@@ -717,6 +734,27 @@ public final class VpcIpamPoolState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder sourceIpamPoolId(String sourceIpamPoolId) {
             return sourceIpamPoolId(Output.of(sourceIpamPoolId));
+        }
+
+        /**
+         * @param sourceResource Resource to use to use to configure a resource planning IPAM Pool. If configured, the `locale` of the parent pool must match the region that the vpc resides in.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder sourceResource(@Nullable Output<VpcIpamPoolSourceResourceArgs> sourceResource) {
+            $.sourceResource = sourceResource;
+            return this;
+        }
+
+        /**
+         * @param sourceResource Resource to use to use to configure a resource planning IPAM Pool. If configured, the `locale` of the parent pool must match the region that the vpc resides in.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder sourceResource(VpcIpamPoolSourceResourceArgs sourceResource) {
+            return sourceResource(Output.of(sourceResource));
         }
 
         /**

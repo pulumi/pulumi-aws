@@ -100,6 +100,112 @@ namespace Pulumi.Aws.DynamoDB
     /// });
     /// ```
     /// 
+    /// ### Basic Example containing Global Secondary Indexs using Multi-attribute keys pattern
+    /// 
+    /// The following dynamodb table description models the table and GSIs shown in the [AWS SDK example documentation](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GSI.DesignPattern.MultiAttributeKeys.html)
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var basic_dynamodb_table = new Aws.DynamoDB.Table("basic-dynamodb-table", new()
+    ///     {
+    ///         Name = "TournamentMatches",
+    ///         BillingMode = "PROVISIONED",
+    ///         ReadCapacity = 20,
+    ///         WriteCapacity = 20,
+    ///         HashKey = "matchId",
+    ///         Attributes = new[]
+    ///         {
+    ///             new Aws.DynamoDB.Inputs.TableAttributeArgs
+    ///             {
+    ///                 Name = "matchId",
+    ///                 Type = "S",
+    ///             },
+    ///             new Aws.DynamoDB.Inputs.TableAttributeArgs
+    ///             {
+    ///                 Name = "tournamentId",
+    ///                 Type = "S",
+    ///             },
+    ///             new Aws.DynamoDB.Inputs.TableAttributeArgs
+    ///             {
+    ///                 Name = "region",
+    ///                 Type = "S",
+    ///             },
+    ///             new Aws.DynamoDB.Inputs.TableAttributeArgs
+    ///             {
+    ///                 Name = "round",
+    ///                 Type = "S",
+    ///             },
+    ///             new Aws.DynamoDB.Inputs.TableAttributeArgs
+    ///             {
+    ///                 Name = "bracket",
+    ///                 Type = "S",
+    ///             },
+    ///             new Aws.DynamoDB.Inputs.TableAttributeArgs
+    ///             {
+    ///                 Name = "playerId",
+    ///                 Type = N,
+    ///             },
+    ///             new Aws.DynamoDB.Inputs.TableAttributeArgs
+    ///             {
+    ///                 Name = "matchDate",
+    ///                 Type = S,
+    ///             },
+    ///         },
+    ///         Ttl = new Aws.DynamoDB.Inputs.TableTtlArgs
+    ///         {
+    ///             AttributeName = "TimeToExist",
+    ///             Enabled = true,
+    ///         },
+    ///         GlobalSecondaryIndexes = new[]
+    ///         {
+    ///             new Aws.DynamoDB.Inputs.TableGlobalSecondaryIndexArgs
+    ///             {
+    ///                 Name = "TournamentRegionIndex",
+    ///                 HashKeys = new[]
+    ///                 {
+    ///                     "tournamentId",
+    ///                     "region",
+    ///                 },
+    ///                 RangeKeys = new[]
+    ///                 {
+    ///                     "round",
+    ///                     "bracket",
+    ///                     "matchId",
+    ///                 },
+    ///                 WriteCapacity = 10,
+    ///                 ReadCapacity = 10,
+    ///                 ProjectionType = "ALL",
+    ///             },
+    ///             new Aws.DynamoDB.Inputs.TableGlobalSecondaryIndexArgs
+    ///             {
+    ///                 Name = "PlayerMatchHistoryIndex",
+    ///                 HashKey = "playerId",
+    ///                 RangeKeys = new[]
+    ///                 {
+    ///                     "matchDate",
+    ///                     "round",
+    ///                 },
+    ///                 WriteCapacity = 10,
+    ///                 ReadCapacity = 10,
+    ///                 ProjectionType = "ALL",
+    ///             },
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "Name", "dynamodb-table-1" },
+    ///             { "Environment", "production" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ### Global Tables
     /// 
     /// This resource implements support for [DynamoDB Global Tables V2 (version 2019.11.21)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html) via `Replica` configuration blocks. For working with [DynamoDB Global Tables V1 (version 2017.11.29)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V1.html), see the `aws.dynamodb.GlobalTable` resource.
@@ -472,7 +578,9 @@ namespace Pulumi.Aws.DynamoDB
         public Output<string> StreamLabel { get; private set; } = null!;
 
         /// <summary>
-        /// When an item in the table is modified, StreamViewType determines what information is written to the table's stream. Valid values are `KEYS_ONLY`, `NEW_IMAGE`, `OLD_IMAGE`, `NEW_AND_OLD_IMAGES`.
+        /// When an item in the table is modified, StreamViewType determines what information is written to the table's stream.
+        /// Valid values are `KEYS_ONLY`, `NEW_IMAGE`, `OLD_IMAGE`, `NEW_AND_OLD_IMAGES`.
+        /// Only valid when `StreamEnabled` is true.
         /// </summary>
         [Output("streamViewType")]
         public Output<string> StreamViewType { get; private set; } = null!;
@@ -714,7 +822,9 @@ namespace Pulumi.Aws.DynamoDB
         public Input<bool>? StreamEnabled { get; set; }
 
         /// <summary>
-        /// When an item in the table is modified, StreamViewType determines what information is written to the table's stream. Valid values are `KEYS_ONLY`, `NEW_IMAGE`, `OLD_IMAGE`, `NEW_AND_OLD_IMAGES`.
+        /// When an item in the table is modified, StreamViewType determines what information is written to the table's stream.
+        /// Valid values are `KEYS_ONLY`, `NEW_IMAGE`, `OLD_IMAGE`, `NEW_AND_OLD_IMAGES`.
+        /// Only valid when `StreamEnabled` is true.
         /// </summary>
         [Input("streamViewType")]
         public Input<string>? StreamViewType { get; set; }
@@ -936,7 +1046,9 @@ namespace Pulumi.Aws.DynamoDB
         public Input<string>? StreamLabel { get; set; }
 
         /// <summary>
-        /// When an item in the table is modified, StreamViewType determines what information is written to the table's stream. Valid values are `KEYS_ONLY`, `NEW_IMAGE`, `OLD_IMAGE`, `NEW_AND_OLD_IMAGES`.
+        /// When an item in the table is modified, StreamViewType determines what information is written to the table's stream.
+        /// Valid values are `KEYS_ONLY`, `NEW_IMAGE`, `OLD_IMAGE`, `NEW_AND_OLD_IMAGES`.
+        /// Only valid when `StreamEnabled` is true.
         /// </summary>
         [Input("streamViewType")]
         public Input<string>? StreamViewType { get; set; }

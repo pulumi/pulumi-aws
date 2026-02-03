@@ -49,6 +49,58 @@ import (
 //
 // ```
 //
+// ### Multimodal Parsing
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/bedrock"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := bedrock.NewAgentDataSource(ctx, "example", &bedrock.AgentDataSourceArgs{
+//				KnowledgeBaseId: pulumi.Any(exampleAwsBedrockagentKnowledgeBase.Id),
+//				Name:            pulumi.String("multimodal-example"),
+//				DataSourceConfiguration: &bedrock.AgentDataSourceDataSourceConfigurationArgs{
+//					Type: pulumi.String("S3"),
+//					S3Configuration: &bedrock.AgentDataSourceDataSourceConfigurationS3ConfigurationArgs{
+//						BucketArn: pulumi.Any(exampleAwsS3Bucket.Arn),
+//					},
+//				},
+//				VectorIngestionConfiguration: &bedrock.AgentDataSourceVectorIngestionConfigurationArgs{
+//					ChunkingConfiguration: &bedrock.AgentDataSourceVectorIngestionConfigurationChunkingConfigurationArgs{
+//						ChunkingStrategy: pulumi.String("FIXED_SIZE"),
+//						FixedSizeChunkingConfiguration: &bedrock.AgentDataSourceVectorIngestionConfigurationChunkingConfigurationFixedSizeChunkingConfigurationArgs{
+//							MaxTokens:         pulumi.Int(512),
+//							OverlapPercentage: pulumi.Int(20),
+//						},
+//					},
+//					ParsingConfiguration: &bedrock.AgentDataSourceVectorIngestionConfigurationParsingConfigurationArgs{
+//						ParsingStrategy: pulumi.String("BEDROCK_FOUNDATION_MODEL"),
+//						BedrockFoundationModelConfiguration: &bedrock.AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationArgs{
+//							ModelArn:        pulumi.String("arn:aws:bedrock:us-east-1::foundation-model/anthropic.claude-3-sonnet-20240229-v1:0"),
+//							ParsingModality: pulumi.String("MULTIMODAL"),
+//							ParsingPrompt: &bedrock.AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationParsingPromptArgs{
+//								ParsingPromptString: pulumi.String("Extract and transcribe all text and visual content from the document."),
+//							},
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Using `pulumi import`, import Agents for Amazon Bedrock Data Source using the data source ID and the knowledge base ID. For example:

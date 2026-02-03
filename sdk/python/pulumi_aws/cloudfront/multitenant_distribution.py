@@ -739,6 +739,70 @@ class MultitenantDistribution(pulumi.CustomResource):
         - `trusted_signers` in cache behaviors - Use `trusted_key_groups` instead
         - Cache behavior TTL settings (`default_ttl`, `max_ttl`, `min_ttl`) - Use cache policies instead
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.cloudfront.MultitenantDistribution("example",
+            comment="Multi-tenant distribution for my application",
+            enabled=True,
+            origins=[{
+                "domain_name": "example.com",
+                "id": "example-origin",
+                "custom_origin_configs": [{
+                    "http_port": 80,
+                    "https_port": 443,
+                    "origin_protocol_policy": "https-only",
+                    "origin_ssl_protocols": ["TLSv1.2"],
+                }],
+            }],
+            default_cache_behavior={
+                "target_origin_id": "example-origin",
+                "viewer_protocol_policy": "redirect-to-https",
+                "cache_policy_id": example_aws_cloudfront_cache_policy["id"],
+                "allowed_methods": {
+                    "items": [
+                        "DELETE",
+                        "GET",
+                        "HEAD",
+                        "OPTIONS",
+                        "PATCH",
+                        "POST",
+                        "PUT",
+                    ],
+                    "cached_methods": [
+                        "GET",
+                        "HEAD",
+                    ],
+                },
+            },
+            restrictions={
+                "geo_restriction": {
+                    "restriction_type": "none",
+                },
+            },
+            viewer_certificate={
+                "acm_certificate_arn": example_aws_acm_certificate["arn"],
+                "ssl_support_method": "sni-only",
+            },
+            tenant_config={
+                "parameter_definitions": [{
+                    "name": "origin_domain",
+                    "definitions": [{
+                        "string_schemas": [{
+                            "required": True,
+                            "comment": "Origin domain parameter for tenants",
+                        }],
+                    }],
+                }],
+            },
+            tags={
+                "Environment": "production",
+            })
+        ```
+
         ## Import
 
         Using `pulumi import`, import CloudFront Multi-tenant Distributions using the `id`. For example:
@@ -806,6 +870,70 @@ class MultitenantDistribution(pulumi.CustomResource):
         - `staging` mode
         - `trusted_signers` in cache behaviors - Use `trusted_key_groups` instead
         - Cache behavior TTL settings (`default_ttl`, `max_ttl`, `min_ttl`) - Use cache policies instead
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.cloudfront.MultitenantDistribution("example",
+            comment="Multi-tenant distribution for my application",
+            enabled=True,
+            origins=[{
+                "domain_name": "example.com",
+                "id": "example-origin",
+                "custom_origin_configs": [{
+                    "http_port": 80,
+                    "https_port": 443,
+                    "origin_protocol_policy": "https-only",
+                    "origin_ssl_protocols": ["TLSv1.2"],
+                }],
+            }],
+            default_cache_behavior={
+                "target_origin_id": "example-origin",
+                "viewer_protocol_policy": "redirect-to-https",
+                "cache_policy_id": example_aws_cloudfront_cache_policy["id"],
+                "allowed_methods": {
+                    "items": [
+                        "DELETE",
+                        "GET",
+                        "HEAD",
+                        "OPTIONS",
+                        "PATCH",
+                        "POST",
+                        "PUT",
+                    ],
+                    "cached_methods": [
+                        "GET",
+                        "HEAD",
+                    ],
+                },
+            },
+            restrictions={
+                "geo_restriction": {
+                    "restriction_type": "none",
+                },
+            },
+            viewer_certificate={
+                "acm_certificate_arn": example_aws_acm_certificate["arn"],
+                "ssl_support_method": "sni-only",
+            },
+            tenant_config={
+                "parameter_definitions": [{
+                    "name": "origin_domain",
+                    "definitions": [{
+                        "string_schemas": [{
+                            "required": True,
+                            "comment": "Origin domain parameter for tenants",
+                        }],
+                    }],
+                }],
+            },
+            tags={
+                "Environment": "production",
+            })
+        ```
 
         ## Import
 

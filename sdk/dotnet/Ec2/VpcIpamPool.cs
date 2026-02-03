@@ -12,6 +12,8 @@ namespace Pulumi.Aws.Ec2
     /// <summary>
     /// Provides an IP address pool resource for IPAM.
     /// 
+    /// &gt; **NOTE:** When provisioning resource planning IPAM pools, it can take upto 30 minutes for the CIDR to be managed by IPAM.
+    /// 
     /// ## Example Usage
     /// 
     /// Basic usage:
@@ -94,6 +96,71 @@ namespace Pulumi.Aws.Ec2
     ///     {
     ///         IpamPoolId = child.Id,
     ///         Cidr = "172.20.0.0/24",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// Resource Planning Pools:
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var current = Aws.GetRegion.Invoke();
+    /// 
+    ///     var example = new Aws.Ec2.VpcIpam("example", new()
+    ///     {
+    ///         OperatingRegions = new[]
+    ///         {
+    ///             new Aws.Ec2.Inputs.VpcIpamOperatingRegionArgs
+    ///             {
+    ///                 RegionName = current.Apply(getRegionResult =&gt; getRegionResult.Region),
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var test = new Aws.Ec2.VpcIpamPool("test", new()
+    ///     {
+    ///         AddressFamily = "ipv4",
+    ///         IpamScopeId = example.PrivateDefaultScopeId,
+    ///     });
+    /// 
+    ///     var testVpcIpamPoolCidr = new Aws.Ec2.VpcIpamPoolCidr("test", new()
+    ///     {
+    ///         IpamPoolId = parent.Id,
+    ///         Cidr = "10.0.0.0/16",
+    ///     });
+    /// 
+    ///     var testVpc = new Aws.Ec2.Vpc("test", new()
+    ///     {
+    ///         Ipv4IpamPoolId = test.Id,
+    ///         Ipv4NetmaskLength = 24,
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         DependsOn =
+    ///         {
+    ///             testVpcIpamPoolCidr,
+    ///         },
+    ///     });
+    /// 
+    ///     var vpc = new Aws.Ec2.VpcIpamPool("vpc", new()
+    ///     {
+    ///         AddressFamily = "ipv4",
+    ///         IpamScopeId = testAwsVpcIpam.PrivateDefaultScopeId,
+    ///         Locale = current.Apply(getRegionResult =&gt; getRegionResult.Name),
+    ///         SourceIpamPoolId = test.Id,
+    ///         SourceResource = new Aws.Ec2.Inputs.VpcIpamPoolSourceResourceArgs
+    ///         {
+    ///             ResourceId = testVpc.Id,
+    ///             ResourceOwner = currentAwsCallerIdentity.AccountId,
+    ///             ResourceRegion = current.Apply(getRegionResult =&gt; getRegionResult.Name),
+    ///             ResourceType = "vpc",
+    ///         },
     ///     });
     /// 
     /// });
@@ -212,6 +279,12 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         [Output("sourceIpamPoolId")]
         public Output<string?> SourceIpamPoolId { get; private set; } = null!;
+
+        /// <summary>
+        /// Resource to use to use to configure a resource planning IPAM Pool. If configured, the `Locale` of the parent pool must match the region that the vpc resides in.
+        /// </summary>
+        [Output("sourceResource")]
+        public Output<Outputs.VpcIpamPoolSourceResource?> SourceResource { get; private set; } = null!;
 
         /// <summary>
         /// The ID of the IPAM
@@ -374,6 +447,12 @@ namespace Pulumi.Aws.Ec2
         [Input("sourceIpamPoolId")]
         public Input<string>? SourceIpamPoolId { get; set; }
 
+        /// <summary>
+        /// Resource to use to use to configure a resource planning IPAM Pool. If configured, the `Locale` of the parent pool must match the region that the vpc resides in.
+        /// </summary>
+        [Input("sourceResource")]
+        public Input<Inputs.VpcIpamPoolSourceResourceArgs>? SourceResource { get; set; }
+
         [Input("tags")]
         private InputMap<string>? _tags;
 
@@ -502,6 +581,12 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         [Input("sourceIpamPoolId")]
         public Input<string>? SourceIpamPoolId { get; set; }
+
+        /// <summary>
+        /// Resource to use to use to configure a resource planning IPAM Pool. If configured, the `Locale` of the parent pool must match the region that the vpc resides in.
+        /// </summary>
+        [Input("sourceResource")]
+        public Input<Inputs.VpcIpamPoolSourceResourceGetArgs>? SourceResource { get; set; }
 
         /// <summary>
         /// The ID of the IPAM

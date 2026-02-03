@@ -788,7 +788,7 @@ class JobDefinitionEksPropertiesPodPropertiesContainer(dict):
         :param _builtins.str image_pull_policy: Image pull policy for the container. Supported values are `Always`, `IfNotPresent`, and `Never`.
         :param _builtins.str name: Name of the container. If the name isn't specified, the default name "Default" is used. Each container in a pod must have a unique name.
         :param 'JobDefinitionEksPropertiesPodPropertiesContainerResourcesArgs' resources: Type and amount of resources to assign to a container. The supported resources include `memory`, `cpu`, and `nvidia.com/gpu`.
-        :param 'JobDefinitionEksPropertiesPodPropertiesContainerSecurityContextArgs' security_context: Security context for a job.
+        :param 'JobDefinitionEksPropertiesPodPropertiesContainerSecurityContextArgs' security_context: Security context for a job. See `security_context` below.
         :param Sequence['JobDefinitionEksPropertiesPodPropertiesContainerVolumeMountArgs'] volume_mounts: Volume mounts for the container.
         """
         pulumi.set(__self__, "image", image)
@@ -869,7 +869,7 @@ class JobDefinitionEksPropertiesPodPropertiesContainer(dict):
     @pulumi.getter(name="securityContext")
     def security_context(self) -> Optional['outputs.JobDefinitionEksPropertiesPodPropertiesContainerSecurityContext']:
         """
-        Security context for a job.
+        Security context for a job. See `security_context` below.
         """
         return pulumi.get(self, "security_context")
 
@@ -937,7 +937,9 @@ class JobDefinitionEksPropertiesPodPropertiesContainerSecurityContext(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "readOnlyRootFileSystem":
+        if key == "allowPrivilegeEscalation":
+            suggest = "allow_privilege_escalation"
+        elif key == "readOnlyRootFileSystem":
             suggest = "read_only_root_file_system"
         elif key == "runAsGroup":
             suggest = "run_as_group"
@@ -958,11 +960,21 @@ class JobDefinitionEksPropertiesPodPropertiesContainerSecurityContext(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 allow_privilege_escalation: Optional[_builtins.bool] = None,
                  privileged: Optional[_builtins.bool] = None,
                  read_only_root_file_system: Optional[_builtins.bool] = None,
                  run_as_group: Optional[_builtins.int] = None,
                  run_as_non_root: Optional[_builtins.bool] = None,
                  run_as_user: Optional[_builtins.int] = None):
+        """
+        :param _builtins.bool allow_privilege_escalation: Whether or not a container or a Kubernetes pod is allowed to gain more privileges than its parent process. The default value is `false`.
+        :param _builtins.bool privileged: When this parameter is `true`, the container is given elevated permissions on the host container instance. The level of permissions are similar to the root user permissions. The default value is `false`.
+        :param _builtins.int run_as_group: When this parameter is specified, the container is run as the specified group ID (gid). If this parameter isn't specified, the default is the group that's specified in the image metadata.
+        :param _builtins.bool run_as_non_root: When this parameter is specified, the container is run as a user with a uid other than 0. If this parameter isn't specified, so such rule is enforced.
+        :param _builtins.int run_as_user: When this parameter is specified, the container is run as the specified user ID (uid). If this parameter isn't specified, the default is the user that's specified in the image metadata.
+        """
+        if allow_privilege_escalation is not None:
+            pulumi.set(__self__, "allow_privilege_escalation", allow_privilege_escalation)
         if privileged is not None:
             pulumi.set(__self__, "privileged", privileged)
         if read_only_root_file_system is not None:
@@ -975,8 +987,19 @@ class JobDefinitionEksPropertiesPodPropertiesContainerSecurityContext(dict):
             pulumi.set(__self__, "run_as_user", run_as_user)
 
     @_builtins.property
+    @pulumi.getter(name="allowPrivilegeEscalation")
+    def allow_privilege_escalation(self) -> Optional[_builtins.bool]:
+        """
+        Whether or not a container or a Kubernetes pod is allowed to gain more privileges than its parent process. The default value is `false`.
+        """
+        return pulumi.get(self, "allow_privilege_escalation")
+
+    @_builtins.property
     @pulumi.getter
     def privileged(self) -> Optional[_builtins.bool]:
+        """
+        When this parameter is `true`, the container is given elevated permissions on the host container instance. The level of permissions are similar to the root user permissions. The default value is `false`.
+        """
         return pulumi.get(self, "privileged")
 
     @_builtins.property
@@ -987,16 +1010,25 @@ class JobDefinitionEksPropertiesPodPropertiesContainerSecurityContext(dict):
     @_builtins.property
     @pulumi.getter(name="runAsGroup")
     def run_as_group(self) -> Optional[_builtins.int]:
+        """
+        When this parameter is specified, the container is run as the specified group ID (gid). If this parameter isn't specified, the default is the group that's specified in the image metadata.
+        """
         return pulumi.get(self, "run_as_group")
 
     @_builtins.property
     @pulumi.getter(name="runAsNonRoot")
     def run_as_non_root(self) -> Optional[_builtins.bool]:
+        """
+        When this parameter is specified, the container is run as a user with a uid other than 0. If this parameter isn't specified, so such rule is enforced.
+        """
         return pulumi.get(self, "run_as_non_root")
 
     @_builtins.property
     @pulumi.getter(name="runAsUser")
     def run_as_user(self) -> Optional[_builtins.int]:
+        """
+        When this parameter is specified, the container is run as the specified user ID (uid). If this parameter isn't specified, the default is the user that's specified in the image metadata.
+        """
         return pulumi.get(self, "run_as_user")
 
 
@@ -1111,7 +1143,7 @@ class JobDefinitionEksPropertiesPodPropertiesInitContainer(dict):
         :param _builtins.str image_pull_policy: Image pull policy for the container. Supported values are `Always`, `IfNotPresent`, and `Never`.
         :param _builtins.str name: Name of the job definition.
         :param 'JobDefinitionEksPropertiesPodPropertiesInitContainerResourcesArgs' resources: Type and amount of resources to assign to a container. The supported resources include `memory`, `cpu`, and `nvidia.com/gpu`.
-        :param 'JobDefinitionEksPropertiesPodPropertiesInitContainerSecurityContextArgs' security_context: Security context for a job.
+        :param 'JobDefinitionEksPropertiesPodPropertiesInitContainerSecurityContextArgs' security_context: Security context for a job. See `security_context` below.
         :param Sequence['JobDefinitionEksPropertiesPodPropertiesInitContainerVolumeMountArgs'] volume_mounts: Volume mounts for the container.
         """
         pulumi.set(__self__, "image", image)
@@ -1192,7 +1224,7 @@ class JobDefinitionEksPropertiesPodPropertiesInitContainer(dict):
     @pulumi.getter(name="securityContext")
     def security_context(self) -> Optional['outputs.JobDefinitionEksPropertiesPodPropertiesInitContainerSecurityContext']:
         """
-        Security context for a job.
+        Security context for a job. See `security_context` below.
         """
         return pulumi.get(self, "security_context")
 
@@ -1260,7 +1292,9 @@ class JobDefinitionEksPropertiesPodPropertiesInitContainerSecurityContext(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "readOnlyRootFileSystem":
+        if key == "allowPrivilegeEscalation":
+            suggest = "allow_privilege_escalation"
+        elif key == "readOnlyRootFileSystem":
             suggest = "read_only_root_file_system"
         elif key == "runAsGroup":
             suggest = "run_as_group"
@@ -1281,11 +1315,21 @@ class JobDefinitionEksPropertiesPodPropertiesInitContainerSecurityContext(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 allow_privilege_escalation: Optional[_builtins.bool] = None,
                  privileged: Optional[_builtins.bool] = None,
                  read_only_root_file_system: Optional[_builtins.bool] = None,
                  run_as_group: Optional[_builtins.int] = None,
                  run_as_non_root: Optional[_builtins.bool] = None,
                  run_as_user: Optional[_builtins.int] = None):
+        """
+        :param _builtins.bool allow_privilege_escalation: Whether or not a container or a Kubernetes pod is allowed to gain more privileges than its parent process. The default value is `false`.
+        :param _builtins.bool privileged: When this parameter is `true`, the container is given elevated permissions on the host container instance. The level of permissions are similar to the root user permissions. The default value is `false`.
+        :param _builtins.int run_as_group: When this parameter is specified, the container is run as the specified group ID (gid). If this parameter isn't specified, the default is the group that's specified in the image metadata.
+        :param _builtins.bool run_as_non_root: When this parameter is specified, the container is run as a user with a uid other than 0. If this parameter isn't specified, so such rule is enforced.
+        :param _builtins.int run_as_user: When this parameter is specified, the container is run as the specified user ID (uid). If this parameter isn't specified, the default is the user that's specified in the image metadata.
+        """
+        if allow_privilege_escalation is not None:
+            pulumi.set(__self__, "allow_privilege_escalation", allow_privilege_escalation)
         if privileged is not None:
             pulumi.set(__self__, "privileged", privileged)
         if read_only_root_file_system is not None:
@@ -1298,8 +1342,19 @@ class JobDefinitionEksPropertiesPodPropertiesInitContainerSecurityContext(dict):
             pulumi.set(__self__, "run_as_user", run_as_user)
 
     @_builtins.property
+    @pulumi.getter(name="allowPrivilegeEscalation")
+    def allow_privilege_escalation(self) -> Optional[_builtins.bool]:
+        """
+        Whether or not a container or a Kubernetes pod is allowed to gain more privileges than its parent process. The default value is `false`.
+        """
+        return pulumi.get(self, "allow_privilege_escalation")
+
+    @_builtins.property
     @pulumi.getter
     def privileged(self) -> Optional[_builtins.bool]:
+        """
+        When this parameter is `true`, the container is given elevated permissions on the host container instance. The level of permissions are similar to the root user permissions. The default value is `false`.
+        """
         return pulumi.get(self, "privileged")
 
     @_builtins.property
@@ -1310,16 +1365,25 @@ class JobDefinitionEksPropertiesPodPropertiesInitContainerSecurityContext(dict):
     @_builtins.property
     @pulumi.getter(name="runAsGroup")
     def run_as_group(self) -> Optional[_builtins.int]:
+        """
+        When this parameter is specified, the container is run as the specified group ID (gid). If this parameter isn't specified, the default is the group that's specified in the image metadata.
+        """
         return pulumi.get(self, "run_as_group")
 
     @_builtins.property
     @pulumi.getter(name="runAsNonRoot")
     def run_as_non_root(self) -> Optional[_builtins.bool]:
+        """
+        When this parameter is specified, the container is run as a user with a uid other than 0. If this parameter isn't specified, so such rule is enforced.
+        """
         return pulumi.get(self, "run_as_non_root")
 
     @_builtins.property
     @pulumi.getter(name="runAsUser")
     def run_as_user(self) -> Optional[_builtins.int]:
+        """
+        When this parameter is specified, the container is run as the specified user ID (uid). If this parameter isn't specified, the default is the user that's specified in the image metadata.
+        """
         return pulumi.get(self, "run_as_user")
 
 
@@ -2299,22 +2363,33 @@ class GetJobDefinitionEksPropertyPodPropertyContainerResourceResult(dict):
 @pulumi.output_type
 class GetJobDefinitionEksPropertyPodPropertyContainerSecurityContextResult(dict):
     def __init__(__self__, *,
+                 allow_privilege_escalation: _builtins.bool,
                  privileged: _builtins.bool,
                  read_only_root_file_system: _builtins.bool,
                  run_as_group: _builtins.int,
                  run_as_non_root: _builtins.bool,
                  run_as_user: _builtins.int):
         """
+        :param _builtins.bool allow_privilege_escalation: Whether or not a container or a Kubernetes pod is allowed to gain more privileges than its parent process. The default value is `false`.
         :param _builtins.bool privileged: When this parameter is true, the container is given elevated permissions on the host container instance (similar to the root user).
         :param _builtins.int run_as_group: When this parameter is specified, the container is run as the specified group ID (gid). If this parameter isn't specified, the default is the group that's specified in the image metadata.
         :param _builtins.bool run_as_non_root: When this parameter is specified, the container is run as a user with a uid other than 0. If this parameter isn't specified, so such rule is enforced.
         :param _builtins.int run_as_user: When this parameter is specified, the container is run as the specified user ID (uid). If this parameter isn't specified, the default is the user that's specified in the image metadata.
         """
+        pulumi.set(__self__, "allow_privilege_escalation", allow_privilege_escalation)
         pulumi.set(__self__, "privileged", privileged)
         pulumi.set(__self__, "read_only_root_file_system", read_only_root_file_system)
         pulumi.set(__self__, "run_as_group", run_as_group)
         pulumi.set(__self__, "run_as_non_root", run_as_non_root)
         pulumi.set(__self__, "run_as_user", run_as_user)
+
+    @_builtins.property
+    @pulumi.getter(name="allowPrivilegeEscalation")
+    def allow_privilege_escalation(self) -> _builtins.bool:
+        """
+        Whether or not a container or a Kubernetes pod is allowed to gain more privileges than its parent process. The default value is `false`.
+        """
+        return pulumi.get(self, "allow_privilege_escalation")
 
     @_builtins.property
     @pulumi.getter
@@ -2579,22 +2654,33 @@ class GetJobDefinitionEksPropertyPodPropertyInitContainerResourceResult(dict):
 @pulumi.output_type
 class GetJobDefinitionEksPropertyPodPropertyInitContainerSecurityContextResult(dict):
     def __init__(__self__, *,
+                 allow_privilege_escalation: _builtins.bool,
                  privileged: _builtins.bool,
                  read_only_root_file_system: _builtins.bool,
                  run_as_group: _builtins.int,
                  run_as_non_root: _builtins.bool,
                  run_as_user: _builtins.int):
         """
+        :param _builtins.bool allow_privilege_escalation: Whether or not a container or a Kubernetes pod is allowed to gain more privileges than its parent process. The default value is `false`.
         :param _builtins.bool privileged: When this parameter is true, the container is given elevated permissions on the host container instance (similar to the root user).
         :param _builtins.int run_as_group: When this parameter is specified, the container is run as the specified group ID (gid). If this parameter isn't specified, the default is the group that's specified in the image metadata.
         :param _builtins.bool run_as_non_root: When this parameter is specified, the container is run as a user with a uid other than 0. If this parameter isn't specified, so such rule is enforced.
         :param _builtins.int run_as_user: When this parameter is specified, the container is run as the specified user ID (uid). If this parameter isn't specified, the default is the user that's specified in the image metadata.
         """
+        pulumi.set(__self__, "allow_privilege_escalation", allow_privilege_escalation)
         pulumi.set(__self__, "privileged", privileged)
         pulumi.set(__self__, "read_only_root_file_system", read_only_root_file_system)
         pulumi.set(__self__, "run_as_group", run_as_group)
         pulumi.set(__self__, "run_as_non_root", run_as_non_root)
         pulumi.set(__self__, "run_as_user", run_as_user)
+
+    @_builtins.property
+    @pulumi.getter(name="allowPrivilegeEscalation")
+    def allow_privilege_escalation(self) -> _builtins.bool:
+        """
+        Whether or not a container or a Kubernetes pod is allowed to gain more privileges than its parent process. The default value is `false`.
+        """
+        return pulumi.get(self, "allow_privilege_escalation")
 
     @_builtins.property
     @pulumi.getter

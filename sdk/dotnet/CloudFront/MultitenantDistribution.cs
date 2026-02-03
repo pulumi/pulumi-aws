@@ -45,6 +45,110 @@ namespace Pulumi.Aws.CloudFront
     /// - `TrustedSigners` in cache behaviors - Use `TrustedKeyGroups` instead
     /// - Cache behavior TTL settings (`DefaultTtl`, `MaxTtl`, `MinTtl`) - Use cache policies instead
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.CloudFront.MultitenantDistribution("example", new()
+    ///     {
+    ///         Comment = "Multi-tenant distribution for my application",
+    ///         Enabled = true,
+    ///         Origins = new[]
+    ///         {
+    ///             new Aws.CloudFront.Inputs.MultitenantDistributionOriginArgs
+    ///             {
+    ///                 DomainName = "example.com",
+    ///                 Id = "example-origin",
+    ///                 CustomOriginConfigs = new[]
+    ///                 {
+    ///                     new Aws.CloudFront.Inputs.MultitenantDistributionOriginCustomOriginConfigArgs
+    ///                     {
+    ///                         HttpPort = 80,
+    ///                         HttpsPort = 443,
+    ///                         OriginProtocolPolicy = "https-only",
+    ///                         OriginSslProtocols = new[]
+    ///                         {
+    ///                             "TLSv1.2",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///         DefaultCacheBehavior = new Aws.CloudFront.Inputs.MultitenantDistributionDefaultCacheBehaviorArgs
+    ///         {
+    ///             TargetOriginId = "example-origin",
+    ///             ViewerProtocolPolicy = "redirect-to-https",
+    ///             CachePolicyId = exampleAwsCloudfrontCachePolicy.Id,
+    ///             AllowedMethods = new Aws.CloudFront.Inputs.MultitenantDistributionDefaultCacheBehaviorAllowedMethodsArgs
+    ///             {
+    ///                 Items = new[]
+    ///                 {
+    ///                     "DELETE",
+    ///                     "GET",
+    ///                     "HEAD",
+    ///                     "OPTIONS",
+    ///                     "PATCH",
+    ///                     "POST",
+    ///                     "PUT",
+    ///                 },
+    ///                 CachedMethods = new[]
+    ///                 {
+    ///                     "GET",
+    ///                     "HEAD",
+    ///                 },
+    ///             },
+    ///         },
+    ///         Restrictions = new Aws.CloudFront.Inputs.MultitenantDistributionRestrictionsArgs
+    ///         {
+    ///             GeoRestriction = new Aws.CloudFront.Inputs.MultitenantDistributionRestrictionsGeoRestrictionArgs
+    ///             {
+    ///                 RestrictionType = "none",
+    ///             },
+    ///         },
+    ///         ViewerCertificate = new Aws.CloudFront.Inputs.MultitenantDistributionViewerCertificateArgs
+    ///         {
+    ///             AcmCertificateArn = exampleAwsAcmCertificate.Arn,
+    ///             SslSupportMethod = "sni-only",
+    ///         },
+    ///         TenantConfig = new Aws.CloudFront.Inputs.MultitenantDistributionTenantConfigArgs
+    ///         {
+    ///             ParameterDefinitions = new[]
+    ///             {
+    ///                 new Aws.CloudFront.Inputs.MultitenantDistributionTenantConfigParameterDefinitionArgs
+    ///                 {
+    ///                     Name = "origin_domain",
+    ///                     Definitions = new[]
+    ///                     {
+    ///                         new Aws.CloudFront.Inputs.MultitenantDistributionTenantConfigParameterDefinitionDefinitionArgs
+    ///                         {
+    ///                             StringSchemas = new[]
+    ///                             {
+    ///                                 new Aws.CloudFront.Inputs.MultitenantDistributionTenantConfigParameterDefinitionDefinitionStringSchemaArgs
+    ///                                 {
+    ///                                     Required = true,
+    ///                                     Comment = "Origin domain parameter for tenants",
+    ///                                 },
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "Environment", "production" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import CloudFront Multi-tenant Distributions using the `id`. For example:

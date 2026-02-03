@@ -13,14 +13,32 @@ namespace Pulumi.Aws.Batch.Outputs
     [OutputType]
     public sealed class JobDefinitionEksPropertiesPodPropertiesContainerSecurityContext
     {
+        /// <summary>
+        /// Whether or not a container or a Kubernetes pod is allowed to gain more privileges than its parent process. The default value is `False`.
+        /// </summary>
+        public readonly bool? AllowPrivilegeEscalation;
+        /// <summary>
+        /// When this parameter is `True`, the container is given elevated permissions on the host container instance. The level of permissions are similar to the root user permissions. The default value is `False`.
+        /// </summary>
         public readonly bool? Privileged;
         public readonly bool? ReadOnlyRootFileSystem;
+        /// <summary>
+        /// When this parameter is specified, the container is run as the specified group ID (gid). If this parameter isn't specified, the default is the group that's specified in the image metadata.
+        /// </summary>
         public readonly int? RunAsGroup;
+        /// <summary>
+        /// When this parameter is specified, the container is run as a user with a uid other than 0. If this parameter isn't specified, so such rule is enforced.
+        /// </summary>
         public readonly bool? RunAsNonRoot;
+        /// <summary>
+        /// When this parameter is specified, the container is run as the specified user ID (uid). If this parameter isn't specified, the default is the user that's specified in the image metadata.
+        /// </summary>
         public readonly int? RunAsUser;
 
         [OutputConstructor]
         private JobDefinitionEksPropertiesPodPropertiesContainerSecurityContext(
+            bool? allowPrivilegeEscalation,
+
             bool? privileged,
 
             bool? readOnlyRootFileSystem,
@@ -31,6 +49,7 @@ namespace Pulumi.Aws.Batch.Outputs
 
             int? runAsUser)
         {
+            AllowPrivilegeEscalation = allowPrivilegeEscalation;
             Privileged = privileged;
             ReadOnlyRootFileSystem = readOnlyRootFileSystem;
             RunAsGroup = runAsGroup;

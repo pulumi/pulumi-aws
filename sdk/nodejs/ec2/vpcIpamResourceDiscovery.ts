@@ -87,6 +87,10 @@ export class VpcIpamResourceDiscovery extends pulumi.CustomResource {
      */
     declare public readonly operatingRegions: pulumi.Output<outputs.ec2.VpcIpamResourceDiscoveryOperatingRegion[]>;
     /**
+     * Add an Organizational Unit (OU) exclusion to IPAM. If IPAM is integrated with AWS Organizations and OU exclusion is added, IPAM will not manage the IP addresses in accounts in the OU exclusion. Refer to [IPAM Quotas](https://docs.aws.amazon.com/vpc/latest/ipam/quotas-ipam.html) for the limit of exclusions that can be created.
+     */
+    declare public readonly organizationalUnitExclusions: pulumi.Output<outputs.ec2.VpcIpamResourceDiscoveryOrganizationalUnitExclusion[] | undefined>;
+    /**
      * The account ID for the account that manages the Resource Discovery
      */
     declare public /*out*/ readonly ownerId: pulumi.Output<string>;
@@ -121,6 +125,7 @@ export class VpcIpamResourceDiscovery extends pulumi.CustomResource {
             resourceInputs["ipamResourceDiscoveryRegion"] = state?.ipamResourceDiscoveryRegion;
             resourceInputs["isDefault"] = state?.isDefault;
             resourceInputs["operatingRegions"] = state?.operatingRegions;
+            resourceInputs["organizationalUnitExclusions"] = state?.organizationalUnitExclusions;
             resourceInputs["ownerId"] = state?.ownerId;
             resourceInputs["region"] = state?.region;
             resourceInputs["tags"] = state?.tags;
@@ -132,6 +137,7 @@ export class VpcIpamResourceDiscovery extends pulumi.CustomResource {
             }
             resourceInputs["description"] = args?.description;
             resourceInputs["operatingRegions"] = args?.operatingRegions;
+            resourceInputs["organizationalUnitExclusions"] = args?.organizationalUnitExclusions;
             resourceInputs["region"] = args?.region;
             resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
@@ -170,6 +176,10 @@ export interface VpcIpamResourceDiscoveryState {
      */
     operatingRegions?: pulumi.Input<pulumi.Input<inputs.ec2.VpcIpamResourceDiscoveryOperatingRegion>[]>;
     /**
+     * Add an Organizational Unit (OU) exclusion to IPAM. If IPAM is integrated with AWS Organizations and OU exclusion is added, IPAM will not manage the IP addresses in accounts in the OU exclusion. Refer to [IPAM Quotas](https://docs.aws.amazon.com/vpc/latest/ipam/quotas-ipam.html) for the limit of exclusions that can be created.
+     */
+    organizationalUnitExclusions?: pulumi.Input<pulumi.Input<inputs.ec2.VpcIpamResourceDiscoveryOrganizationalUnitExclusion>[]>;
+    /**
      * The account ID for the account that manages the Resource Discovery
      */
     ownerId?: pulumi.Input<string>;
@@ -199,6 +209,10 @@ export interface VpcIpamResourceDiscoveryArgs {
      * Determines which regions the Resource Discovery will enable IPAM features for usage and monitoring. Locale is the Region where you want to make an IPAM pool available for allocations. You can only create pools with locales that match the operating Regions of the IPAM Resource Discovery. You can only create VPCs from a pool whose locale matches the VPC's Region. You specify a region using the regionName parameter. **You must set your provider block region as an operating_region.**
      */
     operatingRegions: pulumi.Input<pulumi.Input<inputs.ec2.VpcIpamResourceDiscoveryOperatingRegion>[]>;
+    /**
+     * Add an Organizational Unit (OU) exclusion to IPAM. If IPAM is integrated with AWS Organizations and OU exclusion is added, IPAM will not manage the IP addresses in accounts in the OU exclusion. Refer to [IPAM Quotas](https://docs.aws.amazon.com/vpc/latest/ipam/quotas-ipam.html) for the limit of exclusions that can be created.
+     */
+    organizationalUnitExclusions?: pulumi.Input<pulumi.Input<inputs.ec2.VpcIpamResourceDiscoveryOrganizationalUnitExclusion>[]>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */

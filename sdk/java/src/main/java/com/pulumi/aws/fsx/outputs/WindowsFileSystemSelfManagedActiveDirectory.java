@@ -19,6 +19,11 @@ public final class WindowsFileSystemSelfManagedActiveDirectory {
      */
     private List<String> dnsIps;
     /**
+     * @return The Amazon Resource Name (ARN) for the AWS Secrets Manager secret that contains the credentials for the service account on your self-managed AD domain. Conflicts with `username` and `password`.
+     * 
+     */
+    private @Nullable String domainJoinServiceAccountSecret;
+    /**
      * @return The fully qualified domain name of the self-managed AD directory. For example, `corp.example.com`.
      * 
      */
@@ -34,15 +39,15 @@ public final class WindowsFileSystemSelfManagedActiveDirectory {
      */
     private @Nullable String organizationalUnitDistinguishedName;
     /**
-     * @return The password for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain.
+     * @return The password for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain. Conflicts with `domainJoinServiceAccountSecret`.
      * 
      */
-    private String password;
+    private @Nullable String password;
     /**
-     * @return The user name for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain.
+     * @return The user name for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain. Conflicts with `domainJoinServiceAccountSecret`.
      * 
      */
-    private String username;
+    private @Nullable String username;
 
     private WindowsFileSystemSelfManagedActiveDirectory() {}
     /**
@@ -51,6 +56,13 @@ public final class WindowsFileSystemSelfManagedActiveDirectory {
      */
     public List<String> dnsIps() {
         return this.dnsIps;
+    }
+    /**
+     * @return The Amazon Resource Name (ARN) for the AWS Secrets Manager secret that contains the credentials for the service account on your self-managed AD domain. Conflicts with `username` and `password`.
+     * 
+     */
+    public Optional<String> domainJoinServiceAccountSecret() {
+        return Optional.ofNullable(this.domainJoinServiceAccountSecret);
     }
     /**
      * @return The fully qualified domain name of the self-managed AD directory. For example, `corp.example.com`.
@@ -74,18 +86,18 @@ public final class WindowsFileSystemSelfManagedActiveDirectory {
         return Optional.ofNullable(this.organizationalUnitDistinguishedName);
     }
     /**
-     * @return The password for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain.
+     * @return The password for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain. Conflicts with `domainJoinServiceAccountSecret`.
      * 
      */
-    public String password() {
-        return this.password;
+    public Optional<String> password() {
+        return Optional.ofNullable(this.password);
     }
     /**
-     * @return The user name for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain.
+     * @return The user name for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain. Conflicts with `domainJoinServiceAccountSecret`.
      * 
      */
-    public String username() {
-        return this.username;
+    public Optional<String> username() {
+        return Optional.ofNullable(this.username);
     }
 
     public static Builder builder() {
@@ -98,15 +110,17 @@ public final class WindowsFileSystemSelfManagedActiveDirectory {
     @CustomType.Builder
     public static final class Builder {
         private List<String> dnsIps;
+        private @Nullable String domainJoinServiceAccountSecret;
         private String domainName;
         private @Nullable String fileSystemAdministratorsGroup;
         private @Nullable String organizationalUnitDistinguishedName;
-        private String password;
-        private String username;
+        private @Nullable String password;
+        private @Nullable String username;
         public Builder() {}
         public Builder(WindowsFileSystemSelfManagedActiveDirectory defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.dnsIps = defaults.dnsIps;
+    	      this.domainJoinServiceAccountSecret = defaults.domainJoinServiceAccountSecret;
     	      this.domainName = defaults.domainName;
     	      this.fileSystemAdministratorsGroup = defaults.fileSystemAdministratorsGroup;
     	      this.organizationalUnitDistinguishedName = defaults.organizationalUnitDistinguishedName;
@@ -124,6 +138,12 @@ public final class WindowsFileSystemSelfManagedActiveDirectory {
         }
         public Builder dnsIps(String... dnsIps) {
             return dnsIps(List.of(dnsIps));
+        }
+        @CustomType.Setter
+        public Builder domainJoinServiceAccountSecret(@Nullable String domainJoinServiceAccountSecret) {
+
+            this.domainJoinServiceAccountSecret = domainJoinServiceAccountSecret;
+            return this;
         }
         @CustomType.Setter
         public Builder domainName(String domainName) {
@@ -146,24 +166,21 @@ public final class WindowsFileSystemSelfManagedActiveDirectory {
             return this;
         }
         @CustomType.Setter
-        public Builder password(String password) {
-            if (password == null) {
-              throw new MissingRequiredPropertyException("WindowsFileSystemSelfManagedActiveDirectory", "password");
-            }
+        public Builder password(@Nullable String password) {
+
             this.password = password;
             return this;
         }
         @CustomType.Setter
-        public Builder username(String username) {
-            if (username == null) {
-              throw new MissingRequiredPropertyException("WindowsFileSystemSelfManagedActiveDirectory", "username");
-            }
+        public Builder username(@Nullable String username) {
+
             this.username = username;
             return this;
         }
         public WindowsFileSystemSelfManagedActiveDirectory build() {
             final var _resultValue = new WindowsFileSystemSelfManagedActiveDirectory();
             _resultValue.dnsIps = dnsIps;
+            _resultValue.domainJoinServiceAccountSecret = domainJoinServiceAccountSecret;
             _resultValue.domainName = domainName;
             _resultValue.fileSystemAdministratorsGroup = fileSystemAdministratorsGroup;
             _resultValue.organizationalUnitDistinguishedName = organizationalUnitDistinguishedName;

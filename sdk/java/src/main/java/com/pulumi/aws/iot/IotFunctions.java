@@ -32,8 +32,10 @@ public final class IotFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.iot.IotFunctions;
      * import com.pulumi.aws.iot.inputs.GetEndpointArgs;
-     * import com.pulumi.kubernetes.Pod;
-     * import com.pulumi.kubernetes.PodArgs;
+     * import com.pulumi.kubernetes.core_v1.Pod;
+     * import com.pulumi.kubernetes.core_v1.PodArgs;
+     * import com.pulumi.kubernetes.meta_v1.inputs.ObjectMetaArgs;
+     * import com.pulumi.kubernetes.core_v1.inputs.PodSpecArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -51,15 +53,19 @@ public final class IotFunctions {
      *             .build());
      * 
      *         var agent = new Pod("agent", PodArgs.builder()
-     *             .metadata(List.of(Map.of("name", "my-device")))
-     *             .spec(List.of(Map.of("container", List.of(Map.ofEntries(
-     *                 Map.entry("image", "gcr.io/my-project/image-name"),
-     *                 Map.entry("name", "image-name"),
-     *                 Map.entry("env", List.of(Map.ofEntries(
-     *                     Map.entry("name", "IOT_ENDPOINT"),
-     *                     Map.entry("value", example.endpointAddress())
+     *             .metadata(ObjectMetaArgs.builder()
+     *                 .name("my-device")
+     *                 .build())
+     *             .spec(PodSpecArgs.builder()
+     *                 .container(List.of(Map.ofEntries(
+     *                     Map.entry("image", "gcr.io/my-project/image-name"),
+     *                     Map.entry("name", "image-name"),
+     *                     Map.entry("env", List.of(Map.ofEntries(
+     *                         Map.entry("name", "IOT_ENDPOINT"),
+     *                         Map.entry("value", example.endpointAddress())
+     *                     )))
      *                 )))
-     *             )))))
+     *                 .build())
      *             .build());
      * 
      *     }
@@ -85,8 +91,10 @@ public final class IotFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.iot.IotFunctions;
      * import com.pulumi.aws.iot.inputs.GetEndpointArgs;
-     * import com.pulumi.kubernetes.Pod;
-     * import com.pulumi.kubernetes.PodArgs;
+     * import com.pulumi.kubernetes.core_v1.Pod;
+     * import com.pulumi.kubernetes.core_v1.PodArgs;
+     * import com.pulumi.kubernetes.meta_v1.inputs.ObjectMetaArgs;
+     * import com.pulumi.kubernetes.core_v1.inputs.PodSpecArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -104,15 +112,19 @@ public final class IotFunctions {
      *             .build());
      * 
      *         var agent = new Pod("agent", PodArgs.builder()
-     *             .metadata(List.of(Map.of("name", "my-device")))
-     *             .spec(List.of(Map.of("container", List.of(Map.ofEntries(
-     *                 Map.entry("image", "gcr.io/my-project/image-name"),
-     *                 Map.entry("name", "image-name"),
-     *                 Map.entry("env", List.of(Map.ofEntries(
-     *                     Map.entry("name", "IOT_ENDPOINT"),
-     *                     Map.entry("value", example.endpointAddress())
+     *             .metadata(ObjectMetaArgs.builder()
+     *                 .name("my-device")
+     *                 .build())
+     *             .spec(PodSpecArgs.builder()
+     *                 .container(List.of(Map.ofEntries(
+     *                     Map.entry("image", "gcr.io/my-project/image-name"),
+     *                     Map.entry("name", "image-name"),
+     *                     Map.entry("env", List.of(Map.ofEntries(
+     *                         Map.entry("name", "IOT_ENDPOINT"),
+     *                         Map.entry("value", example.endpointAddress())
+     *                     )))
      *                 )))
-     *             )))))
+     *                 .build())
      *             .build());
      * 
      *     }
@@ -138,8 +150,10 @@ public final class IotFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.iot.IotFunctions;
      * import com.pulumi.aws.iot.inputs.GetEndpointArgs;
-     * import com.pulumi.kubernetes.Pod;
-     * import com.pulumi.kubernetes.PodArgs;
+     * import com.pulumi.kubernetes.core_v1.Pod;
+     * import com.pulumi.kubernetes.core_v1.PodArgs;
+     * import com.pulumi.kubernetes.meta_v1.inputs.ObjectMetaArgs;
+     * import com.pulumi.kubernetes.core_v1.inputs.PodSpecArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -157,15 +171,19 @@ public final class IotFunctions {
      *             .build());
      * 
      *         var agent = new Pod("agent", PodArgs.builder()
-     *             .metadata(List.of(Map.of("name", "my-device")))
-     *             .spec(List.of(Map.of("container", List.of(Map.ofEntries(
-     *                 Map.entry("image", "gcr.io/my-project/image-name"),
-     *                 Map.entry("name", "image-name"),
-     *                 Map.entry("env", List.of(Map.ofEntries(
-     *                     Map.entry("name", "IOT_ENDPOINT"),
-     *                     Map.entry("value", example.endpointAddress())
+     *             .metadata(ObjectMetaArgs.builder()
+     *                 .name("my-device")
+     *                 .build())
+     *             .spec(PodSpecArgs.builder()
+     *                 .container(List.of(Map.ofEntries(
+     *                     Map.entry("image", "gcr.io/my-project/image-name"),
+     *                     Map.entry("name", "image-name"),
+     *                     Map.entry("env", List.of(Map.ofEntries(
+     *                         Map.entry("name", "IOT_ENDPOINT"),
+     *                         Map.entry("value", example.endpointAddress())
+     *                     )))
      *                 )))
-     *             )))))
+     *                 .build())
      *             .build());
      * 
      *     }
@@ -191,8 +209,10 @@ public final class IotFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.iot.IotFunctions;
      * import com.pulumi.aws.iot.inputs.GetEndpointArgs;
-     * import com.pulumi.kubernetes.Pod;
-     * import com.pulumi.kubernetes.PodArgs;
+     * import com.pulumi.kubernetes.core_v1.Pod;
+     * import com.pulumi.kubernetes.core_v1.PodArgs;
+     * import com.pulumi.kubernetes.meta_v1.inputs.ObjectMetaArgs;
+     * import com.pulumi.kubernetes.core_v1.inputs.PodSpecArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -210,15 +230,19 @@ public final class IotFunctions {
      *             .build());
      * 
      *         var agent = new Pod("agent", PodArgs.builder()
-     *             .metadata(List.of(Map.of("name", "my-device")))
-     *             .spec(List.of(Map.of("container", List.of(Map.ofEntries(
-     *                 Map.entry("image", "gcr.io/my-project/image-name"),
-     *                 Map.entry("name", "image-name"),
-     *                 Map.entry("env", List.of(Map.ofEntries(
-     *                     Map.entry("name", "IOT_ENDPOINT"),
-     *                     Map.entry("value", example.endpointAddress())
+     *             .metadata(ObjectMetaArgs.builder()
+     *                 .name("my-device")
+     *                 .build())
+     *             .spec(PodSpecArgs.builder()
+     *                 .container(List.of(Map.ofEntries(
+     *                     Map.entry("image", "gcr.io/my-project/image-name"),
+     *                     Map.entry("name", "image-name"),
+     *                     Map.entry("env", List.of(Map.ofEntries(
+     *                         Map.entry("name", "IOT_ENDPOINT"),
+     *                         Map.entry("value", example.endpointAddress())
+     *                     )))
      *                 )))
-     *             )))))
+     *                 .build())
      *             .build());
      * 
      *     }
@@ -244,8 +268,10 @@ public final class IotFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.iot.IotFunctions;
      * import com.pulumi.aws.iot.inputs.GetEndpointArgs;
-     * import com.pulumi.kubernetes.Pod;
-     * import com.pulumi.kubernetes.PodArgs;
+     * import com.pulumi.kubernetes.core_v1.Pod;
+     * import com.pulumi.kubernetes.core_v1.PodArgs;
+     * import com.pulumi.kubernetes.meta_v1.inputs.ObjectMetaArgs;
+     * import com.pulumi.kubernetes.core_v1.inputs.PodSpecArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -263,15 +289,19 @@ public final class IotFunctions {
      *             .build());
      * 
      *         var agent = new Pod("agent", PodArgs.builder()
-     *             .metadata(List.of(Map.of("name", "my-device")))
-     *             .spec(List.of(Map.of("container", List.of(Map.ofEntries(
-     *                 Map.entry("image", "gcr.io/my-project/image-name"),
-     *                 Map.entry("name", "image-name"),
-     *                 Map.entry("env", List.of(Map.ofEntries(
-     *                     Map.entry("name", "IOT_ENDPOINT"),
-     *                     Map.entry("value", example.endpointAddress())
+     *             .metadata(ObjectMetaArgs.builder()
+     *                 .name("my-device")
+     *                 .build())
+     *             .spec(PodSpecArgs.builder()
+     *                 .container(List.of(Map.ofEntries(
+     *                     Map.entry("image", "gcr.io/my-project/image-name"),
+     *                     Map.entry("name", "image-name"),
+     *                     Map.entry("env", List.of(Map.ofEntries(
+     *                         Map.entry("name", "IOT_ENDPOINT"),
+     *                         Map.entry("value", example.endpointAddress())
+     *                     )))
      *                 )))
-     *             )))))
+     *                 .build())
      *             .build());
      * 
      *     }
@@ -297,8 +327,10 @@ public final class IotFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.iot.IotFunctions;
      * import com.pulumi.aws.iot.inputs.GetEndpointArgs;
-     * import com.pulumi.kubernetes.Pod;
-     * import com.pulumi.kubernetes.PodArgs;
+     * import com.pulumi.kubernetes.core_v1.Pod;
+     * import com.pulumi.kubernetes.core_v1.PodArgs;
+     * import com.pulumi.kubernetes.meta_v1.inputs.ObjectMetaArgs;
+     * import com.pulumi.kubernetes.core_v1.inputs.PodSpecArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -316,15 +348,19 @@ public final class IotFunctions {
      *             .build());
      * 
      *         var agent = new Pod("agent", PodArgs.builder()
-     *             .metadata(List.of(Map.of("name", "my-device")))
-     *             .spec(List.of(Map.of("container", List.of(Map.ofEntries(
-     *                 Map.entry("image", "gcr.io/my-project/image-name"),
-     *                 Map.entry("name", "image-name"),
-     *                 Map.entry("env", List.of(Map.ofEntries(
-     *                     Map.entry("name", "IOT_ENDPOINT"),
-     *                     Map.entry("value", example.endpointAddress())
+     *             .metadata(ObjectMetaArgs.builder()
+     *                 .name("my-device")
+     *                 .build())
+     *             .spec(PodSpecArgs.builder()
+     *                 .container(List.of(Map.ofEntries(
+     *                     Map.entry("image", "gcr.io/my-project/image-name"),
+     *                     Map.entry("name", "image-name"),
+     *                     Map.entry("env", List.of(Map.ofEntries(
+     *                         Map.entry("name", "IOT_ENDPOINT"),
+     *                         Map.entry("value", example.endpointAddress())
+     *                     )))
      *                 )))
-     *             )))))
+     *                 .build())
      *             .build());
      * 
      *     }
@@ -350,8 +386,10 @@ public final class IotFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.iot.IotFunctions;
      * import com.pulumi.aws.iot.inputs.GetEndpointArgs;
-     * import com.pulumi.kubernetes.Pod;
-     * import com.pulumi.kubernetes.PodArgs;
+     * import com.pulumi.kubernetes.core_v1.Pod;
+     * import com.pulumi.kubernetes.core_v1.PodArgs;
+     * import com.pulumi.kubernetes.meta_v1.inputs.ObjectMetaArgs;
+     * import com.pulumi.kubernetes.core_v1.inputs.PodSpecArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -369,15 +407,19 @@ public final class IotFunctions {
      *             .build());
      * 
      *         var agent = new Pod("agent", PodArgs.builder()
-     *             .metadata(List.of(Map.of("name", "my-device")))
-     *             .spec(List.of(Map.of("container", List.of(Map.ofEntries(
-     *                 Map.entry("image", "gcr.io/my-project/image-name"),
-     *                 Map.entry("name", "image-name"),
-     *                 Map.entry("env", List.of(Map.ofEntries(
-     *                     Map.entry("name", "IOT_ENDPOINT"),
-     *                     Map.entry("value", example.endpointAddress())
+     *             .metadata(ObjectMetaArgs.builder()
+     *                 .name("my-device")
+     *                 .build())
+     *             .spec(PodSpecArgs.builder()
+     *                 .container(List.of(Map.ofEntries(
+     *                     Map.entry("image", "gcr.io/my-project/image-name"),
+     *                     Map.entry("name", "image-name"),
+     *                     Map.entry("env", List.of(Map.ofEntries(
+     *                         Map.entry("name", "IOT_ENDPOINT"),
+     *                         Map.entry("value", example.endpointAddress())
+     *                     )))
      *                 )))
-     *             )))))
+     *                 .build())
      *             .build());
      * 
      *     }
@@ -407,6 +449,7 @@ public final class IotFunctions {
      * import com.pulumi.tls.PrivateKeyArgs;
      * import com.pulumi.tls.CertRequest;
      * import com.pulumi.tls.CertRequestArgs;
+     * import com.pulumi.tls.inputs.CertRequestSubjectArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -462,6 +505,7 @@ public final class IotFunctions {
      * import com.pulumi.tls.PrivateKeyArgs;
      * import com.pulumi.tls.CertRequest;
      * import com.pulumi.tls.CertRequestArgs;
+     * import com.pulumi.tls.inputs.CertRequestSubjectArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -517,6 +561,7 @@ public final class IotFunctions {
      * import com.pulumi.tls.PrivateKeyArgs;
      * import com.pulumi.tls.CertRequest;
      * import com.pulumi.tls.CertRequestArgs;
+     * import com.pulumi.tls.inputs.CertRequestSubjectArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -572,6 +617,7 @@ public final class IotFunctions {
      * import com.pulumi.tls.PrivateKeyArgs;
      * import com.pulumi.tls.CertRequest;
      * import com.pulumi.tls.CertRequestArgs;
+     * import com.pulumi.tls.inputs.CertRequestSubjectArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -627,6 +673,7 @@ public final class IotFunctions {
      * import com.pulumi.tls.PrivateKeyArgs;
      * import com.pulumi.tls.CertRequest;
      * import com.pulumi.tls.CertRequestArgs;
+     * import com.pulumi.tls.inputs.CertRequestSubjectArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -682,6 +729,7 @@ public final class IotFunctions {
      * import com.pulumi.tls.PrivateKeyArgs;
      * import com.pulumi.tls.CertRequest;
      * import com.pulumi.tls.CertRequestArgs;
+     * import com.pulumi.tls.inputs.CertRequestSubjectArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -737,6 +785,7 @@ public final class IotFunctions {
      * import com.pulumi.tls.PrivateKeyArgs;
      * import com.pulumi.tls.CertRequest;
      * import com.pulumi.tls.CertRequestArgs;
+     * import com.pulumi.tls.inputs.CertRequestSubjectArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;

@@ -13,6 +13,121 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type GetRequiredTagsRequiredTag struct {
+	// CloudFormation resource types assigned the required tag keys.
+	CloudFormationResourceTypes []string `pulumi:"cloudFormationResourceTypes"`
+	// Tag keys marked as required in the `reportRequiredTagFor` block of the effective tag policy.
+	ReportingTagKeys []string `pulumi:"reportingTagKeys"`
+	// Resource type for the required tag keys.
+	ResourceType string `pulumi:"resourceType"`
+}
+
+// GetRequiredTagsRequiredTagInput is an input type that accepts GetRequiredTagsRequiredTagArgs and GetRequiredTagsRequiredTagOutput values.
+// You can construct a concrete instance of `GetRequiredTagsRequiredTagInput` via:
+//
+//	GetRequiredTagsRequiredTagArgs{...}
+type GetRequiredTagsRequiredTagInput interface {
+	pulumi.Input
+
+	ToGetRequiredTagsRequiredTagOutput() GetRequiredTagsRequiredTagOutput
+	ToGetRequiredTagsRequiredTagOutputWithContext(context.Context) GetRequiredTagsRequiredTagOutput
+}
+
+type GetRequiredTagsRequiredTagArgs struct {
+	// CloudFormation resource types assigned the required tag keys.
+	CloudFormationResourceTypes pulumi.StringArrayInput `pulumi:"cloudFormationResourceTypes"`
+	// Tag keys marked as required in the `reportRequiredTagFor` block of the effective tag policy.
+	ReportingTagKeys pulumi.StringArrayInput `pulumi:"reportingTagKeys"`
+	// Resource type for the required tag keys.
+	ResourceType pulumi.StringInput `pulumi:"resourceType"`
+}
+
+func (GetRequiredTagsRequiredTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRequiredTagsRequiredTag)(nil)).Elem()
+}
+
+func (i GetRequiredTagsRequiredTagArgs) ToGetRequiredTagsRequiredTagOutput() GetRequiredTagsRequiredTagOutput {
+	return i.ToGetRequiredTagsRequiredTagOutputWithContext(context.Background())
+}
+
+func (i GetRequiredTagsRequiredTagArgs) ToGetRequiredTagsRequiredTagOutputWithContext(ctx context.Context) GetRequiredTagsRequiredTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRequiredTagsRequiredTagOutput)
+}
+
+// GetRequiredTagsRequiredTagArrayInput is an input type that accepts GetRequiredTagsRequiredTagArray and GetRequiredTagsRequiredTagArrayOutput values.
+// You can construct a concrete instance of `GetRequiredTagsRequiredTagArrayInput` via:
+//
+//	GetRequiredTagsRequiredTagArray{ GetRequiredTagsRequiredTagArgs{...} }
+type GetRequiredTagsRequiredTagArrayInput interface {
+	pulumi.Input
+
+	ToGetRequiredTagsRequiredTagArrayOutput() GetRequiredTagsRequiredTagArrayOutput
+	ToGetRequiredTagsRequiredTagArrayOutputWithContext(context.Context) GetRequiredTagsRequiredTagArrayOutput
+}
+
+type GetRequiredTagsRequiredTagArray []GetRequiredTagsRequiredTagInput
+
+func (GetRequiredTagsRequiredTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRequiredTagsRequiredTag)(nil)).Elem()
+}
+
+func (i GetRequiredTagsRequiredTagArray) ToGetRequiredTagsRequiredTagArrayOutput() GetRequiredTagsRequiredTagArrayOutput {
+	return i.ToGetRequiredTagsRequiredTagArrayOutputWithContext(context.Background())
+}
+
+func (i GetRequiredTagsRequiredTagArray) ToGetRequiredTagsRequiredTagArrayOutputWithContext(ctx context.Context) GetRequiredTagsRequiredTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetRequiredTagsRequiredTagArrayOutput)
+}
+
+type GetRequiredTagsRequiredTagOutput struct{ *pulumi.OutputState }
+
+func (GetRequiredTagsRequiredTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRequiredTagsRequiredTag)(nil)).Elem()
+}
+
+func (o GetRequiredTagsRequiredTagOutput) ToGetRequiredTagsRequiredTagOutput() GetRequiredTagsRequiredTagOutput {
+	return o
+}
+
+func (o GetRequiredTagsRequiredTagOutput) ToGetRequiredTagsRequiredTagOutputWithContext(ctx context.Context) GetRequiredTagsRequiredTagOutput {
+	return o
+}
+
+// CloudFormation resource types assigned the required tag keys.
+func (o GetRequiredTagsRequiredTagOutput) CloudFormationResourceTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetRequiredTagsRequiredTag) []string { return v.CloudFormationResourceTypes }).(pulumi.StringArrayOutput)
+}
+
+// Tag keys marked as required in the `reportRequiredTagFor` block of the effective tag policy.
+func (o GetRequiredTagsRequiredTagOutput) ReportingTagKeys() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetRequiredTagsRequiredTag) []string { return v.ReportingTagKeys }).(pulumi.StringArrayOutput)
+}
+
+// Resource type for the required tag keys.
+func (o GetRequiredTagsRequiredTagOutput) ResourceType() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRequiredTagsRequiredTag) string { return v.ResourceType }).(pulumi.StringOutput)
+}
+
+type GetRequiredTagsRequiredTagArrayOutput struct{ *pulumi.OutputState }
+
+func (GetRequiredTagsRequiredTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetRequiredTagsRequiredTag)(nil)).Elem()
+}
+
+func (o GetRequiredTagsRequiredTagArrayOutput) ToGetRequiredTagsRequiredTagArrayOutput() GetRequiredTagsRequiredTagArrayOutput {
+	return o
+}
+
+func (o GetRequiredTagsRequiredTagArrayOutput) ToGetRequiredTagsRequiredTagArrayOutputWithContext(ctx context.Context) GetRequiredTagsRequiredTagArrayOutput {
+	return o
+}
+
+func (o GetRequiredTagsRequiredTagArrayOutput) Index(i pulumi.IntInput) GetRequiredTagsRequiredTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetRequiredTagsRequiredTag {
+		return vs[0].([]GetRequiredTagsRequiredTag)[vs[1].(int)]
+	}).(GetRequiredTagsRequiredTagOutput)
+}
+
 type GetResourcesResourceTagMappingList struct {
 	// List of objects with information that shows whether a resource is compliant with the effective tag policy, including details on any noncompliant tag keys.
 	ComplianceDetails []GetResourcesResourceTagMappingListComplianceDetail `pulumi:"complianceDetails"`
@@ -354,12 +469,16 @@ func (o GetResourcesTagFilterArrayOutput) Index(i pulumi.IntInput) GetResourcesT
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRequiredTagsRequiredTagInput)(nil)).Elem(), GetRequiredTagsRequiredTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRequiredTagsRequiredTagArrayInput)(nil)).Elem(), GetRequiredTagsRequiredTagArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetResourcesResourceTagMappingListInput)(nil)).Elem(), GetResourcesResourceTagMappingListArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetResourcesResourceTagMappingListArrayInput)(nil)).Elem(), GetResourcesResourceTagMappingListArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetResourcesResourceTagMappingListComplianceDetailInput)(nil)).Elem(), GetResourcesResourceTagMappingListComplianceDetailArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetResourcesResourceTagMappingListComplianceDetailArrayInput)(nil)).Elem(), GetResourcesResourceTagMappingListComplianceDetailArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetResourcesTagFilterInput)(nil)).Elem(), GetResourcesTagFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetResourcesTagFilterArrayInput)(nil)).Elem(), GetResourcesTagFilterArray{})
+	pulumi.RegisterOutputType(GetRequiredTagsRequiredTagOutput{})
+	pulumi.RegisterOutputType(GetRequiredTagsRequiredTagArrayOutput{})
 	pulumi.RegisterOutputType(GetResourcesResourceTagMappingListOutput{})
 	pulumi.RegisterOutputType(GetResourcesResourceTagMappingListArrayOutput{})
 	pulumi.RegisterOutputType(GetResourcesResourceTagMappingListComplianceDetailOutput{})

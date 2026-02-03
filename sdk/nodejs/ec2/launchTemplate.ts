@@ -165,6 +165,7 @@ export class LaunchTemplate extends pulumi.CustomResource {
      * Interfaces below for more details.
      */
     declare public readonly networkInterfaces: pulumi.Output<outputs.ec2.LaunchTemplateNetworkInterface[] | undefined>;
+    declare public readonly networkPerformanceOptions: pulumi.Output<outputs.ec2.LaunchTemplateNetworkPerformanceOptions | undefined>;
     /**
      * The placement of the instance. See Placement below for more details.
      */
@@ -252,6 +253,7 @@ export class LaunchTemplate extends pulumi.CustomResource {
             resourceInputs["name"] = state?.name;
             resourceInputs["namePrefix"] = state?.namePrefix;
             resourceInputs["networkInterfaces"] = state?.networkInterfaces;
+            resourceInputs["networkPerformanceOptions"] = state?.networkPerformanceOptions;
             resourceInputs["placement"] = state?.placement;
             resourceInputs["privateDnsNameOptions"] = state?.privateDnsNameOptions;
             resourceInputs["ramDiskId"] = state?.ramDiskId;
@@ -291,6 +293,7 @@ export class LaunchTemplate extends pulumi.CustomResource {
             resourceInputs["name"] = args?.name;
             resourceInputs["namePrefix"] = args?.namePrefix;
             resourceInputs["networkInterfaces"] = args?.networkInterfaces;
+            resourceInputs["networkPerformanceOptions"] = args?.networkPerformanceOptions;
             resourceInputs["placement"] = args?.placement;
             resourceInputs["privateDnsNameOptions"] = args?.privateDnsNameOptions;
             resourceInputs["ramDiskId"] = args?.ramDiskId;
@@ -433,6 +436,7 @@ export interface LaunchTemplateState {
      * Interfaces below for more details.
      */
     networkInterfaces?: pulumi.Input<pulumi.Input<inputs.ec2.LaunchTemplateNetworkInterface>[]>;
+    networkPerformanceOptions?: pulumi.Input<inputs.ec2.LaunchTemplateNetworkPerformanceOptions>;
     /**
      * The placement of the instance. See Placement below for more details.
      */
@@ -595,6 +599,7 @@ export interface LaunchTemplateArgs {
      * Interfaces below for more details.
      */
     networkInterfaces?: pulumi.Input<pulumi.Input<inputs.ec2.LaunchTemplateNetworkInterface>[]>;
+    networkPerformanceOptions?: pulumi.Input<inputs.ec2.LaunchTemplateNetworkPerformanceOptions>;
     /**
      * The placement of the instance. See Placement below for more details.
      */

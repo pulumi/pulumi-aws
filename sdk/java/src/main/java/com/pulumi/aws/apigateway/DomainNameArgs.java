@@ -234,6 +234,21 @@ public final class DomainNameArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Mode to route traffic for the domain name. Valid values: `BASE_PATH_MAPPING_ONLY`, `ROUTING_RULE_ONLY`, `ROUTING_RULE_THEN_BASE_PATH_MAPPING`.
+     * 
+     */
+    @Import(name="routingMode")
+    private @Nullable Output<String> routingMode;
+
+    /**
+     * @return Mode to route traffic for the domain name. Valid values: `BASE_PATH_MAPPING_ONLY`, `ROUTING_RULE_ONLY`, `ROUTING_RULE_THEN_BASE_PATH_MAPPING`.
+     * 
+     */
+    public Optional<Output<String>> routingMode() {
+        return Optional.ofNullable(this.routingMode);
+    }
+
+    /**
      * Transport Layer Security (TLS) version + cipher suite for this DomainName. Must be configured to perform drift detection. For a list of valid security policies, see [DomainName](https://docs.aws.amazon.com/apigateway/latest/api/API_DomainName.html) in the Amazon API Gateway API Reference.
      * 
      */
@@ -284,6 +299,7 @@ public final class DomainNameArgs extends com.pulumi.resources.ResourceArgs {
         this.region = $.region;
         this.regionalCertificateArn = $.regionalCertificateArn;
         this.regionalCertificateName = $.regionalCertificateName;
+        this.routingMode = $.routingMode;
         this.securityPolicy = $.securityPolicy;
         this.tags = $.tags;
     }
@@ -602,6 +618,27 @@ public final class DomainNameArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder regionalCertificateName(String regionalCertificateName) {
             return regionalCertificateName(Output.of(regionalCertificateName));
+        }
+
+        /**
+         * @param routingMode Mode to route traffic for the domain name. Valid values: `BASE_PATH_MAPPING_ONLY`, `ROUTING_RULE_ONLY`, `ROUTING_RULE_THEN_BASE_PATH_MAPPING`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder routingMode(@Nullable Output<String> routingMode) {
+            $.routingMode = routingMode;
+            return this;
+        }
+
+        /**
+         * @param routingMode Mode to route traffic for the domain name. Valid values: `BASE_PATH_MAPPING_ONLY`, `ROUTING_RULE_ONLY`, `ROUTING_RULE_THEN_BASE_PATH_MAPPING`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder routingMode(String routingMode) {
+            return routingMode(Output.of(routingMode));
         }
 
         /**

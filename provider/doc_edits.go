@@ -211,48 +211,53 @@ var fixUpBucketReplicationConfig = tfbridge.DocsEdit{
 		fromBytes := []byte(
 			"* `rule` - (Required) List of configuration blocks describing the rules managing the replication. " +
 				"[See below](#rule).\n")
-		toBytes := []byte(
-			"* `rule` - (Required) List of configuration blocks describing the rules managing the replication. " +
-				"[See below](#rule).\n" +
-				"~> **NOTE:** Replication to multiple destination buckets requires that `priority` is specified " +
-				"in the `rule` object. If the corresponding rule requires no filter, an empty configuration block " +
-				"`filter {}` must be specified." +
-				"\n\n~> **NOTE:** Amazon S3's latest version of the replication configuration is V2, " +
-				"which includes the `filter` attribute for replication rules.\n\n" +
-				"~> **NOTE:** The `existingObjectReplication` parameter is not supported by Amazon S3 at this time " +
-				"and should not be included in your `rule` configurations. " +
-				"Specifying this parameter will result in `MalformedXML` errors.\n" +
-				"To replicate existing objects, please refer to the " +
-				"[Replicating existing objects with S3 Batch Replication]" +
-				"(https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-batch-replication-batch.html) " +
-				"documentation in the Amazon S3 User Guide.\n",
-		)
-		noteBytes := []byte(
-			"~> **NOTE:** Replication to multiple destination buckets requires that `priority` is specified " +
-				"in the `rule` object. If the corresponding rule requires no filter, an empty configuration block " +
-				"`filter {}` must be specified." +
-				"\n\n~> **NOTE:** Amazon S3's latest version of the replication configuration is V2, " +
-				"which includes the `filter` attribute for replication rules.\n\n" +
-				"~> **NOTE:** The `existing_object_replication` parameter is not supported by Amazon S3 at this time " +
-				"and should not be included in your `rule` configurations. " +
-				"Specifying this parameter will result in `MalformedXML` errors.\n" +
-				"To replicate existing objects, please refer to the [Replicating existing objects with S3 Batch Replication]" +
-				"(https://docs.aws.amazon.com/AmazonS3/latest/userguide/s3-batch-replication-batch.html) " +
-				"documentation in the Amazon S3 User Guide.\n",
-		)
-
-		if bytes.Contains(content, noteBytes) && bytes.Contains(content, fromBytes) {
-			content = bytes.ReplaceAll(
-				content,
-				fromBytes,
-				toBytes)
-		} else {
-			// Hard error to ensure we keep this content up to date
-			return nil, fmt.Errorf("could not find NOTE snippets in upstream %s, "+
-				"please verify replace content in doc_edits.go: %s", path, string(noteBytes))
+		noteBlock := extractRuleNotes(content)
+		if noteBlock == "" || bytes.Contains(content, []byte(noteBlock)) {
+			return content, nil
+		}
+		if bytes.Contains(content, fromBytes) {
+			toBytes := append([]byte{}, fromBytes...)
+			toBytes = append(toBytes, '\n')
+			toBytes = append(toBytes, []byte(noteBlock)...)
+			toBytes = append(toBytes, '\n')
+			return bytes.ReplaceAll(content, fromBytes, toBytes), nil
 		}
 		return content, nil
 	},
+}
+
+func extractRuleNotes(content []byte) string {
+	const ruleHeader = "### rule\n"
+	text := string(content)
+	start := strings.Index(text, ruleHeader)
+	if start == -1 {
+		return ""
+	}
+	section := text[start+len(ruleHeader):]
+	if next := strings.Index(section, "\n### "); next != -1 {
+		section = section[:next]
+	}
+	lines := strings.Split(section, "\n")
+	firstNote := -1
+	for i, line := range lines {
+		if strings.HasPrefix(line, "~> **NOTE:**") {
+			firstNote = i
+			break
+		}
+	}
+	if firstNote == -1 {
+		return ""
+	}
+	end := len(lines)
+	for i := firstNote + 1; i < len(lines); i++ {
+		line := lines[i]
+		if strings.HasPrefix(line, "### ") || strings.HasPrefix(line, "#### ") || strings.HasPrefix(line, "The `rule`") {
+			end = i
+			break
+		}
+	}
+	notes := strings.Trim(strings.Join(lines[firstNote:end], "\n"), "\n")
+	return notes
 }
 
 func reReplace(from string, to string) tfbridge.DocsEdit {

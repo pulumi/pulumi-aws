@@ -38,7 +38,7 @@ public final class PlacementGroupArgs extends com.pulumi.resources.ResourceArgs 
     /**
      * The number of partitions to create in the
      * placement group.  Can only be specified when the `strategy` is set to
-     * `partition`.  Valid values are 1 - 7 (default is `2`).
+     * `partition`.  Must be at least `1`. (default is `2`).
      * 
      */
     @Import(name="partitionCount")
@@ -47,7 +47,7 @@ public final class PlacementGroupArgs extends com.pulumi.resources.ResourceArgs 
     /**
      * @return The number of partitions to create in the
      * placement group.  Can only be specified when the `strategy` is set to
-     * `partition`.  Valid values are 1 - 7 (default is `2`).
+     * `partition`.  Must be at least `1`. (default is `2`).
      * 
      */
     public Optional<Output<Integer>> partitionCount() {
@@ -169,7 +169,7 @@ public final class PlacementGroupArgs extends com.pulumi.resources.ResourceArgs 
         /**
          * @param partitionCount The number of partitions to create in the
          * placement group.  Can only be specified when the `strategy` is set to
-         * `partition`.  Valid values are 1 - 7 (default is `2`).
+         * `partition`.  Must be at least `1`. (default is `2`).
          * 
          * @return builder
          * 
@@ -182,7 +182,7 @@ public final class PlacementGroupArgs extends com.pulumi.resources.ResourceArgs 
         /**
          * @param partitionCount The number of partitions to create in the
          * placement group.  Can only be specified when the `strategy` is set to
-         * `partition`.  Valid values are 1 - 7 (default is `2`).
+         * `partition`.  Must be at least `1`. (default is `2`).
          * 
          * @return builder
          * 

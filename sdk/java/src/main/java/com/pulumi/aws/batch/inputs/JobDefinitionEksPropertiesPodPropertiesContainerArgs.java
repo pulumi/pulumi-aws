@@ -127,14 +127,14 @@ public final class JobDefinitionEksPropertiesPodPropertiesContainerArgs extends 
     }
 
     /**
-     * Security context for a job.
+     * Security context for a job. See `securityContext` below.
      * 
      */
     @Import(name="securityContext")
     private @Nullable Output<JobDefinitionEksPropertiesPodPropertiesContainerSecurityContextArgs> securityContext;
 
     /**
-     * @return Security context for a job.
+     * @return Security context for a job. See `securityContext` below.
      * 
      */
     public Optional<Output<JobDefinitionEksPropertiesPodPropertiesContainerSecurityContextArgs>> securityContext() {
@@ -366,7 +366,7 @@ public final class JobDefinitionEksPropertiesPodPropertiesContainerArgs extends 
         }
 
         /**
-         * @param securityContext Security context for a job.
+         * @param securityContext Security context for a job. See `securityContext` below.
          * 
          * @return builder
          * 
@@ -377,7 +377,7 @@ public final class JobDefinitionEksPropertiesPodPropertiesContainerArgs extends 
         }
 
         /**
-         * @param securityContext Security context for a job.
+         * @param securityContext Security context for a job. See `securityContext` below.
          * 
          * @return builder
          * 

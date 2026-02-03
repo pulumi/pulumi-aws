@@ -435,6 +435,7 @@ class Endpoints(dict):
                  mediastore: Optional[_builtins.str] = None,
                  memorydb: Optional[_builtins.str] = None,
                  mgn: Optional[_builtins.str] = None,
+                 mpa: Optional[_builtins.str] = None,
                  mq: Optional[_builtins.str] = None,
                  msk: Optional[_builtins.str] = None,
                  mwaa: Optional[_builtins.str] = None,
@@ -501,6 +502,7 @@ class Endpoints(dict):
                  s3tables: Optional[_builtins.str] = None,
                  s3vectors: Optional[_builtins.str] = None,
                  sagemaker: Optional[_builtins.str] = None,
+                 savingsplans: Optional[_builtins.str] = None,
                  scheduler: Optional[_builtins.str] = None,
                  schemas: Optional[_builtins.str] = None,
                  secretsmanager: Optional[_builtins.str] = None,
@@ -743,6 +745,7 @@ class Endpoints(dict):
         :param _builtins.str mediastore: Use this to override the default service endpoint URL
         :param _builtins.str memorydb: Use this to override the default service endpoint URL
         :param _builtins.str mgn: Use this to override the default service endpoint URL
+        :param _builtins.str mpa: Use this to override the default service endpoint URL
         :param _builtins.str mq: Use this to override the default service endpoint URL
         :param _builtins.str msk: Use this to override the default service endpoint URL
         :param _builtins.str mwaa: Use this to override the default service endpoint URL
@@ -809,6 +812,7 @@ class Endpoints(dict):
         :param _builtins.str s3tables: Use this to override the default service endpoint URL
         :param _builtins.str s3vectors: Use this to override the default service endpoint URL
         :param _builtins.str sagemaker: Use this to override the default service endpoint URL
+        :param _builtins.str savingsplans: Use this to override the default service endpoint URL
         :param _builtins.str scheduler: Use this to override the default service endpoint URL
         :param _builtins.str schemas: Use this to override the default service endpoint URL
         :param _builtins.str secretsmanager: Use this to override the default service endpoint URL
@@ -1244,6 +1248,8 @@ class Endpoints(dict):
             pulumi.set(__self__, "memorydb", memorydb)
         if mgn is not None:
             pulumi.set(__self__, "mgn", mgn)
+        if mpa is not None:
+            pulumi.set(__self__, "mpa", mpa)
         if mq is not None:
             pulumi.set(__self__, "mq", mq)
         if msk is not None:
@@ -1376,6 +1382,8 @@ class Endpoints(dict):
             pulumi.set(__self__, "s3vectors", s3vectors)
         if sagemaker is not None:
             pulumi.set(__self__, "sagemaker", sagemaker)
+        if savingsplans is not None:
+            pulumi.set(__self__, "savingsplans", savingsplans)
         if scheduler is not None:
             pulumi.set(__self__, "scheduler", scheduler)
         if schemas is not None:
@@ -3019,6 +3027,14 @@ class Endpoints(dict):
 
     @_builtins.property
     @pulumi.getter
+    def mpa(self) -> Optional[_builtins.str]:
+        """
+        Use this to override the default service endpoint URL
+        """
+        return pulumi.get(self, "mpa")
+
+    @_builtins.property
+    @pulumi.getter
     def mq(self) -> Optional[_builtins.str]:
         """
         Use this to override the default service endpoint URL
@@ -3544,6 +3560,14 @@ class Endpoints(dict):
         Use this to override the default service endpoint URL
         """
         return pulumi.get(self, "sagemaker")
+
+    @_builtins.property
+    @pulumi.getter
+    def savingsplans(self) -> Optional[_builtins.str]:
+        """
+        Use this to override the default service endpoint URL
+        """
+        return pulumi.get(self, "savingsplans")
 
     @_builtins.property
     @pulumi.getter

@@ -20,6 +20,7 @@ import com.pulumi.aws.ec2.outputs.LaunchTemplateMaintenanceOptions;
 import com.pulumi.aws.ec2.outputs.LaunchTemplateMetadataOptions;
 import com.pulumi.aws.ec2.outputs.LaunchTemplateMonitoring;
 import com.pulumi.aws.ec2.outputs.LaunchTemplateNetworkInterface;
+import com.pulumi.aws.ec2.outputs.LaunchTemplateNetworkPerformanceOptions;
 import com.pulumi.aws.ec2.outputs.LaunchTemplatePlacement;
 import com.pulumi.aws.ec2.outputs.LaunchTemplatePrivateDnsNameOptions;
 import com.pulumi.aws.ec2.outputs.LaunchTemplateTagSpecification;
@@ -454,6 +455,12 @@ public class LaunchTemplate extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<List<LaunchTemplateNetworkInterface>>> networkInterfaces() {
         return Codegen.optional(this.networkInterfaces);
+    }
+    @Export(name="networkPerformanceOptions", refs={LaunchTemplateNetworkPerformanceOptions.class}, tree="[0]")
+    private Output</* @Nullable */ LaunchTemplateNetworkPerformanceOptions> networkPerformanceOptions;
+
+    public Output<Optional<LaunchTemplateNetworkPerformanceOptions>> networkPerformanceOptions() {
+        return Codegen.optional(this.networkPerformanceOptions);
     }
     /**
      * The placement of the instance. See Placement below for more details.

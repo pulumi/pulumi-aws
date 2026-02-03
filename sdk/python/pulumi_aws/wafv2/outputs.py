@@ -986,6 +986,25 @@ __all__ = [
     'WebAclRuleStatementXssMatchStatementTextTransformation',
     'WebAclRuleVisibilityConfig',
     'WebAclVisibilityConfig',
+    'GetManagedRuleGroupAvailableLabelResult',
+    'GetManagedRuleGroupConsumedLabelResult',
+    'GetManagedRuleGroupRuleResult',
+    'GetManagedRuleGroupRuleActionResult',
+    'GetManagedRuleGroupRuleActionAllowResult',
+    'GetManagedRuleGroupRuleActionAllowCustomRequestHandlingResult',
+    'GetManagedRuleGroupRuleActionAllowCustomRequestHandlingInsertHeaderResult',
+    'GetManagedRuleGroupRuleActionBlockResult',
+    'GetManagedRuleGroupRuleActionBlockCustomResponseResult',
+    'GetManagedRuleGroupRuleActionBlockCustomResponseResponseHeaderResult',
+    'GetManagedRuleGroupRuleActionCaptchaResult',
+    'GetManagedRuleGroupRuleActionCaptchaCustomRequestHandlingResult',
+    'GetManagedRuleGroupRuleActionCaptchaCustomRequestHandlingInsertHeaderResult',
+    'GetManagedRuleGroupRuleActionChallengeResult',
+    'GetManagedRuleGroupRuleActionChallengeCustomRequestHandlingResult',
+    'GetManagedRuleGroupRuleActionChallengeCustomRequestHandlingInsertHeaderResult',
+    'GetManagedRuleGroupRuleActionCountResult',
+    'GetManagedRuleGroupRuleActionCountCustomRequestHandlingResult',
+    'GetManagedRuleGroupRuleActionCountCustomRequestHandlingInsertHeaderResult',
     'GetRegexPatternSetRegularExpressionResult',
 ]
 
@@ -40563,6 +40582,370 @@ class WebAclVisibilityConfig(dict):
         Whether AWS WAF should store a sampling of the web requests that match the rules. You can view the sampled requests through the AWS WAF console.
         """
         return pulumi.get(self, "sampled_requests_enabled")
+
+
+@pulumi.output_type
+class GetManagedRuleGroupAvailableLabelResult(dict):
+    def __init__(__self__, *,
+                 name: _builtins.str):
+        """
+        :param _builtins.str name: Managed rule group name.
+        """
+        pulumi.set(__self__, "name", name)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        """
+        Managed rule group name.
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class GetManagedRuleGroupConsumedLabelResult(dict):
+    def __init__(__self__, *,
+                 name: _builtins.str):
+        """
+        :param _builtins.str name: Managed rule group name.
+        """
+        pulumi.set(__self__, "name", name)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        """
+        Managed rule group name.
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class GetManagedRuleGroupRuleResult(dict):
+    def __init__(__self__, *,
+                 actions: Sequence['outputs.GetManagedRuleGroupRuleActionResult'],
+                 name: _builtins.str):
+        """
+        :param Sequence['GetManagedRuleGroupRuleActionArgs'] actions: Action taken on a web request when it matches a rule's statement. See `action_to_use` for details.
+        :param _builtins.str name: Managed rule group name.
+        """
+        pulumi.set(__self__, "actions", actions)
+        pulumi.set(__self__, "name", name)
+
+    @_builtins.property
+    @pulumi.getter
+    def actions(self) -> Sequence['outputs.GetManagedRuleGroupRuleActionResult']:
+        """
+        Action taken on a web request when it matches a rule's statement. See `action_to_use` for details.
+        """
+        return pulumi.get(self, "actions")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        """
+        Managed rule group name.
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class GetManagedRuleGroupRuleActionResult(dict):
+    def __init__(__self__, *,
+                 allows: Sequence['outputs.GetManagedRuleGroupRuleActionAllowResult'],
+                 blocks: Sequence['outputs.GetManagedRuleGroupRuleActionBlockResult'],
+                 captchas: Sequence['outputs.GetManagedRuleGroupRuleActionCaptchaResult'],
+                 challenges: Sequence['outputs.GetManagedRuleGroupRuleActionChallengeResult'],
+                 counts: Sequence['outputs.GetManagedRuleGroupRuleActionCountResult']):
+        pulumi.set(__self__, "allows", allows)
+        pulumi.set(__self__, "blocks", blocks)
+        pulumi.set(__self__, "captchas", captchas)
+        pulumi.set(__self__, "challenges", challenges)
+        pulumi.set(__self__, "counts", counts)
+
+    @_builtins.property
+    @pulumi.getter
+    def allows(self) -> Sequence['outputs.GetManagedRuleGroupRuleActionAllowResult']:
+        return pulumi.get(self, "allows")
+
+    @_builtins.property
+    @pulumi.getter
+    def blocks(self) -> Sequence['outputs.GetManagedRuleGroupRuleActionBlockResult']:
+        return pulumi.get(self, "blocks")
+
+    @_builtins.property
+    @pulumi.getter
+    def captchas(self) -> Sequence['outputs.GetManagedRuleGroupRuleActionCaptchaResult']:
+        return pulumi.get(self, "captchas")
+
+    @_builtins.property
+    @pulumi.getter
+    def challenges(self) -> Sequence['outputs.GetManagedRuleGroupRuleActionChallengeResult']:
+        return pulumi.get(self, "challenges")
+
+    @_builtins.property
+    @pulumi.getter
+    def counts(self) -> Sequence['outputs.GetManagedRuleGroupRuleActionCountResult']:
+        return pulumi.get(self, "counts")
+
+
+@pulumi.output_type
+class GetManagedRuleGroupRuleActionAllowResult(dict):
+    def __init__(__self__, *,
+                 custom_request_handlings: Sequence['outputs.GetManagedRuleGroupRuleActionAllowCustomRequestHandlingResult']):
+        pulumi.set(__self__, "custom_request_handlings", custom_request_handlings)
+
+    @_builtins.property
+    @pulumi.getter(name="customRequestHandlings")
+    def custom_request_handlings(self) -> Sequence['outputs.GetManagedRuleGroupRuleActionAllowCustomRequestHandlingResult']:
+        return pulumi.get(self, "custom_request_handlings")
+
+
+@pulumi.output_type
+class GetManagedRuleGroupRuleActionAllowCustomRequestHandlingResult(dict):
+    def __init__(__self__, *,
+                 insert_headers: Sequence['outputs.GetManagedRuleGroupRuleActionAllowCustomRequestHandlingInsertHeaderResult']):
+        pulumi.set(__self__, "insert_headers", insert_headers)
+
+    @_builtins.property
+    @pulumi.getter(name="insertHeaders")
+    def insert_headers(self) -> Sequence['outputs.GetManagedRuleGroupRuleActionAllowCustomRequestHandlingInsertHeaderResult']:
+        return pulumi.get(self, "insert_headers")
+
+
+@pulumi.output_type
+class GetManagedRuleGroupRuleActionAllowCustomRequestHandlingInsertHeaderResult(dict):
+    def __init__(__self__, *,
+                 name: _builtins.str,
+                 value: _builtins.str):
+        """
+        :param _builtins.str name: Managed rule group name.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        """
+        Managed rule group name.
+        """
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetManagedRuleGroupRuleActionBlockResult(dict):
+    def __init__(__self__, *,
+                 custom_responses: Sequence['outputs.GetManagedRuleGroupRuleActionBlockCustomResponseResult']):
+        pulumi.set(__self__, "custom_responses", custom_responses)
+
+    @_builtins.property
+    @pulumi.getter(name="customResponses")
+    def custom_responses(self) -> Sequence['outputs.GetManagedRuleGroupRuleActionBlockCustomResponseResult']:
+        return pulumi.get(self, "custom_responses")
+
+
+@pulumi.output_type
+class GetManagedRuleGroupRuleActionBlockCustomResponseResult(dict):
+    def __init__(__self__, *,
+                 custom_response_body_key: _builtins.str,
+                 response_code: _builtins.int,
+                 response_headers: Sequence['outputs.GetManagedRuleGroupRuleActionBlockCustomResponseResponseHeaderResult']):
+        pulumi.set(__self__, "custom_response_body_key", custom_response_body_key)
+        pulumi.set(__self__, "response_code", response_code)
+        pulumi.set(__self__, "response_headers", response_headers)
+
+    @_builtins.property
+    @pulumi.getter(name="customResponseBodyKey")
+    def custom_response_body_key(self) -> _builtins.str:
+        return pulumi.get(self, "custom_response_body_key")
+
+    @_builtins.property
+    @pulumi.getter(name="responseCode")
+    def response_code(self) -> _builtins.int:
+        return pulumi.get(self, "response_code")
+
+    @_builtins.property
+    @pulumi.getter(name="responseHeaders")
+    def response_headers(self) -> Sequence['outputs.GetManagedRuleGroupRuleActionBlockCustomResponseResponseHeaderResult']:
+        return pulumi.get(self, "response_headers")
+
+
+@pulumi.output_type
+class GetManagedRuleGroupRuleActionBlockCustomResponseResponseHeaderResult(dict):
+    def __init__(__self__, *,
+                 name: _builtins.str,
+                 value: _builtins.str):
+        """
+        :param _builtins.str name: Managed rule group name.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        """
+        Managed rule group name.
+        """
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetManagedRuleGroupRuleActionCaptchaResult(dict):
+    def __init__(__self__, *,
+                 custom_request_handlings: Sequence['outputs.GetManagedRuleGroupRuleActionCaptchaCustomRequestHandlingResult']):
+        pulumi.set(__self__, "custom_request_handlings", custom_request_handlings)
+
+    @_builtins.property
+    @pulumi.getter(name="customRequestHandlings")
+    def custom_request_handlings(self) -> Sequence['outputs.GetManagedRuleGroupRuleActionCaptchaCustomRequestHandlingResult']:
+        return pulumi.get(self, "custom_request_handlings")
+
+
+@pulumi.output_type
+class GetManagedRuleGroupRuleActionCaptchaCustomRequestHandlingResult(dict):
+    def __init__(__self__, *,
+                 insert_headers: Sequence['outputs.GetManagedRuleGroupRuleActionCaptchaCustomRequestHandlingInsertHeaderResult']):
+        pulumi.set(__self__, "insert_headers", insert_headers)
+
+    @_builtins.property
+    @pulumi.getter(name="insertHeaders")
+    def insert_headers(self) -> Sequence['outputs.GetManagedRuleGroupRuleActionCaptchaCustomRequestHandlingInsertHeaderResult']:
+        return pulumi.get(self, "insert_headers")
+
+
+@pulumi.output_type
+class GetManagedRuleGroupRuleActionCaptchaCustomRequestHandlingInsertHeaderResult(dict):
+    def __init__(__self__, *,
+                 name: _builtins.str,
+                 value: _builtins.str):
+        """
+        :param _builtins.str name: Managed rule group name.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        """
+        Managed rule group name.
+        """
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetManagedRuleGroupRuleActionChallengeResult(dict):
+    def __init__(__self__, *,
+                 custom_request_handlings: Sequence['outputs.GetManagedRuleGroupRuleActionChallengeCustomRequestHandlingResult']):
+        pulumi.set(__self__, "custom_request_handlings", custom_request_handlings)
+
+    @_builtins.property
+    @pulumi.getter(name="customRequestHandlings")
+    def custom_request_handlings(self) -> Sequence['outputs.GetManagedRuleGroupRuleActionChallengeCustomRequestHandlingResult']:
+        return pulumi.get(self, "custom_request_handlings")
+
+
+@pulumi.output_type
+class GetManagedRuleGroupRuleActionChallengeCustomRequestHandlingResult(dict):
+    def __init__(__self__, *,
+                 insert_headers: Sequence['outputs.GetManagedRuleGroupRuleActionChallengeCustomRequestHandlingInsertHeaderResult']):
+        pulumi.set(__self__, "insert_headers", insert_headers)
+
+    @_builtins.property
+    @pulumi.getter(name="insertHeaders")
+    def insert_headers(self) -> Sequence['outputs.GetManagedRuleGroupRuleActionChallengeCustomRequestHandlingInsertHeaderResult']:
+        return pulumi.get(self, "insert_headers")
+
+
+@pulumi.output_type
+class GetManagedRuleGroupRuleActionChallengeCustomRequestHandlingInsertHeaderResult(dict):
+    def __init__(__self__, *,
+                 name: _builtins.str,
+                 value: _builtins.str):
+        """
+        :param _builtins.str name: Managed rule group name.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        """
+        Managed rule group name.
+        """
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.str:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetManagedRuleGroupRuleActionCountResult(dict):
+    def __init__(__self__, *,
+                 custom_request_handlings: Sequence['outputs.GetManagedRuleGroupRuleActionCountCustomRequestHandlingResult']):
+        pulumi.set(__self__, "custom_request_handlings", custom_request_handlings)
+
+    @_builtins.property
+    @pulumi.getter(name="customRequestHandlings")
+    def custom_request_handlings(self) -> Sequence['outputs.GetManagedRuleGroupRuleActionCountCustomRequestHandlingResult']:
+        return pulumi.get(self, "custom_request_handlings")
+
+
+@pulumi.output_type
+class GetManagedRuleGroupRuleActionCountCustomRequestHandlingResult(dict):
+    def __init__(__self__, *,
+                 insert_headers: Sequence['outputs.GetManagedRuleGroupRuleActionCountCustomRequestHandlingInsertHeaderResult']):
+        pulumi.set(__self__, "insert_headers", insert_headers)
+
+    @_builtins.property
+    @pulumi.getter(name="insertHeaders")
+    def insert_headers(self) -> Sequence['outputs.GetManagedRuleGroupRuleActionCountCustomRequestHandlingInsertHeaderResult']:
+        return pulumi.get(self, "insert_headers")
+
+
+@pulumi.output_type
+class GetManagedRuleGroupRuleActionCountCustomRequestHandlingInsertHeaderResult(dict):
+    def __init__(__self__, *,
+                 name: _builtins.str,
+                 value: _builtins.str):
+        """
+        :param _builtins.str name: Managed rule group name.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        """
+        Managed rule group name.
+        """
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.str:
+        return pulumi.get(self, "value")
 
 
 @pulumi.output_type

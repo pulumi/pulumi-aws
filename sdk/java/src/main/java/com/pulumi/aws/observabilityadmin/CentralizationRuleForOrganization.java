@@ -38,6 +38,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.AwsFunctions;
  * import com.pulumi.aws.inputs.GetCallerIdentityArgs;
  * import com.pulumi.aws.organizations.OrganizationsFunctions;
+ * import com.pulumi.aws.organizations.inputs.GetOrganizationArgs;
  * import com.pulumi.aws.observabilityadmin.CentralizationRuleForOrganization;
  * import com.pulumi.aws.observabilityadmin.CentralizationRuleForOrganizationArgs;
  * import com.pulumi.aws.observabilityadmin.inputs.CentralizationRuleForOrganizationRuleArgs;
@@ -60,7 +61,8 @@ import javax.annotation.Nullable;
  *         final var current = AwsFunctions.getCallerIdentity(GetCallerIdentityArgs.builder()
  *             .build());
  * 
- *         final var currentGetOrganization = OrganizationsFunctions.getOrganization(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+ *         final var currentGetOrganization = OrganizationsFunctions.getOrganization(GetOrganizationArgs.builder()
+ *             .build());
  * 
  *         var example = new CentralizationRuleForOrganization("example", CentralizationRuleForOrganizationArgs.builder()
  *             .ruleName("example-centralization-rule")
@@ -101,6 +103,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.AwsFunctions;
  * import com.pulumi.aws.inputs.GetCallerIdentityArgs;
  * import com.pulumi.aws.organizations.OrganizationsFunctions;
+ * import com.pulumi.aws.organizations.inputs.GetOrganizationArgs;
  * import com.pulumi.aws.observabilityadmin.CentralizationRuleForOrganization;
  * import com.pulumi.aws.observabilityadmin.CentralizationRuleForOrganizationArgs;
  * import com.pulumi.aws.observabilityadmin.inputs.CentralizationRuleForOrganizationRuleArgs;
@@ -126,7 +129,8 @@ import javax.annotation.Nullable;
  *         final var current = AwsFunctions.getCallerIdentity(GetCallerIdentityArgs.builder()
  *             .build());
  * 
- *         final var currentGetOrganization = OrganizationsFunctions.getOrganization(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+ *         final var currentGetOrganization = OrganizationsFunctions.getOrganization(GetOrganizationArgs.builder()
+ *             .build());
  * 
  *         var advanced = new CentralizationRuleForOrganization("advanced", CentralizationRuleForOrganizationArgs.builder()
  *             .ruleName("advanced-centralization-rule")
@@ -178,6 +182,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.AwsFunctions;
  * import com.pulumi.aws.inputs.GetCallerIdentityArgs;
  * import com.pulumi.aws.organizations.OrganizationsFunctions;
+ * import com.pulumi.aws.organizations.inputs.GetOrganizationArgs;
  * import com.pulumi.aws.observabilityadmin.CentralizationRuleForOrganization;
  * import com.pulumi.aws.observabilityadmin.CentralizationRuleForOrganizationArgs;
  * import com.pulumi.aws.observabilityadmin.inputs.CentralizationRuleForOrganizationRuleArgs;
@@ -200,7 +205,8 @@ import javax.annotation.Nullable;
  *         final var current = AwsFunctions.getCallerIdentity(GetCallerIdentityArgs.builder()
  *             .build());
  * 
- *         final var currentGetOrganization = OrganizationsFunctions.getOrganization(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+ *         final var currentGetOrganization = OrganizationsFunctions.getOrganization(GetOrganizationArgs.builder()
+ *             .build());
  * 
  *         var filtered = new CentralizationRuleForOrganization("filtered", CentralizationRuleForOrganizationArgs.builder()
  *             .ruleName("filtered-centralization-rule")

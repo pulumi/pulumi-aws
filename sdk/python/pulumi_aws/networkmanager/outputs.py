@@ -1447,6 +1447,7 @@ class GetCoreNetworkPolicyDocumentSegmentActionResult(dict):
                  destinations: Optional[Sequence[_builtins.str]] = None,
                  edge_location_association: Optional['outputs.GetCoreNetworkPolicyDocumentSegmentActionEdgeLocationAssociationResult'] = None,
                  mode: Optional[_builtins.str] = None,
+                 routing_policy_names: Optional[Sequence[_builtins.str]] = None,
                  share_with_excepts: Optional[Sequence[_builtins.str]] = None,
                  share_withs: Optional[Sequence[_builtins.str]] = None,
                  via: Optional['outputs.GetCoreNetworkPolicyDocumentSegmentActionViaResult'] = None,
@@ -1459,6 +1460,7 @@ class GetCoreNetworkPolicyDocumentSegmentActionResult(dict):
         :param Sequence[_builtins.str] destinations: A list of strings. Valid values include `["blackhole"]` or a list of attachment ids.
         :param 'GetCoreNetworkPolicyDocumentSegmentActionEdgeLocationAssociationArgs' edge_location_association: Associates routing policies with specific edge location pairs. Available in policy version `2025.11` and later. Detailed below.
         :param _builtins.str mode: String. When `action` is `share`, a `mode` value of `attachment-route` places the attachment and return routes in each of the `share_with` segments. When `action` is `send-via`, indicates the mode used for packets. Valid values: `attachment-route`, `single-hop`, `dual-hop`.
+        :param Sequence[_builtins.str] routing_policy_names: A list of routing policy names to apply to segment sharing. The routing policies control how routes are propagated between the shared segments. Only applicable when `action` is `share`. Available in policy version `2025.11` and later.
         :param Sequence[_builtins.str] share_with_excepts: A set subtraction of segments to not share with.
         :param Sequence[_builtins.str] share_withs: A list of strings to share with. Must be a substring is all segments. Valid values include: `["*"]` or `["<segment-names>"]`.
         :param 'GetCoreNetworkPolicyDocumentSegmentActionViaArgs' via: The network function groups and any edge overrides associated with the action.
@@ -1476,6 +1478,8 @@ class GetCoreNetworkPolicyDocumentSegmentActionResult(dict):
             pulumi.set(__self__, "edge_location_association", edge_location_association)
         if mode is not None:
             pulumi.set(__self__, "mode", mode)
+        if routing_policy_names is not None:
+            pulumi.set(__self__, "routing_policy_names", routing_policy_names)
         if share_with_excepts is not None:
             pulumi.set(__self__, "share_with_excepts", share_with_excepts)
         if share_withs is not None:
@@ -1540,6 +1544,14 @@ class GetCoreNetworkPolicyDocumentSegmentActionResult(dict):
         String. When `action` is `share`, a `mode` value of `attachment-route` places the attachment and return routes in each of the `share_with` segments. When `action` is `send-via`, indicates the mode used for packets. Valid values: `attachment-route`, `single-hop`, `dual-hop`.
         """
         return pulumi.get(self, "mode")
+
+    @_builtins.property
+    @pulumi.getter(name="routingPolicyNames")
+    def routing_policy_names(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        A list of routing policy names to apply to segment sharing. The routing policies control how routes are propagated between the shared segments. Only applicable when `action` is `share`. Available in policy version `2025.11` and later.
+        """
+        return pulumi.get(self, "routing_policy_names")
 
     @_builtins.property
     @pulumi.getter(name="shareWithExcepts")

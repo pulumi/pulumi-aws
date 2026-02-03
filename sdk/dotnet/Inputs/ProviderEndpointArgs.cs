@@ -1173,6 +1173,12 @@ namespace Pulumi.Aws.Inputs
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
+        [Input("mpa")]
+        public Input<string>? Mpa { get; set; }
+
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("mq")]
         public Input<string>? Mq { get; set; }
 
@@ -1565,6 +1571,12 @@ namespace Pulumi.Aws.Inputs
         /// </summary>
         [Input("sagemaker")]
         public Input<string>? Sagemaker { get; set; }
+
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
+        [Input("savingsplans")]
+        public Input<string>? Savingsplans { get; set; }
 
         /// <summary>
         /// Use this to override the default service endpoint URL

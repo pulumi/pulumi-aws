@@ -85,6 +85,11 @@ export type Tenant = import("./tenant").Tenant;
 export const Tenant: typeof import("./tenant").Tenant = null as any;
 utilities.lazyLoad(exports, ["Tenant"], () => require("./tenant"));
 
+export { TenantResourceAssociationArgs, TenantResourceAssociationState } from "./tenantResourceAssociation";
+export type TenantResourceAssociation = import("./tenantResourceAssociation").TenantResourceAssociation;
+export const TenantResourceAssociation: typeof import("./tenantResourceAssociation").TenantResourceAssociation = null as any;
+utilities.lazyLoad(exports, ["TenantResourceAssociation"], () => require("./tenantResourceAssociation"));
+
 
 const _module = {
     version: utilities.getVersion(),
@@ -114,6 +119,8 @@ const _module = {
                 return new EmailIdentityPolicy(name, <any>undefined, { urn })
             case "aws:sesv2/tenant:Tenant":
                 return new Tenant(name, <any>undefined, { urn })
+            case "aws:sesv2/tenantResourceAssociation:TenantResourceAssociation":
+                return new TenantResourceAssociation(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
@@ -131,3 +138,4 @@ pulumi.runtime.registerResourceModule("aws", "sesv2/emailIdentityFeedbackAttribu
 pulumi.runtime.registerResourceModule("aws", "sesv2/emailIdentityMailFromAttributes", _module)
 pulumi.runtime.registerResourceModule("aws", "sesv2/emailIdentityPolicy", _module)
 pulumi.runtime.registerResourceModule("aws", "sesv2/tenant", _module)
+pulumi.runtime.registerResourceModule("aws", "sesv2/tenantResourceAssociation", _module)

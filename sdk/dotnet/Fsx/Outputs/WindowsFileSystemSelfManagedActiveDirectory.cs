@@ -18,6 +18,10 @@ namespace Pulumi.Aws.Fsx.Outputs
         /// </summary>
         public readonly ImmutableArray<string> DnsIps;
         /// <summary>
+        /// The Amazon Resource Name (ARN) for the AWS Secrets Manager secret that contains the credentials for the service account on your self-managed AD domain. Conflicts with `Username` and `Password`.
+        /// </summary>
+        public readonly string? DomainJoinServiceAccountSecret;
+        /// <summary>
         /// The fully qualified domain name of the self-managed AD directory. For example, `corp.example.com`.
         /// </summary>
         public readonly string DomainName;
@@ -30,17 +34,19 @@ namespace Pulumi.Aws.Fsx.Outputs
         /// </summary>
         public readonly string? OrganizationalUnitDistinguishedName;
         /// <summary>
-        /// The password for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain.
+        /// The password for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain. Conflicts with `DomainJoinServiceAccountSecret`.
         /// </summary>
-        public readonly string Password;
+        public readonly string? Password;
         /// <summary>
-        /// The user name for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain.
+        /// The user name for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain. Conflicts with `DomainJoinServiceAccountSecret`.
         /// </summary>
-        public readonly string Username;
+        public readonly string? Username;
 
         [OutputConstructor]
         private WindowsFileSystemSelfManagedActiveDirectory(
             ImmutableArray<string> dnsIps,
+
+            string? domainJoinServiceAccountSecret,
 
             string domainName,
 
@@ -48,11 +54,12 @@ namespace Pulumi.Aws.Fsx.Outputs
 
             string? organizationalUnitDistinguishedName,
 
-            string password,
+            string? password,
 
-            string username)
+            string? username)
         {
             DnsIps = dnsIps;
+            DomainJoinServiceAccountSecret = domainJoinServiceAccountSecret;
             DomainName = domainName;
             FileSystemAdministratorsGroup = fileSystemAdministratorsGroup;
             OrganizationalUnitDistinguishedName = organizationalUnitDistinguishedName;

@@ -1172,6 +1172,10 @@ if not MYPY:
         """
         Use this to override the default service endpoint URL
         """
+        mpa: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Use this to override the default service endpoint URL
+        """
         mq: NotRequired[pulumi.Input[_builtins.str]]
         """
         Use this to override the default service endpoint URL
@@ -1433,6 +1437,10 @@ if not MYPY:
         Use this to override the default service endpoint URL
         """
         sagemaker: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Use this to override the default service endpoint URL
+        """
+        savingsplans: NotRequired[pulumi.Input[_builtins.str]]
         """
         Use this to override the default service endpoint URL
         """
@@ -1827,6 +1835,7 @@ class ProviderEndpointArgs:
                  mediastore: Optional[pulumi.Input[_builtins.str]] = None,
                  memorydb: Optional[pulumi.Input[_builtins.str]] = None,
                  mgn: Optional[pulumi.Input[_builtins.str]] = None,
+                 mpa: Optional[pulumi.Input[_builtins.str]] = None,
                  mq: Optional[pulumi.Input[_builtins.str]] = None,
                  msk: Optional[pulumi.Input[_builtins.str]] = None,
                  mwaa: Optional[pulumi.Input[_builtins.str]] = None,
@@ -1893,6 +1902,7 @@ class ProviderEndpointArgs:
                  s3tables: Optional[pulumi.Input[_builtins.str]] = None,
                  s3vectors: Optional[pulumi.Input[_builtins.str]] = None,
                  sagemaker: Optional[pulumi.Input[_builtins.str]] = None,
+                 savingsplans: Optional[pulumi.Input[_builtins.str]] = None,
                  scheduler: Optional[pulumi.Input[_builtins.str]] = None,
                  schemas: Optional[pulumi.Input[_builtins.str]] = None,
                  secretsmanager: Optional[pulumi.Input[_builtins.str]] = None,
@@ -2135,6 +2145,7 @@ class ProviderEndpointArgs:
         :param pulumi.Input[_builtins.str] mediastore: Use this to override the default service endpoint URL
         :param pulumi.Input[_builtins.str] memorydb: Use this to override the default service endpoint URL
         :param pulumi.Input[_builtins.str] mgn: Use this to override the default service endpoint URL
+        :param pulumi.Input[_builtins.str] mpa: Use this to override the default service endpoint URL
         :param pulumi.Input[_builtins.str] mq: Use this to override the default service endpoint URL
         :param pulumi.Input[_builtins.str] msk: Use this to override the default service endpoint URL
         :param pulumi.Input[_builtins.str] mwaa: Use this to override the default service endpoint URL
@@ -2201,6 +2212,7 @@ class ProviderEndpointArgs:
         :param pulumi.Input[_builtins.str] s3tables: Use this to override the default service endpoint URL
         :param pulumi.Input[_builtins.str] s3vectors: Use this to override the default service endpoint URL
         :param pulumi.Input[_builtins.str] sagemaker: Use this to override the default service endpoint URL
+        :param pulumi.Input[_builtins.str] savingsplans: Use this to override the default service endpoint URL
         :param pulumi.Input[_builtins.str] scheduler: Use this to override the default service endpoint URL
         :param pulumi.Input[_builtins.str] schemas: Use this to override the default service endpoint URL
         :param pulumi.Input[_builtins.str] secretsmanager: Use this to override the default service endpoint URL
@@ -2636,6 +2648,8 @@ class ProviderEndpointArgs:
             pulumi.set(__self__, "memorydb", memorydb)
         if mgn is not None:
             pulumi.set(__self__, "mgn", mgn)
+        if mpa is not None:
+            pulumi.set(__self__, "mpa", mpa)
         if mq is not None:
             pulumi.set(__self__, "mq", mq)
         if msk is not None:
@@ -2768,6 +2782,8 @@ class ProviderEndpointArgs:
             pulumi.set(__self__, "s3vectors", s3vectors)
         if sagemaker is not None:
             pulumi.set(__self__, "sagemaker", sagemaker)
+        if savingsplans is not None:
+            pulumi.set(__self__, "savingsplans", savingsplans)
         if scheduler is not None:
             pulumi.set(__self__, "scheduler", scheduler)
         if schemas is not None:
@@ -5183,6 +5199,18 @@ class ProviderEndpointArgs:
 
     @_builtins.property
     @pulumi.getter
+    def mpa(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Use this to override the default service endpoint URL
+        """
+        return pulumi.get(self, "mpa")
+
+    @mpa.setter
+    def mpa(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "mpa", value)
+
+    @_builtins.property
+    @pulumi.getter
     def mq(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         Use this to override the default service endpoint URL
@@ -5972,6 +6000,18 @@ class ProviderEndpointArgs:
     @sagemaker.setter
     def sagemaker(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "sagemaker", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def savingsplans(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Use this to override the default service endpoint URL
+        """
+        return pulumi.get(self, "savingsplans")
+
+    @savingsplans.setter
+    def savingsplans(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "savingsplans", value)
 
     @_builtins.property
     @pulumi.getter

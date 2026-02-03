@@ -51,10 +51,16 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Image{}
 	case "aws:sagemaker/imageVersion:ImageVersion":
 		r = &ImageVersion{}
+	case "aws:sagemaker/labelingJob:LabelingJob":
+		r = &LabelingJob{}
 	case "aws:sagemaker/mlflowTrackingServer:MlflowTrackingServer":
 		r = &MlflowTrackingServer{}
 	case "aws:sagemaker/model:Model":
 		r = &Model{}
+	case "aws:sagemaker/modelCard:ModelCard":
+		r = &ModelCard{}
+	case "aws:sagemaker/modelCardExportJob:ModelCardExportJob":
+		r = &ModelCardExportJob{}
 	case "aws:sagemaker/modelPackageGroup:ModelPackageGroup":
 		r = &ModelPackageGroup{}
 	case "aws:sagemaker/modelPackageGroupPolicy:ModelPackageGroupPolicy":
@@ -171,12 +177,27 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"aws",
+		"sagemaker/labelingJob",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
 		"sagemaker/mlflowTrackingServer",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
 		"aws",
 		"sagemaker/model",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"sagemaker/modelCard",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"sagemaker/modelCardExportJob",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

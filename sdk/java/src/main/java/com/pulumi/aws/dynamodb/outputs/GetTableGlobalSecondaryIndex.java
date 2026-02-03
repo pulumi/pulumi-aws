@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.dynamodb.outputs;
 
+import com.pulumi.aws.dynamodb.outputs.GetTableGlobalSecondaryIndexKeySchema;
 import com.pulumi.aws.dynamodb.outputs.GetTableGlobalSecondaryIndexOnDemandThroughput;
 import com.pulumi.aws.dynamodb.outputs.GetTableGlobalSecondaryIndexWarmThroughput;
 import com.pulumi.core.annotations.CustomType;
@@ -15,6 +16,7 @@ import java.util.Objects;
 @CustomType
 public final class GetTableGlobalSecondaryIndex {
     private String hashKey;
+    private List<GetTableGlobalSecondaryIndexKeySchema> keySchemas;
     /**
      * @return Name of the DynamoDB table.
      * 
@@ -31,6 +33,9 @@ public final class GetTableGlobalSecondaryIndex {
     private GetTableGlobalSecondaryIndex() {}
     public String hashKey() {
         return this.hashKey;
+    }
+    public List<GetTableGlobalSecondaryIndexKeySchema> keySchemas() {
+        return this.keySchemas;
     }
     /**
      * @return Name of the DynamoDB table.
@@ -71,6 +76,7 @@ public final class GetTableGlobalSecondaryIndex {
     @CustomType.Builder
     public static final class Builder {
         private String hashKey;
+        private List<GetTableGlobalSecondaryIndexKeySchema> keySchemas;
         private String name;
         private List<String> nonKeyAttributes;
         private List<GetTableGlobalSecondaryIndexOnDemandThroughput> onDemandThroughputs;
@@ -83,6 +89,7 @@ public final class GetTableGlobalSecondaryIndex {
         public Builder(GetTableGlobalSecondaryIndex defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.hashKey = defaults.hashKey;
+    	      this.keySchemas = defaults.keySchemas;
     	      this.name = defaults.name;
     	      this.nonKeyAttributes = defaults.nonKeyAttributes;
     	      this.onDemandThroughputs = defaults.onDemandThroughputs;
@@ -100,6 +107,17 @@ public final class GetTableGlobalSecondaryIndex {
             }
             this.hashKey = hashKey;
             return this;
+        }
+        @CustomType.Setter
+        public Builder keySchemas(List<GetTableGlobalSecondaryIndexKeySchema> keySchemas) {
+            if (keySchemas == null) {
+              throw new MissingRequiredPropertyException("GetTableGlobalSecondaryIndex", "keySchemas");
+            }
+            this.keySchemas = keySchemas;
+            return this;
+        }
+        public Builder keySchemas(GetTableGlobalSecondaryIndexKeySchema... keySchemas) {
+            return keySchemas(List.of(keySchemas));
         }
         @CustomType.Setter
         public Builder name(String name) {
@@ -177,6 +195,7 @@ public final class GetTableGlobalSecondaryIndex {
         public GetTableGlobalSecondaryIndex build() {
             final var _resultValue = new GetTableGlobalSecondaryIndex();
             _resultValue.hashKey = hashKey;
+            _resultValue.keySchemas = keySchemas;
             _resultValue.name = name;
             _resultValue.nonKeyAttributes = nonKeyAttributes;
             _resultValue.onDemandThroughputs = onDemandThroughputs;

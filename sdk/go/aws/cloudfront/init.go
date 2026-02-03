@@ -21,6 +21,8 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
+	case "aws:cloudfront/anycastIpList:AnycastIpList":
+		r = &AnycastIpList{}
 	case "aws:cloudfront/cachePolicy:CachePolicy":
 		r = &CachePolicy{}
 	case "aws:cloudfront/connectionFunction:ConnectionFunction":
@@ -80,6 +82,11 @@ func init() {
 	if err != nil {
 		version = semver.Version{Major: 1}
 	}
+	pulumi.RegisterResourceModule(
+		"aws",
+		"cloudfront/anycastIpList",
+		&module{version},
+	)
 	pulumi.RegisterResourceModule(
 		"aws",
 		"cloudfront/cachePolicy",

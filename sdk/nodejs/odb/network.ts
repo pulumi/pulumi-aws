@@ -71,6 +71,14 @@ export class Network extends pulumi.CustomResource {
     declare public readonly deleteAssociatedResources: pulumi.Output<boolean>;
     declare public readonly displayName: pulumi.Output<string>;
     /**
+     * Specifies the configuration for KMS access from the ODB network.
+     */
+    declare public readonly kmsAccess: pulumi.Output<string>;
+    /**
+     * Specifies the endpoint policy for KMS access from the ODB network.
+     */
+    declare public readonly kmsPolicyDocument: pulumi.Output<string | undefined>;
+    /**
      * The name of the OCI resource anchor for the Exadata infrastructure.
      */
     declare public /*out*/ readonly managedServices: pulumi.Output<outputs.odb.NetworkManagedService[]>;
@@ -127,6 +135,14 @@ export class Network extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly statusReason: pulumi.Output<string>;
     /**
+     * Specifies the configuration for STS access from the ODB network.
+     */
+    declare public readonly stsAccess: pulumi.Output<string>;
+    /**
+     * Specifies the endpoint policy for STS access from the ODB network.
+     */
+    declare public readonly stsPolicyDocument: pulumi.Output<string | undefined>;
+    /**
      * A map of tags to assign to the exadata infrastructure. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
@@ -162,6 +178,8 @@ export class Network extends pulumi.CustomResource {
             resourceInputs["defaultDnsPrefix"] = state?.defaultDnsPrefix;
             resourceInputs["deleteAssociatedResources"] = state?.deleteAssociatedResources;
             resourceInputs["displayName"] = state?.displayName;
+            resourceInputs["kmsAccess"] = state?.kmsAccess;
+            resourceInputs["kmsPolicyDocument"] = state?.kmsPolicyDocument;
             resourceInputs["managedServices"] = state?.managedServices;
             resourceInputs["ociDnsForwardingConfigs"] = state?.ociDnsForwardingConfigs;
             resourceInputs["ociNetworkAnchorId"] = state?.ociNetworkAnchorId;
@@ -176,6 +194,8 @@ export class Network extends pulumi.CustomResource {
             resourceInputs["s3PolicyDocument"] = state?.s3PolicyDocument;
             resourceInputs["status"] = state?.status;
             resourceInputs["statusReason"] = state?.statusReason;
+            resourceInputs["stsAccess"] = state?.stsAccess;
+            resourceInputs["stsPolicyDocument"] = state?.stsPolicyDocument;
             resourceInputs["tags"] = state?.tags;
             resourceInputs["tagsAll"] = state?.tagsAll;
             resourceInputs["timeouts"] = state?.timeouts;
@@ -208,9 +228,13 @@ export class Network extends pulumi.CustomResource {
             resourceInputs["defaultDnsPrefix"] = args?.defaultDnsPrefix;
             resourceInputs["deleteAssociatedResources"] = args?.deleteAssociatedResources;
             resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["kmsAccess"] = args?.kmsAccess;
+            resourceInputs["kmsPolicyDocument"] = args?.kmsPolicyDocument;
             resourceInputs["region"] = args?.region;
             resourceInputs["s3Access"] = args?.s3Access;
             resourceInputs["s3PolicyDocument"] = args?.s3PolicyDocument;
+            resourceInputs["stsAccess"] = args?.stsAccess;
+            resourceInputs["stsPolicyDocument"] = args?.stsPolicyDocument;
             resourceInputs["tags"] = args?.tags;
             resourceInputs["timeouts"] = args?.timeouts;
             resourceInputs["zeroEtlAccess"] = args?.zeroEtlAccess;
@@ -260,6 +284,14 @@ export interface NetworkState {
      */
     deleteAssociatedResources?: pulumi.Input<boolean>;
     displayName?: pulumi.Input<string>;
+    /**
+     * Specifies the configuration for KMS access from the ODB network.
+     */
+    kmsAccess?: pulumi.Input<string>;
+    /**
+     * Specifies the endpoint policy for KMS access from the ODB network.
+     */
+    kmsPolicyDocument?: pulumi.Input<string>;
     /**
      * The name of the OCI resource anchor for the Exadata infrastructure.
      */
@@ -317,6 +349,14 @@ export interface NetworkState {
      */
     statusReason?: pulumi.Input<string>;
     /**
+     * Specifies the configuration for STS access from the ODB network.
+     */
+    stsAccess?: pulumi.Input<string>;
+    /**
+     * Specifies the endpoint policy for STS access from the ODB network.
+     */
+    stsPolicyDocument?: pulumi.Input<string>;
+    /**
      * A map of tags to assign to the exadata infrastructure. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
@@ -349,6 +389,14 @@ export interface NetworkArgs {
     deleteAssociatedResources?: pulumi.Input<boolean>;
     displayName: pulumi.Input<string>;
     /**
+     * Specifies the configuration for KMS access from the ODB network.
+     */
+    kmsAccess?: pulumi.Input<string>;
+    /**
+     * Specifies the endpoint policy for KMS access from the ODB network.
+     */
+    kmsPolicyDocument?: pulumi.Input<string>;
+    /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string>;
@@ -360,6 +408,14 @@ export interface NetworkArgs {
      * Specifies the endpoint policy for Amazon S3 access from the ODB network.
      */
     s3PolicyDocument?: pulumi.Input<string>;
+    /**
+     * Specifies the configuration for STS access from the ODB network.
+     */
+    stsAccess?: pulumi.Input<string>;
+    /**
+     * Specifies the endpoint policy for STS access from the ODB network.
+     */
+    stsPolicyDocument?: pulumi.Input<string>;
     /**
      * A map of tags to assign to the exadata infrastructure. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

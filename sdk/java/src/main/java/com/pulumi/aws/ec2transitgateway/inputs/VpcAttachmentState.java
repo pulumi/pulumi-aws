@@ -153,32 +153,16 @@ public final class VpcAttachmentState extends com.pulumi.resources.ResourceArgs 
         return Optional.ofNullable(this.tagsAll);
     }
 
-    /**
-     * Boolean whether the VPC Attachment should be associated with the EC2 Transit Gateway association default route table. This cannot be configured or perform drift detection with Resource Access Manager shared EC2 Transit Gateways. Default value: `true`.
-     * 
-     */
     @Import(name="transitGatewayDefaultRouteTableAssociation")
     private @Nullable Output<Boolean> transitGatewayDefaultRouteTableAssociation;
 
-    /**
-     * @return Boolean whether the VPC Attachment should be associated with the EC2 Transit Gateway association default route table. This cannot be configured or perform drift detection with Resource Access Manager shared EC2 Transit Gateways. Default value: `true`.
-     * 
-     */
     public Optional<Output<Boolean>> transitGatewayDefaultRouteTableAssociation() {
         return Optional.ofNullable(this.transitGatewayDefaultRouteTableAssociation);
     }
 
-    /**
-     * Boolean whether the VPC Attachment should propagate routes with the EC2 Transit Gateway propagation default route table. This cannot be configured or perform drift detection with Resource Access Manager shared EC2 Transit Gateways. Default value: `true`.
-     * 
-     */
     @Import(name="transitGatewayDefaultRouteTablePropagation")
     private @Nullable Output<Boolean> transitGatewayDefaultRouteTablePropagation;
 
-    /**
-     * @return Boolean whether the VPC Attachment should propagate routes with the EC2 Transit Gateway propagation default route table. This cannot be configured or perform drift detection with Resource Access Manager shared EC2 Transit Gateways. Default value: `true`.
-     * 
-     */
     public Optional<Output<Boolean>> transitGatewayDefaultRouteTablePropagation() {
         return Optional.ofNullable(this.transitGatewayDefaultRouteTablePropagation);
     }
@@ -464,44 +448,20 @@ public final class VpcAttachmentState extends com.pulumi.resources.ResourceArgs 
             return tagsAll(Output.of(tagsAll));
         }
 
-        /**
-         * @param transitGatewayDefaultRouteTableAssociation Boolean whether the VPC Attachment should be associated with the EC2 Transit Gateway association default route table. This cannot be configured or perform drift detection with Resource Access Manager shared EC2 Transit Gateways. Default value: `true`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder transitGatewayDefaultRouteTableAssociation(@Nullable Output<Boolean> transitGatewayDefaultRouteTableAssociation) {
             $.transitGatewayDefaultRouteTableAssociation = transitGatewayDefaultRouteTableAssociation;
             return this;
         }
 
-        /**
-         * @param transitGatewayDefaultRouteTableAssociation Boolean whether the VPC Attachment should be associated with the EC2 Transit Gateway association default route table. This cannot be configured or perform drift detection with Resource Access Manager shared EC2 Transit Gateways. Default value: `true`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder transitGatewayDefaultRouteTableAssociation(Boolean transitGatewayDefaultRouteTableAssociation) {
             return transitGatewayDefaultRouteTableAssociation(Output.of(transitGatewayDefaultRouteTableAssociation));
         }
 
-        /**
-         * @param transitGatewayDefaultRouteTablePropagation Boolean whether the VPC Attachment should propagate routes with the EC2 Transit Gateway propagation default route table. This cannot be configured or perform drift detection with Resource Access Manager shared EC2 Transit Gateways. Default value: `true`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder transitGatewayDefaultRouteTablePropagation(@Nullable Output<Boolean> transitGatewayDefaultRouteTablePropagation) {
             $.transitGatewayDefaultRouteTablePropagation = transitGatewayDefaultRouteTablePropagation;
             return this;
         }
 
-        /**
-         * @param transitGatewayDefaultRouteTablePropagation Boolean whether the VPC Attachment should propagate routes with the EC2 Transit Gateway propagation default route table. This cannot be configured or perform drift detection with Resource Access Manager shared EC2 Transit Gateways. Default value: `true`.
-         * 
-         * @return builder
-         * 
-         */
         public Builder transitGatewayDefaultRouteTablePropagation(Boolean transitGatewayDefaultRouteTablePropagation) {
             return transitGatewayDefaultRouteTablePropagation(Output.of(transitGatewayDefaultRouteTablePropagation));
         }

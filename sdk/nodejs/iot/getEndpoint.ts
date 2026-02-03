@@ -15,20 +15,20 @@ import * as utilities from "../utilities";
  * import * as kubernetes from "@pulumi/kubernetes";
  *
  * const example = aws.iot.getEndpoint({});
- * const agent = new kubernetes.index.Pod("agent", {
- *     metadata: [{
+ * const agent = new kubernetes.core.v1.Pod("agent", {
+ *     metadata: {
  *         name: "my-device",
- *     }],
- *     spec: [{
+ *     },
+ *     spec: {
  *         container: [{
  *             image: "gcr.io/my-project/image-name",
  *             name: "image-name",
  *             env: [{
  *                 name: "IOT_ENDPOINT",
- *                 value: example.endpointAddress,
+ *                 value: example.then(example => example.endpointAddress),
  *             }],
  *         }],
- *     }],
+ *     },
  * });
  * ```
  */
@@ -86,20 +86,20 @@ export interface GetEndpointResult {
  * import * as kubernetes from "@pulumi/kubernetes";
  *
  * const example = aws.iot.getEndpoint({});
- * const agent = new kubernetes.index.Pod("agent", {
- *     metadata: [{
+ * const agent = new kubernetes.core.v1.Pod("agent", {
+ *     metadata: {
  *         name: "my-device",
- *     }],
- *     spec: [{
+ *     },
+ *     spec: {
  *         container: [{
  *             image: "gcr.io/my-project/image-name",
  *             name: "image-name",
  *             env: [{
  *                 name: "IOT_ENDPOINT",
- *                 value: example.endpointAddress,
+ *                 value: example.then(example => example.endpointAddress),
  *             }],
  *         }],
- *     }],
+ *     },
  * });
  * ```
  */

@@ -35,6 +35,21 @@ public final class MultitenantDistributionOriginGroupArgs extends com.pulumi.res
     }
 
     /**
+     * Identifier for the distribution.
+     * 
+     */
+    @Import(name="id", required=true)
+    private Output<String> id;
+
+    /**
+     * @return Identifier for the distribution.
+     * 
+     */
+    public Output<String> id() {
+        return this.id;
+    }
+
+    /**
      * List of origins in this origin group. Must contain exactly 2 members. See Origin Group Member below.
      * 
      */
@@ -49,27 +64,12 @@ public final class MultitenantDistributionOriginGroupArgs extends com.pulumi.res
         return Optional.ofNullable(this.members);
     }
 
-    /**
-     * Unique identifier for the origin group.
-     * 
-     */
-    @Import(name="originId", required=true)
-    private Output<String> originId;
-
-    /**
-     * @return Unique identifier for the origin group.
-     * 
-     */
-    public Output<String> originId() {
-        return this.originId;
-    }
-
     private MultitenantDistributionOriginGroupArgs() {}
 
     private MultitenantDistributionOriginGroupArgs(MultitenantDistributionOriginGroupArgs $) {
         this.failoverCriteria = $.failoverCriteria;
+        this.id = $.id;
         this.members = $.members;
-        this.originId = $.originId;
     }
 
     public static Builder builder() {
@@ -112,6 +112,27 @@ public final class MultitenantDistributionOriginGroupArgs extends com.pulumi.res
         }
 
         /**
+         * @param id Identifier for the distribution.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder id(Output<String> id) {
+            $.id = id;
+            return this;
+        }
+
+        /**
+         * @param id Identifier for the distribution.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder id(String id) {
+            return id(Output.of(id));
+        }
+
+        /**
          * @param members List of origins in this origin group. Must contain exactly 2 members. See Origin Group Member below.
          * 
          * @return builder
@@ -142,30 +163,9 @@ public final class MultitenantDistributionOriginGroupArgs extends com.pulumi.res
             return members(List.of(members));
         }
 
-        /**
-         * @param originId Unique identifier for the origin group.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder originId(Output<String> originId) {
-            $.originId = originId;
-            return this;
-        }
-
-        /**
-         * @param originId Unique identifier for the origin group.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder originId(String originId) {
-            return originId(Output.of(originId));
-        }
-
         public MultitenantDistributionOriginGroupArgs build() {
-            if ($.originId == null) {
-                throw new MissingRequiredPropertyException("MultitenantDistributionOriginGroupArgs", "originId");
+            if ($.id == null) {
+                throw new MissingRequiredPropertyException("MultitenantDistributionOriginGroupArgs", "id");
             }
             return $;
         }

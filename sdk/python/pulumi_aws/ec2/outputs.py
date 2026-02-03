@@ -114,6 +114,7 @@ __all__ = [
     'LaunchTemplateNetworkInterfaceConnectionTrackingSpecification',
     'LaunchTemplateNetworkInterfaceEnaSrdSpecification',
     'LaunchTemplateNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecification',
+    'LaunchTemplateNetworkPerformanceOptions',
     'LaunchTemplatePlacement',
     'LaunchTemplatePrivateDnsNameOptions',
     'LaunchTemplateTagSpecification',
@@ -269,7 +270,9 @@ __all__ = [
     'VpcEndpointSubnetConfiguration',
     'VpcIpamOperatingRegion',
     'VpcIpamPoolCidrCidrAuthorizationContext',
+    'VpcIpamPoolSourceResource',
     'VpcIpamResourceDiscoveryOperatingRegion',
+    'VpcIpamResourceDiscoveryOrganizationalUnitExclusion',
     'VpcPeeringConnectionAccepter',
     'VpcPeeringConnectionAccepterAccepter',
     'VpcPeeringConnectionAccepterRequester',
@@ -479,6 +482,7 @@ __all__ = [
     'GetVpcIpamPoolCidrsFilterResult',
     'GetVpcIpamPoolCidrsIpamPoolCidrResult',
     'GetVpcIpamPoolFilterResult',
+    'GetVpcIpamPoolSourceResourceResult',
     'GetVpcIpamPoolsFilterResult',
     'GetVpcIpamPoolsIpamPoolResult',
     'GetVpcIpamsFilterResult',
@@ -7664,6 +7668,42 @@ class LaunchTemplateNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecification(di
         NOTE: ENA Express requires [specific instance types](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/enhanced-networking-ena-express.html#ena-express-requirements) and minimum bandwidth of 25 Gbps.
         """
         return pulumi.get(self, "ena_srd_udp_enabled")
+
+
+@pulumi.output_type
+class LaunchTemplateNetworkPerformanceOptions(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "bandwidthWeighting":
+            suggest = "bandwidth_weighting"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LaunchTemplateNetworkPerformanceOptions. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LaunchTemplateNetworkPerformanceOptions.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LaunchTemplateNetworkPerformanceOptions.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 bandwidth_weighting: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str bandwidth_weighting: Specify the bandwidth weighting option to boost the associated type of baseline bandwidth. Valid values: `default`, `vpc-1`, `ebs-1`. Default value is `default`. Setting `vpc-1` boosts networking baseline bandwidth and reduces EBS baseline bandwidth. Setting `ebs-1` boosts EBS baseline bandwidth and reduces networking baseline bandwidth. Only supported on select instance types. See [AWS Documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configure-bandwidth-weighting.html) for more information.
+        """
+        if bandwidth_weighting is not None:
+            pulumi.set(__self__, "bandwidth_weighting", bandwidth_weighting)
+
+    @_builtins.property
+    @pulumi.getter(name="bandwidthWeighting")
+    def bandwidth_weighting(self) -> Optional[_builtins.str]:
+        """
+        Specify the bandwidth weighting option to boost the associated type of baseline bandwidth. Valid values: `default`, `vpc-1`, `ebs-1`. Default value is `default`. Setting `vpc-1` boosts networking baseline bandwidth and reduces EBS baseline bandwidth. Setting `ebs-1` boosts EBS baseline bandwidth and reduces networking baseline bandwidth. Only supported on select instance types. See [AWS Documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configure-bandwidth-weighting.html) for more information.
+        """
+        return pulumi.get(self, "bandwidth_weighting")
 
 
 @pulumi.output_type
@@ -17531,6 +17571,80 @@ class VpcIpamPoolCidrCidrAuthorizationContext(dict):
 
 
 @pulumi.output_type
+class VpcIpamPoolSourceResource(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "resourceId":
+            suggest = "resource_id"
+        elif key == "resourceOwner":
+            suggest = "resource_owner"
+        elif key == "resourceRegion":
+            suggest = "resource_region"
+        elif key == "resourceType":
+            suggest = "resource_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VpcIpamPoolSourceResource. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VpcIpamPoolSourceResource.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VpcIpamPoolSourceResource.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 resource_id: _builtins.str,
+                 resource_owner: _builtins.str,
+                 resource_region: _builtins.str,
+                 resource_type: _builtins.str):
+        """
+        :param _builtins.str resource_id: ID of the resource.
+        :param _builtins.str resource_owner: Owner of the resource.
+        :param _builtins.str resource_region: Region where the resource exists. Must match the `locale` of the parent IPAM Pool.
+        :param _builtins.str resource_type: Type of the resource. (`vpc`)
+        """
+        pulumi.set(__self__, "resource_id", resource_id)
+        pulumi.set(__self__, "resource_owner", resource_owner)
+        pulumi.set(__self__, "resource_region", resource_region)
+        pulumi.set(__self__, "resource_type", resource_type)
+
+    @_builtins.property
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> _builtins.str:
+        """
+        ID of the resource.
+        """
+        return pulumi.get(self, "resource_id")
+
+    @_builtins.property
+    @pulumi.getter(name="resourceOwner")
+    def resource_owner(self) -> _builtins.str:
+        """
+        Owner of the resource.
+        """
+        return pulumi.get(self, "resource_owner")
+
+    @_builtins.property
+    @pulumi.getter(name="resourceRegion")
+    def resource_region(self) -> _builtins.str:
+        """
+        Region where the resource exists. Must match the `locale` of the parent IPAM Pool.
+        """
+        return pulumi.get(self, "resource_region")
+
+    @_builtins.property
+    @pulumi.getter(name="resourceType")
+    def resource_type(self) -> _builtins.str:
+        """
+        Type of the resource. (`vpc`)
+        """
+        return pulumi.get(self, "resource_type")
+
+
+@pulumi.output_type
 class VpcIpamResourceDiscoveryOperatingRegion(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -17563,6 +17677,41 @@ class VpcIpamResourceDiscoveryOperatingRegion(dict):
         The name of the Region you want to add to the IPAM.
         """
         return pulumi.get(self, "region_name")
+
+
+@pulumi.output_type
+class VpcIpamResourceDiscoveryOrganizationalUnitExclusion(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "organizationsEntityPath":
+            suggest = "organizations_entity_path"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VpcIpamResourceDiscoveryOrganizationalUnitExclusion. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VpcIpamResourceDiscoveryOrganizationalUnitExclusion.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VpcIpamResourceDiscoveryOrganizationalUnitExclusion.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 organizations_entity_path: _builtins.str):
+        """
+        :param _builtins.str organizations_entity_path: AWS Organizations entity path. Build the path for the OU(s) using AWS Organizations IDs separated by a `/`. Include all child OUs by ending the path with `/*`.
+        """
+        pulumi.set(__self__, "organizations_entity_path", organizations_entity_path)
+
+    @_builtins.property
+    @pulumi.getter(name="organizationsEntityPath")
+    def organizations_entity_path(self) -> _builtins.str:
+        """
+        AWS Organizations entity path. Build the path for the OU(s) using AWS Organizations IDs separated by a `/`. Include all child OUs by ending the path with `/*`.
+        """
+        return pulumi.get(self, "organizations_entity_path")
 
 
 @pulumi.output_type
@@ -25756,6 +25905,57 @@ class GetVpcIpamPoolFilterResult(dict):
         The filter values. Filter values are case-sensitive.
         """
         return pulumi.get(self, "values")
+
+
+@pulumi.output_type
+class GetVpcIpamPoolSourceResourceResult(dict):
+    def __init__(__self__, *,
+                 resource_id: _builtins.str,
+                 resource_owner: _builtins.str,
+                 resource_region: _builtins.str,
+                 resource_type: _builtins.str):
+        """
+        :param _builtins.str resource_id: (Required) ID of the resource.
+        :param _builtins.str resource_owner: (Required) Owner of the resource.
+        :param _builtins.str resource_region: (Required) Region where the resource exists. Must match the `locale` of the parent IPAM Pool.
+        :param _builtins.str resource_type: (Required) Type of the resource. (`vpc`)
+        """
+        pulumi.set(__self__, "resource_id", resource_id)
+        pulumi.set(__self__, "resource_owner", resource_owner)
+        pulumi.set(__self__, "resource_region", resource_region)
+        pulumi.set(__self__, "resource_type", resource_type)
+
+    @_builtins.property
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> _builtins.str:
+        """
+        (Required) ID of the resource.
+        """
+        return pulumi.get(self, "resource_id")
+
+    @_builtins.property
+    @pulumi.getter(name="resourceOwner")
+    def resource_owner(self) -> _builtins.str:
+        """
+        (Required) Owner of the resource.
+        """
+        return pulumi.get(self, "resource_owner")
+
+    @_builtins.property
+    @pulumi.getter(name="resourceRegion")
+    def resource_region(self) -> _builtins.str:
+        """
+        (Required) Region where the resource exists. Must match the `locale` of the parent IPAM Pool.
+        """
+        return pulumi.get(self, "resource_region")
+
+    @_builtins.property
+    @pulumi.getter(name="resourceType")
+    def resource_type(self) -> _builtins.str:
+        """
+        (Required) Type of the resource. (`vpc`)
+        """
+        return pulumi.get(self, "resource_type")
 
 
 @pulumi.output_type

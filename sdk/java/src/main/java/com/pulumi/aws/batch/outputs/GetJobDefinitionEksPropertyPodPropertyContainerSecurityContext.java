@@ -12,6 +12,11 @@ import java.util.Objects;
 @CustomType
 public final class GetJobDefinitionEksPropertyPodPropertyContainerSecurityContext {
     /**
+     * @return Whether or not a container or a Kubernetes pod is allowed to gain more privileges than its parent process. The default value is `false`.
+     * 
+     */
+    private Boolean allowPrivilegeEscalation;
+    /**
      * @return When this parameter is true, the container is given elevated permissions on the host container instance (similar to the root user).
      * 
      */
@@ -34,6 +39,13 @@ public final class GetJobDefinitionEksPropertyPodPropertyContainerSecurityContex
     private Integer runAsUser;
 
     private GetJobDefinitionEksPropertyPodPropertyContainerSecurityContext() {}
+    /**
+     * @return Whether or not a container or a Kubernetes pod is allowed to gain more privileges than its parent process. The default value is `false`.
+     * 
+     */
+    public Boolean allowPrivilegeEscalation() {
+        return this.allowPrivilegeEscalation;
+    }
     /**
      * @return When this parameter is true, the container is given elevated permissions on the host container instance (similar to the root user).
      * 
@@ -75,6 +87,7 @@ public final class GetJobDefinitionEksPropertyPodPropertyContainerSecurityContex
     }
     @CustomType.Builder
     public static final class Builder {
+        private Boolean allowPrivilegeEscalation;
         private Boolean privileged;
         private Boolean readOnlyRootFileSystem;
         private Integer runAsGroup;
@@ -83,6 +96,7 @@ public final class GetJobDefinitionEksPropertyPodPropertyContainerSecurityContex
         public Builder() {}
         public Builder(GetJobDefinitionEksPropertyPodPropertyContainerSecurityContext defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.allowPrivilegeEscalation = defaults.allowPrivilegeEscalation;
     	      this.privileged = defaults.privileged;
     	      this.readOnlyRootFileSystem = defaults.readOnlyRootFileSystem;
     	      this.runAsGroup = defaults.runAsGroup;
@@ -90,6 +104,14 @@ public final class GetJobDefinitionEksPropertyPodPropertyContainerSecurityContex
     	      this.runAsUser = defaults.runAsUser;
         }
 
+        @CustomType.Setter
+        public Builder allowPrivilegeEscalation(Boolean allowPrivilegeEscalation) {
+            if (allowPrivilegeEscalation == null) {
+              throw new MissingRequiredPropertyException("GetJobDefinitionEksPropertyPodPropertyContainerSecurityContext", "allowPrivilegeEscalation");
+            }
+            this.allowPrivilegeEscalation = allowPrivilegeEscalation;
+            return this;
+        }
         @CustomType.Setter
         public Builder privileged(Boolean privileged) {
             if (privileged == null) {
@@ -132,6 +154,7 @@ public final class GetJobDefinitionEksPropertyPodPropertyContainerSecurityContex
         }
         public GetJobDefinitionEksPropertyPodPropertyContainerSecurityContext build() {
             final var _resultValue = new GetJobDefinitionEksPropertyPodPropertyContainerSecurityContext();
+            _resultValue.allowPrivilegeEscalation = allowPrivilegeEscalation;
             _resultValue.privileged = privileged;
             _resultValue.readOnlyRootFileSystem = readOnlyRootFileSystem;
             _resultValue.runAsGroup = runAsGroup;

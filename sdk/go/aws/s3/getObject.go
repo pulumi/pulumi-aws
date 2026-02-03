@@ -127,6 +127,8 @@ type GetObjectArgs struct {
 	Bucket string `pulumi:"bucket"`
 	// To retrieve the object's checksum, this argument must be `ENABLED`. If you enable `checksumMode` and the object is encrypted with KMS, you must have permission to use the `kms:Decrypt` action. Valid values: `ENABLED`
 	ChecksumMode *string `pulumi:"checksumMode"`
+	// Set to `true` to always download object data to `bodyBase64` attribute. If unset and conditions described above are met, `body` will be available but `bodyBase64` will not be. If set to `false`, the body is not downloaded and neither `body` nor `bodyBase64` is available, which may improve performance.
+	DownloadBody *string `pulumi:"downloadBody"`
 	// Full path to the object inside the bucket
 	Key   string  `pulumi:"key"`
 	Range *string `pulumi:"range"`
@@ -142,9 +144,11 @@ type GetObjectArgs struct {
 type GetObjectResult struct {
 	// ARN of the object.
 	Arn string `pulumi:"arn"`
-	// Object data (see **limitations above** to understand cases in which this field is actually available)
-	Body   string `pulumi:"body"`
-	Bucket string `pulumi:"bucket"`
+	// Object data (see **limitations above** to understand cases in which this field is actually available). If `downloadBody` is set to `false`, `body` is not available.
+	Body string `pulumi:"body"`
+	// Object data as base64 encoded string. **This is only available if `downloadBody` is set to `true`.**
+	BodyBase64 string `pulumi:"bodyBase64"`
+	Bucket     string `pulumi:"bucket"`
 	// (Optional) Whether or not to use [Amazon S3 Bucket Keys](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html) for SSE-KMS.
 	BucketKeyEnabled bool `pulumi:"bucketKeyEnabled"`
 	// Caching behavior along the request/reply chain.
@@ -169,7 +173,8 @@ type GetObjectResult struct {
 	// Size of the body in bytes.
 	ContentLength int `pulumi:"contentLength"`
 	// Standard MIME type describing the format of the object data.
-	ContentType string `pulumi:"contentType"`
+	ContentType  string  `pulumi:"contentType"`
+	DownloadBody *string `pulumi:"downloadBody"`
 	// [ETag](https://en.wikipedia.org/wiki/HTTP_ETag) generated for the object (an MD5 sum of the object content in case it's not encrypted)
 	Etag string `pulumi:"etag"`
 	// If the object expiration is configured (see [object lifecycle management](http://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html)), the field includes this header. It includes the expiry-date and rule-id key value pairs providing object expiration information. The value of the rule-id is URL encoded.
@@ -220,6 +225,8 @@ type GetObjectOutputArgs struct {
 	Bucket pulumi.StringInput `pulumi:"bucket"`
 	// To retrieve the object's checksum, this argument must be `ENABLED`. If you enable `checksumMode` and the object is encrypted with KMS, you must have permission to use the `kms:Decrypt` action. Valid values: `ENABLED`
 	ChecksumMode pulumi.StringPtrInput `pulumi:"checksumMode"`
+	// Set to `true` to always download object data to `bodyBase64` attribute. If unset and conditions described above are met, `body` will be available but `bodyBase64` will not be. If set to `false`, the body is not downloaded and neither `body` nor `bodyBase64` is available, which may improve performance.
+	DownloadBody pulumi.StringPtrInput `pulumi:"downloadBody"`
 	// Full path to the object inside the bucket
 	Key   pulumi.StringInput    `pulumi:"key"`
 	Range pulumi.StringPtrInput `pulumi:"range"`
@@ -255,9 +262,14 @@ func (o GetObjectResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v GetObjectResult) string { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Object data (see **limitations above** to understand cases in which this field is actually available)
+// Object data (see **limitations above** to understand cases in which this field is actually available). If `downloadBody` is set to `false`, `body` is not available.
 func (o GetObjectResultOutput) Body() pulumi.StringOutput {
 	return o.ApplyT(func(v GetObjectResult) string { return v.Body }).(pulumi.StringOutput)
+}
+
+// Object data as base64 encoded string. **This is only available if `downloadBody` is set to `true`.**
+func (o GetObjectResultOutput) BodyBase64() pulumi.StringOutput {
+	return o.ApplyT(func(v GetObjectResult) string { return v.BodyBase64 }).(pulumi.StringOutput)
 }
 
 func (o GetObjectResultOutput) Bucket() pulumi.StringOutput {
@@ -326,6 +338,10 @@ func (o GetObjectResultOutput) ContentLength() pulumi.IntOutput {
 // Standard MIME type describing the format of the object data.
 func (o GetObjectResultOutput) ContentType() pulumi.StringOutput {
 	return o.ApplyT(func(v GetObjectResult) string { return v.ContentType }).(pulumi.StringOutput)
+}
+
+func (o GetObjectResultOutput) DownloadBody() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetObjectResult) *string { return v.DownloadBody }).(pulumi.StringPtrOutput)
 }
 
 // [ETag](https://en.wikipedia.org/wiki/HTTP_ETag) generated for the object (an MD5 sum of the object content in case it's not encrypted)

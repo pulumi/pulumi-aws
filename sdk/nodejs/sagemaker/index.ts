@@ -85,6 +85,11 @@ export type ImageVersion = import("./imageVersion").ImageVersion;
 export const ImageVersion: typeof import("./imageVersion").ImageVersion = null as any;
 utilities.lazyLoad(exports, ["ImageVersion"], () => require("./imageVersion"));
 
+export { LabelingJobArgs, LabelingJobState } from "./labelingJob";
+export type LabelingJob = import("./labelingJob").LabelingJob;
+export const LabelingJob: typeof import("./labelingJob").LabelingJob = null as any;
+utilities.lazyLoad(exports, ["LabelingJob"], () => require("./labelingJob"));
+
 export { MlflowTrackingServerArgs, MlflowTrackingServerState } from "./mlflowTrackingServer";
 export type MlflowTrackingServer = import("./mlflowTrackingServer").MlflowTrackingServer;
 export const MlflowTrackingServer: typeof import("./mlflowTrackingServer").MlflowTrackingServer = null as any;
@@ -94,6 +99,16 @@ export { ModelArgs, ModelState } from "./model";
 export type Model = import("./model").Model;
 export const Model: typeof import("./model").Model = null as any;
 utilities.lazyLoad(exports, ["Model"], () => require("./model"));
+
+export { ModelCardArgs, ModelCardState } from "./modelCard";
+export type ModelCard = import("./modelCard").ModelCard;
+export const ModelCard: typeof import("./modelCard").ModelCard = null as any;
+utilities.lazyLoad(exports, ["ModelCard"], () => require("./modelCard"));
+
+export { ModelCardExportJobArgs, ModelCardExportJobState } from "./modelCardExportJob";
+export type ModelCardExportJob = import("./modelCardExportJob").ModelCardExportJob;
+export const ModelCardExportJob: typeof import("./modelCardExportJob").ModelCardExportJob = null as any;
+utilities.lazyLoad(exports, ["ModelCardExportJob"], () => require("./modelCardExportJob"));
 
 export { ModelPackageGroupArgs, ModelPackageGroupState } from "./modelPackageGroup";
 export type ModelPackageGroup = import("./modelPackageGroup").ModelPackageGroup;
@@ -195,10 +210,16 @@ const _module = {
                 return new Image(name, <any>undefined, { urn })
             case "aws:sagemaker/imageVersion:ImageVersion":
                 return new ImageVersion(name, <any>undefined, { urn })
+            case "aws:sagemaker/labelingJob:LabelingJob":
+                return new LabelingJob(name, <any>undefined, { urn })
             case "aws:sagemaker/mlflowTrackingServer:MlflowTrackingServer":
                 return new MlflowTrackingServer(name, <any>undefined, { urn })
             case "aws:sagemaker/model:Model":
                 return new Model(name, <any>undefined, { urn })
+            case "aws:sagemaker/modelCard:ModelCard":
+                return new ModelCard(name, <any>undefined, { urn })
+            case "aws:sagemaker/modelCardExportJob:ModelCardExportJob":
+                return new ModelCardExportJob(name, <any>undefined, { urn })
             case "aws:sagemaker/modelPackageGroup:ModelPackageGroup":
                 return new ModelPackageGroup(name, <any>undefined, { urn })
             case "aws:sagemaker/modelPackageGroupPolicy:ModelPackageGroupPolicy":
@@ -245,8 +266,11 @@ pulumi.runtime.registerResourceModule("aws", "sagemaker/hub", _module)
 pulumi.runtime.registerResourceModule("aws", "sagemaker/humanTaskUI", _module)
 pulumi.runtime.registerResourceModule("aws", "sagemaker/image", _module)
 pulumi.runtime.registerResourceModule("aws", "sagemaker/imageVersion", _module)
+pulumi.runtime.registerResourceModule("aws", "sagemaker/labelingJob", _module)
 pulumi.runtime.registerResourceModule("aws", "sagemaker/mlflowTrackingServer", _module)
 pulumi.runtime.registerResourceModule("aws", "sagemaker/model", _module)
+pulumi.runtime.registerResourceModule("aws", "sagemaker/modelCard", _module)
+pulumi.runtime.registerResourceModule("aws", "sagemaker/modelCardExportJob", _module)
 pulumi.runtime.registerResourceModule("aws", "sagemaker/modelPackageGroup", _module)
 pulumi.runtime.registerResourceModule("aws", "sagemaker/modelPackageGroupPolicy", _module)
 pulumi.runtime.registerResourceModule("aws", "sagemaker/monitoringSchedule", _module)

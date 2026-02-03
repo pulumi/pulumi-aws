@@ -29,8 +29,12 @@ class SubnetArgs:
                  enable_lni_at_device_index: Optional[pulumi.Input[_builtins.int]] = None,
                  enable_resource_name_dns_a_record_on_launch: Optional[pulumi.Input[_builtins.bool]] = None,
                  enable_resource_name_dns_aaaa_record_on_launch: Optional[pulumi.Input[_builtins.bool]] = None,
+                 ipv4_ipam_pool_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 ipv4_netmask_length: Optional[pulumi.Input[_builtins.int]] = None,
                  ipv6_cidr_block: Optional[pulumi.Input[_builtins.str]] = None,
+                 ipv6_ipam_pool_id: Optional[pulumi.Input[_builtins.str]] = None,
                  ipv6_native: Optional[pulumi.Input[_builtins.bool]] = None,
+                 ipv6_netmask_length: Optional[pulumi.Input[_builtins.int]] = None,
                  map_customer_owned_ip_on_launch: Optional[pulumi.Input[_builtins.bool]] = None,
                  map_public_ip_on_launch: Optional[pulumi.Input[_builtins.bool]] = None,
                  outpost_arn: Optional[pulumi.Input[_builtins.str]] = None,
@@ -51,13 +55,15 @@ class SubnetArgs:
         :param pulumi.Input[_builtins.int] enable_lni_at_device_index: Indicates the device position for local network interfaces in this subnet. For example, 1 indicates local network interfaces in this subnet are the secondary network interface (eth1). A local network interface cannot be the primary network interface (eth0).
         :param pulumi.Input[_builtins.bool] enable_resource_name_dns_a_record_on_launch: Indicates whether to respond to DNS queries for instance hostnames with DNS A records. Default: `false`.
         :param pulumi.Input[_builtins.bool] enable_resource_name_dns_aaaa_record_on_launch: Indicates whether to respond to DNS queries for instance hostnames with DNS AAAA records. Default: `false`.
+        :param pulumi.Input[_builtins.str] ipv4_ipam_pool_id: ID of an IPv4 VPC Resource Planning IPAM Pool. The CIDR of this pool is used to allocate the CIDR for the subnet.
+        :param pulumi.Input[_builtins.int] ipv4_netmask_length: Netmask. Requires specifying a `ipv4_ipam_pool_id`.
         :param pulumi.Input[_builtins.str] ipv6_cidr_block: The IPv6 network range for the subnet,
-               in CIDR notation. The subnet size must use a /64 prefix length.
+               in CIDR notation. The subnet size must use a /64 prefix length. If the existing IPv6 subnet was created with `assign_ipv6_address_on_creation = true`, changing this value will force resource recreation.
+        :param pulumi.Input[_builtins.str] ipv6_ipam_pool_id: ID of an IPv6 VPC Resource Planning IPAM Pool. The CIDR of this pool is used to allocate the CIDR for the subnet.
         :param pulumi.Input[_builtins.bool] ipv6_native: Indicates whether to create an IPv6-only subnet. Default: `false`.
+        :param pulumi.Input[_builtins.int] ipv6_netmask_length: Netmask. Requires specifying a `ipv6_ipam_pool_id`. Valid values are from 44 to 64 in increments of 4.
         :param pulumi.Input[_builtins.bool] map_customer_owned_ip_on_launch: Specify `true` to indicate that network interfaces created in the subnet should be assigned a customer owned IP address. The `customer_owned_ipv4_pool` and `outpost_arn` arguments must be specified when set to `true`. Default is `false`.
-        :param pulumi.Input[_builtins.bool] map_public_ip_on_launch: Specify true to indicate
-               that instances launched into the subnet should be assigned
-               a public IP address. Default is `false`.
+        :param pulumi.Input[_builtins.bool] map_public_ip_on_launch: Specify true to indicate that instances launched into the subnet should be assigned a public IP address. Default is `false`.
         :param pulumi.Input[_builtins.str] outpost_arn: The Amazon Resource Name (ARN) of the Outpost.
         :param pulumi.Input[_builtins.str] private_dns_hostname_type_on_launch: The type of hostnames to assign to instances in the subnet at launch. For IPv6-only subnets, an instance DNS name must be based on the instance ID. For dual-stack and IPv4-only subnets, you can specify whether DNS names use the instance IPv4 address or the instance ID. Valid values: `ip-name`, `resource-name`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -82,10 +88,18 @@ class SubnetArgs:
             pulumi.set(__self__, "enable_resource_name_dns_a_record_on_launch", enable_resource_name_dns_a_record_on_launch)
         if enable_resource_name_dns_aaaa_record_on_launch is not None:
             pulumi.set(__self__, "enable_resource_name_dns_aaaa_record_on_launch", enable_resource_name_dns_aaaa_record_on_launch)
+        if ipv4_ipam_pool_id is not None:
+            pulumi.set(__self__, "ipv4_ipam_pool_id", ipv4_ipam_pool_id)
+        if ipv4_netmask_length is not None:
+            pulumi.set(__self__, "ipv4_netmask_length", ipv4_netmask_length)
         if ipv6_cidr_block is not None:
             pulumi.set(__self__, "ipv6_cidr_block", ipv6_cidr_block)
+        if ipv6_ipam_pool_id is not None:
+            pulumi.set(__self__, "ipv6_ipam_pool_id", ipv6_ipam_pool_id)
         if ipv6_native is not None:
             pulumi.set(__self__, "ipv6_native", ipv6_native)
+        if ipv6_netmask_length is not None:
+            pulumi.set(__self__, "ipv6_netmask_length", ipv6_netmask_length)
         if map_customer_owned_ip_on_launch is not None:
             pulumi.set(__self__, "map_customer_owned_ip_on_launch", map_customer_owned_ip_on_launch)
         if map_public_ip_on_launch is not None:
@@ -222,17 +236,53 @@ class SubnetArgs:
         pulumi.set(self, "enable_resource_name_dns_aaaa_record_on_launch", value)
 
     @_builtins.property
+    @pulumi.getter(name="ipv4IpamPoolId")
+    def ipv4_ipam_pool_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        ID of an IPv4 VPC Resource Planning IPAM Pool. The CIDR of this pool is used to allocate the CIDR for the subnet.
+        """
+        return pulumi.get(self, "ipv4_ipam_pool_id")
+
+    @ipv4_ipam_pool_id.setter
+    def ipv4_ipam_pool_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "ipv4_ipam_pool_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="ipv4NetmaskLength")
+    def ipv4_netmask_length(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        Netmask. Requires specifying a `ipv4_ipam_pool_id`.
+        """
+        return pulumi.get(self, "ipv4_netmask_length")
+
+    @ipv4_netmask_length.setter
+    def ipv4_netmask_length(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "ipv4_netmask_length", value)
+
+    @_builtins.property
     @pulumi.getter(name="ipv6CidrBlock")
     def ipv6_cidr_block(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The IPv6 network range for the subnet,
-        in CIDR notation. The subnet size must use a /64 prefix length.
+        in CIDR notation. The subnet size must use a /64 prefix length. If the existing IPv6 subnet was created with `assign_ipv6_address_on_creation = true`, changing this value will force resource recreation.
         """
         return pulumi.get(self, "ipv6_cidr_block")
 
     @ipv6_cidr_block.setter
     def ipv6_cidr_block(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "ipv6_cidr_block", value)
+
+    @_builtins.property
+    @pulumi.getter(name="ipv6IpamPoolId")
+    def ipv6_ipam_pool_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        ID of an IPv6 VPC Resource Planning IPAM Pool. The CIDR of this pool is used to allocate the CIDR for the subnet.
+        """
+        return pulumi.get(self, "ipv6_ipam_pool_id")
+
+    @ipv6_ipam_pool_id.setter
+    def ipv6_ipam_pool_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "ipv6_ipam_pool_id", value)
 
     @_builtins.property
     @pulumi.getter(name="ipv6Native")
@@ -245,6 +295,18 @@ class SubnetArgs:
     @ipv6_native.setter
     def ipv6_native(self, value: Optional[pulumi.Input[_builtins.bool]]):
         pulumi.set(self, "ipv6_native", value)
+
+    @_builtins.property
+    @pulumi.getter(name="ipv6NetmaskLength")
+    def ipv6_netmask_length(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        Netmask. Requires specifying a `ipv6_ipam_pool_id`. Valid values are from 44 to 64 in increments of 4.
+        """
+        return pulumi.get(self, "ipv6_netmask_length")
+
+    @ipv6_netmask_length.setter
+    def ipv6_netmask_length(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "ipv6_netmask_length", value)
 
     @_builtins.property
     @pulumi.getter(name="mapCustomerOwnedIpOnLaunch")
@@ -262,9 +324,7 @@ class SubnetArgs:
     @pulumi.getter(name="mapPublicIpOnLaunch")
     def map_public_ip_on_launch(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
-        Specify true to indicate
-        that instances launched into the subnet should be assigned
-        a public IP address. Default is `false`.
+        Specify true to indicate that instances launched into the subnet should be assigned a public IP address. Default is `false`.
         """
         return pulumi.get(self, "map_public_ip_on_launch")
 
@@ -334,9 +394,13 @@ class _SubnetState:
                  enable_lni_at_device_index: Optional[pulumi.Input[_builtins.int]] = None,
                  enable_resource_name_dns_a_record_on_launch: Optional[pulumi.Input[_builtins.bool]] = None,
                  enable_resource_name_dns_aaaa_record_on_launch: Optional[pulumi.Input[_builtins.bool]] = None,
+                 ipv4_ipam_pool_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 ipv4_netmask_length: Optional[pulumi.Input[_builtins.int]] = None,
                  ipv6_cidr_block: Optional[pulumi.Input[_builtins.str]] = None,
                  ipv6_cidr_block_association_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 ipv6_ipam_pool_id: Optional[pulumi.Input[_builtins.str]] = None,
                  ipv6_native: Optional[pulumi.Input[_builtins.bool]] = None,
+                 ipv6_netmask_length: Optional[pulumi.Input[_builtins.int]] = None,
                  map_customer_owned_ip_on_launch: Optional[pulumi.Input[_builtins.bool]] = None,
                  map_public_ip_on_launch: Optional[pulumi.Input[_builtins.bool]] = None,
                  outpost_arn: Optional[pulumi.Input[_builtins.str]] = None,
@@ -360,14 +424,16 @@ class _SubnetState:
         :param pulumi.Input[_builtins.int] enable_lni_at_device_index: Indicates the device position for local network interfaces in this subnet. For example, 1 indicates local network interfaces in this subnet are the secondary network interface (eth1). A local network interface cannot be the primary network interface (eth0).
         :param pulumi.Input[_builtins.bool] enable_resource_name_dns_a_record_on_launch: Indicates whether to respond to DNS queries for instance hostnames with DNS A records. Default: `false`.
         :param pulumi.Input[_builtins.bool] enable_resource_name_dns_aaaa_record_on_launch: Indicates whether to respond to DNS queries for instance hostnames with DNS AAAA records. Default: `false`.
+        :param pulumi.Input[_builtins.str] ipv4_ipam_pool_id: ID of an IPv4 VPC Resource Planning IPAM Pool. The CIDR of this pool is used to allocate the CIDR for the subnet.
+        :param pulumi.Input[_builtins.int] ipv4_netmask_length: Netmask. Requires specifying a `ipv4_ipam_pool_id`.
         :param pulumi.Input[_builtins.str] ipv6_cidr_block: The IPv6 network range for the subnet,
-               in CIDR notation. The subnet size must use a /64 prefix length.
+               in CIDR notation. The subnet size must use a /64 prefix length. If the existing IPv6 subnet was created with `assign_ipv6_address_on_creation = true`, changing this value will force resource recreation.
         :param pulumi.Input[_builtins.str] ipv6_cidr_block_association_id: The association ID for the IPv6 CIDR block.
+        :param pulumi.Input[_builtins.str] ipv6_ipam_pool_id: ID of an IPv6 VPC Resource Planning IPAM Pool. The CIDR of this pool is used to allocate the CIDR for the subnet.
         :param pulumi.Input[_builtins.bool] ipv6_native: Indicates whether to create an IPv6-only subnet. Default: `false`.
+        :param pulumi.Input[_builtins.int] ipv6_netmask_length: Netmask. Requires specifying a `ipv6_ipam_pool_id`. Valid values are from 44 to 64 in increments of 4.
         :param pulumi.Input[_builtins.bool] map_customer_owned_ip_on_launch: Specify `true` to indicate that network interfaces created in the subnet should be assigned a customer owned IP address. The `customer_owned_ipv4_pool` and `outpost_arn` arguments must be specified when set to `true`. Default is `false`.
-        :param pulumi.Input[_builtins.bool] map_public_ip_on_launch: Specify true to indicate
-               that instances launched into the subnet should be assigned
-               a public IP address. Default is `false`.
+        :param pulumi.Input[_builtins.bool] map_public_ip_on_launch: Specify true to indicate that instances launched into the subnet should be assigned a public IP address. Default is `false`.
         :param pulumi.Input[_builtins.str] outpost_arn: The Amazon Resource Name (ARN) of the Outpost.
         :param pulumi.Input[_builtins.str] owner_id: The ID of the AWS account that owns the subnet.
         :param pulumi.Input[_builtins.str] private_dns_hostname_type_on_launch: The type of hostnames to assign to instances in the subnet at launch. For IPv6-only subnets, an instance DNS name must be based on the instance ID. For dual-stack and IPv4-only subnets, you can specify whether DNS names use the instance IPv4 address or the instance ID. Valid values: `ip-name`, `resource-name`.
@@ -396,12 +462,20 @@ class _SubnetState:
             pulumi.set(__self__, "enable_resource_name_dns_a_record_on_launch", enable_resource_name_dns_a_record_on_launch)
         if enable_resource_name_dns_aaaa_record_on_launch is not None:
             pulumi.set(__self__, "enable_resource_name_dns_aaaa_record_on_launch", enable_resource_name_dns_aaaa_record_on_launch)
+        if ipv4_ipam_pool_id is not None:
+            pulumi.set(__self__, "ipv4_ipam_pool_id", ipv4_ipam_pool_id)
+        if ipv4_netmask_length is not None:
+            pulumi.set(__self__, "ipv4_netmask_length", ipv4_netmask_length)
         if ipv6_cidr_block is not None:
             pulumi.set(__self__, "ipv6_cidr_block", ipv6_cidr_block)
         if ipv6_cidr_block_association_id is not None:
             pulumi.set(__self__, "ipv6_cidr_block_association_id", ipv6_cidr_block_association_id)
+        if ipv6_ipam_pool_id is not None:
+            pulumi.set(__self__, "ipv6_ipam_pool_id", ipv6_ipam_pool_id)
         if ipv6_native is not None:
             pulumi.set(__self__, "ipv6_native", ipv6_native)
+        if ipv6_netmask_length is not None:
+            pulumi.set(__self__, "ipv6_netmask_length", ipv6_netmask_length)
         if map_customer_owned_ip_on_launch is not None:
             pulumi.set(__self__, "map_customer_owned_ip_on_launch", map_customer_owned_ip_on_launch)
         if map_public_ip_on_launch is not None:
@@ -544,11 +618,35 @@ class _SubnetState:
         pulumi.set(self, "enable_resource_name_dns_aaaa_record_on_launch", value)
 
     @_builtins.property
+    @pulumi.getter(name="ipv4IpamPoolId")
+    def ipv4_ipam_pool_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        ID of an IPv4 VPC Resource Planning IPAM Pool. The CIDR of this pool is used to allocate the CIDR for the subnet.
+        """
+        return pulumi.get(self, "ipv4_ipam_pool_id")
+
+    @ipv4_ipam_pool_id.setter
+    def ipv4_ipam_pool_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "ipv4_ipam_pool_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="ipv4NetmaskLength")
+    def ipv4_netmask_length(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        Netmask. Requires specifying a `ipv4_ipam_pool_id`.
+        """
+        return pulumi.get(self, "ipv4_netmask_length")
+
+    @ipv4_netmask_length.setter
+    def ipv4_netmask_length(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "ipv4_netmask_length", value)
+
+    @_builtins.property
     @pulumi.getter(name="ipv6CidrBlock")
     def ipv6_cidr_block(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         The IPv6 network range for the subnet,
-        in CIDR notation. The subnet size must use a /64 prefix length.
+        in CIDR notation. The subnet size must use a /64 prefix length. If the existing IPv6 subnet was created with `assign_ipv6_address_on_creation = true`, changing this value will force resource recreation.
         """
         return pulumi.get(self, "ipv6_cidr_block")
 
@@ -569,6 +667,18 @@ class _SubnetState:
         pulumi.set(self, "ipv6_cidr_block_association_id", value)
 
     @_builtins.property
+    @pulumi.getter(name="ipv6IpamPoolId")
+    def ipv6_ipam_pool_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        ID of an IPv6 VPC Resource Planning IPAM Pool. The CIDR of this pool is used to allocate the CIDR for the subnet.
+        """
+        return pulumi.get(self, "ipv6_ipam_pool_id")
+
+    @ipv6_ipam_pool_id.setter
+    def ipv6_ipam_pool_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "ipv6_ipam_pool_id", value)
+
+    @_builtins.property
     @pulumi.getter(name="ipv6Native")
     def ipv6_native(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
@@ -579,6 +689,18 @@ class _SubnetState:
     @ipv6_native.setter
     def ipv6_native(self, value: Optional[pulumi.Input[_builtins.bool]]):
         pulumi.set(self, "ipv6_native", value)
+
+    @_builtins.property
+    @pulumi.getter(name="ipv6NetmaskLength")
+    def ipv6_netmask_length(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        Netmask. Requires specifying a `ipv6_ipam_pool_id`. Valid values are from 44 to 64 in increments of 4.
+        """
+        return pulumi.get(self, "ipv6_netmask_length")
+
+    @ipv6_netmask_length.setter
+    def ipv6_netmask_length(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "ipv6_netmask_length", value)
 
     @_builtins.property
     @pulumi.getter(name="mapCustomerOwnedIpOnLaunch")
@@ -596,9 +718,7 @@ class _SubnetState:
     @pulumi.getter(name="mapPublicIpOnLaunch")
     def map_public_ip_on_launch(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
-        Specify true to indicate
-        that instances launched into the subnet should be assigned
-        a public IP address. Default is `false`.
+        Specify true to indicate that instances launched into the subnet should be assigned a public IP address. Default is `false`.
         """
         return pulumi.get(self, "map_public_ip_on_launch")
 
@@ -706,8 +826,12 @@ class Subnet(pulumi.CustomResource):
                  enable_lni_at_device_index: Optional[pulumi.Input[_builtins.int]] = None,
                  enable_resource_name_dns_a_record_on_launch: Optional[pulumi.Input[_builtins.bool]] = None,
                  enable_resource_name_dns_aaaa_record_on_launch: Optional[pulumi.Input[_builtins.bool]] = None,
+                 ipv4_ipam_pool_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 ipv4_netmask_length: Optional[pulumi.Input[_builtins.int]] = None,
                  ipv6_cidr_block: Optional[pulumi.Input[_builtins.str]] = None,
+                 ipv6_ipam_pool_id: Optional[pulumi.Input[_builtins.str]] = None,
                  ipv6_native: Optional[pulumi.Input[_builtins.bool]] = None,
+                 ipv6_netmask_length: Optional[pulumi.Input[_builtins.int]] = None,
                  map_customer_owned_ip_on_launch: Optional[pulumi.Input[_builtins.bool]] = None,
                  map_public_ip_on_launch: Optional[pulumi.Input[_builtins.bool]] = None,
                  outpost_arn: Optional[pulumi.Input[_builtins.str]] = None,
@@ -754,6 +878,49 @@ class Subnet(pulumi.CustomResource):
             cidr_block="172.20.0.0/24")
         ```
 
+        ### IPAM-Managed Subnets
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        current = aws.get_region()
+        test = aws.ec2.VpcIpam("test", operating_regions=[{
+            "region_name": current.region,
+        }])
+        test_vpc_ipam_pool = aws.ec2.VpcIpamPool("test",
+            address_family="ipv4",
+            ipam_scope_id=test.private_default_scope_id,
+            locale=current.name)
+        test_vpc_ipam_pool_cidr = aws.ec2.VpcIpamPoolCidr("test",
+            ipam_pool_id=test_vpc_ipam_pool.id,
+            cidr="10.0.0.0/16")
+        test_vpc = aws.ec2.Vpc("test",
+            ipv4_ipam_pool_id=test_vpc_ipam_pool.id,
+            ipv4_netmask_length=24,
+            opts = pulumi.ResourceOptions(depends_on=[test_vpc_ipam_pool_cidr]))
+        vpc = aws.ec2.VpcIpamPool("vpc",
+            address_family="ipv4",
+            ipam_scope_id=test.private_default_scope_id,
+            locale=current.name,
+            source_ipam_pool_id=test_vpc_ipam_pool.id,
+            source_resource={
+                "resource_id": test_vpc.id,
+                "resource_owner": current_aws_caller_identity["accountId"],
+                "resource_region": current.name,
+                "resource_type": "vpc",
+            })
+        vpc_vpc_ipam_pool_cidr = aws.ec2.VpcIpamPoolCidr("vpc",
+            ipam_pool_id=vpc.id,
+            cidr=test_vpc.cidr_block)
+        test_subnet = aws.ec2.Subnet("test",
+            vpc_id=test_vpc.id,
+            ipv4_ipam_pool_id=vpc.id,
+            ipv4_netmask_length=28,
+            availability_zone=available["names"][0],
+            opts = pulumi.ResourceOptions(depends_on=[vpc_vpc_ipam_pool_cidr]))
+        ```
+
         ## Import
 
         ### Identity Schema
@@ -785,13 +952,15 @@ class Subnet(pulumi.CustomResource):
         :param pulumi.Input[_builtins.int] enable_lni_at_device_index: Indicates the device position for local network interfaces in this subnet. For example, 1 indicates local network interfaces in this subnet are the secondary network interface (eth1). A local network interface cannot be the primary network interface (eth0).
         :param pulumi.Input[_builtins.bool] enable_resource_name_dns_a_record_on_launch: Indicates whether to respond to DNS queries for instance hostnames with DNS A records. Default: `false`.
         :param pulumi.Input[_builtins.bool] enable_resource_name_dns_aaaa_record_on_launch: Indicates whether to respond to DNS queries for instance hostnames with DNS AAAA records. Default: `false`.
+        :param pulumi.Input[_builtins.str] ipv4_ipam_pool_id: ID of an IPv4 VPC Resource Planning IPAM Pool. The CIDR of this pool is used to allocate the CIDR for the subnet.
+        :param pulumi.Input[_builtins.int] ipv4_netmask_length: Netmask. Requires specifying a `ipv4_ipam_pool_id`.
         :param pulumi.Input[_builtins.str] ipv6_cidr_block: The IPv6 network range for the subnet,
-               in CIDR notation. The subnet size must use a /64 prefix length.
+               in CIDR notation. The subnet size must use a /64 prefix length. If the existing IPv6 subnet was created with `assign_ipv6_address_on_creation = true`, changing this value will force resource recreation.
+        :param pulumi.Input[_builtins.str] ipv6_ipam_pool_id: ID of an IPv6 VPC Resource Planning IPAM Pool. The CIDR of this pool is used to allocate the CIDR for the subnet.
         :param pulumi.Input[_builtins.bool] ipv6_native: Indicates whether to create an IPv6-only subnet. Default: `false`.
+        :param pulumi.Input[_builtins.int] ipv6_netmask_length: Netmask. Requires specifying a `ipv6_ipam_pool_id`. Valid values are from 44 to 64 in increments of 4.
         :param pulumi.Input[_builtins.bool] map_customer_owned_ip_on_launch: Specify `true` to indicate that network interfaces created in the subnet should be assigned a customer owned IP address. The `customer_owned_ipv4_pool` and `outpost_arn` arguments must be specified when set to `true`. Default is `false`.
-        :param pulumi.Input[_builtins.bool] map_public_ip_on_launch: Specify true to indicate
-               that instances launched into the subnet should be assigned
-               a public IP address. Default is `false`.
+        :param pulumi.Input[_builtins.bool] map_public_ip_on_launch: Specify true to indicate that instances launched into the subnet should be assigned a public IP address. Default is `false`.
         :param pulumi.Input[_builtins.str] outpost_arn: The Amazon Resource Name (ARN) of the Outpost.
         :param pulumi.Input[_builtins.str] private_dns_hostname_type_on_launch: The type of hostnames to assign to instances in the subnet at launch. For IPv6-only subnets, an instance DNS name must be based on the instance ID. For dual-stack and IPv4-only subnets, you can specify whether DNS names use the instance IPv4 address or the instance ID. Valid values: `ip-name`, `resource-name`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -842,6 +1011,49 @@ class Subnet(pulumi.CustomResource):
             cidr_block="172.20.0.0/24")
         ```
 
+        ### IPAM-Managed Subnets
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        current = aws.get_region()
+        test = aws.ec2.VpcIpam("test", operating_regions=[{
+            "region_name": current.region,
+        }])
+        test_vpc_ipam_pool = aws.ec2.VpcIpamPool("test",
+            address_family="ipv4",
+            ipam_scope_id=test.private_default_scope_id,
+            locale=current.name)
+        test_vpc_ipam_pool_cidr = aws.ec2.VpcIpamPoolCidr("test",
+            ipam_pool_id=test_vpc_ipam_pool.id,
+            cidr="10.0.0.0/16")
+        test_vpc = aws.ec2.Vpc("test",
+            ipv4_ipam_pool_id=test_vpc_ipam_pool.id,
+            ipv4_netmask_length=24,
+            opts = pulumi.ResourceOptions(depends_on=[test_vpc_ipam_pool_cidr]))
+        vpc = aws.ec2.VpcIpamPool("vpc",
+            address_family="ipv4",
+            ipam_scope_id=test.private_default_scope_id,
+            locale=current.name,
+            source_ipam_pool_id=test_vpc_ipam_pool.id,
+            source_resource={
+                "resource_id": test_vpc.id,
+                "resource_owner": current_aws_caller_identity["accountId"],
+                "resource_region": current.name,
+                "resource_type": "vpc",
+            })
+        vpc_vpc_ipam_pool_cidr = aws.ec2.VpcIpamPoolCidr("vpc",
+            ipam_pool_id=vpc.id,
+            cidr=test_vpc.cidr_block)
+        test_subnet = aws.ec2.Subnet("test",
+            vpc_id=test_vpc.id,
+            ipv4_ipam_pool_id=vpc.id,
+            ipv4_netmask_length=28,
+            availability_zone=available["names"][0],
+            opts = pulumi.ResourceOptions(depends_on=[vpc_vpc_ipam_pool_cidr]))
+        ```
+
         ## Import
 
         ### Identity Schema
@@ -884,8 +1096,12 @@ class Subnet(pulumi.CustomResource):
                  enable_lni_at_device_index: Optional[pulumi.Input[_builtins.int]] = None,
                  enable_resource_name_dns_a_record_on_launch: Optional[pulumi.Input[_builtins.bool]] = None,
                  enable_resource_name_dns_aaaa_record_on_launch: Optional[pulumi.Input[_builtins.bool]] = None,
+                 ipv4_ipam_pool_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 ipv4_netmask_length: Optional[pulumi.Input[_builtins.int]] = None,
                  ipv6_cidr_block: Optional[pulumi.Input[_builtins.str]] = None,
+                 ipv6_ipam_pool_id: Optional[pulumi.Input[_builtins.str]] = None,
                  ipv6_native: Optional[pulumi.Input[_builtins.bool]] = None,
+                 ipv6_netmask_length: Optional[pulumi.Input[_builtins.int]] = None,
                  map_customer_owned_ip_on_launch: Optional[pulumi.Input[_builtins.bool]] = None,
                  map_public_ip_on_launch: Optional[pulumi.Input[_builtins.bool]] = None,
                  outpost_arn: Optional[pulumi.Input[_builtins.str]] = None,
@@ -911,8 +1127,12 @@ class Subnet(pulumi.CustomResource):
             __props__.__dict__["enable_lni_at_device_index"] = enable_lni_at_device_index
             __props__.__dict__["enable_resource_name_dns_a_record_on_launch"] = enable_resource_name_dns_a_record_on_launch
             __props__.__dict__["enable_resource_name_dns_aaaa_record_on_launch"] = enable_resource_name_dns_aaaa_record_on_launch
+            __props__.__dict__["ipv4_ipam_pool_id"] = ipv4_ipam_pool_id
+            __props__.__dict__["ipv4_netmask_length"] = ipv4_netmask_length
             __props__.__dict__["ipv6_cidr_block"] = ipv6_cidr_block
+            __props__.__dict__["ipv6_ipam_pool_id"] = ipv6_ipam_pool_id
             __props__.__dict__["ipv6_native"] = ipv6_native
+            __props__.__dict__["ipv6_netmask_length"] = ipv6_netmask_length
             __props__.__dict__["map_customer_owned_ip_on_launch"] = map_customer_owned_ip_on_launch
             __props__.__dict__["map_public_ip_on_launch"] = map_public_ip_on_launch
             __props__.__dict__["outpost_arn"] = outpost_arn
@@ -946,9 +1166,13 @@ class Subnet(pulumi.CustomResource):
             enable_lni_at_device_index: Optional[pulumi.Input[_builtins.int]] = None,
             enable_resource_name_dns_a_record_on_launch: Optional[pulumi.Input[_builtins.bool]] = None,
             enable_resource_name_dns_aaaa_record_on_launch: Optional[pulumi.Input[_builtins.bool]] = None,
+            ipv4_ipam_pool_id: Optional[pulumi.Input[_builtins.str]] = None,
+            ipv4_netmask_length: Optional[pulumi.Input[_builtins.int]] = None,
             ipv6_cidr_block: Optional[pulumi.Input[_builtins.str]] = None,
             ipv6_cidr_block_association_id: Optional[pulumi.Input[_builtins.str]] = None,
+            ipv6_ipam_pool_id: Optional[pulumi.Input[_builtins.str]] = None,
             ipv6_native: Optional[pulumi.Input[_builtins.bool]] = None,
+            ipv6_netmask_length: Optional[pulumi.Input[_builtins.int]] = None,
             map_customer_owned_ip_on_launch: Optional[pulumi.Input[_builtins.bool]] = None,
             map_public_ip_on_launch: Optional[pulumi.Input[_builtins.bool]] = None,
             outpost_arn: Optional[pulumi.Input[_builtins.str]] = None,
@@ -977,14 +1201,16 @@ class Subnet(pulumi.CustomResource):
         :param pulumi.Input[_builtins.int] enable_lni_at_device_index: Indicates the device position for local network interfaces in this subnet. For example, 1 indicates local network interfaces in this subnet are the secondary network interface (eth1). A local network interface cannot be the primary network interface (eth0).
         :param pulumi.Input[_builtins.bool] enable_resource_name_dns_a_record_on_launch: Indicates whether to respond to DNS queries for instance hostnames with DNS A records. Default: `false`.
         :param pulumi.Input[_builtins.bool] enable_resource_name_dns_aaaa_record_on_launch: Indicates whether to respond to DNS queries for instance hostnames with DNS AAAA records. Default: `false`.
+        :param pulumi.Input[_builtins.str] ipv4_ipam_pool_id: ID of an IPv4 VPC Resource Planning IPAM Pool. The CIDR of this pool is used to allocate the CIDR for the subnet.
+        :param pulumi.Input[_builtins.int] ipv4_netmask_length: Netmask. Requires specifying a `ipv4_ipam_pool_id`.
         :param pulumi.Input[_builtins.str] ipv6_cidr_block: The IPv6 network range for the subnet,
-               in CIDR notation. The subnet size must use a /64 prefix length.
+               in CIDR notation. The subnet size must use a /64 prefix length. If the existing IPv6 subnet was created with `assign_ipv6_address_on_creation = true`, changing this value will force resource recreation.
         :param pulumi.Input[_builtins.str] ipv6_cidr_block_association_id: The association ID for the IPv6 CIDR block.
+        :param pulumi.Input[_builtins.str] ipv6_ipam_pool_id: ID of an IPv6 VPC Resource Planning IPAM Pool. The CIDR of this pool is used to allocate the CIDR for the subnet.
         :param pulumi.Input[_builtins.bool] ipv6_native: Indicates whether to create an IPv6-only subnet. Default: `false`.
+        :param pulumi.Input[_builtins.int] ipv6_netmask_length: Netmask. Requires specifying a `ipv6_ipam_pool_id`. Valid values are from 44 to 64 in increments of 4.
         :param pulumi.Input[_builtins.bool] map_customer_owned_ip_on_launch: Specify `true` to indicate that network interfaces created in the subnet should be assigned a customer owned IP address. The `customer_owned_ipv4_pool` and `outpost_arn` arguments must be specified when set to `true`. Default is `false`.
-        :param pulumi.Input[_builtins.bool] map_public_ip_on_launch: Specify true to indicate
-               that instances launched into the subnet should be assigned
-               a public IP address. Default is `false`.
+        :param pulumi.Input[_builtins.bool] map_public_ip_on_launch: Specify true to indicate that instances launched into the subnet should be assigned a public IP address. Default is `false`.
         :param pulumi.Input[_builtins.str] outpost_arn: The Amazon Resource Name (ARN) of the Outpost.
         :param pulumi.Input[_builtins.str] owner_id: The ID of the AWS account that owns the subnet.
         :param pulumi.Input[_builtins.str] private_dns_hostname_type_on_launch: The type of hostnames to assign to instances in the subnet at launch. For IPv6-only subnets, an instance DNS name must be based on the instance ID. For dual-stack and IPv4-only subnets, you can specify whether DNS names use the instance IPv4 address or the instance ID. Valid values: `ip-name`, `resource-name`.
@@ -1007,9 +1233,13 @@ class Subnet(pulumi.CustomResource):
         __props__.__dict__["enable_lni_at_device_index"] = enable_lni_at_device_index
         __props__.__dict__["enable_resource_name_dns_a_record_on_launch"] = enable_resource_name_dns_a_record_on_launch
         __props__.__dict__["enable_resource_name_dns_aaaa_record_on_launch"] = enable_resource_name_dns_aaaa_record_on_launch
+        __props__.__dict__["ipv4_ipam_pool_id"] = ipv4_ipam_pool_id
+        __props__.__dict__["ipv4_netmask_length"] = ipv4_netmask_length
         __props__.__dict__["ipv6_cidr_block"] = ipv6_cidr_block
         __props__.__dict__["ipv6_cidr_block_association_id"] = ipv6_cidr_block_association_id
+        __props__.__dict__["ipv6_ipam_pool_id"] = ipv6_ipam_pool_id
         __props__.__dict__["ipv6_native"] = ipv6_native
+        __props__.__dict__["ipv6_netmask_length"] = ipv6_netmask_length
         __props__.__dict__["map_customer_owned_ip_on_launch"] = map_customer_owned_ip_on_launch
         __props__.__dict__["map_public_ip_on_launch"] = map_public_ip_on_launch
         __props__.__dict__["outpost_arn"] = outpost_arn
@@ -1057,7 +1287,7 @@ class Subnet(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="cidrBlock")
-    def cidr_block(self) -> pulumi.Output[Optional[_builtins.str]]:
+    def cidr_block(self) -> pulumi.Output[_builtins.str]:
         """
         The IPv4 CIDR block for the subnet.
         """
@@ -1104,11 +1334,27 @@ class Subnet(pulumi.CustomResource):
         return pulumi.get(self, "enable_resource_name_dns_aaaa_record_on_launch")
 
     @_builtins.property
+    @pulumi.getter(name="ipv4IpamPoolId")
+    def ipv4_ipam_pool_id(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        ID of an IPv4 VPC Resource Planning IPAM Pool. The CIDR of this pool is used to allocate the CIDR for the subnet.
+        """
+        return pulumi.get(self, "ipv4_ipam_pool_id")
+
+    @_builtins.property
+    @pulumi.getter(name="ipv4NetmaskLength")
+    def ipv4_netmask_length(self) -> pulumi.Output[Optional[_builtins.int]]:
+        """
+        Netmask. Requires specifying a `ipv4_ipam_pool_id`.
+        """
+        return pulumi.get(self, "ipv4_netmask_length")
+
+    @_builtins.property
     @pulumi.getter(name="ipv6CidrBlock")
-    def ipv6_cidr_block(self) -> pulumi.Output[Optional[_builtins.str]]:
+    def ipv6_cidr_block(self) -> pulumi.Output[_builtins.str]:
         """
         The IPv6 network range for the subnet,
-        in CIDR notation. The subnet size must use a /64 prefix length.
+        in CIDR notation. The subnet size must use a /64 prefix length. If the existing IPv6 subnet was created with `assign_ipv6_address_on_creation = true`, changing this value will force resource recreation.
         """
         return pulumi.get(self, "ipv6_cidr_block")
 
@@ -1121,12 +1367,28 @@ class Subnet(pulumi.CustomResource):
         return pulumi.get(self, "ipv6_cidr_block_association_id")
 
     @_builtins.property
+    @pulumi.getter(name="ipv6IpamPoolId")
+    def ipv6_ipam_pool_id(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        ID of an IPv6 VPC Resource Planning IPAM Pool. The CIDR of this pool is used to allocate the CIDR for the subnet.
+        """
+        return pulumi.get(self, "ipv6_ipam_pool_id")
+
+    @_builtins.property
     @pulumi.getter(name="ipv6Native")
     def ipv6_native(self) -> pulumi.Output[Optional[_builtins.bool]]:
         """
         Indicates whether to create an IPv6-only subnet. Default: `false`.
         """
         return pulumi.get(self, "ipv6_native")
+
+    @_builtins.property
+    @pulumi.getter(name="ipv6NetmaskLength")
+    def ipv6_netmask_length(self) -> pulumi.Output[Optional[_builtins.int]]:
+        """
+        Netmask. Requires specifying a `ipv6_ipam_pool_id`. Valid values are from 44 to 64 in increments of 4.
+        """
+        return pulumi.get(self, "ipv6_netmask_length")
 
     @_builtins.property
     @pulumi.getter(name="mapCustomerOwnedIpOnLaunch")
@@ -1140,9 +1402,7 @@ class Subnet(pulumi.CustomResource):
     @pulumi.getter(name="mapPublicIpOnLaunch")
     def map_public_ip_on_launch(self) -> pulumi.Output[Optional[_builtins.bool]]:
         """
-        Specify true to indicate
-        that instances launched into the subnet should be assigned
-        a public IP address. Default is `false`.
+        Specify true to indicate that instances launched into the subnet should be assigned a public IP address. Default is `false`.
         """
         return pulumi.get(self, "map_public_ip_on_launch")
 

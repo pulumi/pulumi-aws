@@ -14,6 +14,7 @@ namespace Pulumi.Aws.DynamoDB.Outputs
     public sealed class GetTableGlobalSecondaryIndexResult
     {
         public readonly string HashKey;
+        public readonly ImmutableArray<Outputs.GetTableGlobalSecondaryIndexKeySchemaResult> KeySchemas;
         /// <summary>
         /// Name of the DynamoDB table.
         /// </summary>
@@ -29,6 +30,8 @@ namespace Pulumi.Aws.DynamoDB.Outputs
         [OutputConstructor]
         private GetTableGlobalSecondaryIndexResult(
             string hashKey,
+
+            ImmutableArray<Outputs.GetTableGlobalSecondaryIndexKeySchemaResult> keySchemas,
 
             string name,
 
@@ -47,6 +50,7 @@ namespace Pulumi.Aws.DynamoDB.Outputs
             int writeCapacity)
         {
             HashKey = hashKey;
+            KeySchemas = keySchemas;
             Name = name;
             NonKeyAttributes = nonKeyAttributes;
             OnDemandThroughputs = onDemandThroughputs;

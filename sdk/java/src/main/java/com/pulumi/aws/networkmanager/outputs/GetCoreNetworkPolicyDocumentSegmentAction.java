@@ -47,6 +47,11 @@ public final class GetCoreNetworkPolicyDocumentSegmentAction {
      */
     private @Nullable String mode;
     /**
+     * @return A list of routing policy names to apply to segment sharing. The routing policies control how routes are propagated between the shared segments. Only applicable when `action` is `share`. Available in policy version `2025.11` and later.
+     * 
+     */
+    private @Nullable List<String> routingPolicyNames;
+    /**
      * @return Name of the segment.
      * 
      */
@@ -116,6 +121,13 @@ public final class GetCoreNetworkPolicyDocumentSegmentAction {
         return Optional.ofNullable(this.mode);
     }
     /**
+     * @return A list of routing policy names to apply to segment sharing. The routing policies control how routes are propagated between the shared segments. Only applicable when `action` is `share`. Available in policy version `2025.11` and later.
+     * 
+     */
+    public List<String> routingPolicyNames() {
+        return this.routingPolicyNames == null ? List.of() : this.routingPolicyNames;
+    }
+    /**
      * @return Name of the segment.
      * 
      */
@@ -166,6 +178,7 @@ public final class GetCoreNetworkPolicyDocumentSegmentAction {
         private @Nullable List<String> destinations;
         private @Nullable GetCoreNetworkPolicyDocumentSegmentActionEdgeLocationAssociation edgeLocationAssociation;
         private @Nullable String mode;
+        private @Nullable List<String> routingPolicyNames;
         private String segment;
         private @Nullable List<String> shareWithExcepts;
         private @Nullable List<String> shareWiths;
@@ -180,6 +193,7 @@ public final class GetCoreNetworkPolicyDocumentSegmentAction {
     	      this.destinations = defaults.destinations;
     	      this.edgeLocationAssociation = defaults.edgeLocationAssociation;
     	      this.mode = defaults.mode;
+    	      this.routingPolicyNames = defaults.routingPolicyNames;
     	      this.segment = defaults.segment;
     	      this.shareWithExcepts = defaults.shareWithExcepts;
     	      this.shareWiths = defaults.shareWiths;
@@ -232,6 +246,15 @@ public final class GetCoreNetworkPolicyDocumentSegmentAction {
             return this;
         }
         @CustomType.Setter
+        public Builder routingPolicyNames(@Nullable List<String> routingPolicyNames) {
+
+            this.routingPolicyNames = routingPolicyNames;
+            return this;
+        }
+        public Builder routingPolicyNames(String... routingPolicyNames) {
+            return routingPolicyNames(List.of(routingPolicyNames));
+        }
+        @CustomType.Setter
         public Builder segment(String segment) {
             if (segment == null) {
               throw new MissingRequiredPropertyException("GetCoreNetworkPolicyDocumentSegmentAction", "segment");
@@ -277,6 +300,7 @@ public final class GetCoreNetworkPolicyDocumentSegmentAction {
             _resultValue.destinations = destinations;
             _resultValue.edgeLocationAssociation = edgeLocationAssociation;
             _resultValue.mode = mode;
+            _resultValue.routingPolicyNames = routingPolicyNames;
             _resultValue.segment = segment;
             _resultValue.shareWithExcepts = shareWithExcepts;
             _resultValue.shareWiths = shareWiths;

@@ -19,6 +19,11 @@ public final class AgentDataSourceVectorIngestionConfigurationParsingConfigurati
      */
     private String modelArn;
     /**
+     * @return Specifies whether to enable parsing of multimodal data, including both text and images. Valid values: `MULTIMODAL`.
+     * 
+     */
+    private @Nullable String parsingModality;
+    /**
      * @return Instructions for interpreting the contents of the document. See `parsingPrompt` block for details.
      * 
      */
@@ -31,6 +36,13 @@ public final class AgentDataSourceVectorIngestionConfigurationParsingConfigurati
      */
     public String modelArn() {
         return this.modelArn;
+    }
+    /**
+     * @return Specifies whether to enable parsing of multimodal data, including both text and images. Valid values: `MULTIMODAL`.
+     * 
+     */
+    public Optional<String> parsingModality() {
+        return Optional.ofNullable(this.parsingModality);
     }
     /**
      * @return Instructions for interpreting the contents of the document. See `parsingPrompt` block for details.
@@ -50,11 +62,13 @@ public final class AgentDataSourceVectorIngestionConfigurationParsingConfigurati
     @CustomType.Builder
     public static final class Builder {
         private String modelArn;
+        private @Nullable String parsingModality;
         private @Nullable AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationParsingPrompt parsingPrompt;
         public Builder() {}
         public Builder(AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.modelArn = defaults.modelArn;
+    	      this.parsingModality = defaults.parsingModality;
     	      this.parsingPrompt = defaults.parsingPrompt;
         }
 
@@ -67,6 +81,12 @@ public final class AgentDataSourceVectorIngestionConfigurationParsingConfigurati
             return this;
         }
         @CustomType.Setter
+        public Builder parsingModality(@Nullable String parsingModality) {
+
+            this.parsingModality = parsingModality;
+            return this;
+        }
+        @CustomType.Setter
         public Builder parsingPrompt(@Nullable AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationParsingPrompt parsingPrompt) {
 
             this.parsingPrompt = parsingPrompt;
@@ -75,6 +95,7 @@ public final class AgentDataSourceVectorIngestionConfigurationParsingConfigurati
         public AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfiguration build() {
             final var _resultValue = new AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfiguration();
             _resultValue.modelArn = modelArn;
+            _resultValue.parsingModality = parsingModality;
             _resultValue.parsingPrompt = parsingPrompt;
             return _resultValue;
         }

@@ -31,8 +31,12 @@ class NetworkArgs:
                  custom_domain_name: Optional[pulumi.Input[_builtins.str]] = None,
                  default_dns_prefix: Optional[pulumi.Input[_builtins.str]] = None,
                  delete_associated_resources: Optional[pulumi.Input[_builtins.bool]] = None,
+                 kms_access: Optional[pulumi.Input[_builtins.str]] = None,
+                 kms_policy_document: Optional[pulumi.Input[_builtins.str]] = None,
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  s3_policy_document: Optional[pulumi.Input[_builtins.str]] = None,
+                 sts_access: Optional[pulumi.Input[_builtins.str]] = None,
+                 sts_policy_document: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  timeouts: Optional[pulumi.Input['NetworkTimeoutsArgs']] = None):
         """
@@ -43,8 +47,12 @@ class NetworkArgs:
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] custom_domain_name: The name of the custom domain that the network is located. custom_domain_name and default_dns_prefix both can't be given.
         :param pulumi.Input[_builtins.bool] delete_associated_resources: If set to true deletes associated OCI resources. Default false.
+        :param pulumi.Input[_builtins.str] kms_access: Specifies the configuration for KMS access from the ODB network.
+        :param pulumi.Input[_builtins.str] kms_policy_document: Specifies the endpoint policy for KMS access from the ODB network.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] s3_policy_document: Specifies the endpoint policy for Amazon S3 access from the ODB network.
+        :param pulumi.Input[_builtins.str] sts_access: Specifies the configuration for STS access from the ODB network.
+        :param pulumi.Input[_builtins.str] sts_policy_document: Specifies the endpoint policy for STS access from the ODB network.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the exadata infrastructure. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "availability_zone_id", availability_zone_id)
@@ -61,10 +69,18 @@ class NetworkArgs:
             pulumi.set(__self__, "default_dns_prefix", default_dns_prefix)
         if delete_associated_resources is not None:
             pulumi.set(__self__, "delete_associated_resources", delete_associated_resources)
+        if kms_access is not None:
+            pulumi.set(__self__, "kms_access", kms_access)
+        if kms_policy_document is not None:
+            pulumi.set(__self__, "kms_policy_document", kms_policy_document)
         if region is not None:
             pulumi.set(__self__, "region", region)
         if s3_policy_document is not None:
             pulumi.set(__self__, "s3_policy_document", s3_policy_document)
+        if sts_access is not None:
+            pulumi.set(__self__, "sts_access", sts_access)
+        if sts_policy_document is not None:
+            pulumi.set(__self__, "sts_policy_document", sts_policy_document)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if timeouts is not None:
@@ -175,6 +191,30 @@ class NetworkArgs:
         pulumi.set(self, "delete_associated_resources", value)
 
     @_builtins.property
+    @pulumi.getter(name="kmsAccess")
+    def kms_access(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Specifies the configuration for KMS access from the ODB network.
+        """
+        return pulumi.get(self, "kms_access")
+
+    @kms_access.setter
+    def kms_access(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "kms_access", value)
+
+    @_builtins.property
+    @pulumi.getter(name="kmsPolicyDocument")
+    def kms_policy_document(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Specifies the endpoint policy for KMS access from the ODB network.
+        """
+        return pulumi.get(self, "kms_policy_document")
+
+    @kms_policy_document.setter
+    def kms_policy_document(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "kms_policy_document", value)
+
+    @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
@@ -197,6 +237,30 @@ class NetworkArgs:
     @s3_policy_document.setter
     def s3_policy_document(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "s3_policy_document", value)
+
+    @_builtins.property
+    @pulumi.getter(name="stsAccess")
+    def sts_access(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Specifies the configuration for STS access from the ODB network.
+        """
+        return pulumi.get(self, "sts_access")
+
+    @sts_access.setter
+    def sts_access(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "sts_access", value)
+
+    @_builtins.property
+    @pulumi.getter(name="stsPolicyDocument")
+    def sts_policy_document(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Specifies the endpoint policy for STS access from the ODB network.
+        """
+        return pulumi.get(self, "sts_policy_document")
+
+    @sts_policy_document.setter
+    def sts_policy_document(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "sts_policy_document", value)
 
     @_builtins.property
     @pulumi.getter
@@ -233,6 +297,8 @@ class _NetworkState:
                  default_dns_prefix: Optional[pulumi.Input[_builtins.str]] = None,
                  delete_associated_resources: Optional[pulumi.Input[_builtins.bool]] = None,
                  display_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 kms_access: Optional[pulumi.Input[_builtins.str]] = None,
+                 kms_policy_document: Optional[pulumi.Input[_builtins.str]] = None,
                  managed_services: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkManagedServiceArgs']]]] = None,
                  oci_dns_forwarding_configs: Optional[pulumi.Input[Sequence[pulumi.Input['NetworkOciDnsForwardingConfigArgs']]]] = None,
                  oci_network_anchor_id: Optional[pulumi.Input[_builtins.str]] = None,
@@ -247,6 +313,8 @@ class _NetworkState:
                  s3_policy_document: Optional[pulumi.Input[_builtins.str]] = None,
                  status: Optional[pulumi.Input[_builtins.str]] = None,
                  status_reason: Optional[pulumi.Input[_builtins.str]] = None,
+                 sts_access: Optional[pulumi.Input[_builtins.str]] = None,
+                 sts_policy_document: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  timeouts: Optional[pulumi.Input['NetworkTimeoutsArgs']] = None,
@@ -257,6 +325,8 @@ class _NetworkState:
         :param pulumi.Input[_builtins.str] created_at: The date and time when the ODB network was created.
         :param pulumi.Input[_builtins.str] custom_domain_name: The name of the custom domain that the network is located. custom_domain_name and default_dns_prefix both can't be given.
         :param pulumi.Input[_builtins.bool] delete_associated_resources: If set to true deletes associated OCI resources. Default false.
+        :param pulumi.Input[_builtins.str] kms_access: Specifies the configuration for KMS access from the ODB network.
+        :param pulumi.Input[_builtins.str] kms_policy_document: Specifies the endpoint policy for KMS access from the ODB network.
         :param pulumi.Input[Sequence[pulumi.Input['NetworkManagedServiceArgs']]] managed_services: The name of the OCI resource anchor for the Exadata infrastructure.
         :param pulumi.Input[Sequence[pulumi.Input['NetworkOciDnsForwardingConfigArgs']]] oci_dns_forwarding_configs: The number of storage servers requested for the Exadata infrastructure.
         :param pulumi.Input[_builtins.str] oci_network_anchor_id: The unique identifier of the OCI network anchor for the ODB network.
@@ -271,6 +341,8 @@ class _NetworkState:
         :param pulumi.Input[_builtins.str] s3_policy_document: Specifies the endpoint policy for Amazon S3 access from the ODB network.
         :param pulumi.Input[_builtins.str] status: The status of the network resource.
         :param pulumi.Input[_builtins.str] status_reason: Additional information about the current status of the ODB network.
+        :param pulumi.Input[_builtins.str] sts_access: Specifies the configuration for STS access from the ODB network.
+        :param pulumi.Input[_builtins.str] sts_policy_document: Specifies the endpoint policy for STS access from the ODB network.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the exadata infrastructure. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[_builtins.str] zero_etl_access: Specifies the configuration for Zero-ETL access from the ODB network.
                
@@ -296,6 +368,10 @@ class _NetworkState:
             pulumi.set(__self__, "delete_associated_resources", delete_associated_resources)
         if display_name is not None:
             pulumi.set(__self__, "display_name", display_name)
+        if kms_access is not None:
+            pulumi.set(__self__, "kms_access", kms_access)
+        if kms_policy_document is not None:
+            pulumi.set(__self__, "kms_policy_document", kms_policy_document)
         if managed_services is not None:
             pulumi.set(__self__, "managed_services", managed_services)
         if oci_dns_forwarding_configs is not None:
@@ -324,6 +400,10 @@ class _NetworkState:
             pulumi.set(__self__, "status", status)
         if status_reason is not None:
             pulumi.set(__self__, "status_reason", status_reason)
+        if sts_access is not None:
+            pulumi.set(__self__, "sts_access", sts_access)
+        if sts_policy_document is not None:
+            pulumi.set(__self__, "sts_policy_document", sts_policy_document)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
@@ -434,6 +514,30 @@ class _NetworkState:
     @display_name.setter
     def display_name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "display_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="kmsAccess")
+    def kms_access(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Specifies the configuration for KMS access from the ODB network.
+        """
+        return pulumi.get(self, "kms_access")
+
+    @kms_access.setter
+    def kms_access(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "kms_access", value)
+
+    @_builtins.property
+    @pulumi.getter(name="kmsPolicyDocument")
+    def kms_policy_document(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Specifies the endpoint policy for KMS access from the ODB network.
+        """
+        return pulumi.get(self, "kms_policy_document")
+
+    @kms_policy_document.setter
+    def kms_policy_document(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "kms_policy_document", value)
 
     @_builtins.property
     @pulumi.getter(name="managedServices")
@@ -604,6 +708,30 @@ class _NetworkState:
         pulumi.set(self, "status_reason", value)
 
     @_builtins.property
+    @pulumi.getter(name="stsAccess")
+    def sts_access(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Specifies the configuration for STS access from the ODB network.
+        """
+        return pulumi.get(self, "sts_access")
+
+    @sts_access.setter
+    def sts_access(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "sts_access", value)
+
+    @_builtins.property
+    @pulumi.getter(name="stsPolicyDocument")
+    def sts_policy_document(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Specifies the endpoint policy for STS access from the ODB network.
+        """
+        return pulumi.get(self, "sts_policy_document")
+
+    @sts_policy_document.setter
+    def sts_policy_document(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "sts_policy_document", value)
+
+    @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
@@ -662,9 +790,13 @@ class Network(pulumi.CustomResource):
                  default_dns_prefix: Optional[pulumi.Input[_builtins.str]] = None,
                  delete_associated_resources: Optional[pulumi.Input[_builtins.bool]] = None,
                  display_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 kms_access: Optional[pulumi.Input[_builtins.str]] = None,
+                 kms_policy_document: Optional[pulumi.Input[_builtins.str]] = None,
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  s3_access: Optional[pulumi.Input[_builtins.str]] = None,
                  s3_policy_document: Optional[pulumi.Input[_builtins.str]] = None,
+                 sts_access: Optional[pulumi.Input[_builtins.str]] = None,
+                 sts_policy_document: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  timeouts: Optional[pulumi.Input[Union['NetworkTimeoutsArgs', 'NetworkTimeoutsArgsDict']]] = None,
                  zero_etl_access: Optional[pulumi.Input[_builtins.str]] = None,
@@ -686,9 +818,13 @@ class Network(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] custom_domain_name: The name of the custom domain that the network is located. custom_domain_name and default_dns_prefix both can't be given.
         :param pulumi.Input[_builtins.bool] delete_associated_resources: If set to true deletes associated OCI resources. Default false.
+        :param pulumi.Input[_builtins.str] kms_access: Specifies the configuration for KMS access from the ODB network.
+        :param pulumi.Input[_builtins.str] kms_policy_document: Specifies the endpoint policy for KMS access from the ODB network.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] s3_access: Specifies the configuration for Amazon S3 access from the ODB network.
         :param pulumi.Input[_builtins.str] s3_policy_document: Specifies the endpoint policy for Amazon S3 access from the ODB network.
+        :param pulumi.Input[_builtins.str] sts_access: Specifies the configuration for STS access from the ODB network.
+        :param pulumi.Input[_builtins.str] sts_policy_document: Specifies the endpoint policy for STS access from the ODB network.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the exadata infrastructure. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[_builtins.str] zero_etl_access: Specifies the configuration for Zero-ETL access from the ODB network.
                
@@ -736,9 +872,13 @@ class Network(pulumi.CustomResource):
                  default_dns_prefix: Optional[pulumi.Input[_builtins.str]] = None,
                  delete_associated_resources: Optional[pulumi.Input[_builtins.bool]] = None,
                  display_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 kms_access: Optional[pulumi.Input[_builtins.str]] = None,
+                 kms_policy_document: Optional[pulumi.Input[_builtins.str]] = None,
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  s3_access: Optional[pulumi.Input[_builtins.str]] = None,
                  s3_policy_document: Optional[pulumi.Input[_builtins.str]] = None,
+                 sts_access: Optional[pulumi.Input[_builtins.str]] = None,
+                 sts_policy_document: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  timeouts: Optional[pulumi.Input[Union['NetworkTimeoutsArgs', 'NetworkTimeoutsArgsDict']]] = None,
                  zero_etl_access: Optional[pulumi.Input[_builtins.str]] = None,
@@ -767,11 +907,15 @@ class Network(pulumi.CustomResource):
             if display_name is None and not opts.urn:
                 raise TypeError("Missing required property 'display_name'")
             __props__.__dict__["display_name"] = display_name
+            __props__.__dict__["kms_access"] = kms_access
+            __props__.__dict__["kms_policy_document"] = kms_policy_document
             __props__.__dict__["region"] = region
             if s3_access is None and not opts.urn:
                 raise TypeError("Missing required property 's3_access'")
             __props__.__dict__["s3_access"] = s3_access
             __props__.__dict__["s3_policy_document"] = s3_policy_document
+            __props__.__dict__["sts_access"] = sts_access
+            __props__.__dict__["sts_policy_document"] = sts_policy_document
             __props__.__dict__["tags"] = tags
             __props__.__dict__["timeouts"] = timeouts
             if zero_etl_access is None and not opts.urn:
@@ -811,6 +955,8 @@ class Network(pulumi.CustomResource):
             default_dns_prefix: Optional[pulumi.Input[_builtins.str]] = None,
             delete_associated_resources: Optional[pulumi.Input[_builtins.bool]] = None,
             display_name: Optional[pulumi.Input[_builtins.str]] = None,
+            kms_access: Optional[pulumi.Input[_builtins.str]] = None,
+            kms_policy_document: Optional[pulumi.Input[_builtins.str]] = None,
             managed_services: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NetworkManagedServiceArgs', 'NetworkManagedServiceArgsDict']]]]] = None,
             oci_dns_forwarding_configs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['NetworkOciDnsForwardingConfigArgs', 'NetworkOciDnsForwardingConfigArgsDict']]]]] = None,
             oci_network_anchor_id: Optional[pulumi.Input[_builtins.str]] = None,
@@ -825,6 +971,8 @@ class Network(pulumi.CustomResource):
             s3_policy_document: Optional[pulumi.Input[_builtins.str]] = None,
             status: Optional[pulumi.Input[_builtins.str]] = None,
             status_reason: Optional[pulumi.Input[_builtins.str]] = None,
+            sts_access: Optional[pulumi.Input[_builtins.str]] = None,
+            sts_policy_document: Optional[pulumi.Input[_builtins.str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             timeouts: Optional[pulumi.Input[Union['NetworkTimeoutsArgs', 'NetworkTimeoutsArgsDict']]] = None,
@@ -840,6 +988,8 @@ class Network(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] created_at: The date and time when the ODB network was created.
         :param pulumi.Input[_builtins.str] custom_domain_name: The name of the custom domain that the network is located. custom_domain_name and default_dns_prefix both can't be given.
         :param pulumi.Input[_builtins.bool] delete_associated_resources: If set to true deletes associated OCI resources. Default false.
+        :param pulumi.Input[_builtins.str] kms_access: Specifies the configuration for KMS access from the ODB network.
+        :param pulumi.Input[_builtins.str] kms_policy_document: Specifies the endpoint policy for KMS access from the ODB network.
         :param pulumi.Input[Sequence[pulumi.Input[Union['NetworkManagedServiceArgs', 'NetworkManagedServiceArgsDict']]]] managed_services: The name of the OCI resource anchor for the Exadata infrastructure.
         :param pulumi.Input[Sequence[pulumi.Input[Union['NetworkOciDnsForwardingConfigArgs', 'NetworkOciDnsForwardingConfigArgsDict']]]] oci_dns_forwarding_configs: The number of storage servers requested for the Exadata infrastructure.
         :param pulumi.Input[_builtins.str] oci_network_anchor_id: The unique identifier of the OCI network anchor for the ODB network.
@@ -854,6 +1004,8 @@ class Network(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] s3_policy_document: Specifies the endpoint policy for Amazon S3 access from the ODB network.
         :param pulumi.Input[_builtins.str] status: The status of the network resource.
         :param pulumi.Input[_builtins.str] status_reason: Additional information about the current status of the ODB network.
+        :param pulumi.Input[_builtins.str] sts_access: Specifies the configuration for STS access from the ODB network.
+        :param pulumi.Input[_builtins.str] sts_policy_document: Specifies the endpoint policy for STS access from the ODB network.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the exadata infrastructure. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[_builtins.str] zero_etl_access: Specifies the configuration for Zero-ETL access from the ODB network.
                
@@ -873,6 +1025,8 @@ class Network(pulumi.CustomResource):
         __props__.__dict__["default_dns_prefix"] = default_dns_prefix
         __props__.__dict__["delete_associated_resources"] = delete_associated_resources
         __props__.__dict__["display_name"] = display_name
+        __props__.__dict__["kms_access"] = kms_access
+        __props__.__dict__["kms_policy_document"] = kms_policy_document
         __props__.__dict__["managed_services"] = managed_services
         __props__.__dict__["oci_dns_forwarding_configs"] = oci_dns_forwarding_configs
         __props__.__dict__["oci_network_anchor_id"] = oci_network_anchor_id
@@ -887,6 +1041,8 @@ class Network(pulumi.CustomResource):
         __props__.__dict__["s3_policy_document"] = s3_policy_document
         __props__.__dict__["status"] = status
         __props__.__dict__["status_reason"] = status_reason
+        __props__.__dict__["sts_access"] = sts_access
+        __props__.__dict__["sts_policy_document"] = sts_policy_document
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
         __props__.__dict__["timeouts"] = timeouts
@@ -954,6 +1110,22 @@ class Network(pulumi.CustomResource):
     @pulumi.getter(name="displayName")
     def display_name(self) -> pulumi.Output[_builtins.str]:
         return pulumi.get(self, "display_name")
+
+    @_builtins.property
+    @pulumi.getter(name="kmsAccess")
+    def kms_access(self) -> pulumi.Output[_builtins.str]:
+        """
+        Specifies the configuration for KMS access from the ODB network.
+        """
+        return pulumi.get(self, "kms_access")
+
+    @_builtins.property
+    @pulumi.getter(name="kmsPolicyDocument")
+    def kms_policy_document(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        Specifies the endpoint policy for KMS access from the ODB network.
+        """
+        return pulumi.get(self, "kms_policy_document")
 
     @_builtins.property
     @pulumi.getter(name="managedServices")
@@ -1066,6 +1238,22 @@ class Network(pulumi.CustomResource):
         Additional information about the current status of the ODB network.
         """
         return pulumi.get(self, "status_reason")
+
+    @_builtins.property
+    @pulumi.getter(name="stsAccess")
+    def sts_access(self) -> pulumi.Output[_builtins.str]:
+        """
+        Specifies the configuration for STS access from the ODB network.
+        """
+        return pulumi.get(self, "sts_access")
+
+    @_builtins.property
+    @pulumi.getter(name="stsPolicyDocument")
+    def sts_policy_document(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        Specifies the endpoint policy for STS access from the ODB network.
+        """
+        return pulumi.get(self, "sts_policy_document")
 
     @_builtins.property
     @pulumi.getter

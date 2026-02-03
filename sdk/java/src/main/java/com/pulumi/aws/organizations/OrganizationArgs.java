@@ -5,6 +5,7 @@ package com.pulumi.aws.organizations;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -61,12 +62,28 @@ public final class OrganizationArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.featureSet);
     }
 
+    /**
+     * Return (as attributes) only the results of the [`DescribeOrganization`](https://docs.aws.amazon.com/organizations/latest/APIReference/API_DescribeOrganization.html) API to avoid [API limits](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_reference_limits.html#throttling-limits). When configured to `true` only the `arn`, `featureSet`, `masterAccountArn`, `masterAccountEmail` and `masterAccountId` attributes will be returned. All others will be empty. Default: `false`.
+     * 
+     */
+    @Import(name="returnOrganizationOnly")
+    private @Nullable Output<Boolean> returnOrganizationOnly;
+
+    /**
+     * @return Return (as attributes) only the results of the [`DescribeOrganization`](https://docs.aws.amazon.com/organizations/latest/APIReference/API_DescribeOrganization.html) API to avoid [API limits](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_reference_limits.html#throttling-limits). When configured to `true` only the `arn`, `featureSet`, `masterAccountArn`, `masterAccountEmail` and `masterAccountId` attributes will be returned. All others will be empty. Default: `false`.
+     * 
+     */
+    public Optional<Output<Boolean>> returnOrganizationOnly() {
+        return Optional.ofNullable(this.returnOrganizationOnly);
+    }
+
     private OrganizationArgs() {}
 
     private OrganizationArgs(OrganizationArgs $) {
         this.awsServiceAccessPrincipals = $.awsServiceAccessPrincipals;
         this.enabledPolicyTypes = $.enabledPolicyTypes;
         this.featureSet = $.featureSet;
+        this.returnOrganizationOnly = $.returnOrganizationOnly;
     }
 
     public static Builder builder() {
@@ -168,6 +185,27 @@ public final class OrganizationArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder featureSet(String featureSet) {
             return featureSet(Output.of(featureSet));
+        }
+
+        /**
+         * @param returnOrganizationOnly Return (as attributes) only the results of the [`DescribeOrganization`](https://docs.aws.amazon.com/organizations/latest/APIReference/API_DescribeOrganization.html) API to avoid [API limits](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_reference_limits.html#throttling-limits). When configured to `true` only the `arn`, `featureSet`, `masterAccountArn`, `masterAccountEmail` and `masterAccountId` attributes will be returned. All others will be empty. Default: `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder returnOrganizationOnly(@Nullable Output<Boolean> returnOrganizationOnly) {
+            $.returnOrganizationOnly = returnOrganizationOnly;
+            return this;
+        }
+
+        /**
+         * @param returnOrganizationOnly Return (as attributes) only the results of the [`DescribeOrganization`](https://docs.aws.amazon.com/organizations/latest/APIReference/API_DescribeOrganization.html) API to avoid [API limits](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_reference_limits.html#throttling-limits). When configured to `true` only the `arn`, `featureSet`, `masterAccountArn`, `masterAccountEmail` and `masterAccountId` attributes will be returned. All others will be empty. Default: `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder returnOrganizationOnly(Boolean returnOrganizationOnly) {
+            return returnOrganizationOnly(Output.of(returnOrganizationOnly));
         }
 
         public OrganizationArgs build() {

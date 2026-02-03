@@ -16,6 +16,7 @@ from .. import _utilities
 from . import outputs
 
 __all__ = [
+    'AnycastIpListTimeouts',
     'CachePolicyParametersInCacheKeyAndForwardedToOrigin',
     'CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfig',
     'CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigCookies',
@@ -185,6 +186,25 @@ __all__ = [
     'GetResponseHeadersPolicySecurityHeadersConfigXssProtectionResult',
     'GetResponseHeadersPolicyServerTimingHeadersConfigResult',
 ]
+
+@pulumi.output_type
+class AnycastIpListTimeouts(dict):
+    def __init__(__self__, *,
+                 create: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str create: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        if create is not None:
+            pulumi.set(__self__, "create", create)
+
+    @_builtins.property
+    @pulumi.getter
+    def create(self) -> Optional[_builtins.str]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "create")
+
 
 @pulumi.output_type
 class CachePolicyParametersInCacheKeyAndForwardedToOrigin(dict):
@@ -5100,9 +5120,7 @@ class MultitenantDistributionOriginGroup(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "originId":
-            suggest = "origin_id"
-        elif key == "failoverCriteria":
+        if key == "failoverCriteria":
             suggest = "failover_criteria"
 
         if suggest:
@@ -5117,27 +5135,27 @@ class MultitenantDistributionOriginGroup(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 origin_id: _builtins.str,
+                 id: _builtins.str,
                  failover_criteria: Optional['outputs.MultitenantDistributionOriginGroupFailoverCriteria'] = None,
                  members: Optional[Sequence['outputs.MultitenantDistributionOriginGroupMember']] = None):
         """
-        :param _builtins.str origin_id: Unique identifier for the origin group.
+        :param _builtins.str id: Identifier for the distribution.
         :param 'MultitenantDistributionOriginGroupFailoverCriteriaArgs' failover_criteria: Failover criteria for when to failover to the secondary origin. See Failover Criteria below.
         :param Sequence['MultitenantDistributionOriginGroupMemberArgs'] members: List of origins in this origin group. Must contain exactly 2 members. See Origin Group Member below.
         """
-        pulumi.set(__self__, "origin_id", origin_id)
+        pulumi.set(__self__, "id", id)
         if failover_criteria is not None:
             pulumi.set(__self__, "failover_criteria", failover_criteria)
         if members is not None:
             pulumi.set(__self__, "members", members)
 
     @_builtins.property
-    @pulumi.getter(name="originId")
-    def origin_id(self) -> _builtins.str:
+    @pulumi.getter
+    def id(self) -> _builtins.str:
         """
-        Unique identifier for the origin group.
+        Identifier for the distribution.
         """
-        return pulumi.get(self, "origin_id")
+        return pulumi.get(self, "id")
 
     @_builtins.property
     @pulumi.getter(name="failoverCriteria")
