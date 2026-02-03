@@ -307,14 +307,14 @@ public class SessionLogger extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="eventFilter", refs={SessionLoggerEventFilter.class}, tree="[0]")
-    private Output</* @Nullable */ SessionLoggerEventFilter> eventFilter;
+    private Output<SessionLoggerEventFilter> eventFilter;
 
     /**
      * @return Event filter that determines which events are logged. See Event Filter below.
      * 
      */
-    public Output<Optional<SessionLoggerEventFilter>> eventFilter() {
-        return Codegen.optional(this.eventFilter);
+    public Output<SessionLoggerEventFilter> eventFilter() {
+        return this.eventFilter;
     }
     /**
      * Configuration block for specifying where logs are delivered. See Log Configuration below.
@@ -323,7 +323,7 @@ public class SessionLogger extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="logConfiguration", refs={SessionLoggerLogConfiguration.class}, tree="[0]")
-    private Output</* @Nullable */ SessionLoggerLogConfiguration> logConfiguration;
+    private Output<SessionLoggerLogConfiguration> logConfiguration;
 
     /**
      * @return Configuration block for specifying where logs are delivered. See Log Configuration below.
@@ -331,8 +331,8 @@ public class SessionLogger extends com.pulumi.resources.CustomResource {
      * The following arguments are optional:
      * 
      */
-    public Output<Optional<SessionLoggerLogConfiguration>> logConfiguration() {
-        return Codegen.optional(this.logConfiguration);
+    public Output<SessionLoggerLogConfiguration> logConfiguration() {
+        return this.logConfiguration;
     }
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -403,7 +403,7 @@ public class SessionLogger extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public SessionLogger(java.lang.String name, @Nullable SessionLoggerArgs args) {
+    public SessionLogger(java.lang.String name, SessionLoggerArgs args) {
         this(name, args, null);
     }
     /**
@@ -412,7 +412,7 @@ public class SessionLogger extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public SessionLogger(java.lang.String name, @Nullable SessionLoggerArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public SessionLogger(java.lang.String name, SessionLoggerArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:workspacesweb/sessionLogger:SessionLogger", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
@@ -420,7 +420,7 @@ public class SessionLogger extends com.pulumi.resources.CustomResource {
         super("aws:workspacesweb/sessionLogger:SessionLogger", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static SessionLoggerArgs makeArgs(@Nullable SessionLoggerArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    private static SessionLoggerArgs makeArgs(SessionLoggerArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         if (options != null && options.getUrn().isPresent()) {
             return null;
         }

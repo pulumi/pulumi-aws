@@ -63,7 +63,7 @@ export class AgentcoreTokenVaultCmk extends pulumi.CustomResource {
     /**
      * KMS configuration for the token vault. See `kmsConfiguration` below.
      */
-    declare public readonly kmsConfiguration: pulumi.Output<outputs.bedrock.AgentcoreTokenVaultCmkKmsConfiguration | undefined>;
+    declare public readonly kmsConfiguration: pulumi.Output<outputs.bedrock.AgentcoreTokenVaultCmkKmsConfiguration>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
@@ -80,7 +80,7 @@ export class AgentcoreTokenVaultCmk extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: AgentcoreTokenVaultCmkArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, args: AgentcoreTokenVaultCmkArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: AgentcoreTokenVaultCmkArgs | AgentcoreTokenVaultCmkState, opts?: pulumi.CustomResourceOptions) {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
@@ -91,6 +91,9 @@ export class AgentcoreTokenVaultCmk extends pulumi.CustomResource {
             resourceInputs["tokenVaultId"] = state?.tokenVaultId;
         } else {
             const args = argsOrState as AgentcoreTokenVaultCmkArgs | undefined;
+            if (args?.kmsConfiguration === undefined && !opts.urn) {
+                throw new Error("Missing required property 'kmsConfiguration'");
+            }
             resourceInputs["kmsConfiguration"] = args?.kmsConfiguration;
             resourceInputs["region"] = args?.region;
             resourceInputs["tokenVaultId"] = args?.tokenVaultId;
@@ -125,7 +128,7 @@ export interface AgentcoreTokenVaultCmkArgs {
     /**
      * KMS configuration for the token vault. See `kmsConfiguration` below.
      */
-    kmsConfiguration?: pulumi.Input<inputs.bedrock.AgentcoreTokenVaultCmkKmsConfiguration>;
+    kmsConfiguration: pulumi.Input<inputs.bedrock.AgentcoreTokenVaultCmkKmsConfiguration>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */

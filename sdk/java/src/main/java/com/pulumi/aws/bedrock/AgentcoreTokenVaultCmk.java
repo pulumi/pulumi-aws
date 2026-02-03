@@ -12,7 +12,6 @@ import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
-import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
@@ -73,14 +72,14 @@ public class AgentcoreTokenVaultCmk extends com.pulumi.resources.CustomResource 
      * 
      */
     @Export(name="kmsConfiguration", refs={AgentcoreTokenVaultCmkKmsConfiguration.class}, tree="[0]")
-    private Output</* @Nullable */ AgentcoreTokenVaultCmkKmsConfiguration> kmsConfiguration;
+    private Output<AgentcoreTokenVaultCmkKmsConfiguration> kmsConfiguration;
 
     /**
      * @return KMS configuration for the token vault. See `kmsConfiguration` below.
      * 
      */
-    public Output<Optional<AgentcoreTokenVaultCmkKmsConfiguration>> kmsConfiguration() {
-        return Codegen.optional(this.kmsConfiguration);
+    public Output<AgentcoreTokenVaultCmkKmsConfiguration> kmsConfiguration() {
+        return this.kmsConfiguration;
     }
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -123,7 +122,7 @@ public class AgentcoreTokenVaultCmk extends com.pulumi.resources.CustomResource 
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public AgentcoreTokenVaultCmk(java.lang.String name, @Nullable AgentcoreTokenVaultCmkArgs args) {
+    public AgentcoreTokenVaultCmk(java.lang.String name, AgentcoreTokenVaultCmkArgs args) {
         this(name, args, null);
     }
     /**
@@ -132,7 +131,7 @@ public class AgentcoreTokenVaultCmk extends com.pulumi.resources.CustomResource 
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public AgentcoreTokenVaultCmk(java.lang.String name, @Nullable AgentcoreTokenVaultCmkArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public AgentcoreTokenVaultCmk(java.lang.String name, AgentcoreTokenVaultCmkArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:bedrock/agentcoreTokenVaultCmk:AgentcoreTokenVaultCmk", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
@@ -140,7 +139,7 @@ public class AgentcoreTokenVaultCmk extends com.pulumi.resources.CustomResource 
         super("aws:bedrock/agentcoreTokenVaultCmk:AgentcoreTokenVaultCmk", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static AgentcoreTokenVaultCmkArgs makeArgs(@Nullable AgentcoreTokenVaultCmkArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    private static AgentcoreTokenVaultCmkArgs makeArgs(AgentcoreTokenVaultCmkArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         if (options != null && options.getUrn().isPresent()) {
             return null;
         }

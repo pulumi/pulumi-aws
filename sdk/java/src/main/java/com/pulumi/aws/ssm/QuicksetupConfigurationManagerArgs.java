@@ -7,6 +7,7 @@ import com.pulumi.aws.ssm.inputs.QuicksetupConfigurationManagerConfigurationDefi
 import com.pulumi.aws.ssm.inputs.QuicksetupConfigurationManagerTimeoutsArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -22,15 +23,15 @@ public final class QuicksetupConfigurationManagerArgs extends com.pulumi.resourc
      * Definition of the Quick Setup configuration that the configuration manager deploys. See `configurationDefinition` below.
      * 
      */
-    @Import(name="configurationDefinition")
-    private @Nullable Output<QuicksetupConfigurationManagerConfigurationDefinitionArgs> configurationDefinition;
+    @Import(name="configurationDefinition", required=true)
+    private Output<QuicksetupConfigurationManagerConfigurationDefinitionArgs> configurationDefinition;
 
     /**
      * @return Definition of the Quick Setup configuration that the configuration manager deploys. See `configurationDefinition` below.
      * 
      */
-    public Optional<Output<QuicksetupConfigurationManagerConfigurationDefinitionArgs>> configurationDefinition() {
-        return Optional.ofNullable(this.configurationDefinition);
+    public Output<QuicksetupConfigurationManagerConfigurationDefinitionArgs> configurationDefinition() {
+        return this.configurationDefinition;
     }
 
     /**
@@ -139,7 +140,7 @@ public final class QuicksetupConfigurationManagerArgs extends com.pulumi.resourc
          * @return builder
          * 
          */
-        public Builder configurationDefinition(@Nullable Output<QuicksetupConfigurationManagerConfigurationDefinitionArgs> configurationDefinition) {
+        public Builder configurationDefinition(Output<QuicksetupConfigurationManagerConfigurationDefinitionArgs> configurationDefinition) {
             $.configurationDefinition = configurationDefinition;
             return this;
         }
@@ -252,6 +253,9 @@ public final class QuicksetupConfigurationManagerArgs extends com.pulumi.resourc
         }
 
         public QuicksetupConfigurationManagerArgs build() {
+            if ($.configurationDefinition == null) {
+                throw new MissingRequiredPropertyException("QuicksetupConfigurationManagerArgs", "configurationDefinition");
+            }
             return $;
         }
     }

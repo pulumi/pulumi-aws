@@ -114,14 +114,14 @@ public class IngestionDestination extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="destinationConfiguration", refs={IngestionDestinationDestinationConfiguration.class}, tree="[0]")
-    private Output</* @Nullable */ IngestionDestinationDestinationConfiguration> destinationConfiguration;
+    private Output<IngestionDestinationDestinationConfiguration> destinationConfiguration;
 
     /**
      * @return Contains information about the destination of ingested data.
      * 
      */
-    public Output<Optional<IngestionDestinationDestinationConfiguration>> destinationConfiguration() {
-        return Codegen.optional(this.destinationConfiguration);
+    public Output<IngestionDestinationDestinationConfiguration> destinationConfiguration() {
+        return this.destinationConfiguration;
     }
     /**
      * The Amazon Resource Name (ARN) of the ingestion to use for the request.
@@ -142,14 +142,14 @@ public class IngestionDestination extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="processingConfiguration", refs={IngestionDestinationProcessingConfiguration.class}, tree="[0]")
-    private Output</* @Nullable */ IngestionDestinationProcessingConfiguration> processingConfiguration;
+    private Output<IngestionDestinationProcessingConfiguration> processingConfiguration;
 
     /**
      * @return Contains information about how ingested data is processed.
      * 
      */
-    public Output<Optional<IngestionDestinationProcessingConfiguration>> processingConfiguration() {
-        return Codegen.optional(this.processingConfiguration);
+    public Output<IngestionDestinationProcessingConfiguration> processingConfiguration() {
+        return this.processingConfiguration;
     }
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.

@@ -225,7 +225,7 @@ class CapabilityConfigurationArgoCd(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 aws_idc: Optional['outputs.CapabilityConfigurationArgoCdAwsIdc'] = None,
+                 aws_idc: 'outputs.CapabilityConfigurationArgoCdAwsIdc',
                  namespace: Optional[_builtins.str] = None,
                  network_access: Optional['outputs.CapabilityConfigurationArgoCdNetworkAccess'] = None,
                  rbac_role_mappings: Optional[Sequence['outputs.CapabilityConfigurationArgoCdRbacRoleMapping']] = None,
@@ -237,8 +237,7 @@ class CapabilityConfigurationArgoCd(dict):
         :param Sequence['CapabilityConfigurationArgoCdRbacRoleMappingArgs'] rbac_role_mappings: RBAC role mappings. See `rbac_role_mapping` below.
         :param _builtins.str server_url: URL of the Argo CD server.
         """
-        if aws_idc is not None:
-            pulumi.set(__self__, "aws_idc", aws_idc)
+        pulumi.set(__self__, "aws_idc", aws_idc)
         if namespace is not None:
             pulumi.set(__self__, "namespace", namespace)
         if network_access is not None:
@@ -250,7 +249,7 @@ class CapabilityConfigurationArgoCd(dict):
 
     @_builtins.property
     @pulumi.getter(name="awsIdc")
-    def aws_idc(self) -> Optional['outputs.CapabilityConfigurationArgoCdAwsIdc']:
+    def aws_idc(self) -> 'outputs.CapabilityConfigurationArgoCdAwsIdc':
         """
         AWS IAM Identity Center configuration. See `aws_idc` below.
         """
@@ -387,15 +386,22 @@ class CapabilityConfigurationArgoCdNetworkAccess(dict):
 @pulumi.output_type
 class CapabilityConfigurationArgoCdRbacRoleMapping(dict):
     def __init__(__self__, *,
-                 role: _builtins.str,
-                 identities: Optional[Sequence['outputs.CapabilityConfigurationArgoCdRbacRoleMappingIdentity']] = None):
+                 identities: Sequence['outputs.CapabilityConfigurationArgoCdRbacRoleMappingIdentity'],
+                 role: _builtins.str):
         """
-        :param _builtins.str role: ArgoCD role. Valid values: `ADMIN`, `EDITOR`, `VIEWER`.
         :param Sequence['CapabilityConfigurationArgoCdRbacRoleMappingIdentityArgs'] identities: List of identities. See `identity` below.
+        :param _builtins.str role: ArgoCD role. Valid values: `ADMIN`, `EDITOR`, `VIEWER`.
         """
+        pulumi.set(__self__, "identities", identities)
         pulumi.set(__self__, "role", role)
-        if identities is not None:
-            pulumi.set(__self__, "identities", identities)
+
+    @_builtins.property
+    @pulumi.getter
+    def identities(self) -> Sequence['outputs.CapabilityConfigurationArgoCdRbacRoleMappingIdentity']:
+        """
+        List of identities. See `identity` below.
+        """
+        return pulumi.get(self, "identities")
 
     @_builtins.property
     @pulumi.getter
@@ -404,14 +410,6 @@ class CapabilityConfigurationArgoCdRbacRoleMapping(dict):
         ArgoCD role. Valid values: `ADMIN`, `EDITOR`, `VIEWER`.
         """
         return pulumi.get(self, "role")
-
-    @_builtins.property
-    @pulumi.getter
-    def identities(self) -> Optional[Sequence['outputs.CapabilityConfigurationArgoCdRbacRoleMappingIdentity']]:
-        """
-        List of identities. See `identity` below.
-        """
-        return pulumi.get(self, "identities")
 
 
 @pulumi.output_type

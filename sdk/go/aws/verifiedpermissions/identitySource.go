@@ -139,7 +139,7 @@ type IdentitySource struct {
 	pulumi.CustomResourceState
 
 	// Specifies the details required to communicate with the identity provider (IdP) associated with this identity source. See Configuration below.
-	Configuration IdentitySourceConfigurationPtrOutput `pulumi:"configuration"`
+	Configuration IdentitySourceConfigurationOutput `pulumi:"configuration"`
 	// Specifies the ID of the policy store in which you want to store this identity source.
 	PolicyStoreId pulumi.StringOutput `pulumi:"policyStoreId"`
 	// Specifies the namespace and data type of the principals generated for identities authenticated by the new identity source.
@@ -155,6 +155,9 @@ func NewIdentitySource(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
+	if args.Configuration == nil {
+		return nil, errors.New("invalid value for required argument 'Configuration'")
+	}
 	if args.PolicyStoreId == nil {
 		return nil, errors.New("invalid value for required argument 'PolicyStoreId'")
 	}
@@ -208,7 +211,7 @@ func (IdentitySourceState) ElementType() reflect.Type {
 
 type identitySourceArgs struct {
 	// Specifies the details required to communicate with the identity provider (IdP) associated with this identity source. See Configuration below.
-	Configuration *IdentitySourceConfiguration `pulumi:"configuration"`
+	Configuration IdentitySourceConfiguration `pulumi:"configuration"`
 	// Specifies the ID of the policy store in which you want to store this identity source.
 	PolicyStoreId string `pulumi:"policyStoreId"`
 	// Specifies the namespace and data type of the principals generated for identities authenticated by the new identity source.
@@ -220,7 +223,7 @@ type identitySourceArgs struct {
 // The set of arguments for constructing a IdentitySource resource.
 type IdentitySourceArgs struct {
 	// Specifies the details required to communicate with the identity provider (IdP) associated with this identity source. See Configuration below.
-	Configuration IdentitySourceConfigurationPtrInput
+	Configuration IdentitySourceConfigurationInput
 	// Specifies the ID of the policy store in which you want to store this identity source.
 	PolicyStoreId pulumi.StringInput
 	// Specifies the namespace and data type of the principals generated for identities authenticated by the new identity source.
@@ -317,8 +320,8 @@ func (o IdentitySourceOutput) ToIdentitySourceOutputWithContext(ctx context.Cont
 }
 
 // Specifies the details required to communicate with the identity provider (IdP) associated with this identity source. See Configuration below.
-func (o IdentitySourceOutput) Configuration() IdentitySourceConfigurationPtrOutput {
-	return o.ApplyT(func(v *IdentitySource) IdentitySourceConfigurationPtrOutput { return v.Configuration }).(IdentitySourceConfigurationPtrOutput)
+func (o IdentitySourceOutput) Configuration() IdentitySourceConfigurationOutput {
+	return o.ApplyT(func(v *IdentitySource) IdentitySourceConfigurationOutput { return v.Configuration }).(IdentitySourceConfigurationOutput)
 }
 
 // Specifies the ID of the policy store in which you want to store this identity source.

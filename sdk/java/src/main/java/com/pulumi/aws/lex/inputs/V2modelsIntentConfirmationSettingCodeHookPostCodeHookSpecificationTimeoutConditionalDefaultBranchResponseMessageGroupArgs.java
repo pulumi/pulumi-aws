@@ -7,7 +7,6 @@ import com.pulumi.aws.lex.inputs.V2modelsIntentConfirmationSettingCodeHookPostCo
 import com.pulumi.aws.lex.inputs.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupVariationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
-import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
@@ -22,15 +21,15 @@ public final class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecific
      * Configuration block for the primary message that Amazon Lex should send to the user. See `message`.
      * 
      */
-    @Import(name="message", required=true)
-    private Output<V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupMessageArgs> message;
+    @Import(name="message")
+    private @Nullable Output<V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupMessageArgs> message;
 
     /**
      * @return Configuration block for the primary message that Amazon Lex should send to the user. See `message`.
      * 
      */
-    public Output<V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupMessageArgs> message() {
-        return this.message;
+    public Optional<Output<V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupMessageArgs>> message() {
+        return Optional.ofNullable(this.message);
     }
 
     /**
@@ -79,7 +78,7 @@ public final class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecific
          * @return builder
          * 
          */
-        public Builder message(Output<V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupMessageArgs> message) {
+        public Builder message(@Nullable Output<V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupMessageArgs> message) {
             $.message = message;
             return this;
         }
@@ -126,9 +125,6 @@ public final class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecific
         }
 
         public V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupArgs build() {
-            if ($.message == null) {
-                throw new MissingRequiredPropertyException("V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupArgs", "message");
-            }
             return $;
         }
     }

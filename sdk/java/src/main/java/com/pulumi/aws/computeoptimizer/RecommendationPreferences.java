@@ -241,14 +241,14 @@ public class RecommendationPreferences extends com.pulumi.resources.CustomResour
      * 
      */
     @Export(name="scope", refs={RecommendationPreferencesScope.class}, tree="[0]")
-    private Output</* @Nullable */ RecommendationPreferencesScope> scope;
+    private Output<RecommendationPreferencesScope> scope;
 
     /**
      * @return The scope of the recommendation preferences. See Scope below.
      * 
      */
-    public Output<Optional<RecommendationPreferencesScope>> scope() {
-        return Codegen.optional(this.scope);
+    public Output<RecommendationPreferencesScope> scope() {
+        return this.scope;
     }
     /**
      * The preference to control the resource’s CPU utilization threshold, CPU utilization headroom, and memory utilization headroom. See Utilization Preferences below.

@@ -23,8 +23,8 @@ public final class BucketAbacArgs extends com.pulumi.resources.ResourceArgs {
      * The following arguments are optional:
      * 
      */
-    @Import(name="abacStatus")
-    private @Nullable Output<BucketAbacAbacStatusArgs> abacStatus;
+    @Import(name="abacStatus", required=true)
+    private Output<BucketAbacAbacStatusArgs> abacStatus;
 
     /**
      * @return ABAC status configuration. See `abacStatus` Block for details.
@@ -32,8 +32,8 @@ public final class BucketAbacArgs extends com.pulumi.resources.ResourceArgs {
      * The following arguments are optional:
      * 
      */
-    public Optional<Output<BucketAbacAbacStatusArgs>> abacStatus() {
-        return Optional.ofNullable(this.abacStatus);
+    public Output<BucketAbacAbacStatusArgs> abacStatus() {
+        return this.abacStatus;
     }
 
     /**
@@ -116,7 +116,7 @@ public final class BucketAbacArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder abacStatus(@Nullable Output<BucketAbacAbacStatusArgs> abacStatus) {
+        public Builder abacStatus(Output<BucketAbacAbacStatusArgs> abacStatus) {
             $.abacStatus = abacStatus;
             return this;
         }
@@ -197,6 +197,9 @@ public final class BucketAbacArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public BucketAbacArgs build() {
+            if ($.abacStatus == null) {
+                throw new MissingRequiredPropertyException("BucketAbacArgs", "abacStatus");
+            }
             if ($.bucket == null) {
                 throw new MissingRequiredPropertyException("BucketAbacArgs", "bucket");
             }

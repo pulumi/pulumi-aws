@@ -9,8 +9,6 @@ import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
-import java.util.Optional;
-import javax.annotation.Nullable;
 
 
 public final class ScopeTargetTargetIdentifierArgs extends com.pulumi.resources.ResourceArgs {
@@ -21,15 +19,15 @@ public final class ScopeTargetTargetIdentifierArgs extends com.pulumi.resources.
      * The identifier for a target, which is currently always an account ID.
      * 
      */
-    @Import(name="targetId")
-    private @Nullable Output<ScopeTargetTargetIdentifierTargetIdArgs> targetId;
+    @Import(name="targetId", required=true)
+    private Output<ScopeTargetTargetIdentifierTargetIdArgs> targetId;
 
     /**
      * @return The identifier for a target, which is currently always an account ID.
      * 
      */
-    public Optional<Output<ScopeTargetTargetIdentifierTargetIdArgs>> targetId() {
-        return Optional.ofNullable(this.targetId);
+    public Output<ScopeTargetTargetIdentifierTargetIdArgs> targetId() {
+        return this.targetId;
     }
 
     /**
@@ -78,7 +76,7 @@ public final class ScopeTargetTargetIdentifierArgs extends com.pulumi.resources.
          * @return builder
          * 
          */
-        public Builder targetId(@Nullable Output<ScopeTargetTargetIdentifierTargetIdArgs> targetId) {
+        public Builder targetId(Output<ScopeTargetTargetIdentifierTargetIdArgs> targetId) {
             $.targetId = targetId;
             return this;
         }
@@ -115,6 +113,9 @@ public final class ScopeTargetTargetIdentifierArgs extends com.pulumi.resources.
         }
 
         public ScopeTargetTargetIdentifierArgs build() {
+            if ($.targetId == null) {
+                throw new MissingRequiredPropertyException("ScopeTargetTargetIdentifierArgs", "targetId");
+            }
             if ($.targetType == null) {
                 throw new MissingRequiredPropertyException("ScopeTargetTargetIdentifierArgs", "targetType");
             }

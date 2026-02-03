@@ -22,49 +22,50 @@ __all__ = ['MultitenantDistributionArgs', 'MultitenantDistribution']
 class MultitenantDistributionArgs:
     def __init__(__self__, *,
                  comment: pulumi.Input[_builtins.str],
+                 default_cache_behavior: pulumi.Input['MultitenantDistributionDefaultCacheBehaviorArgs'],
                  enabled: pulumi.Input[_builtins.bool],
+                 tenant_config: pulumi.Input['MultitenantDistributionTenantConfigArgs'],
+                 viewer_certificate: pulumi.Input['MultitenantDistributionViewerCertificateArgs'],
                  active_trusted_key_groups: Optional[pulumi.Input[Sequence[pulumi.Input['MultitenantDistributionActiveTrustedKeyGroupArgs']]]] = None,
                  cache_behaviors: Optional[pulumi.Input[Sequence[pulumi.Input['MultitenantDistributionCacheBehaviorArgs']]]] = None,
                  custom_error_responses: Optional[pulumi.Input[Sequence[pulumi.Input['MultitenantDistributionCustomErrorResponseArgs']]]] = None,
-                 default_cache_behavior: Optional[pulumi.Input['MultitenantDistributionDefaultCacheBehaviorArgs']] = None,
                  default_root_object: Optional[pulumi.Input[_builtins.str]] = None,
                  http_version: Optional[pulumi.Input[_builtins.str]] = None,
                  origin_groups: Optional[pulumi.Input[Sequence[pulumi.Input['MultitenantDistributionOriginGroupArgs']]]] = None,
                  origins: Optional[pulumi.Input[Sequence[pulumi.Input['MultitenantDistributionOriginArgs']]]] = None,
                  restrictions: Optional[pulumi.Input['MultitenantDistributionRestrictionsArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 tenant_config: Optional[pulumi.Input['MultitenantDistributionTenantConfigArgs']] = None,
                  timeouts: Optional[pulumi.Input['MultitenantDistributionTimeoutsArgs']] = None,
-                 viewer_certificate: Optional[pulumi.Input['MultitenantDistributionViewerCertificateArgs']] = None,
                  web_acl_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a MultitenantDistribution resource.
         :param pulumi.Input[_builtins.str] comment: Any comments you want to include about the distribution.
+        :param pulumi.Input['MultitenantDistributionDefaultCacheBehaviorArgs'] default_cache_behavior: Default cache behavior for this distribution. See Default Cache Behavior below.
         :param pulumi.Input[_builtins.bool] enabled: Whether the distribution is enabled to accept end user requests for content.
+        :param pulumi.Input['MultitenantDistributionTenantConfigArgs'] tenant_config: Tenant configuration that contains parameter definitions for multi-tenant distributions. See Tenant Config below.
+        :param pulumi.Input['MultitenantDistributionViewerCertificateArgs'] viewer_certificate: SSL configuration for this distribution. See Viewer Certificate below.
         :param pulumi.Input[Sequence[pulumi.Input['MultitenantDistributionActiveTrustedKeyGroupArgs']]] active_trusted_key_groups: List of key groups that CloudFront can use to validate signed URLs or signed cookies. See Active Trusted Key Groups below.
         :param pulumi.Input[Sequence[pulumi.Input['MultitenantDistributionCacheBehaviorArgs']]] cache_behaviors: Ordered list of cache behaviors resource for this distribution. See Cache Behavior below.
         :param pulumi.Input[Sequence[pulumi.Input['MultitenantDistributionCustomErrorResponseArgs']]] custom_error_responses: One or more custom error response elements. See Custom Error Response below.
-        :param pulumi.Input['MultitenantDistributionDefaultCacheBehaviorArgs'] default_cache_behavior: Default cache behavior for this distribution. See Default Cache Behavior below.
         :param pulumi.Input[_builtins.str] default_root_object: Object that you want CloudFront to return when an end user requests the root URL.
         :param pulumi.Input[_builtins.str] http_version: Maximum HTTP version to support on the distribution. Allowed values are `http1.1`, `http2`, `http2and3`, and `http3`. Default: `http2`.
         :param pulumi.Input[Sequence[pulumi.Input['MultitenantDistributionOriginGroupArgs']]] origin_groups: One or more origin_group for this distribution (multiples allowed). See Origin Group below.
         :param pulumi.Input[Sequence[pulumi.Input['MultitenantDistributionOriginArgs']]] origins: One or more origins for this distribution (multiples allowed). See Origin below.
         :param pulumi.Input['MultitenantDistributionRestrictionsArgs'] restrictions: Restriction configuration for this distribution. See Restrictions below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input['MultitenantDistributionTenantConfigArgs'] tenant_config: Tenant configuration that contains parameter definitions for multi-tenant distributions. See Tenant Config below.
-        :param pulumi.Input['MultitenantDistributionViewerCertificateArgs'] viewer_certificate: SSL configuration for this distribution. See Viewer Certificate below.
         :param pulumi.Input[_builtins.str] web_acl_id: Unique identifier that specifies the AWS WAF v2 web ACL to associate with this distribution.
         """
         pulumi.set(__self__, "comment", comment)
+        pulumi.set(__self__, "default_cache_behavior", default_cache_behavior)
         pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "tenant_config", tenant_config)
+        pulumi.set(__self__, "viewer_certificate", viewer_certificate)
         if active_trusted_key_groups is not None:
             pulumi.set(__self__, "active_trusted_key_groups", active_trusted_key_groups)
         if cache_behaviors is not None:
             pulumi.set(__self__, "cache_behaviors", cache_behaviors)
         if custom_error_responses is not None:
             pulumi.set(__self__, "custom_error_responses", custom_error_responses)
-        if default_cache_behavior is not None:
-            pulumi.set(__self__, "default_cache_behavior", default_cache_behavior)
         if default_root_object is not None:
             pulumi.set(__self__, "default_root_object", default_root_object)
         if http_version is not None:
@@ -77,12 +78,8 @@ class MultitenantDistributionArgs:
             pulumi.set(__self__, "restrictions", restrictions)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if tenant_config is not None:
-            pulumi.set(__self__, "tenant_config", tenant_config)
         if timeouts is not None:
             pulumi.set(__self__, "timeouts", timeouts)
-        if viewer_certificate is not None:
-            pulumi.set(__self__, "viewer_certificate", viewer_certificate)
         if web_acl_id is not None:
             pulumi.set(__self__, "web_acl_id", web_acl_id)
 
@@ -99,6 +96,18 @@ class MultitenantDistributionArgs:
         pulumi.set(self, "comment", value)
 
     @_builtins.property
+    @pulumi.getter(name="defaultCacheBehavior")
+    def default_cache_behavior(self) -> pulumi.Input['MultitenantDistributionDefaultCacheBehaviorArgs']:
+        """
+        Default cache behavior for this distribution. See Default Cache Behavior below.
+        """
+        return pulumi.get(self, "default_cache_behavior")
+
+    @default_cache_behavior.setter
+    def default_cache_behavior(self, value: pulumi.Input['MultitenantDistributionDefaultCacheBehaviorArgs']):
+        pulumi.set(self, "default_cache_behavior", value)
+
+    @_builtins.property
     @pulumi.getter
     def enabled(self) -> pulumi.Input[_builtins.bool]:
         """
@@ -109,6 +118,30 @@ class MultitenantDistributionArgs:
     @enabled.setter
     def enabled(self, value: pulumi.Input[_builtins.bool]):
         pulumi.set(self, "enabled", value)
+
+    @_builtins.property
+    @pulumi.getter(name="tenantConfig")
+    def tenant_config(self) -> pulumi.Input['MultitenantDistributionTenantConfigArgs']:
+        """
+        Tenant configuration that contains parameter definitions for multi-tenant distributions. See Tenant Config below.
+        """
+        return pulumi.get(self, "tenant_config")
+
+    @tenant_config.setter
+    def tenant_config(self, value: pulumi.Input['MultitenantDistributionTenantConfigArgs']):
+        pulumi.set(self, "tenant_config", value)
+
+    @_builtins.property
+    @pulumi.getter(name="viewerCertificate")
+    def viewer_certificate(self) -> pulumi.Input['MultitenantDistributionViewerCertificateArgs']:
+        """
+        SSL configuration for this distribution. See Viewer Certificate below.
+        """
+        return pulumi.get(self, "viewer_certificate")
+
+    @viewer_certificate.setter
+    def viewer_certificate(self, value: pulumi.Input['MultitenantDistributionViewerCertificateArgs']):
+        pulumi.set(self, "viewer_certificate", value)
 
     @_builtins.property
     @pulumi.getter(name="activeTrustedKeyGroups")
@@ -145,18 +178,6 @@ class MultitenantDistributionArgs:
     @custom_error_responses.setter
     def custom_error_responses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['MultitenantDistributionCustomErrorResponseArgs']]]]):
         pulumi.set(self, "custom_error_responses", value)
-
-    @_builtins.property
-    @pulumi.getter(name="defaultCacheBehavior")
-    def default_cache_behavior(self) -> Optional[pulumi.Input['MultitenantDistributionDefaultCacheBehaviorArgs']]:
-        """
-        Default cache behavior for this distribution. See Default Cache Behavior below.
-        """
-        return pulumi.get(self, "default_cache_behavior")
-
-    @default_cache_behavior.setter
-    def default_cache_behavior(self, value: Optional[pulumi.Input['MultitenantDistributionDefaultCacheBehaviorArgs']]):
-        pulumi.set(self, "default_cache_behavior", value)
 
     @_builtins.property
     @pulumi.getter(name="defaultRootObject")
@@ -231,18 +252,6 @@ class MultitenantDistributionArgs:
         pulumi.set(self, "tags", value)
 
     @_builtins.property
-    @pulumi.getter(name="tenantConfig")
-    def tenant_config(self) -> Optional[pulumi.Input['MultitenantDistributionTenantConfigArgs']]:
-        """
-        Tenant configuration that contains parameter definitions for multi-tenant distributions. See Tenant Config below.
-        """
-        return pulumi.get(self, "tenant_config")
-
-    @tenant_config.setter
-    def tenant_config(self, value: Optional[pulumi.Input['MultitenantDistributionTenantConfigArgs']]):
-        pulumi.set(self, "tenant_config", value)
-
-    @_builtins.property
     @pulumi.getter
     def timeouts(self) -> Optional[pulumi.Input['MultitenantDistributionTimeoutsArgs']]:
         return pulumi.get(self, "timeouts")
@@ -250,18 +259,6 @@ class MultitenantDistributionArgs:
     @timeouts.setter
     def timeouts(self, value: Optional[pulumi.Input['MultitenantDistributionTimeoutsArgs']]):
         pulumi.set(self, "timeouts", value)
-
-    @_builtins.property
-    @pulumi.getter(name="viewerCertificate")
-    def viewer_certificate(self) -> Optional[pulumi.Input['MultitenantDistributionViewerCertificateArgs']]:
-        """
-        SSL configuration for this distribution. See Viewer Certificate below.
-        """
-        return pulumi.get(self, "viewer_certificate")
-
-    @viewer_certificate.setter
-    def viewer_certificate(self, value: Optional[pulumi.Input['MultitenantDistributionViewerCertificateArgs']]):
-        pulumi.set(self, "viewer_certificate", value)
 
     @_builtins.property
     @pulumi.getter(name="webAclId")
@@ -861,6 +858,8 @@ class MultitenantDistribution(pulumi.CustomResource):
                 raise TypeError("Missing required property 'comment'")
             __props__.__dict__["comment"] = comment
             __props__.__dict__["custom_error_responses"] = custom_error_responses
+            if default_cache_behavior is None and not opts.urn:
+                raise TypeError("Missing required property 'default_cache_behavior'")
             __props__.__dict__["default_cache_behavior"] = default_cache_behavior
             __props__.__dict__["default_root_object"] = default_root_object
             if enabled is None and not opts.urn:
@@ -871,8 +870,12 @@ class MultitenantDistribution(pulumi.CustomResource):
             __props__.__dict__["origins"] = origins
             __props__.__dict__["restrictions"] = restrictions
             __props__.__dict__["tags"] = tags
+            if tenant_config is None and not opts.urn:
+                raise TypeError("Missing required property 'tenant_config'")
             __props__.__dict__["tenant_config"] = tenant_config
             __props__.__dict__["timeouts"] = timeouts
+            if viewer_certificate is None and not opts.urn:
+                raise TypeError("Missing required property 'viewer_certificate'")
             __props__.__dict__["viewer_certificate"] = viewer_certificate
             __props__.__dict__["web_acl_id"] = web_acl_id
             __props__.__dict__["arn"] = None
@@ -1040,7 +1043,7 @@ class MultitenantDistribution(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="defaultCacheBehavior")
-    def default_cache_behavior(self) -> pulumi.Output[Optional['outputs.MultitenantDistributionDefaultCacheBehavior']]:
+    def default_cache_behavior(self) -> pulumi.Output['outputs.MultitenantDistributionDefaultCacheBehavior']:
         """
         Default cache behavior for this distribution. See Default Cache Behavior below.
         """
@@ -1152,7 +1155,7 @@ class MultitenantDistribution(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="tenantConfig")
-    def tenant_config(self) -> pulumi.Output[Optional['outputs.MultitenantDistributionTenantConfig']]:
+    def tenant_config(self) -> pulumi.Output['outputs.MultitenantDistributionTenantConfig']:
         """
         Tenant configuration that contains parameter definitions for multi-tenant distributions. See Tenant Config below.
         """
@@ -1165,7 +1168,7 @@ class MultitenantDistribution(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="viewerCertificate")
-    def viewer_certificate(self) -> pulumi.Output[Optional['outputs.MultitenantDistributionViewerCertificate']]:
+    def viewer_certificate(self) -> pulumi.Output['outputs.MultitenantDistributionViewerCertificate']:
         """
         SSL configuration for this distribution. See Viewer Certificate below.
         """

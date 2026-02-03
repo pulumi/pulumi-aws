@@ -21,8 +21,8 @@ namespace Pulumi.Aws.S3.Inputs
         /// <summary>
         /// Journal table record expiration settings. See `RecordExpiration` Block for details.
         /// </summary>
-        [Input("recordExpiration")]
-        public Input<Inputs.BucketMetadataConfigurationMetadataConfigurationJournalTableConfigurationRecordExpirationArgs>? RecordExpiration { get; set; }
+        [Input("recordExpiration", required: true)]
+        public Input<Inputs.BucketMetadataConfigurationMetadataConfigurationJournalTableConfigurationRecordExpirationArgs> RecordExpiration { get; set; } = null!;
 
         /// <summary>
         /// Journal table ARN.

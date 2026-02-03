@@ -62,7 +62,7 @@ type AgentDataSource struct {
 	// Data deletion policy for a data source. Valid values: `RETAIN`, `DELETE`.
 	DataDeletionPolicy pulumi.StringOutput `pulumi:"dataDeletionPolicy"`
 	// Details about how the data source is stored. See `dataSourceConfiguration` block for details.
-	DataSourceConfiguration AgentDataSourceDataSourceConfigurationPtrOutput `pulumi:"dataSourceConfiguration"`
+	DataSourceConfiguration AgentDataSourceDataSourceConfigurationOutput `pulumi:"dataSourceConfiguration"`
 	// Unique identifier of the data source.
 	DataSourceId pulumi.StringOutput `pulumi:"dataSourceId"`
 	// Description of the data source.
@@ -89,6 +89,9 @@ func NewAgentDataSource(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
+	if args.DataSourceConfiguration == nil {
+		return nil, errors.New("invalid value for required argument 'DataSourceConfiguration'")
+	}
 	if args.KnowledgeBaseId == nil {
 		return nil, errors.New("invalid value for required argument 'KnowledgeBaseId'")
 	}
@@ -170,7 +173,7 @@ type agentDataSourceArgs struct {
 	// Data deletion policy for a data source. Valid values: `RETAIN`, `DELETE`.
 	DataDeletionPolicy *string `pulumi:"dataDeletionPolicy"`
 	// Details about how the data source is stored. See `dataSourceConfiguration` block for details.
-	DataSourceConfiguration *AgentDataSourceDataSourceConfiguration `pulumi:"dataSourceConfiguration"`
+	DataSourceConfiguration AgentDataSourceDataSourceConfiguration `pulumi:"dataSourceConfiguration"`
 	// Description of the data source.
 	Description *string `pulumi:"description"`
 	// Unique identifier of the knowledge base to which the data source belongs.
@@ -193,7 +196,7 @@ type AgentDataSourceArgs struct {
 	// Data deletion policy for a data source. Valid values: `RETAIN`, `DELETE`.
 	DataDeletionPolicy pulumi.StringPtrInput
 	// Details about how the data source is stored. See `dataSourceConfiguration` block for details.
-	DataSourceConfiguration AgentDataSourceDataSourceConfigurationPtrInput
+	DataSourceConfiguration AgentDataSourceDataSourceConfigurationInput
 	// Description of the data source.
 	Description pulumi.StringPtrInput
 	// Unique identifier of the knowledge base to which the data source belongs.
@@ -304,10 +307,10 @@ func (o AgentDataSourceOutput) DataDeletionPolicy() pulumi.StringOutput {
 }
 
 // Details about how the data source is stored. See `dataSourceConfiguration` block for details.
-func (o AgentDataSourceOutput) DataSourceConfiguration() AgentDataSourceDataSourceConfigurationPtrOutput {
-	return o.ApplyT(func(v *AgentDataSource) AgentDataSourceDataSourceConfigurationPtrOutput {
+func (o AgentDataSourceOutput) DataSourceConfiguration() AgentDataSourceDataSourceConfigurationOutput {
+	return o.ApplyT(func(v *AgentDataSource) AgentDataSourceDataSourceConfigurationOutput {
 		return v.DataSourceConfiguration
-	}).(AgentDataSourceDataSourceConfigurationPtrOutput)
+	}).(AgentDataSourceDataSourceConfigurationOutput)
 }
 
 // Unique identifier of the data source.

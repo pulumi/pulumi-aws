@@ -92,14 +92,14 @@ public class Monitor extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="localResources", refs={List.class,MonitorLocalResource.class}, tree="[0,1]")
-    private Output</* @Nullable */ List<MonitorLocalResource>> localResources;
+    private Output<List<MonitorLocalResource>> localResources;
 
     /**
      * @return The local resources to monitor. A local resource in a workload is the location of the hosts where the Network Flow Monitor agent is installed.
      * 
      */
-    public Output<Optional<List<MonitorLocalResource>>> localResources() {
-        return Codegen.optional(this.localResources);
+    public Output<List<MonitorLocalResource>> localResources() {
+        return this.localResources;
     }
     /**
      * The Amazon Resource Name (ARN) of the monitor.

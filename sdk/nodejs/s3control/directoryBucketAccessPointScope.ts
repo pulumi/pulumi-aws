@@ -96,7 +96,7 @@ export class DirectoryBucketAccessPointScope extends pulumi.CustomResource {
     /**
      * . Scope is used to restrict access to specific prefixes, API operations, or a combination of both. To remove the `scope`, set it to `{permissions=[] prefixes=[]}`. The default scope is `{permissions=[] prefixes=[]}`.
      */
-    declare public readonly scope: pulumi.Output<outputs.s3control.DirectoryBucketAccessPointScopeScope | undefined>;
+    declare public readonly scope: pulumi.Output<outputs.s3control.DirectoryBucketAccessPointScopeScope>;
 
     /**
      * Create a DirectoryBucketAccessPointScope resource with the given unique name, arguments, and options.
@@ -119,6 +119,9 @@ export class DirectoryBucketAccessPointScope extends pulumi.CustomResource {
             const args = argsOrState as DirectoryBucketAccessPointScopeArgs | undefined;
             if (args?.accountId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'accountId'");
+            }
+            if (args?.scope === undefined && !opts.urn) {
+                throw new Error("Missing required property 'scope'");
             }
             resourceInputs["accountId"] = args?.accountId;
             resourceInputs["name"] = args?.name;
@@ -171,5 +174,5 @@ export interface DirectoryBucketAccessPointScopeArgs {
     /**
      * . Scope is used to restrict access to specific prefixes, API operations, or a combination of both. To remove the `scope`, set it to `{permissions=[] prefixes=[]}`. The default scope is `{permissions=[] prefixes=[]}`.
      */
-    scope?: pulumi.Input<inputs.s3control.DirectoryBucketAccessPointScopeScope>;
+    scope: pulumi.Input<inputs.s3control.DirectoryBucketAccessPointScopeScope>;
 }

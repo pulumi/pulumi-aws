@@ -44,15 +44,15 @@ public final class StreamProcessorArgs extends com.pulumi.resources.ResourceArgs
      * Input video stream. See `input`.
      * 
      */
-    @Import(name="input")
-    private @Nullable Output<StreamProcessorInputArgs> input;
+    @Import(name="input", required=true)
+    private Output<StreamProcessorInputArgs> input;
 
     /**
      * @return Input video stream. See `input`.
      * 
      */
-    public Optional<Output<StreamProcessorInputArgs>> input() {
-        return Optional.ofNullable(this.input);
+    public Output<StreamProcessorInputArgs> input() {
+        return this.input;
     }
 
     /**
@@ -104,15 +104,15 @@ public final class StreamProcessorArgs extends com.pulumi.resources.ResourceArgs
      * Kinesis data stream stream or Amazon S3 bucket location to which Amazon Rekognition Video puts the analysis results. See `output`.
      * 
      */
-    @Import(name="output")
-    private @Nullable Output<StreamProcessorOutputArgs> output;
+    @Import(name="output", required=true)
+    private Output<StreamProcessorOutputArgs> output;
 
     /**
      * @return Kinesis data stream stream or Amazon S3 bucket location to which Amazon Rekognition Video puts the analysis results. See `output`.
      * 
      */
-    public Optional<Output<StreamProcessorOutputArgs>> output() {
-        return Optional.ofNullable(this.output);
+    public Output<StreamProcessorOutputArgs> output() {
+        return this.output;
     }
 
     /**
@@ -166,8 +166,8 @@ public final class StreamProcessorArgs extends com.pulumi.resources.ResourceArgs
      * The following arguments are optional:
      * 
      */
-    @Import(name="settings")
-    private @Nullable Output<StreamProcessorSettingsArgs> settings;
+    @Import(name="settings", required=true)
+    private Output<StreamProcessorSettingsArgs> settings;
 
     /**
      * @return Input parameters used in a streaming video analyzed by a stream processor. See `settings`.
@@ -175,8 +175,8 @@ public final class StreamProcessorArgs extends com.pulumi.resources.ResourceArgs
      * The following arguments are optional:
      * 
      */
-    public Optional<Output<StreamProcessorSettingsArgs>> settings() {
-        return Optional.ofNullable(this.settings);
+    public Output<StreamProcessorSettingsArgs> settings() {
+        return this.settings;
     }
 
     /**
@@ -263,7 +263,7 @@ public final class StreamProcessorArgs extends com.pulumi.resources.ResourceArgs
          * @return builder
          * 
          */
-        public Builder input(@Nullable Output<StreamProcessorInputArgs> input) {
+        public Builder input(Output<StreamProcessorInputArgs> input) {
             $.input = input;
             return this;
         }
@@ -347,7 +347,7 @@ public final class StreamProcessorArgs extends com.pulumi.resources.ResourceArgs
          * @return builder
          * 
          */
-        public Builder output(@Nullable Output<StreamProcessorOutputArgs> output) {
+        public Builder output(Output<StreamProcessorOutputArgs> output) {
             $.output = output;
             return this;
         }
@@ -443,7 +443,7 @@ public final class StreamProcessorArgs extends com.pulumi.resources.ResourceArgs
          * @return builder
          * 
          */
-        public Builder settings(@Nullable Output<StreamProcessorSettingsArgs> settings) {
+        public Builder settings(Output<StreamProcessorSettingsArgs> settings) {
             $.settings = settings;
             return this;
         }
@@ -491,8 +491,17 @@ public final class StreamProcessorArgs extends com.pulumi.resources.ResourceArgs
         }
 
         public StreamProcessorArgs build() {
+            if ($.input == null) {
+                throw new MissingRequiredPropertyException("StreamProcessorArgs", "input");
+            }
+            if ($.output == null) {
+                throw new MissingRequiredPropertyException("StreamProcessorArgs", "output");
+            }
             if ($.roleArn == null) {
                 throw new MissingRequiredPropertyException("StreamProcessorArgs", "roleArn");
+            }
+            if ($.settings == null) {
+                throw new MissingRequiredPropertyException("StreamProcessorArgs", "settings");
             }
             return $;
         }

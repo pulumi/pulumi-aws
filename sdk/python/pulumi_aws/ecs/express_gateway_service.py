@@ -23,12 +23,12 @@ class ExpressGatewayServiceArgs:
     def __init__(__self__, *,
                  execution_role_arn: pulumi.Input[_builtins.str],
                  infrastructure_role_arn: pulumi.Input[_builtins.str],
+                 primary_container: pulumi.Input['ExpressGatewayServicePrimaryContainerArgs'],
                  cluster: Optional[pulumi.Input[_builtins.str]] = None,
                  cpu: Optional[pulumi.Input[_builtins.str]] = None,
                  health_check_path: Optional[pulumi.Input[_builtins.str]] = None,
                  memory: Optional[pulumi.Input[_builtins.str]] = None,
                  network_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['ExpressGatewayServiceNetworkConfigurationArgs']]]] = None,
-                 primary_container: Optional[pulumi.Input['ExpressGatewayServicePrimaryContainerArgs']] = None,
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  scaling_targets: Optional[pulumi.Input[Sequence[pulumi.Input['ExpressGatewayServiceScalingTargetArgs']]]] = None,
                  service_name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -54,6 +54,7 @@ class ExpressGatewayServiceArgs:
         """
         pulumi.set(__self__, "execution_role_arn", execution_role_arn)
         pulumi.set(__self__, "infrastructure_role_arn", infrastructure_role_arn)
+        pulumi.set(__self__, "primary_container", primary_container)
         if cluster is not None:
             pulumi.set(__self__, "cluster", cluster)
         if cpu is not None:
@@ -64,8 +65,6 @@ class ExpressGatewayServiceArgs:
             pulumi.set(__self__, "memory", memory)
         if network_configurations is not None:
             pulumi.set(__self__, "network_configurations", network_configurations)
-        if primary_container is not None:
-            pulumi.set(__self__, "primary_container", primary_container)
         if region is not None:
             pulumi.set(__self__, "region", region)
         if scaling_targets is not None:
@@ -106,6 +105,15 @@ class ExpressGatewayServiceArgs:
     @infrastructure_role_arn.setter
     def infrastructure_role_arn(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "infrastructure_role_arn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="primaryContainer")
+    def primary_container(self) -> pulumi.Input['ExpressGatewayServicePrimaryContainerArgs']:
+        return pulumi.get(self, "primary_container")
+
+    @primary_container.setter
+    def primary_container(self, value: pulumi.Input['ExpressGatewayServicePrimaryContainerArgs']):
+        pulumi.set(self, "primary_container", value)
 
     @_builtins.property
     @pulumi.getter
@@ -163,15 +171,6 @@ class ExpressGatewayServiceArgs:
     @network_configurations.setter
     def network_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ExpressGatewayServiceNetworkConfigurationArgs']]]]):
         pulumi.set(self, "network_configurations", value)
-
-    @_builtins.property
-    @pulumi.getter(name="primaryContainer")
-    def primary_container(self) -> Optional[pulumi.Input['ExpressGatewayServicePrimaryContainerArgs']]:
-        return pulumi.get(self, "primary_container")
-
-    @primary_container.setter
-    def primary_container(self, value: Optional[pulumi.Input['ExpressGatewayServicePrimaryContainerArgs']]):
-        pulumi.set(self, "primary_container", value)
 
     @_builtins.property
     @pulumi.getter
@@ -740,6 +739,8 @@ class ExpressGatewayService(pulumi.CustomResource):
             __props__.__dict__["infrastructure_role_arn"] = infrastructure_role_arn
             __props__.__dict__["memory"] = memory
             __props__.__dict__["network_configurations"] = network_configurations
+            if primary_container is None and not opts.urn:
+                raise TypeError("Missing required property 'primary_container'")
             __props__.__dict__["primary_container"] = primary_container
             __props__.__dict__["region"] = region
             __props__.__dict__["scaling_targets"] = scaling_targets
@@ -908,7 +909,7 @@ class ExpressGatewayService(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="primaryContainer")
-    def primary_container(self) -> pulumi.Output[Optional['outputs.ExpressGatewayServicePrimaryContainer']]:
+    def primary_container(self) -> pulumi.Output['outputs.ExpressGatewayServicePrimaryContainer']:
         return pulumi.get(self, "primary_container")
 
     @_builtins.property

@@ -188,7 +188,7 @@ class ConfiguredTableTableReferenceArgs:
 
 if not MYPY:
     class MembershipDefaultResultConfigurationArgsDict(TypedDict):
-        output_configuration: NotRequired[pulumi.Input['MembershipDefaultResultConfigurationOutputConfigurationArgsDict']]
+        output_configuration: pulumi.Input['MembershipDefaultResultConfigurationOutputConfigurationArgsDict']
         role_arn: NotRequired[pulumi.Input[_builtins.str]]
         """
         The ARN of the IAM role which will be used to create the membership.
@@ -202,7 +202,7 @@ elif False:
 @pulumi.input_type
 class MembershipDefaultResultConfigurationArgs:
     def __init__(__self__, *,
-                 output_configuration: Optional[pulumi.Input['MembershipDefaultResultConfigurationOutputConfigurationArgs']] = None,
+                 output_configuration: pulumi.Input['MembershipDefaultResultConfigurationOutputConfigurationArgs'],
                  role_arn: Optional[pulumi.Input[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] role_arn: The ARN of the IAM role which will be used to create the membership.
@@ -210,18 +210,17 @@ class MembershipDefaultResultConfigurationArgs:
                - `output_configuration.s3.result_format` - (Required) - The format of the query results. Valid values are `PARQUET` and `CSV`.
                - `output_configuration.s3.key_prefix` - (Optional) - The prefix used for the query results.
         """
-        if output_configuration is not None:
-            pulumi.set(__self__, "output_configuration", output_configuration)
+        pulumi.set(__self__, "output_configuration", output_configuration)
         if role_arn is not None:
             pulumi.set(__self__, "role_arn", role_arn)
 
     @_builtins.property
     @pulumi.getter(name="outputConfiguration")
-    def output_configuration(self) -> Optional[pulumi.Input['MembershipDefaultResultConfigurationOutputConfigurationArgs']]:
+    def output_configuration(self) -> pulumi.Input['MembershipDefaultResultConfigurationOutputConfigurationArgs']:
         return pulumi.get(self, "output_configuration")
 
     @output_configuration.setter
-    def output_configuration(self, value: Optional[pulumi.Input['MembershipDefaultResultConfigurationOutputConfigurationArgs']]):
+    def output_configuration(self, value: pulumi.Input['MembershipDefaultResultConfigurationOutputConfigurationArgs']):
         pulumi.set(self, "output_configuration", value)
 
     @_builtins.property
@@ -242,24 +241,23 @@ class MembershipDefaultResultConfigurationArgs:
 
 if not MYPY:
     class MembershipDefaultResultConfigurationOutputConfigurationArgsDict(TypedDict):
-        s3: NotRequired[pulumi.Input['MembershipDefaultResultConfigurationOutputConfigurationS3ArgsDict']]
+        s3: pulumi.Input['MembershipDefaultResultConfigurationOutputConfigurationS3ArgsDict']
 elif False:
     MembershipDefaultResultConfigurationOutputConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class MembershipDefaultResultConfigurationOutputConfigurationArgs:
     def __init__(__self__, *,
-                 s3: Optional[pulumi.Input['MembershipDefaultResultConfigurationOutputConfigurationS3Args']] = None):
-        if s3 is not None:
-            pulumi.set(__self__, "s3", s3)
+                 s3: pulumi.Input['MembershipDefaultResultConfigurationOutputConfigurationS3Args']):
+        pulumi.set(__self__, "s3", s3)
 
     @_builtins.property
     @pulumi.getter
-    def s3(self) -> Optional[pulumi.Input['MembershipDefaultResultConfigurationOutputConfigurationS3Args']]:
+    def s3(self) -> pulumi.Input['MembershipDefaultResultConfigurationOutputConfigurationS3Args']:
         return pulumi.get(self, "s3")
 
     @s3.setter
-    def s3(self, value: Optional[pulumi.Input['MembershipDefaultResultConfigurationOutputConfigurationS3Args']]):
+    def s3(self, value: pulumi.Input['MembershipDefaultResultConfigurationOutputConfigurationS3Args']):
         pulumi.set(self, "s3", value)
 
 
@@ -312,24 +310,23 @@ class MembershipDefaultResultConfigurationOutputConfigurationS3Args:
 
 if not MYPY:
     class MembershipPaymentConfigurationArgsDict(TypedDict):
-        query_compute: NotRequired[pulumi.Input['MembershipPaymentConfigurationQueryComputeArgsDict']]
+        query_compute: pulumi.Input['MembershipPaymentConfigurationQueryComputeArgsDict']
 elif False:
     MembershipPaymentConfigurationArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class MembershipPaymentConfigurationArgs:
     def __init__(__self__, *,
-                 query_compute: Optional[pulumi.Input['MembershipPaymentConfigurationQueryComputeArgs']] = None):
-        if query_compute is not None:
-            pulumi.set(__self__, "query_compute", query_compute)
+                 query_compute: pulumi.Input['MembershipPaymentConfigurationQueryComputeArgs']):
+        pulumi.set(__self__, "query_compute", query_compute)
 
     @_builtins.property
     @pulumi.getter(name="queryCompute")
-    def query_compute(self) -> Optional[pulumi.Input['MembershipPaymentConfigurationQueryComputeArgs']]:
+    def query_compute(self) -> pulumi.Input['MembershipPaymentConfigurationQueryComputeArgs']:
         return pulumi.get(self, "query_compute")
 
     @query_compute.setter
-    def query_compute(self, value: Optional[pulumi.Input['MembershipPaymentConfigurationQueryComputeArgs']]):
+    def query_compute(self, value: pulumi.Input['MembershipPaymentConfigurationQueryComputeArgs']):
         pulumi.set(self, "query_compute", value)
 
 

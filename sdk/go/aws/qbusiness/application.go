@@ -58,7 +58,7 @@ type Application struct {
 	// ARN of the Q Business application.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Information about whether file upload functionality is activated or deactivated for your end user. See `attachmentsConfiguration` below.
-	AttachmentsConfiguration ApplicationAttachmentsConfigurationPtrOutput `pulumi:"attachmentsConfiguration"`
+	AttachmentsConfiguration ApplicationAttachmentsConfigurationOutput `pulumi:"attachmentsConfiguration"`
 	// Description of the Amazon Q application.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Name of the Amazon Q application.
@@ -88,6 +88,9 @@ func NewApplication(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
+	if args.AttachmentsConfiguration == nil {
+		return nil, errors.New("invalid value for required argument 'AttachmentsConfiguration'")
+	}
 	if args.DisplayName == nil {
 		return nil, errors.New("invalid value for required argument 'DisplayName'")
 	}
@@ -179,7 +182,7 @@ func (ApplicationState) ElementType() reflect.Type {
 
 type applicationArgs struct {
 	// Information about whether file upload functionality is activated or deactivated for your end user. See `attachmentsConfiguration` below.
-	AttachmentsConfiguration *ApplicationAttachmentsConfiguration `pulumi:"attachmentsConfiguration"`
+	AttachmentsConfiguration ApplicationAttachmentsConfiguration `pulumi:"attachmentsConfiguration"`
 	// Description of the Amazon Q application.
 	Description *string `pulumi:"description"`
 	// Name of the Amazon Q application.
@@ -201,7 +204,7 @@ type applicationArgs struct {
 // The set of arguments for constructing a Application resource.
 type ApplicationArgs struct {
 	// Information about whether file upload functionality is activated or deactivated for your end user. See `attachmentsConfiguration` below.
-	AttachmentsConfiguration ApplicationAttachmentsConfigurationPtrInput
+	AttachmentsConfiguration ApplicationAttachmentsConfigurationInput
 	// Description of the Amazon Q application.
 	Description pulumi.StringPtrInput
 	// Name of the Amazon Q application.
@@ -313,8 +316,8 @@ func (o ApplicationOutput) Arn() pulumi.StringOutput {
 }
 
 // Information about whether file upload functionality is activated or deactivated for your end user. See `attachmentsConfiguration` below.
-func (o ApplicationOutput) AttachmentsConfiguration() ApplicationAttachmentsConfigurationPtrOutput {
-	return o.ApplyT(func(v *Application) ApplicationAttachmentsConfigurationPtrOutput { return v.AttachmentsConfiguration }).(ApplicationAttachmentsConfigurationPtrOutput)
+func (o ApplicationOutput) AttachmentsConfiguration() ApplicationAttachmentsConfigurationOutput {
+	return o.ApplyT(func(v *Application) ApplicationAttachmentsConfigurationOutput { return v.AttachmentsConfiguration }).(ApplicationAttachmentsConfigurationOutput)
 }
 
 // Description of the Amazon Q application.

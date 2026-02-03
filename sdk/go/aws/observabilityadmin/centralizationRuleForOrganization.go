@@ -220,7 +220,7 @@ type CentralizationRuleForOrganization struct {
 	// Configuration block for the centralization rule. See `rule` below.
 	//
 	// The following arguments are optional:
-	Rule CentralizationRuleForOrganizationRulePtrOutput `pulumi:"rule"`
+	Rule CentralizationRuleForOrganizationRuleOutput `pulumi:"rule"`
 	// ARN of the centralization rule.
 	RuleArn pulumi.StringOutput `pulumi:"ruleArn"`
 	// Name of the centralization rule. Must be unique within the organization.
@@ -239,6 +239,9 @@ func NewCentralizationRuleForOrganization(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
+	if args.Rule == nil {
+		return nil, errors.New("invalid value for required argument 'Rule'")
+	}
 	if args.RuleName == nil {
 		return nil, errors.New("invalid value for required argument 'RuleName'")
 	}
@@ -310,7 +313,7 @@ type centralizationRuleForOrganizationArgs struct {
 	// Configuration block for the centralization rule. See `rule` below.
 	//
 	// The following arguments are optional:
-	Rule *CentralizationRuleForOrganizationRule `pulumi:"rule"`
+	Rule CentralizationRuleForOrganizationRule `pulumi:"rule"`
 	// Name of the centralization rule. Must be unique within the organization.
 	RuleName string `pulumi:"ruleName"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -325,7 +328,7 @@ type CentralizationRuleForOrganizationArgs struct {
 	// Configuration block for the centralization rule. See `rule` below.
 	//
 	// The following arguments are optional:
-	Rule CentralizationRuleForOrganizationRulePtrInput
+	Rule CentralizationRuleForOrganizationRuleInput
 	// Name of the centralization rule. Must be unique within the organization.
 	RuleName pulumi.StringInput
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -428,10 +431,8 @@ func (o CentralizationRuleForOrganizationOutput) Region() pulumi.StringOutput {
 // Configuration block for the centralization rule. See `rule` below.
 //
 // The following arguments are optional:
-func (o CentralizationRuleForOrganizationOutput) Rule() CentralizationRuleForOrganizationRulePtrOutput {
-	return o.ApplyT(func(v *CentralizationRuleForOrganization) CentralizationRuleForOrganizationRulePtrOutput {
-		return v.Rule
-	}).(CentralizationRuleForOrganizationRulePtrOutput)
+func (o CentralizationRuleForOrganizationOutput) Rule() CentralizationRuleForOrganizationRuleOutput {
+	return o.ApplyT(func(v *CentralizationRuleForOrganization) CentralizationRuleForOrganizationRuleOutput { return v.Rule }).(CentralizationRuleForOrganizationRuleOutput)
 }
 
 // ARN of the centralization rule.

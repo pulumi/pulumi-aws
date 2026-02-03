@@ -21,26 +21,28 @@ __all__ = ['CapacityProviderArgs', 'CapacityProvider']
 @pulumi.input_type
 class CapacityProviderArgs:
     def __init__(__self__, *,
+                 permissions_config: pulumi.Input['CapacityProviderPermissionsConfigArgs'],
+                 vpc_config: pulumi.Input['CapacityProviderVpcConfigArgs'],
                  capacity_provider_scaling_configs: Optional[pulumi.Input[Sequence[pulumi.Input['CapacityProviderCapacityProviderScalingConfigArgs']]]] = None,
                  instance_requirements: Optional[pulumi.Input[Sequence[pulumi.Input['CapacityProviderInstanceRequirementArgs']]]] = None,
                  kms_key_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
-                 permissions_config: Optional[pulumi.Input['CapacityProviderPermissionsConfigArgs']] = None,
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: Optional[pulumi.Input['CapacityProviderTimeoutsArgs']] = None,
-                 vpc_config: Optional[pulumi.Input['CapacityProviderVpcConfigArgs']] = None):
+                 timeouts: Optional[pulumi.Input['CapacityProviderTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a CapacityProvider resource.
-        :param pulumi.Input[Sequence[pulumi.Input['CapacityProviderInstanceRequirementArgs']]] instance_requirements: Configuration block for instance requirements settings. See Instance Requirements below.
-        :param pulumi.Input[_builtins.str] name: The name of the Capacity Provider.
         :param pulumi.Input['CapacityProviderPermissionsConfigArgs'] permissions_config: Configuration block for permissions settings. See Permissions Config below.
                
                The following arguments are optional:
+        :param pulumi.Input['CapacityProviderVpcConfigArgs'] vpc_config: Configuration block for VPC settings. See VPC Config below.
+        :param pulumi.Input[Sequence[pulumi.Input['CapacityProviderInstanceRequirementArgs']]] instance_requirements: Configuration block for instance requirements settings. See Instance Requirements below.
+        :param pulumi.Input[_builtins.str] name: The name of the Capacity Provider.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input['CapacityProviderVpcConfigArgs'] vpc_config: Configuration block for VPC settings. See VPC Config below.
         """
+        pulumi.set(__self__, "permissions_config", permissions_config)
+        pulumi.set(__self__, "vpc_config", vpc_config)
         if capacity_provider_scaling_configs is not None:
             pulumi.set(__self__, "capacity_provider_scaling_configs", capacity_provider_scaling_configs)
         if instance_requirements is not None:
@@ -49,16 +51,38 @@ class CapacityProviderArgs:
             pulumi.set(__self__, "kms_key_arn", kms_key_arn)
         if name is not None:
             pulumi.set(__self__, "name", name)
-        if permissions_config is not None:
-            pulumi.set(__self__, "permissions_config", permissions_config)
         if region is not None:
             pulumi.set(__self__, "region", region)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if timeouts is not None:
             pulumi.set(__self__, "timeouts", timeouts)
-        if vpc_config is not None:
-            pulumi.set(__self__, "vpc_config", vpc_config)
+
+    @_builtins.property
+    @pulumi.getter(name="permissionsConfig")
+    def permissions_config(self) -> pulumi.Input['CapacityProviderPermissionsConfigArgs']:
+        """
+        Configuration block for permissions settings. See Permissions Config below.
+
+        The following arguments are optional:
+        """
+        return pulumi.get(self, "permissions_config")
+
+    @permissions_config.setter
+    def permissions_config(self, value: pulumi.Input['CapacityProviderPermissionsConfigArgs']):
+        pulumi.set(self, "permissions_config", value)
+
+    @_builtins.property
+    @pulumi.getter(name="vpcConfig")
+    def vpc_config(self) -> pulumi.Input['CapacityProviderVpcConfigArgs']:
+        """
+        Configuration block for VPC settings. See VPC Config below.
+        """
+        return pulumi.get(self, "vpc_config")
+
+    @vpc_config.setter
+    def vpc_config(self, value: pulumi.Input['CapacityProviderVpcConfigArgs']):
+        pulumi.set(self, "vpc_config", value)
 
     @_builtins.property
     @pulumi.getter(name="capacityProviderScalingConfigs")
@@ -103,20 +127,6 @@ class CapacityProviderArgs:
         pulumi.set(self, "name", value)
 
     @_builtins.property
-    @pulumi.getter(name="permissionsConfig")
-    def permissions_config(self) -> Optional[pulumi.Input['CapacityProviderPermissionsConfigArgs']]:
-        """
-        Configuration block for permissions settings. See Permissions Config below.
-
-        The following arguments are optional:
-        """
-        return pulumi.get(self, "permissions_config")
-
-    @permissions_config.setter
-    def permissions_config(self, value: Optional[pulumi.Input['CapacityProviderPermissionsConfigArgs']]):
-        pulumi.set(self, "permissions_config", value)
-
-    @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
@@ -148,18 +158,6 @@ class CapacityProviderArgs:
     @timeouts.setter
     def timeouts(self, value: Optional[pulumi.Input['CapacityProviderTimeoutsArgs']]):
         pulumi.set(self, "timeouts", value)
-
-    @_builtins.property
-    @pulumi.getter(name="vpcConfig")
-    def vpc_config(self) -> Optional[pulumi.Input['CapacityProviderVpcConfigArgs']]:
-        """
-        Configuration block for VPC settings. See VPC Config below.
-        """
-        return pulumi.get(self, "vpc_config")
-
-    @vpc_config.setter
-    def vpc_config(self, value: Optional[pulumi.Input['CapacityProviderVpcConfigArgs']]):
-        pulumi.set(self, "vpc_config", value)
 
 
 @pulumi.input_type
@@ -399,7 +397,7 @@ class CapacityProvider(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: Optional[CapacityProviderArgs] = None,
+                 args: CapacityProviderArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an AWS Lambda Capacity Provider.
@@ -468,10 +466,14 @@ class CapacityProvider(pulumi.CustomResource):
             __props__.__dict__["instance_requirements"] = instance_requirements
             __props__.__dict__["kms_key_arn"] = kms_key_arn
             __props__.__dict__["name"] = name
+            if permissions_config is None and not opts.urn:
+                raise TypeError("Missing required property 'permissions_config'")
             __props__.__dict__["permissions_config"] = permissions_config
             __props__.__dict__["region"] = region
             __props__.__dict__["tags"] = tags
             __props__.__dict__["timeouts"] = timeouts
+            if vpc_config is None and not opts.urn:
+                raise TypeError("Missing required property 'vpc_config'")
             __props__.__dict__["vpc_config"] = vpc_config
             __props__.__dict__["arn"] = None
             __props__.__dict__["tags_all"] = None
@@ -567,7 +569,7 @@ class CapacityProvider(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="permissionsConfig")
-    def permissions_config(self) -> pulumi.Output[Optional['outputs.CapacityProviderPermissionsConfig']]:
+    def permissions_config(self) -> pulumi.Output['outputs.CapacityProviderPermissionsConfig']:
         """
         Configuration block for permissions settings. See Permissions Config below.
 
@@ -606,7 +608,7 @@ class CapacityProvider(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="vpcConfig")
-    def vpc_config(self) -> pulumi.Output[Optional['outputs.CapacityProviderVpcConfig']]:
+    def vpc_config(self) -> pulumi.Output['outputs.CapacityProviderVpcConfig']:
         """
         Configuration block for VPC settings. See VPC Config below.
         """

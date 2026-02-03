@@ -8,6 +8,7 @@ import com.pulumi.aws.bedrock.inputs.AgentKnowledgeBaseKnowledgeBaseConfiguratio
 import com.pulumi.aws.bedrock.inputs.AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -21,15 +22,15 @@ public final class AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseC
      * Configurations for an Amazon Redshift query engine. See `queryEngineConfiguration` block for details.
      * 
      */
-    @Import(name="queryEngineConfiguration")
-    private @Nullable Output<AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationArgs> queryEngineConfiguration;
+    @Import(name="queryEngineConfiguration", required=true)
+    private Output<AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationArgs> queryEngineConfiguration;
 
     /**
      * @return Configurations for an Amazon Redshift query engine. See `queryEngineConfiguration` block for details.
      * 
      */
-    public Optional<Output<AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationArgs>> queryEngineConfiguration() {
-        return Optional.ofNullable(this.queryEngineConfiguration);
+    public Output<AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationArgs> queryEngineConfiguration() {
+        return this.queryEngineConfiguration;
     }
 
     /**
@@ -51,15 +52,15 @@ public final class AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseC
      * Configurations for Amazon Redshift database storage. See `storageConfiguration` block for details.
      * 
      */
-    @Import(name="storageConfiguration")
-    private @Nullable Output<AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationArgs> storageConfiguration;
+    @Import(name="storageConfiguration", required=true)
+    private Output<AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationArgs> storageConfiguration;
 
     /**
      * @return Configurations for Amazon Redshift database storage. See `storageConfiguration` block for details.
      * 
      */
-    public Optional<Output<AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationArgs>> storageConfiguration() {
-        return Optional.ofNullable(this.storageConfiguration);
+    public Output<AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationArgs> storageConfiguration() {
+        return this.storageConfiguration;
     }
 
     private AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationArgs() {}
@@ -94,7 +95,7 @@ public final class AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseC
          * @return builder
          * 
          */
-        public Builder queryEngineConfiguration(@Nullable Output<AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationArgs> queryEngineConfiguration) {
+        public Builder queryEngineConfiguration(Output<AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationArgs> queryEngineConfiguration) {
             $.queryEngineConfiguration = queryEngineConfiguration;
             return this;
         }
@@ -136,7 +137,7 @@ public final class AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseC
          * @return builder
          * 
          */
-        public Builder storageConfiguration(@Nullable Output<AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationArgs> storageConfiguration) {
+        public Builder storageConfiguration(Output<AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationArgs> storageConfiguration) {
             $.storageConfiguration = storageConfiguration;
             return this;
         }
@@ -152,6 +153,12 @@ public final class AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseC
         }
 
         public AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationArgs build() {
+            if ($.queryEngineConfiguration == null) {
+                throw new MissingRequiredPropertyException("AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationArgs", "queryEngineConfiguration");
+            }
+            if ($.storageConfiguration == null) {
+                throw new MissingRequiredPropertyException("AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationArgs", "storageConfiguration");
+            }
             return $;
         }
     }

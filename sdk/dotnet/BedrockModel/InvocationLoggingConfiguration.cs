@@ -111,7 +111,7 @@ namespace Pulumi.Aws.BedrockModel
         /// The logging configuration values to set. See `LoggingConfig` Block for details.
         /// </summary>
         [Output("loggingConfig")]
-        public Output<Outputs.InvocationLoggingConfigurationLoggingConfig?> LoggingConfig { get; private set; } = null!;
+        public Output<Outputs.InvocationLoggingConfigurationLoggingConfig> LoggingConfig { get; private set; } = null!;
 
         /// <summary>
         /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -127,7 +127,7 @@ namespace Pulumi.Aws.BedrockModel
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public InvocationLoggingConfiguration(string name, InvocationLoggingConfigurationArgs? args = null, CustomResourceOptions? options = null)
+        public InvocationLoggingConfiguration(string name, InvocationLoggingConfigurationArgs args, CustomResourceOptions? options = null)
             : base("aws:bedrockmodel/invocationLoggingConfiguration:InvocationLoggingConfiguration", name, args ?? new InvocationLoggingConfigurationArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -168,8 +168,8 @@ namespace Pulumi.Aws.BedrockModel
         /// <summary>
         /// The logging configuration values to set. See `LoggingConfig` Block for details.
         /// </summary>
-        [Input("loggingConfig")]
-        public Input<Inputs.InvocationLoggingConfigurationLoggingConfigArgs>? LoggingConfig { get; set; }
+        [Input("loggingConfig", required: true)]
+        public Input<Inputs.InvocationLoggingConfigurationLoggingConfigArgs> LoggingConfig { get; set; } = null!;
 
         /// <summary>
         /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.

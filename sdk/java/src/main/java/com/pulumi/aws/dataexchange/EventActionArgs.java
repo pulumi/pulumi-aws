@@ -7,6 +7,7 @@ import com.pulumi.aws.dataexchange.inputs.EventActionActionArgs;
 import com.pulumi.aws.dataexchange.inputs.EventActionEventArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -22,16 +23,16 @@ public final class EventActionArgs extends com.pulumi.resources.ResourceArgs {
      * Described in `action` Configuration Block below.
      * 
      */
-    @Import(name="action")
-    private @Nullable Output<EventActionActionArgs> action;
+    @Import(name="action", required=true)
+    private Output<EventActionActionArgs> action;
 
     /**
      * @return Describes the action to take.
      * Described in `action` Configuration Block below.
      * 
      */
-    public Optional<Output<EventActionActionArgs>> action() {
-        return Optional.ofNullable(this.action);
+    public Output<EventActionActionArgs> action() {
+        return this.action;
     }
 
     /**
@@ -39,16 +40,16 @@ public final class EventActionArgs extends com.pulumi.resources.ResourceArgs {
      * Described in `event` Configuration Block below.
      * 
      */
-    @Import(name="event")
-    private @Nullable Output<EventActionEventArgs> event;
+    @Import(name="event", required=true)
+    private Output<EventActionEventArgs> event;
 
     /**
      * @return Describes the event that triggers the `action`.
      * Described in `event` Configuration Block below.
      * 
      */
-    public Optional<Output<EventActionEventArgs>> event() {
-        return Optional.ofNullable(this.event);
+    public Output<EventActionEventArgs> event() {
+        return this.event;
     }
 
     /**
@@ -99,7 +100,7 @@ public final class EventActionArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder action(@Nullable Output<EventActionActionArgs> action) {
+        public Builder action(Output<EventActionActionArgs> action) {
             $.action = action;
             return this;
         }
@@ -122,7 +123,7 @@ public final class EventActionArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder event(@Nullable Output<EventActionEventArgs> event) {
+        public Builder event(Output<EventActionEventArgs> event) {
             $.event = event;
             return this;
         }
@@ -160,6 +161,12 @@ public final class EventActionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public EventActionArgs build() {
+            if ($.action == null) {
+                throw new MissingRequiredPropertyException("EventActionArgs", "action");
+            }
+            if ($.event == null) {
+                throw new MissingRequiredPropertyException("EventActionArgs", "event");
+            }
             return $;
         }
     }

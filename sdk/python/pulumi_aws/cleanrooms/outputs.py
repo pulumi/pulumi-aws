@@ -197,7 +197,7 @@ class MembershipDefaultResultConfiguration(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 output_configuration: Optional['outputs.MembershipDefaultResultConfigurationOutputConfiguration'] = None,
+                 output_configuration: 'outputs.MembershipDefaultResultConfigurationOutputConfiguration',
                  role_arn: Optional[_builtins.str] = None):
         """
         :param _builtins.str role_arn: The ARN of the IAM role which will be used to create the membership.
@@ -205,14 +205,13 @@ class MembershipDefaultResultConfiguration(dict):
                - `output_configuration.s3.result_format` - (Required) - The format of the query results. Valid values are `PARQUET` and `CSV`.
                - `output_configuration.s3.key_prefix` - (Optional) - The prefix used for the query results.
         """
-        if output_configuration is not None:
-            pulumi.set(__self__, "output_configuration", output_configuration)
+        pulumi.set(__self__, "output_configuration", output_configuration)
         if role_arn is not None:
             pulumi.set(__self__, "role_arn", role_arn)
 
     @_builtins.property
     @pulumi.getter(name="outputConfiguration")
-    def output_configuration(self) -> Optional['outputs.MembershipDefaultResultConfigurationOutputConfiguration']:
+    def output_configuration(self) -> 'outputs.MembershipDefaultResultConfigurationOutputConfiguration':
         return pulumi.get(self, "output_configuration")
 
     @_builtins.property
@@ -230,13 +229,12 @@ class MembershipDefaultResultConfiguration(dict):
 @pulumi.output_type
 class MembershipDefaultResultConfigurationOutputConfiguration(dict):
     def __init__(__self__, *,
-                 s3: Optional['outputs.MembershipDefaultResultConfigurationOutputConfigurationS3'] = None):
-        if s3 is not None:
-            pulumi.set(__self__, "s3", s3)
+                 s3: 'outputs.MembershipDefaultResultConfigurationOutputConfigurationS3'):
+        pulumi.set(__self__, "s3", s3)
 
     @_builtins.property
     @pulumi.getter
-    def s3(self) -> Optional['outputs.MembershipDefaultResultConfigurationOutputConfigurationS3']:
+    def s3(self) -> 'outputs.MembershipDefaultResultConfigurationOutputConfigurationS3':
         return pulumi.get(self, "s3")
 
 
@@ -306,13 +304,12 @@ class MembershipPaymentConfiguration(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 query_compute: Optional['outputs.MembershipPaymentConfigurationQueryCompute'] = None):
-        if query_compute is not None:
-            pulumi.set(__self__, "query_compute", query_compute)
+                 query_compute: 'outputs.MembershipPaymentConfigurationQueryCompute'):
+        pulumi.set(__self__, "query_compute", query_compute)
 
     @_builtins.property
     @pulumi.getter(name="queryCompute")
-    def query_compute(self) -> Optional['outputs.MembershipPaymentConfigurationQueryCompute']:
+    def query_compute(self) -> 'outputs.MembershipPaymentConfigurationQueryCompute':
         return pulumi.get(self, "query_compute")
 
 

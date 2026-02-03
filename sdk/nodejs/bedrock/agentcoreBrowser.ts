@@ -148,7 +148,7 @@ export class AgentcoreBrowser extends pulumi.CustomResource {
      *
      * The following arguments are optional:
      */
-    declare public readonly networkConfiguration: pulumi.Output<outputs.bedrock.AgentcoreBrowserNetworkConfiguration | undefined>;
+    declare public readonly networkConfiguration: pulumi.Output<outputs.bedrock.AgentcoreBrowserNetworkConfiguration>;
     /**
      * Recording configuration for browser sessions. See `recording` below.
      */
@@ -174,7 +174,7 @@ export class AgentcoreBrowser extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: AgentcoreBrowserArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, args: AgentcoreBrowserArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: AgentcoreBrowserArgs | AgentcoreBrowserState, opts?: pulumi.CustomResourceOptions) {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
@@ -193,6 +193,9 @@ export class AgentcoreBrowser extends pulumi.CustomResource {
             resourceInputs["timeouts"] = state?.timeouts;
         } else {
             const args = argsOrState as AgentcoreBrowserArgs | undefined;
+            if (args?.networkConfiguration === undefined && !opts.urn) {
+                throw new Error("Missing required property 'networkConfiguration'");
+            }
             resourceInputs["description"] = args?.description;
             resourceInputs["executionRoleArn"] = args?.executionRoleArn;
             resourceInputs["name"] = args?.name;
@@ -280,7 +283,7 @@ export interface AgentcoreBrowserArgs {
      *
      * The following arguments are optional:
      */
-    networkConfiguration?: pulumi.Input<inputs.bedrock.AgentcoreBrowserNetworkConfiguration>;
+    networkConfiguration: pulumi.Input<inputs.bedrock.AgentcoreBrowserNetworkConfiguration>;
     /**
      * Recording configuration for browser sessions. See `recording` below.
      */

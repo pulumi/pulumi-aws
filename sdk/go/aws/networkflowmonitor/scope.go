@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -90,9 +91,12 @@ type Scope struct {
 func NewScope(ctx *pulumi.Context,
 	name string, args *ScopeArgs, opts ...pulumi.ResourceOption) (*Scope, error) {
 	if args == nil {
-		args = &ScopeArgs{}
+		return nil, errors.New("missing one or more required arguments")
 	}
 
+	if args.Targets == nil {
+		return nil, errors.New("invalid value for required argument 'Targets'")
+	}
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Scope
 	err := ctx.RegisterResource("aws:networkflowmonitor/scope:Scope", name, args, &resource, opts...)

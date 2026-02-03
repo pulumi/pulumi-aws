@@ -6,10 +6,9 @@ package com.pulumi.aws.s3tables.inputs;
 import com.pulumi.aws.s3tables.inputs.TableBucketReplicationRuleDestinationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
-import java.util.Optional;
-import javax.annotation.Nullable;
 
 
 public final class TableBucketReplicationRuleArgs extends com.pulumi.resources.ResourceArgs {
@@ -20,15 +19,15 @@ public final class TableBucketReplicationRuleArgs extends com.pulumi.resources.R
      * Replication destination. See Destination below for more details.
      * 
      */
-    @Import(name="destinations")
-    private @Nullable Output<List<TableBucketReplicationRuleDestinationArgs>> destinations;
+    @Import(name="destinations", required=true)
+    private Output<List<TableBucketReplicationRuleDestinationArgs>> destinations;
 
     /**
      * @return Replication destination. See Destination below for more details.
      * 
      */
-    public Optional<Output<List<TableBucketReplicationRuleDestinationArgs>>> destinations() {
-        return Optional.ofNullable(this.destinations);
+    public Output<List<TableBucketReplicationRuleDestinationArgs>> destinations() {
+        return this.destinations;
     }
 
     private TableBucketReplicationRuleArgs() {}
@@ -61,7 +60,7 @@ public final class TableBucketReplicationRuleArgs extends com.pulumi.resources.R
          * @return builder
          * 
          */
-        public Builder destinations(@Nullable Output<List<TableBucketReplicationRuleDestinationArgs>> destinations) {
+        public Builder destinations(Output<List<TableBucketReplicationRuleDestinationArgs>> destinations) {
             $.destinations = destinations;
             return this;
         }
@@ -87,6 +86,9 @@ public final class TableBucketReplicationRuleArgs extends com.pulumi.resources.R
         }
 
         public TableBucketReplicationRuleArgs build() {
+            if ($.destinations == null) {
+                throw new MissingRequiredPropertyException("TableBucketReplicationRuleArgs", "destinations");
+            }
             return $;
         }
     }

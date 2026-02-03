@@ -235,11 +235,11 @@ class CustomLogSourceAttributeArgs:
 
 if not MYPY:
     class CustomLogSourceConfigurationArgsDict(TypedDict):
-        crawler_configuration: NotRequired[pulumi.Input['CustomLogSourceConfigurationCrawlerConfigurationArgsDict']]
+        crawler_configuration: pulumi.Input['CustomLogSourceConfigurationCrawlerConfigurationArgsDict']
         """
         The configuration for the Glue Crawler for the third-party custom source.
         """
-        provider_identity: NotRequired[pulumi.Input['CustomLogSourceConfigurationProviderIdentityArgsDict']]
+        provider_identity: pulumi.Input['CustomLogSourceConfigurationProviderIdentityArgsDict']
         """
         The identity of the log provider for the third-party custom source.
         """
@@ -249,39 +249,37 @@ elif False:
 @pulumi.input_type
 class CustomLogSourceConfigurationArgs:
     def __init__(__self__, *,
-                 crawler_configuration: Optional[pulumi.Input['CustomLogSourceConfigurationCrawlerConfigurationArgs']] = None,
-                 provider_identity: Optional[pulumi.Input['CustomLogSourceConfigurationProviderIdentityArgs']] = None):
+                 crawler_configuration: pulumi.Input['CustomLogSourceConfigurationCrawlerConfigurationArgs'],
+                 provider_identity: pulumi.Input['CustomLogSourceConfigurationProviderIdentityArgs']):
         """
         :param pulumi.Input['CustomLogSourceConfigurationCrawlerConfigurationArgs'] crawler_configuration: The configuration for the Glue Crawler for the third-party custom source.
         :param pulumi.Input['CustomLogSourceConfigurationProviderIdentityArgs'] provider_identity: The identity of the log provider for the third-party custom source.
         """
-        if crawler_configuration is not None:
-            pulumi.set(__self__, "crawler_configuration", crawler_configuration)
-        if provider_identity is not None:
-            pulumi.set(__self__, "provider_identity", provider_identity)
+        pulumi.set(__self__, "crawler_configuration", crawler_configuration)
+        pulumi.set(__self__, "provider_identity", provider_identity)
 
     @_builtins.property
     @pulumi.getter(name="crawlerConfiguration")
-    def crawler_configuration(self) -> Optional[pulumi.Input['CustomLogSourceConfigurationCrawlerConfigurationArgs']]:
+    def crawler_configuration(self) -> pulumi.Input['CustomLogSourceConfigurationCrawlerConfigurationArgs']:
         """
         The configuration for the Glue Crawler for the third-party custom source.
         """
         return pulumi.get(self, "crawler_configuration")
 
     @crawler_configuration.setter
-    def crawler_configuration(self, value: Optional[pulumi.Input['CustomLogSourceConfigurationCrawlerConfigurationArgs']]):
+    def crawler_configuration(self, value: pulumi.Input['CustomLogSourceConfigurationCrawlerConfigurationArgs']):
         pulumi.set(self, "crawler_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="providerIdentity")
-    def provider_identity(self) -> Optional[pulumi.Input['CustomLogSourceConfigurationProviderIdentityArgs']]:
+    def provider_identity(self) -> pulumi.Input['CustomLogSourceConfigurationProviderIdentityArgs']:
         """
         The identity of the log provider for the third-party custom source.
         """
         return pulumi.get(self, "provider_identity")
 
     @provider_identity.setter
-    def provider_identity(self, value: Optional[pulumi.Input['CustomLogSourceConfigurationProviderIdentityArgs']]):
+    def provider_identity(self, value: pulumi.Input['CustomLogSourceConfigurationProviderIdentityArgs']):
         pulumi.set(self, "provider_identity", value)
 
 

@@ -101,7 +101,7 @@ export class ProactiveEngagement extends pulumi.CustomResource {
     /**
      * One or more emergency contacts. You must provide at least one phone number in the emergency contact list. See `emergencyContacts`.
      */
-    declare public readonly emergencyContacts: pulumi.Output<outputs.shield.ProactiveEngagementEmergencyContact[] | undefined>;
+    declare public readonly emergencyContacts: pulumi.Output<outputs.shield.ProactiveEngagementEmergencyContact[]>;
     /**
      * Boolean value indicating if Proactive Engagement should be enabled or not.
      */
@@ -124,6 +124,9 @@ export class ProactiveEngagement extends pulumi.CustomResource {
             resourceInputs["enabled"] = state?.enabled;
         } else {
             const args = argsOrState as ProactiveEngagementArgs | undefined;
+            if (args?.emergencyContacts === undefined && !opts.urn) {
+                throw new Error("Missing required property 'emergencyContacts'");
+            }
             if (args?.enabled === undefined && !opts.urn) {
                 throw new Error("Missing required property 'enabled'");
             }
@@ -156,7 +159,7 @@ export interface ProactiveEngagementArgs {
     /**
      * One or more emergency contacts. You must provide at least one phone number in the emergency contact list. See `emergencyContacts`.
      */
-    emergencyContacts?: pulumi.Input<pulumi.Input<inputs.shield.ProactiveEngagementEmergencyContact>[]>;
+    emergencyContacts: pulumi.Input<pulumi.Input<inputs.shield.ProactiveEngagementEmergencyContact>[]>;
     /**
      * Boolean value indicating if Proactive Engagement should be enabled or not.
      */

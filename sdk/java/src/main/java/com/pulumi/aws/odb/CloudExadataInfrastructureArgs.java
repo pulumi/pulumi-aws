@@ -84,15 +84,15 @@ public final class CloudExadataInfrastructureArgs extends com.pulumi.resources.R
      * The scheduling details for the maintenance window. Patching and system updates take place during the maintenance window
      * 
      */
-    @Import(name="maintenanceWindow")
-    private @Nullable Output<CloudExadataInfrastructureMaintenanceWindowArgs> maintenanceWindow;
+    @Import(name="maintenanceWindow", required=true)
+    private Output<CloudExadataInfrastructureMaintenanceWindowArgs> maintenanceWindow;
 
     /**
      * @return The scheduling details for the maintenance window. Patching and system updates take place during the maintenance window
      * 
      */
-    public Optional<Output<CloudExadataInfrastructureMaintenanceWindowArgs>> maintenanceWindow() {
-        return Optional.ofNullable(this.maintenanceWindow);
+    public Output<CloudExadataInfrastructureMaintenanceWindowArgs> maintenanceWindow() {
+        return this.maintenanceWindow;
     }
 
     /**
@@ -293,7 +293,7 @@ public final class CloudExadataInfrastructureArgs extends com.pulumi.resources.R
          * @return builder
          * 
          */
-        public Builder maintenanceWindow(@Nullable Output<CloudExadataInfrastructureMaintenanceWindowArgs> maintenanceWindow) {
+        public Builder maintenanceWindow(Output<CloudExadataInfrastructureMaintenanceWindowArgs> maintenanceWindow) {
             $.maintenanceWindow = maintenanceWindow;
             return this;
         }
@@ -416,6 +416,9 @@ public final class CloudExadataInfrastructureArgs extends com.pulumi.resources.R
             }
             if ($.displayName == null) {
                 throw new MissingRequiredPropertyException("CloudExadataInfrastructureArgs", "displayName");
+            }
+            if ($.maintenanceWindow == null) {
+                throw new MissingRequiredPropertyException("CloudExadataInfrastructureArgs", "maintenanceWindow");
             }
             if ($.shape == null) {
                 throw new MissingRequiredPropertyException("CloudExadataInfrastructureArgs", "shape");

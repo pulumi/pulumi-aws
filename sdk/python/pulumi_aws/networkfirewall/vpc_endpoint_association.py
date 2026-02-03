@@ -22,29 +22,28 @@ __all__ = ['VpcEndpointAssociationArgs', 'VpcEndpointAssociation']
 class VpcEndpointAssociationArgs:
     def __init__(__self__, *,
                  firewall_arn: pulumi.Input[_builtins.str],
+                 subnet_mapping: pulumi.Input['VpcEndpointAssociationSubnetMappingArgs'],
                  vpc_id: pulumi.Input[_builtins.str],
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  region: Optional[pulumi.Input[_builtins.str]] = None,
-                 subnet_mapping: Optional[pulumi.Input['VpcEndpointAssociationSubnetMappingArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  timeouts: Optional[pulumi.Input['VpcEndpointAssociationTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a VpcEndpointAssociation resource.
         :param pulumi.Input[_builtins.str] firewall_arn: The Amazon Resource Name (ARN) that identifies the firewall.
+        :param pulumi.Input['VpcEndpointAssociationSubnetMappingArgs'] subnet_mapping: The ID for a subnet that's used in an association with a firewall. See Subnet Mapping below for details.
         :param pulumi.Input[_builtins.str] vpc_id: The unique identifier of the VPC for the endpoint association.
         :param pulumi.Input[_builtins.str] description: A description of the VPC endpoint association.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input['VpcEndpointAssociationSubnetMappingArgs'] subnet_mapping: The ID for a subnet that's used in an association with a firewall. See Subnet Mapping below for details.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of resource tags to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "firewall_arn", firewall_arn)
+        pulumi.set(__self__, "subnet_mapping", subnet_mapping)
         pulumi.set(__self__, "vpc_id", vpc_id)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if region is not None:
             pulumi.set(__self__, "region", region)
-        if subnet_mapping is not None:
-            pulumi.set(__self__, "subnet_mapping", subnet_mapping)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if timeouts is not None:
@@ -61,6 +60,18 @@ class VpcEndpointAssociationArgs:
     @firewall_arn.setter
     def firewall_arn(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "firewall_arn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="subnetMapping")
+    def subnet_mapping(self) -> pulumi.Input['VpcEndpointAssociationSubnetMappingArgs']:
+        """
+        The ID for a subnet that's used in an association with a firewall. See Subnet Mapping below for details.
+        """
+        return pulumi.get(self, "subnet_mapping")
+
+    @subnet_mapping.setter
+    def subnet_mapping(self, value: pulumi.Input['VpcEndpointAssociationSubnetMappingArgs']):
+        pulumi.set(self, "subnet_mapping", value)
 
     @_builtins.property
     @pulumi.getter(name="vpcId")
@@ -97,18 +108,6 @@ class VpcEndpointAssociationArgs:
     @region.setter
     def region(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "region", value)
-
-    @_builtins.property
-    @pulumi.getter(name="subnetMapping")
-    def subnet_mapping(self) -> Optional[pulumi.Input['VpcEndpointAssociationSubnetMappingArgs']]:
-        """
-        The ID for a subnet that's used in an association with a firewall. See Subnet Mapping below for details.
-        """
-        return pulumi.get(self, "subnet_mapping")
-
-    @subnet_mapping.setter
-    def subnet_mapping(self, value: Optional[pulumi.Input['VpcEndpointAssociationSubnetMappingArgs']]):
-        pulumi.set(self, "subnet_mapping", value)
 
     @_builtins.property
     @pulumi.getter
@@ -441,6 +440,8 @@ class VpcEndpointAssociation(pulumi.CustomResource):
                 raise TypeError("Missing required property 'firewall_arn'")
             __props__.__dict__["firewall_arn"] = firewall_arn
             __props__.__dict__["region"] = region
+            if subnet_mapping is None and not opts.urn:
+                raise TypeError("Missing required property 'subnet_mapping'")
             __props__.__dict__["subnet_mapping"] = subnet_mapping
             __props__.__dict__["tags"] = tags
             __props__.__dict__["timeouts"] = timeouts
@@ -533,7 +534,7 @@ class VpcEndpointAssociation(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="subnetMapping")
-    def subnet_mapping(self) -> pulumi.Output[Optional['outputs.VpcEndpointAssociationSubnetMapping']]:
+    def subnet_mapping(self) -> pulumi.Output['outputs.VpcEndpointAssociationSubnetMapping']:
         """
         The ID for a subnet that's used in an association with a firewall. See Subnet Mapping below for details.
         """

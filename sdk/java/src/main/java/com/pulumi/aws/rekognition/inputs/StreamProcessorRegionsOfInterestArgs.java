@@ -7,9 +7,10 @@ import com.pulumi.aws.rekognition.inputs.StreamProcessorRegionsOfInterestBoundin
 import com.pulumi.aws.rekognition.inputs.StreamProcessorRegionsOfInterestPolygonArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
-import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class StreamProcessorRegionsOfInterestArgs extends com.pulumi.resources.ResourceArgs {
@@ -20,30 +21,30 @@ public final class StreamProcessorRegionsOfInterestArgs extends com.pulumi.resou
      * Box representing a region of interest on screen. Only 1 per region is allowed. See `boundingBox`.
      * 
      */
-    @Import(name="boundingBox", required=true)
-    private Output<StreamProcessorRegionsOfInterestBoundingBoxArgs> boundingBox;
+    @Import(name="boundingBox")
+    private @Nullable Output<StreamProcessorRegionsOfInterestBoundingBoxArgs> boundingBox;
 
     /**
      * @return Box representing a region of interest on screen. Only 1 per region is allowed. See `boundingBox`.
      * 
      */
-    public Output<StreamProcessorRegionsOfInterestBoundingBoxArgs> boundingBox() {
-        return this.boundingBox;
+    public Optional<Output<StreamProcessorRegionsOfInterestBoundingBoxArgs>> boundingBox() {
+        return Optional.ofNullable(this.boundingBox);
     }
 
     /**
      * Shape made up of up to 10 Point objects to define a region of interest. See `polygon`.
      * 
      */
-    @Import(name="polygons", required=true)
-    private Output<List<StreamProcessorRegionsOfInterestPolygonArgs>> polygons;
+    @Import(name="polygons")
+    private @Nullable Output<List<StreamProcessorRegionsOfInterestPolygonArgs>> polygons;
 
     /**
      * @return Shape made up of up to 10 Point objects to define a region of interest. See `polygon`.
      * 
      */
-    public Output<List<StreamProcessorRegionsOfInterestPolygonArgs>> polygons() {
-        return this.polygons;
+    public Optional<Output<List<StreamProcessorRegionsOfInterestPolygonArgs>>> polygons() {
+        return Optional.ofNullable(this.polygons);
     }
 
     private StreamProcessorRegionsOfInterestArgs() {}
@@ -77,7 +78,7 @@ public final class StreamProcessorRegionsOfInterestArgs extends com.pulumi.resou
          * @return builder
          * 
          */
-        public Builder boundingBox(Output<StreamProcessorRegionsOfInterestBoundingBoxArgs> boundingBox) {
+        public Builder boundingBox(@Nullable Output<StreamProcessorRegionsOfInterestBoundingBoxArgs> boundingBox) {
             $.boundingBox = boundingBox;
             return this;
         }
@@ -98,7 +99,7 @@ public final class StreamProcessorRegionsOfInterestArgs extends com.pulumi.resou
          * @return builder
          * 
          */
-        public Builder polygons(Output<List<StreamProcessorRegionsOfInterestPolygonArgs>> polygons) {
+        public Builder polygons(@Nullable Output<List<StreamProcessorRegionsOfInterestPolygonArgs>> polygons) {
             $.polygons = polygons;
             return this;
         }
@@ -124,12 +125,6 @@ public final class StreamProcessorRegionsOfInterestArgs extends com.pulumi.resou
         }
 
         public StreamProcessorRegionsOfInterestArgs build() {
-            if ($.boundingBox == null) {
-                throw new MissingRequiredPropertyException("StreamProcessorRegionsOfInterestArgs", "boundingBox");
-            }
-            if ($.polygons == null) {
-                throw new MissingRequiredPropertyException("StreamProcessorRegionsOfInterestArgs", "polygons");
-            }
             return $;
         }
     }

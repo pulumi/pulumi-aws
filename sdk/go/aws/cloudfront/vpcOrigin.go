@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -88,16 +89,19 @@ type VpcOrigin struct {
 	// The VPC origin endpoint configuration.
 	//
 	// The following arguments are optional:
-	VpcOriginEndpointConfig VpcOriginVpcOriginEndpointConfigPtrOutput `pulumi:"vpcOriginEndpointConfig"`
+	VpcOriginEndpointConfig VpcOriginVpcOriginEndpointConfigOutput `pulumi:"vpcOriginEndpointConfig"`
 }
 
 // NewVpcOrigin registers a new resource with the given unique name, arguments, and options.
 func NewVpcOrigin(ctx *pulumi.Context,
 	name string, args *VpcOriginArgs, opts ...pulumi.ResourceOption) (*VpcOrigin, error) {
 	if args == nil {
-		args = &VpcOriginArgs{}
+		return nil, errors.New("missing one or more required arguments")
 	}
 
+	if args.VpcOriginEndpointConfig == nil {
+		return nil, errors.New("invalid value for required argument 'VpcOriginEndpointConfig'")
+	}
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource VpcOrigin
 	err := ctx.RegisterResource("aws:cloudfront/vpcOrigin:VpcOrigin", name, args, &resource, opts...)
@@ -163,7 +167,7 @@ type vpcOriginArgs struct {
 	// The VPC origin endpoint configuration.
 	//
 	// The following arguments are optional:
-	VpcOriginEndpointConfig *VpcOriginVpcOriginEndpointConfig `pulumi:"vpcOriginEndpointConfig"`
+	VpcOriginEndpointConfig VpcOriginVpcOriginEndpointConfig `pulumi:"vpcOriginEndpointConfig"`
 }
 
 // The set of arguments for constructing a VpcOrigin resource.
@@ -174,7 +178,7 @@ type VpcOriginArgs struct {
 	// The VPC origin endpoint configuration.
 	//
 	// The following arguments are optional:
-	VpcOriginEndpointConfig VpcOriginVpcOriginEndpointConfigPtrInput
+	VpcOriginEndpointConfig VpcOriginVpcOriginEndpointConfigInput
 }
 
 func (VpcOriginArgs) ElementType() reflect.Type {
@@ -291,8 +295,8 @@ func (o VpcOriginOutput) Timeouts() VpcOriginTimeoutsPtrOutput {
 // The VPC origin endpoint configuration.
 //
 // The following arguments are optional:
-func (o VpcOriginOutput) VpcOriginEndpointConfig() VpcOriginVpcOriginEndpointConfigPtrOutput {
-	return o.ApplyT(func(v *VpcOrigin) VpcOriginVpcOriginEndpointConfigPtrOutput { return v.VpcOriginEndpointConfig }).(VpcOriginVpcOriginEndpointConfigPtrOutput)
+func (o VpcOriginOutput) VpcOriginEndpointConfig() VpcOriginVpcOriginEndpointConfigOutput {
+	return o.ApplyT(func(v *VpcOrigin) VpcOriginVpcOriginEndpointConfigOutput { return v.VpcOriginEndpointConfig }).(VpcOriginVpcOriginEndpointConfigOutput)
 }
 
 type VpcOriginArrayOutput struct{ *pulumi.OutputState }

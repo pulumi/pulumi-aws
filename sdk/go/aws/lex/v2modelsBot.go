@@ -128,6 +128,9 @@ func NewV2modelsBot(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
+	if args.DataPrivacies == nil {
+		return nil, errors.New("invalid value for required argument 'DataPrivacies'")
+	}
 	if args.IdleSessionTtlInSeconds == nil {
 		return nil, errors.New("invalid value for required argument 'IdleSessionTtlInSeconds'")
 	}

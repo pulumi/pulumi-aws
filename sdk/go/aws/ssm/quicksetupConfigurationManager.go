@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -28,7 +29,7 @@ type QuicksetupConfigurationManager struct {
 	pulumi.CustomResourceState
 
 	// Definition of the Quick Setup configuration that the configuration manager deploys. See `configurationDefinition` below.
-	ConfigurationDefinition QuicksetupConfigurationManagerConfigurationDefinitionPtrOutput `pulumi:"configurationDefinition"`
+	ConfigurationDefinition QuicksetupConfigurationManagerConfigurationDefinitionOutput `pulumi:"configurationDefinition"`
 	// Description of the configuration manager.
 	Description pulumi.StringOutput `pulumi:"description"`
 	// ARN of the Configuration Manager.
@@ -52,9 +53,12 @@ type QuicksetupConfigurationManager struct {
 func NewQuicksetupConfigurationManager(ctx *pulumi.Context,
 	name string, args *QuicksetupConfigurationManagerArgs, opts ...pulumi.ResourceOption) (*QuicksetupConfigurationManager, error) {
 	if args == nil {
-		args = &QuicksetupConfigurationManagerArgs{}
+		return nil, errors.New("missing one or more required arguments")
 	}
 
+	if args.ConfigurationDefinition == nil {
+		return nil, errors.New("invalid value for required argument 'ConfigurationDefinition'")
+	}
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource QuicksetupConfigurationManager
 	err := ctx.RegisterResource("aws:ssm/quicksetupConfigurationManager:QuicksetupConfigurationManager", name, args, &resource, opts...)
@@ -127,7 +131,7 @@ func (QuicksetupConfigurationManagerState) ElementType() reflect.Type {
 
 type quicksetupConfigurationManagerArgs struct {
 	// Definition of the Quick Setup configuration that the configuration manager deploys. See `configurationDefinition` below.
-	ConfigurationDefinition *QuicksetupConfigurationManagerConfigurationDefinition `pulumi:"configurationDefinition"`
+	ConfigurationDefinition QuicksetupConfigurationManagerConfigurationDefinition `pulumi:"configurationDefinition"`
 	// Description of the configuration manager.
 	Description *string `pulumi:"description"`
 	// Configuration manager name.
@@ -144,7 +148,7 @@ type quicksetupConfigurationManagerArgs struct {
 // The set of arguments for constructing a QuicksetupConfigurationManager resource.
 type QuicksetupConfigurationManagerArgs struct {
 	// Definition of the Quick Setup configuration that the configuration manager deploys. See `configurationDefinition` below.
-	ConfigurationDefinition QuicksetupConfigurationManagerConfigurationDefinitionPtrInput
+	ConfigurationDefinition QuicksetupConfigurationManagerConfigurationDefinitionInput
 	// Description of the configuration manager.
 	Description pulumi.StringPtrInput
 	// Configuration manager name.
@@ -246,10 +250,10 @@ func (o QuicksetupConfigurationManagerOutput) ToQuicksetupConfigurationManagerOu
 }
 
 // Definition of the Quick Setup configuration that the configuration manager deploys. See `configurationDefinition` below.
-func (o QuicksetupConfigurationManagerOutput) ConfigurationDefinition() QuicksetupConfigurationManagerConfigurationDefinitionPtrOutput {
-	return o.ApplyT(func(v *QuicksetupConfigurationManager) QuicksetupConfigurationManagerConfigurationDefinitionPtrOutput {
+func (o QuicksetupConfigurationManagerOutput) ConfigurationDefinition() QuicksetupConfigurationManagerConfigurationDefinitionOutput {
+	return o.ApplyT(func(v *QuicksetupConfigurationManager) QuicksetupConfigurationManagerConfigurationDefinitionOutput {
 		return v.ConfigurationDefinition
-	}).(QuicksetupConfigurationManagerConfigurationDefinitionPtrOutput)
+	}).(QuicksetupConfigurationManagerConfigurationDefinitionOutput)
 }
 
 // Description of the configuration manager.

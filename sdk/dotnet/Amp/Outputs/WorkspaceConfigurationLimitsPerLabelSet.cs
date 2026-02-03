@@ -20,13 +20,13 @@ namespace Pulumi.Aws.Amp.Outputs
         /// <summary>
         /// Configuration block for the limits to apply to the specified label set. Detailed below.
         /// </summary>
-        public readonly Outputs.WorkspaceConfigurationLimitsPerLabelSetLimits? Limits;
+        public readonly Outputs.WorkspaceConfigurationLimitsPerLabelSetLimits Limits;
 
         [OutputConstructor]
         private WorkspaceConfigurationLimitsPerLabelSet(
             ImmutableDictionary<string, string> labelSet,
 
-            Outputs.WorkspaceConfigurationLimitsPerLabelSetLimits? limits)
+            Outputs.WorkspaceConfigurationLimitsPerLabelSetLimits limits)
         {
             LabelSet = labelSet;
             Limits = limits;

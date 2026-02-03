@@ -22,7 +22,7 @@ public final class MultitenantDistributionDefaultCacheBehavior {
      * @return Controls which HTTP methods CloudFront processes and forwards to your Amazon S3 bucket or your custom origin.
      * 
      */
-    private @Nullable MultitenantDistributionDefaultCacheBehaviorAllowedMethods allowedMethods;
+    private MultitenantDistributionDefaultCacheBehaviorAllowedMethods allowedMethods;
     /**
      * @return Unique identifier of the cache policy that is attached to the cache behavior.
      * 
@@ -84,8 +84,8 @@ public final class MultitenantDistributionDefaultCacheBehavior {
      * @return Controls which HTTP methods CloudFront processes and forwards to your Amazon S3 bucket or your custom origin.
      * 
      */
-    public Optional<MultitenantDistributionDefaultCacheBehaviorAllowedMethods> allowedMethods() {
-        return Optional.ofNullable(this.allowedMethods);
+    public MultitenantDistributionDefaultCacheBehaviorAllowedMethods allowedMethods() {
+        return this.allowedMethods;
     }
     /**
      * @return Unique identifier of the cache policy that is attached to the cache behavior.
@@ -174,7 +174,7 @@ public final class MultitenantDistributionDefaultCacheBehavior {
     }
     @CustomType.Builder
     public static final class Builder {
-        private @Nullable MultitenantDistributionDefaultCacheBehaviorAllowedMethods allowedMethods;
+        private MultitenantDistributionDefaultCacheBehaviorAllowedMethods allowedMethods;
         private @Nullable String cachePolicyId;
         private @Nullable Boolean compress;
         private @Nullable String fieldLevelEncryptionId;
@@ -204,8 +204,10 @@ public final class MultitenantDistributionDefaultCacheBehavior {
         }
 
         @CustomType.Setter
-        public Builder allowedMethods(@Nullable MultitenantDistributionDefaultCacheBehaviorAllowedMethods allowedMethods) {
-
+        public Builder allowedMethods(MultitenantDistributionDefaultCacheBehaviorAllowedMethods allowedMethods) {
+            if (allowedMethods == null) {
+              throw new MissingRequiredPropertyException("MultitenantDistributionDefaultCacheBehavior", "allowedMethods");
+            }
             this.allowedMethods = allowedMethods;
             return this;
         }

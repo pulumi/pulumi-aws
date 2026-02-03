@@ -43,7 +43,7 @@ MYPY = False
 
 if not MYPY:
     class EventSourcesConfigEventSourceArgsDict(TypedDict):
-        amazon_code_guru_profilers: NotRequired[pulumi.Input[Sequence[pulumi.Input['EventSourcesConfigEventSourceAmazonCodeGuruProfilerArgsDict']]]]
+        amazon_code_guru_profilers: pulumi.Input[Sequence[pulumi.Input['EventSourcesConfigEventSourceAmazonCodeGuruProfilerArgsDict']]]
         """
         Stores whether DevOps Guru is configured to consume recommendations which are generated from AWS CodeGuru Profiler. See `amazon_code_guru_profiler` below.
         """
@@ -53,23 +53,22 @@ elif False:
 @pulumi.input_type
 class EventSourcesConfigEventSourceArgs:
     def __init__(__self__, *,
-                 amazon_code_guru_profilers: Optional[pulumi.Input[Sequence[pulumi.Input['EventSourcesConfigEventSourceAmazonCodeGuruProfilerArgs']]]] = None):
+                 amazon_code_guru_profilers: pulumi.Input[Sequence[pulumi.Input['EventSourcesConfigEventSourceAmazonCodeGuruProfilerArgs']]]):
         """
         :param pulumi.Input[Sequence[pulumi.Input['EventSourcesConfigEventSourceAmazonCodeGuruProfilerArgs']]] amazon_code_guru_profilers: Stores whether DevOps Guru is configured to consume recommendations which are generated from AWS CodeGuru Profiler. See `amazon_code_guru_profiler` below.
         """
-        if amazon_code_guru_profilers is not None:
-            pulumi.set(__self__, "amazon_code_guru_profilers", amazon_code_guru_profilers)
+        pulumi.set(__self__, "amazon_code_guru_profilers", amazon_code_guru_profilers)
 
     @_builtins.property
     @pulumi.getter(name="amazonCodeGuruProfilers")
-    def amazon_code_guru_profilers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EventSourcesConfigEventSourceAmazonCodeGuruProfilerArgs']]]]:
+    def amazon_code_guru_profilers(self) -> pulumi.Input[Sequence[pulumi.Input['EventSourcesConfigEventSourceAmazonCodeGuruProfilerArgs']]]:
         """
         Stores whether DevOps Guru is configured to consume recommendations which are generated from AWS CodeGuru Profiler. See `amazon_code_guru_profiler` below.
         """
         return pulumi.get(self, "amazon_code_guru_profilers")
 
     @amazon_code_guru_profilers.setter
-    def amazon_code_guru_profilers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EventSourcesConfigEventSourceAmazonCodeGuruProfilerArgs']]]]):
+    def amazon_code_guru_profilers(self, value: pulumi.Input[Sequence[pulumi.Input['EventSourcesConfigEventSourceAmazonCodeGuruProfilerArgs']]]):
         pulumi.set(self, "amazon_code_guru_profilers", value)
 
 

@@ -22,7 +22,7 @@ public final class MultitenantDistributionCacheBehavior {
      * @return Controls which HTTP methods CloudFront processes and forwards to your Amazon S3 bucket or your custom origin.
      * 
      */
-    private @Nullable MultitenantDistributionCacheBehaviorAllowedMethods allowedMethods;
+    private MultitenantDistributionCacheBehaviorAllowedMethods allowedMethods;
     /**
      * @return Unique identifier of the cache policy that is attached to the cache behavior.
      * 
@@ -89,8 +89,8 @@ public final class MultitenantDistributionCacheBehavior {
      * @return Controls which HTTP methods CloudFront processes and forwards to your Amazon S3 bucket or your custom origin.
      * 
      */
-    public Optional<MultitenantDistributionCacheBehaviorAllowedMethods> allowedMethods() {
-        return Optional.ofNullable(this.allowedMethods);
+    public MultitenantDistributionCacheBehaviorAllowedMethods allowedMethods() {
+        return this.allowedMethods;
     }
     /**
      * @return Unique identifier of the cache policy that is attached to the cache behavior.
@@ -186,7 +186,7 @@ public final class MultitenantDistributionCacheBehavior {
     }
     @CustomType.Builder
     public static final class Builder {
-        private @Nullable MultitenantDistributionCacheBehaviorAllowedMethods allowedMethods;
+        private MultitenantDistributionCacheBehaviorAllowedMethods allowedMethods;
         private @Nullable String cachePolicyId;
         private @Nullable Boolean compress;
         private @Nullable String fieldLevelEncryptionId;
@@ -218,8 +218,10 @@ public final class MultitenantDistributionCacheBehavior {
         }
 
         @CustomType.Setter
-        public Builder allowedMethods(@Nullable MultitenantDistributionCacheBehaviorAllowedMethods allowedMethods) {
-
+        public Builder allowedMethods(MultitenantDistributionCacheBehaviorAllowedMethods allowedMethods) {
+            if (allowedMethods == null) {
+              throw new MissingRequiredPropertyException("MultitenantDistributionCacheBehavior", "allowedMethods");
+            }
             this.allowedMethods = allowedMethods;
             return this;
         }

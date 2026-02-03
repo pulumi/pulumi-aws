@@ -137,7 +137,7 @@ export class Subscriber extends pulumi.CustomResource {
     /**
      * The supported AWS services from which logs and events are collected. Security Lake supports log and event collection for natively supported AWS services. See `source` Blocks below.
      */
-    declare public readonly sources: pulumi.Output<outputs.securitylake.SubscriberSource[] | undefined>;
+    declare public readonly sources: pulumi.Output<outputs.securitylake.SubscriberSource[]>;
     /**
      * The description for your subscriber account in Security Lake.
      */
@@ -149,7 +149,7 @@ export class Subscriber extends pulumi.CustomResource {
     /**
      * The AWS identity used to access your data. See `subscriberIdentity` Block below.
      */
-    declare public readonly subscriberIdentity: pulumi.Output<outputs.securitylake.SubscriberSubscriberIdentity | undefined>;
+    declare public readonly subscriberIdentity: pulumi.Output<outputs.securitylake.SubscriberSubscriberIdentity>;
     /**
      * The name of your Security Lake subscriber account.
      */
@@ -175,7 +175,7 @@ export class Subscriber extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: SubscriberArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, args: SubscriberArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: SubscriberArgs | SubscriberState, opts?: pulumi.CustomResourceOptions) {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
@@ -199,6 +199,12 @@ export class Subscriber extends pulumi.CustomResource {
             resourceInputs["timeouts"] = state?.timeouts;
         } else {
             const args = argsOrState as SubscriberArgs | undefined;
+            if (args?.sources === undefined && !opts.urn) {
+                throw new Error("Missing required property 'sources'");
+            }
+            if (args?.subscriberIdentity === undefined && !opts.urn) {
+                throw new Error("Missing required property 'subscriberIdentity'");
+            }
             resourceInputs["accessType"] = args?.accessType;
             resourceInputs["region"] = args?.region;
             resourceInputs["sources"] = args?.sources;
@@ -303,7 +309,7 @@ export interface SubscriberArgs {
     /**
      * The supported AWS services from which logs and events are collected. Security Lake supports log and event collection for natively supported AWS services. See `source` Blocks below.
      */
-    sources?: pulumi.Input<pulumi.Input<inputs.securitylake.SubscriberSource>[]>;
+    sources: pulumi.Input<pulumi.Input<inputs.securitylake.SubscriberSource>[]>;
     /**
      * The description for your subscriber account in Security Lake.
      */
@@ -311,7 +317,7 @@ export interface SubscriberArgs {
     /**
      * The AWS identity used to access your data. See `subscriberIdentity` Block below.
      */
-    subscriberIdentity?: pulumi.Input<inputs.securitylake.SubscriberSubscriberIdentity>;
+    subscriberIdentity: pulumi.Input<inputs.securitylake.SubscriberSubscriberIdentity>;
     /**
      * The name of your Security Lake subscriber account.
      */

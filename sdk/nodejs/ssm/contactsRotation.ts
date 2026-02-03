@@ -178,7 +178,7 @@ export class ContactsRotation extends pulumi.CustomResource {
      *
      * The following arguments are optional:
      */
-    declare public readonly recurrence: pulumi.Output<outputs.ssm.ContactsRotationRecurrence | undefined>;
+    declare public readonly recurrence: pulumi.Output<outputs.ssm.ContactsRotationRecurrence>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
@@ -226,6 +226,9 @@ export class ContactsRotation extends pulumi.CustomResource {
             const args = argsOrState as ContactsRotationArgs | undefined;
             if (args?.contactIds === undefined && !opts.urn) {
                 throw new Error("Missing required property 'contactIds'");
+            }
+            if (args?.recurrence === undefined && !opts.urn) {
+                throw new Error("Missing required property 'recurrence'");
             }
             if (args?.timeZoneId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'timeZoneId'");
@@ -306,7 +309,7 @@ export interface ContactsRotationArgs {
      *
      * The following arguments are optional:
      */
-    recurrence?: pulumi.Input<inputs.ssm.ContactsRotationRecurrence>;
+    recurrence: pulumi.Input<inputs.ssm.ContactsRotationRecurrence>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */

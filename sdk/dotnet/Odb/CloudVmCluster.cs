@@ -151,7 +151,7 @@ namespace Pulumi.Aws.Odb
         /// The set of preferences for the various diagnostic collection options for the VM cluster.
         /// </summary>
         [Output("dataCollectionOptions")]
-        public Output<Outputs.CloudVmClusterDataCollectionOptions?> DataCollectionOptions { get; private set; } = null!;
+        public Output<Outputs.CloudVmClusterDataCollectionOptions> DataCollectionOptions { get; private set; } = null!;
 
         /// <summary>
         /// The size of the data disk group, in terabytes (TBs), to allocate for the VM cluster. Changing this will create a new resource.
@@ -466,8 +466,8 @@ namespace Pulumi.Aws.Odb
         /// <summary>
         /// The set of preferences for the various diagnostic collection options for the VM cluster.
         /// </summary>
-        [Input("dataCollectionOptions")]
-        public Input<Inputs.CloudVmClusterDataCollectionOptionsArgs>? DataCollectionOptions { get; set; }
+        [Input("dataCollectionOptions", required: true)]
+        public Input<Inputs.CloudVmClusterDataCollectionOptionsArgs> DataCollectionOptions { get; set; } = null!;
 
         /// <summary>
         /// The size of the data disk group, in terabytes (TBs), to allocate for the VM cluster. Changing this will create a new resource.

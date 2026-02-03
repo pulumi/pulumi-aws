@@ -234,7 +234,7 @@ if not MYPY:
         """
         The name of the resource utilization metric name to customize. Valid values: `CpuUtilization`, `MemoryUtilization`.
         """
-        metric_parameters: NotRequired[pulumi.Input['RecommendationPreferencesUtilizationPreferenceMetricParametersArgsDict']]
+        metric_parameters: pulumi.Input['RecommendationPreferencesUtilizationPreferenceMetricParametersArgsDict']
         """
         The parameters to set when customizing the resource utilization thresholds.
         """
@@ -245,14 +245,13 @@ elif False:
 class RecommendationPreferencesUtilizationPreferenceArgs:
     def __init__(__self__, *,
                  metric_name: pulumi.Input[_builtins.str],
-                 metric_parameters: Optional[pulumi.Input['RecommendationPreferencesUtilizationPreferenceMetricParametersArgs']] = None):
+                 metric_parameters: pulumi.Input['RecommendationPreferencesUtilizationPreferenceMetricParametersArgs']):
         """
         :param pulumi.Input[_builtins.str] metric_name: The name of the resource utilization metric name to customize. Valid values: `CpuUtilization`, `MemoryUtilization`.
         :param pulumi.Input['RecommendationPreferencesUtilizationPreferenceMetricParametersArgs'] metric_parameters: The parameters to set when customizing the resource utilization thresholds.
         """
         pulumi.set(__self__, "metric_name", metric_name)
-        if metric_parameters is not None:
-            pulumi.set(__self__, "metric_parameters", metric_parameters)
+        pulumi.set(__self__, "metric_parameters", metric_parameters)
 
     @_builtins.property
     @pulumi.getter(name="metricName")
@@ -268,14 +267,14 @@ class RecommendationPreferencesUtilizationPreferenceArgs:
 
     @_builtins.property
     @pulumi.getter(name="metricParameters")
-    def metric_parameters(self) -> Optional[pulumi.Input['RecommendationPreferencesUtilizationPreferenceMetricParametersArgs']]:
+    def metric_parameters(self) -> pulumi.Input['RecommendationPreferencesUtilizationPreferenceMetricParametersArgs']:
         """
         The parameters to set when customizing the resource utilization thresholds.
         """
         return pulumi.get(self, "metric_parameters")
 
     @metric_parameters.setter
-    def metric_parameters(self, value: Optional[pulumi.Input['RecommendationPreferencesUtilizationPreferenceMetricParametersArgs']]):
+    def metric_parameters(self, value: pulumi.Input['RecommendationPreferencesUtilizationPreferenceMetricParametersArgs']):
         pulumi.set(self, "metric_parameters", value)
 
 

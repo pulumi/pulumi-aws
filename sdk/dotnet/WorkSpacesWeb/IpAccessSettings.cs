@@ -267,7 +267,7 @@ namespace Pulumi.Aws.WorkSpacesWeb
         [Input("displayName", required: true)]
         public Input<string> DisplayName { get; set; } = null!;
 
-        [Input("ipRules")]
+        [Input("ipRules", required: true)]
         private InputList<Inputs.IpAccessSettingsIpRuleArgs>? _ipRules;
 
         /// <summary>

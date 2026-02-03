@@ -205,7 +205,7 @@ type ContactsRotation struct {
 	// Information about when an on-call rotation is in effect and how long the rotation period lasts. Exactly one of either `dailySettings`, `monthlySettings`, or `weeklySettings` must be populated. See Recurrence for more details.
 	//
 	// The following arguments are optional:
-	Recurrence ContactsRotationRecurrencePtrOutput `pulumi:"recurrence"`
+	Recurrence ContactsRotationRecurrenceOutput `pulumi:"recurrence"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// The date and time, in RFC 3339 format, that the rotation goes into effect.
@@ -227,6 +227,9 @@ func NewContactsRotation(ctx *pulumi.Context,
 
 	if args.ContactIds == nil {
 		return nil, errors.New("invalid value for required argument 'ContactIds'")
+	}
+	if args.Recurrence == nil {
+		return nil, errors.New("invalid value for required argument 'Recurrence'")
 	}
 	if args.TimeZoneId == nil {
 		return nil, errors.New("invalid value for required argument 'TimeZoneId'")
@@ -311,7 +314,7 @@ type contactsRotationArgs struct {
 	// Information about when an on-call rotation is in effect and how long the rotation period lasts. Exactly one of either `dailySettings`, `monthlySettings`, or `weeklySettings` must be populated. See Recurrence for more details.
 	//
 	// The following arguments are optional:
-	Recurrence *ContactsRotationRecurrence `pulumi:"recurrence"`
+	Recurrence ContactsRotationRecurrence `pulumi:"recurrence"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The date and time, in RFC 3339 format, that the rotation goes into effect.
@@ -331,7 +334,7 @@ type ContactsRotationArgs struct {
 	// Information about when an on-call rotation is in effect and how long the rotation period lasts. Exactly one of either `dailySettings`, `monthlySettings`, or `weeklySettings` must be populated. See Recurrence for more details.
 	//
 	// The following arguments are optional:
-	Recurrence ContactsRotationRecurrencePtrInput
+	Recurrence ContactsRotationRecurrenceInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The date and time, in RFC 3339 format, that the rotation goes into effect.
@@ -447,8 +450,8 @@ func (o ContactsRotationOutput) Name() pulumi.StringOutput {
 // Information about when an on-call rotation is in effect and how long the rotation period lasts. Exactly one of either `dailySettings`, `monthlySettings`, or `weeklySettings` must be populated. See Recurrence for more details.
 //
 // The following arguments are optional:
-func (o ContactsRotationOutput) Recurrence() ContactsRotationRecurrencePtrOutput {
-	return o.ApplyT(func(v *ContactsRotation) ContactsRotationRecurrencePtrOutput { return v.Recurrence }).(ContactsRotationRecurrencePtrOutput)
+func (o ContactsRotationOutput) Recurrence() ContactsRotationRecurrenceOutput {
+	return o.ApplyT(func(v *ContactsRotation) ContactsRotationRecurrenceOutput { return v.Recurrence }).(ContactsRotationRecurrenceOutput)
 }
 
 // Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.

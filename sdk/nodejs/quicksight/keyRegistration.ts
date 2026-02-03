@@ -69,7 +69,7 @@ export class KeyRegistration extends pulumi.CustomResource {
     /**
      * Registered keys. See key_registration.
      */
-    declare public readonly keyRegistrations: pulumi.Output<outputs.quicksight.KeyRegistrationKeyRegistration[] | undefined>;
+    declare public readonly keyRegistrations: pulumi.Output<outputs.quicksight.KeyRegistrationKeyRegistration[]>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
@@ -82,7 +82,7 @@ export class KeyRegistration extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: KeyRegistrationArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, args: KeyRegistrationArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: KeyRegistrationArgs | KeyRegistrationState, opts?: pulumi.CustomResourceOptions) {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
@@ -93,6 +93,9 @@ export class KeyRegistration extends pulumi.CustomResource {
             resourceInputs["region"] = state?.region;
         } else {
             const args = argsOrState as KeyRegistrationArgs | undefined;
+            if (args?.keyRegistrations === undefined && !opts.urn) {
+                throw new Error("Missing required property 'keyRegistrations'");
+            }
             resourceInputs["awsAccountId"] = args?.awsAccountId;
             resourceInputs["keyRegistrations"] = args?.keyRegistrations;
             resourceInputs["region"] = args?.region;
@@ -125,7 +128,7 @@ export interface KeyRegistrationArgs {
     /**
      * Registered keys. See key_registration.
      */
-    keyRegistrations?: pulumi.Input<pulumi.Input<inputs.quicksight.KeyRegistrationKeyRegistration>[]>;
+    keyRegistrations: pulumi.Input<pulumi.Input<inputs.quicksight.KeyRegistrationKeyRegistration>[]>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */

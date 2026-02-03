@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -97,7 +98,7 @@ type TrustStore struct {
 	// Configuration block for the CA certificates bundle source. See `caCertificatesBundleSource` below.
 	//
 	// The following arguments are optional:
-	CaCertificatesBundleSource TrustStoreCaCertificatesBundleSourcePtrOutput `pulumi:"caCertificatesBundleSource"`
+	CaCertificatesBundleSource TrustStoreCaCertificatesBundleSourceOutput `pulumi:"caCertificatesBundleSource"`
 	// ETag of the trust store.
 	Etag pulumi.StringOutput `pulumi:"etag"`
 	// Name of the trust store. Changing this forces a new resource to be created.
@@ -115,9 +116,12 @@ type TrustStore struct {
 func NewTrustStore(ctx *pulumi.Context,
 	name string, args *TrustStoreArgs, opts ...pulumi.ResourceOption) (*TrustStore, error) {
 	if args == nil {
-		args = &TrustStoreArgs{}
+		return nil, errors.New("missing one or more required arguments")
 	}
 
+	if args.CaCertificatesBundleSource == nil {
+		return nil, errors.New("invalid value for required argument 'CaCertificatesBundleSource'")
+	}
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource TrustStore
 	err := ctx.RegisterResource("aws:cloudfront/trustStore:TrustStore", name, args, &resource, opts...)
@@ -188,7 +192,7 @@ type trustStoreArgs struct {
 	// Configuration block for the CA certificates bundle source. See `caCertificatesBundleSource` below.
 	//
 	// The following arguments are optional:
-	CaCertificatesBundleSource *TrustStoreCaCertificatesBundleSource `pulumi:"caCertificatesBundleSource"`
+	CaCertificatesBundleSource TrustStoreCaCertificatesBundleSource `pulumi:"caCertificatesBundleSource"`
 	// Name of the trust store. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// Key-value tags for the place index. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -201,7 +205,7 @@ type TrustStoreArgs struct {
 	// Configuration block for the CA certificates bundle source. See `caCertificatesBundleSource` below.
 	//
 	// The following arguments are optional:
-	CaCertificatesBundleSource TrustStoreCaCertificatesBundleSourcePtrInput
+	CaCertificatesBundleSource TrustStoreCaCertificatesBundleSourceInput
 	// Name of the trust store. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// Key-value tags for the place index. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -304,8 +308,8 @@ func (o TrustStoreOutput) Arn() pulumi.StringOutput {
 // Configuration block for the CA certificates bundle source. See `caCertificatesBundleSource` below.
 //
 // The following arguments are optional:
-func (o TrustStoreOutput) CaCertificatesBundleSource() TrustStoreCaCertificatesBundleSourcePtrOutput {
-	return o.ApplyT(func(v *TrustStore) TrustStoreCaCertificatesBundleSourcePtrOutput { return v.CaCertificatesBundleSource }).(TrustStoreCaCertificatesBundleSourcePtrOutput)
+func (o TrustStoreOutput) CaCertificatesBundleSource() TrustStoreCaCertificatesBundleSourceOutput {
+	return o.ApplyT(func(v *TrustStore) TrustStoreCaCertificatesBundleSourceOutput { return v.CaCertificatesBundleSource }).(TrustStoreCaCertificatesBundleSourceOutput)
 }
 
 // ETag of the trust store.

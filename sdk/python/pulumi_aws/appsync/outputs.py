@@ -94,10 +94,10 @@ class ApiEventConfig(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 auth_providers: Optional[Sequence['outputs.ApiEventConfigAuthProvider']] = None,
-                 connection_auth_modes: Optional[Sequence['outputs.ApiEventConfigConnectionAuthMode']] = None,
-                 default_publish_auth_modes: Optional[Sequence['outputs.ApiEventConfigDefaultPublishAuthMode']] = None,
-                 default_subscribe_auth_modes: Optional[Sequence['outputs.ApiEventConfigDefaultSubscribeAuthMode']] = None,
+                 auth_providers: Sequence['outputs.ApiEventConfigAuthProvider'],
+                 connection_auth_modes: Sequence['outputs.ApiEventConfigConnectionAuthMode'],
+                 default_publish_auth_modes: Sequence['outputs.ApiEventConfigDefaultPublishAuthMode'],
+                 default_subscribe_auth_modes: Sequence['outputs.ApiEventConfigDefaultSubscribeAuthMode'],
                  log_config: Optional['outputs.ApiEventConfigLogConfig'] = None):
         """
         :param Sequence['ApiEventConfigAuthProviderArgs'] auth_providers: List of authentication providers. See Auth Providers below.
@@ -106,20 +106,16 @@ class ApiEventConfig(dict):
         :param Sequence['ApiEventConfigDefaultSubscribeAuthModeArgs'] default_subscribe_auth_modes: List of default authentication modes for subscribing. See Auth Modes below.
         :param 'ApiEventConfigLogConfigArgs' log_config: Logging configuration. See Log Config below.
         """
-        if auth_providers is not None:
-            pulumi.set(__self__, "auth_providers", auth_providers)
-        if connection_auth_modes is not None:
-            pulumi.set(__self__, "connection_auth_modes", connection_auth_modes)
-        if default_publish_auth_modes is not None:
-            pulumi.set(__self__, "default_publish_auth_modes", default_publish_auth_modes)
-        if default_subscribe_auth_modes is not None:
-            pulumi.set(__self__, "default_subscribe_auth_modes", default_subscribe_auth_modes)
+        pulumi.set(__self__, "auth_providers", auth_providers)
+        pulumi.set(__self__, "connection_auth_modes", connection_auth_modes)
+        pulumi.set(__self__, "default_publish_auth_modes", default_publish_auth_modes)
+        pulumi.set(__self__, "default_subscribe_auth_modes", default_subscribe_auth_modes)
         if log_config is not None:
             pulumi.set(__self__, "log_config", log_config)
 
     @_builtins.property
     @pulumi.getter(name="authProviders")
-    def auth_providers(self) -> Optional[Sequence['outputs.ApiEventConfigAuthProvider']]:
+    def auth_providers(self) -> Sequence['outputs.ApiEventConfigAuthProvider']:
         """
         List of authentication providers. See Auth Providers below.
         """
@@ -127,7 +123,7 @@ class ApiEventConfig(dict):
 
     @_builtins.property
     @pulumi.getter(name="connectionAuthModes")
-    def connection_auth_modes(self) -> Optional[Sequence['outputs.ApiEventConfigConnectionAuthMode']]:
+    def connection_auth_modes(self) -> Sequence['outputs.ApiEventConfigConnectionAuthMode']:
         """
         List of authentication modes for connections. See Auth Modes below.
         """
@@ -135,7 +131,7 @@ class ApiEventConfig(dict):
 
     @_builtins.property
     @pulumi.getter(name="defaultPublishAuthModes")
-    def default_publish_auth_modes(self) -> Optional[Sequence['outputs.ApiEventConfigDefaultPublishAuthMode']]:
+    def default_publish_auth_modes(self) -> Sequence['outputs.ApiEventConfigDefaultPublishAuthMode']:
         """
         List of default authentication modes for publishing. See Auth Modes below.
         """
@@ -143,7 +139,7 @@ class ApiEventConfig(dict):
 
     @_builtins.property
     @pulumi.getter(name="defaultSubscribeAuthModes")
-    def default_subscribe_auth_modes(self) -> Optional[Sequence['outputs.ApiEventConfigDefaultSubscribeAuthMode']]:
+    def default_subscribe_auth_modes(self) -> Sequence['outputs.ApiEventConfigDefaultSubscribeAuthMode']:
         """
         List of default authentication modes for subscribing. See Auth Modes below.
         """
@@ -642,14 +638,13 @@ class ChannelNamespaceHandlerConfigs(dict):
 class ChannelNamespaceHandlerConfigsOnPublish(dict):
     def __init__(__self__, *,
                  behavior: _builtins.str,
-                 integration: Optional['outputs.ChannelNamespaceHandlerConfigsOnPublishIntegration'] = None):
+                 integration: 'outputs.ChannelNamespaceHandlerConfigsOnPublishIntegration'):
         """
         :param _builtins.str behavior: Behavior for the handler. Valid values: `CODE`, `DIRECT`.
         :param 'ChannelNamespaceHandlerConfigsOnPublishIntegrationArgs' integration: Integration data source configuration for the handler. See Integration below.
         """
         pulumi.set(__self__, "behavior", behavior)
-        if integration is not None:
-            pulumi.set(__self__, "integration", integration)
+        pulumi.set(__self__, "integration", integration)
 
     @_builtins.property
     @pulumi.getter
@@ -661,7 +656,7 @@ class ChannelNamespaceHandlerConfigsOnPublish(dict):
 
     @_builtins.property
     @pulumi.getter
-    def integration(self) -> Optional['outputs.ChannelNamespaceHandlerConfigsOnPublishIntegration']:
+    def integration(self) -> 'outputs.ChannelNamespaceHandlerConfigsOnPublishIntegration':
         """
         Integration data source configuration for the handler. See Integration below.
         """
@@ -757,14 +752,13 @@ class ChannelNamespaceHandlerConfigsOnPublishIntegrationLambdaConfig(dict):
 class ChannelNamespaceHandlerConfigsOnSubscribe(dict):
     def __init__(__self__, *,
                  behavior: _builtins.str,
-                 integration: Optional['outputs.ChannelNamespaceHandlerConfigsOnSubscribeIntegration'] = None):
+                 integration: 'outputs.ChannelNamespaceHandlerConfigsOnSubscribeIntegration'):
         """
         :param _builtins.str behavior: Behavior for the handler. Valid values: `CODE`, `DIRECT`.
         :param 'ChannelNamespaceHandlerConfigsOnSubscribeIntegrationArgs' integration: Integration data source configuration for the handler. See Integration below.
         """
         pulumi.set(__self__, "behavior", behavior)
-        if integration is not None:
-            pulumi.set(__self__, "integration", integration)
+        pulumi.set(__self__, "integration", integration)
 
     @_builtins.property
     @pulumi.getter
@@ -776,7 +770,7 @@ class ChannelNamespaceHandlerConfigsOnSubscribe(dict):
 
     @_builtins.property
     @pulumi.getter
-    def integration(self) -> Optional['outputs.ChannelNamespaceHandlerConfigsOnSubscribeIntegration']:
+    def integration(self) -> 'outputs.ChannelNamespaceHandlerConfigsOnSubscribeIntegration':
         """
         Integration data source configuration for the handler. See Integration below.
         """

@@ -13,7 +13,6 @@ import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import java.util.List;
-import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
@@ -73,14 +72,14 @@ public class EventSourcesConfig extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="eventSources", refs={List.class,EventSourcesConfigEventSource.class}, tree="[0,1]")
-    private Output</* @Nullable */ List<EventSourcesConfigEventSource>> eventSources;
+    private Output<List<EventSourcesConfigEventSource>> eventSources;
 
     /**
      * @return Configuration information about the integration of DevOps Guru as the Consumer via EventBridge with another AWS Service. See `eventSources` below.
      * 
      */
-    public Output<Optional<List<EventSourcesConfigEventSource>>> eventSources() {
-        return Codegen.optional(this.eventSources);
+    public Output<List<EventSourcesConfigEventSource>> eventSources() {
+        return this.eventSources;
     }
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -109,7 +108,7 @@ public class EventSourcesConfig extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public EventSourcesConfig(java.lang.String name, @Nullable EventSourcesConfigArgs args) {
+    public EventSourcesConfig(java.lang.String name, EventSourcesConfigArgs args) {
         this(name, args, null);
     }
     /**
@@ -118,7 +117,7 @@ public class EventSourcesConfig extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public EventSourcesConfig(java.lang.String name, @Nullable EventSourcesConfigArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public EventSourcesConfig(java.lang.String name, EventSourcesConfigArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:devopsguru/eventSourcesConfig:EventSourcesConfig", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
@@ -126,7 +125,7 @@ public class EventSourcesConfig extends com.pulumi.resources.CustomResource {
         super("aws:devopsguru/eventSourcesConfig:EventSourcesConfig", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static EventSourcesConfigArgs makeArgs(@Nullable EventSourcesConfigArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    private static EventSourcesConfigArgs makeArgs(EventSourcesConfigArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         if (options != null && options.getUrn().isPresent()) {
             return null;
         }

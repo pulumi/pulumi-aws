@@ -248,14 +248,14 @@ public class CloudExadataInfrastructure extends com.pulumi.resources.CustomResou
      * 
      */
     @Export(name="maintenanceWindow", refs={CloudExadataInfrastructureMaintenanceWindow.class}, tree="[0]")
-    private Output</* @Nullable */ CloudExadataInfrastructureMaintenanceWindow> maintenanceWindow;
+    private Output<CloudExadataInfrastructureMaintenanceWindow> maintenanceWindow;
 
     /**
      * @return The scheduling details for the maintenance window. Patching and system updates take place during the maintenance window
      * 
      */
-    public Output<Optional<CloudExadataInfrastructureMaintenanceWindow>> maintenanceWindow() {
-        return Codegen.optional(this.maintenanceWindow);
+    public Output<CloudExadataInfrastructureMaintenanceWindow> maintenanceWindow() {
+        return this.maintenanceWindow;
     }
     /**
      * The total number of CPU cores available on the Exadata infrastructure.

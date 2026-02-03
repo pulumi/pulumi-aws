@@ -6,6 +6,7 @@ package com.pulumi.aws.verifiedpermissions;
 import com.pulumi.aws.verifiedpermissions.inputs.PolicyStoreValidationSettingsArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -81,15 +82,15 @@ public final class PolicyStoreArgs extends com.pulumi.resources.ResourceArgs {
      * Validation settings for the policy store.
      * 
      */
-    @Import(name="validationSettings")
-    private @Nullable Output<PolicyStoreValidationSettingsArgs> validationSettings;
+    @Import(name="validationSettings", required=true)
+    private Output<PolicyStoreValidationSettingsArgs> validationSettings;
 
     /**
      * @return Validation settings for the policy store.
      * 
      */
-    public Optional<Output<PolicyStoreValidationSettingsArgs>> validationSettings() {
-        return Optional.ofNullable(this.validationSettings);
+    public Output<PolicyStoreValidationSettingsArgs> validationSettings() {
+        return this.validationSettings;
     }
 
     private PolicyStoreArgs() {}
@@ -210,7 +211,7 @@ public final class PolicyStoreArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder validationSettings(@Nullable Output<PolicyStoreValidationSettingsArgs> validationSettings) {
+        public Builder validationSettings(Output<PolicyStoreValidationSettingsArgs> validationSettings) {
             $.validationSettings = validationSettings;
             return this;
         }
@@ -226,6 +227,9 @@ public final class PolicyStoreArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public PolicyStoreArgs build() {
+            if ($.validationSettings == null) {
+                throw new MissingRequiredPropertyException("PolicyStoreArgs", "validationSettings");
+            }
             return $;
         }
     }

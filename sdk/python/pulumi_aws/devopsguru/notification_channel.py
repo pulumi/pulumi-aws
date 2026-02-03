@@ -21,23 +21,36 @@ __all__ = ['NotificationChannelArgs', 'NotificationChannel']
 @pulumi.input_type
 class NotificationChannelArgs:
     def __init__(__self__, *,
+                 sns: pulumi.Input['NotificationChannelSnsArgs'],
                  filters: Optional[pulumi.Input['NotificationChannelFiltersArgs']] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 sns: Optional[pulumi.Input['NotificationChannelSnsArgs']] = None):
+                 region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a NotificationChannel resource.
-        :param pulumi.Input['NotificationChannelFiltersArgs'] filters: Filter configurations for the Amazon SNS notification topic. See the `filters` argument reference below.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input['NotificationChannelSnsArgs'] sns: SNS noficiation channel configurations. See the `sns` argument reference below.
                
                The following arguments are optional:
+        :param pulumi.Input['NotificationChannelFiltersArgs'] filters: Filter configurations for the Amazon SNS notification topic. See the `filters` argument reference below.
+        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
+        pulumi.set(__self__, "sns", sns)
         if filters is not None:
             pulumi.set(__self__, "filters", filters)
         if region is not None:
             pulumi.set(__self__, "region", region)
-        if sns is not None:
-            pulumi.set(__self__, "sns", sns)
+
+    @_builtins.property
+    @pulumi.getter
+    def sns(self) -> pulumi.Input['NotificationChannelSnsArgs']:
+        """
+        SNS noficiation channel configurations. See the `sns` argument reference below.
+
+        The following arguments are optional:
+        """
+        return pulumi.get(self, "sns")
+
+    @sns.setter
+    def sns(self, value: pulumi.Input['NotificationChannelSnsArgs']):
+        pulumi.set(self, "sns", value)
 
     @_builtins.property
     @pulumi.getter
@@ -62,20 +75,6 @@ class NotificationChannelArgs:
     @region.setter
     def region(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "region", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def sns(self) -> Optional[pulumi.Input['NotificationChannelSnsArgs']]:
-        """
-        SNS noficiation channel configurations. See the `sns` argument reference below.
-
-        The following arguments are optional:
-        """
-        return pulumi.get(self, "sns")
-
-    @sns.setter
-    def sns(self, value: Optional[pulumi.Input['NotificationChannelSnsArgs']]):
-        pulumi.set(self, "sns", value)
 
 
 @pulumi.input_type
@@ -200,7 +199,7 @@ class NotificationChannel(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: Optional[NotificationChannelArgs] = None,
+                 args: NotificationChannelArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource for managing an AWS DevOps Guru Notification Channel.
@@ -271,6 +270,8 @@ class NotificationChannel(pulumi.CustomResource):
 
             __props__.__dict__["filters"] = filters
             __props__.__dict__["region"] = region
+            if sns is None and not opts.urn:
+                raise TypeError("Missing required property 'sns'")
             __props__.__dict__["sns"] = sns
         super(NotificationChannel, __self__).__init__(
             'aws:devopsguru/notificationChannel:NotificationChannel',
@@ -325,7 +326,7 @@ class NotificationChannel(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
-    def sns(self) -> pulumi.Output[Optional['outputs.NotificationChannelSns']]:
+    def sns(self) -> pulumi.Output['outputs.NotificationChannelSns']:
         """
         SNS noficiation channel configurations. See the `sns` argument reference below.
 

@@ -37,15 +37,15 @@ public final class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaI
      * Schema for the tool&#39;s input. See `schemaDefinition` below.
      * 
      */
-    @Import(name="inputSchema")
-    private @Nullable Output<AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaArgs> inputSchema;
+    @Import(name="inputSchema", required=true)
+    private Output<AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaArgs> inputSchema;
 
     /**
      * @return Schema for the tool&#39;s input. See `schemaDefinition` below.
      * 
      */
-    public Optional<Output<AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaArgs>> inputSchema() {
-        return Optional.ofNullable(this.inputSchema);
+    public Output<AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaArgs> inputSchema() {
+        return this.inputSchema;
     }
 
     /**
@@ -132,7 +132,7 @@ public final class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaI
          * @return builder
          * 
          */
-        public Builder inputSchema(@Nullable Output<AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaArgs> inputSchema) {
+        public Builder inputSchema(Output<AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaArgs> inputSchema) {
             $.inputSchema = inputSchema;
             return this;
         }
@@ -192,6 +192,9 @@ public final class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaI
         public AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadArgs build() {
             if ($.description == null) {
                 throw new MissingRequiredPropertyException("AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadArgs", "description");
+            }
+            if ($.inputSchema == null) {
+                throw new MissingRequiredPropertyException("AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadArgs", "inputSchema");
             }
             if ($.name == null) {
                 throw new MissingRequiredPropertyException("AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadArgs", "name");

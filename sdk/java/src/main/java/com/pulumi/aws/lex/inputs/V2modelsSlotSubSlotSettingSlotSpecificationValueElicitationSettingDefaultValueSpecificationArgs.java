@@ -6,10 +6,9 @@ package com.pulumi.aws.lex.inputs;
 import com.pulumi.aws.lex.inputs.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingDefaultValueSpecificationDefaultValueListArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
-import java.util.Optional;
-import javax.annotation.Nullable;
 
 
 public final class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingDefaultValueSpecificationArgs extends com.pulumi.resources.ResourceArgs {
@@ -22,8 +21,8 @@ public final class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSe
      * See the `defaultValueList` argument reference below.
      * 
      */
-    @Import(name="defaultValueLists")
-    private @Nullable Output<List<V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingDefaultValueSpecificationDefaultValueListArgs>> defaultValueLists;
+    @Import(name="defaultValueLists", required=true)
+    private Output<List<V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingDefaultValueSpecificationDefaultValueListArgs>> defaultValueLists;
 
     /**
      * @return List of default values.
@@ -31,8 +30,8 @@ public final class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSe
      * See the `defaultValueList` argument reference below.
      * 
      */
-    public Optional<Output<List<V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingDefaultValueSpecificationDefaultValueListArgs>>> defaultValueLists() {
-        return Optional.ofNullable(this.defaultValueLists);
+    public Output<List<V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingDefaultValueSpecificationDefaultValueListArgs>> defaultValueLists() {
+        return this.defaultValueLists;
     }
 
     private V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingDefaultValueSpecificationArgs() {}
@@ -67,7 +66,7 @@ public final class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSe
          * @return builder
          * 
          */
-        public Builder defaultValueLists(@Nullable Output<List<V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingDefaultValueSpecificationDefaultValueListArgs>> defaultValueLists) {
+        public Builder defaultValueLists(Output<List<V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingDefaultValueSpecificationDefaultValueListArgs>> defaultValueLists) {
             $.defaultValueLists = defaultValueLists;
             return this;
         }
@@ -97,6 +96,9 @@ public final class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSe
         }
 
         public V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingDefaultValueSpecificationArgs build() {
+            if ($.defaultValueLists == null) {
+                throw new MissingRequiredPropertyException("V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingDefaultValueSpecificationArgs", "defaultValueLists");
+            }
             return $;
         }
     }

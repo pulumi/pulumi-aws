@@ -191,14 +191,14 @@ public class LifecyclePolicy extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="policyDetails", refs={List.class,LifecyclePolicyPolicyDetail.class}, tree="[0,1]")
-    private Output</* @Nullable */ List<LifecyclePolicyPolicyDetail>> policyDetails;
+    private Output<List<LifecyclePolicyPolicyDetail>> policyDetails;
 
     /**
      * @return Configuration block with policy details. Detailed below.
      * 
      */
-    public Output<Optional<List<LifecyclePolicyPolicyDetail>>> policyDetails() {
-        return Codegen.optional(this.policyDetails);
+    public Output<List<LifecyclePolicyPolicyDetail>> policyDetails() {
+        return this.policyDetails;
     }
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -221,7 +221,7 @@ public class LifecyclePolicy extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="resourceSelection", refs={LifecyclePolicyResourceSelection.class}, tree="[0]")
-    private Output</* @Nullable */ LifecyclePolicyResourceSelection> resourceSelection;
+    private Output<LifecyclePolicyResourceSelection> resourceSelection;
 
     /**
      * @return Selection criteria for the resources that the lifecycle policy applies to. Detailed below.
@@ -229,8 +229,8 @@ public class LifecyclePolicy extends com.pulumi.resources.CustomResource {
      * The following arguments are optional:
      * 
      */
-    public Output<Optional<LifecyclePolicyResourceSelection>> resourceSelection() {
-        return Codegen.optional(this.resourceSelection);
+    public Output<LifecyclePolicyResourceSelection> resourceSelection() {
+        return this.resourceSelection;
     }
     /**
      * The type of Image Builder resource that the lifecycle policy applies to. Valid values: `AMI_IMAGE` or `CONTAINER_IMAGE`.

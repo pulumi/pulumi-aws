@@ -49,7 +49,7 @@ MYPY = False
 
 if not MYPY:
     class EventActionActionArgsDict(TypedDict):
-        export_revision_to_s3: NotRequired[pulumi.Input['EventActionActionExportRevisionToS3ArgsDict']]
+        export_revision_to_s3: pulumi.Input['EventActionActionExportRevisionToS3ArgsDict']
         """
         Configuration for an Export Revision to S3 action.
         Described in `export_revision_to_s3` Configuration Block
@@ -60,17 +60,16 @@ elif False:
 @pulumi.input_type
 class EventActionActionArgs:
     def __init__(__self__, *,
-                 export_revision_to_s3: Optional[pulumi.Input['EventActionActionExportRevisionToS3Args']] = None):
+                 export_revision_to_s3: pulumi.Input['EventActionActionExportRevisionToS3Args']):
         """
         :param pulumi.Input['EventActionActionExportRevisionToS3Args'] export_revision_to_s3: Configuration for an Export Revision to S3 action.
                Described in `export_revision_to_s3` Configuration Block
         """
-        if export_revision_to_s3 is not None:
-            pulumi.set(__self__, "export_revision_to_s3", export_revision_to_s3)
+        pulumi.set(__self__, "export_revision_to_s3", export_revision_to_s3)
 
     @_builtins.property
     @pulumi.getter(name="exportRevisionToS3")
-    def export_revision_to_s3(self) -> Optional[pulumi.Input['EventActionActionExportRevisionToS3Args']]:
+    def export_revision_to_s3(self) -> pulumi.Input['EventActionActionExportRevisionToS3Args']:
         """
         Configuration for an Export Revision to S3 action.
         Described in `export_revision_to_s3` Configuration Block
@@ -78,21 +77,21 @@ class EventActionActionArgs:
         return pulumi.get(self, "export_revision_to_s3")
 
     @export_revision_to_s3.setter
-    def export_revision_to_s3(self, value: Optional[pulumi.Input['EventActionActionExportRevisionToS3Args']]):
+    def export_revision_to_s3(self, value: pulumi.Input['EventActionActionExportRevisionToS3Args']):
         pulumi.set(self, "export_revision_to_s3", value)
 
 
 if not MYPY:
     class EventActionActionExportRevisionToS3ArgsDict(TypedDict):
+        revision_destination: pulumi.Input['EventActionActionExportRevisionToS3RevisionDestinationArgsDict']
+        """
+        Configures the S3 destination of the exported revision.
+        Described in `revision_destination` Configuration Block below.
+        """
         encryption: NotRequired[pulumi.Input['EventActionActionExportRevisionToS3EncryptionArgsDict']]
         """
         Configures server-side encryption of the exported revision.
         Described in `encryption` Configuration Block below.
-        """
-        revision_destination: NotRequired[pulumi.Input['EventActionActionExportRevisionToS3RevisionDestinationArgsDict']]
-        """
-        Configures the S3 destination of the exported revision.
-        Described in `revision_destination` Configuration Block below.
         """
 elif False:
     EventActionActionExportRevisionToS3ArgsDict: TypeAlias = Mapping[str, Any]
@@ -100,18 +99,30 @@ elif False:
 @pulumi.input_type
 class EventActionActionExportRevisionToS3Args:
     def __init__(__self__, *,
-                 encryption: Optional[pulumi.Input['EventActionActionExportRevisionToS3EncryptionArgs']] = None,
-                 revision_destination: Optional[pulumi.Input['EventActionActionExportRevisionToS3RevisionDestinationArgs']] = None):
+                 revision_destination: pulumi.Input['EventActionActionExportRevisionToS3RevisionDestinationArgs'],
+                 encryption: Optional[pulumi.Input['EventActionActionExportRevisionToS3EncryptionArgs']] = None):
         """
-        :param pulumi.Input['EventActionActionExportRevisionToS3EncryptionArgs'] encryption: Configures server-side encryption of the exported revision.
-               Described in `encryption` Configuration Block below.
         :param pulumi.Input['EventActionActionExportRevisionToS3RevisionDestinationArgs'] revision_destination: Configures the S3 destination of the exported revision.
                Described in `revision_destination` Configuration Block below.
+        :param pulumi.Input['EventActionActionExportRevisionToS3EncryptionArgs'] encryption: Configures server-side encryption of the exported revision.
+               Described in `encryption` Configuration Block below.
         """
+        pulumi.set(__self__, "revision_destination", revision_destination)
         if encryption is not None:
             pulumi.set(__self__, "encryption", encryption)
-        if revision_destination is not None:
-            pulumi.set(__self__, "revision_destination", revision_destination)
+
+    @_builtins.property
+    @pulumi.getter(name="revisionDestination")
+    def revision_destination(self) -> pulumi.Input['EventActionActionExportRevisionToS3RevisionDestinationArgs']:
+        """
+        Configures the S3 destination of the exported revision.
+        Described in `revision_destination` Configuration Block below.
+        """
+        return pulumi.get(self, "revision_destination")
+
+    @revision_destination.setter
+    def revision_destination(self, value: pulumi.Input['EventActionActionExportRevisionToS3RevisionDestinationArgs']):
+        pulumi.set(self, "revision_destination", value)
 
     @_builtins.property
     @pulumi.getter
@@ -125,19 +136,6 @@ class EventActionActionExportRevisionToS3Args:
     @encryption.setter
     def encryption(self, value: Optional[pulumi.Input['EventActionActionExportRevisionToS3EncryptionArgs']]):
         pulumi.set(self, "encryption", value)
-
-    @_builtins.property
-    @pulumi.getter(name="revisionDestination")
-    def revision_destination(self) -> Optional[pulumi.Input['EventActionActionExportRevisionToS3RevisionDestinationArgs']]:
-        """
-        Configures the S3 destination of the exported revision.
-        Described in `revision_destination` Configuration Block below.
-        """
-        return pulumi.get(self, "revision_destination")
-
-    @revision_destination.setter
-    def revision_destination(self, value: Optional[pulumi.Input['EventActionActionExportRevisionToS3RevisionDestinationArgs']]):
-        pulumi.set(self, "revision_destination", value)
 
 
 if not MYPY:
@@ -251,7 +249,7 @@ class EventActionActionExportRevisionToS3RevisionDestinationArgs:
 
 if not MYPY:
     class EventActionEventArgsDict(TypedDict):
-        revision_published: NotRequired[pulumi.Input['EventActionEventRevisionPublishedArgsDict']]
+        revision_published: pulumi.Input['EventActionEventRevisionPublishedArgsDict']
         """
         Configuration for a Revision Published event.
         Described in `revision_published` Configuration Block below.
@@ -262,17 +260,16 @@ elif False:
 @pulumi.input_type
 class EventActionEventArgs:
     def __init__(__self__, *,
-                 revision_published: Optional[pulumi.Input['EventActionEventRevisionPublishedArgs']] = None):
+                 revision_published: pulumi.Input['EventActionEventRevisionPublishedArgs']):
         """
         :param pulumi.Input['EventActionEventRevisionPublishedArgs'] revision_published: Configuration for a Revision Published event.
                Described in `revision_published` Configuration Block below.
         """
-        if revision_published is not None:
-            pulumi.set(__self__, "revision_published", revision_published)
+        pulumi.set(__self__, "revision_published", revision_published)
 
     @_builtins.property
     @pulumi.getter(name="revisionPublished")
-    def revision_published(self) -> Optional[pulumi.Input['EventActionEventRevisionPublishedArgs']]:
+    def revision_published(self) -> pulumi.Input['EventActionEventRevisionPublishedArgs']:
         """
         Configuration for a Revision Published event.
         Described in `revision_published` Configuration Block below.
@@ -280,7 +277,7 @@ class EventActionEventArgs:
         return pulumi.get(self, "revision_published")
 
     @revision_published.setter
-    def revision_published(self, value: Optional[pulumi.Input['EventActionEventRevisionPublishedArgs']]):
+    def revision_published(self, value: pulumi.Input['EventActionEventRevisionPublishedArgs']):
         pulumi.set(self, "revision_published", value)
 
 

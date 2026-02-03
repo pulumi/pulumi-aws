@@ -6,9 +6,8 @@ package com.pulumi.aws.securitylake.outputs;
 import com.pulumi.aws.securitylake.outputs.CustomLogSourceConfigurationCrawlerConfiguration;
 import com.pulumi.aws.securitylake.outputs.CustomLogSourceConfigurationProviderIdentity;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.Objects;
-import java.util.Optional;
-import javax.annotation.Nullable;
 
 @CustomType
 public final class CustomLogSourceConfiguration {
@@ -16,27 +15,27 @@ public final class CustomLogSourceConfiguration {
      * @return The configuration for the Glue Crawler for the third-party custom source.
      * 
      */
-    private @Nullable CustomLogSourceConfigurationCrawlerConfiguration crawlerConfiguration;
+    private CustomLogSourceConfigurationCrawlerConfiguration crawlerConfiguration;
     /**
      * @return The identity of the log provider for the third-party custom source.
      * 
      */
-    private @Nullable CustomLogSourceConfigurationProviderIdentity providerIdentity;
+    private CustomLogSourceConfigurationProviderIdentity providerIdentity;
 
     private CustomLogSourceConfiguration() {}
     /**
      * @return The configuration for the Glue Crawler for the third-party custom source.
      * 
      */
-    public Optional<CustomLogSourceConfigurationCrawlerConfiguration> crawlerConfiguration() {
-        return Optional.ofNullable(this.crawlerConfiguration);
+    public CustomLogSourceConfigurationCrawlerConfiguration crawlerConfiguration() {
+        return this.crawlerConfiguration;
     }
     /**
      * @return The identity of the log provider for the third-party custom source.
      * 
      */
-    public Optional<CustomLogSourceConfigurationProviderIdentity> providerIdentity() {
-        return Optional.ofNullable(this.providerIdentity);
+    public CustomLogSourceConfigurationProviderIdentity providerIdentity() {
+        return this.providerIdentity;
     }
 
     public static Builder builder() {
@@ -48,8 +47,8 @@ public final class CustomLogSourceConfiguration {
     }
     @CustomType.Builder
     public static final class Builder {
-        private @Nullable CustomLogSourceConfigurationCrawlerConfiguration crawlerConfiguration;
-        private @Nullable CustomLogSourceConfigurationProviderIdentity providerIdentity;
+        private CustomLogSourceConfigurationCrawlerConfiguration crawlerConfiguration;
+        private CustomLogSourceConfigurationProviderIdentity providerIdentity;
         public Builder() {}
         public Builder(CustomLogSourceConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
@@ -58,14 +57,18 @@ public final class CustomLogSourceConfiguration {
         }
 
         @CustomType.Setter
-        public Builder crawlerConfiguration(@Nullable CustomLogSourceConfigurationCrawlerConfiguration crawlerConfiguration) {
-
+        public Builder crawlerConfiguration(CustomLogSourceConfigurationCrawlerConfiguration crawlerConfiguration) {
+            if (crawlerConfiguration == null) {
+              throw new MissingRequiredPropertyException("CustomLogSourceConfiguration", "crawlerConfiguration");
+            }
             this.crawlerConfiguration = crawlerConfiguration;
             return this;
         }
         @CustomType.Setter
-        public Builder providerIdentity(@Nullable CustomLogSourceConfigurationProviderIdentity providerIdentity) {
-
+        public Builder providerIdentity(CustomLogSourceConfigurationProviderIdentity providerIdentity) {
+            if (providerIdentity == null) {
+              throw new MissingRequiredPropertyException("CustomLogSourceConfiguration", "providerIdentity");
+            }
             this.providerIdentity = providerIdentity;
             return this;
         }

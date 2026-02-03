@@ -114,6 +114,9 @@ func NewAssessment(ctx *pulumi.Context,
 	if args.FrameworkId == nil {
 		return nil, errors.New("invalid value for required argument 'FrameworkId'")
 	}
+	if args.Roles == nil {
+		return nil, errors.New("invalid value for required argument 'Roles'")
+	}
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Assessment
 	err := ctx.RegisterResource("aws:auditmanager/assessment:Assessment", name, args, &resource, opts...)

@@ -146,7 +146,7 @@ export class IpAccessSettings extends pulumi.CustomResource {
      *
      * The following arguments are optional:
      */
-    declare public readonly ipRules: pulumi.Output<outputs.workspacesweb.IpAccessSettingsIpRule[] | undefined>;
+    declare public readonly ipRules: pulumi.Output<outputs.workspacesweb.IpAccessSettingsIpRule[]>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
@@ -187,6 +187,9 @@ export class IpAccessSettings extends pulumi.CustomResource {
             const args = argsOrState as IpAccessSettingsArgs | undefined;
             if (args?.displayName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'displayName'");
+            }
+            if (args?.ipRules === undefined && !opts.urn) {
+                throw new Error("Missing required property 'ipRules'");
             }
             resourceInputs["additionalEncryptionContext"] = args?.additionalEncryptionContext;
             resourceInputs["customerManagedKey"] = args?.customerManagedKey;
@@ -277,7 +280,7 @@ export interface IpAccessSettingsArgs {
      *
      * The following arguments are optional:
      */
-    ipRules?: pulumi.Input<pulumi.Input<inputs.workspacesweb.IpAccessSettingsIpRule>[]>;
+    ipRules: pulumi.Input<pulumi.Input<inputs.workspacesweb.IpAccessSettingsIpRule>[]>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */

@@ -371,7 +371,7 @@ namespace Pulumi.Aws.Bedrock
         [Input("exceptionLevel")]
         public Input<string>? ExceptionLevel { get; set; }
 
-        [Input("interceptorConfigurations", required: true)]
+        [Input("interceptorConfigurations")]
         private InputList<Inputs.AgentcoreGatewayInterceptorConfigurationArgs>? _interceptorConfigurations;
 
         /// <summary>

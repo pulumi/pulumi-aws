@@ -53,15 +53,15 @@ public final class V2modelsIntentInitialResponseSettingConditionalArgs extends c
      * Configuration block for the conditional branch that should be followed when the conditions for other branches are not satisfied. A branch is made up of a condition, a response and a next step. See `defaultBranch`.
      * 
      */
-    @Import(name="defaultBranch", required=true)
-    private Output<V2modelsIntentInitialResponseSettingConditionalDefaultBranchArgs> defaultBranch;
+    @Import(name="defaultBranch")
+    private @Nullable Output<V2modelsIntentInitialResponseSettingConditionalDefaultBranchArgs> defaultBranch;
 
     /**
      * @return Configuration block for the conditional branch that should be followed when the conditions for other branches are not satisfied. A branch is made up of a condition, a response and a next step. See `defaultBranch`.
      * 
      */
-    public Output<V2modelsIntentInitialResponseSettingConditionalDefaultBranchArgs> defaultBranch() {
-        return this.defaultBranch;
+    public Optional<Output<V2modelsIntentInitialResponseSettingConditionalDefaultBranchArgs>> defaultBranch() {
+        return Optional.ofNullable(this.defaultBranch);
     }
 
     private V2modelsIntentInitialResponseSettingConditionalArgs() {}
@@ -148,7 +148,7 @@ public final class V2modelsIntentInitialResponseSettingConditionalArgs extends c
          * @return builder
          * 
          */
-        public Builder defaultBranch(Output<V2modelsIntentInitialResponseSettingConditionalDefaultBranchArgs> defaultBranch) {
+        public Builder defaultBranch(@Nullable Output<V2modelsIntentInitialResponseSettingConditionalDefaultBranchArgs> defaultBranch) {
             $.defaultBranch = defaultBranch;
             return this;
         }
@@ -166,9 +166,6 @@ public final class V2modelsIntentInitialResponseSettingConditionalArgs extends c
         public V2modelsIntentInitialResponseSettingConditionalArgs build() {
             if ($.active == null) {
                 throw new MissingRequiredPropertyException("V2modelsIntentInitialResponseSettingConditionalArgs", "active");
-            }
-            if ($.defaultBranch == null) {
-                throw new MissingRequiredPropertyException("V2modelsIntentInitialResponseSettingConditionalArgs", "defaultBranch");
             }
             return $;
         }

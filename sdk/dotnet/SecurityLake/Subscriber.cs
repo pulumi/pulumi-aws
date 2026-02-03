@@ -181,7 +181,7 @@ namespace Pulumi.Aws.SecurityLake
         /// The AWS identity used to access your data. See `SubscriberIdentity` Block below.
         /// </summary>
         [Output("subscriberIdentity")]
-        public Output<Outputs.SubscriberSubscriberIdentity?> SubscriberIdentity { get; private set; } = null!;
+        public Output<Outputs.SubscriberSubscriberIdentity> SubscriberIdentity { get; private set; } = null!;
 
         /// <summary>
         /// The name of your Security Lake subscriber account.
@@ -218,7 +218,7 @@ namespace Pulumi.Aws.SecurityLake
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public Subscriber(string name, SubscriberArgs? args = null, CustomResourceOptions? options = null)
+        public Subscriber(string name, SubscriberArgs args, CustomResourceOptions? options = null)
             : base("aws:securitylake/subscriber:Subscriber", name, args ?? new SubscriberArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -268,7 +268,7 @@ namespace Pulumi.Aws.SecurityLake
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        [Input("sources")]
+        [Input("sources", required: true)]
         private InputList<Inputs.SubscriberSourceArgs>? _sources;
 
         /// <summary>
@@ -289,8 +289,8 @@ namespace Pulumi.Aws.SecurityLake
         /// <summary>
         /// The AWS identity used to access your data. See `SubscriberIdentity` Block below.
         /// </summary>
-        [Input("subscriberIdentity")]
-        public Input<Inputs.SubscriberSubscriberIdentityArgs>? SubscriberIdentity { get; set; }
+        [Input("subscriberIdentity", required: true)]
+        public Input<Inputs.SubscriberSubscriberIdentityArgs> SubscriberIdentity { get; set; } = null!;
 
         /// <summary>
         /// The name of your Security Lake subscriber account.

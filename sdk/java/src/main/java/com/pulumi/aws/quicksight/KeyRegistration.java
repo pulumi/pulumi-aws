@@ -13,7 +13,6 @@ import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import java.util.List;
-import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
@@ -84,14 +83,14 @@ public class KeyRegistration extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="keyRegistrations", refs={List.class,KeyRegistrationKeyRegistration.class}, tree="[0,1]")
-    private Output</* @Nullable */ List<KeyRegistrationKeyRegistration>> keyRegistrations;
+    private Output<List<KeyRegistrationKeyRegistration>> keyRegistrations;
 
     /**
      * @return Registered keys. See key_registration.
      * 
      */
-    public Output<Optional<List<KeyRegistrationKeyRegistration>>> keyRegistrations() {
-        return Codegen.optional(this.keyRegistrations);
+    public Output<List<KeyRegistrationKeyRegistration>> keyRegistrations() {
+        return this.keyRegistrations;
     }
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -120,7 +119,7 @@ public class KeyRegistration extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public KeyRegistration(java.lang.String name, @Nullable KeyRegistrationArgs args) {
+    public KeyRegistration(java.lang.String name, KeyRegistrationArgs args) {
         this(name, args, null);
     }
     /**
@@ -129,7 +128,7 @@ public class KeyRegistration extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public KeyRegistration(java.lang.String name, @Nullable KeyRegistrationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public KeyRegistration(java.lang.String name, KeyRegistrationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:quicksight/keyRegistration:KeyRegistration", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
@@ -137,7 +136,7 @@ public class KeyRegistration extends com.pulumi.resources.CustomResource {
         super("aws:quicksight/keyRegistration:KeyRegistration", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static KeyRegistrationArgs makeArgs(@Nullable KeyRegistrationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    private static KeyRegistrationArgs makeArgs(KeyRegistrationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         if (options != null && options.getUrn().isPresent()) {
             return null;
         }

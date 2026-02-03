@@ -21,19 +21,20 @@ __all__ = ['PolicyStoreArgs', 'PolicyStore']
 @pulumi.input_type
 class PolicyStoreArgs:
     def __init__(__self__, *,
+                 validation_settings: pulumi.Input['PolicyStoreValidationSettingsArgs'],
                  deletion_protection: Optional[pulumi.Input[_builtins.str]] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  region: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 validation_settings: Optional[pulumi.Input['PolicyStoreValidationSettingsArgs']] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a PolicyStore resource.
+        :param pulumi.Input['PolicyStoreValidationSettingsArgs'] validation_settings: Validation settings for the policy store.
         :param pulumi.Input[_builtins.str] deletion_protection: Specifies whether the policy store can be deleted. If enabled, the policy store can't be deleted. Valid Values: `ENABLED`, `DISABLED`. Default value: `DISABLED`.
         :param pulumi.Input[_builtins.str] description: A description of the Policy Store.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input['PolicyStoreValidationSettingsArgs'] validation_settings: Validation settings for the policy store.
         """
+        pulumi.set(__self__, "validation_settings", validation_settings)
         if deletion_protection is not None:
             pulumi.set(__self__, "deletion_protection", deletion_protection)
         if description is not None:
@@ -42,8 +43,18 @@ class PolicyStoreArgs:
             pulumi.set(__self__, "region", region)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if validation_settings is not None:
-            pulumi.set(__self__, "validation_settings", validation_settings)
+
+    @_builtins.property
+    @pulumi.getter(name="validationSettings")
+    def validation_settings(self) -> pulumi.Input['PolicyStoreValidationSettingsArgs']:
+        """
+        Validation settings for the policy store.
+        """
+        return pulumi.get(self, "validation_settings")
+
+    @validation_settings.setter
+    def validation_settings(self, value: pulumi.Input['PolicyStoreValidationSettingsArgs']):
+        pulumi.set(self, "validation_settings", value)
 
     @_builtins.property
     @pulumi.getter(name="deletionProtection")
@@ -92,18 +103,6 @@ class PolicyStoreArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
-
-    @_builtins.property
-    @pulumi.getter(name="validationSettings")
-    def validation_settings(self) -> Optional[pulumi.Input['PolicyStoreValidationSettingsArgs']]:
-        """
-        Validation settings for the policy store.
-        """
-        return pulumi.get(self, "validation_settings")
-
-    @validation_settings.setter
-    def validation_settings(self, value: Optional[pulumi.Input['PolicyStoreValidationSettingsArgs']]):
-        pulumi.set(self, "validation_settings", value)
 
 
 @pulumi.input_type
@@ -286,7 +285,7 @@ class PolicyStore(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: Optional[PolicyStoreArgs] = None,
+                 args: PolicyStoreArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         ## Example Usage
@@ -341,6 +340,8 @@ class PolicyStore(pulumi.CustomResource):
             __props__.__dict__["description"] = description
             __props__.__dict__["region"] = region
             __props__.__dict__["tags"] = tags
+            if validation_settings is None and not opts.urn:
+                raise TypeError("Missing required property 'validation_settings'")
             __props__.__dict__["validation_settings"] = validation_settings
             __props__.__dict__["arn"] = None
             __props__.__dict__["policy_store_id"] = None
@@ -451,7 +452,7 @@ class PolicyStore(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="validationSettings")
-    def validation_settings(self) -> pulumi.Output[Optional['outputs.PolicyStoreValidationSettings']]:
+    def validation_settings(self) -> pulumi.Output['outputs.PolicyStoreValidationSettings']:
         """
         Validation settings for the policy store.
         """

@@ -526,7 +526,7 @@ public class TlsInspectionConfiguration extends com.pulumi.resources.CustomResou
      * 
      */
     @Export(name="tlsInspectionConfiguration", refs={TlsInspectionConfigurationTlsInspectionConfiguration.class}, tree="[0]")
-    private Output</* @Nullable */ TlsInspectionConfigurationTlsInspectionConfiguration> tlsInspectionConfiguration;
+    private Output<TlsInspectionConfigurationTlsInspectionConfiguration> tlsInspectionConfiguration;
 
     /**
      * @return TLS inspection configuration block. Detailed below.
@@ -534,8 +534,8 @@ public class TlsInspectionConfiguration extends com.pulumi.resources.CustomResou
      * The following arguments are optional:
      * 
      */
-    public Output<Optional<TlsInspectionConfigurationTlsInspectionConfiguration>> tlsInspectionConfiguration() {
-        return Codegen.optional(this.tlsInspectionConfiguration);
+    public Output<TlsInspectionConfigurationTlsInspectionConfiguration> tlsInspectionConfiguration() {
+        return this.tlsInspectionConfiguration;
     }
     /**
      * A unique identifier for the TLS inspection configuration.
@@ -578,7 +578,7 @@ public class TlsInspectionConfiguration extends com.pulumi.resources.CustomResou
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public TlsInspectionConfiguration(java.lang.String name, @Nullable TlsInspectionConfigurationArgs args) {
+    public TlsInspectionConfiguration(java.lang.String name, TlsInspectionConfigurationArgs args) {
         this(name, args, null);
     }
     /**
@@ -587,7 +587,7 @@ public class TlsInspectionConfiguration extends com.pulumi.resources.CustomResou
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public TlsInspectionConfiguration(java.lang.String name, @Nullable TlsInspectionConfigurationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public TlsInspectionConfiguration(java.lang.String name, TlsInspectionConfigurationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:networkfirewall/tlsInspectionConfiguration:TlsInspectionConfiguration", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
@@ -595,7 +595,7 @@ public class TlsInspectionConfiguration extends com.pulumi.resources.CustomResou
         super("aws:networkfirewall/tlsInspectionConfiguration:TlsInspectionConfiguration", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static TlsInspectionConfigurationArgs makeArgs(@Nullable TlsInspectionConfigurationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    private static TlsInspectionConfigurationArgs makeArgs(TlsInspectionConfigurationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         if (options != null && options.getUrn().isPresent()) {
             return null;
         }

@@ -21,15 +21,15 @@ public final class PolicyArgs extends com.pulumi.resources.ResourceArgs {
      * The definition of the policy. See Definition below.
      * 
      */
-    @Import(name="definition")
-    private @Nullable Output<PolicyDefinitionArgs> definition;
+    @Import(name="definition", required=true)
+    private Output<PolicyDefinitionArgs> definition;
 
     /**
      * @return The definition of the policy. See Definition below.
      * 
      */
-    public Optional<Output<PolicyDefinitionArgs>> definition() {
-        return Optional.ofNullable(this.definition);
+    public Output<PolicyDefinitionArgs> definition() {
+        return this.definition;
     }
 
     /**
@@ -94,7 +94,7 @@ public final class PolicyArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder definition(@Nullable Output<PolicyDefinitionArgs> definition) {
+        public Builder definition(Output<PolicyDefinitionArgs> definition) {
             $.definition = definition;
             return this;
         }
@@ -152,6 +152,9 @@ public final class PolicyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public PolicyArgs build() {
+            if ($.definition == null) {
+                throw new MissingRequiredPropertyException("PolicyArgs", "definition");
+            }
             if ($.policyStoreId == null) {
                 throw new MissingRequiredPropertyException("PolicyArgs", "policyStoreId");
             }

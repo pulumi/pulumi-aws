@@ -22,31 +22,30 @@ __all__ = ['AccessGrantArgs', 'AccessGrant']
 class AccessGrantArgs:
     def __init__(__self__, *,
                  access_grants_location_id: pulumi.Input[_builtins.str],
+                 grantee: pulumi.Input['AccessGrantGranteeArgs'],
                  permission: pulumi.Input[_builtins.str],
                  access_grants_location_configuration: Optional[pulumi.Input['AccessGrantAccessGrantsLocationConfigurationArgs']] = None,
                  account_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 grantee: Optional[pulumi.Input['AccessGrantGranteeArgs']] = None,
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  s3_prefix_type: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a AccessGrant resource.
         :param pulumi.Input[_builtins.str] access_grants_location_id: The ID of the S3 Access Grants location to with the access grant is giving access.
+        :param pulumi.Input['AccessGrantGranteeArgs'] grantee: See Grantee below for more details.
         :param pulumi.Input[_builtins.str] permission: The access grant's level of access. Valid values: `READ`, `WRITE`, `READWRITE`.
         :param pulumi.Input['AccessGrantAccessGrantsLocationConfigurationArgs'] access_grants_location_configuration: See Location Configuration below for more details.
-        :param pulumi.Input['AccessGrantGranteeArgs'] grantee: See Grantee below for more details.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] s3_prefix_type: If you are creating an access grant that grants access to only one object, set this to `Object`. Valid values: `Object`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "access_grants_location_id", access_grants_location_id)
+        pulumi.set(__self__, "grantee", grantee)
         pulumi.set(__self__, "permission", permission)
         if access_grants_location_configuration is not None:
             pulumi.set(__self__, "access_grants_location_configuration", access_grants_location_configuration)
         if account_id is not None:
             pulumi.set(__self__, "account_id", account_id)
-        if grantee is not None:
-            pulumi.set(__self__, "grantee", grantee)
         if region is not None:
             pulumi.set(__self__, "region", region)
         if s3_prefix_type is not None:
@@ -65,6 +64,18 @@ class AccessGrantArgs:
     @access_grants_location_id.setter
     def access_grants_location_id(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "access_grants_location_id", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def grantee(self) -> pulumi.Input['AccessGrantGranteeArgs']:
+        """
+        See Grantee below for more details.
+        """
+        return pulumi.get(self, "grantee")
+
+    @grantee.setter
+    def grantee(self, value: pulumi.Input['AccessGrantGranteeArgs']):
+        pulumi.set(self, "grantee", value)
 
     @_builtins.property
     @pulumi.getter
@@ -98,18 +109,6 @@ class AccessGrantArgs:
     @account_id.setter
     def account_id(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "account_id", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def grantee(self) -> Optional[pulumi.Input['AccessGrantGranteeArgs']]:
-        """
-        See Grantee below for more details.
-        """
-        return pulumi.get(self, "grantee")
-
-    @grantee.setter
-    def grantee(self, value: Optional[pulumi.Input['AccessGrantGranteeArgs']]):
-        pulumi.set(self, "grantee", value)
 
     @_builtins.property
     @pulumi.getter
@@ -484,6 +483,8 @@ class AccessGrant(pulumi.CustomResource):
                 raise TypeError("Missing required property 'access_grants_location_id'")
             __props__.__dict__["access_grants_location_id"] = access_grants_location_id
             __props__.__dict__["account_id"] = account_id
+            if grantee is None and not opts.urn:
+                raise TypeError("Missing required property 'grantee'")
             __props__.__dict__["grantee"] = grantee
             if permission is None and not opts.urn:
                 raise TypeError("Missing required property 'permission'")
@@ -601,7 +602,7 @@ class AccessGrant(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
-    def grantee(self) -> pulumi.Output[Optional['outputs.AccessGrantGrantee']]:
+    def grantee(self) -> pulumi.Output['outputs.AccessGrantGrantee']:
         """
         See Grantee below for more details.
         """

@@ -16,8 +16,8 @@ namespace Pulumi.Aws.DataExchange.Inputs
         /// Configuration for a Revision Published event.
         /// Described in `RevisionPublished` Configuration Block below.
         /// </summary>
-        [Input("revisionPublished")]
-        public Input<Inputs.EventActionEventRevisionPublishedGetArgs>? RevisionPublished { get; set; }
+        [Input("revisionPublished", required: true)]
+        public Input<Inputs.EventActionEventRevisionPublishedGetArgs> RevisionPublished { get; set; } = null!;
 
         public EventActionEventGetArgs()
         {

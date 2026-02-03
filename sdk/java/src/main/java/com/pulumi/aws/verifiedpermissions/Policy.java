@@ -12,7 +12,6 @@ import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
-import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
@@ -90,14 +89,14 @@ public class Policy extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="definition", refs={PolicyDefinition.class}, tree="[0]")
-    private Output</* @Nullable */ PolicyDefinition> definition;
+    private Output<PolicyDefinition> definition;
 
     /**
      * @return The definition of the policy. See Definition below.
      * 
      */
-    public Output<Optional<PolicyDefinition>> definition() {
-        return Codegen.optional(this.definition);
+    public Output<PolicyDefinition> definition() {
+        return this.definition;
     }
     /**
      * The Policy ID of the policy.

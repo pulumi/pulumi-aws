@@ -3217,7 +3217,7 @@ class AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfiguration
 
 if not MYPY:
     class AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationArgsDict(TypedDict):
-        url_configuration: NotRequired[pulumi.Input['AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationArgsDict']]
+        url_configuration: pulumi.Input['AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationArgsDict']
         """
         The URL configuration of your web data source. See `url_configuration` block for details.
         """
@@ -3227,23 +3227,22 @@ elif False:
 @pulumi.input_type
 class AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationArgs:
     def __init__(__self__, *,
-                 url_configuration: Optional[pulumi.Input['AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationArgs']] = None):
+                 url_configuration: pulumi.Input['AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationArgs']):
         """
         :param pulumi.Input['AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationArgs'] url_configuration: The URL configuration of your web data source. See `url_configuration` block for details.
         """
-        if url_configuration is not None:
-            pulumi.set(__self__, "url_configuration", url_configuration)
+        pulumi.set(__self__, "url_configuration", url_configuration)
 
     @_builtins.property
     @pulumi.getter(name="urlConfiguration")
-    def url_configuration(self) -> Optional[pulumi.Input['AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationArgs']]:
+    def url_configuration(self) -> pulumi.Input['AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationArgs']:
         """
         The URL configuration of your web data source. See `url_configuration` block for details.
         """
         return pulumi.get(self, "url_configuration")
 
     @url_configuration.setter
-    def url_configuration(self, value: Optional[pulumi.Input['AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationArgs']]):
+    def url_configuration(self, value: pulumi.Input['AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationArgs']):
         pulumi.set(self, "url_configuration", value)
 
 
@@ -3610,13 +3609,13 @@ class AgentDataSourceVectorIngestionConfigurationChunkingConfigurationFixedSizeC
 
 if not MYPY:
     class AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationArgsDict(TypedDict):
-        level_configurations: pulumi.Input[Sequence[pulumi.Input['AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationLevelConfigurationArgsDict']]]
-        """
-        Maximum number of tokens to include in a chunk. Must contain two `level_configurations`. See `level_configurations` for details.
-        """
         overlap_tokens: pulumi.Input[_builtins.int]
         """
         The number of tokens to repeat across chunks in the same layer.
+        """
+        level_configurations: NotRequired[pulumi.Input[Sequence[pulumi.Input['AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationLevelConfigurationArgsDict']]]]
+        """
+        Maximum number of tokens to include in a chunk. Must contain two `level_configurations`. See `level_configurations` for details.
         """
 elif False:
     AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationArgsDict: TypeAlias = Mapping[str, Any]
@@ -3624,26 +3623,15 @@ elif False:
 @pulumi.input_type
 class AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationArgs:
     def __init__(__self__, *,
-                 level_configurations: pulumi.Input[Sequence[pulumi.Input['AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationLevelConfigurationArgs']]],
-                 overlap_tokens: pulumi.Input[_builtins.int]):
+                 overlap_tokens: pulumi.Input[_builtins.int],
+                 level_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationLevelConfigurationArgs']]]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationLevelConfigurationArgs']]] level_configurations: Maximum number of tokens to include in a chunk. Must contain two `level_configurations`. See `level_configurations` for details.
         :param pulumi.Input[_builtins.int] overlap_tokens: The number of tokens to repeat across chunks in the same layer.
+        :param pulumi.Input[Sequence[pulumi.Input['AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationLevelConfigurationArgs']]] level_configurations: Maximum number of tokens to include in a chunk. Must contain two `level_configurations`. See `level_configurations` for details.
         """
-        pulumi.set(__self__, "level_configurations", level_configurations)
         pulumi.set(__self__, "overlap_tokens", overlap_tokens)
-
-    @_builtins.property
-    @pulumi.getter(name="levelConfigurations")
-    def level_configurations(self) -> pulumi.Input[Sequence[pulumi.Input['AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationLevelConfigurationArgs']]]:
-        """
-        Maximum number of tokens to include in a chunk. Must contain two `level_configurations`. See `level_configurations` for details.
-        """
-        return pulumi.get(self, "level_configurations")
-
-    @level_configurations.setter
-    def level_configurations(self, value: pulumi.Input[Sequence[pulumi.Input['AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationLevelConfigurationArgs']]]):
-        pulumi.set(self, "level_configurations", value)
+        if level_configurations is not None:
+            pulumi.set(__self__, "level_configurations", level_configurations)
 
     @_builtins.property
     @pulumi.getter(name="overlapTokens")
@@ -3656,6 +3644,18 @@ class AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchic
     @overlap_tokens.setter
     def overlap_tokens(self, value: pulumi.Input[_builtins.int]):
         pulumi.set(self, "overlap_tokens", value)
+
+    @_builtins.property
+    @pulumi.getter(name="levelConfigurations")
+    def level_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationLevelConfigurationArgs']]]]:
+        """
+        Maximum number of tokens to include in a chunk. Must contain two `level_configurations`. See `level_configurations` for details.
+        """
+        return pulumi.get(self, "level_configurations")
+
+    @level_configurations.setter
+    def level_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AgentDataSourceVectorIngestionConfigurationChunkingConfigurationHierarchicalChunkingConfigurationLevelConfigurationArgs']]]]):
+        pulumi.set(self, "level_configurations", value)
 
 
 if not MYPY:
@@ -4810,23 +4810,24 @@ class AgentFlowDefinitionNodeConfigurationCollectorArgs:
 
 if not MYPY:
     class AgentFlowDefinitionNodeConfigurationConditionArgsDict(TypedDict):
-        conditions: pulumi.Input[Sequence[pulumi.Input['AgentFlowDefinitionNodeConfigurationConditionConditionArgsDict']]]
+        conditions: NotRequired[pulumi.Input[Sequence[pulumi.Input['AgentFlowDefinitionNodeConfigurationConditionConditionArgsDict']]]]
 elif False:
     AgentFlowDefinitionNodeConfigurationConditionArgsDict: TypeAlias = Mapping[str, Any]
 
 @pulumi.input_type
 class AgentFlowDefinitionNodeConfigurationConditionArgs:
     def __init__(__self__, *,
-                 conditions: pulumi.Input[Sequence[pulumi.Input['AgentFlowDefinitionNodeConfigurationConditionConditionArgs']]]):
-        pulumi.set(__self__, "conditions", conditions)
+                 conditions: Optional[pulumi.Input[Sequence[pulumi.Input['AgentFlowDefinitionNodeConfigurationConditionConditionArgs']]]] = None):
+        if conditions is not None:
+            pulumi.set(__self__, "conditions", conditions)
 
     @_builtins.property
     @pulumi.getter
-    def conditions(self) -> pulumi.Input[Sequence[pulumi.Input['AgentFlowDefinitionNodeConfigurationConditionConditionArgs']]]:
+    def conditions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AgentFlowDefinitionNodeConfigurationConditionConditionArgs']]]]:
         return pulumi.get(self, "conditions")
 
     @conditions.setter
-    def conditions(self, value: pulumi.Input[Sequence[pulumi.Input['AgentFlowDefinitionNodeConfigurationConditionConditionArgs']]]):
+    def conditions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AgentFlowDefinitionNodeConfigurationConditionConditionArgs']]]]):
         pulumi.set(self, "conditions", value)
 
 
@@ -5714,11 +5715,11 @@ class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplat
 
 if not MYPY:
     class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatArgsDict(TypedDict):
-        input_variables: NotRequired[pulumi.Input[Sequence[pulumi.Input['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatInputVariableArgsDict']]]]
-        messages: NotRequired[pulumi.Input[Sequence[pulumi.Input['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageArgsDict']]]]
+        messages: pulumi.Input[Sequence[pulumi.Input['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageArgsDict']]]
         """
         A list of messages in the chat for the prompt. See Message for more information.
         """
+        input_variables: NotRequired[pulumi.Input[Sequence[pulumi.Input['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatInputVariableArgsDict']]]]
         systems: NotRequired[pulumi.Input[Sequence[pulumi.Input['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemArgsDict']]]]
         """
         A list of system prompts to provide context to the model or to describe how it should behave. See System for more information.
@@ -5733,8 +5734,8 @@ elif False:
 @pulumi.input_type
 class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatArgs:
     def __init__(__self__, *,
+                 messages: pulumi.Input[Sequence[pulumi.Input['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageArgs']]],
                  input_variables: Optional[pulumi.Input[Sequence[pulumi.Input['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatInputVariableArgs']]]] = None,
-                 messages: Optional[pulumi.Input[Sequence[pulumi.Input['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageArgs']]]] = None,
                  systems: Optional[pulumi.Input[Sequence[pulumi.Input['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemArgs']]]] = None,
                  tool_configuration: Optional[pulumi.Input['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationArgs']] = None):
         """
@@ -5742,14 +5743,25 @@ class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplat
         :param pulumi.Input[Sequence[pulumi.Input['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatSystemArgs']]] systems: A list of system prompts to provide context to the model or to describe how it should behave. See System for more information.
         :param pulumi.Input['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatToolConfigurationArgs'] tool_configuration: Configuration information for the tools that the model can use when generating a response. See Tool Configuration for more information.
         """
+        pulumi.set(__self__, "messages", messages)
         if input_variables is not None:
             pulumi.set(__self__, "input_variables", input_variables)
-        if messages is not None:
-            pulumi.set(__self__, "messages", messages)
         if systems is not None:
             pulumi.set(__self__, "systems", systems)
         if tool_configuration is not None:
             pulumi.set(__self__, "tool_configuration", tool_configuration)
+
+    @_builtins.property
+    @pulumi.getter
+    def messages(self) -> pulumi.Input[Sequence[pulumi.Input['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageArgs']]]:
+        """
+        A list of messages in the chat for the prompt. See Message for more information.
+        """
+        return pulumi.get(self, "messages")
+
+    @messages.setter
+    def messages(self, value: pulumi.Input[Sequence[pulumi.Input['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageArgs']]]):
+        pulumi.set(self, "messages", value)
 
     @_builtins.property
     @pulumi.getter(name="inputVariables")
@@ -5759,18 +5771,6 @@ class AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplat
     @input_variables.setter
     def input_variables(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatInputVariableArgs']]]]):
         pulumi.set(self, "input_variables", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def messages(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageArgs']]]]:
-        """
-        A list of messages in the chat for the prompt. See Message for more information.
-        """
-        return pulumi.get(self, "messages")
-
-    @messages.setter
-    def messages(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationInlineTemplateConfigurationChatMessageArgs']]]]):
-        pulumi.set(self, "messages", value)
 
     @_builtins.property
     @pulumi.getter
@@ -7036,17 +7036,17 @@ class AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationA
 
 if not MYPY:
     class AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationArgsDict(TypedDict):
-        query_engine_configuration: NotRequired[pulumi.Input['AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationArgsDict']]
+        query_engine_configuration: pulumi.Input['AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationArgsDict']
         """
         Configurations for an Amazon Redshift query engine. See `query_engine_configuration` block for details.
+        """
+        storage_configuration: pulumi.Input['AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationArgsDict']
+        """
+        Configurations for Amazon Redshift database storage. See `storage_configuration` block for details.
         """
         query_generation_configuration: NotRequired[pulumi.Input['AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationArgsDict']]
         """
         Configurations for generating queries. See `query_generation_configuration` block for details.
-        """
-        storage_configuration: NotRequired[pulumi.Input['AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationArgsDict']]
-        """
-        Configurations for Amazon Redshift database storage. See `storage_configuration` block for details.
         """
 elif False:
     AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationArgsDict: TypeAlias = Mapping[str, Any]
@@ -7054,32 +7054,42 @@ elif False:
 @pulumi.input_type
 class AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationArgs:
     def __init__(__self__, *,
-                 query_engine_configuration: Optional[pulumi.Input['AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationArgs']] = None,
-                 query_generation_configuration: Optional[pulumi.Input['AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationArgs']] = None,
-                 storage_configuration: Optional[pulumi.Input['AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationArgs']] = None):
+                 query_engine_configuration: pulumi.Input['AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationArgs'],
+                 storage_configuration: pulumi.Input['AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationArgs'],
+                 query_generation_configuration: Optional[pulumi.Input['AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationArgs']] = None):
         """
         :param pulumi.Input['AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationArgs'] query_engine_configuration: Configurations for an Amazon Redshift query engine. See `query_engine_configuration` block for details.
-        :param pulumi.Input['AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationArgs'] query_generation_configuration: Configurations for generating queries. See `query_generation_configuration` block for details.
         :param pulumi.Input['AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationArgs'] storage_configuration: Configurations for Amazon Redshift database storage. See `storage_configuration` block for details.
+        :param pulumi.Input['AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationArgs'] query_generation_configuration: Configurations for generating queries. See `query_generation_configuration` block for details.
         """
-        if query_engine_configuration is not None:
-            pulumi.set(__self__, "query_engine_configuration", query_engine_configuration)
+        pulumi.set(__self__, "query_engine_configuration", query_engine_configuration)
+        pulumi.set(__self__, "storage_configuration", storage_configuration)
         if query_generation_configuration is not None:
             pulumi.set(__self__, "query_generation_configuration", query_generation_configuration)
-        if storage_configuration is not None:
-            pulumi.set(__self__, "storage_configuration", storage_configuration)
 
     @_builtins.property
     @pulumi.getter(name="queryEngineConfiguration")
-    def query_engine_configuration(self) -> Optional[pulumi.Input['AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationArgs']]:
+    def query_engine_configuration(self) -> pulumi.Input['AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationArgs']:
         """
         Configurations for an Amazon Redshift query engine. See `query_engine_configuration` block for details.
         """
         return pulumi.get(self, "query_engine_configuration")
 
     @query_engine_configuration.setter
-    def query_engine_configuration(self, value: Optional[pulumi.Input['AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationArgs']]):
+    def query_engine_configuration(self, value: pulumi.Input['AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationArgs']):
         pulumi.set(self, "query_engine_configuration", value)
+
+    @_builtins.property
+    @pulumi.getter(name="storageConfiguration")
+    def storage_configuration(self) -> pulumi.Input['AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationArgs']:
+        """
+        Configurations for Amazon Redshift database storage. See `storage_configuration` block for details.
+        """
+        return pulumi.get(self, "storage_configuration")
+
+    @storage_configuration.setter
+    def storage_configuration(self, value: pulumi.Input['AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationArgs']):
+        pulumi.set(self, "storage_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="queryGenerationConfiguration")
@@ -7092,18 +7102,6 @@ class AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationR
     @query_generation_configuration.setter
     def query_generation_configuration(self, value: Optional[pulumi.Input['AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationArgs']]):
         pulumi.set(self, "query_generation_configuration", value)
-
-    @_builtins.property
-    @pulumi.getter(name="storageConfiguration")
-    def storage_configuration(self) -> Optional[pulumi.Input['AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationArgs']]:
-        """
-        Configurations for Amazon Redshift database storage. See `storage_configuration` block for details.
-        """
-        return pulumi.get(self, "storage_configuration")
-
-    @storage_configuration.setter
-    def storage_configuration(self, value: Optional[pulumi.Input['AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationArgs']]):
-        pulumi.set(self, "storage_configuration", value)
 
 
 if not MYPY:
@@ -7179,13 +7177,13 @@ class AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationR
 
 if not MYPY:
     class AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationArgsDict(TypedDict):
+        auth_configuration: pulumi.Input['AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationAuthConfigurationArgsDict']
+        """
+        Configurations for authentication to Amazon Redshift. See `auth_configuration` block for details.
+        """
         cluster_identifier: pulumi.Input[_builtins.str]
         """
         ID of the Amazon Redshift cluster.
-        """
-        auth_configuration: NotRequired[pulumi.Input['AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationAuthConfigurationArgsDict']]
-        """
-        Configurations for authentication to Amazon Redshift. See `auth_configuration` block for details.
         """
 elif False:
     AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationArgsDict: TypeAlias = Mapping[str, Any]
@@ -7193,15 +7191,26 @@ elif False:
 @pulumi.input_type
 class AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationArgs:
     def __init__(__self__, *,
-                 cluster_identifier: pulumi.Input[_builtins.str],
-                 auth_configuration: Optional[pulumi.Input['AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationAuthConfigurationArgs']] = None):
+                 auth_configuration: pulumi.Input['AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationAuthConfigurationArgs'],
+                 cluster_identifier: pulumi.Input[_builtins.str]):
         """
-        :param pulumi.Input[_builtins.str] cluster_identifier: ID of the Amazon Redshift cluster.
         :param pulumi.Input['AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationAuthConfigurationArgs'] auth_configuration: Configurations for authentication to Amazon Redshift. See `auth_configuration` block for details.
+        :param pulumi.Input[_builtins.str] cluster_identifier: ID of the Amazon Redshift cluster.
         """
+        pulumi.set(__self__, "auth_configuration", auth_configuration)
         pulumi.set(__self__, "cluster_identifier", cluster_identifier)
-        if auth_configuration is not None:
-            pulumi.set(__self__, "auth_configuration", auth_configuration)
+
+    @_builtins.property
+    @pulumi.getter(name="authConfiguration")
+    def auth_configuration(self) -> pulumi.Input['AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationAuthConfigurationArgs']:
+        """
+        Configurations for authentication to Amazon Redshift. See `auth_configuration` block for details.
+        """
+        return pulumi.get(self, "auth_configuration")
+
+    @auth_configuration.setter
+    def auth_configuration(self, value: pulumi.Input['AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationAuthConfigurationArgs']):
+        pulumi.set(self, "auth_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="clusterIdentifier")
@@ -7214,18 +7223,6 @@ class AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationR
     @cluster_identifier.setter
     def cluster_identifier(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "cluster_identifier", value)
-
-    @_builtins.property
-    @pulumi.getter(name="authConfiguration")
-    def auth_configuration(self) -> Optional[pulumi.Input['AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationAuthConfigurationArgs']]:
-        """
-        Configurations for authentication to Amazon Redshift. See `auth_configuration` block for details.
-        """
-        return pulumi.get(self, "auth_configuration")
-
-    @auth_configuration.setter
-    def auth_configuration(self, value: Optional[pulumi.Input['AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationAuthConfigurationArgs']]):
-        pulumi.set(self, "auth_configuration", value)
 
 
 if not MYPY:
@@ -7301,13 +7298,13 @@ class AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationR
 
 if not MYPY:
     class AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationArgsDict(TypedDict):
+        auth_configuration: pulumi.Input['AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationAuthConfigurationArgsDict']
+        """
+        Configurations for authentication to a Redshift Serverless. See `auth_configuration` block for details.
+        """
         workgroup_arn: pulumi.Input[_builtins.str]
         """
         ARN of the Amazon Redshift workgroup.
-        """
-        auth_configuration: NotRequired[pulumi.Input['AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationAuthConfigurationArgsDict']]
-        """
-        Configurations for authentication to a Redshift Serverless. See `auth_configuration` block for details.
         """
 elif False:
     AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationArgsDict: TypeAlias = Mapping[str, Any]
@@ -7315,15 +7312,26 @@ elif False:
 @pulumi.input_type
 class AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationArgs:
     def __init__(__self__, *,
-                 workgroup_arn: pulumi.Input[_builtins.str],
-                 auth_configuration: Optional[pulumi.Input['AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationAuthConfigurationArgs']] = None):
+                 auth_configuration: pulumi.Input['AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationAuthConfigurationArgs'],
+                 workgroup_arn: pulumi.Input[_builtins.str]):
         """
-        :param pulumi.Input[_builtins.str] workgroup_arn: ARN of the Amazon Redshift workgroup.
         :param pulumi.Input['AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationAuthConfigurationArgs'] auth_configuration: Configurations for authentication to a Redshift Serverless. See `auth_configuration` block for details.
+        :param pulumi.Input[_builtins.str] workgroup_arn: ARN of the Amazon Redshift workgroup.
         """
+        pulumi.set(__self__, "auth_configuration", auth_configuration)
         pulumi.set(__self__, "workgroup_arn", workgroup_arn)
-        if auth_configuration is not None:
-            pulumi.set(__self__, "auth_configuration", auth_configuration)
+
+    @_builtins.property
+    @pulumi.getter(name="authConfiguration")
+    def auth_configuration(self) -> pulumi.Input['AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationAuthConfigurationArgs']:
+        """
+        Configurations for authentication to a Redshift Serverless. See `auth_configuration` block for details.
+        """
+        return pulumi.get(self, "auth_configuration")
+
+    @auth_configuration.setter
+    def auth_configuration(self, value: pulumi.Input['AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationAuthConfigurationArgs']):
+        pulumi.set(self, "auth_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="workgroupArn")
@@ -7336,18 +7344,6 @@ class AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationR
     @workgroup_arn.setter
     def workgroup_arn(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "workgroup_arn", value)
-
-    @_builtins.property
-    @pulumi.getter(name="authConfiguration")
-    def auth_configuration(self) -> Optional[pulumi.Input['AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationAuthConfigurationArgs']]:
-        """
-        Configurations for authentication to a Redshift Serverless. See `auth_configuration` block for details.
-        """
-        return pulumi.get(self, "auth_configuration")
-
-    @auth_configuration.setter
-    def auth_configuration(self, value: Optional[pulumi.Input['AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationAuthConfigurationArgs']]):
-        pulumi.set(self, "auth_configuration", value)
 
 
 if not MYPY:
@@ -8008,7 +8004,7 @@ class AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurati
 
 if not MYPY:
     class AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationArgsDict(TypedDict):
-        storage_locations: NotRequired[pulumi.Input[Sequence[pulumi.Input['AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationArgsDict']]]]
+        storage_locations: pulumi.Input[Sequence[pulumi.Input['AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationArgsDict']]]
         """
         A storage location specification for images extracted from multimodal documents in your data source.  See `storage_location` block for details.
         """
@@ -8018,23 +8014,22 @@ elif False:
 @pulumi.input_type
 class AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationArgs:
     def __init__(__self__, *,
-                 storage_locations: Optional[pulumi.Input[Sequence[pulumi.Input['AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationArgs']]]] = None):
+                 storage_locations: pulumi.Input[Sequence[pulumi.Input['AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationArgs']]]):
         """
         :param pulumi.Input[Sequence[pulumi.Input['AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationArgs']]] storage_locations: A storage location specification for images extracted from multimodal documents in your data source.  See `storage_location` block for details.
         """
-        if storage_locations is not None:
-            pulumi.set(__self__, "storage_locations", storage_locations)
+        pulumi.set(__self__, "storage_locations", storage_locations)
 
     @_builtins.property
     @pulumi.getter(name="storageLocations")
-    def storage_locations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationArgs']]]]:
+    def storage_locations(self) -> pulumi.Input[Sequence[pulumi.Input['AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationArgs']]]:
         """
         A storage location specification for images extracted from multimodal documents in your data source.  See `storage_location` block for details.
         """
         return pulumi.get(self, "storage_locations")
 
     @storage_locations.setter
-    def storage_locations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationArgs']]]]):
+    def storage_locations(self, value: pulumi.Input[Sequence[pulumi.Input['AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationArgs']]]):
         pulumi.set(self, "storage_locations", value)
 
 
@@ -8329,6 +8324,10 @@ if not MYPY:
         """
         The endpoint URL of the MongoDB Atlas database.
         """
+        field_mapping: pulumi.Input['AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationFieldMappingArgsDict']
+        """
+        Contains the names of the fields to which to map information about the vector store.
+        """
         vector_index_name: pulumi.Input[_builtins.str]
         """
         The name of the vector index.
@@ -8336,10 +8335,6 @@ if not MYPY:
         endpoint_service_name: NotRequired[pulumi.Input[_builtins.str]]
         """
         The name of the service that hosts the MongoDB Atlas database.
-        """
-        field_mapping: NotRequired[pulumi.Input['AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationFieldMappingArgsDict']]
-        """
-        Contains the names of the fields to which to map information about the vector store.
         """
         text_index_name: NotRequired[pulumi.Input[_builtins.str]]
         """
@@ -8355,29 +8350,28 @@ class AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationArgs:
                  credentials_secret_arn: pulumi.Input[_builtins.str],
                  database_name: pulumi.Input[_builtins.str],
                  endpoint: pulumi.Input[_builtins.str],
+                 field_mapping: pulumi.Input['AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationFieldMappingArgs'],
                  vector_index_name: pulumi.Input[_builtins.str],
                  endpoint_service_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 field_mapping: Optional[pulumi.Input['AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationFieldMappingArgs']] = None,
                  text_index_name: Optional[pulumi.Input[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] collection_name: The name of the collection in the MongoDB Atlas database.
         :param pulumi.Input[_builtins.str] credentials_secret_arn: The ARN of the secret that you created in AWS Secrets Manager that is linked to your MongoDB Atlas database.
         :param pulumi.Input[_builtins.str] database_name: The name of the database in the MongoDB Atlas database.
         :param pulumi.Input[_builtins.str] endpoint: The endpoint URL of the MongoDB Atlas database.
+        :param pulumi.Input['AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationFieldMappingArgs'] field_mapping: Contains the names of the fields to which to map information about the vector store.
         :param pulumi.Input[_builtins.str] vector_index_name: The name of the vector index.
         :param pulumi.Input[_builtins.str] endpoint_service_name: The name of the service that hosts the MongoDB Atlas database.
-        :param pulumi.Input['AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationFieldMappingArgs'] field_mapping: Contains the names of the fields to which to map information about the vector store.
         :param pulumi.Input[_builtins.str] text_index_name: The name of the vector index.
         """
         pulumi.set(__self__, "collection_name", collection_name)
         pulumi.set(__self__, "credentials_secret_arn", credentials_secret_arn)
         pulumi.set(__self__, "database_name", database_name)
         pulumi.set(__self__, "endpoint", endpoint)
+        pulumi.set(__self__, "field_mapping", field_mapping)
         pulumi.set(__self__, "vector_index_name", vector_index_name)
         if endpoint_service_name is not None:
             pulumi.set(__self__, "endpoint_service_name", endpoint_service_name)
-        if field_mapping is not None:
-            pulumi.set(__self__, "field_mapping", field_mapping)
         if text_index_name is not None:
             pulumi.set(__self__, "text_index_name", text_index_name)
 
@@ -8430,6 +8424,18 @@ class AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationArgs:
         pulumi.set(self, "endpoint", value)
 
     @_builtins.property
+    @pulumi.getter(name="fieldMapping")
+    def field_mapping(self) -> pulumi.Input['AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationFieldMappingArgs']:
+        """
+        Contains the names of the fields to which to map information about the vector store.
+        """
+        return pulumi.get(self, "field_mapping")
+
+    @field_mapping.setter
+    def field_mapping(self, value: pulumi.Input['AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationFieldMappingArgs']):
+        pulumi.set(self, "field_mapping", value)
+
+    @_builtins.property
     @pulumi.getter(name="vectorIndexName")
     def vector_index_name(self) -> pulumi.Input[_builtins.str]:
         """
@@ -8452,18 +8458,6 @@ class AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationArgs:
     @endpoint_service_name.setter
     def endpoint_service_name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "endpoint_service_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="fieldMapping")
-    def field_mapping(self) -> Optional[pulumi.Input['AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationFieldMappingArgs']]:
-        """
-        Contains the names of the fields to which to map information about the vector store.
-        """
-        return pulumi.get(self, "field_mapping")
-
-    @field_mapping.setter
-    def field_mapping(self, value: Optional[pulumi.Input['AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationFieldMappingArgs']]):
-        pulumi.set(self, "field_mapping", value)
 
     @_builtins.property
     @pulumi.getter(name="textIndexName")
@@ -8549,13 +8543,13 @@ class AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationFieldMappin
 
 if not MYPY:
     class AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationArgsDict(TypedDict):
+        field_mapping: pulumi.Input['AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationFieldMappingArgsDict']
+        """
+        The names of the fields to which to map information about the vector store. This block supports the following arguments:
+        """
         graph_arn: pulumi.Input[_builtins.str]
         """
         ARN of the Neptune Analytics vector store.
-        """
-        field_mapping: NotRequired[pulumi.Input['AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationFieldMappingArgsDict']]
-        """
-        The names of the fields to which to map information about the vector store. This block supports the following arguments:
         """
 elif False:
     AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationArgsDict: TypeAlias = Mapping[str, Any]
@@ -8563,15 +8557,26 @@ elif False:
 @pulumi.input_type
 class AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationArgs:
     def __init__(__self__, *,
-                 graph_arn: pulumi.Input[_builtins.str],
-                 field_mapping: Optional[pulumi.Input['AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationFieldMappingArgs']] = None):
+                 field_mapping: pulumi.Input['AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationFieldMappingArgs'],
+                 graph_arn: pulumi.Input[_builtins.str]):
         """
-        :param pulumi.Input[_builtins.str] graph_arn: ARN of the Neptune Analytics vector store.
         :param pulumi.Input['AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationFieldMappingArgs'] field_mapping: The names of the fields to which to map information about the vector store. This block supports the following arguments:
+        :param pulumi.Input[_builtins.str] graph_arn: ARN of the Neptune Analytics vector store.
         """
+        pulumi.set(__self__, "field_mapping", field_mapping)
         pulumi.set(__self__, "graph_arn", graph_arn)
-        if field_mapping is not None:
-            pulumi.set(__self__, "field_mapping", field_mapping)
+
+    @_builtins.property
+    @pulumi.getter(name="fieldMapping")
+    def field_mapping(self) -> pulumi.Input['AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationFieldMappingArgs']:
+        """
+        The names of the fields to which to map information about the vector store. This block supports the following arguments:
+        """
+        return pulumi.get(self, "field_mapping")
+
+    @field_mapping.setter
+    def field_mapping(self, value: pulumi.Input['AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationFieldMappingArgs']):
+        pulumi.set(self, "field_mapping", value)
 
     @_builtins.property
     @pulumi.getter(name="graphArn")
@@ -8584,18 +8589,6 @@ class AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationArgs:
     @graph_arn.setter
     def graph_arn(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "graph_arn", value)
-
-    @_builtins.property
-    @pulumi.getter(name="fieldMapping")
-    def field_mapping(self) -> Optional[pulumi.Input['AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationFieldMappingArgs']]:
-        """
-        The names of the fields to which to map information about the vector store. This block supports the following arguments:
-        """
-        return pulumi.get(self, "field_mapping")
-
-    @field_mapping.setter
-    def field_mapping(self, value: Optional[pulumi.Input['AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationFieldMappingArgs']]):
-        pulumi.set(self, "field_mapping", value)
 
 
 if not MYPY:
@@ -8658,13 +8651,13 @@ if not MYPY:
         """
         Endpoint URL of the OpenSearch domain.
         """
+        field_mapping: pulumi.Input['AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationFieldMappingArgsDict']
+        """
+        The names of the fields to which to map information about the vector store. This block supports the following arguments:
+        """
         vector_index_name: pulumi.Input[_builtins.str]
         """
         Name of the vector store.
-        """
-        field_mapping: NotRequired[pulumi.Input['AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationFieldMappingArgsDict']]
-        """
-        The names of the fields to which to map information about the vector store. This block supports the following arguments:
         """
 elif False:
     AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationArgsDict: TypeAlias = Mapping[str, Any]
@@ -8674,19 +8667,18 @@ class AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfiguratio
     def __init__(__self__, *,
                  domain_arn: pulumi.Input[_builtins.str],
                  domain_endpoint: pulumi.Input[_builtins.str],
-                 vector_index_name: pulumi.Input[_builtins.str],
-                 field_mapping: Optional[pulumi.Input['AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationFieldMappingArgs']] = None):
+                 field_mapping: pulumi.Input['AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationFieldMappingArgs'],
+                 vector_index_name: pulumi.Input[_builtins.str]):
         """
         :param pulumi.Input[_builtins.str] domain_arn: ARN of the OpenSearch domain.
         :param pulumi.Input[_builtins.str] domain_endpoint: Endpoint URL of the OpenSearch domain.
-        :param pulumi.Input[_builtins.str] vector_index_name: Name of the vector store.
         :param pulumi.Input['AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationFieldMappingArgs'] field_mapping: The names of the fields to which to map information about the vector store. This block supports the following arguments:
+        :param pulumi.Input[_builtins.str] vector_index_name: Name of the vector store.
         """
         pulumi.set(__self__, "domain_arn", domain_arn)
         pulumi.set(__self__, "domain_endpoint", domain_endpoint)
+        pulumi.set(__self__, "field_mapping", field_mapping)
         pulumi.set(__self__, "vector_index_name", vector_index_name)
-        if field_mapping is not None:
-            pulumi.set(__self__, "field_mapping", field_mapping)
 
     @_builtins.property
     @pulumi.getter(name="domainArn")
@@ -8713,6 +8705,18 @@ class AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfiguratio
         pulumi.set(self, "domain_endpoint", value)
 
     @_builtins.property
+    @pulumi.getter(name="fieldMapping")
+    def field_mapping(self) -> pulumi.Input['AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationFieldMappingArgs']:
+        """
+        The names of the fields to which to map information about the vector store. This block supports the following arguments:
+        """
+        return pulumi.get(self, "field_mapping")
+
+    @field_mapping.setter
+    def field_mapping(self, value: pulumi.Input['AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationFieldMappingArgs']):
+        pulumi.set(self, "field_mapping", value)
+
+    @_builtins.property
     @pulumi.getter(name="vectorIndexName")
     def vector_index_name(self) -> pulumi.Input[_builtins.str]:
         """
@@ -8723,18 +8727,6 @@ class AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfiguratio
     @vector_index_name.setter
     def vector_index_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "vector_index_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="fieldMapping")
-    def field_mapping(self) -> Optional[pulumi.Input['AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationFieldMappingArgs']]:
-        """
-        The names of the fields to which to map information about the vector store. This block supports the following arguments:
-        """
-        return pulumi.get(self, "field_mapping")
-
-    @field_mapping.setter
-    def field_mapping(self, value: Optional[pulumi.Input['AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationFieldMappingArgs']]):
-        pulumi.set(self, "field_mapping", value)
 
 
 if not MYPY:
@@ -8812,13 +8804,13 @@ if not MYPY:
         """
         ARN of the OpenSearch Service vector store.
         """
+        field_mapping: pulumi.Input['AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMappingArgsDict']
+        """
+        The names of the fields to which to map information about the vector store. This block supports the following arguments:
+        """
         vector_index_name: pulumi.Input[_builtins.str]
         """
         Name of the vector store.
-        """
-        field_mapping: NotRequired[pulumi.Input['AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMappingArgsDict']]
-        """
-        The names of the fields to which to map information about the vector store. This block supports the following arguments:
         """
 elif False:
     AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationArgsDict: TypeAlias = Mapping[str, Any]
@@ -8827,17 +8819,16 @@ elif False:
 class AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationArgs:
     def __init__(__self__, *,
                  collection_arn: pulumi.Input[_builtins.str],
-                 vector_index_name: pulumi.Input[_builtins.str],
-                 field_mapping: Optional[pulumi.Input['AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMappingArgs']] = None):
+                 field_mapping: pulumi.Input['AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMappingArgs'],
+                 vector_index_name: pulumi.Input[_builtins.str]):
         """
         :param pulumi.Input[_builtins.str] collection_arn: ARN of the OpenSearch Service vector store.
-        :param pulumi.Input[_builtins.str] vector_index_name: Name of the vector store.
         :param pulumi.Input['AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMappingArgs'] field_mapping: The names of the fields to which to map information about the vector store. This block supports the following arguments:
+        :param pulumi.Input[_builtins.str] vector_index_name: Name of the vector store.
         """
         pulumi.set(__self__, "collection_arn", collection_arn)
+        pulumi.set(__self__, "field_mapping", field_mapping)
         pulumi.set(__self__, "vector_index_name", vector_index_name)
-        if field_mapping is not None:
-            pulumi.set(__self__, "field_mapping", field_mapping)
 
     @_builtins.property
     @pulumi.getter(name="collectionArn")
@@ -8852,6 +8843,18 @@ class AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationArg
         pulumi.set(self, "collection_arn", value)
 
     @_builtins.property
+    @pulumi.getter(name="fieldMapping")
+    def field_mapping(self) -> pulumi.Input['AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMappingArgs']:
+        """
+        The names of the fields to which to map information about the vector store. This block supports the following arguments:
+        """
+        return pulumi.get(self, "field_mapping")
+
+    @field_mapping.setter
+    def field_mapping(self, value: pulumi.Input['AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMappingArgs']):
+        pulumi.set(self, "field_mapping", value)
+
+    @_builtins.property
     @pulumi.getter(name="vectorIndexName")
     def vector_index_name(self) -> pulumi.Input[_builtins.str]:
         """
@@ -8862,18 +8865,6 @@ class AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationArg
     @vector_index_name.setter
     def vector_index_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "vector_index_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="fieldMapping")
-    def field_mapping(self) -> Optional[pulumi.Input['AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMappingArgs']]:
-        """
-        The names of the fields to which to map information about the vector store. This block supports the following arguments:
-        """
-        return pulumi.get(self, "field_mapping")
-
-    @field_mapping.setter
-    def field_mapping(self, value: Optional[pulumi.Input['AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMappingArgs']]):
-        pulumi.set(self, "field_mapping", value)
 
 
 if not MYPY:
@@ -8955,7 +8946,7 @@ if not MYPY:
         """
         ARN of the secret that you created in AWS Secrets Manager that is linked to your Pinecone API key.
         """
-        field_mapping: NotRequired[pulumi.Input['AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMappingArgsDict']]
+        field_mapping: pulumi.Input['AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMappingArgsDict']
         """
         The names of the fields to which to map information about the vector store. This block supports the following arguments:
         """
@@ -8971,7 +8962,7 @@ class AgentKnowledgeBaseStorageConfigurationPineconeConfigurationArgs:
     def __init__(__self__, *,
                  connection_string: pulumi.Input[_builtins.str],
                  credentials_secret_arn: pulumi.Input[_builtins.str],
-                 field_mapping: Optional[pulumi.Input['AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMappingArgs']] = None,
+                 field_mapping: pulumi.Input['AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMappingArgs'],
                  namespace: Optional[pulumi.Input[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] connection_string: Endpoint URL for your index management page.
@@ -8981,8 +8972,7 @@ class AgentKnowledgeBaseStorageConfigurationPineconeConfigurationArgs:
         """
         pulumi.set(__self__, "connection_string", connection_string)
         pulumi.set(__self__, "credentials_secret_arn", credentials_secret_arn)
-        if field_mapping is not None:
-            pulumi.set(__self__, "field_mapping", field_mapping)
+        pulumi.set(__self__, "field_mapping", field_mapping)
         if namespace is not None:
             pulumi.set(__self__, "namespace", namespace)
 
@@ -9012,14 +9002,14 @@ class AgentKnowledgeBaseStorageConfigurationPineconeConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="fieldMapping")
-    def field_mapping(self) -> Optional[pulumi.Input['AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMappingArgs']]:
+    def field_mapping(self) -> pulumi.Input['AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMappingArgs']:
         """
         The names of the fields to which to map information about the vector store. This block supports the following arguments:
         """
         return pulumi.get(self, "field_mapping")
 
     @field_mapping.setter
-    def field_mapping(self, value: Optional[pulumi.Input['AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMappingArgs']]):
+    def field_mapping(self, value: pulumi.Input['AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMappingArgs']):
         pulumi.set(self, "field_mapping", value)
 
     @_builtins.property
@@ -9095,6 +9085,10 @@ if not MYPY:
         """
         Name of your Amazon RDS database.
         """
+        field_mapping: pulumi.Input['AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMappingArgsDict']
+        """
+        Names of the fields to which to map information about the vector store. This block supports the following arguments:
+        """
         resource_arn: pulumi.Input[_builtins.str]
         """
         ARN of the vector store.
@@ -9102,10 +9096,6 @@ if not MYPY:
         table_name: pulumi.Input[_builtins.str]
         """
         Name of the table in the database.
-        """
-        field_mapping: NotRequired[pulumi.Input['AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMappingArgsDict']]
-        """
-        Names of the fields to which to map information about the vector store. This block supports the following arguments:
         """
 elif False:
     AgentKnowledgeBaseStorageConfigurationRdsConfigurationArgsDict: TypeAlias = Mapping[str, Any]
@@ -9115,22 +9105,21 @@ class AgentKnowledgeBaseStorageConfigurationRdsConfigurationArgs:
     def __init__(__self__, *,
                  credentials_secret_arn: pulumi.Input[_builtins.str],
                  database_name: pulumi.Input[_builtins.str],
+                 field_mapping: pulumi.Input['AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMappingArgs'],
                  resource_arn: pulumi.Input[_builtins.str],
-                 table_name: pulumi.Input[_builtins.str],
-                 field_mapping: Optional[pulumi.Input['AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMappingArgs']] = None):
+                 table_name: pulumi.Input[_builtins.str]):
         """
         :param pulumi.Input[_builtins.str] credentials_secret_arn: ARN of the secret that you created in AWS Secrets Manager that is linked to your Amazon RDS database.
         :param pulumi.Input[_builtins.str] database_name: Name of your Amazon RDS database.
+        :param pulumi.Input['AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMappingArgs'] field_mapping: Names of the fields to which to map information about the vector store. This block supports the following arguments:
         :param pulumi.Input[_builtins.str] resource_arn: ARN of the vector store.
         :param pulumi.Input[_builtins.str] table_name: Name of the table in the database.
-        :param pulumi.Input['AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMappingArgs'] field_mapping: Names of the fields to which to map information about the vector store. This block supports the following arguments:
         """
         pulumi.set(__self__, "credentials_secret_arn", credentials_secret_arn)
         pulumi.set(__self__, "database_name", database_name)
+        pulumi.set(__self__, "field_mapping", field_mapping)
         pulumi.set(__self__, "resource_arn", resource_arn)
         pulumi.set(__self__, "table_name", table_name)
-        if field_mapping is not None:
-            pulumi.set(__self__, "field_mapping", field_mapping)
 
     @_builtins.property
     @pulumi.getter(name="credentialsSecretArn")
@@ -9157,6 +9146,18 @@ class AgentKnowledgeBaseStorageConfigurationRdsConfigurationArgs:
         pulumi.set(self, "database_name", value)
 
     @_builtins.property
+    @pulumi.getter(name="fieldMapping")
+    def field_mapping(self) -> pulumi.Input['AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMappingArgs']:
+        """
+        Names of the fields to which to map information about the vector store. This block supports the following arguments:
+        """
+        return pulumi.get(self, "field_mapping")
+
+    @field_mapping.setter
+    def field_mapping(self, value: pulumi.Input['AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMappingArgs']):
+        pulumi.set(self, "field_mapping", value)
+
+    @_builtins.property
     @pulumi.getter(name="resourceArn")
     def resource_arn(self) -> pulumi.Input[_builtins.str]:
         """
@@ -9179,18 +9180,6 @@ class AgentKnowledgeBaseStorageConfigurationRdsConfigurationArgs:
     @table_name.setter
     def table_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "table_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="fieldMapping")
-    def field_mapping(self) -> Optional[pulumi.Input['AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMappingArgs']]:
-        """
-        Names of the fields to which to map information about the vector store. This block supports the following arguments:
-        """
-        return pulumi.get(self, "field_mapping")
-
-    @field_mapping.setter
-    def field_mapping(self, value: Optional[pulumi.Input['AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMappingArgs']]):
-        pulumi.set(self, "field_mapping", value)
 
 
 if not MYPY:
@@ -9311,13 +9300,13 @@ if not MYPY:
         """
         Endpoint URL of the Redis Enterprise Cloud database.
         """
+        field_mapping: pulumi.Input['AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMappingArgsDict']
+        """
+        The names of the fields to which to map information about the vector store. This block supports the following arguments:
+        """
         vector_index_name: pulumi.Input[_builtins.str]
         """
         Name of the vector index.
-        """
-        field_mapping: NotRequired[pulumi.Input['AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMappingArgsDict']]
-        """
-        The names of the fields to which to map information about the vector store. This block supports the following arguments:
         """
 elif False:
     AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationArgsDict: TypeAlias = Mapping[str, Any]
@@ -9327,19 +9316,18 @@ class AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationArg
     def __init__(__self__, *,
                  credentials_secret_arn: pulumi.Input[_builtins.str],
                  endpoint: pulumi.Input[_builtins.str],
-                 vector_index_name: pulumi.Input[_builtins.str],
-                 field_mapping: Optional[pulumi.Input['AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMappingArgs']] = None):
+                 field_mapping: pulumi.Input['AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMappingArgs'],
+                 vector_index_name: pulumi.Input[_builtins.str]):
         """
         :param pulumi.Input[_builtins.str] credentials_secret_arn: ARN of the secret that you created in AWS Secrets Manager that is linked to your Redis Enterprise Cloud database.
         :param pulumi.Input[_builtins.str] endpoint: Endpoint URL of the Redis Enterprise Cloud database.
-        :param pulumi.Input[_builtins.str] vector_index_name: Name of the vector index.
         :param pulumi.Input['AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMappingArgs'] field_mapping: The names of the fields to which to map information about the vector store. This block supports the following arguments:
+        :param pulumi.Input[_builtins.str] vector_index_name: Name of the vector index.
         """
         pulumi.set(__self__, "credentials_secret_arn", credentials_secret_arn)
         pulumi.set(__self__, "endpoint", endpoint)
+        pulumi.set(__self__, "field_mapping", field_mapping)
         pulumi.set(__self__, "vector_index_name", vector_index_name)
-        if field_mapping is not None:
-            pulumi.set(__self__, "field_mapping", field_mapping)
 
     @_builtins.property
     @pulumi.getter(name="credentialsSecretArn")
@@ -9366,6 +9354,18 @@ class AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationArg
         pulumi.set(self, "endpoint", value)
 
     @_builtins.property
+    @pulumi.getter(name="fieldMapping")
+    def field_mapping(self) -> pulumi.Input['AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMappingArgs']:
+        """
+        The names of the fields to which to map information about the vector store. This block supports the following arguments:
+        """
+        return pulumi.get(self, "field_mapping")
+
+    @field_mapping.setter
+    def field_mapping(self, value: pulumi.Input['AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMappingArgs']):
+        pulumi.set(self, "field_mapping", value)
+
+    @_builtins.property
     @pulumi.getter(name="vectorIndexName")
     def vector_index_name(self) -> pulumi.Input[_builtins.str]:
         """
@@ -9376,18 +9376,6 @@ class AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationArg
     @vector_index_name.setter
     def vector_index_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "vector_index_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="fieldMapping")
-    def field_mapping(self) -> Optional[pulumi.Input['AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMappingArgs']]:
-        """
-        The names of the fields to which to map information about the vector store. This block supports the following arguments:
-        """
-        return pulumi.get(self, "field_mapping")
-
-    @field_mapping.setter
-    def field_mapping(self, value: Optional[pulumi.Input['AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMappingArgs']]):
-        pulumi.set(self, "field_mapping", value)
 
 
 if not MYPY:
@@ -10067,11 +10055,11 @@ class AgentPromptVariantTemplateConfigurationArgs:
 
 if not MYPY:
     class AgentPromptVariantTemplateConfigurationChatArgsDict(TypedDict):
-        input_variables: NotRequired[pulumi.Input[Sequence[pulumi.Input['AgentPromptVariantTemplateConfigurationChatInputVariableArgsDict']]]]
-        messages: NotRequired[pulumi.Input[Sequence[pulumi.Input['AgentPromptVariantTemplateConfigurationChatMessageArgsDict']]]]
+        messages: pulumi.Input[Sequence[pulumi.Input['AgentPromptVariantTemplateConfigurationChatMessageArgsDict']]]
         """
         A list of messages in the chat for the prompt. See Message for more information.
         """
+        input_variables: NotRequired[pulumi.Input[Sequence[pulumi.Input['AgentPromptVariantTemplateConfigurationChatInputVariableArgsDict']]]]
         systems: NotRequired[pulumi.Input[Sequence[pulumi.Input['AgentPromptVariantTemplateConfigurationChatSystemArgsDict']]]]
         """
         A list of system prompts to provide context to the model or to describe how it should behave. See System for more information.
@@ -10086,8 +10074,8 @@ elif False:
 @pulumi.input_type
 class AgentPromptVariantTemplateConfigurationChatArgs:
     def __init__(__self__, *,
+                 messages: pulumi.Input[Sequence[pulumi.Input['AgentPromptVariantTemplateConfigurationChatMessageArgs']]],
                  input_variables: Optional[pulumi.Input[Sequence[pulumi.Input['AgentPromptVariantTemplateConfigurationChatInputVariableArgs']]]] = None,
-                 messages: Optional[pulumi.Input[Sequence[pulumi.Input['AgentPromptVariantTemplateConfigurationChatMessageArgs']]]] = None,
                  systems: Optional[pulumi.Input[Sequence[pulumi.Input['AgentPromptVariantTemplateConfigurationChatSystemArgs']]]] = None,
                  tool_configuration: Optional[pulumi.Input['AgentPromptVariantTemplateConfigurationChatToolConfigurationArgs']] = None):
         """
@@ -10095,14 +10083,25 @@ class AgentPromptVariantTemplateConfigurationChatArgs:
         :param pulumi.Input[Sequence[pulumi.Input['AgentPromptVariantTemplateConfigurationChatSystemArgs']]] systems: A list of system prompts to provide context to the model or to describe how it should behave. See System for more information.
         :param pulumi.Input['AgentPromptVariantTemplateConfigurationChatToolConfigurationArgs'] tool_configuration: Configuration information for the tools that the model can use when generating a response. See Tool Configuration for more information.
         """
+        pulumi.set(__self__, "messages", messages)
         if input_variables is not None:
             pulumi.set(__self__, "input_variables", input_variables)
-        if messages is not None:
-            pulumi.set(__self__, "messages", messages)
         if systems is not None:
             pulumi.set(__self__, "systems", systems)
         if tool_configuration is not None:
             pulumi.set(__self__, "tool_configuration", tool_configuration)
+
+    @_builtins.property
+    @pulumi.getter
+    def messages(self) -> pulumi.Input[Sequence[pulumi.Input['AgentPromptVariantTemplateConfigurationChatMessageArgs']]]:
+        """
+        A list of messages in the chat for the prompt. See Message for more information.
+        """
+        return pulumi.get(self, "messages")
+
+    @messages.setter
+    def messages(self, value: pulumi.Input[Sequence[pulumi.Input['AgentPromptVariantTemplateConfigurationChatMessageArgs']]]):
+        pulumi.set(self, "messages", value)
 
     @_builtins.property
     @pulumi.getter(name="inputVariables")
@@ -10112,18 +10111,6 @@ class AgentPromptVariantTemplateConfigurationChatArgs:
     @input_variables.setter
     def input_variables(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AgentPromptVariantTemplateConfigurationChatInputVariableArgs']]]]):
         pulumi.set(self, "input_variables", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def messages(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AgentPromptVariantTemplateConfigurationChatMessageArgs']]]]:
-        """
-        A list of messages in the chat for the prompt. See Message for more information.
-        """
-        return pulumi.get(self, "messages")
-
-    @messages.setter
-    def messages(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AgentPromptVariantTemplateConfigurationChatMessageArgs']]]]):
-        pulumi.set(self, "messages", value)
 
     @_builtins.property
     @pulumi.getter
@@ -12803,7 +12790,7 @@ if not MYPY:
         """
         ARN of the Lambda function to invoke.
         """
-        tool_schema: NotRequired[pulumi.Input['AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaArgsDict']]
+        tool_schema: pulumi.Input['AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaArgsDict']
         """
         Schema definition for the tool. See `tool_schema` below.
         """
@@ -12814,14 +12801,13 @@ elif False:
 class AgentcoreGatewayTargetTargetConfigurationMcpLambdaArgs:
     def __init__(__self__, *,
                  lambda_arn: pulumi.Input[_builtins.str],
-                 tool_schema: Optional[pulumi.Input['AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaArgs']] = None):
+                 tool_schema: pulumi.Input['AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaArgs']):
         """
         :param pulumi.Input[_builtins.str] lambda_arn: ARN of the Lambda function to invoke.
         :param pulumi.Input['AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaArgs'] tool_schema: Schema definition for the tool. See `tool_schema` below.
         """
         pulumi.set(__self__, "lambda_arn", lambda_arn)
-        if tool_schema is not None:
-            pulumi.set(__self__, "tool_schema", tool_schema)
+        pulumi.set(__self__, "tool_schema", tool_schema)
 
     @_builtins.property
     @pulumi.getter(name="lambdaArn")
@@ -12837,14 +12823,14 @@ class AgentcoreGatewayTargetTargetConfigurationMcpLambdaArgs:
 
     @_builtins.property
     @pulumi.getter(name="toolSchema")
-    def tool_schema(self) -> Optional[pulumi.Input['AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaArgs']]:
+    def tool_schema(self) -> pulumi.Input['AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaArgs']:
         """
         Schema definition for the tool. See `tool_schema` below.
         """
         return pulumi.get(self, "tool_schema")
 
     @tool_schema.setter
-    def tool_schema(self, value: Optional[pulumi.Input['AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaArgs']]):
+    def tool_schema(self, value: pulumi.Input['AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaArgs']):
         pulumi.set(self, "tool_schema", value)
 
 
@@ -12906,13 +12892,13 @@ if not MYPY:
         """
         Description of what the tool does.
         """
+        input_schema: pulumi.Input['AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaArgsDict']
+        """
+        Schema for the tool's input. See `schema_definition` below.
+        """
         name: pulumi.Input[_builtins.str]
         """
         Name of the tool.
-        """
-        input_schema: NotRequired[pulumi.Input['AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaArgsDict']]
-        """
-        Schema for the tool's input. See `schema_definition` below.
         """
         output_schema: NotRequired[pulumi.Input['AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaArgsDict']]
         """
@@ -12925,19 +12911,18 @@ elif False:
 class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadArgs:
     def __init__(__self__, *,
                  description: pulumi.Input[_builtins.str],
+                 input_schema: pulumi.Input['AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaArgs'],
                  name: pulumi.Input[_builtins.str],
-                 input_schema: Optional[pulumi.Input['AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaArgs']] = None,
                  output_schema: Optional[pulumi.Input['AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaArgs']] = None):
         """
         :param pulumi.Input[_builtins.str] description: Description of what the tool does.
-        :param pulumi.Input[_builtins.str] name: Name of the tool.
         :param pulumi.Input['AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaArgs'] input_schema: Schema for the tool's input. See `schema_definition` below.
+        :param pulumi.Input[_builtins.str] name: Name of the tool.
         :param pulumi.Input['AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaArgs'] output_schema: Schema for the tool's output. See `schema_definition` below.
         """
         pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "input_schema", input_schema)
         pulumi.set(__self__, "name", name)
-        if input_schema is not None:
-            pulumi.set(__self__, "input_schema", input_schema)
         if output_schema is not None:
             pulumi.set(__self__, "output_schema", output_schema)
 
@@ -12954,6 +12939,18 @@ class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadA
         pulumi.set(self, "description", value)
 
     @_builtins.property
+    @pulumi.getter(name="inputSchema")
+    def input_schema(self) -> pulumi.Input['AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaArgs']:
+        """
+        Schema for the tool's input. See `schema_definition` below.
+        """
+        return pulumi.get(self, "input_schema")
+
+    @input_schema.setter
+    def input_schema(self, value: pulumi.Input['AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaArgs']):
+        pulumi.set(self, "input_schema", value)
+
+    @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Input[_builtins.str]:
         """
@@ -12964,18 +12961,6 @@ class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadA
     @name.setter
     def name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="inputSchema")
-    def input_schema(self) -> Optional[pulumi.Input['AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaArgs']]:
-        """
-        Schema for the tool's input. See `schema_definition` below.
-        """
-        return pulumi.get(self, "input_schema")
-
-    @input_schema.setter
-    def input_schema(self, value: Optional[pulumi.Input['AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaArgs']]):
-        pulumi.set(self, "input_schema", value)
 
     @_builtins.property
     @pulumi.getter(name="outputSchema")
@@ -17586,7 +17571,7 @@ class CustomModelTrainingMetricArgs:
 
 if not MYPY:
     class CustomModelValidationDataConfigArgsDict(TypedDict):
-        validators: NotRequired[pulumi.Input[Sequence[pulumi.Input['CustomModelValidationDataConfigValidatorArgsDict']]]]
+        validators: pulumi.Input[Sequence[pulumi.Input['CustomModelValidationDataConfigValidatorArgsDict']]]
         """
         Information about the validators.
         """
@@ -17596,23 +17581,22 @@ elif False:
 @pulumi.input_type
 class CustomModelValidationDataConfigArgs:
     def __init__(__self__, *,
-                 validators: Optional[pulumi.Input[Sequence[pulumi.Input['CustomModelValidationDataConfigValidatorArgs']]]] = None):
+                 validators: pulumi.Input[Sequence[pulumi.Input['CustomModelValidationDataConfigValidatorArgs']]]):
         """
         :param pulumi.Input[Sequence[pulumi.Input['CustomModelValidationDataConfigValidatorArgs']]] validators: Information about the validators.
         """
-        if validators is not None:
-            pulumi.set(__self__, "validators", validators)
+        pulumi.set(__self__, "validators", validators)
 
     @_builtins.property
     @pulumi.getter
-    def validators(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CustomModelValidationDataConfigValidatorArgs']]]]:
+    def validators(self) -> pulumi.Input[Sequence[pulumi.Input['CustomModelValidationDataConfigValidatorArgs']]]:
         """
         Information about the validators.
         """
         return pulumi.get(self, "validators")
 
     @validators.setter
-    def validators(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CustomModelValidationDataConfigValidatorArgs']]]]):
+    def validators(self, value: pulumi.Input[Sequence[pulumi.Input['CustomModelValidationDataConfigValidatorArgs']]]):
         pulumi.set(self, "validators", value)
 
 

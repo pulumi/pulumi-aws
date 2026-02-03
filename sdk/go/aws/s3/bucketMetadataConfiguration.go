@@ -78,7 +78,7 @@ type BucketMetadataConfiguration struct {
 	// Metadata configuration. See `metadataConfiguration` Block for details.
 	//
 	// The following arguments are optional:
-	MetadataConfiguration BucketMetadataConfigurationMetadataConfigurationPtrOutput `pulumi:"metadataConfiguration"`
+	MetadataConfiguration BucketMetadataConfigurationMetadataConfigurationOutput `pulumi:"metadataConfiguration"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region   pulumi.StringOutput                          `pulumi:"region"`
 	Timeouts BucketMetadataConfigurationTimeoutsPtrOutput `pulumi:"timeouts"`
@@ -93,6 +93,9 @@ func NewBucketMetadataConfiguration(ctx *pulumi.Context,
 
 	if args.Bucket == nil {
 		return nil, errors.New("invalid value for required argument 'Bucket'")
+	}
+	if args.MetadataConfiguration == nil {
+		return nil, errors.New("invalid value for required argument 'MetadataConfiguration'")
 	}
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource BucketMetadataConfiguration
@@ -153,7 +156,7 @@ type bucketMetadataConfigurationArgs struct {
 	// Metadata configuration. See `metadataConfiguration` Block for details.
 	//
 	// The following arguments are optional:
-	MetadataConfiguration *BucketMetadataConfigurationMetadataConfiguration `pulumi:"metadataConfiguration"`
+	MetadataConfiguration BucketMetadataConfigurationMetadataConfiguration `pulumi:"metadataConfiguration"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region   *string                              `pulumi:"region"`
 	Timeouts *BucketMetadataConfigurationTimeouts `pulumi:"timeouts"`
@@ -167,7 +170,7 @@ type BucketMetadataConfigurationArgs struct {
 	// Metadata configuration. See `metadataConfiguration` Block for details.
 	//
 	// The following arguments are optional:
-	MetadataConfiguration BucketMetadataConfigurationMetadataConfigurationPtrInput
+	MetadataConfiguration BucketMetadataConfigurationMetadataConfigurationInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region   pulumi.StringPtrInput
 	Timeouts BucketMetadataConfigurationTimeoutsPtrInput
@@ -272,10 +275,10 @@ func (o BucketMetadataConfigurationOutput) ExpectedBucketOwner() pulumi.StringPt
 // Metadata configuration. See `metadataConfiguration` Block for details.
 //
 // The following arguments are optional:
-func (o BucketMetadataConfigurationOutput) MetadataConfiguration() BucketMetadataConfigurationMetadataConfigurationPtrOutput {
-	return o.ApplyT(func(v *BucketMetadataConfiguration) BucketMetadataConfigurationMetadataConfigurationPtrOutput {
+func (o BucketMetadataConfigurationOutput) MetadataConfiguration() BucketMetadataConfigurationMetadataConfigurationOutput {
+	return o.ApplyT(func(v *BucketMetadataConfiguration) BucketMetadataConfigurationMetadataConfigurationOutput {
 		return v.MetadataConfiguration
-	}).(BucketMetadataConfigurationMetadataConfigurationPtrOutput)
+	}).(BucketMetadataConfigurationMetadataConfigurationOutput)
 }
 
 // Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.

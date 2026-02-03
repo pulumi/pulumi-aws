@@ -202,7 +202,7 @@ namespace Pulumi.Aws.Lex
 
     public sealed class V2modelsBotArgs : global::Pulumi.ResourceArgs
     {
-        [Input("dataPrivacies")]
+        [Input("dataPrivacies", required: true)]
         private InputList<Inputs.V2modelsBotDataPrivacyArgs>? _dataPrivacies;
 
         /// <summary>

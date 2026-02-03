@@ -16,7 +16,6 @@ import com.pulumi.aws.lex.outputs.V2modelsIntentConfirmationSettingFailureNextSt
 import com.pulumi.aws.lex.outputs.V2modelsIntentConfirmationSettingFailureResponse;
 import com.pulumi.aws.lex.outputs.V2modelsIntentConfirmationSettingPromptSpecification;
 import com.pulumi.core.annotations.CustomType;
-import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.util.Objects;
 import java.util.Optional;
@@ -88,7 +87,7 @@ public final class V2modelsIntentConfirmationSetting {
      * @return Configuration block for prompting the user to confirm the intent. This question should have a yes or no answer. Amazon Lex uses this prompt to ensure that the user acknowledges that the intent is ready for fulfillment. See `promptSpecification`.
      * 
      */
-    private V2modelsIntentConfirmationSettingPromptSpecification promptSpecification;
+    private @Nullable V2modelsIntentConfirmationSettingPromptSpecification promptSpecification;
 
     private V2modelsIntentConfirmationSetting() {}
     /**
@@ -179,8 +178,8 @@ public final class V2modelsIntentConfirmationSetting {
      * @return Configuration block for prompting the user to confirm the intent. This question should have a yes or no answer. Amazon Lex uses this prompt to ensure that the user acknowledges that the intent is ready for fulfillment. See `promptSpecification`.
      * 
      */
-    public V2modelsIntentConfirmationSettingPromptSpecification promptSpecification() {
-        return this.promptSpecification;
+    public Optional<V2modelsIntentConfirmationSettingPromptSpecification> promptSpecification() {
+        return Optional.ofNullable(this.promptSpecification);
     }
 
     public static Builder builder() {
@@ -204,7 +203,7 @@ public final class V2modelsIntentConfirmationSetting {
         private @Nullable V2modelsIntentConfirmationSettingFailureConditional failureConditional;
         private @Nullable V2modelsIntentConfirmationSettingFailureNextStep failureNextStep;
         private @Nullable V2modelsIntentConfirmationSettingFailureResponse failureResponse;
-        private V2modelsIntentConfirmationSettingPromptSpecification promptSpecification;
+        private @Nullable V2modelsIntentConfirmationSettingPromptSpecification promptSpecification;
         public Builder() {}
         public Builder(V2modelsIntentConfirmationSetting defaults) {
     	      Objects.requireNonNull(defaults);
@@ -296,10 +295,8 @@ public final class V2modelsIntentConfirmationSetting {
             return this;
         }
         @CustomType.Setter
-        public Builder promptSpecification(V2modelsIntentConfirmationSettingPromptSpecification promptSpecification) {
-            if (promptSpecification == null) {
-              throw new MissingRequiredPropertyException("V2modelsIntentConfirmationSetting", "promptSpecification");
-            }
+        public Builder promptSpecification(@Nullable V2modelsIntentConfirmationSettingPromptSpecification promptSpecification) {
+
             this.promptSpecification = promptSpecification;
             return this;
         }

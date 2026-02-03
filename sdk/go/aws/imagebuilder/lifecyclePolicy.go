@@ -136,7 +136,7 @@ type LifecyclePolicy struct {
 	// Selection criteria for the resources that the lifecycle policy applies to. Detailed below.
 	//
 	// The following arguments are optional:
-	ResourceSelection LifecyclePolicyResourceSelectionPtrOutput `pulumi:"resourceSelection"`
+	ResourceSelection LifecyclePolicyResourceSelectionOutput `pulumi:"resourceSelection"`
 	// The type of Image Builder resource that the lifecycle policy applies to. Valid values: `AMI_IMAGE` or `CONTAINER_IMAGE`.
 	ResourceType pulumi.StringOutput `pulumi:"resourceType"`
 	// The status of the lifecycle policy.
@@ -156,6 +156,12 @@ func NewLifecyclePolicy(ctx *pulumi.Context,
 
 	if args.ExecutionRole == nil {
 		return nil, errors.New("invalid value for required argument 'ExecutionRole'")
+	}
+	if args.PolicyDetails == nil {
+		return nil, errors.New("invalid value for required argument 'PolicyDetails'")
+	}
+	if args.ResourceSelection == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceSelection'")
 	}
 	if args.ResourceType == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceType'")
@@ -254,7 +260,7 @@ type lifecyclePolicyArgs struct {
 	// Selection criteria for the resources that the lifecycle policy applies to. Detailed below.
 	//
 	// The following arguments are optional:
-	ResourceSelection *LifecyclePolicyResourceSelection `pulumi:"resourceSelection"`
+	ResourceSelection LifecyclePolicyResourceSelection `pulumi:"resourceSelection"`
 	// The type of Image Builder resource that the lifecycle policy applies to. Valid values: `AMI_IMAGE` or `CONTAINER_IMAGE`.
 	ResourceType string `pulumi:"resourceType"`
 	// The status of the lifecycle policy.
@@ -278,7 +284,7 @@ type LifecyclePolicyArgs struct {
 	// Selection criteria for the resources that the lifecycle policy applies to. Detailed below.
 	//
 	// The following arguments are optional:
-	ResourceSelection LifecyclePolicyResourceSelectionPtrInput
+	ResourceSelection LifecyclePolicyResourceSelectionInput
 	// The type of Image Builder resource that the lifecycle policy applies to. Valid values: `AMI_IMAGE` or `CONTAINER_IMAGE`.
 	ResourceType pulumi.StringInput
 	// The status of the lifecycle policy.
@@ -407,8 +413,8 @@ func (o LifecyclePolicyOutput) Region() pulumi.StringOutput {
 // Selection criteria for the resources that the lifecycle policy applies to. Detailed below.
 //
 // The following arguments are optional:
-func (o LifecyclePolicyOutput) ResourceSelection() LifecyclePolicyResourceSelectionPtrOutput {
-	return o.ApplyT(func(v *LifecyclePolicy) LifecyclePolicyResourceSelectionPtrOutput { return v.ResourceSelection }).(LifecyclePolicyResourceSelectionPtrOutput)
+func (o LifecyclePolicyOutput) ResourceSelection() LifecyclePolicyResourceSelectionOutput {
+	return o.ApplyT(func(v *LifecyclePolicy) LifecyclePolicyResourceSelectionOutput { return v.ResourceSelection }).(LifecyclePolicyResourceSelectionOutput)
 }
 
 // The type of Image Builder resource that the lifecycle policy applies to. Valid values: `AMI_IMAGE` or `CONTAINER_IMAGE`.

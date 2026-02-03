@@ -51,7 +51,7 @@ namespace Pulumi.Aws.Bedrock
         /// KMS configuration for the token vault. See `KmsConfiguration` below.
         /// </summary>
         [Output("kmsConfiguration")]
-        public Output<Outputs.AgentcoreTokenVaultCmkKmsConfiguration?> KmsConfiguration { get; private set; } = null!;
+        public Output<Outputs.AgentcoreTokenVaultCmkKmsConfiguration> KmsConfiguration { get; private set; } = null!;
 
         /// <summary>
         /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -73,7 +73,7 @@ namespace Pulumi.Aws.Bedrock
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public AgentcoreTokenVaultCmk(string name, AgentcoreTokenVaultCmkArgs? args = null, CustomResourceOptions? options = null)
+        public AgentcoreTokenVaultCmk(string name, AgentcoreTokenVaultCmkArgs args, CustomResourceOptions? options = null)
             : base("aws:bedrock/agentcoreTokenVaultCmk:AgentcoreTokenVaultCmk", name, args ?? new AgentcoreTokenVaultCmkArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -114,8 +114,8 @@ namespace Pulumi.Aws.Bedrock
         /// <summary>
         /// KMS configuration for the token vault. See `KmsConfiguration` below.
         /// </summary>
-        [Input("kmsConfiguration")]
-        public Input<Inputs.AgentcoreTokenVaultCmkKmsConfigurationArgs>? KmsConfiguration { get; set; }
+        [Input("kmsConfiguration", required: true)]
+        public Input<Inputs.AgentcoreTokenVaultCmkKmsConfigurationArgs> KmsConfiguration { get; set; } = null!;
 
         /// <summary>
         /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.

@@ -452,7 +452,7 @@ func (o ConfiguredTableTableReferencePtrOutput) TableName() pulumi.StringPtrOutp
 }
 
 type MembershipDefaultResultConfiguration struct {
-	OutputConfiguration *MembershipDefaultResultConfigurationOutputConfiguration `pulumi:"outputConfiguration"`
+	OutputConfiguration MembershipDefaultResultConfigurationOutputConfiguration `pulumi:"outputConfiguration"`
 	// The ARN of the IAM role which will be used to create the membership.
 	// - `output_configuration.s3.bucket` - (Required) - The name of the S3 bucket where the query results will be stored.
 	// - `output_configuration.s3.result_format` - (Required) - The format of the query results. Valid values are `PARQUET` and `CSV`.
@@ -472,7 +472,7 @@ type MembershipDefaultResultConfigurationInput interface {
 }
 
 type MembershipDefaultResultConfigurationArgs struct {
-	OutputConfiguration MembershipDefaultResultConfigurationOutputConfigurationPtrInput `pulumi:"outputConfiguration"`
+	OutputConfiguration MembershipDefaultResultConfigurationOutputConfigurationInput `pulumi:"outputConfiguration"`
 	// The ARN of the IAM role which will be used to create the membership.
 	// - `output_configuration.s3.bucket` - (Required) - The name of the S3 bucket where the query results will be stored.
 	// - `output_configuration.s3.result_format` - (Required) - The format of the query results. Valid values are `PARQUET` and `CSV`.
@@ -557,10 +557,10 @@ func (o MembershipDefaultResultConfigurationOutput) ToMembershipDefaultResultCon
 	}).(MembershipDefaultResultConfigurationPtrOutput)
 }
 
-func (o MembershipDefaultResultConfigurationOutput) OutputConfiguration() MembershipDefaultResultConfigurationOutputConfigurationPtrOutput {
-	return o.ApplyT(func(v MembershipDefaultResultConfiguration) *MembershipDefaultResultConfigurationOutputConfiguration {
+func (o MembershipDefaultResultConfigurationOutput) OutputConfiguration() MembershipDefaultResultConfigurationOutputConfigurationOutput {
+	return o.ApplyT(func(v MembershipDefaultResultConfiguration) MembershipDefaultResultConfigurationOutputConfiguration {
 		return v.OutputConfiguration
-	}).(MembershipDefaultResultConfigurationOutputConfigurationPtrOutput)
+	}).(MembershipDefaultResultConfigurationOutputConfigurationOutput)
 }
 
 // The ARN of the IAM role which will be used to create the membership.
@@ -600,7 +600,7 @@ func (o MembershipDefaultResultConfigurationPtrOutput) OutputConfiguration() Mem
 		if v == nil {
 			return nil
 		}
-		return v.OutputConfiguration
+		return &v.OutputConfiguration
 	}).(MembershipDefaultResultConfigurationOutputConfigurationPtrOutput)
 }
 
@@ -618,7 +618,7 @@ func (o MembershipDefaultResultConfigurationPtrOutput) RoleArn() pulumi.StringPt
 }
 
 type MembershipDefaultResultConfigurationOutputConfiguration struct {
-	S3 *MembershipDefaultResultConfigurationOutputConfigurationS3 `pulumi:"s3"`
+	S3 MembershipDefaultResultConfigurationOutputConfigurationS3 `pulumi:"s3"`
 }
 
 // MembershipDefaultResultConfigurationOutputConfigurationInput is an input type that accepts MembershipDefaultResultConfigurationOutputConfigurationArgs and MembershipDefaultResultConfigurationOutputConfigurationOutput values.
@@ -633,7 +633,7 @@ type MembershipDefaultResultConfigurationOutputConfigurationInput interface {
 }
 
 type MembershipDefaultResultConfigurationOutputConfigurationArgs struct {
-	S3 MembershipDefaultResultConfigurationOutputConfigurationS3PtrInput `pulumi:"s3"`
+	S3 MembershipDefaultResultConfigurationOutputConfigurationS3Input `pulumi:"s3"`
 }
 
 func (MembershipDefaultResultConfigurationOutputConfigurationArgs) ElementType() reflect.Type {
@@ -713,10 +713,10 @@ func (o MembershipDefaultResultConfigurationOutputConfigurationOutput) ToMembers
 	}).(MembershipDefaultResultConfigurationOutputConfigurationPtrOutput)
 }
 
-func (o MembershipDefaultResultConfigurationOutputConfigurationOutput) S3() MembershipDefaultResultConfigurationOutputConfigurationS3PtrOutput {
-	return o.ApplyT(func(v MembershipDefaultResultConfigurationOutputConfiguration) *MembershipDefaultResultConfigurationOutputConfigurationS3 {
+func (o MembershipDefaultResultConfigurationOutputConfigurationOutput) S3() MembershipDefaultResultConfigurationOutputConfigurationS3Output {
+	return o.ApplyT(func(v MembershipDefaultResultConfigurationOutputConfiguration) MembershipDefaultResultConfigurationOutputConfigurationS3 {
 		return v.S3
-	}).(MembershipDefaultResultConfigurationOutputConfigurationS3PtrOutput)
+	}).(MembershipDefaultResultConfigurationOutputConfigurationS3Output)
 }
 
 type MembershipDefaultResultConfigurationOutputConfigurationPtrOutput struct{ *pulumi.OutputState }
@@ -748,7 +748,7 @@ func (o MembershipDefaultResultConfigurationOutputConfigurationPtrOutput) S3() M
 		if v == nil {
 			return nil
 		}
-		return v.S3
+		return &v.S3
 	}).(MembershipDefaultResultConfigurationOutputConfigurationS3PtrOutput)
 }
 
@@ -916,7 +916,7 @@ func (o MembershipDefaultResultConfigurationOutputConfigurationS3PtrOutput) Resu
 }
 
 type MembershipPaymentConfiguration struct {
-	QueryCompute *MembershipPaymentConfigurationQueryCompute `pulumi:"queryCompute"`
+	QueryCompute MembershipPaymentConfigurationQueryCompute `pulumi:"queryCompute"`
 }
 
 // MembershipPaymentConfigurationInput is an input type that accepts MembershipPaymentConfigurationArgs and MembershipPaymentConfigurationOutput values.
@@ -931,7 +931,7 @@ type MembershipPaymentConfigurationInput interface {
 }
 
 type MembershipPaymentConfigurationArgs struct {
-	QueryCompute MembershipPaymentConfigurationQueryComputePtrInput `pulumi:"queryCompute"`
+	QueryCompute MembershipPaymentConfigurationQueryComputeInput `pulumi:"queryCompute"`
 }
 
 func (MembershipPaymentConfigurationArgs) ElementType() reflect.Type {
@@ -1011,10 +1011,10 @@ func (o MembershipPaymentConfigurationOutput) ToMembershipPaymentConfigurationPt
 	}).(MembershipPaymentConfigurationPtrOutput)
 }
 
-func (o MembershipPaymentConfigurationOutput) QueryCompute() MembershipPaymentConfigurationQueryComputePtrOutput {
-	return o.ApplyT(func(v MembershipPaymentConfiguration) *MembershipPaymentConfigurationQueryCompute {
+func (o MembershipPaymentConfigurationOutput) QueryCompute() MembershipPaymentConfigurationQueryComputeOutput {
+	return o.ApplyT(func(v MembershipPaymentConfiguration) MembershipPaymentConfigurationQueryCompute {
 		return v.QueryCompute
-	}).(MembershipPaymentConfigurationQueryComputePtrOutput)
+	}).(MembershipPaymentConfigurationQueryComputeOutput)
 }
 
 type MembershipPaymentConfigurationPtrOutput struct{ *pulumi.OutputState }
@@ -1046,7 +1046,7 @@ func (o MembershipPaymentConfigurationPtrOutput) QueryCompute() MembershipPaymen
 		if v == nil {
 			return nil
 		}
-		return v.QueryCompute
+		return &v.QueryCompute
 	}).(MembershipPaymentConfigurationQueryComputePtrOutput)
 }
 

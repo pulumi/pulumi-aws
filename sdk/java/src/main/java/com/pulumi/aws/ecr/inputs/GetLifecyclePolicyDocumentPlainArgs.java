@@ -5,21 +5,20 @@ package com.pulumi.aws.ecr.inputs;
 
 import com.pulumi.aws.ecr.inputs.GetLifecyclePolicyDocumentRule;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
-import java.util.Optional;
-import javax.annotation.Nullable;
 
 
 public final class GetLifecyclePolicyDocumentPlainArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetLifecyclePolicyDocumentPlainArgs Empty = new GetLifecyclePolicyDocumentPlainArgs();
 
-    @Import(name="rules")
-    private @Nullable List<GetLifecyclePolicyDocumentRule> rules;
+    @Import(name="rules", required=true)
+    private List<GetLifecyclePolicyDocumentRule> rules;
 
-    public Optional<List<GetLifecyclePolicyDocumentRule>> rules() {
-        return Optional.ofNullable(this.rules);
+    public List<GetLifecyclePolicyDocumentRule> rules() {
+        return this.rules;
     }
 
     private GetLifecyclePolicyDocumentPlainArgs() {}
@@ -46,7 +45,7 @@ public final class GetLifecyclePolicyDocumentPlainArgs extends com.pulumi.resour
             $ = new GetLifecyclePolicyDocumentPlainArgs(Objects.requireNonNull(defaults));
         }
 
-        public Builder rules(@Nullable List<GetLifecyclePolicyDocumentRule> rules) {
+        public Builder rules(List<GetLifecyclePolicyDocumentRule> rules) {
             $.rules = rules;
             return this;
         }
@@ -56,6 +55,9 @@ public final class GetLifecyclePolicyDocumentPlainArgs extends com.pulumi.resour
         }
 
         public GetLifecyclePolicyDocumentPlainArgs build() {
+            if ($.rules == null) {
+                throw new MissingRequiredPropertyException("GetLifecyclePolicyDocumentPlainArgs", "rules");
+            }
             return $;
         }
     }

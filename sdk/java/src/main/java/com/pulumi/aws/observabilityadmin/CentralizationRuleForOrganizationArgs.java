@@ -40,8 +40,8 @@ public final class CentralizationRuleForOrganizationArgs extends com.pulumi.reso
      * The following arguments are optional:
      * 
      */
-    @Import(name="rule")
-    private @Nullable Output<CentralizationRuleForOrganizationRuleArgs> rule;
+    @Import(name="rule", required=true)
+    private Output<CentralizationRuleForOrganizationRuleArgs> rule;
 
     /**
      * @return Configuration block for the centralization rule. See `rule` below.
@@ -49,8 +49,8 @@ public final class CentralizationRuleForOrganizationArgs extends com.pulumi.reso
      * The following arguments are optional:
      * 
      */
-    public Optional<Output<CentralizationRuleForOrganizationRuleArgs>> rule() {
-        return Optional.ofNullable(this.rule);
+    public Output<CentralizationRuleForOrganizationRuleArgs> rule() {
+        return this.rule;
     }
 
     /**
@@ -147,7 +147,7 @@ public final class CentralizationRuleForOrganizationArgs extends com.pulumi.reso
          * @return builder
          * 
          */
-        public Builder rule(@Nullable Output<CentralizationRuleForOrganizationRuleArgs> rule) {
+        public Builder rule(Output<CentralizationRuleForOrganizationRuleArgs> rule) {
             $.rule = rule;
             return this;
         }
@@ -216,6 +216,9 @@ public final class CentralizationRuleForOrganizationArgs extends com.pulumi.reso
         }
 
         public CentralizationRuleForOrganizationArgs build() {
+            if ($.rule == null) {
+                throw new MissingRequiredPropertyException("CentralizationRuleForOrganizationArgs", "rule");
+            }
             if ($.ruleName == null) {
                 throw new MissingRequiredPropertyException("CentralizationRuleForOrganizationArgs", "ruleName");
             }

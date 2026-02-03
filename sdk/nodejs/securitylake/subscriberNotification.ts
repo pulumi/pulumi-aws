@@ -74,7 +74,7 @@ export class SubscriberNotification extends pulumi.CustomResource {
     /**
      * Specify the configuration using which you want to create the subscriber notification..
      */
-    declare public readonly configuration: pulumi.Output<outputs.securitylake.SubscriberNotificationConfiguration | undefined>;
+    declare public readonly configuration: pulumi.Output<outputs.securitylake.SubscriberNotificationConfiguration>;
     /**
      * (**Deprecated**) The subscriber endpoint to which exception messages are posted.
      *
@@ -114,6 +114,9 @@ export class SubscriberNotification extends pulumi.CustomResource {
             resourceInputs["subscriberId"] = state?.subscriberId;
         } else {
             const args = argsOrState as SubscriberNotificationArgs | undefined;
+            if (args?.configuration === undefined && !opts.urn) {
+                throw new Error("Missing required property 'configuration'");
+            }
             if (args?.subscriberId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'subscriberId'");
             }
@@ -163,7 +166,7 @@ export interface SubscriberNotificationArgs {
     /**
      * Specify the configuration using which you want to create the subscriber notification..
      */
-    configuration?: pulumi.Input<inputs.securitylake.SubscriberNotificationConfiguration>;
+    configuration: pulumi.Input<inputs.securitylake.SubscriberNotificationConfiguration>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */

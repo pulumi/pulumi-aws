@@ -21,7 +21,7 @@ __all__ = ['ApiArgs', 'Api']
 @pulumi.input_type
 class ApiArgs:
     def __init__(__self__, *,
-                 event_config: Optional[pulumi.Input['ApiEventConfigArgs']] = None,
+                 event_config: pulumi.Input['ApiEventConfigArgs'],
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  owner_contact: Optional[pulumi.Input[_builtins.str]] = None,
                  region: Optional[pulumi.Input[_builtins.str]] = None,
@@ -36,8 +36,7 @@ class ApiArgs:
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
-        if event_config is not None:
-            pulumi.set(__self__, "event_config", event_config)
+        pulumi.set(__self__, "event_config", event_config)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if owner_contact is not None:
@@ -49,14 +48,14 @@ class ApiArgs:
 
     @_builtins.property
     @pulumi.getter(name="eventConfig")
-    def event_config(self) -> Optional[pulumi.Input['ApiEventConfigArgs']]:
+    def event_config(self) -> pulumi.Input['ApiEventConfigArgs']:
         """
         Configuration for the Event API. See Event Config below.
         """
         return pulumi.get(self, "event_config")
 
     @event_config.setter
-    def event_config(self, value: Optional[pulumi.Input['ApiEventConfigArgs']]):
+    def event_config(self, value: pulumi.Input['ApiEventConfigArgs']):
         pulumi.set(self, "event_config", value)
 
     @_builtins.property
@@ -415,7 +414,7 @@ class Api(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: Optional[ApiArgs] = None,
+                 args: ApiArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an [AWS AppSync Event API](https://docs.aws.amazon.com/appsync/latest/eventapi/event-api-concepts.html#API). Event APIs enable real-time subscriptions and event-driven communication in AppSync applications.
@@ -541,6 +540,8 @@ class Api(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ApiArgs.__new__(ApiArgs)
 
+            if event_config is None and not opts.urn:
+                raise TypeError("Missing required property 'event_config'")
             __props__.__dict__["event_config"] = event_config
             __props__.__dict__["name"] = name
             __props__.__dict__["owner_contact"] = owner_contact
@@ -636,7 +637,7 @@ class Api(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="eventConfig")
-    def event_config(self) -> pulumi.Output[Optional['outputs.ApiEventConfig']]:
+    def event_config(self) -> pulumi.Output['outputs.ApiEventConfig']:
         """
         Configuration for the Event API. See Event Config below.
         """

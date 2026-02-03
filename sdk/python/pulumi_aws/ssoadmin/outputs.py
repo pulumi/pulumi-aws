@@ -311,16 +311,15 @@ class TrustedTokenIssuerTrustedTokenIssuerConfiguration(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 oidc_jwt_configuration: Optional['outputs.TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfiguration'] = None):
+                 oidc_jwt_configuration: 'outputs.TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfiguration'):
         """
         :param 'TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfigurationArgs' oidc_jwt_configuration: A block that describes the settings for a trusted token issuer that works with OpenID Connect (OIDC) by using JSON Web Tokens (JWT). See Documented below below.
         """
-        if oidc_jwt_configuration is not None:
-            pulumi.set(__self__, "oidc_jwt_configuration", oidc_jwt_configuration)
+        pulumi.set(__self__, "oidc_jwt_configuration", oidc_jwt_configuration)
 
     @_builtins.property
     @pulumi.getter(name="oidcJwtConfiguration")
-    def oidc_jwt_configuration(self) -> Optional['outputs.TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfiguration']:
+    def oidc_jwt_configuration(self) -> 'outputs.TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfiguration':
         """
         A block that describes the settings for a trusted token issuer that works with OpenID Connect (OIDC) by using JSON Web Tokens (JWT). See Documented below below.
         """

@@ -5,9 +5,8 @@ package com.pulumi.aws.dataexchange.outputs;
 
 import com.pulumi.aws.dataexchange.outputs.EventActionActionExportRevisionToS3;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.Objects;
-import java.util.Optional;
-import javax.annotation.Nullable;
 
 @CustomType
 public final class EventActionAction {
@@ -16,7 +15,7 @@ public final class EventActionAction {
      * Described in `exportRevisionToS3` Configuration Block
      * 
      */
-    private @Nullable EventActionActionExportRevisionToS3 exportRevisionToS3;
+    private EventActionActionExportRevisionToS3 exportRevisionToS3;
 
     private EventActionAction() {}
     /**
@@ -24,8 +23,8 @@ public final class EventActionAction {
      * Described in `exportRevisionToS3` Configuration Block
      * 
      */
-    public Optional<EventActionActionExportRevisionToS3> exportRevisionToS3() {
-        return Optional.ofNullable(this.exportRevisionToS3);
+    public EventActionActionExportRevisionToS3 exportRevisionToS3() {
+        return this.exportRevisionToS3;
     }
 
     public static Builder builder() {
@@ -37,7 +36,7 @@ public final class EventActionAction {
     }
     @CustomType.Builder
     public static final class Builder {
-        private @Nullable EventActionActionExportRevisionToS3 exportRevisionToS3;
+        private EventActionActionExportRevisionToS3 exportRevisionToS3;
         public Builder() {}
         public Builder(EventActionAction defaults) {
     	      Objects.requireNonNull(defaults);
@@ -45,8 +44,10 @@ public final class EventActionAction {
         }
 
         @CustomType.Setter
-        public Builder exportRevisionToS3(@Nullable EventActionActionExportRevisionToS3 exportRevisionToS3) {
-
+        public Builder exportRevisionToS3(EventActionActionExportRevisionToS3 exportRevisionToS3) {
+            if (exportRevisionToS3 == null) {
+              throw new MissingRequiredPropertyException("EventActionAction", "exportRevisionToS3");
+            }
             this.exportRevisionToS3 = exportRevisionToS3;
             return this;
         }

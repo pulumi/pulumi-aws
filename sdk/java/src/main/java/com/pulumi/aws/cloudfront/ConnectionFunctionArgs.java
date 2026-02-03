@@ -38,15 +38,15 @@ public final class ConnectionFunctionArgs extends com.pulumi.resources.ResourceA
      * Configuration information for the connection function. See `connectionFunctionConfig` below.
      * 
      */
-    @Import(name="connectionFunctionConfig")
-    private @Nullable Output<ConnectionFunctionConnectionFunctionConfigArgs> connectionFunctionConfig;
+    @Import(name="connectionFunctionConfig", required=true)
+    private Output<ConnectionFunctionConnectionFunctionConfigArgs> connectionFunctionConfig;
 
     /**
      * @return Configuration information for the connection function. See `connectionFunctionConfig` below.
      * 
      */
-    public Optional<Output<ConnectionFunctionConnectionFunctionConfigArgs>> connectionFunctionConfig() {
-        return Optional.ofNullable(this.connectionFunctionConfig);
+    public Output<ConnectionFunctionConnectionFunctionConfigArgs> connectionFunctionConfig() {
+        return this.connectionFunctionConfig;
     }
 
     /**
@@ -153,7 +153,7 @@ public final class ConnectionFunctionArgs extends com.pulumi.resources.ResourceA
          * @return builder
          * 
          */
-        public Builder connectionFunctionConfig(@Nullable Output<ConnectionFunctionConnectionFunctionConfigArgs> connectionFunctionConfig) {
+        public Builder connectionFunctionConfig(Output<ConnectionFunctionConnectionFunctionConfigArgs> connectionFunctionConfig) {
             $.connectionFunctionConfig = connectionFunctionConfig;
             return this;
         }
@@ -238,6 +238,9 @@ public final class ConnectionFunctionArgs extends com.pulumi.resources.ResourceA
         public ConnectionFunctionArgs build() {
             if ($.connectionFunctionCode == null) {
                 throw new MissingRequiredPropertyException("ConnectionFunctionArgs", "connectionFunctionCode");
+            }
+            if ($.connectionFunctionConfig == null) {
+                throw new MissingRequiredPropertyException("ConnectionFunctionArgs", "connectionFunctionConfig");
             }
             return $;
         }

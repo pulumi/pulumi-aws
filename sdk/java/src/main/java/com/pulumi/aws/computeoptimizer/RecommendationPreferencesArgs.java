@@ -145,15 +145,15 @@ public final class RecommendationPreferencesArgs extends com.pulumi.resources.Re
      * The scope of the recommendation preferences. See Scope below.
      * 
      */
-    @Import(name="scope")
-    private @Nullable Output<RecommendationPreferencesScopeArgs> scope;
+    @Import(name="scope", required=true)
+    private Output<RecommendationPreferencesScopeArgs> scope;
 
     /**
      * @return The scope of the recommendation preferences. See Scope below.
      * 
      */
-    public Optional<Output<RecommendationPreferencesScopeArgs>> scope() {
-        return Optional.ofNullable(this.scope);
+    public Output<RecommendationPreferencesScopeArgs> scope() {
+        return this.scope;
     }
 
     /**
@@ -388,7 +388,7 @@ public final class RecommendationPreferencesArgs extends com.pulumi.resources.Re
          * @return builder
          * 
          */
-        public Builder scope(@Nullable Output<RecommendationPreferencesScopeArgs> scope) {
+        public Builder scope(Output<RecommendationPreferencesScopeArgs> scope) {
             $.scope = scope;
             return this;
         }
@@ -437,6 +437,9 @@ public final class RecommendationPreferencesArgs extends com.pulumi.resources.Re
         public RecommendationPreferencesArgs build() {
             if ($.resourceType == null) {
                 throw new MissingRequiredPropertyException("RecommendationPreferencesArgs", "resourceType");
+            }
+            if ($.scope == null) {
+                throw new MissingRequiredPropertyException("RecommendationPreferencesArgs", "scope");
             }
             return $;
         }

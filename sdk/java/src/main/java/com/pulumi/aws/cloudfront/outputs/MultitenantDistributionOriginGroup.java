@@ -10,8 +10,6 @@ import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
-import java.util.Optional;
-import javax.annotation.Nullable;
 
 @CustomType
 public final class MultitenantDistributionOriginGroup {
@@ -19,12 +17,12 @@ public final class MultitenantDistributionOriginGroup {
      * @return Failover criteria for when to failover to the secondary origin. See Failover Criteria below.
      * 
      */
-    private @Nullable MultitenantDistributionOriginGroupFailoverCriteria failoverCriteria;
+    private MultitenantDistributionOriginGroupFailoverCriteria failoverCriteria;
     /**
      * @return List of origins in this origin group. Must contain exactly 2 members. See Origin Group Member below.
      * 
      */
-    private @Nullable List<MultitenantDistributionOriginGroupMember> members;
+    private List<MultitenantDistributionOriginGroupMember> members;
     /**
      * @return Unique identifier for the origin group.
      * 
@@ -36,15 +34,15 @@ public final class MultitenantDistributionOriginGroup {
      * @return Failover criteria for when to failover to the secondary origin. See Failover Criteria below.
      * 
      */
-    public Optional<MultitenantDistributionOriginGroupFailoverCriteria> failoverCriteria() {
-        return Optional.ofNullable(this.failoverCriteria);
+    public MultitenantDistributionOriginGroupFailoverCriteria failoverCriteria() {
+        return this.failoverCriteria;
     }
     /**
      * @return List of origins in this origin group. Must contain exactly 2 members. See Origin Group Member below.
      * 
      */
     public List<MultitenantDistributionOriginGroupMember> members() {
-        return this.members == null ? List.of() : this.members;
+        return this.members;
     }
     /**
      * @return Unique identifier for the origin group.
@@ -63,8 +61,8 @@ public final class MultitenantDistributionOriginGroup {
     }
     @CustomType.Builder
     public static final class Builder {
-        private @Nullable MultitenantDistributionOriginGroupFailoverCriteria failoverCriteria;
-        private @Nullable List<MultitenantDistributionOriginGroupMember> members;
+        private MultitenantDistributionOriginGroupFailoverCriteria failoverCriteria;
+        private List<MultitenantDistributionOriginGroupMember> members;
         private String originId;
         public Builder() {}
         public Builder(MultitenantDistributionOriginGroup defaults) {
@@ -75,14 +73,18 @@ public final class MultitenantDistributionOriginGroup {
         }
 
         @CustomType.Setter
-        public Builder failoverCriteria(@Nullable MultitenantDistributionOriginGroupFailoverCriteria failoverCriteria) {
-
+        public Builder failoverCriteria(MultitenantDistributionOriginGroupFailoverCriteria failoverCriteria) {
+            if (failoverCriteria == null) {
+              throw new MissingRequiredPropertyException("MultitenantDistributionOriginGroup", "failoverCriteria");
+            }
             this.failoverCriteria = failoverCriteria;
             return this;
         }
         @CustomType.Setter
-        public Builder members(@Nullable List<MultitenantDistributionOriginGroupMember> members) {
-
+        public Builder members(List<MultitenantDistributionOriginGroupMember> members) {
+            if (members == null) {
+              throw new MissingRequiredPropertyException("MultitenantDistributionOriginGroup", "members");
+            }
             this.members = members;
             return this;
         }

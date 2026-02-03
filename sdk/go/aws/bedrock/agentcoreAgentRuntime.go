@@ -228,7 +228,7 @@ type AgentcoreAgentRuntime struct {
 	// ARN of the Agent Runtime.
 	AgentRuntimeArn pulumi.StringOutput `pulumi:"agentRuntimeArn"`
 	// Container artifact configuration. See `agentRuntimeArtifact` below.
-	AgentRuntimeArtifact AgentcoreAgentRuntimeAgentRuntimeArtifactPtrOutput `pulumi:"agentRuntimeArtifact"`
+	AgentRuntimeArtifact AgentcoreAgentRuntimeAgentRuntimeArtifactOutput `pulumi:"agentRuntimeArtifact"`
 	// Unique identifier of the Agent Runtime.
 	AgentRuntimeId pulumi.StringOutput `pulumi:"agentRuntimeId"`
 	// Name of the agent runtime.
@@ -246,7 +246,7 @@ type AgentcoreAgentRuntime struct {
 	// Network configuration for the agent runtime. See `networkConfiguration` below.
 	//
 	// The following arguments are optional:
-	NetworkConfiguration AgentcoreAgentRuntimeNetworkConfigurationPtrOutput `pulumi:"networkConfiguration"`
+	NetworkConfiguration AgentcoreAgentRuntimeNetworkConfigurationOutput `pulumi:"networkConfiguration"`
 	// Protocol configuration for the agent runtime. See `protocolConfiguration` below.
 	ProtocolConfiguration AgentcoreAgentRuntimeProtocolConfigurationPtrOutput `pulumi:"protocolConfiguration"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -271,8 +271,14 @@ func NewAgentcoreAgentRuntime(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
+	if args.AgentRuntimeArtifact == nil {
+		return nil, errors.New("invalid value for required argument 'AgentRuntimeArtifact'")
+	}
 	if args.AgentRuntimeName == nil {
 		return nil, errors.New("invalid value for required argument 'AgentRuntimeName'")
+	}
+	if args.NetworkConfiguration == nil {
+		return nil, errors.New("invalid value for required argument 'NetworkConfiguration'")
 	}
 	if args.RoleArn == nil {
 		return nil, errors.New("invalid value for required argument 'RoleArn'")
@@ -385,7 +391,7 @@ func (AgentcoreAgentRuntimeState) ElementType() reflect.Type {
 
 type agentcoreAgentRuntimeArgs struct {
 	// Container artifact configuration. See `agentRuntimeArtifact` below.
-	AgentRuntimeArtifact *AgentcoreAgentRuntimeAgentRuntimeArtifact `pulumi:"agentRuntimeArtifact"`
+	AgentRuntimeArtifact AgentcoreAgentRuntimeAgentRuntimeArtifact `pulumi:"agentRuntimeArtifact"`
 	// Name of the agent runtime.
 	AgentRuntimeName string `pulumi:"agentRuntimeName"`
 	// Authorization configuration for authenticating incoming requests. See `authorizerConfiguration` below.
@@ -399,7 +405,7 @@ type agentcoreAgentRuntimeArgs struct {
 	// Network configuration for the agent runtime. See `networkConfiguration` below.
 	//
 	// The following arguments are optional:
-	NetworkConfiguration *AgentcoreAgentRuntimeNetworkConfiguration `pulumi:"networkConfiguration"`
+	NetworkConfiguration AgentcoreAgentRuntimeNetworkConfiguration `pulumi:"networkConfiguration"`
 	// Protocol configuration for the agent runtime. See `protocolConfiguration` below.
 	ProtocolConfiguration *AgentcoreAgentRuntimeProtocolConfiguration `pulumi:"protocolConfiguration"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -416,7 +422,7 @@ type agentcoreAgentRuntimeArgs struct {
 // The set of arguments for constructing a AgentcoreAgentRuntime resource.
 type AgentcoreAgentRuntimeArgs struct {
 	// Container artifact configuration. See `agentRuntimeArtifact` below.
-	AgentRuntimeArtifact AgentcoreAgentRuntimeAgentRuntimeArtifactPtrInput
+	AgentRuntimeArtifact AgentcoreAgentRuntimeAgentRuntimeArtifactInput
 	// Name of the agent runtime.
 	AgentRuntimeName pulumi.StringInput
 	// Authorization configuration for authenticating incoming requests. See `authorizerConfiguration` below.
@@ -430,7 +436,7 @@ type AgentcoreAgentRuntimeArgs struct {
 	// Network configuration for the agent runtime. See `networkConfiguration` below.
 	//
 	// The following arguments are optional:
-	NetworkConfiguration AgentcoreAgentRuntimeNetworkConfigurationPtrInput
+	NetworkConfiguration AgentcoreAgentRuntimeNetworkConfigurationInput
 	// Protocol configuration for the agent runtime. See `protocolConfiguration` below.
 	ProtocolConfiguration AgentcoreAgentRuntimeProtocolConfigurationPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -537,10 +543,10 @@ func (o AgentcoreAgentRuntimeOutput) AgentRuntimeArn() pulumi.StringOutput {
 }
 
 // Container artifact configuration. See `agentRuntimeArtifact` below.
-func (o AgentcoreAgentRuntimeOutput) AgentRuntimeArtifact() AgentcoreAgentRuntimeAgentRuntimeArtifactPtrOutput {
-	return o.ApplyT(func(v *AgentcoreAgentRuntime) AgentcoreAgentRuntimeAgentRuntimeArtifactPtrOutput {
+func (o AgentcoreAgentRuntimeOutput) AgentRuntimeArtifact() AgentcoreAgentRuntimeAgentRuntimeArtifactOutput {
+	return o.ApplyT(func(v *AgentcoreAgentRuntime) AgentcoreAgentRuntimeAgentRuntimeArtifactOutput {
 		return v.AgentRuntimeArtifact
-	}).(AgentcoreAgentRuntimeAgentRuntimeArtifactPtrOutput)
+	}).(AgentcoreAgentRuntimeAgentRuntimeArtifactOutput)
 }
 
 // Unique identifier of the Agent Runtime.
@@ -585,10 +591,10 @@ func (o AgentcoreAgentRuntimeOutput) LifecycleConfigurations() AgentcoreAgentRun
 // Network configuration for the agent runtime. See `networkConfiguration` below.
 //
 // The following arguments are optional:
-func (o AgentcoreAgentRuntimeOutput) NetworkConfiguration() AgentcoreAgentRuntimeNetworkConfigurationPtrOutput {
-	return o.ApplyT(func(v *AgentcoreAgentRuntime) AgentcoreAgentRuntimeNetworkConfigurationPtrOutput {
+func (o AgentcoreAgentRuntimeOutput) NetworkConfiguration() AgentcoreAgentRuntimeNetworkConfigurationOutput {
+	return o.ApplyT(func(v *AgentcoreAgentRuntime) AgentcoreAgentRuntimeNetworkConfigurationOutput {
 		return v.NetworkConfiguration
-	}).(AgentcoreAgentRuntimeNetworkConfigurationPtrOutput)
+	}).(AgentcoreAgentRuntimeNetworkConfigurationOutput)
 }
 
 // Protocol configuration for the agent runtime. See `protocolConfiguration` below.

@@ -91,7 +91,7 @@ public class BucketAbac extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="abacStatus", refs={BucketAbacAbacStatus.class}, tree="[0]")
-    private Output</* @Nullable */ BucketAbacAbacStatus> abacStatus;
+    private Output<BucketAbacAbacStatus> abacStatus;
 
     /**
      * @return ABAC status configuration. See `abacStatus` Block for details.
@@ -99,8 +99,8 @@ public class BucketAbac extends com.pulumi.resources.CustomResource {
      * The following arguments are optional:
      * 
      */
-    public Output<Optional<BucketAbacAbacStatus>> abacStatus() {
-        return Codegen.optional(this.abacStatus);
+    public Output<BucketAbacAbacStatus> abacStatus() {
+        return this.abacStatus;
     }
     /**
      * General purpose bucket that you want to create the metadata configuration for.

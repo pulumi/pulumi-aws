@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Lex.Outputs
     public sealed class V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecification
     {
         public readonly bool? AllowInterrupt;
-        public readonly Outputs.V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAllowedInputTypes AllowedInputTypes;
+        public readonly Outputs.V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAllowedInputTypes? AllowedInputTypes;
         public readonly Outputs.V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecification? AudioAndDtmfInputSpecification;
         public readonly string MapBlockKey;
         public readonly Outputs.V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationTextInputSpecification? TextInputSpecification;
@@ -23,7 +23,7 @@ namespace Pulumi.Aws.Lex.Outputs
         private V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecification(
             bool? allowInterrupt,
 
-            Outputs.V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAllowedInputTypes allowedInputTypes,
+            Outputs.V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAllowedInputTypes? allowedInputTypes,
 
             Outputs.V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecification? audioAndDtmfInputSpecification,
 

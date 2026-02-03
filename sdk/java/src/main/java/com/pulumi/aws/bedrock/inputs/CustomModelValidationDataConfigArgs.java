@@ -6,10 +6,9 @@ package com.pulumi.aws.bedrock.inputs;
 import com.pulumi.aws.bedrock.inputs.CustomModelValidationDataConfigValidatorArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
-import java.util.Optional;
-import javax.annotation.Nullable;
 
 
 public final class CustomModelValidationDataConfigArgs extends com.pulumi.resources.ResourceArgs {
@@ -20,15 +19,15 @@ public final class CustomModelValidationDataConfigArgs extends com.pulumi.resour
      * Information about the validators.
      * 
      */
-    @Import(name="validators")
-    private @Nullable Output<List<CustomModelValidationDataConfigValidatorArgs>> validators;
+    @Import(name="validators", required=true)
+    private Output<List<CustomModelValidationDataConfigValidatorArgs>> validators;
 
     /**
      * @return Information about the validators.
      * 
      */
-    public Optional<Output<List<CustomModelValidationDataConfigValidatorArgs>>> validators() {
-        return Optional.ofNullable(this.validators);
+    public Output<List<CustomModelValidationDataConfigValidatorArgs>> validators() {
+        return this.validators;
     }
 
     private CustomModelValidationDataConfigArgs() {}
@@ -61,7 +60,7 @@ public final class CustomModelValidationDataConfigArgs extends com.pulumi.resour
          * @return builder
          * 
          */
-        public Builder validators(@Nullable Output<List<CustomModelValidationDataConfigValidatorArgs>> validators) {
+        public Builder validators(Output<List<CustomModelValidationDataConfigValidatorArgs>> validators) {
             $.validators = validators;
             return this;
         }
@@ -87,6 +86,9 @@ public final class CustomModelValidationDataConfigArgs extends com.pulumi.resour
         }
 
         public CustomModelValidationDataConfigArgs build() {
+            if ($.validators == null) {
+                throw new MissingRequiredPropertyException("CustomModelValidationDataConfigArgs", "validators");
+            }
             return $;
         }
     }

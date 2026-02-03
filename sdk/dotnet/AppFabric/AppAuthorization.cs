@@ -93,7 +93,7 @@ namespace Pulumi.Aws.AppFabric
         /// Specify credentials that match the authorization type for your request. For example, if the authorization type for your request is OAuth2 (oauth2), then you should provide only the OAuth2 credentials.
         /// </summary>
         [Output("credential")]
-        public Output<Outputs.AppAuthorizationCredential?> Credential { get; private set; } = null!;
+        public Output<Outputs.AppAuthorizationCredential> Credential { get; private set; } = null!;
 
         /// <summary>
         /// The user persona of the app authorization.
@@ -193,8 +193,8 @@ namespace Pulumi.Aws.AppFabric
         /// Contains credentials for the application, such as an API key or OAuth2 client ID and secret.
         /// Specify credentials that match the authorization type for your request. For example, if the authorization type for your request is OAuth2 (oauth2), then you should provide only the OAuth2 credentials.
         /// </summary>
-        [Input("credential")]
-        public Input<Inputs.AppAuthorizationCredentialArgs>? Credential { get; set; }
+        [Input("credential", required: true)]
+        public Input<Inputs.AppAuthorizationCredentialArgs> Credential { get; set; } = null!;
 
         /// <summary>
         /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -210,7 +210,7 @@ namespace Pulumi.Aws.AppFabric
             set => _tags = value;
         }
 
-        [Input("tenants")]
+        [Input("tenants", required: true)]
         private InputList<Inputs.AppAuthorizationTenantArgs>? _tenants;
 
         /// <summary>

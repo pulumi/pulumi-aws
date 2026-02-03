@@ -12,7 +12,6 @@ import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
-import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
@@ -224,7 +223,7 @@ public class RefreshSchedule extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="schedule", refs={RefreshScheduleSchedule.class}, tree="[0]")
-    private Output</* @Nullable */ RefreshScheduleSchedule> schedule;
+    private Output<RefreshScheduleSchedule> schedule;
 
     /**
      * @return The [refresh schedule](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_RefreshSchedule.html). See schedule
@@ -232,8 +231,8 @@ public class RefreshSchedule extends com.pulumi.resources.CustomResource {
      * The following arguments are optional:
      * 
      */
-    public Output<Optional<RefreshScheduleSchedule>> schedule() {
-        return Codegen.optional(this.schedule);
+    public Output<RefreshScheduleSchedule> schedule() {
+        return this.schedule;
     }
     /**
      * The ID of the refresh schedule.

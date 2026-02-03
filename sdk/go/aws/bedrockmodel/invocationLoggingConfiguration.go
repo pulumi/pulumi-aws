@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -116,7 +117,7 @@ type InvocationLoggingConfiguration struct {
 	pulumi.CustomResourceState
 
 	// The logging configuration values to set. See `loggingConfig` Block for details.
-	LoggingConfig InvocationLoggingConfigurationLoggingConfigPtrOutput `pulumi:"loggingConfig"`
+	LoggingConfig InvocationLoggingConfigurationLoggingConfigOutput `pulumi:"loggingConfig"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 }
@@ -125,9 +126,12 @@ type InvocationLoggingConfiguration struct {
 func NewInvocationLoggingConfiguration(ctx *pulumi.Context,
 	name string, args *InvocationLoggingConfigurationArgs, opts ...pulumi.ResourceOption) (*InvocationLoggingConfiguration, error) {
 	if args == nil {
-		args = &InvocationLoggingConfigurationArgs{}
+		return nil, errors.New("missing one or more required arguments")
 	}
 
+	if args.LoggingConfig == nil {
+		return nil, errors.New("invalid value for required argument 'LoggingConfig'")
+	}
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource InvocationLoggingConfiguration
 	err := ctx.RegisterResource("aws:bedrockmodel/invocationLoggingConfiguration:InvocationLoggingConfiguration", name, args, &resource, opts...)
@@ -170,7 +174,7 @@ func (InvocationLoggingConfigurationState) ElementType() reflect.Type {
 
 type invocationLoggingConfigurationArgs struct {
 	// The logging configuration values to set. See `loggingConfig` Block for details.
-	LoggingConfig *InvocationLoggingConfigurationLoggingConfig `pulumi:"loggingConfig"`
+	LoggingConfig InvocationLoggingConfigurationLoggingConfig `pulumi:"loggingConfig"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
@@ -178,7 +182,7 @@ type invocationLoggingConfigurationArgs struct {
 // The set of arguments for constructing a InvocationLoggingConfiguration resource.
 type InvocationLoggingConfigurationArgs struct {
 	// The logging configuration values to set. See `loggingConfig` Block for details.
-	LoggingConfig InvocationLoggingConfigurationLoggingConfigPtrInput
+	LoggingConfig InvocationLoggingConfigurationLoggingConfigInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 }
@@ -271,10 +275,10 @@ func (o InvocationLoggingConfigurationOutput) ToInvocationLoggingConfigurationOu
 }
 
 // The logging configuration values to set. See `loggingConfig` Block for details.
-func (o InvocationLoggingConfigurationOutput) LoggingConfig() InvocationLoggingConfigurationLoggingConfigPtrOutput {
-	return o.ApplyT(func(v *InvocationLoggingConfiguration) InvocationLoggingConfigurationLoggingConfigPtrOutput {
+func (o InvocationLoggingConfigurationOutput) LoggingConfig() InvocationLoggingConfigurationLoggingConfigOutput {
+	return o.ApplyT(func(v *InvocationLoggingConfiguration) InvocationLoggingConfigurationLoggingConfigOutput {
 		return v.LoggingConfig
-	}).(InvocationLoggingConfigurationLoggingConfigPtrOutput)
+	}).(InvocationLoggingConfigurationLoggingConfigOutput)
 }
 
 // Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.

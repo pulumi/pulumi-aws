@@ -22,23 +22,22 @@ __all__ = ['DirectoryBucketAccessPointScopeArgs', 'DirectoryBucketAccessPointSco
 class DirectoryBucketAccessPointScopeArgs:
     def __init__(__self__, *,
                  account_id: pulumi.Input[_builtins.str],
+                 scope: pulumi.Input['DirectoryBucketAccessPointScopeScopeArgs'],
                  name: Optional[pulumi.Input[_builtins.str]] = None,
-                 region: Optional[pulumi.Input[_builtins.str]] = None,
-                 scope: Optional[pulumi.Input['DirectoryBucketAccessPointScopeScopeArgs']] = None):
+                 region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a DirectoryBucketAccessPointScope resource.
         :param pulumi.Input[_builtins.str] account_id: The AWS account ID that owns the specified access point.
+        :param pulumi.Input['DirectoryBucketAccessPointScopeScopeArgs'] scope: . Scope is used to restrict access to specific prefixes, API operations, or a combination of both. To remove the `scope`, set it to `{permissions=[] prefixes=[]}`. The default scope is `{permissions=[] prefixes=[]}`.
         :param pulumi.Input[_builtins.str] name: The name of the access point that you want to apply the scope to.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input['DirectoryBucketAccessPointScopeScopeArgs'] scope: . Scope is used to restrict access to specific prefixes, API operations, or a combination of both. To remove the `scope`, set it to `{permissions=[] prefixes=[]}`. The default scope is `{permissions=[] prefixes=[]}`.
         """
         pulumi.set(__self__, "account_id", account_id)
+        pulumi.set(__self__, "scope", scope)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if region is not None:
             pulumi.set(__self__, "region", region)
-        if scope is not None:
-            pulumi.set(__self__, "scope", scope)
 
     @_builtins.property
     @pulumi.getter(name="accountId")
@@ -51,6 +50,18 @@ class DirectoryBucketAccessPointScopeArgs:
     @account_id.setter
     def account_id(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "account_id", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def scope(self) -> pulumi.Input['DirectoryBucketAccessPointScopeScopeArgs']:
+        """
+        . Scope is used to restrict access to specific prefixes, API operations, or a combination of both. To remove the `scope`, set it to `{permissions=[] prefixes=[]}`. The default scope is `{permissions=[] prefixes=[]}`.
+        """
+        return pulumi.get(self, "scope")
+
+    @scope.setter
+    def scope(self, value: pulumi.Input['DirectoryBucketAccessPointScopeScopeArgs']):
+        pulumi.set(self, "scope", value)
 
     @_builtins.property
     @pulumi.getter
@@ -75,18 +86,6 @@ class DirectoryBucketAccessPointScopeArgs:
     @region.setter
     def region(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "region", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def scope(self) -> Optional[pulumi.Input['DirectoryBucketAccessPointScopeScopeArgs']]:
-        """
-        . Scope is used to restrict access to specific prefixes, API operations, or a combination of both. To remove the `scope`, set it to `{permissions=[] prefixes=[]}`. The default scope is `{permissions=[] prefixes=[]}`.
-        """
-        return pulumi.get(self, "scope")
-
-    @scope.setter
-    def scope(self, value: Optional[pulumi.Input['DirectoryBucketAccessPointScopeScopeArgs']]):
-        pulumi.set(self, "scope", value)
 
 
 @pulumi.input_type
@@ -300,6 +299,8 @@ class DirectoryBucketAccessPointScope(pulumi.CustomResource):
             __props__.__dict__["account_id"] = account_id
             __props__.__dict__["name"] = name
             __props__.__dict__["region"] = region
+            if scope is None and not opts.urn:
+                raise TypeError("Missing required property 'scope'")
             __props__.__dict__["scope"] = scope
         super(DirectoryBucketAccessPointScope, __self__).__init__(
             'aws:s3control/directoryBucketAccessPointScope:DirectoryBucketAccessPointScope',
@@ -363,7 +364,7 @@ class DirectoryBucketAccessPointScope(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
-    def scope(self) -> pulumi.Output[Optional['outputs.DirectoryBucketAccessPointScopeScope']]:
+    def scope(self) -> pulumi.Output['outputs.DirectoryBucketAccessPointScopeScope']:
         """
         . Scope is used to restrict access to specific prefixes, API operations, or a combination of both. To remove the `scope`, set it to `{permissions=[] prefixes=[]}`. The default scope is `{permissions=[] prefixes=[]}`.
         """

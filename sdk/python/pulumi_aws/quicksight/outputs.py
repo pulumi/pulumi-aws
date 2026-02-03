@@ -5313,7 +5313,7 @@ class RefreshScheduleSchedule(dict):
 
     def __init__(__self__, *,
                  refresh_type: _builtins.str,
-                 schedule_frequency: Optional['outputs.RefreshScheduleScheduleScheduleFrequency'] = None,
+                 schedule_frequency: 'outputs.RefreshScheduleScheduleScheduleFrequency',
                  start_after_date_time: Optional[_builtins.str] = None):
         """
         :param _builtins.str refresh_type: The type of refresh that the dataset undergoes. Valid values are `INCREMENTAL_REFRESH` and `FULL_REFRESH`.
@@ -5321,8 +5321,7 @@ class RefreshScheduleSchedule(dict):
         :param _builtins.str start_after_date_time: Time after which the refresh schedule can be started, expressed in `YYYY-MM-DDTHH:MM:SS` format.
         """
         pulumi.set(__self__, "refresh_type", refresh_type)
-        if schedule_frequency is not None:
-            pulumi.set(__self__, "schedule_frequency", schedule_frequency)
+        pulumi.set(__self__, "schedule_frequency", schedule_frequency)
         if start_after_date_time is not None:
             pulumi.set(__self__, "start_after_date_time", start_after_date_time)
 
@@ -5336,7 +5335,7 @@ class RefreshScheduleSchedule(dict):
 
     @_builtins.property
     @pulumi.getter(name="scheduleFrequency")
-    def schedule_frequency(self) -> Optional['outputs.RefreshScheduleScheduleScheduleFrequency']:
+    def schedule_frequency(self) -> 'outputs.RefreshScheduleScheduleScheduleFrequency':
         """
         The configuration of the [schedule frequency](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_RefreshFrequency.html). See schedule_frequency.
         """

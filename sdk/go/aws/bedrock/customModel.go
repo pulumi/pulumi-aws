@@ -95,7 +95,7 @@ type CustomModel struct {
 	// The status of the customization job. A successful job transitions from `InProgress` to `Completed` when the output model is ready to use.
 	JobStatus pulumi.StringOutput `pulumi:"jobStatus"`
 	// S3 location for the output data.
-	OutputDataConfig CustomModelOutputDataConfigPtrOutput `pulumi:"outputDataConfig"`
+	OutputDataConfig CustomModelOutputDataConfigOutput `pulumi:"outputDataConfig"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// The Amazon Resource Name (ARN) of an IAM role that Bedrock can assume to perform tasks on your behalf.
@@ -106,7 +106,7 @@ type CustomModel struct {
 	TagsAll  pulumi.StringMapOutput       `pulumi:"tagsAll"`
 	Timeouts CustomModelTimeoutsPtrOutput `pulumi:"timeouts"`
 	// Information about the training dataset.
-	TrainingDataConfig CustomModelTrainingDataConfigPtrOutput `pulumi:"trainingDataConfig"`
+	TrainingDataConfig CustomModelTrainingDataConfigOutput `pulumi:"trainingDataConfig"`
 	// Metrics associated with the customization job.
 	TrainingMetrics CustomModelTrainingMetricArrayOutput `pulumi:"trainingMetrics"`
 	// Information about the validation dataset.
@@ -136,8 +136,14 @@ func NewCustomModel(ctx *pulumi.Context,
 	if args.JobName == nil {
 		return nil, errors.New("invalid value for required argument 'JobName'")
 	}
+	if args.OutputDataConfig == nil {
+		return nil, errors.New("invalid value for required argument 'OutputDataConfig'")
+	}
 	if args.RoleArn == nil {
 		return nil, errors.New("invalid value for required argument 'RoleArn'")
+	}
+	if args.TrainingDataConfig == nil {
+		return nil, errors.New("invalid value for required argument 'TrainingDataConfig'")
 	}
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource CustomModel
@@ -263,7 +269,7 @@ type customModelArgs struct {
 	// A name for the customization job.
 	JobName string `pulumi:"jobName"`
 	// S3 location for the output data.
-	OutputDataConfig *CustomModelOutputDataConfig `pulumi:"outputDataConfig"`
+	OutputDataConfig CustomModelOutputDataConfig `pulumi:"outputDataConfig"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The Amazon Resource Name (ARN) of an IAM role that Bedrock can assume to perform tasks on your behalf.
@@ -272,7 +278,7 @@ type customModelArgs struct {
 	Tags     map[string]string    `pulumi:"tags"`
 	Timeouts *CustomModelTimeouts `pulumi:"timeouts"`
 	// Information about the training dataset.
-	TrainingDataConfig *CustomModelTrainingDataConfig `pulumi:"trainingDataConfig"`
+	TrainingDataConfig CustomModelTrainingDataConfig `pulumi:"trainingDataConfig"`
 	// Information about the validation dataset.
 	ValidationDataConfig *CustomModelValidationDataConfig `pulumi:"validationDataConfig"`
 	// Configuration parameters for the private Virtual Private Cloud (VPC) that contains the resources you are using for this job.
@@ -294,7 +300,7 @@ type CustomModelArgs struct {
 	// A name for the customization job.
 	JobName pulumi.StringInput
 	// S3 location for the output data.
-	OutputDataConfig CustomModelOutputDataConfigPtrInput
+	OutputDataConfig CustomModelOutputDataConfigInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The Amazon Resource Name (ARN) of an IAM role that Bedrock can assume to perform tasks on your behalf.
@@ -303,7 +309,7 @@ type CustomModelArgs struct {
 	Tags     pulumi.StringMapInput
 	Timeouts CustomModelTimeoutsPtrInput
 	// Information about the training dataset.
-	TrainingDataConfig CustomModelTrainingDataConfigPtrInput
+	TrainingDataConfig CustomModelTrainingDataConfigInput
 	// Information about the validation dataset.
 	ValidationDataConfig CustomModelValidationDataConfigPtrInput
 	// Configuration parameters for the private Virtual Private Cloud (VPC) that contains the resources you are using for this job.
@@ -443,8 +449,8 @@ func (o CustomModelOutput) JobStatus() pulumi.StringOutput {
 }
 
 // S3 location for the output data.
-func (o CustomModelOutput) OutputDataConfig() CustomModelOutputDataConfigPtrOutput {
-	return o.ApplyT(func(v *CustomModel) CustomModelOutputDataConfigPtrOutput { return v.OutputDataConfig }).(CustomModelOutputDataConfigPtrOutput)
+func (o CustomModelOutput) OutputDataConfig() CustomModelOutputDataConfigOutput {
+	return o.ApplyT(func(v *CustomModel) CustomModelOutputDataConfigOutput { return v.OutputDataConfig }).(CustomModelOutputDataConfigOutput)
 }
 
 // Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -472,8 +478,8 @@ func (o CustomModelOutput) Timeouts() CustomModelTimeoutsPtrOutput {
 }
 
 // Information about the training dataset.
-func (o CustomModelOutput) TrainingDataConfig() CustomModelTrainingDataConfigPtrOutput {
-	return o.ApplyT(func(v *CustomModel) CustomModelTrainingDataConfigPtrOutput { return v.TrainingDataConfig }).(CustomModelTrainingDataConfigPtrOutput)
+func (o CustomModelOutput) TrainingDataConfig() CustomModelTrainingDataConfigOutput {
+	return o.ApplyT(func(v *CustomModel) CustomModelTrainingDataConfigOutput { return v.TrainingDataConfig }).(CustomModelTrainingDataConfigOutput)
 }
 
 // Metrics associated with the customization job.

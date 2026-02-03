@@ -73,7 +73,7 @@ namespace Pulumi.Aws.AppFabric
         /// Contains information about the destination of ingested data.
         /// </summary>
         [Output("destinationConfiguration")]
-        public Output<Outputs.IngestionDestinationDestinationConfiguration?> DestinationConfiguration { get; private set; } = null!;
+        public Output<Outputs.IngestionDestinationDestinationConfiguration> DestinationConfiguration { get; private set; } = null!;
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the ingestion to use for the request.
@@ -85,7 +85,7 @@ namespace Pulumi.Aws.AppFabric
         /// Contains information about how ingested data is processed.
         /// </summary>
         [Output("processingConfiguration")]
-        public Output<Outputs.IngestionDestinationProcessingConfiguration?> ProcessingConfiguration { get; private set; } = null!;
+        public Output<Outputs.IngestionDestinationProcessingConfiguration> ProcessingConfiguration { get; private set; } = null!;
 
         /// <summary>
         /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -163,8 +163,8 @@ namespace Pulumi.Aws.AppFabric
         /// <summary>
         /// Contains information about the destination of ingested data.
         /// </summary>
-        [Input("destinationConfiguration")]
-        public Input<Inputs.IngestionDestinationDestinationConfigurationArgs>? DestinationConfiguration { get; set; }
+        [Input("destinationConfiguration", required: true)]
+        public Input<Inputs.IngestionDestinationDestinationConfigurationArgs> DestinationConfiguration { get; set; } = null!;
 
         /// <summary>
         /// The Amazon Resource Name (ARN) of the ingestion to use for the request.
@@ -175,8 +175,8 @@ namespace Pulumi.Aws.AppFabric
         /// <summary>
         /// Contains information about how ingested data is processed.
         /// </summary>
-        [Input("processingConfiguration")]
-        public Input<Inputs.IngestionDestinationProcessingConfigurationArgs>? ProcessingConfiguration { get; set; }
+        [Input("processingConfiguration", required: true)]
+        public Input<Inputs.IngestionDestinationProcessingConfigurationArgs> ProcessingConfiguration { get; set; } = null!;
 
         /// <summary>
         /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.

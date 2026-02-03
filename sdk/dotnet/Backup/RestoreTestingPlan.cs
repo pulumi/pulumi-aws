@@ -72,7 +72,7 @@ namespace Pulumi.Aws.Backup
         /// Specifies the recovery point selection configuration. See RecoveryPointSelection section for more details.
         /// </summary>
         [Output("recoveryPointSelection")]
-        public Output<Outputs.RestoreTestingPlanRecoveryPointSelection?> RecoveryPointSelection { get; private set; } = null!;
+        public Output<Outputs.RestoreTestingPlanRecoveryPointSelection> RecoveryPointSelection { get; private set; } = null!;
 
         /// <summary>
         /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -162,8 +162,8 @@ namespace Pulumi.Aws.Backup
         /// <summary>
         /// Specifies the recovery point selection configuration. See RecoveryPointSelection section for more details.
         /// </summary>
-        [Input("recoveryPointSelection")]
-        public Input<Inputs.RestoreTestingPlanRecoveryPointSelectionArgs>? RecoveryPointSelection { get; set; }
+        [Input("recoveryPointSelection", required: true)]
+        public Input<Inputs.RestoreTestingPlanRecoveryPointSelectionArgs> RecoveryPointSelection { get; set; } = null!;
 
         /// <summary>
         /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.

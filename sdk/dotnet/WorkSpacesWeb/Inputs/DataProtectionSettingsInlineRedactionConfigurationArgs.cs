@@ -42,7 +42,7 @@ namespace Pulumi.Aws.WorkSpacesWeb.Inputs
             set => _globalExemptUrls = value;
         }
 
-        [Input("inlineRedactionPatterns")]
+        [Input("inlineRedactionPatterns", required: true)]
         private InputList<Inputs.DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternArgs>? _inlineRedactionPatterns;
 
         /// <summary>

@@ -15,8 +15,8 @@ namespace Pulumi.Aws.Bedrock.Inputs
         /// <summary>
         /// Configurations for authentication to a Redshift Serverless. See `AuthConfiguration` block for details.
         /// </summary>
-        [Input("authConfiguration")]
-        public Input<Inputs.AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationAuthConfigurationArgs>? AuthConfiguration { get; set; }
+        [Input("authConfiguration", required: true)]
+        public Input<Inputs.AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationAuthConfigurationArgs> AuthConfiguration { get; set; } = null!;
 
         /// <summary>
         /// ARN of the Amazon Redshift workgroup.

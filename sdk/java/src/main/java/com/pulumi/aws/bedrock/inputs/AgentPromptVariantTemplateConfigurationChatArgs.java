@@ -9,6 +9,7 @@ import com.pulumi.aws.bedrock.inputs.AgentPromptVariantTemplateConfigurationChat
 import com.pulumi.aws.bedrock.inputs.AgentPromptVariantTemplateConfigurationChatToolConfigurationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
@@ -30,15 +31,15 @@ public final class AgentPromptVariantTemplateConfigurationChatArgs extends com.p
      * A list of messages in the chat for the prompt. See Message for more information.
      * 
      */
-    @Import(name="messages")
-    private @Nullable Output<List<AgentPromptVariantTemplateConfigurationChatMessageArgs>> messages;
+    @Import(name="messages", required=true)
+    private Output<List<AgentPromptVariantTemplateConfigurationChatMessageArgs>> messages;
 
     /**
      * @return A list of messages in the chat for the prompt. See Message for more information.
      * 
      */
-    public Optional<Output<List<AgentPromptVariantTemplateConfigurationChatMessageArgs>>> messages() {
-        return Optional.ofNullable(this.messages);
+    public Output<List<AgentPromptVariantTemplateConfigurationChatMessageArgs>> messages() {
+        return this.messages;
     }
 
     /**
@@ -117,7 +118,7 @@ public final class AgentPromptVariantTemplateConfigurationChatArgs extends com.p
          * @return builder
          * 
          */
-        public Builder messages(@Nullable Output<List<AgentPromptVariantTemplateConfigurationChatMessageArgs>> messages) {
+        public Builder messages(Output<List<AgentPromptVariantTemplateConfigurationChatMessageArgs>> messages) {
             $.messages = messages;
             return this;
         }
@@ -195,6 +196,9 @@ public final class AgentPromptVariantTemplateConfigurationChatArgs extends com.p
         }
 
         public AgentPromptVariantTemplateConfigurationChatArgs build() {
+            if ($.messages == null) {
+                throw new MissingRequiredPropertyException("AgentPromptVariantTemplateConfigurationChatArgs", "messages");
+            }
             return $;
         }
     }

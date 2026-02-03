@@ -161,7 +161,7 @@ public class Scope extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="targets", refs={List.class,ScopeTarget.class}, tree="[0,1]")
-    private Output</* @Nullable */ List<ScopeTarget>> targets;
+    private Output<List<ScopeTarget>> targets;
 
     /**
      * @return The targets to define the scope to be monitored. A target is an array of target resources, which are currently Region-account pairs.
@@ -169,8 +169,8 @@ public class Scope extends com.pulumi.resources.CustomResource {
      * The following arguments are optional:
      * 
      */
-    public Output<Optional<List<ScopeTarget>>> targets() {
-        return Codegen.optional(this.targets);
+    public Output<List<ScopeTarget>> targets() {
+        return this.targets;
     }
     @Export(name="timeouts", refs={ScopeTimeouts.class}, tree="[0]")
     private Output</* @Nullable */ ScopeTimeouts> timeouts;
@@ -191,7 +191,7 @@ public class Scope extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public Scope(java.lang.String name, @Nullable ScopeArgs args) {
+    public Scope(java.lang.String name, ScopeArgs args) {
         this(name, args, null);
     }
     /**
@@ -200,7 +200,7 @@ public class Scope extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public Scope(java.lang.String name, @Nullable ScopeArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public Scope(java.lang.String name, ScopeArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:networkflowmonitor/scope:Scope", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
@@ -208,7 +208,7 @@ public class Scope extends com.pulumi.resources.CustomResource {
         super("aws:networkflowmonitor/scope:Scope", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static ScopeArgs makeArgs(@Nullable ScopeArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    private static ScopeArgs makeArgs(ScopeArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         if (options != null && options.getUrn().isPresent()) {
             return null;
         }

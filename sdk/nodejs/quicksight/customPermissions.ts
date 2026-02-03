@@ -65,7 +65,7 @@ export class CustomPermissions extends pulumi.CustomResource {
     /**
      * Actions to include in the custom permissions profile. See capabilities.
      */
-    declare public readonly capabilities: pulumi.Output<outputs.quicksight.CustomPermissionsCapabilities | undefined>;
+    declare public readonly capabilities: pulumi.Output<outputs.quicksight.CustomPermissionsCapabilities>;
     /**
      * Custom permissions profile name.
      *
@@ -107,6 +107,9 @@ export class CustomPermissions extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = state?.tagsAll;
         } else {
             const args = argsOrState as CustomPermissionsArgs | undefined;
+            if (args?.capabilities === undefined && !opts.urn) {
+                throw new Error("Missing required property 'capabilities'");
+            }
             if (args?.customPermissionsName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'customPermissionsName'");
             }
@@ -164,7 +167,7 @@ export interface CustomPermissionsArgs {
     /**
      * Actions to include in the custom permissions profile. See capabilities.
      */
-    capabilities?: pulumi.Input<inputs.quicksight.CustomPermissionsCapabilities>;
+    capabilities: pulumi.Input<inputs.quicksight.CustomPermissionsCapabilities>;
     /**
      * Custom permissions profile name.
      *

@@ -24,7 +24,7 @@ namespace Pulumi.Aws.NetworkFirewall.Inputs
         [Input("checkCertificateRevocationStatus")]
         public Input<Inputs.TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatusGetArgs>? CheckCertificateRevocationStatus { get; set; }
 
-        [Input("scopes")]
+        [Input("scopes", required: true)]
         private InputList<Inputs.TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeGetArgs>? _scopes;
 
         /// <summary>

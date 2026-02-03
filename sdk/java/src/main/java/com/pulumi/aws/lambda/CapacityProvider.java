@@ -140,7 +140,7 @@ public class CapacityProvider extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="permissionsConfig", refs={CapacityProviderPermissionsConfig.class}, tree="[0]")
-    private Output</* @Nullable */ CapacityProviderPermissionsConfig> permissionsConfig;
+    private Output<CapacityProviderPermissionsConfig> permissionsConfig;
 
     /**
      * @return Configuration block for permissions settings. See Permissions Config below.
@@ -148,8 +148,8 @@ public class CapacityProvider extends com.pulumi.resources.CustomResource {
      * The following arguments are optional:
      * 
      */
-    public Output<Optional<CapacityProviderPermissionsConfig>> permissionsConfig() {
-        return Codegen.optional(this.permissionsConfig);
+    public Output<CapacityProviderPermissionsConfig> permissionsConfig() {
+        return this.permissionsConfig;
     }
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -204,14 +204,14 @@ public class CapacityProvider extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="vpcConfig", refs={CapacityProviderVpcConfig.class}, tree="[0]")
-    private Output</* @Nullable */ CapacityProviderVpcConfig> vpcConfig;
+    private Output<CapacityProviderVpcConfig> vpcConfig;
 
     /**
      * @return Configuration block for VPC settings. See VPC Config below.
      * 
      */
-    public Output<Optional<CapacityProviderVpcConfig>> vpcConfig() {
-        return Codegen.optional(this.vpcConfig);
+    public Output<CapacityProviderVpcConfig> vpcConfig() {
+        return this.vpcConfig;
     }
 
     /**
@@ -226,7 +226,7 @@ public class CapacityProvider extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public CapacityProvider(java.lang.String name, @Nullable CapacityProviderArgs args) {
+    public CapacityProvider(java.lang.String name, CapacityProviderArgs args) {
         this(name, args, null);
     }
     /**
@@ -235,7 +235,7 @@ public class CapacityProvider extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public CapacityProvider(java.lang.String name, @Nullable CapacityProviderArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public CapacityProvider(java.lang.String name, CapacityProviderArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:lambda/capacityProvider:CapacityProvider", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
@@ -243,7 +243,7 @@ public class CapacityProvider extends com.pulumi.resources.CustomResource {
         super("aws:lambda/capacityProvider:CapacityProvider", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static CapacityProviderArgs makeArgs(@Nullable CapacityProviderArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    private static CapacityProviderArgs makeArgs(CapacityProviderArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         if (options != null && options.getUrn().isPresent()) {
             return null;
         }

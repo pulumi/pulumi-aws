@@ -134,7 +134,7 @@ type RouteServerPeer struct {
 	// The ARN of the route server peer.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The BGP options for the peer, including ASN (Autonomous System Number) and BFD (Bidrectional Forwarding Detection) settings. Configuration block with BGP Options configuration Detailed below
-	BgpOptions RouteServerPeerBgpOptionsPtrOutput `pulumi:"bgpOptions"`
+	BgpOptions RouteServerPeerBgpOptionsOutput `pulumi:"bgpOptions"`
 	// The IP address of the Elastic network interface for the route server endpoint.
 	EndpointEniAddress pulumi.StringOutput `pulumi:"endpointEniAddress"`
 	// The ID of the Elastic network interface for the route server endpoint.
@@ -169,6 +169,9 @@ func NewRouteServerPeer(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
+	if args.BgpOptions == nil {
+		return nil, errors.New("invalid value for required argument 'BgpOptions'")
+	}
 	if args.PeerAddress == nil {
 		return nil, errors.New("invalid value for required argument 'PeerAddress'")
 	}
@@ -267,7 +270,7 @@ func (RouteServerPeerState) ElementType() reflect.Type {
 
 type routeServerPeerArgs struct {
 	// The BGP options for the peer, including ASN (Autonomous System Number) and BFD (Bidrectional Forwarding Detection) settings. Configuration block with BGP Options configuration Detailed below
-	BgpOptions *RouteServerPeerBgpOptions `pulumi:"bgpOptions"`
+	BgpOptions RouteServerPeerBgpOptions `pulumi:"bgpOptions"`
 	// The IPv4 address of the peer device.
 	PeerAddress string `pulumi:"peerAddress"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -284,7 +287,7 @@ type routeServerPeerArgs struct {
 // The set of arguments for constructing a RouteServerPeer resource.
 type RouteServerPeerArgs struct {
 	// The BGP options for the peer, including ASN (Autonomous System Number) and BFD (Bidrectional Forwarding Detection) settings. Configuration block with BGP Options configuration Detailed below
-	BgpOptions RouteServerPeerBgpOptionsPtrInput
+	BgpOptions RouteServerPeerBgpOptionsInput
 	// The IPv4 address of the peer device.
 	PeerAddress pulumi.StringInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -391,8 +394,8 @@ func (o RouteServerPeerOutput) Arn() pulumi.StringOutput {
 }
 
 // The BGP options for the peer, including ASN (Autonomous System Number) and BFD (Bidrectional Forwarding Detection) settings. Configuration block with BGP Options configuration Detailed below
-func (o RouteServerPeerOutput) BgpOptions() RouteServerPeerBgpOptionsPtrOutput {
-	return o.ApplyT(func(v *RouteServerPeer) RouteServerPeerBgpOptionsPtrOutput { return v.BgpOptions }).(RouteServerPeerBgpOptionsPtrOutput)
+func (o RouteServerPeerOutput) BgpOptions() RouteServerPeerBgpOptionsOutput {
+	return o.ApplyT(func(v *RouteServerPeer) RouteServerPeerBgpOptionsOutput { return v.BgpOptions }).(RouteServerPeerBgpOptionsOutput)
 }
 
 // The IP address of the Elastic network interface for the route server endpoint.

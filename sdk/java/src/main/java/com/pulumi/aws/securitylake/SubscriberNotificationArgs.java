@@ -21,15 +21,15 @@ public final class SubscriberNotificationArgs extends com.pulumi.resources.Resou
      * Specify the configuration using which you want to create the subscriber notification..
      * 
      */
-    @Import(name="configuration")
-    private @Nullable Output<SubscriberNotificationConfigurationArgs> configuration;
+    @Import(name="configuration", required=true)
+    private Output<SubscriberNotificationConfigurationArgs> configuration;
 
     /**
      * @return Specify the configuration using which you want to create the subscriber notification..
      * 
      */
-    public Optional<Output<SubscriberNotificationConfigurationArgs>> configuration() {
-        return Optional.ofNullable(this.configuration);
+    public Output<SubscriberNotificationConfigurationArgs> configuration() {
+        return this.configuration;
     }
 
     /**
@@ -94,7 +94,7 @@ public final class SubscriberNotificationArgs extends com.pulumi.resources.Resou
          * @return builder
          * 
          */
-        public Builder configuration(@Nullable Output<SubscriberNotificationConfigurationArgs> configuration) {
+        public Builder configuration(Output<SubscriberNotificationConfigurationArgs> configuration) {
             $.configuration = configuration;
             return this;
         }
@@ -152,6 +152,9 @@ public final class SubscriberNotificationArgs extends com.pulumi.resources.Resou
         }
 
         public SubscriberNotificationArgs build() {
+            if ($.configuration == null) {
+                throw new MissingRequiredPropertyException("SubscriberNotificationArgs", "configuration");
+            }
             if ($.subscriberId == null) {
                 throw new MissingRequiredPropertyException("SubscriberNotificationArgs", "subscriberId");
             }

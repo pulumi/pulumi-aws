@@ -5,9 +5,8 @@ package com.pulumi.aws.appfabric.outputs;
 
 import com.pulumi.aws.appfabric.outputs.IngestionDestinationDestinationConfigurationAuditLog;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.Objects;
-import java.util.Optional;
-import javax.annotation.Nullable;
 
 @CustomType
 public final class IngestionDestinationDestinationConfiguration {
@@ -15,15 +14,15 @@ public final class IngestionDestinationDestinationConfiguration {
      * @return Contains information about an audit log processing configuration.
      * 
      */
-    private @Nullable IngestionDestinationDestinationConfigurationAuditLog auditLog;
+    private IngestionDestinationDestinationConfigurationAuditLog auditLog;
 
     private IngestionDestinationDestinationConfiguration() {}
     /**
      * @return Contains information about an audit log processing configuration.
      * 
      */
-    public Optional<IngestionDestinationDestinationConfigurationAuditLog> auditLog() {
-        return Optional.ofNullable(this.auditLog);
+    public IngestionDestinationDestinationConfigurationAuditLog auditLog() {
+        return this.auditLog;
     }
 
     public static Builder builder() {
@@ -35,7 +34,7 @@ public final class IngestionDestinationDestinationConfiguration {
     }
     @CustomType.Builder
     public static final class Builder {
-        private @Nullable IngestionDestinationDestinationConfigurationAuditLog auditLog;
+        private IngestionDestinationDestinationConfigurationAuditLog auditLog;
         public Builder() {}
         public Builder(IngestionDestinationDestinationConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
@@ -43,8 +42,10 @@ public final class IngestionDestinationDestinationConfiguration {
         }
 
         @CustomType.Setter
-        public Builder auditLog(@Nullable IngestionDestinationDestinationConfigurationAuditLog auditLog) {
-
+        public Builder auditLog(IngestionDestinationDestinationConfigurationAuditLog auditLog) {
+            if (auditLog == null) {
+              throw new MissingRequiredPropertyException("IngestionDestinationDestinationConfiguration", "auditLog");
+            }
             this.auditLog = auditLog;
             return this;
         }

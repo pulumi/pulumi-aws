@@ -55,8 +55,8 @@ public final class FilterArgs extends com.pulumi.resources.ResourceArgs {
      * The following arguments are optional:
      * 
      */
-    @Import(name="filterCriterias")
-    private @Nullable Output<List<FilterFilterCriteriaArgs>> filterCriterias;
+    @Import(name="filterCriterias", required=true)
+    private Output<List<FilterFilterCriteriaArgs>> filterCriterias;
 
     /**
      * @return Details on the filter criteria. Documented below.
@@ -64,8 +64,8 @@ public final class FilterArgs extends com.pulumi.resources.ResourceArgs {
      * The following arguments are optional:
      * 
      */
-    public Optional<Output<List<FilterFilterCriteriaArgs>>> filterCriterias() {
-        return Optional.ofNullable(this.filterCriterias);
+    public Output<List<FilterFilterCriteriaArgs>> filterCriterias() {
+        return this.filterCriterias;
     }
 
     /**
@@ -208,7 +208,7 @@ public final class FilterArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder filterCriterias(@Nullable Output<List<FilterFilterCriteriaArgs>> filterCriterias) {
+        public Builder filterCriterias(Output<List<FilterFilterCriteriaArgs>> filterCriterias) {
             $.filterCriterias = filterCriterias;
             return this;
         }
@@ -324,6 +324,9 @@ public final class FilterArgs extends com.pulumi.resources.ResourceArgs {
         public FilterArgs build() {
             if ($.action == null) {
                 throw new MissingRequiredPropertyException("FilterArgs", "action");
+            }
+            if ($.filterCriterias == null) {
+                throw new MissingRequiredPropertyException("FilterArgs", "filterCriterias");
             }
             return $;
         }
