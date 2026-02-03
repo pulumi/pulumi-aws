@@ -212,7 +212,11 @@ var fixUpBucketReplicationConfig = tfbridge.DocsEdit{
 			"* `rule` - (Required) List of configuration blocks describing the rules managing the replication. " +
 				"[See below](#rule).\n")
 		noteBlock := extractRuleNotes(content)
-		if noteBlock == "" || bytes.Contains(content, []byte(noteBlock)) {
+		if noteBlock == "" {
+			return content, nil
+		}
+		if bytes.Contains(content, append(fromBytes, []byte("\n"+noteBlock)...)) ||
+			bytes.Contains(content, append(fromBytes, []byte("\n\n"+noteBlock)...)) {
 			return content, nil
 		}
 		if bytes.Contains(content, fromBytes) {

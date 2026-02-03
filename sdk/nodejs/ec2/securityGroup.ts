@@ -173,7 +173,7 @@ import * as utilities from "../utilities";
  *     dependsOn: [example],
  * });
  * const exampleResource = new _null.Resource("example", {triggers: {
- *     rerunUponChangeOf: std.join({
+ *     rerun_upon_change_of: std.join({
  *         separator: ",",
  *         input: exampleAwsVpcEndpoint.securityGroupIds,
  *     }).then(invoke => invoke.result),

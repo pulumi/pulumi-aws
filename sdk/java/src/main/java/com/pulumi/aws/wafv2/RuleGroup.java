@@ -205,8 +205,8 @@ import javax.annotation.Nullable;
  *                         .count(RuleGroupRuleActionCountArgs.builder()
  *                             .build())
  *                         .build())
- *                     .statement(Map.of("orStatement", RuleGroupRuleStatementOrStatementArgs.builder()
- *                         .statements(                        
+ *                     .statement(RuleGroupRuleStatementArgs.builder()
+ *                         .orStatement(Map.of("statements",                         
  *                             RuleGroupRuleStatementArgs.builder()
  *                                 .regexMatchStatement(RuleGroupRuleStatementRegexMatchStatementArgs.builder()
  *                                     .regexString("a-z?")
@@ -253,8 +253,8 @@ import javax.annotation.Nullable;
  *                                         .type("NONE")
  *                                         .build())
  *                                     .build())
- *                                 .build())
- *                         .build()))
+ *                                 .build()))
+ *                         .build())
  *                     .visibilityConfig(RuleGroupRuleVisibilityConfigArgs.builder()
  *                         .cloudwatchMetricsEnabled(false)
  *                         .metricName("rule-2")
