@@ -120,12 +120,15 @@ namespace Pulumi.Aws.CodePipeline
     ///     {
     ///         Repository = repo.Name,
     ///         Name = "web",
-    ///         Configuration = new Github.Inputs.RepositoryWebhookConfigurationArgs
+    ///         Configuration = new[]
     ///         {
-    ///             Url = barWebhook.Url,
-    ///             ContentType = "json",
-    ///             InsecureSsl = true,
-    ///             Secret = webhookSecret,
+    ///             
+    ///             {
+    ///                 { "url", barWebhook.Url },
+    ///                 { "contentType", "json" },
+    ///                 { "insecureSsl", true },
+    ///                 { "secret", webhookSecret },
+    ///             },
     ///         },
     ///         Events = new[]
     ///         {

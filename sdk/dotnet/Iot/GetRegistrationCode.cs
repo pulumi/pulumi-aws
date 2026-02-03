@@ -36,9 +36,12 @@ namespace Pulumi.Aws.Iot
         ///     {
         ///         KeyAlgorithm = "RSA",
         ///         PrivateKeyPem = verification.PrivateKeyPem,
-        ///         Subject = new Tls.Inputs.CertRequestSubjectArgs
+        ///         Subject = new[]
         ///         {
-        ///             CommonName = example.Apply(getRegistrationCodeResult =&gt; getRegistrationCodeResult.RegistrationCode),
+        ///             
+        ///             {
+        ///                 { "commonName", example.Apply(getRegistrationCodeResult =&gt; getRegistrationCodeResult.RegistrationCode) },
+        ///             },
         ///         },
         ///     });
         /// 
@@ -73,9 +76,12 @@ namespace Pulumi.Aws.Iot
         ///     {
         ///         KeyAlgorithm = "RSA",
         ///         PrivateKeyPem = verification.PrivateKeyPem,
-        ///         Subject = new Tls.Inputs.CertRequestSubjectArgs
+        ///         Subject = new[]
         ///         {
-        ///             CommonName = example.Apply(getRegistrationCodeResult =&gt; getRegistrationCodeResult.RegistrationCode),
+        ///             
+        ///             {
+        ///                 { "commonName", example.Apply(getRegistrationCodeResult =&gt; getRegistrationCodeResult.RegistrationCode) },
+        ///             },
         ///         },
         ///     });
         /// 
@@ -110,9 +116,12 @@ namespace Pulumi.Aws.Iot
         ///     {
         ///         KeyAlgorithm = "RSA",
         ///         PrivateKeyPem = verification.PrivateKeyPem,
-        ///         Subject = new Tls.Inputs.CertRequestSubjectArgs
+        ///         Subject = new[]
         ///         {
-        ///             CommonName = example.Apply(getRegistrationCodeResult =&gt; getRegistrationCodeResult.RegistrationCode),
+        ///             
+        ///             {
+        ///                 { "commonName", example.Apply(getRegistrationCodeResult =&gt; getRegistrationCodeResult.RegistrationCode) },
+        ///             },
         ///         },
         ///     });
         /// 

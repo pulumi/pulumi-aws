@@ -97,10 +97,13 @@ namespace Pulumi.Aws.Acm
     ///     {
     ///         KeyAlgorithm = "RSA",
     ///         PrivateKeyPem = example.PrivateKeyPem,
-    ///         Subject = new Tls.Inputs.SelfSignedCertSubjectArgs
+    ///         Subject = new[]
     ///         {
-    ///             CommonName = "example.com",
-    ///             Organization = "ACME Examples, Inc",
+    ///             
+    ///             {
+    ///                 { "commonName", "example.com" },
+    ///                 { "organization", "ACME Examples, Inc" },
+    ///             },
     ///         },
     ///         ValidityPeriodHours = 12,
     ///         AllowedUses = new[]
