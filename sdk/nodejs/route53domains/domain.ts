@@ -112,7 +112,7 @@ export class Domain extends pulumi.CustomResource {
     /**
      * Details about the domain administrative contact. See Contact Blocks for more details.
      */
-    declare public readonly adminContact: pulumi.Output<outputs.route53domains.DomainAdminContact | undefined>;
+    declare public readonly adminContact: pulumi.Output<outputs.route53domains.DomainAdminContact>;
     /**
      * Whether domain administrative contact information is concealed from WHOIS queries. Default: `true`.
      */
@@ -156,7 +156,7 @@ export class Domain extends pulumi.CustomResource {
     /**
      * Details about the domain registrant. See Contact Blocks for more details.
      */
-    declare public readonly registrantContact: pulumi.Output<outputs.route53domains.DomainRegistrantContact | undefined>;
+    declare public readonly registrantContact: pulumi.Output<outputs.route53domains.DomainRegistrantContact>;
     /**
      * Whether domain registrant contact information is concealed from WHOIS queries. Default: `true`.
      */
@@ -184,7 +184,7 @@ export class Domain extends pulumi.CustomResource {
     /**
      * Details about the domain technical contact. See Contact Blocks for more details.
      */
-    declare public readonly techContact: pulumi.Output<outputs.route53domains.DomainTechContact | undefined>;
+    declare public readonly techContact: pulumi.Output<outputs.route53domains.DomainTechContact>;
     /**
      * Whether domain technical contact information is concealed from WHOIS queries. Default: `true`.
      */
@@ -246,8 +246,17 @@ export class Domain extends pulumi.CustomResource {
             resourceInputs["whoisServer"] = state?.whoisServer;
         } else {
             const args = argsOrState as DomainArgs | undefined;
+            if (args?.adminContact === undefined && !opts.urn) {
+                throw new Error("Missing required property 'adminContact'");
+            }
             if (args?.domainName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'domainName'");
+            }
+            if (args?.registrantContact === undefined && !opts.urn) {
+                throw new Error("Missing required property 'registrantContact'");
+            }
+            if (args?.techContact === undefined && !opts.urn) {
+                throw new Error("Missing required property 'techContact'");
             }
             resourceInputs["adminContact"] = args?.adminContact;
             resourceInputs["adminPrivacy"] = args?.adminPrivacy;
@@ -397,7 +406,7 @@ export interface DomainArgs {
     /**
      * Details about the domain administrative contact. See Contact Blocks for more details.
      */
-    adminContact?: pulumi.Input<inputs.route53domains.DomainAdminContact>;
+    adminContact: pulumi.Input<inputs.route53domains.DomainAdminContact>;
     /**
      * Whether domain administrative contact information is concealed from WHOIS queries. Default: `true`.
      */
@@ -429,7 +438,7 @@ export interface DomainArgs {
     /**
      * Details about the domain registrant. See Contact Blocks for more details.
      */
-    registrantContact?: pulumi.Input<inputs.route53domains.DomainRegistrantContact>;
+    registrantContact: pulumi.Input<inputs.route53domains.DomainRegistrantContact>;
     /**
      * Whether domain registrant contact information is concealed from WHOIS queries. Default: `true`.
      */
@@ -441,7 +450,7 @@ export interface DomainArgs {
     /**
      * Details about the domain technical contact. See Contact Blocks for more details.
      */
-    techContact?: pulumi.Input<inputs.route53domains.DomainTechContact>;
+    techContact: pulumi.Input<inputs.route53domains.DomainTechContact>;
     /**
      * Whether domain technical contact information is concealed from WHOIS queries. Default: `true`.
      */

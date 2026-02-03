@@ -130,7 +130,7 @@ export class RefreshSchedule extends pulumi.CustomResource {
      *
      * The following arguments are optional:
      */
-    declare public readonly schedule: pulumi.Output<outputs.quicksight.RefreshScheduleSchedule | undefined>;
+    declare public readonly schedule: pulumi.Output<outputs.quicksight.RefreshScheduleSchedule>;
     /**
      * The ID of the refresh schedule.
      */
@@ -159,6 +159,9 @@ export class RefreshSchedule extends pulumi.CustomResource {
             const args = argsOrState as RefreshScheduleArgs | undefined;
             if (args?.dataSetId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'dataSetId'");
+            }
+            if (args?.schedule === undefined && !opts.urn) {
+                throw new Error("Missing required property 'schedule'");
             }
             if (args?.scheduleId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'scheduleId'");
@@ -222,7 +225,7 @@ export interface RefreshScheduleArgs {
      *
      * The following arguments are optional:
      */
-    schedule?: pulumi.Input<inputs.quicksight.RefreshScheduleSchedule>;
+    schedule: pulumi.Input<inputs.quicksight.RefreshScheduleSchedule>;
     /**
      * The ID of the refresh schedule.
      */

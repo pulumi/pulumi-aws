@@ -9,8 +9,6 @@ import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
-import java.util.Optional;
-import javax.annotation.Nullable;
 
 
 public final class ChannelNamespaceHandlerConfigsOnSubscribeArgs extends com.pulumi.resources.ResourceArgs {
@@ -36,15 +34,15 @@ public final class ChannelNamespaceHandlerConfigsOnSubscribeArgs extends com.pul
      * Integration data source configuration for the handler. See Integration below.
      * 
      */
-    @Import(name="integration")
-    private @Nullable Output<ChannelNamespaceHandlerConfigsOnSubscribeIntegrationArgs> integration;
+    @Import(name="integration", required=true)
+    private Output<ChannelNamespaceHandlerConfigsOnSubscribeIntegrationArgs> integration;
 
     /**
      * @return Integration data source configuration for the handler. See Integration below.
      * 
      */
-    public Optional<Output<ChannelNamespaceHandlerConfigsOnSubscribeIntegrationArgs>> integration() {
-        return Optional.ofNullable(this.integration);
+    public Output<ChannelNamespaceHandlerConfigsOnSubscribeIntegrationArgs> integration() {
+        return this.integration;
     }
 
     private ChannelNamespaceHandlerConfigsOnSubscribeArgs() {}
@@ -99,7 +97,7 @@ public final class ChannelNamespaceHandlerConfigsOnSubscribeArgs extends com.pul
          * @return builder
          * 
          */
-        public Builder integration(@Nullable Output<ChannelNamespaceHandlerConfigsOnSubscribeIntegrationArgs> integration) {
+        public Builder integration(Output<ChannelNamespaceHandlerConfigsOnSubscribeIntegrationArgs> integration) {
             $.integration = integration;
             return this;
         }
@@ -117,6 +115,9 @@ public final class ChannelNamespaceHandlerConfigsOnSubscribeArgs extends com.pul
         public ChannelNamespaceHandlerConfigsOnSubscribeArgs build() {
             if ($.behavior == null) {
                 throw new MissingRequiredPropertyException("ChannelNamespaceHandlerConfigsOnSubscribeArgs", "behavior");
+            }
+            if ($.integration == null) {
+                throw new MissingRequiredPropertyException("ChannelNamespaceHandlerConfigsOnSubscribeArgs", "integration");
             }
             return $;
         }

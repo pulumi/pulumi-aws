@@ -22,6 +22,7 @@ __all__ = ['CloudVmClusterArgs', 'CloudVmCluster']
 class CloudVmClusterArgs:
     def __init__(__self__, *,
                  cpu_core_count: pulumi.Input[_builtins.int],
+                 data_collection_options: pulumi.Input['CloudVmClusterDataCollectionOptionsArgs'],
                  data_storage_size_in_tbs: pulumi.Input[_builtins.float],
                  db_servers: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
                  display_name: pulumi.Input[_builtins.str],
@@ -31,7 +32,6 @@ class CloudVmClusterArgs:
                  cloud_exadata_infrastructure_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  cloud_exadata_infrastructure_id: Optional[pulumi.Input[_builtins.str]] = None,
                  cluster_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 data_collection_options: Optional[pulumi.Input['CloudVmClusterDataCollectionOptionsArgs']] = None,
                  db_node_storage_size_in_gbs: Optional[pulumi.Input[_builtins.int]] = None,
                  is_local_backup_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
                  is_sparse_diskgroup_enabled: Optional[pulumi.Input[_builtins.bool]] = None,
@@ -47,6 +47,7 @@ class CloudVmClusterArgs:
         """
         The set of arguments for constructing a CloudVmCluster resource.
         :param pulumi.Input[_builtins.int] cpu_core_count: The number of CPU cores to enable on the VM cluster. Changing this will create a new resource.
+        :param pulumi.Input['CloudVmClusterDataCollectionOptionsArgs'] data_collection_options: The set of preferences for the various diagnostic collection options for the VM cluster.
         :param pulumi.Input[_builtins.float] data_storage_size_in_tbs: The size of the data disk group, in terabytes (TBs), to allocate for the VM cluster. Changing this will create a new resource.
                
                The following arguments are optional:
@@ -58,7 +59,6 @@ class CloudVmClusterArgs:
         :param pulumi.Input[_builtins.str] cloud_exadata_infrastructure_arn: The ARN of the Exadata infrastructure for this VM cluster. Changing this will create a new resource. Either the combination of cloud_exadata_infrastructure_id and odb_network_id or cloud_exadata_infrastructure_arn and odb_network_arn must be used.
         :param pulumi.Input[_builtins.str] cloud_exadata_infrastructure_id: The unique identifier of the Exadata infrastructure for this VM cluster. Changing this will create a new resource. Either the combination of cloud_exadata_infrastructure_id and odb_network_id or cloud_exadata_infrastructure_arn and odb_network_arn must be used.
         :param pulumi.Input[_builtins.str] cluster_name: The name of the Grid Infrastructure (GI) cluster. Changing this will create a new resource.
-        :param pulumi.Input['CloudVmClusterDataCollectionOptionsArgs'] data_collection_options: The set of preferences for the various diagnostic collection options for the VM cluster.
         :param pulumi.Input[_builtins.int] db_node_storage_size_in_gbs: The amount of local node storage, in gigabytes (GBs), to allocate for the VM cluster. Changing this will create a new resource.
         :param pulumi.Input[_builtins.bool] is_local_backup_enabled: Specifies whether to enable database backups to local Exadata storage for the VM cluster. Changing this will create a new resource.
         :param pulumi.Input[_builtins.bool] is_sparse_diskgroup_enabled: Specifies whether to create a sparse disk group for the VM cluster. Changing this will create a new resource.
@@ -72,6 +72,7 @@ class CloudVmClusterArgs:
         :param pulumi.Input[_builtins.str] timezone: The configured time zone of the VM cluster. Changing this will create a new resource.
         """
         pulumi.set(__self__, "cpu_core_count", cpu_core_count)
+        pulumi.set(__self__, "data_collection_options", data_collection_options)
         pulumi.set(__self__, "data_storage_size_in_tbs", data_storage_size_in_tbs)
         pulumi.set(__self__, "db_servers", db_servers)
         pulumi.set(__self__, "display_name", display_name)
@@ -84,8 +85,6 @@ class CloudVmClusterArgs:
             pulumi.set(__self__, "cloud_exadata_infrastructure_id", cloud_exadata_infrastructure_id)
         if cluster_name is not None:
             pulumi.set(__self__, "cluster_name", cluster_name)
-        if data_collection_options is not None:
-            pulumi.set(__self__, "data_collection_options", data_collection_options)
         if db_node_storage_size_in_gbs is not None:
             pulumi.set(__self__, "db_node_storage_size_in_gbs", db_node_storage_size_in_gbs)
         if is_local_backup_enabled is not None:
@@ -122,6 +121,18 @@ class CloudVmClusterArgs:
     @cpu_core_count.setter
     def cpu_core_count(self, value: pulumi.Input[_builtins.int]):
         pulumi.set(self, "cpu_core_count", value)
+
+    @_builtins.property
+    @pulumi.getter(name="dataCollectionOptions")
+    def data_collection_options(self) -> pulumi.Input['CloudVmClusterDataCollectionOptionsArgs']:
+        """
+        The set of preferences for the various diagnostic collection options for the VM cluster.
+        """
+        return pulumi.get(self, "data_collection_options")
+
+    @data_collection_options.setter
+    def data_collection_options(self, value: pulumi.Input['CloudVmClusterDataCollectionOptionsArgs']):
+        pulumi.set(self, "data_collection_options", value)
 
     @_builtins.property
     @pulumi.getter(name="dataStorageSizeInTbs")
@@ -232,18 +243,6 @@ class CloudVmClusterArgs:
     @cluster_name.setter
     def cluster_name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "cluster_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="dataCollectionOptions")
-    def data_collection_options(self) -> Optional[pulumi.Input['CloudVmClusterDataCollectionOptionsArgs']]:
-        """
-        The set of preferences for the various diagnostic collection options for the VM cluster.
-        """
-        return pulumi.get(self, "data_collection_options")
-
-    @data_collection_options.setter
-    def data_collection_options(self, value: Optional[pulumi.Input['CloudVmClusterDataCollectionOptionsArgs']]):
-        pulumi.set(self, "data_collection_options", value)
 
     @_builtins.property
     @pulumi.getter(name="dbNodeStorageSizeInGbs")
@@ -1423,6 +1422,8 @@ class CloudVmCluster(pulumi.CustomResource):
             if cpu_core_count is None and not opts.urn:
                 raise TypeError("Missing required property 'cpu_core_count'")
             __props__.__dict__["cpu_core_count"] = cpu_core_count
+            if data_collection_options is None and not opts.urn:
+                raise TypeError("Missing required property 'data_collection_options'")
             __props__.__dict__["data_collection_options"] = data_collection_options
             if data_storage_size_in_tbs is None and not opts.urn:
                 raise TypeError("Missing required property 'data_storage_size_in_tbs'")
@@ -1707,7 +1708,7 @@ class CloudVmCluster(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="dataCollectionOptions")
-    def data_collection_options(self) -> pulumi.Output[Optional['outputs.CloudVmClusterDataCollectionOptions']]:
+    def data_collection_options(self) -> pulumi.Output['outputs.CloudVmClusterDataCollectionOptions']:
         """
         The set of preferences for the various diagnostic collection options for the VM cluster.
         """

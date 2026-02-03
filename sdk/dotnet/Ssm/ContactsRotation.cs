@@ -232,7 +232,7 @@ namespace Pulumi.Aws.Ssm
         /// The following arguments are optional:
         /// </summary>
         [Output("recurrence")]
-        public Output<Outputs.ContactsRotationRecurrence?> Recurrence { get; private set; } = null!;
+        public Output<Outputs.ContactsRotationRecurrence> Recurrence { get; private set; } = null!;
 
         /// <summary>
         /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -333,8 +333,8 @@ namespace Pulumi.Aws.Ssm
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("recurrence")]
-        public Input<Inputs.ContactsRotationRecurrenceArgs>? Recurrence { get; set; }
+        [Input("recurrence", required: true)]
+        public Input<Inputs.ContactsRotationRecurrenceArgs> Recurrence { get; set; } = null!;
 
         /// <summary>
         /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.

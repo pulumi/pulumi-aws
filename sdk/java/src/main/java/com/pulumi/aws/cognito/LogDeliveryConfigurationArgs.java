@@ -22,15 +22,15 @@ public final class LogDeliveryConfigurationArgs extends com.pulumi.resources.Res
      * Configuration block for log delivery. At least one configuration block is required. See Log Configurations below.
      * 
      */
-    @Import(name="logConfigurations")
-    private @Nullable Output<List<LogDeliveryConfigurationLogConfigurationArgs>> logConfigurations;
+    @Import(name="logConfigurations", required=true)
+    private Output<List<LogDeliveryConfigurationLogConfigurationArgs>> logConfigurations;
 
     /**
      * @return Configuration block for log delivery. At least one configuration block is required. See Log Configurations below.
      * 
      */
-    public Optional<Output<List<LogDeliveryConfigurationLogConfigurationArgs>>> logConfigurations() {
-        return Optional.ofNullable(this.logConfigurations);
+    public Output<List<LogDeliveryConfigurationLogConfigurationArgs>> logConfigurations() {
+        return this.logConfigurations;
     }
 
     /**
@@ -99,7 +99,7 @@ public final class LogDeliveryConfigurationArgs extends com.pulumi.resources.Res
          * @return builder
          * 
          */
-        public Builder logConfigurations(@Nullable Output<List<LogDeliveryConfigurationLogConfigurationArgs>> logConfigurations) {
+        public Builder logConfigurations(Output<List<LogDeliveryConfigurationLogConfigurationArgs>> logConfigurations) {
             $.logConfigurations = logConfigurations;
             return this;
         }
@@ -171,6 +171,9 @@ public final class LogDeliveryConfigurationArgs extends com.pulumi.resources.Res
         }
 
         public LogDeliveryConfigurationArgs build() {
+            if ($.logConfigurations == null) {
+                throw new MissingRequiredPropertyException("LogDeliveryConfigurationArgs", "logConfigurations");
+            }
             if ($.userPoolId == null) {
                 throw new MissingRequiredPropertyException("LogDeliveryConfigurationArgs", "userPoolId");
             }

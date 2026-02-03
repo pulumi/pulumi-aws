@@ -74,7 +74,7 @@ export class ResourceLfTag extends pulumi.CustomResource {
      *
      * Exactly one of the following is required:
      */
-    declare public readonly lfTag: pulumi.Output<outputs.lakeformation.ResourceLfTagLfTag | undefined>;
+    declare public readonly lfTag: pulumi.Output<outputs.lakeformation.ResourceLfTagLfTag>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
@@ -98,7 +98,7 @@ export class ResourceLfTag extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: ResourceLfTagArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, args: ResourceLfTagArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ResourceLfTagArgs | ResourceLfTagState, opts?: pulumi.CustomResourceOptions) {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
@@ -113,6 +113,9 @@ export class ResourceLfTag extends pulumi.CustomResource {
             resourceInputs["timeouts"] = state?.timeouts;
         } else {
             const args = argsOrState as ResourceLfTagArgs | undefined;
+            if (args?.lfTag === undefined && !opts.urn) {
+                throw new Error("Missing required property 'lfTag'");
+            }
             resourceInputs["catalogId"] = args?.catalogId;
             resourceInputs["database"] = args?.database;
             resourceInputs["lfTag"] = args?.lfTag;
@@ -178,7 +181,7 @@ export interface ResourceLfTagArgs {
      *
      * Exactly one of the following is required:
      */
-    lfTag?: pulumi.Input<inputs.lakeformation.ResourceLfTagLfTag>;
+    lfTag: pulumi.Input<inputs.lakeformation.ResourceLfTagLfTag>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */

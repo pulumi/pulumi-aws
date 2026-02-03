@@ -12,7 +12,7 @@ namespace Pulumi.Aws.Bedrock.Inputs
 
     public sealed class AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
-        [Input("storageLocations")]
+        [Input("storageLocations", required: true)]
         private InputList<Inputs.AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationGetArgs>? _storageLocations;
 
         /// <summary>

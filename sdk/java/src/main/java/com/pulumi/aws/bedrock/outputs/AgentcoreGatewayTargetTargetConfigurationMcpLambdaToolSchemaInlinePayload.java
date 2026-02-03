@@ -23,7 +23,7 @@ public final class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaI
      * @return Schema for the tool&#39;s input. See `schemaDefinition` below.
      * 
      */
-    private @Nullable AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchema inputSchema;
+    private AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchema inputSchema;
     /**
      * @return Name of the tool.
      * 
@@ -47,8 +47,8 @@ public final class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaI
      * @return Schema for the tool&#39;s input. See `schemaDefinition` below.
      * 
      */
-    public Optional<AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchema> inputSchema() {
-        return Optional.ofNullable(this.inputSchema);
+    public AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchema inputSchema() {
+        return this.inputSchema;
     }
     /**
      * @return Name of the tool.
@@ -75,7 +75,7 @@ public final class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaI
     @CustomType.Builder
     public static final class Builder {
         private String description;
-        private @Nullable AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchema inputSchema;
+        private AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchema inputSchema;
         private String name;
         private @Nullable AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchema outputSchema;
         public Builder() {}
@@ -96,8 +96,10 @@ public final class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaI
             return this;
         }
         @CustomType.Setter
-        public Builder inputSchema(@Nullable AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchema inputSchema) {
-
+        public Builder inputSchema(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchema inputSchema) {
+            if (inputSchema == null) {
+              throw new MissingRequiredPropertyException("AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayload", "inputSchema");
+            }
             this.inputSchema = inputSchema;
             return this;
         }

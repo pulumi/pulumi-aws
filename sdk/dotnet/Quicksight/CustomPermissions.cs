@@ -47,7 +47,7 @@ namespace Pulumi.Aws.Quicksight
         /// Actions to include in the custom permissions profile. See capabilities.
         /// </summary>
         [Output("capabilities")]
-        public Output<Outputs.CustomPermissionsCapabilities?> Capabilities { get; private set; } = null!;
+        public Output<Outputs.CustomPermissionsCapabilities> Capabilities { get; private set; } = null!;
 
         /// <summary>
         /// Custom permissions profile name.
@@ -127,8 +127,8 @@ namespace Pulumi.Aws.Quicksight
         /// <summary>
         /// Actions to include in the custom permissions profile. See capabilities.
         /// </summary>
-        [Input("capabilities")]
-        public Input<Inputs.CustomPermissionsCapabilitiesArgs>? Capabilities { get; set; }
+        [Input("capabilities", required: true)]
+        public Input<Inputs.CustomPermissionsCapabilitiesArgs> Capabilities { get; set; } = null!;
 
         /// <summary>
         /// Custom permissions profile name.

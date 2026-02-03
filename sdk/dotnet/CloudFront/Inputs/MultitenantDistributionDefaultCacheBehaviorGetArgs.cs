@@ -15,8 +15,8 @@ namespace Pulumi.Aws.CloudFront.Inputs
         /// <summary>
         /// Controls which HTTP methods CloudFront processes and forwards to your Amazon S3 bucket or your custom origin.
         /// </summary>
-        [Input("allowedMethods")]
-        public Input<Inputs.MultitenantDistributionDefaultCacheBehaviorAllowedMethodsGetArgs>? AllowedMethods { get; set; }
+        [Input("allowedMethods", required: true)]
+        public Input<Inputs.MultitenantDistributionDefaultCacheBehaviorAllowedMethodsGetArgs> AllowedMethods { get; set; } = null!;
 
         /// <summary>
         /// Unique identifier of the cache policy that is attached to the cache behavior.

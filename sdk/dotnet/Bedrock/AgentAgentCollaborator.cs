@@ -173,7 +173,7 @@ namespace Pulumi.Aws.Bedrock
     public partial class AgentAgentCollaborator : global::Pulumi.CustomResource
     {
         [Output("agentDescriptor")]
-        public Output<Outputs.AgentAgentCollaboratorAgentDescriptor?> AgentDescriptor { get; private set; } = null!;
+        public Output<Outputs.AgentAgentCollaboratorAgentDescriptor> AgentDescriptor { get; private set; } = null!;
 
         /// <summary>
         /// ID if the agent to associate the collaborator.
@@ -271,8 +271,8 @@ namespace Pulumi.Aws.Bedrock
 
     public sealed class AgentAgentCollaboratorArgs : global::Pulumi.ResourceArgs
     {
-        [Input("agentDescriptor")]
-        public Input<Inputs.AgentAgentCollaboratorAgentDescriptorArgs>? AgentDescriptor { get; set; }
+        [Input("agentDescriptor", required: true)]
+        public Input<Inputs.AgentAgentCollaboratorAgentDescriptorArgs> AgentDescriptor { get; set; } = null!;
 
         /// <summary>
         /// ID if the agent to associate the collaborator.

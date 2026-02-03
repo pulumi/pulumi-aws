@@ -21,40 +21,62 @@ __all__ = ['SubscriberArgs', 'Subscriber']
 @pulumi.input_type
 class SubscriberArgs:
     def __init__(__self__, *,
+                 sources: pulumi.Input[Sequence[pulumi.Input['SubscriberSourceArgs']]],
+                 subscriber_identity: pulumi.Input['SubscriberSubscriberIdentityArgs'],
                  access_type: Optional[pulumi.Input[_builtins.str]] = None,
                  region: Optional[pulumi.Input[_builtins.str]] = None,
-                 sources: Optional[pulumi.Input[Sequence[pulumi.Input['SubscriberSourceArgs']]]] = None,
                  subscriber_description: Optional[pulumi.Input[_builtins.str]] = None,
-                 subscriber_identity: Optional[pulumi.Input['SubscriberSubscriberIdentityArgs']] = None,
                  subscriber_name: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  timeouts: Optional[pulumi.Input['SubscriberTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a Subscriber resource.
+        :param pulumi.Input[Sequence[pulumi.Input['SubscriberSourceArgs']]] sources: The supported AWS services from which logs and events are collected. Security Lake supports log and event collection for natively supported AWS services. See `source` Blocks below.
+        :param pulumi.Input['SubscriberSubscriberIdentityArgs'] subscriber_identity: The AWS identity used to access your data. See `subscriber_identity` Block below.
         :param pulumi.Input[_builtins.str] access_type: The Amazon S3 or Lake Formation access type.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input['SubscriberSourceArgs']]] sources: The supported AWS services from which logs and events are collected. Security Lake supports log and event collection for natively supported AWS services. See `source` Blocks below.
         :param pulumi.Input[_builtins.str] subscriber_description: The description for your subscriber account in Security Lake.
-        :param pulumi.Input['SubscriberSubscriberIdentityArgs'] subscriber_identity: The AWS identity used to access your data. See `subscriber_identity` Block below.
         :param pulumi.Input[_builtins.str] subscriber_name: The name of your Security Lake subscriber account.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
+        pulumi.set(__self__, "sources", sources)
+        pulumi.set(__self__, "subscriber_identity", subscriber_identity)
         if access_type is not None:
             pulumi.set(__self__, "access_type", access_type)
         if region is not None:
             pulumi.set(__self__, "region", region)
-        if sources is not None:
-            pulumi.set(__self__, "sources", sources)
         if subscriber_description is not None:
             pulumi.set(__self__, "subscriber_description", subscriber_description)
-        if subscriber_identity is not None:
-            pulumi.set(__self__, "subscriber_identity", subscriber_identity)
         if subscriber_name is not None:
             pulumi.set(__self__, "subscriber_name", subscriber_name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if timeouts is not None:
             pulumi.set(__self__, "timeouts", timeouts)
+
+    @_builtins.property
+    @pulumi.getter
+    def sources(self) -> pulumi.Input[Sequence[pulumi.Input['SubscriberSourceArgs']]]:
+        """
+        The supported AWS services from which logs and events are collected. Security Lake supports log and event collection for natively supported AWS services. See `source` Blocks below.
+        """
+        return pulumi.get(self, "sources")
+
+    @sources.setter
+    def sources(self, value: pulumi.Input[Sequence[pulumi.Input['SubscriberSourceArgs']]]):
+        pulumi.set(self, "sources", value)
+
+    @_builtins.property
+    @pulumi.getter(name="subscriberIdentity")
+    def subscriber_identity(self) -> pulumi.Input['SubscriberSubscriberIdentityArgs']:
+        """
+        The AWS identity used to access your data. See `subscriber_identity` Block below.
+        """
+        return pulumi.get(self, "subscriber_identity")
+
+    @subscriber_identity.setter
+    def subscriber_identity(self, value: pulumi.Input['SubscriberSubscriberIdentityArgs']):
+        pulumi.set(self, "subscriber_identity", value)
 
     @_builtins.property
     @pulumi.getter(name="accessType")
@@ -81,18 +103,6 @@ class SubscriberArgs:
         pulumi.set(self, "region", value)
 
     @_builtins.property
-    @pulumi.getter
-    def sources(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SubscriberSourceArgs']]]]:
-        """
-        The supported AWS services from which logs and events are collected. Security Lake supports log and event collection for natively supported AWS services. See `source` Blocks below.
-        """
-        return pulumi.get(self, "sources")
-
-    @sources.setter
-    def sources(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SubscriberSourceArgs']]]]):
-        pulumi.set(self, "sources", value)
-
-    @_builtins.property
     @pulumi.getter(name="subscriberDescription")
     def subscriber_description(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
@@ -103,18 +113,6 @@ class SubscriberArgs:
     @subscriber_description.setter
     def subscriber_description(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "subscriber_description", value)
-
-    @_builtins.property
-    @pulumi.getter(name="subscriberIdentity")
-    def subscriber_identity(self) -> Optional[pulumi.Input['SubscriberSubscriberIdentityArgs']]:
-        """
-        The AWS identity used to access your data. See `subscriber_identity` Block below.
-        """
-        return pulumi.get(self, "subscriber_identity")
-
-    @subscriber_identity.setter
-    def subscriber_identity(self, value: Optional[pulumi.Input['SubscriberSubscriberIdentityArgs']]):
-        pulumi.set(self, "subscriber_identity", value)
 
     @_builtins.property
     @pulumi.getter(name="subscriberName")
@@ -506,7 +504,7 @@ class Subscriber(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: Optional[SubscriberArgs] = None,
+                 args: SubscriberArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource for managing an AWS Security Lake Subscriber.
@@ -609,8 +607,12 @@ class Subscriber(pulumi.CustomResource):
 
             __props__.__dict__["access_type"] = access_type
             __props__.__dict__["region"] = region
+            if sources is None and not opts.urn:
+                raise TypeError("Missing required property 'sources'")
             __props__.__dict__["sources"] = sources
             __props__.__dict__["subscriber_description"] = subscriber_description
+            if subscriber_identity is None and not opts.urn:
+                raise TypeError("Missing required property 'subscriber_identity'")
             __props__.__dict__["subscriber_identity"] = subscriber_identity
             __props__.__dict__["subscriber_name"] = subscriber_name
             __props__.__dict__["tags"] = tags
@@ -752,7 +754,7 @@ class Subscriber(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
-    def sources(self) -> pulumi.Output[Optional[Sequence['outputs.SubscriberSource']]]:
+    def sources(self) -> pulumi.Output[Sequence['outputs.SubscriberSource']]:
         """
         The supported AWS services from which logs and events are collected. Security Lake supports log and event collection for natively supported AWS services. See `source` Blocks below.
         """
@@ -776,7 +778,7 @@ class Subscriber(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="subscriberIdentity")
-    def subscriber_identity(self) -> pulumi.Output[Optional['outputs.SubscriberSubscriberIdentity']]:
+    def subscriber_identity(self) -> pulumi.Output['outputs.SubscriberSubscriberIdentity']:
         """
         The AWS identity used to access your data. See `subscriber_identity` Block below.
         """

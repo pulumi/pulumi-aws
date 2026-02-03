@@ -8,8 +8,6 @@ import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
-import java.util.Optional;
-import javax.annotation.Nullable;
 
 @CustomType
 public final class AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfiguration {
@@ -17,7 +15,7 @@ public final class AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigu
      * @return The names of the fields to which to map information about the vector store. This block supports the following arguments:
      * 
      */
-    private @Nullable AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationFieldMapping fieldMapping;
+    private AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationFieldMapping fieldMapping;
     /**
      * @return ARN of the Neptune Analytics vector store.
      * 
@@ -29,8 +27,8 @@ public final class AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigu
      * @return The names of the fields to which to map information about the vector store. This block supports the following arguments:
      * 
      */
-    public Optional<AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationFieldMapping> fieldMapping() {
-        return Optional.ofNullable(this.fieldMapping);
+    public AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationFieldMapping fieldMapping() {
+        return this.fieldMapping;
     }
     /**
      * @return ARN of the Neptune Analytics vector store.
@@ -49,7 +47,7 @@ public final class AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigu
     }
     @CustomType.Builder
     public static final class Builder {
-        private @Nullable AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationFieldMapping fieldMapping;
+        private AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationFieldMapping fieldMapping;
         private String graphArn;
         public Builder() {}
         public Builder(AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfiguration defaults) {
@@ -59,8 +57,10 @@ public final class AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigu
         }
 
         @CustomType.Setter
-        public Builder fieldMapping(@Nullable AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationFieldMapping fieldMapping) {
-
+        public Builder fieldMapping(AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationFieldMapping fieldMapping) {
+            if (fieldMapping == null) {
+              throw new MissingRequiredPropertyException("AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfiguration", "fieldMapping");
+            }
             this.fieldMapping = fieldMapping;
             return this;
         }

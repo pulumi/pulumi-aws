@@ -6,10 +6,9 @@ package com.pulumi.aws.devopsguru.inputs;
 import com.pulumi.aws.devopsguru.inputs.EventSourcesConfigEventSourceAmazonCodeGuruProfilerArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
-import java.util.Optional;
-import javax.annotation.Nullable;
 
 
 public final class EventSourcesConfigEventSourceArgs extends com.pulumi.resources.ResourceArgs {
@@ -20,15 +19,15 @@ public final class EventSourcesConfigEventSourceArgs extends com.pulumi.resource
      * Stores whether DevOps Guru is configured to consume recommendations which are generated from AWS CodeGuru Profiler. See `amazonCodeGuruProfiler` below.
      * 
      */
-    @Import(name="amazonCodeGuruProfilers")
-    private @Nullable Output<List<EventSourcesConfigEventSourceAmazonCodeGuruProfilerArgs>> amazonCodeGuruProfilers;
+    @Import(name="amazonCodeGuruProfilers", required=true)
+    private Output<List<EventSourcesConfigEventSourceAmazonCodeGuruProfilerArgs>> amazonCodeGuruProfilers;
 
     /**
      * @return Stores whether DevOps Guru is configured to consume recommendations which are generated from AWS CodeGuru Profiler. See `amazonCodeGuruProfiler` below.
      * 
      */
-    public Optional<Output<List<EventSourcesConfigEventSourceAmazonCodeGuruProfilerArgs>>> amazonCodeGuruProfilers() {
-        return Optional.ofNullable(this.amazonCodeGuruProfilers);
+    public Output<List<EventSourcesConfigEventSourceAmazonCodeGuruProfilerArgs>> amazonCodeGuruProfilers() {
+        return this.amazonCodeGuruProfilers;
     }
 
     private EventSourcesConfigEventSourceArgs() {}
@@ -61,7 +60,7 @@ public final class EventSourcesConfigEventSourceArgs extends com.pulumi.resource
          * @return builder
          * 
          */
-        public Builder amazonCodeGuruProfilers(@Nullable Output<List<EventSourcesConfigEventSourceAmazonCodeGuruProfilerArgs>> amazonCodeGuruProfilers) {
+        public Builder amazonCodeGuruProfilers(Output<List<EventSourcesConfigEventSourceAmazonCodeGuruProfilerArgs>> amazonCodeGuruProfilers) {
             $.amazonCodeGuruProfilers = amazonCodeGuruProfilers;
             return this;
         }
@@ -87,6 +86,9 @@ public final class EventSourcesConfigEventSourceArgs extends com.pulumi.resource
         }
 
         public EventSourcesConfigEventSourceArgs build() {
+            if ($.amazonCodeGuruProfilers == null) {
+                throw new MissingRequiredPropertyException("EventSourcesConfigEventSourceArgs", "amazonCodeGuruProfilers");
+            }
             return $;
         }
     }

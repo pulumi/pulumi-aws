@@ -172,7 +172,7 @@ namespace Pulumi.Aws.Inspector2
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        [Input("filterCriterias")]
+        [Input("filterCriterias", required: true)]
         private InputList<Inputs.FilterFilterCriteriaArgs>? _filterCriterias;
 
         /// <summary>

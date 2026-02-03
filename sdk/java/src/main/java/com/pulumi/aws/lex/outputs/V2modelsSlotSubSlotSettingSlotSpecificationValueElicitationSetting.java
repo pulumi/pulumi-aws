@@ -8,9 +8,9 @@ import com.pulumi.aws.lex.outputs.V2modelsSlotSubSlotSettingSlotSpecificationVal
 import com.pulumi.aws.lex.outputs.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingSampleUtterance;
 import com.pulumi.aws.lex.outputs.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecification;
 import com.pulumi.core.annotations.CustomType;
-import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 @CustomType
@@ -26,7 +26,7 @@ public final class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSe
      * See the `aws.lex.V2modelsIntent` resource for details on the `promptSpecification` argument reference - they are identical.
      * 
      */
-    private V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecification promptSpecification;
+    private @Nullable V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecification promptSpecification;
     private @Nullable List<V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingSampleUtterance> sampleUtterances;
     /**
      * @return Specifies the prompts that Amazon Lex uses while a bot is waiting for customer input.
@@ -49,8 +49,8 @@ public final class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSe
      * See the `aws.lex.V2modelsIntent` resource for details on the `promptSpecification` argument reference - they are identical.
      * 
      */
-    public V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecification promptSpecification() {
-        return this.promptSpecification;
+    public Optional<V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecification> promptSpecification() {
+        return Optional.ofNullable(this.promptSpecification);
     }
     public List<V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingSampleUtterance> sampleUtterances() {
         return this.sampleUtterances == null ? List.of() : this.sampleUtterances;
@@ -74,7 +74,7 @@ public final class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSe
     @CustomType.Builder
     public static final class Builder {
         private @Nullable List<V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingDefaultValueSpecification> defaultValueSpecifications;
-        private V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecification promptSpecification;
+        private @Nullable V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecification promptSpecification;
         private @Nullable List<V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingSampleUtterance> sampleUtterances;
         private @Nullable List<V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecification> waitAndContinueSpecifications;
         public Builder() {}
@@ -96,10 +96,8 @@ public final class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSe
             return defaultValueSpecifications(List.of(defaultValueSpecifications));
         }
         @CustomType.Setter
-        public Builder promptSpecification(V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecification promptSpecification) {
-            if (promptSpecification == null) {
-              throw new MissingRequiredPropertyException("V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSetting", "promptSpecification");
-            }
+        public Builder promptSpecification(@Nullable V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecification promptSpecification) {
+
             this.promptSpecification = promptSpecification;
             return this;
         }

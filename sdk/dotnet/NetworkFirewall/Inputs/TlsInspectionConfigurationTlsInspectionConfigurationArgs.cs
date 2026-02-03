@@ -15,8 +15,8 @@ namespace Pulumi.Aws.NetworkFirewall.Inputs
         /// <summary>
         /// Server certificate configurations that are associated with the TLS configuration. Detailed below.
         /// </summary>
-        [Input("serverCertificateConfiguration")]
-        public Input<Inputs.TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationArgs>? ServerCertificateConfiguration { get; set; }
+        [Input("serverCertificateConfiguration", required: true)]
+        public Input<Inputs.TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationArgs> ServerCertificateConfiguration { get; set; } = null!;
 
         public TlsInspectionConfigurationTlsInspectionConfigurationArgs()
         {

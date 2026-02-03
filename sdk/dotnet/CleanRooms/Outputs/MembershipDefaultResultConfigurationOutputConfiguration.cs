@@ -13,10 +13,10 @@ namespace Pulumi.Aws.CleanRooms.Outputs
     [OutputType]
     public sealed class MembershipDefaultResultConfigurationOutputConfiguration
     {
-        public readonly Outputs.MembershipDefaultResultConfigurationOutputConfigurationS3? S3;
+        public readonly Outputs.MembershipDefaultResultConfigurationOutputConfigurationS3 S3;
 
         [OutputConstructor]
-        private MembershipDefaultResultConfigurationOutputConfiguration(Outputs.MembershipDefaultResultConfigurationOutputConfigurationS3? s3)
+        private MembershipDefaultResultConfigurationOutputConfiguration(Outputs.MembershipDefaultResultConfigurationOutputConfigurationS3 s3)
         {
             S3 = s3;
         }

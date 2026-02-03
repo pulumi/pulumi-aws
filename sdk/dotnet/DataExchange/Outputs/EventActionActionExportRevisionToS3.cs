@@ -22,13 +22,13 @@ namespace Pulumi.Aws.DataExchange.Outputs
         /// Configures the S3 destination of the exported revision.
         /// Described in `RevisionDestination` Configuration Block below.
         /// </summary>
-        public readonly Outputs.EventActionActionExportRevisionToS3RevisionDestination? RevisionDestination;
+        public readonly Outputs.EventActionActionExportRevisionToS3RevisionDestination RevisionDestination;
 
         [OutputConstructor]
         private EventActionActionExportRevisionToS3(
             Outputs.EventActionActionExportRevisionToS3Encryption? encryption,
 
-            Outputs.EventActionActionExportRevisionToS3RevisionDestination? revisionDestination)
+            Outputs.EventActionActionExportRevisionToS3RevisionDestination revisionDestination)
         {
             Encryption = encryption;
             RevisionDestination = revisionDestination;

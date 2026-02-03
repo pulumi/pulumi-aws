@@ -5,9 +5,8 @@ package com.pulumi.aws.networkfirewall.outputs;
 
 import com.pulumi.aws.networkfirewall.outputs.TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfiguration;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.Objects;
-import java.util.Optional;
-import javax.annotation.Nullable;
 
 @CustomType
 public final class TlsInspectionConfigurationTlsInspectionConfiguration {
@@ -15,15 +14,15 @@ public final class TlsInspectionConfigurationTlsInspectionConfiguration {
      * @return Server certificate configurations that are associated with the TLS configuration. Detailed below.
      * 
      */
-    private @Nullable TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfiguration serverCertificateConfiguration;
+    private TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfiguration serverCertificateConfiguration;
 
     private TlsInspectionConfigurationTlsInspectionConfiguration() {}
     /**
      * @return Server certificate configurations that are associated with the TLS configuration. Detailed below.
      * 
      */
-    public Optional<TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfiguration> serverCertificateConfiguration() {
-        return Optional.ofNullable(this.serverCertificateConfiguration);
+    public TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfiguration serverCertificateConfiguration() {
+        return this.serverCertificateConfiguration;
     }
 
     public static Builder builder() {
@@ -35,7 +34,7 @@ public final class TlsInspectionConfigurationTlsInspectionConfiguration {
     }
     @CustomType.Builder
     public static final class Builder {
-        private @Nullable TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfiguration serverCertificateConfiguration;
+        private TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfiguration serverCertificateConfiguration;
         public Builder() {}
         public Builder(TlsInspectionConfigurationTlsInspectionConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
@@ -43,8 +42,10 @@ public final class TlsInspectionConfigurationTlsInspectionConfiguration {
         }
 
         @CustomType.Setter
-        public Builder serverCertificateConfiguration(@Nullable TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfiguration serverCertificateConfiguration) {
-
+        public Builder serverCertificateConfiguration(TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfiguration serverCertificateConfiguration) {
+            if (serverCertificateConfiguration == null) {
+              throw new MissingRequiredPropertyException("TlsInspectionConfigurationTlsInspectionConfiguration", "serverCertificateConfiguration");
+            }
             this.serverCertificateConfiguration = serverCertificateConfiguration;
             return this;
         }

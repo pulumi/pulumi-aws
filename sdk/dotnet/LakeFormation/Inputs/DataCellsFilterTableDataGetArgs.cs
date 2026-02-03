@@ -45,8 +45,8 @@ namespace Pulumi.Aws.LakeFormation.Inputs
         /// <summary>
         /// A PartiQL predicate. See Row Filter below for details.
         /// </summary>
-        [Input("rowFilter")]
-        public Input<Inputs.DataCellsFilterTableDataRowFilterGetArgs>? RowFilter { get; set; }
+        [Input("rowFilter", required: true)]
+        public Input<Inputs.DataCellsFilterTableDataRowFilterGetArgs> RowFilter { get; set; } = null!;
 
         /// <summary>
         /// The ID of the Data Catalog.

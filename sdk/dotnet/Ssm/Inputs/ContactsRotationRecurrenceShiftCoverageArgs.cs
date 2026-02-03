@@ -12,7 +12,7 @@ namespace Pulumi.Aws.Ssm.Inputs
 
     public sealed class ContactsRotationRecurrenceShiftCoverageArgs : global::Pulumi.ResourceArgs
     {
-        [Input("coverageTimes")]
+        [Input("coverageTimes", required: true)]
         private InputList<Inputs.ContactsRotationRecurrenceShiftCoverageCoverageTimeArgs>? _coverageTimes;
 
         /// <summary>

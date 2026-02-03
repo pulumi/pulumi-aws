@@ -341,7 +341,7 @@ export class AgentcoreGatewayTarget extends pulumi.CustomResource {
      *
      * The following arguments are optional:
      */
-    declare public readonly targetConfiguration: pulumi.Output<outputs.bedrock.AgentcoreGatewayTargetTargetConfiguration | undefined>;
+    declare public readonly targetConfiguration: pulumi.Output<outputs.bedrock.AgentcoreGatewayTargetTargetConfiguration>;
     /**
      * Unique identifier of the gateway target.
      */
@@ -373,6 +373,9 @@ export class AgentcoreGatewayTarget extends pulumi.CustomResource {
             const args = argsOrState as AgentcoreGatewayTargetArgs | undefined;
             if (args?.gatewayIdentifier === undefined && !opts.urn) {
                 throw new Error("Missing required property 'gatewayIdentifier'");
+            }
+            if (args?.targetConfiguration === undefined && !opts.urn) {
+                throw new Error("Missing required property 'targetConfiguration'");
             }
             resourceInputs["credentialProviderConfiguration"] = args?.credentialProviderConfiguration;
             resourceInputs["description"] = args?.description;
@@ -454,6 +457,6 @@ export interface AgentcoreGatewayTargetArgs {
      *
      * The following arguments are optional:
      */
-    targetConfiguration?: pulumi.Input<inputs.bedrock.AgentcoreGatewayTargetTargetConfiguration>;
+    targetConfiguration: pulumi.Input<inputs.bedrock.AgentcoreGatewayTargetTargetConfiguration>;
     timeouts?: pulumi.Input<inputs.bedrock.AgentcoreGatewayTargetTimeouts>;
 }

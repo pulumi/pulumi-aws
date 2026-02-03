@@ -153,7 +153,7 @@ export class FormType extends pulumi.CustomResource {
     /**
      * Object of the model of the form type that contains the following attributes.
      */
-    declare public readonly model: pulumi.Output<outputs.datazone.FormTypeModel | undefined>;
+    declare public readonly model: pulumi.Output<outputs.datazone.FormTypeModel>;
     /**
      * Name of the form type. Must be the name of the structure in smithy document.
      */
@@ -212,6 +212,9 @@ export class FormType extends pulumi.CustomResource {
             const args = argsOrState as FormTypeArgs | undefined;
             if (args?.domainIdentifier === undefined && !opts.urn) {
                 throw new Error("Missing required property 'domainIdentifier'");
+            }
+            if (args?.model === undefined && !opts.urn) {
+                throw new Error("Missing required property 'model'");
             }
             if (args?.owningProjectIdentifier === undefined && !opts.urn) {
                 throw new Error("Missing required property 'owningProjectIdentifier'");
@@ -304,7 +307,7 @@ export interface FormTypeArgs {
     /**
      * Object of the model of the form type that contains the following attributes.
      */
-    model?: pulumi.Input<inputs.datazone.FormTypeModel>;
+    model: pulumi.Input<inputs.datazone.FormTypeModel>;
     /**
      * Name of the form type. Must be the name of the structure in smithy document.
      */

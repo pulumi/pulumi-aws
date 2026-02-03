@@ -78,7 +78,7 @@ export class IngestionDestination extends pulumi.CustomResource {
     /**
      * Contains information about the destination of ingested data.
      */
-    declare public readonly destinationConfiguration: pulumi.Output<outputs.appfabric.IngestionDestinationDestinationConfiguration | undefined>;
+    declare public readonly destinationConfiguration: pulumi.Output<outputs.appfabric.IngestionDestinationDestinationConfiguration>;
     /**
      * The Amazon Resource Name (ARN) of the ingestion to use for the request.
      */
@@ -86,7 +86,7 @@ export class IngestionDestination extends pulumi.CustomResource {
     /**
      * Contains information about how ingested data is processed.
      */
-    declare public readonly processingConfiguration: pulumi.Output<outputs.appfabric.IngestionDestinationProcessingConfiguration | undefined>;
+    declare public readonly processingConfiguration: pulumi.Output<outputs.appfabric.IngestionDestinationProcessingConfiguration>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
@@ -128,8 +128,14 @@ export class IngestionDestination extends pulumi.CustomResource {
             if (args?.appBundleArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'appBundleArn'");
             }
+            if (args?.destinationConfiguration === undefined && !opts.urn) {
+                throw new Error("Missing required property 'destinationConfiguration'");
+            }
             if (args?.ingestionArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'ingestionArn'");
+            }
+            if (args?.processingConfiguration === undefined && !opts.urn) {
+                throw new Error("Missing required property 'processingConfiguration'");
             }
             resourceInputs["appBundleArn"] = args?.appBundleArn;
             resourceInputs["destinationConfiguration"] = args?.destinationConfiguration;
@@ -196,7 +202,7 @@ export interface IngestionDestinationArgs {
     /**
      * Contains information about the destination of ingested data.
      */
-    destinationConfiguration?: pulumi.Input<inputs.appfabric.IngestionDestinationDestinationConfiguration>;
+    destinationConfiguration: pulumi.Input<inputs.appfabric.IngestionDestinationDestinationConfiguration>;
     /**
      * The Amazon Resource Name (ARN) of the ingestion to use for the request.
      */
@@ -204,7 +210,7 @@ export interface IngestionDestinationArgs {
     /**
      * Contains information about how ingested data is processed.
      */
-    processingConfiguration?: pulumi.Input<inputs.appfabric.IngestionDestinationProcessingConfiguration>;
+    processingConfiguration: pulumi.Input<inputs.appfabric.IngestionDestinationProcessingConfiguration>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */

@@ -21,15 +21,15 @@ public final class SchemaArgs extends com.pulumi.resources.ResourceArgs {
      * The definition of the schema.
      * 
      */
-    @Import(name="definition")
-    private @Nullable Output<SchemaDefinitionArgs> definition;
+    @Import(name="definition", required=true)
+    private Output<SchemaDefinitionArgs> definition;
 
     /**
      * @return The definition of the schema.
      * 
      */
-    public Optional<Output<SchemaDefinitionArgs>> definition() {
-        return Optional.ofNullable(this.definition);
+    public Output<SchemaDefinitionArgs> definition() {
+        return this.definition;
     }
 
     /**
@@ -94,7 +94,7 @@ public final class SchemaArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder definition(@Nullable Output<SchemaDefinitionArgs> definition) {
+        public Builder definition(Output<SchemaDefinitionArgs> definition) {
             $.definition = definition;
             return this;
         }
@@ -152,6 +152,9 @@ public final class SchemaArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public SchemaArgs build() {
+            if ($.definition == null) {
+                throw new MissingRequiredPropertyException("SchemaArgs", "definition");
+            }
             if ($.policyStoreId == null) {
                 throw new MissingRequiredPropertyException("SchemaArgs", "policyStoreId");
             }

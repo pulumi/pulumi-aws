@@ -24,7 +24,7 @@ namespace Pulumi.Aws.Bedrock.Outputs
         /// <summary>
         /// Names of the fields to which to map information about the vector store. This block supports the following arguments:
         /// </summary>
-        public readonly Outputs.AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMapping? FieldMapping;
+        public readonly Outputs.AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMapping FieldMapping;
         /// <summary>
         /// ARN of the vector store.
         /// </summary>
@@ -40,7 +40,7 @@ namespace Pulumi.Aws.Bedrock.Outputs
 
             string databaseName,
 
-            Outputs.AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMapping? fieldMapping,
+            Outputs.AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMapping fieldMapping,
 
             string resourceArn,
 

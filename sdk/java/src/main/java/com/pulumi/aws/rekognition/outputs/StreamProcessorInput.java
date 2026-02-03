@@ -5,9 +5,8 @@ package com.pulumi.aws.rekognition.outputs;
 
 import com.pulumi.aws.rekognition.outputs.StreamProcessorInputKinesisVideoStream;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.Objects;
-import java.util.Optional;
-import javax.annotation.Nullable;
 
 @CustomType
 public final class StreamProcessorInput {
@@ -15,15 +14,15 @@ public final class StreamProcessorInput {
      * @return Kinesis input stream. See `kinesisVideoStream`.
      * 
      */
-    private @Nullable StreamProcessorInputKinesisVideoStream kinesisVideoStream;
+    private StreamProcessorInputKinesisVideoStream kinesisVideoStream;
 
     private StreamProcessorInput() {}
     /**
      * @return Kinesis input stream. See `kinesisVideoStream`.
      * 
      */
-    public Optional<StreamProcessorInputKinesisVideoStream> kinesisVideoStream() {
-        return Optional.ofNullable(this.kinesisVideoStream);
+    public StreamProcessorInputKinesisVideoStream kinesisVideoStream() {
+        return this.kinesisVideoStream;
     }
 
     public static Builder builder() {
@@ -35,7 +34,7 @@ public final class StreamProcessorInput {
     }
     @CustomType.Builder
     public static final class Builder {
-        private @Nullable StreamProcessorInputKinesisVideoStream kinesisVideoStream;
+        private StreamProcessorInputKinesisVideoStream kinesisVideoStream;
         public Builder() {}
         public Builder(StreamProcessorInput defaults) {
     	      Objects.requireNonNull(defaults);
@@ -43,8 +42,10 @@ public final class StreamProcessorInput {
         }
 
         @CustomType.Setter
-        public Builder kinesisVideoStream(@Nullable StreamProcessorInputKinesisVideoStream kinesisVideoStream) {
-
+        public Builder kinesisVideoStream(StreamProcessorInputKinesisVideoStream kinesisVideoStream) {
+            if (kinesisVideoStream == null) {
+              throw new MissingRequiredPropertyException("StreamProcessorInput", "kinesisVideoStream");
+            }
             this.kinesisVideoStream = kinesisVideoStream;
             return this;
         }

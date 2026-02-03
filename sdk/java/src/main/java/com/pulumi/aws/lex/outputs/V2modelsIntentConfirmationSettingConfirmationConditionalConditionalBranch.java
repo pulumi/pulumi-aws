@@ -19,7 +19,7 @@ public final class V2modelsIntentConfirmationSettingConfirmationConditionalCondi
      * @return Configuration block for the expression to evaluate. If the condition is true, the branch&#39;s actions are taken. See `condition`.
      * 
      */
-    private V2modelsIntentConfirmationSettingConfirmationConditionalConditionalBranchCondition condition;
+    private @Nullable V2modelsIntentConfirmationSettingConfirmationConditionalConditionalBranchCondition condition;
     /**
      * @return Name of the branch.
      * 
@@ -29,7 +29,7 @@ public final class V2modelsIntentConfirmationSettingConfirmationConditionalCondi
      * @return Configuration block for the next step in the conversation. See `nextStep`.
      * 
      */
-    private V2modelsIntentConfirmationSettingConfirmationConditionalConditionalBranchNextStep nextStep;
+    private @Nullable V2modelsIntentConfirmationSettingConfirmationConditionalConditionalBranchNextStep nextStep;
     /**
      * @return Configuration block for a list of message groups that Amazon Lex uses to respond to the user input. See `response`.
      * 
@@ -41,8 +41,8 @@ public final class V2modelsIntentConfirmationSettingConfirmationConditionalCondi
      * @return Configuration block for the expression to evaluate. If the condition is true, the branch&#39;s actions are taken. See `condition`.
      * 
      */
-    public V2modelsIntentConfirmationSettingConfirmationConditionalConditionalBranchCondition condition() {
-        return this.condition;
+    public Optional<V2modelsIntentConfirmationSettingConfirmationConditionalConditionalBranchCondition> condition() {
+        return Optional.ofNullable(this.condition);
     }
     /**
      * @return Name of the branch.
@@ -55,8 +55,8 @@ public final class V2modelsIntentConfirmationSettingConfirmationConditionalCondi
      * @return Configuration block for the next step in the conversation. See `nextStep`.
      * 
      */
-    public V2modelsIntentConfirmationSettingConfirmationConditionalConditionalBranchNextStep nextStep() {
-        return this.nextStep;
+    public Optional<V2modelsIntentConfirmationSettingConfirmationConditionalConditionalBranchNextStep> nextStep() {
+        return Optional.ofNullable(this.nextStep);
     }
     /**
      * @return Configuration block for a list of message groups that Amazon Lex uses to respond to the user input. See `response`.
@@ -75,9 +75,9 @@ public final class V2modelsIntentConfirmationSettingConfirmationConditionalCondi
     }
     @CustomType.Builder
     public static final class Builder {
-        private V2modelsIntentConfirmationSettingConfirmationConditionalConditionalBranchCondition condition;
+        private @Nullable V2modelsIntentConfirmationSettingConfirmationConditionalConditionalBranchCondition condition;
         private String name;
-        private V2modelsIntentConfirmationSettingConfirmationConditionalConditionalBranchNextStep nextStep;
+        private @Nullable V2modelsIntentConfirmationSettingConfirmationConditionalConditionalBranchNextStep nextStep;
         private @Nullable V2modelsIntentConfirmationSettingConfirmationConditionalConditionalBranchResponse response;
         public Builder() {}
         public Builder(V2modelsIntentConfirmationSettingConfirmationConditionalConditionalBranch defaults) {
@@ -89,10 +89,8 @@ public final class V2modelsIntentConfirmationSettingConfirmationConditionalCondi
         }
 
         @CustomType.Setter
-        public Builder condition(V2modelsIntentConfirmationSettingConfirmationConditionalConditionalBranchCondition condition) {
-            if (condition == null) {
-              throw new MissingRequiredPropertyException("V2modelsIntentConfirmationSettingConfirmationConditionalConditionalBranch", "condition");
-            }
+        public Builder condition(@Nullable V2modelsIntentConfirmationSettingConfirmationConditionalConditionalBranchCondition condition) {
+
             this.condition = condition;
             return this;
         }
@@ -105,10 +103,8 @@ public final class V2modelsIntentConfirmationSettingConfirmationConditionalCondi
             return this;
         }
         @CustomType.Setter
-        public Builder nextStep(V2modelsIntentConfirmationSettingConfirmationConditionalConditionalBranchNextStep nextStep) {
-            if (nextStep == null) {
-              throw new MissingRequiredPropertyException("V2modelsIntentConfirmationSettingConfirmationConditionalConditionalBranch", "nextStep");
-            }
+        public Builder nextStep(@Nullable V2modelsIntentConfirmationSettingConfirmationConditionalConditionalBranchNextStep nextStep) {
+
             this.nextStep = nextStep;
             return this;
         }

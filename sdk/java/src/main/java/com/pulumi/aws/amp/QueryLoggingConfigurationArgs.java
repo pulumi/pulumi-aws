@@ -23,15 +23,15 @@ public final class QueryLoggingConfigurationArgs extends com.pulumi.resources.Re
      * Configuration block for the logging destinations. See `destinations`.
      * 
      */
-    @Import(name="destinations")
-    private @Nullable Output<List<QueryLoggingConfigurationDestinationArgs>> destinations;
+    @Import(name="destinations", required=true)
+    private Output<List<QueryLoggingConfigurationDestinationArgs>> destinations;
 
     /**
      * @return Configuration block for the logging destinations. See `destinations`.
      * 
      */
-    public Optional<Output<List<QueryLoggingConfigurationDestinationArgs>>> destinations() {
-        return Optional.ofNullable(this.destinations);
+    public Output<List<QueryLoggingConfigurationDestinationArgs>> destinations() {
+        return this.destinations;
     }
 
     /**
@@ -108,7 +108,7 @@ public final class QueryLoggingConfigurationArgs extends com.pulumi.resources.Re
          * @return builder
          * 
          */
-        public Builder destinations(@Nullable Output<List<QueryLoggingConfigurationDestinationArgs>> destinations) {
+        public Builder destinations(Output<List<QueryLoggingConfigurationDestinationArgs>> destinations) {
             $.destinations = destinations;
             return this;
         }
@@ -189,6 +189,9 @@ public final class QueryLoggingConfigurationArgs extends com.pulumi.resources.Re
         }
 
         public QueryLoggingConfigurationArgs build() {
+            if ($.destinations == null) {
+                throw new MissingRequiredPropertyException("QueryLoggingConfigurationArgs", "destinations");
+            }
             if ($.workspaceId == null) {
                 throw new MissingRequiredPropertyException("QueryLoggingConfigurationArgs", "workspaceId");
             }

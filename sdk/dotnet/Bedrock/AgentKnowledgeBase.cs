@@ -331,7 +331,7 @@ namespace Pulumi.Aws.Bedrock
         /// Details about the embeddings configuration of the knowledge base. See `KnowledgeBaseConfiguration` block for details.
         /// </summary>
         [Output("knowledgeBaseConfiguration")]
-        public Output<Outputs.AgentKnowledgeBaseKnowledgeBaseConfiguration?> KnowledgeBaseConfiguration { get; private set; } = null!;
+        public Output<Outputs.AgentKnowledgeBaseKnowledgeBaseConfiguration> KnowledgeBaseConfiguration { get; private set; } = null!;
 
         /// <summary>
         /// Name of the knowledge base.
@@ -435,8 +435,8 @@ namespace Pulumi.Aws.Bedrock
         /// <summary>
         /// Details about the embeddings configuration of the knowledge base. See `KnowledgeBaseConfiguration` block for details.
         /// </summary>
-        [Input("knowledgeBaseConfiguration")]
-        public Input<Inputs.AgentKnowledgeBaseKnowledgeBaseConfigurationArgs>? KnowledgeBaseConfiguration { get; set; }
+        [Input("knowledgeBaseConfiguration", required: true)]
+        public Input<Inputs.AgentKnowledgeBaseKnowledgeBaseConfigurationArgs> KnowledgeBaseConfiguration { get; set; } = null!;
 
         /// <summary>
         /// Name of the knowledge base.

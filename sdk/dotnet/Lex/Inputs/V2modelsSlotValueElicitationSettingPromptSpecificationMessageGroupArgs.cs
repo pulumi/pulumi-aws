@@ -16,8 +16,8 @@ namespace Pulumi.Aws.Lex.Inputs
         /// Configuration block for the primary message that Amazon Lex should send to the user.
         /// See the `aws.lex.V2modelsIntent` resource for details on the `Message` argument reference - they are identical.
         /// </summary>
-        [Input("message", required: true)]
-        public Input<Inputs.V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessageArgs> Message { get; set; } = null!;
+        [Input("message")]
+        public Input<Inputs.V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessageArgs>? Message { get; set; }
 
         [Input("variations")]
         private InputList<Inputs.V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupVariationArgs>? _variations;

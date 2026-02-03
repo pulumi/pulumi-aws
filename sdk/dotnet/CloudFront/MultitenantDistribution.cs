@@ -102,7 +102,7 @@ namespace Pulumi.Aws.CloudFront
         /// Default cache behavior for this distribution. See Default Cache Behavior below.
         /// </summary>
         [Output("defaultCacheBehavior")]
-        public Output<Outputs.MultitenantDistributionDefaultCacheBehavior?> DefaultCacheBehavior { get; private set; } = null!;
+        public Output<Outputs.MultitenantDistributionDefaultCacheBehavior> DefaultCacheBehavior { get; private set; } = null!;
 
         /// <summary>
         /// Object that you want CloudFront to return when an end user requests the root URL.
@@ -186,7 +186,7 @@ namespace Pulumi.Aws.CloudFront
         /// Tenant configuration that contains parameter definitions for multi-tenant distributions. See Tenant Config below.
         /// </summary>
         [Output("tenantConfig")]
-        public Output<Outputs.MultitenantDistributionTenantConfig?> TenantConfig { get; private set; } = null!;
+        public Output<Outputs.MultitenantDistributionTenantConfig> TenantConfig { get; private set; } = null!;
 
         [Output("timeouts")]
         public Output<Outputs.MultitenantDistributionTimeouts?> Timeouts { get; private set; } = null!;
@@ -195,7 +195,7 @@ namespace Pulumi.Aws.CloudFront
         /// SSL configuration for this distribution. See Viewer Certificate below.
         /// </summary>
         [Output("viewerCertificate")]
-        public Output<Outputs.MultitenantDistributionViewerCertificate?> ViewerCertificate { get; private set; } = null!;
+        public Output<Outputs.MultitenantDistributionViewerCertificate> ViewerCertificate { get; private set; } = null!;
 
         /// <summary>
         /// Unique identifier that specifies the AWS WAF v2 web ACL to associate with this distribution.
@@ -294,8 +294,8 @@ namespace Pulumi.Aws.CloudFront
         /// <summary>
         /// Default cache behavior for this distribution. See Default Cache Behavior below.
         /// </summary>
-        [Input("defaultCacheBehavior")]
-        public Input<Inputs.MultitenantDistributionDefaultCacheBehaviorArgs>? DefaultCacheBehavior { get; set; }
+        [Input("defaultCacheBehavior", required: true)]
+        public Input<Inputs.MultitenantDistributionDefaultCacheBehaviorArgs> DefaultCacheBehavior { get; set; } = null!;
 
         /// <summary>
         /// Object that you want CloudFront to return when an end user requests the root URL.
@@ -360,8 +360,8 @@ namespace Pulumi.Aws.CloudFront
         /// <summary>
         /// Tenant configuration that contains parameter definitions for multi-tenant distributions. See Tenant Config below.
         /// </summary>
-        [Input("tenantConfig")]
-        public Input<Inputs.MultitenantDistributionTenantConfigArgs>? TenantConfig { get; set; }
+        [Input("tenantConfig", required: true)]
+        public Input<Inputs.MultitenantDistributionTenantConfigArgs> TenantConfig { get; set; } = null!;
 
         [Input("timeouts")]
         public Input<Inputs.MultitenantDistributionTimeoutsArgs>? Timeouts { get; set; }
@@ -369,8 +369,8 @@ namespace Pulumi.Aws.CloudFront
         /// <summary>
         /// SSL configuration for this distribution. See Viewer Certificate below.
         /// </summary>
-        [Input("viewerCertificate")]
-        public Input<Inputs.MultitenantDistributionViewerCertificateArgs>? ViewerCertificate { get; set; }
+        [Input("viewerCertificate", required: true)]
+        public Input<Inputs.MultitenantDistributionViewerCertificateArgs> ViewerCertificate { get; set; } = null!;
 
         /// <summary>
         /// Unique identifier that specifies the AWS WAF v2 web ACL to associate with this distribution.

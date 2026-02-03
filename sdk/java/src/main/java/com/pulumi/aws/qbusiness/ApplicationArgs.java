@@ -24,15 +24,15 @@ public final class ApplicationArgs extends com.pulumi.resources.ResourceArgs {
      * Information about whether file upload functionality is activated or deactivated for your end user. See `attachmentsConfiguration` below.
      * 
      */
-    @Import(name="attachmentsConfiguration")
-    private @Nullable Output<ApplicationAttachmentsConfigurationArgs> attachmentsConfiguration;
+    @Import(name="attachmentsConfiguration", required=true)
+    private Output<ApplicationAttachmentsConfigurationArgs> attachmentsConfiguration;
 
     /**
      * @return Information about whether file upload functionality is activated or deactivated for your end user. See `attachmentsConfiguration` below.
      * 
      */
-    public Optional<Output<ApplicationAttachmentsConfigurationArgs>> attachmentsConfiguration() {
-        return Optional.ofNullable(this.attachmentsConfiguration);
+    public Output<ApplicationAttachmentsConfigurationArgs> attachmentsConfiguration() {
+        return this.attachmentsConfiguration;
     }
 
     /**
@@ -181,7 +181,7 @@ public final class ApplicationArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder attachmentsConfiguration(@Nullable Output<ApplicationAttachmentsConfigurationArgs> attachmentsConfiguration) {
+        public Builder attachmentsConfiguration(Output<ApplicationAttachmentsConfigurationArgs> attachmentsConfiguration) {
             $.attachmentsConfiguration = attachmentsConfiguration;
             return this;
         }
@@ -345,6 +345,9 @@ public final class ApplicationArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public ApplicationArgs build() {
+            if ($.attachmentsConfiguration == null) {
+                throw new MissingRequiredPropertyException("ApplicationArgs", "attachmentsConfiguration");
+            }
             if ($.displayName == null) {
                 throw new MissingRequiredPropertyException("ApplicationArgs", "displayName");
             }

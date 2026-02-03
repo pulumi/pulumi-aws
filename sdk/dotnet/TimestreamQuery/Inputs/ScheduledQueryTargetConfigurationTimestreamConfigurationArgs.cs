@@ -18,7 +18,7 @@ namespace Pulumi.Aws.TimestreamQuery.Inputs
         [Input("databaseName", required: true)]
         public Input<string> DatabaseName { get; set; } = null!;
 
-        [Input("dimensionMappings")]
+        [Input("dimensionMappings", required: true)]
         private InputList<Inputs.ScheduledQueryTargetConfigurationTimestreamConfigurationDimensionMappingArgs>? _dimensionMappings;
 
         /// <summary>

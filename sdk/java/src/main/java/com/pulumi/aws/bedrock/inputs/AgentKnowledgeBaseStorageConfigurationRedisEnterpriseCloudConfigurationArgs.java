@@ -9,8 +9,6 @@ import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
-import java.util.Optional;
-import javax.annotation.Nullable;
 
 
 public final class AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationArgs extends com.pulumi.resources.ResourceArgs {
@@ -51,15 +49,15 @@ public final class AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudCon
      * The names of the fields to which to map information about the vector store. This block supports the following arguments:
      * 
      */
-    @Import(name="fieldMapping")
-    private @Nullable Output<AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMappingArgs> fieldMapping;
+    @Import(name="fieldMapping", required=true)
+    private Output<AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMappingArgs> fieldMapping;
 
     /**
      * @return The names of the fields to which to map information about the vector store. This block supports the following arguments:
      * 
      */
-    public Optional<Output<AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMappingArgs>> fieldMapping() {
-        return Optional.ofNullable(this.fieldMapping);
+    public Output<AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMappingArgs> fieldMapping() {
+        return this.fieldMapping;
     }
 
     /**
@@ -152,7 +150,7 @@ public final class AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudCon
          * @return builder
          * 
          */
-        public Builder fieldMapping(@Nullable Output<AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMappingArgs> fieldMapping) {
+        public Builder fieldMapping(Output<AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMappingArgs> fieldMapping) {
             $.fieldMapping = fieldMapping;
             return this;
         }
@@ -194,6 +192,9 @@ public final class AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudCon
             }
             if ($.endpoint == null) {
                 throw new MissingRequiredPropertyException("AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationArgs", "endpoint");
+            }
+            if ($.fieldMapping == null) {
+                throw new MissingRequiredPropertyException("AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationArgs", "fieldMapping");
             }
             if ($.vectorIndexName == null) {
                 throw new MissingRequiredPropertyException("AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationArgs", "vectorIndexName");

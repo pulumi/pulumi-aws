@@ -6,6 +6,7 @@ package com.pulumi.aws.timestreamquery.inputs;
 import com.pulumi.aws.timestreamquery.inputs.ScheduledQueryTargetConfigurationTimestreamConfigurationMultiMeasureMappingsMultiMeasureAttributeMappingArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -21,15 +22,15 @@ public final class ScheduledQueryTargetConfigurationTimestreamConfigurationMulti
      * Attribute mappings to be used for mapping query results to ingest data for multi-measure attributes. See above.
      * 
      */
-    @Import(name="multiMeasureAttributeMappings")
-    private @Nullable Output<List<ScheduledQueryTargetConfigurationTimestreamConfigurationMultiMeasureMappingsMultiMeasureAttributeMappingArgs>> multiMeasureAttributeMappings;
+    @Import(name="multiMeasureAttributeMappings", required=true)
+    private Output<List<ScheduledQueryTargetConfigurationTimestreamConfigurationMultiMeasureMappingsMultiMeasureAttributeMappingArgs>> multiMeasureAttributeMappings;
 
     /**
      * @return Attribute mappings to be used for mapping query results to ingest data for multi-measure attributes. See above.
      * 
      */
-    public Optional<Output<List<ScheduledQueryTargetConfigurationTimestreamConfigurationMultiMeasureMappingsMultiMeasureAttributeMappingArgs>>> multiMeasureAttributeMappings() {
-        return Optional.ofNullable(this.multiMeasureAttributeMappings);
+    public Output<List<ScheduledQueryTargetConfigurationTimestreamConfigurationMultiMeasureMappingsMultiMeasureAttributeMappingArgs>> multiMeasureAttributeMappings() {
+        return this.multiMeasureAttributeMappings;
     }
 
     /**
@@ -78,7 +79,7 @@ public final class ScheduledQueryTargetConfigurationTimestreamConfigurationMulti
          * @return builder
          * 
          */
-        public Builder multiMeasureAttributeMappings(@Nullable Output<List<ScheduledQueryTargetConfigurationTimestreamConfigurationMultiMeasureMappingsMultiMeasureAttributeMappingArgs>> multiMeasureAttributeMappings) {
+        public Builder multiMeasureAttributeMappings(Output<List<ScheduledQueryTargetConfigurationTimestreamConfigurationMultiMeasureMappingsMultiMeasureAttributeMappingArgs>> multiMeasureAttributeMappings) {
             $.multiMeasureAttributeMappings = multiMeasureAttributeMappings;
             return this;
         }
@@ -125,6 +126,9 @@ public final class ScheduledQueryTargetConfigurationTimestreamConfigurationMulti
         }
 
         public ScheduledQueryTargetConfigurationTimestreamConfigurationMultiMeasureMappingsArgs build() {
+            if ($.multiMeasureAttributeMappings == null) {
+                throw new MissingRequiredPropertyException("ScheduledQueryTargetConfigurationTimestreamConfigurationMultiMeasureMappingsArgs", "multiMeasureAttributeMappings");
+            }
             return $;
         }
     }

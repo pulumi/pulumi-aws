@@ -39,15 +39,15 @@ public final class AgentDataSourceArgs extends com.pulumi.resources.ResourceArgs
      * Details about how the data source is stored. See `dataSourceConfiguration` block for details.
      * 
      */
-    @Import(name="dataSourceConfiguration")
-    private @Nullable Output<AgentDataSourceDataSourceConfigurationArgs> dataSourceConfiguration;
+    @Import(name="dataSourceConfiguration", required=true)
+    private Output<AgentDataSourceDataSourceConfigurationArgs> dataSourceConfiguration;
 
     /**
      * @return Details about how the data source is stored. See `dataSourceConfiguration` block for details.
      * 
      */
-    public Optional<Output<AgentDataSourceDataSourceConfigurationArgs>> dataSourceConfiguration() {
-        return Optional.ofNullable(this.dataSourceConfiguration);
+    public Output<AgentDataSourceDataSourceConfigurationArgs> dataSourceConfiguration() {
+        return this.dataSourceConfiguration;
     }
 
     /**
@@ -210,7 +210,7 @@ public final class AgentDataSourceArgs extends com.pulumi.resources.ResourceArgs
          * @return builder
          * 
          */
-        public Builder dataSourceConfiguration(@Nullable Output<AgentDataSourceDataSourceConfigurationArgs> dataSourceConfiguration) {
+        public Builder dataSourceConfiguration(Output<AgentDataSourceDataSourceConfigurationArgs> dataSourceConfiguration) {
             $.dataSourceConfiguration = dataSourceConfiguration;
             return this;
         }
@@ -365,6 +365,9 @@ public final class AgentDataSourceArgs extends com.pulumi.resources.ResourceArgs
         }
 
         public AgentDataSourceArgs build() {
+            if ($.dataSourceConfiguration == null) {
+                throw new MissingRequiredPropertyException("AgentDataSourceArgs", "dataSourceConfiguration");
+            }
             if ($.knowledgeBaseId == null) {
                 throw new MissingRequiredPropertyException("AgentDataSourceArgs", "knowledgeBaseId");
             }

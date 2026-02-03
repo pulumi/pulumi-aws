@@ -477,7 +477,7 @@ namespace Pulumi.Aws.Bedrock
         /// The following arguments are optional:
         /// </summary>
         [Output("targetConfiguration")]
-        public Output<Outputs.AgentcoreGatewayTargetTargetConfiguration?> TargetConfiguration { get; private set; } = null!;
+        public Output<Outputs.AgentcoreGatewayTargetTargetConfiguration> TargetConfiguration { get; private set; } = null!;
 
         /// <summary>
         /// Unique identifier of the gateway target.
@@ -569,8 +569,8 @@ namespace Pulumi.Aws.Bedrock
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("targetConfiguration")]
-        public Input<Inputs.AgentcoreGatewayTargetTargetConfigurationArgs>? TargetConfiguration { get; set; }
+        [Input("targetConfiguration", required: true)]
+        public Input<Inputs.AgentcoreGatewayTargetTargetConfigurationArgs> TargetConfiguration { get; set; } = null!;
 
         [Input("timeouts")]
         public Input<Inputs.AgentcoreGatewayTargetTimeoutsArgs>? Timeouts { get; set; }

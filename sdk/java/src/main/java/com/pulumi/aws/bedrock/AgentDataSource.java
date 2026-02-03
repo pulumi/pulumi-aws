@@ -95,14 +95,14 @@ public class AgentDataSource extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="dataSourceConfiguration", refs={AgentDataSourceDataSourceConfiguration.class}, tree="[0]")
-    private Output</* @Nullable */ AgentDataSourceDataSourceConfiguration> dataSourceConfiguration;
+    private Output<AgentDataSourceDataSourceConfiguration> dataSourceConfiguration;
 
     /**
      * @return Details about how the data source is stored. See `dataSourceConfiguration` block for details.
      * 
      */
-    public Output<Optional<AgentDataSourceDataSourceConfiguration>> dataSourceConfiguration() {
-        return Codegen.optional(this.dataSourceConfiguration);
+    public Output<AgentDataSourceDataSourceConfiguration> dataSourceConfiguration() {
+        return this.dataSourceConfiguration;
     }
     /**
      * Unique identifier of the data source.

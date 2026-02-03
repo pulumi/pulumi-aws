@@ -21,32 +21,43 @@ __all__ = ['RouteServerPeerArgs', 'RouteServerPeer']
 @pulumi.input_type
 class RouteServerPeerArgs:
     def __init__(__self__, *,
+                 bgp_options: pulumi.Input['RouteServerPeerBgpOptionsArgs'],
                  peer_address: pulumi.Input[_builtins.str],
                  route_server_endpoint_id: pulumi.Input[_builtins.str],
-                 bgp_options: Optional[pulumi.Input['RouteServerPeerBgpOptionsArgs']] = None,
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  timeouts: Optional[pulumi.Input['RouteServerPeerTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a RouteServerPeer resource.
+        :param pulumi.Input['RouteServerPeerBgpOptionsArgs'] bgp_options: The BGP options for the peer, including ASN (Autonomous System Number) and BFD (Bidrectional Forwarding Detection) settings. Configuration block with BGP Options configuration Detailed below
         :param pulumi.Input[_builtins.str] peer_address: The IPv4 address of the peer device.
         :param pulumi.Input[_builtins.str] route_server_endpoint_id: The ID of the route server endpoint for which to create a peer.
                
                The following arguments are optional:
-        :param pulumi.Input['RouteServerPeerBgpOptionsArgs'] bgp_options: The BGP options for the peer, including ASN (Autonomous System Number) and BFD (Bidrectional Forwarding Detection) settings. Configuration block with BGP Options configuration Detailed below
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
+        pulumi.set(__self__, "bgp_options", bgp_options)
         pulumi.set(__self__, "peer_address", peer_address)
         pulumi.set(__self__, "route_server_endpoint_id", route_server_endpoint_id)
-        if bgp_options is not None:
-            pulumi.set(__self__, "bgp_options", bgp_options)
         if region is not None:
             pulumi.set(__self__, "region", region)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if timeouts is not None:
             pulumi.set(__self__, "timeouts", timeouts)
+
+    @_builtins.property
+    @pulumi.getter(name="bgpOptions")
+    def bgp_options(self) -> pulumi.Input['RouteServerPeerBgpOptionsArgs']:
+        """
+        The BGP options for the peer, including ASN (Autonomous System Number) and BFD (Bidrectional Forwarding Detection) settings. Configuration block with BGP Options configuration Detailed below
+        """
+        return pulumi.get(self, "bgp_options")
+
+    @bgp_options.setter
+    def bgp_options(self, value: pulumi.Input['RouteServerPeerBgpOptionsArgs']):
+        pulumi.set(self, "bgp_options", value)
 
     @_builtins.property
     @pulumi.getter(name="peerAddress")
@@ -73,18 +84,6 @@ class RouteServerPeerArgs:
     @route_server_endpoint_id.setter
     def route_server_endpoint_id(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "route_server_endpoint_id", value)
-
-    @_builtins.property
-    @pulumi.getter(name="bgpOptions")
-    def bgp_options(self) -> Optional[pulumi.Input['RouteServerPeerBgpOptionsArgs']]:
-        """
-        The BGP options for the peer, including ASN (Autonomous System Number) and BFD (Bidrectional Forwarding Detection) settings. Configuration block with BGP Options configuration Detailed below
-        """
-        return pulumi.get(self, "bgp_options")
-
-    @bgp_options.setter
-    def bgp_options(self, value: Optional[pulumi.Input['RouteServerPeerBgpOptionsArgs']]):
-        pulumi.set(self, "bgp_options", value)
 
     @_builtins.property
     @pulumi.getter
@@ -545,6 +544,8 @@ class RouteServerPeer(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = RouteServerPeerArgs.__new__(RouteServerPeerArgs)
 
+            if bgp_options is None and not opts.urn:
+                raise TypeError("Missing required property 'bgp_options'")
             __props__.__dict__["bgp_options"] = bgp_options
             if peer_address is None and not opts.urn:
                 raise TypeError("Missing required property 'peer_address'")
@@ -640,7 +641,7 @@ class RouteServerPeer(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="bgpOptions")
-    def bgp_options(self) -> pulumi.Output[Optional['outputs.RouteServerPeerBgpOptions']]:
+    def bgp_options(self) -> pulumi.Output['outputs.RouteServerPeerBgpOptions']:
         """
         The BGP options for the peer, including ASN (Autonomous System Number) and BFD (Bidrectional Forwarding Detection) settings. Configuration block with BGP Options configuration Detailed below
         """

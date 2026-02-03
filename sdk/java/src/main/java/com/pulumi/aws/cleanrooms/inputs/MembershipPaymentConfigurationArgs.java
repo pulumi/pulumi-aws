@@ -6,20 +6,19 @@ package com.pulumi.aws.cleanrooms.inputs;
 import com.pulumi.aws.cleanrooms.inputs.MembershipPaymentConfigurationQueryComputeArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.Objects;
-import java.util.Optional;
-import javax.annotation.Nullable;
 
 
 public final class MembershipPaymentConfigurationArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final MembershipPaymentConfigurationArgs Empty = new MembershipPaymentConfigurationArgs();
 
-    @Import(name="queryCompute")
-    private @Nullable Output<MembershipPaymentConfigurationQueryComputeArgs> queryCompute;
+    @Import(name="queryCompute", required=true)
+    private Output<MembershipPaymentConfigurationQueryComputeArgs> queryCompute;
 
-    public Optional<Output<MembershipPaymentConfigurationQueryComputeArgs>> queryCompute() {
-        return Optional.ofNullable(this.queryCompute);
+    public Output<MembershipPaymentConfigurationQueryComputeArgs> queryCompute() {
+        return this.queryCompute;
     }
 
     private MembershipPaymentConfigurationArgs() {}
@@ -46,7 +45,7 @@ public final class MembershipPaymentConfigurationArgs extends com.pulumi.resourc
             $ = new MembershipPaymentConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
-        public Builder queryCompute(@Nullable Output<MembershipPaymentConfigurationQueryComputeArgs> queryCompute) {
+        public Builder queryCompute(Output<MembershipPaymentConfigurationQueryComputeArgs> queryCompute) {
             $.queryCompute = queryCompute;
             return this;
         }
@@ -56,6 +55,9 @@ public final class MembershipPaymentConfigurationArgs extends com.pulumi.resourc
         }
 
         public MembershipPaymentConfigurationArgs build() {
+            if ($.queryCompute == null) {
+                throw new MissingRequiredPropertyException("MembershipPaymentConfigurationArgs", "queryCompute");
+            }
             return $;
         }
     }

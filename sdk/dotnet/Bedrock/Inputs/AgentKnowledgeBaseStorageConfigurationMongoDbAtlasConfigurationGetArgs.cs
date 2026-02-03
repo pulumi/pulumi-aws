@@ -45,8 +45,8 @@ namespace Pulumi.Aws.Bedrock.Inputs
         /// <summary>
         /// Contains the names of the fields to which to map information about the vector store.
         /// </summary>
-        [Input("fieldMapping")]
-        public Input<Inputs.AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationFieldMappingGetArgs>? FieldMapping { get; set; }
+        [Input("fieldMapping", required: true)]
+        public Input<Inputs.AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationFieldMappingGetArgs> FieldMapping { get; set; } = null!;
 
         /// <summary>
         /// The name of the vector index.

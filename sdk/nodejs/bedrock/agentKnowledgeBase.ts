@@ -261,7 +261,7 @@ export class AgentKnowledgeBase extends pulumi.CustomResource {
     /**
      * Details about the embeddings configuration of the knowledge base. See `knowledgeBaseConfiguration` block for details.
      */
-    declare public readonly knowledgeBaseConfiguration: pulumi.Output<outputs.bedrock.AgentKnowledgeBaseKnowledgeBaseConfiguration | undefined>;
+    declare public readonly knowledgeBaseConfiguration: pulumi.Output<outputs.bedrock.AgentKnowledgeBaseKnowledgeBaseConfiguration>;
     /**
      * Name of the knowledge base.
      */
@@ -322,6 +322,9 @@ export class AgentKnowledgeBase extends pulumi.CustomResource {
             resourceInputs["updatedAt"] = state?.updatedAt;
         } else {
             const args = argsOrState as AgentKnowledgeBaseArgs | undefined;
+            if (args?.knowledgeBaseConfiguration === undefined && !opts.urn) {
+                throw new Error("Missing required property 'knowledgeBaseConfiguration'");
+            }
             if (args?.roleArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'roleArn'");
             }
@@ -409,7 +412,7 @@ export interface AgentKnowledgeBaseArgs {
     /**
      * Details about the embeddings configuration of the knowledge base. See `knowledgeBaseConfiguration` block for details.
      */
-    knowledgeBaseConfiguration?: pulumi.Input<inputs.bedrock.AgentKnowledgeBaseKnowledgeBaseConfiguration>;
+    knowledgeBaseConfiguration: pulumi.Input<inputs.bedrock.AgentKnowledgeBaseKnowledgeBaseConfiguration>;
     /**
      * Name of the knowledge base.
      */

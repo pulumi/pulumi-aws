@@ -221,7 +221,7 @@ namespace Pulumi.Aws.Auditmanager
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        [Input("roles")]
+        [Input("roles", required: true)]
         private InputList<Inputs.AssessmentRoleArgs>? _roles;
 
         /// <summary>

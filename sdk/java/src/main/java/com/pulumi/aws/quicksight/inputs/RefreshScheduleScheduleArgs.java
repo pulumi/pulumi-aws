@@ -36,15 +36,15 @@ public final class RefreshScheduleScheduleArgs extends com.pulumi.resources.Reso
      * The configuration of the [schedule frequency](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_RefreshFrequency.html). See schedule_frequency.
      * 
      */
-    @Import(name="scheduleFrequency")
-    private @Nullable Output<RefreshScheduleScheduleScheduleFrequencyArgs> scheduleFrequency;
+    @Import(name="scheduleFrequency", required=true)
+    private Output<RefreshScheduleScheduleScheduleFrequencyArgs> scheduleFrequency;
 
     /**
      * @return The configuration of the [schedule frequency](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_RefreshFrequency.html). See schedule_frequency.
      * 
      */
-    public Optional<Output<RefreshScheduleScheduleScheduleFrequencyArgs>> scheduleFrequency() {
-        return Optional.ofNullable(this.scheduleFrequency);
+    public Output<RefreshScheduleScheduleScheduleFrequencyArgs> scheduleFrequency() {
+        return this.scheduleFrequency;
     }
 
     /**
@@ -115,7 +115,7 @@ public final class RefreshScheduleScheduleArgs extends com.pulumi.resources.Reso
          * @return builder
          * 
          */
-        public Builder scheduleFrequency(@Nullable Output<RefreshScheduleScheduleScheduleFrequencyArgs> scheduleFrequency) {
+        public Builder scheduleFrequency(Output<RefreshScheduleScheduleScheduleFrequencyArgs> scheduleFrequency) {
             $.scheduleFrequency = scheduleFrequency;
             return this;
         }
@@ -154,6 +154,9 @@ public final class RefreshScheduleScheduleArgs extends com.pulumi.resources.Reso
         public RefreshScheduleScheduleArgs build() {
             if ($.refreshType == null) {
                 throw new MissingRequiredPropertyException("RefreshScheduleScheduleArgs", "refreshType");
+            }
+            if ($.scheduleFrequency == null) {
+                throw new MissingRequiredPropertyException("RefreshScheduleScheduleArgs", "scheduleFrequency");
             }
             return $;
         }

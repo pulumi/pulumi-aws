@@ -6,9 +6,8 @@ package com.pulumi.aws.ssoadmin.inputs;
 import com.pulumi.aws.ssoadmin.inputs.TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfigurationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.Objects;
-import java.util.Optional;
-import javax.annotation.Nullable;
 
 
 public final class TrustedTokenIssuerTrustedTokenIssuerConfigurationArgs extends com.pulumi.resources.ResourceArgs {
@@ -19,15 +18,15 @@ public final class TrustedTokenIssuerTrustedTokenIssuerConfigurationArgs extends
      * A block that describes the settings for a trusted token issuer that works with OpenID Connect (OIDC) by using JSON Web Tokens (JWT). See Documented below below.
      * 
      */
-    @Import(name="oidcJwtConfiguration")
-    private @Nullable Output<TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfigurationArgs> oidcJwtConfiguration;
+    @Import(name="oidcJwtConfiguration", required=true)
+    private Output<TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfigurationArgs> oidcJwtConfiguration;
 
     /**
      * @return A block that describes the settings for a trusted token issuer that works with OpenID Connect (OIDC) by using JSON Web Tokens (JWT). See Documented below below.
      * 
      */
-    public Optional<Output<TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfigurationArgs>> oidcJwtConfiguration() {
-        return Optional.ofNullable(this.oidcJwtConfiguration);
+    public Output<TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfigurationArgs> oidcJwtConfiguration() {
+        return this.oidcJwtConfiguration;
     }
 
     private TrustedTokenIssuerTrustedTokenIssuerConfigurationArgs() {}
@@ -60,7 +59,7 @@ public final class TrustedTokenIssuerTrustedTokenIssuerConfigurationArgs extends
          * @return builder
          * 
          */
-        public Builder oidcJwtConfiguration(@Nullable Output<TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfigurationArgs> oidcJwtConfiguration) {
+        public Builder oidcJwtConfiguration(Output<TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfigurationArgs> oidcJwtConfiguration) {
             $.oidcJwtConfiguration = oidcJwtConfiguration;
             return this;
         }
@@ -76,6 +75,9 @@ public final class TrustedTokenIssuerTrustedTokenIssuerConfigurationArgs extends
         }
 
         public TrustedTokenIssuerTrustedTokenIssuerConfigurationArgs build() {
+            if ($.oidcJwtConfiguration == null) {
+                throw new MissingRequiredPropertyException("TrustedTokenIssuerTrustedTokenIssuerConfigurationArgs", "oidcJwtConfiguration");
+            }
             return $;
         }
     }

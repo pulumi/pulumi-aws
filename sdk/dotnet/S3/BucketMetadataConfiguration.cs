@@ -82,7 +82,7 @@ namespace Pulumi.Aws.S3
         /// The following arguments are optional:
         /// </summary>
         [Output("metadataConfiguration")]
-        public Output<Outputs.BucketMetadataConfigurationMetadataConfiguration?> MetadataConfiguration { get; private set; } = null!;
+        public Output<Outputs.BucketMetadataConfigurationMetadataConfiguration> MetadataConfiguration { get; private set; } = null!;
 
         /// <summary>
         /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -153,8 +153,8 @@ namespace Pulumi.Aws.S3
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("metadataConfiguration")]
-        public Input<Inputs.BucketMetadataConfigurationMetadataConfigurationArgs>? MetadataConfiguration { get; set; }
+        [Input("metadataConfiguration", required: true)]
+        public Input<Inputs.BucketMetadataConfigurationMetadataConfigurationArgs> MetadataConfiguration { get; set; } = null!;
 
         /// <summary>
         /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.

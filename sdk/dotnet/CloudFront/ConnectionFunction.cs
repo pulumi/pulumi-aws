@@ -153,7 +153,7 @@ namespace Pulumi.Aws.CloudFront
         /// Configuration information for the connection function. See `ConnectionFunctionConfig` below.
         /// </summary>
         [Output("connectionFunctionConfig")]
-        public Output<Outputs.ConnectionFunctionConnectionFunctionConfig?> ConnectionFunctionConfig { get; private set; } = null!;
+        public Output<Outputs.ConnectionFunctionConnectionFunctionConfig> ConnectionFunctionConfig { get; private set; } = null!;
 
         /// <summary>
         /// ETag of the connection function.
@@ -254,8 +254,8 @@ namespace Pulumi.Aws.CloudFront
         /// <summary>
         /// Configuration information for the connection function. See `ConnectionFunctionConfig` below.
         /// </summary>
-        [Input("connectionFunctionConfig")]
-        public Input<Inputs.ConnectionFunctionConnectionFunctionConfigArgs>? ConnectionFunctionConfig { get; set; }
+        [Input("connectionFunctionConfig", required: true)]
+        public Input<Inputs.ConnectionFunctionConnectionFunctionConfigArgs> ConnectionFunctionConfig { get; set; } = null!;
 
         /// <summary>
         /// Name for the connection function. Must be 1-64 characters and can contain letters, numbers, hyphens, and underscores. Changing this forces a new resource to be created.

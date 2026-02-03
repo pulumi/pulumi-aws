@@ -3425,20 +3425,34 @@ class BucketMetadataConfigurationMetadataConfiguration(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 destinations: Optional[Sequence['outputs.BucketMetadataConfigurationMetadataConfigurationDestination']] = None,
-                 inventory_table_configuration: Optional['outputs.BucketMetadataConfigurationMetadataConfigurationInventoryTableConfiguration'] = None,
-                 journal_table_configuration: Optional['outputs.BucketMetadataConfigurationMetadataConfigurationJournalTableConfiguration'] = None):
+                 inventory_table_configuration: 'outputs.BucketMetadataConfigurationMetadataConfigurationInventoryTableConfiguration',
+                 journal_table_configuration: 'outputs.BucketMetadataConfigurationMetadataConfigurationJournalTableConfiguration',
+                 destinations: Optional[Sequence['outputs.BucketMetadataConfigurationMetadataConfigurationDestination']] = None):
         """
-        :param Sequence['BucketMetadataConfigurationMetadataConfigurationDestinationArgs'] destinations: Destination information for the S3 Metadata configuration.
         :param 'BucketMetadataConfigurationMetadataConfigurationInventoryTableConfigurationArgs' inventory_table_configuration: Inventory table configuration. See `inventory_table_configuration` Block for details.
         :param 'BucketMetadataConfigurationMetadataConfigurationJournalTableConfigurationArgs' journal_table_configuration: Journal table configuration. See `journal_table_configuration` Block for details.
+        :param Sequence['BucketMetadataConfigurationMetadataConfigurationDestinationArgs'] destinations: Destination information for the S3 Metadata configuration.
         """
+        pulumi.set(__self__, "inventory_table_configuration", inventory_table_configuration)
+        pulumi.set(__self__, "journal_table_configuration", journal_table_configuration)
         if destinations is not None:
             pulumi.set(__self__, "destinations", destinations)
-        if inventory_table_configuration is not None:
-            pulumi.set(__self__, "inventory_table_configuration", inventory_table_configuration)
-        if journal_table_configuration is not None:
-            pulumi.set(__self__, "journal_table_configuration", journal_table_configuration)
+
+    @_builtins.property
+    @pulumi.getter(name="inventoryTableConfiguration")
+    def inventory_table_configuration(self) -> 'outputs.BucketMetadataConfigurationMetadataConfigurationInventoryTableConfiguration':
+        """
+        Inventory table configuration. See `inventory_table_configuration` Block for details.
+        """
+        return pulumi.get(self, "inventory_table_configuration")
+
+    @_builtins.property
+    @pulumi.getter(name="journalTableConfiguration")
+    def journal_table_configuration(self) -> 'outputs.BucketMetadataConfigurationMetadataConfigurationJournalTableConfiguration':
+        """
+        Journal table configuration. See `journal_table_configuration` Block for details.
+        """
+        return pulumi.get(self, "journal_table_configuration")
 
     @_builtins.property
     @pulumi.getter
@@ -3447,22 +3461,6 @@ class BucketMetadataConfigurationMetadataConfiguration(dict):
         Destination information for the S3 Metadata configuration.
         """
         return pulumi.get(self, "destinations")
-
-    @_builtins.property
-    @pulumi.getter(name="inventoryTableConfiguration")
-    def inventory_table_configuration(self) -> Optional['outputs.BucketMetadataConfigurationMetadataConfigurationInventoryTableConfiguration']:
-        """
-        Inventory table configuration. See `inventory_table_configuration` Block for details.
-        """
-        return pulumi.get(self, "inventory_table_configuration")
-
-    @_builtins.property
-    @pulumi.getter(name="journalTableConfiguration")
-    def journal_table_configuration(self) -> Optional['outputs.BucketMetadataConfigurationMetadataConfigurationJournalTableConfiguration']:
-        """
-        Journal table configuration. See `journal_table_configuration` Block for details.
-        """
-        return pulumi.get(self, "journal_table_configuration")
 
 
 @pulumi.output_type
@@ -3657,10 +3655,10 @@ class BucketMetadataConfigurationMetadataConfigurationJournalTableConfiguration(
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "encryptionConfiguration":
-            suggest = "encryption_configuration"
-        elif key == "recordExpiration":
+        if key == "recordExpiration":
             suggest = "record_expiration"
+        elif key == "encryptionConfiguration":
+            suggest = "encryption_configuration"
         elif key == "tableArn":
             suggest = "table_arn"
         elif key == "tableName":
@@ -3678,24 +3676,31 @@ class BucketMetadataConfigurationMetadataConfigurationJournalTableConfiguration(
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 record_expiration: 'outputs.BucketMetadataConfigurationMetadataConfigurationJournalTableConfigurationRecordExpiration',
                  encryption_configuration: Optional['outputs.BucketMetadataConfigurationMetadataConfigurationJournalTableConfigurationEncryptionConfiguration'] = None,
-                 record_expiration: Optional['outputs.BucketMetadataConfigurationMetadataConfigurationJournalTableConfigurationRecordExpiration'] = None,
                  table_arn: Optional[_builtins.str] = None,
                  table_name: Optional[_builtins.str] = None):
         """
-        :param 'BucketMetadataConfigurationMetadataConfigurationJournalTableConfigurationEncryptionConfigurationArgs' encryption_configuration: Encryption configuration for the journal table. See `encryption_configuration` Block for details.
         :param 'BucketMetadataConfigurationMetadataConfigurationJournalTableConfigurationRecordExpirationArgs' record_expiration: Journal table record expiration settings. See `record_expiration` Block for details.
+        :param 'BucketMetadataConfigurationMetadataConfigurationJournalTableConfigurationEncryptionConfigurationArgs' encryption_configuration: Encryption configuration for the journal table. See `encryption_configuration` Block for details.
         :param _builtins.str table_arn: Journal table ARN.
         :param _builtins.str table_name: Journal table name.
         """
+        pulumi.set(__self__, "record_expiration", record_expiration)
         if encryption_configuration is not None:
             pulumi.set(__self__, "encryption_configuration", encryption_configuration)
-        if record_expiration is not None:
-            pulumi.set(__self__, "record_expiration", record_expiration)
         if table_arn is not None:
             pulumi.set(__self__, "table_arn", table_arn)
         if table_name is not None:
             pulumi.set(__self__, "table_name", table_name)
+
+    @_builtins.property
+    @pulumi.getter(name="recordExpiration")
+    def record_expiration(self) -> 'outputs.BucketMetadataConfigurationMetadataConfigurationJournalTableConfigurationRecordExpiration':
+        """
+        Journal table record expiration settings. See `record_expiration` Block for details.
+        """
+        return pulumi.get(self, "record_expiration")
 
     @_builtins.property
     @pulumi.getter(name="encryptionConfiguration")
@@ -3704,14 +3709,6 @@ class BucketMetadataConfigurationMetadataConfigurationJournalTableConfiguration(
         Encryption configuration for the journal table. See `encryption_configuration` Block for details.
         """
         return pulumi.get(self, "encryption_configuration")
-
-    @_builtins.property
-    @pulumi.getter(name="recordExpiration")
-    def record_expiration(self) -> Optional['outputs.BucketMetadataConfigurationMetadataConfigurationJournalTableConfigurationRecordExpiration']:
-        """
-        Journal table record expiration settings. See `record_expiration` Block for details.
-        """
-        return pulumi.get(self, "record_expiration")
 
     @_builtins.property
     @pulumi.getter(name="tableArn")

@@ -16,7 +16,7 @@ namespace Pulumi.Aws.Lex.Outputs
         /// <summary>
         /// Configuration block for the primary message that Amazon Lex should send to the user. See `Message`.
         /// </summary>
-        public readonly Outputs.V2modelsIntentInitialResponseSettingInitialResponseMessageGroupMessage Message;
+        public readonly Outputs.V2modelsIntentInitialResponseSettingInitialResponseMessageGroupMessage? Message;
         /// <summary>
         /// Configuration blocks for message variations to send to the user. When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user. See `Variation`.
         /// </summary>
@@ -24,7 +24,7 @@ namespace Pulumi.Aws.Lex.Outputs
 
         [OutputConstructor]
         private V2modelsIntentInitialResponseSettingInitialResponseMessageGroup(
-            Outputs.V2modelsIntentInitialResponseSettingInitialResponseMessageGroupMessage message,
+            Outputs.V2modelsIntentInitialResponseSettingInitialResponseMessageGroupMessage? message,
 
             ImmutableArray<Outputs.V2modelsIntentInitialResponseSettingInitialResponseMessageGroupVariation> variations)
         {

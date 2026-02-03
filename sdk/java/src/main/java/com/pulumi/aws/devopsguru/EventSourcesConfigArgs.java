@@ -6,6 +6,7 @@ package com.pulumi.aws.devopsguru;
 import com.pulumi.aws.devopsguru.inputs.EventSourcesConfigEventSourceArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -21,15 +22,15 @@ public final class EventSourcesConfigArgs extends com.pulumi.resources.ResourceA
      * Configuration information about the integration of DevOps Guru as the Consumer via EventBridge with another AWS Service. See `eventSources` below.
      * 
      */
-    @Import(name="eventSources")
-    private @Nullable Output<List<EventSourcesConfigEventSourceArgs>> eventSources;
+    @Import(name="eventSources", required=true)
+    private Output<List<EventSourcesConfigEventSourceArgs>> eventSources;
 
     /**
      * @return Configuration information about the integration of DevOps Guru as the Consumer via EventBridge with another AWS Service. See `eventSources` below.
      * 
      */
-    public Optional<Output<List<EventSourcesConfigEventSourceArgs>>> eventSources() {
-        return Optional.ofNullable(this.eventSources);
+    public Output<List<EventSourcesConfigEventSourceArgs>> eventSources() {
+        return this.eventSources;
     }
 
     /**
@@ -78,7 +79,7 @@ public final class EventSourcesConfigArgs extends com.pulumi.resources.ResourceA
          * @return builder
          * 
          */
-        public Builder eventSources(@Nullable Output<List<EventSourcesConfigEventSourceArgs>> eventSources) {
+        public Builder eventSources(Output<List<EventSourcesConfigEventSourceArgs>> eventSources) {
             $.eventSources = eventSources;
             return this;
         }
@@ -125,6 +126,9 @@ public final class EventSourcesConfigArgs extends com.pulumi.resources.ResourceA
         }
 
         public EventSourcesConfigArgs build() {
+            if ($.eventSources == null) {
+                throw new MissingRequiredPropertyException("EventSourcesConfigArgs", "eventSources");
+            }
             return $;
         }
     }

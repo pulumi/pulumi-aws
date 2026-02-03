@@ -22,8 +22,8 @@ __all__ = ['FilterArgs', 'Filter']
 class FilterArgs:
     def __init__(__self__, *,
                  action: pulumi.Input[_builtins.str],
+                 filter_criterias: pulumi.Input[Sequence[pulumi.Input['FilterFilterCriteriaArgs']]],
                  description: Optional[pulumi.Input[_builtins.str]] = None,
-                 filter_criterias: Optional[pulumi.Input[Sequence[pulumi.Input['FilterFilterCriteriaArgs']]]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  reason: Optional[pulumi.Input[_builtins.str]] = None,
                  region: Optional[pulumi.Input[_builtins.str]] = None,
@@ -31,20 +31,19 @@ class FilterArgs:
         """
         The set of arguments for constructing a Filter resource.
         :param pulumi.Input[_builtins.str] action: Action to be applied to the findings that maatch the filter. Possible values are `NONE` and `SUPPRESS`
-        :param pulumi.Input[_builtins.str] description: Description
         :param pulumi.Input[Sequence[pulumi.Input['FilterFilterCriteriaArgs']]] filter_criterias: Details on the filter criteria. Documented below.
                
                The following arguments are optional:
+        :param pulumi.Input[_builtins.str] description: Description
         :param pulumi.Input[_builtins.str] name: Name of the filter.
         :param pulumi.Input[_builtins.str] reason: Reason for creating the filter
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "action", action)
+        pulumi.set(__self__, "filter_criterias", filter_criterias)
         if description is not None:
             pulumi.set(__self__, "description", description)
-        if filter_criterias is not None:
-            pulumi.set(__self__, "filter_criterias", filter_criterias)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if reason is not None:
@@ -67,6 +66,20 @@ class FilterArgs:
         pulumi.set(self, "action", value)
 
     @_builtins.property
+    @pulumi.getter(name="filterCriterias")
+    def filter_criterias(self) -> pulumi.Input[Sequence[pulumi.Input['FilterFilterCriteriaArgs']]]:
+        """
+        Details on the filter criteria. Documented below.
+
+        The following arguments are optional:
+        """
+        return pulumi.get(self, "filter_criterias")
+
+    @filter_criterias.setter
+    def filter_criterias(self, value: pulumi.Input[Sequence[pulumi.Input['FilterFilterCriteriaArgs']]]):
+        pulumi.set(self, "filter_criterias", value)
+
+    @_builtins.property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
@@ -77,20 +90,6 @@ class FilterArgs:
     @description.setter
     def description(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "description", value)
-
-    @_builtins.property
-    @pulumi.getter(name="filterCriterias")
-    def filter_criterias(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FilterFilterCriteriaArgs']]]]:
-        """
-        Details on the filter criteria. Documented below.
-
-        The following arguments are optional:
-        """
-        return pulumi.get(self, "filter_criterias")
-
-    @filter_criterias.setter
-    def filter_criterias(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FilterFilterCriteriaArgs']]]]):
-        pulumi.set(self, "filter_criterias", value)
 
     @_builtins.property
     @pulumi.getter
@@ -424,6 +423,8 @@ class Filter(pulumi.CustomResource):
                 raise TypeError("Missing required property 'action'")
             __props__.__dict__["action"] = action
             __props__.__dict__["description"] = description
+            if filter_criterias is None and not opts.urn:
+                raise TypeError("Missing required property 'filter_criterias'")
             __props__.__dict__["filter_criterias"] = filter_criterias
             __props__.__dict__["name"] = name
             __props__.__dict__["reason"] = reason
@@ -510,7 +511,7 @@ class Filter(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="filterCriterias")
-    def filter_criterias(self) -> pulumi.Output[Optional[Sequence['outputs.FilterFilterCriteria']]]:
+    def filter_criterias(self) -> pulumi.Output[Sequence['outputs.FilterFilterCriteria']]:
         """
         Details on the filter criteria. Documented below.
 

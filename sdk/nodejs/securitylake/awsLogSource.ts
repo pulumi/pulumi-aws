@@ -74,7 +74,7 @@ export class AwsLogSource extends pulumi.CustomResource {
     /**
      * Specify the natively-supported AWS service to add as a source in Security Lake.
      */
-    declare public readonly source: pulumi.Output<outputs.securitylake.AwsLogSourceSource | undefined>;
+    declare public readonly source: pulumi.Output<outputs.securitylake.AwsLogSourceSource>;
 
     /**
      * Create a AwsLogSource resource with the given unique name, arguments, and options.
@@ -83,7 +83,7 @@ export class AwsLogSource extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: AwsLogSourceArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, args: AwsLogSourceArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: AwsLogSourceArgs | AwsLogSourceState, opts?: pulumi.CustomResourceOptions) {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
@@ -93,6 +93,9 @@ export class AwsLogSource extends pulumi.CustomResource {
             resourceInputs["source"] = state?.source;
         } else {
             const args = argsOrState as AwsLogSourceArgs | undefined;
+            if (args?.source === undefined && !opts.urn) {
+                throw new Error("Missing required property 'source'");
+            }
             resourceInputs["region"] = args?.region;
             resourceInputs["source"] = args?.source;
         }
@@ -126,5 +129,5 @@ export interface AwsLogSourceArgs {
     /**
      * Specify the natively-supported AWS service to add as a source in Security Lake.
      */
-    source?: pulumi.Input<inputs.securitylake.AwsLogSourceSource>;
+    source: pulumi.Input<inputs.securitylake.AwsLogSourceSource>;
 }

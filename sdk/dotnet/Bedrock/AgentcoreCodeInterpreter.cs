@@ -140,7 +140,7 @@ namespace Pulumi.Aws.Bedrock
         /// The following arguments are optional:
         /// </summary>
         [Output("networkConfiguration")]
-        public Output<Outputs.AgentcoreCodeInterpreterNetworkConfiguration?> NetworkConfiguration { get; private set; } = null!;
+        public Output<Outputs.AgentcoreCodeInterpreterNetworkConfiguration> NetworkConfiguration { get; private set; } = null!;
 
         /// <summary>
         /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -171,7 +171,7 @@ namespace Pulumi.Aws.Bedrock
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public AgentcoreCodeInterpreter(string name, AgentcoreCodeInterpreterArgs? args = null, CustomResourceOptions? options = null)
+        public AgentcoreCodeInterpreter(string name, AgentcoreCodeInterpreterArgs args, CustomResourceOptions? options = null)
             : base("aws:bedrock/agentcoreCodeInterpreter:AgentcoreCodeInterpreter", name, args ?? new AgentcoreCodeInterpreterArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -232,8 +232,8 @@ namespace Pulumi.Aws.Bedrock
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("networkConfiguration")]
-        public Input<Inputs.AgentcoreCodeInterpreterNetworkConfigurationArgs>? NetworkConfiguration { get; set; }
+        [Input("networkConfiguration", required: true)]
+        public Input<Inputs.AgentcoreCodeInterpreterNetworkConfigurationArgs> NetworkConfiguration { get; set; } = null!;
 
         /// <summary>
         /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.

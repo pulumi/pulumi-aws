@@ -117,7 +117,7 @@ type RecommendationPreferences struct {
 	// The status of the savings estimation mode preference. Valid values: `AfterDiscounts`, `BeforeDiscounts`.
 	SavingsEstimationMode pulumi.StringPtrOutput `pulumi:"savingsEstimationMode"`
 	// The scope of the recommendation preferences. See Scope below.
-	Scope RecommendationPreferencesScopePtrOutput `pulumi:"scope"`
+	Scope RecommendationPreferencesScopeOutput `pulumi:"scope"`
 	// The preference to control the resource’s CPU utilization threshold, CPU utilization headroom, and memory utilization headroom. See Utilization Preferences below.
 	UtilizationPreferences RecommendationPreferencesUtilizationPreferenceArrayOutput `pulumi:"utilizationPreferences"`
 }
@@ -131,6 +131,9 @@ func NewRecommendationPreferences(ctx *pulumi.Context,
 
 	if args.ResourceType == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceType'")
+	}
+	if args.Scope == nil {
+		return nil, errors.New("invalid value for required argument 'Scope'")
 	}
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource RecommendationPreferences
@@ -222,7 +225,7 @@ type recommendationPreferencesArgs struct {
 	// The status of the savings estimation mode preference. Valid values: `AfterDiscounts`, `BeforeDiscounts`.
 	SavingsEstimationMode *string `pulumi:"savingsEstimationMode"`
 	// The scope of the recommendation preferences. See Scope below.
-	Scope *RecommendationPreferencesScope `pulumi:"scope"`
+	Scope RecommendationPreferencesScope `pulumi:"scope"`
 	// The preference to control the resource’s CPU utilization threshold, CPU utilization headroom, and memory utilization headroom. See Utilization Preferences below.
 	UtilizationPreferences []RecommendationPreferencesUtilizationPreference `pulumi:"utilizationPreferences"`
 }
@@ -246,7 +249,7 @@ type RecommendationPreferencesArgs struct {
 	// The status of the savings estimation mode preference. Valid values: `AfterDiscounts`, `BeforeDiscounts`.
 	SavingsEstimationMode pulumi.StringPtrInput
 	// The scope of the recommendation preferences. See Scope below.
-	Scope RecommendationPreferencesScopePtrInput
+	Scope RecommendationPreferencesScopeInput
 	// The preference to control the resource’s CPU utilization threshold, CPU utilization headroom, and memory utilization headroom. See Utilization Preferences below.
 	UtilizationPreferences RecommendationPreferencesUtilizationPreferenceArrayInput
 }
@@ -383,8 +386,8 @@ func (o RecommendationPreferencesOutput) SavingsEstimationMode() pulumi.StringPt
 }
 
 // The scope of the recommendation preferences. See Scope below.
-func (o RecommendationPreferencesOutput) Scope() RecommendationPreferencesScopePtrOutput {
-	return o.ApplyT(func(v *RecommendationPreferences) RecommendationPreferencesScopePtrOutput { return v.Scope }).(RecommendationPreferencesScopePtrOutput)
+func (o RecommendationPreferencesOutput) Scope() RecommendationPreferencesScopeOutput {
+	return o.ApplyT(func(v *RecommendationPreferences) RecommendationPreferencesScopeOutput { return v.Scope }).(RecommendationPreferencesScopeOutput)
 }
 
 // The preference to control the resource’s CPU utilization threshold, CPU utilization headroom, and memory utilization headroom. See Utilization Preferences below.

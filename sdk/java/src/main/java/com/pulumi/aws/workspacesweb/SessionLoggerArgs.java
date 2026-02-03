@@ -7,6 +7,7 @@ import com.pulumi.aws.workspacesweb.inputs.SessionLoggerEventFilterArgs;
 import com.pulumi.aws.workspacesweb.inputs.SessionLoggerLogConfigurationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -67,15 +68,15 @@ public final class SessionLoggerArgs extends com.pulumi.resources.ResourceArgs {
      * Event filter that determines which events are logged. See Event Filter below.
      * 
      */
-    @Import(name="eventFilter")
-    private @Nullable Output<SessionLoggerEventFilterArgs> eventFilter;
+    @Import(name="eventFilter", required=true)
+    private Output<SessionLoggerEventFilterArgs> eventFilter;
 
     /**
      * @return Event filter that determines which events are logged. See Event Filter below.
      * 
      */
-    public Optional<Output<SessionLoggerEventFilterArgs>> eventFilter() {
-        return Optional.ofNullable(this.eventFilter);
+    public Output<SessionLoggerEventFilterArgs> eventFilter() {
+        return this.eventFilter;
     }
 
     /**
@@ -84,8 +85,8 @@ public final class SessionLoggerArgs extends com.pulumi.resources.ResourceArgs {
      * The following arguments are optional:
      * 
      */
-    @Import(name="logConfiguration")
-    private @Nullable Output<SessionLoggerLogConfigurationArgs> logConfiguration;
+    @Import(name="logConfiguration", required=true)
+    private Output<SessionLoggerLogConfigurationArgs> logConfiguration;
 
     /**
      * @return Configuration block for specifying where logs are delivered. See Log Configuration below.
@@ -93,8 +94,8 @@ public final class SessionLoggerArgs extends com.pulumi.resources.ResourceArgs {
      * The following arguments are optional:
      * 
      */
-    public Optional<Output<SessionLoggerLogConfigurationArgs>> logConfiguration() {
-        return Optional.ofNullable(this.logConfiguration);
+    public Output<SessionLoggerLogConfigurationArgs> logConfiguration() {
+        return this.logConfiguration;
     }
 
     /**
@@ -226,7 +227,7 @@ public final class SessionLoggerArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder eventFilter(@Nullable Output<SessionLoggerEventFilterArgs> eventFilter) {
+        public Builder eventFilter(Output<SessionLoggerEventFilterArgs> eventFilter) {
             $.eventFilter = eventFilter;
             return this;
         }
@@ -249,7 +250,7 @@ public final class SessionLoggerArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder logConfiguration(@Nullable Output<SessionLoggerLogConfigurationArgs> logConfiguration) {
+        public Builder logConfiguration(Output<SessionLoggerLogConfigurationArgs> logConfiguration) {
             $.logConfiguration = logConfiguration;
             return this;
         }
@@ -309,6 +310,12 @@ public final class SessionLoggerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public SessionLoggerArgs build() {
+            if ($.eventFilter == null) {
+                throw new MissingRequiredPropertyException("SessionLoggerArgs", "eventFilter");
+            }
+            if ($.logConfiguration == null) {
+                throw new MissingRequiredPropertyException("SessionLoggerArgs", "logConfiguration");
+            }
             return $;
         }
     }

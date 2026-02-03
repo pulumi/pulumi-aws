@@ -168,7 +168,7 @@ type ContinuousDeploymentPolicy struct {
 	// Date and time the continuous deployment policy was last modified.
 	LastModifiedTime pulumi.StringOutput `pulumi:"lastModifiedTime"`
 	// CloudFront domain name of the staging distribution. See `stagingDistributionDnsNames`.
-	StagingDistributionDnsNames ContinuousDeploymentPolicyStagingDistributionDnsNamesPtrOutput `pulumi:"stagingDistributionDnsNames"`
+	StagingDistributionDnsNames ContinuousDeploymentPolicyStagingDistributionDnsNamesOutput `pulumi:"stagingDistributionDnsNames"`
 	// Parameters for routing production traffic from primary to staging distributions. See `trafficConfig`.
 	TrafficConfig ContinuousDeploymentPolicyTrafficConfigPtrOutput `pulumi:"trafficConfig"`
 }
@@ -182,6 +182,9 @@ func NewContinuousDeploymentPolicy(ctx *pulumi.Context,
 
 	if args.Enabled == nil {
 		return nil, errors.New("invalid value for required argument 'Enabled'")
+	}
+	if args.StagingDistributionDnsNames == nil {
+		return nil, errors.New("invalid value for required argument 'StagingDistributionDnsNames'")
 	}
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ContinuousDeploymentPolicy
@@ -243,7 +246,7 @@ type continuousDeploymentPolicyArgs struct {
 	// Whether this continuous deployment policy is enabled.
 	Enabled bool `pulumi:"enabled"`
 	// CloudFront domain name of the staging distribution. See `stagingDistributionDnsNames`.
-	StagingDistributionDnsNames *ContinuousDeploymentPolicyStagingDistributionDnsNames `pulumi:"stagingDistributionDnsNames"`
+	StagingDistributionDnsNames ContinuousDeploymentPolicyStagingDistributionDnsNames `pulumi:"stagingDistributionDnsNames"`
 	// Parameters for routing production traffic from primary to staging distributions. See `trafficConfig`.
 	TrafficConfig *ContinuousDeploymentPolicyTrafficConfig `pulumi:"trafficConfig"`
 }
@@ -253,7 +256,7 @@ type ContinuousDeploymentPolicyArgs struct {
 	// Whether this continuous deployment policy is enabled.
 	Enabled pulumi.BoolInput
 	// CloudFront domain name of the staging distribution. See `stagingDistributionDnsNames`.
-	StagingDistributionDnsNames ContinuousDeploymentPolicyStagingDistributionDnsNamesPtrInput
+	StagingDistributionDnsNames ContinuousDeploymentPolicyStagingDistributionDnsNamesInput
 	// Parameters for routing production traffic from primary to staging distributions. See `trafficConfig`.
 	TrafficConfig ContinuousDeploymentPolicyTrafficConfigPtrInput
 }
@@ -366,10 +369,10 @@ func (o ContinuousDeploymentPolicyOutput) LastModifiedTime() pulumi.StringOutput
 }
 
 // CloudFront domain name of the staging distribution. See `stagingDistributionDnsNames`.
-func (o ContinuousDeploymentPolicyOutput) StagingDistributionDnsNames() ContinuousDeploymentPolicyStagingDistributionDnsNamesPtrOutput {
-	return o.ApplyT(func(v *ContinuousDeploymentPolicy) ContinuousDeploymentPolicyStagingDistributionDnsNamesPtrOutput {
+func (o ContinuousDeploymentPolicyOutput) StagingDistributionDnsNames() ContinuousDeploymentPolicyStagingDistributionDnsNamesOutput {
+	return o.ApplyT(func(v *ContinuousDeploymentPolicy) ContinuousDeploymentPolicyStagingDistributionDnsNamesOutput {
 		return v.StagingDistributionDnsNames
-	}).(ContinuousDeploymentPolicyStagingDistributionDnsNamesPtrOutput)
+	}).(ContinuousDeploymentPolicyStagingDistributionDnsNamesOutput)
 }
 
 // Parameters for routing production traffic from primary to staging distributions. See `trafficConfig`.

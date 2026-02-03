@@ -91,7 +91,7 @@ type Application struct {
 	// Current version of the application deployed.
 	CurrentVersion pulumi.IntOutput `pulumi:"currentVersion"`
 	// The application definition for this application. You can specify either inline JSON or an S3 bucket location.
-	Definition ApplicationDefinitionPtrOutput `pulumi:"definition"`
+	Definition ApplicationDefinitionOutput `pulumi:"definition"`
 	// Description of the application.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Engine type must be `microfocus | bluage`.
@@ -120,6 +120,9 @@ func NewApplication(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
+	if args.Definition == nil {
+		return nil, errors.New("invalid value for required argument 'Definition'")
+	}
 	if args.EngineType == nil {
 		return nil, errors.New("invalid value for required argument 'EngineType'")
 	}
@@ -211,7 +214,7 @@ func (ApplicationState) ElementType() reflect.Type {
 
 type applicationArgs struct {
 	// The application definition for this application. You can specify either inline JSON or an S3 bucket location.
-	Definition *ApplicationDefinition `pulumi:"definition"`
+	Definition ApplicationDefinition `pulumi:"definition"`
 	// Description of the application.
 	Description *string `pulumi:"description"`
 	// Engine type must be `microfocus | bluage`.
@@ -234,7 +237,7 @@ type applicationArgs struct {
 // The set of arguments for constructing a Application resource.
 type ApplicationArgs struct {
 	// The application definition for this application. You can specify either inline JSON or an S3 bucket location.
-	Definition ApplicationDefinitionPtrInput
+	Definition ApplicationDefinitionInput
 	// Description of the application.
 	Description pulumi.StringPtrInput
 	// Engine type must be `microfocus | bluage`.
@@ -357,8 +360,8 @@ func (o ApplicationOutput) CurrentVersion() pulumi.IntOutput {
 }
 
 // The application definition for this application. You can specify either inline JSON or an S3 bucket location.
-func (o ApplicationOutput) Definition() ApplicationDefinitionPtrOutput {
-	return o.ApplyT(func(v *Application) ApplicationDefinitionPtrOutput { return v.Definition }).(ApplicationDefinitionPtrOutput)
+func (o ApplicationOutput) Definition() ApplicationDefinitionOutput {
+	return o.ApplyT(func(v *Application) ApplicationDefinitionOutput { return v.Definition }).(ApplicationDefinitionOutput)
 }
 
 // Description of the application.

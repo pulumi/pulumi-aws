@@ -516,7 +516,7 @@ namespace Pulumi.Aws.NetworkFirewall
         /// The following arguments are optional:
         /// </summary>
         [Output("tlsInspectionConfiguration")]
-        public Output<Outputs.TlsInspectionConfigurationTlsInspectionConfiguration?> TlsInspectionConfig { get; private set; } = null!;
+        public Output<Outputs.TlsInspectionConfigurationTlsInspectionConfiguration> TlsInspectionConfig { get; private set; } = null!;
 
         /// <summary>
         /// A unique identifier for the TLS inspection configuration.
@@ -538,7 +538,7 @@ namespace Pulumi.Aws.NetworkFirewall
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public TlsInspectionConfiguration(string name, TlsInspectionConfigurationArgs? args = null, CustomResourceOptions? options = null)
+        public TlsInspectionConfiguration(string name, TlsInspectionConfigurationArgs args, CustomResourceOptions? options = null)
             : base("aws:networkfirewall/tlsInspectionConfiguration:TlsInspectionConfiguration", name, args ?? new TlsInspectionConfigurationArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -622,8 +622,8 @@ namespace Pulumi.Aws.NetworkFirewall
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("tlsInspectionConfiguration")]
-        public Input<Inputs.TlsInspectionConfigurationTlsInspectionConfigurationArgs>? TlsInspectionConfig { get; set; }
+        [Input("tlsInspectionConfiguration", required: true)]
+        public Input<Inputs.TlsInspectionConfigurationTlsInspectionConfigurationArgs> TlsInspectionConfig { get; set; } = null!;
 
         public TlsInspectionConfigurationArgs()
         {

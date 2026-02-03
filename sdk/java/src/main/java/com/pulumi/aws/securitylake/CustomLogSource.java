@@ -105,14 +105,14 @@ public class CustomLogSource extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="configuration", refs={CustomLogSourceConfiguration.class}, tree="[0]")
-    private Output</* @Nullable */ CustomLogSourceConfiguration> configuration;
+    private Output<CustomLogSourceConfiguration> configuration;
 
     /**
      * @return The configuration for the third-party custom source.
      * 
      */
-    public Output<Optional<CustomLogSourceConfiguration>> configuration() {
-        return Codegen.optional(this.configuration);
+    public Output<CustomLogSourceConfiguration> configuration() {
+        return this.configuration;
     }
     /**
      * The Open Cybersecurity Schema Framework (OCSF) event classes which describes the type of data that the custom source will send to Security Lake.

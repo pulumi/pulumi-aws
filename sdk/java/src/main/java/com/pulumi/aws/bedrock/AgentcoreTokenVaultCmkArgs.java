@@ -6,6 +6,7 @@ package com.pulumi.aws.bedrock;
 import com.pulumi.aws.bedrock.inputs.AgentcoreTokenVaultCmkKmsConfigurationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -20,15 +21,15 @@ public final class AgentcoreTokenVaultCmkArgs extends com.pulumi.resources.Resou
      * KMS configuration for the token vault. See `kmsConfiguration` below.
      * 
      */
-    @Import(name="kmsConfiguration")
-    private @Nullable Output<AgentcoreTokenVaultCmkKmsConfigurationArgs> kmsConfiguration;
+    @Import(name="kmsConfiguration", required=true)
+    private Output<AgentcoreTokenVaultCmkKmsConfigurationArgs> kmsConfiguration;
 
     /**
      * @return KMS configuration for the token vault. See `kmsConfiguration` below.
      * 
      */
-    public Optional<Output<AgentcoreTokenVaultCmkKmsConfigurationArgs>> kmsConfiguration() {
-        return Optional.ofNullable(this.kmsConfiguration);
+    public Output<AgentcoreTokenVaultCmkKmsConfigurationArgs> kmsConfiguration() {
+        return this.kmsConfiguration;
     }
 
     /**
@@ -93,7 +94,7 @@ public final class AgentcoreTokenVaultCmkArgs extends com.pulumi.resources.Resou
          * @return builder
          * 
          */
-        public Builder kmsConfiguration(@Nullable Output<AgentcoreTokenVaultCmkKmsConfigurationArgs> kmsConfiguration) {
+        public Builder kmsConfiguration(Output<AgentcoreTokenVaultCmkKmsConfigurationArgs> kmsConfiguration) {
             $.kmsConfiguration = kmsConfiguration;
             return this;
         }
@@ -151,6 +152,9 @@ public final class AgentcoreTokenVaultCmkArgs extends com.pulumi.resources.Resou
         }
 
         public AgentcoreTokenVaultCmkArgs build() {
+            if ($.kmsConfiguration == null) {
+                throw new MissingRequiredPropertyException("AgentcoreTokenVaultCmkArgs", "kmsConfiguration");
+            }
             return $;
         }
     }

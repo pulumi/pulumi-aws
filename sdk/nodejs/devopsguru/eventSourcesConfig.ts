@@ -62,7 +62,7 @@ export class EventSourcesConfig extends pulumi.CustomResource {
     /**
      * Configuration information about the integration of DevOps Guru as the Consumer via EventBridge with another AWS Service. See `eventSources` below.
      */
-    declare public readonly eventSources: pulumi.Output<outputs.devopsguru.EventSourcesConfigEventSource[] | undefined>;
+    declare public readonly eventSources: pulumi.Output<outputs.devopsguru.EventSourcesConfigEventSource[]>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
@@ -75,7 +75,7 @@ export class EventSourcesConfig extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: EventSourcesConfigArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, args: EventSourcesConfigArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: EventSourcesConfigArgs | EventSourcesConfigState, opts?: pulumi.CustomResourceOptions) {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
@@ -85,6 +85,9 @@ export class EventSourcesConfig extends pulumi.CustomResource {
             resourceInputs["region"] = state?.region;
         } else {
             const args = argsOrState as EventSourcesConfigArgs | undefined;
+            if (args?.eventSources === undefined && !opts.urn) {
+                throw new Error("Missing required property 'eventSources'");
+            }
             resourceInputs["eventSources"] = args?.eventSources;
             resourceInputs["region"] = args?.region;
         }
@@ -114,7 +117,7 @@ export interface EventSourcesConfigArgs {
     /**
      * Configuration information about the integration of DevOps Guru as the Consumer via EventBridge with another AWS Service. See `eventSources` below.
      */
-    eventSources?: pulumi.Input<pulumi.Input<inputs.devopsguru.EventSourcesConfigEventSource>[]>;
+    eventSources: pulumi.Input<pulumi.Input<inputs.devopsguru.EventSourcesConfigEventSource>[]>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */

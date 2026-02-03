@@ -15,8 +15,8 @@ namespace Pulumi.Aws.Rekognition.Inputs
         /// <summary>
         /// Kinesis input stream. See `KinesisVideoStream`.
         /// </summary>
-        [Input("kinesisVideoStream")]
-        public Input<Inputs.StreamProcessorInputKinesisVideoStreamArgs>? KinesisVideoStream { get; set; }
+        [Input("kinesisVideoStream", required: true)]
+        public Input<Inputs.StreamProcessorInputKinesisVideoStreamArgs> KinesisVideoStream { get; set; } = null!;
 
         public StreamProcessorInputArgs()
         {

@@ -12,7 +12,7 @@ namespace Pulumi.Aws.TimestreamQuery.Inputs
 
     public sealed class ScheduledQueryTargetConfigurationTimestreamConfigurationMultiMeasureMappingsArgs : global::Pulumi.ResourceArgs
     {
-        [Input("multiMeasureAttributeMappings")]
+        [Input("multiMeasureAttributeMappings", required: true)]
         private InputList<Inputs.ScheduledQueryTargetConfigurationTimestreamConfigurationMultiMeasureMappingsMultiMeasureAttributeMappingArgs>? _multiMeasureAttributeMappings;
 
         /// <summary>

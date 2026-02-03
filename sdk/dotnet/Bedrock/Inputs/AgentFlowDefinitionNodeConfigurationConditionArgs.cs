@@ -12,7 +12,7 @@ namespace Pulumi.Aws.Bedrock.Inputs
 
     public sealed class AgentFlowDefinitionNodeConfigurationConditionArgs : global::Pulumi.ResourceArgs
     {
-        [Input("conditions", required: true)]
+        [Input("conditions")]
         private InputList<Inputs.AgentFlowDefinitionNodeConfigurationConditionConditionArgs>? _conditions;
         public InputList<Inputs.AgentFlowDefinitionNodeConfigurationConditionConditionArgs> Conditions
         {

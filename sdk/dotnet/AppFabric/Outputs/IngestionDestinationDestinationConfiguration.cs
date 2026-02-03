@@ -16,10 +16,10 @@ namespace Pulumi.Aws.AppFabric.Outputs
         /// <summary>
         /// Contains information about an audit log processing configuration.
         /// </summary>
-        public readonly Outputs.IngestionDestinationDestinationConfigurationAuditLog? AuditLog;
+        public readonly Outputs.IngestionDestinationDestinationConfigurationAuditLog AuditLog;
 
         [OutputConstructor]
-        private IngestionDestinationDestinationConfiguration(Outputs.IngestionDestinationDestinationConfigurationAuditLog? auditLog)
+        private IngestionDestinationDestinationConfiguration(Outputs.IngestionDestinationDestinationConfigurationAuditLog auditLog)
         {
             AuditLog = auditLog;
         }

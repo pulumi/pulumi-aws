@@ -185,14 +185,14 @@ public class TrustedTokenIssuer extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="trustedTokenIssuerConfiguration", refs={TrustedTokenIssuerTrustedTokenIssuerConfiguration.class}, tree="[0]")
-    private Output</* @Nullable */ TrustedTokenIssuerTrustedTokenIssuerConfiguration> trustedTokenIssuerConfiguration;
+    private Output<TrustedTokenIssuerTrustedTokenIssuerConfiguration> trustedTokenIssuerConfiguration;
 
     /**
      * @return A block that specifies settings that apply to the trusted token issuer, these change depending on the type you specify in `trustedTokenIssuerType`. Documented below.
      * 
      */
-    public Output<Optional<TrustedTokenIssuerTrustedTokenIssuerConfiguration>> trustedTokenIssuerConfiguration() {
-        return Codegen.optional(this.trustedTokenIssuerConfiguration);
+    public Output<TrustedTokenIssuerTrustedTokenIssuerConfiguration> trustedTokenIssuerConfiguration() {
+        return this.trustedTokenIssuerConfiguration;
     }
     /**
      * Specifies the type of the trusted token issuer. Valid values are `OIDC_JWT`

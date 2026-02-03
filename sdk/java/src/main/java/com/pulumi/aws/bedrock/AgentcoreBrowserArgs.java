@@ -8,6 +8,7 @@ import com.pulumi.aws.bedrock.inputs.AgentcoreBrowserRecordingArgs;
 import com.pulumi.aws.bedrock.inputs.AgentcoreBrowserTimeoutsArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -70,8 +71,8 @@ public final class AgentcoreBrowserArgs extends com.pulumi.resources.ResourceArg
      * The following arguments are optional:
      * 
      */
-    @Import(name="networkConfiguration")
-    private @Nullable Output<AgentcoreBrowserNetworkConfigurationArgs> networkConfiguration;
+    @Import(name="networkConfiguration", required=true)
+    private Output<AgentcoreBrowserNetworkConfigurationArgs> networkConfiguration;
 
     /**
      * @return Network configuration for the browser. See `networkConfiguration` below.
@@ -79,8 +80,8 @@ public final class AgentcoreBrowserArgs extends com.pulumi.resources.ResourceArg
      * The following arguments are optional:
      * 
      */
-    public Optional<Output<AgentcoreBrowserNetworkConfigurationArgs>> networkConfiguration() {
-        return Optional.ofNullable(this.networkConfiguration);
+    public Output<AgentcoreBrowserNetworkConfigurationArgs> networkConfiguration() {
+        return this.networkConfiguration;
     }
 
     /**
@@ -237,7 +238,7 @@ public final class AgentcoreBrowserArgs extends com.pulumi.resources.ResourceArg
          * @return builder
          * 
          */
-        public Builder networkConfiguration(@Nullable Output<AgentcoreBrowserNetworkConfigurationArgs> networkConfiguration) {
+        public Builder networkConfiguration(Output<AgentcoreBrowserNetworkConfigurationArgs> networkConfiguration) {
             $.networkConfiguration = networkConfiguration;
             return this;
         }
@@ -327,6 +328,9 @@ public final class AgentcoreBrowserArgs extends com.pulumi.resources.ResourceArg
         }
 
         public AgentcoreBrowserArgs build() {
+            if ($.networkConfiguration == null) {
+                throw new MissingRequiredPropertyException("AgentcoreBrowserArgs", "networkConfiguration");
+            }
             return $;
         }
     }

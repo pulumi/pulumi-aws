@@ -22,7 +22,7 @@ public final class RefreshScheduleSchedule {
      * @return The configuration of the [schedule frequency](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_RefreshFrequency.html). See schedule_frequency.
      * 
      */
-    private @Nullable RefreshScheduleScheduleScheduleFrequency scheduleFrequency;
+    private RefreshScheduleScheduleScheduleFrequency scheduleFrequency;
     /**
      * @return Time after which the refresh schedule can be started, expressed in `YYYY-MM-DDTHH:MM:SS` format.
      * 
@@ -41,8 +41,8 @@ public final class RefreshScheduleSchedule {
      * @return The configuration of the [schedule frequency](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_RefreshFrequency.html). See schedule_frequency.
      * 
      */
-    public Optional<RefreshScheduleScheduleScheduleFrequency> scheduleFrequency() {
-        return Optional.ofNullable(this.scheduleFrequency);
+    public RefreshScheduleScheduleScheduleFrequency scheduleFrequency() {
+        return this.scheduleFrequency;
     }
     /**
      * @return Time after which the refresh schedule can be started, expressed in `YYYY-MM-DDTHH:MM:SS` format.
@@ -62,7 +62,7 @@ public final class RefreshScheduleSchedule {
     @CustomType.Builder
     public static final class Builder {
         private String refreshType;
-        private @Nullable RefreshScheduleScheduleScheduleFrequency scheduleFrequency;
+        private RefreshScheduleScheduleScheduleFrequency scheduleFrequency;
         private @Nullable String startAfterDateTime;
         public Builder() {}
         public Builder(RefreshScheduleSchedule defaults) {
@@ -81,8 +81,10 @@ public final class RefreshScheduleSchedule {
             return this;
         }
         @CustomType.Setter
-        public Builder scheduleFrequency(@Nullable RefreshScheduleScheduleScheduleFrequency scheduleFrequency) {
-
+        public Builder scheduleFrequency(RefreshScheduleScheduleScheduleFrequency scheduleFrequency) {
+            if (scheduleFrequency == null) {
+              throw new MissingRequiredPropertyException("RefreshScheduleSchedule", "scheduleFrequency");
+            }
             this.scheduleFrequency = scheduleFrequency;
             return this;
         }

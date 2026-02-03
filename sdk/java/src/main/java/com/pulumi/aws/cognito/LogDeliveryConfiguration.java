@@ -13,7 +13,6 @@ import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import java.util.List;
-import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
@@ -286,14 +285,14 @@ public class LogDeliveryConfiguration extends com.pulumi.resources.CustomResourc
      * 
      */
     @Export(name="logConfigurations", refs={List.class,LogDeliveryConfigurationLogConfiguration.class}, tree="[0,1]")
-    private Output</* @Nullable */ List<LogDeliveryConfigurationLogConfiguration>> logConfigurations;
+    private Output<List<LogDeliveryConfigurationLogConfiguration>> logConfigurations;
 
     /**
      * @return Configuration block for log delivery. At least one configuration block is required. See Log Configurations below.
      * 
      */
-    public Output<Optional<List<LogDeliveryConfigurationLogConfiguration>>> logConfigurations() {
-        return Codegen.optional(this.logConfigurations);
+    public Output<List<LogDeliveryConfigurationLogConfiguration>> logConfigurations() {
+        return this.logConfigurations;
     }
     /**
      * The AWS region.

@@ -293,7 +293,7 @@ namespace Pulumi.Aws.WorkSpacesWeb
         /// Event filter that determines which events are logged. See Event Filter below.
         /// </summary>
         [Output("eventFilter")]
-        public Output<Outputs.SessionLoggerEventFilter?> EventFilter { get; private set; } = null!;
+        public Output<Outputs.SessionLoggerEventFilter> EventFilter { get; private set; } = null!;
 
         /// <summary>
         /// Configuration block for specifying where logs are delivered. See Log Configuration below.
@@ -301,7 +301,7 @@ namespace Pulumi.Aws.WorkSpacesWeb
         /// The following arguments are optional:
         /// </summary>
         [Output("logConfiguration")]
-        public Output<Outputs.SessionLoggerLogConfiguration?> LogConfiguration { get; private set; } = null!;
+        public Output<Outputs.SessionLoggerLogConfiguration> LogConfiguration { get; private set; } = null!;
 
         /// <summary>
         /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -335,7 +335,7 @@ namespace Pulumi.Aws.WorkSpacesWeb
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public SessionLogger(string name, SessionLoggerArgs? args = null, CustomResourceOptions? options = null)
+        public SessionLogger(string name, SessionLoggerArgs args, CustomResourceOptions? options = null)
             : base("aws:workspacesweb/sessionLogger:SessionLogger", name, args ?? new SessionLoggerArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -400,16 +400,16 @@ namespace Pulumi.Aws.WorkSpacesWeb
         /// <summary>
         /// Event filter that determines which events are logged. See Event Filter below.
         /// </summary>
-        [Input("eventFilter")]
-        public Input<Inputs.SessionLoggerEventFilterArgs>? EventFilter { get; set; }
+        [Input("eventFilter", required: true)]
+        public Input<Inputs.SessionLoggerEventFilterArgs> EventFilter { get; set; } = null!;
 
         /// <summary>
         /// Configuration block for specifying where logs are delivered. See Log Configuration below.
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("logConfiguration")]
-        public Input<Inputs.SessionLoggerLogConfigurationArgs>? LogConfiguration { get; set; }
+        [Input("logConfiguration", required: true)]
+        public Input<Inputs.SessionLoggerLogConfigurationArgs> LogConfiguration { get; set; } = null!;
 
         /// <summary>
         /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.

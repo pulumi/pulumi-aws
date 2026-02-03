@@ -22,15 +22,15 @@ public final class CustomLogSourceArgs extends com.pulumi.resources.ResourceArgs
      * The configuration for the third-party custom source.
      * 
      */
-    @Import(name="configuration")
-    private @Nullable Output<CustomLogSourceConfigurationArgs> configuration;
+    @Import(name="configuration", required=true)
+    private Output<CustomLogSourceConfigurationArgs> configuration;
 
     /**
      * @return The configuration for the third-party custom source.
      * 
      */
-    public Optional<Output<CustomLogSourceConfigurationArgs>> configuration() {
-        return Optional.ofNullable(this.configuration);
+    public Output<CustomLogSourceConfigurationArgs> configuration() {
+        return this.configuration;
     }
 
     /**
@@ -131,7 +131,7 @@ public final class CustomLogSourceArgs extends com.pulumi.resources.ResourceArgs
          * @return builder
          * 
          */
-        public Builder configuration(@Nullable Output<CustomLogSourceConfigurationArgs> configuration) {
+        public Builder configuration(Output<CustomLogSourceConfigurationArgs> configuration) {
             $.configuration = configuration;
             return this;
         }
@@ -245,6 +245,9 @@ public final class CustomLogSourceArgs extends com.pulumi.resources.ResourceArgs
         }
 
         public CustomLogSourceArgs build() {
+            if ($.configuration == null) {
+                throw new MissingRequiredPropertyException("CustomLogSourceArgs", "configuration");
+            }
             if ($.sourceName == null) {
                 throw new MissingRequiredPropertyException("CustomLogSourceArgs", "sourceName");
             }

@@ -21,33 +21,44 @@ __all__ = ['S3AccessPointAttachmentArgs', 'S3AccessPointAttachment']
 @pulumi.input_type
 class S3AccessPointAttachmentArgs:
     def __init__(__self__, *,
+                 openzfs_configuration: pulumi.Input['S3AccessPointAttachmentOpenzfsConfigurationArgs'],
                  type: pulumi.Input[_builtins.str],
                  name: Optional[pulumi.Input[_builtins.str]] = None,
-                 openzfs_configuration: Optional[pulumi.Input['S3AccessPointAttachmentOpenzfsConfigurationArgs']] = None,
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  s3_access_point: Optional[pulumi.Input['S3AccessPointAttachmentS3AccessPointArgs']] = None,
                  timeouts: Optional[pulumi.Input['S3AccessPointAttachmentTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a S3AccessPointAttachment resource.
+        :param pulumi.Input['S3AccessPointAttachmentOpenzfsConfigurationArgs'] openzfs_configuration: Configuration to use when creating and attaching an S3 access point to an FSx for OpenZFS volume. See `openzfs_configuration` Block for details.
         :param pulumi.Input[_builtins.str] type: Type of S3 access point. Valid values: `OpenZFS`.
                
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] name: Name of the S3 access point.
-        :param pulumi.Input['S3AccessPointAttachmentOpenzfsConfigurationArgs'] openzfs_configuration: Configuration to use when creating and attaching an S3 access point to an FSx for OpenZFS volume. See `openzfs_configuration` Block for details.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input['S3AccessPointAttachmentS3AccessPointArgs'] s3_access_point: S3 access point configuration. See `s3_access_point` Block for details.
         """
+        pulumi.set(__self__, "openzfs_configuration", openzfs_configuration)
         pulumi.set(__self__, "type", type)
         if name is not None:
             pulumi.set(__self__, "name", name)
-        if openzfs_configuration is not None:
-            pulumi.set(__self__, "openzfs_configuration", openzfs_configuration)
         if region is not None:
             pulumi.set(__self__, "region", region)
         if s3_access_point is not None:
             pulumi.set(__self__, "s3_access_point", s3_access_point)
         if timeouts is not None:
             pulumi.set(__self__, "timeouts", timeouts)
+
+    @_builtins.property
+    @pulumi.getter(name="openzfsConfiguration")
+    def openzfs_configuration(self) -> pulumi.Input['S3AccessPointAttachmentOpenzfsConfigurationArgs']:
+        """
+        Configuration to use when creating and attaching an S3 access point to an FSx for OpenZFS volume. See `openzfs_configuration` Block for details.
+        """
+        return pulumi.get(self, "openzfs_configuration")
+
+    @openzfs_configuration.setter
+    def openzfs_configuration(self, value: pulumi.Input['S3AccessPointAttachmentOpenzfsConfigurationArgs']):
+        pulumi.set(self, "openzfs_configuration", value)
 
     @_builtins.property
     @pulumi.getter
@@ -74,18 +85,6 @@ class S3AccessPointAttachmentArgs:
     @name.setter
     def name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="openzfsConfiguration")
-    def openzfs_configuration(self) -> Optional[pulumi.Input['S3AccessPointAttachmentOpenzfsConfigurationArgs']]:
-        """
-        Configuration to use when creating and attaching an S3 access point to an FSx for OpenZFS volume. See `openzfs_configuration` Block for details.
-        """
-        return pulumi.get(self, "openzfs_configuration")
-
-    @openzfs_configuration.setter
-    def openzfs_configuration(self, value: Optional[pulumi.Input['S3AccessPointAttachmentOpenzfsConfigurationArgs']]):
-        pulumi.set(self, "openzfs_configuration", value)
 
     @_builtins.property
     @pulumi.getter
@@ -381,6 +380,8 @@ class S3AccessPointAttachment(pulumi.CustomResource):
             __props__ = S3AccessPointAttachmentArgs.__new__(S3AccessPointAttachmentArgs)
 
             __props__.__dict__["name"] = name
+            if openzfs_configuration is None and not opts.urn:
+                raise TypeError("Missing required property 'openzfs_configuration'")
             __props__.__dict__["openzfs_configuration"] = openzfs_configuration
             __props__.__dict__["region"] = region
             __props__.__dict__["s3_access_point"] = s3_access_point
@@ -449,7 +450,7 @@ class S3AccessPointAttachment(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="openzfsConfiguration")
-    def openzfs_configuration(self) -> pulumi.Output[Optional['outputs.S3AccessPointAttachmentOpenzfsConfiguration']]:
+    def openzfs_configuration(self) -> pulumi.Output['outputs.S3AccessPointAttachmentOpenzfsConfiguration']:
         """
         Configuration to use when creating and attaching an S3 access point to an FSx for OpenZFS volume. See `openzfs_configuration` Block for details.
         """

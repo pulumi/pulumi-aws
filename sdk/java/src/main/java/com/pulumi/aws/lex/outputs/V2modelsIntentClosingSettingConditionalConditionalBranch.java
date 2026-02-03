@@ -19,7 +19,7 @@ public final class V2modelsIntentClosingSettingConditionalConditionalBranch {
      * @return Configuration block for the expression to evaluate. If the condition is true, the branch&#39;s actions are taken. See `condition`.
      * 
      */
-    private V2modelsIntentClosingSettingConditionalConditionalBranchCondition condition;
+    private @Nullable V2modelsIntentClosingSettingConditionalConditionalBranchCondition condition;
     /**
      * @return Name of the branch.
      * 
@@ -29,7 +29,7 @@ public final class V2modelsIntentClosingSettingConditionalConditionalBranch {
      * @return Configuration block for the next step in the conversation. See `nextStep`.
      * 
      */
-    private V2modelsIntentClosingSettingConditionalConditionalBranchNextStep nextStep;
+    private @Nullable V2modelsIntentClosingSettingConditionalConditionalBranchNextStep nextStep;
     /**
      * @return Configuration block for a list of message groups that Amazon Lex uses to respond to the user input. See `response`.
      * 
@@ -41,8 +41,8 @@ public final class V2modelsIntentClosingSettingConditionalConditionalBranch {
      * @return Configuration block for the expression to evaluate. If the condition is true, the branch&#39;s actions are taken. See `condition`.
      * 
      */
-    public V2modelsIntentClosingSettingConditionalConditionalBranchCondition condition() {
-        return this.condition;
+    public Optional<V2modelsIntentClosingSettingConditionalConditionalBranchCondition> condition() {
+        return Optional.ofNullable(this.condition);
     }
     /**
      * @return Name of the branch.
@@ -55,8 +55,8 @@ public final class V2modelsIntentClosingSettingConditionalConditionalBranch {
      * @return Configuration block for the next step in the conversation. See `nextStep`.
      * 
      */
-    public V2modelsIntentClosingSettingConditionalConditionalBranchNextStep nextStep() {
-        return this.nextStep;
+    public Optional<V2modelsIntentClosingSettingConditionalConditionalBranchNextStep> nextStep() {
+        return Optional.ofNullable(this.nextStep);
     }
     /**
      * @return Configuration block for a list of message groups that Amazon Lex uses to respond to the user input. See `response`.
@@ -75,9 +75,9 @@ public final class V2modelsIntentClosingSettingConditionalConditionalBranch {
     }
     @CustomType.Builder
     public static final class Builder {
-        private V2modelsIntentClosingSettingConditionalConditionalBranchCondition condition;
+        private @Nullable V2modelsIntentClosingSettingConditionalConditionalBranchCondition condition;
         private String name;
-        private V2modelsIntentClosingSettingConditionalConditionalBranchNextStep nextStep;
+        private @Nullable V2modelsIntentClosingSettingConditionalConditionalBranchNextStep nextStep;
         private @Nullable V2modelsIntentClosingSettingConditionalConditionalBranchResponse response;
         public Builder() {}
         public Builder(V2modelsIntentClosingSettingConditionalConditionalBranch defaults) {
@@ -89,10 +89,8 @@ public final class V2modelsIntentClosingSettingConditionalConditionalBranch {
         }
 
         @CustomType.Setter
-        public Builder condition(V2modelsIntentClosingSettingConditionalConditionalBranchCondition condition) {
-            if (condition == null) {
-              throw new MissingRequiredPropertyException("V2modelsIntentClosingSettingConditionalConditionalBranch", "condition");
-            }
+        public Builder condition(@Nullable V2modelsIntentClosingSettingConditionalConditionalBranchCondition condition) {
+
             this.condition = condition;
             return this;
         }
@@ -105,10 +103,8 @@ public final class V2modelsIntentClosingSettingConditionalConditionalBranch {
             return this;
         }
         @CustomType.Setter
-        public Builder nextStep(V2modelsIntentClosingSettingConditionalConditionalBranchNextStep nextStep) {
-            if (nextStep == null) {
-              throw new MissingRequiredPropertyException("V2modelsIntentClosingSettingConditionalConditionalBranch", "nextStep");
-            }
+        public Builder nextStep(@Nullable V2modelsIntentClosingSettingConditionalConditionalBranchNextStep nextStep) {
+
             this.nextStep = nextStep;
             return this;
         }

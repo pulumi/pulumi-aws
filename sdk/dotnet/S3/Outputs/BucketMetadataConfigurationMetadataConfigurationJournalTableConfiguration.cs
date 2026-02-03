@@ -20,7 +20,7 @@ namespace Pulumi.Aws.S3.Outputs
         /// <summary>
         /// Journal table record expiration settings. See `RecordExpiration` Block for details.
         /// </summary>
-        public readonly Outputs.BucketMetadataConfigurationMetadataConfigurationJournalTableConfigurationRecordExpiration? RecordExpiration;
+        public readonly Outputs.BucketMetadataConfigurationMetadataConfigurationJournalTableConfigurationRecordExpiration RecordExpiration;
         /// <summary>
         /// Journal table ARN.
         /// </summary>
@@ -34,7 +34,7 @@ namespace Pulumi.Aws.S3.Outputs
         private BucketMetadataConfigurationMetadataConfigurationJournalTableConfiguration(
             Outputs.BucketMetadataConfigurationMetadataConfigurationJournalTableConfigurationEncryptionConfiguration? encryptionConfiguration,
 
-            Outputs.BucketMetadataConfigurationMetadataConfigurationJournalTableConfigurationRecordExpiration? recordExpiration,
+            Outputs.BucketMetadataConfigurationMetadataConfigurationJournalTableConfigurationRecordExpiration recordExpiration,
 
             string? tableArn,
 

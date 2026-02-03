@@ -68,7 +68,7 @@ type VpcEndpointAssociation struct {
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// The ID for a subnet that's used in an association with a firewall. See Subnet Mapping below for details.
-	SubnetMapping VpcEndpointAssociationSubnetMappingPtrOutput `pulumi:"subnetMapping"`
+	SubnetMapping VpcEndpointAssociationSubnetMappingOutput `pulumi:"subnetMapping"`
 	// Map of resource tags to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -93,6 +93,9 @@ func NewVpcEndpointAssociation(ctx *pulumi.Context,
 
 	if args.FirewallArn == nil {
 		return nil, errors.New("invalid value for required argument 'FirewallArn'")
+	}
+	if args.SubnetMapping == nil {
+		return nil, errors.New("invalid value for required argument 'SubnetMapping'")
 	}
 	if args.VpcId == nil {
 		return nil, errors.New("invalid value for required argument 'VpcId'")
@@ -179,7 +182,7 @@ type vpcEndpointAssociationArgs struct {
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The ID for a subnet that's used in an association with a firewall. See Subnet Mapping below for details.
-	SubnetMapping *VpcEndpointAssociationSubnetMapping `pulumi:"subnetMapping"`
+	SubnetMapping VpcEndpointAssociationSubnetMapping `pulumi:"subnetMapping"`
 	// Map of resource tags to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags     map[string]string               `pulumi:"tags"`
 	Timeouts *VpcEndpointAssociationTimeouts `pulumi:"timeouts"`
@@ -196,7 +199,7 @@ type VpcEndpointAssociationArgs struct {
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The ID for a subnet that's used in an association with a firewall. See Subnet Mapping below for details.
-	SubnetMapping VpcEndpointAssociationSubnetMappingPtrInput
+	SubnetMapping VpcEndpointAssociationSubnetMappingInput
 	// Map of resource tags to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags     pulumi.StringMapInput
 	Timeouts VpcEndpointAssociationTimeoutsPtrInput
@@ -307,8 +310,8 @@ func (o VpcEndpointAssociationOutput) Region() pulumi.StringOutput {
 }
 
 // The ID for a subnet that's used in an association with a firewall. See Subnet Mapping below for details.
-func (o VpcEndpointAssociationOutput) SubnetMapping() VpcEndpointAssociationSubnetMappingPtrOutput {
-	return o.ApplyT(func(v *VpcEndpointAssociation) VpcEndpointAssociationSubnetMappingPtrOutput { return v.SubnetMapping }).(VpcEndpointAssociationSubnetMappingPtrOutput)
+func (o VpcEndpointAssociationOutput) SubnetMapping() VpcEndpointAssociationSubnetMappingOutput {
+	return o.ApplyT(func(v *VpcEndpointAssociation) VpcEndpointAssociationSubnetMappingOutput { return v.SubnetMapping }).(VpcEndpointAssociationSubnetMappingOutput)
 }
 
 // Map of resource tags to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

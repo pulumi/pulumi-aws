@@ -24,7 +24,7 @@ namespace Pulumi.Aws.Lex.Outputs
         /// <summary>
         /// Configuration block for the conditional branch that should be followed when the conditions for other branches are not satisfied. A branch is made up of a condition, a response and a next step. See `DefaultBranch`.
         /// </summary>
-        public readonly Outputs.V2modelsIntentConfirmationSettingDeclinationConditionalDefaultBranch DefaultBranch;
+        public readonly Outputs.V2modelsIntentConfirmationSettingDeclinationConditionalDefaultBranch? DefaultBranch;
 
         [OutputConstructor]
         private V2modelsIntentConfirmationSettingDeclinationConditional(
@@ -32,7 +32,7 @@ namespace Pulumi.Aws.Lex.Outputs
 
             ImmutableArray<Outputs.V2modelsIntentConfirmationSettingDeclinationConditionalConditionalBranch> conditionalBranches,
 
-            Outputs.V2modelsIntentConfirmationSettingDeclinationConditionalDefaultBranch defaultBranch)
+            Outputs.V2modelsIntentConfirmationSettingDeclinationConditionalDefaultBranch? defaultBranch)
         {
             Active = active;
             ConditionalBranches = conditionalBranches;

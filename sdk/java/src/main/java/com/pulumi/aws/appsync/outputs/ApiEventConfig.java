@@ -9,6 +9,7 @@ import com.pulumi.aws.appsync.outputs.ApiEventConfigDefaultPublishAuthMode;
 import com.pulumi.aws.appsync.outputs.ApiEventConfigDefaultSubscribeAuthMode;
 import com.pulumi.aws.appsync.outputs.ApiEventConfigLogConfig;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
@@ -20,22 +21,22 @@ public final class ApiEventConfig {
      * @return List of authentication providers. See Auth Providers below.
      * 
      */
-    private @Nullable List<ApiEventConfigAuthProvider> authProviders;
+    private List<ApiEventConfigAuthProvider> authProviders;
     /**
      * @return List of authentication modes for connections. See Auth Modes below.
      * 
      */
-    private @Nullable List<ApiEventConfigConnectionAuthMode> connectionAuthModes;
+    private List<ApiEventConfigConnectionAuthMode> connectionAuthModes;
     /**
      * @return List of default authentication modes for publishing. See Auth Modes below.
      * 
      */
-    private @Nullable List<ApiEventConfigDefaultPublishAuthMode> defaultPublishAuthModes;
+    private List<ApiEventConfigDefaultPublishAuthMode> defaultPublishAuthModes;
     /**
      * @return List of default authentication modes for subscribing. See Auth Modes below.
      * 
      */
-    private @Nullable List<ApiEventConfigDefaultSubscribeAuthMode> defaultSubscribeAuthModes;
+    private List<ApiEventConfigDefaultSubscribeAuthMode> defaultSubscribeAuthModes;
     /**
      * @return Logging configuration. See Log Config below.
      * 
@@ -48,28 +49,28 @@ public final class ApiEventConfig {
      * 
      */
     public List<ApiEventConfigAuthProvider> authProviders() {
-        return this.authProviders == null ? List.of() : this.authProviders;
+        return this.authProviders;
     }
     /**
      * @return List of authentication modes for connections. See Auth Modes below.
      * 
      */
     public List<ApiEventConfigConnectionAuthMode> connectionAuthModes() {
-        return this.connectionAuthModes == null ? List.of() : this.connectionAuthModes;
+        return this.connectionAuthModes;
     }
     /**
      * @return List of default authentication modes for publishing. See Auth Modes below.
      * 
      */
     public List<ApiEventConfigDefaultPublishAuthMode> defaultPublishAuthModes() {
-        return this.defaultPublishAuthModes == null ? List.of() : this.defaultPublishAuthModes;
+        return this.defaultPublishAuthModes;
     }
     /**
      * @return List of default authentication modes for subscribing. See Auth Modes below.
      * 
      */
     public List<ApiEventConfigDefaultSubscribeAuthMode> defaultSubscribeAuthModes() {
-        return this.defaultSubscribeAuthModes == null ? List.of() : this.defaultSubscribeAuthModes;
+        return this.defaultSubscribeAuthModes;
     }
     /**
      * @return Logging configuration. See Log Config below.
@@ -88,10 +89,10 @@ public final class ApiEventConfig {
     }
     @CustomType.Builder
     public static final class Builder {
-        private @Nullable List<ApiEventConfigAuthProvider> authProviders;
-        private @Nullable List<ApiEventConfigConnectionAuthMode> connectionAuthModes;
-        private @Nullable List<ApiEventConfigDefaultPublishAuthMode> defaultPublishAuthModes;
-        private @Nullable List<ApiEventConfigDefaultSubscribeAuthMode> defaultSubscribeAuthModes;
+        private List<ApiEventConfigAuthProvider> authProviders;
+        private List<ApiEventConfigConnectionAuthMode> connectionAuthModes;
+        private List<ApiEventConfigDefaultPublishAuthMode> defaultPublishAuthModes;
+        private List<ApiEventConfigDefaultSubscribeAuthMode> defaultSubscribeAuthModes;
         private @Nullable ApiEventConfigLogConfig logConfig;
         public Builder() {}
         public Builder(ApiEventConfig defaults) {
@@ -104,8 +105,10 @@ public final class ApiEventConfig {
         }
 
         @CustomType.Setter
-        public Builder authProviders(@Nullable List<ApiEventConfigAuthProvider> authProviders) {
-
+        public Builder authProviders(List<ApiEventConfigAuthProvider> authProviders) {
+            if (authProviders == null) {
+              throw new MissingRequiredPropertyException("ApiEventConfig", "authProviders");
+            }
             this.authProviders = authProviders;
             return this;
         }
@@ -113,8 +116,10 @@ public final class ApiEventConfig {
             return authProviders(List.of(authProviders));
         }
         @CustomType.Setter
-        public Builder connectionAuthModes(@Nullable List<ApiEventConfigConnectionAuthMode> connectionAuthModes) {
-
+        public Builder connectionAuthModes(List<ApiEventConfigConnectionAuthMode> connectionAuthModes) {
+            if (connectionAuthModes == null) {
+              throw new MissingRequiredPropertyException("ApiEventConfig", "connectionAuthModes");
+            }
             this.connectionAuthModes = connectionAuthModes;
             return this;
         }
@@ -122,8 +127,10 @@ public final class ApiEventConfig {
             return connectionAuthModes(List.of(connectionAuthModes));
         }
         @CustomType.Setter
-        public Builder defaultPublishAuthModes(@Nullable List<ApiEventConfigDefaultPublishAuthMode> defaultPublishAuthModes) {
-
+        public Builder defaultPublishAuthModes(List<ApiEventConfigDefaultPublishAuthMode> defaultPublishAuthModes) {
+            if (defaultPublishAuthModes == null) {
+              throw new MissingRequiredPropertyException("ApiEventConfig", "defaultPublishAuthModes");
+            }
             this.defaultPublishAuthModes = defaultPublishAuthModes;
             return this;
         }
@@ -131,8 +138,10 @@ public final class ApiEventConfig {
             return defaultPublishAuthModes(List.of(defaultPublishAuthModes));
         }
         @CustomType.Setter
-        public Builder defaultSubscribeAuthModes(@Nullable List<ApiEventConfigDefaultSubscribeAuthMode> defaultSubscribeAuthModes) {
-
+        public Builder defaultSubscribeAuthModes(List<ApiEventConfigDefaultSubscribeAuthMode> defaultSubscribeAuthModes) {
+            if (defaultSubscribeAuthModes == null) {
+              throw new MissingRequiredPropertyException("ApiEventConfig", "defaultSubscribeAuthModes");
+            }
             this.defaultSubscribeAuthModes = defaultSubscribeAuthModes;
             return this;
         }

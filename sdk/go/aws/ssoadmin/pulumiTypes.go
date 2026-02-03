@@ -1018,7 +1018,7 @@ func (o PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyRef
 
 type TrustedTokenIssuerTrustedTokenIssuerConfiguration struct {
 	// A block that describes the settings for a trusted token issuer that works with OpenID Connect (OIDC) by using JSON Web Tokens (JWT). See Documented below below.
-	OidcJwtConfiguration *TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfiguration `pulumi:"oidcJwtConfiguration"`
+	OidcJwtConfiguration TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfiguration `pulumi:"oidcJwtConfiguration"`
 }
 
 // TrustedTokenIssuerTrustedTokenIssuerConfigurationInput is an input type that accepts TrustedTokenIssuerTrustedTokenIssuerConfigurationArgs and TrustedTokenIssuerTrustedTokenIssuerConfigurationOutput values.
@@ -1034,7 +1034,7 @@ type TrustedTokenIssuerTrustedTokenIssuerConfigurationInput interface {
 
 type TrustedTokenIssuerTrustedTokenIssuerConfigurationArgs struct {
 	// A block that describes the settings for a trusted token issuer that works with OpenID Connect (OIDC) by using JSON Web Tokens (JWT). See Documented below below.
-	OidcJwtConfiguration TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfigurationPtrInput `pulumi:"oidcJwtConfiguration"`
+	OidcJwtConfiguration TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfigurationInput `pulumi:"oidcJwtConfiguration"`
 }
 
 func (TrustedTokenIssuerTrustedTokenIssuerConfigurationArgs) ElementType() reflect.Type {
@@ -1115,10 +1115,10 @@ func (o TrustedTokenIssuerTrustedTokenIssuerConfigurationOutput) ToTrustedTokenI
 }
 
 // A block that describes the settings for a trusted token issuer that works with OpenID Connect (OIDC) by using JSON Web Tokens (JWT). See Documented below below.
-func (o TrustedTokenIssuerTrustedTokenIssuerConfigurationOutput) OidcJwtConfiguration() TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfigurationPtrOutput {
-	return o.ApplyT(func(v TrustedTokenIssuerTrustedTokenIssuerConfiguration) *TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfiguration {
+func (o TrustedTokenIssuerTrustedTokenIssuerConfigurationOutput) OidcJwtConfiguration() TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfigurationOutput {
+	return o.ApplyT(func(v TrustedTokenIssuerTrustedTokenIssuerConfiguration) TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfiguration {
 		return v.OidcJwtConfiguration
-	}).(TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfigurationPtrOutput)
+	}).(TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfigurationOutput)
 }
 
 type TrustedTokenIssuerTrustedTokenIssuerConfigurationPtrOutput struct{ *pulumi.OutputState }
@@ -1151,7 +1151,7 @@ func (o TrustedTokenIssuerTrustedTokenIssuerConfigurationPtrOutput) OidcJwtConfi
 		if v == nil {
 			return nil
 		}
-		return v.OidcJwtConfiguration
+		return &v.OidcJwtConfiguration
 	}).(TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfigurationPtrOutput)
 }
 

@@ -234,7 +234,7 @@ namespace Pulumi.Aws.Bedrock
         /// Container artifact configuration. See `AgentRuntimeArtifact` below.
         /// </summary>
         [Output("agentRuntimeArtifact")]
-        public Output<Outputs.AgentcoreAgentRuntimeAgentRuntimeArtifact?> AgentRuntimeArtifact { get; private set; } = null!;
+        public Output<Outputs.AgentcoreAgentRuntimeAgentRuntimeArtifact> AgentRuntimeArtifact { get; private set; } = null!;
 
         /// <summary>
         /// Unique identifier of the Agent Runtime.
@@ -284,7 +284,7 @@ namespace Pulumi.Aws.Bedrock
         /// The following arguments are optional:
         /// </summary>
         [Output("networkConfiguration")]
-        public Output<Outputs.AgentcoreAgentRuntimeNetworkConfiguration?> NetworkConfiguration { get; private set; } = null!;
+        public Output<Outputs.AgentcoreAgentRuntimeNetworkConfiguration> NetworkConfiguration { get; private set; } = null!;
 
         /// <summary>
         /// Protocol configuration for the agent runtime. See `ProtocolConfiguration` below.
@@ -380,8 +380,8 @@ namespace Pulumi.Aws.Bedrock
         /// <summary>
         /// Container artifact configuration. See `AgentRuntimeArtifact` below.
         /// </summary>
-        [Input("agentRuntimeArtifact")]
-        public Input<Inputs.AgentcoreAgentRuntimeAgentRuntimeArtifactArgs>? AgentRuntimeArtifact { get; set; }
+        [Input("agentRuntimeArtifact", required: true)]
+        public Input<Inputs.AgentcoreAgentRuntimeAgentRuntimeArtifactArgs> AgentRuntimeArtifact { get; set; } = null!;
 
         /// <summary>
         /// Name of the agent runtime.
@@ -430,8 +430,8 @@ namespace Pulumi.Aws.Bedrock
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("networkConfiguration")]
-        public Input<Inputs.AgentcoreAgentRuntimeNetworkConfigurationArgs>? NetworkConfiguration { get; set; }
+        [Input("networkConfiguration", required: true)]
+        public Input<Inputs.AgentcoreAgentRuntimeNetworkConfigurationArgs> NetworkConfiguration { get; set; } = null!;
 
         /// <summary>
         /// Protocol configuration for the agent runtime. See `ProtocolConfiguration` below.

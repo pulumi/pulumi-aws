@@ -337,7 +337,7 @@ type StreamProcessor struct {
 	// See `dataSharingPreference`.
 	DataSharingPreference StreamProcessorDataSharingPreferencePtrOutput `pulumi:"dataSharingPreference"`
 	// Input video stream. See `input`.
-	Input StreamProcessorInputTypePtrOutput `pulumi:"input"`
+	Input StreamProcessorInputTypeOutput `pulumi:"input"`
 	// Optional parameter for label detection stream processors.
 	KmsKeyId pulumi.StringPtrOutput `pulumi:"kmsKeyId"`
 	// The name of the Stream Processor.
@@ -345,7 +345,7 @@ type StreamProcessor struct {
 	// The Amazon Simple Notification Service topic to which Amazon Rekognition publishes the completion status. See `notificationChannel`.
 	NotificationChannel StreamProcessorNotificationChannelPtrOutput `pulumi:"notificationChannel"`
 	// Kinesis data stream stream or Amazon S3 bucket location to which Amazon Rekognition Video puts the analysis results. See `output`.
-	Output StreamProcessorOutputTypePtrOutput `pulumi:"output"`
+	Output StreamProcessorOutputTypeOutput `pulumi:"output"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Specifies locations in the frames where Amazon Rekognition checks for objects or people. See `regionsOfInterest`.
@@ -355,7 +355,7 @@ type StreamProcessor struct {
 	// Input parameters used in a streaming video analyzed by a stream processor. See `settings`.
 	//
 	// The following arguments are optional:
-	Settings StreamProcessorSettingsPtrOutput `pulumi:"settings"`
+	Settings StreamProcessorSettingsOutput `pulumi:"settings"`
 	// (**Deprecated**) ARN of the Stream Processor.
 	// Use `arn` instead.
 	//
@@ -375,8 +375,17 @@ func NewStreamProcessor(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
+	if args.Input == nil {
+		return nil, errors.New("invalid value for required argument 'Input'")
+	}
+	if args.Output == nil {
+		return nil, errors.New("invalid value for required argument 'Output'")
+	}
 	if args.RoleArn == nil {
 		return nil, errors.New("invalid value for required argument 'RoleArn'")
+	}
+	if args.Settings == nil {
+		return nil, errors.New("invalid value for required argument 'Settings'")
 	}
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource StreamProcessor
@@ -482,7 +491,7 @@ type streamProcessorArgs struct {
 	// See `dataSharingPreference`.
 	DataSharingPreference *StreamProcessorDataSharingPreference `pulumi:"dataSharingPreference"`
 	// Input video stream. See `input`.
-	Input *StreamProcessorInputType `pulumi:"input"`
+	Input StreamProcessorInputType `pulumi:"input"`
 	// Optional parameter for label detection stream processors.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
 	// The name of the Stream Processor.
@@ -490,7 +499,7 @@ type streamProcessorArgs struct {
 	// The Amazon Simple Notification Service topic to which Amazon Rekognition publishes the completion status. See `notificationChannel`.
 	NotificationChannel *StreamProcessorNotificationChannel `pulumi:"notificationChannel"`
 	// Kinesis data stream stream or Amazon S3 bucket location to which Amazon Rekognition Video puts the analysis results. See `output`.
-	Output *StreamProcessorOutputType `pulumi:"output"`
+	Output StreamProcessorOutputType `pulumi:"output"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Specifies locations in the frames where Amazon Rekognition checks for objects or people. See `regionsOfInterest`.
@@ -500,7 +509,7 @@ type streamProcessorArgs struct {
 	// Input parameters used in a streaming video analyzed by a stream processor. See `settings`.
 	//
 	// The following arguments are optional:
-	Settings *StreamProcessorSettings `pulumi:"settings"`
+	Settings StreamProcessorSettings `pulumi:"settings"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags     map[string]string        `pulumi:"tags"`
 	Timeouts *StreamProcessorTimeouts `pulumi:"timeouts"`
@@ -511,7 +520,7 @@ type StreamProcessorArgs struct {
 	// See `dataSharingPreference`.
 	DataSharingPreference StreamProcessorDataSharingPreferencePtrInput
 	// Input video stream. See `input`.
-	Input StreamProcessorInputTypePtrInput
+	Input StreamProcessorInputTypeInput
 	// Optional parameter for label detection stream processors.
 	KmsKeyId pulumi.StringPtrInput
 	// The name of the Stream Processor.
@@ -519,7 +528,7 @@ type StreamProcessorArgs struct {
 	// The Amazon Simple Notification Service topic to which Amazon Rekognition publishes the completion status. See `notificationChannel`.
 	NotificationChannel StreamProcessorNotificationChannelPtrInput
 	// Kinesis data stream stream or Amazon S3 bucket location to which Amazon Rekognition Video puts the analysis results. See `output`.
-	Output StreamProcessorOutputTypePtrInput
+	Output StreamProcessorOutputTypeInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Specifies locations in the frames where Amazon Rekognition checks for objects or people. See `regionsOfInterest`.
@@ -529,7 +538,7 @@ type StreamProcessorArgs struct {
 	// Input parameters used in a streaming video analyzed by a stream processor. See `settings`.
 	//
 	// The following arguments are optional:
-	Settings StreamProcessorSettingsPtrInput
+	Settings StreamProcessorSettingsInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags     pulumi.StringMapInput
 	Timeouts StreamProcessorTimeoutsPtrInput
@@ -633,8 +642,8 @@ func (o StreamProcessorOutput) DataSharingPreference() StreamProcessorDataSharin
 }
 
 // Input video stream. See `input`.
-func (o StreamProcessorOutput) Input() StreamProcessorInputTypePtrOutput {
-	return o.ApplyT(func(v *StreamProcessor) StreamProcessorInputTypePtrOutput { return v.Input }).(StreamProcessorInputTypePtrOutput)
+func (o StreamProcessorOutput) Input() StreamProcessorInputTypeOutput {
+	return o.ApplyT(func(v *StreamProcessor) StreamProcessorInputTypeOutput { return v.Input }).(StreamProcessorInputTypeOutput)
 }
 
 // Optional parameter for label detection stream processors.
@@ -653,8 +662,8 @@ func (o StreamProcessorOutput) NotificationChannel() StreamProcessorNotification
 }
 
 // Kinesis data stream stream or Amazon S3 bucket location to which Amazon Rekognition Video puts the analysis results. See `output`.
-func (o StreamProcessorOutput) Output() StreamProcessorOutputTypePtrOutput {
-	return o.ApplyT(func(v *StreamProcessor) StreamProcessorOutputTypePtrOutput { return v.Output }).(StreamProcessorOutputTypePtrOutput)
+func (o StreamProcessorOutput) Output() StreamProcessorOutputTypeOutput {
+	return o.ApplyT(func(v *StreamProcessor) StreamProcessorOutputTypeOutput { return v.Output }).(StreamProcessorOutputTypeOutput)
 }
 
 // Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -675,8 +684,8 @@ func (o StreamProcessorOutput) RoleArn() pulumi.StringOutput {
 // Input parameters used in a streaming video analyzed by a stream processor. See `settings`.
 //
 // The following arguments are optional:
-func (o StreamProcessorOutput) Settings() StreamProcessorSettingsPtrOutput {
-	return o.ApplyT(func(v *StreamProcessor) StreamProcessorSettingsPtrOutput { return v.Settings }).(StreamProcessorSettingsPtrOutput)
+func (o StreamProcessorOutput) Settings() StreamProcessorSettingsOutput {
+	return o.ApplyT(func(v *StreamProcessor) StreamProcessorSettingsOutput { return v.Settings }).(StreamProcessorSettingsOutput)
 }
 
 // (**Deprecated**) ARN of the Stream Processor.

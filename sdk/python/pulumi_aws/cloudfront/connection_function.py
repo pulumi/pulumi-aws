@@ -22,7 +22,7 @@ __all__ = ['ConnectionFunctionArgs', 'ConnectionFunction']
 class ConnectionFunctionArgs:
     def __init__(__self__, *,
                  connection_function_code: pulumi.Input[_builtins.str],
-                 connection_function_config: Optional[pulumi.Input['ConnectionFunctionConnectionFunctionConfigArgs']] = None,
+                 connection_function_config: pulumi.Input['ConnectionFunctionConnectionFunctionConfigArgs'],
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  publish: Optional[pulumi.Input[_builtins.bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
@@ -37,8 +37,7 @@ class ConnectionFunctionArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "connection_function_code", connection_function_code)
-        if connection_function_config is not None:
-            pulumi.set(__self__, "connection_function_config", connection_function_config)
+        pulumi.set(__self__, "connection_function_config", connection_function_config)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if publish is not None:
@@ -60,14 +59,14 @@ class ConnectionFunctionArgs:
 
     @_builtins.property
     @pulumi.getter(name="connectionFunctionConfig")
-    def connection_function_config(self) -> Optional[pulumi.Input['ConnectionFunctionConnectionFunctionConfigArgs']]:
+    def connection_function_config(self) -> pulumi.Input['ConnectionFunctionConnectionFunctionConfigArgs']:
         """
         Configuration information for the connection function. See `connection_function_config` below.
         """
         return pulumi.get(self, "connection_function_config")
 
     @connection_function_config.setter
-    def connection_function_config(self, value: Optional[pulumi.Input['ConnectionFunctionConnectionFunctionConfigArgs']]):
+    def connection_function_config(self, value: pulumi.Input['ConnectionFunctionConnectionFunctionConfigArgs']):
         pulumi.set(self, "connection_function_config", value)
 
     @_builtins.property
@@ -509,6 +508,8 @@ class ConnectionFunction(pulumi.CustomResource):
             if connection_function_code is None and not opts.urn:
                 raise TypeError("Missing required property 'connection_function_code'")
             __props__.__dict__["connection_function_code"] = connection_function_code
+            if connection_function_config is None and not opts.urn:
+                raise TypeError("Missing required property 'connection_function_config'")
             __props__.__dict__["connection_function_config"] = connection_function_config
             __props__.__dict__["name"] = name
             __props__.__dict__["publish"] = publish
@@ -592,7 +593,7 @@ class ConnectionFunction(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="connectionFunctionConfig")
-    def connection_function_config(self) -> pulumi.Output[Optional['outputs.ConnectionFunctionConnectionFunctionConfig']]:
+    def connection_function_config(self) -> pulumi.Output['outputs.ConnectionFunctionConnectionFunctionConfig']:
         """
         Configuration information for the connection function. See `connection_function_config` below.
         """

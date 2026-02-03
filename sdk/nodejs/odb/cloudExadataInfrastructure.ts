@@ -107,7 +107,7 @@ export class CloudExadataInfrastructure extends pulumi.CustomResource {
     /**
      * The scheduling details for the maintenance window. Patching and system updates take place during the maintenance window
      */
-    declare public readonly maintenanceWindow: pulumi.Output<outputs.odb.CloudExadataInfrastructureMaintenanceWindow | undefined>;
+    declare public readonly maintenanceWindow: pulumi.Output<outputs.odb.CloudExadataInfrastructureMaintenanceWindow>;
     /**
      * The total number of CPU cores available on the Exadata infrastructure.
      */
@@ -253,6 +253,9 @@ export class CloudExadataInfrastructure extends pulumi.CustomResource {
             }
             if (args?.displayName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'displayName'");
+            }
+            if (args?.maintenanceWindow === undefined && !opts.urn) {
+                throw new Error("Missing required property 'maintenanceWindow'");
             }
             if (args?.shape === undefined && !opts.urn) {
                 throw new Error("Missing required property 'shape'");
@@ -472,7 +475,7 @@ export interface CloudExadataInfrastructureArgs {
     /**
      * The scheduling details for the maintenance window. Patching and system updates take place during the maintenance window
      */
-    maintenanceWindow?: pulumi.Input<inputs.odb.CloudExadataInfrastructureMaintenanceWindow>;
+    maintenanceWindow: pulumi.Input<inputs.odb.CloudExadataInfrastructureMaintenanceWindow>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */

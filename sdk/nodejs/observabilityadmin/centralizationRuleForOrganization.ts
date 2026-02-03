@@ -169,7 +169,7 @@ export class CentralizationRuleForOrganization extends pulumi.CustomResource {
      *
      * The following arguments are optional:
      */
-    declare public readonly rule: pulumi.Output<outputs.observabilityadmin.CentralizationRuleForOrganizationRule | undefined>;
+    declare public readonly rule: pulumi.Output<outputs.observabilityadmin.CentralizationRuleForOrganizationRule>;
     /**
      * ARN of the centralization rule.
      */
@@ -210,6 +210,9 @@ export class CentralizationRuleForOrganization extends pulumi.CustomResource {
             resourceInputs["timeouts"] = state?.timeouts;
         } else {
             const args = argsOrState as CentralizationRuleForOrganizationArgs | undefined;
+            if (args?.rule === undefined && !opts.urn) {
+                throw new Error("Missing required property 'rule'");
+            }
             if (args?.ruleName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'ruleName'");
             }
@@ -272,7 +275,7 @@ export interface CentralizationRuleForOrganizationArgs {
      *
      * The following arguments are optional:
      */
-    rule?: pulumi.Input<inputs.observabilityadmin.CentralizationRuleForOrganizationRule>;
+    rule: pulumi.Input<inputs.observabilityadmin.CentralizationRuleForOrganizationRule>;
     /**
      * Name of the centralization rule. Must be unique within the organization.
      */
