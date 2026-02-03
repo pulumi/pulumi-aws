@@ -1,7 +1,6 @@
 ---
 name: provider-code-review
 description: Code review guidelines for Pulumi provider repositories - reviewing patches, resources.go changes, SDK changes, and CI workflows
-disable-model-invocation: true
 ---
 
 # Code Review Guidelines
