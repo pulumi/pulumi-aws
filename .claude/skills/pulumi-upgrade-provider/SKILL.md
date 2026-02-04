@@ -57,7 +57,7 @@ mkdir -p .pulumi
 2. Run the upgrade tool from the repo root with a 10-minute timeout:
 
 ```bash
-upgrade-provider pulumi/pulumi-digitalocean --repo-path . > .pulumi/upgrade-provider-stdout.txt 2> /dev/null
+upgrade-provider $ORG/$REPO --repo-path . > .pulumi/upgrade-provider-stdout.txt 2> /dev/null
 ```
 
 Use `timeout: 600000` (10 minutes) when invoking via Bash.
