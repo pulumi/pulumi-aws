@@ -4,6 +4,7 @@
 package com.pulumi.aws.ec2.outputs;
 
 import com.pulumi.aws.ec2.outputs.GetVpcIpamPoolFilter;
+import com.pulumi.aws.ec2.outputs.GetVpcIpamPoolSourceResource;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
@@ -92,6 +93,11 @@ public final class GetVpcIpamPoolResult {
      * 
      */
     private String sourceIpamPoolId;
+    /**
+     * @return Resource used to create the resource planning pool.
+     * 
+     */
+    private List<GetVpcIpamPoolSourceResource> sourceResources;
     private String state;
     /**
      * @return Map of tags to assigned to the resource.
@@ -213,6 +219,13 @@ public final class GetVpcIpamPoolResult {
     public String sourceIpamPoolId() {
         return this.sourceIpamPoolId;
     }
+    /**
+     * @return Resource used to create the resource planning pool.
+     * 
+     */
+    public List<GetVpcIpamPoolSourceResource> sourceResources() {
+        return this.sourceResources;
+    }
     public String state() {
         return this.state;
     }
@@ -252,6 +265,7 @@ public final class GetVpcIpamPoolResult {
         private Boolean publiclyAdvertisable;
         private String region;
         private String sourceIpamPoolId;
+        private List<GetVpcIpamPoolSourceResource> sourceResources;
         private String state;
         private Map<String,String> tags;
         public Builder() {}
@@ -276,6 +290,7 @@ public final class GetVpcIpamPoolResult {
     	      this.publiclyAdvertisable = defaults.publiclyAdvertisable;
     	      this.region = defaults.region;
     	      this.sourceIpamPoolId = defaults.sourceIpamPoolId;
+    	      this.sourceResources = defaults.sourceResources;
     	      this.state = defaults.state;
     	      this.tags = defaults.tags;
         }
@@ -430,6 +445,17 @@ public final class GetVpcIpamPoolResult {
             return this;
         }
         @CustomType.Setter
+        public Builder sourceResources(List<GetVpcIpamPoolSourceResource> sourceResources) {
+            if (sourceResources == null) {
+              throw new MissingRequiredPropertyException("GetVpcIpamPoolResult", "sourceResources");
+            }
+            this.sourceResources = sourceResources;
+            return this;
+        }
+        public Builder sourceResources(GetVpcIpamPoolSourceResource... sourceResources) {
+            return sourceResources(List.of(sourceResources));
+        }
+        @CustomType.Setter
         public Builder state(String state) {
             if (state == null) {
               throw new MissingRequiredPropertyException("GetVpcIpamPoolResult", "state");
@@ -466,6 +492,7 @@ public final class GetVpcIpamPoolResult {
             _resultValue.publiclyAdvertisable = publiclyAdvertisable;
             _resultValue.region = region;
             _resultValue.sourceIpamPoolId = sourceIpamPoolId;
+            _resultValue.sourceResources = sourceResources;
             _resultValue.state = state;
             _resultValue.tags = tags;
             return _resultValue;

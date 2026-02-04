@@ -56,6 +56,28 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
+ * ### Using a Self-Managed Microsoft Active Directory with Secrets Manager
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.fsx.WindowsFileSystem("example", {
+ *     kmsKeyId: exampleAwsKmsKey.arn,
+ *     storageCapacity: 32,
+ *     subnetIds: [exampleAwsSubnet.id],
+ *     throughputCapacity: 32,
+ *     selfManagedActiveDirectory: {
+ *         dnsIps: [
+ *             "10.0.0.111",
+ *             "10.0.0.222",
+ *         ],
+ *         domainName: "corp.example.com",
+ *         domainJoinServiceAccountSecret: exampleAwsSecretsmanagerSecret.arn,
+ *     },
+ * });
+ * ```
+ *
  * ## Import
  *
  * Using `pulumi import`, import FSx File Systems using the `id`. For example:

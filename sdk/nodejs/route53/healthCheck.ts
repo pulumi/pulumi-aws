@@ -220,9 +220,9 @@ export class HealthCheck extends pulumi.CustomResource {
      */
     declare public readonly referenceName: pulumi.Output<string | undefined>;
     /**
-     * A list of AWS regions that you want Amazon Route 53 health checkers to check the specified endpoint from.
+     * List of AWS Regions from which Amazon Route 53 health checkers check the specified endpoint. Valid values are `us-east-1`, `us-west-1`, `us-west-2`, `eu-west-1`, `ap-southeast-1`, `ap-southeast-2`, `ap-northeast-1`, and `sa-east-1`. If not specified, all of the regions listed under **Valid values** are used by default. Once this argument is set, removing it has no effect.
      */
-    declare public readonly regions: pulumi.Output<string[] | undefined>;
+    declare public readonly regions: pulumi.Output<string[]>;
     /**
      * The number of seconds between the time that Amazon Route 53 gets a response from your endpoint and the time that it sends the next health-check request.
      */
@@ -399,7 +399,7 @@ export interface HealthCheckState {
      */
     referenceName?: pulumi.Input<string>;
     /**
-     * A list of AWS regions that you want Amazon Route 53 health checkers to check the specified endpoint from.
+     * List of AWS Regions from which Amazon Route 53 health checkers check the specified endpoint. Valid values are `us-east-1`, `us-west-1`, `us-west-2`, `eu-west-1`, `ap-southeast-1`, `ap-southeast-2`, `ap-northeast-1`, and `sa-east-1`. If not specified, all of the regions listed under **Valid values** are used by default. Once this argument is set, removing it has no effect.
      */
     regions?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -503,7 +503,7 @@ export interface HealthCheckArgs {
      */
     referenceName?: pulumi.Input<string>;
     /**
-     * A list of AWS regions that you want Amazon Route 53 health checkers to check the specified endpoint from.
+     * List of AWS Regions from which Amazon Route 53 health checkers check the specified endpoint. Valid values are `us-east-1`, `us-west-1`, `us-west-2`, `eu-west-1`, `ap-southeast-1`, `ap-southeast-2`, `ap-northeast-1`, and `sa-east-1`. If not specified, all of the regions listed under **Valid values** are used by default. Once this argument is set, removing it has no effect.
      */
     regions?: pulumi.Input<pulumi.Input<string>[]>;
     /**

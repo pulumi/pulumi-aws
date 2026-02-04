@@ -6,6 +6,8 @@ package com.pulumi.aws.wafv2;
 import com.pulumi.aws.Utilities;
 import com.pulumi.aws.wafv2.inputs.GetIpSetArgs;
 import com.pulumi.aws.wafv2.inputs.GetIpSetPlainArgs;
+import com.pulumi.aws.wafv2.inputs.GetManagedRuleGroupArgs;
+import com.pulumi.aws.wafv2.inputs.GetManagedRuleGroupPlainArgs;
 import com.pulumi.aws.wafv2.inputs.GetRegexPatternSetArgs;
 import com.pulumi.aws.wafv2.inputs.GetRegexPatternSetPlainArgs;
 import com.pulumi.aws.wafv2.inputs.GetRuleGroupArgs;
@@ -13,6 +15,7 @@ import com.pulumi.aws.wafv2.inputs.GetRuleGroupPlainArgs;
 import com.pulumi.aws.wafv2.inputs.GetWebAclArgs;
 import com.pulumi.aws.wafv2.inputs.GetWebAclPlainArgs;
 import com.pulumi.aws.wafv2.outputs.GetIpSetResult;
+import com.pulumi.aws.wafv2.outputs.GetManagedRuleGroupResult;
 import com.pulumi.aws.wafv2.outputs.GetRegexPatternSetResult;
 import com.pulumi.aws.wafv2.outputs.GetRuleGroupResult;
 import com.pulumi.aws.wafv2.outputs.GetWebAclResult;
@@ -228,6 +231,216 @@ public final class Wafv2Functions {
      */
     public static CompletableFuture<GetIpSetResult> getIpSetPlain(GetIpSetPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:wafv2/getIpSet:getIpSet", TypeShape.of(GetIpSetResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * High-level information for a managed rule group.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.wafv2.Wafv2Functions;
+     * import com.pulumi.aws.wafv2.inputs.GetManagedRuleGroupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = Wafv2Functions.getManagedRuleGroup(GetManagedRuleGroupArgs.builder()
+     *             .name("AWSManagedRulesCommonRuleSet")
+     *             .scope("REGIONAL")
+     *             .vendorName("AWS")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetManagedRuleGroupResult> getManagedRuleGroup(GetManagedRuleGroupArgs args) {
+        return getManagedRuleGroup(args, InvokeOptions.Empty);
+    }
+    /**
+     * High-level information for a managed rule group.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.wafv2.Wafv2Functions;
+     * import com.pulumi.aws.wafv2.inputs.GetManagedRuleGroupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = Wafv2Functions.getManagedRuleGroup(GetManagedRuleGroupArgs.builder()
+     *             .name("AWSManagedRulesCommonRuleSet")
+     *             .scope("REGIONAL")
+     *             .vendorName("AWS")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetManagedRuleGroupResult> getManagedRuleGroupPlain(GetManagedRuleGroupPlainArgs args) {
+        return getManagedRuleGroupPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * High-level information for a managed rule group.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.wafv2.Wafv2Functions;
+     * import com.pulumi.aws.wafv2.inputs.GetManagedRuleGroupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = Wafv2Functions.getManagedRuleGroup(GetManagedRuleGroupArgs.builder()
+     *             .name("AWSManagedRulesCommonRuleSet")
+     *             .scope("REGIONAL")
+     *             .vendorName("AWS")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetManagedRuleGroupResult> getManagedRuleGroup(GetManagedRuleGroupArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:wafv2/getManagedRuleGroup:getManagedRuleGroup", TypeShape.of(GetManagedRuleGroupResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * High-level information for a managed rule group.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.wafv2.Wafv2Functions;
+     * import com.pulumi.aws.wafv2.inputs.GetManagedRuleGroupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = Wafv2Functions.getManagedRuleGroup(GetManagedRuleGroupArgs.builder()
+     *             .name("AWSManagedRulesCommonRuleSet")
+     *             .scope("REGIONAL")
+     *             .vendorName("AWS")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetManagedRuleGroupResult> getManagedRuleGroup(GetManagedRuleGroupArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("aws:wafv2/getManagedRuleGroup:getManagedRuleGroup", TypeShape.of(GetManagedRuleGroupResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * High-level information for a managed rule group.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.wafv2.Wafv2Functions;
+     * import com.pulumi.aws.wafv2.inputs.GetManagedRuleGroupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = Wafv2Functions.getManagedRuleGroup(GetManagedRuleGroupArgs.builder()
+     *             .name("AWSManagedRulesCommonRuleSet")
+     *             .scope("REGIONAL")
+     *             .vendorName("AWS")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetManagedRuleGroupResult> getManagedRuleGroupPlain(GetManagedRuleGroupPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("aws:wafv2/getManagedRuleGroup:getManagedRuleGroup", TypeShape.of(GetManagedRuleGroupResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Retrieves the summary of a WAFv2 Regex Pattern Set.

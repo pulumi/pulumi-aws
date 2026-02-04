@@ -14,6 +14,8 @@ import (
 
 // Provides an IP address pool resource for IPAM.
 //
+// > **NOTE:** When provisioning resource planning IPAM pools, it can take upto 30 minutes for the CIDR to be managed by IPAM.
+//
 // ## Example Usage
 //
 // Basic usage:
@@ -124,6 +126,79 @@ import (
 //
 // ```
 //
+// Resource Planning Pools:
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			current, err := aws.GetRegion(ctx, &aws.GetRegionArgs{}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			example, err := ec2.NewVpcIpam(ctx, "example", &ec2.VpcIpamArgs{
+//				OperatingRegions: ec2.VpcIpamOperatingRegionArray{
+//					&ec2.VpcIpamOperatingRegionArgs{
+//						RegionName: pulumi.String(current.Region),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			test, err := ec2.NewVpcIpamPool(ctx, "test", &ec2.VpcIpamPoolArgs{
+//				AddressFamily: pulumi.String("ipv4"),
+//				IpamScopeId:   example.PrivateDefaultScopeId,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			testVpcIpamPoolCidr, err := ec2.NewVpcIpamPoolCidr(ctx, "test", &ec2.VpcIpamPoolCidrArgs{
+//				IpamPoolId: pulumi.Any(parent.Id),
+//				Cidr:       pulumi.String("10.0.0.0/16"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			testVpc, err := ec2.NewVpc(ctx, "test", &ec2.VpcArgs{
+//				Ipv4IpamPoolId:    test.ID(),
+//				Ipv4NetmaskLength: pulumi.Int(24),
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				testVpcIpamPoolCidr,
+//			}))
+//			if err != nil {
+//				return err
+//			}
+//			_, err = ec2.NewVpcIpamPool(ctx, "vpc", &ec2.VpcIpamPoolArgs{
+//				AddressFamily:    pulumi.String("ipv4"),
+//				IpamScopeId:      pulumi.Any(testAwsVpcIpam.PrivateDefaultScopeId),
+//				Locale:           pulumi.String(current.Name),
+//				SourceIpamPoolId: test.ID(),
+//				SourceResource: &ec2.VpcIpamPoolSourceResourceArgs{
+//					ResourceId:     testVpc.ID(),
+//					ResourceOwner:  pulumi.Any(currentAwsCallerIdentity.AccountId),
+//					ResourceRegion: pulumi.String(current.Name),
+//					ResourceType:   pulumi.String("vpc"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Using `pulumi import`, import IPAMs using the IPAM pool `id`. For example:
@@ -169,6 +244,8 @@ type VpcIpamPool struct {
 	Region pulumi.StringOutput `pulumi:"region"`
 	// The ID of the source IPAM pool. Use this argument to create a child pool within an existing pool.
 	SourceIpamPoolId pulumi.StringPtrOutput `pulumi:"sourceIpamPoolId"`
+	// Resource to use to use to configure a resource planning IPAM Pool. If configured, the `locale` of the parent pool must match the region that the vpc resides in.
+	SourceResource VpcIpamPoolSourceResourcePtrOutput `pulumi:"sourceResource"`
 	// The ID of the IPAM
 	State pulumi.StringOutput `pulumi:"state"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -248,6 +325,8 @@ type vpcIpamPoolState struct {
 	Region *string `pulumi:"region"`
 	// The ID of the source IPAM pool. Use this argument to create a child pool within an existing pool.
 	SourceIpamPoolId *string `pulumi:"sourceIpamPoolId"`
+	// Resource to use to use to configure a resource planning IPAM Pool. If configured, the `locale` of the parent pool must match the region that the vpc resides in.
+	SourceResource *VpcIpamPoolSourceResource `pulumi:"sourceResource"`
 	// The ID of the IPAM
 	State *string `pulumi:"state"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -292,6 +371,8 @@ type VpcIpamPoolState struct {
 	Region pulumi.StringPtrInput
 	// The ID of the source IPAM pool. Use this argument to create a child pool within an existing pool.
 	SourceIpamPoolId pulumi.StringPtrInput
+	// Resource to use to use to configure a resource planning IPAM Pool. If configured, the `locale` of the parent pool must match the region that the vpc resides in.
+	SourceResource VpcIpamPoolSourceResourcePtrInput
 	// The ID of the IPAM
 	State pulumi.StringPtrInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -336,6 +417,8 @@ type vpcIpamPoolArgs struct {
 	Region *string `pulumi:"region"`
 	// The ID of the source IPAM pool. Use this argument to create a child pool within an existing pool.
 	SourceIpamPoolId *string `pulumi:"sourceIpamPoolId"`
+	// Resource to use to use to configure a resource planning IPAM Pool. If configured, the `locale` of the parent pool must match the region that the vpc resides in.
+	SourceResource *VpcIpamPoolSourceResource `pulumi:"sourceResource"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -373,6 +456,8 @@ type VpcIpamPoolArgs struct {
 	Region pulumi.StringPtrInput
 	// The ID of the source IPAM pool. Use this argument to create a child pool within an existing pool.
 	SourceIpamPoolId pulumi.StringPtrInput
+	// Resource to use to use to configure a resource planning IPAM Pool. If configured, the `locale` of the parent pool must match the region that the vpc resides in.
+	SourceResource VpcIpamPoolSourceResourcePtrInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 }
@@ -551,6 +636,11 @@ func (o VpcIpamPoolOutput) Region() pulumi.StringOutput {
 // The ID of the source IPAM pool. Use this argument to create a child pool within an existing pool.
 func (o VpcIpamPoolOutput) SourceIpamPoolId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VpcIpamPool) pulumi.StringPtrOutput { return v.SourceIpamPoolId }).(pulumi.StringPtrOutput)
+}
+
+// Resource to use to use to configure a resource planning IPAM Pool. If configured, the `locale` of the parent pool must match the region that the vpc resides in.
+func (o VpcIpamPoolOutput) SourceResource() VpcIpamPoolSourceResourcePtrOutput {
+	return o.ApplyT(func(v *VpcIpamPool) VpcIpamPoolSourceResourcePtrOutput { return v.SourceResource }).(VpcIpamPoolSourceResourcePtrOutput)
 }
 
 // The ID of the IPAM

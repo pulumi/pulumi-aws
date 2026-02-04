@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.dynamodb.inputs;
 
+import com.pulumi.aws.dynamodb.inputs.TableGlobalSecondaryIndexKeySchemaArgs;
 import com.pulumi.aws.dynamodb.inputs.TableGlobalSecondaryIndexOnDemandThroughputArgs;
 import com.pulumi.aws.dynamodb.inputs.TableGlobalSecondaryIndexWarmThroughputArgs;
 import com.pulumi.core.Output;
@@ -21,18 +22,33 @@ public final class TableGlobalSecondaryIndexArgs extends com.pulumi.resources.Re
     public static final TableGlobalSecondaryIndexArgs Empty = new TableGlobalSecondaryIndexArgs();
 
     /**
-     * Name of the hash key in the index; must be defined as an attribute in the resource.
+     * and `hashKeys` are `mutually exclusive`, but one is `required`. Refer to [AWS SDK Documentation](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GSI.DesignPattern.MultiAttributeKeys.html)
+     * 
+     * @deprecated
+     * hash_key is deprecated. Use keySchema instead.
      * 
      */
-    @Import(name="hashKey", required=true)
-    private Output<String> hashKey;
+    @Deprecated /* hash_key is deprecated. Use keySchema instead. */
+    @Import(name="hashKey")
+    private @Nullable Output<String> hashKey;
 
     /**
-     * @return Name of the hash key in the index; must be defined as an attribute in the resource.
+     * @return and `hashKeys` are `mutually exclusive`, but one is `required`. Refer to [AWS SDK Documentation](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GSI.DesignPattern.MultiAttributeKeys.html)
+     * 
+     * @deprecated
+     * hash_key is deprecated. Use keySchema instead.
      * 
      */
-    public Output<String> hashKey() {
-        return this.hashKey;
+    @Deprecated /* hash_key is deprecated. Use keySchema instead. */
+    public Optional<Output<String>> hashKey() {
+        return Optional.ofNullable(this.hashKey);
+    }
+
+    @Import(name="keySchemas")
+    private @Nullable Output<List<TableGlobalSecondaryIndexKeySchemaArgs>> keySchemas;
+
+    public Optional<Output<List<TableGlobalSecondaryIndexKeySchemaArgs>>> keySchemas() {
+        return Optional.ofNullable(this.keySchemas);
     }
 
     /**
@@ -96,16 +112,24 @@ public final class TableGlobalSecondaryIndexArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * Name of the range key; must be defined
+     * and `rangeKeys` are `mutually exclusive`, but are both `optional`. Refer to [AWS SDK Documentation](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GSI.DesignPattern.MultiAttributeKeys.html)
+     * 
+     * @deprecated
+     * range_key is deprecated. Use keySchema instead.
      * 
      */
+    @Deprecated /* range_key is deprecated. Use keySchema instead. */
     @Import(name="rangeKey")
     private @Nullable Output<String> rangeKey;
 
     /**
-     * @return Name of the range key; must be defined
+     * @return and `rangeKeys` are `mutually exclusive`, but are both `optional`. Refer to [AWS SDK Documentation](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GSI.DesignPattern.MultiAttributeKeys.html)
+     * 
+     * @deprecated
+     * range_key is deprecated. Use keySchema instead.
      * 
      */
+    @Deprecated /* range_key is deprecated. Use keySchema instead. */
     public Optional<Output<String>> rangeKey() {
         return Optional.ofNullable(this.rangeKey);
     }
@@ -159,6 +183,7 @@ public final class TableGlobalSecondaryIndexArgs extends com.pulumi.resources.Re
 
     private TableGlobalSecondaryIndexArgs(TableGlobalSecondaryIndexArgs $) {
         this.hashKey = $.hashKey;
+        this.keySchemas = $.keySchemas;
         this.name = $.name;
         this.nonKeyAttributes = $.nonKeyAttributes;
         this.onDemandThroughput = $.onDemandThroughput;
@@ -188,24 +213,45 @@ public final class TableGlobalSecondaryIndexArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param hashKey Name of the hash key in the index; must be defined as an attribute in the resource.
+         * @param hashKey and `hashKeys` are `mutually exclusive`, but one is `required`. Refer to [AWS SDK Documentation](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GSI.DesignPattern.MultiAttributeKeys.html)
          * 
          * @return builder
          * 
+         * @deprecated
+         * hash_key is deprecated. Use keySchema instead.
+         * 
          */
-        public Builder hashKey(Output<String> hashKey) {
+        @Deprecated /* hash_key is deprecated. Use keySchema instead. */
+        public Builder hashKey(@Nullable Output<String> hashKey) {
             $.hashKey = hashKey;
             return this;
         }
 
         /**
-         * @param hashKey Name of the hash key in the index; must be defined as an attribute in the resource.
+         * @param hashKey and `hashKeys` are `mutually exclusive`, but one is `required`. Refer to [AWS SDK Documentation](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GSI.DesignPattern.MultiAttributeKeys.html)
          * 
          * @return builder
          * 
+         * @deprecated
+         * hash_key is deprecated. Use keySchema instead.
+         * 
          */
+        @Deprecated /* hash_key is deprecated. Use keySchema instead. */
         public Builder hashKey(String hashKey) {
             return hashKey(Output.of(hashKey));
+        }
+
+        public Builder keySchemas(@Nullable Output<List<TableGlobalSecondaryIndexKeySchemaArgs>> keySchemas) {
+            $.keySchemas = keySchemas;
+            return this;
+        }
+
+        public Builder keySchemas(List<TableGlobalSecondaryIndexKeySchemaArgs> keySchemas) {
+            return keySchemas(Output.of(keySchemas));
+        }
+
+        public Builder keySchemas(TableGlobalSecondaryIndexKeySchemaArgs... keySchemas) {
+            return keySchemas(List.of(keySchemas));
         }
 
         /**
@@ -303,22 +349,30 @@ public final class TableGlobalSecondaryIndexArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param rangeKey Name of the range key; must be defined
+         * @param rangeKey and `rangeKeys` are `mutually exclusive`, but are both `optional`. Refer to [AWS SDK Documentation](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GSI.DesignPattern.MultiAttributeKeys.html)
          * 
          * @return builder
          * 
+         * @deprecated
+         * range_key is deprecated. Use keySchema instead.
+         * 
          */
+        @Deprecated /* range_key is deprecated. Use keySchema instead. */
         public Builder rangeKey(@Nullable Output<String> rangeKey) {
             $.rangeKey = rangeKey;
             return this;
         }
 
         /**
-         * @param rangeKey Name of the range key; must be defined
+         * @param rangeKey and `rangeKeys` are `mutually exclusive`, but are both `optional`. Refer to [AWS SDK Documentation](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GSI.DesignPattern.MultiAttributeKeys.html)
          * 
          * @return builder
          * 
+         * @deprecated
+         * range_key is deprecated. Use keySchema instead.
+         * 
          */
+        @Deprecated /* range_key is deprecated. Use keySchema instead. */
         public Builder rangeKey(String rangeKey) {
             return rangeKey(Output.of(rangeKey));
         }
@@ -387,9 +441,6 @@ public final class TableGlobalSecondaryIndexArgs extends com.pulumi.resources.Re
         }
 
         public TableGlobalSecondaryIndexArgs build() {
-            if ($.hashKey == null) {
-                throw new MissingRequiredPropertyException("TableGlobalSecondaryIndexArgs", "hashKey");
-            }
             if ($.name == null) {
                 throw new MissingRequiredPropertyException("TableGlobalSecondaryIndexArgs", "name");
             }

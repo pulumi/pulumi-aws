@@ -4,6 +4,11 @@
 import * as utilities from "../utilities";
 
 // Export members:
+export { GetRequiredTagsArgs, GetRequiredTagsResult, GetRequiredTagsOutputArgs } from "./getRequiredTags";
+export const getRequiredTags: typeof import("./getRequiredTags").getRequiredTags = null as any;
+export const getRequiredTagsOutput: typeof import("./getRequiredTags").getRequiredTagsOutput = null as any;
+utilities.lazyLoad(exports, ["getRequiredTags","getRequiredTagsOutput"], () => require("./getRequiredTags"));
+
 export { GetResourcesArgs, GetResourcesResult, GetResourcesOutputArgs } from "./getResources";
 export const getResources: typeof import("./getResources").getResources = null as any;
 export const getResourcesOutput: typeof import("./getResources").getResourcesOutput = null as any;

@@ -23891,6 +23891,2020 @@ func (o GetAccessPointVpcConfigurationArrayOutput) Index(i pulumi.IntInput) GetA
 	}).(GetAccessPointVpcConfigurationOutput)
 }
 
+type GetBucketObjectLockConfigurationRule struct {
+	// Default object lock retention settings for new objects placed in the bucket. See Default Retention below.
+	DefaultRetentions []GetBucketObjectLockConfigurationRuleDefaultRetention `pulumi:"defaultRetentions"`
+}
+
+// GetBucketObjectLockConfigurationRuleInput is an input type that accepts GetBucketObjectLockConfigurationRuleArgs and GetBucketObjectLockConfigurationRuleOutput values.
+// You can construct a concrete instance of `GetBucketObjectLockConfigurationRuleInput` via:
+//
+//	GetBucketObjectLockConfigurationRuleArgs{...}
+type GetBucketObjectLockConfigurationRuleInput interface {
+	pulumi.Input
+
+	ToGetBucketObjectLockConfigurationRuleOutput() GetBucketObjectLockConfigurationRuleOutput
+	ToGetBucketObjectLockConfigurationRuleOutputWithContext(context.Context) GetBucketObjectLockConfigurationRuleOutput
+}
+
+type GetBucketObjectLockConfigurationRuleArgs struct {
+	// Default object lock retention settings for new objects placed in the bucket. See Default Retention below.
+	DefaultRetentions GetBucketObjectLockConfigurationRuleDefaultRetentionArrayInput `pulumi:"defaultRetentions"`
+}
+
+func (GetBucketObjectLockConfigurationRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetBucketObjectLockConfigurationRule)(nil)).Elem()
+}
+
+func (i GetBucketObjectLockConfigurationRuleArgs) ToGetBucketObjectLockConfigurationRuleOutput() GetBucketObjectLockConfigurationRuleOutput {
+	return i.ToGetBucketObjectLockConfigurationRuleOutputWithContext(context.Background())
+}
+
+func (i GetBucketObjectLockConfigurationRuleArgs) ToGetBucketObjectLockConfigurationRuleOutputWithContext(ctx context.Context) GetBucketObjectLockConfigurationRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetBucketObjectLockConfigurationRuleOutput)
+}
+
+// GetBucketObjectLockConfigurationRuleArrayInput is an input type that accepts GetBucketObjectLockConfigurationRuleArray and GetBucketObjectLockConfigurationRuleArrayOutput values.
+// You can construct a concrete instance of `GetBucketObjectLockConfigurationRuleArrayInput` via:
+//
+//	GetBucketObjectLockConfigurationRuleArray{ GetBucketObjectLockConfigurationRuleArgs{...} }
+type GetBucketObjectLockConfigurationRuleArrayInput interface {
+	pulumi.Input
+
+	ToGetBucketObjectLockConfigurationRuleArrayOutput() GetBucketObjectLockConfigurationRuleArrayOutput
+	ToGetBucketObjectLockConfigurationRuleArrayOutputWithContext(context.Context) GetBucketObjectLockConfigurationRuleArrayOutput
+}
+
+type GetBucketObjectLockConfigurationRuleArray []GetBucketObjectLockConfigurationRuleInput
+
+func (GetBucketObjectLockConfigurationRuleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetBucketObjectLockConfigurationRule)(nil)).Elem()
+}
+
+func (i GetBucketObjectLockConfigurationRuleArray) ToGetBucketObjectLockConfigurationRuleArrayOutput() GetBucketObjectLockConfigurationRuleArrayOutput {
+	return i.ToGetBucketObjectLockConfigurationRuleArrayOutputWithContext(context.Background())
+}
+
+func (i GetBucketObjectLockConfigurationRuleArray) ToGetBucketObjectLockConfigurationRuleArrayOutputWithContext(ctx context.Context) GetBucketObjectLockConfigurationRuleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetBucketObjectLockConfigurationRuleArrayOutput)
+}
+
+type GetBucketObjectLockConfigurationRuleOutput struct{ *pulumi.OutputState }
+
+func (GetBucketObjectLockConfigurationRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetBucketObjectLockConfigurationRule)(nil)).Elem()
+}
+
+func (o GetBucketObjectLockConfigurationRuleOutput) ToGetBucketObjectLockConfigurationRuleOutput() GetBucketObjectLockConfigurationRuleOutput {
+	return o
+}
+
+func (o GetBucketObjectLockConfigurationRuleOutput) ToGetBucketObjectLockConfigurationRuleOutputWithContext(ctx context.Context) GetBucketObjectLockConfigurationRuleOutput {
+	return o
+}
+
+// Default object lock retention settings for new objects placed in the bucket. See Default Retention below.
+func (o GetBucketObjectLockConfigurationRuleOutput) DefaultRetentions() GetBucketObjectLockConfigurationRuleDefaultRetentionArrayOutput {
+	return o.ApplyT(func(v GetBucketObjectLockConfigurationRule) []GetBucketObjectLockConfigurationRuleDefaultRetention {
+		return v.DefaultRetentions
+	}).(GetBucketObjectLockConfigurationRuleDefaultRetentionArrayOutput)
+}
+
+type GetBucketObjectLockConfigurationRuleArrayOutput struct{ *pulumi.OutputState }
+
+func (GetBucketObjectLockConfigurationRuleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetBucketObjectLockConfigurationRule)(nil)).Elem()
+}
+
+func (o GetBucketObjectLockConfigurationRuleArrayOutput) ToGetBucketObjectLockConfigurationRuleArrayOutput() GetBucketObjectLockConfigurationRuleArrayOutput {
+	return o
+}
+
+func (o GetBucketObjectLockConfigurationRuleArrayOutput) ToGetBucketObjectLockConfigurationRuleArrayOutputWithContext(ctx context.Context) GetBucketObjectLockConfigurationRuleArrayOutput {
+	return o
+}
+
+func (o GetBucketObjectLockConfigurationRuleArrayOutput) Index(i pulumi.IntInput) GetBucketObjectLockConfigurationRuleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetBucketObjectLockConfigurationRule {
+		return vs[0].([]GetBucketObjectLockConfigurationRule)[vs[1].(int)]
+	}).(GetBucketObjectLockConfigurationRuleOutput)
+}
+
+type GetBucketObjectLockConfigurationRuleDefaultRetention struct {
+	// Default retention period in days.
+	Days int `pulumi:"days"`
+	// Default object lock retention mode. Valid values are `GOVERNANCE` and `COMPLIANCE`.
+	Mode string `pulumi:"mode"`
+	// Default retention period in years.
+	Years int `pulumi:"years"`
+}
+
+// GetBucketObjectLockConfigurationRuleDefaultRetentionInput is an input type that accepts GetBucketObjectLockConfigurationRuleDefaultRetentionArgs and GetBucketObjectLockConfigurationRuleDefaultRetentionOutput values.
+// You can construct a concrete instance of `GetBucketObjectLockConfigurationRuleDefaultRetentionInput` via:
+//
+//	GetBucketObjectLockConfigurationRuleDefaultRetentionArgs{...}
+type GetBucketObjectLockConfigurationRuleDefaultRetentionInput interface {
+	pulumi.Input
+
+	ToGetBucketObjectLockConfigurationRuleDefaultRetentionOutput() GetBucketObjectLockConfigurationRuleDefaultRetentionOutput
+	ToGetBucketObjectLockConfigurationRuleDefaultRetentionOutputWithContext(context.Context) GetBucketObjectLockConfigurationRuleDefaultRetentionOutput
+}
+
+type GetBucketObjectLockConfigurationRuleDefaultRetentionArgs struct {
+	// Default retention period in days.
+	Days pulumi.IntInput `pulumi:"days"`
+	// Default object lock retention mode. Valid values are `GOVERNANCE` and `COMPLIANCE`.
+	Mode pulumi.StringInput `pulumi:"mode"`
+	// Default retention period in years.
+	Years pulumi.IntInput `pulumi:"years"`
+}
+
+func (GetBucketObjectLockConfigurationRuleDefaultRetentionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetBucketObjectLockConfigurationRuleDefaultRetention)(nil)).Elem()
+}
+
+func (i GetBucketObjectLockConfigurationRuleDefaultRetentionArgs) ToGetBucketObjectLockConfigurationRuleDefaultRetentionOutput() GetBucketObjectLockConfigurationRuleDefaultRetentionOutput {
+	return i.ToGetBucketObjectLockConfigurationRuleDefaultRetentionOutputWithContext(context.Background())
+}
+
+func (i GetBucketObjectLockConfigurationRuleDefaultRetentionArgs) ToGetBucketObjectLockConfigurationRuleDefaultRetentionOutputWithContext(ctx context.Context) GetBucketObjectLockConfigurationRuleDefaultRetentionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetBucketObjectLockConfigurationRuleDefaultRetentionOutput)
+}
+
+// GetBucketObjectLockConfigurationRuleDefaultRetentionArrayInput is an input type that accepts GetBucketObjectLockConfigurationRuleDefaultRetentionArray and GetBucketObjectLockConfigurationRuleDefaultRetentionArrayOutput values.
+// You can construct a concrete instance of `GetBucketObjectLockConfigurationRuleDefaultRetentionArrayInput` via:
+//
+//	GetBucketObjectLockConfigurationRuleDefaultRetentionArray{ GetBucketObjectLockConfigurationRuleDefaultRetentionArgs{...} }
+type GetBucketObjectLockConfigurationRuleDefaultRetentionArrayInput interface {
+	pulumi.Input
+
+	ToGetBucketObjectLockConfigurationRuleDefaultRetentionArrayOutput() GetBucketObjectLockConfigurationRuleDefaultRetentionArrayOutput
+	ToGetBucketObjectLockConfigurationRuleDefaultRetentionArrayOutputWithContext(context.Context) GetBucketObjectLockConfigurationRuleDefaultRetentionArrayOutput
+}
+
+type GetBucketObjectLockConfigurationRuleDefaultRetentionArray []GetBucketObjectLockConfigurationRuleDefaultRetentionInput
+
+func (GetBucketObjectLockConfigurationRuleDefaultRetentionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetBucketObjectLockConfigurationRuleDefaultRetention)(nil)).Elem()
+}
+
+func (i GetBucketObjectLockConfigurationRuleDefaultRetentionArray) ToGetBucketObjectLockConfigurationRuleDefaultRetentionArrayOutput() GetBucketObjectLockConfigurationRuleDefaultRetentionArrayOutput {
+	return i.ToGetBucketObjectLockConfigurationRuleDefaultRetentionArrayOutputWithContext(context.Background())
+}
+
+func (i GetBucketObjectLockConfigurationRuleDefaultRetentionArray) ToGetBucketObjectLockConfigurationRuleDefaultRetentionArrayOutputWithContext(ctx context.Context) GetBucketObjectLockConfigurationRuleDefaultRetentionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetBucketObjectLockConfigurationRuleDefaultRetentionArrayOutput)
+}
+
+type GetBucketObjectLockConfigurationRuleDefaultRetentionOutput struct{ *pulumi.OutputState }
+
+func (GetBucketObjectLockConfigurationRuleDefaultRetentionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetBucketObjectLockConfigurationRuleDefaultRetention)(nil)).Elem()
+}
+
+func (o GetBucketObjectLockConfigurationRuleDefaultRetentionOutput) ToGetBucketObjectLockConfigurationRuleDefaultRetentionOutput() GetBucketObjectLockConfigurationRuleDefaultRetentionOutput {
+	return o
+}
+
+func (o GetBucketObjectLockConfigurationRuleDefaultRetentionOutput) ToGetBucketObjectLockConfigurationRuleDefaultRetentionOutputWithContext(ctx context.Context) GetBucketObjectLockConfigurationRuleDefaultRetentionOutput {
+	return o
+}
+
+// Default retention period in days.
+func (o GetBucketObjectLockConfigurationRuleDefaultRetentionOutput) Days() pulumi.IntOutput {
+	return o.ApplyT(func(v GetBucketObjectLockConfigurationRuleDefaultRetention) int { return v.Days }).(pulumi.IntOutput)
+}
+
+// Default object lock retention mode. Valid values are `GOVERNANCE` and `COMPLIANCE`.
+func (o GetBucketObjectLockConfigurationRuleDefaultRetentionOutput) Mode() pulumi.StringOutput {
+	return o.ApplyT(func(v GetBucketObjectLockConfigurationRuleDefaultRetention) string { return v.Mode }).(pulumi.StringOutput)
+}
+
+// Default retention period in years.
+func (o GetBucketObjectLockConfigurationRuleDefaultRetentionOutput) Years() pulumi.IntOutput {
+	return o.ApplyT(func(v GetBucketObjectLockConfigurationRuleDefaultRetention) int { return v.Years }).(pulumi.IntOutput)
+}
+
+type GetBucketObjectLockConfigurationRuleDefaultRetentionArrayOutput struct{ *pulumi.OutputState }
+
+func (GetBucketObjectLockConfigurationRuleDefaultRetentionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetBucketObjectLockConfigurationRuleDefaultRetention)(nil)).Elem()
+}
+
+func (o GetBucketObjectLockConfigurationRuleDefaultRetentionArrayOutput) ToGetBucketObjectLockConfigurationRuleDefaultRetentionArrayOutput() GetBucketObjectLockConfigurationRuleDefaultRetentionArrayOutput {
+	return o
+}
+
+func (o GetBucketObjectLockConfigurationRuleDefaultRetentionArrayOutput) ToGetBucketObjectLockConfigurationRuleDefaultRetentionArrayOutputWithContext(ctx context.Context) GetBucketObjectLockConfigurationRuleDefaultRetentionArrayOutput {
+	return o
+}
+
+func (o GetBucketObjectLockConfigurationRuleDefaultRetentionArrayOutput) Index(i pulumi.IntInput) GetBucketObjectLockConfigurationRuleDefaultRetentionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetBucketObjectLockConfigurationRuleDefaultRetention {
+		return vs[0].([]GetBucketObjectLockConfigurationRuleDefaultRetention)[vs[1].(int)]
+	}).(GetBucketObjectLockConfigurationRuleDefaultRetentionOutput)
+}
+
+type GetBucketReplicationConfigurationRule struct {
+	DeleteMarkerReplications   []GetBucketReplicationConfigurationRuleDeleteMarkerReplication   `pulumi:"deleteMarkerReplications"`
+	Destinations               []GetBucketReplicationConfigurationRuleDestination               `pulumi:"destinations"`
+	ExistingObjectReplications []GetBucketReplicationConfigurationRuleExistingObjectReplication `pulumi:"existingObjectReplications"`
+	Filters                    []GetBucketReplicationConfigurationRuleFilter                    `pulumi:"filters"`
+	Id                         string                                                           `pulumi:"id"`
+	// The object key name prefix that identifies the subset of objects to which the rule applies.
+	Prefix                   string                                                         `pulumi:"prefix"`
+	Priority                 int                                                            `pulumi:"priority"`
+	SourceSelectionCriterias []GetBucketReplicationConfigurationRuleSourceSelectionCriteria `pulumi:"sourceSelectionCriterias"`
+	Status                   string                                                         `pulumi:"status"`
+}
+
+// GetBucketReplicationConfigurationRuleInput is an input type that accepts GetBucketReplicationConfigurationRuleArgs and GetBucketReplicationConfigurationRuleOutput values.
+// You can construct a concrete instance of `GetBucketReplicationConfigurationRuleInput` via:
+//
+//	GetBucketReplicationConfigurationRuleArgs{...}
+type GetBucketReplicationConfigurationRuleInput interface {
+	pulumi.Input
+
+	ToGetBucketReplicationConfigurationRuleOutput() GetBucketReplicationConfigurationRuleOutput
+	ToGetBucketReplicationConfigurationRuleOutputWithContext(context.Context) GetBucketReplicationConfigurationRuleOutput
+}
+
+type GetBucketReplicationConfigurationRuleArgs struct {
+	DeleteMarkerReplications   GetBucketReplicationConfigurationRuleDeleteMarkerReplicationArrayInput   `pulumi:"deleteMarkerReplications"`
+	Destinations               GetBucketReplicationConfigurationRuleDestinationArrayInput               `pulumi:"destinations"`
+	ExistingObjectReplications GetBucketReplicationConfigurationRuleExistingObjectReplicationArrayInput `pulumi:"existingObjectReplications"`
+	Filters                    GetBucketReplicationConfigurationRuleFilterArrayInput                    `pulumi:"filters"`
+	Id                         pulumi.StringInput                                                       `pulumi:"id"`
+	// The object key name prefix that identifies the subset of objects to which the rule applies.
+	Prefix                   pulumi.StringInput                                                     `pulumi:"prefix"`
+	Priority                 pulumi.IntInput                                                        `pulumi:"priority"`
+	SourceSelectionCriterias GetBucketReplicationConfigurationRuleSourceSelectionCriteriaArrayInput `pulumi:"sourceSelectionCriterias"`
+	Status                   pulumi.StringInput                                                     `pulumi:"status"`
+}
+
+func (GetBucketReplicationConfigurationRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetBucketReplicationConfigurationRule)(nil)).Elem()
+}
+
+func (i GetBucketReplicationConfigurationRuleArgs) ToGetBucketReplicationConfigurationRuleOutput() GetBucketReplicationConfigurationRuleOutput {
+	return i.ToGetBucketReplicationConfigurationRuleOutputWithContext(context.Background())
+}
+
+func (i GetBucketReplicationConfigurationRuleArgs) ToGetBucketReplicationConfigurationRuleOutputWithContext(ctx context.Context) GetBucketReplicationConfigurationRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetBucketReplicationConfigurationRuleOutput)
+}
+
+// GetBucketReplicationConfigurationRuleArrayInput is an input type that accepts GetBucketReplicationConfigurationRuleArray and GetBucketReplicationConfigurationRuleArrayOutput values.
+// You can construct a concrete instance of `GetBucketReplicationConfigurationRuleArrayInput` via:
+//
+//	GetBucketReplicationConfigurationRuleArray{ GetBucketReplicationConfigurationRuleArgs{...} }
+type GetBucketReplicationConfigurationRuleArrayInput interface {
+	pulumi.Input
+
+	ToGetBucketReplicationConfigurationRuleArrayOutput() GetBucketReplicationConfigurationRuleArrayOutput
+	ToGetBucketReplicationConfigurationRuleArrayOutputWithContext(context.Context) GetBucketReplicationConfigurationRuleArrayOutput
+}
+
+type GetBucketReplicationConfigurationRuleArray []GetBucketReplicationConfigurationRuleInput
+
+func (GetBucketReplicationConfigurationRuleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetBucketReplicationConfigurationRule)(nil)).Elem()
+}
+
+func (i GetBucketReplicationConfigurationRuleArray) ToGetBucketReplicationConfigurationRuleArrayOutput() GetBucketReplicationConfigurationRuleArrayOutput {
+	return i.ToGetBucketReplicationConfigurationRuleArrayOutputWithContext(context.Background())
+}
+
+func (i GetBucketReplicationConfigurationRuleArray) ToGetBucketReplicationConfigurationRuleArrayOutputWithContext(ctx context.Context) GetBucketReplicationConfigurationRuleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetBucketReplicationConfigurationRuleArrayOutput)
+}
+
+type GetBucketReplicationConfigurationRuleOutput struct{ *pulumi.OutputState }
+
+func (GetBucketReplicationConfigurationRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetBucketReplicationConfigurationRule)(nil)).Elem()
+}
+
+func (o GetBucketReplicationConfigurationRuleOutput) ToGetBucketReplicationConfigurationRuleOutput() GetBucketReplicationConfigurationRuleOutput {
+	return o
+}
+
+func (o GetBucketReplicationConfigurationRuleOutput) ToGetBucketReplicationConfigurationRuleOutputWithContext(ctx context.Context) GetBucketReplicationConfigurationRuleOutput {
+	return o
+}
+
+func (o GetBucketReplicationConfigurationRuleOutput) DeleteMarkerReplications() GetBucketReplicationConfigurationRuleDeleteMarkerReplicationArrayOutput {
+	return o.ApplyT(func(v GetBucketReplicationConfigurationRule) []GetBucketReplicationConfigurationRuleDeleteMarkerReplication {
+		return v.DeleteMarkerReplications
+	}).(GetBucketReplicationConfigurationRuleDeleteMarkerReplicationArrayOutput)
+}
+
+func (o GetBucketReplicationConfigurationRuleOutput) Destinations() GetBucketReplicationConfigurationRuleDestinationArrayOutput {
+	return o.ApplyT(func(v GetBucketReplicationConfigurationRule) []GetBucketReplicationConfigurationRuleDestination {
+		return v.Destinations
+	}).(GetBucketReplicationConfigurationRuleDestinationArrayOutput)
+}
+
+func (o GetBucketReplicationConfigurationRuleOutput) ExistingObjectReplications() GetBucketReplicationConfigurationRuleExistingObjectReplicationArrayOutput {
+	return o.ApplyT(func(v GetBucketReplicationConfigurationRule) []GetBucketReplicationConfigurationRuleExistingObjectReplication {
+		return v.ExistingObjectReplications
+	}).(GetBucketReplicationConfigurationRuleExistingObjectReplicationArrayOutput)
+}
+
+func (o GetBucketReplicationConfigurationRuleOutput) Filters() GetBucketReplicationConfigurationRuleFilterArrayOutput {
+	return o.ApplyT(func(v GetBucketReplicationConfigurationRule) []GetBucketReplicationConfigurationRuleFilter {
+		return v.Filters
+	}).(GetBucketReplicationConfigurationRuleFilterArrayOutput)
+}
+
+func (o GetBucketReplicationConfigurationRuleOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetBucketReplicationConfigurationRule) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The object key name prefix that identifies the subset of objects to which the rule applies.
+func (o GetBucketReplicationConfigurationRuleOutput) Prefix() pulumi.StringOutput {
+	return o.ApplyT(func(v GetBucketReplicationConfigurationRule) string { return v.Prefix }).(pulumi.StringOutput)
+}
+
+func (o GetBucketReplicationConfigurationRuleOutput) Priority() pulumi.IntOutput {
+	return o.ApplyT(func(v GetBucketReplicationConfigurationRule) int { return v.Priority }).(pulumi.IntOutput)
+}
+
+func (o GetBucketReplicationConfigurationRuleOutput) SourceSelectionCriterias() GetBucketReplicationConfigurationRuleSourceSelectionCriteriaArrayOutput {
+	return o.ApplyT(func(v GetBucketReplicationConfigurationRule) []GetBucketReplicationConfigurationRuleSourceSelectionCriteria {
+		return v.SourceSelectionCriterias
+	}).(GetBucketReplicationConfigurationRuleSourceSelectionCriteriaArrayOutput)
+}
+
+func (o GetBucketReplicationConfigurationRuleOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v GetBucketReplicationConfigurationRule) string { return v.Status }).(pulumi.StringOutput)
+}
+
+type GetBucketReplicationConfigurationRuleArrayOutput struct{ *pulumi.OutputState }
+
+func (GetBucketReplicationConfigurationRuleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetBucketReplicationConfigurationRule)(nil)).Elem()
+}
+
+func (o GetBucketReplicationConfigurationRuleArrayOutput) ToGetBucketReplicationConfigurationRuleArrayOutput() GetBucketReplicationConfigurationRuleArrayOutput {
+	return o
+}
+
+func (o GetBucketReplicationConfigurationRuleArrayOutput) ToGetBucketReplicationConfigurationRuleArrayOutputWithContext(ctx context.Context) GetBucketReplicationConfigurationRuleArrayOutput {
+	return o
+}
+
+func (o GetBucketReplicationConfigurationRuleArrayOutput) Index(i pulumi.IntInput) GetBucketReplicationConfigurationRuleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetBucketReplicationConfigurationRule {
+		return vs[0].([]GetBucketReplicationConfigurationRule)[vs[1].(int)]
+	}).(GetBucketReplicationConfigurationRuleOutput)
+}
+
+type GetBucketReplicationConfigurationRuleDeleteMarkerReplication struct {
+	Status string `pulumi:"status"`
+}
+
+// GetBucketReplicationConfigurationRuleDeleteMarkerReplicationInput is an input type that accepts GetBucketReplicationConfigurationRuleDeleteMarkerReplicationArgs and GetBucketReplicationConfigurationRuleDeleteMarkerReplicationOutput values.
+// You can construct a concrete instance of `GetBucketReplicationConfigurationRuleDeleteMarkerReplicationInput` via:
+//
+//	GetBucketReplicationConfigurationRuleDeleteMarkerReplicationArgs{...}
+type GetBucketReplicationConfigurationRuleDeleteMarkerReplicationInput interface {
+	pulumi.Input
+
+	ToGetBucketReplicationConfigurationRuleDeleteMarkerReplicationOutput() GetBucketReplicationConfigurationRuleDeleteMarkerReplicationOutput
+	ToGetBucketReplicationConfigurationRuleDeleteMarkerReplicationOutputWithContext(context.Context) GetBucketReplicationConfigurationRuleDeleteMarkerReplicationOutput
+}
+
+type GetBucketReplicationConfigurationRuleDeleteMarkerReplicationArgs struct {
+	Status pulumi.StringInput `pulumi:"status"`
+}
+
+func (GetBucketReplicationConfigurationRuleDeleteMarkerReplicationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetBucketReplicationConfigurationRuleDeleteMarkerReplication)(nil)).Elem()
+}
+
+func (i GetBucketReplicationConfigurationRuleDeleteMarkerReplicationArgs) ToGetBucketReplicationConfigurationRuleDeleteMarkerReplicationOutput() GetBucketReplicationConfigurationRuleDeleteMarkerReplicationOutput {
+	return i.ToGetBucketReplicationConfigurationRuleDeleteMarkerReplicationOutputWithContext(context.Background())
+}
+
+func (i GetBucketReplicationConfigurationRuleDeleteMarkerReplicationArgs) ToGetBucketReplicationConfigurationRuleDeleteMarkerReplicationOutputWithContext(ctx context.Context) GetBucketReplicationConfigurationRuleDeleteMarkerReplicationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetBucketReplicationConfigurationRuleDeleteMarkerReplicationOutput)
+}
+
+// GetBucketReplicationConfigurationRuleDeleteMarkerReplicationArrayInput is an input type that accepts GetBucketReplicationConfigurationRuleDeleteMarkerReplicationArray and GetBucketReplicationConfigurationRuleDeleteMarkerReplicationArrayOutput values.
+// You can construct a concrete instance of `GetBucketReplicationConfigurationRuleDeleteMarkerReplicationArrayInput` via:
+//
+//	GetBucketReplicationConfigurationRuleDeleteMarkerReplicationArray{ GetBucketReplicationConfigurationRuleDeleteMarkerReplicationArgs{...} }
+type GetBucketReplicationConfigurationRuleDeleteMarkerReplicationArrayInput interface {
+	pulumi.Input
+
+	ToGetBucketReplicationConfigurationRuleDeleteMarkerReplicationArrayOutput() GetBucketReplicationConfigurationRuleDeleteMarkerReplicationArrayOutput
+	ToGetBucketReplicationConfigurationRuleDeleteMarkerReplicationArrayOutputWithContext(context.Context) GetBucketReplicationConfigurationRuleDeleteMarkerReplicationArrayOutput
+}
+
+type GetBucketReplicationConfigurationRuleDeleteMarkerReplicationArray []GetBucketReplicationConfigurationRuleDeleteMarkerReplicationInput
+
+func (GetBucketReplicationConfigurationRuleDeleteMarkerReplicationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetBucketReplicationConfigurationRuleDeleteMarkerReplication)(nil)).Elem()
+}
+
+func (i GetBucketReplicationConfigurationRuleDeleteMarkerReplicationArray) ToGetBucketReplicationConfigurationRuleDeleteMarkerReplicationArrayOutput() GetBucketReplicationConfigurationRuleDeleteMarkerReplicationArrayOutput {
+	return i.ToGetBucketReplicationConfigurationRuleDeleteMarkerReplicationArrayOutputWithContext(context.Background())
+}
+
+func (i GetBucketReplicationConfigurationRuleDeleteMarkerReplicationArray) ToGetBucketReplicationConfigurationRuleDeleteMarkerReplicationArrayOutputWithContext(ctx context.Context) GetBucketReplicationConfigurationRuleDeleteMarkerReplicationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetBucketReplicationConfigurationRuleDeleteMarkerReplicationArrayOutput)
+}
+
+type GetBucketReplicationConfigurationRuleDeleteMarkerReplicationOutput struct{ *pulumi.OutputState }
+
+func (GetBucketReplicationConfigurationRuleDeleteMarkerReplicationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetBucketReplicationConfigurationRuleDeleteMarkerReplication)(nil)).Elem()
+}
+
+func (o GetBucketReplicationConfigurationRuleDeleteMarkerReplicationOutput) ToGetBucketReplicationConfigurationRuleDeleteMarkerReplicationOutput() GetBucketReplicationConfigurationRuleDeleteMarkerReplicationOutput {
+	return o
+}
+
+func (o GetBucketReplicationConfigurationRuleDeleteMarkerReplicationOutput) ToGetBucketReplicationConfigurationRuleDeleteMarkerReplicationOutputWithContext(ctx context.Context) GetBucketReplicationConfigurationRuleDeleteMarkerReplicationOutput {
+	return o
+}
+
+func (o GetBucketReplicationConfigurationRuleDeleteMarkerReplicationOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v GetBucketReplicationConfigurationRuleDeleteMarkerReplication) string { return v.Status }).(pulumi.StringOutput)
+}
+
+type GetBucketReplicationConfigurationRuleDeleteMarkerReplicationArrayOutput struct{ *pulumi.OutputState }
+
+func (GetBucketReplicationConfigurationRuleDeleteMarkerReplicationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetBucketReplicationConfigurationRuleDeleteMarkerReplication)(nil)).Elem()
+}
+
+func (o GetBucketReplicationConfigurationRuleDeleteMarkerReplicationArrayOutput) ToGetBucketReplicationConfigurationRuleDeleteMarkerReplicationArrayOutput() GetBucketReplicationConfigurationRuleDeleteMarkerReplicationArrayOutput {
+	return o
+}
+
+func (o GetBucketReplicationConfigurationRuleDeleteMarkerReplicationArrayOutput) ToGetBucketReplicationConfigurationRuleDeleteMarkerReplicationArrayOutputWithContext(ctx context.Context) GetBucketReplicationConfigurationRuleDeleteMarkerReplicationArrayOutput {
+	return o
+}
+
+func (o GetBucketReplicationConfigurationRuleDeleteMarkerReplicationArrayOutput) Index(i pulumi.IntInput) GetBucketReplicationConfigurationRuleDeleteMarkerReplicationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetBucketReplicationConfigurationRuleDeleteMarkerReplication {
+		return vs[0].([]GetBucketReplicationConfigurationRuleDeleteMarkerReplication)[vs[1].(int)]
+	}).(GetBucketReplicationConfigurationRuleDeleteMarkerReplicationOutput)
+}
+
+type GetBucketReplicationConfigurationRuleDestination struct {
+	AccessControlTranslations []GetBucketReplicationConfigurationRuleDestinationAccessControlTranslation `pulumi:"accessControlTranslations"`
+	Account                   string                                                                     `pulumi:"account"`
+	// The name of the bucket to get the replication configuration for.
+	Bucket                   string                                                                    `pulumi:"bucket"`
+	EncryptionConfigurations []GetBucketReplicationConfigurationRuleDestinationEncryptionConfiguration `pulumi:"encryptionConfigurations"`
+	Metrics                  []GetBucketReplicationConfigurationRuleDestinationMetric                  `pulumi:"metrics"`
+	ReplicationTimes         []GetBucketReplicationConfigurationRuleDestinationReplicationTime         `pulumi:"replicationTimes"`
+	StorageClass             string                                                                    `pulumi:"storageClass"`
+}
+
+// GetBucketReplicationConfigurationRuleDestinationInput is an input type that accepts GetBucketReplicationConfigurationRuleDestinationArgs and GetBucketReplicationConfigurationRuleDestinationOutput values.
+// You can construct a concrete instance of `GetBucketReplicationConfigurationRuleDestinationInput` via:
+//
+//	GetBucketReplicationConfigurationRuleDestinationArgs{...}
+type GetBucketReplicationConfigurationRuleDestinationInput interface {
+	pulumi.Input
+
+	ToGetBucketReplicationConfigurationRuleDestinationOutput() GetBucketReplicationConfigurationRuleDestinationOutput
+	ToGetBucketReplicationConfigurationRuleDestinationOutputWithContext(context.Context) GetBucketReplicationConfigurationRuleDestinationOutput
+}
+
+type GetBucketReplicationConfigurationRuleDestinationArgs struct {
+	AccessControlTranslations GetBucketReplicationConfigurationRuleDestinationAccessControlTranslationArrayInput `pulumi:"accessControlTranslations"`
+	Account                   pulumi.StringInput                                                                 `pulumi:"account"`
+	// The name of the bucket to get the replication configuration for.
+	Bucket                   pulumi.StringInput                                                                `pulumi:"bucket"`
+	EncryptionConfigurations GetBucketReplicationConfigurationRuleDestinationEncryptionConfigurationArrayInput `pulumi:"encryptionConfigurations"`
+	Metrics                  GetBucketReplicationConfigurationRuleDestinationMetricArrayInput                  `pulumi:"metrics"`
+	ReplicationTimes         GetBucketReplicationConfigurationRuleDestinationReplicationTimeArrayInput         `pulumi:"replicationTimes"`
+	StorageClass             pulumi.StringInput                                                                `pulumi:"storageClass"`
+}
+
+func (GetBucketReplicationConfigurationRuleDestinationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetBucketReplicationConfigurationRuleDestination)(nil)).Elem()
+}
+
+func (i GetBucketReplicationConfigurationRuleDestinationArgs) ToGetBucketReplicationConfigurationRuleDestinationOutput() GetBucketReplicationConfigurationRuleDestinationOutput {
+	return i.ToGetBucketReplicationConfigurationRuleDestinationOutputWithContext(context.Background())
+}
+
+func (i GetBucketReplicationConfigurationRuleDestinationArgs) ToGetBucketReplicationConfigurationRuleDestinationOutputWithContext(ctx context.Context) GetBucketReplicationConfigurationRuleDestinationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetBucketReplicationConfigurationRuleDestinationOutput)
+}
+
+// GetBucketReplicationConfigurationRuleDestinationArrayInput is an input type that accepts GetBucketReplicationConfigurationRuleDestinationArray and GetBucketReplicationConfigurationRuleDestinationArrayOutput values.
+// You can construct a concrete instance of `GetBucketReplicationConfigurationRuleDestinationArrayInput` via:
+//
+//	GetBucketReplicationConfigurationRuleDestinationArray{ GetBucketReplicationConfigurationRuleDestinationArgs{...} }
+type GetBucketReplicationConfigurationRuleDestinationArrayInput interface {
+	pulumi.Input
+
+	ToGetBucketReplicationConfigurationRuleDestinationArrayOutput() GetBucketReplicationConfigurationRuleDestinationArrayOutput
+	ToGetBucketReplicationConfigurationRuleDestinationArrayOutputWithContext(context.Context) GetBucketReplicationConfigurationRuleDestinationArrayOutput
+}
+
+type GetBucketReplicationConfigurationRuleDestinationArray []GetBucketReplicationConfigurationRuleDestinationInput
+
+func (GetBucketReplicationConfigurationRuleDestinationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetBucketReplicationConfigurationRuleDestination)(nil)).Elem()
+}
+
+func (i GetBucketReplicationConfigurationRuleDestinationArray) ToGetBucketReplicationConfigurationRuleDestinationArrayOutput() GetBucketReplicationConfigurationRuleDestinationArrayOutput {
+	return i.ToGetBucketReplicationConfigurationRuleDestinationArrayOutputWithContext(context.Background())
+}
+
+func (i GetBucketReplicationConfigurationRuleDestinationArray) ToGetBucketReplicationConfigurationRuleDestinationArrayOutputWithContext(ctx context.Context) GetBucketReplicationConfigurationRuleDestinationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetBucketReplicationConfigurationRuleDestinationArrayOutput)
+}
+
+type GetBucketReplicationConfigurationRuleDestinationOutput struct{ *pulumi.OutputState }
+
+func (GetBucketReplicationConfigurationRuleDestinationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetBucketReplicationConfigurationRuleDestination)(nil)).Elem()
+}
+
+func (o GetBucketReplicationConfigurationRuleDestinationOutput) ToGetBucketReplicationConfigurationRuleDestinationOutput() GetBucketReplicationConfigurationRuleDestinationOutput {
+	return o
+}
+
+func (o GetBucketReplicationConfigurationRuleDestinationOutput) ToGetBucketReplicationConfigurationRuleDestinationOutputWithContext(ctx context.Context) GetBucketReplicationConfigurationRuleDestinationOutput {
+	return o
+}
+
+func (o GetBucketReplicationConfigurationRuleDestinationOutput) AccessControlTranslations() GetBucketReplicationConfigurationRuleDestinationAccessControlTranslationArrayOutput {
+	return o.ApplyT(func(v GetBucketReplicationConfigurationRuleDestination) []GetBucketReplicationConfigurationRuleDestinationAccessControlTranslation {
+		return v.AccessControlTranslations
+	}).(GetBucketReplicationConfigurationRuleDestinationAccessControlTranslationArrayOutput)
+}
+
+func (o GetBucketReplicationConfigurationRuleDestinationOutput) Account() pulumi.StringOutput {
+	return o.ApplyT(func(v GetBucketReplicationConfigurationRuleDestination) string { return v.Account }).(pulumi.StringOutput)
+}
+
+// The name of the bucket to get the replication configuration for.
+func (o GetBucketReplicationConfigurationRuleDestinationOutput) Bucket() pulumi.StringOutput {
+	return o.ApplyT(func(v GetBucketReplicationConfigurationRuleDestination) string { return v.Bucket }).(pulumi.StringOutput)
+}
+
+func (o GetBucketReplicationConfigurationRuleDestinationOutput) EncryptionConfigurations() GetBucketReplicationConfigurationRuleDestinationEncryptionConfigurationArrayOutput {
+	return o.ApplyT(func(v GetBucketReplicationConfigurationRuleDestination) []GetBucketReplicationConfigurationRuleDestinationEncryptionConfiguration {
+		return v.EncryptionConfigurations
+	}).(GetBucketReplicationConfigurationRuleDestinationEncryptionConfigurationArrayOutput)
+}
+
+func (o GetBucketReplicationConfigurationRuleDestinationOutput) Metrics() GetBucketReplicationConfigurationRuleDestinationMetricArrayOutput {
+	return o.ApplyT(func(v GetBucketReplicationConfigurationRuleDestination) []GetBucketReplicationConfigurationRuleDestinationMetric {
+		return v.Metrics
+	}).(GetBucketReplicationConfigurationRuleDestinationMetricArrayOutput)
+}
+
+func (o GetBucketReplicationConfigurationRuleDestinationOutput) ReplicationTimes() GetBucketReplicationConfigurationRuleDestinationReplicationTimeArrayOutput {
+	return o.ApplyT(func(v GetBucketReplicationConfigurationRuleDestination) []GetBucketReplicationConfigurationRuleDestinationReplicationTime {
+		return v.ReplicationTimes
+	}).(GetBucketReplicationConfigurationRuleDestinationReplicationTimeArrayOutput)
+}
+
+func (o GetBucketReplicationConfigurationRuleDestinationOutput) StorageClass() pulumi.StringOutput {
+	return o.ApplyT(func(v GetBucketReplicationConfigurationRuleDestination) string { return v.StorageClass }).(pulumi.StringOutput)
+}
+
+type GetBucketReplicationConfigurationRuleDestinationArrayOutput struct{ *pulumi.OutputState }
+
+func (GetBucketReplicationConfigurationRuleDestinationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetBucketReplicationConfigurationRuleDestination)(nil)).Elem()
+}
+
+func (o GetBucketReplicationConfigurationRuleDestinationArrayOutput) ToGetBucketReplicationConfigurationRuleDestinationArrayOutput() GetBucketReplicationConfigurationRuleDestinationArrayOutput {
+	return o
+}
+
+func (o GetBucketReplicationConfigurationRuleDestinationArrayOutput) ToGetBucketReplicationConfigurationRuleDestinationArrayOutputWithContext(ctx context.Context) GetBucketReplicationConfigurationRuleDestinationArrayOutput {
+	return o
+}
+
+func (o GetBucketReplicationConfigurationRuleDestinationArrayOutput) Index(i pulumi.IntInput) GetBucketReplicationConfigurationRuleDestinationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetBucketReplicationConfigurationRuleDestination {
+		return vs[0].([]GetBucketReplicationConfigurationRuleDestination)[vs[1].(int)]
+	}).(GetBucketReplicationConfigurationRuleDestinationOutput)
+}
+
+type GetBucketReplicationConfigurationRuleDestinationAccessControlTranslation struct {
+	Owner string `pulumi:"owner"`
+}
+
+// GetBucketReplicationConfigurationRuleDestinationAccessControlTranslationInput is an input type that accepts GetBucketReplicationConfigurationRuleDestinationAccessControlTranslationArgs and GetBucketReplicationConfigurationRuleDestinationAccessControlTranslationOutput values.
+// You can construct a concrete instance of `GetBucketReplicationConfigurationRuleDestinationAccessControlTranslationInput` via:
+//
+//	GetBucketReplicationConfigurationRuleDestinationAccessControlTranslationArgs{...}
+type GetBucketReplicationConfigurationRuleDestinationAccessControlTranslationInput interface {
+	pulumi.Input
+
+	ToGetBucketReplicationConfigurationRuleDestinationAccessControlTranslationOutput() GetBucketReplicationConfigurationRuleDestinationAccessControlTranslationOutput
+	ToGetBucketReplicationConfigurationRuleDestinationAccessControlTranslationOutputWithContext(context.Context) GetBucketReplicationConfigurationRuleDestinationAccessControlTranslationOutput
+}
+
+type GetBucketReplicationConfigurationRuleDestinationAccessControlTranslationArgs struct {
+	Owner pulumi.StringInput `pulumi:"owner"`
+}
+
+func (GetBucketReplicationConfigurationRuleDestinationAccessControlTranslationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetBucketReplicationConfigurationRuleDestinationAccessControlTranslation)(nil)).Elem()
+}
+
+func (i GetBucketReplicationConfigurationRuleDestinationAccessControlTranslationArgs) ToGetBucketReplicationConfigurationRuleDestinationAccessControlTranslationOutput() GetBucketReplicationConfigurationRuleDestinationAccessControlTranslationOutput {
+	return i.ToGetBucketReplicationConfigurationRuleDestinationAccessControlTranslationOutputWithContext(context.Background())
+}
+
+func (i GetBucketReplicationConfigurationRuleDestinationAccessControlTranslationArgs) ToGetBucketReplicationConfigurationRuleDestinationAccessControlTranslationOutputWithContext(ctx context.Context) GetBucketReplicationConfigurationRuleDestinationAccessControlTranslationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetBucketReplicationConfigurationRuleDestinationAccessControlTranslationOutput)
+}
+
+// GetBucketReplicationConfigurationRuleDestinationAccessControlTranslationArrayInput is an input type that accepts GetBucketReplicationConfigurationRuleDestinationAccessControlTranslationArray and GetBucketReplicationConfigurationRuleDestinationAccessControlTranslationArrayOutput values.
+// You can construct a concrete instance of `GetBucketReplicationConfigurationRuleDestinationAccessControlTranslationArrayInput` via:
+//
+//	GetBucketReplicationConfigurationRuleDestinationAccessControlTranslationArray{ GetBucketReplicationConfigurationRuleDestinationAccessControlTranslationArgs{...} }
+type GetBucketReplicationConfigurationRuleDestinationAccessControlTranslationArrayInput interface {
+	pulumi.Input
+
+	ToGetBucketReplicationConfigurationRuleDestinationAccessControlTranslationArrayOutput() GetBucketReplicationConfigurationRuleDestinationAccessControlTranslationArrayOutput
+	ToGetBucketReplicationConfigurationRuleDestinationAccessControlTranslationArrayOutputWithContext(context.Context) GetBucketReplicationConfigurationRuleDestinationAccessControlTranslationArrayOutput
+}
+
+type GetBucketReplicationConfigurationRuleDestinationAccessControlTranslationArray []GetBucketReplicationConfigurationRuleDestinationAccessControlTranslationInput
+
+func (GetBucketReplicationConfigurationRuleDestinationAccessControlTranslationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetBucketReplicationConfigurationRuleDestinationAccessControlTranslation)(nil)).Elem()
+}
+
+func (i GetBucketReplicationConfigurationRuleDestinationAccessControlTranslationArray) ToGetBucketReplicationConfigurationRuleDestinationAccessControlTranslationArrayOutput() GetBucketReplicationConfigurationRuleDestinationAccessControlTranslationArrayOutput {
+	return i.ToGetBucketReplicationConfigurationRuleDestinationAccessControlTranslationArrayOutputWithContext(context.Background())
+}
+
+func (i GetBucketReplicationConfigurationRuleDestinationAccessControlTranslationArray) ToGetBucketReplicationConfigurationRuleDestinationAccessControlTranslationArrayOutputWithContext(ctx context.Context) GetBucketReplicationConfigurationRuleDestinationAccessControlTranslationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetBucketReplicationConfigurationRuleDestinationAccessControlTranslationArrayOutput)
+}
+
+type GetBucketReplicationConfigurationRuleDestinationAccessControlTranslationOutput struct{ *pulumi.OutputState }
+
+func (GetBucketReplicationConfigurationRuleDestinationAccessControlTranslationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetBucketReplicationConfigurationRuleDestinationAccessControlTranslation)(nil)).Elem()
+}
+
+func (o GetBucketReplicationConfigurationRuleDestinationAccessControlTranslationOutput) ToGetBucketReplicationConfigurationRuleDestinationAccessControlTranslationOutput() GetBucketReplicationConfigurationRuleDestinationAccessControlTranslationOutput {
+	return o
+}
+
+func (o GetBucketReplicationConfigurationRuleDestinationAccessControlTranslationOutput) ToGetBucketReplicationConfigurationRuleDestinationAccessControlTranslationOutputWithContext(ctx context.Context) GetBucketReplicationConfigurationRuleDestinationAccessControlTranslationOutput {
+	return o
+}
+
+func (o GetBucketReplicationConfigurationRuleDestinationAccessControlTranslationOutput) Owner() pulumi.StringOutput {
+	return o.ApplyT(func(v GetBucketReplicationConfigurationRuleDestinationAccessControlTranslation) string {
+		return v.Owner
+	}).(pulumi.StringOutput)
+}
+
+type GetBucketReplicationConfigurationRuleDestinationAccessControlTranslationArrayOutput struct{ *pulumi.OutputState }
+
+func (GetBucketReplicationConfigurationRuleDestinationAccessControlTranslationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetBucketReplicationConfigurationRuleDestinationAccessControlTranslation)(nil)).Elem()
+}
+
+func (o GetBucketReplicationConfigurationRuleDestinationAccessControlTranslationArrayOutput) ToGetBucketReplicationConfigurationRuleDestinationAccessControlTranslationArrayOutput() GetBucketReplicationConfigurationRuleDestinationAccessControlTranslationArrayOutput {
+	return o
+}
+
+func (o GetBucketReplicationConfigurationRuleDestinationAccessControlTranslationArrayOutput) ToGetBucketReplicationConfigurationRuleDestinationAccessControlTranslationArrayOutputWithContext(ctx context.Context) GetBucketReplicationConfigurationRuleDestinationAccessControlTranslationArrayOutput {
+	return o
+}
+
+func (o GetBucketReplicationConfigurationRuleDestinationAccessControlTranslationArrayOutput) Index(i pulumi.IntInput) GetBucketReplicationConfigurationRuleDestinationAccessControlTranslationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetBucketReplicationConfigurationRuleDestinationAccessControlTranslation {
+		return vs[0].([]GetBucketReplicationConfigurationRuleDestinationAccessControlTranslation)[vs[1].(int)]
+	}).(GetBucketReplicationConfigurationRuleDestinationAccessControlTranslationOutput)
+}
+
+type GetBucketReplicationConfigurationRuleDestinationEncryptionConfiguration struct {
+	ReplicaKmsKeyId string `pulumi:"replicaKmsKeyId"`
+}
+
+// GetBucketReplicationConfigurationRuleDestinationEncryptionConfigurationInput is an input type that accepts GetBucketReplicationConfigurationRuleDestinationEncryptionConfigurationArgs and GetBucketReplicationConfigurationRuleDestinationEncryptionConfigurationOutput values.
+// You can construct a concrete instance of `GetBucketReplicationConfigurationRuleDestinationEncryptionConfigurationInput` via:
+//
+//	GetBucketReplicationConfigurationRuleDestinationEncryptionConfigurationArgs{...}
+type GetBucketReplicationConfigurationRuleDestinationEncryptionConfigurationInput interface {
+	pulumi.Input
+
+	ToGetBucketReplicationConfigurationRuleDestinationEncryptionConfigurationOutput() GetBucketReplicationConfigurationRuleDestinationEncryptionConfigurationOutput
+	ToGetBucketReplicationConfigurationRuleDestinationEncryptionConfigurationOutputWithContext(context.Context) GetBucketReplicationConfigurationRuleDestinationEncryptionConfigurationOutput
+}
+
+type GetBucketReplicationConfigurationRuleDestinationEncryptionConfigurationArgs struct {
+	ReplicaKmsKeyId pulumi.StringInput `pulumi:"replicaKmsKeyId"`
+}
+
+func (GetBucketReplicationConfigurationRuleDestinationEncryptionConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetBucketReplicationConfigurationRuleDestinationEncryptionConfiguration)(nil)).Elem()
+}
+
+func (i GetBucketReplicationConfigurationRuleDestinationEncryptionConfigurationArgs) ToGetBucketReplicationConfigurationRuleDestinationEncryptionConfigurationOutput() GetBucketReplicationConfigurationRuleDestinationEncryptionConfigurationOutput {
+	return i.ToGetBucketReplicationConfigurationRuleDestinationEncryptionConfigurationOutputWithContext(context.Background())
+}
+
+func (i GetBucketReplicationConfigurationRuleDestinationEncryptionConfigurationArgs) ToGetBucketReplicationConfigurationRuleDestinationEncryptionConfigurationOutputWithContext(ctx context.Context) GetBucketReplicationConfigurationRuleDestinationEncryptionConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetBucketReplicationConfigurationRuleDestinationEncryptionConfigurationOutput)
+}
+
+// GetBucketReplicationConfigurationRuleDestinationEncryptionConfigurationArrayInput is an input type that accepts GetBucketReplicationConfigurationRuleDestinationEncryptionConfigurationArray and GetBucketReplicationConfigurationRuleDestinationEncryptionConfigurationArrayOutput values.
+// You can construct a concrete instance of `GetBucketReplicationConfigurationRuleDestinationEncryptionConfigurationArrayInput` via:
+//
+//	GetBucketReplicationConfigurationRuleDestinationEncryptionConfigurationArray{ GetBucketReplicationConfigurationRuleDestinationEncryptionConfigurationArgs{...} }
+type GetBucketReplicationConfigurationRuleDestinationEncryptionConfigurationArrayInput interface {
+	pulumi.Input
+
+	ToGetBucketReplicationConfigurationRuleDestinationEncryptionConfigurationArrayOutput() GetBucketReplicationConfigurationRuleDestinationEncryptionConfigurationArrayOutput
+	ToGetBucketReplicationConfigurationRuleDestinationEncryptionConfigurationArrayOutputWithContext(context.Context) GetBucketReplicationConfigurationRuleDestinationEncryptionConfigurationArrayOutput
+}
+
+type GetBucketReplicationConfigurationRuleDestinationEncryptionConfigurationArray []GetBucketReplicationConfigurationRuleDestinationEncryptionConfigurationInput
+
+func (GetBucketReplicationConfigurationRuleDestinationEncryptionConfigurationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetBucketReplicationConfigurationRuleDestinationEncryptionConfiguration)(nil)).Elem()
+}
+
+func (i GetBucketReplicationConfigurationRuleDestinationEncryptionConfigurationArray) ToGetBucketReplicationConfigurationRuleDestinationEncryptionConfigurationArrayOutput() GetBucketReplicationConfigurationRuleDestinationEncryptionConfigurationArrayOutput {
+	return i.ToGetBucketReplicationConfigurationRuleDestinationEncryptionConfigurationArrayOutputWithContext(context.Background())
+}
+
+func (i GetBucketReplicationConfigurationRuleDestinationEncryptionConfigurationArray) ToGetBucketReplicationConfigurationRuleDestinationEncryptionConfigurationArrayOutputWithContext(ctx context.Context) GetBucketReplicationConfigurationRuleDestinationEncryptionConfigurationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetBucketReplicationConfigurationRuleDestinationEncryptionConfigurationArrayOutput)
+}
+
+type GetBucketReplicationConfigurationRuleDestinationEncryptionConfigurationOutput struct{ *pulumi.OutputState }
+
+func (GetBucketReplicationConfigurationRuleDestinationEncryptionConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetBucketReplicationConfigurationRuleDestinationEncryptionConfiguration)(nil)).Elem()
+}
+
+func (o GetBucketReplicationConfigurationRuleDestinationEncryptionConfigurationOutput) ToGetBucketReplicationConfigurationRuleDestinationEncryptionConfigurationOutput() GetBucketReplicationConfigurationRuleDestinationEncryptionConfigurationOutput {
+	return o
+}
+
+func (o GetBucketReplicationConfigurationRuleDestinationEncryptionConfigurationOutput) ToGetBucketReplicationConfigurationRuleDestinationEncryptionConfigurationOutputWithContext(ctx context.Context) GetBucketReplicationConfigurationRuleDestinationEncryptionConfigurationOutput {
+	return o
+}
+
+func (o GetBucketReplicationConfigurationRuleDestinationEncryptionConfigurationOutput) ReplicaKmsKeyId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetBucketReplicationConfigurationRuleDestinationEncryptionConfiguration) string {
+		return v.ReplicaKmsKeyId
+	}).(pulumi.StringOutput)
+}
+
+type GetBucketReplicationConfigurationRuleDestinationEncryptionConfigurationArrayOutput struct{ *pulumi.OutputState }
+
+func (GetBucketReplicationConfigurationRuleDestinationEncryptionConfigurationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetBucketReplicationConfigurationRuleDestinationEncryptionConfiguration)(nil)).Elem()
+}
+
+func (o GetBucketReplicationConfigurationRuleDestinationEncryptionConfigurationArrayOutput) ToGetBucketReplicationConfigurationRuleDestinationEncryptionConfigurationArrayOutput() GetBucketReplicationConfigurationRuleDestinationEncryptionConfigurationArrayOutput {
+	return o
+}
+
+func (o GetBucketReplicationConfigurationRuleDestinationEncryptionConfigurationArrayOutput) ToGetBucketReplicationConfigurationRuleDestinationEncryptionConfigurationArrayOutputWithContext(ctx context.Context) GetBucketReplicationConfigurationRuleDestinationEncryptionConfigurationArrayOutput {
+	return o
+}
+
+func (o GetBucketReplicationConfigurationRuleDestinationEncryptionConfigurationArrayOutput) Index(i pulumi.IntInput) GetBucketReplicationConfigurationRuleDestinationEncryptionConfigurationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetBucketReplicationConfigurationRuleDestinationEncryptionConfiguration {
+		return vs[0].([]GetBucketReplicationConfigurationRuleDestinationEncryptionConfiguration)[vs[1].(int)]
+	}).(GetBucketReplicationConfigurationRuleDestinationEncryptionConfigurationOutput)
+}
+
+type GetBucketReplicationConfigurationRuleDestinationMetric struct {
+	EventThresholds []GetBucketReplicationConfigurationRuleDestinationMetricEventThreshold `pulumi:"eventThresholds"`
+	Status          string                                                                 `pulumi:"status"`
+}
+
+// GetBucketReplicationConfigurationRuleDestinationMetricInput is an input type that accepts GetBucketReplicationConfigurationRuleDestinationMetricArgs and GetBucketReplicationConfigurationRuleDestinationMetricOutput values.
+// You can construct a concrete instance of `GetBucketReplicationConfigurationRuleDestinationMetricInput` via:
+//
+//	GetBucketReplicationConfigurationRuleDestinationMetricArgs{...}
+type GetBucketReplicationConfigurationRuleDestinationMetricInput interface {
+	pulumi.Input
+
+	ToGetBucketReplicationConfigurationRuleDestinationMetricOutput() GetBucketReplicationConfigurationRuleDestinationMetricOutput
+	ToGetBucketReplicationConfigurationRuleDestinationMetricOutputWithContext(context.Context) GetBucketReplicationConfigurationRuleDestinationMetricOutput
+}
+
+type GetBucketReplicationConfigurationRuleDestinationMetricArgs struct {
+	EventThresholds GetBucketReplicationConfigurationRuleDestinationMetricEventThresholdArrayInput `pulumi:"eventThresholds"`
+	Status          pulumi.StringInput                                                             `pulumi:"status"`
+}
+
+func (GetBucketReplicationConfigurationRuleDestinationMetricArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetBucketReplicationConfigurationRuleDestinationMetric)(nil)).Elem()
+}
+
+func (i GetBucketReplicationConfigurationRuleDestinationMetricArgs) ToGetBucketReplicationConfigurationRuleDestinationMetricOutput() GetBucketReplicationConfigurationRuleDestinationMetricOutput {
+	return i.ToGetBucketReplicationConfigurationRuleDestinationMetricOutputWithContext(context.Background())
+}
+
+func (i GetBucketReplicationConfigurationRuleDestinationMetricArgs) ToGetBucketReplicationConfigurationRuleDestinationMetricOutputWithContext(ctx context.Context) GetBucketReplicationConfigurationRuleDestinationMetricOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetBucketReplicationConfigurationRuleDestinationMetricOutput)
+}
+
+// GetBucketReplicationConfigurationRuleDestinationMetricArrayInput is an input type that accepts GetBucketReplicationConfigurationRuleDestinationMetricArray and GetBucketReplicationConfigurationRuleDestinationMetricArrayOutput values.
+// You can construct a concrete instance of `GetBucketReplicationConfigurationRuleDestinationMetricArrayInput` via:
+//
+//	GetBucketReplicationConfigurationRuleDestinationMetricArray{ GetBucketReplicationConfigurationRuleDestinationMetricArgs{...} }
+type GetBucketReplicationConfigurationRuleDestinationMetricArrayInput interface {
+	pulumi.Input
+
+	ToGetBucketReplicationConfigurationRuleDestinationMetricArrayOutput() GetBucketReplicationConfigurationRuleDestinationMetricArrayOutput
+	ToGetBucketReplicationConfigurationRuleDestinationMetricArrayOutputWithContext(context.Context) GetBucketReplicationConfigurationRuleDestinationMetricArrayOutput
+}
+
+type GetBucketReplicationConfigurationRuleDestinationMetricArray []GetBucketReplicationConfigurationRuleDestinationMetricInput
+
+func (GetBucketReplicationConfigurationRuleDestinationMetricArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetBucketReplicationConfigurationRuleDestinationMetric)(nil)).Elem()
+}
+
+func (i GetBucketReplicationConfigurationRuleDestinationMetricArray) ToGetBucketReplicationConfigurationRuleDestinationMetricArrayOutput() GetBucketReplicationConfigurationRuleDestinationMetricArrayOutput {
+	return i.ToGetBucketReplicationConfigurationRuleDestinationMetricArrayOutputWithContext(context.Background())
+}
+
+func (i GetBucketReplicationConfigurationRuleDestinationMetricArray) ToGetBucketReplicationConfigurationRuleDestinationMetricArrayOutputWithContext(ctx context.Context) GetBucketReplicationConfigurationRuleDestinationMetricArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetBucketReplicationConfigurationRuleDestinationMetricArrayOutput)
+}
+
+type GetBucketReplicationConfigurationRuleDestinationMetricOutput struct{ *pulumi.OutputState }
+
+func (GetBucketReplicationConfigurationRuleDestinationMetricOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetBucketReplicationConfigurationRuleDestinationMetric)(nil)).Elem()
+}
+
+func (o GetBucketReplicationConfigurationRuleDestinationMetricOutput) ToGetBucketReplicationConfigurationRuleDestinationMetricOutput() GetBucketReplicationConfigurationRuleDestinationMetricOutput {
+	return o
+}
+
+func (o GetBucketReplicationConfigurationRuleDestinationMetricOutput) ToGetBucketReplicationConfigurationRuleDestinationMetricOutputWithContext(ctx context.Context) GetBucketReplicationConfigurationRuleDestinationMetricOutput {
+	return o
+}
+
+func (o GetBucketReplicationConfigurationRuleDestinationMetricOutput) EventThresholds() GetBucketReplicationConfigurationRuleDestinationMetricEventThresholdArrayOutput {
+	return o.ApplyT(func(v GetBucketReplicationConfigurationRuleDestinationMetric) []GetBucketReplicationConfigurationRuleDestinationMetricEventThreshold {
+		return v.EventThresholds
+	}).(GetBucketReplicationConfigurationRuleDestinationMetricEventThresholdArrayOutput)
+}
+
+func (o GetBucketReplicationConfigurationRuleDestinationMetricOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v GetBucketReplicationConfigurationRuleDestinationMetric) string { return v.Status }).(pulumi.StringOutput)
+}
+
+type GetBucketReplicationConfigurationRuleDestinationMetricArrayOutput struct{ *pulumi.OutputState }
+
+func (GetBucketReplicationConfigurationRuleDestinationMetricArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetBucketReplicationConfigurationRuleDestinationMetric)(nil)).Elem()
+}
+
+func (o GetBucketReplicationConfigurationRuleDestinationMetricArrayOutput) ToGetBucketReplicationConfigurationRuleDestinationMetricArrayOutput() GetBucketReplicationConfigurationRuleDestinationMetricArrayOutput {
+	return o
+}
+
+func (o GetBucketReplicationConfigurationRuleDestinationMetricArrayOutput) ToGetBucketReplicationConfigurationRuleDestinationMetricArrayOutputWithContext(ctx context.Context) GetBucketReplicationConfigurationRuleDestinationMetricArrayOutput {
+	return o
+}
+
+func (o GetBucketReplicationConfigurationRuleDestinationMetricArrayOutput) Index(i pulumi.IntInput) GetBucketReplicationConfigurationRuleDestinationMetricOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetBucketReplicationConfigurationRuleDestinationMetric {
+		return vs[0].([]GetBucketReplicationConfigurationRuleDestinationMetric)[vs[1].(int)]
+	}).(GetBucketReplicationConfigurationRuleDestinationMetricOutput)
+}
+
+type GetBucketReplicationConfigurationRuleDestinationMetricEventThreshold struct {
+	Minutes int `pulumi:"minutes"`
+}
+
+// GetBucketReplicationConfigurationRuleDestinationMetricEventThresholdInput is an input type that accepts GetBucketReplicationConfigurationRuleDestinationMetricEventThresholdArgs and GetBucketReplicationConfigurationRuleDestinationMetricEventThresholdOutput values.
+// You can construct a concrete instance of `GetBucketReplicationConfigurationRuleDestinationMetricEventThresholdInput` via:
+//
+//	GetBucketReplicationConfigurationRuleDestinationMetricEventThresholdArgs{...}
+type GetBucketReplicationConfigurationRuleDestinationMetricEventThresholdInput interface {
+	pulumi.Input
+
+	ToGetBucketReplicationConfigurationRuleDestinationMetricEventThresholdOutput() GetBucketReplicationConfigurationRuleDestinationMetricEventThresholdOutput
+	ToGetBucketReplicationConfigurationRuleDestinationMetricEventThresholdOutputWithContext(context.Context) GetBucketReplicationConfigurationRuleDestinationMetricEventThresholdOutput
+}
+
+type GetBucketReplicationConfigurationRuleDestinationMetricEventThresholdArgs struct {
+	Minutes pulumi.IntInput `pulumi:"minutes"`
+}
+
+func (GetBucketReplicationConfigurationRuleDestinationMetricEventThresholdArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetBucketReplicationConfigurationRuleDestinationMetricEventThreshold)(nil)).Elem()
+}
+
+func (i GetBucketReplicationConfigurationRuleDestinationMetricEventThresholdArgs) ToGetBucketReplicationConfigurationRuleDestinationMetricEventThresholdOutput() GetBucketReplicationConfigurationRuleDestinationMetricEventThresholdOutput {
+	return i.ToGetBucketReplicationConfigurationRuleDestinationMetricEventThresholdOutputWithContext(context.Background())
+}
+
+func (i GetBucketReplicationConfigurationRuleDestinationMetricEventThresholdArgs) ToGetBucketReplicationConfigurationRuleDestinationMetricEventThresholdOutputWithContext(ctx context.Context) GetBucketReplicationConfigurationRuleDestinationMetricEventThresholdOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetBucketReplicationConfigurationRuleDestinationMetricEventThresholdOutput)
+}
+
+// GetBucketReplicationConfigurationRuleDestinationMetricEventThresholdArrayInput is an input type that accepts GetBucketReplicationConfigurationRuleDestinationMetricEventThresholdArray and GetBucketReplicationConfigurationRuleDestinationMetricEventThresholdArrayOutput values.
+// You can construct a concrete instance of `GetBucketReplicationConfigurationRuleDestinationMetricEventThresholdArrayInput` via:
+//
+//	GetBucketReplicationConfigurationRuleDestinationMetricEventThresholdArray{ GetBucketReplicationConfigurationRuleDestinationMetricEventThresholdArgs{...} }
+type GetBucketReplicationConfigurationRuleDestinationMetricEventThresholdArrayInput interface {
+	pulumi.Input
+
+	ToGetBucketReplicationConfigurationRuleDestinationMetricEventThresholdArrayOutput() GetBucketReplicationConfigurationRuleDestinationMetricEventThresholdArrayOutput
+	ToGetBucketReplicationConfigurationRuleDestinationMetricEventThresholdArrayOutputWithContext(context.Context) GetBucketReplicationConfigurationRuleDestinationMetricEventThresholdArrayOutput
+}
+
+type GetBucketReplicationConfigurationRuleDestinationMetricEventThresholdArray []GetBucketReplicationConfigurationRuleDestinationMetricEventThresholdInput
+
+func (GetBucketReplicationConfigurationRuleDestinationMetricEventThresholdArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetBucketReplicationConfigurationRuleDestinationMetricEventThreshold)(nil)).Elem()
+}
+
+func (i GetBucketReplicationConfigurationRuleDestinationMetricEventThresholdArray) ToGetBucketReplicationConfigurationRuleDestinationMetricEventThresholdArrayOutput() GetBucketReplicationConfigurationRuleDestinationMetricEventThresholdArrayOutput {
+	return i.ToGetBucketReplicationConfigurationRuleDestinationMetricEventThresholdArrayOutputWithContext(context.Background())
+}
+
+func (i GetBucketReplicationConfigurationRuleDestinationMetricEventThresholdArray) ToGetBucketReplicationConfigurationRuleDestinationMetricEventThresholdArrayOutputWithContext(ctx context.Context) GetBucketReplicationConfigurationRuleDestinationMetricEventThresholdArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetBucketReplicationConfigurationRuleDestinationMetricEventThresholdArrayOutput)
+}
+
+type GetBucketReplicationConfigurationRuleDestinationMetricEventThresholdOutput struct{ *pulumi.OutputState }
+
+func (GetBucketReplicationConfigurationRuleDestinationMetricEventThresholdOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetBucketReplicationConfigurationRuleDestinationMetricEventThreshold)(nil)).Elem()
+}
+
+func (o GetBucketReplicationConfigurationRuleDestinationMetricEventThresholdOutput) ToGetBucketReplicationConfigurationRuleDestinationMetricEventThresholdOutput() GetBucketReplicationConfigurationRuleDestinationMetricEventThresholdOutput {
+	return o
+}
+
+func (o GetBucketReplicationConfigurationRuleDestinationMetricEventThresholdOutput) ToGetBucketReplicationConfigurationRuleDestinationMetricEventThresholdOutputWithContext(ctx context.Context) GetBucketReplicationConfigurationRuleDestinationMetricEventThresholdOutput {
+	return o
+}
+
+func (o GetBucketReplicationConfigurationRuleDestinationMetricEventThresholdOutput) Minutes() pulumi.IntOutput {
+	return o.ApplyT(func(v GetBucketReplicationConfigurationRuleDestinationMetricEventThreshold) int { return v.Minutes }).(pulumi.IntOutput)
+}
+
+type GetBucketReplicationConfigurationRuleDestinationMetricEventThresholdArrayOutput struct{ *pulumi.OutputState }
+
+func (GetBucketReplicationConfigurationRuleDestinationMetricEventThresholdArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetBucketReplicationConfigurationRuleDestinationMetricEventThreshold)(nil)).Elem()
+}
+
+func (o GetBucketReplicationConfigurationRuleDestinationMetricEventThresholdArrayOutput) ToGetBucketReplicationConfigurationRuleDestinationMetricEventThresholdArrayOutput() GetBucketReplicationConfigurationRuleDestinationMetricEventThresholdArrayOutput {
+	return o
+}
+
+func (o GetBucketReplicationConfigurationRuleDestinationMetricEventThresholdArrayOutput) ToGetBucketReplicationConfigurationRuleDestinationMetricEventThresholdArrayOutputWithContext(ctx context.Context) GetBucketReplicationConfigurationRuleDestinationMetricEventThresholdArrayOutput {
+	return o
+}
+
+func (o GetBucketReplicationConfigurationRuleDestinationMetricEventThresholdArrayOutput) Index(i pulumi.IntInput) GetBucketReplicationConfigurationRuleDestinationMetricEventThresholdOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetBucketReplicationConfigurationRuleDestinationMetricEventThreshold {
+		return vs[0].([]GetBucketReplicationConfigurationRuleDestinationMetricEventThreshold)[vs[1].(int)]
+	}).(GetBucketReplicationConfigurationRuleDestinationMetricEventThresholdOutput)
+}
+
+type GetBucketReplicationConfigurationRuleDestinationReplicationTime struct {
+	Status string                                                                `pulumi:"status"`
+	Times  []GetBucketReplicationConfigurationRuleDestinationReplicationTimeTime `pulumi:"times"`
+}
+
+// GetBucketReplicationConfigurationRuleDestinationReplicationTimeInput is an input type that accepts GetBucketReplicationConfigurationRuleDestinationReplicationTimeArgs and GetBucketReplicationConfigurationRuleDestinationReplicationTimeOutput values.
+// You can construct a concrete instance of `GetBucketReplicationConfigurationRuleDestinationReplicationTimeInput` via:
+//
+//	GetBucketReplicationConfigurationRuleDestinationReplicationTimeArgs{...}
+type GetBucketReplicationConfigurationRuleDestinationReplicationTimeInput interface {
+	pulumi.Input
+
+	ToGetBucketReplicationConfigurationRuleDestinationReplicationTimeOutput() GetBucketReplicationConfigurationRuleDestinationReplicationTimeOutput
+	ToGetBucketReplicationConfigurationRuleDestinationReplicationTimeOutputWithContext(context.Context) GetBucketReplicationConfigurationRuleDestinationReplicationTimeOutput
+}
+
+type GetBucketReplicationConfigurationRuleDestinationReplicationTimeArgs struct {
+	Status pulumi.StringInput                                                            `pulumi:"status"`
+	Times  GetBucketReplicationConfigurationRuleDestinationReplicationTimeTimeArrayInput `pulumi:"times"`
+}
+
+func (GetBucketReplicationConfigurationRuleDestinationReplicationTimeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetBucketReplicationConfigurationRuleDestinationReplicationTime)(nil)).Elem()
+}
+
+func (i GetBucketReplicationConfigurationRuleDestinationReplicationTimeArgs) ToGetBucketReplicationConfigurationRuleDestinationReplicationTimeOutput() GetBucketReplicationConfigurationRuleDestinationReplicationTimeOutput {
+	return i.ToGetBucketReplicationConfigurationRuleDestinationReplicationTimeOutputWithContext(context.Background())
+}
+
+func (i GetBucketReplicationConfigurationRuleDestinationReplicationTimeArgs) ToGetBucketReplicationConfigurationRuleDestinationReplicationTimeOutputWithContext(ctx context.Context) GetBucketReplicationConfigurationRuleDestinationReplicationTimeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetBucketReplicationConfigurationRuleDestinationReplicationTimeOutput)
+}
+
+// GetBucketReplicationConfigurationRuleDestinationReplicationTimeArrayInput is an input type that accepts GetBucketReplicationConfigurationRuleDestinationReplicationTimeArray and GetBucketReplicationConfigurationRuleDestinationReplicationTimeArrayOutput values.
+// You can construct a concrete instance of `GetBucketReplicationConfigurationRuleDestinationReplicationTimeArrayInput` via:
+//
+//	GetBucketReplicationConfigurationRuleDestinationReplicationTimeArray{ GetBucketReplicationConfigurationRuleDestinationReplicationTimeArgs{...} }
+type GetBucketReplicationConfigurationRuleDestinationReplicationTimeArrayInput interface {
+	pulumi.Input
+
+	ToGetBucketReplicationConfigurationRuleDestinationReplicationTimeArrayOutput() GetBucketReplicationConfigurationRuleDestinationReplicationTimeArrayOutput
+	ToGetBucketReplicationConfigurationRuleDestinationReplicationTimeArrayOutputWithContext(context.Context) GetBucketReplicationConfigurationRuleDestinationReplicationTimeArrayOutput
+}
+
+type GetBucketReplicationConfigurationRuleDestinationReplicationTimeArray []GetBucketReplicationConfigurationRuleDestinationReplicationTimeInput
+
+func (GetBucketReplicationConfigurationRuleDestinationReplicationTimeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetBucketReplicationConfigurationRuleDestinationReplicationTime)(nil)).Elem()
+}
+
+func (i GetBucketReplicationConfigurationRuleDestinationReplicationTimeArray) ToGetBucketReplicationConfigurationRuleDestinationReplicationTimeArrayOutput() GetBucketReplicationConfigurationRuleDestinationReplicationTimeArrayOutput {
+	return i.ToGetBucketReplicationConfigurationRuleDestinationReplicationTimeArrayOutputWithContext(context.Background())
+}
+
+func (i GetBucketReplicationConfigurationRuleDestinationReplicationTimeArray) ToGetBucketReplicationConfigurationRuleDestinationReplicationTimeArrayOutputWithContext(ctx context.Context) GetBucketReplicationConfigurationRuleDestinationReplicationTimeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetBucketReplicationConfigurationRuleDestinationReplicationTimeArrayOutput)
+}
+
+type GetBucketReplicationConfigurationRuleDestinationReplicationTimeOutput struct{ *pulumi.OutputState }
+
+func (GetBucketReplicationConfigurationRuleDestinationReplicationTimeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetBucketReplicationConfigurationRuleDestinationReplicationTime)(nil)).Elem()
+}
+
+func (o GetBucketReplicationConfigurationRuleDestinationReplicationTimeOutput) ToGetBucketReplicationConfigurationRuleDestinationReplicationTimeOutput() GetBucketReplicationConfigurationRuleDestinationReplicationTimeOutput {
+	return o
+}
+
+func (o GetBucketReplicationConfigurationRuleDestinationReplicationTimeOutput) ToGetBucketReplicationConfigurationRuleDestinationReplicationTimeOutputWithContext(ctx context.Context) GetBucketReplicationConfigurationRuleDestinationReplicationTimeOutput {
+	return o
+}
+
+func (o GetBucketReplicationConfigurationRuleDestinationReplicationTimeOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v GetBucketReplicationConfigurationRuleDestinationReplicationTime) string { return v.Status }).(pulumi.StringOutput)
+}
+
+func (o GetBucketReplicationConfigurationRuleDestinationReplicationTimeOutput) Times() GetBucketReplicationConfigurationRuleDestinationReplicationTimeTimeArrayOutput {
+	return o.ApplyT(func(v GetBucketReplicationConfigurationRuleDestinationReplicationTime) []GetBucketReplicationConfigurationRuleDestinationReplicationTimeTime {
+		return v.Times
+	}).(GetBucketReplicationConfigurationRuleDestinationReplicationTimeTimeArrayOutput)
+}
+
+type GetBucketReplicationConfigurationRuleDestinationReplicationTimeArrayOutput struct{ *pulumi.OutputState }
+
+func (GetBucketReplicationConfigurationRuleDestinationReplicationTimeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetBucketReplicationConfigurationRuleDestinationReplicationTime)(nil)).Elem()
+}
+
+func (o GetBucketReplicationConfigurationRuleDestinationReplicationTimeArrayOutput) ToGetBucketReplicationConfigurationRuleDestinationReplicationTimeArrayOutput() GetBucketReplicationConfigurationRuleDestinationReplicationTimeArrayOutput {
+	return o
+}
+
+func (o GetBucketReplicationConfigurationRuleDestinationReplicationTimeArrayOutput) ToGetBucketReplicationConfigurationRuleDestinationReplicationTimeArrayOutputWithContext(ctx context.Context) GetBucketReplicationConfigurationRuleDestinationReplicationTimeArrayOutput {
+	return o
+}
+
+func (o GetBucketReplicationConfigurationRuleDestinationReplicationTimeArrayOutput) Index(i pulumi.IntInput) GetBucketReplicationConfigurationRuleDestinationReplicationTimeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetBucketReplicationConfigurationRuleDestinationReplicationTime {
+		return vs[0].([]GetBucketReplicationConfigurationRuleDestinationReplicationTime)[vs[1].(int)]
+	}).(GetBucketReplicationConfigurationRuleDestinationReplicationTimeOutput)
+}
+
+type GetBucketReplicationConfigurationRuleDestinationReplicationTimeTime struct {
+	Minutes int `pulumi:"minutes"`
+}
+
+// GetBucketReplicationConfigurationRuleDestinationReplicationTimeTimeInput is an input type that accepts GetBucketReplicationConfigurationRuleDestinationReplicationTimeTimeArgs and GetBucketReplicationConfigurationRuleDestinationReplicationTimeTimeOutput values.
+// You can construct a concrete instance of `GetBucketReplicationConfigurationRuleDestinationReplicationTimeTimeInput` via:
+//
+//	GetBucketReplicationConfigurationRuleDestinationReplicationTimeTimeArgs{...}
+type GetBucketReplicationConfigurationRuleDestinationReplicationTimeTimeInput interface {
+	pulumi.Input
+
+	ToGetBucketReplicationConfigurationRuleDestinationReplicationTimeTimeOutput() GetBucketReplicationConfigurationRuleDestinationReplicationTimeTimeOutput
+	ToGetBucketReplicationConfigurationRuleDestinationReplicationTimeTimeOutputWithContext(context.Context) GetBucketReplicationConfigurationRuleDestinationReplicationTimeTimeOutput
+}
+
+type GetBucketReplicationConfigurationRuleDestinationReplicationTimeTimeArgs struct {
+	Minutes pulumi.IntInput `pulumi:"minutes"`
+}
+
+func (GetBucketReplicationConfigurationRuleDestinationReplicationTimeTimeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetBucketReplicationConfigurationRuleDestinationReplicationTimeTime)(nil)).Elem()
+}
+
+func (i GetBucketReplicationConfigurationRuleDestinationReplicationTimeTimeArgs) ToGetBucketReplicationConfigurationRuleDestinationReplicationTimeTimeOutput() GetBucketReplicationConfigurationRuleDestinationReplicationTimeTimeOutput {
+	return i.ToGetBucketReplicationConfigurationRuleDestinationReplicationTimeTimeOutputWithContext(context.Background())
+}
+
+func (i GetBucketReplicationConfigurationRuleDestinationReplicationTimeTimeArgs) ToGetBucketReplicationConfigurationRuleDestinationReplicationTimeTimeOutputWithContext(ctx context.Context) GetBucketReplicationConfigurationRuleDestinationReplicationTimeTimeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetBucketReplicationConfigurationRuleDestinationReplicationTimeTimeOutput)
+}
+
+// GetBucketReplicationConfigurationRuleDestinationReplicationTimeTimeArrayInput is an input type that accepts GetBucketReplicationConfigurationRuleDestinationReplicationTimeTimeArray and GetBucketReplicationConfigurationRuleDestinationReplicationTimeTimeArrayOutput values.
+// You can construct a concrete instance of `GetBucketReplicationConfigurationRuleDestinationReplicationTimeTimeArrayInput` via:
+//
+//	GetBucketReplicationConfigurationRuleDestinationReplicationTimeTimeArray{ GetBucketReplicationConfigurationRuleDestinationReplicationTimeTimeArgs{...} }
+type GetBucketReplicationConfigurationRuleDestinationReplicationTimeTimeArrayInput interface {
+	pulumi.Input
+
+	ToGetBucketReplicationConfigurationRuleDestinationReplicationTimeTimeArrayOutput() GetBucketReplicationConfigurationRuleDestinationReplicationTimeTimeArrayOutput
+	ToGetBucketReplicationConfigurationRuleDestinationReplicationTimeTimeArrayOutputWithContext(context.Context) GetBucketReplicationConfigurationRuleDestinationReplicationTimeTimeArrayOutput
+}
+
+type GetBucketReplicationConfigurationRuleDestinationReplicationTimeTimeArray []GetBucketReplicationConfigurationRuleDestinationReplicationTimeTimeInput
+
+func (GetBucketReplicationConfigurationRuleDestinationReplicationTimeTimeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetBucketReplicationConfigurationRuleDestinationReplicationTimeTime)(nil)).Elem()
+}
+
+func (i GetBucketReplicationConfigurationRuleDestinationReplicationTimeTimeArray) ToGetBucketReplicationConfigurationRuleDestinationReplicationTimeTimeArrayOutput() GetBucketReplicationConfigurationRuleDestinationReplicationTimeTimeArrayOutput {
+	return i.ToGetBucketReplicationConfigurationRuleDestinationReplicationTimeTimeArrayOutputWithContext(context.Background())
+}
+
+func (i GetBucketReplicationConfigurationRuleDestinationReplicationTimeTimeArray) ToGetBucketReplicationConfigurationRuleDestinationReplicationTimeTimeArrayOutputWithContext(ctx context.Context) GetBucketReplicationConfigurationRuleDestinationReplicationTimeTimeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetBucketReplicationConfigurationRuleDestinationReplicationTimeTimeArrayOutput)
+}
+
+type GetBucketReplicationConfigurationRuleDestinationReplicationTimeTimeOutput struct{ *pulumi.OutputState }
+
+func (GetBucketReplicationConfigurationRuleDestinationReplicationTimeTimeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetBucketReplicationConfigurationRuleDestinationReplicationTimeTime)(nil)).Elem()
+}
+
+func (o GetBucketReplicationConfigurationRuleDestinationReplicationTimeTimeOutput) ToGetBucketReplicationConfigurationRuleDestinationReplicationTimeTimeOutput() GetBucketReplicationConfigurationRuleDestinationReplicationTimeTimeOutput {
+	return o
+}
+
+func (o GetBucketReplicationConfigurationRuleDestinationReplicationTimeTimeOutput) ToGetBucketReplicationConfigurationRuleDestinationReplicationTimeTimeOutputWithContext(ctx context.Context) GetBucketReplicationConfigurationRuleDestinationReplicationTimeTimeOutput {
+	return o
+}
+
+func (o GetBucketReplicationConfigurationRuleDestinationReplicationTimeTimeOutput) Minutes() pulumi.IntOutput {
+	return o.ApplyT(func(v GetBucketReplicationConfigurationRuleDestinationReplicationTimeTime) int { return v.Minutes }).(pulumi.IntOutput)
+}
+
+type GetBucketReplicationConfigurationRuleDestinationReplicationTimeTimeArrayOutput struct{ *pulumi.OutputState }
+
+func (GetBucketReplicationConfigurationRuleDestinationReplicationTimeTimeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetBucketReplicationConfigurationRuleDestinationReplicationTimeTime)(nil)).Elem()
+}
+
+func (o GetBucketReplicationConfigurationRuleDestinationReplicationTimeTimeArrayOutput) ToGetBucketReplicationConfigurationRuleDestinationReplicationTimeTimeArrayOutput() GetBucketReplicationConfigurationRuleDestinationReplicationTimeTimeArrayOutput {
+	return o
+}
+
+func (o GetBucketReplicationConfigurationRuleDestinationReplicationTimeTimeArrayOutput) ToGetBucketReplicationConfigurationRuleDestinationReplicationTimeTimeArrayOutputWithContext(ctx context.Context) GetBucketReplicationConfigurationRuleDestinationReplicationTimeTimeArrayOutput {
+	return o
+}
+
+func (o GetBucketReplicationConfigurationRuleDestinationReplicationTimeTimeArrayOutput) Index(i pulumi.IntInput) GetBucketReplicationConfigurationRuleDestinationReplicationTimeTimeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetBucketReplicationConfigurationRuleDestinationReplicationTimeTime {
+		return vs[0].([]GetBucketReplicationConfigurationRuleDestinationReplicationTimeTime)[vs[1].(int)]
+	}).(GetBucketReplicationConfigurationRuleDestinationReplicationTimeTimeOutput)
+}
+
+type GetBucketReplicationConfigurationRuleExistingObjectReplication struct {
+	Status string `pulumi:"status"`
+}
+
+// GetBucketReplicationConfigurationRuleExistingObjectReplicationInput is an input type that accepts GetBucketReplicationConfigurationRuleExistingObjectReplicationArgs and GetBucketReplicationConfigurationRuleExistingObjectReplicationOutput values.
+// You can construct a concrete instance of `GetBucketReplicationConfigurationRuleExistingObjectReplicationInput` via:
+//
+//	GetBucketReplicationConfigurationRuleExistingObjectReplicationArgs{...}
+type GetBucketReplicationConfigurationRuleExistingObjectReplicationInput interface {
+	pulumi.Input
+
+	ToGetBucketReplicationConfigurationRuleExistingObjectReplicationOutput() GetBucketReplicationConfigurationRuleExistingObjectReplicationOutput
+	ToGetBucketReplicationConfigurationRuleExistingObjectReplicationOutputWithContext(context.Context) GetBucketReplicationConfigurationRuleExistingObjectReplicationOutput
+}
+
+type GetBucketReplicationConfigurationRuleExistingObjectReplicationArgs struct {
+	Status pulumi.StringInput `pulumi:"status"`
+}
+
+func (GetBucketReplicationConfigurationRuleExistingObjectReplicationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetBucketReplicationConfigurationRuleExistingObjectReplication)(nil)).Elem()
+}
+
+func (i GetBucketReplicationConfigurationRuleExistingObjectReplicationArgs) ToGetBucketReplicationConfigurationRuleExistingObjectReplicationOutput() GetBucketReplicationConfigurationRuleExistingObjectReplicationOutput {
+	return i.ToGetBucketReplicationConfigurationRuleExistingObjectReplicationOutputWithContext(context.Background())
+}
+
+func (i GetBucketReplicationConfigurationRuleExistingObjectReplicationArgs) ToGetBucketReplicationConfigurationRuleExistingObjectReplicationOutputWithContext(ctx context.Context) GetBucketReplicationConfigurationRuleExistingObjectReplicationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetBucketReplicationConfigurationRuleExistingObjectReplicationOutput)
+}
+
+// GetBucketReplicationConfigurationRuleExistingObjectReplicationArrayInput is an input type that accepts GetBucketReplicationConfigurationRuleExistingObjectReplicationArray and GetBucketReplicationConfigurationRuleExistingObjectReplicationArrayOutput values.
+// You can construct a concrete instance of `GetBucketReplicationConfigurationRuleExistingObjectReplicationArrayInput` via:
+//
+//	GetBucketReplicationConfigurationRuleExistingObjectReplicationArray{ GetBucketReplicationConfigurationRuleExistingObjectReplicationArgs{...} }
+type GetBucketReplicationConfigurationRuleExistingObjectReplicationArrayInput interface {
+	pulumi.Input
+
+	ToGetBucketReplicationConfigurationRuleExistingObjectReplicationArrayOutput() GetBucketReplicationConfigurationRuleExistingObjectReplicationArrayOutput
+	ToGetBucketReplicationConfigurationRuleExistingObjectReplicationArrayOutputWithContext(context.Context) GetBucketReplicationConfigurationRuleExistingObjectReplicationArrayOutput
+}
+
+type GetBucketReplicationConfigurationRuleExistingObjectReplicationArray []GetBucketReplicationConfigurationRuleExistingObjectReplicationInput
+
+func (GetBucketReplicationConfigurationRuleExistingObjectReplicationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetBucketReplicationConfigurationRuleExistingObjectReplication)(nil)).Elem()
+}
+
+func (i GetBucketReplicationConfigurationRuleExistingObjectReplicationArray) ToGetBucketReplicationConfigurationRuleExistingObjectReplicationArrayOutput() GetBucketReplicationConfigurationRuleExistingObjectReplicationArrayOutput {
+	return i.ToGetBucketReplicationConfigurationRuleExistingObjectReplicationArrayOutputWithContext(context.Background())
+}
+
+func (i GetBucketReplicationConfigurationRuleExistingObjectReplicationArray) ToGetBucketReplicationConfigurationRuleExistingObjectReplicationArrayOutputWithContext(ctx context.Context) GetBucketReplicationConfigurationRuleExistingObjectReplicationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetBucketReplicationConfigurationRuleExistingObjectReplicationArrayOutput)
+}
+
+type GetBucketReplicationConfigurationRuleExistingObjectReplicationOutput struct{ *pulumi.OutputState }
+
+func (GetBucketReplicationConfigurationRuleExistingObjectReplicationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetBucketReplicationConfigurationRuleExistingObjectReplication)(nil)).Elem()
+}
+
+func (o GetBucketReplicationConfigurationRuleExistingObjectReplicationOutput) ToGetBucketReplicationConfigurationRuleExistingObjectReplicationOutput() GetBucketReplicationConfigurationRuleExistingObjectReplicationOutput {
+	return o
+}
+
+func (o GetBucketReplicationConfigurationRuleExistingObjectReplicationOutput) ToGetBucketReplicationConfigurationRuleExistingObjectReplicationOutputWithContext(ctx context.Context) GetBucketReplicationConfigurationRuleExistingObjectReplicationOutput {
+	return o
+}
+
+func (o GetBucketReplicationConfigurationRuleExistingObjectReplicationOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v GetBucketReplicationConfigurationRuleExistingObjectReplication) string { return v.Status }).(pulumi.StringOutput)
+}
+
+type GetBucketReplicationConfigurationRuleExistingObjectReplicationArrayOutput struct{ *pulumi.OutputState }
+
+func (GetBucketReplicationConfigurationRuleExistingObjectReplicationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetBucketReplicationConfigurationRuleExistingObjectReplication)(nil)).Elem()
+}
+
+func (o GetBucketReplicationConfigurationRuleExistingObjectReplicationArrayOutput) ToGetBucketReplicationConfigurationRuleExistingObjectReplicationArrayOutput() GetBucketReplicationConfigurationRuleExistingObjectReplicationArrayOutput {
+	return o
+}
+
+func (o GetBucketReplicationConfigurationRuleExistingObjectReplicationArrayOutput) ToGetBucketReplicationConfigurationRuleExistingObjectReplicationArrayOutputWithContext(ctx context.Context) GetBucketReplicationConfigurationRuleExistingObjectReplicationArrayOutput {
+	return o
+}
+
+func (o GetBucketReplicationConfigurationRuleExistingObjectReplicationArrayOutput) Index(i pulumi.IntInput) GetBucketReplicationConfigurationRuleExistingObjectReplicationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetBucketReplicationConfigurationRuleExistingObjectReplication {
+		return vs[0].([]GetBucketReplicationConfigurationRuleExistingObjectReplication)[vs[1].(int)]
+	}).(GetBucketReplicationConfigurationRuleExistingObjectReplicationOutput)
+}
+
+type GetBucketReplicationConfigurationRuleFilter struct {
+	Ands []GetBucketReplicationConfigurationRuleFilterAnd `pulumi:"ands"`
+	// The object key name prefix that identifies the subset of objects to which the rule applies.
+	Prefix string `pulumi:"prefix"`
+	// An unordered list of tags that identify a subset of objects to which the rule applies.
+	Tags []GetBucketReplicationConfigurationRuleFilterTag `pulumi:"tags"`
+}
+
+// GetBucketReplicationConfigurationRuleFilterInput is an input type that accepts GetBucketReplicationConfigurationRuleFilterArgs and GetBucketReplicationConfigurationRuleFilterOutput values.
+// You can construct a concrete instance of `GetBucketReplicationConfigurationRuleFilterInput` via:
+//
+//	GetBucketReplicationConfigurationRuleFilterArgs{...}
+type GetBucketReplicationConfigurationRuleFilterInput interface {
+	pulumi.Input
+
+	ToGetBucketReplicationConfigurationRuleFilterOutput() GetBucketReplicationConfigurationRuleFilterOutput
+	ToGetBucketReplicationConfigurationRuleFilterOutputWithContext(context.Context) GetBucketReplicationConfigurationRuleFilterOutput
+}
+
+type GetBucketReplicationConfigurationRuleFilterArgs struct {
+	Ands GetBucketReplicationConfigurationRuleFilterAndArrayInput `pulumi:"ands"`
+	// The object key name prefix that identifies the subset of objects to which the rule applies.
+	Prefix pulumi.StringInput `pulumi:"prefix"`
+	// An unordered list of tags that identify a subset of objects to which the rule applies.
+	Tags GetBucketReplicationConfigurationRuleFilterTagArrayInput `pulumi:"tags"`
+}
+
+func (GetBucketReplicationConfigurationRuleFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetBucketReplicationConfigurationRuleFilter)(nil)).Elem()
+}
+
+func (i GetBucketReplicationConfigurationRuleFilterArgs) ToGetBucketReplicationConfigurationRuleFilterOutput() GetBucketReplicationConfigurationRuleFilterOutput {
+	return i.ToGetBucketReplicationConfigurationRuleFilterOutputWithContext(context.Background())
+}
+
+func (i GetBucketReplicationConfigurationRuleFilterArgs) ToGetBucketReplicationConfigurationRuleFilterOutputWithContext(ctx context.Context) GetBucketReplicationConfigurationRuleFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetBucketReplicationConfigurationRuleFilterOutput)
+}
+
+// GetBucketReplicationConfigurationRuleFilterArrayInput is an input type that accepts GetBucketReplicationConfigurationRuleFilterArray and GetBucketReplicationConfigurationRuleFilterArrayOutput values.
+// You can construct a concrete instance of `GetBucketReplicationConfigurationRuleFilterArrayInput` via:
+//
+//	GetBucketReplicationConfigurationRuleFilterArray{ GetBucketReplicationConfigurationRuleFilterArgs{...} }
+type GetBucketReplicationConfigurationRuleFilterArrayInput interface {
+	pulumi.Input
+
+	ToGetBucketReplicationConfigurationRuleFilterArrayOutput() GetBucketReplicationConfigurationRuleFilterArrayOutput
+	ToGetBucketReplicationConfigurationRuleFilterArrayOutputWithContext(context.Context) GetBucketReplicationConfigurationRuleFilterArrayOutput
+}
+
+type GetBucketReplicationConfigurationRuleFilterArray []GetBucketReplicationConfigurationRuleFilterInput
+
+func (GetBucketReplicationConfigurationRuleFilterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetBucketReplicationConfigurationRuleFilter)(nil)).Elem()
+}
+
+func (i GetBucketReplicationConfigurationRuleFilterArray) ToGetBucketReplicationConfigurationRuleFilterArrayOutput() GetBucketReplicationConfigurationRuleFilterArrayOutput {
+	return i.ToGetBucketReplicationConfigurationRuleFilterArrayOutputWithContext(context.Background())
+}
+
+func (i GetBucketReplicationConfigurationRuleFilterArray) ToGetBucketReplicationConfigurationRuleFilterArrayOutputWithContext(ctx context.Context) GetBucketReplicationConfigurationRuleFilterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetBucketReplicationConfigurationRuleFilterArrayOutput)
+}
+
+type GetBucketReplicationConfigurationRuleFilterOutput struct{ *pulumi.OutputState }
+
+func (GetBucketReplicationConfigurationRuleFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetBucketReplicationConfigurationRuleFilter)(nil)).Elem()
+}
+
+func (o GetBucketReplicationConfigurationRuleFilterOutput) ToGetBucketReplicationConfigurationRuleFilterOutput() GetBucketReplicationConfigurationRuleFilterOutput {
+	return o
+}
+
+func (o GetBucketReplicationConfigurationRuleFilterOutput) ToGetBucketReplicationConfigurationRuleFilterOutputWithContext(ctx context.Context) GetBucketReplicationConfigurationRuleFilterOutput {
+	return o
+}
+
+func (o GetBucketReplicationConfigurationRuleFilterOutput) Ands() GetBucketReplicationConfigurationRuleFilterAndArrayOutput {
+	return o.ApplyT(func(v GetBucketReplicationConfigurationRuleFilter) []GetBucketReplicationConfigurationRuleFilterAnd {
+		return v.Ands
+	}).(GetBucketReplicationConfigurationRuleFilterAndArrayOutput)
+}
+
+// The object key name prefix that identifies the subset of objects to which the rule applies.
+func (o GetBucketReplicationConfigurationRuleFilterOutput) Prefix() pulumi.StringOutput {
+	return o.ApplyT(func(v GetBucketReplicationConfigurationRuleFilter) string { return v.Prefix }).(pulumi.StringOutput)
+}
+
+// An unordered list of tags that identify a subset of objects to which the rule applies.
+func (o GetBucketReplicationConfigurationRuleFilterOutput) Tags() GetBucketReplicationConfigurationRuleFilterTagArrayOutput {
+	return o.ApplyT(func(v GetBucketReplicationConfigurationRuleFilter) []GetBucketReplicationConfigurationRuleFilterTag {
+		return v.Tags
+	}).(GetBucketReplicationConfigurationRuleFilterTagArrayOutput)
+}
+
+type GetBucketReplicationConfigurationRuleFilterArrayOutput struct{ *pulumi.OutputState }
+
+func (GetBucketReplicationConfigurationRuleFilterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetBucketReplicationConfigurationRuleFilter)(nil)).Elem()
+}
+
+func (o GetBucketReplicationConfigurationRuleFilterArrayOutput) ToGetBucketReplicationConfigurationRuleFilterArrayOutput() GetBucketReplicationConfigurationRuleFilterArrayOutput {
+	return o
+}
+
+func (o GetBucketReplicationConfigurationRuleFilterArrayOutput) ToGetBucketReplicationConfigurationRuleFilterArrayOutputWithContext(ctx context.Context) GetBucketReplicationConfigurationRuleFilterArrayOutput {
+	return o
+}
+
+func (o GetBucketReplicationConfigurationRuleFilterArrayOutput) Index(i pulumi.IntInput) GetBucketReplicationConfigurationRuleFilterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetBucketReplicationConfigurationRuleFilter {
+		return vs[0].([]GetBucketReplicationConfigurationRuleFilter)[vs[1].(int)]
+	}).(GetBucketReplicationConfigurationRuleFilterOutput)
+}
+
+type GetBucketReplicationConfigurationRuleFilterAnd struct {
+	// The object key name prefix that identifies the subset of objects to which the rule applies.
+	Prefix string `pulumi:"prefix"`
+	// An unordered list of tags that identify a subset of objects to which the rule applies.
+	Tags []GetBucketReplicationConfigurationRuleFilterAndTag `pulumi:"tags"`
+}
+
+// GetBucketReplicationConfigurationRuleFilterAndInput is an input type that accepts GetBucketReplicationConfigurationRuleFilterAndArgs and GetBucketReplicationConfigurationRuleFilterAndOutput values.
+// You can construct a concrete instance of `GetBucketReplicationConfigurationRuleFilterAndInput` via:
+//
+//	GetBucketReplicationConfigurationRuleFilterAndArgs{...}
+type GetBucketReplicationConfigurationRuleFilterAndInput interface {
+	pulumi.Input
+
+	ToGetBucketReplicationConfigurationRuleFilterAndOutput() GetBucketReplicationConfigurationRuleFilterAndOutput
+	ToGetBucketReplicationConfigurationRuleFilterAndOutputWithContext(context.Context) GetBucketReplicationConfigurationRuleFilterAndOutput
+}
+
+type GetBucketReplicationConfigurationRuleFilterAndArgs struct {
+	// The object key name prefix that identifies the subset of objects to which the rule applies.
+	Prefix pulumi.StringInput `pulumi:"prefix"`
+	// An unordered list of tags that identify a subset of objects to which the rule applies.
+	Tags GetBucketReplicationConfigurationRuleFilterAndTagArrayInput `pulumi:"tags"`
+}
+
+func (GetBucketReplicationConfigurationRuleFilterAndArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetBucketReplicationConfigurationRuleFilterAnd)(nil)).Elem()
+}
+
+func (i GetBucketReplicationConfigurationRuleFilterAndArgs) ToGetBucketReplicationConfigurationRuleFilterAndOutput() GetBucketReplicationConfigurationRuleFilterAndOutput {
+	return i.ToGetBucketReplicationConfigurationRuleFilterAndOutputWithContext(context.Background())
+}
+
+func (i GetBucketReplicationConfigurationRuleFilterAndArgs) ToGetBucketReplicationConfigurationRuleFilterAndOutputWithContext(ctx context.Context) GetBucketReplicationConfigurationRuleFilterAndOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetBucketReplicationConfigurationRuleFilterAndOutput)
+}
+
+// GetBucketReplicationConfigurationRuleFilterAndArrayInput is an input type that accepts GetBucketReplicationConfigurationRuleFilterAndArray and GetBucketReplicationConfigurationRuleFilterAndArrayOutput values.
+// You can construct a concrete instance of `GetBucketReplicationConfigurationRuleFilterAndArrayInput` via:
+//
+//	GetBucketReplicationConfigurationRuleFilterAndArray{ GetBucketReplicationConfigurationRuleFilterAndArgs{...} }
+type GetBucketReplicationConfigurationRuleFilterAndArrayInput interface {
+	pulumi.Input
+
+	ToGetBucketReplicationConfigurationRuleFilterAndArrayOutput() GetBucketReplicationConfigurationRuleFilterAndArrayOutput
+	ToGetBucketReplicationConfigurationRuleFilterAndArrayOutputWithContext(context.Context) GetBucketReplicationConfigurationRuleFilterAndArrayOutput
+}
+
+type GetBucketReplicationConfigurationRuleFilterAndArray []GetBucketReplicationConfigurationRuleFilterAndInput
+
+func (GetBucketReplicationConfigurationRuleFilterAndArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetBucketReplicationConfigurationRuleFilterAnd)(nil)).Elem()
+}
+
+func (i GetBucketReplicationConfigurationRuleFilterAndArray) ToGetBucketReplicationConfigurationRuleFilterAndArrayOutput() GetBucketReplicationConfigurationRuleFilterAndArrayOutput {
+	return i.ToGetBucketReplicationConfigurationRuleFilterAndArrayOutputWithContext(context.Background())
+}
+
+func (i GetBucketReplicationConfigurationRuleFilterAndArray) ToGetBucketReplicationConfigurationRuleFilterAndArrayOutputWithContext(ctx context.Context) GetBucketReplicationConfigurationRuleFilterAndArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetBucketReplicationConfigurationRuleFilterAndArrayOutput)
+}
+
+type GetBucketReplicationConfigurationRuleFilterAndOutput struct{ *pulumi.OutputState }
+
+func (GetBucketReplicationConfigurationRuleFilterAndOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetBucketReplicationConfigurationRuleFilterAnd)(nil)).Elem()
+}
+
+func (o GetBucketReplicationConfigurationRuleFilterAndOutput) ToGetBucketReplicationConfigurationRuleFilterAndOutput() GetBucketReplicationConfigurationRuleFilterAndOutput {
+	return o
+}
+
+func (o GetBucketReplicationConfigurationRuleFilterAndOutput) ToGetBucketReplicationConfigurationRuleFilterAndOutputWithContext(ctx context.Context) GetBucketReplicationConfigurationRuleFilterAndOutput {
+	return o
+}
+
+// The object key name prefix that identifies the subset of objects to which the rule applies.
+func (o GetBucketReplicationConfigurationRuleFilterAndOutput) Prefix() pulumi.StringOutput {
+	return o.ApplyT(func(v GetBucketReplicationConfigurationRuleFilterAnd) string { return v.Prefix }).(pulumi.StringOutput)
+}
+
+// An unordered list of tags that identify a subset of objects to which the rule applies.
+func (o GetBucketReplicationConfigurationRuleFilterAndOutput) Tags() GetBucketReplicationConfigurationRuleFilterAndTagArrayOutput {
+	return o.ApplyT(func(v GetBucketReplicationConfigurationRuleFilterAnd) []GetBucketReplicationConfigurationRuleFilterAndTag {
+		return v.Tags
+	}).(GetBucketReplicationConfigurationRuleFilterAndTagArrayOutput)
+}
+
+type GetBucketReplicationConfigurationRuleFilterAndArrayOutput struct{ *pulumi.OutputState }
+
+func (GetBucketReplicationConfigurationRuleFilterAndArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetBucketReplicationConfigurationRuleFilterAnd)(nil)).Elem()
+}
+
+func (o GetBucketReplicationConfigurationRuleFilterAndArrayOutput) ToGetBucketReplicationConfigurationRuleFilterAndArrayOutput() GetBucketReplicationConfigurationRuleFilterAndArrayOutput {
+	return o
+}
+
+func (o GetBucketReplicationConfigurationRuleFilterAndArrayOutput) ToGetBucketReplicationConfigurationRuleFilterAndArrayOutputWithContext(ctx context.Context) GetBucketReplicationConfigurationRuleFilterAndArrayOutput {
+	return o
+}
+
+func (o GetBucketReplicationConfigurationRuleFilterAndArrayOutput) Index(i pulumi.IntInput) GetBucketReplicationConfigurationRuleFilterAndOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetBucketReplicationConfigurationRuleFilterAnd {
+		return vs[0].([]GetBucketReplicationConfigurationRuleFilterAnd)[vs[1].(int)]
+	}).(GetBucketReplicationConfigurationRuleFilterAndOutput)
+}
+
+type GetBucketReplicationConfigurationRuleFilterAndTag struct {
+	// The key of the tag.
+	Key string `pulumi:"key"`
+	// The value of the tag.
+	Value string `pulumi:"value"`
+}
+
+// GetBucketReplicationConfigurationRuleFilterAndTagInput is an input type that accepts GetBucketReplicationConfigurationRuleFilterAndTagArgs and GetBucketReplicationConfigurationRuleFilterAndTagOutput values.
+// You can construct a concrete instance of `GetBucketReplicationConfigurationRuleFilterAndTagInput` via:
+//
+//	GetBucketReplicationConfigurationRuleFilterAndTagArgs{...}
+type GetBucketReplicationConfigurationRuleFilterAndTagInput interface {
+	pulumi.Input
+
+	ToGetBucketReplicationConfigurationRuleFilterAndTagOutput() GetBucketReplicationConfigurationRuleFilterAndTagOutput
+	ToGetBucketReplicationConfigurationRuleFilterAndTagOutputWithContext(context.Context) GetBucketReplicationConfigurationRuleFilterAndTagOutput
+}
+
+type GetBucketReplicationConfigurationRuleFilterAndTagArgs struct {
+	// The key of the tag.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The value of the tag.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (GetBucketReplicationConfigurationRuleFilterAndTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetBucketReplicationConfigurationRuleFilterAndTag)(nil)).Elem()
+}
+
+func (i GetBucketReplicationConfigurationRuleFilterAndTagArgs) ToGetBucketReplicationConfigurationRuleFilterAndTagOutput() GetBucketReplicationConfigurationRuleFilterAndTagOutput {
+	return i.ToGetBucketReplicationConfigurationRuleFilterAndTagOutputWithContext(context.Background())
+}
+
+func (i GetBucketReplicationConfigurationRuleFilterAndTagArgs) ToGetBucketReplicationConfigurationRuleFilterAndTagOutputWithContext(ctx context.Context) GetBucketReplicationConfigurationRuleFilterAndTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetBucketReplicationConfigurationRuleFilterAndTagOutput)
+}
+
+// GetBucketReplicationConfigurationRuleFilterAndTagArrayInput is an input type that accepts GetBucketReplicationConfigurationRuleFilterAndTagArray and GetBucketReplicationConfigurationRuleFilterAndTagArrayOutput values.
+// You can construct a concrete instance of `GetBucketReplicationConfigurationRuleFilterAndTagArrayInput` via:
+//
+//	GetBucketReplicationConfigurationRuleFilterAndTagArray{ GetBucketReplicationConfigurationRuleFilterAndTagArgs{...} }
+type GetBucketReplicationConfigurationRuleFilterAndTagArrayInput interface {
+	pulumi.Input
+
+	ToGetBucketReplicationConfigurationRuleFilterAndTagArrayOutput() GetBucketReplicationConfigurationRuleFilterAndTagArrayOutput
+	ToGetBucketReplicationConfigurationRuleFilterAndTagArrayOutputWithContext(context.Context) GetBucketReplicationConfigurationRuleFilterAndTagArrayOutput
+}
+
+type GetBucketReplicationConfigurationRuleFilterAndTagArray []GetBucketReplicationConfigurationRuleFilterAndTagInput
+
+func (GetBucketReplicationConfigurationRuleFilterAndTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetBucketReplicationConfigurationRuleFilterAndTag)(nil)).Elem()
+}
+
+func (i GetBucketReplicationConfigurationRuleFilterAndTagArray) ToGetBucketReplicationConfigurationRuleFilterAndTagArrayOutput() GetBucketReplicationConfigurationRuleFilterAndTagArrayOutput {
+	return i.ToGetBucketReplicationConfigurationRuleFilterAndTagArrayOutputWithContext(context.Background())
+}
+
+func (i GetBucketReplicationConfigurationRuleFilterAndTagArray) ToGetBucketReplicationConfigurationRuleFilterAndTagArrayOutputWithContext(ctx context.Context) GetBucketReplicationConfigurationRuleFilterAndTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetBucketReplicationConfigurationRuleFilterAndTagArrayOutput)
+}
+
+type GetBucketReplicationConfigurationRuleFilterAndTagOutput struct{ *pulumi.OutputState }
+
+func (GetBucketReplicationConfigurationRuleFilterAndTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetBucketReplicationConfigurationRuleFilterAndTag)(nil)).Elem()
+}
+
+func (o GetBucketReplicationConfigurationRuleFilterAndTagOutput) ToGetBucketReplicationConfigurationRuleFilterAndTagOutput() GetBucketReplicationConfigurationRuleFilterAndTagOutput {
+	return o
+}
+
+func (o GetBucketReplicationConfigurationRuleFilterAndTagOutput) ToGetBucketReplicationConfigurationRuleFilterAndTagOutputWithContext(ctx context.Context) GetBucketReplicationConfigurationRuleFilterAndTagOutput {
+	return o
+}
+
+// The key of the tag.
+func (o GetBucketReplicationConfigurationRuleFilterAndTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v GetBucketReplicationConfigurationRuleFilterAndTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The value of the tag.
+func (o GetBucketReplicationConfigurationRuleFilterAndTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v GetBucketReplicationConfigurationRuleFilterAndTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type GetBucketReplicationConfigurationRuleFilterAndTagArrayOutput struct{ *pulumi.OutputState }
+
+func (GetBucketReplicationConfigurationRuleFilterAndTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetBucketReplicationConfigurationRuleFilterAndTag)(nil)).Elem()
+}
+
+func (o GetBucketReplicationConfigurationRuleFilterAndTagArrayOutput) ToGetBucketReplicationConfigurationRuleFilterAndTagArrayOutput() GetBucketReplicationConfigurationRuleFilterAndTagArrayOutput {
+	return o
+}
+
+func (o GetBucketReplicationConfigurationRuleFilterAndTagArrayOutput) ToGetBucketReplicationConfigurationRuleFilterAndTagArrayOutputWithContext(ctx context.Context) GetBucketReplicationConfigurationRuleFilterAndTagArrayOutput {
+	return o
+}
+
+func (o GetBucketReplicationConfigurationRuleFilterAndTagArrayOutput) Index(i pulumi.IntInput) GetBucketReplicationConfigurationRuleFilterAndTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetBucketReplicationConfigurationRuleFilterAndTag {
+		return vs[0].([]GetBucketReplicationConfigurationRuleFilterAndTag)[vs[1].(int)]
+	}).(GetBucketReplicationConfigurationRuleFilterAndTagOutput)
+}
+
+type GetBucketReplicationConfigurationRuleFilterTag struct {
+	// The key of the tag.
+	Key string `pulumi:"key"`
+	// The value of the tag.
+	Value string `pulumi:"value"`
+}
+
+// GetBucketReplicationConfigurationRuleFilterTagInput is an input type that accepts GetBucketReplicationConfigurationRuleFilterTagArgs and GetBucketReplicationConfigurationRuleFilterTagOutput values.
+// You can construct a concrete instance of `GetBucketReplicationConfigurationRuleFilterTagInput` via:
+//
+//	GetBucketReplicationConfigurationRuleFilterTagArgs{...}
+type GetBucketReplicationConfigurationRuleFilterTagInput interface {
+	pulumi.Input
+
+	ToGetBucketReplicationConfigurationRuleFilterTagOutput() GetBucketReplicationConfigurationRuleFilterTagOutput
+	ToGetBucketReplicationConfigurationRuleFilterTagOutputWithContext(context.Context) GetBucketReplicationConfigurationRuleFilterTagOutput
+}
+
+type GetBucketReplicationConfigurationRuleFilterTagArgs struct {
+	// The key of the tag.
+	Key pulumi.StringInput `pulumi:"key"`
+	// The value of the tag.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (GetBucketReplicationConfigurationRuleFilterTagArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetBucketReplicationConfigurationRuleFilterTag)(nil)).Elem()
+}
+
+func (i GetBucketReplicationConfigurationRuleFilterTagArgs) ToGetBucketReplicationConfigurationRuleFilterTagOutput() GetBucketReplicationConfigurationRuleFilterTagOutput {
+	return i.ToGetBucketReplicationConfigurationRuleFilterTagOutputWithContext(context.Background())
+}
+
+func (i GetBucketReplicationConfigurationRuleFilterTagArgs) ToGetBucketReplicationConfigurationRuleFilterTagOutputWithContext(ctx context.Context) GetBucketReplicationConfigurationRuleFilterTagOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetBucketReplicationConfigurationRuleFilterTagOutput)
+}
+
+// GetBucketReplicationConfigurationRuleFilterTagArrayInput is an input type that accepts GetBucketReplicationConfigurationRuleFilterTagArray and GetBucketReplicationConfigurationRuleFilterTagArrayOutput values.
+// You can construct a concrete instance of `GetBucketReplicationConfigurationRuleFilterTagArrayInput` via:
+//
+//	GetBucketReplicationConfigurationRuleFilterTagArray{ GetBucketReplicationConfigurationRuleFilterTagArgs{...} }
+type GetBucketReplicationConfigurationRuleFilterTagArrayInput interface {
+	pulumi.Input
+
+	ToGetBucketReplicationConfigurationRuleFilterTagArrayOutput() GetBucketReplicationConfigurationRuleFilterTagArrayOutput
+	ToGetBucketReplicationConfigurationRuleFilterTagArrayOutputWithContext(context.Context) GetBucketReplicationConfigurationRuleFilterTagArrayOutput
+}
+
+type GetBucketReplicationConfigurationRuleFilterTagArray []GetBucketReplicationConfigurationRuleFilterTagInput
+
+func (GetBucketReplicationConfigurationRuleFilterTagArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetBucketReplicationConfigurationRuleFilterTag)(nil)).Elem()
+}
+
+func (i GetBucketReplicationConfigurationRuleFilterTagArray) ToGetBucketReplicationConfigurationRuleFilterTagArrayOutput() GetBucketReplicationConfigurationRuleFilterTagArrayOutput {
+	return i.ToGetBucketReplicationConfigurationRuleFilterTagArrayOutputWithContext(context.Background())
+}
+
+func (i GetBucketReplicationConfigurationRuleFilterTagArray) ToGetBucketReplicationConfigurationRuleFilterTagArrayOutputWithContext(ctx context.Context) GetBucketReplicationConfigurationRuleFilterTagArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetBucketReplicationConfigurationRuleFilterTagArrayOutput)
+}
+
+type GetBucketReplicationConfigurationRuleFilterTagOutput struct{ *pulumi.OutputState }
+
+func (GetBucketReplicationConfigurationRuleFilterTagOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetBucketReplicationConfigurationRuleFilterTag)(nil)).Elem()
+}
+
+func (o GetBucketReplicationConfigurationRuleFilterTagOutput) ToGetBucketReplicationConfigurationRuleFilterTagOutput() GetBucketReplicationConfigurationRuleFilterTagOutput {
+	return o
+}
+
+func (o GetBucketReplicationConfigurationRuleFilterTagOutput) ToGetBucketReplicationConfigurationRuleFilterTagOutputWithContext(ctx context.Context) GetBucketReplicationConfigurationRuleFilterTagOutput {
+	return o
+}
+
+// The key of the tag.
+func (o GetBucketReplicationConfigurationRuleFilterTagOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v GetBucketReplicationConfigurationRuleFilterTag) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// The value of the tag.
+func (o GetBucketReplicationConfigurationRuleFilterTagOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v GetBucketReplicationConfigurationRuleFilterTag) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type GetBucketReplicationConfigurationRuleFilterTagArrayOutput struct{ *pulumi.OutputState }
+
+func (GetBucketReplicationConfigurationRuleFilterTagArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetBucketReplicationConfigurationRuleFilterTag)(nil)).Elem()
+}
+
+func (o GetBucketReplicationConfigurationRuleFilterTagArrayOutput) ToGetBucketReplicationConfigurationRuleFilterTagArrayOutput() GetBucketReplicationConfigurationRuleFilterTagArrayOutput {
+	return o
+}
+
+func (o GetBucketReplicationConfigurationRuleFilterTagArrayOutput) ToGetBucketReplicationConfigurationRuleFilterTagArrayOutputWithContext(ctx context.Context) GetBucketReplicationConfigurationRuleFilterTagArrayOutput {
+	return o
+}
+
+func (o GetBucketReplicationConfigurationRuleFilterTagArrayOutput) Index(i pulumi.IntInput) GetBucketReplicationConfigurationRuleFilterTagOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetBucketReplicationConfigurationRuleFilterTag {
+		return vs[0].([]GetBucketReplicationConfigurationRuleFilterTag)[vs[1].(int)]
+	}).(GetBucketReplicationConfigurationRuleFilterTagOutput)
+}
+
+type GetBucketReplicationConfigurationRuleSourceSelectionCriteria struct {
+	ReplicaModifications   []GetBucketReplicationConfigurationRuleSourceSelectionCriteriaReplicaModification   `pulumi:"replicaModifications"`
+	SseKmsEncryptedObjects []GetBucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObject `pulumi:"sseKmsEncryptedObjects"`
+}
+
+// GetBucketReplicationConfigurationRuleSourceSelectionCriteriaInput is an input type that accepts GetBucketReplicationConfigurationRuleSourceSelectionCriteriaArgs and GetBucketReplicationConfigurationRuleSourceSelectionCriteriaOutput values.
+// You can construct a concrete instance of `GetBucketReplicationConfigurationRuleSourceSelectionCriteriaInput` via:
+//
+//	GetBucketReplicationConfigurationRuleSourceSelectionCriteriaArgs{...}
+type GetBucketReplicationConfigurationRuleSourceSelectionCriteriaInput interface {
+	pulumi.Input
+
+	ToGetBucketReplicationConfigurationRuleSourceSelectionCriteriaOutput() GetBucketReplicationConfigurationRuleSourceSelectionCriteriaOutput
+	ToGetBucketReplicationConfigurationRuleSourceSelectionCriteriaOutputWithContext(context.Context) GetBucketReplicationConfigurationRuleSourceSelectionCriteriaOutput
+}
+
+type GetBucketReplicationConfigurationRuleSourceSelectionCriteriaArgs struct {
+	ReplicaModifications   GetBucketReplicationConfigurationRuleSourceSelectionCriteriaReplicaModificationArrayInput   `pulumi:"replicaModifications"`
+	SseKmsEncryptedObjects GetBucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectArrayInput `pulumi:"sseKmsEncryptedObjects"`
+}
+
+func (GetBucketReplicationConfigurationRuleSourceSelectionCriteriaArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetBucketReplicationConfigurationRuleSourceSelectionCriteria)(nil)).Elem()
+}
+
+func (i GetBucketReplicationConfigurationRuleSourceSelectionCriteriaArgs) ToGetBucketReplicationConfigurationRuleSourceSelectionCriteriaOutput() GetBucketReplicationConfigurationRuleSourceSelectionCriteriaOutput {
+	return i.ToGetBucketReplicationConfigurationRuleSourceSelectionCriteriaOutputWithContext(context.Background())
+}
+
+func (i GetBucketReplicationConfigurationRuleSourceSelectionCriteriaArgs) ToGetBucketReplicationConfigurationRuleSourceSelectionCriteriaOutputWithContext(ctx context.Context) GetBucketReplicationConfigurationRuleSourceSelectionCriteriaOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetBucketReplicationConfigurationRuleSourceSelectionCriteriaOutput)
+}
+
+// GetBucketReplicationConfigurationRuleSourceSelectionCriteriaArrayInput is an input type that accepts GetBucketReplicationConfigurationRuleSourceSelectionCriteriaArray and GetBucketReplicationConfigurationRuleSourceSelectionCriteriaArrayOutput values.
+// You can construct a concrete instance of `GetBucketReplicationConfigurationRuleSourceSelectionCriteriaArrayInput` via:
+//
+//	GetBucketReplicationConfigurationRuleSourceSelectionCriteriaArray{ GetBucketReplicationConfigurationRuleSourceSelectionCriteriaArgs{...} }
+type GetBucketReplicationConfigurationRuleSourceSelectionCriteriaArrayInput interface {
+	pulumi.Input
+
+	ToGetBucketReplicationConfigurationRuleSourceSelectionCriteriaArrayOutput() GetBucketReplicationConfigurationRuleSourceSelectionCriteriaArrayOutput
+	ToGetBucketReplicationConfigurationRuleSourceSelectionCriteriaArrayOutputWithContext(context.Context) GetBucketReplicationConfigurationRuleSourceSelectionCriteriaArrayOutput
+}
+
+type GetBucketReplicationConfigurationRuleSourceSelectionCriteriaArray []GetBucketReplicationConfigurationRuleSourceSelectionCriteriaInput
+
+func (GetBucketReplicationConfigurationRuleSourceSelectionCriteriaArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetBucketReplicationConfigurationRuleSourceSelectionCriteria)(nil)).Elem()
+}
+
+func (i GetBucketReplicationConfigurationRuleSourceSelectionCriteriaArray) ToGetBucketReplicationConfigurationRuleSourceSelectionCriteriaArrayOutput() GetBucketReplicationConfigurationRuleSourceSelectionCriteriaArrayOutput {
+	return i.ToGetBucketReplicationConfigurationRuleSourceSelectionCriteriaArrayOutputWithContext(context.Background())
+}
+
+func (i GetBucketReplicationConfigurationRuleSourceSelectionCriteriaArray) ToGetBucketReplicationConfigurationRuleSourceSelectionCriteriaArrayOutputWithContext(ctx context.Context) GetBucketReplicationConfigurationRuleSourceSelectionCriteriaArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetBucketReplicationConfigurationRuleSourceSelectionCriteriaArrayOutput)
+}
+
+type GetBucketReplicationConfigurationRuleSourceSelectionCriteriaOutput struct{ *pulumi.OutputState }
+
+func (GetBucketReplicationConfigurationRuleSourceSelectionCriteriaOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetBucketReplicationConfigurationRuleSourceSelectionCriteria)(nil)).Elem()
+}
+
+func (o GetBucketReplicationConfigurationRuleSourceSelectionCriteriaOutput) ToGetBucketReplicationConfigurationRuleSourceSelectionCriteriaOutput() GetBucketReplicationConfigurationRuleSourceSelectionCriteriaOutput {
+	return o
+}
+
+func (o GetBucketReplicationConfigurationRuleSourceSelectionCriteriaOutput) ToGetBucketReplicationConfigurationRuleSourceSelectionCriteriaOutputWithContext(ctx context.Context) GetBucketReplicationConfigurationRuleSourceSelectionCriteriaOutput {
+	return o
+}
+
+func (o GetBucketReplicationConfigurationRuleSourceSelectionCriteriaOutput) ReplicaModifications() GetBucketReplicationConfigurationRuleSourceSelectionCriteriaReplicaModificationArrayOutput {
+	return o.ApplyT(func(v GetBucketReplicationConfigurationRuleSourceSelectionCriteria) []GetBucketReplicationConfigurationRuleSourceSelectionCriteriaReplicaModification {
+		return v.ReplicaModifications
+	}).(GetBucketReplicationConfigurationRuleSourceSelectionCriteriaReplicaModificationArrayOutput)
+}
+
+func (o GetBucketReplicationConfigurationRuleSourceSelectionCriteriaOutput) SseKmsEncryptedObjects() GetBucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectArrayOutput {
+	return o.ApplyT(func(v GetBucketReplicationConfigurationRuleSourceSelectionCriteria) []GetBucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObject {
+		return v.SseKmsEncryptedObjects
+	}).(GetBucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectArrayOutput)
+}
+
+type GetBucketReplicationConfigurationRuleSourceSelectionCriteriaArrayOutput struct{ *pulumi.OutputState }
+
+func (GetBucketReplicationConfigurationRuleSourceSelectionCriteriaArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetBucketReplicationConfigurationRuleSourceSelectionCriteria)(nil)).Elem()
+}
+
+func (o GetBucketReplicationConfigurationRuleSourceSelectionCriteriaArrayOutput) ToGetBucketReplicationConfigurationRuleSourceSelectionCriteriaArrayOutput() GetBucketReplicationConfigurationRuleSourceSelectionCriteriaArrayOutput {
+	return o
+}
+
+func (o GetBucketReplicationConfigurationRuleSourceSelectionCriteriaArrayOutput) ToGetBucketReplicationConfigurationRuleSourceSelectionCriteriaArrayOutputWithContext(ctx context.Context) GetBucketReplicationConfigurationRuleSourceSelectionCriteriaArrayOutput {
+	return o
+}
+
+func (o GetBucketReplicationConfigurationRuleSourceSelectionCriteriaArrayOutput) Index(i pulumi.IntInput) GetBucketReplicationConfigurationRuleSourceSelectionCriteriaOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetBucketReplicationConfigurationRuleSourceSelectionCriteria {
+		return vs[0].([]GetBucketReplicationConfigurationRuleSourceSelectionCriteria)[vs[1].(int)]
+	}).(GetBucketReplicationConfigurationRuleSourceSelectionCriteriaOutput)
+}
+
+type GetBucketReplicationConfigurationRuleSourceSelectionCriteriaReplicaModification struct {
+	Status string `pulumi:"status"`
+}
+
+// GetBucketReplicationConfigurationRuleSourceSelectionCriteriaReplicaModificationInput is an input type that accepts GetBucketReplicationConfigurationRuleSourceSelectionCriteriaReplicaModificationArgs and GetBucketReplicationConfigurationRuleSourceSelectionCriteriaReplicaModificationOutput values.
+// You can construct a concrete instance of `GetBucketReplicationConfigurationRuleSourceSelectionCriteriaReplicaModificationInput` via:
+//
+//	GetBucketReplicationConfigurationRuleSourceSelectionCriteriaReplicaModificationArgs{...}
+type GetBucketReplicationConfigurationRuleSourceSelectionCriteriaReplicaModificationInput interface {
+	pulumi.Input
+
+	ToGetBucketReplicationConfigurationRuleSourceSelectionCriteriaReplicaModificationOutput() GetBucketReplicationConfigurationRuleSourceSelectionCriteriaReplicaModificationOutput
+	ToGetBucketReplicationConfigurationRuleSourceSelectionCriteriaReplicaModificationOutputWithContext(context.Context) GetBucketReplicationConfigurationRuleSourceSelectionCriteriaReplicaModificationOutput
+}
+
+type GetBucketReplicationConfigurationRuleSourceSelectionCriteriaReplicaModificationArgs struct {
+	Status pulumi.StringInput `pulumi:"status"`
+}
+
+func (GetBucketReplicationConfigurationRuleSourceSelectionCriteriaReplicaModificationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetBucketReplicationConfigurationRuleSourceSelectionCriteriaReplicaModification)(nil)).Elem()
+}
+
+func (i GetBucketReplicationConfigurationRuleSourceSelectionCriteriaReplicaModificationArgs) ToGetBucketReplicationConfigurationRuleSourceSelectionCriteriaReplicaModificationOutput() GetBucketReplicationConfigurationRuleSourceSelectionCriteriaReplicaModificationOutput {
+	return i.ToGetBucketReplicationConfigurationRuleSourceSelectionCriteriaReplicaModificationOutputWithContext(context.Background())
+}
+
+func (i GetBucketReplicationConfigurationRuleSourceSelectionCriteriaReplicaModificationArgs) ToGetBucketReplicationConfigurationRuleSourceSelectionCriteriaReplicaModificationOutputWithContext(ctx context.Context) GetBucketReplicationConfigurationRuleSourceSelectionCriteriaReplicaModificationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetBucketReplicationConfigurationRuleSourceSelectionCriteriaReplicaModificationOutput)
+}
+
+// GetBucketReplicationConfigurationRuleSourceSelectionCriteriaReplicaModificationArrayInput is an input type that accepts GetBucketReplicationConfigurationRuleSourceSelectionCriteriaReplicaModificationArray and GetBucketReplicationConfigurationRuleSourceSelectionCriteriaReplicaModificationArrayOutput values.
+// You can construct a concrete instance of `GetBucketReplicationConfigurationRuleSourceSelectionCriteriaReplicaModificationArrayInput` via:
+//
+//	GetBucketReplicationConfigurationRuleSourceSelectionCriteriaReplicaModificationArray{ GetBucketReplicationConfigurationRuleSourceSelectionCriteriaReplicaModificationArgs{...} }
+type GetBucketReplicationConfigurationRuleSourceSelectionCriteriaReplicaModificationArrayInput interface {
+	pulumi.Input
+
+	ToGetBucketReplicationConfigurationRuleSourceSelectionCriteriaReplicaModificationArrayOutput() GetBucketReplicationConfigurationRuleSourceSelectionCriteriaReplicaModificationArrayOutput
+	ToGetBucketReplicationConfigurationRuleSourceSelectionCriteriaReplicaModificationArrayOutputWithContext(context.Context) GetBucketReplicationConfigurationRuleSourceSelectionCriteriaReplicaModificationArrayOutput
+}
+
+type GetBucketReplicationConfigurationRuleSourceSelectionCriteriaReplicaModificationArray []GetBucketReplicationConfigurationRuleSourceSelectionCriteriaReplicaModificationInput
+
+func (GetBucketReplicationConfigurationRuleSourceSelectionCriteriaReplicaModificationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetBucketReplicationConfigurationRuleSourceSelectionCriteriaReplicaModification)(nil)).Elem()
+}
+
+func (i GetBucketReplicationConfigurationRuleSourceSelectionCriteriaReplicaModificationArray) ToGetBucketReplicationConfigurationRuleSourceSelectionCriteriaReplicaModificationArrayOutput() GetBucketReplicationConfigurationRuleSourceSelectionCriteriaReplicaModificationArrayOutput {
+	return i.ToGetBucketReplicationConfigurationRuleSourceSelectionCriteriaReplicaModificationArrayOutputWithContext(context.Background())
+}
+
+func (i GetBucketReplicationConfigurationRuleSourceSelectionCriteriaReplicaModificationArray) ToGetBucketReplicationConfigurationRuleSourceSelectionCriteriaReplicaModificationArrayOutputWithContext(ctx context.Context) GetBucketReplicationConfigurationRuleSourceSelectionCriteriaReplicaModificationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetBucketReplicationConfigurationRuleSourceSelectionCriteriaReplicaModificationArrayOutput)
+}
+
+type GetBucketReplicationConfigurationRuleSourceSelectionCriteriaReplicaModificationOutput struct{ *pulumi.OutputState }
+
+func (GetBucketReplicationConfigurationRuleSourceSelectionCriteriaReplicaModificationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetBucketReplicationConfigurationRuleSourceSelectionCriteriaReplicaModification)(nil)).Elem()
+}
+
+func (o GetBucketReplicationConfigurationRuleSourceSelectionCriteriaReplicaModificationOutput) ToGetBucketReplicationConfigurationRuleSourceSelectionCriteriaReplicaModificationOutput() GetBucketReplicationConfigurationRuleSourceSelectionCriteriaReplicaModificationOutput {
+	return o
+}
+
+func (o GetBucketReplicationConfigurationRuleSourceSelectionCriteriaReplicaModificationOutput) ToGetBucketReplicationConfigurationRuleSourceSelectionCriteriaReplicaModificationOutputWithContext(ctx context.Context) GetBucketReplicationConfigurationRuleSourceSelectionCriteriaReplicaModificationOutput {
+	return o
+}
+
+func (o GetBucketReplicationConfigurationRuleSourceSelectionCriteriaReplicaModificationOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v GetBucketReplicationConfigurationRuleSourceSelectionCriteriaReplicaModification) string {
+		return v.Status
+	}).(pulumi.StringOutput)
+}
+
+type GetBucketReplicationConfigurationRuleSourceSelectionCriteriaReplicaModificationArrayOutput struct{ *pulumi.OutputState }
+
+func (GetBucketReplicationConfigurationRuleSourceSelectionCriteriaReplicaModificationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetBucketReplicationConfigurationRuleSourceSelectionCriteriaReplicaModification)(nil)).Elem()
+}
+
+func (o GetBucketReplicationConfigurationRuleSourceSelectionCriteriaReplicaModificationArrayOutput) ToGetBucketReplicationConfigurationRuleSourceSelectionCriteriaReplicaModificationArrayOutput() GetBucketReplicationConfigurationRuleSourceSelectionCriteriaReplicaModificationArrayOutput {
+	return o
+}
+
+func (o GetBucketReplicationConfigurationRuleSourceSelectionCriteriaReplicaModificationArrayOutput) ToGetBucketReplicationConfigurationRuleSourceSelectionCriteriaReplicaModificationArrayOutputWithContext(ctx context.Context) GetBucketReplicationConfigurationRuleSourceSelectionCriteriaReplicaModificationArrayOutput {
+	return o
+}
+
+func (o GetBucketReplicationConfigurationRuleSourceSelectionCriteriaReplicaModificationArrayOutput) Index(i pulumi.IntInput) GetBucketReplicationConfigurationRuleSourceSelectionCriteriaReplicaModificationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetBucketReplicationConfigurationRuleSourceSelectionCriteriaReplicaModification {
+		return vs[0].([]GetBucketReplicationConfigurationRuleSourceSelectionCriteriaReplicaModification)[vs[1].(int)]
+	}).(GetBucketReplicationConfigurationRuleSourceSelectionCriteriaReplicaModificationOutput)
+}
+
+type GetBucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObject struct {
+	Status string `pulumi:"status"`
+}
+
+// GetBucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectInput is an input type that accepts GetBucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectArgs and GetBucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectOutput values.
+// You can construct a concrete instance of `GetBucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectInput` via:
+//
+//	GetBucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectArgs{...}
+type GetBucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectInput interface {
+	pulumi.Input
+
+	ToGetBucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectOutput() GetBucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectOutput
+	ToGetBucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectOutputWithContext(context.Context) GetBucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectOutput
+}
+
+type GetBucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectArgs struct {
+	Status pulumi.StringInput `pulumi:"status"`
+}
+
+func (GetBucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetBucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObject)(nil)).Elem()
+}
+
+func (i GetBucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectArgs) ToGetBucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectOutput() GetBucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectOutput {
+	return i.ToGetBucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectOutputWithContext(context.Background())
+}
+
+func (i GetBucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectArgs) ToGetBucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectOutputWithContext(ctx context.Context) GetBucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetBucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectOutput)
+}
+
+// GetBucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectArrayInput is an input type that accepts GetBucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectArray and GetBucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectArrayOutput values.
+// You can construct a concrete instance of `GetBucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectArrayInput` via:
+//
+//	GetBucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectArray{ GetBucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectArgs{...} }
+type GetBucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectArrayInput interface {
+	pulumi.Input
+
+	ToGetBucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectArrayOutput() GetBucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectArrayOutput
+	ToGetBucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectArrayOutputWithContext(context.Context) GetBucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectArrayOutput
+}
+
+type GetBucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectArray []GetBucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectInput
+
+func (GetBucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetBucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObject)(nil)).Elem()
+}
+
+func (i GetBucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectArray) ToGetBucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectArrayOutput() GetBucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectArrayOutput {
+	return i.ToGetBucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectArrayOutputWithContext(context.Background())
+}
+
+func (i GetBucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectArray) ToGetBucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectArrayOutputWithContext(ctx context.Context) GetBucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetBucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectArrayOutput)
+}
+
+type GetBucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectOutput struct{ *pulumi.OutputState }
+
+func (GetBucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetBucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObject)(nil)).Elem()
+}
+
+func (o GetBucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectOutput) ToGetBucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectOutput() GetBucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectOutput {
+	return o
+}
+
+func (o GetBucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectOutput) ToGetBucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectOutputWithContext(ctx context.Context) GetBucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectOutput {
+	return o
+}
+
+func (o GetBucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v GetBucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObject) string {
+		return v.Status
+	}).(pulumi.StringOutput)
+}
+
+type GetBucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectArrayOutput struct{ *pulumi.OutputState }
+
+func (GetBucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetBucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObject)(nil)).Elem()
+}
+
+func (o GetBucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectArrayOutput) ToGetBucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectArrayOutput() GetBucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectArrayOutput {
+	return o
+}
+
+func (o GetBucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectArrayOutput) ToGetBucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectArrayOutputWithContext(ctx context.Context) GetBucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectArrayOutput {
+	return o
+}
+
+func (o GetBucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectArrayOutput) Index(i pulumi.IntInput) GetBucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetBucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObject {
+		return vs[0].([]GetBucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObject)[vs[1].(int)]
+	}).(GetBucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AccessPointPublicAccessBlockConfigurationInput)(nil)).Elem(), AccessPointPublicAccessBlockConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AccessPointPublicAccessBlockConfigurationPtrInput)(nil)).Elem(), AccessPointPublicAccessBlockConfigurationArgs{})
@@ -24219,6 +26233,44 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAccessPointPublicAccessBlockConfigurationArrayInput)(nil)).Elem(), GetAccessPointPublicAccessBlockConfigurationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAccessPointVpcConfigurationInput)(nil)).Elem(), GetAccessPointVpcConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAccessPointVpcConfigurationArrayInput)(nil)).Elem(), GetAccessPointVpcConfigurationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetBucketObjectLockConfigurationRuleInput)(nil)).Elem(), GetBucketObjectLockConfigurationRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetBucketObjectLockConfigurationRuleArrayInput)(nil)).Elem(), GetBucketObjectLockConfigurationRuleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetBucketObjectLockConfigurationRuleDefaultRetentionInput)(nil)).Elem(), GetBucketObjectLockConfigurationRuleDefaultRetentionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetBucketObjectLockConfigurationRuleDefaultRetentionArrayInput)(nil)).Elem(), GetBucketObjectLockConfigurationRuleDefaultRetentionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetBucketReplicationConfigurationRuleInput)(nil)).Elem(), GetBucketReplicationConfigurationRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetBucketReplicationConfigurationRuleArrayInput)(nil)).Elem(), GetBucketReplicationConfigurationRuleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetBucketReplicationConfigurationRuleDeleteMarkerReplicationInput)(nil)).Elem(), GetBucketReplicationConfigurationRuleDeleteMarkerReplicationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetBucketReplicationConfigurationRuleDeleteMarkerReplicationArrayInput)(nil)).Elem(), GetBucketReplicationConfigurationRuleDeleteMarkerReplicationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetBucketReplicationConfigurationRuleDestinationInput)(nil)).Elem(), GetBucketReplicationConfigurationRuleDestinationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetBucketReplicationConfigurationRuleDestinationArrayInput)(nil)).Elem(), GetBucketReplicationConfigurationRuleDestinationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetBucketReplicationConfigurationRuleDestinationAccessControlTranslationInput)(nil)).Elem(), GetBucketReplicationConfigurationRuleDestinationAccessControlTranslationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetBucketReplicationConfigurationRuleDestinationAccessControlTranslationArrayInput)(nil)).Elem(), GetBucketReplicationConfigurationRuleDestinationAccessControlTranslationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetBucketReplicationConfigurationRuleDestinationEncryptionConfigurationInput)(nil)).Elem(), GetBucketReplicationConfigurationRuleDestinationEncryptionConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetBucketReplicationConfigurationRuleDestinationEncryptionConfigurationArrayInput)(nil)).Elem(), GetBucketReplicationConfigurationRuleDestinationEncryptionConfigurationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetBucketReplicationConfigurationRuleDestinationMetricInput)(nil)).Elem(), GetBucketReplicationConfigurationRuleDestinationMetricArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetBucketReplicationConfigurationRuleDestinationMetricArrayInput)(nil)).Elem(), GetBucketReplicationConfigurationRuleDestinationMetricArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetBucketReplicationConfigurationRuleDestinationMetricEventThresholdInput)(nil)).Elem(), GetBucketReplicationConfigurationRuleDestinationMetricEventThresholdArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetBucketReplicationConfigurationRuleDestinationMetricEventThresholdArrayInput)(nil)).Elem(), GetBucketReplicationConfigurationRuleDestinationMetricEventThresholdArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetBucketReplicationConfigurationRuleDestinationReplicationTimeInput)(nil)).Elem(), GetBucketReplicationConfigurationRuleDestinationReplicationTimeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetBucketReplicationConfigurationRuleDestinationReplicationTimeArrayInput)(nil)).Elem(), GetBucketReplicationConfigurationRuleDestinationReplicationTimeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetBucketReplicationConfigurationRuleDestinationReplicationTimeTimeInput)(nil)).Elem(), GetBucketReplicationConfigurationRuleDestinationReplicationTimeTimeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetBucketReplicationConfigurationRuleDestinationReplicationTimeTimeArrayInput)(nil)).Elem(), GetBucketReplicationConfigurationRuleDestinationReplicationTimeTimeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetBucketReplicationConfigurationRuleExistingObjectReplicationInput)(nil)).Elem(), GetBucketReplicationConfigurationRuleExistingObjectReplicationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetBucketReplicationConfigurationRuleExistingObjectReplicationArrayInput)(nil)).Elem(), GetBucketReplicationConfigurationRuleExistingObjectReplicationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetBucketReplicationConfigurationRuleFilterInput)(nil)).Elem(), GetBucketReplicationConfigurationRuleFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetBucketReplicationConfigurationRuleFilterArrayInput)(nil)).Elem(), GetBucketReplicationConfigurationRuleFilterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetBucketReplicationConfigurationRuleFilterAndInput)(nil)).Elem(), GetBucketReplicationConfigurationRuleFilterAndArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetBucketReplicationConfigurationRuleFilterAndArrayInput)(nil)).Elem(), GetBucketReplicationConfigurationRuleFilterAndArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetBucketReplicationConfigurationRuleFilterAndTagInput)(nil)).Elem(), GetBucketReplicationConfigurationRuleFilterAndTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetBucketReplicationConfigurationRuleFilterAndTagArrayInput)(nil)).Elem(), GetBucketReplicationConfigurationRuleFilterAndTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetBucketReplicationConfigurationRuleFilterTagInput)(nil)).Elem(), GetBucketReplicationConfigurationRuleFilterTagArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetBucketReplicationConfigurationRuleFilterTagArrayInput)(nil)).Elem(), GetBucketReplicationConfigurationRuleFilterTagArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetBucketReplicationConfigurationRuleSourceSelectionCriteriaInput)(nil)).Elem(), GetBucketReplicationConfigurationRuleSourceSelectionCriteriaArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetBucketReplicationConfigurationRuleSourceSelectionCriteriaArrayInput)(nil)).Elem(), GetBucketReplicationConfigurationRuleSourceSelectionCriteriaArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetBucketReplicationConfigurationRuleSourceSelectionCriteriaReplicaModificationInput)(nil)).Elem(), GetBucketReplicationConfigurationRuleSourceSelectionCriteriaReplicaModificationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetBucketReplicationConfigurationRuleSourceSelectionCriteriaReplicaModificationArrayInput)(nil)).Elem(), GetBucketReplicationConfigurationRuleSourceSelectionCriteriaReplicaModificationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetBucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectInput)(nil)).Elem(), GetBucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetBucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectArrayInput)(nil)).Elem(), GetBucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectArray{})
 	pulumi.RegisterOutputType(AccessPointPublicAccessBlockConfigurationOutput{})
 	pulumi.RegisterOutputType(AccessPointPublicAccessBlockConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(AccessPointVpcConfigurationOutput{})
@@ -24546,4 +26598,42 @@ func init() {
 	pulumi.RegisterOutputType(GetAccessPointPublicAccessBlockConfigurationArrayOutput{})
 	pulumi.RegisterOutputType(GetAccessPointVpcConfigurationOutput{})
 	pulumi.RegisterOutputType(GetAccessPointVpcConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(GetBucketObjectLockConfigurationRuleOutput{})
+	pulumi.RegisterOutputType(GetBucketObjectLockConfigurationRuleArrayOutput{})
+	pulumi.RegisterOutputType(GetBucketObjectLockConfigurationRuleDefaultRetentionOutput{})
+	pulumi.RegisterOutputType(GetBucketObjectLockConfigurationRuleDefaultRetentionArrayOutput{})
+	pulumi.RegisterOutputType(GetBucketReplicationConfigurationRuleOutput{})
+	pulumi.RegisterOutputType(GetBucketReplicationConfigurationRuleArrayOutput{})
+	pulumi.RegisterOutputType(GetBucketReplicationConfigurationRuleDeleteMarkerReplicationOutput{})
+	pulumi.RegisterOutputType(GetBucketReplicationConfigurationRuleDeleteMarkerReplicationArrayOutput{})
+	pulumi.RegisterOutputType(GetBucketReplicationConfigurationRuleDestinationOutput{})
+	pulumi.RegisterOutputType(GetBucketReplicationConfigurationRuleDestinationArrayOutput{})
+	pulumi.RegisterOutputType(GetBucketReplicationConfigurationRuleDestinationAccessControlTranslationOutput{})
+	pulumi.RegisterOutputType(GetBucketReplicationConfigurationRuleDestinationAccessControlTranslationArrayOutput{})
+	pulumi.RegisterOutputType(GetBucketReplicationConfigurationRuleDestinationEncryptionConfigurationOutput{})
+	pulumi.RegisterOutputType(GetBucketReplicationConfigurationRuleDestinationEncryptionConfigurationArrayOutput{})
+	pulumi.RegisterOutputType(GetBucketReplicationConfigurationRuleDestinationMetricOutput{})
+	pulumi.RegisterOutputType(GetBucketReplicationConfigurationRuleDestinationMetricArrayOutput{})
+	pulumi.RegisterOutputType(GetBucketReplicationConfigurationRuleDestinationMetricEventThresholdOutput{})
+	pulumi.RegisterOutputType(GetBucketReplicationConfigurationRuleDestinationMetricEventThresholdArrayOutput{})
+	pulumi.RegisterOutputType(GetBucketReplicationConfigurationRuleDestinationReplicationTimeOutput{})
+	pulumi.RegisterOutputType(GetBucketReplicationConfigurationRuleDestinationReplicationTimeArrayOutput{})
+	pulumi.RegisterOutputType(GetBucketReplicationConfigurationRuleDestinationReplicationTimeTimeOutput{})
+	pulumi.RegisterOutputType(GetBucketReplicationConfigurationRuleDestinationReplicationTimeTimeArrayOutput{})
+	pulumi.RegisterOutputType(GetBucketReplicationConfigurationRuleExistingObjectReplicationOutput{})
+	pulumi.RegisterOutputType(GetBucketReplicationConfigurationRuleExistingObjectReplicationArrayOutput{})
+	pulumi.RegisterOutputType(GetBucketReplicationConfigurationRuleFilterOutput{})
+	pulumi.RegisterOutputType(GetBucketReplicationConfigurationRuleFilterArrayOutput{})
+	pulumi.RegisterOutputType(GetBucketReplicationConfigurationRuleFilterAndOutput{})
+	pulumi.RegisterOutputType(GetBucketReplicationConfigurationRuleFilterAndArrayOutput{})
+	pulumi.RegisterOutputType(GetBucketReplicationConfigurationRuleFilterAndTagOutput{})
+	pulumi.RegisterOutputType(GetBucketReplicationConfigurationRuleFilterAndTagArrayOutput{})
+	pulumi.RegisterOutputType(GetBucketReplicationConfigurationRuleFilterTagOutput{})
+	pulumi.RegisterOutputType(GetBucketReplicationConfigurationRuleFilterTagArrayOutput{})
+	pulumi.RegisterOutputType(GetBucketReplicationConfigurationRuleSourceSelectionCriteriaOutput{})
+	pulumi.RegisterOutputType(GetBucketReplicationConfigurationRuleSourceSelectionCriteriaArrayOutput{})
+	pulumi.RegisterOutputType(GetBucketReplicationConfigurationRuleSourceSelectionCriteriaReplicaModificationOutput{})
+	pulumi.RegisterOutputType(GetBucketReplicationConfigurationRuleSourceSelectionCriteriaReplicaModificationArrayOutput{})
+	pulumi.RegisterOutputType(GetBucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectOutput{})
+	pulumi.RegisterOutputType(GetBucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectArrayOutput{})
 }

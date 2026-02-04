@@ -100,6 +100,104 @@ import (
 //
 // ```
 //
+// ### Basic Example containing Global Secondary Indexs using Multi-attribute keys pattern
+//
+// The following dynamodb table description models the table and GSIs shown in the [AWS SDK example documentation](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GSI.DesignPattern.MultiAttributeKeys.html)
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/dynamodb"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := dynamodb.NewTable(ctx, "basic-dynamodb-table", &dynamodb.TableArgs{
+//				Name:          pulumi.String("TournamentMatches"),
+//				BillingMode:   pulumi.String("PROVISIONED"),
+//				ReadCapacity:  pulumi.Int(20),
+//				WriteCapacity: pulumi.Int(20),
+//				HashKey:       pulumi.String("matchId"),
+//				Attributes: dynamodb.TableAttributeArray{
+//					&dynamodb.TableAttributeArgs{
+//						Name: pulumi.String("matchId"),
+//						Type: pulumi.String("S"),
+//					},
+//					&dynamodb.TableAttributeArgs{
+//						Name: pulumi.String("tournamentId"),
+//						Type: pulumi.String("S"),
+//					},
+//					&dynamodb.TableAttributeArgs{
+//						Name: pulumi.String("region"),
+//						Type: pulumi.String("S"),
+//					},
+//					&dynamodb.TableAttributeArgs{
+//						Name: pulumi.String("round"),
+//						Type: pulumi.String("S"),
+//					},
+//					&dynamodb.TableAttributeArgs{
+//						Name: pulumi.String("bracket"),
+//						Type: pulumi.String("S"),
+//					},
+//					&dynamodb.TableAttributeArgs{
+//						Name: pulumi.String("playerId"),
+//						Type: pulumi.Any(N),
+//					},
+//					&dynamodb.TableAttributeArgs{
+//						Name: pulumi.String("matchDate"),
+//						Type: pulumi.Any(S),
+//					},
+//				},
+//				Ttl: &dynamodb.TableTtlArgs{
+//					AttributeName: pulumi.String("TimeToExist"),
+//					Enabled:       pulumi.Bool(true),
+//				},
+//				GlobalSecondaryIndexes: dynamodb.TableGlobalSecondaryIndexArray{
+//					&dynamodb.TableGlobalSecondaryIndexArgs{
+//						Name: pulumi.String("TournamentRegionIndex"),
+//						HashKeys: []string{
+//							"tournamentId",
+//							"region",
+//						},
+//						RangeKeys: []string{
+//							"round",
+//							"bracket",
+//							"matchId",
+//						},
+//						WriteCapacity:  pulumi.Int(10),
+//						ReadCapacity:   pulumi.Int(10),
+//						ProjectionType: pulumi.String("ALL"),
+//					},
+//					&dynamodb.TableGlobalSecondaryIndexArgs{
+//						Name:    pulumi.String("PlayerMatchHistoryIndex"),
+//						HashKey: pulumi.String("playerId"),
+//						RangeKeys: []string{
+//							"matchDate",
+//							"round",
+//						},
+//						WriteCapacity:  pulumi.Int(10),
+//						ReadCapacity:   pulumi.Int(10),
+//						ProjectionType: pulumi.String("ALL"),
+//					},
+//				},
+//				Tags: pulumi.StringMap{
+//					"Name":        pulumi.String("dynamodb-table-1"),
+//					"Environment": pulumi.String("production"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ### Global Tables
 //
 // This resource implements support for [DynamoDB Global Tables V2 (version 2019.11.21)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html) via `replica` configuration blocks. For working with [DynamoDB Global Tables V1 (version 2017.11.29)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V1.html), see the `dynamodb.GlobalTable` resource.
@@ -394,7 +492,9 @@ type Table struct {
 	StreamEnabled pulumi.BoolPtrOutput `pulumi:"streamEnabled"`
 	// Timestamp, in ISO 8601 format, for this stream. Note that this timestamp is not a unique identifier for the stream on its own. However, the combination of AWS customer ID, table name and this field is guaranteed to be unique. It can be used for creating CloudWatch Alarms. Only available when `streamEnabled = true`.
 	StreamLabel pulumi.StringOutput `pulumi:"streamLabel"`
-	// When an item in the table is modified, StreamViewType determines what information is written to the table's stream. Valid values are `KEYS_ONLY`, `NEW_IMAGE`, `OLD_IMAGE`, `NEW_AND_OLD_IMAGES`.
+	// When an item in the table is modified, StreamViewType determines what information is written to the table's stream.
+	// Valid values are `KEYS_ONLY`, `NEW_IMAGE`, `OLD_IMAGE`, `NEW_AND_OLD_IMAGES`.
+	// Only valid when `streamEnabled` is true.
 	StreamViewType pulumi.StringOutput `pulumi:"streamViewType"`
 	// Storage class of the table.
 	// Valid values are `STANDARD` and `STANDARD_INFREQUENT_ACCESS`.
@@ -492,7 +592,9 @@ type tableState struct {
 	StreamEnabled *bool `pulumi:"streamEnabled"`
 	// Timestamp, in ISO 8601 format, for this stream. Note that this timestamp is not a unique identifier for the stream on its own. However, the combination of AWS customer ID, table name and this field is guaranteed to be unique. It can be used for creating CloudWatch Alarms. Only available when `streamEnabled = true`.
 	StreamLabel *string `pulumi:"streamLabel"`
-	// When an item in the table is modified, StreamViewType determines what information is written to the table's stream. Valid values are `KEYS_ONLY`, `NEW_IMAGE`, `OLD_IMAGE`, `NEW_AND_OLD_IMAGES`.
+	// When an item in the table is modified, StreamViewType determines what information is written to the table's stream.
+	// Valid values are `KEYS_ONLY`, `NEW_IMAGE`, `OLD_IMAGE`, `NEW_AND_OLD_IMAGES`.
+	// Only valid when `streamEnabled` is true.
 	StreamViewType *string `pulumi:"streamViewType"`
 	// Storage class of the table.
 	// Valid values are `STANDARD` and `STANDARD_INFREQUENT_ACCESS`.
@@ -561,7 +663,9 @@ type TableState struct {
 	StreamEnabled pulumi.BoolPtrInput
 	// Timestamp, in ISO 8601 format, for this stream. Note that this timestamp is not a unique identifier for the stream on its own. However, the combination of AWS customer ID, table name and this field is guaranteed to be unique. It can be used for creating CloudWatch Alarms. Only available when `streamEnabled = true`.
 	StreamLabel pulumi.StringPtrInput
-	// When an item in the table is modified, StreamViewType determines what information is written to the table's stream. Valid values are `KEYS_ONLY`, `NEW_IMAGE`, `OLD_IMAGE`, `NEW_AND_OLD_IMAGES`.
+	// When an item in the table is modified, StreamViewType determines what information is written to the table's stream.
+	// Valid values are `KEYS_ONLY`, `NEW_IMAGE`, `OLD_IMAGE`, `NEW_AND_OLD_IMAGES`.
+	// Only valid when `streamEnabled` is true.
 	StreamViewType pulumi.StringPtrInput
 	// Storage class of the table.
 	// Valid values are `STANDARD` and `STANDARD_INFREQUENT_ACCESS`.
@@ -628,7 +732,9 @@ type tableArgs struct {
 	ServerSideEncryption *TableServerSideEncryption `pulumi:"serverSideEncryption"`
 	// Whether Streams are enabled.
 	StreamEnabled *bool `pulumi:"streamEnabled"`
-	// When an item in the table is modified, StreamViewType determines what information is written to the table's stream. Valid values are `KEYS_ONLY`, `NEW_IMAGE`, `OLD_IMAGE`, `NEW_AND_OLD_IMAGES`.
+	// When an item in the table is modified, StreamViewType determines what information is written to the table's stream.
+	// Valid values are `KEYS_ONLY`, `NEW_IMAGE`, `OLD_IMAGE`, `NEW_AND_OLD_IMAGES`.
+	// Only valid when `streamEnabled` is true.
 	StreamViewType *string `pulumi:"streamViewType"`
 	// Storage class of the table.
 	// Valid values are `STANDARD` and `STANDARD_INFREQUENT_ACCESS`.
@@ -690,7 +796,9 @@ type TableArgs struct {
 	ServerSideEncryption TableServerSideEncryptionPtrInput
 	// Whether Streams are enabled.
 	StreamEnabled pulumi.BoolPtrInput
-	// When an item in the table is modified, StreamViewType determines what information is written to the table's stream. Valid values are `KEYS_ONLY`, `NEW_IMAGE`, `OLD_IMAGE`, `NEW_AND_OLD_IMAGES`.
+	// When an item in the table is modified, StreamViewType determines what information is written to the table's stream.
+	// Valid values are `KEYS_ONLY`, `NEW_IMAGE`, `OLD_IMAGE`, `NEW_AND_OLD_IMAGES`.
+	// Only valid when `streamEnabled` is true.
 	StreamViewType pulumi.StringPtrInput
 	// Storage class of the table.
 	// Valid values are `STANDARD` and `STANDARD_INFREQUENT_ACCESS`.
@@ -915,7 +1023,9 @@ func (o TableOutput) StreamLabel() pulumi.StringOutput {
 	return o.ApplyT(func(v *Table) pulumi.StringOutput { return v.StreamLabel }).(pulumi.StringOutput)
 }
 
-// When an item in the table is modified, StreamViewType determines what information is written to the table's stream. Valid values are `KEYS_ONLY`, `NEW_IMAGE`, `OLD_IMAGE`, `NEW_AND_OLD_IMAGES`.
+// When an item in the table is modified, StreamViewType determines what information is written to the table's stream.
+// Valid values are `KEYS_ONLY`, `NEW_IMAGE`, `OLD_IMAGE`, `NEW_AND_OLD_IMAGES`.
+// Only valid when `streamEnabled` is true.
 func (o TableOutput) StreamViewType() pulumi.StringOutput {
 	return o.ApplyT(func(v *Table) pulumi.StringOutput { return v.StreamViewType }).(pulumi.StringOutput)
 }

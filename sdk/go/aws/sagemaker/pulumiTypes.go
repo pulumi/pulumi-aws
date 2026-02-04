@@ -23930,6 +23930,3250 @@ func (o HumanTaskUIUiTemplatePtrOutput) Url() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type LabelingJobHumanTaskConfig struct {
+	// How labels are consolidated across human workers. Fields are documented below.
+	AnnotationConsolidationConfig *LabelingJobHumanTaskConfigAnnotationConsolidationConfig `pulumi:"annotationConsolidationConfig"`
+	// Maximum number of data objects that can be labeled by human workers at the same time.
+	MaxConcurrentTaskCount *int `pulumi:"maxConcurrentTaskCount"`
+	// Number of human workers that will label an object.
+	NumberOfHumanWorkersPerDataObject int `pulumi:"numberOfHumanWorkersPerDataObject"`
+	// ARN of a Lambda function that is run before a data object is sent to a human worker.
+	PreHumanTaskLambdaArn *string `pulumi:"preHumanTaskLambdaArn"`
+	// Price to pay for each task performed by an Amazon Mechanical Turk worker. Fields are documented below.
+	PublicWorkforceTaskPrice *LabelingJobHumanTaskConfigPublicWorkforceTaskPrice `pulumi:"publicWorkforceTaskPrice"`
+	// length of time that a task remains available for labeling by human workers.
+	TaskAvailabilityLifetimeInSeconds *int `pulumi:"taskAvailabilityLifetimeInSeconds"`
+	// Description of the task.
+	TaskDescription string `pulumi:"taskDescription"`
+	// Keywords used to describe the task.
+	TaskKeywords []string `pulumi:"taskKeywords"`
+	// Amount of time that a worker has to complete a task.
+	TaskTimeLimitInSeconds int `pulumi:"taskTimeLimitInSeconds"`
+	// Title for the task.
+	TaskTitle string `pulumi:"taskTitle"`
+	// Information about the user interface that workers use to complete the labeling task. Fields are documented below.
+	UiConfig *LabelingJobHumanTaskConfigUiConfig `pulumi:"uiConfig"`
+	// ARN of the work team assigned to complete the tasks.
+	WorkteamArn string `pulumi:"workteamArn"`
+}
+
+// LabelingJobHumanTaskConfigInput is an input type that accepts LabelingJobHumanTaskConfigArgs and LabelingJobHumanTaskConfigOutput values.
+// You can construct a concrete instance of `LabelingJobHumanTaskConfigInput` via:
+//
+//	LabelingJobHumanTaskConfigArgs{...}
+type LabelingJobHumanTaskConfigInput interface {
+	pulumi.Input
+
+	ToLabelingJobHumanTaskConfigOutput() LabelingJobHumanTaskConfigOutput
+	ToLabelingJobHumanTaskConfigOutputWithContext(context.Context) LabelingJobHumanTaskConfigOutput
+}
+
+type LabelingJobHumanTaskConfigArgs struct {
+	// How labels are consolidated across human workers. Fields are documented below.
+	AnnotationConsolidationConfig LabelingJobHumanTaskConfigAnnotationConsolidationConfigPtrInput `pulumi:"annotationConsolidationConfig"`
+	// Maximum number of data objects that can be labeled by human workers at the same time.
+	MaxConcurrentTaskCount pulumi.IntPtrInput `pulumi:"maxConcurrentTaskCount"`
+	// Number of human workers that will label an object.
+	NumberOfHumanWorkersPerDataObject pulumi.IntInput `pulumi:"numberOfHumanWorkersPerDataObject"`
+	// ARN of a Lambda function that is run before a data object is sent to a human worker.
+	PreHumanTaskLambdaArn pulumi.StringPtrInput `pulumi:"preHumanTaskLambdaArn"`
+	// Price to pay for each task performed by an Amazon Mechanical Turk worker. Fields are documented below.
+	PublicWorkforceTaskPrice LabelingJobHumanTaskConfigPublicWorkforceTaskPricePtrInput `pulumi:"publicWorkforceTaskPrice"`
+	// length of time that a task remains available for labeling by human workers.
+	TaskAvailabilityLifetimeInSeconds pulumi.IntPtrInput `pulumi:"taskAvailabilityLifetimeInSeconds"`
+	// Description of the task.
+	TaskDescription pulumi.StringInput `pulumi:"taskDescription"`
+	// Keywords used to describe the task.
+	TaskKeywords pulumi.StringArrayInput `pulumi:"taskKeywords"`
+	// Amount of time that a worker has to complete a task.
+	TaskTimeLimitInSeconds pulumi.IntInput `pulumi:"taskTimeLimitInSeconds"`
+	// Title for the task.
+	TaskTitle pulumi.StringInput `pulumi:"taskTitle"`
+	// Information about the user interface that workers use to complete the labeling task. Fields are documented below.
+	UiConfig LabelingJobHumanTaskConfigUiConfigPtrInput `pulumi:"uiConfig"`
+	// ARN of the work team assigned to complete the tasks.
+	WorkteamArn pulumi.StringInput `pulumi:"workteamArn"`
+}
+
+func (LabelingJobHumanTaskConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LabelingJobHumanTaskConfig)(nil)).Elem()
+}
+
+func (i LabelingJobHumanTaskConfigArgs) ToLabelingJobHumanTaskConfigOutput() LabelingJobHumanTaskConfigOutput {
+	return i.ToLabelingJobHumanTaskConfigOutputWithContext(context.Background())
+}
+
+func (i LabelingJobHumanTaskConfigArgs) ToLabelingJobHumanTaskConfigOutputWithContext(ctx context.Context) LabelingJobHumanTaskConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LabelingJobHumanTaskConfigOutput)
+}
+
+func (i LabelingJobHumanTaskConfigArgs) ToLabelingJobHumanTaskConfigPtrOutput() LabelingJobHumanTaskConfigPtrOutput {
+	return i.ToLabelingJobHumanTaskConfigPtrOutputWithContext(context.Background())
+}
+
+func (i LabelingJobHumanTaskConfigArgs) ToLabelingJobHumanTaskConfigPtrOutputWithContext(ctx context.Context) LabelingJobHumanTaskConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LabelingJobHumanTaskConfigOutput).ToLabelingJobHumanTaskConfigPtrOutputWithContext(ctx)
+}
+
+// LabelingJobHumanTaskConfigPtrInput is an input type that accepts LabelingJobHumanTaskConfigArgs, LabelingJobHumanTaskConfigPtr and LabelingJobHumanTaskConfigPtrOutput values.
+// You can construct a concrete instance of `LabelingJobHumanTaskConfigPtrInput` via:
+//
+//	        LabelingJobHumanTaskConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type LabelingJobHumanTaskConfigPtrInput interface {
+	pulumi.Input
+
+	ToLabelingJobHumanTaskConfigPtrOutput() LabelingJobHumanTaskConfigPtrOutput
+	ToLabelingJobHumanTaskConfigPtrOutputWithContext(context.Context) LabelingJobHumanTaskConfigPtrOutput
+}
+
+type labelingJobHumanTaskConfigPtrType LabelingJobHumanTaskConfigArgs
+
+func LabelingJobHumanTaskConfigPtr(v *LabelingJobHumanTaskConfigArgs) LabelingJobHumanTaskConfigPtrInput {
+	return (*labelingJobHumanTaskConfigPtrType)(v)
+}
+
+func (*labelingJobHumanTaskConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LabelingJobHumanTaskConfig)(nil)).Elem()
+}
+
+func (i *labelingJobHumanTaskConfigPtrType) ToLabelingJobHumanTaskConfigPtrOutput() LabelingJobHumanTaskConfigPtrOutput {
+	return i.ToLabelingJobHumanTaskConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *labelingJobHumanTaskConfigPtrType) ToLabelingJobHumanTaskConfigPtrOutputWithContext(ctx context.Context) LabelingJobHumanTaskConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LabelingJobHumanTaskConfigPtrOutput)
+}
+
+type LabelingJobHumanTaskConfigOutput struct{ *pulumi.OutputState }
+
+func (LabelingJobHumanTaskConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LabelingJobHumanTaskConfig)(nil)).Elem()
+}
+
+func (o LabelingJobHumanTaskConfigOutput) ToLabelingJobHumanTaskConfigOutput() LabelingJobHumanTaskConfigOutput {
+	return o
+}
+
+func (o LabelingJobHumanTaskConfigOutput) ToLabelingJobHumanTaskConfigOutputWithContext(ctx context.Context) LabelingJobHumanTaskConfigOutput {
+	return o
+}
+
+func (o LabelingJobHumanTaskConfigOutput) ToLabelingJobHumanTaskConfigPtrOutput() LabelingJobHumanTaskConfigPtrOutput {
+	return o.ToLabelingJobHumanTaskConfigPtrOutputWithContext(context.Background())
+}
+
+func (o LabelingJobHumanTaskConfigOutput) ToLabelingJobHumanTaskConfigPtrOutputWithContext(ctx context.Context) LabelingJobHumanTaskConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LabelingJobHumanTaskConfig) *LabelingJobHumanTaskConfig {
+		return &v
+	}).(LabelingJobHumanTaskConfigPtrOutput)
+}
+
+// How labels are consolidated across human workers. Fields are documented below.
+func (o LabelingJobHumanTaskConfigOutput) AnnotationConsolidationConfig() LabelingJobHumanTaskConfigAnnotationConsolidationConfigPtrOutput {
+	return o.ApplyT(func(v LabelingJobHumanTaskConfig) *LabelingJobHumanTaskConfigAnnotationConsolidationConfig {
+		return v.AnnotationConsolidationConfig
+	}).(LabelingJobHumanTaskConfigAnnotationConsolidationConfigPtrOutput)
+}
+
+// Maximum number of data objects that can be labeled by human workers at the same time.
+func (o LabelingJobHumanTaskConfigOutput) MaxConcurrentTaskCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LabelingJobHumanTaskConfig) *int { return v.MaxConcurrentTaskCount }).(pulumi.IntPtrOutput)
+}
+
+// Number of human workers that will label an object.
+func (o LabelingJobHumanTaskConfigOutput) NumberOfHumanWorkersPerDataObject() pulumi.IntOutput {
+	return o.ApplyT(func(v LabelingJobHumanTaskConfig) int { return v.NumberOfHumanWorkersPerDataObject }).(pulumi.IntOutput)
+}
+
+// ARN of a Lambda function that is run before a data object is sent to a human worker.
+func (o LabelingJobHumanTaskConfigOutput) PreHumanTaskLambdaArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LabelingJobHumanTaskConfig) *string { return v.PreHumanTaskLambdaArn }).(pulumi.StringPtrOutput)
+}
+
+// Price to pay for each task performed by an Amazon Mechanical Turk worker. Fields are documented below.
+func (o LabelingJobHumanTaskConfigOutput) PublicWorkforceTaskPrice() LabelingJobHumanTaskConfigPublicWorkforceTaskPricePtrOutput {
+	return o.ApplyT(func(v LabelingJobHumanTaskConfig) *LabelingJobHumanTaskConfigPublicWorkforceTaskPrice {
+		return v.PublicWorkforceTaskPrice
+	}).(LabelingJobHumanTaskConfigPublicWorkforceTaskPricePtrOutput)
+}
+
+// length of time that a task remains available for labeling by human workers.
+func (o LabelingJobHumanTaskConfigOutput) TaskAvailabilityLifetimeInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LabelingJobHumanTaskConfig) *int { return v.TaskAvailabilityLifetimeInSeconds }).(pulumi.IntPtrOutput)
+}
+
+// Description of the task.
+func (o LabelingJobHumanTaskConfigOutput) TaskDescription() pulumi.StringOutput {
+	return o.ApplyT(func(v LabelingJobHumanTaskConfig) string { return v.TaskDescription }).(pulumi.StringOutput)
+}
+
+// Keywords used to describe the task.
+func (o LabelingJobHumanTaskConfigOutput) TaskKeywords() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LabelingJobHumanTaskConfig) []string { return v.TaskKeywords }).(pulumi.StringArrayOutput)
+}
+
+// Amount of time that a worker has to complete a task.
+func (o LabelingJobHumanTaskConfigOutput) TaskTimeLimitInSeconds() pulumi.IntOutput {
+	return o.ApplyT(func(v LabelingJobHumanTaskConfig) int { return v.TaskTimeLimitInSeconds }).(pulumi.IntOutput)
+}
+
+// Title for the task.
+func (o LabelingJobHumanTaskConfigOutput) TaskTitle() pulumi.StringOutput {
+	return o.ApplyT(func(v LabelingJobHumanTaskConfig) string { return v.TaskTitle }).(pulumi.StringOutput)
+}
+
+// Information about the user interface that workers use to complete the labeling task. Fields are documented below.
+func (o LabelingJobHumanTaskConfigOutput) UiConfig() LabelingJobHumanTaskConfigUiConfigPtrOutput {
+	return o.ApplyT(func(v LabelingJobHumanTaskConfig) *LabelingJobHumanTaskConfigUiConfig { return v.UiConfig }).(LabelingJobHumanTaskConfigUiConfigPtrOutput)
+}
+
+// ARN of the work team assigned to complete the tasks.
+func (o LabelingJobHumanTaskConfigOutput) WorkteamArn() pulumi.StringOutput {
+	return o.ApplyT(func(v LabelingJobHumanTaskConfig) string { return v.WorkteamArn }).(pulumi.StringOutput)
+}
+
+type LabelingJobHumanTaskConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (LabelingJobHumanTaskConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LabelingJobHumanTaskConfig)(nil)).Elem()
+}
+
+func (o LabelingJobHumanTaskConfigPtrOutput) ToLabelingJobHumanTaskConfigPtrOutput() LabelingJobHumanTaskConfigPtrOutput {
+	return o
+}
+
+func (o LabelingJobHumanTaskConfigPtrOutput) ToLabelingJobHumanTaskConfigPtrOutputWithContext(ctx context.Context) LabelingJobHumanTaskConfigPtrOutput {
+	return o
+}
+
+func (o LabelingJobHumanTaskConfigPtrOutput) Elem() LabelingJobHumanTaskConfigOutput {
+	return o.ApplyT(func(v *LabelingJobHumanTaskConfig) LabelingJobHumanTaskConfig {
+		if v != nil {
+			return *v
+		}
+		var ret LabelingJobHumanTaskConfig
+		return ret
+	}).(LabelingJobHumanTaskConfigOutput)
+}
+
+// How labels are consolidated across human workers. Fields are documented below.
+func (o LabelingJobHumanTaskConfigPtrOutput) AnnotationConsolidationConfig() LabelingJobHumanTaskConfigAnnotationConsolidationConfigPtrOutput {
+	return o.ApplyT(func(v *LabelingJobHumanTaskConfig) *LabelingJobHumanTaskConfigAnnotationConsolidationConfig {
+		if v == nil {
+			return nil
+		}
+		return v.AnnotationConsolidationConfig
+	}).(LabelingJobHumanTaskConfigAnnotationConsolidationConfigPtrOutput)
+}
+
+// Maximum number of data objects that can be labeled by human workers at the same time.
+func (o LabelingJobHumanTaskConfigPtrOutput) MaxConcurrentTaskCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *LabelingJobHumanTaskConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxConcurrentTaskCount
+	}).(pulumi.IntPtrOutput)
+}
+
+// Number of human workers that will label an object.
+func (o LabelingJobHumanTaskConfigPtrOutput) NumberOfHumanWorkersPerDataObject() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *LabelingJobHumanTaskConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.NumberOfHumanWorkersPerDataObject
+	}).(pulumi.IntPtrOutput)
+}
+
+// ARN of a Lambda function that is run before a data object is sent to a human worker.
+func (o LabelingJobHumanTaskConfigPtrOutput) PreHumanTaskLambdaArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LabelingJobHumanTaskConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PreHumanTaskLambdaArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// Price to pay for each task performed by an Amazon Mechanical Turk worker. Fields are documented below.
+func (o LabelingJobHumanTaskConfigPtrOutput) PublicWorkforceTaskPrice() LabelingJobHumanTaskConfigPublicWorkforceTaskPricePtrOutput {
+	return o.ApplyT(func(v *LabelingJobHumanTaskConfig) *LabelingJobHumanTaskConfigPublicWorkforceTaskPrice {
+		if v == nil {
+			return nil
+		}
+		return v.PublicWorkforceTaskPrice
+	}).(LabelingJobHumanTaskConfigPublicWorkforceTaskPricePtrOutput)
+}
+
+// length of time that a task remains available for labeling by human workers.
+func (o LabelingJobHumanTaskConfigPtrOutput) TaskAvailabilityLifetimeInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *LabelingJobHumanTaskConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return v.TaskAvailabilityLifetimeInSeconds
+	}).(pulumi.IntPtrOutput)
+}
+
+// Description of the task.
+func (o LabelingJobHumanTaskConfigPtrOutput) TaskDescription() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LabelingJobHumanTaskConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.TaskDescription
+	}).(pulumi.StringPtrOutput)
+}
+
+// Keywords used to describe the task.
+func (o LabelingJobHumanTaskConfigPtrOutput) TaskKeywords() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *LabelingJobHumanTaskConfig) []string {
+		if v == nil {
+			return nil
+		}
+		return v.TaskKeywords
+	}).(pulumi.StringArrayOutput)
+}
+
+// Amount of time that a worker has to complete a task.
+func (o LabelingJobHumanTaskConfigPtrOutput) TaskTimeLimitInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *LabelingJobHumanTaskConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.TaskTimeLimitInSeconds
+	}).(pulumi.IntPtrOutput)
+}
+
+// Title for the task.
+func (o LabelingJobHumanTaskConfigPtrOutput) TaskTitle() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LabelingJobHumanTaskConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.TaskTitle
+	}).(pulumi.StringPtrOutput)
+}
+
+// Information about the user interface that workers use to complete the labeling task. Fields are documented below.
+func (o LabelingJobHumanTaskConfigPtrOutput) UiConfig() LabelingJobHumanTaskConfigUiConfigPtrOutput {
+	return o.ApplyT(func(v *LabelingJobHumanTaskConfig) *LabelingJobHumanTaskConfigUiConfig {
+		if v == nil {
+			return nil
+		}
+		return v.UiConfig
+	}).(LabelingJobHumanTaskConfigUiConfigPtrOutput)
+}
+
+// ARN of the work team assigned to complete the tasks.
+func (o LabelingJobHumanTaskConfigPtrOutput) WorkteamArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LabelingJobHumanTaskConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.WorkteamArn
+	}).(pulumi.StringPtrOutput)
+}
+
+type LabelingJobHumanTaskConfigAnnotationConsolidationConfig struct {
+	// ARN of a Lambda function that implements the logic for annotation consolidation and to process output data.
+	AnnotationConsolidationLambdaArn string `pulumi:"annotationConsolidationLambdaArn"`
+}
+
+// LabelingJobHumanTaskConfigAnnotationConsolidationConfigInput is an input type that accepts LabelingJobHumanTaskConfigAnnotationConsolidationConfigArgs and LabelingJobHumanTaskConfigAnnotationConsolidationConfigOutput values.
+// You can construct a concrete instance of `LabelingJobHumanTaskConfigAnnotationConsolidationConfigInput` via:
+//
+//	LabelingJobHumanTaskConfigAnnotationConsolidationConfigArgs{...}
+type LabelingJobHumanTaskConfigAnnotationConsolidationConfigInput interface {
+	pulumi.Input
+
+	ToLabelingJobHumanTaskConfigAnnotationConsolidationConfigOutput() LabelingJobHumanTaskConfigAnnotationConsolidationConfigOutput
+	ToLabelingJobHumanTaskConfigAnnotationConsolidationConfigOutputWithContext(context.Context) LabelingJobHumanTaskConfigAnnotationConsolidationConfigOutput
+}
+
+type LabelingJobHumanTaskConfigAnnotationConsolidationConfigArgs struct {
+	// ARN of a Lambda function that implements the logic for annotation consolidation and to process output data.
+	AnnotationConsolidationLambdaArn pulumi.StringInput `pulumi:"annotationConsolidationLambdaArn"`
+}
+
+func (LabelingJobHumanTaskConfigAnnotationConsolidationConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LabelingJobHumanTaskConfigAnnotationConsolidationConfig)(nil)).Elem()
+}
+
+func (i LabelingJobHumanTaskConfigAnnotationConsolidationConfigArgs) ToLabelingJobHumanTaskConfigAnnotationConsolidationConfigOutput() LabelingJobHumanTaskConfigAnnotationConsolidationConfigOutput {
+	return i.ToLabelingJobHumanTaskConfigAnnotationConsolidationConfigOutputWithContext(context.Background())
+}
+
+func (i LabelingJobHumanTaskConfigAnnotationConsolidationConfigArgs) ToLabelingJobHumanTaskConfigAnnotationConsolidationConfigOutputWithContext(ctx context.Context) LabelingJobHumanTaskConfigAnnotationConsolidationConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LabelingJobHumanTaskConfigAnnotationConsolidationConfigOutput)
+}
+
+func (i LabelingJobHumanTaskConfigAnnotationConsolidationConfigArgs) ToLabelingJobHumanTaskConfigAnnotationConsolidationConfigPtrOutput() LabelingJobHumanTaskConfigAnnotationConsolidationConfigPtrOutput {
+	return i.ToLabelingJobHumanTaskConfigAnnotationConsolidationConfigPtrOutputWithContext(context.Background())
+}
+
+func (i LabelingJobHumanTaskConfigAnnotationConsolidationConfigArgs) ToLabelingJobHumanTaskConfigAnnotationConsolidationConfigPtrOutputWithContext(ctx context.Context) LabelingJobHumanTaskConfigAnnotationConsolidationConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LabelingJobHumanTaskConfigAnnotationConsolidationConfigOutput).ToLabelingJobHumanTaskConfigAnnotationConsolidationConfigPtrOutputWithContext(ctx)
+}
+
+// LabelingJobHumanTaskConfigAnnotationConsolidationConfigPtrInput is an input type that accepts LabelingJobHumanTaskConfigAnnotationConsolidationConfigArgs, LabelingJobHumanTaskConfigAnnotationConsolidationConfigPtr and LabelingJobHumanTaskConfigAnnotationConsolidationConfigPtrOutput values.
+// You can construct a concrete instance of `LabelingJobHumanTaskConfigAnnotationConsolidationConfigPtrInput` via:
+//
+//	        LabelingJobHumanTaskConfigAnnotationConsolidationConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type LabelingJobHumanTaskConfigAnnotationConsolidationConfigPtrInput interface {
+	pulumi.Input
+
+	ToLabelingJobHumanTaskConfigAnnotationConsolidationConfigPtrOutput() LabelingJobHumanTaskConfigAnnotationConsolidationConfigPtrOutput
+	ToLabelingJobHumanTaskConfigAnnotationConsolidationConfigPtrOutputWithContext(context.Context) LabelingJobHumanTaskConfigAnnotationConsolidationConfigPtrOutput
+}
+
+type labelingJobHumanTaskConfigAnnotationConsolidationConfigPtrType LabelingJobHumanTaskConfigAnnotationConsolidationConfigArgs
+
+func LabelingJobHumanTaskConfigAnnotationConsolidationConfigPtr(v *LabelingJobHumanTaskConfigAnnotationConsolidationConfigArgs) LabelingJobHumanTaskConfigAnnotationConsolidationConfigPtrInput {
+	return (*labelingJobHumanTaskConfigAnnotationConsolidationConfigPtrType)(v)
+}
+
+func (*labelingJobHumanTaskConfigAnnotationConsolidationConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LabelingJobHumanTaskConfigAnnotationConsolidationConfig)(nil)).Elem()
+}
+
+func (i *labelingJobHumanTaskConfigAnnotationConsolidationConfigPtrType) ToLabelingJobHumanTaskConfigAnnotationConsolidationConfigPtrOutput() LabelingJobHumanTaskConfigAnnotationConsolidationConfigPtrOutput {
+	return i.ToLabelingJobHumanTaskConfigAnnotationConsolidationConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *labelingJobHumanTaskConfigAnnotationConsolidationConfigPtrType) ToLabelingJobHumanTaskConfigAnnotationConsolidationConfigPtrOutputWithContext(ctx context.Context) LabelingJobHumanTaskConfigAnnotationConsolidationConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LabelingJobHumanTaskConfigAnnotationConsolidationConfigPtrOutput)
+}
+
+type LabelingJobHumanTaskConfigAnnotationConsolidationConfigOutput struct{ *pulumi.OutputState }
+
+func (LabelingJobHumanTaskConfigAnnotationConsolidationConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LabelingJobHumanTaskConfigAnnotationConsolidationConfig)(nil)).Elem()
+}
+
+func (o LabelingJobHumanTaskConfigAnnotationConsolidationConfigOutput) ToLabelingJobHumanTaskConfigAnnotationConsolidationConfigOutput() LabelingJobHumanTaskConfigAnnotationConsolidationConfigOutput {
+	return o
+}
+
+func (o LabelingJobHumanTaskConfigAnnotationConsolidationConfigOutput) ToLabelingJobHumanTaskConfigAnnotationConsolidationConfigOutputWithContext(ctx context.Context) LabelingJobHumanTaskConfigAnnotationConsolidationConfigOutput {
+	return o
+}
+
+func (o LabelingJobHumanTaskConfigAnnotationConsolidationConfigOutput) ToLabelingJobHumanTaskConfigAnnotationConsolidationConfigPtrOutput() LabelingJobHumanTaskConfigAnnotationConsolidationConfigPtrOutput {
+	return o.ToLabelingJobHumanTaskConfigAnnotationConsolidationConfigPtrOutputWithContext(context.Background())
+}
+
+func (o LabelingJobHumanTaskConfigAnnotationConsolidationConfigOutput) ToLabelingJobHumanTaskConfigAnnotationConsolidationConfigPtrOutputWithContext(ctx context.Context) LabelingJobHumanTaskConfigAnnotationConsolidationConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LabelingJobHumanTaskConfigAnnotationConsolidationConfig) *LabelingJobHumanTaskConfigAnnotationConsolidationConfig {
+		return &v
+	}).(LabelingJobHumanTaskConfigAnnotationConsolidationConfigPtrOutput)
+}
+
+// ARN of a Lambda function that implements the logic for annotation consolidation and to process output data.
+func (o LabelingJobHumanTaskConfigAnnotationConsolidationConfigOutput) AnnotationConsolidationLambdaArn() pulumi.StringOutput {
+	return o.ApplyT(func(v LabelingJobHumanTaskConfigAnnotationConsolidationConfig) string {
+		return v.AnnotationConsolidationLambdaArn
+	}).(pulumi.StringOutput)
+}
+
+type LabelingJobHumanTaskConfigAnnotationConsolidationConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (LabelingJobHumanTaskConfigAnnotationConsolidationConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LabelingJobHumanTaskConfigAnnotationConsolidationConfig)(nil)).Elem()
+}
+
+func (o LabelingJobHumanTaskConfigAnnotationConsolidationConfigPtrOutput) ToLabelingJobHumanTaskConfigAnnotationConsolidationConfigPtrOutput() LabelingJobHumanTaskConfigAnnotationConsolidationConfigPtrOutput {
+	return o
+}
+
+func (o LabelingJobHumanTaskConfigAnnotationConsolidationConfigPtrOutput) ToLabelingJobHumanTaskConfigAnnotationConsolidationConfigPtrOutputWithContext(ctx context.Context) LabelingJobHumanTaskConfigAnnotationConsolidationConfigPtrOutput {
+	return o
+}
+
+func (o LabelingJobHumanTaskConfigAnnotationConsolidationConfigPtrOutput) Elem() LabelingJobHumanTaskConfigAnnotationConsolidationConfigOutput {
+	return o.ApplyT(func(v *LabelingJobHumanTaskConfigAnnotationConsolidationConfig) LabelingJobHumanTaskConfigAnnotationConsolidationConfig {
+		if v != nil {
+			return *v
+		}
+		var ret LabelingJobHumanTaskConfigAnnotationConsolidationConfig
+		return ret
+	}).(LabelingJobHumanTaskConfigAnnotationConsolidationConfigOutput)
+}
+
+// ARN of a Lambda function that implements the logic for annotation consolidation and to process output data.
+func (o LabelingJobHumanTaskConfigAnnotationConsolidationConfigPtrOutput) AnnotationConsolidationLambdaArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LabelingJobHumanTaskConfigAnnotationConsolidationConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.AnnotationConsolidationLambdaArn
+	}).(pulumi.StringPtrOutput)
+}
+
+type LabelingJobHumanTaskConfigPublicWorkforceTaskPrice struct {
+	// Amount of money paid to an Amazon Mechanical Turk worker in United States dollars. Fields are documented below.
+	AmountInUsd *LabelingJobHumanTaskConfigPublicWorkforceTaskPriceAmountInUsd `pulumi:"amountInUsd"`
+}
+
+// LabelingJobHumanTaskConfigPublicWorkforceTaskPriceInput is an input type that accepts LabelingJobHumanTaskConfigPublicWorkforceTaskPriceArgs and LabelingJobHumanTaskConfigPublicWorkforceTaskPriceOutput values.
+// You can construct a concrete instance of `LabelingJobHumanTaskConfigPublicWorkforceTaskPriceInput` via:
+//
+//	LabelingJobHumanTaskConfigPublicWorkforceTaskPriceArgs{...}
+type LabelingJobHumanTaskConfigPublicWorkforceTaskPriceInput interface {
+	pulumi.Input
+
+	ToLabelingJobHumanTaskConfigPublicWorkforceTaskPriceOutput() LabelingJobHumanTaskConfigPublicWorkforceTaskPriceOutput
+	ToLabelingJobHumanTaskConfigPublicWorkforceTaskPriceOutputWithContext(context.Context) LabelingJobHumanTaskConfigPublicWorkforceTaskPriceOutput
+}
+
+type LabelingJobHumanTaskConfigPublicWorkforceTaskPriceArgs struct {
+	// Amount of money paid to an Amazon Mechanical Turk worker in United States dollars. Fields are documented below.
+	AmountInUsd LabelingJobHumanTaskConfigPublicWorkforceTaskPriceAmountInUsdPtrInput `pulumi:"amountInUsd"`
+}
+
+func (LabelingJobHumanTaskConfigPublicWorkforceTaskPriceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LabelingJobHumanTaskConfigPublicWorkforceTaskPrice)(nil)).Elem()
+}
+
+func (i LabelingJobHumanTaskConfigPublicWorkforceTaskPriceArgs) ToLabelingJobHumanTaskConfigPublicWorkforceTaskPriceOutput() LabelingJobHumanTaskConfigPublicWorkforceTaskPriceOutput {
+	return i.ToLabelingJobHumanTaskConfigPublicWorkforceTaskPriceOutputWithContext(context.Background())
+}
+
+func (i LabelingJobHumanTaskConfigPublicWorkforceTaskPriceArgs) ToLabelingJobHumanTaskConfigPublicWorkforceTaskPriceOutputWithContext(ctx context.Context) LabelingJobHumanTaskConfigPublicWorkforceTaskPriceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LabelingJobHumanTaskConfigPublicWorkforceTaskPriceOutput)
+}
+
+func (i LabelingJobHumanTaskConfigPublicWorkforceTaskPriceArgs) ToLabelingJobHumanTaskConfigPublicWorkforceTaskPricePtrOutput() LabelingJobHumanTaskConfigPublicWorkforceTaskPricePtrOutput {
+	return i.ToLabelingJobHumanTaskConfigPublicWorkforceTaskPricePtrOutputWithContext(context.Background())
+}
+
+func (i LabelingJobHumanTaskConfigPublicWorkforceTaskPriceArgs) ToLabelingJobHumanTaskConfigPublicWorkforceTaskPricePtrOutputWithContext(ctx context.Context) LabelingJobHumanTaskConfigPublicWorkforceTaskPricePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LabelingJobHumanTaskConfigPublicWorkforceTaskPriceOutput).ToLabelingJobHumanTaskConfigPublicWorkforceTaskPricePtrOutputWithContext(ctx)
+}
+
+// LabelingJobHumanTaskConfigPublicWorkforceTaskPricePtrInput is an input type that accepts LabelingJobHumanTaskConfigPublicWorkforceTaskPriceArgs, LabelingJobHumanTaskConfigPublicWorkforceTaskPricePtr and LabelingJobHumanTaskConfigPublicWorkforceTaskPricePtrOutput values.
+// You can construct a concrete instance of `LabelingJobHumanTaskConfigPublicWorkforceTaskPricePtrInput` via:
+//
+//	        LabelingJobHumanTaskConfigPublicWorkforceTaskPriceArgs{...}
+//
+//	or:
+//
+//	        nil
+type LabelingJobHumanTaskConfigPublicWorkforceTaskPricePtrInput interface {
+	pulumi.Input
+
+	ToLabelingJobHumanTaskConfigPublicWorkforceTaskPricePtrOutput() LabelingJobHumanTaskConfigPublicWorkforceTaskPricePtrOutput
+	ToLabelingJobHumanTaskConfigPublicWorkforceTaskPricePtrOutputWithContext(context.Context) LabelingJobHumanTaskConfigPublicWorkforceTaskPricePtrOutput
+}
+
+type labelingJobHumanTaskConfigPublicWorkforceTaskPricePtrType LabelingJobHumanTaskConfigPublicWorkforceTaskPriceArgs
+
+func LabelingJobHumanTaskConfigPublicWorkforceTaskPricePtr(v *LabelingJobHumanTaskConfigPublicWorkforceTaskPriceArgs) LabelingJobHumanTaskConfigPublicWorkforceTaskPricePtrInput {
+	return (*labelingJobHumanTaskConfigPublicWorkforceTaskPricePtrType)(v)
+}
+
+func (*labelingJobHumanTaskConfigPublicWorkforceTaskPricePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LabelingJobHumanTaskConfigPublicWorkforceTaskPrice)(nil)).Elem()
+}
+
+func (i *labelingJobHumanTaskConfigPublicWorkforceTaskPricePtrType) ToLabelingJobHumanTaskConfigPublicWorkforceTaskPricePtrOutput() LabelingJobHumanTaskConfigPublicWorkforceTaskPricePtrOutput {
+	return i.ToLabelingJobHumanTaskConfigPublicWorkforceTaskPricePtrOutputWithContext(context.Background())
+}
+
+func (i *labelingJobHumanTaskConfigPublicWorkforceTaskPricePtrType) ToLabelingJobHumanTaskConfigPublicWorkforceTaskPricePtrOutputWithContext(ctx context.Context) LabelingJobHumanTaskConfigPublicWorkforceTaskPricePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LabelingJobHumanTaskConfigPublicWorkforceTaskPricePtrOutput)
+}
+
+type LabelingJobHumanTaskConfigPublicWorkforceTaskPriceOutput struct{ *pulumi.OutputState }
+
+func (LabelingJobHumanTaskConfigPublicWorkforceTaskPriceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LabelingJobHumanTaskConfigPublicWorkforceTaskPrice)(nil)).Elem()
+}
+
+func (o LabelingJobHumanTaskConfigPublicWorkforceTaskPriceOutput) ToLabelingJobHumanTaskConfigPublicWorkforceTaskPriceOutput() LabelingJobHumanTaskConfigPublicWorkforceTaskPriceOutput {
+	return o
+}
+
+func (o LabelingJobHumanTaskConfigPublicWorkforceTaskPriceOutput) ToLabelingJobHumanTaskConfigPublicWorkforceTaskPriceOutputWithContext(ctx context.Context) LabelingJobHumanTaskConfigPublicWorkforceTaskPriceOutput {
+	return o
+}
+
+func (o LabelingJobHumanTaskConfigPublicWorkforceTaskPriceOutput) ToLabelingJobHumanTaskConfigPublicWorkforceTaskPricePtrOutput() LabelingJobHumanTaskConfigPublicWorkforceTaskPricePtrOutput {
+	return o.ToLabelingJobHumanTaskConfigPublicWorkforceTaskPricePtrOutputWithContext(context.Background())
+}
+
+func (o LabelingJobHumanTaskConfigPublicWorkforceTaskPriceOutput) ToLabelingJobHumanTaskConfigPublicWorkforceTaskPricePtrOutputWithContext(ctx context.Context) LabelingJobHumanTaskConfigPublicWorkforceTaskPricePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LabelingJobHumanTaskConfigPublicWorkforceTaskPrice) *LabelingJobHumanTaskConfigPublicWorkforceTaskPrice {
+		return &v
+	}).(LabelingJobHumanTaskConfigPublicWorkforceTaskPricePtrOutput)
+}
+
+// Amount of money paid to an Amazon Mechanical Turk worker in United States dollars. Fields are documented below.
+func (o LabelingJobHumanTaskConfigPublicWorkforceTaskPriceOutput) AmountInUsd() LabelingJobHumanTaskConfigPublicWorkforceTaskPriceAmountInUsdPtrOutput {
+	return o.ApplyT(func(v LabelingJobHumanTaskConfigPublicWorkforceTaskPrice) *LabelingJobHumanTaskConfigPublicWorkforceTaskPriceAmountInUsd {
+		return v.AmountInUsd
+	}).(LabelingJobHumanTaskConfigPublicWorkforceTaskPriceAmountInUsdPtrOutput)
+}
+
+type LabelingJobHumanTaskConfigPublicWorkforceTaskPricePtrOutput struct{ *pulumi.OutputState }
+
+func (LabelingJobHumanTaskConfigPublicWorkforceTaskPricePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LabelingJobHumanTaskConfigPublicWorkforceTaskPrice)(nil)).Elem()
+}
+
+func (o LabelingJobHumanTaskConfigPublicWorkforceTaskPricePtrOutput) ToLabelingJobHumanTaskConfigPublicWorkforceTaskPricePtrOutput() LabelingJobHumanTaskConfigPublicWorkforceTaskPricePtrOutput {
+	return o
+}
+
+func (o LabelingJobHumanTaskConfigPublicWorkforceTaskPricePtrOutput) ToLabelingJobHumanTaskConfigPublicWorkforceTaskPricePtrOutputWithContext(ctx context.Context) LabelingJobHumanTaskConfigPublicWorkforceTaskPricePtrOutput {
+	return o
+}
+
+func (o LabelingJobHumanTaskConfigPublicWorkforceTaskPricePtrOutput) Elem() LabelingJobHumanTaskConfigPublicWorkforceTaskPriceOutput {
+	return o.ApplyT(func(v *LabelingJobHumanTaskConfigPublicWorkforceTaskPrice) LabelingJobHumanTaskConfigPublicWorkforceTaskPrice {
+		if v != nil {
+			return *v
+		}
+		var ret LabelingJobHumanTaskConfigPublicWorkforceTaskPrice
+		return ret
+	}).(LabelingJobHumanTaskConfigPublicWorkforceTaskPriceOutput)
+}
+
+// Amount of money paid to an Amazon Mechanical Turk worker in United States dollars. Fields are documented below.
+func (o LabelingJobHumanTaskConfigPublicWorkforceTaskPricePtrOutput) AmountInUsd() LabelingJobHumanTaskConfigPublicWorkforceTaskPriceAmountInUsdPtrOutput {
+	return o.ApplyT(func(v *LabelingJobHumanTaskConfigPublicWorkforceTaskPrice) *LabelingJobHumanTaskConfigPublicWorkforceTaskPriceAmountInUsd {
+		if v == nil {
+			return nil
+		}
+		return v.AmountInUsd
+	}).(LabelingJobHumanTaskConfigPublicWorkforceTaskPriceAmountInUsdPtrOutput)
+}
+
+type LabelingJobHumanTaskConfigPublicWorkforceTaskPriceAmountInUsd struct {
+	// Fractional portion, in cents, of the amount.
+	Cents *int `pulumi:"cents"`
+	// Whole number of dollars in the amount.
+	Dollars *int `pulumi:"dollars"`
+	// Fractions of a cent, in tenths.
+	TenthFractionsOfACent *int `pulumi:"tenthFractionsOfACent"`
+}
+
+// LabelingJobHumanTaskConfigPublicWorkforceTaskPriceAmountInUsdInput is an input type that accepts LabelingJobHumanTaskConfigPublicWorkforceTaskPriceAmountInUsdArgs and LabelingJobHumanTaskConfigPublicWorkforceTaskPriceAmountInUsdOutput values.
+// You can construct a concrete instance of `LabelingJobHumanTaskConfigPublicWorkforceTaskPriceAmountInUsdInput` via:
+//
+//	LabelingJobHumanTaskConfigPublicWorkforceTaskPriceAmountInUsdArgs{...}
+type LabelingJobHumanTaskConfigPublicWorkforceTaskPriceAmountInUsdInput interface {
+	pulumi.Input
+
+	ToLabelingJobHumanTaskConfigPublicWorkforceTaskPriceAmountInUsdOutput() LabelingJobHumanTaskConfigPublicWorkforceTaskPriceAmountInUsdOutput
+	ToLabelingJobHumanTaskConfigPublicWorkforceTaskPriceAmountInUsdOutputWithContext(context.Context) LabelingJobHumanTaskConfigPublicWorkforceTaskPriceAmountInUsdOutput
+}
+
+type LabelingJobHumanTaskConfigPublicWorkforceTaskPriceAmountInUsdArgs struct {
+	// Fractional portion, in cents, of the amount.
+	Cents pulumi.IntPtrInput `pulumi:"cents"`
+	// Whole number of dollars in the amount.
+	Dollars pulumi.IntPtrInput `pulumi:"dollars"`
+	// Fractions of a cent, in tenths.
+	TenthFractionsOfACent pulumi.IntPtrInput `pulumi:"tenthFractionsOfACent"`
+}
+
+func (LabelingJobHumanTaskConfigPublicWorkforceTaskPriceAmountInUsdArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LabelingJobHumanTaskConfigPublicWorkforceTaskPriceAmountInUsd)(nil)).Elem()
+}
+
+func (i LabelingJobHumanTaskConfigPublicWorkforceTaskPriceAmountInUsdArgs) ToLabelingJobHumanTaskConfigPublicWorkforceTaskPriceAmountInUsdOutput() LabelingJobHumanTaskConfigPublicWorkforceTaskPriceAmountInUsdOutput {
+	return i.ToLabelingJobHumanTaskConfigPublicWorkforceTaskPriceAmountInUsdOutputWithContext(context.Background())
+}
+
+func (i LabelingJobHumanTaskConfigPublicWorkforceTaskPriceAmountInUsdArgs) ToLabelingJobHumanTaskConfigPublicWorkforceTaskPriceAmountInUsdOutputWithContext(ctx context.Context) LabelingJobHumanTaskConfigPublicWorkforceTaskPriceAmountInUsdOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LabelingJobHumanTaskConfigPublicWorkforceTaskPriceAmountInUsdOutput)
+}
+
+func (i LabelingJobHumanTaskConfigPublicWorkforceTaskPriceAmountInUsdArgs) ToLabelingJobHumanTaskConfigPublicWorkforceTaskPriceAmountInUsdPtrOutput() LabelingJobHumanTaskConfigPublicWorkforceTaskPriceAmountInUsdPtrOutput {
+	return i.ToLabelingJobHumanTaskConfigPublicWorkforceTaskPriceAmountInUsdPtrOutputWithContext(context.Background())
+}
+
+func (i LabelingJobHumanTaskConfigPublicWorkforceTaskPriceAmountInUsdArgs) ToLabelingJobHumanTaskConfigPublicWorkforceTaskPriceAmountInUsdPtrOutputWithContext(ctx context.Context) LabelingJobHumanTaskConfigPublicWorkforceTaskPriceAmountInUsdPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LabelingJobHumanTaskConfigPublicWorkforceTaskPriceAmountInUsdOutput).ToLabelingJobHumanTaskConfigPublicWorkforceTaskPriceAmountInUsdPtrOutputWithContext(ctx)
+}
+
+// LabelingJobHumanTaskConfigPublicWorkforceTaskPriceAmountInUsdPtrInput is an input type that accepts LabelingJobHumanTaskConfigPublicWorkforceTaskPriceAmountInUsdArgs, LabelingJobHumanTaskConfigPublicWorkforceTaskPriceAmountInUsdPtr and LabelingJobHumanTaskConfigPublicWorkforceTaskPriceAmountInUsdPtrOutput values.
+// You can construct a concrete instance of `LabelingJobHumanTaskConfigPublicWorkforceTaskPriceAmountInUsdPtrInput` via:
+//
+//	        LabelingJobHumanTaskConfigPublicWorkforceTaskPriceAmountInUsdArgs{...}
+//
+//	or:
+//
+//	        nil
+type LabelingJobHumanTaskConfigPublicWorkforceTaskPriceAmountInUsdPtrInput interface {
+	pulumi.Input
+
+	ToLabelingJobHumanTaskConfigPublicWorkforceTaskPriceAmountInUsdPtrOutput() LabelingJobHumanTaskConfigPublicWorkforceTaskPriceAmountInUsdPtrOutput
+	ToLabelingJobHumanTaskConfigPublicWorkforceTaskPriceAmountInUsdPtrOutputWithContext(context.Context) LabelingJobHumanTaskConfigPublicWorkforceTaskPriceAmountInUsdPtrOutput
+}
+
+type labelingJobHumanTaskConfigPublicWorkforceTaskPriceAmountInUsdPtrType LabelingJobHumanTaskConfigPublicWorkforceTaskPriceAmountInUsdArgs
+
+func LabelingJobHumanTaskConfigPublicWorkforceTaskPriceAmountInUsdPtr(v *LabelingJobHumanTaskConfigPublicWorkforceTaskPriceAmountInUsdArgs) LabelingJobHumanTaskConfigPublicWorkforceTaskPriceAmountInUsdPtrInput {
+	return (*labelingJobHumanTaskConfigPublicWorkforceTaskPriceAmountInUsdPtrType)(v)
+}
+
+func (*labelingJobHumanTaskConfigPublicWorkforceTaskPriceAmountInUsdPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LabelingJobHumanTaskConfigPublicWorkforceTaskPriceAmountInUsd)(nil)).Elem()
+}
+
+func (i *labelingJobHumanTaskConfigPublicWorkforceTaskPriceAmountInUsdPtrType) ToLabelingJobHumanTaskConfigPublicWorkforceTaskPriceAmountInUsdPtrOutput() LabelingJobHumanTaskConfigPublicWorkforceTaskPriceAmountInUsdPtrOutput {
+	return i.ToLabelingJobHumanTaskConfigPublicWorkforceTaskPriceAmountInUsdPtrOutputWithContext(context.Background())
+}
+
+func (i *labelingJobHumanTaskConfigPublicWorkforceTaskPriceAmountInUsdPtrType) ToLabelingJobHumanTaskConfigPublicWorkforceTaskPriceAmountInUsdPtrOutputWithContext(ctx context.Context) LabelingJobHumanTaskConfigPublicWorkforceTaskPriceAmountInUsdPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LabelingJobHumanTaskConfigPublicWorkforceTaskPriceAmountInUsdPtrOutput)
+}
+
+type LabelingJobHumanTaskConfigPublicWorkforceTaskPriceAmountInUsdOutput struct{ *pulumi.OutputState }
+
+func (LabelingJobHumanTaskConfigPublicWorkforceTaskPriceAmountInUsdOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LabelingJobHumanTaskConfigPublicWorkforceTaskPriceAmountInUsd)(nil)).Elem()
+}
+
+func (o LabelingJobHumanTaskConfigPublicWorkforceTaskPriceAmountInUsdOutput) ToLabelingJobHumanTaskConfigPublicWorkforceTaskPriceAmountInUsdOutput() LabelingJobHumanTaskConfigPublicWorkforceTaskPriceAmountInUsdOutput {
+	return o
+}
+
+func (o LabelingJobHumanTaskConfigPublicWorkforceTaskPriceAmountInUsdOutput) ToLabelingJobHumanTaskConfigPublicWorkforceTaskPriceAmountInUsdOutputWithContext(ctx context.Context) LabelingJobHumanTaskConfigPublicWorkforceTaskPriceAmountInUsdOutput {
+	return o
+}
+
+func (o LabelingJobHumanTaskConfigPublicWorkforceTaskPriceAmountInUsdOutput) ToLabelingJobHumanTaskConfigPublicWorkforceTaskPriceAmountInUsdPtrOutput() LabelingJobHumanTaskConfigPublicWorkforceTaskPriceAmountInUsdPtrOutput {
+	return o.ToLabelingJobHumanTaskConfigPublicWorkforceTaskPriceAmountInUsdPtrOutputWithContext(context.Background())
+}
+
+func (o LabelingJobHumanTaskConfigPublicWorkforceTaskPriceAmountInUsdOutput) ToLabelingJobHumanTaskConfigPublicWorkforceTaskPriceAmountInUsdPtrOutputWithContext(ctx context.Context) LabelingJobHumanTaskConfigPublicWorkforceTaskPriceAmountInUsdPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LabelingJobHumanTaskConfigPublicWorkforceTaskPriceAmountInUsd) *LabelingJobHumanTaskConfigPublicWorkforceTaskPriceAmountInUsd {
+		return &v
+	}).(LabelingJobHumanTaskConfigPublicWorkforceTaskPriceAmountInUsdPtrOutput)
+}
+
+// Fractional portion, in cents, of the amount.
+func (o LabelingJobHumanTaskConfigPublicWorkforceTaskPriceAmountInUsdOutput) Cents() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LabelingJobHumanTaskConfigPublicWorkforceTaskPriceAmountInUsd) *int { return v.Cents }).(pulumi.IntPtrOutput)
+}
+
+// Whole number of dollars in the amount.
+func (o LabelingJobHumanTaskConfigPublicWorkforceTaskPriceAmountInUsdOutput) Dollars() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LabelingJobHumanTaskConfigPublicWorkforceTaskPriceAmountInUsd) *int { return v.Dollars }).(pulumi.IntPtrOutput)
+}
+
+// Fractions of a cent, in tenths.
+func (o LabelingJobHumanTaskConfigPublicWorkforceTaskPriceAmountInUsdOutput) TenthFractionsOfACent() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LabelingJobHumanTaskConfigPublicWorkforceTaskPriceAmountInUsd) *int {
+		return v.TenthFractionsOfACent
+	}).(pulumi.IntPtrOutput)
+}
+
+type LabelingJobHumanTaskConfigPublicWorkforceTaskPriceAmountInUsdPtrOutput struct{ *pulumi.OutputState }
+
+func (LabelingJobHumanTaskConfigPublicWorkforceTaskPriceAmountInUsdPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LabelingJobHumanTaskConfigPublicWorkforceTaskPriceAmountInUsd)(nil)).Elem()
+}
+
+func (o LabelingJobHumanTaskConfigPublicWorkforceTaskPriceAmountInUsdPtrOutput) ToLabelingJobHumanTaskConfigPublicWorkforceTaskPriceAmountInUsdPtrOutput() LabelingJobHumanTaskConfigPublicWorkforceTaskPriceAmountInUsdPtrOutput {
+	return o
+}
+
+func (o LabelingJobHumanTaskConfigPublicWorkforceTaskPriceAmountInUsdPtrOutput) ToLabelingJobHumanTaskConfigPublicWorkforceTaskPriceAmountInUsdPtrOutputWithContext(ctx context.Context) LabelingJobHumanTaskConfigPublicWorkforceTaskPriceAmountInUsdPtrOutput {
+	return o
+}
+
+func (o LabelingJobHumanTaskConfigPublicWorkforceTaskPriceAmountInUsdPtrOutput) Elem() LabelingJobHumanTaskConfigPublicWorkforceTaskPriceAmountInUsdOutput {
+	return o.ApplyT(func(v *LabelingJobHumanTaskConfigPublicWorkforceTaskPriceAmountInUsd) LabelingJobHumanTaskConfigPublicWorkforceTaskPriceAmountInUsd {
+		if v != nil {
+			return *v
+		}
+		var ret LabelingJobHumanTaskConfigPublicWorkforceTaskPriceAmountInUsd
+		return ret
+	}).(LabelingJobHumanTaskConfigPublicWorkforceTaskPriceAmountInUsdOutput)
+}
+
+// Fractional portion, in cents, of the amount.
+func (o LabelingJobHumanTaskConfigPublicWorkforceTaskPriceAmountInUsdPtrOutput) Cents() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *LabelingJobHumanTaskConfigPublicWorkforceTaskPriceAmountInUsd) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Cents
+	}).(pulumi.IntPtrOutput)
+}
+
+// Whole number of dollars in the amount.
+func (o LabelingJobHumanTaskConfigPublicWorkforceTaskPriceAmountInUsdPtrOutput) Dollars() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *LabelingJobHumanTaskConfigPublicWorkforceTaskPriceAmountInUsd) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Dollars
+	}).(pulumi.IntPtrOutput)
+}
+
+// Fractions of a cent, in tenths.
+func (o LabelingJobHumanTaskConfigPublicWorkforceTaskPriceAmountInUsdPtrOutput) TenthFractionsOfACent() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *LabelingJobHumanTaskConfigPublicWorkforceTaskPriceAmountInUsd) *int {
+		if v == nil {
+			return nil
+		}
+		return v.TenthFractionsOfACent
+	}).(pulumi.IntPtrOutput)
+}
+
+type LabelingJobHumanTaskConfigUiConfig struct {
+	// ARN of the worker task template used to render the worker UI and tools for labeling job tasks.
+	HumanTaskUiArn *string `pulumi:"humanTaskUiArn"`
+	// S3 bucket location of the UI template, or worker task template.
+	UiTemplateS3Uri *string `pulumi:"uiTemplateS3Uri"`
+}
+
+// LabelingJobHumanTaskConfigUiConfigInput is an input type that accepts LabelingJobHumanTaskConfigUiConfigArgs and LabelingJobHumanTaskConfigUiConfigOutput values.
+// You can construct a concrete instance of `LabelingJobHumanTaskConfigUiConfigInput` via:
+//
+//	LabelingJobHumanTaskConfigUiConfigArgs{...}
+type LabelingJobHumanTaskConfigUiConfigInput interface {
+	pulumi.Input
+
+	ToLabelingJobHumanTaskConfigUiConfigOutput() LabelingJobHumanTaskConfigUiConfigOutput
+	ToLabelingJobHumanTaskConfigUiConfigOutputWithContext(context.Context) LabelingJobHumanTaskConfigUiConfigOutput
+}
+
+type LabelingJobHumanTaskConfigUiConfigArgs struct {
+	// ARN of the worker task template used to render the worker UI and tools for labeling job tasks.
+	HumanTaskUiArn pulumi.StringPtrInput `pulumi:"humanTaskUiArn"`
+	// S3 bucket location of the UI template, or worker task template.
+	UiTemplateS3Uri pulumi.StringPtrInput `pulumi:"uiTemplateS3Uri"`
+}
+
+func (LabelingJobHumanTaskConfigUiConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LabelingJobHumanTaskConfigUiConfig)(nil)).Elem()
+}
+
+func (i LabelingJobHumanTaskConfigUiConfigArgs) ToLabelingJobHumanTaskConfigUiConfigOutput() LabelingJobHumanTaskConfigUiConfigOutput {
+	return i.ToLabelingJobHumanTaskConfigUiConfigOutputWithContext(context.Background())
+}
+
+func (i LabelingJobHumanTaskConfigUiConfigArgs) ToLabelingJobHumanTaskConfigUiConfigOutputWithContext(ctx context.Context) LabelingJobHumanTaskConfigUiConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LabelingJobHumanTaskConfigUiConfigOutput)
+}
+
+func (i LabelingJobHumanTaskConfigUiConfigArgs) ToLabelingJobHumanTaskConfigUiConfigPtrOutput() LabelingJobHumanTaskConfigUiConfigPtrOutput {
+	return i.ToLabelingJobHumanTaskConfigUiConfigPtrOutputWithContext(context.Background())
+}
+
+func (i LabelingJobHumanTaskConfigUiConfigArgs) ToLabelingJobHumanTaskConfigUiConfigPtrOutputWithContext(ctx context.Context) LabelingJobHumanTaskConfigUiConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LabelingJobHumanTaskConfigUiConfigOutput).ToLabelingJobHumanTaskConfigUiConfigPtrOutputWithContext(ctx)
+}
+
+// LabelingJobHumanTaskConfigUiConfigPtrInput is an input type that accepts LabelingJobHumanTaskConfigUiConfigArgs, LabelingJobHumanTaskConfigUiConfigPtr and LabelingJobHumanTaskConfigUiConfigPtrOutput values.
+// You can construct a concrete instance of `LabelingJobHumanTaskConfigUiConfigPtrInput` via:
+//
+//	        LabelingJobHumanTaskConfigUiConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type LabelingJobHumanTaskConfigUiConfigPtrInput interface {
+	pulumi.Input
+
+	ToLabelingJobHumanTaskConfigUiConfigPtrOutput() LabelingJobHumanTaskConfigUiConfigPtrOutput
+	ToLabelingJobHumanTaskConfigUiConfigPtrOutputWithContext(context.Context) LabelingJobHumanTaskConfigUiConfigPtrOutput
+}
+
+type labelingJobHumanTaskConfigUiConfigPtrType LabelingJobHumanTaskConfigUiConfigArgs
+
+func LabelingJobHumanTaskConfigUiConfigPtr(v *LabelingJobHumanTaskConfigUiConfigArgs) LabelingJobHumanTaskConfigUiConfigPtrInput {
+	return (*labelingJobHumanTaskConfigUiConfigPtrType)(v)
+}
+
+func (*labelingJobHumanTaskConfigUiConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LabelingJobHumanTaskConfigUiConfig)(nil)).Elem()
+}
+
+func (i *labelingJobHumanTaskConfigUiConfigPtrType) ToLabelingJobHumanTaskConfigUiConfigPtrOutput() LabelingJobHumanTaskConfigUiConfigPtrOutput {
+	return i.ToLabelingJobHumanTaskConfigUiConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *labelingJobHumanTaskConfigUiConfigPtrType) ToLabelingJobHumanTaskConfigUiConfigPtrOutputWithContext(ctx context.Context) LabelingJobHumanTaskConfigUiConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LabelingJobHumanTaskConfigUiConfigPtrOutput)
+}
+
+type LabelingJobHumanTaskConfigUiConfigOutput struct{ *pulumi.OutputState }
+
+func (LabelingJobHumanTaskConfigUiConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LabelingJobHumanTaskConfigUiConfig)(nil)).Elem()
+}
+
+func (o LabelingJobHumanTaskConfigUiConfigOutput) ToLabelingJobHumanTaskConfigUiConfigOutput() LabelingJobHumanTaskConfigUiConfigOutput {
+	return o
+}
+
+func (o LabelingJobHumanTaskConfigUiConfigOutput) ToLabelingJobHumanTaskConfigUiConfigOutputWithContext(ctx context.Context) LabelingJobHumanTaskConfigUiConfigOutput {
+	return o
+}
+
+func (o LabelingJobHumanTaskConfigUiConfigOutput) ToLabelingJobHumanTaskConfigUiConfigPtrOutput() LabelingJobHumanTaskConfigUiConfigPtrOutput {
+	return o.ToLabelingJobHumanTaskConfigUiConfigPtrOutputWithContext(context.Background())
+}
+
+func (o LabelingJobHumanTaskConfigUiConfigOutput) ToLabelingJobHumanTaskConfigUiConfigPtrOutputWithContext(ctx context.Context) LabelingJobHumanTaskConfigUiConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LabelingJobHumanTaskConfigUiConfig) *LabelingJobHumanTaskConfigUiConfig {
+		return &v
+	}).(LabelingJobHumanTaskConfigUiConfigPtrOutput)
+}
+
+// ARN of the worker task template used to render the worker UI and tools for labeling job tasks.
+func (o LabelingJobHumanTaskConfigUiConfigOutput) HumanTaskUiArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LabelingJobHumanTaskConfigUiConfig) *string { return v.HumanTaskUiArn }).(pulumi.StringPtrOutput)
+}
+
+// S3 bucket location of the UI template, or worker task template.
+func (o LabelingJobHumanTaskConfigUiConfigOutput) UiTemplateS3Uri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LabelingJobHumanTaskConfigUiConfig) *string { return v.UiTemplateS3Uri }).(pulumi.StringPtrOutput)
+}
+
+type LabelingJobHumanTaskConfigUiConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (LabelingJobHumanTaskConfigUiConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LabelingJobHumanTaskConfigUiConfig)(nil)).Elem()
+}
+
+func (o LabelingJobHumanTaskConfigUiConfigPtrOutput) ToLabelingJobHumanTaskConfigUiConfigPtrOutput() LabelingJobHumanTaskConfigUiConfigPtrOutput {
+	return o
+}
+
+func (o LabelingJobHumanTaskConfigUiConfigPtrOutput) ToLabelingJobHumanTaskConfigUiConfigPtrOutputWithContext(ctx context.Context) LabelingJobHumanTaskConfigUiConfigPtrOutput {
+	return o
+}
+
+func (o LabelingJobHumanTaskConfigUiConfigPtrOutput) Elem() LabelingJobHumanTaskConfigUiConfigOutput {
+	return o.ApplyT(func(v *LabelingJobHumanTaskConfigUiConfig) LabelingJobHumanTaskConfigUiConfig {
+		if v != nil {
+			return *v
+		}
+		var ret LabelingJobHumanTaskConfigUiConfig
+		return ret
+	}).(LabelingJobHumanTaskConfigUiConfigOutput)
+}
+
+// ARN of the worker task template used to render the worker UI and tools for labeling job tasks.
+func (o LabelingJobHumanTaskConfigUiConfigPtrOutput) HumanTaskUiArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LabelingJobHumanTaskConfigUiConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.HumanTaskUiArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// S3 bucket location of the UI template, or worker task template.
+func (o LabelingJobHumanTaskConfigUiConfigPtrOutput) UiTemplateS3Uri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LabelingJobHumanTaskConfigUiConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.UiTemplateS3Uri
+	}).(pulumi.StringPtrOutput)
+}
+
+type LabelingJobInputConfig struct {
+	// Attributes of the data. Fields are documented below.
+	DataAttributes *LabelingJobInputConfigDataAttributes `pulumi:"dataAttributes"`
+	// Location of the input data.. Fields are documented below.
+	DataSource *LabelingJobInputConfigDataSource `pulumi:"dataSource"`
+}
+
+// LabelingJobInputConfigInput is an input type that accepts LabelingJobInputConfigArgs and LabelingJobInputConfigOutput values.
+// You can construct a concrete instance of `LabelingJobInputConfigInput` via:
+//
+//	LabelingJobInputConfigArgs{...}
+type LabelingJobInputConfigInput interface {
+	pulumi.Input
+
+	ToLabelingJobInputConfigOutput() LabelingJobInputConfigOutput
+	ToLabelingJobInputConfigOutputWithContext(context.Context) LabelingJobInputConfigOutput
+}
+
+type LabelingJobInputConfigArgs struct {
+	// Attributes of the data. Fields are documented below.
+	DataAttributes LabelingJobInputConfigDataAttributesPtrInput `pulumi:"dataAttributes"`
+	// Location of the input data.. Fields are documented below.
+	DataSource LabelingJobInputConfigDataSourcePtrInput `pulumi:"dataSource"`
+}
+
+func (LabelingJobInputConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LabelingJobInputConfig)(nil)).Elem()
+}
+
+func (i LabelingJobInputConfigArgs) ToLabelingJobInputConfigOutput() LabelingJobInputConfigOutput {
+	return i.ToLabelingJobInputConfigOutputWithContext(context.Background())
+}
+
+func (i LabelingJobInputConfigArgs) ToLabelingJobInputConfigOutputWithContext(ctx context.Context) LabelingJobInputConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LabelingJobInputConfigOutput)
+}
+
+func (i LabelingJobInputConfigArgs) ToLabelingJobInputConfigPtrOutput() LabelingJobInputConfigPtrOutput {
+	return i.ToLabelingJobInputConfigPtrOutputWithContext(context.Background())
+}
+
+func (i LabelingJobInputConfigArgs) ToLabelingJobInputConfigPtrOutputWithContext(ctx context.Context) LabelingJobInputConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LabelingJobInputConfigOutput).ToLabelingJobInputConfigPtrOutputWithContext(ctx)
+}
+
+// LabelingJobInputConfigPtrInput is an input type that accepts LabelingJobInputConfigArgs, LabelingJobInputConfigPtr and LabelingJobInputConfigPtrOutput values.
+// You can construct a concrete instance of `LabelingJobInputConfigPtrInput` via:
+//
+//	        LabelingJobInputConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type LabelingJobInputConfigPtrInput interface {
+	pulumi.Input
+
+	ToLabelingJobInputConfigPtrOutput() LabelingJobInputConfigPtrOutput
+	ToLabelingJobInputConfigPtrOutputWithContext(context.Context) LabelingJobInputConfigPtrOutput
+}
+
+type labelingJobInputConfigPtrType LabelingJobInputConfigArgs
+
+func LabelingJobInputConfigPtr(v *LabelingJobInputConfigArgs) LabelingJobInputConfigPtrInput {
+	return (*labelingJobInputConfigPtrType)(v)
+}
+
+func (*labelingJobInputConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LabelingJobInputConfig)(nil)).Elem()
+}
+
+func (i *labelingJobInputConfigPtrType) ToLabelingJobInputConfigPtrOutput() LabelingJobInputConfigPtrOutput {
+	return i.ToLabelingJobInputConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *labelingJobInputConfigPtrType) ToLabelingJobInputConfigPtrOutputWithContext(ctx context.Context) LabelingJobInputConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LabelingJobInputConfigPtrOutput)
+}
+
+type LabelingJobInputConfigOutput struct{ *pulumi.OutputState }
+
+func (LabelingJobInputConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LabelingJobInputConfig)(nil)).Elem()
+}
+
+func (o LabelingJobInputConfigOutput) ToLabelingJobInputConfigOutput() LabelingJobInputConfigOutput {
+	return o
+}
+
+func (o LabelingJobInputConfigOutput) ToLabelingJobInputConfigOutputWithContext(ctx context.Context) LabelingJobInputConfigOutput {
+	return o
+}
+
+func (o LabelingJobInputConfigOutput) ToLabelingJobInputConfigPtrOutput() LabelingJobInputConfigPtrOutput {
+	return o.ToLabelingJobInputConfigPtrOutputWithContext(context.Background())
+}
+
+func (o LabelingJobInputConfigOutput) ToLabelingJobInputConfigPtrOutputWithContext(ctx context.Context) LabelingJobInputConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LabelingJobInputConfig) *LabelingJobInputConfig {
+		return &v
+	}).(LabelingJobInputConfigPtrOutput)
+}
+
+// Attributes of the data. Fields are documented below.
+func (o LabelingJobInputConfigOutput) DataAttributes() LabelingJobInputConfigDataAttributesPtrOutput {
+	return o.ApplyT(func(v LabelingJobInputConfig) *LabelingJobInputConfigDataAttributes { return v.DataAttributes }).(LabelingJobInputConfigDataAttributesPtrOutput)
+}
+
+// Location of the input data.. Fields are documented below.
+func (o LabelingJobInputConfigOutput) DataSource() LabelingJobInputConfigDataSourcePtrOutput {
+	return o.ApplyT(func(v LabelingJobInputConfig) *LabelingJobInputConfigDataSource { return v.DataSource }).(LabelingJobInputConfigDataSourcePtrOutput)
+}
+
+type LabelingJobInputConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (LabelingJobInputConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LabelingJobInputConfig)(nil)).Elem()
+}
+
+func (o LabelingJobInputConfigPtrOutput) ToLabelingJobInputConfigPtrOutput() LabelingJobInputConfigPtrOutput {
+	return o
+}
+
+func (o LabelingJobInputConfigPtrOutput) ToLabelingJobInputConfigPtrOutputWithContext(ctx context.Context) LabelingJobInputConfigPtrOutput {
+	return o
+}
+
+func (o LabelingJobInputConfigPtrOutput) Elem() LabelingJobInputConfigOutput {
+	return o.ApplyT(func(v *LabelingJobInputConfig) LabelingJobInputConfig {
+		if v != nil {
+			return *v
+		}
+		var ret LabelingJobInputConfig
+		return ret
+	}).(LabelingJobInputConfigOutput)
+}
+
+// Attributes of the data. Fields are documented below.
+func (o LabelingJobInputConfigPtrOutput) DataAttributes() LabelingJobInputConfigDataAttributesPtrOutput {
+	return o.ApplyT(func(v *LabelingJobInputConfig) *LabelingJobInputConfigDataAttributes {
+		if v == nil {
+			return nil
+		}
+		return v.DataAttributes
+	}).(LabelingJobInputConfigDataAttributesPtrOutput)
+}
+
+// Location of the input data.. Fields are documented below.
+func (o LabelingJobInputConfigPtrOutput) DataSource() LabelingJobInputConfigDataSourcePtrOutput {
+	return o.ApplyT(func(v *LabelingJobInputConfig) *LabelingJobInputConfigDataSource {
+		if v == nil {
+			return nil
+		}
+		return v.DataSource
+	}).(LabelingJobInputConfigDataSourcePtrOutput)
+}
+
+type LabelingJobInputConfigDataAttributes struct {
+	// Declares that your content is free of personally identifiable information or adult content. Valid values: `FreeOfPersonallyIdentifiableInformation`, `FreeOfAdultContent`.
+	ContentClassifiers []string `pulumi:"contentClassifiers"`
+}
+
+// LabelingJobInputConfigDataAttributesInput is an input type that accepts LabelingJobInputConfigDataAttributesArgs and LabelingJobInputConfigDataAttributesOutput values.
+// You can construct a concrete instance of `LabelingJobInputConfigDataAttributesInput` via:
+//
+//	LabelingJobInputConfigDataAttributesArgs{...}
+type LabelingJobInputConfigDataAttributesInput interface {
+	pulumi.Input
+
+	ToLabelingJobInputConfigDataAttributesOutput() LabelingJobInputConfigDataAttributesOutput
+	ToLabelingJobInputConfigDataAttributesOutputWithContext(context.Context) LabelingJobInputConfigDataAttributesOutput
+}
+
+type LabelingJobInputConfigDataAttributesArgs struct {
+	// Declares that your content is free of personally identifiable information or adult content. Valid values: `FreeOfPersonallyIdentifiableInformation`, `FreeOfAdultContent`.
+	ContentClassifiers pulumi.StringArrayInput `pulumi:"contentClassifiers"`
+}
+
+func (LabelingJobInputConfigDataAttributesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LabelingJobInputConfigDataAttributes)(nil)).Elem()
+}
+
+func (i LabelingJobInputConfigDataAttributesArgs) ToLabelingJobInputConfigDataAttributesOutput() LabelingJobInputConfigDataAttributesOutput {
+	return i.ToLabelingJobInputConfigDataAttributesOutputWithContext(context.Background())
+}
+
+func (i LabelingJobInputConfigDataAttributesArgs) ToLabelingJobInputConfigDataAttributesOutputWithContext(ctx context.Context) LabelingJobInputConfigDataAttributesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LabelingJobInputConfigDataAttributesOutput)
+}
+
+func (i LabelingJobInputConfigDataAttributesArgs) ToLabelingJobInputConfigDataAttributesPtrOutput() LabelingJobInputConfigDataAttributesPtrOutput {
+	return i.ToLabelingJobInputConfigDataAttributesPtrOutputWithContext(context.Background())
+}
+
+func (i LabelingJobInputConfigDataAttributesArgs) ToLabelingJobInputConfigDataAttributesPtrOutputWithContext(ctx context.Context) LabelingJobInputConfigDataAttributesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LabelingJobInputConfigDataAttributesOutput).ToLabelingJobInputConfigDataAttributesPtrOutputWithContext(ctx)
+}
+
+// LabelingJobInputConfigDataAttributesPtrInput is an input type that accepts LabelingJobInputConfigDataAttributesArgs, LabelingJobInputConfigDataAttributesPtr and LabelingJobInputConfigDataAttributesPtrOutput values.
+// You can construct a concrete instance of `LabelingJobInputConfigDataAttributesPtrInput` via:
+//
+//	        LabelingJobInputConfigDataAttributesArgs{...}
+//
+//	or:
+//
+//	        nil
+type LabelingJobInputConfigDataAttributesPtrInput interface {
+	pulumi.Input
+
+	ToLabelingJobInputConfigDataAttributesPtrOutput() LabelingJobInputConfigDataAttributesPtrOutput
+	ToLabelingJobInputConfigDataAttributesPtrOutputWithContext(context.Context) LabelingJobInputConfigDataAttributesPtrOutput
+}
+
+type labelingJobInputConfigDataAttributesPtrType LabelingJobInputConfigDataAttributesArgs
+
+func LabelingJobInputConfigDataAttributesPtr(v *LabelingJobInputConfigDataAttributesArgs) LabelingJobInputConfigDataAttributesPtrInput {
+	return (*labelingJobInputConfigDataAttributesPtrType)(v)
+}
+
+func (*labelingJobInputConfigDataAttributesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LabelingJobInputConfigDataAttributes)(nil)).Elem()
+}
+
+func (i *labelingJobInputConfigDataAttributesPtrType) ToLabelingJobInputConfigDataAttributesPtrOutput() LabelingJobInputConfigDataAttributesPtrOutput {
+	return i.ToLabelingJobInputConfigDataAttributesPtrOutputWithContext(context.Background())
+}
+
+func (i *labelingJobInputConfigDataAttributesPtrType) ToLabelingJobInputConfigDataAttributesPtrOutputWithContext(ctx context.Context) LabelingJobInputConfigDataAttributesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LabelingJobInputConfigDataAttributesPtrOutput)
+}
+
+type LabelingJobInputConfigDataAttributesOutput struct{ *pulumi.OutputState }
+
+func (LabelingJobInputConfigDataAttributesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LabelingJobInputConfigDataAttributes)(nil)).Elem()
+}
+
+func (o LabelingJobInputConfigDataAttributesOutput) ToLabelingJobInputConfigDataAttributesOutput() LabelingJobInputConfigDataAttributesOutput {
+	return o
+}
+
+func (o LabelingJobInputConfigDataAttributesOutput) ToLabelingJobInputConfigDataAttributesOutputWithContext(ctx context.Context) LabelingJobInputConfigDataAttributesOutput {
+	return o
+}
+
+func (o LabelingJobInputConfigDataAttributesOutput) ToLabelingJobInputConfigDataAttributesPtrOutput() LabelingJobInputConfigDataAttributesPtrOutput {
+	return o.ToLabelingJobInputConfigDataAttributesPtrOutputWithContext(context.Background())
+}
+
+func (o LabelingJobInputConfigDataAttributesOutput) ToLabelingJobInputConfigDataAttributesPtrOutputWithContext(ctx context.Context) LabelingJobInputConfigDataAttributesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LabelingJobInputConfigDataAttributes) *LabelingJobInputConfigDataAttributes {
+		return &v
+	}).(LabelingJobInputConfigDataAttributesPtrOutput)
+}
+
+// Declares that your content is free of personally identifiable information or adult content. Valid values: `FreeOfPersonallyIdentifiableInformation`, `FreeOfAdultContent`.
+func (o LabelingJobInputConfigDataAttributesOutput) ContentClassifiers() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LabelingJobInputConfigDataAttributes) []string { return v.ContentClassifiers }).(pulumi.StringArrayOutput)
+}
+
+type LabelingJobInputConfigDataAttributesPtrOutput struct{ *pulumi.OutputState }
+
+func (LabelingJobInputConfigDataAttributesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LabelingJobInputConfigDataAttributes)(nil)).Elem()
+}
+
+func (o LabelingJobInputConfigDataAttributesPtrOutput) ToLabelingJobInputConfigDataAttributesPtrOutput() LabelingJobInputConfigDataAttributesPtrOutput {
+	return o
+}
+
+func (o LabelingJobInputConfigDataAttributesPtrOutput) ToLabelingJobInputConfigDataAttributesPtrOutputWithContext(ctx context.Context) LabelingJobInputConfigDataAttributesPtrOutput {
+	return o
+}
+
+func (o LabelingJobInputConfigDataAttributesPtrOutput) Elem() LabelingJobInputConfigDataAttributesOutput {
+	return o.ApplyT(func(v *LabelingJobInputConfigDataAttributes) LabelingJobInputConfigDataAttributes {
+		if v != nil {
+			return *v
+		}
+		var ret LabelingJobInputConfigDataAttributes
+		return ret
+	}).(LabelingJobInputConfigDataAttributesOutput)
+}
+
+// Declares that your content is free of personally identifiable information or adult content. Valid values: `FreeOfPersonallyIdentifiableInformation`, `FreeOfAdultContent`.
+func (o LabelingJobInputConfigDataAttributesPtrOutput) ContentClassifiers() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *LabelingJobInputConfigDataAttributes) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ContentClassifiers
+	}).(pulumi.StringArrayOutput)
+}
+
+type LabelingJobInputConfigDataSource struct {
+	// S3 location of the input data objects.. Fields are documented below.
+	S3DataSource *LabelingJobInputConfigDataSourceS3DataSource `pulumi:"s3DataSource"`
+	// SNS data source used for streaming labeling jobs. Fields are documented below.
+	SnsDataSource *LabelingJobInputConfigDataSourceSnsDataSource `pulumi:"snsDataSource"`
+}
+
+// LabelingJobInputConfigDataSourceInput is an input type that accepts LabelingJobInputConfigDataSourceArgs and LabelingJobInputConfigDataSourceOutput values.
+// You can construct a concrete instance of `LabelingJobInputConfigDataSourceInput` via:
+//
+//	LabelingJobInputConfigDataSourceArgs{...}
+type LabelingJobInputConfigDataSourceInput interface {
+	pulumi.Input
+
+	ToLabelingJobInputConfigDataSourceOutput() LabelingJobInputConfigDataSourceOutput
+	ToLabelingJobInputConfigDataSourceOutputWithContext(context.Context) LabelingJobInputConfigDataSourceOutput
+}
+
+type LabelingJobInputConfigDataSourceArgs struct {
+	// S3 location of the input data objects.. Fields are documented below.
+	S3DataSource LabelingJobInputConfigDataSourceS3DataSourcePtrInput `pulumi:"s3DataSource"`
+	// SNS data source used for streaming labeling jobs. Fields are documented below.
+	SnsDataSource LabelingJobInputConfigDataSourceSnsDataSourcePtrInput `pulumi:"snsDataSource"`
+}
+
+func (LabelingJobInputConfigDataSourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LabelingJobInputConfigDataSource)(nil)).Elem()
+}
+
+func (i LabelingJobInputConfigDataSourceArgs) ToLabelingJobInputConfigDataSourceOutput() LabelingJobInputConfigDataSourceOutput {
+	return i.ToLabelingJobInputConfigDataSourceOutputWithContext(context.Background())
+}
+
+func (i LabelingJobInputConfigDataSourceArgs) ToLabelingJobInputConfigDataSourceOutputWithContext(ctx context.Context) LabelingJobInputConfigDataSourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LabelingJobInputConfigDataSourceOutput)
+}
+
+func (i LabelingJobInputConfigDataSourceArgs) ToLabelingJobInputConfigDataSourcePtrOutput() LabelingJobInputConfigDataSourcePtrOutput {
+	return i.ToLabelingJobInputConfigDataSourcePtrOutputWithContext(context.Background())
+}
+
+func (i LabelingJobInputConfigDataSourceArgs) ToLabelingJobInputConfigDataSourcePtrOutputWithContext(ctx context.Context) LabelingJobInputConfigDataSourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LabelingJobInputConfigDataSourceOutput).ToLabelingJobInputConfigDataSourcePtrOutputWithContext(ctx)
+}
+
+// LabelingJobInputConfigDataSourcePtrInput is an input type that accepts LabelingJobInputConfigDataSourceArgs, LabelingJobInputConfigDataSourcePtr and LabelingJobInputConfigDataSourcePtrOutput values.
+// You can construct a concrete instance of `LabelingJobInputConfigDataSourcePtrInput` via:
+//
+//	        LabelingJobInputConfigDataSourceArgs{...}
+//
+//	or:
+//
+//	        nil
+type LabelingJobInputConfigDataSourcePtrInput interface {
+	pulumi.Input
+
+	ToLabelingJobInputConfigDataSourcePtrOutput() LabelingJobInputConfigDataSourcePtrOutput
+	ToLabelingJobInputConfigDataSourcePtrOutputWithContext(context.Context) LabelingJobInputConfigDataSourcePtrOutput
+}
+
+type labelingJobInputConfigDataSourcePtrType LabelingJobInputConfigDataSourceArgs
+
+func LabelingJobInputConfigDataSourcePtr(v *LabelingJobInputConfigDataSourceArgs) LabelingJobInputConfigDataSourcePtrInput {
+	return (*labelingJobInputConfigDataSourcePtrType)(v)
+}
+
+func (*labelingJobInputConfigDataSourcePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LabelingJobInputConfigDataSource)(nil)).Elem()
+}
+
+func (i *labelingJobInputConfigDataSourcePtrType) ToLabelingJobInputConfigDataSourcePtrOutput() LabelingJobInputConfigDataSourcePtrOutput {
+	return i.ToLabelingJobInputConfigDataSourcePtrOutputWithContext(context.Background())
+}
+
+func (i *labelingJobInputConfigDataSourcePtrType) ToLabelingJobInputConfigDataSourcePtrOutputWithContext(ctx context.Context) LabelingJobInputConfigDataSourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LabelingJobInputConfigDataSourcePtrOutput)
+}
+
+type LabelingJobInputConfigDataSourceOutput struct{ *pulumi.OutputState }
+
+func (LabelingJobInputConfigDataSourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LabelingJobInputConfigDataSource)(nil)).Elem()
+}
+
+func (o LabelingJobInputConfigDataSourceOutput) ToLabelingJobInputConfigDataSourceOutput() LabelingJobInputConfigDataSourceOutput {
+	return o
+}
+
+func (o LabelingJobInputConfigDataSourceOutput) ToLabelingJobInputConfigDataSourceOutputWithContext(ctx context.Context) LabelingJobInputConfigDataSourceOutput {
+	return o
+}
+
+func (o LabelingJobInputConfigDataSourceOutput) ToLabelingJobInputConfigDataSourcePtrOutput() LabelingJobInputConfigDataSourcePtrOutput {
+	return o.ToLabelingJobInputConfigDataSourcePtrOutputWithContext(context.Background())
+}
+
+func (o LabelingJobInputConfigDataSourceOutput) ToLabelingJobInputConfigDataSourcePtrOutputWithContext(ctx context.Context) LabelingJobInputConfigDataSourcePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LabelingJobInputConfigDataSource) *LabelingJobInputConfigDataSource {
+		return &v
+	}).(LabelingJobInputConfigDataSourcePtrOutput)
+}
+
+// S3 location of the input data objects.. Fields are documented below.
+func (o LabelingJobInputConfigDataSourceOutput) S3DataSource() LabelingJobInputConfigDataSourceS3DataSourcePtrOutput {
+	return o.ApplyT(func(v LabelingJobInputConfigDataSource) *LabelingJobInputConfigDataSourceS3DataSource {
+		return v.S3DataSource
+	}).(LabelingJobInputConfigDataSourceS3DataSourcePtrOutput)
+}
+
+// SNS data source used for streaming labeling jobs. Fields are documented below.
+func (o LabelingJobInputConfigDataSourceOutput) SnsDataSource() LabelingJobInputConfigDataSourceSnsDataSourcePtrOutput {
+	return o.ApplyT(func(v LabelingJobInputConfigDataSource) *LabelingJobInputConfigDataSourceSnsDataSource {
+		return v.SnsDataSource
+	}).(LabelingJobInputConfigDataSourceSnsDataSourcePtrOutput)
+}
+
+type LabelingJobInputConfigDataSourcePtrOutput struct{ *pulumi.OutputState }
+
+func (LabelingJobInputConfigDataSourcePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LabelingJobInputConfigDataSource)(nil)).Elem()
+}
+
+func (o LabelingJobInputConfigDataSourcePtrOutput) ToLabelingJobInputConfigDataSourcePtrOutput() LabelingJobInputConfigDataSourcePtrOutput {
+	return o
+}
+
+func (o LabelingJobInputConfigDataSourcePtrOutput) ToLabelingJobInputConfigDataSourcePtrOutputWithContext(ctx context.Context) LabelingJobInputConfigDataSourcePtrOutput {
+	return o
+}
+
+func (o LabelingJobInputConfigDataSourcePtrOutput) Elem() LabelingJobInputConfigDataSourceOutput {
+	return o.ApplyT(func(v *LabelingJobInputConfigDataSource) LabelingJobInputConfigDataSource {
+		if v != nil {
+			return *v
+		}
+		var ret LabelingJobInputConfigDataSource
+		return ret
+	}).(LabelingJobInputConfigDataSourceOutput)
+}
+
+// S3 location of the input data objects.. Fields are documented below.
+func (o LabelingJobInputConfigDataSourcePtrOutput) S3DataSource() LabelingJobInputConfigDataSourceS3DataSourcePtrOutput {
+	return o.ApplyT(func(v *LabelingJobInputConfigDataSource) *LabelingJobInputConfigDataSourceS3DataSource {
+		if v == nil {
+			return nil
+		}
+		return v.S3DataSource
+	}).(LabelingJobInputConfigDataSourceS3DataSourcePtrOutput)
+}
+
+// SNS data source used for streaming labeling jobs. Fields are documented below.
+func (o LabelingJobInputConfigDataSourcePtrOutput) SnsDataSource() LabelingJobInputConfigDataSourceSnsDataSourcePtrOutput {
+	return o.ApplyT(func(v *LabelingJobInputConfigDataSource) *LabelingJobInputConfigDataSourceSnsDataSource {
+		if v == nil {
+			return nil
+		}
+		return v.SnsDataSource
+	}).(LabelingJobInputConfigDataSourceSnsDataSourcePtrOutput)
+}
+
+type LabelingJobInputConfigDataSourceS3DataSource struct {
+	// S3 location of the manifest file that describes the input data objects.
+	ManifestS3Uri string `pulumi:"manifestS3Uri"`
+}
+
+// LabelingJobInputConfigDataSourceS3DataSourceInput is an input type that accepts LabelingJobInputConfigDataSourceS3DataSourceArgs and LabelingJobInputConfigDataSourceS3DataSourceOutput values.
+// You can construct a concrete instance of `LabelingJobInputConfigDataSourceS3DataSourceInput` via:
+//
+//	LabelingJobInputConfigDataSourceS3DataSourceArgs{...}
+type LabelingJobInputConfigDataSourceS3DataSourceInput interface {
+	pulumi.Input
+
+	ToLabelingJobInputConfigDataSourceS3DataSourceOutput() LabelingJobInputConfigDataSourceS3DataSourceOutput
+	ToLabelingJobInputConfigDataSourceS3DataSourceOutputWithContext(context.Context) LabelingJobInputConfigDataSourceS3DataSourceOutput
+}
+
+type LabelingJobInputConfigDataSourceS3DataSourceArgs struct {
+	// S3 location of the manifest file that describes the input data objects.
+	ManifestS3Uri pulumi.StringInput `pulumi:"manifestS3Uri"`
+}
+
+func (LabelingJobInputConfigDataSourceS3DataSourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LabelingJobInputConfigDataSourceS3DataSource)(nil)).Elem()
+}
+
+func (i LabelingJobInputConfigDataSourceS3DataSourceArgs) ToLabelingJobInputConfigDataSourceS3DataSourceOutput() LabelingJobInputConfigDataSourceS3DataSourceOutput {
+	return i.ToLabelingJobInputConfigDataSourceS3DataSourceOutputWithContext(context.Background())
+}
+
+func (i LabelingJobInputConfigDataSourceS3DataSourceArgs) ToLabelingJobInputConfigDataSourceS3DataSourceOutputWithContext(ctx context.Context) LabelingJobInputConfigDataSourceS3DataSourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LabelingJobInputConfigDataSourceS3DataSourceOutput)
+}
+
+func (i LabelingJobInputConfigDataSourceS3DataSourceArgs) ToLabelingJobInputConfigDataSourceS3DataSourcePtrOutput() LabelingJobInputConfigDataSourceS3DataSourcePtrOutput {
+	return i.ToLabelingJobInputConfigDataSourceS3DataSourcePtrOutputWithContext(context.Background())
+}
+
+func (i LabelingJobInputConfigDataSourceS3DataSourceArgs) ToLabelingJobInputConfigDataSourceS3DataSourcePtrOutputWithContext(ctx context.Context) LabelingJobInputConfigDataSourceS3DataSourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LabelingJobInputConfigDataSourceS3DataSourceOutput).ToLabelingJobInputConfigDataSourceS3DataSourcePtrOutputWithContext(ctx)
+}
+
+// LabelingJobInputConfigDataSourceS3DataSourcePtrInput is an input type that accepts LabelingJobInputConfigDataSourceS3DataSourceArgs, LabelingJobInputConfigDataSourceS3DataSourcePtr and LabelingJobInputConfigDataSourceS3DataSourcePtrOutput values.
+// You can construct a concrete instance of `LabelingJobInputConfigDataSourceS3DataSourcePtrInput` via:
+//
+//	        LabelingJobInputConfigDataSourceS3DataSourceArgs{...}
+//
+//	or:
+//
+//	        nil
+type LabelingJobInputConfigDataSourceS3DataSourcePtrInput interface {
+	pulumi.Input
+
+	ToLabelingJobInputConfigDataSourceS3DataSourcePtrOutput() LabelingJobInputConfigDataSourceS3DataSourcePtrOutput
+	ToLabelingJobInputConfigDataSourceS3DataSourcePtrOutputWithContext(context.Context) LabelingJobInputConfigDataSourceS3DataSourcePtrOutput
+}
+
+type labelingJobInputConfigDataSourceS3DataSourcePtrType LabelingJobInputConfigDataSourceS3DataSourceArgs
+
+func LabelingJobInputConfigDataSourceS3DataSourcePtr(v *LabelingJobInputConfigDataSourceS3DataSourceArgs) LabelingJobInputConfigDataSourceS3DataSourcePtrInput {
+	return (*labelingJobInputConfigDataSourceS3DataSourcePtrType)(v)
+}
+
+func (*labelingJobInputConfigDataSourceS3DataSourcePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LabelingJobInputConfigDataSourceS3DataSource)(nil)).Elem()
+}
+
+func (i *labelingJobInputConfigDataSourceS3DataSourcePtrType) ToLabelingJobInputConfigDataSourceS3DataSourcePtrOutput() LabelingJobInputConfigDataSourceS3DataSourcePtrOutput {
+	return i.ToLabelingJobInputConfigDataSourceS3DataSourcePtrOutputWithContext(context.Background())
+}
+
+func (i *labelingJobInputConfigDataSourceS3DataSourcePtrType) ToLabelingJobInputConfigDataSourceS3DataSourcePtrOutputWithContext(ctx context.Context) LabelingJobInputConfigDataSourceS3DataSourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LabelingJobInputConfigDataSourceS3DataSourcePtrOutput)
+}
+
+type LabelingJobInputConfigDataSourceS3DataSourceOutput struct{ *pulumi.OutputState }
+
+func (LabelingJobInputConfigDataSourceS3DataSourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LabelingJobInputConfigDataSourceS3DataSource)(nil)).Elem()
+}
+
+func (o LabelingJobInputConfigDataSourceS3DataSourceOutput) ToLabelingJobInputConfigDataSourceS3DataSourceOutput() LabelingJobInputConfigDataSourceS3DataSourceOutput {
+	return o
+}
+
+func (o LabelingJobInputConfigDataSourceS3DataSourceOutput) ToLabelingJobInputConfigDataSourceS3DataSourceOutputWithContext(ctx context.Context) LabelingJobInputConfigDataSourceS3DataSourceOutput {
+	return o
+}
+
+func (o LabelingJobInputConfigDataSourceS3DataSourceOutput) ToLabelingJobInputConfigDataSourceS3DataSourcePtrOutput() LabelingJobInputConfigDataSourceS3DataSourcePtrOutput {
+	return o.ToLabelingJobInputConfigDataSourceS3DataSourcePtrOutputWithContext(context.Background())
+}
+
+func (o LabelingJobInputConfigDataSourceS3DataSourceOutput) ToLabelingJobInputConfigDataSourceS3DataSourcePtrOutputWithContext(ctx context.Context) LabelingJobInputConfigDataSourceS3DataSourcePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LabelingJobInputConfigDataSourceS3DataSource) *LabelingJobInputConfigDataSourceS3DataSource {
+		return &v
+	}).(LabelingJobInputConfigDataSourceS3DataSourcePtrOutput)
+}
+
+// S3 location of the manifest file that describes the input data objects.
+func (o LabelingJobInputConfigDataSourceS3DataSourceOutput) ManifestS3Uri() pulumi.StringOutput {
+	return o.ApplyT(func(v LabelingJobInputConfigDataSourceS3DataSource) string { return v.ManifestS3Uri }).(pulumi.StringOutput)
+}
+
+type LabelingJobInputConfigDataSourceS3DataSourcePtrOutput struct{ *pulumi.OutputState }
+
+func (LabelingJobInputConfigDataSourceS3DataSourcePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LabelingJobInputConfigDataSourceS3DataSource)(nil)).Elem()
+}
+
+func (o LabelingJobInputConfigDataSourceS3DataSourcePtrOutput) ToLabelingJobInputConfigDataSourceS3DataSourcePtrOutput() LabelingJobInputConfigDataSourceS3DataSourcePtrOutput {
+	return o
+}
+
+func (o LabelingJobInputConfigDataSourceS3DataSourcePtrOutput) ToLabelingJobInputConfigDataSourceS3DataSourcePtrOutputWithContext(ctx context.Context) LabelingJobInputConfigDataSourceS3DataSourcePtrOutput {
+	return o
+}
+
+func (o LabelingJobInputConfigDataSourceS3DataSourcePtrOutput) Elem() LabelingJobInputConfigDataSourceS3DataSourceOutput {
+	return o.ApplyT(func(v *LabelingJobInputConfigDataSourceS3DataSource) LabelingJobInputConfigDataSourceS3DataSource {
+		if v != nil {
+			return *v
+		}
+		var ret LabelingJobInputConfigDataSourceS3DataSource
+		return ret
+	}).(LabelingJobInputConfigDataSourceS3DataSourceOutput)
+}
+
+// S3 location of the manifest file that describes the input data objects.
+func (o LabelingJobInputConfigDataSourceS3DataSourcePtrOutput) ManifestS3Uri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LabelingJobInputConfigDataSourceS3DataSource) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ManifestS3Uri
+	}).(pulumi.StringPtrOutput)
+}
+
+type LabelingJobInputConfigDataSourceSnsDataSource struct {
+	// SNS input topic ARN.
+	SnsTopicArn string `pulumi:"snsTopicArn"`
+}
+
+// LabelingJobInputConfigDataSourceSnsDataSourceInput is an input type that accepts LabelingJobInputConfigDataSourceSnsDataSourceArgs and LabelingJobInputConfigDataSourceSnsDataSourceOutput values.
+// You can construct a concrete instance of `LabelingJobInputConfigDataSourceSnsDataSourceInput` via:
+//
+//	LabelingJobInputConfigDataSourceSnsDataSourceArgs{...}
+type LabelingJobInputConfigDataSourceSnsDataSourceInput interface {
+	pulumi.Input
+
+	ToLabelingJobInputConfigDataSourceSnsDataSourceOutput() LabelingJobInputConfigDataSourceSnsDataSourceOutput
+	ToLabelingJobInputConfigDataSourceSnsDataSourceOutputWithContext(context.Context) LabelingJobInputConfigDataSourceSnsDataSourceOutput
+}
+
+type LabelingJobInputConfigDataSourceSnsDataSourceArgs struct {
+	// SNS input topic ARN.
+	SnsTopicArn pulumi.StringInput `pulumi:"snsTopicArn"`
+}
+
+func (LabelingJobInputConfigDataSourceSnsDataSourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LabelingJobInputConfigDataSourceSnsDataSource)(nil)).Elem()
+}
+
+func (i LabelingJobInputConfigDataSourceSnsDataSourceArgs) ToLabelingJobInputConfigDataSourceSnsDataSourceOutput() LabelingJobInputConfigDataSourceSnsDataSourceOutput {
+	return i.ToLabelingJobInputConfigDataSourceSnsDataSourceOutputWithContext(context.Background())
+}
+
+func (i LabelingJobInputConfigDataSourceSnsDataSourceArgs) ToLabelingJobInputConfigDataSourceSnsDataSourceOutputWithContext(ctx context.Context) LabelingJobInputConfigDataSourceSnsDataSourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LabelingJobInputConfigDataSourceSnsDataSourceOutput)
+}
+
+func (i LabelingJobInputConfigDataSourceSnsDataSourceArgs) ToLabelingJobInputConfigDataSourceSnsDataSourcePtrOutput() LabelingJobInputConfigDataSourceSnsDataSourcePtrOutput {
+	return i.ToLabelingJobInputConfigDataSourceSnsDataSourcePtrOutputWithContext(context.Background())
+}
+
+func (i LabelingJobInputConfigDataSourceSnsDataSourceArgs) ToLabelingJobInputConfigDataSourceSnsDataSourcePtrOutputWithContext(ctx context.Context) LabelingJobInputConfigDataSourceSnsDataSourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LabelingJobInputConfigDataSourceSnsDataSourceOutput).ToLabelingJobInputConfigDataSourceSnsDataSourcePtrOutputWithContext(ctx)
+}
+
+// LabelingJobInputConfigDataSourceSnsDataSourcePtrInput is an input type that accepts LabelingJobInputConfigDataSourceSnsDataSourceArgs, LabelingJobInputConfigDataSourceSnsDataSourcePtr and LabelingJobInputConfigDataSourceSnsDataSourcePtrOutput values.
+// You can construct a concrete instance of `LabelingJobInputConfigDataSourceSnsDataSourcePtrInput` via:
+//
+//	        LabelingJobInputConfigDataSourceSnsDataSourceArgs{...}
+//
+//	or:
+//
+//	        nil
+type LabelingJobInputConfigDataSourceSnsDataSourcePtrInput interface {
+	pulumi.Input
+
+	ToLabelingJobInputConfigDataSourceSnsDataSourcePtrOutput() LabelingJobInputConfigDataSourceSnsDataSourcePtrOutput
+	ToLabelingJobInputConfigDataSourceSnsDataSourcePtrOutputWithContext(context.Context) LabelingJobInputConfigDataSourceSnsDataSourcePtrOutput
+}
+
+type labelingJobInputConfigDataSourceSnsDataSourcePtrType LabelingJobInputConfigDataSourceSnsDataSourceArgs
+
+func LabelingJobInputConfigDataSourceSnsDataSourcePtr(v *LabelingJobInputConfigDataSourceSnsDataSourceArgs) LabelingJobInputConfigDataSourceSnsDataSourcePtrInput {
+	return (*labelingJobInputConfigDataSourceSnsDataSourcePtrType)(v)
+}
+
+func (*labelingJobInputConfigDataSourceSnsDataSourcePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LabelingJobInputConfigDataSourceSnsDataSource)(nil)).Elem()
+}
+
+func (i *labelingJobInputConfigDataSourceSnsDataSourcePtrType) ToLabelingJobInputConfigDataSourceSnsDataSourcePtrOutput() LabelingJobInputConfigDataSourceSnsDataSourcePtrOutput {
+	return i.ToLabelingJobInputConfigDataSourceSnsDataSourcePtrOutputWithContext(context.Background())
+}
+
+func (i *labelingJobInputConfigDataSourceSnsDataSourcePtrType) ToLabelingJobInputConfigDataSourceSnsDataSourcePtrOutputWithContext(ctx context.Context) LabelingJobInputConfigDataSourceSnsDataSourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LabelingJobInputConfigDataSourceSnsDataSourcePtrOutput)
+}
+
+type LabelingJobInputConfigDataSourceSnsDataSourceOutput struct{ *pulumi.OutputState }
+
+func (LabelingJobInputConfigDataSourceSnsDataSourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LabelingJobInputConfigDataSourceSnsDataSource)(nil)).Elem()
+}
+
+func (o LabelingJobInputConfigDataSourceSnsDataSourceOutput) ToLabelingJobInputConfigDataSourceSnsDataSourceOutput() LabelingJobInputConfigDataSourceSnsDataSourceOutput {
+	return o
+}
+
+func (o LabelingJobInputConfigDataSourceSnsDataSourceOutput) ToLabelingJobInputConfigDataSourceSnsDataSourceOutputWithContext(ctx context.Context) LabelingJobInputConfigDataSourceSnsDataSourceOutput {
+	return o
+}
+
+func (o LabelingJobInputConfigDataSourceSnsDataSourceOutput) ToLabelingJobInputConfigDataSourceSnsDataSourcePtrOutput() LabelingJobInputConfigDataSourceSnsDataSourcePtrOutput {
+	return o.ToLabelingJobInputConfigDataSourceSnsDataSourcePtrOutputWithContext(context.Background())
+}
+
+func (o LabelingJobInputConfigDataSourceSnsDataSourceOutput) ToLabelingJobInputConfigDataSourceSnsDataSourcePtrOutputWithContext(ctx context.Context) LabelingJobInputConfigDataSourceSnsDataSourcePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LabelingJobInputConfigDataSourceSnsDataSource) *LabelingJobInputConfigDataSourceSnsDataSource {
+		return &v
+	}).(LabelingJobInputConfigDataSourceSnsDataSourcePtrOutput)
+}
+
+// SNS input topic ARN.
+func (o LabelingJobInputConfigDataSourceSnsDataSourceOutput) SnsTopicArn() pulumi.StringOutput {
+	return o.ApplyT(func(v LabelingJobInputConfigDataSourceSnsDataSource) string { return v.SnsTopicArn }).(pulumi.StringOutput)
+}
+
+type LabelingJobInputConfigDataSourceSnsDataSourcePtrOutput struct{ *pulumi.OutputState }
+
+func (LabelingJobInputConfigDataSourceSnsDataSourcePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LabelingJobInputConfigDataSourceSnsDataSource)(nil)).Elem()
+}
+
+func (o LabelingJobInputConfigDataSourceSnsDataSourcePtrOutput) ToLabelingJobInputConfigDataSourceSnsDataSourcePtrOutput() LabelingJobInputConfigDataSourceSnsDataSourcePtrOutput {
+	return o
+}
+
+func (o LabelingJobInputConfigDataSourceSnsDataSourcePtrOutput) ToLabelingJobInputConfigDataSourceSnsDataSourcePtrOutputWithContext(ctx context.Context) LabelingJobInputConfigDataSourceSnsDataSourcePtrOutput {
+	return o
+}
+
+func (o LabelingJobInputConfigDataSourceSnsDataSourcePtrOutput) Elem() LabelingJobInputConfigDataSourceSnsDataSourceOutput {
+	return o.ApplyT(func(v *LabelingJobInputConfigDataSourceSnsDataSource) LabelingJobInputConfigDataSourceSnsDataSource {
+		if v != nil {
+			return *v
+		}
+		var ret LabelingJobInputConfigDataSourceSnsDataSource
+		return ret
+	}).(LabelingJobInputConfigDataSourceSnsDataSourceOutput)
+}
+
+// SNS input topic ARN.
+func (o LabelingJobInputConfigDataSourceSnsDataSourcePtrOutput) SnsTopicArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LabelingJobInputConfigDataSourceSnsDataSource) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SnsTopicArn
+	}).(pulumi.StringPtrOutput)
+}
+
+type LabelingJobLabelCounter struct {
+	// Total number of objects that could not be labeled due to an error.
+	FailedNonRetryableError int `pulumi:"failedNonRetryableError"`
+	// Total number of objects labeled by a human worker.
+	HumanLabeled int `pulumi:"humanLabeled"`
+	// Total number of objects labeled by automated data labeling.
+	MachineLabeled int `pulumi:"machineLabeled"`
+	// Total number of objects labeled.
+	TotalLabeled int `pulumi:"totalLabeled"`
+	// Total number of objects not yet labeled.
+	Unlabeled int `pulumi:"unlabeled"`
+}
+
+// LabelingJobLabelCounterInput is an input type that accepts LabelingJobLabelCounterArgs and LabelingJobLabelCounterOutput values.
+// You can construct a concrete instance of `LabelingJobLabelCounterInput` via:
+//
+//	LabelingJobLabelCounterArgs{...}
+type LabelingJobLabelCounterInput interface {
+	pulumi.Input
+
+	ToLabelingJobLabelCounterOutput() LabelingJobLabelCounterOutput
+	ToLabelingJobLabelCounterOutputWithContext(context.Context) LabelingJobLabelCounterOutput
+}
+
+type LabelingJobLabelCounterArgs struct {
+	// Total number of objects that could not be labeled due to an error.
+	FailedNonRetryableError pulumi.IntInput `pulumi:"failedNonRetryableError"`
+	// Total number of objects labeled by a human worker.
+	HumanLabeled pulumi.IntInput `pulumi:"humanLabeled"`
+	// Total number of objects labeled by automated data labeling.
+	MachineLabeled pulumi.IntInput `pulumi:"machineLabeled"`
+	// Total number of objects labeled.
+	TotalLabeled pulumi.IntInput `pulumi:"totalLabeled"`
+	// Total number of objects not yet labeled.
+	Unlabeled pulumi.IntInput `pulumi:"unlabeled"`
+}
+
+func (LabelingJobLabelCounterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LabelingJobLabelCounter)(nil)).Elem()
+}
+
+func (i LabelingJobLabelCounterArgs) ToLabelingJobLabelCounterOutput() LabelingJobLabelCounterOutput {
+	return i.ToLabelingJobLabelCounterOutputWithContext(context.Background())
+}
+
+func (i LabelingJobLabelCounterArgs) ToLabelingJobLabelCounterOutputWithContext(ctx context.Context) LabelingJobLabelCounterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LabelingJobLabelCounterOutput)
+}
+
+// LabelingJobLabelCounterArrayInput is an input type that accepts LabelingJobLabelCounterArray and LabelingJobLabelCounterArrayOutput values.
+// You can construct a concrete instance of `LabelingJobLabelCounterArrayInput` via:
+//
+//	LabelingJobLabelCounterArray{ LabelingJobLabelCounterArgs{...} }
+type LabelingJobLabelCounterArrayInput interface {
+	pulumi.Input
+
+	ToLabelingJobLabelCounterArrayOutput() LabelingJobLabelCounterArrayOutput
+	ToLabelingJobLabelCounterArrayOutputWithContext(context.Context) LabelingJobLabelCounterArrayOutput
+}
+
+type LabelingJobLabelCounterArray []LabelingJobLabelCounterInput
+
+func (LabelingJobLabelCounterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LabelingJobLabelCounter)(nil)).Elem()
+}
+
+func (i LabelingJobLabelCounterArray) ToLabelingJobLabelCounterArrayOutput() LabelingJobLabelCounterArrayOutput {
+	return i.ToLabelingJobLabelCounterArrayOutputWithContext(context.Background())
+}
+
+func (i LabelingJobLabelCounterArray) ToLabelingJobLabelCounterArrayOutputWithContext(ctx context.Context) LabelingJobLabelCounterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LabelingJobLabelCounterArrayOutput)
+}
+
+type LabelingJobLabelCounterOutput struct{ *pulumi.OutputState }
+
+func (LabelingJobLabelCounterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LabelingJobLabelCounter)(nil)).Elem()
+}
+
+func (o LabelingJobLabelCounterOutput) ToLabelingJobLabelCounterOutput() LabelingJobLabelCounterOutput {
+	return o
+}
+
+func (o LabelingJobLabelCounterOutput) ToLabelingJobLabelCounterOutputWithContext(ctx context.Context) LabelingJobLabelCounterOutput {
+	return o
+}
+
+// Total number of objects that could not be labeled due to an error.
+func (o LabelingJobLabelCounterOutput) FailedNonRetryableError() pulumi.IntOutput {
+	return o.ApplyT(func(v LabelingJobLabelCounter) int { return v.FailedNonRetryableError }).(pulumi.IntOutput)
+}
+
+// Total number of objects labeled by a human worker.
+func (o LabelingJobLabelCounterOutput) HumanLabeled() pulumi.IntOutput {
+	return o.ApplyT(func(v LabelingJobLabelCounter) int { return v.HumanLabeled }).(pulumi.IntOutput)
+}
+
+// Total number of objects labeled by automated data labeling.
+func (o LabelingJobLabelCounterOutput) MachineLabeled() pulumi.IntOutput {
+	return o.ApplyT(func(v LabelingJobLabelCounter) int { return v.MachineLabeled }).(pulumi.IntOutput)
+}
+
+// Total number of objects labeled.
+func (o LabelingJobLabelCounterOutput) TotalLabeled() pulumi.IntOutput {
+	return o.ApplyT(func(v LabelingJobLabelCounter) int { return v.TotalLabeled }).(pulumi.IntOutput)
+}
+
+// Total number of objects not yet labeled.
+func (o LabelingJobLabelCounterOutput) Unlabeled() pulumi.IntOutput {
+	return o.ApplyT(func(v LabelingJobLabelCounter) int { return v.Unlabeled }).(pulumi.IntOutput)
+}
+
+type LabelingJobLabelCounterArrayOutput struct{ *pulumi.OutputState }
+
+func (LabelingJobLabelCounterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LabelingJobLabelCounter)(nil)).Elem()
+}
+
+func (o LabelingJobLabelCounterArrayOutput) ToLabelingJobLabelCounterArrayOutput() LabelingJobLabelCounterArrayOutput {
+	return o
+}
+
+func (o LabelingJobLabelCounterArrayOutput) ToLabelingJobLabelCounterArrayOutputWithContext(ctx context.Context) LabelingJobLabelCounterArrayOutput {
+	return o
+}
+
+func (o LabelingJobLabelCounterArrayOutput) Index(i pulumi.IntInput) LabelingJobLabelCounterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LabelingJobLabelCounter {
+		return vs[0].([]LabelingJobLabelCounter)[vs[1].(int)]
+	}).(LabelingJobLabelCounterOutput)
+}
+
+type LabelingJobLabelingJobAlgorithmsConfig struct {
+	// ARN of the final model used for auto-labeling.
+	InitialActiveLearningModelArn *string `pulumi:"initialActiveLearningModelArn"`
+	// ARN of the algorithm used for auto-labeling.
+	LabelingJobAlgorithmSpecificationArn string `pulumi:"labelingJobAlgorithmSpecificationArn"`
+	// Configuration information for the labeling job. Fields are documented below.
+	LabelingJobResourceConfig *LabelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfig `pulumi:"labelingJobResourceConfig"`
+}
+
+// LabelingJobLabelingJobAlgorithmsConfigInput is an input type that accepts LabelingJobLabelingJobAlgorithmsConfigArgs and LabelingJobLabelingJobAlgorithmsConfigOutput values.
+// You can construct a concrete instance of `LabelingJobLabelingJobAlgorithmsConfigInput` via:
+//
+//	LabelingJobLabelingJobAlgorithmsConfigArgs{...}
+type LabelingJobLabelingJobAlgorithmsConfigInput interface {
+	pulumi.Input
+
+	ToLabelingJobLabelingJobAlgorithmsConfigOutput() LabelingJobLabelingJobAlgorithmsConfigOutput
+	ToLabelingJobLabelingJobAlgorithmsConfigOutputWithContext(context.Context) LabelingJobLabelingJobAlgorithmsConfigOutput
+}
+
+type LabelingJobLabelingJobAlgorithmsConfigArgs struct {
+	// ARN of the final model used for auto-labeling.
+	InitialActiveLearningModelArn pulumi.StringPtrInput `pulumi:"initialActiveLearningModelArn"`
+	// ARN of the algorithm used for auto-labeling.
+	LabelingJobAlgorithmSpecificationArn pulumi.StringInput `pulumi:"labelingJobAlgorithmSpecificationArn"`
+	// Configuration information for the labeling job. Fields are documented below.
+	LabelingJobResourceConfig LabelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfigPtrInput `pulumi:"labelingJobResourceConfig"`
+}
+
+func (LabelingJobLabelingJobAlgorithmsConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LabelingJobLabelingJobAlgorithmsConfig)(nil)).Elem()
+}
+
+func (i LabelingJobLabelingJobAlgorithmsConfigArgs) ToLabelingJobLabelingJobAlgorithmsConfigOutput() LabelingJobLabelingJobAlgorithmsConfigOutput {
+	return i.ToLabelingJobLabelingJobAlgorithmsConfigOutputWithContext(context.Background())
+}
+
+func (i LabelingJobLabelingJobAlgorithmsConfigArgs) ToLabelingJobLabelingJobAlgorithmsConfigOutputWithContext(ctx context.Context) LabelingJobLabelingJobAlgorithmsConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LabelingJobLabelingJobAlgorithmsConfigOutput)
+}
+
+func (i LabelingJobLabelingJobAlgorithmsConfigArgs) ToLabelingJobLabelingJobAlgorithmsConfigPtrOutput() LabelingJobLabelingJobAlgorithmsConfigPtrOutput {
+	return i.ToLabelingJobLabelingJobAlgorithmsConfigPtrOutputWithContext(context.Background())
+}
+
+func (i LabelingJobLabelingJobAlgorithmsConfigArgs) ToLabelingJobLabelingJobAlgorithmsConfigPtrOutputWithContext(ctx context.Context) LabelingJobLabelingJobAlgorithmsConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LabelingJobLabelingJobAlgorithmsConfigOutput).ToLabelingJobLabelingJobAlgorithmsConfigPtrOutputWithContext(ctx)
+}
+
+// LabelingJobLabelingJobAlgorithmsConfigPtrInput is an input type that accepts LabelingJobLabelingJobAlgorithmsConfigArgs, LabelingJobLabelingJobAlgorithmsConfigPtr and LabelingJobLabelingJobAlgorithmsConfigPtrOutput values.
+// You can construct a concrete instance of `LabelingJobLabelingJobAlgorithmsConfigPtrInput` via:
+//
+//	        LabelingJobLabelingJobAlgorithmsConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type LabelingJobLabelingJobAlgorithmsConfigPtrInput interface {
+	pulumi.Input
+
+	ToLabelingJobLabelingJobAlgorithmsConfigPtrOutput() LabelingJobLabelingJobAlgorithmsConfigPtrOutput
+	ToLabelingJobLabelingJobAlgorithmsConfigPtrOutputWithContext(context.Context) LabelingJobLabelingJobAlgorithmsConfigPtrOutput
+}
+
+type labelingJobLabelingJobAlgorithmsConfigPtrType LabelingJobLabelingJobAlgorithmsConfigArgs
+
+func LabelingJobLabelingJobAlgorithmsConfigPtr(v *LabelingJobLabelingJobAlgorithmsConfigArgs) LabelingJobLabelingJobAlgorithmsConfigPtrInput {
+	return (*labelingJobLabelingJobAlgorithmsConfigPtrType)(v)
+}
+
+func (*labelingJobLabelingJobAlgorithmsConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LabelingJobLabelingJobAlgorithmsConfig)(nil)).Elem()
+}
+
+func (i *labelingJobLabelingJobAlgorithmsConfigPtrType) ToLabelingJobLabelingJobAlgorithmsConfigPtrOutput() LabelingJobLabelingJobAlgorithmsConfigPtrOutput {
+	return i.ToLabelingJobLabelingJobAlgorithmsConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *labelingJobLabelingJobAlgorithmsConfigPtrType) ToLabelingJobLabelingJobAlgorithmsConfigPtrOutputWithContext(ctx context.Context) LabelingJobLabelingJobAlgorithmsConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LabelingJobLabelingJobAlgorithmsConfigPtrOutput)
+}
+
+type LabelingJobLabelingJobAlgorithmsConfigOutput struct{ *pulumi.OutputState }
+
+func (LabelingJobLabelingJobAlgorithmsConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LabelingJobLabelingJobAlgorithmsConfig)(nil)).Elem()
+}
+
+func (o LabelingJobLabelingJobAlgorithmsConfigOutput) ToLabelingJobLabelingJobAlgorithmsConfigOutput() LabelingJobLabelingJobAlgorithmsConfigOutput {
+	return o
+}
+
+func (o LabelingJobLabelingJobAlgorithmsConfigOutput) ToLabelingJobLabelingJobAlgorithmsConfigOutputWithContext(ctx context.Context) LabelingJobLabelingJobAlgorithmsConfigOutput {
+	return o
+}
+
+func (o LabelingJobLabelingJobAlgorithmsConfigOutput) ToLabelingJobLabelingJobAlgorithmsConfigPtrOutput() LabelingJobLabelingJobAlgorithmsConfigPtrOutput {
+	return o.ToLabelingJobLabelingJobAlgorithmsConfigPtrOutputWithContext(context.Background())
+}
+
+func (o LabelingJobLabelingJobAlgorithmsConfigOutput) ToLabelingJobLabelingJobAlgorithmsConfigPtrOutputWithContext(ctx context.Context) LabelingJobLabelingJobAlgorithmsConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LabelingJobLabelingJobAlgorithmsConfig) *LabelingJobLabelingJobAlgorithmsConfig {
+		return &v
+	}).(LabelingJobLabelingJobAlgorithmsConfigPtrOutput)
+}
+
+// ARN of the final model used for auto-labeling.
+func (o LabelingJobLabelingJobAlgorithmsConfigOutput) InitialActiveLearningModelArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LabelingJobLabelingJobAlgorithmsConfig) *string { return v.InitialActiveLearningModelArn }).(pulumi.StringPtrOutput)
+}
+
+// ARN of the algorithm used for auto-labeling.
+func (o LabelingJobLabelingJobAlgorithmsConfigOutput) LabelingJobAlgorithmSpecificationArn() pulumi.StringOutput {
+	return o.ApplyT(func(v LabelingJobLabelingJobAlgorithmsConfig) string { return v.LabelingJobAlgorithmSpecificationArn }).(pulumi.StringOutput)
+}
+
+// Configuration information for the labeling job. Fields are documented below.
+func (o LabelingJobLabelingJobAlgorithmsConfigOutput) LabelingJobResourceConfig() LabelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfigPtrOutput {
+	return o.ApplyT(func(v LabelingJobLabelingJobAlgorithmsConfig) *LabelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfig {
+		return v.LabelingJobResourceConfig
+	}).(LabelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfigPtrOutput)
+}
+
+type LabelingJobLabelingJobAlgorithmsConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (LabelingJobLabelingJobAlgorithmsConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LabelingJobLabelingJobAlgorithmsConfig)(nil)).Elem()
+}
+
+func (o LabelingJobLabelingJobAlgorithmsConfigPtrOutput) ToLabelingJobLabelingJobAlgorithmsConfigPtrOutput() LabelingJobLabelingJobAlgorithmsConfigPtrOutput {
+	return o
+}
+
+func (o LabelingJobLabelingJobAlgorithmsConfigPtrOutput) ToLabelingJobLabelingJobAlgorithmsConfigPtrOutputWithContext(ctx context.Context) LabelingJobLabelingJobAlgorithmsConfigPtrOutput {
+	return o
+}
+
+func (o LabelingJobLabelingJobAlgorithmsConfigPtrOutput) Elem() LabelingJobLabelingJobAlgorithmsConfigOutput {
+	return o.ApplyT(func(v *LabelingJobLabelingJobAlgorithmsConfig) LabelingJobLabelingJobAlgorithmsConfig {
+		if v != nil {
+			return *v
+		}
+		var ret LabelingJobLabelingJobAlgorithmsConfig
+		return ret
+	}).(LabelingJobLabelingJobAlgorithmsConfigOutput)
+}
+
+// ARN of the final model used for auto-labeling.
+func (o LabelingJobLabelingJobAlgorithmsConfigPtrOutput) InitialActiveLearningModelArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LabelingJobLabelingJobAlgorithmsConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.InitialActiveLearningModelArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// ARN of the algorithm used for auto-labeling.
+func (o LabelingJobLabelingJobAlgorithmsConfigPtrOutput) LabelingJobAlgorithmSpecificationArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LabelingJobLabelingJobAlgorithmsConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.LabelingJobAlgorithmSpecificationArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// Configuration information for the labeling job. Fields are documented below.
+func (o LabelingJobLabelingJobAlgorithmsConfigPtrOutput) LabelingJobResourceConfig() LabelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfigPtrOutput {
+	return o.ApplyT(func(v *LabelingJobLabelingJobAlgorithmsConfig) *LabelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfig {
+		if v == nil {
+			return nil
+		}
+		return v.LabelingJobResourceConfig
+	}).(LabelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfigPtrOutput)
+}
+
+type LabelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfig struct {
+	// ID of the key that Amazon SageMaker uses to encrypt data on the storage volume attached to the ML compute instance(s) that run the training and inference jobs used for automated data labeling.
+	VolumeKmsKeyId *string `pulumi:"volumeKmsKeyId"`
+	// VPC that SageMaker jobs, hosted models, and compute resources have access to. Fields are documented below.
+	VpcConfig *LabelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfigVpcConfig `pulumi:"vpcConfig"`
+}
+
+// LabelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfigInput is an input type that accepts LabelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfigArgs and LabelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfigOutput values.
+// You can construct a concrete instance of `LabelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfigInput` via:
+//
+//	LabelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfigArgs{...}
+type LabelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfigInput interface {
+	pulumi.Input
+
+	ToLabelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfigOutput() LabelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfigOutput
+	ToLabelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfigOutputWithContext(context.Context) LabelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfigOutput
+}
+
+type LabelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfigArgs struct {
+	// ID of the key that Amazon SageMaker uses to encrypt data on the storage volume attached to the ML compute instance(s) that run the training and inference jobs used for automated data labeling.
+	VolumeKmsKeyId pulumi.StringPtrInput `pulumi:"volumeKmsKeyId"`
+	// VPC that SageMaker jobs, hosted models, and compute resources have access to. Fields are documented below.
+	VpcConfig LabelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfigVpcConfigPtrInput `pulumi:"vpcConfig"`
+}
+
+func (LabelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LabelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfig)(nil)).Elem()
+}
+
+func (i LabelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfigArgs) ToLabelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfigOutput() LabelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfigOutput {
+	return i.ToLabelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfigOutputWithContext(context.Background())
+}
+
+func (i LabelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfigArgs) ToLabelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfigOutputWithContext(ctx context.Context) LabelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LabelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfigOutput)
+}
+
+func (i LabelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfigArgs) ToLabelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfigPtrOutput() LabelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfigPtrOutput {
+	return i.ToLabelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfigPtrOutputWithContext(context.Background())
+}
+
+func (i LabelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfigArgs) ToLabelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfigPtrOutputWithContext(ctx context.Context) LabelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LabelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfigOutput).ToLabelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfigPtrOutputWithContext(ctx)
+}
+
+// LabelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfigPtrInput is an input type that accepts LabelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfigArgs, LabelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfigPtr and LabelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfigPtrOutput values.
+// You can construct a concrete instance of `LabelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfigPtrInput` via:
+//
+//	        LabelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type LabelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfigPtrInput interface {
+	pulumi.Input
+
+	ToLabelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfigPtrOutput() LabelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfigPtrOutput
+	ToLabelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfigPtrOutputWithContext(context.Context) LabelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfigPtrOutput
+}
+
+type labelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfigPtrType LabelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfigArgs
+
+func LabelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfigPtr(v *LabelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfigArgs) LabelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfigPtrInput {
+	return (*labelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfigPtrType)(v)
+}
+
+func (*labelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LabelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfig)(nil)).Elem()
+}
+
+func (i *labelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfigPtrType) ToLabelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfigPtrOutput() LabelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfigPtrOutput {
+	return i.ToLabelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *labelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfigPtrType) ToLabelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfigPtrOutputWithContext(ctx context.Context) LabelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LabelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfigPtrOutput)
+}
+
+type LabelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfigOutput struct{ *pulumi.OutputState }
+
+func (LabelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LabelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfig)(nil)).Elem()
+}
+
+func (o LabelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfigOutput) ToLabelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfigOutput() LabelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfigOutput {
+	return o
+}
+
+func (o LabelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfigOutput) ToLabelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfigOutputWithContext(ctx context.Context) LabelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfigOutput {
+	return o
+}
+
+func (o LabelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfigOutput) ToLabelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfigPtrOutput() LabelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfigPtrOutput {
+	return o.ToLabelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfigPtrOutputWithContext(context.Background())
+}
+
+func (o LabelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfigOutput) ToLabelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfigPtrOutputWithContext(ctx context.Context) LabelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LabelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfig) *LabelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfig {
+		return &v
+	}).(LabelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfigPtrOutput)
+}
+
+// ID of the key that Amazon SageMaker uses to encrypt data on the storage volume attached to the ML compute instance(s) that run the training and inference jobs used for automated data labeling.
+func (o LabelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfigOutput) VolumeKmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LabelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfig) *string {
+		return v.VolumeKmsKeyId
+	}).(pulumi.StringPtrOutput)
+}
+
+// VPC that SageMaker jobs, hosted models, and compute resources have access to. Fields are documented below.
+func (o LabelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfigOutput) VpcConfig() LabelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfigVpcConfigPtrOutput {
+	return o.ApplyT(func(v LabelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfig) *LabelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfigVpcConfig {
+		return v.VpcConfig
+	}).(LabelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfigVpcConfigPtrOutput)
+}
+
+type LabelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (LabelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LabelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfig)(nil)).Elem()
+}
+
+func (o LabelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfigPtrOutput) ToLabelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfigPtrOutput() LabelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfigPtrOutput {
+	return o
+}
+
+func (o LabelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfigPtrOutput) ToLabelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfigPtrOutputWithContext(ctx context.Context) LabelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfigPtrOutput {
+	return o
+}
+
+func (o LabelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfigPtrOutput) Elem() LabelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfigOutput {
+	return o.ApplyT(func(v *LabelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfig) LabelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfig {
+		if v != nil {
+			return *v
+		}
+		var ret LabelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfig
+		return ret
+	}).(LabelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfigOutput)
+}
+
+// ID of the key that Amazon SageMaker uses to encrypt data on the storage volume attached to the ML compute instance(s) that run the training and inference jobs used for automated data labeling.
+func (o LabelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfigPtrOutput) VolumeKmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LabelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.VolumeKmsKeyId
+	}).(pulumi.StringPtrOutput)
+}
+
+// VPC that SageMaker jobs, hosted models, and compute resources have access to. Fields are documented below.
+func (o LabelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfigPtrOutput) VpcConfig() LabelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfigVpcConfigPtrOutput {
+	return o.ApplyT(func(v *LabelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfig) *LabelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfigVpcConfig {
+		if v == nil {
+			return nil
+		}
+		return v.VpcConfig
+	}).(LabelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfigVpcConfigPtrOutput)
+}
+
+type LabelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfigVpcConfig struct {
+	// VPC security group IDs.
+	SecurityGroupIds []string `pulumi:"securityGroupIds"`
+	// IDs of the subnets in the VPC to which to connect the training job. Fields are documented below.
+	Subnets []string `pulumi:"subnets"`
+}
+
+// LabelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfigVpcConfigInput is an input type that accepts LabelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfigVpcConfigArgs and LabelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfigVpcConfigOutput values.
+// You can construct a concrete instance of `LabelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfigVpcConfigInput` via:
+//
+//	LabelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfigVpcConfigArgs{...}
+type LabelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfigVpcConfigInput interface {
+	pulumi.Input
+
+	ToLabelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfigVpcConfigOutput() LabelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfigVpcConfigOutput
+	ToLabelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfigVpcConfigOutputWithContext(context.Context) LabelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfigVpcConfigOutput
+}
+
+type LabelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfigVpcConfigArgs struct {
+	// VPC security group IDs.
+	SecurityGroupIds pulumi.StringArrayInput `pulumi:"securityGroupIds"`
+	// IDs of the subnets in the VPC to which to connect the training job. Fields are documented below.
+	Subnets pulumi.StringArrayInput `pulumi:"subnets"`
+}
+
+func (LabelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfigVpcConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LabelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfigVpcConfig)(nil)).Elem()
+}
+
+func (i LabelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfigVpcConfigArgs) ToLabelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfigVpcConfigOutput() LabelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfigVpcConfigOutput {
+	return i.ToLabelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfigVpcConfigOutputWithContext(context.Background())
+}
+
+func (i LabelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfigVpcConfigArgs) ToLabelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfigVpcConfigOutputWithContext(ctx context.Context) LabelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfigVpcConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LabelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfigVpcConfigOutput)
+}
+
+func (i LabelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfigVpcConfigArgs) ToLabelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfigVpcConfigPtrOutput() LabelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfigVpcConfigPtrOutput {
+	return i.ToLabelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfigVpcConfigPtrOutputWithContext(context.Background())
+}
+
+func (i LabelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfigVpcConfigArgs) ToLabelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfigVpcConfigPtrOutputWithContext(ctx context.Context) LabelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfigVpcConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LabelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfigVpcConfigOutput).ToLabelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfigVpcConfigPtrOutputWithContext(ctx)
+}
+
+// LabelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfigVpcConfigPtrInput is an input type that accepts LabelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfigVpcConfigArgs, LabelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfigVpcConfigPtr and LabelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfigVpcConfigPtrOutput values.
+// You can construct a concrete instance of `LabelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfigVpcConfigPtrInput` via:
+//
+//	        LabelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfigVpcConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type LabelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfigVpcConfigPtrInput interface {
+	pulumi.Input
+
+	ToLabelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfigVpcConfigPtrOutput() LabelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfigVpcConfigPtrOutput
+	ToLabelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfigVpcConfigPtrOutputWithContext(context.Context) LabelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfigVpcConfigPtrOutput
+}
+
+type labelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfigVpcConfigPtrType LabelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfigVpcConfigArgs
+
+func LabelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfigVpcConfigPtr(v *LabelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfigVpcConfigArgs) LabelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfigVpcConfigPtrInput {
+	return (*labelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfigVpcConfigPtrType)(v)
+}
+
+func (*labelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfigVpcConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LabelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfigVpcConfig)(nil)).Elem()
+}
+
+func (i *labelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfigVpcConfigPtrType) ToLabelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfigVpcConfigPtrOutput() LabelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfigVpcConfigPtrOutput {
+	return i.ToLabelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfigVpcConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *labelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfigVpcConfigPtrType) ToLabelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfigVpcConfigPtrOutputWithContext(ctx context.Context) LabelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfigVpcConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LabelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfigVpcConfigPtrOutput)
+}
+
+type LabelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfigVpcConfigOutput struct{ *pulumi.OutputState }
+
+func (LabelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfigVpcConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LabelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfigVpcConfig)(nil)).Elem()
+}
+
+func (o LabelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfigVpcConfigOutput) ToLabelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfigVpcConfigOutput() LabelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfigVpcConfigOutput {
+	return o
+}
+
+func (o LabelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfigVpcConfigOutput) ToLabelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfigVpcConfigOutputWithContext(ctx context.Context) LabelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfigVpcConfigOutput {
+	return o
+}
+
+func (o LabelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfigVpcConfigOutput) ToLabelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfigVpcConfigPtrOutput() LabelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfigVpcConfigPtrOutput {
+	return o.ToLabelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfigVpcConfigPtrOutputWithContext(context.Background())
+}
+
+func (o LabelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfigVpcConfigOutput) ToLabelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfigVpcConfigPtrOutputWithContext(ctx context.Context) LabelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfigVpcConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LabelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfigVpcConfig) *LabelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfigVpcConfig {
+		return &v
+	}).(LabelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfigVpcConfigPtrOutput)
+}
+
+// VPC security group IDs.
+func (o LabelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfigVpcConfigOutput) SecurityGroupIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LabelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfigVpcConfig) []string {
+		return v.SecurityGroupIds
+	}).(pulumi.StringArrayOutput)
+}
+
+// IDs of the subnets in the VPC to which to connect the training job. Fields are documented below.
+func (o LabelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfigVpcConfigOutput) Subnets() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LabelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfigVpcConfig) []string {
+		return v.Subnets
+	}).(pulumi.StringArrayOutput)
+}
+
+type LabelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfigVpcConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (LabelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfigVpcConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LabelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfigVpcConfig)(nil)).Elem()
+}
+
+func (o LabelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfigVpcConfigPtrOutput) ToLabelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfigVpcConfigPtrOutput() LabelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfigVpcConfigPtrOutput {
+	return o
+}
+
+func (o LabelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfigVpcConfigPtrOutput) ToLabelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfigVpcConfigPtrOutputWithContext(ctx context.Context) LabelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfigVpcConfigPtrOutput {
+	return o
+}
+
+func (o LabelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfigVpcConfigPtrOutput) Elem() LabelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfigVpcConfigOutput {
+	return o.ApplyT(func(v *LabelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfigVpcConfig) LabelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfigVpcConfig {
+		if v != nil {
+			return *v
+		}
+		var ret LabelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfigVpcConfig
+		return ret
+	}).(LabelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfigVpcConfigOutput)
+}
+
+// VPC security group IDs.
+func (o LabelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfigVpcConfigPtrOutput) SecurityGroupIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *LabelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfigVpcConfig) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SecurityGroupIds
+	}).(pulumi.StringArrayOutput)
+}
+
+// IDs of the subnets in the VPC to which to connect the training job. Fields are documented below.
+func (o LabelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfigVpcConfigPtrOutput) Subnets() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *LabelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfigVpcConfig) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Subnets
+	}).(pulumi.StringArrayOutput)
+}
+
+type LabelingJobOutputConfig struct {
+	// ID of the key used to encrypt the output data.
+	KmsKeyId *string `pulumi:"kmsKeyId"`
+	// S3 location to write output data.
+	S3OutputPath string `pulumi:"s3OutputPath"`
+	// SNS output topic ARN.
+	SnsTopicArn *string `pulumi:"snsTopicArn"`
+}
+
+// LabelingJobOutputConfigInput is an input type that accepts LabelingJobOutputConfigArgs and LabelingJobOutputConfigOutput values.
+// You can construct a concrete instance of `LabelingJobOutputConfigInput` via:
+//
+//	LabelingJobOutputConfigArgs{...}
+type LabelingJobOutputConfigInput interface {
+	pulumi.Input
+
+	ToLabelingJobOutputConfigOutput() LabelingJobOutputConfigOutput
+	ToLabelingJobOutputConfigOutputWithContext(context.Context) LabelingJobOutputConfigOutput
+}
+
+type LabelingJobOutputConfigArgs struct {
+	// ID of the key used to encrypt the output data.
+	KmsKeyId pulumi.StringPtrInput `pulumi:"kmsKeyId"`
+	// S3 location to write output data.
+	S3OutputPath pulumi.StringInput `pulumi:"s3OutputPath"`
+	// SNS output topic ARN.
+	SnsTopicArn pulumi.StringPtrInput `pulumi:"snsTopicArn"`
+}
+
+func (LabelingJobOutputConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LabelingJobOutputConfig)(nil)).Elem()
+}
+
+func (i LabelingJobOutputConfigArgs) ToLabelingJobOutputConfigOutput() LabelingJobOutputConfigOutput {
+	return i.ToLabelingJobOutputConfigOutputWithContext(context.Background())
+}
+
+func (i LabelingJobOutputConfigArgs) ToLabelingJobOutputConfigOutputWithContext(ctx context.Context) LabelingJobOutputConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LabelingJobOutputConfigOutput)
+}
+
+func (i LabelingJobOutputConfigArgs) ToLabelingJobOutputConfigPtrOutput() LabelingJobOutputConfigPtrOutput {
+	return i.ToLabelingJobOutputConfigPtrOutputWithContext(context.Background())
+}
+
+func (i LabelingJobOutputConfigArgs) ToLabelingJobOutputConfigPtrOutputWithContext(ctx context.Context) LabelingJobOutputConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LabelingJobOutputConfigOutput).ToLabelingJobOutputConfigPtrOutputWithContext(ctx)
+}
+
+// LabelingJobOutputConfigPtrInput is an input type that accepts LabelingJobOutputConfigArgs, LabelingJobOutputConfigPtr and LabelingJobOutputConfigPtrOutput values.
+// You can construct a concrete instance of `LabelingJobOutputConfigPtrInput` via:
+//
+//	        LabelingJobOutputConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type LabelingJobOutputConfigPtrInput interface {
+	pulumi.Input
+
+	ToLabelingJobOutputConfigPtrOutput() LabelingJobOutputConfigPtrOutput
+	ToLabelingJobOutputConfigPtrOutputWithContext(context.Context) LabelingJobOutputConfigPtrOutput
+}
+
+type labelingJobOutputConfigPtrType LabelingJobOutputConfigArgs
+
+func LabelingJobOutputConfigPtr(v *LabelingJobOutputConfigArgs) LabelingJobOutputConfigPtrInput {
+	return (*labelingJobOutputConfigPtrType)(v)
+}
+
+func (*labelingJobOutputConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LabelingJobOutputConfig)(nil)).Elem()
+}
+
+func (i *labelingJobOutputConfigPtrType) ToLabelingJobOutputConfigPtrOutput() LabelingJobOutputConfigPtrOutput {
+	return i.ToLabelingJobOutputConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *labelingJobOutputConfigPtrType) ToLabelingJobOutputConfigPtrOutputWithContext(ctx context.Context) LabelingJobOutputConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LabelingJobOutputConfigPtrOutput)
+}
+
+type LabelingJobOutputConfigOutput struct{ *pulumi.OutputState }
+
+func (LabelingJobOutputConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LabelingJobOutputConfig)(nil)).Elem()
+}
+
+func (o LabelingJobOutputConfigOutput) ToLabelingJobOutputConfigOutput() LabelingJobOutputConfigOutput {
+	return o
+}
+
+func (o LabelingJobOutputConfigOutput) ToLabelingJobOutputConfigOutputWithContext(ctx context.Context) LabelingJobOutputConfigOutput {
+	return o
+}
+
+func (o LabelingJobOutputConfigOutput) ToLabelingJobOutputConfigPtrOutput() LabelingJobOutputConfigPtrOutput {
+	return o.ToLabelingJobOutputConfigPtrOutputWithContext(context.Background())
+}
+
+func (o LabelingJobOutputConfigOutput) ToLabelingJobOutputConfigPtrOutputWithContext(ctx context.Context) LabelingJobOutputConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LabelingJobOutputConfig) *LabelingJobOutputConfig {
+		return &v
+	}).(LabelingJobOutputConfigPtrOutput)
+}
+
+// ID of the key used to encrypt the output data.
+func (o LabelingJobOutputConfigOutput) KmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LabelingJobOutputConfig) *string { return v.KmsKeyId }).(pulumi.StringPtrOutput)
+}
+
+// S3 location to write output data.
+func (o LabelingJobOutputConfigOutput) S3OutputPath() pulumi.StringOutput {
+	return o.ApplyT(func(v LabelingJobOutputConfig) string { return v.S3OutputPath }).(pulumi.StringOutput)
+}
+
+// SNS output topic ARN.
+func (o LabelingJobOutputConfigOutput) SnsTopicArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LabelingJobOutputConfig) *string { return v.SnsTopicArn }).(pulumi.StringPtrOutput)
+}
+
+type LabelingJobOutputConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (LabelingJobOutputConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LabelingJobOutputConfig)(nil)).Elem()
+}
+
+func (o LabelingJobOutputConfigPtrOutput) ToLabelingJobOutputConfigPtrOutput() LabelingJobOutputConfigPtrOutput {
+	return o
+}
+
+func (o LabelingJobOutputConfigPtrOutput) ToLabelingJobOutputConfigPtrOutputWithContext(ctx context.Context) LabelingJobOutputConfigPtrOutput {
+	return o
+}
+
+func (o LabelingJobOutputConfigPtrOutput) Elem() LabelingJobOutputConfigOutput {
+	return o.ApplyT(func(v *LabelingJobOutputConfig) LabelingJobOutputConfig {
+		if v != nil {
+			return *v
+		}
+		var ret LabelingJobOutputConfig
+		return ret
+	}).(LabelingJobOutputConfigOutput)
+}
+
+// ID of the key used to encrypt the output data.
+func (o LabelingJobOutputConfigPtrOutput) KmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LabelingJobOutputConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KmsKeyId
+	}).(pulumi.StringPtrOutput)
+}
+
+// S3 location to write output data.
+func (o LabelingJobOutputConfigPtrOutput) S3OutputPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LabelingJobOutputConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.S3OutputPath
+	}).(pulumi.StringPtrOutput)
+}
+
+// SNS output topic ARN.
+func (o LabelingJobOutputConfigPtrOutput) SnsTopicArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LabelingJobOutputConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SnsTopicArn
+	}).(pulumi.StringPtrOutput)
+}
+
+type LabelingJobStoppingCondition struct {
+	// Maximum number of objects that can be labeled by human workers.
+	MaxHumanLabeledObjectCount int `pulumi:"maxHumanLabeledObjectCount"`
+	// Maximum number of input data objects that should be labeled.
+	MaxPercentageOfInputDatasetLabeled int `pulumi:"maxPercentageOfInputDatasetLabeled"`
+}
+
+// LabelingJobStoppingConditionInput is an input type that accepts LabelingJobStoppingConditionArgs and LabelingJobStoppingConditionOutput values.
+// You can construct a concrete instance of `LabelingJobStoppingConditionInput` via:
+//
+//	LabelingJobStoppingConditionArgs{...}
+type LabelingJobStoppingConditionInput interface {
+	pulumi.Input
+
+	ToLabelingJobStoppingConditionOutput() LabelingJobStoppingConditionOutput
+	ToLabelingJobStoppingConditionOutputWithContext(context.Context) LabelingJobStoppingConditionOutput
+}
+
+type LabelingJobStoppingConditionArgs struct {
+	// Maximum number of objects that can be labeled by human workers.
+	MaxHumanLabeledObjectCount pulumi.IntInput `pulumi:"maxHumanLabeledObjectCount"`
+	// Maximum number of input data objects that should be labeled.
+	MaxPercentageOfInputDatasetLabeled pulumi.IntInput `pulumi:"maxPercentageOfInputDatasetLabeled"`
+}
+
+func (LabelingJobStoppingConditionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LabelingJobStoppingCondition)(nil)).Elem()
+}
+
+func (i LabelingJobStoppingConditionArgs) ToLabelingJobStoppingConditionOutput() LabelingJobStoppingConditionOutput {
+	return i.ToLabelingJobStoppingConditionOutputWithContext(context.Background())
+}
+
+func (i LabelingJobStoppingConditionArgs) ToLabelingJobStoppingConditionOutputWithContext(ctx context.Context) LabelingJobStoppingConditionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LabelingJobStoppingConditionOutput)
+}
+
+// LabelingJobStoppingConditionArrayInput is an input type that accepts LabelingJobStoppingConditionArray and LabelingJobStoppingConditionArrayOutput values.
+// You can construct a concrete instance of `LabelingJobStoppingConditionArrayInput` via:
+//
+//	LabelingJobStoppingConditionArray{ LabelingJobStoppingConditionArgs{...} }
+type LabelingJobStoppingConditionArrayInput interface {
+	pulumi.Input
+
+	ToLabelingJobStoppingConditionArrayOutput() LabelingJobStoppingConditionArrayOutput
+	ToLabelingJobStoppingConditionArrayOutputWithContext(context.Context) LabelingJobStoppingConditionArrayOutput
+}
+
+type LabelingJobStoppingConditionArray []LabelingJobStoppingConditionInput
+
+func (LabelingJobStoppingConditionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LabelingJobStoppingCondition)(nil)).Elem()
+}
+
+func (i LabelingJobStoppingConditionArray) ToLabelingJobStoppingConditionArrayOutput() LabelingJobStoppingConditionArrayOutput {
+	return i.ToLabelingJobStoppingConditionArrayOutputWithContext(context.Background())
+}
+
+func (i LabelingJobStoppingConditionArray) ToLabelingJobStoppingConditionArrayOutputWithContext(ctx context.Context) LabelingJobStoppingConditionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LabelingJobStoppingConditionArrayOutput)
+}
+
+type LabelingJobStoppingConditionOutput struct{ *pulumi.OutputState }
+
+func (LabelingJobStoppingConditionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LabelingJobStoppingCondition)(nil)).Elem()
+}
+
+func (o LabelingJobStoppingConditionOutput) ToLabelingJobStoppingConditionOutput() LabelingJobStoppingConditionOutput {
+	return o
+}
+
+func (o LabelingJobStoppingConditionOutput) ToLabelingJobStoppingConditionOutputWithContext(ctx context.Context) LabelingJobStoppingConditionOutput {
+	return o
+}
+
+// Maximum number of objects that can be labeled by human workers.
+func (o LabelingJobStoppingConditionOutput) MaxHumanLabeledObjectCount() pulumi.IntOutput {
+	return o.ApplyT(func(v LabelingJobStoppingCondition) int { return v.MaxHumanLabeledObjectCount }).(pulumi.IntOutput)
+}
+
+// Maximum number of input data objects that should be labeled.
+func (o LabelingJobStoppingConditionOutput) MaxPercentageOfInputDatasetLabeled() pulumi.IntOutput {
+	return o.ApplyT(func(v LabelingJobStoppingCondition) int { return v.MaxPercentageOfInputDatasetLabeled }).(pulumi.IntOutput)
+}
+
+type LabelingJobStoppingConditionArrayOutput struct{ *pulumi.OutputState }
+
+func (LabelingJobStoppingConditionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LabelingJobStoppingCondition)(nil)).Elem()
+}
+
+func (o LabelingJobStoppingConditionArrayOutput) ToLabelingJobStoppingConditionArrayOutput() LabelingJobStoppingConditionArrayOutput {
+	return o
+}
+
+func (o LabelingJobStoppingConditionArrayOutput) ToLabelingJobStoppingConditionArrayOutputWithContext(ctx context.Context) LabelingJobStoppingConditionArrayOutput {
+	return o
+}
+
+func (o LabelingJobStoppingConditionArrayOutput) Index(i pulumi.IntInput) LabelingJobStoppingConditionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LabelingJobStoppingCondition {
+		return vs[0].([]LabelingJobStoppingCondition)[vs[1].(int)]
+	}).(LabelingJobStoppingConditionOutput)
+}
+
+type ModelCardExportJobExportArtifact struct {
+	// Amazon S3 URI of the exported model artifacts.
+	S3ExportArtifacts string `pulumi:"s3ExportArtifacts"`
+}
+
+// ModelCardExportJobExportArtifactInput is an input type that accepts ModelCardExportJobExportArtifactArgs and ModelCardExportJobExportArtifactOutput values.
+// You can construct a concrete instance of `ModelCardExportJobExportArtifactInput` via:
+//
+//	ModelCardExportJobExportArtifactArgs{...}
+type ModelCardExportJobExportArtifactInput interface {
+	pulumi.Input
+
+	ToModelCardExportJobExportArtifactOutput() ModelCardExportJobExportArtifactOutput
+	ToModelCardExportJobExportArtifactOutputWithContext(context.Context) ModelCardExportJobExportArtifactOutput
+}
+
+type ModelCardExportJobExportArtifactArgs struct {
+	// Amazon S3 URI of the exported model artifacts.
+	S3ExportArtifacts pulumi.StringInput `pulumi:"s3ExportArtifacts"`
+}
+
+func (ModelCardExportJobExportArtifactArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelCardExportJobExportArtifact)(nil)).Elem()
+}
+
+func (i ModelCardExportJobExportArtifactArgs) ToModelCardExportJobExportArtifactOutput() ModelCardExportJobExportArtifactOutput {
+	return i.ToModelCardExportJobExportArtifactOutputWithContext(context.Background())
+}
+
+func (i ModelCardExportJobExportArtifactArgs) ToModelCardExportJobExportArtifactOutputWithContext(ctx context.Context) ModelCardExportJobExportArtifactOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelCardExportJobExportArtifactOutput)
+}
+
+// ModelCardExportJobExportArtifactArrayInput is an input type that accepts ModelCardExportJobExportArtifactArray and ModelCardExportJobExportArtifactArrayOutput values.
+// You can construct a concrete instance of `ModelCardExportJobExportArtifactArrayInput` via:
+//
+//	ModelCardExportJobExportArtifactArray{ ModelCardExportJobExportArtifactArgs{...} }
+type ModelCardExportJobExportArtifactArrayInput interface {
+	pulumi.Input
+
+	ToModelCardExportJobExportArtifactArrayOutput() ModelCardExportJobExportArtifactArrayOutput
+	ToModelCardExportJobExportArtifactArrayOutputWithContext(context.Context) ModelCardExportJobExportArtifactArrayOutput
+}
+
+type ModelCardExportJobExportArtifactArray []ModelCardExportJobExportArtifactInput
+
+func (ModelCardExportJobExportArtifactArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ModelCardExportJobExportArtifact)(nil)).Elem()
+}
+
+func (i ModelCardExportJobExportArtifactArray) ToModelCardExportJobExportArtifactArrayOutput() ModelCardExportJobExportArtifactArrayOutput {
+	return i.ToModelCardExportJobExportArtifactArrayOutputWithContext(context.Background())
+}
+
+func (i ModelCardExportJobExportArtifactArray) ToModelCardExportJobExportArtifactArrayOutputWithContext(ctx context.Context) ModelCardExportJobExportArtifactArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelCardExportJobExportArtifactArrayOutput)
+}
+
+type ModelCardExportJobExportArtifactOutput struct{ *pulumi.OutputState }
+
+func (ModelCardExportJobExportArtifactOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelCardExportJobExportArtifact)(nil)).Elem()
+}
+
+func (o ModelCardExportJobExportArtifactOutput) ToModelCardExportJobExportArtifactOutput() ModelCardExportJobExportArtifactOutput {
+	return o
+}
+
+func (o ModelCardExportJobExportArtifactOutput) ToModelCardExportJobExportArtifactOutputWithContext(ctx context.Context) ModelCardExportJobExportArtifactOutput {
+	return o
+}
+
+// Amazon S3 URI of the exported model artifacts.
+func (o ModelCardExportJobExportArtifactOutput) S3ExportArtifacts() pulumi.StringOutput {
+	return o.ApplyT(func(v ModelCardExportJobExportArtifact) string { return v.S3ExportArtifacts }).(pulumi.StringOutput)
+}
+
+type ModelCardExportJobExportArtifactArrayOutput struct{ *pulumi.OutputState }
+
+func (ModelCardExportJobExportArtifactArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ModelCardExportJobExportArtifact)(nil)).Elem()
+}
+
+func (o ModelCardExportJobExportArtifactArrayOutput) ToModelCardExportJobExportArtifactArrayOutput() ModelCardExportJobExportArtifactArrayOutput {
+	return o
+}
+
+func (o ModelCardExportJobExportArtifactArrayOutput) ToModelCardExportJobExportArtifactArrayOutputWithContext(ctx context.Context) ModelCardExportJobExportArtifactArrayOutput {
+	return o
+}
+
+func (o ModelCardExportJobExportArtifactArrayOutput) Index(i pulumi.IntInput) ModelCardExportJobExportArtifactOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ModelCardExportJobExportArtifact {
+		return vs[0].([]ModelCardExportJobExportArtifact)[vs[1].(int)]
+	}).(ModelCardExportJobExportArtifactOutput)
+}
+
+type ModelCardExportJobOutputConfig struct {
+	// Amazon S3 output path.
+	S3OutputPath string `pulumi:"s3OutputPath"`
+}
+
+// ModelCardExportJobOutputConfigInput is an input type that accepts ModelCardExportJobOutputConfigArgs and ModelCardExportJobOutputConfigOutput values.
+// You can construct a concrete instance of `ModelCardExportJobOutputConfigInput` via:
+//
+//	ModelCardExportJobOutputConfigArgs{...}
+type ModelCardExportJobOutputConfigInput interface {
+	pulumi.Input
+
+	ToModelCardExportJobOutputConfigOutput() ModelCardExportJobOutputConfigOutput
+	ToModelCardExportJobOutputConfigOutputWithContext(context.Context) ModelCardExportJobOutputConfigOutput
+}
+
+type ModelCardExportJobOutputConfigArgs struct {
+	// Amazon S3 output path.
+	S3OutputPath pulumi.StringInput `pulumi:"s3OutputPath"`
+}
+
+func (ModelCardExportJobOutputConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelCardExportJobOutputConfig)(nil)).Elem()
+}
+
+func (i ModelCardExportJobOutputConfigArgs) ToModelCardExportJobOutputConfigOutput() ModelCardExportJobOutputConfigOutput {
+	return i.ToModelCardExportJobOutputConfigOutputWithContext(context.Background())
+}
+
+func (i ModelCardExportJobOutputConfigArgs) ToModelCardExportJobOutputConfigOutputWithContext(ctx context.Context) ModelCardExportJobOutputConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelCardExportJobOutputConfigOutput)
+}
+
+func (i ModelCardExportJobOutputConfigArgs) ToModelCardExportJobOutputConfigPtrOutput() ModelCardExportJobOutputConfigPtrOutput {
+	return i.ToModelCardExportJobOutputConfigPtrOutputWithContext(context.Background())
+}
+
+func (i ModelCardExportJobOutputConfigArgs) ToModelCardExportJobOutputConfigPtrOutputWithContext(ctx context.Context) ModelCardExportJobOutputConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelCardExportJobOutputConfigOutput).ToModelCardExportJobOutputConfigPtrOutputWithContext(ctx)
+}
+
+// ModelCardExportJobOutputConfigPtrInput is an input type that accepts ModelCardExportJobOutputConfigArgs, ModelCardExportJobOutputConfigPtr and ModelCardExportJobOutputConfigPtrOutput values.
+// You can construct a concrete instance of `ModelCardExportJobOutputConfigPtrInput` via:
+//
+//	        ModelCardExportJobOutputConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type ModelCardExportJobOutputConfigPtrInput interface {
+	pulumi.Input
+
+	ToModelCardExportJobOutputConfigPtrOutput() ModelCardExportJobOutputConfigPtrOutput
+	ToModelCardExportJobOutputConfigPtrOutputWithContext(context.Context) ModelCardExportJobOutputConfigPtrOutput
+}
+
+type modelCardExportJobOutputConfigPtrType ModelCardExportJobOutputConfigArgs
+
+func ModelCardExportJobOutputConfigPtr(v *ModelCardExportJobOutputConfigArgs) ModelCardExportJobOutputConfigPtrInput {
+	return (*modelCardExportJobOutputConfigPtrType)(v)
+}
+
+func (*modelCardExportJobOutputConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ModelCardExportJobOutputConfig)(nil)).Elem()
+}
+
+func (i *modelCardExportJobOutputConfigPtrType) ToModelCardExportJobOutputConfigPtrOutput() ModelCardExportJobOutputConfigPtrOutput {
+	return i.ToModelCardExportJobOutputConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *modelCardExportJobOutputConfigPtrType) ToModelCardExportJobOutputConfigPtrOutputWithContext(ctx context.Context) ModelCardExportJobOutputConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelCardExportJobOutputConfigPtrOutput)
+}
+
+type ModelCardExportJobOutputConfigOutput struct{ *pulumi.OutputState }
+
+func (ModelCardExportJobOutputConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelCardExportJobOutputConfig)(nil)).Elem()
+}
+
+func (o ModelCardExportJobOutputConfigOutput) ToModelCardExportJobOutputConfigOutput() ModelCardExportJobOutputConfigOutput {
+	return o
+}
+
+func (o ModelCardExportJobOutputConfigOutput) ToModelCardExportJobOutputConfigOutputWithContext(ctx context.Context) ModelCardExportJobOutputConfigOutput {
+	return o
+}
+
+func (o ModelCardExportJobOutputConfigOutput) ToModelCardExportJobOutputConfigPtrOutput() ModelCardExportJobOutputConfigPtrOutput {
+	return o.ToModelCardExportJobOutputConfigPtrOutputWithContext(context.Background())
+}
+
+func (o ModelCardExportJobOutputConfigOutput) ToModelCardExportJobOutputConfigPtrOutputWithContext(ctx context.Context) ModelCardExportJobOutputConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ModelCardExportJobOutputConfig) *ModelCardExportJobOutputConfig {
+		return &v
+	}).(ModelCardExportJobOutputConfigPtrOutput)
+}
+
+// Amazon S3 output path.
+func (o ModelCardExportJobOutputConfigOutput) S3OutputPath() pulumi.StringOutput {
+	return o.ApplyT(func(v ModelCardExportJobOutputConfig) string { return v.S3OutputPath }).(pulumi.StringOutput)
+}
+
+type ModelCardExportJobOutputConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (ModelCardExportJobOutputConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ModelCardExportJobOutputConfig)(nil)).Elem()
+}
+
+func (o ModelCardExportJobOutputConfigPtrOutput) ToModelCardExportJobOutputConfigPtrOutput() ModelCardExportJobOutputConfigPtrOutput {
+	return o
+}
+
+func (o ModelCardExportJobOutputConfigPtrOutput) ToModelCardExportJobOutputConfigPtrOutputWithContext(ctx context.Context) ModelCardExportJobOutputConfigPtrOutput {
+	return o
+}
+
+func (o ModelCardExportJobOutputConfigPtrOutput) Elem() ModelCardExportJobOutputConfigOutput {
+	return o.ApplyT(func(v *ModelCardExportJobOutputConfig) ModelCardExportJobOutputConfig {
+		if v != nil {
+			return *v
+		}
+		var ret ModelCardExportJobOutputConfig
+		return ret
+	}).(ModelCardExportJobOutputConfigOutput)
+}
+
+// Amazon S3 output path.
+func (o ModelCardExportJobOutputConfigPtrOutput) S3OutputPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ModelCardExportJobOutputConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.S3OutputPath
+	}).(pulumi.StringPtrOutput)
+}
+
+type ModelCardExportJobTimeouts struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create *string `pulumi:"create"`
+}
+
+// ModelCardExportJobTimeoutsInput is an input type that accepts ModelCardExportJobTimeoutsArgs and ModelCardExportJobTimeoutsOutput values.
+// You can construct a concrete instance of `ModelCardExportJobTimeoutsInput` via:
+//
+//	ModelCardExportJobTimeoutsArgs{...}
+type ModelCardExportJobTimeoutsInput interface {
+	pulumi.Input
+
+	ToModelCardExportJobTimeoutsOutput() ModelCardExportJobTimeoutsOutput
+	ToModelCardExportJobTimeoutsOutputWithContext(context.Context) ModelCardExportJobTimeoutsOutput
+}
+
+type ModelCardExportJobTimeoutsArgs struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create pulumi.StringPtrInput `pulumi:"create"`
+}
+
+func (ModelCardExportJobTimeoutsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelCardExportJobTimeouts)(nil)).Elem()
+}
+
+func (i ModelCardExportJobTimeoutsArgs) ToModelCardExportJobTimeoutsOutput() ModelCardExportJobTimeoutsOutput {
+	return i.ToModelCardExportJobTimeoutsOutputWithContext(context.Background())
+}
+
+func (i ModelCardExportJobTimeoutsArgs) ToModelCardExportJobTimeoutsOutputWithContext(ctx context.Context) ModelCardExportJobTimeoutsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelCardExportJobTimeoutsOutput)
+}
+
+func (i ModelCardExportJobTimeoutsArgs) ToModelCardExportJobTimeoutsPtrOutput() ModelCardExportJobTimeoutsPtrOutput {
+	return i.ToModelCardExportJobTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i ModelCardExportJobTimeoutsArgs) ToModelCardExportJobTimeoutsPtrOutputWithContext(ctx context.Context) ModelCardExportJobTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelCardExportJobTimeoutsOutput).ToModelCardExportJobTimeoutsPtrOutputWithContext(ctx)
+}
+
+// ModelCardExportJobTimeoutsPtrInput is an input type that accepts ModelCardExportJobTimeoutsArgs, ModelCardExportJobTimeoutsPtr and ModelCardExportJobTimeoutsPtrOutput values.
+// You can construct a concrete instance of `ModelCardExportJobTimeoutsPtrInput` via:
+//
+//	        ModelCardExportJobTimeoutsArgs{...}
+//
+//	or:
+//
+//	        nil
+type ModelCardExportJobTimeoutsPtrInput interface {
+	pulumi.Input
+
+	ToModelCardExportJobTimeoutsPtrOutput() ModelCardExportJobTimeoutsPtrOutput
+	ToModelCardExportJobTimeoutsPtrOutputWithContext(context.Context) ModelCardExportJobTimeoutsPtrOutput
+}
+
+type modelCardExportJobTimeoutsPtrType ModelCardExportJobTimeoutsArgs
+
+func ModelCardExportJobTimeoutsPtr(v *ModelCardExportJobTimeoutsArgs) ModelCardExportJobTimeoutsPtrInput {
+	return (*modelCardExportJobTimeoutsPtrType)(v)
+}
+
+func (*modelCardExportJobTimeoutsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ModelCardExportJobTimeouts)(nil)).Elem()
+}
+
+func (i *modelCardExportJobTimeoutsPtrType) ToModelCardExportJobTimeoutsPtrOutput() ModelCardExportJobTimeoutsPtrOutput {
+	return i.ToModelCardExportJobTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i *modelCardExportJobTimeoutsPtrType) ToModelCardExportJobTimeoutsPtrOutputWithContext(ctx context.Context) ModelCardExportJobTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelCardExportJobTimeoutsPtrOutput)
+}
+
+type ModelCardExportJobTimeoutsOutput struct{ *pulumi.OutputState }
+
+func (ModelCardExportJobTimeoutsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelCardExportJobTimeouts)(nil)).Elem()
+}
+
+func (o ModelCardExportJobTimeoutsOutput) ToModelCardExportJobTimeoutsOutput() ModelCardExportJobTimeoutsOutput {
+	return o
+}
+
+func (o ModelCardExportJobTimeoutsOutput) ToModelCardExportJobTimeoutsOutputWithContext(ctx context.Context) ModelCardExportJobTimeoutsOutput {
+	return o
+}
+
+func (o ModelCardExportJobTimeoutsOutput) ToModelCardExportJobTimeoutsPtrOutput() ModelCardExportJobTimeoutsPtrOutput {
+	return o.ToModelCardExportJobTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (o ModelCardExportJobTimeoutsOutput) ToModelCardExportJobTimeoutsPtrOutputWithContext(ctx context.Context) ModelCardExportJobTimeoutsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ModelCardExportJobTimeouts) *ModelCardExportJobTimeouts {
+		return &v
+	}).(ModelCardExportJobTimeoutsPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o ModelCardExportJobTimeoutsOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ModelCardExportJobTimeouts) *string { return v.Create }).(pulumi.StringPtrOutput)
+}
+
+type ModelCardExportJobTimeoutsPtrOutput struct{ *pulumi.OutputState }
+
+func (ModelCardExportJobTimeoutsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ModelCardExportJobTimeouts)(nil)).Elem()
+}
+
+func (o ModelCardExportJobTimeoutsPtrOutput) ToModelCardExportJobTimeoutsPtrOutput() ModelCardExportJobTimeoutsPtrOutput {
+	return o
+}
+
+func (o ModelCardExportJobTimeoutsPtrOutput) ToModelCardExportJobTimeoutsPtrOutputWithContext(ctx context.Context) ModelCardExportJobTimeoutsPtrOutput {
+	return o
+}
+
+func (o ModelCardExportJobTimeoutsPtrOutput) Elem() ModelCardExportJobTimeoutsOutput {
+	return o.ApplyT(func(v *ModelCardExportJobTimeouts) ModelCardExportJobTimeouts {
+		if v != nil {
+			return *v
+		}
+		var ret ModelCardExportJobTimeouts
+		return ret
+	}).(ModelCardExportJobTimeoutsOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o ModelCardExportJobTimeoutsPtrOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ModelCardExportJobTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Create
+	}).(pulumi.StringPtrOutput)
+}
+
+type ModelCardSecurityConfig struct {
+	// KMS key ARN.
+	KmsKeyId string `pulumi:"kmsKeyId"`
+}
+
+// ModelCardSecurityConfigInput is an input type that accepts ModelCardSecurityConfigArgs and ModelCardSecurityConfigOutput values.
+// You can construct a concrete instance of `ModelCardSecurityConfigInput` via:
+//
+//	ModelCardSecurityConfigArgs{...}
+type ModelCardSecurityConfigInput interface {
+	pulumi.Input
+
+	ToModelCardSecurityConfigOutput() ModelCardSecurityConfigOutput
+	ToModelCardSecurityConfigOutputWithContext(context.Context) ModelCardSecurityConfigOutput
+}
+
+type ModelCardSecurityConfigArgs struct {
+	// KMS key ARN.
+	KmsKeyId pulumi.StringInput `pulumi:"kmsKeyId"`
+}
+
+func (ModelCardSecurityConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelCardSecurityConfig)(nil)).Elem()
+}
+
+func (i ModelCardSecurityConfigArgs) ToModelCardSecurityConfigOutput() ModelCardSecurityConfigOutput {
+	return i.ToModelCardSecurityConfigOutputWithContext(context.Background())
+}
+
+func (i ModelCardSecurityConfigArgs) ToModelCardSecurityConfigOutputWithContext(ctx context.Context) ModelCardSecurityConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelCardSecurityConfigOutput)
+}
+
+func (i ModelCardSecurityConfigArgs) ToModelCardSecurityConfigPtrOutput() ModelCardSecurityConfigPtrOutput {
+	return i.ToModelCardSecurityConfigPtrOutputWithContext(context.Background())
+}
+
+func (i ModelCardSecurityConfigArgs) ToModelCardSecurityConfigPtrOutputWithContext(ctx context.Context) ModelCardSecurityConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelCardSecurityConfigOutput).ToModelCardSecurityConfigPtrOutputWithContext(ctx)
+}
+
+// ModelCardSecurityConfigPtrInput is an input type that accepts ModelCardSecurityConfigArgs, ModelCardSecurityConfigPtr and ModelCardSecurityConfigPtrOutput values.
+// You can construct a concrete instance of `ModelCardSecurityConfigPtrInput` via:
+//
+//	        ModelCardSecurityConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type ModelCardSecurityConfigPtrInput interface {
+	pulumi.Input
+
+	ToModelCardSecurityConfigPtrOutput() ModelCardSecurityConfigPtrOutput
+	ToModelCardSecurityConfigPtrOutputWithContext(context.Context) ModelCardSecurityConfigPtrOutput
+}
+
+type modelCardSecurityConfigPtrType ModelCardSecurityConfigArgs
+
+func ModelCardSecurityConfigPtr(v *ModelCardSecurityConfigArgs) ModelCardSecurityConfigPtrInput {
+	return (*modelCardSecurityConfigPtrType)(v)
+}
+
+func (*modelCardSecurityConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ModelCardSecurityConfig)(nil)).Elem()
+}
+
+func (i *modelCardSecurityConfigPtrType) ToModelCardSecurityConfigPtrOutput() ModelCardSecurityConfigPtrOutput {
+	return i.ToModelCardSecurityConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *modelCardSecurityConfigPtrType) ToModelCardSecurityConfigPtrOutputWithContext(ctx context.Context) ModelCardSecurityConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelCardSecurityConfigPtrOutput)
+}
+
+type ModelCardSecurityConfigOutput struct{ *pulumi.OutputState }
+
+func (ModelCardSecurityConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelCardSecurityConfig)(nil)).Elem()
+}
+
+func (o ModelCardSecurityConfigOutput) ToModelCardSecurityConfigOutput() ModelCardSecurityConfigOutput {
+	return o
+}
+
+func (o ModelCardSecurityConfigOutput) ToModelCardSecurityConfigOutputWithContext(ctx context.Context) ModelCardSecurityConfigOutput {
+	return o
+}
+
+func (o ModelCardSecurityConfigOutput) ToModelCardSecurityConfigPtrOutput() ModelCardSecurityConfigPtrOutput {
+	return o.ToModelCardSecurityConfigPtrOutputWithContext(context.Background())
+}
+
+func (o ModelCardSecurityConfigOutput) ToModelCardSecurityConfigPtrOutputWithContext(ctx context.Context) ModelCardSecurityConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ModelCardSecurityConfig) *ModelCardSecurityConfig {
+		return &v
+	}).(ModelCardSecurityConfigPtrOutput)
+}
+
+// KMS key ARN.
+func (o ModelCardSecurityConfigOutput) KmsKeyId() pulumi.StringOutput {
+	return o.ApplyT(func(v ModelCardSecurityConfig) string { return v.KmsKeyId }).(pulumi.StringOutput)
+}
+
+type ModelCardSecurityConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (ModelCardSecurityConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ModelCardSecurityConfig)(nil)).Elem()
+}
+
+func (o ModelCardSecurityConfigPtrOutput) ToModelCardSecurityConfigPtrOutput() ModelCardSecurityConfigPtrOutput {
+	return o
+}
+
+func (o ModelCardSecurityConfigPtrOutput) ToModelCardSecurityConfigPtrOutputWithContext(ctx context.Context) ModelCardSecurityConfigPtrOutput {
+	return o
+}
+
+func (o ModelCardSecurityConfigPtrOutput) Elem() ModelCardSecurityConfigOutput {
+	return o.ApplyT(func(v *ModelCardSecurityConfig) ModelCardSecurityConfig {
+		if v != nil {
+			return *v
+		}
+		var ret ModelCardSecurityConfig
+		return ret
+	}).(ModelCardSecurityConfigOutput)
+}
+
+// KMS key ARN.
+func (o ModelCardSecurityConfigPtrOutput) KmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ModelCardSecurityConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.KmsKeyId
+	}).(pulumi.StringPtrOutput)
+}
+
+type ModelCardTimeouts struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+	Delete *string `pulumi:"delete"`
+}
+
+// ModelCardTimeoutsInput is an input type that accepts ModelCardTimeoutsArgs and ModelCardTimeoutsOutput values.
+// You can construct a concrete instance of `ModelCardTimeoutsInput` via:
+//
+//	ModelCardTimeoutsArgs{...}
+type ModelCardTimeoutsInput interface {
+	pulumi.Input
+
+	ToModelCardTimeoutsOutput() ModelCardTimeoutsOutput
+	ToModelCardTimeoutsOutputWithContext(context.Context) ModelCardTimeoutsOutput
+}
+
+type ModelCardTimeoutsArgs struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+	Delete pulumi.StringPtrInput `pulumi:"delete"`
+}
+
+func (ModelCardTimeoutsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelCardTimeouts)(nil)).Elem()
+}
+
+func (i ModelCardTimeoutsArgs) ToModelCardTimeoutsOutput() ModelCardTimeoutsOutput {
+	return i.ToModelCardTimeoutsOutputWithContext(context.Background())
+}
+
+func (i ModelCardTimeoutsArgs) ToModelCardTimeoutsOutputWithContext(ctx context.Context) ModelCardTimeoutsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelCardTimeoutsOutput)
+}
+
+func (i ModelCardTimeoutsArgs) ToModelCardTimeoutsPtrOutput() ModelCardTimeoutsPtrOutput {
+	return i.ToModelCardTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i ModelCardTimeoutsArgs) ToModelCardTimeoutsPtrOutputWithContext(ctx context.Context) ModelCardTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelCardTimeoutsOutput).ToModelCardTimeoutsPtrOutputWithContext(ctx)
+}
+
+// ModelCardTimeoutsPtrInput is an input type that accepts ModelCardTimeoutsArgs, ModelCardTimeoutsPtr and ModelCardTimeoutsPtrOutput values.
+// You can construct a concrete instance of `ModelCardTimeoutsPtrInput` via:
+//
+//	        ModelCardTimeoutsArgs{...}
+//
+//	or:
+//
+//	        nil
+type ModelCardTimeoutsPtrInput interface {
+	pulumi.Input
+
+	ToModelCardTimeoutsPtrOutput() ModelCardTimeoutsPtrOutput
+	ToModelCardTimeoutsPtrOutputWithContext(context.Context) ModelCardTimeoutsPtrOutput
+}
+
+type modelCardTimeoutsPtrType ModelCardTimeoutsArgs
+
+func ModelCardTimeoutsPtr(v *ModelCardTimeoutsArgs) ModelCardTimeoutsPtrInput {
+	return (*modelCardTimeoutsPtrType)(v)
+}
+
+func (*modelCardTimeoutsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ModelCardTimeouts)(nil)).Elem()
+}
+
+func (i *modelCardTimeoutsPtrType) ToModelCardTimeoutsPtrOutput() ModelCardTimeoutsPtrOutput {
+	return i.ToModelCardTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i *modelCardTimeoutsPtrType) ToModelCardTimeoutsPtrOutputWithContext(ctx context.Context) ModelCardTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ModelCardTimeoutsPtrOutput)
+}
+
+type ModelCardTimeoutsOutput struct{ *pulumi.OutputState }
+
+func (ModelCardTimeoutsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ModelCardTimeouts)(nil)).Elem()
+}
+
+func (o ModelCardTimeoutsOutput) ToModelCardTimeoutsOutput() ModelCardTimeoutsOutput {
+	return o
+}
+
+func (o ModelCardTimeoutsOutput) ToModelCardTimeoutsOutputWithContext(ctx context.Context) ModelCardTimeoutsOutput {
+	return o
+}
+
+func (o ModelCardTimeoutsOutput) ToModelCardTimeoutsPtrOutput() ModelCardTimeoutsPtrOutput {
+	return o.ToModelCardTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (o ModelCardTimeoutsOutput) ToModelCardTimeoutsPtrOutputWithContext(ctx context.Context) ModelCardTimeoutsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ModelCardTimeouts) *ModelCardTimeouts {
+		return &v
+	}).(ModelCardTimeoutsPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+func (o ModelCardTimeoutsOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ModelCardTimeouts) *string { return v.Delete }).(pulumi.StringPtrOutput)
+}
+
+type ModelCardTimeoutsPtrOutput struct{ *pulumi.OutputState }
+
+func (ModelCardTimeoutsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ModelCardTimeouts)(nil)).Elem()
+}
+
+func (o ModelCardTimeoutsPtrOutput) ToModelCardTimeoutsPtrOutput() ModelCardTimeoutsPtrOutput {
+	return o
+}
+
+func (o ModelCardTimeoutsPtrOutput) ToModelCardTimeoutsPtrOutputWithContext(ctx context.Context) ModelCardTimeoutsPtrOutput {
+	return o
+}
+
+func (o ModelCardTimeoutsPtrOutput) Elem() ModelCardTimeoutsOutput {
+	return o.ApplyT(func(v *ModelCardTimeouts) ModelCardTimeouts {
+		if v != nil {
+			return *v
+		}
+		var ret ModelCardTimeouts
+		return ret
+	}).(ModelCardTimeoutsOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+func (o ModelCardTimeoutsPtrOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ModelCardTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Delete
+	}).(pulumi.StringPtrOutput)
+}
+
 type ModelContainer struct {
 	// Additional data sources that are available to the model in addition to those specified in `modelDataSource`. See Additional Model Data Source.
 	AdditionalModelDataSources []ModelContainerAdditionalModelDataSource `pulumi:"additionalModelDataSources"`
@@ -27159,8 +30403,10 @@ func (o ModelVpcConfigPtrOutput) Subnets() pulumi.StringArrayOutput {
 }
 
 type MonitoringScheduleMonitoringScheduleConfig struct {
+	// Defines the monitoring job. Fields are documented below.
+	MonitoringJobDefinition *MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinition `pulumi:"monitoringJobDefinition"`
 	// The name of the monitoring job definition to schedule.
-	MonitoringJobDefinitionName string `pulumi:"monitoringJobDefinitionName"`
+	MonitoringJobDefinitionName *string `pulumi:"monitoringJobDefinitionName"`
 	// The type of the monitoring job definition to schedule. Valid values are `DataQuality`, `ModelQuality`, `ModelBias` or `ModelExplainability`
 	MonitoringType string `pulumi:"monitoringType"`
 	// Configures the monitoring schedule. Fields are documented below.
@@ -27179,8 +30425,10 @@ type MonitoringScheduleMonitoringScheduleConfigInput interface {
 }
 
 type MonitoringScheduleMonitoringScheduleConfigArgs struct {
+	// Defines the monitoring job. Fields are documented below.
+	MonitoringJobDefinition MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionPtrInput `pulumi:"monitoringJobDefinition"`
 	// The name of the monitoring job definition to schedule.
-	MonitoringJobDefinitionName pulumi.StringInput `pulumi:"monitoringJobDefinitionName"`
+	MonitoringJobDefinitionName pulumi.StringPtrInput `pulumi:"monitoringJobDefinitionName"`
 	// The type of the monitoring job definition to schedule. Valid values are `DataQuality`, `ModelQuality`, `ModelBias` or `ModelExplainability`
 	MonitoringType pulumi.StringInput `pulumi:"monitoringType"`
 	// Configures the monitoring schedule. Fields are documented below.
@@ -27264,9 +30512,16 @@ func (o MonitoringScheduleMonitoringScheduleConfigOutput) ToMonitoringScheduleMo
 	}).(MonitoringScheduleMonitoringScheduleConfigPtrOutput)
 }
 
+// Defines the monitoring job. Fields are documented below.
+func (o MonitoringScheduleMonitoringScheduleConfigOutput) MonitoringJobDefinition() MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionPtrOutput {
+	return o.ApplyT(func(v MonitoringScheduleMonitoringScheduleConfig) *MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinition {
+		return v.MonitoringJobDefinition
+	}).(MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionPtrOutput)
+}
+
 // The name of the monitoring job definition to schedule.
-func (o MonitoringScheduleMonitoringScheduleConfigOutput) MonitoringJobDefinitionName() pulumi.StringOutput {
-	return o.ApplyT(func(v MonitoringScheduleMonitoringScheduleConfig) string { return v.MonitoringJobDefinitionName }).(pulumi.StringOutput)
+func (o MonitoringScheduleMonitoringScheduleConfigOutput) MonitoringJobDefinitionName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MonitoringScheduleMonitoringScheduleConfig) *string { return v.MonitoringJobDefinitionName }).(pulumi.StringPtrOutput)
 }
 
 // The type of the monitoring job definition to schedule. Valid values are `DataQuality`, `ModelQuality`, `ModelBias` or `ModelExplainability`
@@ -27305,13 +30560,23 @@ func (o MonitoringScheduleMonitoringScheduleConfigPtrOutput) Elem() MonitoringSc
 	}).(MonitoringScheduleMonitoringScheduleConfigOutput)
 }
 
+// Defines the monitoring job. Fields are documented below.
+func (o MonitoringScheduleMonitoringScheduleConfigPtrOutput) MonitoringJobDefinition() MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionPtrOutput {
+	return o.ApplyT(func(v *MonitoringScheduleMonitoringScheduleConfig) *MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinition {
+		if v == nil {
+			return nil
+		}
+		return v.MonitoringJobDefinition
+	}).(MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionPtrOutput)
+}
+
 // The name of the monitoring job definition to schedule.
 func (o MonitoringScheduleMonitoringScheduleConfigPtrOutput) MonitoringJobDefinitionName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MonitoringScheduleMonitoringScheduleConfig) *string {
 		if v == nil {
 			return nil
 		}
-		return &v.MonitoringJobDefinitionName
+		return v.MonitoringJobDefinitionName
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -27333,6 +30598,3559 @@ func (o MonitoringScheduleMonitoringScheduleConfigPtrOutput) ScheduleConfig() Mo
 		}
 		return v.ScheduleConfig
 	}).(MonitoringScheduleMonitoringScheduleConfigScheduleConfigPtrOutput)
+}
+
+type MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinition struct {
+	// Baseline configuration used to validate that the data conforms to the specified constraints and statistics. Fields are documented below.
+	Baseline *MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaseline `pulumi:"baseline"`
+	// Map of environment variables in the Docker container.
+	Environment map[string]string `pulumi:"environment"`
+	// Configures the monitoring job to run a specified Docker container image. Fields are documented below.
+	MonitoringAppSpecification MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringAppSpecification `pulumi:"monitoringAppSpecification"`
+	// Inputs for the monitoring job. Fields are documented below.
+	MonitoringInputs MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputs `pulumi:"monitoringInputs"`
+	// Outputs from the monitoring job to be uploaded to Amazon S3. Fields are documented below.
+	MonitoringOutputConfig MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfig `pulumi:"monitoringOutputConfig"`
+	// Identifies the resources, ML compute instances, and ML storage volumes to deploy for a monitoring job. Fields are documented below.
+	MonitoringResources MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResources `pulumi:"monitoringResources"`
+	// Networking options for the monitoring job. Fields are documented below.
+	NetworkConfig *MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfig `pulumi:"networkConfig"`
+	// ARN of an IAM role that Amazon SageMaker AI can assume to perform tasks on your behalf.
+	RoleArn string `pulumi:"roleArn"`
+	// How long the monitoring job is allowed to run. Fields are documented below.
+	StoppingConditions []MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionStoppingCondition `pulumi:"stoppingConditions"`
+}
+
+// MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionInput is an input type that accepts MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionArgs and MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionOutput values.
+// You can construct a concrete instance of `MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionInput` via:
+//
+//	MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionArgs{...}
+type MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionInput interface {
+	pulumi.Input
+
+	ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionOutput() MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionOutput
+	ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionOutputWithContext(context.Context) MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionOutput
+}
+
+type MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionArgs struct {
+	// Baseline configuration used to validate that the data conforms to the specified constraints and statistics. Fields are documented below.
+	Baseline MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselinePtrInput `pulumi:"baseline"`
+	// Map of environment variables in the Docker container.
+	Environment pulumi.StringMapInput `pulumi:"environment"`
+	// Configures the monitoring job to run a specified Docker container image. Fields are documented below.
+	MonitoringAppSpecification MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringAppSpecificationInput `pulumi:"monitoringAppSpecification"`
+	// Inputs for the monitoring job. Fields are documented below.
+	MonitoringInputs MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsInput `pulumi:"monitoringInputs"`
+	// Outputs from the monitoring job to be uploaded to Amazon S3. Fields are documented below.
+	MonitoringOutputConfig MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigInput `pulumi:"monitoringOutputConfig"`
+	// Identifies the resources, ML compute instances, and ML storage volumes to deploy for a monitoring job. Fields are documented below.
+	MonitoringResources MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResourcesInput `pulumi:"monitoringResources"`
+	// Networking options for the monitoring job. Fields are documented below.
+	NetworkConfig MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfigPtrInput `pulumi:"networkConfig"`
+	// ARN of an IAM role that Amazon SageMaker AI can assume to perform tasks on your behalf.
+	RoleArn pulumi.StringInput `pulumi:"roleArn"`
+	// How long the monitoring job is allowed to run. Fields are documented below.
+	StoppingConditions MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionStoppingConditionArrayInput `pulumi:"stoppingConditions"`
+}
+
+func (MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinition)(nil)).Elem()
+}
+
+func (i MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionArgs) ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionOutput() MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionOutput {
+	return i.ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionOutputWithContext(context.Background())
+}
+
+func (i MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionArgs) ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionOutputWithContext(ctx context.Context) MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionOutput)
+}
+
+func (i MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionArgs) ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionPtrOutput() MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionPtrOutput {
+	return i.ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionPtrOutputWithContext(context.Background())
+}
+
+func (i MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionArgs) ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionPtrOutputWithContext(ctx context.Context) MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionOutput).ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionPtrOutputWithContext(ctx)
+}
+
+// MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionPtrInput is an input type that accepts MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionArgs, MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionPtr and MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionPtrOutput values.
+// You can construct a concrete instance of `MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionPtrInput` via:
+//
+//	        MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionArgs{...}
+//
+//	or:
+//
+//	        nil
+type MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionPtrInput interface {
+	pulumi.Input
+
+	ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionPtrOutput() MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionPtrOutput
+	ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionPtrOutputWithContext(context.Context) MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionPtrOutput
+}
+
+type monitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionPtrType MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionArgs
+
+func MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionPtr(v *MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionArgs) MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionPtrInput {
+	return (*monitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionPtrType)(v)
+}
+
+func (*monitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinition)(nil)).Elem()
+}
+
+func (i *monitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionPtrType) ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionPtrOutput() MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionPtrOutput {
+	return i.ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionPtrOutputWithContext(context.Background())
+}
+
+func (i *monitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionPtrType) ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionPtrOutputWithContext(ctx context.Context) MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionPtrOutput)
+}
+
+type MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionOutput struct{ *pulumi.OutputState }
+
+func (MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinition)(nil)).Elem()
+}
+
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionOutput) ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionOutput() MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionOutput {
+	return o
+}
+
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionOutput) ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionOutputWithContext(ctx context.Context) MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionOutput {
+	return o
+}
+
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionOutput) ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionPtrOutput() MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionPtrOutput {
+	return o.ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionPtrOutputWithContext(context.Background())
+}
+
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionOutput) ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionPtrOutputWithContext(ctx context.Context) MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinition) *MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinition {
+		return &v
+	}).(MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionPtrOutput)
+}
+
+// Baseline configuration used to validate that the data conforms to the specified constraints and statistics. Fields are documented below.
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionOutput) Baseline() MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselinePtrOutput {
+	return o.ApplyT(func(v MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinition) *MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaseline {
+		return v.Baseline
+	}).(MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselinePtrOutput)
+}
+
+// Map of environment variables in the Docker container.
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionOutput) Environment() pulumi.StringMapOutput {
+	return o.ApplyT(func(v MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinition) map[string]string {
+		return v.Environment
+	}).(pulumi.StringMapOutput)
+}
+
+// Configures the monitoring job to run a specified Docker container image. Fields are documented below.
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionOutput) MonitoringAppSpecification() MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringAppSpecificationOutput {
+	return o.ApplyT(func(v MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinition) MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringAppSpecification {
+		return v.MonitoringAppSpecification
+	}).(MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringAppSpecificationOutput)
+}
+
+// Inputs for the monitoring job. Fields are documented below.
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionOutput) MonitoringInputs() MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsOutput {
+	return o.ApplyT(func(v MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinition) MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputs {
+		return v.MonitoringInputs
+	}).(MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsOutput)
+}
+
+// Outputs from the monitoring job to be uploaded to Amazon S3. Fields are documented below.
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionOutput) MonitoringOutputConfig() MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigOutput {
+	return o.ApplyT(func(v MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinition) MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfig {
+		return v.MonitoringOutputConfig
+	}).(MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigOutput)
+}
+
+// Identifies the resources, ML compute instances, and ML storage volumes to deploy for a monitoring job. Fields are documented below.
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionOutput) MonitoringResources() MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResourcesOutput {
+	return o.ApplyT(func(v MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinition) MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResources {
+		return v.MonitoringResources
+	}).(MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResourcesOutput)
+}
+
+// Networking options for the monitoring job. Fields are documented below.
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionOutput) NetworkConfig() MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfigPtrOutput {
+	return o.ApplyT(func(v MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinition) *MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfig {
+		return v.NetworkConfig
+	}).(MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfigPtrOutput)
+}
+
+// ARN of an IAM role that Amazon SageMaker AI can assume to perform tasks on your behalf.
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionOutput) RoleArn() pulumi.StringOutput {
+	return o.ApplyT(func(v MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinition) string { return v.RoleArn }).(pulumi.StringOutput)
+}
+
+// How long the monitoring job is allowed to run. Fields are documented below.
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionOutput) StoppingConditions() MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionStoppingConditionArrayOutput {
+	return o.ApplyT(func(v MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinition) []MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionStoppingCondition {
+		return v.StoppingConditions
+	}).(MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionStoppingConditionArrayOutput)
+}
+
+type MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionPtrOutput struct{ *pulumi.OutputState }
+
+func (MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinition)(nil)).Elem()
+}
+
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionPtrOutput) ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionPtrOutput() MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionPtrOutput {
+	return o
+}
+
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionPtrOutput) ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionPtrOutputWithContext(ctx context.Context) MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionPtrOutput {
+	return o
+}
+
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionPtrOutput) Elem() MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionOutput {
+	return o.ApplyT(func(v *MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinition) MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinition {
+		if v != nil {
+			return *v
+		}
+		var ret MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinition
+		return ret
+	}).(MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionOutput)
+}
+
+// Baseline configuration used to validate that the data conforms to the specified constraints and statistics. Fields are documented below.
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionPtrOutput) Baseline() MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselinePtrOutput {
+	return o.ApplyT(func(v *MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinition) *MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaseline {
+		if v == nil {
+			return nil
+		}
+		return v.Baseline
+	}).(MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselinePtrOutput)
+}
+
+// Map of environment variables in the Docker container.
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionPtrOutput) Environment() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinition) map[string]string {
+		if v == nil {
+			return nil
+		}
+		return v.Environment
+	}).(pulumi.StringMapOutput)
+}
+
+// Configures the monitoring job to run a specified Docker container image. Fields are documented below.
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionPtrOutput) MonitoringAppSpecification() MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringAppSpecificationPtrOutput {
+	return o.ApplyT(func(v *MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinition) *MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringAppSpecification {
+		if v == nil {
+			return nil
+		}
+		return &v.MonitoringAppSpecification
+	}).(MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringAppSpecificationPtrOutput)
+}
+
+// Inputs for the monitoring job. Fields are documented below.
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionPtrOutput) MonitoringInputs() MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsPtrOutput {
+	return o.ApplyT(func(v *MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinition) *MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputs {
+		if v == nil {
+			return nil
+		}
+		return &v.MonitoringInputs
+	}).(MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsPtrOutput)
+}
+
+// Outputs from the monitoring job to be uploaded to Amazon S3. Fields are documented below.
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionPtrOutput) MonitoringOutputConfig() MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigPtrOutput {
+	return o.ApplyT(func(v *MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinition) *MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfig {
+		if v == nil {
+			return nil
+		}
+		return &v.MonitoringOutputConfig
+	}).(MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigPtrOutput)
+}
+
+// Identifies the resources, ML compute instances, and ML storage volumes to deploy for a monitoring job. Fields are documented below.
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionPtrOutput) MonitoringResources() MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResourcesPtrOutput {
+	return o.ApplyT(func(v *MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinition) *MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResources {
+		if v == nil {
+			return nil
+		}
+		return &v.MonitoringResources
+	}).(MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResourcesPtrOutput)
+}
+
+// Networking options for the monitoring job. Fields are documented below.
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionPtrOutput) NetworkConfig() MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfigPtrOutput {
+	return o.ApplyT(func(v *MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinition) *MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfig {
+		if v == nil {
+			return nil
+		}
+		return v.NetworkConfig
+	}).(MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfigPtrOutput)
+}
+
+// ARN of an IAM role that Amazon SageMaker AI can assume to perform tasks on your behalf.
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionPtrOutput) RoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinition) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.RoleArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// How long the monitoring job is allowed to run. Fields are documented below.
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionPtrOutput) StoppingConditions() MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionStoppingConditionArrayOutput {
+	return o.ApplyT(func(v *MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinition) []MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionStoppingCondition {
+		if v == nil {
+			return nil
+		}
+		return v.StoppingConditions
+	}).(MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionStoppingConditionArrayOutput)
+}
+
+type MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaseline struct {
+	BaseliningJobName   *string                                                                                       `pulumi:"baseliningJobName"`
+	ConstraintsResource *MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineConstraintsResource `pulumi:"constraintsResource"`
+	StatisticsResource  *MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineStatisticsResource  `pulumi:"statisticsResource"`
+}
+
+// MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineInput is an input type that accepts MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineArgs and MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineOutput values.
+// You can construct a concrete instance of `MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineInput` via:
+//
+//	MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineArgs{...}
+type MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineInput interface {
+	pulumi.Input
+
+	ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineOutput() MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineOutput
+	ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineOutputWithContext(context.Context) MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineOutput
+}
+
+type MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineArgs struct {
+	BaseliningJobName   pulumi.StringPtrInput                                                                                `pulumi:"baseliningJobName"`
+	ConstraintsResource MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineConstraintsResourcePtrInput `pulumi:"constraintsResource"`
+	StatisticsResource  MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineStatisticsResourcePtrInput  `pulumi:"statisticsResource"`
+}
+
+func (MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaseline)(nil)).Elem()
+}
+
+func (i MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineArgs) ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineOutput() MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineOutput {
+	return i.ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineOutputWithContext(context.Background())
+}
+
+func (i MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineArgs) ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineOutputWithContext(ctx context.Context) MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineOutput)
+}
+
+func (i MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineArgs) ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselinePtrOutput() MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselinePtrOutput {
+	return i.ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselinePtrOutputWithContext(context.Background())
+}
+
+func (i MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineArgs) ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselinePtrOutputWithContext(ctx context.Context) MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselinePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineOutput).ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselinePtrOutputWithContext(ctx)
+}
+
+// MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselinePtrInput is an input type that accepts MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineArgs, MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselinePtr and MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselinePtrOutput values.
+// You can construct a concrete instance of `MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselinePtrInput` via:
+//
+//	        MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineArgs{...}
+//
+//	or:
+//
+//	        nil
+type MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselinePtrInput interface {
+	pulumi.Input
+
+	ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselinePtrOutput() MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselinePtrOutput
+	ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselinePtrOutputWithContext(context.Context) MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselinePtrOutput
+}
+
+type monitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselinePtrType MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineArgs
+
+func MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselinePtr(v *MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineArgs) MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselinePtrInput {
+	return (*monitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselinePtrType)(v)
+}
+
+func (*monitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselinePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaseline)(nil)).Elem()
+}
+
+func (i *monitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselinePtrType) ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselinePtrOutput() MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselinePtrOutput {
+	return i.ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselinePtrOutputWithContext(context.Background())
+}
+
+func (i *monitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselinePtrType) ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselinePtrOutputWithContext(ctx context.Context) MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselinePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselinePtrOutput)
+}
+
+type MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineOutput struct{ *pulumi.OutputState }
+
+func (MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaseline)(nil)).Elem()
+}
+
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineOutput) ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineOutput() MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineOutput {
+	return o
+}
+
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineOutput) ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineOutputWithContext(ctx context.Context) MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineOutput {
+	return o
+}
+
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineOutput) ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselinePtrOutput() MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselinePtrOutput {
+	return o.ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselinePtrOutputWithContext(context.Background())
+}
+
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineOutput) ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselinePtrOutputWithContext(ctx context.Context) MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselinePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaseline) *MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaseline {
+		return &v
+	}).(MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselinePtrOutput)
+}
+
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineOutput) BaseliningJobName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaseline) *string {
+		return v.BaseliningJobName
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineOutput) ConstraintsResource() MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineConstraintsResourcePtrOutput {
+	return o.ApplyT(func(v MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaseline) *MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineConstraintsResource {
+		return v.ConstraintsResource
+	}).(MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineConstraintsResourcePtrOutput)
+}
+
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineOutput) StatisticsResource() MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineStatisticsResourcePtrOutput {
+	return o.ApplyT(func(v MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaseline) *MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineStatisticsResource {
+		return v.StatisticsResource
+	}).(MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineStatisticsResourcePtrOutput)
+}
+
+type MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselinePtrOutput struct{ *pulumi.OutputState }
+
+func (MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselinePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaseline)(nil)).Elem()
+}
+
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselinePtrOutput) ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselinePtrOutput() MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselinePtrOutput {
+	return o
+}
+
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselinePtrOutput) ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselinePtrOutputWithContext(ctx context.Context) MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselinePtrOutput {
+	return o
+}
+
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselinePtrOutput) Elem() MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineOutput {
+	return o.ApplyT(func(v *MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaseline) MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaseline {
+		if v != nil {
+			return *v
+		}
+		var ret MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaseline
+		return ret
+	}).(MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineOutput)
+}
+
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselinePtrOutput) BaseliningJobName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaseline) *string {
+		if v == nil {
+			return nil
+		}
+		return v.BaseliningJobName
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselinePtrOutput) ConstraintsResource() MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineConstraintsResourcePtrOutput {
+	return o.ApplyT(func(v *MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaseline) *MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineConstraintsResource {
+		if v == nil {
+			return nil
+		}
+		return v.ConstraintsResource
+	}).(MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineConstraintsResourcePtrOutput)
+}
+
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselinePtrOutput) StatisticsResource() MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineStatisticsResourcePtrOutput {
+	return o.ApplyT(func(v *MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaseline) *MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineStatisticsResource {
+		if v == nil {
+			return nil
+		}
+		return v.StatisticsResource
+	}).(MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineStatisticsResourcePtrOutput)
+}
+
+type MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineConstraintsResource struct {
+	// URI that identifies the Amazon S3 storage location where Amazon SageMaker AI saves the results of a monitoring job.
+	S3Uri *string `pulumi:"s3Uri"`
+}
+
+// MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineConstraintsResourceInput is an input type that accepts MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineConstraintsResourceArgs and MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineConstraintsResourceOutput values.
+// You can construct a concrete instance of `MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineConstraintsResourceInput` via:
+//
+//	MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineConstraintsResourceArgs{...}
+type MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineConstraintsResourceInput interface {
+	pulumi.Input
+
+	ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineConstraintsResourceOutput() MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineConstraintsResourceOutput
+	ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineConstraintsResourceOutputWithContext(context.Context) MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineConstraintsResourceOutput
+}
+
+type MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineConstraintsResourceArgs struct {
+	// URI that identifies the Amazon S3 storage location where Amazon SageMaker AI saves the results of a monitoring job.
+	S3Uri pulumi.StringPtrInput `pulumi:"s3Uri"`
+}
+
+func (MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineConstraintsResourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineConstraintsResource)(nil)).Elem()
+}
+
+func (i MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineConstraintsResourceArgs) ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineConstraintsResourceOutput() MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineConstraintsResourceOutput {
+	return i.ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineConstraintsResourceOutputWithContext(context.Background())
+}
+
+func (i MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineConstraintsResourceArgs) ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineConstraintsResourceOutputWithContext(ctx context.Context) MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineConstraintsResourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineConstraintsResourceOutput)
+}
+
+func (i MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineConstraintsResourceArgs) ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineConstraintsResourcePtrOutput() MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineConstraintsResourcePtrOutput {
+	return i.ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineConstraintsResourcePtrOutputWithContext(context.Background())
+}
+
+func (i MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineConstraintsResourceArgs) ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineConstraintsResourcePtrOutputWithContext(ctx context.Context) MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineConstraintsResourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineConstraintsResourceOutput).ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineConstraintsResourcePtrOutputWithContext(ctx)
+}
+
+// MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineConstraintsResourcePtrInput is an input type that accepts MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineConstraintsResourceArgs, MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineConstraintsResourcePtr and MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineConstraintsResourcePtrOutput values.
+// You can construct a concrete instance of `MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineConstraintsResourcePtrInput` via:
+//
+//	        MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineConstraintsResourceArgs{...}
+//
+//	or:
+//
+//	        nil
+type MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineConstraintsResourcePtrInput interface {
+	pulumi.Input
+
+	ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineConstraintsResourcePtrOutput() MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineConstraintsResourcePtrOutput
+	ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineConstraintsResourcePtrOutputWithContext(context.Context) MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineConstraintsResourcePtrOutput
+}
+
+type monitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineConstraintsResourcePtrType MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineConstraintsResourceArgs
+
+func MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineConstraintsResourcePtr(v *MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineConstraintsResourceArgs) MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineConstraintsResourcePtrInput {
+	return (*monitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineConstraintsResourcePtrType)(v)
+}
+
+func (*monitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineConstraintsResourcePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineConstraintsResource)(nil)).Elem()
+}
+
+func (i *monitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineConstraintsResourcePtrType) ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineConstraintsResourcePtrOutput() MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineConstraintsResourcePtrOutput {
+	return i.ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineConstraintsResourcePtrOutputWithContext(context.Background())
+}
+
+func (i *monitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineConstraintsResourcePtrType) ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineConstraintsResourcePtrOutputWithContext(ctx context.Context) MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineConstraintsResourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineConstraintsResourcePtrOutput)
+}
+
+type MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineConstraintsResourceOutput struct{ *pulumi.OutputState }
+
+func (MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineConstraintsResourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineConstraintsResource)(nil)).Elem()
+}
+
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineConstraintsResourceOutput) ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineConstraintsResourceOutput() MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineConstraintsResourceOutput {
+	return o
+}
+
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineConstraintsResourceOutput) ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineConstraintsResourceOutputWithContext(ctx context.Context) MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineConstraintsResourceOutput {
+	return o
+}
+
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineConstraintsResourceOutput) ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineConstraintsResourcePtrOutput() MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineConstraintsResourcePtrOutput {
+	return o.ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineConstraintsResourcePtrOutputWithContext(context.Background())
+}
+
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineConstraintsResourceOutput) ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineConstraintsResourcePtrOutputWithContext(ctx context.Context) MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineConstraintsResourcePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineConstraintsResource) *MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineConstraintsResource {
+		return &v
+	}).(MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineConstraintsResourcePtrOutput)
+}
+
+// URI that identifies the Amazon S3 storage location where Amazon SageMaker AI saves the results of a monitoring job.
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineConstraintsResourceOutput) S3Uri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineConstraintsResource) *string {
+		return v.S3Uri
+	}).(pulumi.StringPtrOutput)
+}
+
+type MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineConstraintsResourcePtrOutput struct{ *pulumi.OutputState }
+
+func (MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineConstraintsResourcePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineConstraintsResource)(nil)).Elem()
+}
+
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineConstraintsResourcePtrOutput) ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineConstraintsResourcePtrOutput() MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineConstraintsResourcePtrOutput {
+	return o
+}
+
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineConstraintsResourcePtrOutput) ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineConstraintsResourcePtrOutputWithContext(ctx context.Context) MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineConstraintsResourcePtrOutput {
+	return o
+}
+
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineConstraintsResourcePtrOutput) Elem() MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineConstraintsResourceOutput {
+	return o.ApplyT(func(v *MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineConstraintsResource) MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineConstraintsResource {
+		if v != nil {
+			return *v
+		}
+		var ret MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineConstraintsResource
+		return ret
+	}).(MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineConstraintsResourceOutput)
+}
+
+// URI that identifies the Amazon S3 storage location where Amazon SageMaker AI saves the results of a monitoring job.
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineConstraintsResourcePtrOutput) S3Uri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineConstraintsResource) *string {
+		if v == nil {
+			return nil
+		}
+		return v.S3Uri
+	}).(pulumi.StringPtrOutput)
+}
+
+type MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineStatisticsResource struct {
+	// URI that identifies the Amazon S3 storage location where Amazon SageMaker AI saves the results of a monitoring job.
+	S3Uri *string `pulumi:"s3Uri"`
+}
+
+// MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineStatisticsResourceInput is an input type that accepts MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineStatisticsResourceArgs and MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineStatisticsResourceOutput values.
+// You can construct a concrete instance of `MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineStatisticsResourceInput` via:
+//
+//	MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineStatisticsResourceArgs{...}
+type MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineStatisticsResourceInput interface {
+	pulumi.Input
+
+	ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineStatisticsResourceOutput() MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineStatisticsResourceOutput
+	ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineStatisticsResourceOutputWithContext(context.Context) MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineStatisticsResourceOutput
+}
+
+type MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineStatisticsResourceArgs struct {
+	// URI that identifies the Amazon S3 storage location where Amazon SageMaker AI saves the results of a monitoring job.
+	S3Uri pulumi.StringPtrInput `pulumi:"s3Uri"`
+}
+
+func (MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineStatisticsResourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineStatisticsResource)(nil)).Elem()
+}
+
+func (i MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineStatisticsResourceArgs) ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineStatisticsResourceOutput() MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineStatisticsResourceOutput {
+	return i.ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineStatisticsResourceOutputWithContext(context.Background())
+}
+
+func (i MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineStatisticsResourceArgs) ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineStatisticsResourceOutputWithContext(ctx context.Context) MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineStatisticsResourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineStatisticsResourceOutput)
+}
+
+func (i MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineStatisticsResourceArgs) ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineStatisticsResourcePtrOutput() MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineStatisticsResourcePtrOutput {
+	return i.ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineStatisticsResourcePtrOutputWithContext(context.Background())
+}
+
+func (i MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineStatisticsResourceArgs) ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineStatisticsResourcePtrOutputWithContext(ctx context.Context) MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineStatisticsResourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineStatisticsResourceOutput).ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineStatisticsResourcePtrOutputWithContext(ctx)
+}
+
+// MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineStatisticsResourcePtrInput is an input type that accepts MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineStatisticsResourceArgs, MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineStatisticsResourcePtr and MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineStatisticsResourcePtrOutput values.
+// You can construct a concrete instance of `MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineStatisticsResourcePtrInput` via:
+//
+//	        MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineStatisticsResourceArgs{...}
+//
+//	or:
+//
+//	        nil
+type MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineStatisticsResourcePtrInput interface {
+	pulumi.Input
+
+	ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineStatisticsResourcePtrOutput() MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineStatisticsResourcePtrOutput
+	ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineStatisticsResourcePtrOutputWithContext(context.Context) MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineStatisticsResourcePtrOutput
+}
+
+type monitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineStatisticsResourcePtrType MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineStatisticsResourceArgs
+
+func MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineStatisticsResourcePtr(v *MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineStatisticsResourceArgs) MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineStatisticsResourcePtrInput {
+	return (*monitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineStatisticsResourcePtrType)(v)
+}
+
+func (*monitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineStatisticsResourcePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineStatisticsResource)(nil)).Elem()
+}
+
+func (i *monitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineStatisticsResourcePtrType) ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineStatisticsResourcePtrOutput() MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineStatisticsResourcePtrOutput {
+	return i.ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineStatisticsResourcePtrOutputWithContext(context.Background())
+}
+
+func (i *monitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineStatisticsResourcePtrType) ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineStatisticsResourcePtrOutputWithContext(ctx context.Context) MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineStatisticsResourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineStatisticsResourcePtrOutput)
+}
+
+type MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineStatisticsResourceOutput struct{ *pulumi.OutputState }
+
+func (MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineStatisticsResourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineStatisticsResource)(nil)).Elem()
+}
+
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineStatisticsResourceOutput) ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineStatisticsResourceOutput() MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineStatisticsResourceOutput {
+	return o
+}
+
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineStatisticsResourceOutput) ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineStatisticsResourceOutputWithContext(ctx context.Context) MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineStatisticsResourceOutput {
+	return o
+}
+
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineStatisticsResourceOutput) ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineStatisticsResourcePtrOutput() MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineStatisticsResourcePtrOutput {
+	return o.ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineStatisticsResourcePtrOutputWithContext(context.Background())
+}
+
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineStatisticsResourceOutput) ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineStatisticsResourcePtrOutputWithContext(ctx context.Context) MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineStatisticsResourcePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineStatisticsResource) *MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineStatisticsResource {
+		return &v
+	}).(MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineStatisticsResourcePtrOutput)
+}
+
+// URI that identifies the Amazon S3 storage location where Amazon SageMaker AI saves the results of a monitoring job.
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineStatisticsResourceOutput) S3Uri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineStatisticsResource) *string {
+		return v.S3Uri
+	}).(pulumi.StringPtrOutput)
+}
+
+type MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineStatisticsResourcePtrOutput struct{ *pulumi.OutputState }
+
+func (MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineStatisticsResourcePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineStatisticsResource)(nil)).Elem()
+}
+
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineStatisticsResourcePtrOutput) ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineStatisticsResourcePtrOutput() MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineStatisticsResourcePtrOutput {
+	return o
+}
+
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineStatisticsResourcePtrOutput) ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineStatisticsResourcePtrOutputWithContext(ctx context.Context) MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineStatisticsResourcePtrOutput {
+	return o
+}
+
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineStatisticsResourcePtrOutput) Elem() MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineStatisticsResourceOutput {
+	return o.ApplyT(func(v *MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineStatisticsResource) MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineStatisticsResource {
+		if v != nil {
+			return *v
+		}
+		var ret MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineStatisticsResource
+		return ret
+	}).(MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineStatisticsResourceOutput)
+}
+
+// URI that identifies the Amazon S3 storage location where Amazon SageMaker AI saves the results of a monitoring job.
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineStatisticsResourcePtrOutput) S3Uri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineStatisticsResource) *string {
+		if v == nil {
+			return nil
+		}
+		return v.S3Uri
+	}).(pulumi.StringPtrOutput)
+}
+
+type MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringAppSpecification struct {
+	// List of arguments for the container used to run the monitoring job.
+	ContainerArguments []string `pulumi:"containerArguments"`
+	// Entrypoint for the container used to run the monitoring job.
+	ContainerEntrypoints []string `pulumi:"containerEntrypoints"`
+	// Container image to be run by the monitoring job.
+	ImageUri string `pulumi:"imageUri"`
+	// Script that is called after analysis has been performed.
+	PostAnalyticsProcessorSourceUri *string `pulumi:"postAnalyticsProcessorSourceUri"`
+	// Script that is called per row prior to running analysis.
+	RecordPreprocessorSourceUri *string `pulumi:"recordPreprocessorSourceUri"`
+}
+
+// MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringAppSpecificationInput is an input type that accepts MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringAppSpecificationArgs and MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringAppSpecificationOutput values.
+// You can construct a concrete instance of `MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringAppSpecificationInput` via:
+//
+//	MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringAppSpecificationArgs{...}
+type MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringAppSpecificationInput interface {
+	pulumi.Input
+
+	ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringAppSpecificationOutput() MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringAppSpecificationOutput
+	ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringAppSpecificationOutputWithContext(context.Context) MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringAppSpecificationOutput
+}
+
+type MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringAppSpecificationArgs struct {
+	// List of arguments for the container used to run the monitoring job.
+	ContainerArguments pulumi.StringArrayInput `pulumi:"containerArguments"`
+	// Entrypoint for the container used to run the monitoring job.
+	ContainerEntrypoints pulumi.StringArrayInput `pulumi:"containerEntrypoints"`
+	// Container image to be run by the monitoring job.
+	ImageUri pulumi.StringInput `pulumi:"imageUri"`
+	// Script that is called after analysis has been performed.
+	PostAnalyticsProcessorSourceUri pulumi.StringPtrInput `pulumi:"postAnalyticsProcessorSourceUri"`
+	// Script that is called per row prior to running analysis.
+	RecordPreprocessorSourceUri pulumi.StringPtrInput `pulumi:"recordPreprocessorSourceUri"`
+}
+
+func (MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringAppSpecificationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringAppSpecification)(nil)).Elem()
+}
+
+func (i MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringAppSpecificationArgs) ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringAppSpecificationOutput() MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringAppSpecificationOutput {
+	return i.ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringAppSpecificationOutputWithContext(context.Background())
+}
+
+func (i MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringAppSpecificationArgs) ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringAppSpecificationOutputWithContext(ctx context.Context) MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringAppSpecificationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringAppSpecificationOutput)
+}
+
+func (i MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringAppSpecificationArgs) ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringAppSpecificationPtrOutput() MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringAppSpecificationPtrOutput {
+	return i.ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringAppSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (i MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringAppSpecificationArgs) ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringAppSpecificationPtrOutputWithContext(ctx context.Context) MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringAppSpecificationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringAppSpecificationOutput).ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringAppSpecificationPtrOutputWithContext(ctx)
+}
+
+// MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringAppSpecificationPtrInput is an input type that accepts MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringAppSpecificationArgs, MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringAppSpecificationPtr and MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringAppSpecificationPtrOutput values.
+// You can construct a concrete instance of `MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringAppSpecificationPtrInput` via:
+//
+//	        MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringAppSpecificationArgs{...}
+//
+//	or:
+//
+//	        nil
+type MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringAppSpecificationPtrInput interface {
+	pulumi.Input
+
+	ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringAppSpecificationPtrOutput() MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringAppSpecificationPtrOutput
+	ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringAppSpecificationPtrOutputWithContext(context.Context) MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringAppSpecificationPtrOutput
+}
+
+type monitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringAppSpecificationPtrType MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringAppSpecificationArgs
+
+func MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringAppSpecificationPtr(v *MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringAppSpecificationArgs) MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringAppSpecificationPtrInput {
+	return (*monitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringAppSpecificationPtrType)(v)
+}
+
+func (*monitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringAppSpecificationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringAppSpecification)(nil)).Elem()
+}
+
+func (i *monitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringAppSpecificationPtrType) ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringAppSpecificationPtrOutput() MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringAppSpecificationPtrOutput {
+	return i.ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringAppSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (i *monitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringAppSpecificationPtrType) ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringAppSpecificationPtrOutputWithContext(ctx context.Context) MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringAppSpecificationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringAppSpecificationPtrOutput)
+}
+
+type MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringAppSpecificationOutput struct{ *pulumi.OutputState }
+
+func (MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringAppSpecificationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringAppSpecification)(nil)).Elem()
+}
+
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringAppSpecificationOutput) ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringAppSpecificationOutput() MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringAppSpecificationOutput {
+	return o
+}
+
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringAppSpecificationOutput) ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringAppSpecificationOutputWithContext(ctx context.Context) MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringAppSpecificationOutput {
+	return o
+}
+
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringAppSpecificationOutput) ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringAppSpecificationPtrOutput() MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringAppSpecificationPtrOutput {
+	return o.ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringAppSpecificationPtrOutputWithContext(context.Background())
+}
+
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringAppSpecificationOutput) ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringAppSpecificationPtrOutputWithContext(ctx context.Context) MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringAppSpecificationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringAppSpecification) *MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringAppSpecification {
+		return &v
+	}).(MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringAppSpecificationPtrOutput)
+}
+
+// List of arguments for the container used to run the monitoring job.
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringAppSpecificationOutput) ContainerArguments() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringAppSpecification) []string {
+		return v.ContainerArguments
+	}).(pulumi.StringArrayOutput)
+}
+
+// Entrypoint for the container used to run the monitoring job.
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringAppSpecificationOutput) ContainerEntrypoints() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringAppSpecification) []string {
+		return v.ContainerEntrypoints
+	}).(pulumi.StringArrayOutput)
+}
+
+// Container image to be run by the monitoring job.
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringAppSpecificationOutput) ImageUri() pulumi.StringOutput {
+	return o.ApplyT(func(v MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringAppSpecification) string {
+		return v.ImageUri
+	}).(pulumi.StringOutput)
+}
+
+// Script that is called after analysis has been performed.
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringAppSpecificationOutput) PostAnalyticsProcessorSourceUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringAppSpecification) *string {
+		return v.PostAnalyticsProcessorSourceUri
+	}).(pulumi.StringPtrOutput)
+}
+
+// Script that is called per row prior to running analysis.
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringAppSpecificationOutput) RecordPreprocessorSourceUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringAppSpecification) *string {
+		return v.RecordPreprocessorSourceUri
+	}).(pulumi.StringPtrOutput)
+}
+
+type MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringAppSpecificationPtrOutput struct{ *pulumi.OutputState }
+
+func (MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringAppSpecificationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringAppSpecification)(nil)).Elem()
+}
+
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringAppSpecificationPtrOutput) ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringAppSpecificationPtrOutput() MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringAppSpecificationPtrOutput {
+	return o
+}
+
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringAppSpecificationPtrOutput) ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringAppSpecificationPtrOutputWithContext(ctx context.Context) MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringAppSpecificationPtrOutput {
+	return o
+}
+
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringAppSpecificationPtrOutput) Elem() MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringAppSpecificationOutput {
+	return o.ApplyT(func(v *MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringAppSpecification) MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringAppSpecification {
+		if v != nil {
+			return *v
+		}
+		var ret MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringAppSpecification
+		return ret
+	}).(MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringAppSpecificationOutput)
+}
+
+// List of arguments for the container used to run the monitoring job.
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringAppSpecificationPtrOutput) ContainerArguments() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringAppSpecification) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ContainerArguments
+	}).(pulumi.StringArrayOutput)
+}
+
+// Entrypoint for the container used to run the monitoring job.
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringAppSpecificationPtrOutput) ContainerEntrypoints() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringAppSpecification) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ContainerEntrypoints
+	}).(pulumi.StringArrayOutput)
+}
+
+// Container image to be run by the monitoring job.
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringAppSpecificationPtrOutput) ImageUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringAppSpecification) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ImageUri
+	}).(pulumi.StringPtrOutput)
+}
+
+// Script that is called after analysis has been performed.
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringAppSpecificationPtrOutput) PostAnalyticsProcessorSourceUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringAppSpecification) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PostAnalyticsProcessorSourceUri
+	}).(pulumi.StringPtrOutput)
+}
+
+// Script that is called per row prior to running analysis.
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringAppSpecificationPtrOutput) RecordPreprocessorSourceUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringAppSpecification) *string {
+		if v == nil {
+			return nil
+		}
+		return v.RecordPreprocessorSourceUri
+	}).(pulumi.StringPtrOutput)
+}
+
+type MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputs struct {
+	// Input object for the batch transform job. Fields are documented below.
+	BatchTransformInput *MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInput `pulumi:"batchTransformInput"`
+	// Endpoint for a monitoring job. Fields are documented below.
+	EndpointInput *MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsEndpointInput `pulumi:"endpointInput"`
+}
+
+// MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsInput is an input type that accepts MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsArgs and MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsOutput values.
+// You can construct a concrete instance of `MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsInput` via:
+//
+//	MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsArgs{...}
+type MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsInput interface {
+	pulumi.Input
+
+	ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsOutput() MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsOutput
+	ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsOutputWithContext(context.Context) MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsOutput
+}
+
+type MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsArgs struct {
+	// Input object for the batch transform job. Fields are documented below.
+	BatchTransformInput MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputPtrInput `pulumi:"batchTransformInput"`
+	// Endpoint for a monitoring job. Fields are documented below.
+	EndpointInput MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsEndpointInputPtrInput `pulumi:"endpointInput"`
+}
+
+func (MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputs)(nil)).Elem()
+}
+
+func (i MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsArgs) ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsOutput() MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsOutput {
+	return i.ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsOutputWithContext(context.Background())
+}
+
+func (i MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsArgs) ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsOutputWithContext(ctx context.Context) MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsOutput)
+}
+
+func (i MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsArgs) ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsPtrOutput() MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsPtrOutput {
+	return i.ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsPtrOutputWithContext(context.Background())
+}
+
+func (i MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsArgs) ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsPtrOutputWithContext(ctx context.Context) MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsOutput).ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsPtrOutputWithContext(ctx)
+}
+
+// MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsPtrInput is an input type that accepts MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsArgs, MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsPtr and MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsPtrOutput values.
+// You can construct a concrete instance of `MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsPtrInput` via:
+//
+//	        MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsArgs{...}
+//
+//	or:
+//
+//	        nil
+type MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsPtrInput interface {
+	pulumi.Input
+
+	ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsPtrOutput() MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsPtrOutput
+	ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsPtrOutputWithContext(context.Context) MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsPtrOutput
+}
+
+type monitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsPtrType MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsArgs
+
+func MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsPtr(v *MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsArgs) MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsPtrInput {
+	return (*monitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsPtrType)(v)
+}
+
+func (*monitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputs)(nil)).Elem()
+}
+
+func (i *monitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsPtrType) ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsPtrOutput() MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsPtrOutput {
+	return i.ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsPtrOutputWithContext(context.Background())
+}
+
+func (i *monitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsPtrType) ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsPtrOutputWithContext(ctx context.Context) MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsPtrOutput)
+}
+
+type MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsOutput struct{ *pulumi.OutputState }
+
+func (MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputs)(nil)).Elem()
+}
+
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsOutput) ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsOutput() MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsOutput {
+	return o
+}
+
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsOutput) ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsOutputWithContext(ctx context.Context) MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsOutput {
+	return o
+}
+
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsOutput) ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsPtrOutput() MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsPtrOutput {
+	return o.ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsPtrOutputWithContext(context.Background())
+}
+
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsOutput) ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsPtrOutputWithContext(ctx context.Context) MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputs) *MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputs {
+		return &v
+	}).(MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsPtrOutput)
+}
+
+// Input object for the batch transform job. Fields are documented below.
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsOutput) BatchTransformInput() MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputPtrOutput {
+	return o.ApplyT(func(v MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputs) *MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInput {
+		return v.BatchTransformInput
+	}).(MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputPtrOutput)
+}
+
+// Endpoint for a monitoring job. Fields are documented below.
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsOutput) EndpointInput() MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsEndpointInputPtrOutput {
+	return o.ApplyT(func(v MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputs) *MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsEndpointInput {
+		return v.EndpointInput
+	}).(MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsEndpointInputPtrOutput)
+}
+
+type MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsPtrOutput struct{ *pulumi.OutputState }
+
+func (MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputs)(nil)).Elem()
+}
+
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsPtrOutput) ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsPtrOutput() MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsPtrOutput {
+	return o
+}
+
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsPtrOutput) ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsPtrOutputWithContext(ctx context.Context) MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsPtrOutput {
+	return o
+}
+
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsPtrOutput) Elem() MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsOutput {
+	return o.ApplyT(func(v *MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputs) MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputs {
+		if v != nil {
+			return *v
+		}
+		var ret MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputs
+		return ret
+	}).(MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsOutput)
+}
+
+// Input object for the batch transform job. Fields are documented below.
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsPtrOutput) BatchTransformInput() MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputPtrOutput {
+	return o.ApplyT(func(v *MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputs) *MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInput {
+		if v == nil {
+			return nil
+		}
+		return v.BatchTransformInput
+	}).(MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputPtrOutput)
+}
+
+// Endpoint for a monitoring job. Fields are documented below.
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsPtrOutput) EndpointInput() MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsEndpointInputPtrOutput {
+	return o.ApplyT(func(v *MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputs) *MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsEndpointInput {
+		if v == nil {
+			return nil
+		}
+		return v.EndpointInput
+	}).(MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsEndpointInputPtrOutput)
+}
+
+type MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInput struct {
+	// Amazon S3 location being used to capture the data.
+	DataCapturedDestinationS3Uri string `pulumi:"dataCapturedDestinationS3Uri"`
+	// Dataset format for the batch transform job. Fields are documented below.
+	DatasetFormat MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormat `pulumi:"datasetFormat"`
+	// Monitoring jobs subtract this time from the end time.
+	EndTimeOffset *string `pulumi:"endTimeOffset"`
+	// Attributes of the input data to exclude from the analysis.
+	ExcludeFeaturesAttribute *string `pulumi:"excludeFeaturesAttribute"`
+	// Attributes of the input data that are the input features.
+	FeaturesAttribute *string `pulumi:"featuresAttribute"`
+	// Attribute of the input data that represents the ground truth label.
+	InferenceAttribute *string `pulumi:"inferenceAttribute"`
+	// Path to the filesystem where the batch transform data is available to the container.
+	LocalPath string `pulumi:"localPath"`
+	// In a classification problem, the attribute that represents the class probability.
+	ProbabilityAttribute *string `pulumi:"probabilityAttribute"`
+	// Threshold for the class probability to be evaluated as a positive result.
+	ProbabilityThresholdAttribute *float64 `pulumi:"probabilityThresholdAttribute"`
+	// Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Valid values: `FullyReplicated`, `ShardedByS3Key`.
+	S3DataDistributionType *string `pulumi:"s3DataDistributionType"`
+	// Input mode for transferring data for the monitoring job. Valid values: `Pipe`, `File`.
+	S3InputMode *string `pulumi:"s3InputMode"`
+	// Monitoring jobs subtract this time from the start time.
+	StartTimeOffset *string `pulumi:"startTimeOffset"`
+}
+
+// MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputInput is an input type that accepts MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputArgs and MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputOutput values.
+// You can construct a concrete instance of `MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputInput` via:
+//
+//	MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputArgs{...}
+type MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputInput interface {
+	pulumi.Input
+
+	ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputOutput() MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputOutput
+	ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputOutputWithContext(context.Context) MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputOutput
+}
+
+type MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputArgs struct {
+	// Amazon S3 location being used to capture the data.
+	DataCapturedDestinationS3Uri pulumi.StringInput `pulumi:"dataCapturedDestinationS3Uri"`
+	// Dataset format for the batch transform job. Fields are documented below.
+	DatasetFormat MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatInput `pulumi:"datasetFormat"`
+	// Monitoring jobs subtract this time from the end time.
+	EndTimeOffset pulumi.StringPtrInput `pulumi:"endTimeOffset"`
+	// Attributes of the input data to exclude from the analysis.
+	ExcludeFeaturesAttribute pulumi.StringPtrInput `pulumi:"excludeFeaturesAttribute"`
+	// Attributes of the input data that are the input features.
+	FeaturesAttribute pulumi.StringPtrInput `pulumi:"featuresAttribute"`
+	// Attribute of the input data that represents the ground truth label.
+	InferenceAttribute pulumi.StringPtrInput `pulumi:"inferenceAttribute"`
+	// Path to the filesystem where the batch transform data is available to the container.
+	LocalPath pulumi.StringInput `pulumi:"localPath"`
+	// In a classification problem, the attribute that represents the class probability.
+	ProbabilityAttribute pulumi.StringPtrInput `pulumi:"probabilityAttribute"`
+	// Threshold for the class probability to be evaluated as a positive result.
+	ProbabilityThresholdAttribute pulumi.Float64PtrInput `pulumi:"probabilityThresholdAttribute"`
+	// Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Valid values: `FullyReplicated`, `ShardedByS3Key`.
+	S3DataDistributionType pulumi.StringPtrInput `pulumi:"s3DataDistributionType"`
+	// Input mode for transferring data for the monitoring job. Valid values: `Pipe`, `File`.
+	S3InputMode pulumi.StringPtrInput `pulumi:"s3InputMode"`
+	// Monitoring jobs subtract this time from the start time.
+	StartTimeOffset pulumi.StringPtrInput `pulumi:"startTimeOffset"`
+}
+
+func (MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInput)(nil)).Elem()
+}
+
+func (i MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputArgs) ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputOutput() MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputOutput {
+	return i.ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputOutputWithContext(context.Background())
+}
+
+func (i MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputArgs) ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputOutputWithContext(ctx context.Context) MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputOutput)
+}
+
+func (i MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputArgs) ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputPtrOutput() MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputPtrOutput {
+	return i.ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputPtrOutputWithContext(context.Background())
+}
+
+func (i MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputArgs) ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputPtrOutputWithContext(ctx context.Context) MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputOutput).ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputPtrOutputWithContext(ctx)
+}
+
+// MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputPtrInput is an input type that accepts MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputArgs, MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputPtr and MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputPtrOutput values.
+// You can construct a concrete instance of `MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputPtrInput` via:
+//
+//	        MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputArgs{...}
+//
+//	or:
+//
+//	        nil
+type MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputPtrInput interface {
+	pulumi.Input
+
+	ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputPtrOutput() MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputPtrOutput
+	ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputPtrOutputWithContext(context.Context) MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputPtrOutput
+}
+
+type monitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputPtrType MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputArgs
+
+func MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputPtr(v *MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputArgs) MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputPtrInput {
+	return (*monitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputPtrType)(v)
+}
+
+func (*monitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInput)(nil)).Elem()
+}
+
+func (i *monitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputPtrType) ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputPtrOutput() MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputPtrOutput {
+	return i.ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputPtrOutputWithContext(context.Background())
+}
+
+func (i *monitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputPtrType) ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputPtrOutputWithContext(ctx context.Context) MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputPtrOutput)
+}
+
+type MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputOutput struct{ *pulumi.OutputState }
+
+func (MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInput)(nil)).Elem()
+}
+
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputOutput) ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputOutput() MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputOutput {
+	return o
+}
+
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputOutput) ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputOutputWithContext(ctx context.Context) MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputOutput {
+	return o
+}
+
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputOutput) ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputPtrOutput() MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputPtrOutput {
+	return o.ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputPtrOutputWithContext(context.Background())
+}
+
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputOutput) ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputPtrOutputWithContext(ctx context.Context) MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInput) *MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInput {
+		return &v
+	}).(MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputPtrOutput)
+}
+
+// Amazon S3 location being used to capture the data.
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputOutput) DataCapturedDestinationS3Uri() pulumi.StringOutput {
+	return o.ApplyT(func(v MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInput) string {
+		return v.DataCapturedDestinationS3Uri
+	}).(pulumi.StringOutput)
+}
+
+// Dataset format for the batch transform job. Fields are documented below.
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputOutput) DatasetFormat() MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatOutput {
+	return o.ApplyT(func(v MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInput) MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormat {
+		return v.DatasetFormat
+	}).(MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatOutput)
+}
+
+// Monitoring jobs subtract this time from the end time.
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputOutput) EndTimeOffset() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInput) *string {
+		return v.EndTimeOffset
+	}).(pulumi.StringPtrOutput)
+}
+
+// Attributes of the input data to exclude from the analysis.
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputOutput) ExcludeFeaturesAttribute() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInput) *string {
+		return v.ExcludeFeaturesAttribute
+	}).(pulumi.StringPtrOutput)
+}
+
+// Attributes of the input data that are the input features.
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputOutput) FeaturesAttribute() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInput) *string {
+		return v.FeaturesAttribute
+	}).(pulumi.StringPtrOutput)
+}
+
+// Attribute of the input data that represents the ground truth label.
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputOutput) InferenceAttribute() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInput) *string {
+		return v.InferenceAttribute
+	}).(pulumi.StringPtrOutput)
+}
+
+// Path to the filesystem where the batch transform data is available to the container.
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputOutput) LocalPath() pulumi.StringOutput {
+	return o.ApplyT(func(v MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInput) string {
+		return v.LocalPath
+	}).(pulumi.StringOutput)
+}
+
+// In a classification problem, the attribute that represents the class probability.
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputOutput) ProbabilityAttribute() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInput) *string {
+		return v.ProbabilityAttribute
+	}).(pulumi.StringPtrOutput)
+}
+
+// Threshold for the class probability to be evaluated as a positive result.
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputOutput) ProbabilityThresholdAttribute() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInput) *float64 {
+		return v.ProbabilityThresholdAttribute
+	}).(pulumi.Float64PtrOutput)
+}
+
+// Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Valid values: `FullyReplicated`, `ShardedByS3Key`.
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputOutput) S3DataDistributionType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInput) *string {
+		return v.S3DataDistributionType
+	}).(pulumi.StringPtrOutput)
+}
+
+// Input mode for transferring data for the monitoring job. Valid values: `Pipe`, `File`.
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputOutput) S3InputMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInput) *string {
+		return v.S3InputMode
+	}).(pulumi.StringPtrOutput)
+}
+
+// Monitoring jobs subtract this time from the start time.
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputOutput) StartTimeOffset() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInput) *string {
+		return v.StartTimeOffset
+	}).(pulumi.StringPtrOutput)
+}
+
+type MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputPtrOutput struct{ *pulumi.OutputState }
+
+func (MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInput)(nil)).Elem()
+}
+
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputPtrOutput) ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputPtrOutput() MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputPtrOutput {
+	return o
+}
+
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputPtrOutput) ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputPtrOutputWithContext(ctx context.Context) MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputPtrOutput {
+	return o
+}
+
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputPtrOutput) Elem() MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputOutput {
+	return o.ApplyT(func(v *MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInput) MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInput {
+		if v != nil {
+			return *v
+		}
+		var ret MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInput
+		return ret
+	}).(MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputOutput)
+}
+
+// Amazon S3 location being used to capture the data.
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputPtrOutput) DataCapturedDestinationS3Uri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInput) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DataCapturedDestinationS3Uri
+	}).(pulumi.StringPtrOutput)
+}
+
+// Dataset format for the batch transform job. Fields are documented below.
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputPtrOutput) DatasetFormat() MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatPtrOutput {
+	return o.ApplyT(func(v *MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInput) *MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormat {
+		if v == nil {
+			return nil
+		}
+		return &v.DatasetFormat
+	}).(MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatPtrOutput)
+}
+
+// Monitoring jobs subtract this time from the end time.
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputPtrOutput) EndTimeOffset() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInput) *string {
+		if v == nil {
+			return nil
+		}
+		return v.EndTimeOffset
+	}).(pulumi.StringPtrOutput)
+}
+
+// Attributes of the input data to exclude from the analysis.
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputPtrOutput) ExcludeFeaturesAttribute() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInput) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ExcludeFeaturesAttribute
+	}).(pulumi.StringPtrOutput)
+}
+
+// Attributes of the input data that are the input features.
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputPtrOutput) FeaturesAttribute() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInput) *string {
+		if v == nil {
+			return nil
+		}
+		return v.FeaturesAttribute
+	}).(pulumi.StringPtrOutput)
+}
+
+// Attribute of the input data that represents the ground truth label.
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputPtrOutput) InferenceAttribute() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInput) *string {
+		if v == nil {
+			return nil
+		}
+		return v.InferenceAttribute
+	}).(pulumi.StringPtrOutput)
+}
+
+// Path to the filesystem where the batch transform data is available to the container.
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputPtrOutput) LocalPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInput) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.LocalPath
+	}).(pulumi.StringPtrOutput)
+}
+
+// In a classification problem, the attribute that represents the class probability.
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputPtrOutput) ProbabilityAttribute() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInput) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ProbabilityAttribute
+	}).(pulumi.StringPtrOutput)
+}
+
+// Threshold for the class probability to be evaluated as a positive result.
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputPtrOutput) ProbabilityThresholdAttribute() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInput) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.ProbabilityThresholdAttribute
+	}).(pulumi.Float64PtrOutput)
+}
+
+// Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Valid values: `FullyReplicated`, `ShardedByS3Key`.
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputPtrOutput) S3DataDistributionType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInput) *string {
+		if v == nil {
+			return nil
+		}
+		return v.S3DataDistributionType
+	}).(pulumi.StringPtrOutput)
+}
+
+// Input mode for transferring data for the monitoring job. Valid values: `Pipe`, `File`.
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputPtrOutput) S3InputMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInput) *string {
+		if v == nil {
+			return nil
+		}
+		return v.S3InputMode
+	}).(pulumi.StringPtrOutput)
+}
+
+// Monitoring jobs subtract this time from the start time.
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputPtrOutput) StartTimeOffset() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInput) *string {
+		if v == nil {
+			return nil
+		}
+		return v.StartTimeOffset
+	}).(pulumi.StringPtrOutput)
+}
+
+type MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormat struct {
+	// CSV dataset used in the monitoring job. Fields are documented below.
+	Csv *MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatCsv `pulumi:"csv"`
+	// JSON dataset used in the monitoring job. Fields are documented below.
+	Json *MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatJson `pulumi:"json"`
+}
+
+// MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatInput is an input type that accepts MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatArgs and MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatOutput values.
+// You can construct a concrete instance of `MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatInput` via:
+//
+//	MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatArgs{...}
+type MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatInput interface {
+	pulumi.Input
+
+	ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatOutput() MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatOutput
+	ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatOutputWithContext(context.Context) MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatOutput
+}
+
+type MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatArgs struct {
+	// CSV dataset used in the monitoring job. Fields are documented below.
+	Csv MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatCsvPtrInput `pulumi:"csv"`
+	// JSON dataset used in the monitoring job. Fields are documented below.
+	Json MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatJsonPtrInput `pulumi:"json"`
+}
+
+func (MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormat)(nil)).Elem()
+}
+
+func (i MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatArgs) ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatOutput() MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatOutput {
+	return i.ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatOutputWithContext(context.Background())
+}
+
+func (i MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatArgs) ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatOutputWithContext(ctx context.Context) MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatOutput)
+}
+
+func (i MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatArgs) ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatPtrOutput() MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatPtrOutput {
+	return i.ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatPtrOutputWithContext(context.Background())
+}
+
+func (i MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatArgs) ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatPtrOutputWithContext(ctx context.Context) MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatOutput).ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatPtrOutputWithContext(ctx)
+}
+
+// MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatPtrInput is an input type that accepts MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatArgs, MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatPtr and MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatPtrOutput values.
+// You can construct a concrete instance of `MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatPtrInput` via:
+//
+//	        MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatArgs{...}
+//
+//	or:
+//
+//	        nil
+type MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatPtrInput interface {
+	pulumi.Input
+
+	ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatPtrOutput() MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatPtrOutput
+	ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatPtrOutputWithContext(context.Context) MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatPtrOutput
+}
+
+type monitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatPtrType MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatArgs
+
+func MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatPtr(v *MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatArgs) MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatPtrInput {
+	return (*monitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatPtrType)(v)
+}
+
+func (*monitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormat)(nil)).Elem()
+}
+
+func (i *monitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatPtrType) ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatPtrOutput() MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatPtrOutput {
+	return i.ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatPtrOutputWithContext(context.Background())
+}
+
+func (i *monitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatPtrType) ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatPtrOutputWithContext(ctx context.Context) MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatPtrOutput)
+}
+
+type MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatOutput struct{ *pulumi.OutputState }
+
+func (MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormat)(nil)).Elem()
+}
+
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatOutput) ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatOutput() MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatOutput {
+	return o
+}
+
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatOutput) ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatOutputWithContext(ctx context.Context) MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatOutput {
+	return o
+}
+
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatOutput) ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatPtrOutput() MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatPtrOutput {
+	return o.ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatPtrOutputWithContext(context.Background())
+}
+
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatOutput) ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatPtrOutputWithContext(ctx context.Context) MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormat) *MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormat {
+		return &v
+	}).(MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatPtrOutput)
+}
+
+// CSV dataset used in the monitoring job. Fields are documented below.
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatOutput) Csv() MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatCsvPtrOutput {
+	return o.ApplyT(func(v MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormat) *MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatCsv {
+		return v.Csv
+	}).(MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatCsvPtrOutput)
+}
+
+// JSON dataset used in the monitoring job. Fields are documented below.
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatOutput) Json() MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatJsonPtrOutput {
+	return o.ApplyT(func(v MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormat) *MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatJson {
+		return v.Json
+	}).(MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatJsonPtrOutput)
+}
+
+type MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatPtrOutput struct{ *pulumi.OutputState }
+
+func (MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormat)(nil)).Elem()
+}
+
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatPtrOutput) ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatPtrOutput() MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatPtrOutput {
+	return o
+}
+
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatPtrOutput) ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatPtrOutputWithContext(ctx context.Context) MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatPtrOutput {
+	return o
+}
+
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatPtrOutput) Elem() MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatOutput {
+	return o.ApplyT(func(v *MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormat) MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormat {
+		if v != nil {
+			return *v
+		}
+		var ret MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormat
+		return ret
+	}).(MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatOutput)
+}
+
+// CSV dataset used in the monitoring job. Fields are documented below.
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatPtrOutput) Csv() MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatCsvPtrOutput {
+	return o.ApplyT(func(v *MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormat) *MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatCsv {
+		if v == nil {
+			return nil
+		}
+		return v.Csv
+	}).(MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatCsvPtrOutput)
+}
+
+// JSON dataset used in the monitoring job. Fields are documented below.
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatPtrOutput) Json() MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatJsonPtrOutput {
+	return o.ApplyT(func(v *MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormat) *MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatJson {
+		if v == nil {
+			return nil
+		}
+		return v.Json
+	}).(MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatJsonPtrOutput)
+}
+
+type MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatCsv struct {
+	// Indicates if the CSV data has a header.
+	Header *bool `pulumi:"header"`
+}
+
+// MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatCsvInput is an input type that accepts MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatCsvArgs and MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatCsvOutput values.
+// You can construct a concrete instance of `MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatCsvInput` via:
+//
+//	MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatCsvArgs{...}
+type MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatCsvInput interface {
+	pulumi.Input
+
+	ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatCsvOutput() MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatCsvOutput
+	ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatCsvOutputWithContext(context.Context) MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatCsvOutput
+}
+
+type MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatCsvArgs struct {
+	// Indicates if the CSV data has a header.
+	Header pulumi.BoolPtrInput `pulumi:"header"`
+}
+
+func (MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatCsvArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatCsv)(nil)).Elem()
+}
+
+func (i MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatCsvArgs) ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatCsvOutput() MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatCsvOutput {
+	return i.ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatCsvOutputWithContext(context.Background())
+}
+
+func (i MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatCsvArgs) ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatCsvOutputWithContext(ctx context.Context) MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatCsvOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatCsvOutput)
+}
+
+func (i MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatCsvArgs) ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatCsvPtrOutput() MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatCsvPtrOutput {
+	return i.ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatCsvPtrOutputWithContext(context.Background())
+}
+
+func (i MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatCsvArgs) ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatCsvPtrOutputWithContext(ctx context.Context) MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatCsvPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatCsvOutput).ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatCsvPtrOutputWithContext(ctx)
+}
+
+// MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatCsvPtrInput is an input type that accepts MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatCsvArgs, MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatCsvPtr and MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatCsvPtrOutput values.
+// You can construct a concrete instance of `MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatCsvPtrInput` via:
+//
+//	        MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatCsvArgs{...}
+//
+//	or:
+//
+//	        nil
+type MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatCsvPtrInput interface {
+	pulumi.Input
+
+	ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatCsvPtrOutput() MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatCsvPtrOutput
+	ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatCsvPtrOutputWithContext(context.Context) MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatCsvPtrOutput
+}
+
+type monitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatCsvPtrType MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatCsvArgs
+
+func MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatCsvPtr(v *MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatCsvArgs) MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatCsvPtrInput {
+	return (*monitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatCsvPtrType)(v)
+}
+
+func (*monitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatCsvPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatCsv)(nil)).Elem()
+}
+
+func (i *monitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatCsvPtrType) ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatCsvPtrOutput() MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatCsvPtrOutput {
+	return i.ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatCsvPtrOutputWithContext(context.Background())
+}
+
+func (i *monitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatCsvPtrType) ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatCsvPtrOutputWithContext(ctx context.Context) MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatCsvPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatCsvPtrOutput)
+}
+
+type MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatCsvOutput struct{ *pulumi.OutputState }
+
+func (MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatCsvOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatCsv)(nil)).Elem()
+}
+
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatCsvOutput) ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatCsvOutput() MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatCsvOutput {
+	return o
+}
+
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatCsvOutput) ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatCsvOutputWithContext(ctx context.Context) MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatCsvOutput {
+	return o
+}
+
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatCsvOutput) ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatCsvPtrOutput() MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatCsvPtrOutput {
+	return o.ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatCsvPtrOutputWithContext(context.Background())
+}
+
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatCsvOutput) ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatCsvPtrOutputWithContext(ctx context.Context) MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatCsvPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatCsv) *MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatCsv {
+		return &v
+	}).(MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatCsvPtrOutput)
+}
+
+// Indicates if the CSV data has a header.
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatCsvOutput) Header() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatCsv) *bool {
+		return v.Header
+	}).(pulumi.BoolPtrOutput)
+}
+
+type MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatCsvPtrOutput struct{ *pulumi.OutputState }
+
+func (MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatCsvPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatCsv)(nil)).Elem()
+}
+
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatCsvPtrOutput) ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatCsvPtrOutput() MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatCsvPtrOutput {
+	return o
+}
+
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatCsvPtrOutput) ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatCsvPtrOutputWithContext(ctx context.Context) MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatCsvPtrOutput {
+	return o
+}
+
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatCsvPtrOutput) Elem() MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatCsvOutput {
+	return o.ApplyT(func(v *MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatCsv) MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatCsv {
+		if v != nil {
+			return *v
+		}
+		var ret MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatCsv
+		return ret
+	}).(MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatCsvOutput)
+}
+
+// Indicates if the CSV data has a header.
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatCsvPtrOutput) Header() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatCsv) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Header
+	}).(pulumi.BoolPtrOutput)
+}
+
+type MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatJson struct {
+	// Indicates if the file should be read as a JSON object per line.
+	Line *bool `pulumi:"line"`
+}
+
+// MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatJsonInput is an input type that accepts MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatJsonArgs and MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatJsonOutput values.
+// You can construct a concrete instance of `MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatJsonInput` via:
+//
+//	MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatJsonArgs{...}
+type MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatJsonInput interface {
+	pulumi.Input
+
+	ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatJsonOutput() MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatJsonOutput
+	ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatJsonOutputWithContext(context.Context) MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatJsonOutput
+}
+
+type MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatJsonArgs struct {
+	// Indicates if the file should be read as a JSON object per line.
+	Line pulumi.BoolPtrInput `pulumi:"line"`
+}
+
+func (MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatJsonArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatJson)(nil)).Elem()
+}
+
+func (i MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatJsonArgs) ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatJsonOutput() MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatJsonOutput {
+	return i.ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatJsonOutputWithContext(context.Background())
+}
+
+func (i MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatJsonArgs) ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatJsonOutputWithContext(ctx context.Context) MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatJsonOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatJsonOutput)
+}
+
+func (i MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatJsonArgs) ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatJsonPtrOutput() MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatJsonPtrOutput {
+	return i.ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatJsonPtrOutputWithContext(context.Background())
+}
+
+func (i MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatJsonArgs) ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatJsonPtrOutputWithContext(ctx context.Context) MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatJsonPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatJsonOutput).ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatJsonPtrOutputWithContext(ctx)
+}
+
+// MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatJsonPtrInput is an input type that accepts MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatJsonArgs, MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatJsonPtr and MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatJsonPtrOutput values.
+// You can construct a concrete instance of `MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatJsonPtrInput` via:
+//
+//	        MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatJsonArgs{...}
+//
+//	or:
+//
+//	        nil
+type MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatJsonPtrInput interface {
+	pulumi.Input
+
+	ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatJsonPtrOutput() MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatJsonPtrOutput
+	ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatJsonPtrOutputWithContext(context.Context) MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatJsonPtrOutput
+}
+
+type monitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatJsonPtrType MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatJsonArgs
+
+func MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatJsonPtr(v *MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatJsonArgs) MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatJsonPtrInput {
+	return (*monitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatJsonPtrType)(v)
+}
+
+func (*monitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatJsonPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatJson)(nil)).Elem()
+}
+
+func (i *monitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatJsonPtrType) ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatJsonPtrOutput() MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatJsonPtrOutput {
+	return i.ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatJsonPtrOutputWithContext(context.Background())
+}
+
+func (i *monitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatJsonPtrType) ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatJsonPtrOutputWithContext(ctx context.Context) MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatJsonPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatJsonPtrOutput)
+}
+
+type MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatJsonOutput struct{ *pulumi.OutputState }
+
+func (MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatJsonOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatJson)(nil)).Elem()
+}
+
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatJsonOutput) ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatJsonOutput() MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatJsonOutput {
+	return o
+}
+
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatJsonOutput) ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatJsonOutputWithContext(ctx context.Context) MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatJsonOutput {
+	return o
+}
+
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatJsonOutput) ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatJsonPtrOutput() MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatJsonPtrOutput {
+	return o.ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatJsonPtrOutputWithContext(context.Background())
+}
+
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatJsonOutput) ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatJsonPtrOutputWithContext(ctx context.Context) MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatJsonPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatJson) *MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatJson {
+		return &v
+	}).(MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatJsonPtrOutput)
+}
+
+// Indicates if the file should be read as a JSON object per line.
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatJsonOutput) Line() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatJson) *bool {
+		return v.Line
+	}).(pulumi.BoolPtrOutput)
+}
+
+type MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatJsonPtrOutput struct{ *pulumi.OutputState }
+
+func (MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatJsonPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatJson)(nil)).Elem()
+}
+
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatJsonPtrOutput) ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatJsonPtrOutput() MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatJsonPtrOutput {
+	return o
+}
+
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatJsonPtrOutput) ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatJsonPtrOutputWithContext(ctx context.Context) MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatJsonPtrOutput {
+	return o
+}
+
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatJsonPtrOutput) Elem() MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatJsonOutput {
+	return o.ApplyT(func(v *MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatJson) MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatJson {
+		if v != nil {
+			return *v
+		}
+		var ret MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatJson
+		return ret
+	}).(MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatJsonOutput)
+}
+
+// Indicates if the file should be read as a JSON object per line.
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatJsonPtrOutput) Line() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatJson) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Line
+	}).(pulumi.BoolPtrOutput)
+}
+
+type MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsEndpointInput struct {
+	// Monitoring jobs subtract this time from the end time.
+	EndTimeOffset *string `pulumi:"endTimeOffset"`
+	// Endpoint in customer's account which has enabled `DataCaptureConfig`.
+	EndpointName string `pulumi:"endpointName"`
+	// Attributes of the input data to exclude from the analysis.
+	ExcludeFeaturesAttribute *string `pulumi:"excludeFeaturesAttribute"`
+	// Attributes of the input data that are the input features.
+	FeaturesAttribute *string `pulumi:"featuresAttribute"`
+	// Attribute of the input data that represents the ground truth label.
+	InferenceAttribute *string `pulumi:"inferenceAttribute"`
+	// Path to the filesystem where the endpoint data is available to the container.
+	LocalPath string `pulumi:"localPath"`
+	// In a classification problem, the attribute that represents the class probability.
+	ProbabilityAttribute *string `pulumi:"probabilityAttribute"`
+	// Threshold for the class probability to be evaluated as a positive result.
+	ProbabilityThresholdAttribute *float64 `pulumi:"probabilityThresholdAttribute"`
+	// Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Valid values: `FullyReplicated`, `ShardedByS3Key`.
+	S3DataDistributionType *string `pulumi:"s3DataDistributionType"`
+	// Input mode for transferring data for the monitoring job. Valid values: `Pipe`, `File`.
+	S3InputMode *string `pulumi:"s3InputMode"`
+	// Monitoring jobs subtract this time from the start time.
+	StartTimeOffset *string `pulumi:"startTimeOffset"`
+}
+
+// MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsEndpointInputInput is an input type that accepts MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsEndpointInputArgs and MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsEndpointInputOutput values.
+// You can construct a concrete instance of `MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsEndpointInputInput` via:
+//
+//	MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsEndpointInputArgs{...}
+type MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsEndpointInputInput interface {
+	pulumi.Input
+
+	ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsEndpointInputOutput() MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsEndpointInputOutput
+	ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsEndpointInputOutputWithContext(context.Context) MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsEndpointInputOutput
+}
+
+type MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsEndpointInputArgs struct {
+	// Monitoring jobs subtract this time from the end time.
+	EndTimeOffset pulumi.StringPtrInput `pulumi:"endTimeOffset"`
+	// Endpoint in customer's account which has enabled `DataCaptureConfig`.
+	EndpointName pulumi.StringInput `pulumi:"endpointName"`
+	// Attributes of the input data to exclude from the analysis.
+	ExcludeFeaturesAttribute pulumi.StringPtrInput `pulumi:"excludeFeaturesAttribute"`
+	// Attributes of the input data that are the input features.
+	FeaturesAttribute pulumi.StringPtrInput `pulumi:"featuresAttribute"`
+	// Attribute of the input data that represents the ground truth label.
+	InferenceAttribute pulumi.StringPtrInput `pulumi:"inferenceAttribute"`
+	// Path to the filesystem where the endpoint data is available to the container.
+	LocalPath pulumi.StringInput `pulumi:"localPath"`
+	// In a classification problem, the attribute that represents the class probability.
+	ProbabilityAttribute pulumi.StringPtrInput `pulumi:"probabilityAttribute"`
+	// Threshold for the class probability to be evaluated as a positive result.
+	ProbabilityThresholdAttribute pulumi.Float64PtrInput `pulumi:"probabilityThresholdAttribute"`
+	// Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Valid values: `FullyReplicated`, `ShardedByS3Key`.
+	S3DataDistributionType pulumi.StringPtrInput `pulumi:"s3DataDistributionType"`
+	// Input mode for transferring data for the monitoring job. Valid values: `Pipe`, `File`.
+	S3InputMode pulumi.StringPtrInput `pulumi:"s3InputMode"`
+	// Monitoring jobs subtract this time from the start time.
+	StartTimeOffset pulumi.StringPtrInput `pulumi:"startTimeOffset"`
+}
+
+func (MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsEndpointInputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsEndpointInput)(nil)).Elem()
+}
+
+func (i MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsEndpointInputArgs) ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsEndpointInputOutput() MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsEndpointInputOutput {
+	return i.ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsEndpointInputOutputWithContext(context.Background())
+}
+
+func (i MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsEndpointInputArgs) ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsEndpointInputOutputWithContext(ctx context.Context) MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsEndpointInputOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsEndpointInputOutput)
+}
+
+func (i MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsEndpointInputArgs) ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsEndpointInputPtrOutput() MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsEndpointInputPtrOutput {
+	return i.ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsEndpointInputPtrOutputWithContext(context.Background())
+}
+
+func (i MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsEndpointInputArgs) ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsEndpointInputPtrOutputWithContext(ctx context.Context) MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsEndpointInputPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsEndpointInputOutput).ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsEndpointInputPtrOutputWithContext(ctx)
+}
+
+// MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsEndpointInputPtrInput is an input type that accepts MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsEndpointInputArgs, MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsEndpointInputPtr and MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsEndpointInputPtrOutput values.
+// You can construct a concrete instance of `MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsEndpointInputPtrInput` via:
+//
+//	        MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsEndpointInputArgs{...}
+//
+//	or:
+//
+//	        nil
+type MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsEndpointInputPtrInput interface {
+	pulumi.Input
+
+	ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsEndpointInputPtrOutput() MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsEndpointInputPtrOutput
+	ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsEndpointInputPtrOutputWithContext(context.Context) MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsEndpointInputPtrOutput
+}
+
+type monitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsEndpointInputPtrType MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsEndpointInputArgs
+
+func MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsEndpointInputPtr(v *MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsEndpointInputArgs) MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsEndpointInputPtrInput {
+	return (*monitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsEndpointInputPtrType)(v)
+}
+
+func (*monitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsEndpointInputPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsEndpointInput)(nil)).Elem()
+}
+
+func (i *monitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsEndpointInputPtrType) ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsEndpointInputPtrOutput() MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsEndpointInputPtrOutput {
+	return i.ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsEndpointInputPtrOutputWithContext(context.Background())
+}
+
+func (i *monitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsEndpointInputPtrType) ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsEndpointInputPtrOutputWithContext(ctx context.Context) MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsEndpointInputPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsEndpointInputPtrOutput)
+}
+
+type MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsEndpointInputOutput struct{ *pulumi.OutputState }
+
+func (MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsEndpointInputOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsEndpointInput)(nil)).Elem()
+}
+
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsEndpointInputOutput) ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsEndpointInputOutput() MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsEndpointInputOutput {
+	return o
+}
+
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsEndpointInputOutput) ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsEndpointInputOutputWithContext(ctx context.Context) MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsEndpointInputOutput {
+	return o
+}
+
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsEndpointInputOutput) ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsEndpointInputPtrOutput() MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsEndpointInputPtrOutput {
+	return o.ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsEndpointInputPtrOutputWithContext(context.Background())
+}
+
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsEndpointInputOutput) ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsEndpointInputPtrOutputWithContext(ctx context.Context) MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsEndpointInputPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsEndpointInput) *MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsEndpointInput {
+		return &v
+	}).(MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsEndpointInputPtrOutput)
+}
+
+// Monitoring jobs subtract this time from the end time.
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsEndpointInputOutput) EndTimeOffset() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsEndpointInput) *string {
+		return v.EndTimeOffset
+	}).(pulumi.StringPtrOutput)
+}
+
+// Endpoint in customer's account which has enabled `DataCaptureConfig`.
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsEndpointInputOutput) EndpointName() pulumi.StringOutput {
+	return o.ApplyT(func(v MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsEndpointInput) string {
+		return v.EndpointName
+	}).(pulumi.StringOutput)
+}
+
+// Attributes of the input data to exclude from the analysis.
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsEndpointInputOutput) ExcludeFeaturesAttribute() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsEndpointInput) *string {
+		return v.ExcludeFeaturesAttribute
+	}).(pulumi.StringPtrOutput)
+}
+
+// Attributes of the input data that are the input features.
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsEndpointInputOutput) FeaturesAttribute() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsEndpointInput) *string {
+		return v.FeaturesAttribute
+	}).(pulumi.StringPtrOutput)
+}
+
+// Attribute of the input data that represents the ground truth label.
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsEndpointInputOutput) InferenceAttribute() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsEndpointInput) *string {
+		return v.InferenceAttribute
+	}).(pulumi.StringPtrOutput)
+}
+
+// Path to the filesystem where the endpoint data is available to the container.
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsEndpointInputOutput) LocalPath() pulumi.StringOutput {
+	return o.ApplyT(func(v MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsEndpointInput) string {
+		return v.LocalPath
+	}).(pulumi.StringOutput)
+}
+
+// In a classification problem, the attribute that represents the class probability.
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsEndpointInputOutput) ProbabilityAttribute() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsEndpointInput) *string {
+		return v.ProbabilityAttribute
+	}).(pulumi.StringPtrOutput)
+}
+
+// Threshold for the class probability to be evaluated as a positive result.
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsEndpointInputOutput) ProbabilityThresholdAttribute() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsEndpointInput) *float64 {
+		return v.ProbabilityThresholdAttribute
+	}).(pulumi.Float64PtrOutput)
+}
+
+// Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Valid values: `FullyReplicated`, `ShardedByS3Key`.
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsEndpointInputOutput) S3DataDistributionType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsEndpointInput) *string {
+		return v.S3DataDistributionType
+	}).(pulumi.StringPtrOutput)
+}
+
+// Input mode for transferring data for the monitoring job. Valid values: `Pipe`, `File`.
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsEndpointInputOutput) S3InputMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsEndpointInput) *string {
+		return v.S3InputMode
+	}).(pulumi.StringPtrOutput)
+}
+
+// Monitoring jobs subtract this time from the start time.
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsEndpointInputOutput) StartTimeOffset() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsEndpointInput) *string {
+		return v.StartTimeOffset
+	}).(pulumi.StringPtrOutput)
+}
+
+type MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsEndpointInputPtrOutput struct{ *pulumi.OutputState }
+
+func (MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsEndpointInputPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsEndpointInput)(nil)).Elem()
+}
+
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsEndpointInputPtrOutput) ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsEndpointInputPtrOutput() MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsEndpointInputPtrOutput {
+	return o
+}
+
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsEndpointInputPtrOutput) ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsEndpointInputPtrOutputWithContext(ctx context.Context) MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsEndpointInputPtrOutput {
+	return o
+}
+
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsEndpointInputPtrOutput) Elem() MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsEndpointInputOutput {
+	return o.ApplyT(func(v *MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsEndpointInput) MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsEndpointInput {
+		if v != nil {
+			return *v
+		}
+		var ret MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsEndpointInput
+		return ret
+	}).(MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsEndpointInputOutput)
+}
+
+// Monitoring jobs subtract this time from the end time.
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsEndpointInputPtrOutput) EndTimeOffset() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsEndpointInput) *string {
+		if v == nil {
+			return nil
+		}
+		return v.EndTimeOffset
+	}).(pulumi.StringPtrOutput)
+}
+
+// Endpoint in customer's account which has enabled `DataCaptureConfig`.
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsEndpointInputPtrOutput) EndpointName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsEndpointInput) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.EndpointName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Attributes of the input data to exclude from the analysis.
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsEndpointInputPtrOutput) ExcludeFeaturesAttribute() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsEndpointInput) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ExcludeFeaturesAttribute
+	}).(pulumi.StringPtrOutput)
+}
+
+// Attributes of the input data that are the input features.
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsEndpointInputPtrOutput) FeaturesAttribute() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsEndpointInput) *string {
+		if v == nil {
+			return nil
+		}
+		return v.FeaturesAttribute
+	}).(pulumi.StringPtrOutput)
+}
+
+// Attribute of the input data that represents the ground truth label.
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsEndpointInputPtrOutput) InferenceAttribute() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsEndpointInput) *string {
+		if v == nil {
+			return nil
+		}
+		return v.InferenceAttribute
+	}).(pulumi.StringPtrOutput)
+}
+
+// Path to the filesystem where the endpoint data is available to the container.
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsEndpointInputPtrOutput) LocalPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsEndpointInput) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.LocalPath
+	}).(pulumi.StringPtrOutput)
+}
+
+// In a classification problem, the attribute that represents the class probability.
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsEndpointInputPtrOutput) ProbabilityAttribute() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsEndpointInput) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ProbabilityAttribute
+	}).(pulumi.StringPtrOutput)
+}
+
+// Threshold for the class probability to be evaluated as a positive result.
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsEndpointInputPtrOutput) ProbabilityThresholdAttribute() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsEndpointInput) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.ProbabilityThresholdAttribute
+	}).(pulumi.Float64PtrOutput)
+}
+
+// Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Valid values: `FullyReplicated`, `ShardedByS3Key`.
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsEndpointInputPtrOutput) S3DataDistributionType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsEndpointInput) *string {
+		if v == nil {
+			return nil
+		}
+		return v.S3DataDistributionType
+	}).(pulumi.StringPtrOutput)
+}
+
+// Input mode for transferring data for the monitoring job. Valid values: `Pipe`, `File`.
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsEndpointInputPtrOutput) S3InputMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsEndpointInput) *string {
+		if v == nil {
+			return nil
+		}
+		return v.S3InputMode
+	}).(pulumi.StringPtrOutput)
+}
+
+// Monitoring jobs subtract this time from the start time.
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsEndpointInputPtrOutput) StartTimeOffset() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsEndpointInput) *string {
+		if v == nil {
+			return nil
+		}
+		return v.StartTimeOffset
+	}).(pulumi.StringPtrOutput)
+}
+
+type MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfig struct {
+	// AWS KMS key that Amazon SageMaker AI uses to encrypt the model artifacts at rest using Amazon S3 server-side encryption.
+	KmsKeyId *string `pulumi:"kmsKeyId"`
+	// Monitoring outputs for monitoring jobs. Fields are documented below.
+	MonitoringOutputs MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigMonitoringOutputs `pulumi:"monitoringOutputs"`
+}
+
+// MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigInput is an input type that accepts MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigArgs and MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigOutput values.
+// You can construct a concrete instance of `MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigInput` via:
+//
+//	MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigArgs{...}
+type MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigInput interface {
+	pulumi.Input
+
+	ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigOutput() MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigOutput
+	ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigOutputWithContext(context.Context) MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigOutput
+}
+
+type MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigArgs struct {
+	// AWS KMS key that Amazon SageMaker AI uses to encrypt the model artifacts at rest using Amazon S3 server-side encryption.
+	KmsKeyId pulumi.StringPtrInput `pulumi:"kmsKeyId"`
+	// Monitoring outputs for monitoring jobs. Fields are documented below.
+	MonitoringOutputs MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigMonitoringOutputsInput `pulumi:"monitoringOutputs"`
+}
+
+func (MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfig)(nil)).Elem()
+}
+
+func (i MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigArgs) ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigOutput() MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigOutput {
+	return i.ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigOutputWithContext(context.Background())
+}
+
+func (i MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigArgs) ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigOutputWithContext(ctx context.Context) MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigOutput)
+}
+
+func (i MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigArgs) ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigPtrOutput() MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigPtrOutput {
+	return i.ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigPtrOutputWithContext(context.Background())
+}
+
+func (i MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigArgs) ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigPtrOutputWithContext(ctx context.Context) MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigOutput).ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigPtrOutputWithContext(ctx)
+}
+
+// MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigPtrInput is an input type that accepts MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigArgs, MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigPtr and MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigPtrOutput values.
+// You can construct a concrete instance of `MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigPtrInput` via:
+//
+//	        MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigPtrInput interface {
+	pulumi.Input
+
+	ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigPtrOutput() MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigPtrOutput
+	ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigPtrOutputWithContext(context.Context) MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigPtrOutput
+}
+
+type monitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigPtrType MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigArgs
+
+func MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigPtr(v *MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigArgs) MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigPtrInput {
+	return (*monitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigPtrType)(v)
+}
+
+func (*monitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfig)(nil)).Elem()
+}
+
+func (i *monitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigPtrType) ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigPtrOutput() MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigPtrOutput {
+	return i.ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *monitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigPtrType) ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigPtrOutputWithContext(ctx context.Context) MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigPtrOutput)
+}
+
+type MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigOutput struct{ *pulumi.OutputState }
+
+func (MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfig)(nil)).Elem()
+}
+
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigOutput) ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigOutput() MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigOutput {
+	return o
+}
+
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigOutput) ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigOutputWithContext(ctx context.Context) MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigOutput {
+	return o
+}
+
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigOutput) ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigPtrOutput() MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigPtrOutput {
+	return o.ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigPtrOutputWithContext(context.Background())
+}
+
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigOutput) ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigPtrOutputWithContext(ctx context.Context) MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfig) *MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfig {
+		return &v
+	}).(MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigPtrOutput)
+}
+
+// AWS KMS key that Amazon SageMaker AI uses to encrypt the model artifacts at rest using Amazon S3 server-side encryption.
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigOutput) KmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfig) *string {
+		return v.KmsKeyId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Monitoring outputs for monitoring jobs. Fields are documented below.
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigOutput) MonitoringOutputs() MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigMonitoringOutputsOutput {
+	return o.ApplyT(func(v MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfig) MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigMonitoringOutputs {
+		return v.MonitoringOutputs
+	}).(MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigMonitoringOutputsOutput)
+}
+
+type MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfig)(nil)).Elem()
+}
+
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigPtrOutput) ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigPtrOutput() MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigPtrOutput {
+	return o
+}
+
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigPtrOutput) ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigPtrOutputWithContext(ctx context.Context) MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigPtrOutput {
+	return o
+}
+
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigPtrOutput) Elem() MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigOutput {
+	return o.ApplyT(func(v *MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfig) MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfig {
+		if v != nil {
+			return *v
+		}
+		var ret MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfig
+		return ret
+	}).(MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigOutput)
+}
+
+// AWS KMS key that Amazon SageMaker AI uses to encrypt the model artifacts at rest using Amazon S3 server-side encryption.
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigPtrOutput) KmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KmsKeyId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Monitoring outputs for monitoring jobs. Fields are documented below.
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigPtrOutput) MonitoringOutputs() MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigMonitoringOutputsPtrOutput {
+	return o.ApplyT(func(v *MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfig) *MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigMonitoringOutputs {
+		if v == nil {
+			return nil
+		}
+		return &v.MonitoringOutputs
+	}).(MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigMonitoringOutputsPtrOutput)
+}
+
+type MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigMonitoringOutputs struct {
+	// Amazon S3 storage location where the results of a monitoring job are saved. Fields are documented below.
+	S3Output MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigMonitoringOutputsS3Output `pulumi:"s3Output"`
+}
+
+// MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigMonitoringOutputsInput is an input type that accepts MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigMonitoringOutputsArgs and MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigMonitoringOutputsOutput values.
+// You can construct a concrete instance of `MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigMonitoringOutputsInput` via:
+//
+//	MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigMonitoringOutputsArgs{...}
+type MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigMonitoringOutputsInput interface {
+	pulumi.Input
+
+	ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigMonitoringOutputsOutput() MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigMonitoringOutputsOutput
+	ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigMonitoringOutputsOutputWithContext(context.Context) MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigMonitoringOutputsOutput
+}
+
+type MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigMonitoringOutputsArgs struct {
+	// Amazon S3 storage location where the results of a monitoring job are saved. Fields are documented below.
+	S3Output MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigMonitoringOutputsS3OutputInput `pulumi:"s3Output"`
+}
+
+func (MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigMonitoringOutputsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigMonitoringOutputs)(nil)).Elem()
+}
+
+func (i MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigMonitoringOutputsArgs) ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigMonitoringOutputsOutput() MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigMonitoringOutputsOutput {
+	return i.ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigMonitoringOutputsOutputWithContext(context.Background())
+}
+
+func (i MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigMonitoringOutputsArgs) ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigMonitoringOutputsOutputWithContext(ctx context.Context) MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigMonitoringOutputsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigMonitoringOutputsOutput)
+}
+
+func (i MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigMonitoringOutputsArgs) ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigMonitoringOutputsPtrOutput() MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigMonitoringOutputsPtrOutput {
+	return i.ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigMonitoringOutputsPtrOutputWithContext(context.Background())
+}
+
+func (i MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigMonitoringOutputsArgs) ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigMonitoringOutputsPtrOutputWithContext(ctx context.Context) MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigMonitoringOutputsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigMonitoringOutputsOutput).ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigMonitoringOutputsPtrOutputWithContext(ctx)
+}
+
+// MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigMonitoringOutputsPtrInput is an input type that accepts MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigMonitoringOutputsArgs, MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigMonitoringOutputsPtr and MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigMonitoringOutputsPtrOutput values.
+// You can construct a concrete instance of `MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigMonitoringOutputsPtrInput` via:
+//
+//	        MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigMonitoringOutputsArgs{...}
+//
+//	or:
+//
+//	        nil
+type MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigMonitoringOutputsPtrInput interface {
+	pulumi.Input
+
+	ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigMonitoringOutputsPtrOutput() MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigMonitoringOutputsPtrOutput
+	ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigMonitoringOutputsPtrOutputWithContext(context.Context) MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigMonitoringOutputsPtrOutput
+}
+
+type monitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigMonitoringOutputsPtrType MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigMonitoringOutputsArgs
+
+func MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigMonitoringOutputsPtr(v *MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigMonitoringOutputsArgs) MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigMonitoringOutputsPtrInput {
+	return (*monitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigMonitoringOutputsPtrType)(v)
+}
+
+func (*monitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigMonitoringOutputsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigMonitoringOutputs)(nil)).Elem()
+}
+
+func (i *monitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigMonitoringOutputsPtrType) ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigMonitoringOutputsPtrOutput() MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigMonitoringOutputsPtrOutput {
+	return i.ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigMonitoringOutputsPtrOutputWithContext(context.Background())
+}
+
+func (i *monitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigMonitoringOutputsPtrType) ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigMonitoringOutputsPtrOutputWithContext(ctx context.Context) MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigMonitoringOutputsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigMonitoringOutputsPtrOutput)
+}
+
+type MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigMonitoringOutputsOutput struct{ *pulumi.OutputState }
+
+func (MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigMonitoringOutputsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigMonitoringOutputs)(nil)).Elem()
+}
+
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigMonitoringOutputsOutput) ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigMonitoringOutputsOutput() MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigMonitoringOutputsOutput {
+	return o
+}
+
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigMonitoringOutputsOutput) ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigMonitoringOutputsOutputWithContext(ctx context.Context) MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigMonitoringOutputsOutput {
+	return o
+}
+
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigMonitoringOutputsOutput) ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigMonitoringOutputsPtrOutput() MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigMonitoringOutputsPtrOutput {
+	return o.ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigMonitoringOutputsPtrOutputWithContext(context.Background())
+}
+
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigMonitoringOutputsOutput) ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigMonitoringOutputsPtrOutputWithContext(ctx context.Context) MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigMonitoringOutputsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigMonitoringOutputs) *MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigMonitoringOutputs {
+		return &v
+	}).(MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigMonitoringOutputsPtrOutput)
+}
+
+// Amazon S3 storage location where the results of a monitoring job are saved. Fields are documented below.
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigMonitoringOutputsOutput) S3Output() MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigMonitoringOutputsS3OutputOutput {
+	return o.ApplyT(func(v MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigMonitoringOutputs) MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigMonitoringOutputsS3Output {
+		return v.S3Output
+	}).(MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigMonitoringOutputsS3OutputOutput)
+}
+
+type MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigMonitoringOutputsPtrOutput struct{ *pulumi.OutputState }
+
+func (MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigMonitoringOutputsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigMonitoringOutputs)(nil)).Elem()
+}
+
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigMonitoringOutputsPtrOutput) ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigMonitoringOutputsPtrOutput() MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigMonitoringOutputsPtrOutput {
+	return o
+}
+
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigMonitoringOutputsPtrOutput) ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigMonitoringOutputsPtrOutputWithContext(ctx context.Context) MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigMonitoringOutputsPtrOutput {
+	return o
+}
+
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigMonitoringOutputsPtrOutput) Elem() MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigMonitoringOutputsOutput {
+	return o.ApplyT(func(v *MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigMonitoringOutputs) MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigMonitoringOutputs {
+		if v != nil {
+			return *v
+		}
+		var ret MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigMonitoringOutputs
+		return ret
+	}).(MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigMonitoringOutputsOutput)
+}
+
+// Amazon S3 storage location where the results of a monitoring job are saved. Fields are documented below.
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigMonitoringOutputsPtrOutput) S3Output() MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigMonitoringOutputsS3OutputPtrOutput {
+	return o.ApplyT(func(v *MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigMonitoringOutputs) *MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigMonitoringOutputsS3Output {
+		if v == nil {
+			return nil
+		}
+		return &v.S3Output
+	}).(MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigMonitoringOutputsS3OutputPtrOutput)
+}
+
+type MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigMonitoringOutputsS3Output struct {
+	// Local path to the Amazon S3 storage location where Amazon SageMaker AI saves the results of a monitoring job.
+	LocalPath string `pulumi:"localPath"`
+	// Whether to upload the results of the monitoring job continuously or after the job completes. Valid values: `Continuous`, `EndOfJob`.
+	S3UploadMode *string `pulumi:"s3UploadMode"`
+	// URI that identifies the Amazon S3 storage location where Amazon SageMaker AI saves the results of a monitoring job.
+	S3Uri string `pulumi:"s3Uri"`
+}
+
+// MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigMonitoringOutputsS3OutputInput is an input type that accepts MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigMonitoringOutputsS3OutputArgs and MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigMonitoringOutputsS3OutputOutput values.
+// You can construct a concrete instance of `MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigMonitoringOutputsS3OutputInput` via:
+//
+//	MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigMonitoringOutputsS3OutputArgs{...}
+type MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigMonitoringOutputsS3OutputInput interface {
+	pulumi.Input
+
+	ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigMonitoringOutputsS3OutputOutput() MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigMonitoringOutputsS3OutputOutput
+	ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigMonitoringOutputsS3OutputOutputWithContext(context.Context) MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigMonitoringOutputsS3OutputOutput
+}
+
+type MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigMonitoringOutputsS3OutputArgs struct {
+	// Local path to the Amazon S3 storage location where Amazon SageMaker AI saves the results of a monitoring job.
+	LocalPath pulumi.StringInput `pulumi:"localPath"`
+	// Whether to upload the results of the monitoring job continuously or after the job completes. Valid values: `Continuous`, `EndOfJob`.
+	S3UploadMode pulumi.StringPtrInput `pulumi:"s3UploadMode"`
+	// URI that identifies the Amazon S3 storage location where Amazon SageMaker AI saves the results of a monitoring job.
+	S3Uri pulumi.StringInput `pulumi:"s3Uri"`
+}
+
+func (MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigMonitoringOutputsS3OutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigMonitoringOutputsS3Output)(nil)).Elem()
+}
+
+func (i MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigMonitoringOutputsS3OutputArgs) ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigMonitoringOutputsS3OutputOutput() MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigMonitoringOutputsS3OutputOutput {
+	return i.ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigMonitoringOutputsS3OutputOutputWithContext(context.Background())
+}
+
+func (i MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigMonitoringOutputsS3OutputArgs) ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigMonitoringOutputsS3OutputOutputWithContext(ctx context.Context) MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigMonitoringOutputsS3OutputOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigMonitoringOutputsS3OutputOutput)
+}
+
+func (i MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigMonitoringOutputsS3OutputArgs) ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigMonitoringOutputsS3OutputPtrOutput() MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigMonitoringOutputsS3OutputPtrOutput {
+	return i.ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigMonitoringOutputsS3OutputPtrOutputWithContext(context.Background())
+}
+
+func (i MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigMonitoringOutputsS3OutputArgs) ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigMonitoringOutputsS3OutputPtrOutputWithContext(ctx context.Context) MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigMonitoringOutputsS3OutputPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigMonitoringOutputsS3OutputOutput).ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigMonitoringOutputsS3OutputPtrOutputWithContext(ctx)
+}
+
+// MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigMonitoringOutputsS3OutputPtrInput is an input type that accepts MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigMonitoringOutputsS3OutputArgs, MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigMonitoringOutputsS3OutputPtr and MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigMonitoringOutputsS3OutputPtrOutput values.
+// You can construct a concrete instance of `MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigMonitoringOutputsS3OutputPtrInput` via:
+//
+//	        MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigMonitoringOutputsS3OutputArgs{...}
+//
+//	or:
+//
+//	        nil
+type MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigMonitoringOutputsS3OutputPtrInput interface {
+	pulumi.Input
+
+	ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigMonitoringOutputsS3OutputPtrOutput() MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigMonitoringOutputsS3OutputPtrOutput
+	ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigMonitoringOutputsS3OutputPtrOutputWithContext(context.Context) MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigMonitoringOutputsS3OutputPtrOutput
+}
+
+type monitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigMonitoringOutputsS3OutputPtrType MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigMonitoringOutputsS3OutputArgs
+
+func MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigMonitoringOutputsS3OutputPtr(v *MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigMonitoringOutputsS3OutputArgs) MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigMonitoringOutputsS3OutputPtrInput {
+	return (*monitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigMonitoringOutputsS3OutputPtrType)(v)
+}
+
+func (*monitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigMonitoringOutputsS3OutputPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigMonitoringOutputsS3Output)(nil)).Elem()
+}
+
+func (i *monitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigMonitoringOutputsS3OutputPtrType) ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigMonitoringOutputsS3OutputPtrOutput() MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigMonitoringOutputsS3OutputPtrOutput {
+	return i.ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigMonitoringOutputsS3OutputPtrOutputWithContext(context.Background())
+}
+
+func (i *monitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigMonitoringOutputsS3OutputPtrType) ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigMonitoringOutputsS3OutputPtrOutputWithContext(ctx context.Context) MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigMonitoringOutputsS3OutputPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigMonitoringOutputsS3OutputPtrOutput)
+}
+
+type MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigMonitoringOutputsS3OutputOutput struct{ *pulumi.OutputState }
+
+func (MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigMonitoringOutputsS3OutputOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigMonitoringOutputsS3Output)(nil)).Elem()
+}
+
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigMonitoringOutputsS3OutputOutput) ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigMonitoringOutputsS3OutputOutput() MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigMonitoringOutputsS3OutputOutput {
+	return o
+}
+
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigMonitoringOutputsS3OutputOutput) ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigMonitoringOutputsS3OutputOutputWithContext(ctx context.Context) MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigMonitoringOutputsS3OutputOutput {
+	return o
+}
+
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigMonitoringOutputsS3OutputOutput) ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigMonitoringOutputsS3OutputPtrOutput() MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigMonitoringOutputsS3OutputPtrOutput {
+	return o.ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigMonitoringOutputsS3OutputPtrOutputWithContext(context.Background())
+}
+
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigMonitoringOutputsS3OutputOutput) ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigMonitoringOutputsS3OutputPtrOutputWithContext(ctx context.Context) MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigMonitoringOutputsS3OutputPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigMonitoringOutputsS3Output) *MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigMonitoringOutputsS3Output {
+		return &v
+	}).(MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigMonitoringOutputsS3OutputPtrOutput)
+}
+
+// Local path to the Amazon S3 storage location where Amazon SageMaker AI saves the results of a monitoring job.
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigMonitoringOutputsS3OutputOutput) LocalPath() pulumi.StringOutput {
+	return o.ApplyT(func(v MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigMonitoringOutputsS3Output) string {
+		return v.LocalPath
+	}).(pulumi.StringOutput)
+}
+
+// Whether to upload the results of the monitoring job continuously or after the job completes. Valid values: `Continuous`, `EndOfJob`.
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigMonitoringOutputsS3OutputOutput) S3UploadMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigMonitoringOutputsS3Output) *string {
+		return v.S3UploadMode
+	}).(pulumi.StringPtrOutput)
+}
+
+// URI that identifies the Amazon S3 storage location where Amazon SageMaker AI saves the results of a monitoring job.
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigMonitoringOutputsS3OutputOutput) S3Uri() pulumi.StringOutput {
+	return o.ApplyT(func(v MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigMonitoringOutputsS3Output) string {
+		return v.S3Uri
+	}).(pulumi.StringOutput)
+}
+
+type MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigMonitoringOutputsS3OutputPtrOutput struct{ *pulumi.OutputState }
+
+func (MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigMonitoringOutputsS3OutputPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigMonitoringOutputsS3Output)(nil)).Elem()
+}
+
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigMonitoringOutputsS3OutputPtrOutput) ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigMonitoringOutputsS3OutputPtrOutput() MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigMonitoringOutputsS3OutputPtrOutput {
+	return o
+}
+
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigMonitoringOutputsS3OutputPtrOutput) ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigMonitoringOutputsS3OutputPtrOutputWithContext(ctx context.Context) MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigMonitoringOutputsS3OutputPtrOutput {
+	return o
+}
+
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigMonitoringOutputsS3OutputPtrOutput) Elem() MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigMonitoringOutputsS3OutputOutput {
+	return o.ApplyT(func(v *MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigMonitoringOutputsS3Output) MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigMonitoringOutputsS3Output {
+		if v != nil {
+			return *v
+		}
+		var ret MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigMonitoringOutputsS3Output
+		return ret
+	}).(MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigMonitoringOutputsS3OutputOutput)
+}
+
+// Local path to the Amazon S3 storage location where Amazon SageMaker AI saves the results of a monitoring job.
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigMonitoringOutputsS3OutputPtrOutput) LocalPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigMonitoringOutputsS3Output) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.LocalPath
+	}).(pulumi.StringPtrOutput)
+}
+
+// Whether to upload the results of the monitoring job continuously or after the job completes. Valid values: `Continuous`, `EndOfJob`.
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigMonitoringOutputsS3OutputPtrOutput) S3UploadMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigMonitoringOutputsS3Output) *string {
+		if v == nil {
+			return nil
+		}
+		return v.S3UploadMode
+	}).(pulumi.StringPtrOutput)
+}
+
+// URI that identifies the Amazon S3 storage location where Amazon SageMaker AI saves the results of a monitoring job.
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigMonitoringOutputsS3OutputPtrOutput) S3Uri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigMonitoringOutputsS3Output) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.S3Uri
+	}).(pulumi.StringPtrOutput)
+}
+
+type MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResources struct {
+	// Configuration for the cluster resources used to run the processing job. Fields are documented below.
+	ClusterConfig MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResourcesClusterConfig `pulumi:"clusterConfig"`
+}
+
+// MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResourcesInput is an input type that accepts MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResourcesArgs and MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResourcesOutput values.
+// You can construct a concrete instance of `MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResourcesInput` via:
+//
+//	MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResourcesArgs{...}
+type MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResourcesInput interface {
+	pulumi.Input
+
+	ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResourcesOutput() MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResourcesOutput
+	ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResourcesOutputWithContext(context.Context) MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResourcesOutput
+}
+
+type MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResourcesArgs struct {
+	// Configuration for the cluster resources used to run the processing job. Fields are documented below.
+	ClusterConfig MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResourcesClusterConfigInput `pulumi:"clusterConfig"`
+}
+
+func (MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResourcesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResources)(nil)).Elem()
+}
+
+func (i MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResourcesArgs) ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResourcesOutput() MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResourcesOutput {
+	return i.ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResourcesOutputWithContext(context.Background())
+}
+
+func (i MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResourcesArgs) ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResourcesOutputWithContext(ctx context.Context) MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResourcesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResourcesOutput)
+}
+
+func (i MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResourcesArgs) ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResourcesPtrOutput() MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResourcesPtrOutput {
+	return i.ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResourcesPtrOutputWithContext(context.Background())
+}
+
+func (i MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResourcesArgs) ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResourcesPtrOutputWithContext(ctx context.Context) MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResourcesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResourcesOutput).ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResourcesPtrOutputWithContext(ctx)
+}
+
+// MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResourcesPtrInput is an input type that accepts MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResourcesArgs, MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResourcesPtr and MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResourcesPtrOutput values.
+// You can construct a concrete instance of `MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResourcesPtrInput` via:
+//
+//	        MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResourcesArgs{...}
+//
+//	or:
+//
+//	        nil
+type MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResourcesPtrInput interface {
+	pulumi.Input
+
+	ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResourcesPtrOutput() MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResourcesPtrOutput
+	ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResourcesPtrOutputWithContext(context.Context) MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResourcesPtrOutput
+}
+
+type monitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResourcesPtrType MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResourcesArgs
+
+func MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResourcesPtr(v *MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResourcesArgs) MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResourcesPtrInput {
+	return (*monitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResourcesPtrType)(v)
+}
+
+func (*monitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResourcesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResources)(nil)).Elem()
+}
+
+func (i *monitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResourcesPtrType) ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResourcesPtrOutput() MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResourcesPtrOutput {
+	return i.ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResourcesPtrOutputWithContext(context.Background())
+}
+
+func (i *monitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResourcesPtrType) ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResourcesPtrOutputWithContext(ctx context.Context) MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResourcesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResourcesPtrOutput)
+}
+
+type MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResourcesOutput struct{ *pulumi.OutputState }
+
+func (MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResourcesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResources)(nil)).Elem()
+}
+
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResourcesOutput) ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResourcesOutput() MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResourcesOutput {
+	return o
+}
+
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResourcesOutput) ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResourcesOutputWithContext(ctx context.Context) MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResourcesOutput {
+	return o
+}
+
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResourcesOutput) ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResourcesPtrOutput() MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResourcesPtrOutput {
+	return o.ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResourcesPtrOutputWithContext(context.Background())
+}
+
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResourcesOutput) ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResourcesPtrOutputWithContext(ctx context.Context) MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResourcesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResources) *MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResources {
+		return &v
+	}).(MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResourcesPtrOutput)
+}
+
+// Configuration for the cluster resources used to run the processing job. Fields are documented below.
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResourcesOutput) ClusterConfig() MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResourcesClusterConfigOutput {
+	return o.ApplyT(func(v MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResources) MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResourcesClusterConfig {
+		return v.ClusterConfig
+	}).(MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResourcesClusterConfigOutput)
+}
+
+type MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResourcesPtrOutput struct{ *pulumi.OutputState }
+
+func (MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResourcesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResources)(nil)).Elem()
+}
+
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResourcesPtrOutput) ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResourcesPtrOutput() MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResourcesPtrOutput {
+	return o
+}
+
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResourcesPtrOutput) ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResourcesPtrOutputWithContext(ctx context.Context) MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResourcesPtrOutput {
+	return o
+}
+
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResourcesPtrOutput) Elem() MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResourcesOutput {
+	return o.ApplyT(func(v *MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResources) MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResources {
+		if v != nil {
+			return *v
+		}
+		var ret MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResources
+		return ret
+	}).(MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResourcesOutput)
+}
+
+// Configuration for the cluster resources used to run the processing job. Fields are documented below.
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResourcesPtrOutput) ClusterConfig() MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResourcesClusterConfigPtrOutput {
+	return o.ApplyT(func(v *MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResources) *MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResourcesClusterConfig {
+		if v == nil {
+			return nil
+		}
+		return &v.ClusterConfig
+	}).(MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResourcesClusterConfigPtrOutput)
+}
+
+type MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResourcesClusterConfig struct {
+	// Number of ML compute instances to use in the model monitoring job.
+	InstanceCount int `pulumi:"instanceCount"`
+	// ML compute instance type for the processing job.
+	InstanceType string `pulumi:"instanceType"`
+	// AWS KMS key that Amazon SageMaker AI uses to encrypt data on the storage volume attached to the ML compute instance(s) that run the model monitoring job.
+	VolumeKmsKeyId *string `pulumi:"volumeKmsKeyId"`
+	// size of the ML storage volume, in gigabytes, to provision.
+	VolumeSizeInGb int `pulumi:"volumeSizeInGb"`
+}
+
+// MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResourcesClusterConfigInput is an input type that accepts MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResourcesClusterConfigArgs and MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResourcesClusterConfigOutput values.
+// You can construct a concrete instance of `MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResourcesClusterConfigInput` via:
+//
+//	MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResourcesClusterConfigArgs{...}
+type MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResourcesClusterConfigInput interface {
+	pulumi.Input
+
+	ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResourcesClusterConfigOutput() MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResourcesClusterConfigOutput
+	ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResourcesClusterConfigOutputWithContext(context.Context) MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResourcesClusterConfigOutput
+}
+
+type MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResourcesClusterConfigArgs struct {
+	// Number of ML compute instances to use in the model monitoring job.
+	InstanceCount pulumi.IntInput `pulumi:"instanceCount"`
+	// ML compute instance type for the processing job.
+	InstanceType pulumi.StringInput `pulumi:"instanceType"`
+	// AWS KMS key that Amazon SageMaker AI uses to encrypt data on the storage volume attached to the ML compute instance(s) that run the model monitoring job.
+	VolumeKmsKeyId pulumi.StringPtrInput `pulumi:"volumeKmsKeyId"`
+	// size of the ML storage volume, in gigabytes, to provision.
+	VolumeSizeInGb pulumi.IntInput `pulumi:"volumeSizeInGb"`
+}
+
+func (MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResourcesClusterConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResourcesClusterConfig)(nil)).Elem()
+}
+
+func (i MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResourcesClusterConfigArgs) ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResourcesClusterConfigOutput() MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResourcesClusterConfigOutput {
+	return i.ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResourcesClusterConfigOutputWithContext(context.Background())
+}
+
+func (i MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResourcesClusterConfigArgs) ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResourcesClusterConfigOutputWithContext(ctx context.Context) MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResourcesClusterConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResourcesClusterConfigOutput)
+}
+
+func (i MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResourcesClusterConfigArgs) ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResourcesClusterConfigPtrOutput() MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResourcesClusterConfigPtrOutput {
+	return i.ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResourcesClusterConfigPtrOutputWithContext(context.Background())
+}
+
+func (i MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResourcesClusterConfigArgs) ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResourcesClusterConfigPtrOutputWithContext(ctx context.Context) MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResourcesClusterConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResourcesClusterConfigOutput).ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResourcesClusterConfigPtrOutputWithContext(ctx)
+}
+
+// MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResourcesClusterConfigPtrInput is an input type that accepts MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResourcesClusterConfigArgs, MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResourcesClusterConfigPtr and MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResourcesClusterConfigPtrOutput values.
+// You can construct a concrete instance of `MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResourcesClusterConfigPtrInput` via:
+//
+//	        MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResourcesClusterConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResourcesClusterConfigPtrInput interface {
+	pulumi.Input
+
+	ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResourcesClusterConfigPtrOutput() MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResourcesClusterConfigPtrOutput
+	ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResourcesClusterConfigPtrOutputWithContext(context.Context) MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResourcesClusterConfigPtrOutput
+}
+
+type monitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResourcesClusterConfigPtrType MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResourcesClusterConfigArgs
+
+func MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResourcesClusterConfigPtr(v *MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResourcesClusterConfigArgs) MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResourcesClusterConfigPtrInput {
+	return (*monitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResourcesClusterConfigPtrType)(v)
+}
+
+func (*monitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResourcesClusterConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResourcesClusterConfig)(nil)).Elem()
+}
+
+func (i *monitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResourcesClusterConfigPtrType) ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResourcesClusterConfigPtrOutput() MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResourcesClusterConfigPtrOutput {
+	return i.ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResourcesClusterConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *monitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResourcesClusterConfigPtrType) ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResourcesClusterConfigPtrOutputWithContext(ctx context.Context) MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResourcesClusterConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResourcesClusterConfigPtrOutput)
+}
+
+type MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResourcesClusterConfigOutput struct{ *pulumi.OutputState }
+
+func (MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResourcesClusterConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResourcesClusterConfig)(nil)).Elem()
+}
+
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResourcesClusterConfigOutput) ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResourcesClusterConfigOutput() MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResourcesClusterConfigOutput {
+	return o
+}
+
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResourcesClusterConfigOutput) ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResourcesClusterConfigOutputWithContext(ctx context.Context) MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResourcesClusterConfigOutput {
+	return o
+}
+
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResourcesClusterConfigOutput) ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResourcesClusterConfigPtrOutput() MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResourcesClusterConfigPtrOutput {
+	return o.ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResourcesClusterConfigPtrOutputWithContext(context.Background())
+}
+
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResourcesClusterConfigOutput) ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResourcesClusterConfigPtrOutputWithContext(ctx context.Context) MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResourcesClusterConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResourcesClusterConfig) *MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResourcesClusterConfig {
+		return &v
+	}).(MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResourcesClusterConfigPtrOutput)
+}
+
+// Number of ML compute instances to use in the model monitoring job.
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResourcesClusterConfigOutput) InstanceCount() pulumi.IntOutput {
+	return o.ApplyT(func(v MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResourcesClusterConfig) int {
+		return v.InstanceCount
+	}).(pulumi.IntOutput)
+}
+
+// ML compute instance type for the processing job.
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResourcesClusterConfigOutput) InstanceType() pulumi.StringOutput {
+	return o.ApplyT(func(v MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResourcesClusterConfig) string {
+		return v.InstanceType
+	}).(pulumi.StringOutput)
+}
+
+// AWS KMS key that Amazon SageMaker AI uses to encrypt data on the storage volume attached to the ML compute instance(s) that run the model monitoring job.
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResourcesClusterConfigOutput) VolumeKmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResourcesClusterConfig) *string {
+		return v.VolumeKmsKeyId
+	}).(pulumi.StringPtrOutput)
+}
+
+// size of the ML storage volume, in gigabytes, to provision.
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResourcesClusterConfigOutput) VolumeSizeInGb() pulumi.IntOutput {
+	return o.ApplyT(func(v MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResourcesClusterConfig) int {
+		return v.VolumeSizeInGb
+	}).(pulumi.IntOutput)
+}
+
+type MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResourcesClusterConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResourcesClusterConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResourcesClusterConfig)(nil)).Elem()
+}
+
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResourcesClusterConfigPtrOutput) ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResourcesClusterConfigPtrOutput() MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResourcesClusterConfigPtrOutput {
+	return o
+}
+
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResourcesClusterConfigPtrOutput) ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResourcesClusterConfigPtrOutputWithContext(ctx context.Context) MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResourcesClusterConfigPtrOutput {
+	return o
+}
+
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResourcesClusterConfigPtrOutput) Elem() MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResourcesClusterConfigOutput {
+	return o.ApplyT(func(v *MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResourcesClusterConfig) MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResourcesClusterConfig {
+		if v != nil {
+			return *v
+		}
+		var ret MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResourcesClusterConfig
+		return ret
+	}).(MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResourcesClusterConfigOutput)
+}
+
+// Number of ML compute instances to use in the model monitoring job.
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResourcesClusterConfigPtrOutput) InstanceCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResourcesClusterConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.InstanceCount
+	}).(pulumi.IntPtrOutput)
+}
+
+// ML compute instance type for the processing job.
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResourcesClusterConfigPtrOutput) InstanceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResourcesClusterConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.InstanceType
+	}).(pulumi.StringPtrOutput)
+}
+
+// AWS KMS key that Amazon SageMaker AI uses to encrypt data on the storage volume attached to the ML compute instance(s) that run the model monitoring job.
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResourcesClusterConfigPtrOutput) VolumeKmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResourcesClusterConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.VolumeKmsKeyId
+	}).(pulumi.StringPtrOutput)
+}
+
+// size of the ML storage volume, in gigabytes, to provision.
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResourcesClusterConfigPtrOutput) VolumeSizeInGb() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResourcesClusterConfig) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.VolumeSizeInGb
+	}).(pulumi.IntPtrOutput)
+}
+
+type MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfig struct {
+	// Whether to encrypt all communications between distributed processing jobs.
+	EnableInterContainerTrafficEncryption *bool `pulumi:"enableInterContainerTrafficEncryption"`
+	// Whether to allow inbound and outbound network calls to and from the containers used for the processing job.
+	EnableNetworkIsolation *bool `pulumi:"enableNetworkIsolation"`
+	// VPC that SageMaker jobs, hosted models, and compute resources have access to. Fields are documented below.
+	VpcConfig *MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfigVpcConfig `pulumi:"vpcConfig"`
+}
+
+// MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfigInput is an input type that accepts MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfigArgs and MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfigOutput values.
+// You can construct a concrete instance of `MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfigInput` via:
+//
+//	MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfigArgs{...}
+type MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfigInput interface {
+	pulumi.Input
+
+	ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfigOutput() MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfigOutput
+	ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfigOutputWithContext(context.Context) MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfigOutput
+}
+
+type MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfigArgs struct {
+	// Whether to encrypt all communications between distributed processing jobs.
+	EnableInterContainerTrafficEncryption pulumi.BoolPtrInput `pulumi:"enableInterContainerTrafficEncryption"`
+	// Whether to allow inbound and outbound network calls to and from the containers used for the processing job.
+	EnableNetworkIsolation pulumi.BoolPtrInput `pulumi:"enableNetworkIsolation"`
+	// VPC that SageMaker jobs, hosted models, and compute resources have access to. Fields are documented below.
+	VpcConfig MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfigVpcConfigPtrInput `pulumi:"vpcConfig"`
+}
+
+func (MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfig)(nil)).Elem()
+}
+
+func (i MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfigArgs) ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfigOutput() MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfigOutput {
+	return i.ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfigOutputWithContext(context.Background())
+}
+
+func (i MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfigArgs) ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfigOutputWithContext(ctx context.Context) MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfigOutput)
+}
+
+func (i MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfigArgs) ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfigPtrOutput() MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfigPtrOutput {
+	return i.ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfigPtrOutputWithContext(context.Background())
+}
+
+func (i MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfigArgs) ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfigPtrOutputWithContext(ctx context.Context) MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfigOutput).ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfigPtrOutputWithContext(ctx)
+}
+
+// MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfigPtrInput is an input type that accepts MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfigArgs, MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfigPtr and MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfigPtrOutput values.
+// You can construct a concrete instance of `MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfigPtrInput` via:
+//
+//	        MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfigPtrInput interface {
+	pulumi.Input
+
+	ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfigPtrOutput() MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfigPtrOutput
+	ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfigPtrOutputWithContext(context.Context) MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfigPtrOutput
+}
+
+type monitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfigPtrType MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfigArgs
+
+func MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfigPtr(v *MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfigArgs) MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfigPtrInput {
+	return (*monitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfigPtrType)(v)
+}
+
+func (*monitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfig)(nil)).Elem()
+}
+
+func (i *monitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfigPtrType) ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfigPtrOutput() MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfigPtrOutput {
+	return i.ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *monitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfigPtrType) ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfigPtrOutputWithContext(ctx context.Context) MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfigPtrOutput)
+}
+
+type MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfigOutput struct{ *pulumi.OutputState }
+
+func (MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfig)(nil)).Elem()
+}
+
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfigOutput) ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfigOutput() MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfigOutput {
+	return o
+}
+
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfigOutput) ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfigOutputWithContext(ctx context.Context) MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfigOutput {
+	return o
+}
+
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfigOutput) ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfigPtrOutput() MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfigPtrOutput {
+	return o.ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfigPtrOutputWithContext(context.Background())
+}
+
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfigOutput) ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfigPtrOutputWithContext(ctx context.Context) MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfig) *MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfig {
+		return &v
+	}).(MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfigPtrOutput)
+}
+
+// Whether to encrypt all communications between distributed processing jobs.
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfigOutput) EnableInterContainerTrafficEncryption() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfig) *bool {
+		return v.EnableInterContainerTrafficEncryption
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Whether to allow inbound and outbound network calls to and from the containers used for the processing job.
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfigOutput) EnableNetworkIsolation() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfig) *bool {
+		return v.EnableNetworkIsolation
+	}).(pulumi.BoolPtrOutput)
+}
+
+// VPC that SageMaker jobs, hosted models, and compute resources have access to. Fields are documented below.
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfigOutput) VpcConfig() MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfigVpcConfigPtrOutput {
+	return o.ApplyT(func(v MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfig) *MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfigVpcConfig {
+		return v.VpcConfig
+	}).(MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfigVpcConfigPtrOutput)
+}
+
+type MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfig)(nil)).Elem()
+}
+
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfigPtrOutput) ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfigPtrOutput() MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfigPtrOutput {
+	return o
+}
+
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfigPtrOutput) ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfigPtrOutputWithContext(ctx context.Context) MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfigPtrOutput {
+	return o
+}
+
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfigPtrOutput) Elem() MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfigOutput {
+	return o.ApplyT(func(v *MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfig) MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfig {
+		if v != nil {
+			return *v
+		}
+		var ret MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfig
+		return ret
+	}).(MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfigOutput)
+}
+
+// Whether to encrypt all communications between distributed processing jobs.
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfigPtrOutput) EnableInterContainerTrafficEncryption() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfig) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.EnableInterContainerTrafficEncryption
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Whether to allow inbound and outbound network calls to and from the containers used for the processing job.
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfigPtrOutput) EnableNetworkIsolation() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfig) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.EnableNetworkIsolation
+	}).(pulumi.BoolPtrOutput)
+}
+
+// VPC that SageMaker jobs, hosted models, and compute resources have access to. Fields are documented below.
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfigPtrOutput) VpcConfig() MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfigVpcConfigPtrOutput {
+	return o.ApplyT(func(v *MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfig) *MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfigVpcConfig {
+		if v == nil {
+			return nil
+		}
+		return v.VpcConfig
+	}).(MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfigVpcConfigPtrOutput)
+}
+
+type MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfigVpcConfig struct {
+	// VPC security group IDs.
+	SecurityGroupIds []string `pulumi:"securityGroupIds"`
+	// Subnet IDs.
+	Subnets []string `pulumi:"subnets"`
+}
+
+// MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfigVpcConfigInput is an input type that accepts MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfigVpcConfigArgs and MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfigVpcConfigOutput values.
+// You can construct a concrete instance of `MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfigVpcConfigInput` via:
+//
+//	MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfigVpcConfigArgs{...}
+type MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfigVpcConfigInput interface {
+	pulumi.Input
+
+	ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfigVpcConfigOutput() MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfigVpcConfigOutput
+	ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfigVpcConfigOutputWithContext(context.Context) MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfigVpcConfigOutput
+}
+
+type MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfigVpcConfigArgs struct {
+	// VPC security group IDs.
+	SecurityGroupIds pulumi.StringArrayInput `pulumi:"securityGroupIds"`
+	// Subnet IDs.
+	Subnets pulumi.StringArrayInput `pulumi:"subnets"`
+}
+
+func (MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfigVpcConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfigVpcConfig)(nil)).Elem()
+}
+
+func (i MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfigVpcConfigArgs) ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfigVpcConfigOutput() MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfigVpcConfigOutput {
+	return i.ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfigVpcConfigOutputWithContext(context.Background())
+}
+
+func (i MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfigVpcConfigArgs) ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfigVpcConfigOutputWithContext(ctx context.Context) MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfigVpcConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfigVpcConfigOutput)
+}
+
+func (i MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfigVpcConfigArgs) ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfigVpcConfigPtrOutput() MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfigVpcConfigPtrOutput {
+	return i.ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfigVpcConfigPtrOutputWithContext(context.Background())
+}
+
+func (i MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfigVpcConfigArgs) ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfigVpcConfigPtrOutputWithContext(ctx context.Context) MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfigVpcConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfigVpcConfigOutput).ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfigVpcConfigPtrOutputWithContext(ctx)
+}
+
+// MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfigVpcConfigPtrInput is an input type that accepts MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfigVpcConfigArgs, MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfigVpcConfigPtr and MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfigVpcConfigPtrOutput values.
+// You can construct a concrete instance of `MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfigVpcConfigPtrInput` via:
+//
+//	        MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfigVpcConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfigVpcConfigPtrInput interface {
+	pulumi.Input
+
+	ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfigVpcConfigPtrOutput() MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfigVpcConfigPtrOutput
+	ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfigVpcConfigPtrOutputWithContext(context.Context) MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfigVpcConfigPtrOutput
+}
+
+type monitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfigVpcConfigPtrType MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfigVpcConfigArgs
+
+func MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfigVpcConfigPtr(v *MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfigVpcConfigArgs) MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfigVpcConfigPtrInput {
+	return (*monitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfigVpcConfigPtrType)(v)
+}
+
+func (*monitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfigVpcConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfigVpcConfig)(nil)).Elem()
+}
+
+func (i *monitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfigVpcConfigPtrType) ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfigVpcConfigPtrOutput() MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfigVpcConfigPtrOutput {
+	return i.ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfigVpcConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *monitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfigVpcConfigPtrType) ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfigVpcConfigPtrOutputWithContext(ctx context.Context) MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfigVpcConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfigVpcConfigPtrOutput)
+}
+
+type MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfigVpcConfigOutput struct{ *pulumi.OutputState }
+
+func (MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfigVpcConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfigVpcConfig)(nil)).Elem()
+}
+
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfigVpcConfigOutput) ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfigVpcConfigOutput() MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfigVpcConfigOutput {
+	return o
+}
+
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfigVpcConfigOutput) ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfigVpcConfigOutputWithContext(ctx context.Context) MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfigVpcConfigOutput {
+	return o
+}
+
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfigVpcConfigOutput) ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfigVpcConfigPtrOutput() MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfigVpcConfigPtrOutput {
+	return o.ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfigVpcConfigPtrOutputWithContext(context.Background())
+}
+
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfigVpcConfigOutput) ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfigVpcConfigPtrOutputWithContext(ctx context.Context) MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfigVpcConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfigVpcConfig) *MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfigVpcConfig {
+		return &v
+	}).(MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfigVpcConfigPtrOutput)
+}
+
+// VPC security group IDs.
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfigVpcConfigOutput) SecurityGroupIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfigVpcConfig) []string {
+		return v.SecurityGroupIds
+	}).(pulumi.StringArrayOutput)
+}
+
+// Subnet IDs.
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfigVpcConfigOutput) Subnets() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfigVpcConfig) []string {
+		return v.Subnets
+	}).(pulumi.StringArrayOutput)
+}
+
+type MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfigVpcConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfigVpcConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfigVpcConfig)(nil)).Elem()
+}
+
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfigVpcConfigPtrOutput) ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfigVpcConfigPtrOutput() MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfigVpcConfigPtrOutput {
+	return o
+}
+
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfigVpcConfigPtrOutput) ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfigVpcConfigPtrOutputWithContext(ctx context.Context) MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfigVpcConfigPtrOutput {
+	return o
+}
+
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfigVpcConfigPtrOutput) Elem() MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfigVpcConfigOutput {
+	return o.ApplyT(func(v *MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfigVpcConfig) MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfigVpcConfig {
+		if v != nil {
+			return *v
+		}
+		var ret MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfigVpcConfig
+		return ret
+	}).(MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfigVpcConfigOutput)
+}
+
+// VPC security group IDs.
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfigVpcConfigPtrOutput) SecurityGroupIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfigVpcConfig) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SecurityGroupIds
+	}).(pulumi.StringArrayOutput)
+}
+
+// Subnet IDs.
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfigVpcConfigPtrOutput) Subnets() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfigVpcConfig) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Subnets
+	}).(pulumi.StringArrayOutput)
+}
+
+type MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionStoppingCondition struct {
+	// Maximum runtime allowed in seconds.
+	MaxRuntimeInSeconds *int `pulumi:"maxRuntimeInSeconds"`
+}
+
+// MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionStoppingConditionInput is an input type that accepts MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionStoppingConditionArgs and MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionStoppingConditionOutput values.
+// You can construct a concrete instance of `MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionStoppingConditionInput` via:
+//
+//	MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionStoppingConditionArgs{...}
+type MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionStoppingConditionInput interface {
+	pulumi.Input
+
+	ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionStoppingConditionOutput() MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionStoppingConditionOutput
+	ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionStoppingConditionOutputWithContext(context.Context) MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionStoppingConditionOutput
+}
+
+type MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionStoppingConditionArgs struct {
+	// Maximum runtime allowed in seconds.
+	MaxRuntimeInSeconds pulumi.IntPtrInput `pulumi:"maxRuntimeInSeconds"`
+}
+
+func (MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionStoppingConditionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionStoppingCondition)(nil)).Elem()
+}
+
+func (i MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionStoppingConditionArgs) ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionStoppingConditionOutput() MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionStoppingConditionOutput {
+	return i.ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionStoppingConditionOutputWithContext(context.Background())
+}
+
+func (i MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionStoppingConditionArgs) ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionStoppingConditionOutputWithContext(ctx context.Context) MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionStoppingConditionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionStoppingConditionOutput)
+}
+
+// MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionStoppingConditionArrayInput is an input type that accepts MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionStoppingConditionArray and MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionStoppingConditionArrayOutput values.
+// You can construct a concrete instance of `MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionStoppingConditionArrayInput` via:
+//
+//	MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionStoppingConditionArray{ MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionStoppingConditionArgs{...} }
+type MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionStoppingConditionArrayInput interface {
+	pulumi.Input
+
+	ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionStoppingConditionArrayOutput() MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionStoppingConditionArrayOutput
+	ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionStoppingConditionArrayOutputWithContext(context.Context) MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionStoppingConditionArrayOutput
+}
+
+type MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionStoppingConditionArray []MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionStoppingConditionInput
+
+func (MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionStoppingConditionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionStoppingCondition)(nil)).Elem()
+}
+
+func (i MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionStoppingConditionArray) ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionStoppingConditionArrayOutput() MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionStoppingConditionArrayOutput {
+	return i.ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionStoppingConditionArrayOutputWithContext(context.Background())
+}
+
+func (i MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionStoppingConditionArray) ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionStoppingConditionArrayOutputWithContext(ctx context.Context) MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionStoppingConditionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionStoppingConditionArrayOutput)
+}
+
+type MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionStoppingConditionOutput struct{ *pulumi.OutputState }
+
+func (MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionStoppingConditionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionStoppingCondition)(nil)).Elem()
+}
+
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionStoppingConditionOutput) ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionStoppingConditionOutput() MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionStoppingConditionOutput {
+	return o
+}
+
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionStoppingConditionOutput) ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionStoppingConditionOutputWithContext(ctx context.Context) MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionStoppingConditionOutput {
+	return o
+}
+
+// Maximum runtime allowed in seconds.
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionStoppingConditionOutput) MaxRuntimeInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionStoppingCondition) *int {
+		return v.MaxRuntimeInSeconds
+	}).(pulumi.IntPtrOutput)
+}
+
+type MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionStoppingConditionArrayOutput struct{ *pulumi.OutputState }
+
+func (MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionStoppingConditionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionStoppingCondition)(nil)).Elem()
+}
+
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionStoppingConditionArrayOutput) ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionStoppingConditionArrayOutput() MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionStoppingConditionArrayOutput {
+	return o
+}
+
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionStoppingConditionArrayOutput) ToMonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionStoppingConditionArrayOutputWithContext(ctx context.Context) MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionStoppingConditionArrayOutput {
+	return o
+}
+
+func (o MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionStoppingConditionArrayOutput) Index(i pulumi.IntInput) MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionStoppingConditionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionStoppingCondition {
+		return vs[0].([]MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionStoppingCondition)[vs[1].(int)]
+	}).(MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionStoppingConditionOutput)
 }
 
 type MonitoringScheduleMonitoringScheduleConfigScheduleConfig struct {
@@ -40745,6 +47563,48 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*HubS3StorageConfigPtrInput)(nil)).Elem(), HubS3StorageConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HumanTaskUIUiTemplateInput)(nil)).Elem(), HumanTaskUIUiTemplateArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*HumanTaskUIUiTemplatePtrInput)(nil)).Elem(), HumanTaskUIUiTemplateArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LabelingJobHumanTaskConfigInput)(nil)).Elem(), LabelingJobHumanTaskConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LabelingJobHumanTaskConfigPtrInput)(nil)).Elem(), LabelingJobHumanTaskConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LabelingJobHumanTaskConfigAnnotationConsolidationConfigInput)(nil)).Elem(), LabelingJobHumanTaskConfigAnnotationConsolidationConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LabelingJobHumanTaskConfigAnnotationConsolidationConfigPtrInput)(nil)).Elem(), LabelingJobHumanTaskConfigAnnotationConsolidationConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LabelingJobHumanTaskConfigPublicWorkforceTaskPriceInput)(nil)).Elem(), LabelingJobHumanTaskConfigPublicWorkforceTaskPriceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LabelingJobHumanTaskConfigPublicWorkforceTaskPricePtrInput)(nil)).Elem(), LabelingJobHumanTaskConfigPublicWorkforceTaskPriceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LabelingJobHumanTaskConfigPublicWorkforceTaskPriceAmountInUsdInput)(nil)).Elem(), LabelingJobHumanTaskConfigPublicWorkforceTaskPriceAmountInUsdArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LabelingJobHumanTaskConfigPublicWorkforceTaskPriceAmountInUsdPtrInput)(nil)).Elem(), LabelingJobHumanTaskConfigPublicWorkforceTaskPriceAmountInUsdArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LabelingJobHumanTaskConfigUiConfigInput)(nil)).Elem(), LabelingJobHumanTaskConfigUiConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LabelingJobHumanTaskConfigUiConfigPtrInput)(nil)).Elem(), LabelingJobHumanTaskConfigUiConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LabelingJobInputConfigInput)(nil)).Elem(), LabelingJobInputConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LabelingJobInputConfigPtrInput)(nil)).Elem(), LabelingJobInputConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LabelingJobInputConfigDataAttributesInput)(nil)).Elem(), LabelingJobInputConfigDataAttributesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LabelingJobInputConfigDataAttributesPtrInput)(nil)).Elem(), LabelingJobInputConfigDataAttributesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LabelingJobInputConfigDataSourceInput)(nil)).Elem(), LabelingJobInputConfigDataSourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LabelingJobInputConfigDataSourcePtrInput)(nil)).Elem(), LabelingJobInputConfigDataSourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LabelingJobInputConfigDataSourceS3DataSourceInput)(nil)).Elem(), LabelingJobInputConfigDataSourceS3DataSourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LabelingJobInputConfigDataSourceS3DataSourcePtrInput)(nil)).Elem(), LabelingJobInputConfigDataSourceS3DataSourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LabelingJobInputConfigDataSourceSnsDataSourceInput)(nil)).Elem(), LabelingJobInputConfigDataSourceSnsDataSourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LabelingJobInputConfigDataSourceSnsDataSourcePtrInput)(nil)).Elem(), LabelingJobInputConfigDataSourceSnsDataSourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LabelingJobLabelCounterInput)(nil)).Elem(), LabelingJobLabelCounterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LabelingJobLabelCounterArrayInput)(nil)).Elem(), LabelingJobLabelCounterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LabelingJobLabelingJobAlgorithmsConfigInput)(nil)).Elem(), LabelingJobLabelingJobAlgorithmsConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LabelingJobLabelingJobAlgorithmsConfigPtrInput)(nil)).Elem(), LabelingJobLabelingJobAlgorithmsConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LabelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfigInput)(nil)).Elem(), LabelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LabelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfigPtrInput)(nil)).Elem(), LabelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LabelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfigVpcConfigInput)(nil)).Elem(), LabelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfigVpcConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LabelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfigVpcConfigPtrInput)(nil)).Elem(), LabelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfigVpcConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LabelingJobOutputConfigInput)(nil)).Elem(), LabelingJobOutputConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LabelingJobOutputConfigPtrInput)(nil)).Elem(), LabelingJobOutputConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LabelingJobStoppingConditionInput)(nil)).Elem(), LabelingJobStoppingConditionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LabelingJobStoppingConditionArrayInput)(nil)).Elem(), LabelingJobStoppingConditionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelCardExportJobExportArtifactInput)(nil)).Elem(), ModelCardExportJobExportArtifactArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelCardExportJobExportArtifactArrayInput)(nil)).Elem(), ModelCardExportJobExportArtifactArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelCardExportJobOutputConfigInput)(nil)).Elem(), ModelCardExportJobOutputConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelCardExportJobOutputConfigPtrInput)(nil)).Elem(), ModelCardExportJobOutputConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelCardExportJobTimeoutsInput)(nil)).Elem(), ModelCardExportJobTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelCardExportJobTimeoutsPtrInput)(nil)).Elem(), ModelCardExportJobTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelCardSecurityConfigInput)(nil)).Elem(), ModelCardSecurityConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelCardSecurityConfigPtrInput)(nil)).Elem(), ModelCardSecurityConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelCardTimeoutsInput)(nil)).Elem(), ModelCardTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ModelCardTimeoutsPtrInput)(nil)).Elem(), ModelCardTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelContainerInput)(nil)).Elem(), ModelContainerArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelContainerArrayInput)(nil)).Elem(), ModelContainerArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelContainerAdditionalModelDataSourceInput)(nil)).Elem(), ModelContainerAdditionalModelDataSourceArgs{})
@@ -40791,6 +47651,44 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ModelVpcConfigPtrInput)(nil)).Elem(), ModelVpcConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MonitoringScheduleMonitoringScheduleConfigInput)(nil)).Elem(), MonitoringScheduleMonitoringScheduleConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MonitoringScheduleMonitoringScheduleConfigPtrInput)(nil)).Elem(), MonitoringScheduleMonitoringScheduleConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionInput)(nil)).Elem(), MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionPtrInput)(nil)).Elem(), MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineInput)(nil)).Elem(), MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselinePtrInput)(nil)).Elem(), MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineConstraintsResourceInput)(nil)).Elem(), MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineConstraintsResourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineConstraintsResourcePtrInput)(nil)).Elem(), MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineConstraintsResourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineStatisticsResourceInput)(nil)).Elem(), MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineStatisticsResourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineStatisticsResourcePtrInput)(nil)).Elem(), MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineStatisticsResourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringAppSpecificationInput)(nil)).Elem(), MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringAppSpecificationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringAppSpecificationPtrInput)(nil)).Elem(), MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringAppSpecificationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsInput)(nil)).Elem(), MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsPtrInput)(nil)).Elem(), MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputInput)(nil)).Elem(), MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputPtrInput)(nil)).Elem(), MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatInput)(nil)).Elem(), MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatPtrInput)(nil)).Elem(), MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatCsvInput)(nil)).Elem(), MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatCsvArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatCsvPtrInput)(nil)).Elem(), MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatCsvArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatJsonInput)(nil)).Elem(), MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatJsonArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatJsonPtrInput)(nil)).Elem(), MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatJsonArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsEndpointInputInput)(nil)).Elem(), MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsEndpointInputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsEndpointInputPtrInput)(nil)).Elem(), MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsEndpointInputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigInput)(nil)).Elem(), MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigPtrInput)(nil)).Elem(), MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigMonitoringOutputsInput)(nil)).Elem(), MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigMonitoringOutputsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigMonitoringOutputsPtrInput)(nil)).Elem(), MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigMonitoringOutputsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigMonitoringOutputsS3OutputInput)(nil)).Elem(), MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigMonitoringOutputsS3OutputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigMonitoringOutputsS3OutputPtrInput)(nil)).Elem(), MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigMonitoringOutputsS3OutputArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResourcesInput)(nil)).Elem(), MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResourcesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResourcesPtrInput)(nil)).Elem(), MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResourcesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResourcesClusterConfigInput)(nil)).Elem(), MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResourcesClusterConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResourcesClusterConfigPtrInput)(nil)).Elem(), MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResourcesClusterConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfigInput)(nil)).Elem(), MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfigPtrInput)(nil)).Elem(), MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfigVpcConfigInput)(nil)).Elem(), MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfigVpcConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfigVpcConfigPtrInput)(nil)).Elem(), MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfigVpcConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionStoppingConditionInput)(nil)).Elem(), MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionStoppingConditionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionStoppingConditionArrayInput)(nil)).Elem(), MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionStoppingConditionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MonitoringScheduleMonitoringScheduleConfigScheduleConfigInput)(nil)).Elem(), MonitoringScheduleMonitoringScheduleConfigScheduleConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MonitoringScheduleMonitoringScheduleConfigScheduleConfigPtrInput)(nil)).Elem(), MonitoringScheduleMonitoringScheduleConfigScheduleConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NotebookInstanceInstanceMetadataServiceConfigurationInput)(nil)).Elem(), NotebookInstanceInstanceMetadataServiceConfigurationArgs{})
@@ -41234,6 +48132,48 @@ func init() {
 	pulumi.RegisterOutputType(HubS3StorageConfigPtrOutput{})
 	pulumi.RegisterOutputType(HumanTaskUIUiTemplateOutput{})
 	pulumi.RegisterOutputType(HumanTaskUIUiTemplatePtrOutput{})
+	pulumi.RegisterOutputType(LabelingJobHumanTaskConfigOutput{})
+	pulumi.RegisterOutputType(LabelingJobHumanTaskConfigPtrOutput{})
+	pulumi.RegisterOutputType(LabelingJobHumanTaskConfigAnnotationConsolidationConfigOutput{})
+	pulumi.RegisterOutputType(LabelingJobHumanTaskConfigAnnotationConsolidationConfigPtrOutput{})
+	pulumi.RegisterOutputType(LabelingJobHumanTaskConfigPublicWorkforceTaskPriceOutput{})
+	pulumi.RegisterOutputType(LabelingJobHumanTaskConfigPublicWorkforceTaskPricePtrOutput{})
+	pulumi.RegisterOutputType(LabelingJobHumanTaskConfigPublicWorkforceTaskPriceAmountInUsdOutput{})
+	pulumi.RegisterOutputType(LabelingJobHumanTaskConfigPublicWorkforceTaskPriceAmountInUsdPtrOutput{})
+	pulumi.RegisterOutputType(LabelingJobHumanTaskConfigUiConfigOutput{})
+	pulumi.RegisterOutputType(LabelingJobHumanTaskConfigUiConfigPtrOutput{})
+	pulumi.RegisterOutputType(LabelingJobInputConfigOutput{})
+	pulumi.RegisterOutputType(LabelingJobInputConfigPtrOutput{})
+	pulumi.RegisterOutputType(LabelingJobInputConfigDataAttributesOutput{})
+	pulumi.RegisterOutputType(LabelingJobInputConfigDataAttributesPtrOutput{})
+	pulumi.RegisterOutputType(LabelingJobInputConfigDataSourceOutput{})
+	pulumi.RegisterOutputType(LabelingJobInputConfigDataSourcePtrOutput{})
+	pulumi.RegisterOutputType(LabelingJobInputConfigDataSourceS3DataSourceOutput{})
+	pulumi.RegisterOutputType(LabelingJobInputConfigDataSourceS3DataSourcePtrOutput{})
+	pulumi.RegisterOutputType(LabelingJobInputConfigDataSourceSnsDataSourceOutput{})
+	pulumi.RegisterOutputType(LabelingJobInputConfigDataSourceSnsDataSourcePtrOutput{})
+	pulumi.RegisterOutputType(LabelingJobLabelCounterOutput{})
+	pulumi.RegisterOutputType(LabelingJobLabelCounterArrayOutput{})
+	pulumi.RegisterOutputType(LabelingJobLabelingJobAlgorithmsConfigOutput{})
+	pulumi.RegisterOutputType(LabelingJobLabelingJobAlgorithmsConfigPtrOutput{})
+	pulumi.RegisterOutputType(LabelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfigOutput{})
+	pulumi.RegisterOutputType(LabelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfigPtrOutput{})
+	pulumi.RegisterOutputType(LabelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfigVpcConfigOutput{})
+	pulumi.RegisterOutputType(LabelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfigVpcConfigPtrOutput{})
+	pulumi.RegisterOutputType(LabelingJobOutputConfigOutput{})
+	pulumi.RegisterOutputType(LabelingJobOutputConfigPtrOutput{})
+	pulumi.RegisterOutputType(LabelingJobStoppingConditionOutput{})
+	pulumi.RegisterOutputType(LabelingJobStoppingConditionArrayOutput{})
+	pulumi.RegisterOutputType(ModelCardExportJobExportArtifactOutput{})
+	pulumi.RegisterOutputType(ModelCardExportJobExportArtifactArrayOutput{})
+	pulumi.RegisterOutputType(ModelCardExportJobOutputConfigOutput{})
+	pulumi.RegisterOutputType(ModelCardExportJobOutputConfigPtrOutput{})
+	pulumi.RegisterOutputType(ModelCardExportJobTimeoutsOutput{})
+	pulumi.RegisterOutputType(ModelCardExportJobTimeoutsPtrOutput{})
+	pulumi.RegisterOutputType(ModelCardSecurityConfigOutput{})
+	pulumi.RegisterOutputType(ModelCardSecurityConfigPtrOutput{})
+	pulumi.RegisterOutputType(ModelCardTimeoutsOutput{})
+	pulumi.RegisterOutputType(ModelCardTimeoutsPtrOutput{})
 	pulumi.RegisterOutputType(ModelContainerOutput{})
 	pulumi.RegisterOutputType(ModelContainerArrayOutput{})
 	pulumi.RegisterOutputType(ModelContainerAdditionalModelDataSourceOutput{})
@@ -41280,6 +48220,44 @@ func init() {
 	pulumi.RegisterOutputType(ModelVpcConfigPtrOutput{})
 	pulumi.RegisterOutputType(MonitoringScheduleMonitoringScheduleConfigOutput{})
 	pulumi.RegisterOutputType(MonitoringScheduleMonitoringScheduleConfigPtrOutput{})
+	pulumi.RegisterOutputType(MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionOutput{})
+	pulumi.RegisterOutputType(MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionPtrOutput{})
+	pulumi.RegisterOutputType(MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineOutput{})
+	pulumi.RegisterOutputType(MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselinePtrOutput{})
+	pulumi.RegisterOutputType(MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineConstraintsResourceOutput{})
+	pulumi.RegisterOutputType(MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineConstraintsResourcePtrOutput{})
+	pulumi.RegisterOutputType(MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineStatisticsResourceOutput{})
+	pulumi.RegisterOutputType(MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineStatisticsResourcePtrOutput{})
+	pulumi.RegisterOutputType(MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringAppSpecificationOutput{})
+	pulumi.RegisterOutputType(MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringAppSpecificationPtrOutput{})
+	pulumi.RegisterOutputType(MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsOutput{})
+	pulumi.RegisterOutputType(MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsPtrOutput{})
+	pulumi.RegisterOutputType(MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputOutput{})
+	pulumi.RegisterOutputType(MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputPtrOutput{})
+	pulumi.RegisterOutputType(MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatOutput{})
+	pulumi.RegisterOutputType(MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatPtrOutput{})
+	pulumi.RegisterOutputType(MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatCsvOutput{})
+	pulumi.RegisterOutputType(MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatCsvPtrOutput{})
+	pulumi.RegisterOutputType(MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatJsonOutput{})
+	pulumi.RegisterOutputType(MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatJsonPtrOutput{})
+	pulumi.RegisterOutputType(MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsEndpointInputOutput{})
+	pulumi.RegisterOutputType(MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsEndpointInputPtrOutput{})
+	pulumi.RegisterOutputType(MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigOutput{})
+	pulumi.RegisterOutputType(MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigPtrOutput{})
+	pulumi.RegisterOutputType(MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigMonitoringOutputsOutput{})
+	pulumi.RegisterOutputType(MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigMonitoringOutputsPtrOutput{})
+	pulumi.RegisterOutputType(MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigMonitoringOutputsS3OutputOutput{})
+	pulumi.RegisterOutputType(MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigMonitoringOutputsS3OutputPtrOutput{})
+	pulumi.RegisterOutputType(MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResourcesOutput{})
+	pulumi.RegisterOutputType(MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResourcesPtrOutput{})
+	pulumi.RegisterOutputType(MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResourcesClusterConfigOutput{})
+	pulumi.RegisterOutputType(MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResourcesClusterConfigPtrOutput{})
+	pulumi.RegisterOutputType(MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfigOutput{})
+	pulumi.RegisterOutputType(MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfigPtrOutput{})
+	pulumi.RegisterOutputType(MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfigVpcConfigOutput{})
+	pulumi.RegisterOutputType(MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfigVpcConfigPtrOutput{})
+	pulumi.RegisterOutputType(MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionStoppingConditionOutput{})
+	pulumi.RegisterOutputType(MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionStoppingConditionArrayOutput{})
 	pulumi.RegisterOutputType(MonitoringScheduleMonitoringScheduleConfigScheduleConfigOutput{})
 	pulumi.RegisterOutputType(MonitoringScheduleMonitoringScheduleConfigScheduleConfigPtrOutput{})
 	pulumi.RegisterOutputType(NotebookInstanceInstanceMetadataServiceConfigurationOutput{})

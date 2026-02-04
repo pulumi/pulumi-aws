@@ -55,10 +55,22 @@ import * as utilities from "../utilities";
  * });
  * ```
  */
-export function getOrganization(opts?: pulumi.InvokeOptions): Promise<GetOrganizationResult> {
+export function getOrganization(args?: GetOrganizationArgs, opts?: pulumi.InvokeOptions): Promise<GetOrganizationResult> {
+    args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:organizations/getOrganization:getOrganization", {
+        "returnOrganizationOnly": args.returnOrganizationOnly,
     }, opts);
+}
+
+/**
+ * A collection of arguments for invoking getOrganization.
+ */
+export interface GetOrganizationArgs {
+    /**
+     * Return (as attributes) only the results of the [`DescribeOrganization`](https://docs.aws.amazon.com/organizations/latest/APIReference/API_DescribeOrganization.html) API to avoid [API limits](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_reference_limits.html#throttling-limits). When configured to `true` only the `arn`, `featureSet`, `masterAccountArn`, `masterAccountEmail` and `masterAccountId` attributes will be returned. All others will be empty. Default: `false`.
+     */
+    returnOrganizationOnly?: boolean;
 }
 
 /**
@@ -109,6 +121,7 @@ export interface GetOrganizationResult {
      * List of organization accounts excluding the master account. For a list including the master account, see the `accounts` attribute. All elements have these attributes:
      */
     readonly nonMasterAccounts: outputs.organizations.GetOrganizationNonMasterAccount[];
+    readonly returnOrganizationOnly?: boolean;
     /**
      * List of organization roots. All elements have these attributes:
      */
@@ -162,8 +175,20 @@ export interface GetOrganizationResult {
  * });
  * ```
  */
-export function getOrganizationOutput(opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetOrganizationResult> {
+export function getOrganizationOutput(args?: GetOrganizationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetOrganizationResult> {
+    args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:organizations/getOrganization:getOrganization", {
+        "returnOrganizationOnly": args.returnOrganizationOnly,
     }, opts);
+}
+
+/**
+ * A collection of arguments for invoking getOrganization.
+ */
+export interface GetOrganizationOutputArgs {
+    /**
+     * Return (as attributes) only the results of the [`DescribeOrganization`](https://docs.aws.amazon.com/organizations/latest/APIReference/API_DescribeOrganization.html) API to avoid [API limits](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_reference_limits.html#throttling-limits). When configured to `true` only the `arn`, `featureSet`, `masterAccountArn`, `masterAccountEmail` and `masterAccountId` attributes will be returned. All others will be empty. Default: `false`.
+     */
+    returnOrganizationOnly?: pulumi.Input<boolean>;
 }

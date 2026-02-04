@@ -40,6 +40,10 @@ type Network struct {
 	// If set to true deletes associated OCI resources. Default false.
 	DeleteAssociatedResources pulumi.BoolOutput   `pulumi:"deleteAssociatedResources"`
 	DisplayName               pulumi.StringOutput `pulumi:"displayName"`
+	// Specifies the configuration for KMS access from the ODB network.
+	KmsAccess pulumi.StringOutput `pulumi:"kmsAccess"`
+	// Specifies the endpoint policy for KMS access from the ODB network.
+	KmsPolicyDocument pulumi.StringPtrOutput `pulumi:"kmsPolicyDocument"`
 	// The name of the OCI resource anchor for the Exadata infrastructure.
 	ManagedServices NetworkManagedServiceArrayOutput `pulumi:"managedServices"`
 	// The number of storage servers requested for the Exadata infrastructure.
@@ -68,6 +72,10 @@ type Network struct {
 	Status pulumi.StringOutput `pulumi:"status"`
 	// Additional information about the current status of the ODB network.
 	StatusReason pulumi.StringOutput `pulumi:"statusReason"`
+	// Specifies the configuration for STS access from the ODB network.
+	StsAccess pulumi.StringOutput `pulumi:"stsAccess"`
+	// Specifies the endpoint policy for STS access from the ODB network.
+	StsPolicyDocument pulumi.StringPtrOutput `pulumi:"stsPolicyDocument"`
 	// A map of tags to assign to the exadata infrastructure. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags     pulumi.StringMapOutput   `pulumi:"tags"`
 	TagsAll  pulumi.StringMapOutput   `pulumi:"tagsAll"`
@@ -140,6 +148,10 @@ type networkState struct {
 	// If set to true deletes associated OCI resources. Default false.
 	DeleteAssociatedResources *bool   `pulumi:"deleteAssociatedResources"`
 	DisplayName               *string `pulumi:"displayName"`
+	// Specifies the configuration for KMS access from the ODB network.
+	KmsAccess *string `pulumi:"kmsAccess"`
+	// Specifies the endpoint policy for KMS access from the ODB network.
+	KmsPolicyDocument *string `pulumi:"kmsPolicyDocument"`
 	// The name of the OCI resource anchor for the Exadata infrastructure.
 	ManagedServices []NetworkManagedService `pulumi:"managedServices"`
 	// The number of storage servers requested for the Exadata infrastructure.
@@ -168,6 +180,10 @@ type networkState struct {
 	Status *string `pulumi:"status"`
 	// Additional information about the current status of the ODB network.
 	StatusReason *string `pulumi:"statusReason"`
+	// Specifies the configuration for STS access from the ODB network.
+	StsAccess *string `pulumi:"stsAccess"`
+	// Specifies the endpoint policy for STS access from the ODB network.
+	StsPolicyDocument *string `pulumi:"stsPolicyDocument"`
 	// A map of tags to assign to the exadata infrastructure. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags     map[string]string `pulumi:"tags"`
 	TagsAll  map[string]string `pulumi:"tagsAll"`
@@ -193,6 +209,10 @@ type NetworkState struct {
 	// If set to true deletes associated OCI resources. Default false.
 	DeleteAssociatedResources pulumi.BoolPtrInput
 	DisplayName               pulumi.StringPtrInput
+	// Specifies the configuration for KMS access from the ODB network.
+	KmsAccess pulumi.StringPtrInput
+	// Specifies the endpoint policy for KMS access from the ODB network.
+	KmsPolicyDocument pulumi.StringPtrInput
 	// The name of the OCI resource anchor for the Exadata infrastructure.
 	ManagedServices NetworkManagedServiceArrayInput
 	// The number of storage servers requested for the Exadata infrastructure.
@@ -221,6 +241,10 @@ type NetworkState struct {
 	Status pulumi.StringPtrInput
 	// Additional information about the current status of the ODB network.
 	StatusReason pulumi.StringPtrInput
+	// Specifies the configuration for STS access from the ODB network.
+	StsAccess pulumi.StringPtrInput
+	// Specifies the endpoint policy for STS access from the ODB network.
+	StsPolicyDocument pulumi.StringPtrInput
 	// A map of tags to assign to the exadata infrastructure. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags     pulumi.StringMapInput
 	TagsAll  pulumi.StringMapInput
@@ -246,12 +270,20 @@ type networkArgs struct {
 	// If set to true deletes associated OCI resources. Default false.
 	DeleteAssociatedResources *bool  `pulumi:"deleteAssociatedResources"`
 	DisplayName               string `pulumi:"displayName"`
+	// Specifies the configuration for KMS access from the ODB network.
+	KmsAccess *string `pulumi:"kmsAccess"`
+	// Specifies the endpoint policy for KMS access from the ODB network.
+	KmsPolicyDocument *string `pulumi:"kmsPolicyDocument"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Specifies the configuration for Amazon S3 access from the ODB network.
 	S3Access string `pulumi:"s3Access"`
 	// Specifies the endpoint policy for Amazon S3 access from the ODB network.
 	S3PolicyDocument *string `pulumi:"s3PolicyDocument"`
+	// Specifies the configuration for STS access from the ODB network.
+	StsAccess *string `pulumi:"stsAccess"`
+	// Specifies the endpoint policy for STS access from the ODB network.
+	StsPolicyDocument *string `pulumi:"stsPolicyDocument"`
 	// A map of tags to assign to the exadata infrastructure. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags     map[string]string `pulumi:"tags"`
 	Timeouts *NetworkTimeouts  `pulumi:"timeouts"`
@@ -273,12 +305,20 @@ type NetworkArgs struct {
 	// If set to true deletes associated OCI resources. Default false.
 	DeleteAssociatedResources pulumi.BoolPtrInput
 	DisplayName               pulumi.StringInput
+	// Specifies the configuration for KMS access from the ODB network.
+	KmsAccess pulumi.StringPtrInput
+	// Specifies the endpoint policy for KMS access from the ODB network.
+	KmsPolicyDocument pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Specifies the configuration for Amazon S3 access from the ODB network.
 	S3Access pulumi.StringInput
 	// Specifies the endpoint policy for Amazon S3 access from the ODB network.
 	S3PolicyDocument pulumi.StringPtrInput
+	// Specifies the configuration for STS access from the ODB network.
+	StsAccess pulumi.StringPtrInput
+	// Specifies the endpoint policy for STS access from the ODB network.
+	StsPolicyDocument pulumi.StringPtrInput
 	// A map of tags to assign to the exadata infrastructure. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags     pulumi.StringMapInput
 	Timeouts NetworkTimeoutsPtrInput
@@ -419,6 +459,16 @@ func (o NetworkOutput) DisplayName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Network) pulumi.StringOutput { return v.DisplayName }).(pulumi.StringOutput)
 }
 
+// Specifies the configuration for KMS access from the ODB network.
+func (o NetworkOutput) KmsAccess() pulumi.StringOutput {
+	return o.ApplyT(func(v *Network) pulumi.StringOutput { return v.KmsAccess }).(pulumi.StringOutput)
+}
+
+// Specifies the endpoint policy for KMS access from the ODB network.
+func (o NetworkOutput) KmsPolicyDocument() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Network) pulumi.StringPtrOutput { return v.KmsPolicyDocument }).(pulumi.StringPtrOutput)
+}
+
 // The name of the OCI resource anchor for the Exadata infrastructure.
 func (o NetworkOutput) ManagedServices() NetworkManagedServiceArrayOutput {
 	return o.ApplyT(func(v *Network) NetworkManagedServiceArrayOutput { return v.ManagedServices }).(NetworkManagedServiceArrayOutput)
@@ -487,6 +537,16 @@ func (o NetworkOutput) Status() pulumi.StringOutput {
 // Additional information about the current status of the ODB network.
 func (o NetworkOutput) StatusReason() pulumi.StringOutput {
 	return o.ApplyT(func(v *Network) pulumi.StringOutput { return v.StatusReason }).(pulumi.StringOutput)
+}
+
+// Specifies the configuration for STS access from the ODB network.
+func (o NetworkOutput) StsAccess() pulumi.StringOutput {
+	return o.ApplyT(func(v *Network) pulumi.StringOutput { return v.StsAccess }).(pulumi.StringOutput)
+}
+
+// Specifies the endpoint policy for STS access from the ODB network.
+func (o NetworkOutput) StsPolicyDocument() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Network) pulumi.StringPtrOutput { return v.StsPolicyDocument }).(pulumi.StringPtrOutput)
 }
 
 // A map of tags to assign to the exadata infrastructure. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

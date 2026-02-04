@@ -92,6 +92,36 @@ public final class NetworkArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Specifies the configuration for KMS access from the ODB network.
+     * 
+     */
+    @Import(name="kmsAccess")
+    private @Nullable Output<String> kmsAccess;
+
+    /**
+     * @return Specifies the configuration for KMS access from the ODB network.
+     * 
+     */
+    public Optional<Output<String>> kmsAccess() {
+        return Optional.ofNullable(this.kmsAccess);
+    }
+
+    /**
+     * Specifies the endpoint policy for KMS access from the ODB network.
+     * 
+     */
+    @Import(name="kmsPolicyDocument")
+    private @Nullable Output<String> kmsPolicyDocument;
+
+    /**
+     * @return Specifies the endpoint policy for KMS access from the ODB network.
+     * 
+     */
+    public Optional<Output<String>> kmsPolicyDocument() {
+        return Optional.ofNullable(this.kmsPolicyDocument);
+    }
+
+    /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      * 
      */
@@ -134,6 +164,36 @@ public final class NetworkArgs extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<String>> s3PolicyDocument() {
         return Optional.ofNullable(this.s3PolicyDocument);
+    }
+
+    /**
+     * Specifies the configuration for STS access from the ODB network.
+     * 
+     */
+    @Import(name="stsAccess")
+    private @Nullable Output<String> stsAccess;
+
+    /**
+     * @return Specifies the configuration for STS access from the ODB network.
+     * 
+     */
+    public Optional<Output<String>> stsAccess() {
+        return Optional.ofNullable(this.stsAccess);
+    }
+
+    /**
+     * Specifies the endpoint policy for STS access from the ODB network.
+     * 
+     */
+    @Import(name="stsPolicyDocument")
+    private @Nullable Output<String> stsPolicyDocument;
+
+    /**
+     * @return Specifies the endpoint policy for STS access from the ODB network.
+     * 
+     */
+    public Optional<Output<String>> stsPolicyDocument() {
+        return Optional.ofNullable(this.stsPolicyDocument);
     }
 
     /**
@@ -188,9 +248,13 @@ public final class NetworkArgs extends com.pulumi.resources.ResourceArgs {
         this.defaultDnsPrefix = $.defaultDnsPrefix;
         this.deleteAssociatedResources = $.deleteAssociatedResources;
         this.displayName = $.displayName;
+        this.kmsAccess = $.kmsAccess;
+        this.kmsPolicyDocument = $.kmsPolicyDocument;
         this.region = $.region;
         this.s3Access = $.s3Access;
         this.s3PolicyDocument = $.s3PolicyDocument;
+        this.stsAccess = $.stsAccess;
+        this.stsPolicyDocument = $.stsPolicyDocument;
         this.tags = $.tags;
         this.timeouts = $.timeouts;
         this.zeroEtlAccess = $.zeroEtlAccess;
@@ -311,6 +375,48 @@ public final class NetworkArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param kmsAccess Specifies the configuration for KMS access from the ODB network.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder kmsAccess(@Nullable Output<String> kmsAccess) {
+            $.kmsAccess = kmsAccess;
+            return this;
+        }
+
+        /**
+         * @param kmsAccess Specifies the configuration for KMS access from the ODB network.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder kmsAccess(String kmsAccess) {
+            return kmsAccess(Output.of(kmsAccess));
+        }
+
+        /**
+         * @param kmsPolicyDocument Specifies the endpoint policy for KMS access from the ODB network.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder kmsPolicyDocument(@Nullable Output<String> kmsPolicyDocument) {
+            $.kmsPolicyDocument = kmsPolicyDocument;
+            return this;
+        }
+
+        /**
+         * @param kmsPolicyDocument Specifies the endpoint policy for KMS access from the ODB network.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder kmsPolicyDocument(String kmsPolicyDocument) {
+            return kmsPolicyDocument(Output.of(kmsPolicyDocument));
+        }
+
+        /**
          * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
          * 
          * @return builder
@@ -371,6 +477,48 @@ public final class NetworkArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder s3PolicyDocument(String s3PolicyDocument) {
             return s3PolicyDocument(Output.of(s3PolicyDocument));
+        }
+
+        /**
+         * @param stsAccess Specifies the configuration for STS access from the ODB network.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder stsAccess(@Nullable Output<String> stsAccess) {
+            $.stsAccess = stsAccess;
+            return this;
+        }
+
+        /**
+         * @param stsAccess Specifies the configuration for STS access from the ODB network.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder stsAccess(String stsAccess) {
+            return stsAccess(Output.of(stsAccess));
+        }
+
+        /**
+         * @param stsPolicyDocument Specifies the endpoint policy for STS access from the ODB network.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder stsPolicyDocument(@Nullable Output<String> stsPolicyDocument) {
+            $.stsPolicyDocument = stsPolicyDocument;
+            return this;
+        }
+
+        /**
+         * @param stsPolicyDocument Specifies the endpoint policy for STS access from the ODB network.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder stsPolicyDocument(String stsPolicyDocument) {
+            return stsPolicyDocument(Output.of(stsPolicyDocument));
         }
 
         /**

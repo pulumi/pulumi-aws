@@ -22,8 +22,11 @@ from .hub import *
 from .human_task_ui import *
 from .image import *
 from .image_version import *
+from .labeling_job import *
 from .mlflow_tracking_server import *
 from .model import *
+from .model_card import *
+from .model_card_export_job import *
 from .model_package_group import *
 from .model_package_group_policy import *
 from .monitoring_schedule import *

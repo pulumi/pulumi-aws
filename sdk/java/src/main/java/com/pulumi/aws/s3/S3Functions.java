@@ -10,12 +10,16 @@ import com.pulumi.aws.s3.inputs.GetAccountPublicAccessBlockArgs;
 import com.pulumi.aws.s3.inputs.GetAccountPublicAccessBlockPlainArgs;
 import com.pulumi.aws.s3.inputs.GetBucketArgs;
 import com.pulumi.aws.s3.inputs.GetBucketObjectArgs;
+import com.pulumi.aws.s3.inputs.GetBucketObjectLockConfigurationArgs;
+import com.pulumi.aws.s3.inputs.GetBucketObjectLockConfigurationPlainArgs;
 import com.pulumi.aws.s3.inputs.GetBucketObjectPlainArgs;
 import com.pulumi.aws.s3.inputs.GetBucketObjectsArgs;
 import com.pulumi.aws.s3.inputs.GetBucketObjectsPlainArgs;
 import com.pulumi.aws.s3.inputs.GetBucketPlainArgs;
 import com.pulumi.aws.s3.inputs.GetBucketPolicyArgs;
 import com.pulumi.aws.s3.inputs.GetBucketPolicyPlainArgs;
+import com.pulumi.aws.s3.inputs.GetBucketReplicationConfigurationArgs;
+import com.pulumi.aws.s3.inputs.GetBucketReplicationConfigurationPlainArgs;
 import com.pulumi.aws.s3.inputs.GetDirectoryBucketsArgs;
 import com.pulumi.aws.s3.inputs.GetDirectoryBucketsPlainArgs;
 import com.pulumi.aws.s3.inputs.GetObjectArgs;
@@ -24,9 +28,11 @@ import com.pulumi.aws.s3.inputs.GetObjectsArgs;
 import com.pulumi.aws.s3.inputs.GetObjectsPlainArgs;
 import com.pulumi.aws.s3.outputs.GetAccessPointResult;
 import com.pulumi.aws.s3.outputs.GetAccountPublicAccessBlockResult;
+import com.pulumi.aws.s3.outputs.GetBucketObjectLockConfigurationResult;
 import com.pulumi.aws.s3.outputs.GetBucketObjectResult;
 import com.pulumi.aws.s3.outputs.GetBucketObjectsResult;
 import com.pulumi.aws.s3.outputs.GetBucketPolicyResult;
+import com.pulumi.aws.s3.outputs.GetBucketReplicationConfigurationResult;
 import com.pulumi.aws.s3.outputs.GetBucketResult;
 import com.pulumi.aws.s3.outputs.GetCanonicalUserIdResult;
 import com.pulumi.aws.s3.outputs.GetDirectoryBucketsResult;
@@ -1645,6 +1651,216 @@ public final class S3Functions {
         return Deployment.getInstance().invokeAsync("aws:s3/getBucketObject:getBucketObject", TypeShape.of(GetBucketObjectResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * Provides details about an AWS S3 (Simple Storage) Bucket Object Lock Configuration.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.s3.S3Functions;
+     * import com.pulumi.aws.s3.inputs.GetBucketObjectLockConfigurationArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = S3Functions.getBucketObjectLockConfiguration(GetBucketObjectLockConfigurationArgs.builder()
+     *             .bucket("example-bucket")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetBucketObjectLockConfigurationResult> getBucketObjectLockConfiguration(GetBucketObjectLockConfigurationArgs args) {
+        return getBucketObjectLockConfiguration(args, InvokeOptions.Empty);
+    }
+    /**
+     * Provides details about an AWS S3 (Simple Storage) Bucket Object Lock Configuration.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.s3.S3Functions;
+     * import com.pulumi.aws.s3.inputs.GetBucketObjectLockConfigurationArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = S3Functions.getBucketObjectLockConfiguration(GetBucketObjectLockConfigurationArgs.builder()
+     *             .bucket("example-bucket")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetBucketObjectLockConfigurationResult> getBucketObjectLockConfigurationPlain(GetBucketObjectLockConfigurationPlainArgs args) {
+        return getBucketObjectLockConfigurationPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Provides details about an AWS S3 (Simple Storage) Bucket Object Lock Configuration.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.s3.S3Functions;
+     * import com.pulumi.aws.s3.inputs.GetBucketObjectLockConfigurationArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = S3Functions.getBucketObjectLockConfiguration(GetBucketObjectLockConfigurationArgs.builder()
+     *             .bucket("example-bucket")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetBucketObjectLockConfigurationResult> getBucketObjectLockConfiguration(GetBucketObjectLockConfigurationArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:s3/getBucketObjectLockConfiguration:getBucketObjectLockConfiguration", TypeShape.of(GetBucketObjectLockConfigurationResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Provides details about an AWS S3 (Simple Storage) Bucket Object Lock Configuration.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.s3.S3Functions;
+     * import com.pulumi.aws.s3.inputs.GetBucketObjectLockConfigurationArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = S3Functions.getBucketObjectLockConfiguration(GetBucketObjectLockConfigurationArgs.builder()
+     *             .bucket("example-bucket")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetBucketObjectLockConfigurationResult> getBucketObjectLockConfiguration(GetBucketObjectLockConfigurationArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("aws:s3/getBucketObjectLockConfiguration:getBucketObjectLockConfiguration", TypeShape.of(GetBucketObjectLockConfigurationResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Provides details about an AWS S3 (Simple Storage) Bucket Object Lock Configuration.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.s3.S3Functions;
+     * import com.pulumi.aws.s3.inputs.GetBucketObjectLockConfigurationArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = S3Functions.getBucketObjectLockConfiguration(GetBucketObjectLockConfigurationArgs.builder()
+     *             .bucket("example-bucket")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetBucketObjectLockConfigurationResult> getBucketObjectLockConfigurationPlain(GetBucketObjectLockConfigurationPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("aws:s3/getBucketObjectLockConfiguration:getBucketObjectLockConfiguration", TypeShape.of(GetBucketObjectLockConfigurationResult.class), args, Utilities.withVersion(options));
+    }
+    /**
      * &gt; **NOTE:** The `aws.s3.getBucketObjects` data source is DEPRECATED and will be removed in a future version! Use `aws.s3.getObjects` instead, where new features and fixes will be added.
      * 
      * &gt; **NOTE on `maxKeys`:** Retrieving very large numbers of keys can adversely affect this provider&#39;s performance.
@@ -1913,6 +2129,216 @@ public final class S3Functions {
      */
     public static CompletableFuture<GetBucketPolicyResult> getBucketPolicyPlain(GetBucketPolicyPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:s3/getBucketPolicy:getBucketPolicy", TypeShape.of(GetBucketPolicyResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data source for managing an AWS S3 (Simple Storage) Bucket Replication Configuration.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.s3.S3Functions;
+     * import com.pulumi.aws.s3.inputs.GetBucketReplicationConfigurationArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = S3Functions.getBucketReplicationConfiguration(GetBucketReplicationConfigurationArgs.builder()
+     *             .bucket("example-bucket")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetBucketReplicationConfigurationResult> getBucketReplicationConfiguration(GetBucketReplicationConfigurationArgs args) {
+        return getBucketReplicationConfiguration(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data source for managing an AWS S3 (Simple Storage) Bucket Replication Configuration.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.s3.S3Functions;
+     * import com.pulumi.aws.s3.inputs.GetBucketReplicationConfigurationArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = S3Functions.getBucketReplicationConfiguration(GetBucketReplicationConfigurationArgs.builder()
+     *             .bucket("example-bucket")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetBucketReplicationConfigurationResult> getBucketReplicationConfigurationPlain(GetBucketReplicationConfigurationPlainArgs args) {
+        return getBucketReplicationConfigurationPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data source for managing an AWS S3 (Simple Storage) Bucket Replication Configuration.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.s3.S3Functions;
+     * import com.pulumi.aws.s3.inputs.GetBucketReplicationConfigurationArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = S3Functions.getBucketReplicationConfiguration(GetBucketReplicationConfigurationArgs.builder()
+     *             .bucket("example-bucket")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetBucketReplicationConfigurationResult> getBucketReplicationConfiguration(GetBucketReplicationConfigurationArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:s3/getBucketReplicationConfiguration:getBucketReplicationConfiguration", TypeShape.of(GetBucketReplicationConfigurationResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data source for managing an AWS S3 (Simple Storage) Bucket Replication Configuration.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.s3.S3Functions;
+     * import com.pulumi.aws.s3.inputs.GetBucketReplicationConfigurationArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = S3Functions.getBucketReplicationConfiguration(GetBucketReplicationConfigurationArgs.builder()
+     *             .bucket("example-bucket")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetBucketReplicationConfigurationResult> getBucketReplicationConfiguration(GetBucketReplicationConfigurationArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("aws:s3/getBucketReplicationConfiguration:getBucketReplicationConfiguration", TypeShape.of(GetBucketReplicationConfigurationResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data source for managing an AWS S3 (Simple Storage) Bucket Replication Configuration.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.s3.S3Functions;
+     * import com.pulumi.aws.s3.inputs.GetBucketReplicationConfigurationArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = S3Functions.getBucketReplicationConfiguration(GetBucketReplicationConfigurationArgs.builder()
+     *             .bucket("example-bucket")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetBucketReplicationConfigurationResult> getBucketReplicationConfigurationPlain(GetBucketReplicationConfigurationPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("aws:s3/getBucketReplicationConfiguration:getBucketReplicationConfiguration", TypeShape.of(GetBucketReplicationConfigurationResult.class), args, Utilities.withVersion(options));
     }
     /**
      * The Canonical User ID data source allows access to the [canonical user ID](http://docs.aws.amazon.com/general/latest/gr/acct-identifiers.html)

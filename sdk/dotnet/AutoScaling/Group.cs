@@ -892,7 +892,7 @@ namespace Pulumi.Aws.AutoScaling
         public Output<ImmutableArray<Outputs.GroupTag>> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// Set of `aws.alb.TargetGroup` ARNs, for use with Application or Network Load Balancing. To remove all target group attachments an empty list should be specified.
+        /// Set of `aws.lb.TargetGroup` ARNs, for use with Application or Network Load Balancing. To remove all target group attachments an empty list should be specified.
         /// </summary>
         [Output("targetGroupArns")]
         public Output<ImmutableArray<string>> TargetGroupArns { get; private set; } = null!;
@@ -1269,7 +1269,7 @@ namespace Pulumi.Aws.AutoScaling
         private InputList<string>? _targetGroupArns;
 
         /// <summary>
-        /// Set of `aws.alb.TargetGroup` ARNs, for use with Application or Network Load Balancing. To remove all target group attachments an empty list should be specified.
+        /// Set of `aws.lb.TargetGroup` ARNs, for use with Application or Network Load Balancing. To remove all target group attachments an empty list should be specified.
         /// </summary>
         public InputList<string> TargetGroupArns
         {
@@ -1635,7 +1635,7 @@ namespace Pulumi.Aws.AutoScaling
         private InputList<string>? _targetGroupArns;
 
         /// <summary>
-        /// Set of `aws.alb.TargetGroup` ARNs, for use with Application or Network Load Balancing. To remove all target group attachments an empty list should be specified.
+        /// Set of `aws.lb.TargetGroup` ARNs, for use with Application or Network Load Balancing. To remove all target group attachments an empty list should be specified.
         /// </summary>
         public InputList<string> TargetGroupArns
         {

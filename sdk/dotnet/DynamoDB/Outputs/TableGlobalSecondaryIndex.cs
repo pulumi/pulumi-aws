@@ -14,9 +14,10 @@ namespace Pulumi.Aws.DynamoDB.Outputs
     public sealed class TableGlobalSecondaryIndex
     {
         /// <summary>
-        /// Name of the hash key in the index; must be defined as an attribute in the resource.
+        /// and `HashKeys` are `mutually exclusive`, but one is `Required`. Refer to [AWS SDK Documentation](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GSI.DesignPattern.MultiAttributeKeys.html)
         /// </summary>
-        public readonly string HashKey;
+        public readonly string? HashKey;
+        public readonly ImmutableArray<Outputs.TableGlobalSecondaryIndexKeySchema> KeySchemas;
         /// <summary>
         /// Name of the index.
         /// </summary>
@@ -34,7 +35,7 @@ namespace Pulumi.Aws.DynamoDB.Outputs
         /// </summary>
         public readonly string ProjectionType;
         /// <summary>
-        /// Name of the range key; must be defined
+        /// and `RangeKeys` are `mutually exclusive`, but are both `Optional`. Refer to [AWS SDK Documentation](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GSI.DesignPattern.MultiAttributeKeys.html)
         /// </summary>
         public readonly string? RangeKey;
         /// <summary>
@@ -52,7 +53,9 @@ namespace Pulumi.Aws.DynamoDB.Outputs
 
         [OutputConstructor]
         private TableGlobalSecondaryIndex(
-            string hashKey,
+            string? hashKey,
+
+            ImmutableArray<Outputs.TableGlobalSecondaryIndexKeySchema> keySchemas,
 
             string name,
 
@@ -71,6 +74,7 @@ namespace Pulumi.Aws.DynamoDB.Outputs
             int? writeCapacity)
         {
             HashKey = hashKey;
+            KeySchemas = keySchemas;
             Name = name;
             NonKeyAttributes = nonKeyAttributes;
             OnDemandThroughput = onDemandThroughput;

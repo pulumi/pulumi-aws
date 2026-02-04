@@ -34,6 +34,7 @@ namespace Pulumi.Aws.LB.Inputs
         /// The HTTP or gRPC codes to use when checking for a successful response from a target.
         /// The `health_check.protocol` must be one of `HTTP` or `HTTPS` or the `TargetType` must be `Lambda`.
         /// Values can be comma-separated individual values (e.g., "200,202") or a range of values (e.g., "200-299").
+        /// Once the value has been set, removing it has no effect. To unset it, set it to an empty string `""`.
         /// * For gRPC-based target groups (i.e., the `Protocol` is one of `HTTP` or `HTTPS` and the `ProtocolVersion` is `GRPC`), values can be between `0` and `99`. The default is `12`.
         /// * When used with an Application Load Balancer (i.e., the `Protocol` is one of `HTTP` or `HTTPS` and the `ProtocolVersion` is not `GRPC`), values can be between `200` and `499`. The default is `200`.
         /// * When used with a Network Load Balancer (i.e., the `Protocol` is one of `TCP`, `TCP_UDP`, `UDP`, or `TLS`), values can be between `200` and `599`. The default is `200-399`.
@@ -44,6 +45,7 @@ namespace Pulumi.Aws.LB.Inputs
 
         /// <summary>
         /// Destination for the health check request. Required for HTTP/HTTPS ALB and HTTP NLB. Only applies to HTTP/HTTPS.
+        /// Once the value has been set, removing it has no effect. To unset it, set it to an empty string `""`.
         /// * For HTTP and HTTPS health checks, the default is `/`.
         /// * For gRPC health checks, the default is `/AWS.ALB/healthcheck`.
         /// </summary>

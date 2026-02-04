@@ -4,6 +4,7 @@
 package com.pulumi.aws.ec2.inputs;
 
 import com.pulumi.aws.ec2.inputs.VpcIpamResourceDiscoveryOperatingRegionArgs;
+import com.pulumi.aws.ec2.inputs.VpcIpamResourceDiscoveryOrganizationalUnitExclusionArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Boolean;
@@ -95,6 +96,21 @@ public final class VpcIpamResourceDiscoveryState extends com.pulumi.resources.Re
     }
 
     /**
+     * Add an Organizational Unit (OU) exclusion to IPAM. If IPAM is integrated with AWS Organizations and OU exclusion is added, IPAM will not manage the IP addresses in accounts in the OU exclusion. Refer to [IPAM Quotas](https://docs.aws.amazon.com/vpc/latest/ipam/quotas-ipam.html) for the limit of exclusions that can be created.
+     * 
+     */
+    @Import(name="organizationalUnitExclusions")
+    private @Nullable Output<List<VpcIpamResourceDiscoveryOrganizationalUnitExclusionArgs>> organizationalUnitExclusions;
+
+    /**
+     * @return Add an Organizational Unit (OU) exclusion to IPAM. If IPAM is integrated with AWS Organizations and OU exclusion is added, IPAM will not manage the IP addresses in accounts in the OU exclusion. Refer to [IPAM Quotas](https://docs.aws.amazon.com/vpc/latest/ipam/quotas-ipam.html) for the limit of exclusions that can be created.
+     * 
+     */
+    public Optional<Output<List<VpcIpamResourceDiscoveryOrganizationalUnitExclusionArgs>>> organizationalUnitExclusions() {
+        return Optional.ofNullable(this.organizationalUnitExclusions);
+    }
+
+    /**
      * The account ID for the account that manages the Resource Discovery
      * 
      */
@@ -162,6 +178,7 @@ public final class VpcIpamResourceDiscoveryState extends com.pulumi.resources.Re
         this.ipamResourceDiscoveryRegion = $.ipamResourceDiscoveryRegion;
         this.isDefault = $.isDefault;
         this.operatingRegions = $.operatingRegions;
+        this.organizationalUnitExclusions = $.organizationalUnitExclusions;
         this.ownerId = $.ownerId;
         this.region = $.region;
         this.tags = $.tags;
@@ -299,6 +316,37 @@ public final class VpcIpamResourceDiscoveryState extends com.pulumi.resources.Re
          */
         public Builder operatingRegions(VpcIpamResourceDiscoveryOperatingRegionArgs... operatingRegions) {
             return operatingRegions(List.of(operatingRegions));
+        }
+
+        /**
+         * @param organizationalUnitExclusions Add an Organizational Unit (OU) exclusion to IPAM. If IPAM is integrated with AWS Organizations and OU exclusion is added, IPAM will not manage the IP addresses in accounts in the OU exclusion. Refer to [IPAM Quotas](https://docs.aws.amazon.com/vpc/latest/ipam/quotas-ipam.html) for the limit of exclusions that can be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder organizationalUnitExclusions(@Nullable Output<List<VpcIpamResourceDiscoveryOrganizationalUnitExclusionArgs>> organizationalUnitExclusions) {
+            $.organizationalUnitExclusions = organizationalUnitExclusions;
+            return this;
+        }
+
+        /**
+         * @param organizationalUnitExclusions Add an Organizational Unit (OU) exclusion to IPAM. If IPAM is integrated with AWS Organizations and OU exclusion is added, IPAM will not manage the IP addresses in accounts in the OU exclusion. Refer to [IPAM Quotas](https://docs.aws.amazon.com/vpc/latest/ipam/quotas-ipam.html) for the limit of exclusions that can be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder organizationalUnitExclusions(List<VpcIpamResourceDiscoveryOrganizationalUnitExclusionArgs> organizationalUnitExclusions) {
+            return organizationalUnitExclusions(Output.of(organizationalUnitExclusions));
+        }
+
+        /**
+         * @param organizationalUnitExclusions Add an Organizational Unit (OU) exclusion to IPAM. If IPAM is integrated with AWS Organizations and OU exclusion is added, IPAM will not manage the IP addresses in accounts in the OU exclusion. Refer to [IPAM Quotas](https://docs.aws.amazon.com/vpc/latest/ipam/quotas-ipam.html) for the limit of exclusions that can be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder organizationalUnitExclusions(VpcIpamResourceDiscoveryOrganizationalUnitExclusionArgs... organizationalUnitExclusions) {
+            return organizationalUnitExclusions(List.of(organizationalUnitExclusions));
         }
 
         /**

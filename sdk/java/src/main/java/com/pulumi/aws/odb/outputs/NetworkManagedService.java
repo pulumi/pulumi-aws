@@ -3,9 +3,11 @@
 
 package com.pulumi.aws.odb.outputs;
 
+import com.pulumi.aws.odb.outputs.NetworkManagedServiceKmsAccess;
 import com.pulumi.aws.odb.outputs.NetworkManagedServiceManagedS3BackupAccess;
 import com.pulumi.aws.odb.outputs.NetworkManagedServiceS3Access;
 import com.pulumi.aws.odb.outputs.NetworkManagedServiceServiceNetworkEndpoint;
+import com.pulumi.aws.odb.outputs.NetworkManagedServiceStsAccess;
 import com.pulumi.aws.odb.outputs.NetworkManagedServiceZeroEtlAccess;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
@@ -15,6 +17,11 @@ import java.util.Objects;
 
 @CustomType
 public final class NetworkManagedService {
+    /**
+     * @return Specifies the configuration for KMS access from the ODB network.
+     * 
+     */
+    private List<NetworkManagedServiceKmsAccess> kmsAccesses;
     private List<NetworkManagedServiceManagedS3BackupAccess> managedS3BackupAccesses;
     private List<String> managedServiceIpv4Cidrs;
     private String resourceGatewayArn;
@@ -26,6 +33,11 @@ public final class NetworkManagedService {
     private String serviceNetworkArn;
     private List<NetworkManagedServiceServiceNetworkEndpoint> serviceNetworkEndpoints;
     /**
+     * @return Specifies the configuration for STS access from the ODB network.
+     * 
+     */
+    private List<NetworkManagedServiceStsAccess> stsAccesses;
+    /**
      * @return Specifies the configuration for Zero-ETL access from the ODB network.
      * 
      * The following arguments are optional:
@@ -34,6 +46,13 @@ public final class NetworkManagedService {
     private List<NetworkManagedServiceZeroEtlAccess> zeroEtlAccesses;
 
     private NetworkManagedService() {}
+    /**
+     * @return Specifies the configuration for KMS access from the ODB network.
+     * 
+     */
+    public List<NetworkManagedServiceKmsAccess> kmsAccesses() {
+        return this.kmsAccesses;
+    }
     public List<NetworkManagedServiceManagedS3BackupAccess> managedS3BackupAccesses() {
         return this.managedS3BackupAccesses;
     }
@@ -57,6 +76,13 @@ public final class NetworkManagedService {
         return this.serviceNetworkEndpoints;
     }
     /**
+     * @return Specifies the configuration for STS access from the ODB network.
+     * 
+     */
+    public List<NetworkManagedServiceStsAccess> stsAccesses() {
+        return this.stsAccesses;
+    }
+    /**
      * @return Specifies the configuration for Zero-ETL access from the ODB network.
      * 
      * The following arguments are optional:
@@ -75,25 +101,40 @@ public final class NetworkManagedService {
     }
     @CustomType.Builder
     public static final class Builder {
+        private List<NetworkManagedServiceKmsAccess> kmsAccesses;
         private List<NetworkManagedServiceManagedS3BackupAccess> managedS3BackupAccesses;
         private List<String> managedServiceIpv4Cidrs;
         private String resourceGatewayArn;
         private List<NetworkManagedServiceS3Access> s3Accesses;
         private String serviceNetworkArn;
         private List<NetworkManagedServiceServiceNetworkEndpoint> serviceNetworkEndpoints;
+        private List<NetworkManagedServiceStsAccess> stsAccesses;
         private List<NetworkManagedServiceZeroEtlAccess> zeroEtlAccesses;
         public Builder() {}
         public Builder(NetworkManagedService defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.kmsAccesses = defaults.kmsAccesses;
     	      this.managedS3BackupAccesses = defaults.managedS3BackupAccesses;
     	      this.managedServiceIpv4Cidrs = defaults.managedServiceIpv4Cidrs;
     	      this.resourceGatewayArn = defaults.resourceGatewayArn;
     	      this.s3Accesses = defaults.s3Accesses;
     	      this.serviceNetworkArn = defaults.serviceNetworkArn;
     	      this.serviceNetworkEndpoints = defaults.serviceNetworkEndpoints;
+    	      this.stsAccesses = defaults.stsAccesses;
     	      this.zeroEtlAccesses = defaults.zeroEtlAccesses;
         }
 
+        @CustomType.Setter
+        public Builder kmsAccesses(List<NetworkManagedServiceKmsAccess> kmsAccesses) {
+            if (kmsAccesses == null) {
+              throw new MissingRequiredPropertyException("NetworkManagedService", "kmsAccesses");
+            }
+            this.kmsAccesses = kmsAccesses;
+            return this;
+        }
+        public Builder kmsAccesses(NetworkManagedServiceKmsAccess... kmsAccesses) {
+            return kmsAccesses(List.of(kmsAccesses));
+        }
         @CustomType.Setter
         public Builder managedS3BackupAccesses(List<NetworkManagedServiceManagedS3BackupAccess> managedS3BackupAccesses) {
             if (managedS3BackupAccesses == null) {
@@ -155,6 +196,17 @@ public final class NetworkManagedService {
             return serviceNetworkEndpoints(List.of(serviceNetworkEndpoints));
         }
         @CustomType.Setter
+        public Builder stsAccesses(List<NetworkManagedServiceStsAccess> stsAccesses) {
+            if (stsAccesses == null) {
+              throw new MissingRequiredPropertyException("NetworkManagedService", "stsAccesses");
+            }
+            this.stsAccesses = stsAccesses;
+            return this;
+        }
+        public Builder stsAccesses(NetworkManagedServiceStsAccess... stsAccesses) {
+            return stsAccesses(List.of(stsAccesses));
+        }
+        @CustomType.Setter
         public Builder zeroEtlAccesses(List<NetworkManagedServiceZeroEtlAccess> zeroEtlAccesses) {
             if (zeroEtlAccesses == null) {
               throw new MissingRequiredPropertyException("NetworkManagedService", "zeroEtlAccesses");
@@ -167,12 +219,14 @@ public final class NetworkManagedService {
         }
         public NetworkManagedService build() {
             final var _resultValue = new NetworkManagedService();
+            _resultValue.kmsAccesses = kmsAccesses;
             _resultValue.managedS3BackupAccesses = managedS3BackupAccesses;
             _resultValue.managedServiceIpv4Cidrs = managedServiceIpv4Cidrs;
             _resultValue.resourceGatewayArn = resourceGatewayArn;
             _resultValue.s3Accesses = s3Accesses;
             _resultValue.serviceNetworkArn = serviceNetworkArn;
             _resultValue.serviceNetworkEndpoints = serviceNetworkEndpoints;
+            _resultValue.stsAccesses = stsAccesses;
             _resultValue.zeroEtlAccesses = zeroEtlAccesses;
             return _resultValue;
         }

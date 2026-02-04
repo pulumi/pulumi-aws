@@ -13,6 +13,7 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Optional;
@@ -219,6 +220,20 @@ public class Organization extends com.pulumi.resources.CustomResource {
      */
     public Output<List<OrganizationNonMasterAccount>> nonMasterAccounts() {
         return this.nonMasterAccounts;
+    }
+    /**
+     * Return (as attributes) only the results of the [`DescribeOrganization`](https://docs.aws.amazon.com/organizations/latest/APIReference/API_DescribeOrganization.html) API to avoid [API limits](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_reference_limits.html#throttling-limits). When configured to `true` only the `arn`, `featureSet`, `masterAccountArn`, `masterAccountEmail` and `masterAccountId` attributes will be returned. All others will be empty. Default: `false`.
+     * 
+     */
+    @Export(name="returnOrganizationOnly", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> returnOrganizationOnly;
+
+    /**
+     * @return Return (as attributes) only the results of the [`DescribeOrganization`](https://docs.aws.amazon.com/organizations/latest/APIReference/API_DescribeOrganization.html) API to avoid [API limits](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_reference_limits.html#throttling-limits). When configured to `true` only the `arn`, `featureSet`, `masterAccountArn`, `masterAccountEmail` and `masterAccountId` attributes will be returned. All others will be empty. Default: `false`.
+     * 
+     */
+    public Output<Optional<Boolean>> returnOrganizationOnly() {
+        return Codegen.optional(this.returnOrganizationOnly);
     }
     /**
      * List of organization roots. All elements have these attributes:

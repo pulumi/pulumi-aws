@@ -189,6 +189,8 @@ class ManagedPolicyAttachment(pulumi.CustomResource):
 
         > **NOTE:** Creating this resource will automatically [Provision the Permission Set](https://docs.aws.amazon.com/singlesignon/latest/APIReference/API_ProvisionPermissionSet.html) to apply the corresponding updates to all assigned accounts.
 
+        !> **WARNING:** Do not use this resource together with the `ssoadmin.ManagedPolicyAttachmentsExclusive` resource for the same permission set. Doing so will cause a conflict and will lead to managed policies being removed.
+
         ## Example Usage
 
         ### Basic Usage
@@ -262,6 +264,8 @@ class ManagedPolicyAttachment(pulumi.CustomResource):
         Provides an IAM managed policy for a Single Sign-On (SSO) Permission Set resource
 
         > **NOTE:** Creating this resource will automatically [Provision the Permission Set](https://docs.aws.amazon.com/singlesignon/latest/APIReference/API_ProvisionPermissionSet.html) to apply the corresponding updates to all assigned accounts.
+
+        !> **WARNING:** Do not use this resource together with the `ssoadmin.ManagedPolicyAttachmentsExclusive` resource for the same permission set. Doing so will cause a conflict and will lead to managed policies being removed.
 
         ## Example Usage
 

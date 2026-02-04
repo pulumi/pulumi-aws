@@ -291,14 +291,14 @@ public final class FunctionArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Amount of memory in MB your Lambda Function can use at runtime. Valid value between 128 MB to 10,240 MB (10 GB), in 1 MB increments. Defaults to 128.
+     * Amount of memory in MB your Lambda Function can use at runtime. Valid value between 128 MB to 32,768 MB (32 GB), in 1 MB increments. Defaults to 128.
      * 
      */
     @Import(name="memorySize")
     private @Nullable Output<Integer> memorySize;
 
     /**
-     * @return Amount of memory in MB your Lambda Function can use at runtime. Valid value between 128 MB to 10,240 MB (10 GB), in 1 MB increments. Defaults to 128.
+     * @return Amount of memory in MB your Lambda Function can use at runtime. Valid value between 128 MB to 32,768 MB (32 GB), in 1 MB increments. Defaults to 128.
      * 
      */
     public Optional<Output<Integer>> memorySize() {
@@ -1080,7 +1080,7 @@ public final class FunctionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param memorySize Amount of memory in MB your Lambda Function can use at runtime. Valid value between 128 MB to 10,240 MB (10 GB), in 1 MB increments. Defaults to 128.
+         * @param memorySize Amount of memory in MB your Lambda Function can use at runtime. Valid value between 128 MB to 32,768 MB (32 GB), in 1 MB increments. Defaults to 128.
          * 
          * @return builder
          * 
@@ -1091,7 +1091,7 @@ public final class FunctionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param memorySize Amount of memory in MB your Lambda Function can use at runtime. Valid value between 128 MB to 10,240 MB (10 GB), in 1 MB increments. Defaults to 128.
+         * @param memorySize Amount of memory in MB your Lambda Function can use at runtime. Valid value between 128 MB to 32,768 MB (32 GB), in 1 MB increments. Defaults to 128.
          * 
          * @return builder
          * 

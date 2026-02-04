@@ -6,6 +6,7 @@ import builtins as _builtins
 from .. import _utilities
 import typing
 # Export this package's modules as members:
+from .get_required_tags import *
 from .get_resources import *
 from ._inputs import *
 from . import outputs

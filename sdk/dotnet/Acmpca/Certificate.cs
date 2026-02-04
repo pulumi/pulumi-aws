@@ -52,12 +52,9 @@ namespace Pulumi.Aws.Acmpca
     ///     var csr = new Tls.CertRequest("csr", new()
     ///     {
     ///         PrivateKeyPem = key.PrivateKeyPem,
-    ///         Subject = new[]
+    ///         Subject = new Tls.Inputs.CertRequestSubjectArgs
     ///         {
-    ///             
-    ///             {
-    ///                 { "commonName", "example" },
-    ///             },
+    ///             CommonName = "example",
     ///         },
     ///     });
     /// 

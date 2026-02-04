@@ -47,6 +47,98 @@ import (
 // - `trustedSigners` in cache behaviors - Use `trustedKeyGroups` instead
 // - Cache behavior TTL settings (`defaultTtl`, `maxTtl`, `minTtl`) - Use cache policies instead
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/cloudfront"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := cloudfront.NewMultitenantDistribution(ctx, "example", &cloudfront.MultitenantDistributionArgs{
+//				Comment: pulumi.String("Multi-tenant distribution for my application"),
+//				Enabled: pulumi.Bool(true),
+//				Origins: cloudfront.MultitenantDistributionOriginArray{
+//					&cloudfront.MultitenantDistributionOriginArgs{
+//						DomainName: pulumi.String("example.com"),
+//						Id:         pulumi.String("example-origin"),
+//						CustomOriginConfigs: cloudfront.MultitenantDistributionOriginCustomOriginConfigArray{
+//							&cloudfront.MultitenantDistributionOriginCustomOriginConfigArgs{
+//								HttpPort:             pulumi.Int(80),
+//								HttpsPort:            pulumi.Int(443),
+//								OriginProtocolPolicy: pulumi.String("https-only"),
+//								OriginSslProtocols: pulumi.StringArray{
+//									pulumi.String("TLSv1.2"),
+//								},
+//							},
+//						},
+//					},
+//				},
+//				DefaultCacheBehavior: &cloudfront.MultitenantDistributionDefaultCacheBehaviorArgs{
+//					TargetOriginId:       pulumi.String("example-origin"),
+//					ViewerProtocolPolicy: pulumi.String("redirect-to-https"),
+//					CachePolicyId:        pulumi.Any(exampleAwsCloudfrontCachePolicy.Id),
+//					AllowedMethods: &cloudfront.MultitenantDistributionDefaultCacheBehaviorAllowedMethodsArgs{
+//						Items: pulumi.StringArray{
+//							pulumi.String("DELETE"),
+//							pulumi.String("GET"),
+//							pulumi.String("HEAD"),
+//							pulumi.String("OPTIONS"),
+//							pulumi.String("PATCH"),
+//							pulumi.String("POST"),
+//							pulumi.String("PUT"),
+//						},
+//						CachedMethods: pulumi.StringArray{
+//							pulumi.String("GET"),
+//							pulumi.String("HEAD"),
+//						},
+//					},
+//				},
+//				Restrictions: &cloudfront.MultitenantDistributionRestrictionsArgs{
+//					GeoRestriction: &cloudfront.MultitenantDistributionRestrictionsGeoRestrictionArgs{
+//						RestrictionType: pulumi.String("none"),
+//					},
+//				},
+//				ViewerCertificate: &cloudfront.MultitenantDistributionViewerCertificateArgs{
+//					AcmCertificateArn: pulumi.Any(exampleAwsAcmCertificate.Arn),
+//					SslSupportMethod:  pulumi.String("sni-only"),
+//				},
+//				TenantConfig: &cloudfront.MultitenantDistributionTenantConfigArgs{
+//					ParameterDefinitions: cloudfront.MultitenantDistributionTenantConfigParameterDefinitionArray{
+//						&cloudfront.MultitenantDistributionTenantConfigParameterDefinitionArgs{
+//							Name: pulumi.String("origin_domain"),
+//							Definitions: cloudfront.MultitenantDistributionTenantConfigParameterDefinitionDefinitionArray{
+//								&cloudfront.MultitenantDistributionTenantConfigParameterDefinitionDefinitionArgs{
+//									StringSchemas: cloudfront.MultitenantDistributionTenantConfigParameterDefinitionDefinitionStringSchemaArray{
+//										&cloudfront.MultitenantDistributionTenantConfigParameterDefinitionDefinitionStringSchemaArgs{
+//											Required: pulumi.Bool(true),
+//											Comment:  pulumi.String("Origin domain parameter for tenants"),
+//										},
+//									},
+//								},
+//							},
+//						},
+//					},
+//				},
+//				Tags: pulumi.StringMap{
+//					"Environment": pulumi.String("production"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Using `pulumi import`, import CloudFront Multi-tenant Distributions using the `id`. For example:

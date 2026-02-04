@@ -85,6 +85,98 @@ import (
 //
 // ```
 //
+// ### IPAM-Managed Subnets
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			current, err := aws.GetRegion(ctx, &aws.GetRegionArgs{}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			test, err := ec2.NewVpcIpam(ctx, "test", &ec2.VpcIpamArgs{
+//				OperatingRegions: ec2.VpcIpamOperatingRegionArray{
+//					&ec2.VpcIpamOperatingRegionArgs{
+//						RegionName: pulumi.String(current.Region),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			testVpcIpamPool, err := ec2.NewVpcIpamPool(ctx, "test", &ec2.VpcIpamPoolArgs{
+//				AddressFamily: pulumi.String("ipv4"),
+//				IpamScopeId:   test.PrivateDefaultScopeId,
+//				Locale:        pulumi.String(current.Name),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			testVpcIpamPoolCidr, err := ec2.NewVpcIpamPoolCidr(ctx, "test", &ec2.VpcIpamPoolCidrArgs{
+//				IpamPoolId: testVpcIpamPool.ID(),
+//				Cidr:       pulumi.String("10.0.0.0/16"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			testVpc, err := ec2.NewVpc(ctx, "test", &ec2.VpcArgs{
+//				Ipv4IpamPoolId:    testVpcIpamPool.ID(),
+//				Ipv4NetmaskLength: pulumi.Int(24),
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				testVpcIpamPoolCidr,
+//			}))
+//			if err != nil {
+//				return err
+//			}
+//			vpc, err := ec2.NewVpcIpamPool(ctx, "vpc", &ec2.VpcIpamPoolArgs{
+//				AddressFamily:    pulumi.String("ipv4"),
+//				IpamScopeId:      test.PrivateDefaultScopeId,
+//				Locale:           pulumi.String(current.Name),
+//				SourceIpamPoolId: testVpcIpamPool.ID(),
+//				SourceResource: &ec2.VpcIpamPoolSourceResourceArgs{
+//					ResourceId:     testVpc.ID(),
+//					ResourceOwner:  pulumi.Any(currentAwsCallerIdentity.AccountId),
+//					ResourceRegion: pulumi.String(current.Name),
+//					ResourceType:   pulumi.String("vpc"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			vpcVpcIpamPoolCidr, err := ec2.NewVpcIpamPoolCidr(ctx, "vpc", &ec2.VpcIpamPoolCidrArgs{
+//				IpamPoolId: vpc.ID(),
+//				Cidr:       testVpc.CidrBlock,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = ec2.NewSubnet(ctx, "test", &ec2.SubnetArgs{
+//				VpcId:             testVpc.ID(),
+//				Ipv4IpamPoolId:    vpc.ID(),
+//				Ipv4NetmaskLength: pulumi.Int(28),
+//				AvailabilityZone:  pulumi.Any(available.Names[0]),
+//			}, pulumi.DependsOn([]pulumi.Resource{
+//				vpcVpcIpamPoolCidr,
+//			}))
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // ### Identity Schema
@@ -116,7 +208,7 @@ type Subnet struct {
 	// AZ ID of the subnet. This argument is not supported in all regions or partitions. If necessary, use `availabilityZone` instead.
 	AvailabilityZoneId pulumi.StringOutput `pulumi:"availabilityZoneId"`
 	// The IPv4 CIDR block for the subnet.
-	CidrBlock pulumi.StringPtrOutput `pulumi:"cidrBlock"`
+	CidrBlock pulumi.StringOutput `pulumi:"cidrBlock"`
 	// The customer owned IPv4 address pool. Typically used with the `mapCustomerOwnedIpOnLaunch` argument. The `outpostArn` argument must be specified when configured.
 	CustomerOwnedIpv4Pool pulumi.StringPtrOutput `pulumi:"customerOwnedIpv4Pool"`
 	// Indicates whether DNS queries made to the Amazon-provided DNS Resolver in this subnet should return synthetic IPv6 addresses for IPv4-only destinations. Default: `false`.
@@ -127,18 +219,24 @@ type Subnet struct {
 	EnableResourceNameDnsARecordOnLaunch pulumi.BoolPtrOutput `pulumi:"enableResourceNameDnsARecordOnLaunch"`
 	// Indicates whether to respond to DNS queries for instance hostnames with DNS AAAA records. Default: `false`.
 	EnableResourceNameDnsAaaaRecordOnLaunch pulumi.BoolPtrOutput `pulumi:"enableResourceNameDnsAaaaRecordOnLaunch"`
+	// ID of an IPv4 VPC Resource Planning IPAM Pool. The CIDR of this pool is used to allocate the CIDR for the subnet.
+	Ipv4IpamPoolId pulumi.StringPtrOutput `pulumi:"ipv4IpamPoolId"`
+	// Netmask. Requires specifying a `ipv4IpamPoolId`.
+	Ipv4NetmaskLength pulumi.IntPtrOutput `pulumi:"ipv4NetmaskLength"`
 	// The IPv6 network range for the subnet,
-	// in CIDR notation. The subnet size must use a /64 prefix length.
-	Ipv6CidrBlock pulumi.StringPtrOutput `pulumi:"ipv6CidrBlock"`
+	// in CIDR notation. The subnet size must use a /64 prefix length. If the existing IPv6 subnet was created with `assignIpv6AddressOnCreation = true`, changing this value will force resource recreation.
+	Ipv6CidrBlock pulumi.StringOutput `pulumi:"ipv6CidrBlock"`
 	// The association ID for the IPv6 CIDR block.
 	Ipv6CidrBlockAssociationId pulumi.StringOutput `pulumi:"ipv6CidrBlockAssociationId"`
+	// ID of an IPv6 VPC Resource Planning IPAM Pool. The CIDR of this pool is used to allocate the CIDR for the subnet.
+	Ipv6IpamPoolId pulumi.StringPtrOutput `pulumi:"ipv6IpamPoolId"`
 	// Indicates whether to create an IPv6-only subnet. Default: `false`.
 	Ipv6Native pulumi.BoolPtrOutput `pulumi:"ipv6Native"`
+	// Netmask. Requires specifying a `ipv6IpamPoolId`. Valid values are from 44 to 64 in increments of 4.
+	Ipv6NetmaskLength pulumi.IntPtrOutput `pulumi:"ipv6NetmaskLength"`
 	// Specify `true` to indicate that network interfaces created in the subnet should be assigned a customer owned IP address. The `customerOwnedIpv4Pool` and `outpostArn` arguments must be specified when set to `true`. Default is `false`.
 	MapCustomerOwnedIpOnLaunch pulumi.BoolPtrOutput `pulumi:"mapCustomerOwnedIpOnLaunch"`
-	// Specify true to indicate
-	// that instances launched into the subnet should be assigned
-	// a public IP address. Default is `false`.
+	// Specify true to indicate that instances launched into the subnet should be assigned a public IP address. Default is `false`.
 	MapPublicIpOnLaunch pulumi.BoolPtrOutput `pulumi:"mapPublicIpOnLaunch"`
 	// The Amazon Resource Name (ARN) of the Outpost.
 	OutpostArn pulumi.StringPtrOutput `pulumi:"outpostArn"`
@@ -211,18 +309,24 @@ type subnetState struct {
 	EnableResourceNameDnsARecordOnLaunch *bool `pulumi:"enableResourceNameDnsARecordOnLaunch"`
 	// Indicates whether to respond to DNS queries for instance hostnames with DNS AAAA records. Default: `false`.
 	EnableResourceNameDnsAaaaRecordOnLaunch *bool `pulumi:"enableResourceNameDnsAaaaRecordOnLaunch"`
+	// ID of an IPv4 VPC Resource Planning IPAM Pool. The CIDR of this pool is used to allocate the CIDR for the subnet.
+	Ipv4IpamPoolId *string `pulumi:"ipv4IpamPoolId"`
+	// Netmask. Requires specifying a `ipv4IpamPoolId`.
+	Ipv4NetmaskLength *int `pulumi:"ipv4NetmaskLength"`
 	// The IPv6 network range for the subnet,
-	// in CIDR notation. The subnet size must use a /64 prefix length.
+	// in CIDR notation. The subnet size must use a /64 prefix length. If the existing IPv6 subnet was created with `assignIpv6AddressOnCreation = true`, changing this value will force resource recreation.
 	Ipv6CidrBlock *string `pulumi:"ipv6CidrBlock"`
 	// The association ID for the IPv6 CIDR block.
 	Ipv6CidrBlockAssociationId *string `pulumi:"ipv6CidrBlockAssociationId"`
+	// ID of an IPv6 VPC Resource Planning IPAM Pool. The CIDR of this pool is used to allocate the CIDR for the subnet.
+	Ipv6IpamPoolId *string `pulumi:"ipv6IpamPoolId"`
 	// Indicates whether to create an IPv6-only subnet. Default: `false`.
 	Ipv6Native *bool `pulumi:"ipv6Native"`
+	// Netmask. Requires specifying a `ipv6IpamPoolId`. Valid values are from 44 to 64 in increments of 4.
+	Ipv6NetmaskLength *int `pulumi:"ipv6NetmaskLength"`
 	// Specify `true` to indicate that network interfaces created in the subnet should be assigned a customer owned IP address. The `customerOwnedIpv4Pool` and `outpostArn` arguments must be specified when set to `true`. Default is `false`.
 	MapCustomerOwnedIpOnLaunch *bool `pulumi:"mapCustomerOwnedIpOnLaunch"`
-	// Specify true to indicate
-	// that instances launched into the subnet should be assigned
-	// a public IP address. Default is `false`.
+	// Specify true to indicate that instances launched into the subnet should be assigned a public IP address. Default is `false`.
 	MapPublicIpOnLaunch *bool `pulumi:"mapPublicIpOnLaunch"`
 	// The Amazon Resource Name (ARN) of the Outpost.
 	OutpostArn *string `pulumi:"outpostArn"`
@@ -263,18 +367,24 @@ type SubnetState struct {
 	EnableResourceNameDnsARecordOnLaunch pulumi.BoolPtrInput
 	// Indicates whether to respond to DNS queries for instance hostnames with DNS AAAA records. Default: `false`.
 	EnableResourceNameDnsAaaaRecordOnLaunch pulumi.BoolPtrInput
+	// ID of an IPv4 VPC Resource Planning IPAM Pool. The CIDR of this pool is used to allocate the CIDR for the subnet.
+	Ipv4IpamPoolId pulumi.StringPtrInput
+	// Netmask. Requires specifying a `ipv4IpamPoolId`.
+	Ipv4NetmaskLength pulumi.IntPtrInput
 	// The IPv6 network range for the subnet,
-	// in CIDR notation. The subnet size must use a /64 prefix length.
+	// in CIDR notation. The subnet size must use a /64 prefix length. If the existing IPv6 subnet was created with `assignIpv6AddressOnCreation = true`, changing this value will force resource recreation.
 	Ipv6CidrBlock pulumi.StringPtrInput
 	// The association ID for the IPv6 CIDR block.
 	Ipv6CidrBlockAssociationId pulumi.StringPtrInput
+	// ID of an IPv6 VPC Resource Planning IPAM Pool. The CIDR of this pool is used to allocate the CIDR for the subnet.
+	Ipv6IpamPoolId pulumi.StringPtrInput
 	// Indicates whether to create an IPv6-only subnet. Default: `false`.
 	Ipv6Native pulumi.BoolPtrInput
+	// Netmask. Requires specifying a `ipv6IpamPoolId`. Valid values are from 44 to 64 in increments of 4.
+	Ipv6NetmaskLength pulumi.IntPtrInput
 	// Specify `true` to indicate that network interfaces created in the subnet should be assigned a customer owned IP address. The `customerOwnedIpv4Pool` and `outpostArn` arguments must be specified when set to `true`. Default is `false`.
 	MapCustomerOwnedIpOnLaunch pulumi.BoolPtrInput
-	// Specify true to indicate
-	// that instances launched into the subnet should be assigned
-	// a public IP address. Default is `false`.
+	// Specify true to indicate that instances launched into the subnet should be assigned a public IP address. Default is `false`.
 	MapPublicIpOnLaunch pulumi.BoolPtrInput
 	// The Amazon Resource Name (ARN) of the Outpost.
 	OutpostArn pulumi.StringPtrInput
@@ -317,16 +427,22 @@ type subnetArgs struct {
 	EnableResourceNameDnsARecordOnLaunch *bool `pulumi:"enableResourceNameDnsARecordOnLaunch"`
 	// Indicates whether to respond to DNS queries for instance hostnames with DNS AAAA records. Default: `false`.
 	EnableResourceNameDnsAaaaRecordOnLaunch *bool `pulumi:"enableResourceNameDnsAaaaRecordOnLaunch"`
+	// ID of an IPv4 VPC Resource Planning IPAM Pool. The CIDR of this pool is used to allocate the CIDR for the subnet.
+	Ipv4IpamPoolId *string `pulumi:"ipv4IpamPoolId"`
+	// Netmask. Requires specifying a `ipv4IpamPoolId`.
+	Ipv4NetmaskLength *int `pulumi:"ipv4NetmaskLength"`
 	// The IPv6 network range for the subnet,
-	// in CIDR notation. The subnet size must use a /64 prefix length.
+	// in CIDR notation. The subnet size must use a /64 prefix length. If the existing IPv6 subnet was created with `assignIpv6AddressOnCreation = true`, changing this value will force resource recreation.
 	Ipv6CidrBlock *string `pulumi:"ipv6CidrBlock"`
+	// ID of an IPv6 VPC Resource Planning IPAM Pool. The CIDR of this pool is used to allocate the CIDR for the subnet.
+	Ipv6IpamPoolId *string `pulumi:"ipv6IpamPoolId"`
 	// Indicates whether to create an IPv6-only subnet. Default: `false`.
 	Ipv6Native *bool `pulumi:"ipv6Native"`
+	// Netmask. Requires specifying a `ipv6IpamPoolId`. Valid values are from 44 to 64 in increments of 4.
+	Ipv6NetmaskLength *int `pulumi:"ipv6NetmaskLength"`
 	// Specify `true` to indicate that network interfaces created in the subnet should be assigned a customer owned IP address. The `customerOwnedIpv4Pool` and `outpostArn` arguments must be specified when set to `true`. Default is `false`.
 	MapCustomerOwnedIpOnLaunch *bool `pulumi:"mapCustomerOwnedIpOnLaunch"`
-	// Specify true to indicate
-	// that instances launched into the subnet should be assigned
-	// a public IP address. Default is `false`.
+	// Specify true to indicate that instances launched into the subnet should be assigned a public IP address. Default is `false`.
 	MapPublicIpOnLaunch *bool `pulumi:"mapPublicIpOnLaunch"`
 	// The Amazon Resource Name (ARN) of the Outpost.
 	OutpostArn *string `pulumi:"outpostArn"`
@@ -362,16 +478,22 @@ type SubnetArgs struct {
 	EnableResourceNameDnsARecordOnLaunch pulumi.BoolPtrInput
 	// Indicates whether to respond to DNS queries for instance hostnames with DNS AAAA records. Default: `false`.
 	EnableResourceNameDnsAaaaRecordOnLaunch pulumi.BoolPtrInput
+	// ID of an IPv4 VPC Resource Planning IPAM Pool. The CIDR of this pool is used to allocate the CIDR for the subnet.
+	Ipv4IpamPoolId pulumi.StringPtrInput
+	// Netmask. Requires specifying a `ipv4IpamPoolId`.
+	Ipv4NetmaskLength pulumi.IntPtrInput
 	// The IPv6 network range for the subnet,
-	// in CIDR notation. The subnet size must use a /64 prefix length.
+	// in CIDR notation. The subnet size must use a /64 prefix length. If the existing IPv6 subnet was created with `assignIpv6AddressOnCreation = true`, changing this value will force resource recreation.
 	Ipv6CidrBlock pulumi.StringPtrInput
+	// ID of an IPv6 VPC Resource Planning IPAM Pool. The CIDR of this pool is used to allocate the CIDR for the subnet.
+	Ipv6IpamPoolId pulumi.StringPtrInput
 	// Indicates whether to create an IPv6-only subnet. Default: `false`.
 	Ipv6Native pulumi.BoolPtrInput
+	// Netmask. Requires specifying a `ipv6IpamPoolId`. Valid values are from 44 to 64 in increments of 4.
+	Ipv6NetmaskLength pulumi.IntPtrInput
 	// Specify `true` to indicate that network interfaces created in the subnet should be assigned a customer owned IP address. The `customerOwnedIpv4Pool` and `outpostArn` arguments must be specified when set to `true`. Default is `false`.
 	MapCustomerOwnedIpOnLaunch pulumi.BoolPtrInput
-	// Specify true to indicate
-	// that instances launched into the subnet should be assigned
-	// a public IP address. Default is `false`.
+	// Specify true to indicate that instances launched into the subnet should be assigned a public IP address. Default is `false`.
 	MapPublicIpOnLaunch pulumi.BoolPtrInput
 	// The Amazon Resource Name (ARN) of the Outpost.
 	OutpostArn pulumi.StringPtrInput
@@ -495,8 +617,8 @@ func (o SubnetOutput) AvailabilityZoneId() pulumi.StringOutput {
 }
 
 // The IPv4 CIDR block for the subnet.
-func (o SubnetOutput) CidrBlock() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Subnet) pulumi.StringPtrOutput { return v.CidrBlock }).(pulumi.StringPtrOutput)
+func (o SubnetOutput) CidrBlock() pulumi.StringOutput {
+	return o.ApplyT(func(v *Subnet) pulumi.StringOutput { return v.CidrBlock }).(pulumi.StringOutput)
 }
 
 // The customer owned IPv4 address pool. Typically used with the `mapCustomerOwnedIpOnLaunch` argument. The `outpostArn` argument must be specified when configured.
@@ -524,10 +646,20 @@ func (o SubnetOutput) EnableResourceNameDnsAaaaRecordOnLaunch() pulumi.BoolPtrOu
 	return o.ApplyT(func(v *Subnet) pulumi.BoolPtrOutput { return v.EnableResourceNameDnsAaaaRecordOnLaunch }).(pulumi.BoolPtrOutput)
 }
 
+// ID of an IPv4 VPC Resource Planning IPAM Pool. The CIDR of this pool is used to allocate the CIDR for the subnet.
+func (o SubnetOutput) Ipv4IpamPoolId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Subnet) pulumi.StringPtrOutput { return v.Ipv4IpamPoolId }).(pulumi.StringPtrOutput)
+}
+
+// Netmask. Requires specifying a `ipv4IpamPoolId`.
+func (o SubnetOutput) Ipv4NetmaskLength() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Subnet) pulumi.IntPtrOutput { return v.Ipv4NetmaskLength }).(pulumi.IntPtrOutput)
+}
+
 // The IPv6 network range for the subnet,
-// in CIDR notation. The subnet size must use a /64 prefix length.
-func (o SubnetOutput) Ipv6CidrBlock() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Subnet) pulumi.StringPtrOutput { return v.Ipv6CidrBlock }).(pulumi.StringPtrOutput)
+// in CIDR notation. The subnet size must use a /64 prefix length. If the existing IPv6 subnet was created with `assignIpv6AddressOnCreation = true`, changing this value will force resource recreation.
+func (o SubnetOutput) Ipv6CidrBlock() pulumi.StringOutput {
+	return o.ApplyT(func(v *Subnet) pulumi.StringOutput { return v.Ipv6CidrBlock }).(pulumi.StringOutput)
 }
 
 // The association ID for the IPv6 CIDR block.
@@ -535,9 +667,19 @@ func (o SubnetOutput) Ipv6CidrBlockAssociationId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Subnet) pulumi.StringOutput { return v.Ipv6CidrBlockAssociationId }).(pulumi.StringOutput)
 }
 
+// ID of an IPv6 VPC Resource Planning IPAM Pool. The CIDR of this pool is used to allocate the CIDR for the subnet.
+func (o SubnetOutput) Ipv6IpamPoolId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Subnet) pulumi.StringPtrOutput { return v.Ipv6IpamPoolId }).(pulumi.StringPtrOutput)
+}
+
 // Indicates whether to create an IPv6-only subnet. Default: `false`.
 func (o SubnetOutput) Ipv6Native() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Subnet) pulumi.BoolPtrOutput { return v.Ipv6Native }).(pulumi.BoolPtrOutput)
+}
+
+// Netmask. Requires specifying a `ipv6IpamPoolId`. Valid values are from 44 to 64 in increments of 4.
+func (o SubnetOutput) Ipv6NetmaskLength() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Subnet) pulumi.IntPtrOutput { return v.Ipv6NetmaskLength }).(pulumi.IntPtrOutput)
 }
 
 // Specify `true` to indicate that network interfaces created in the subnet should be assigned a customer owned IP address. The `customerOwnedIpv4Pool` and `outpostArn` arguments must be specified when set to `true`. Default is `false`.
@@ -545,9 +687,7 @@ func (o SubnetOutput) MapCustomerOwnedIpOnLaunch() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Subnet) pulumi.BoolPtrOutput { return v.MapCustomerOwnedIpOnLaunch }).(pulumi.BoolPtrOutput)
 }
 
-// Specify true to indicate
-// that instances launched into the subnet should be assigned
-// a public IP address. Default is `false`.
+// Specify true to indicate that instances launched into the subnet should be assigned a public IP address. Default is `false`.
 func (o SubnetOutput) MapPublicIpOnLaunch() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Subnet) pulumi.BoolPtrOutput { return v.MapPublicIpOnLaunch }).(pulumi.BoolPtrOutput)
 }

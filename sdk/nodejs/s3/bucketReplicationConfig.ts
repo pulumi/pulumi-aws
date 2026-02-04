@@ -58,6 +58,7 @@ export class BucketReplicationConfig extends pulumi.CustomResource {
     declare public readonly role: pulumi.Output<string>;
     /**
      * List of configuration blocks describing the rules managing the replication. See below.
+     *
      * > **NOTE:** Replication to multiple destination buckets requires that `priority` is specified in the `rule` object. If the corresponding rule requires no filter, an empty configuration block `filter {}` must be specified.
      *
      * > **NOTE:** Amazon S3's latest version of the replication configuration is V2, which includes the `filter` attribute for replication rules.
@@ -132,6 +133,7 @@ export interface BucketReplicationConfigState {
     role?: pulumi.Input<string>;
     /**
      * List of configuration blocks describing the rules managing the replication. See below.
+     *
      * > **NOTE:** Replication to multiple destination buckets requires that `priority` is specified in the `rule` object. If the corresponding rule requires no filter, an empty configuration block `filter {}` must be specified.
      *
      * > **NOTE:** Amazon S3's latest version of the replication configuration is V2, which includes the `filter` attribute for replication rules.
@@ -165,6 +167,7 @@ export interface BucketReplicationConfigArgs {
     role: pulumi.Input<string>;
     /**
      * List of configuration blocks describing the rules managing the replication. See below.
+     *
      * > **NOTE:** Replication to multiple destination buckets requires that `priority` is specified in the `rule` object. If the corresponding rule requires no filter, an empty configuration block `filter {}` must be specified.
      *
      * > **NOTE:** Amazon S3's latest version of the replication configuration is V2, which includes the `filter` attribute for replication rules.

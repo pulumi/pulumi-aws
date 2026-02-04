@@ -10,6 +10,10 @@ import com.pulumi.aws.organizations.inputs.GetDelegatedAdministratorsArgs;
 import com.pulumi.aws.organizations.inputs.GetDelegatedAdministratorsPlainArgs;
 import com.pulumi.aws.organizations.inputs.GetDelegatedServicesArgs;
 import com.pulumi.aws.organizations.inputs.GetDelegatedServicesPlainArgs;
+import com.pulumi.aws.organizations.inputs.GetEntityPathArgs;
+import com.pulumi.aws.organizations.inputs.GetEntityPathPlainArgs;
+import com.pulumi.aws.organizations.inputs.GetOrganizationArgs;
+import com.pulumi.aws.organizations.inputs.GetOrganizationPlainArgs;
 import com.pulumi.aws.organizations.inputs.GetOrganizationalUnitArgs;
 import com.pulumi.aws.organizations.inputs.GetOrganizationalUnitChildAccountsArgs;
 import com.pulumi.aws.organizations.inputs.GetOrganizationalUnitChildAccountsPlainArgs;
@@ -31,6 +35,7 @@ import com.pulumi.aws.organizations.inputs.GetResourceTagsPlainArgs;
 import com.pulumi.aws.organizations.outputs.GetAccountResult;
 import com.pulumi.aws.organizations.outputs.GetDelegatedAdministratorsResult;
 import com.pulumi.aws.organizations.outputs.GetDelegatedServicesResult;
+import com.pulumi.aws.organizations.outputs.GetEntityPathResult;
 import com.pulumi.aws.organizations.outputs.GetOrganizationResult;
 import com.pulumi.aws.organizations.outputs.GetOrganizationalUnitChildAccountsResult;
 import com.pulumi.aws.organizations.outputs.GetOrganizationalUnitDescendantAccountsResult;
@@ -46,7 +51,6 @@ import com.pulumi.core.TypeShape;
 import com.pulumi.deployment.Deployment;
 import com.pulumi.deployment.InvokeOptions;
 import com.pulumi.deployment.InvokeOutputOptions;
-import com.pulumi.resources.InvokeArgs;
 import java.util.concurrent.CompletableFuture;
 
 public final class OrganizationsFunctions {
@@ -741,6 +745,206 @@ public final class OrganizationsFunctions {
         return Deployment.getInstance().invokeAsync("aws:organizations/getDelegatedServices:getDelegatedServices", TypeShape.of(GetDelegatedServicesResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * Get the [entity path](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_last-accessed-view-data-orgs.html#access_policies_last-accessed-viewing-orgs-entity-path) for an entity. An entity&#39;s path is the text representation of the structure of that AWS Organizations entity.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.organizations.OrganizationsFunctions;
+     * import com.pulumi.aws.organizations.inputs.GetEntityPathArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OrganizationsFunctions.getEntityPath(GetEntityPathArgs.builder()
+     *             .entityId("ou-ghi0-awsccccc")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetEntityPathResult> getEntityPath(GetEntityPathArgs args) {
+        return getEntityPath(args, InvokeOptions.Empty);
+    }
+    /**
+     * Get the [entity path](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_last-accessed-view-data-orgs.html#access_policies_last-accessed-viewing-orgs-entity-path) for an entity. An entity&#39;s path is the text representation of the structure of that AWS Organizations entity.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.organizations.OrganizationsFunctions;
+     * import com.pulumi.aws.organizations.inputs.GetEntityPathArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OrganizationsFunctions.getEntityPath(GetEntityPathArgs.builder()
+     *             .entityId("ou-ghi0-awsccccc")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetEntityPathResult> getEntityPathPlain(GetEntityPathPlainArgs args) {
+        return getEntityPathPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Get the [entity path](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_last-accessed-view-data-orgs.html#access_policies_last-accessed-viewing-orgs-entity-path) for an entity. An entity&#39;s path is the text representation of the structure of that AWS Organizations entity.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.organizations.OrganizationsFunctions;
+     * import com.pulumi.aws.organizations.inputs.GetEntityPathArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OrganizationsFunctions.getEntityPath(GetEntityPathArgs.builder()
+     *             .entityId("ou-ghi0-awsccccc")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetEntityPathResult> getEntityPath(GetEntityPathArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:organizations/getEntityPath:getEntityPath", TypeShape.of(GetEntityPathResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Get the [entity path](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_last-accessed-view-data-orgs.html#access_policies_last-accessed-viewing-orgs-entity-path) for an entity. An entity&#39;s path is the text representation of the structure of that AWS Organizations entity.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.organizations.OrganizationsFunctions;
+     * import com.pulumi.aws.organizations.inputs.GetEntityPathArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OrganizationsFunctions.getEntityPath(GetEntityPathArgs.builder()
+     *             .entityId("ou-ghi0-awsccccc")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetEntityPathResult> getEntityPath(GetEntityPathArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("aws:organizations/getEntityPath:getEntityPath", TypeShape.of(GetEntityPathResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Get the [entity path](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_last-accessed-view-data-orgs.html#access_policies_last-accessed-viewing-orgs-entity-path) for an entity. An entity&#39;s path is the text representation of the structure of that AWS Organizations entity.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.organizations.OrganizationsFunctions;
+     * import com.pulumi.aws.organizations.inputs.GetEntityPathArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = OrganizationsFunctions.getEntityPath(GetEntityPathArgs.builder()
+     *             .entityId("ou-ghi0-awsccccc")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetEntityPathResult> getEntityPathPlain(GetEntityPathPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("aws:organizations/getEntityPath:getEntityPath", TypeShape.of(GetEntityPathResult.class), args, Utilities.withVersion(options));
+    }
+    /**
      * Get information about the organization that the users account belongs to.
      * 
      * ## Example Usage
@@ -755,6 +959,7 @@ public final class OrganizationsFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.organizations.OrganizationsFunctions;
+     * import com.pulumi.aws.organizations.inputs.GetOrganizationArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -768,7 +973,8 @@ public final class OrganizationsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = OrganizationsFunctions.getOrganization(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var example = OrganizationsFunctions.getOrganization(GetOrganizationArgs.builder()
+     *             .build());
      * 
      *         ctx.export("accountIds", example.accounts().stream().map(element -> element.id()).collect(toList()));
      *     }
@@ -786,6 +992,7 @@ public final class OrganizationsFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.organizations.OrganizationsFunctions;
+     * import com.pulumi.aws.organizations.inputs.GetOrganizationArgs;
      * import com.pulumi.aws.sns.Topic;
      * import com.pulumi.aws.sns.TopicArgs;
      * import com.pulumi.aws.iam.IamFunctions;
@@ -805,7 +1012,8 @@ public final class OrganizationsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = OrganizationsFunctions.getOrganization(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var example = OrganizationsFunctions.getOrganization(GetOrganizationArgs.builder()
+     *             .build());
      * 
      *         var snsTopic = new Topic("snsTopic", TopicArgs.builder()
      *             .name("my-sns-topic")
@@ -842,7 +1050,7 @@ public final class OrganizationsFunctions {
      * 
      */
     public static Output<GetOrganizationResult> getOrganization() {
-        return getOrganization(InvokeArgs.Empty, InvokeOptions.Empty);
+        return getOrganization(GetOrganizationArgs.Empty, InvokeOptions.Empty);
     }
     /**
      * Get information about the organization that the users account belongs to.
@@ -859,6 +1067,7 @@ public final class OrganizationsFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.organizations.OrganizationsFunctions;
+     * import com.pulumi.aws.organizations.inputs.GetOrganizationArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -872,7 +1081,8 @@ public final class OrganizationsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = OrganizationsFunctions.getOrganization(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var example = OrganizationsFunctions.getOrganization(GetOrganizationArgs.builder()
+     *             .build());
      * 
      *         ctx.export("accountIds", example.accounts().stream().map(element -> element.id()).collect(toList()));
      *     }
@@ -890,6 +1100,7 @@ public final class OrganizationsFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.organizations.OrganizationsFunctions;
+     * import com.pulumi.aws.organizations.inputs.GetOrganizationArgs;
      * import com.pulumi.aws.sns.Topic;
      * import com.pulumi.aws.sns.TopicArgs;
      * import com.pulumi.aws.iam.IamFunctions;
@@ -909,7 +1120,8 @@ public final class OrganizationsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = OrganizationsFunctions.getOrganization(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var example = OrganizationsFunctions.getOrganization(GetOrganizationArgs.builder()
+     *             .build());
      * 
      *         var snsTopic = new Topic("snsTopic", TopicArgs.builder()
      *             .name("my-sns-topic")
@@ -946,7 +1158,7 @@ public final class OrganizationsFunctions {
      * 
      */
     public static CompletableFuture<GetOrganizationResult> getOrganizationPlain() {
-        return getOrganizationPlain(InvokeArgs.Empty, InvokeOptions.Empty);
+        return getOrganizationPlain(GetOrganizationPlainArgs.Empty, InvokeOptions.Empty);
     }
     /**
      * Get information about the organization that the users account belongs to.
@@ -963,6 +1175,7 @@ public final class OrganizationsFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.organizations.OrganizationsFunctions;
+     * import com.pulumi.aws.organizations.inputs.GetOrganizationArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -976,7 +1189,8 @@ public final class OrganizationsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = OrganizationsFunctions.getOrganization(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var example = OrganizationsFunctions.getOrganization(GetOrganizationArgs.builder()
+     *             .build());
      * 
      *         ctx.export("accountIds", example.accounts().stream().map(element -> element.id()).collect(toList()));
      *     }
@@ -994,6 +1208,7 @@ public final class OrganizationsFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.organizations.OrganizationsFunctions;
+     * import com.pulumi.aws.organizations.inputs.GetOrganizationArgs;
      * import com.pulumi.aws.sns.Topic;
      * import com.pulumi.aws.sns.TopicArgs;
      * import com.pulumi.aws.iam.IamFunctions;
@@ -1013,7 +1228,8 @@ public final class OrganizationsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = OrganizationsFunctions.getOrganization(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var example = OrganizationsFunctions.getOrganization(GetOrganizationArgs.builder()
+     *             .build());
      * 
      *         var snsTopic = new Topic("snsTopic", TopicArgs.builder()
      *             .name("my-sns-topic")
@@ -1049,7 +1265,7 @@ public final class OrganizationsFunctions {
      * </pre>
      * 
      */
-    public static Output<GetOrganizationResult> getOrganization(InvokeArgs args) {
+    public static Output<GetOrganizationResult> getOrganization(GetOrganizationArgs args) {
         return getOrganization(args, InvokeOptions.Empty);
     }
     /**
@@ -1067,6 +1283,7 @@ public final class OrganizationsFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.organizations.OrganizationsFunctions;
+     * import com.pulumi.aws.organizations.inputs.GetOrganizationArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -1080,7 +1297,8 @@ public final class OrganizationsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = OrganizationsFunctions.getOrganization(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var example = OrganizationsFunctions.getOrganization(GetOrganizationArgs.builder()
+     *             .build());
      * 
      *         ctx.export("accountIds", example.accounts().stream().map(element -> element.id()).collect(toList()));
      *     }
@@ -1098,6 +1316,7 @@ public final class OrganizationsFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.organizations.OrganizationsFunctions;
+     * import com.pulumi.aws.organizations.inputs.GetOrganizationArgs;
      * import com.pulumi.aws.sns.Topic;
      * import com.pulumi.aws.sns.TopicArgs;
      * import com.pulumi.aws.iam.IamFunctions;
@@ -1117,7 +1336,8 @@ public final class OrganizationsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = OrganizationsFunctions.getOrganization(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var example = OrganizationsFunctions.getOrganization(GetOrganizationArgs.builder()
+     *             .build());
      * 
      *         var snsTopic = new Topic("snsTopic", TopicArgs.builder()
      *             .name("my-sns-topic")
@@ -1153,7 +1373,7 @@ public final class OrganizationsFunctions {
      * </pre>
      * 
      */
-    public static CompletableFuture<GetOrganizationResult> getOrganizationPlain(InvokeArgs args) {
+    public static CompletableFuture<GetOrganizationResult> getOrganizationPlain(GetOrganizationPlainArgs args) {
         return getOrganizationPlain(args, InvokeOptions.Empty);
     }
     /**
@@ -1171,6 +1391,7 @@ public final class OrganizationsFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.organizations.OrganizationsFunctions;
+     * import com.pulumi.aws.organizations.inputs.GetOrganizationArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -1184,7 +1405,8 @@ public final class OrganizationsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = OrganizationsFunctions.getOrganization(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var example = OrganizationsFunctions.getOrganization(GetOrganizationArgs.builder()
+     *             .build());
      * 
      *         ctx.export("accountIds", example.accounts().stream().map(element -> element.id()).collect(toList()));
      *     }
@@ -1202,6 +1424,7 @@ public final class OrganizationsFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.organizations.OrganizationsFunctions;
+     * import com.pulumi.aws.organizations.inputs.GetOrganizationArgs;
      * import com.pulumi.aws.sns.Topic;
      * import com.pulumi.aws.sns.TopicArgs;
      * import com.pulumi.aws.iam.IamFunctions;
@@ -1221,7 +1444,8 @@ public final class OrganizationsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = OrganizationsFunctions.getOrganization(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var example = OrganizationsFunctions.getOrganization(GetOrganizationArgs.builder()
+     *             .build());
      * 
      *         var snsTopic = new Topic("snsTopic", TopicArgs.builder()
      *             .name("my-sns-topic")
@@ -1257,7 +1481,7 @@ public final class OrganizationsFunctions {
      * </pre>
      * 
      */
-    public static Output<GetOrganizationResult> getOrganization(InvokeArgs args, InvokeOptions options) {
+    public static Output<GetOrganizationResult> getOrganization(GetOrganizationArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:organizations/getOrganization:getOrganization", TypeShape.of(GetOrganizationResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -1275,6 +1499,7 @@ public final class OrganizationsFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.organizations.OrganizationsFunctions;
+     * import com.pulumi.aws.organizations.inputs.GetOrganizationArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -1288,7 +1513,8 @@ public final class OrganizationsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = OrganizationsFunctions.getOrganization(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var example = OrganizationsFunctions.getOrganization(GetOrganizationArgs.builder()
+     *             .build());
      * 
      *         ctx.export("accountIds", example.accounts().stream().map(element -> element.id()).collect(toList()));
      *     }
@@ -1306,6 +1532,7 @@ public final class OrganizationsFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.organizations.OrganizationsFunctions;
+     * import com.pulumi.aws.organizations.inputs.GetOrganizationArgs;
      * import com.pulumi.aws.sns.Topic;
      * import com.pulumi.aws.sns.TopicArgs;
      * import com.pulumi.aws.iam.IamFunctions;
@@ -1325,7 +1552,8 @@ public final class OrganizationsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = OrganizationsFunctions.getOrganization(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var example = OrganizationsFunctions.getOrganization(GetOrganizationArgs.builder()
+     *             .build());
      * 
      *         var snsTopic = new Topic("snsTopic", TopicArgs.builder()
      *             .name("my-sns-topic")
@@ -1361,7 +1589,7 @@ public final class OrganizationsFunctions {
      * </pre>
      * 
      */
-    public static Output<GetOrganizationResult> getOrganization(InvokeArgs args, InvokeOutputOptions options) {
+    public static Output<GetOrganizationResult> getOrganization(GetOrganizationArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("aws:organizations/getOrganization:getOrganization", TypeShape.of(GetOrganizationResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -1379,6 +1607,7 @@ public final class OrganizationsFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.organizations.OrganizationsFunctions;
+     * import com.pulumi.aws.organizations.inputs.GetOrganizationArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -1392,7 +1621,8 @@ public final class OrganizationsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = OrganizationsFunctions.getOrganization(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var example = OrganizationsFunctions.getOrganization(GetOrganizationArgs.builder()
+     *             .build());
      * 
      *         ctx.export("accountIds", example.accounts().stream().map(element -> element.id()).collect(toList()));
      *     }
@@ -1410,6 +1640,7 @@ public final class OrganizationsFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.organizations.OrganizationsFunctions;
+     * import com.pulumi.aws.organizations.inputs.GetOrganizationArgs;
      * import com.pulumi.aws.sns.Topic;
      * import com.pulumi.aws.sns.TopicArgs;
      * import com.pulumi.aws.iam.IamFunctions;
@@ -1429,7 +1660,8 @@ public final class OrganizationsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = OrganizationsFunctions.getOrganization(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var example = OrganizationsFunctions.getOrganization(GetOrganizationArgs.builder()
+     *             .build());
      * 
      *         var snsTopic = new Topic("snsTopic", TopicArgs.builder()
      *             .name("my-sns-topic")
@@ -1465,7 +1697,7 @@ public final class OrganizationsFunctions {
      * </pre>
      * 
      */
-    public static CompletableFuture<GetOrganizationResult> getOrganizationPlain(InvokeArgs args, InvokeOptions options) {
+    public static CompletableFuture<GetOrganizationResult> getOrganizationPlain(GetOrganizationPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:organizations/getOrganization:getOrganization", TypeShape.of(GetOrganizationResult.class), args, Utilities.withVersion(options));
     }
     /**
@@ -1483,6 +1715,7 @@ public final class OrganizationsFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.organizations.OrganizationsFunctions;
+     * import com.pulumi.aws.organizations.inputs.GetOrganizationArgs;
      * import com.pulumi.aws.organizations.inputs.GetOrganizationalUnitArgs;
      * import java.util.List;
      * import java.util.ArrayList;
@@ -1497,7 +1730,8 @@ public final class OrganizationsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var org = OrganizationsFunctions.getOrganization(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var org = OrganizationsFunctions.getOrganization(GetOrganizationArgs.builder()
+     *             .build());
      * 
      *         final var ou = OrganizationsFunctions.getOrganizationalUnit(GetOrganizationalUnitArgs.builder()
      *             .parentId(org.roots()[0].id())
@@ -1528,6 +1762,7 @@ public final class OrganizationsFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.organizations.OrganizationsFunctions;
+     * import com.pulumi.aws.organizations.inputs.GetOrganizationArgs;
      * import com.pulumi.aws.organizations.inputs.GetOrganizationalUnitArgs;
      * import java.util.List;
      * import java.util.ArrayList;
@@ -1542,7 +1777,8 @@ public final class OrganizationsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var org = OrganizationsFunctions.getOrganization(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var org = OrganizationsFunctions.getOrganization(GetOrganizationArgs.builder()
+     *             .build());
      * 
      *         final var ou = OrganizationsFunctions.getOrganizationalUnit(GetOrganizationalUnitArgs.builder()
      *             .parentId(org.roots()[0].id())
@@ -1573,6 +1809,7 @@ public final class OrganizationsFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.organizations.OrganizationsFunctions;
+     * import com.pulumi.aws.organizations.inputs.GetOrganizationArgs;
      * import com.pulumi.aws.organizations.inputs.GetOrganizationalUnitArgs;
      * import java.util.List;
      * import java.util.ArrayList;
@@ -1587,7 +1824,8 @@ public final class OrganizationsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var org = OrganizationsFunctions.getOrganization(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var org = OrganizationsFunctions.getOrganization(GetOrganizationArgs.builder()
+     *             .build());
      * 
      *         final var ou = OrganizationsFunctions.getOrganizationalUnit(GetOrganizationalUnitArgs.builder()
      *             .parentId(org.roots()[0].id())
@@ -1618,6 +1856,7 @@ public final class OrganizationsFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.organizations.OrganizationsFunctions;
+     * import com.pulumi.aws.organizations.inputs.GetOrganizationArgs;
      * import com.pulumi.aws.organizations.inputs.GetOrganizationalUnitArgs;
      * import java.util.List;
      * import java.util.ArrayList;
@@ -1632,7 +1871,8 @@ public final class OrganizationsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var org = OrganizationsFunctions.getOrganization(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var org = OrganizationsFunctions.getOrganization(GetOrganizationArgs.builder()
+     *             .build());
      * 
      *         final var ou = OrganizationsFunctions.getOrganizationalUnit(GetOrganizationalUnitArgs.builder()
      *             .parentId(org.roots()[0].id())
@@ -1663,6 +1903,7 @@ public final class OrganizationsFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.organizations.OrganizationsFunctions;
+     * import com.pulumi.aws.organizations.inputs.GetOrganizationArgs;
      * import com.pulumi.aws.organizations.inputs.GetOrganizationalUnitArgs;
      * import java.util.List;
      * import java.util.ArrayList;
@@ -1677,7 +1918,8 @@ public final class OrganizationsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var org = OrganizationsFunctions.getOrganization(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var org = OrganizationsFunctions.getOrganization(GetOrganizationArgs.builder()
+     *             .build());
      * 
      *         final var ou = OrganizationsFunctions.getOrganizationalUnit(GetOrganizationalUnitArgs.builder()
      *             .parentId(org.roots()[0].id())
@@ -1706,6 +1948,7 @@ public final class OrganizationsFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.organizations.OrganizationsFunctions;
+     * import com.pulumi.aws.organizations.inputs.GetOrganizationArgs;
      * import com.pulumi.aws.organizations.inputs.GetOrganizationalUnitChildAccountsArgs;
      * import java.util.List;
      * import java.util.ArrayList;
@@ -1720,7 +1963,8 @@ public final class OrganizationsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var org = OrganizationsFunctions.getOrganization(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var org = OrganizationsFunctions.getOrganization(GetOrganizationArgs.builder()
+     *             .build());
      * 
      *         final var accounts = OrganizationsFunctions.getOrganizationalUnitChildAccounts(GetOrganizationalUnitChildAccountsArgs.builder()
      *             .parentId(org.roots()[0].id())
@@ -1748,6 +1992,7 @@ public final class OrganizationsFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.organizations.OrganizationsFunctions;
+     * import com.pulumi.aws.organizations.inputs.GetOrganizationArgs;
      * import com.pulumi.aws.organizations.inputs.GetOrganizationalUnitChildAccountsArgs;
      * import java.util.List;
      * import java.util.ArrayList;
@@ -1762,7 +2007,8 @@ public final class OrganizationsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var org = OrganizationsFunctions.getOrganization(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var org = OrganizationsFunctions.getOrganization(GetOrganizationArgs.builder()
+     *             .build());
      * 
      *         final var accounts = OrganizationsFunctions.getOrganizationalUnitChildAccounts(GetOrganizationalUnitChildAccountsArgs.builder()
      *             .parentId(org.roots()[0].id())
@@ -1790,6 +2036,7 @@ public final class OrganizationsFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.organizations.OrganizationsFunctions;
+     * import com.pulumi.aws.organizations.inputs.GetOrganizationArgs;
      * import com.pulumi.aws.organizations.inputs.GetOrganizationalUnitChildAccountsArgs;
      * import java.util.List;
      * import java.util.ArrayList;
@@ -1804,7 +2051,8 @@ public final class OrganizationsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var org = OrganizationsFunctions.getOrganization(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var org = OrganizationsFunctions.getOrganization(GetOrganizationArgs.builder()
+     *             .build());
      * 
      *         final var accounts = OrganizationsFunctions.getOrganizationalUnitChildAccounts(GetOrganizationalUnitChildAccountsArgs.builder()
      *             .parentId(org.roots()[0].id())
@@ -1832,6 +2080,7 @@ public final class OrganizationsFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.organizations.OrganizationsFunctions;
+     * import com.pulumi.aws.organizations.inputs.GetOrganizationArgs;
      * import com.pulumi.aws.organizations.inputs.GetOrganizationalUnitChildAccountsArgs;
      * import java.util.List;
      * import java.util.ArrayList;
@@ -1846,7 +2095,8 @@ public final class OrganizationsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var org = OrganizationsFunctions.getOrganization(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var org = OrganizationsFunctions.getOrganization(GetOrganizationArgs.builder()
+     *             .build());
      * 
      *         final var accounts = OrganizationsFunctions.getOrganizationalUnitChildAccounts(GetOrganizationalUnitChildAccountsArgs.builder()
      *             .parentId(org.roots()[0].id())
@@ -1874,6 +2124,7 @@ public final class OrganizationsFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.organizations.OrganizationsFunctions;
+     * import com.pulumi.aws.organizations.inputs.GetOrganizationArgs;
      * import com.pulumi.aws.organizations.inputs.GetOrganizationalUnitChildAccountsArgs;
      * import java.util.List;
      * import java.util.ArrayList;
@@ -1888,7 +2139,8 @@ public final class OrganizationsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var org = OrganizationsFunctions.getOrganization(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var org = OrganizationsFunctions.getOrganization(GetOrganizationArgs.builder()
+     *             .build());
      * 
      *         final var accounts = OrganizationsFunctions.getOrganizationalUnitChildAccounts(GetOrganizationalUnitChildAccountsArgs.builder()
      *             .parentId(org.roots()[0].id())
@@ -1916,6 +2168,7 @@ public final class OrganizationsFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.organizations.OrganizationsFunctions;
+     * import com.pulumi.aws.organizations.inputs.GetOrganizationArgs;
      * import com.pulumi.aws.organizations.inputs.GetOrganizationalUnitDescendantAccountsArgs;
      * import java.util.List;
      * import java.util.ArrayList;
@@ -1930,7 +2183,8 @@ public final class OrganizationsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var org = OrganizationsFunctions.getOrganization(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var org = OrganizationsFunctions.getOrganization(GetOrganizationArgs.builder()
+     *             .build());
      * 
      *         final var accounts = OrganizationsFunctions.getOrganizationalUnitDescendantAccounts(GetOrganizationalUnitDescendantAccountsArgs.builder()
      *             .parentId(org.roots()[0].id())
@@ -1958,6 +2212,7 @@ public final class OrganizationsFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.organizations.OrganizationsFunctions;
+     * import com.pulumi.aws.organizations.inputs.GetOrganizationArgs;
      * import com.pulumi.aws.organizations.inputs.GetOrganizationalUnitDescendantAccountsArgs;
      * import java.util.List;
      * import java.util.ArrayList;
@@ -1972,7 +2227,8 @@ public final class OrganizationsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var org = OrganizationsFunctions.getOrganization(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var org = OrganizationsFunctions.getOrganization(GetOrganizationArgs.builder()
+     *             .build());
      * 
      *         final var accounts = OrganizationsFunctions.getOrganizationalUnitDescendantAccounts(GetOrganizationalUnitDescendantAccountsArgs.builder()
      *             .parentId(org.roots()[0].id())
@@ -2000,6 +2256,7 @@ public final class OrganizationsFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.organizations.OrganizationsFunctions;
+     * import com.pulumi.aws.organizations.inputs.GetOrganizationArgs;
      * import com.pulumi.aws.organizations.inputs.GetOrganizationalUnitDescendantAccountsArgs;
      * import java.util.List;
      * import java.util.ArrayList;
@@ -2014,7 +2271,8 @@ public final class OrganizationsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var org = OrganizationsFunctions.getOrganization(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var org = OrganizationsFunctions.getOrganization(GetOrganizationArgs.builder()
+     *             .build());
      * 
      *         final var accounts = OrganizationsFunctions.getOrganizationalUnitDescendantAccounts(GetOrganizationalUnitDescendantAccountsArgs.builder()
      *             .parentId(org.roots()[0].id())
@@ -2042,6 +2300,7 @@ public final class OrganizationsFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.organizations.OrganizationsFunctions;
+     * import com.pulumi.aws.organizations.inputs.GetOrganizationArgs;
      * import com.pulumi.aws.organizations.inputs.GetOrganizationalUnitDescendantAccountsArgs;
      * import java.util.List;
      * import java.util.ArrayList;
@@ -2056,7 +2315,8 @@ public final class OrganizationsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var org = OrganizationsFunctions.getOrganization(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var org = OrganizationsFunctions.getOrganization(GetOrganizationArgs.builder()
+     *             .build());
      * 
      *         final var accounts = OrganizationsFunctions.getOrganizationalUnitDescendantAccounts(GetOrganizationalUnitDescendantAccountsArgs.builder()
      *             .parentId(org.roots()[0].id())
@@ -2084,6 +2344,7 @@ public final class OrganizationsFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.organizations.OrganizationsFunctions;
+     * import com.pulumi.aws.organizations.inputs.GetOrganizationArgs;
      * import com.pulumi.aws.organizations.inputs.GetOrganizationalUnitDescendantAccountsArgs;
      * import java.util.List;
      * import java.util.ArrayList;
@@ -2098,7 +2359,8 @@ public final class OrganizationsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var org = OrganizationsFunctions.getOrganization(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var org = OrganizationsFunctions.getOrganization(GetOrganizationArgs.builder()
+     *             .build());
      * 
      *         final var accounts = OrganizationsFunctions.getOrganizationalUnitDescendantAccounts(GetOrganizationalUnitDescendantAccountsArgs.builder()
      *             .parentId(org.roots()[0].id())
@@ -2126,6 +2388,7 @@ public final class OrganizationsFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.organizations.OrganizationsFunctions;
+     * import com.pulumi.aws.organizations.inputs.GetOrganizationArgs;
      * import com.pulumi.aws.organizations.inputs.GetOrganizationalUnitDescendantOrganizationalUnitsArgs;
      * import java.util.List;
      * import java.util.ArrayList;
@@ -2140,7 +2403,8 @@ public final class OrganizationsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var org = OrganizationsFunctions.getOrganization(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var org = OrganizationsFunctions.getOrganization(GetOrganizationArgs.builder()
+     *             .build());
      * 
      *         final var ous = OrganizationsFunctions.getOrganizationalUnitDescendantOrganizationalUnits(GetOrganizationalUnitDescendantOrganizationalUnitsArgs.builder()
      *             .parentId(org.roots()[0].id())
@@ -2168,6 +2432,7 @@ public final class OrganizationsFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.organizations.OrganizationsFunctions;
+     * import com.pulumi.aws.organizations.inputs.GetOrganizationArgs;
      * import com.pulumi.aws.organizations.inputs.GetOrganizationalUnitDescendantOrganizationalUnitsArgs;
      * import java.util.List;
      * import java.util.ArrayList;
@@ -2182,7 +2447,8 @@ public final class OrganizationsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var org = OrganizationsFunctions.getOrganization(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var org = OrganizationsFunctions.getOrganization(GetOrganizationArgs.builder()
+     *             .build());
      * 
      *         final var ous = OrganizationsFunctions.getOrganizationalUnitDescendantOrganizationalUnits(GetOrganizationalUnitDescendantOrganizationalUnitsArgs.builder()
      *             .parentId(org.roots()[0].id())
@@ -2210,6 +2476,7 @@ public final class OrganizationsFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.organizations.OrganizationsFunctions;
+     * import com.pulumi.aws.organizations.inputs.GetOrganizationArgs;
      * import com.pulumi.aws.organizations.inputs.GetOrganizationalUnitDescendantOrganizationalUnitsArgs;
      * import java.util.List;
      * import java.util.ArrayList;
@@ -2224,7 +2491,8 @@ public final class OrganizationsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var org = OrganizationsFunctions.getOrganization(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var org = OrganizationsFunctions.getOrganization(GetOrganizationArgs.builder()
+     *             .build());
      * 
      *         final var ous = OrganizationsFunctions.getOrganizationalUnitDescendantOrganizationalUnits(GetOrganizationalUnitDescendantOrganizationalUnitsArgs.builder()
      *             .parentId(org.roots()[0].id())
@@ -2252,6 +2520,7 @@ public final class OrganizationsFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.organizations.OrganizationsFunctions;
+     * import com.pulumi.aws.organizations.inputs.GetOrganizationArgs;
      * import com.pulumi.aws.organizations.inputs.GetOrganizationalUnitDescendantOrganizationalUnitsArgs;
      * import java.util.List;
      * import java.util.ArrayList;
@@ -2266,7 +2535,8 @@ public final class OrganizationsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var org = OrganizationsFunctions.getOrganization(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var org = OrganizationsFunctions.getOrganization(GetOrganizationArgs.builder()
+     *             .build());
      * 
      *         final var ous = OrganizationsFunctions.getOrganizationalUnitDescendantOrganizationalUnits(GetOrganizationalUnitDescendantOrganizationalUnitsArgs.builder()
      *             .parentId(org.roots()[0].id())
@@ -2294,6 +2564,7 @@ public final class OrganizationsFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.organizations.OrganizationsFunctions;
+     * import com.pulumi.aws.organizations.inputs.GetOrganizationArgs;
      * import com.pulumi.aws.organizations.inputs.GetOrganizationalUnitDescendantOrganizationalUnitsArgs;
      * import java.util.List;
      * import java.util.ArrayList;
@@ -2308,7 +2579,8 @@ public final class OrganizationsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var org = OrganizationsFunctions.getOrganization(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var org = OrganizationsFunctions.getOrganization(GetOrganizationArgs.builder()
+     *             .build());
      * 
      *         final var ous = OrganizationsFunctions.getOrganizationalUnitDescendantOrganizationalUnits(GetOrganizationalUnitDescendantOrganizationalUnitsArgs.builder()
      *             .parentId(org.roots()[0].id())
@@ -2336,6 +2608,7 @@ public final class OrganizationsFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.organizations.OrganizationsFunctions;
+     * import com.pulumi.aws.organizations.inputs.GetOrganizationArgs;
      * import com.pulumi.aws.organizations.inputs.GetOrganizationalUnitsArgs;
      * import java.util.List;
      * import java.util.ArrayList;
@@ -2350,7 +2623,8 @@ public final class OrganizationsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var org = OrganizationsFunctions.getOrganization(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var org = OrganizationsFunctions.getOrganization(GetOrganizationArgs.builder()
+     *             .build());
      * 
      *         final var ou = OrganizationsFunctions.getOrganizationalUnits(GetOrganizationalUnitsArgs.builder()
      *             .parentId(org.roots()[0].id())
@@ -2378,6 +2652,7 @@ public final class OrganizationsFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.organizations.OrganizationsFunctions;
+     * import com.pulumi.aws.organizations.inputs.GetOrganizationArgs;
      * import com.pulumi.aws.organizations.inputs.GetOrganizationalUnitsArgs;
      * import java.util.List;
      * import java.util.ArrayList;
@@ -2392,7 +2667,8 @@ public final class OrganizationsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var org = OrganizationsFunctions.getOrganization(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var org = OrganizationsFunctions.getOrganization(GetOrganizationArgs.builder()
+     *             .build());
      * 
      *         final var ou = OrganizationsFunctions.getOrganizationalUnits(GetOrganizationalUnitsArgs.builder()
      *             .parentId(org.roots()[0].id())
@@ -2420,6 +2696,7 @@ public final class OrganizationsFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.organizations.OrganizationsFunctions;
+     * import com.pulumi.aws.organizations.inputs.GetOrganizationArgs;
      * import com.pulumi.aws.organizations.inputs.GetOrganizationalUnitsArgs;
      * import java.util.List;
      * import java.util.ArrayList;
@@ -2434,7 +2711,8 @@ public final class OrganizationsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var org = OrganizationsFunctions.getOrganization(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var org = OrganizationsFunctions.getOrganization(GetOrganizationArgs.builder()
+     *             .build());
      * 
      *         final var ou = OrganizationsFunctions.getOrganizationalUnits(GetOrganizationalUnitsArgs.builder()
      *             .parentId(org.roots()[0].id())
@@ -2462,6 +2740,7 @@ public final class OrganizationsFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.organizations.OrganizationsFunctions;
+     * import com.pulumi.aws.organizations.inputs.GetOrganizationArgs;
      * import com.pulumi.aws.organizations.inputs.GetOrganizationalUnitsArgs;
      * import java.util.List;
      * import java.util.ArrayList;
@@ -2476,7 +2755,8 @@ public final class OrganizationsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var org = OrganizationsFunctions.getOrganization(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var org = OrganizationsFunctions.getOrganization(GetOrganizationArgs.builder()
+     *             .build());
      * 
      *         final var ou = OrganizationsFunctions.getOrganizationalUnits(GetOrganizationalUnitsArgs.builder()
      *             .parentId(org.roots()[0].id())
@@ -2504,6 +2784,7 @@ public final class OrganizationsFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.organizations.OrganizationsFunctions;
+     * import com.pulumi.aws.organizations.inputs.GetOrganizationArgs;
      * import com.pulumi.aws.organizations.inputs.GetOrganizationalUnitsArgs;
      * import java.util.List;
      * import java.util.ArrayList;
@@ -2518,7 +2799,8 @@ public final class OrganizationsFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var org = OrganizationsFunctions.getOrganization(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference);
+     *         final var org = OrganizationsFunctions.getOrganization(GetOrganizationArgs.builder()
+     *             .build());
      * 
      *         final var ou = OrganizationsFunctions.getOrganizationalUnits(GetOrganizationalUnitsArgs.builder()
      *             .parentId(org.roots()[0].id())

@@ -125,6 +125,36 @@ public final class NetworkState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Specifies the configuration for KMS access from the ODB network.
+     * 
+     */
+    @Import(name="kmsAccess")
+    private @Nullable Output<String> kmsAccess;
+
+    /**
+     * @return Specifies the configuration for KMS access from the ODB network.
+     * 
+     */
+    public Optional<Output<String>> kmsAccess() {
+        return Optional.ofNullable(this.kmsAccess);
+    }
+
+    /**
+     * Specifies the endpoint policy for KMS access from the ODB network.
+     * 
+     */
+    @Import(name="kmsPolicyDocument")
+    private @Nullable Output<String> kmsPolicyDocument;
+
+    /**
+     * @return Specifies the endpoint policy for KMS access from the ODB network.
+     * 
+     */
+    public Optional<Output<String>> kmsPolicyDocument() {
+        return Optional.ofNullable(this.kmsPolicyDocument);
+    }
+
+    /**
      * The name of the OCI resource anchor for the Exadata infrastructure.
      * 
      */
@@ -335,6 +365,36 @@ public final class NetworkState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Specifies the configuration for STS access from the ODB network.
+     * 
+     */
+    @Import(name="stsAccess")
+    private @Nullable Output<String> stsAccess;
+
+    /**
+     * @return Specifies the configuration for STS access from the ODB network.
+     * 
+     */
+    public Optional<Output<String>> stsAccess() {
+        return Optional.ofNullable(this.stsAccess);
+    }
+
+    /**
+     * Specifies the endpoint policy for STS access from the ODB network.
+     * 
+     */
+    @Import(name="stsPolicyDocument")
+    private @Nullable Output<String> stsPolicyDocument;
+
+    /**
+     * @return Specifies the endpoint policy for STS access from the ODB network.
+     * 
+     */
+    public Optional<Output<String>> stsPolicyDocument() {
+        return Optional.ofNullable(this.stsPolicyDocument);
+    }
+
+    /**
      * A map of tags to assign to the exadata infrastructure. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
@@ -395,6 +455,8 @@ public final class NetworkState extends com.pulumi.resources.ResourceArgs {
         this.defaultDnsPrefix = $.defaultDnsPrefix;
         this.deleteAssociatedResources = $.deleteAssociatedResources;
         this.displayName = $.displayName;
+        this.kmsAccess = $.kmsAccess;
+        this.kmsPolicyDocument = $.kmsPolicyDocument;
         this.managedServices = $.managedServices;
         this.ociDnsForwardingConfigs = $.ociDnsForwardingConfigs;
         this.ociNetworkAnchorId = $.ociNetworkAnchorId;
@@ -409,6 +471,8 @@ public final class NetworkState extends com.pulumi.resources.ResourceArgs {
         this.s3PolicyDocument = $.s3PolicyDocument;
         this.status = $.status;
         this.statusReason = $.statusReason;
+        this.stsAccess = $.stsAccess;
+        this.stsPolicyDocument = $.stsPolicyDocument;
         this.tags = $.tags;
         this.tagsAll = $.tagsAll;
         this.timeouts = $.timeouts;
@@ -569,6 +633,48 @@ public final class NetworkState extends com.pulumi.resources.ResourceArgs {
 
         public Builder displayName(String displayName) {
             return displayName(Output.of(displayName));
+        }
+
+        /**
+         * @param kmsAccess Specifies the configuration for KMS access from the ODB network.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder kmsAccess(@Nullable Output<String> kmsAccess) {
+            $.kmsAccess = kmsAccess;
+            return this;
+        }
+
+        /**
+         * @param kmsAccess Specifies the configuration for KMS access from the ODB network.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder kmsAccess(String kmsAccess) {
+            return kmsAccess(Output.of(kmsAccess));
+        }
+
+        /**
+         * @param kmsPolicyDocument Specifies the endpoint policy for KMS access from the ODB network.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder kmsPolicyDocument(@Nullable Output<String> kmsPolicyDocument) {
+            $.kmsPolicyDocument = kmsPolicyDocument;
+            return this;
+        }
+
+        /**
+         * @param kmsPolicyDocument Specifies the endpoint policy for KMS access from the ODB network.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder kmsPolicyDocument(String kmsPolicyDocument) {
+            return kmsPolicyDocument(Output.of(kmsPolicyDocument));
         }
 
         /**
@@ -893,6 +999,48 @@ public final class NetworkState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder statusReason(String statusReason) {
             return statusReason(Output.of(statusReason));
+        }
+
+        /**
+         * @param stsAccess Specifies the configuration for STS access from the ODB network.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder stsAccess(@Nullable Output<String> stsAccess) {
+            $.stsAccess = stsAccess;
+            return this;
+        }
+
+        /**
+         * @param stsAccess Specifies the configuration for STS access from the ODB network.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder stsAccess(String stsAccess) {
+            return stsAccess(Output.of(stsAccess));
+        }
+
+        /**
+         * @param stsPolicyDocument Specifies the endpoint policy for STS access from the ODB network.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder stsPolicyDocument(@Nullable Output<String> stsPolicyDocument) {
+            $.stsPolicyDocument = stsPolicyDocument;
+            return this;
+        }
+
+        /**
+         * @param stsPolicyDocument Specifies the endpoint policy for STS access from the ODB network.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder stsPolicyDocument(String stsPolicyDocument) {
+            return stsPolicyDocument(Output.of(stsPolicyDocument));
         }
 
         /**

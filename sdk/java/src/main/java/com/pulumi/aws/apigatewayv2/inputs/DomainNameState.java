@@ -109,6 +109,21 @@ public final class DomainNameState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Mode to route traffic for the domain name. Valid values: `API_MAPPING_ONLY`, `ROUTING_RULE_ONLY`, `ROUTING_RULE_THEN_API_MAPPING`.
+     * 
+     */
+    @Import(name="routingMode")
+    private @Nullable Output<String> routingMode;
+
+    /**
+     * @return Mode to route traffic for the domain name. Valid values: `API_MAPPING_ONLY`, `ROUTING_RULE_ONLY`, `ROUTING_RULE_THEN_API_MAPPING`.
+     * 
+     */
+    public Optional<Output<String>> routingMode() {
+        return Optional.ofNullable(this.routingMode);
+    }
+
+    /**
      * Map of tags to assign to the domain name. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
@@ -147,6 +162,7 @@ public final class DomainNameState extends com.pulumi.resources.ResourceArgs {
         this.domainNameConfiguration = $.domainNameConfiguration;
         this.mutualTlsAuthentication = $.mutualTlsAuthentication;
         this.region = $.region;
+        this.routingMode = $.routingMode;
         this.tags = $.tags;
         this.tagsAll = $.tagsAll;
     }
@@ -293,6 +309,27 @@ public final class DomainNameState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder region(String region) {
             return region(Output.of(region));
+        }
+
+        /**
+         * @param routingMode Mode to route traffic for the domain name. Valid values: `API_MAPPING_ONLY`, `ROUTING_RULE_ONLY`, `ROUTING_RULE_THEN_API_MAPPING`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder routingMode(@Nullable Output<String> routingMode) {
+            $.routingMode = routingMode;
+            return this;
+        }
+
+        /**
+         * @param routingMode Mode to route traffic for the domain name. Valid values: `API_MAPPING_ONLY`, `ROUTING_RULE_ONLY`, `ROUTING_RULE_THEN_API_MAPPING`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder routingMode(String routingMode) {
+            return routingMode(Output.of(routingMode));
         }
 
         /**

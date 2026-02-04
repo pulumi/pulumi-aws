@@ -43,6 +43,71 @@ import * as utilities from "../utilities";
  * - `trustedSigners` in cache behaviors - Use `trustedKeyGroups` instead
  * - Cache behavior TTL settings (`defaultTtl`, `maxTtl`, `minTtl`) - Use cache policies instead
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.cloudfront.MultitenantDistribution("example", {
+ *     comment: "Multi-tenant distribution for my application",
+ *     enabled: true,
+ *     origins: [{
+ *         domainName: "example.com",
+ *         id: "example-origin",
+ *         customOriginConfigs: [{
+ *             httpPort: 80,
+ *             httpsPort: 443,
+ *             originProtocolPolicy: "https-only",
+ *             originSslProtocols: ["TLSv1.2"],
+ *         }],
+ *     }],
+ *     defaultCacheBehavior: {
+ *         targetOriginId: "example-origin",
+ *         viewerProtocolPolicy: "redirect-to-https",
+ *         cachePolicyId: exampleAwsCloudfrontCachePolicy.id,
+ *         allowedMethods: {
+ *             items: [
+ *                 "DELETE",
+ *                 "GET",
+ *                 "HEAD",
+ *                 "OPTIONS",
+ *                 "PATCH",
+ *                 "POST",
+ *                 "PUT",
+ *             ],
+ *             cachedMethods: [
+ *                 "GET",
+ *                 "HEAD",
+ *             ],
+ *         },
+ *     },
+ *     restrictions: {
+ *         geoRestriction: {
+ *             restrictionType: "none",
+ *         },
+ *     },
+ *     viewerCertificate: {
+ *         acmCertificateArn: exampleAwsAcmCertificate.arn,
+ *         sslSupportMethod: "sni-only",
+ *     },
+ *     tenantConfig: {
+ *         parameterDefinitions: [{
+ *             name: "origin_domain",
+ *             definitions: [{
+ *                 stringSchemas: [{
+ *                     required: true,
+ *                     comment: "Origin domain parameter for tenants",
+ *                 }],
+ *             }],
+ *         }],
+ *     },
+ *     tags: {
+ *         Environment: "production",
+ *     },
+ * });
+ * ```
+ *
  * ## Import
  *
  * Using `pulumi import`, import CloudFront Multi-tenant Distributions using the `id`. For example:

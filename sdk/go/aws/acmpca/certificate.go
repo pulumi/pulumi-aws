@@ -57,10 +57,8 @@ import (
 //			}
 //			csr, err := tls.NewCertRequest(ctx, "csr", &tls.CertRequestArgs{
 //				PrivateKeyPem: key.PrivateKeyPem,
-//				Subject: tls.CertRequestSubjectArgs{
-//					map[string]interface{}{
-//						"commonName": "example",
-//					},
+//				Subject: &tls.CertRequestSubjectArgs{
+//					CommonName: pulumi.String("example"),
 //				},
 //			})
 //			if err != nil {

@@ -16,14 +16,14 @@ public final class AccountSettingState extends com.pulumi.resources.ResourceArgs
     public static final AccountSettingState Empty = new AccountSettingState();
 
     /**
-     * Name of the account setting. One of: `BASIC_SCAN_TYPE_VERSION`, `REGISTRY_POLICY_SCOPE`.
+     * Name of the account setting. One of: `BASIC_SCAN_TYPE_VERSION`, `BLOB_MOUNTING`, `REGISTRY_POLICY_SCOPE`.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Name of the account setting. One of: `BASIC_SCAN_TYPE_VERSION`, `REGISTRY_POLICY_SCOPE`.
+     * @return Name of the account setting. One of: `BASIC_SCAN_TYPE_VERSION`, `BLOB_MOUNTING`, `REGISTRY_POLICY_SCOPE`.
      * 
      */
     public Optional<Output<String>> name() {
@@ -48,6 +48,7 @@ public final class AccountSettingState extends com.pulumi.resources.ResourceArgs
     /**
      * Setting value that is specified. Valid values are:
      * * If `name` is specified as `BASIC_SCAN_TYPE_VERSION`, one of: `AWS_NATIVE`, `CLAIR`.
+     * * If `name` is specified as `BLOB_MOUNTING`, one of: `ENABLED`, `DISABLED`.
      * * If `name` is specified as `REGISTRY_POLICY_SCOPE`, one of: `V1`, `V2`.
      * 
      */
@@ -57,6 +58,7 @@ public final class AccountSettingState extends com.pulumi.resources.ResourceArgs
     /**
      * @return Setting value that is specified. Valid values are:
      * * If `name` is specified as `BASIC_SCAN_TYPE_VERSION`, one of: `AWS_NATIVE`, `CLAIR`.
+     * * If `name` is specified as `BLOB_MOUNTING`, one of: `ENABLED`, `DISABLED`.
      * * If `name` is specified as `REGISTRY_POLICY_SCOPE`, one of: `V1`, `V2`.
      * 
      */
@@ -91,7 +93,7 @@ public final class AccountSettingState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param name Name of the account setting. One of: `BASIC_SCAN_TYPE_VERSION`, `REGISTRY_POLICY_SCOPE`.
+         * @param name Name of the account setting. One of: `BASIC_SCAN_TYPE_VERSION`, `BLOB_MOUNTING`, `REGISTRY_POLICY_SCOPE`.
          * 
          * @return builder
          * 
@@ -102,7 +104,7 @@ public final class AccountSettingState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param name Name of the account setting. One of: `BASIC_SCAN_TYPE_VERSION`, `REGISTRY_POLICY_SCOPE`.
+         * @param name Name of the account setting. One of: `BASIC_SCAN_TYPE_VERSION`, `BLOB_MOUNTING`, `REGISTRY_POLICY_SCOPE`.
          * 
          * @return builder
          * 
@@ -135,6 +137,7 @@ public final class AccountSettingState extends com.pulumi.resources.ResourceArgs
         /**
          * @param value Setting value that is specified. Valid values are:
          * * If `name` is specified as `BASIC_SCAN_TYPE_VERSION`, one of: `AWS_NATIVE`, `CLAIR`.
+         * * If `name` is specified as `BLOB_MOUNTING`, one of: `ENABLED`, `DISABLED`.
          * * If `name` is specified as `REGISTRY_POLICY_SCOPE`, one of: `V1`, `V2`.
          * 
          * @return builder
@@ -148,6 +151,7 @@ public final class AccountSettingState extends com.pulumi.resources.ResourceArgs
         /**
          * @param value Setting value that is specified. Valid values are:
          * * If `name` is specified as `BASIC_SCAN_TYPE_VERSION`, one of: `AWS_NATIVE`, `CLAIR`.
+         * * If `name` is specified as `BLOB_MOUNTING`, one of: `ENABLED`, `DISABLED`.
          * * If `name` is specified as `REGISTRY_POLICY_SCOPE`, one of: `V1`, `V2`.
          * 
          * @return builder

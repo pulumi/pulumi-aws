@@ -4,6 +4,7 @@
 package com.pulumi.aws.ec2;
 
 import com.pulumi.aws.ec2.inputs.VpcIpamResourceDiscoveryOperatingRegionArgs;
+import com.pulumi.aws.ec2.inputs.VpcIpamResourceDiscoveryOrganizationalUnitExclusionArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
@@ -50,6 +51,21 @@ public final class VpcIpamResourceDiscoveryArgs extends com.pulumi.resources.Res
     }
 
     /**
+     * Add an Organizational Unit (OU) exclusion to IPAM. If IPAM is integrated with AWS Organizations and OU exclusion is added, IPAM will not manage the IP addresses in accounts in the OU exclusion. Refer to [IPAM Quotas](https://docs.aws.amazon.com/vpc/latest/ipam/quotas-ipam.html) for the limit of exclusions that can be created.
+     * 
+     */
+    @Import(name="organizationalUnitExclusions")
+    private @Nullable Output<List<VpcIpamResourceDiscoveryOrganizationalUnitExclusionArgs>> organizationalUnitExclusions;
+
+    /**
+     * @return Add an Organizational Unit (OU) exclusion to IPAM. If IPAM is integrated with AWS Organizations and OU exclusion is added, IPAM will not manage the IP addresses in accounts in the OU exclusion. Refer to [IPAM Quotas](https://docs.aws.amazon.com/vpc/latest/ipam/quotas-ipam.html) for the limit of exclusions that can be created.
+     * 
+     */
+    public Optional<Output<List<VpcIpamResourceDiscoveryOrganizationalUnitExclusionArgs>>> organizationalUnitExclusions() {
+        return Optional.ofNullable(this.organizationalUnitExclusions);
+    }
+
+    /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      * 
      */
@@ -84,6 +100,7 @@ public final class VpcIpamResourceDiscoveryArgs extends com.pulumi.resources.Res
     private VpcIpamResourceDiscoveryArgs(VpcIpamResourceDiscoveryArgs $) {
         this.description = $.description;
         this.operatingRegions = $.operatingRegions;
+        this.organizationalUnitExclusions = $.organizationalUnitExclusions;
         this.region = $.region;
         this.tags = $.tags;
     }
@@ -156,6 +173,37 @@ public final class VpcIpamResourceDiscoveryArgs extends com.pulumi.resources.Res
          */
         public Builder operatingRegions(VpcIpamResourceDiscoveryOperatingRegionArgs... operatingRegions) {
             return operatingRegions(List.of(operatingRegions));
+        }
+
+        /**
+         * @param organizationalUnitExclusions Add an Organizational Unit (OU) exclusion to IPAM. If IPAM is integrated with AWS Organizations and OU exclusion is added, IPAM will not manage the IP addresses in accounts in the OU exclusion. Refer to [IPAM Quotas](https://docs.aws.amazon.com/vpc/latest/ipam/quotas-ipam.html) for the limit of exclusions that can be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder organizationalUnitExclusions(@Nullable Output<List<VpcIpamResourceDiscoveryOrganizationalUnitExclusionArgs>> organizationalUnitExclusions) {
+            $.organizationalUnitExclusions = organizationalUnitExclusions;
+            return this;
+        }
+
+        /**
+         * @param organizationalUnitExclusions Add an Organizational Unit (OU) exclusion to IPAM. If IPAM is integrated with AWS Organizations and OU exclusion is added, IPAM will not manage the IP addresses in accounts in the OU exclusion. Refer to [IPAM Quotas](https://docs.aws.amazon.com/vpc/latest/ipam/quotas-ipam.html) for the limit of exclusions that can be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder organizationalUnitExclusions(List<VpcIpamResourceDiscoveryOrganizationalUnitExclusionArgs> organizationalUnitExclusions) {
+            return organizationalUnitExclusions(Output.of(organizationalUnitExclusions));
+        }
+
+        /**
+         * @param organizationalUnitExclusions Add an Organizational Unit (OU) exclusion to IPAM. If IPAM is integrated with AWS Organizations and OU exclusion is added, IPAM will not manage the IP addresses in accounts in the OU exclusion. Refer to [IPAM Quotas](https://docs.aws.amazon.com/vpc/latest/ipam/quotas-ipam.html) for the limit of exclusions that can be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder organizationalUnitExclusions(VpcIpamResourceDiscoveryOrganizationalUnitExclusionArgs... organizationalUnitExclusions) {
+            return organizationalUnitExclusions(List.of(organizationalUnitExclusions));
         }
 
         /**

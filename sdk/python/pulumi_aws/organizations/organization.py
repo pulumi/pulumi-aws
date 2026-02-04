@@ -23,12 +23,14 @@ class OrganizationArgs:
     def __init__(__self__, *,
                  aws_service_access_principals: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  enabled_policy_types: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 feature_set: Optional[pulumi.Input[_builtins.str]] = None):
+                 feature_set: Optional[pulumi.Input[_builtins.str]] = None,
+                 return_organization_only: Optional[pulumi.Input[_builtins.bool]] = None):
         """
         The set of arguments for constructing a Organization resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] aws_service_access_principals: List of AWS service principal names for which you want to enable integration with your organization. This is typically in the form of a URL, such as service-abbreviation.amazonaws.com. Organization must have `feature_set` set to `ALL`. Some services do not support enablement via this endpoint, see [warning in aws docs](https://docs.aws.amazon.com/organizations/latest/APIReference/API_EnableAWSServiceAccess.html).
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] enabled_policy_types: List of Organizations policy types to enable in the Organization Root. Organization must have `feature_set` set to `ALL`. For additional information about valid policy types (e.g., `AISERVICES_OPT_OUT_POLICY`, `BACKUP_POLICY`, `BEDROCK_POLICY`, `CHATBOT_POLICY`, `DECLARATIVE_POLICY_EC2`, `INSPECTOR_POLICY`, `RESOURCE_CONTROL_POLICY`, `S3_POLICY`, `SECURITYHUB_POLICY`, `SERVICE_CONTROL_POLICY`, `TAG_POLICY` and `UPGRADE_ROLLOUT_POLICY`), see the [AWS Organizations API Reference](https://docs.aws.amazon.com/organizations/latest/APIReference/API_EnablePolicyType.html). To enable `INSPECTOR_POLICY`, `aws_service_access_principals` must include `inspector2.amazonaws.com`. To enable `SECURITYHUB_POLICY`, `aws_service_access_principals` must include `securityhub.amazonaws.com`.
         :param pulumi.Input[_builtins.str] feature_set: Specify `ALL` (default) or `CONSOLIDATED_BILLING`.
+        :param pulumi.Input[_builtins.bool] return_organization_only: Return (as attributes) only the results of the [`DescribeOrganization`](https://docs.aws.amazon.com/organizations/latest/APIReference/API_DescribeOrganization.html) API to avoid [API limits](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_reference_limits.html#throttling-limits). When configured to `true` only the `arn`, `feature_set`, `master_account_arn`, `master_account_email` and `master_account_id` attributes will be returned. All others will be empty. Default: `false`.
         """
         if aws_service_access_principals is not None:
             pulumi.set(__self__, "aws_service_access_principals", aws_service_access_principals)
@@ -36,6 +38,8 @@ class OrganizationArgs:
             pulumi.set(__self__, "enabled_policy_types", enabled_policy_types)
         if feature_set is not None:
             pulumi.set(__self__, "feature_set", feature_set)
+        if return_organization_only is not None:
+            pulumi.set(__self__, "return_organization_only", return_organization_only)
 
     @_builtins.property
     @pulumi.getter(name="awsServiceAccessPrincipals")
@@ -73,6 +77,18 @@ class OrganizationArgs:
     def feature_set(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "feature_set", value)
 
+    @_builtins.property
+    @pulumi.getter(name="returnOrganizationOnly")
+    def return_organization_only(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Return (as attributes) only the results of the [`DescribeOrganization`](https://docs.aws.amazon.com/organizations/latest/APIReference/API_DescribeOrganization.html) API to avoid [API limits](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_reference_limits.html#throttling-limits). When configured to `true` only the `arn`, `feature_set`, `master_account_arn`, `master_account_email` and `master_account_id` attributes will be returned. All others will be empty. Default: `false`.
+        """
+        return pulumi.get(self, "return_organization_only")
+
+    @return_organization_only.setter
+    def return_organization_only(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "return_organization_only", value)
+
 
 @pulumi.input_type
 class _OrganizationState:
@@ -87,6 +103,7 @@ class _OrganizationState:
                  master_account_id: Optional[pulumi.Input[_builtins.str]] = None,
                  master_account_name: Optional[pulumi.Input[_builtins.str]] = None,
                  non_master_accounts: Optional[pulumi.Input[Sequence[pulumi.Input['OrganizationNonMasterAccountArgs']]]] = None,
+                 return_organization_only: Optional[pulumi.Input[_builtins.bool]] = None,
                  roots: Optional[pulumi.Input[Sequence[pulumi.Input['OrganizationRootArgs']]]] = None):
         """
         Input properties used for looking up and filtering Organization resources.
@@ -100,6 +117,7 @@ class _OrganizationState:
         :param pulumi.Input[_builtins.str] master_account_id: Identifier of the master account.
         :param pulumi.Input[_builtins.str] master_account_name: Name of the master account.
         :param pulumi.Input[Sequence[pulumi.Input['OrganizationNonMasterAccountArgs']]] non_master_accounts: List of organization accounts excluding the master account. For a list including the master account, see the `accounts` attribute. All elements have these attributes:
+        :param pulumi.Input[_builtins.bool] return_organization_only: Return (as attributes) only the results of the [`DescribeOrganization`](https://docs.aws.amazon.com/organizations/latest/APIReference/API_DescribeOrganization.html) API to avoid [API limits](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_reference_limits.html#throttling-limits). When configured to `true` only the `arn`, `feature_set`, `master_account_arn`, `master_account_email` and `master_account_id` attributes will be returned. All others will be empty. Default: `false`.
         :param pulumi.Input[Sequence[pulumi.Input['OrganizationRootArgs']]] roots: List of organization roots. All elements have these attributes:
         """
         if accounts is not None:
@@ -122,6 +140,8 @@ class _OrganizationState:
             pulumi.set(__self__, "master_account_name", master_account_name)
         if non_master_accounts is not None:
             pulumi.set(__self__, "non_master_accounts", non_master_accounts)
+        if return_organization_only is not None:
+            pulumi.set(__self__, "return_organization_only", return_organization_only)
         if roots is not None:
             pulumi.set(__self__, "roots", roots)
 
@@ -246,6 +266,18 @@ class _OrganizationState:
         pulumi.set(self, "non_master_accounts", value)
 
     @_builtins.property
+    @pulumi.getter(name="returnOrganizationOnly")
+    def return_organization_only(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Return (as attributes) only the results of the [`DescribeOrganization`](https://docs.aws.amazon.com/organizations/latest/APIReference/API_DescribeOrganization.html) API to avoid [API limits](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_reference_limits.html#throttling-limits). When configured to `true` only the `arn`, `feature_set`, `master_account_arn`, `master_account_email` and `master_account_id` attributes will be returned. All others will be empty. Default: `false`.
+        """
+        return pulumi.get(self, "return_organization_only")
+
+    @return_organization_only.setter
+    def return_organization_only(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "return_organization_only", value)
+
+    @_builtins.property
     @pulumi.getter
     def roots(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['OrganizationRootArgs']]]]:
         """
@@ -267,6 +299,7 @@ class Organization(pulumi.CustomResource):
                  aws_service_access_principals: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  enabled_policy_types: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  feature_set: Optional[pulumi.Input[_builtins.str]] = None,
+                 return_organization_only: Optional[pulumi.Input[_builtins.bool]] = None,
                  __props__=None):
         """
         Provides a resource to create an organization.
@@ -310,6 +343,7 @@ class Organization(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] aws_service_access_principals: List of AWS service principal names for which you want to enable integration with your organization. This is typically in the form of a URL, such as service-abbreviation.amazonaws.com. Organization must have `feature_set` set to `ALL`. Some services do not support enablement via this endpoint, see [warning in aws docs](https://docs.aws.amazon.com/organizations/latest/APIReference/API_EnableAWSServiceAccess.html).
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] enabled_policy_types: List of Organizations policy types to enable in the Organization Root. Organization must have `feature_set` set to `ALL`. For additional information about valid policy types (e.g., `AISERVICES_OPT_OUT_POLICY`, `BACKUP_POLICY`, `BEDROCK_POLICY`, `CHATBOT_POLICY`, `DECLARATIVE_POLICY_EC2`, `INSPECTOR_POLICY`, `RESOURCE_CONTROL_POLICY`, `S3_POLICY`, `SECURITYHUB_POLICY`, `SERVICE_CONTROL_POLICY`, `TAG_POLICY` and `UPGRADE_ROLLOUT_POLICY`), see the [AWS Organizations API Reference](https://docs.aws.amazon.com/organizations/latest/APIReference/API_EnablePolicyType.html). To enable `INSPECTOR_POLICY`, `aws_service_access_principals` must include `inspector2.amazonaws.com`. To enable `SECURITYHUB_POLICY`, `aws_service_access_principals` must include `securityhub.amazonaws.com`.
         :param pulumi.Input[_builtins.str] feature_set: Specify `ALL` (default) or `CONSOLIDATED_BILLING`.
+        :param pulumi.Input[_builtins.bool] return_organization_only: Return (as attributes) only the results of the [`DescribeOrganization`](https://docs.aws.amazon.com/organizations/latest/APIReference/API_DescribeOrganization.html) API to avoid [API limits](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_reference_limits.html#throttling-limits). When configured to `true` only the `arn`, `feature_set`, `master_account_arn`, `master_account_email` and `master_account_id` attributes will be returned. All others will be empty. Default: `false`.
         """
         ...
     @overload
@@ -372,6 +406,7 @@ class Organization(pulumi.CustomResource):
                  aws_service_access_principals: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  enabled_policy_types: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  feature_set: Optional[pulumi.Input[_builtins.str]] = None,
+                 return_organization_only: Optional[pulumi.Input[_builtins.bool]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -384,6 +419,7 @@ class Organization(pulumi.CustomResource):
             __props__.__dict__["aws_service_access_principals"] = aws_service_access_principals
             __props__.__dict__["enabled_policy_types"] = enabled_policy_types
             __props__.__dict__["feature_set"] = feature_set
+            __props__.__dict__["return_organization_only"] = return_organization_only
             __props__.__dict__["accounts"] = None
             __props__.__dict__["arn"] = None
             __props__.__dict__["master_account_arn"] = None
@@ -412,6 +448,7 @@ class Organization(pulumi.CustomResource):
             master_account_id: Optional[pulumi.Input[_builtins.str]] = None,
             master_account_name: Optional[pulumi.Input[_builtins.str]] = None,
             non_master_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[Union['OrganizationNonMasterAccountArgs', 'OrganizationNonMasterAccountArgsDict']]]]] = None,
+            return_organization_only: Optional[pulumi.Input[_builtins.bool]] = None,
             roots: Optional[pulumi.Input[Sequence[pulumi.Input[Union['OrganizationRootArgs', 'OrganizationRootArgsDict']]]]] = None) -> 'Organization':
         """
         Get an existing Organization resource's state with the given name, id, and optional extra
@@ -430,6 +467,7 @@ class Organization(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] master_account_id: Identifier of the master account.
         :param pulumi.Input[_builtins.str] master_account_name: Name of the master account.
         :param pulumi.Input[Sequence[pulumi.Input[Union['OrganizationNonMasterAccountArgs', 'OrganizationNonMasterAccountArgsDict']]]] non_master_accounts: List of organization accounts excluding the master account. For a list including the master account, see the `accounts` attribute. All elements have these attributes:
+        :param pulumi.Input[_builtins.bool] return_organization_only: Return (as attributes) only the results of the [`DescribeOrganization`](https://docs.aws.amazon.com/organizations/latest/APIReference/API_DescribeOrganization.html) API to avoid [API limits](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_reference_limits.html#throttling-limits). When configured to `true` only the `arn`, `feature_set`, `master_account_arn`, `master_account_email` and `master_account_id` attributes will be returned. All others will be empty. Default: `false`.
         :param pulumi.Input[Sequence[pulumi.Input[Union['OrganizationRootArgs', 'OrganizationRootArgsDict']]]] roots: List of organization roots. All elements have these attributes:
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -446,6 +484,7 @@ class Organization(pulumi.CustomResource):
         __props__.__dict__["master_account_id"] = master_account_id
         __props__.__dict__["master_account_name"] = master_account_name
         __props__.__dict__["non_master_accounts"] = non_master_accounts
+        __props__.__dict__["return_organization_only"] = return_organization_only
         __props__.__dict__["roots"] = roots
         return Organization(resource_name, opts=opts, __props__=__props__)
 
@@ -528,6 +567,14 @@ class Organization(pulumi.CustomResource):
         List of organization accounts excluding the master account. For a list including the master account, see the `accounts` attribute. All elements have these attributes:
         """
         return pulumi.get(self, "non_master_accounts")
+
+    @_builtins.property
+    @pulumi.getter(name="returnOrganizationOnly")
+    def return_organization_only(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        Return (as attributes) only the results of the [`DescribeOrganization`](https://docs.aws.amazon.com/organizations/latest/APIReference/API_DescribeOrganization.html) API to avoid [API limits](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_reference_limits.html#throttling-limits). When configured to `true` only the `arn`, `feature_set`, `master_account_arn`, `master_account_email` and `master_account_id` attributes will be returned. All others will be empty. Default: `false`.
+        """
+        return pulumi.get(self, "return_organization_only")
 
     @_builtins.property
     @pulumi.getter

@@ -87,10 +87,12 @@ export class InvoiceUnit extends pulumi.CustomResource {
     declare public readonly name: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     *
+     * @deprecated This attribute will be removed in a future verion of the provider.
      */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * Configuration block for invoice unit rules. See below.
+     * Configuration block for invoice unit rules. See `rule` below.
      *
      * The following arguments are optional:
      */
@@ -181,10 +183,12 @@ export interface InvoiceUnitState {
     name?: pulumi.Input<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     *
+     * @deprecated This attribute will be removed in a future verion of the provider.
      */
     region?: pulumi.Input<string>;
     /**
-     * Configuration block for invoice unit rules. See below.
+     * Configuration block for invoice unit rules. See `rule` below.
      *
      * The following arguments are optional:
      */
@@ -222,10 +226,12 @@ export interface InvoiceUnitArgs {
     name?: pulumi.Input<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     *
+     * @deprecated This attribute will be removed in a future verion of the provider.
      */
     region?: pulumi.Input<string>;
     /**
-     * Configuration block for invoice unit rules. See below.
+     * Configuration block for invoice unit rules. See `rule` below.
      *
      * The following arguments are optional:
      */

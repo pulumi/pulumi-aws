@@ -47,6 +47,21 @@ public final class GetObjectPlainArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
+     * Set to `true` to always download object data to `bodyBase64` attribute. If unset and conditions described above are met, `body` will be available but `bodyBase64` will not be. If set to `false`, the body is not downloaded and neither `body` nor `bodyBase64` is available, which may improve performance.
+     * 
+     */
+    @Import(name="downloadBody")
+    private @Nullable String downloadBody;
+
+    /**
+     * @return Set to `true` to always download object data to `bodyBase64` attribute. If unset and conditions described above are met, `body` will be available but `bodyBase64` will not be. If set to `false`, the body is not downloaded and neither `body` nor `bodyBase64` is available, which may improve performance.
+     * 
+     */
+    public Optional<String> downloadBody() {
+        return Optional.ofNullable(this.downloadBody);
+    }
+
+    /**
      * Full path to the object inside the bucket
      * 
      */
@@ -118,6 +133,7 @@ public final class GetObjectPlainArgs extends com.pulumi.resources.InvokeArgs {
     private GetObjectPlainArgs(GetObjectPlainArgs $) {
         this.bucket = $.bucket;
         this.checksumMode = $.checksumMode;
+        this.downloadBody = $.downloadBody;
         this.key = $.key;
         this.range = $.range;
         this.region = $.region;
@@ -162,6 +178,17 @@ public final class GetObjectPlainArgs extends com.pulumi.resources.InvokeArgs {
          */
         public Builder checksumMode(@Nullable String checksumMode) {
             $.checksumMode = checksumMode;
+            return this;
+        }
+
+        /**
+         * @param downloadBody Set to `true` to always download object data to `bodyBase64` attribute. If unset and conditions described above are met, `body` will be available but `bodyBase64` will not be. If set to `false`, the body is not downloaded and neither `body` nor `bodyBase64` is available, which may improve performance.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder downloadBody(@Nullable String downloadBody) {
+            $.downloadBody = downloadBody;
             return this;
         }
 

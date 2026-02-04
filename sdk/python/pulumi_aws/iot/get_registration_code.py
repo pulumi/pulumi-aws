@@ -87,9 +87,9 @@ def get_registration_code(region: Optional[_builtins.str] = None,
     verification_cert_request = tls.CertRequest("verification",
         key_algorithm="RSA",
         private_key_pem=verification.private_key_pem,
-        subject=[{
-            "commonName": example.registration_code,
-        }])
+        subject={
+            "common_name": example.registration_code,
+        })
     ```
 
 
@@ -121,9 +121,9 @@ def get_registration_code_output(region: Optional[pulumi.Input[Optional[_builtin
     verification_cert_request = tls.CertRequest("verification",
         key_algorithm="RSA",
         private_key_pem=verification.private_key_pem,
-        subject=[{
-            "commonName": example.registration_code,
-        }])
+        subject={
+            "common_name": example.registration_code,
+        })
     ```
 
 

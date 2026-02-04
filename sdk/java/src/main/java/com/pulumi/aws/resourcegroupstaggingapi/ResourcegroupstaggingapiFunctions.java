@@ -4,8 +4,11 @@
 package com.pulumi.aws.resourcegroupstaggingapi;
 
 import com.pulumi.aws.Utilities;
+import com.pulumi.aws.resourcegroupstaggingapi.inputs.GetRequiredTagsArgs;
+import com.pulumi.aws.resourcegroupstaggingapi.inputs.GetRequiredTagsPlainArgs;
 import com.pulumi.aws.resourcegroupstaggingapi.inputs.GetResourcesArgs;
 import com.pulumi.aws.resourcegroupstaggingapi.inputs.GetResourcesPlainArgs;
+import com.pulumi.aws.resourcegroupstaggingapi.outputs.GetRequiredTagsResult;
 import com.pulumi.aws.resourcegroupstaggingapi.outputs.GetResourcesResult;
 import com.pulumi.core.Output;
 import com.pulumi.core.TypeShape;
@@ -15,6 +18,293 @@ import com.pulumi.deployment.InvokeOutputOptions;
 import java.util.concurrent.CompletableFuture;
 
 public final class ResourcegroupstaggingapiFunctions {
+    /**
+     * Lists the required tags for supported resource types in an AWS account. Required tags are defined through AWS Organizations [tag policies](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_tag-policies.html).
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.resourcegroupstaggingapi.ResourcegroupstaggingapiFunctions;
+     * import com.pulumi.aws.resourcegroupstaggingapi.inputs.GetRequiredTagsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ResourcegroupstaggingapiFunctions.getRequiredTags(GetRequiredTagsArgs.builder()
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetRequiredTagsResult> getRequiredTags() {
+        return getRequiredTags(GetRequiredTagsArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Lists the required tags for supported resource types in an AWS account. Required tags are defined through AWS Organizations [tag policies](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_tag-policies.html).
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.resourcegroupstaggingapi.ResourcegroupstaggingapiFunctions;
+     * import com.pulumi.aws.resourcegroupstaggingapi.inputs.GetRequiredTagsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ResourcegroupstaggingapiFunctions.getRequiredTags(GetRequiredTagsArgs.builder()
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetRequiredTagsResult> getRequiredTagsPlain() {
+        return getRequiredTagsPlain(GetRequiredTagsPlainArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Lists the required tags for supported resource types in an AWS account. Required tags are defined through AWS Organizations [tag policies](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_tag-policies.html).
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.resourcegroupstaggingapi.ResourcegroupstaggingapiFunctions;
+     * import com.pulumi.aws.resourcegroupstaggingapi.inputs.GetRequiredTagsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ResourcegroupstaggingapiFunctions.getRequiredTags(GetRequiredTagsArgs.builder()
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetRequiredTagsResult> getRequiredTags(GetRequiredTagsArgs args) {
+        return getRequiredTags(args, InvokeOptions.Empty);
+    }
+    /**
+     * Lists the required tags for supported resource types in an AWS account. Required tags are defined through AWS Organizations [tag policies](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_tag-policies.html).
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.resourcegroupstaggingapi.ResourcegroupstaggingapiFunctions;
+     * import com.pulumi.aws.resourcegroupstaggingapi.inputs.GetRequiredTagsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ResourcegroupstaggingapiFunctions.getRequiredTags(GetRequiredTagsArgs.builder()
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetRequiredTagsResult> getRequiredTagsPlain(GetRequiredTagsPlainArgs args) {
+        return getRequiredTagsPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Lists the required tags for supported resource types in an AWS account. Required tags are defined through AWS Organizations [tag policies](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_tag-policies.html).
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.resourcegroupstaggingapi.ResourcegroupstaggingapiFunctions;
+     * import com.pulumi.aws.resourcegroupstaggingapi.inputs.GetRequiredTagsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ResourcegroupstaggingapiFunctions.getRequiredTags(GetRequiredTagsArgs.builder()
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetRequiredTagsResult> getRequiredTags(GetRequiredTagsArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:resourcegroupstaggingapi/getRequiredTags:getRequiredTags", TypeShape.of(GetRequiredTagsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Lists the required tags for supported resource types in an AWS account. Required tags are defined through AWS Organizations [tag policies](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_tag-policies.html).
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.resourcegroupstaggingapi.ResourcegroupstaggingapiFunctions;
+     * import com.pulumi.aws.resourcegroupstaggingapi.inputs.GetRequiredTagsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ResourcegroupstaggingapiFunctions.getRequiredTags(GetRequiredTagsArgs.builder()
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetRequiredTagsResult> getRequiredTags(GetRequiredTagsArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("aws:resourcegroupstaggingapi/getRequiredTags:getRequiredTags", TypeShape.of(GetRequiredTagsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Lists the required tags for supported resource types in an AWS account. Required tags are defined through AWS Organizations [tag policies](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_tag-policies.html).
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.resourcegroupstaggingapi.ResourcegroupstaggingapiFunctions;
+     * import com.pulumi.aws.resourcegroupstaggingapi.inputs.GetRequiredTagsArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = ResourcegroupstaggingapiFunctions.getRequiredTags(GetRequiredTagsArgs.builder()
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetRequiredTagsResult> getRequiredTagsPlain(GetRequiredTagsPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("aws:resourcegroupstaggingapi/getRequiredTags:getRequiredTags", TypeShape.of(GetRequiredTagsResult.class), args, Utilities.withVersion(options));
+    }
     /**
      * Provides details about resource tagging.
      * 

@@ -1919,6 +1919,8 @@ func (o CloudVmClusterTimeoutsPtrOutput) Update() pulumi.StringPtrOutput {
 }
 
 type NetworkManagedService struct {
+	// Specifies the configuration for KMS access from the ODB network.
+	KmsAccesses             []NetworkManagedServiceKmsAccess             `pulumi:"kmsAccesses"`
 	ManagedS3BackupAccesses []NetworkManagedServiceManagedS3BackupAccess `pulumi:"managedS3BackupAccesses"`
 	ManagedServiceIpv4Cidrs []string                                     `pulumi:"managedServiceIpv4Cidrs"`
 	ResourceGatewayArn      string                                       `pulumi:"resourceGatewayArn"`
@@ -1926,6 +1928,8 @@ type NetworkManagedService struct {
 	S3Accesses              []NetworkManagedServiceS3Access               `pulumi:"s3Accesses"`
 	ServiceNetworkArn       string                                        `pulumi:"serviceNetworkArn"`
 	ServiceNetworkEndpoints []NetworkManagedServiceServiceNetworkEndpoint `pulumi:"serviceNetworkEndpoints"`
+	// Specifies the configuration for STS access from the ODB network.
+	StsAccesses []NetworkManagedServiceStsAccess `pulumi:"stsAccesses"`
 	// Specifies the configuration for Zero-ETL access from the ODB network.
 	//
 	// The following arguments are optional:
@@ -1944,6 +1948,8 @@ type NetworkManagedServiceInput interface {
 }
 
 type NetworkManagedServiceArgs struct {
+	// Specifies the configuration for KMS access from the ODB network.
+	KmsAccesses             NetworkManagedServiceKmsAccessArrayInput             `pulumi:"kmsAccesses"`
 	ManagedS3BackupAccesses NetworkManagedServiceManagedS3BackupAccessArrayInput `pulumi:"managedS3BackupAccesses"`
 	ManagedServiceIpv4Cidrs pulumi.StringArrayInput                              `pulumi:"managedServiceIpv4Cidrs"`
 	ResourceGatewayArn      pulumi.StringInput                                   `pulumi:"resourceGatewayArn"`
@@ -1951,6 +1957,8 @@ type NetworkManagedServiceArgs struct {
 	S3Accesses              NetworkManagedServiceS3AccessArrayInput               `pulumi:"s3Accesses"`
 	ServiceNetworkArn       pulumi.StringInput                                    `pulumi:"serviceNetworkArn"`
 	ServiceNetworkEndpoints NetworkManagedServiceServiceNetworkEndpointArrayInput `pulumi:"serviceNetworkEndpoints"`
+	// Specifies the configuration for STS access from the ODB network.
+	StsAccesses NetworkManagedServiceStsAccessArrayInput `pulumi:"stsAccesses"`
 	// Specifies the configuration for Zero-ETL access from the ODB network.
 	//
 	// The following arguments are optional:
@@ -2008,6 +2016,11 @@ func (o NetworkManagedServiceOutput) ToNetworkManagedServiceOutputWithContext(ct
 	return o
 }
 
+// Specifies the configuration for KMS access from the ODB network.
+func (o NetworkManagedServiceOutput) KmsAccesses() NetworkManagedServiceKmsAccessArrayOutput {
+	return o.ApplyT(func(v NetworkManagedService) []NetworkManagedServiceKmsAccess { return v.KmsAccesses }).(NetworkManagedServiceKmsAccessArrayOutput)
+}
+
 func (o NetworkManagedServiceOutput) ManagedS3BackupAccesses() NetworkManagedServiceManagedS3BackupAccessArrayOutput {
 	return o.ApplyT(func(v NetworkManagedService) []NetworkManagedServiceManagedS3BackupAccess {
 		return v.ManagedS3BackupAccesses
@@ -2037,6 +2050,11 @@ func (o NetworkManagedServiceOutput) ServiceNetworkEndpoints() NetworkManagedSer
 	}).(NetworkManagedServiceServiceNetworkEndpointArrayOutput)
 }
 
+// Specifies the configuration for STS access from the ODB network.
+func (o NetworkManagedServiceOutput) StsAccesses() NetworkManagedServiceStsAccessArrayOutput {
+	return o.ApplyT(func(v NetworkManagedService) []NetworkManagedServiceStsAccess { return v.StsAccesses }).(NetworkManagedServiceStsAccessArrayOutput)
+}
+
 // Specifies the configuration for Zero-ETL access from the ODB network.
 //
 // The following arguments are optional:
@@ -2062,6 +2080,124 @@ func (o NetworkManagedServiceArrayOutput) Index(i pulumi.IntInput) NetworkManage
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) NetworkManagedService {
 		return vs[0].([]NetworkManagedService)[vs[1].(int)]
 	}).(NetworkManagedServiceOutput)
+}
+
+type NetworkManagedServiceKmsAccess struct {
+	DomainName    string   `pulumi:"domainName"`
+	Ipv4Addresses []string `pulumi:"ipv4Addresses"`
+	// Specifies the endpoint policy for KMS access from the ODB network.
+	KmsPolicyDocument string `pulumi:"kmsPolicyDocument"`
+	// The status of the network resource.
+	Status string `pulumi:"status"`
+}
+
+// NetworkManagedServiceKmsAccessInput is an input type that accepts NetworkManagedServiceKmsAccessArgs and NetworkManagedServiceKmsAccessOutput values.
+// You can construct a concrete instance of `NetworkManagedServiceKmsAccessInput` via:
+//
+//	NetworkManagedServiceKmsAccessArgs{...}
+type NetworkManagedServiceKmsAccessInput interface {
+	pulumi.Input
+
+	ToNetworkManagedServiceKmsAccessOutput() NetworkManagedServiceKmsAccessOutput
+	ToNetworkManagedServiceKmsAccessOutputWithContext(context.Context) NetworkManagedServiceKmsAccessOutput
+}
+
+type NetworkManagedServiceKmsAccessArgs struct {
+	DomainName    pulumi.StringInput      `pulumi:"domainName"`
+	Ipv4Addresses pulumi.StringArrayInput `pulumi:"ipv4Addresses"`
+	// Specifies the endpoint policy for KMS access from the ODB network.
+	KmsPolicyDocument pulumi.StringInput `pulumi:"kmsPolicyDocument"`
+	// The status of the network resource.
+	Status pulumi.StringInput `pulumi:"status"`
+}
+
+func (NetworkManagedServiceKmsAccessArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkManagedServiceKmsAccess)(nil)).Elem()
+}
+
+func (i NetworkManagedServiceKmsAccessArgs) ToNetworkManagedServiceKmsAccessOutput() NetworkManagedServiceKmsAccessOutput {
+	return i.ToNetworkManagedServiceKmsAccessOutputWithContext(context.Background())
+}
+
+func (i NetworkManagedServiceKmsAccessArgs) ToNetworkManagedServiceKmsAccessOutputWithContext(ctx context.Context) NetworkManagedServiceKmsAccessOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkManagedServiceKmsAccessOutput)
+}
+
+// NetworkManagedServiceKmsAccessArrayInput is an input type that accepts NetworkManagedServiceKmsAccessArray and NetworkManagedServiceKmsAccessArrayOutput values.
+// You can construct a concrete instance of `NetworkManagedServiceKmsAccessArrayInput` via:
+//
+//	NetworkManagedServiceKmsAccessArray{ NetworkManagedServiceKmsAccessArgs{...} }
+type NetworkManagedServiceKmsAccessArrayInput interface {
+	pulumi.Input
+
+	ToNetworkManagedServiceKmsAccessArrayOutput() NetworkManagedServiceKmsAccessArrayOutput
+	ToNetworkManagedServiceKmsAccessArrayOutputWithContext(context.Context) NetworkManagedServiceKmsAccessArrayOutput
+}
+
+type NetworkManagedServiceKmsAccessArray []NetworkManagedServiceKmsAccessInput
+
+func (NetworkManagedServiceKmsAccessArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NetworkManagedServiceKmsAccess)(nil)).Elem()
+}
+
+func (i NetworkManagedServiceKmsAccessArray) ToNetworkManagedServiceKmsAccessArrayOutput() NetworkManagedServiceKmsAccessArrayOutput {
+	return i.ToNetworkManagedServiceKmsAccessArrayOutputWithContext(context.Background())
+}
+
+func (i NetworkManagedServiceKmsAccessArray) ToNetworkManagedServiceKmsAccessArrayOutputWithContext(ctx context.Context) NetworkManagedServiceKmsAccessArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkManagedServiceKmsAccessArrayOutput)
+}
+
+type NetworkManagedServiceKmsAccessOutput struct{ *pulumi.OutputState }
+
+func (NetworkManagedServiceKmsAccessOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkManagedServiceKmsAccess)(nil)).Elem()
+}
+
+func (o NetworkManagedServiceKmsAccessOutput) ToNetworkManagedServiceKmsAccessOutput() NetworkManagedServiceKmsAccessOutput {
+	return o
+}
+
+func (o NetworkManagedServiceKmsAccessOutput) ToNetworkManagedServiceKmsAccessOutputWithContext(ctx context.Context) NetworkManagedServiceKmsAccessOutput {
+	return o
+}
+
+func (o NetworkManagedServiceKmsAccessOutput) DomainName() pulumi.StringOutput {
+	return o.ApplyT(func(v NetworkManagedServiceKmsAccess) string { return v.DomainName }).(pulumi.StringOutput)
+}
+
+func (o NetworkManagedServiceKmsAccessOutput) Ipv4Addresses() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v NetworkManagedServiceKmsAccess) []string { return v.Ipv4Addresses }).(pulumi.StringArrayOutput)
+}
+
+// Specifies the endpoint policy for KMS access from the ODB network.
+func (o NetworkManagedServiceKmsAccessOutput) KmsPolicyDocument() pulumi.StringOutput {
+	return o.ApplyT(func(v NetworkManagedServiceKmsAccess) string { return v.KmsPolicyDocument }).(pulumi.StringOutput)
+}
+
+// The status of the network resource.
+func (o NetworkManagedServiceKmsAccessOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v NetworkManagedServiceKmsAccess) string { return v.Status }).(pulumi.StringOutput)
+}
+
+type NetworkManagedServiceKmsAccessArrayOutput struct{ *pulumi.OutputState }
+
+func (NetworkManagedServiceKmsAccessArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NetworkManagedServiceKmsAccess)(nil)).Elem()
+}
+
+func (o NetworkManagedServiceKmsAccessArrayOutput) ToNetworkManagedServiceKmsAccessArrayOutput() NetworkManagedServiceKmsAccessArrayOutput {
+	return o
+}
+
+func (o NetworkManagedServiceKmsAccessArrayOutput) ToNetworkManagedServiceKmsAccessArrayOutputWithContext(ctx context.Context) NetworkManagedServiceKmsAccessArrayOutput {
+	return o
+}
+
+func (o NetworkManagedServiceKmsAccessArrayOutput) Index(i pulumi.IntInput) NetworkManagedServiceKmsAccessOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) NetworkManagedServiceKmsAccess {
+		return vs[0].([]NetworkManagedServiceKmsAccess)[vs[1].(int)]
+	}).(NetworkManagedServiceKmsAccessOutput)
 }
 
 type NetworkManagedServiceManagedS3BackupAccess struct {
@@ -2383,6 +2519,124 @@ func (o NetworkManagedServiceServiceNetworkEndpointArrayOutput) Index(i pulumi.I
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) NetworkManagedServiceServiceNetworkEndpoint {
 		return vs[0].([]NetworkManagedServiceServiceNetworkEndpoint)[vs[1].(int)]
 	}).(NetworkManagedServiceServiceNetworkEndpointOutput)
+}
+
+type NetworkManagedServiceStsAccess struct {
+	DomainName    string   `pulumi:"domainName"`
+	Ipv4Addresses []string `pulumi:"ipv4Addresses"`
+	// The status of the network resource.
+	Status string `pulumi:"status"`
+	// Specifies the endpoint policy for STS access from the ODB network.
+	StsPolicyDocument string `pulumi:"stsPolicyDocument"`
+}
+
+// NetworkManagedServiceStsAccessInput is an input type that accepts NetworkManagedServiceStsAccessArgs and NetworkManagedServiceStsAccessOutput values.
+// You can construct a concrete instance of `NetworkManagedServiceStsAccessInput` via:
+//
+//	NetworkManagedServiceStsAccessArgs{...}
+type NetworkManagedServiceStsAccessInput interface {
+	pulumi.Input
+
+	ToNetworkManagedServiceStsAccessOutput() NetworkManagedServiceStsAccessOutput
+	ToNetworkManagedServiceStsAccessOutputWithContext(context.Context) NetworkManagedServiceStsAccessOutput
+}
+
+type NetworkManagedServiceStsAccessArgs struct {
+	DomainName    pulumi.StringInput      `pulumi:"domainName"`
+	Ipv4Addresses pulumi.StringArrayInput `pulumi:"ipv4Addresses"`
+	// The status of the network resource.
+	Status pulumi.StringInput `pulumi:"status"`
+	// Specifies the endpoint policy for STS access from the ODB network.
+	StsPolicyDocument pulumi.StringInput `pulumi:"stsPolicyDocument"`
+}
+
+func (NetworkManagedServiceStsAccessArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkManagedServiceStsAccess)(nil)).Elem()
+}
+
+func (i NetworkManagedServiceStsAccessArgs) ToNetworkManagedServiceStsAccessOutput() NetworkManagedServiceStsAccessOutput {
+	return i.ToNetworkManagedServiceStsAccessOutputWithContext(context.Background())
+}
+
+func (i NetworkManagedServiceStsAccessArgs) ToNetworkManagedServiceStsAccessOutputWithContext(ctx context.Context) NetworkManagedServiceStsAccessOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkManagedServiceStsAccessOutput)
+}
+
+// NetworkManagedServiceStsAccessArrayInput is an input type that accepts NetworkManagedServiceStsAccessArray and NetworkManagedServiceStsAccessArrayOutput values.
+// You can construct a concrete instance of `NetworkManagedServiceStsAccessArrayInput` via:
+//
+//	NetworkManagedServiceStsAccessArray{ NetworkManagedServiceStsAccessArgs{...} }
+type NetworkManagedServiceStsAccessArrayInput interface {
+	pulumi.Input
+
+	ToNetworkManagedServiceStsAccessArrayOutput() NetworkManagedServiceStsAccessArrayOutput
+	ToNetworkManagedServiceStsAccessArrayOutputWithContext(context.Context) NetworkManagedServiceStsAccessArrayOutput
+}
+
+type NetworkManagedServiceStsAccessArray []NetworkManagedServiceStsAccessInput
+
+func (NetworkManagedServiceStsAccessArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NetworkManagedServiceStsAccess)(nil)).Elem()
+}
+
+func (i NetworkManagedServiceStsAccessArray) ToNetworkManagedServiceStsAccessArrayOutput() NetworkManagedServiceStsAccessArrayOutput {
+	return i.ToNetworkManagedServiceStsAccessArrayOutputWithContext(context.Background())
+}
+
+func (i NetworkManagedServiceStsAccessArray) ToNetworkManagedServiceStsAccessArrayOutputWithContext(ctx context.Context) NetworkManagedServiceStsAccessArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(NetworkManagedServiceStsAccessArrayOutput)
+}
+
+type NetworkManagedServiceStsAccessOutput struct{ *pulumi.OutputState }
+
+func (NetworkManagedServiceStsAccessOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*NetworkManagedServiceStsAccess)(nil)).Elem()
+}
+
+func (o NetworkManagedServiceStsAccessOutput) ToNetworkManagedServiceStsAccessOutput() NetworkManagedServiceStsAccessOutput {
+	return o
+}
+
+func (o NetworkManagedServiceStsAccessOutput) ToNetworkManagedServiceStsAccessOutputWithContext(ctx context.Context) NetworkManagedServiceStsAccessOutput {
+	return o
+}
+
+func (o NetworkManagedServiceStsAccessOutput) DomainName() pulumi.StringOutput {
+	return o.ApplyT(func(v NetworkManagedServiceStsAccess) string { return v.DomainName }).(pulumi.StringOutput)
+}
+
+func (o NetworkManagedServiceStsAccessOutput) Ipv4Addresses() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v NetworkManagedServiceStsAccess) []string { return v.Ipv4Addresses }).(pulumi.StringArrayOutput)
+}
+
+// The status of the network resource.
+func (o NetworkManagedServiceStsAccessOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v NetworkManagedServiceStsAccess) string { return v.Status }).(pulumi.StringOutput)
+}
+
+// Specifies the endpoint policy for STS access from the ODB network.
+func (o NetworkManagedServiceStsAccessOutput) StsPolicyDocument() pulumi.StringOutput {
+	return o.ApplyT(func(v NetworkManagedServiceStsAccess) string { return v.StsPolicyDocument }).(pulumi.StringOutput)
+}
+
+type NetworkManagedServiceStsAccessArrayOutput struct{ *pulumi.OutputState }
+
+func (NetworkManagedServiceStsAccessArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]NetworkManagedServiceStsAccess)(nil)).Elem()
+}
+
+func (o NetworkManagedServiceStsAccessArrayOutput) ToNetworkManagedServiceStsAccessArrayOutput() NetworkManagedServiceStsAccessArrayOutput {
+	return o
+}
+
+func (o NetworkManagedServiceStsAccessArrayOutput) ToNetworkManagedServiceStsAccessArrayOutputWithContext(ctx context.Context) NetworkManagedServiceStsAccessArrayOutput {
+	return o
+}
+
+func (o NetworkManagedServiceStsAccessArrayOutput) Index(i pulumi.IntInput) NetworkManagedServiceStsAccessOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) NetworkManagedServiceStsAccess {
+		return vs[0].([]NetworkManagedServiceStsAccess)[vs[1].(int)]
+	}).(NetworkManagedServiceStsAccessOutput)
 }
 
 type NetworkManagedServiceZeroEtlAccess struct {
@@ -5651,12 +5905,14 @@ func (o GetGiVersionsGiVersionArrayOutput) Index(i pulumi.IntInput) GetGiVersion
 }
 
 type GetNetworkManagedService struct {
+	KmsAccesses             []GetNetworkManagedServiceKmsAccess              `pulumi:"kmsAccesses"`
 	ManagedS3BackupAccesses []GetNetworkManagedServiceManagedS3BackupAccess  `pulumi:"managedS3BackupAccesses"`
 	ManagedServiceIpv4Cidrs []string                                         `pulumi:"managedServiceIpv4Cidrs"`
 	ResourceGatewayArn      string                                           `pulumi:"resourceGatewayArn"`
 	S3Accesses              []GetNetworkManagedServiceS3Access               `pulumi:"s3Accesses"`
 	ServiceNetworkArn       string                                           `pulumi:"serviceNetworkArn"`
 	ServiceNetworkEndpoints []GetNetworkManagedServiceServiceNetworkEndpoint `pulumi:"serviceNetworkEndpoints"`
+	StsAccesses             []GetNetworkManagedServiceStsAccess              `pulumi:"stsAccesses"`
 	ZeroTlAccesses          []GetNetworkManagedServiceZeroTlAccess           `pulumi:"zeroTlAccesses"`
 }
 
@@ -5672,12 +5928,14 @@ type GetNetworkManagedServiceInput interface {
 }
 
 type GetNetworkManagedServiceArgs struct {
+	KmsAccesses             GetNetworkManagedServiceKmsAccessArrayInput              `pulumi:"kmsAccesses"`
 	ManagedS3BackupAccesses GetNetworkManagedServiceManagedS3BackupAccessArrayInput  `pulumi:"managedS3BackupAccesses"`
 	ManagedServiceIpv4Cidrs pulumi.StringArrayInput                                  `pulumi:"managedServiceIpv4Cidrs"`
 	ResourceGatewayArn      pulumi.StringInput                                       `pulumi:"resourceGatewayArn"`
 	S3Accesses              GetNetworkManagedServiceS3AccessArrayInput               `pulumi:"s3Accesses"`
 	ServiceNetworkArn       pulumi.StringInput                                       `pulumi:"serviceNetworkArn"`
 	ServiceNetworkEndpoints GetNetworkManagedServiceServiceNetworkEndpointArrayInput `pulumi:"serviceNetworkEndpoints"`
+	StsAccesses             GetNetworkManagedServiceStsAccessArrayInput              `pulumi:"stsAccesses"`
 	ZeroTlAccesses          GetNetworkManagedServiceZeroTlAccessArrayInput           `pulumi:"zeroTlAccesses"`
 }
 
@@ -5732,6 +5990,10 @@ func (o GetNetworkManagedServiceOutput) ToGetNetworkManagedServiceOutputWithCont
 	return o
 }
 
+func (o GetNetworkManagedServiceOutput) KmsAccesses() GetNetworkManagedServiceKmsAccessArrayOutput {
+	return o.ApplyT(func(v GetNetworkManagedService) []GetNetworkManagedServiceKmsAccess { return v.KmsAccesses }).(GetNetworkManagedServiceKmsAccessArrayOutput)
+}
+
 func (o GetNetworkManagedServiceOutput) ManagedS3BackupAccesses() GetNetworkManagedServiceManagedS3BackupAccessArrayOutput {
 	return o.ApplyT(func(v GetNetworkManagedService) []GetNetworkManagedServiceManagedS3BackupAccess {
 		return v.ManagedS3BackupAccesses
@@ -5760,6 +6022,10 @@ func (o GetNetworkManagedServiceOutput) ServiceNetworkEndpoints() GetNetworkMana
 	}).(GetNetworkManagedServiceServiceNetworkEndpointArrayOutput)
 }
 
+func (o GetNetworkManagedServiceOutput) StsAccesses() GetNetworkManagedServiceStsAccessArrayOutput {
+	return o.ApplyT(func(v GetNetworkManagedService) []GetNetworkManagedServiceStsAccess { return v.StsAccesses }).(GetNetworkManagedServiceStsAccessArrayOutput)
+}
+
 func (o GetNetworkManagedServiceOutput) ZeroTlAccesses() GetNetworkManagedServiceZeroTlAccessArrayOutput {
 	return o.ApplyT(func(v GetNetworkManagedService) []GetNetworkManagedServiceZeroTlAccess { return v.ZeroTlAccesses }).(GetNetworkManagedServiceZeroTlAccessArrayOutput)
 }
@@ -5782,6 +6048,121 @@ func (o GetNetworkManagedServiceArrayOutput) Index(i pulumi.IntInput) GetNetwork
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetNetworkManagedService {
 		return vs[0].([]GetNetworkManagedService)[vs[1].(int)]
 	}).(GetNetworkManagedServiceOutput)
+}
+
+type GetNetworkManagedServiceKmsAccess struct {
+	DomainName        string   `pulumi:"domainName"`
+	Ipv4Addresses     []string `pulumi:"ipv4Addresses"`
+	KmsPolicyDocument string   `pulumi:"kmsPolicyDocument"`
+	// The status of the network resource.
+	Status string `pulumi:"status"`
+}
+
+// GetNetworkManagedServiceKmsAccessInput is an input type that accepts GetNetworkManagedServiceKmsAccessArgs and GetNetworkManagedServiceKmsAccessOutput values.
+// You can construct a concrete instance of `GetNetworkManagedServiceKmsAccessInput` via:
+//
+//	GetNetworkManagedServiceKmsAccessArgs{...}
+type GetNetworkManagedServiceKmsAccessInput interface {
+	pulumi.Input
+
+	ToGetNetworkManagedServiceKmsAccessOutput() GetNetworkManagedServiceKmsAccessOutput
+	ToGetNetworkManagedServiceKmsAccessOutputWithContext(context.Context) GetNetworkManagedServiceKmsAccessOutput
+}
+
+type GetNetworkManagedServiceKmsAccessArgs struct {
+	DomainName        pulumi.StringInput      `pulumi:"domainName"`
+	Ipv4Addresses     pulumi.StringArrayInput `pulumi:"ipv4Addresses"`
+	KmsPolicyDocument pulumi.StringInput      `pulumi:"kmsPolicyDocument"`
+	// The status of the network resource.
+	Status pulumi.StringInput `pulumi:"status"`
+}
+
+func (GetNetworkManagedServiceKmsAccessArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetNetworkManagedServiceKmsAccess)(nil)).Elem()
+}
+
+func (i GetNetworkManagedServiceKmsAccessArgs) ToGetNetworkManagedServiceKmsAccessOutput() GetNetworkManagedServiceKmsAccessOutput {
+	return i.ToGetNetworkManagedServiceKmsAccessOutputWithContext(context.Background())
+}
+
+func (i GetNetworkManagedServiceKmsAccessArgs) ToGetNetworkManagedServiceKmsAccessOutputWithContext(ctx context.Context) GetNetworkManagedServiceKmsAccessOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetNetworkManagedServiceKmsAccessOutput)
+}
+
+// GetNetworkManagedServiceKmsAccessArrayInput is an input type that accepts GetNetworkManagedServiceKmsAccessArray and GetNetworkManagedServiceKmsAccessArrayOutput values.
+// You can construct a concrete instance of `GetNetworkManagedServiceKmsAccessArrayInput` via:
+//
+//	GetNetworkManagedServiceKmsAccessArray{ GetNetworkManagedServiceKmsAccessArgs{...} }
+type GetNetworkManagedServiceKmsAccessArrayInput interface {
+	pulumi.Input
+
+	ToGetNetworkManagedServiceKmsAccessArrayOutput() GetNetworkManagedServiceKmsAccessArrayOutput
+	ToGetNetworkManagedServiceKmsAccessArrayOutputWithContext(context.Context) GetNetworkManagedServiceKmsAccessArrayOutput
+}
+
+type GetNetworkManagedServiceKmsAccessArray []GetNetworkManagedServiceKmsAccessInput
+
+func (GetNetworkManagedServiceKmsAccessArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetNetworkManagedServiceKmsAccess)(nil)).Elem()
+}
+
+func (i GetNetworkManagedServiceKmsAccessArray) ToGetNetworkManagedServiceKmsAccessArrayOutput() GetNetworkManagedServiceKmsAccessArrayOutput {
+	return i.ToGetNetworkManagedServiceKmsAccessArrayOutputWithContext(context.Background())
+}
+
+func (i GetNetworkManagedServiceKmsAccessArray) ToGetNetworkManagedServiceKmsAccessArrayOutputWithContext(ctx context.Context) GetNetworkManagedServiceKmsAccessArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetNetworkManagedServiceKmsAccessArrayOutput)
+}
+
+type GetNetworkManagedServiceKmsAccessOutput struct{ *pulumi.OutputState }
+
+func (GetNetworkManagedServiceKmsAccessOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetNetworkManagedServiceKmsAccess)(nil)).Elem()
+}
+
+func (o GetNetworkManagedServiceKmsAccessOutput) ToGetNetworkManagedServiceKmsAccessOutput() GetNetworkManagedServiceKmsAccessOutput {
+	return o
+}
+
+func (o GetNetworkManagedServiceKmsAccessOutput) ToGetNetworkManagedServiceKmsAccessOutputWithContext(ctx context.Context) GetNetworkManagedServiceKmsAccessOutput {
+	return o
+}
+
+func (o GetNetworkManagedServiceKmsAccessOutput) DomainName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetNetworkManagedServiceKmsAccess) string { return v.DomainName }).(pulumi.StringOutput)
+}
+
+func (o GetNetworkManagedServiceKmsAccessOutput) Ipv4Addresses() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetNetworkManagedServiceKmsAccess) []string { return v.Ipv4Addresses }).(pulumi.StringArrayOutput)
+}
+
+func (o GetNetworkManagedServiceKmsAccessOutput) KmsPolicyDocument() pulumi.StringOutput {
+	return o.ApplyT(func(v GetNetworkManagedServiceKmsAccess) string { return v.KmsPolicyDocument }).(pulumi.StringOutput)
+}
+
+// The status of the network resource.
+func (o GetNetworkManagedServiceKmsAccessOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v GetNetworkManagedServiceKmsAccess) string { return v.Status }).(pulumi.StringOutput)
+}
+
+type GetNetworkManagedServiceKmsAccessArrayOutput struct{ *pulumi.OutputState }
+
+func (GetNetworkManagedServiceKmsAccessArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetNetworkManagedServiceKmsAccess)(nil)).Elem()
+}
+
+func (o GetNetworkManagedServiceKmsAccessArrayOutput) ToGetNetworkManagedServiceKmsAccessArrayOutput() GetNetworkManagedServiceKmsAccessArrayOutput {
+	return o
+}
+
+func (o GetNetworkManagedServiceKmsAccessArrayOutput) ToGetNetworkManagedServiceKmsAccessArrayOutputWithContext(ctx context.Context) GetNetworkManagedServiceKmsAccessArrayOutput {
+	return o
+}
+
+func (o GetNetworkManagedServiceKmsAccessArrayOutput) Index(i pulumi.IntInput) GetNetworkManagedServiceKmsAccessOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetNetworkManagedServiceKmsAccess {
+		return vs[0].([]GetNetworkManagedServiceKmsAccess)[vs[1].(int)]
+	}).(GetNetworkManagedServiceKmsAccessOutput)
 }
 
 type GetNetworkManagedServiceManagedS3BackupAccess struct {
@@ -6100,6 +6481,121 @@ func (o GetNetworkManagedServiceServiceNetworkEndpointArrayOutput) Index(i pulum
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetNetworkManagedServiceServiceNetworkEndpoint {
 		return vs[0].([]GetNetworkManagedServiceServiceNetworkEndpoint)[vs[1].(int)]
 	}).(GetNetworkManagedServiceServiceNetworkEndpointOutput)
+}
+
+type GetNetworkManagedServiceStsAccess struct {
+	DomainName    string   `pulumi:"domainName"`
+	Ipv4Addresses []string `pulumi:"ipv4Addresses"`
+	// The status of the network resource.
+	Status            string `pulumi:"status"`
+	StsPolicyDocument string `pulumi:"stsPolicyDocument"`
+}
+
+// GetNetworkManagedServiceStsAccessInput is an input type that accepts GetNetworkManagedServiceStsAccessArgs and GetNetworkManagedServiceStsAccessOutput values.
+// You can construct a concrete instance of `GetNetworkManagedServiceStsAccessInput` via:
+//
+//	GetNetworkManagedServiceStsAccessArgs{...}
+type GetNetworkManagedServiceStsAccessInput interface {
+	pulumi.Input
+
+	ToGetNetworkManagedServiceStsAccessOutput() GetNetworkManagedServiceStsAccessOutput
+	ToGetNetworkManagedServiceStsAccessOutputWithContext(context.Context) GetNetworkManagedServiceStsAccessOutput
+}
+
+type GetNetworkManagedServiceStsAccessArgs struct {
+	DomainName    pulumi.StringInput      `pulumi:"domainName"`
+	Ipv4Addresses pulumi.StringArrayInput `pulumi:"ipv4Addresses"`
+	// The status of the network resource.
+	Status            pulumi.StringInput `pulumi:"status"`
+	StsPolicyDocument pulumi.StringInput `pulumi:"stsPolicyDocument"`
+}
+
+func (GetNetworkManagedServiceStsAccessArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetNetworkManagedServiceStsAccess)(nil)).Elem()
+}
+
+func (i GetNetworkManagedServiceStsAccessArgs) ToGetNetworkManagedServiceStsAccessOutput() GetNetworkManagedServiceStsAccessOutput {
+	return i.ToGetNetworkManagedServiceStsAccessOutputWithContext(context.Background())
+}
+
+func (i GetNetworkManagedServiceStsAccessArgs) ToGetNetworkManagedServiceStsAccessOutputWithContext(ctx context.Context) GetNetworkManagedServiceStsAccessOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetNetworkManagedServiceStsAccessOutput)
+}
+
+// GetNetworkManagedServiceStsAccessArrayInput is an input type that accepts GetNetworkManagedServiceStsAccessArray and GetNetworkManagedServiceStsAccessArrayOutput values.
+// You can construct a concrete instance of `GetNetworkManagedServiceStsAccessArrayInput` via:
+//
+//	GetNetworkManagedServiceStsAccessArray{ GetNetworkManagedServiceStsAccessArgs{...} }
+type GetNetworkManagedServiceStsAccessArrayInput interface {
+	pulumi.Input
+
+	ToGetNetworkManagedServiceStsAccessArrayOutput() GetNetworkManagedServiceStsAccessArrayOutput
+	ToGetNetworkManagedServiceStsAccessArrayOutputWithContext(context.Context) GetNetworkManagedServiceStsAccessArrayOutput
+}
+
+type GetNetworkManagedServiceStsAccessArray []GetNetworkManagedServiceStsAccessInput
+
+func (GetNetworkManagedServiceStsAccessArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetNetworkManagedServiceStsAccess)(nil)).Elem()
+}
+
+func (i GetNetworkManagedServiceStsAccessArray) ToGetNetworkManagedServiceStsAccessArrayOutput() GetNetworkManagedServiceStsAccessArrayOutput {
+	return i.ToGetNetworkManagedServiceStsAccessArrayOutputWithContext(context.Background())
+}
+
+func (i GetNetworkManagedServiceStsAccessArray) ToGetNetworkManagedServiceStsAccessArrayOutputWithContext(ctx context.Context) GetNetworkManagedServiceStsAccessArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetNetworkManagedServiceStsAccessArrayOutput)
+}
+
+type GetNetworkManagedServiceStsAccessOutput struct{ *pulumi.OutputState }
+
+func (GetNetworkManagedServiceStsAccessOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetNetworkManagedServiceStsAccess)(nil)).Elem()
+}
+
+func (o GetNetworkManagedServiceStsAccessOutput) ToGetNetworkManagedServiceStsAccessOutput() GetNetworkManagedServiceStsAccessOutput {
+	return o
+}
+
+func (o GetNetworkManagedServiceStsAccessOutput) ToGetNetworkManagedServiceStsAccessOutputWithContext(ctx context.Context) GetNetworkManagedServiceStsAccessOutput {
+	return o
+}
+
+func (o GetNetworkManagedServiceStsAccessOutput) DomainName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetNetworkManagedServiceStsAccess) string { return v.DomainName }).(pulumi.StringOutput)
+}
+
+func (o GetNetworkManagedServiceStsAccessOutput) Ipv4Addresses() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetNetworkManagedServiceStsAccess) []string { return v.Ipv4Addresses }).(pulumi.StringArrayOutput)
+}
+
+// The status of the network resource.
+func (o GetNetworkManagedServiceStsAccessOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v GetNetworkManagedServiceStsAccess) string { return v.Status }).(pulumi.StringOutput)
+}
+
+func (o GetNetworkManagedServiceStsAccessOutput) StsPolicyDocument() pulumi.StringOutput {
+	return o.ApplyT(func(v GetNetworkManagedServiceStsAccess) string { return v.StsPolicyDocument }).(pulumi.StringOutput)
+}
+
+type GetNetworkManagedServiceStsAccessArrayOutput struct{ *pulumi.OutputState }
+
+func (GetNetworkManagedServiceStsAccessArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetNetworkManagedServiceStsAccess)(nil)).Elem()
+}
+
+func (o GetNetworkManagedServiceStsAccessArrayOutput) ToGetNetworkManagedServiceStsAccessArrayOutput() GetNetworkManagedServiceStsAccessArrayOutput {
+	return o
+}
+
+func (o GetNetworkManagedServiceStsAccessArrayOutput) ToGetNetworkManagedServiceStsAccessArrayOutputWithContext(ctx context.Context) GetNetworkManagedServiceStsAccessArrayOutput {
+	return o
+}
+
+func (o GetNetworkManagedServiceStsAccessArrayOutput) Index(i pulumi.IntInput) GetNetworkManagedServiceStsAccessOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetNetworkManagedServiceStsAccess {
+		return vs[0].([]GetNetworkManagedServiceStsAccess)[vs[1].(int)]
+	}).(GetNetworkManagedServiceStsAccessOutput)
 }
 
 type GetNetworkManagedServiceZeroTlAccess struct {
@@ -6609,12 +7105,16 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CloudVmClusterTimeoutsPtrInput)(nil)).Elem(), CloudVmClusterTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkManagedServiceInput)(nil)).Elem(), NetworkManagedServiceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkManagedServiceArrayInput)(nil)).Elem(), NetworkManagedServiceArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NetworkManagedServiceKmsAccessInput)(nil)).Elem(), NetworkManagedServiceKmsAccessArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NetworkManagedServiceKmsAccessArrayInput)(nil)).Elem(), NetworkManagedServiceKmsAccessArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkManagedServiceManagedS3BackupAccessInput)(nil)).Elem(), NetworkManagedServiceManagedS3BackupAccessArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkManagedServiceManagedS3BackupAccessArrayInput)(nil)).Elem(), NetworkManagedServiceManagedS3BackupAccessArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkManagedServiceS3AccessInput)(nil)).Elem(), NetworkManagedServiceS3AccessArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkManagedServiceS3AccessArrayInput)(nil)).Elem(), NetworkManagedServiceS3AccessArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkManagedServiceServiceNetworkEndpointInput)(nil)).Elem(), NetworkManagedServiceServiceNetworkEndpointArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkManagedServiceServiceNetworkEndpointArrayInput)(nil)).Elem(), NetworkManagedServiceServiceNetworkEndpointArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NetworkManagedServiceStsAccessInput)(nil)).Elem(), NetworkManagedServiceStsAccessArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*NetworkManagedServiceStsAccessArrayInput)(nil)).Elem(), NetworkManagedServiceStsAccessArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkManagedServiceZeroEtlAccessInput)(nil)).Elem(), NetworkManagedServiceZeroEtlAccessArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkManagedServiceZeroEtlAccessArrayInput)(nil)).Elem(), NetworkManagedServiceZeroEtlAccessArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*NetworkOciDnsForwardingConfigInput)(nil)).Elem(), NetworkOciDnsForwardingConfigArgs{})
@@ -6663,12 +7163,16 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetGiVersionsGiVersionArrayInput)(nil)).Elem(), GetGiVersionsGiVersionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetNetworkManagedServiceInput)(nil)).Elem(), GetNetworkManagedServiceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetNetworkManagedServiceArrayInput)(nil)).Elem(), GetNetworkManagedServiceArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetNetworkManagedServiceKmsAccessInput)(nil)).Elem(), GetNetworkManagedServiceKmsAccessArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetNetworkManagedServiceKmsAccessArrayInput)(nil)).Elem(), GetNetworkManagedServiceKmsAccessArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetNetworkManagedServiceManagedS3BackupAccessInput)(nil)).Elem(), GetNetworkManagedServiceManagedS3BackupAccessArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetNetworkManagedServiceManagedS3BackupAccessArrayInput)(nil)).Elem(), GetNetworkManagedServiceManagedS3BackupAccessArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetNetworkManagedServiceS3AccessInput)(nil)).Elem(), GetNetworkManagedServiceS3AccessArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetNetworkManagedServiceS3AccessArrayInput)(nil)).Elem(), GetNetworkManagedServiceS3AccessArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetNetworkManagedServiceServiceNetworkEndpointInput)(nil)).Elem(), GetNetworkManagedServiceServiceNetworkEndpointArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetNetworkManagedServiceServiceNetworkEndpointArrayInput)(nil)).Elem(), GetNetworkManagedServiceServiceNetworkEndpointArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetNetworkManagedServiceStsAccessInput)(nil)).Elem(), GetNetworkManagedServiceStsAccessArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetNetworkManagedServiceStsAccessArrayInput)(nil)).Elem(), GetNetworkManagedServiceStsAccessArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetNetworkManagedServiceZeroTlAccessInput)(nil)).Elem(), GetNetworkManagedServiceZeroTlAccessArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetNetworkManagedServiceZeroTlAccessArrayInput)(nil)).Elem(), GetNetworkManagedServiceZeroTlAccessArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetNetworkOciDnsForwardingConfigInput)(nil)).Elem(), GetNetworkOciDnsForwardingConfigArgs{})
@@ -6705,12 +7209,16 @@ func init() {
 	pulumi.RegisterOutputType(CloudVmClusterTimeoutsPtrOutput{})
 	pulumi.RegisterOutputType(NetworkManagedServiceOutput{})
 	pulumi.RegisterOutputType(NetworkManagedServiceArrayOutput{})
+	pulumi.RegisterOutputType(NetworkManagedServiceKmsAccessOutput{})
+	pulumi.RegisterOutputType(NetworkManagedServiceKmsAccessArrayOutput{})
 	pulumi.RegisterOutputType(NetworkManagedServiceManagedS3BackupAccessOutput{})
 	pulumi.RegisterOutputType(NetworkManagedServiceManagedS3BackupAccessArrayOutput{})
 	pulumi.RegisterOutputType(NetworkManagedServiceS3AccessOutput{})
 	pulumi.RegisterOutputType(NetworkManagedServiceS3AccessArrayOutput{})
 	pulumi.RegisterOutputType(NetworkManagedServiceServiceNetworkEndpointOutput{})
 	pulumi.RegisterOutputType(NetworkManagedServiceServiceNetworkEndpointArrayOutput{})
+	pulumi.RegisterOutputType(NetworkManagedServiceStsAccessOutput{})
+	pulumi.RegisterOutputType(NetworkManagedServiceStsAccessArrayOutput{})
 	pulumi.RegisterOutputType(NetworkManagedServiceZeroEtlAccessOutput{})
 	pulumi.RegisterOutputType(NetworkManagedServiceZeroEtlAccessArrayOutput{})
 	pulumi.RegisterOutputType(NetworkOciDnsForwardingConfigOutput{})
@@ -6759,12 +7267,16 @@ func init() {
 	pulumi.RegisterOutputType(GetGiVersionsGiVersionArrayOutput{})
 	pulumi.RegisterOutputType(GetNetworkManagedServiceOutput{})
 	pulumi.RegisterOutputType(GetNetworkManagedServiceArrayOutput{})
+	pulumi.RegisterOutputType(GetNetworkManagedServiceKmsAccessOutput{})
+	pulumi.RegisterOutputType(GetNetworkManagedServiceKmsAccessArrayOutput{})
 	pulumi.RegisterOutputType(GetNetworkManagedServiceManagedS3BackupAccessOutput{})
 	pulumi.RegisterOutputType(GetNetworkManagedServiceManagedS3BackupAccessArrayOutput{})
 	pulumi.RegisterOutputType(GetNetworkManagedServiceS3AccessOutput{})
 	pulumi.RegisterOutputType(GetNetworkManagedServiceS3AccessArrayOutput{})
 	pulumi.RegisterOutputType(GetNetworkManagedServiceServiceNetworkEndpointOutput{})
 	pulumi.RegisterOutputType(GetNetworkManagedServiceServiceNetworkEndpointArrayOutput{})
+	pulumi.RegisterOutputType(GetNetworkManagedServiceStsAccessOutput{})
+	pulumi.RegisterOutputType(GetNetworkManagedServiceStsAccessArrayOutput{})
 	pulumi.RegisterOutputType(GetNetworkManagedServiceZeroTlAccessOutput{})
 	pulumi.RegisterOutputType(GetNetworkManagedServiceZeroTlAccessArrayOutput{})
 	pulumi.RegisterOutputType(GetNetworkOciDnsForwardingConfigOutput{})

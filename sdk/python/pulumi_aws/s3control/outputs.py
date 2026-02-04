@@ -54,8 +54,13 @@ __all__ = [
     'StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseS3',
     'StorageLensConfigurationStorageLensConfigurationExclude',
     'StorageLensConfigurationStorageLensConfigurationInclude',
+    'GetAccessPointsAccessPointResult',
+    'GetAccessPointsAccessPointVpcConfigurationResult',
     'GetMultiRegionAccessPointPublicAccessBlockResult',
     'GetMultiRegionAccessPointRegionResult',
+    'GetMultiRegionAccessPointsAccessPointResult',
+    'GetMultiRegionAccessPointsAccessPointPublicAccessBlockResult',
+    'GetMultiRegionAccessPointsAccessPointRegionResult',
 ]
 
 @pulumi.output_type
@@ -1698,6 +1703,130 @@ class StorageLensConfigurationStorageLensConfigurationInclude(dict):
 
 
 @pulumi.output_type
+class GetAccessPointsAccessPointResult(dict):
+    def __init__(__self__, *,
+                 access_point_arn: _builtins.str,
+                 alias: _builtins.str,
+                 bucket: _builtins.str,
+                 bucket_account_id: _builtins.str,
+                 data_source_id: _builtins.str,
+                 data_source_type: _builtins.str,
+                 name: _builtins.str,
+                 network_origin: _builtins.str,
+                 vpc_configurations: Sequence['outputs.GetAccessPointsAccessPointVpcConfigurationResult']):
+        """
+        :param _builtins.str access_point_arn: Access point ARN.
+        :param _builtins.str alias: Access point alias.
+        :param _builtins.str bucket: Name of the bucket associated with the access points.
+        :param _builtins.str bucket_account_id: AWS account ID associated with the S3 bucket associated with the access point.
+        :param _builtins.str data_source_id: Unique identifier for the access points data source.
+        :param _builtins.str data_source_type: Type of the data source that the access points are attached to. To return all access points set this argument to `ALL`.
+        :param _builtins.str name: Name of the access point.
+        :param _builtins.str network_origin: Indicates whether the access point allows access from the public Internet.
+        :param Sequence['GetAccessPointsAccessPointVpcConfigurationArgs'] vpc_configurations: VPC configuration for the access point. See `vpc_configuration` below.
+        """
+        pulumi.set(__self__, "access_point_arn", access_point_arn)
+        pulumi.set(__self__, "alias", alias)
+        pulumi.set(__self__, "bucket", bucket)
+        pulumi.set(__self__, "bucket_account_id", bucket_account_id)
+        pulumi.set(__self__, "data_source_id", data_source_id)
+        pulumi.set(__self__, "data_source_type", data_source_type)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "network_origin", network_origin)
+        pulumi.set(__self__, "vpc_configurations", vpc_configurations)
+
+    @_builtins.property
+    @pulumi.getter(name="accessPointArn")
+    def access_point_arn(self) -> _builtins.str:
+        """
+        Access point ARN.
+        """
+        return pulumi.get(self, "access_point_arn")
+
+    @_builtins.property
+    @pulumi.getter
+    def alias(self) -> _builtins.str:
+        """
+        Access point alias.
+        """
+        return pulumi.get(self, "alias")
+
+    @_builtins.property
+    @pulumi.getter
+    def bucket(self) -> _builtins.str:
+        """
+        Name of the bucket associated with the access points.
+        """
+        return pulumi.get(self, "bucket")
+
+    @_builtins.property
+    @pulumi.getter(name="bucketAccountId")
+    def bucket_account_id(self) -> _builtins.str:
+        """
+        AWS account ID associated with the S3 bucket associated with the access point.
+        """
+        return pulumi.get(self, "bucket_account_id")
+
+    @_builtins.property
+    @pulumi.getter(name="dataSourceId")
+    def data_source_id(self) -> _builtins.str:
+        """
+        Unique identifier for the access points data source.
+        """
+        return pulumi.get(self, "data_source_id")
+
+    @_builtins.property
+    @pulumi.getter(name="dataSourceType")
+    def data_source_type(self) -> _builtins.str:
+        """
+        Type of the data source that the access points are attached to. To return all access points set this argument to `ALL`.
+        """
+        return pulumi.get(self, "data_source_type")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        """
+        Name of the access point.
+        """
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter(name="networkOrigin")
+    def network_origin(self) -> _builtins.str:
+        """
+        Indicates whether the access point allows access from the public Internet.
+        """
+        return pulumi.get(self, "network_origin")
+
+    @_builtins.property
+    @pulumi.getter(name="vpcConfigurations")
+    def vpc_configurations(self) -> Sequence['outputs.GetAccessPointsAccessPointVpcConfigurationResult']:
+        """
+        VPC configuration for the access point. See `vpc_configuration` below.
+        """
+        return pulumi.get(self, "vpc_configurations")
+
+
+@pulumi.output_type
+class GetAccessPointsAccessPointVpcConfigurationResult(dict):
+    def __init__(__self__, *,
+                 vpc_id: _builtins.str):
+        """
+        :param _builtins.str vpc_id: Access point will only allow connections from this VPC.
+        """
+        pulumi.set(__self__, "vpc_id", vpc_id)
+
+    @_builtins.property
+    @pulumi.getter(name="vpcId")
+    def vpc_id(self) -> _builtins.str:
+        """
+        Access point will only allow connections from this VPC.
+        """
+        return pulumi.get(self, "vpc_id")
+
+
+@pulumi.output_type
 class GetMultiRegionAccessPointPublicAccessBlockResult(dict):
     def __init__(__self__, *,
                  block_public_acls: _builtins.bool,
@@ -1788,6 +1917,170 @@ class GetMultiRegionAccessPointRegionResult(dict):
     def bucket_account_id(self) -> _builtins.str:
         """
         The AWS account ID that owns the bucket.
+        """
+        return pulumi.get(self, "bucket_account_id")
+
+    @_builtins.property
+    @pulumi.getter
+    def region(self) -> _builtins.str:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+
+@pulumi.output_type
+class GetMultiRegionAccessPointsAccessPointResult(dict):
+    def __init__(__self__, *,
+                 alias: _builtins.str,
+                 created_at: _builtins.str,
+                 name: _builtins.str,
+                 public_access_blocks: Sequence['outputs.GetMultiRegionAccessPointsAccessPointPublicAccessBlockResult'],
+                 regions: Sequence['outputs.GetMultiRegionAccessPointsAccessPointRegionResult'],
+                 status: _builtins.str):
+        """
+        :param _builtins.str alias: Alias for the multi-region access point.
+        :param _builtins.str created_at: Time the multi-region access point was created.
+        :param _builtins.str name: Name of the multi-region access point.
+        :param Sequence['GetMultiRegionAccessPointsAccessPointPublicAccessBlockArgs'] public_access_blocks: Public access block configuration for this multi-region access point. See `public_access_block` below.
+        :param Sequence['GetMultiRegionAccessPointsAccessPointRegionArgs'] regions: List of AWS Regions where the multi-region access point has data support. See `regions` below.
+        :param _builtins.str status: Current status of the multi-region access point.
+        """
+        pulumi.set(__self__, "alias", alias)
+        pulumi.set(__self__, "created_at", created_at)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "public_access_blocks", public_access_blocks)
+        pulumi.set(__self__, "regions", regions)
+        pulumi.set(__self__, "status", status)
+
+    @_builtins.property
+    @pulumi.getter
+    def alias(self) -> _builtins.str:
+        """
+        Alias for the multi-region access point.
+        """
+        return pulumi.get(self, "alias")
+
+    @_builtins.property
+    @pulumi.getter(name="createdAt")
+    def created_at(self) -> _builtins.str:
+        """
+        Time the multi-region access point was created.
+        """
+        return pulumi.get(self, "created_at")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        """
+        Name of the multi-region access point.
+        """
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter(name="publicAccessBlocks")
+    def public_access_blocks(self) -> Sequence['outputs.GetMultiRegionAccessPointsAccessPointPublicAccessBlockResult']:
+        """
+        Public access block configuration for this multi-region access point. See `public_access_block` below.
+        """
+        return pulumi.get(self, "public_access_blocks")
+
+    @_builtins.property
+    @pulumi.getter
+    def regions(self) -> Sequence['outputs.GetMultiRegionAccessPointsAccessPointRegionResult']:
+        """
+        List of AWS Regions where the multi-region access point has data support. See `regions` below.
+        """
+        return pulumi.get(self, "regions")
+
+    @_builtins.property
+    @pulumi.getter
+    def status(self) -> _builtins.str:
+        """
+        Current status of the multi-region access point.
+        """
+        return pulumi.get(self, "status")
+
+
+@pulumi.output_type
+class GetMultiRegionAccessPointsAccessPointPublicAccessBlockResult(dict):
+    def __init__(__self__, *,
+                 block_public_acls: _builtins.bool,
+                 block_public_policy: _builtins.bool,
+                 ignore_public_acls: _builtins.bool,
+                 restrict_public_buckets: _builtins.bool):
+        """
+        :param _builtins.bool block_public_acls: Whether Amazon S3 should block public ACLs for buckets in this account.
+        :param _builtins.bool block_public_policy: Whether Amazon S3 should block public bucket policies for buckets in this account.
+        :param _builtins.bool ignore_public_acls: Whether Amazon S3 should ignore public ACLs for buckets in this account.
+        :param _builtins.bool restrict_public_buckets: Whether Amazon S3 should restrict public bucket policies for buckets in this account.
+        """
+        pulumi.set(__self__, "block_public_acls", block_public_acls)
+        pulumi.set(__self__, "block_public_policy", block_public_policy)
+        pulumi.set(__self__, "ignore_public_acls", ignore_public_acls)
+        pulumi.set(__self__, "restrict_public_buckets", restrict_public_buckets)
+
+    @_builtins.property
+    @pulumi.getter(name="blockPublicAcls")
+    def block_public_acls(self) -> _builtins.bool:
+        """
+        Whether Amazon S3 should block public ACLs for buckets in this account.
+        """
+        return pulumi.get(self, "block_public_acls")
+
+    @_builtins.property
+    @pulumi.getter(name="blockPublicPolicy")
+    def block_public_policy(self) -> _builtins.bool:
+        """
+        Whether Amazon S3 should block public bucket policies for buckets in this account.
+        """
+        return pulumi.get(self, "block_public_policy")
+
+    @_builtins.property
+    @pulumi.getter(name="ignorePublicAcls")
+    def ignore_public_acls(self) -> _builtins.bool:
+        """
+        Whether Amazon S3 should ignore public ACLs for buckets in this account.
+        """
+        return pulumi.get(self, "ignore_public_acls")
+
+    @_builtins.property
+    @pulumi.getter(name="restrictPublicBuckets")
+    def restrict_public_buckets(self) -> _builtins.bool:
+        """
+        Whether Amazon S3 should restrict public bucket policies for buckets in this account.
+        """
+        return pulumi.get(self, "restrict_public_buckets")
+
+
+@pulumi.output_type
+class GetMultiRegionAccessPointsAccessPointRegionResult(dict):
+    def __init__(__self__, *,
+                 bucket: _builtins.str,
+                 bucket_account_id: _builtins.str,
+                 region: _builtins.str):
+        """
+        :param _builtins.str bucket: Name of the associated bucket for the Region.
+        :param _builtins.str bucket_account_id: AWS account ID that owns the Amazon S3 bucket associated with this multi-region access point.
+        :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        pulumi.set(__self__, "bucket", bucket)
+        pulumi.set(__self__, "bucket_account_id", bucket_account_id)
+        pulumi.set(__self__, "region", region)
+
+    @_builtins.property
+    @pulumi.getter
+    def bucket(self) -> _builtins.str:
+        """
+        Name of the associated bucket for the Region.
+        """
+        return pulumi.get(self, "bucket")
+
+    @_builtins.property
+    @pulumi.getter(name="bucketAccountId")
+    def bucket_account_id(self) -> _builtins.str:
+        """
+        AWS account ID that owns the Amazon S3 bucket associated with this multi-region access point.
         """
         return pulumi.get(self, "bucket_account_id")
 

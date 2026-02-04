@@ -722,6 +722,8 @@ type Endpoints struct {
 	// Use this to override the default service endpoint URL
 	Mgn *string `pulumi:"mgn"`
 	// Use this to override the default service endpoint URL
+	Mpa *string `pulumi:"mpa"`
+	// Use this to override the default service endpoint URL
 	Mq *string `pulumi:"mq"`
 	// Use this to override the default service endpoint URL
 	Msk *string `pulumi:"msk"`
@@ -853,6 +855,8 @@ type Endpoints struct {
 	S3vectors *string `pulumi:"s3vectors"`
 	// Use this to override the default service endpoint URL
 	Sagemaker *string `pulumi:"sagemaker"`
+	// Use this to override the default service endpoint URL
+	Savingsplans *string `pulumi:"savingsplans"`
 	// Use this to override the default service endpoint URL
 	Scheduler *string `pulumi:"scheduler"`
 	// Use this to override the default service endpoint URL
@@ -1350,6 +1354,8 @@ type EndpointsArgs struct {
 	// Use this to override the default service endpoint URL
 	Mgn pulumi.StringPtrInput `pulumi:"mgn"`
 	// Use this to override the default service endpoint URL
+	Mpa pulumi.StringPtrInput `pulumi:"mpa"`
+	// Use this to override the default service endpoint URL
 	Mq pulumi.StringPtrInput `pulumi:"mq"`
 	// Use this to override the default service endpoint URL
 	Msk pulumi.StringPtrInput `pulumi:"msk"`
@@ -1481,6 +1487,8 @@ type EndpointsArgs struct {
 	S3vectors pulumi.StringPtrInput `pulumi:"s3vectors"`
 	// Use this to override the default service endpoint URL
 	Sagemaker pulumi.StringPtrInput `pulumi:"sagemaker"`
+	// Use this to override the default service endpoint URL
+	Savingsplans pulumi.StringPtrInput `pulumi:"savingsplans"`
 	// Use this to override the default service endpoint URL
 	Scheduler pulumi.StringPtrInput `pulumi:"scheduler"`
 	// Use this to override the default service endpoint URL
@@ -2596,6 +2604,11 @@ func (o EndpointsOutput) Mgn() pulumi.StringPtrOutput {
 }
 
 // Use this to override the default service endpoint URL
+func (o EndpointsOutput) Mpa() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Endpoints) *string { return v.Mpa }).(pulumi.StringPtrOutput)
+}
+
+// Use this to override the default service endpoint URL
 func (o EndpointsOutput) Mq() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Mq }).(pulumi.StringPtrOutput)
 }
@@ -2923,6 +2936,11 @@ func (o EndpointsOutput) S3vectors() pulumi.StringPtrOutput {
 // Use this to override the default service endpoint URL
 func (o EndpointsOutput) Sagemaker() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Sagemaker }).(pulumi.StringPtrOutput)
+}
+
+// Use this to override the default service endpoint URL
+func (o EndpointsOutput) Savingsplans() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Endpoints) *string { return v.Savingsplans }).(pulumi.StringPtrOutput)
 }
 
 // Use this to override the default service endpoint URL

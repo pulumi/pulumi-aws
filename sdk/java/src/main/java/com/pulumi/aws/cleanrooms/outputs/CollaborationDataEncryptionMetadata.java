@@ -10,21 +10,53 @@ import java.util.Objects;
 
 @CustomType
 public final class CollaborationDataEncryptionMetadata {
+    /**
+     * @return Whether encrypted tables can contain cleartext data. This is a boolean field.
+     * 
+     */
     private Boolean allowClearText;
+    /**
+     * @return Whether Fingerprint columns can contain duplicate entries. This is a boolean field.
+     * 
+     */
     private Boolean allowDuplicates;
+    /**
+     * @return Whether Fingerprint columns can be joined on any other Fingerprint column with a different name. This is a boolean field.
+     * 
+     */
     private Boolean allowJoinsOnColumnsWithDifferentNames;
+    /**
+     * @return Whether NULL values are to be copied as NULL to encrypted tables (true) or cryptographically processed (false).
+     * 
+     */
     private Boolean preserveNulls;
 
     private CollaborationDataEncryptionMetadata() {}
+    /**
+     * @return Whether encrypted tables can contain cleartext data. This is a boolean field.
+     * 
+     */
     public Boolean allowClearText() {
         return this.allowClearText;
     }
+    /**
+     * @return Whether Fingerprint columns can contain duplicate entries. This is a boolean field.
+     * 
+     */
     public Boolean allowDuplicates() {
         return this.allowDuplicates;
     }
+    /**
+     * @return Whether Fingerprint columns can be joined on any other Fingerprint column with a different name. This is a boolean field.
+     * 
+     */
     public Boolean allowJoinsOnColumnsWithDifferentNames() {
         return this.allowJoinsOnColumnsWithDifferentNames;
     }
+    /**
+     * @return Whether NULL values are to be copied as NULL to encrypted tables (true) or cryptographically processed (false).
+     * 
+     */
     public Boolean preserveNulls() {
         return this.preserveNulls;
     }

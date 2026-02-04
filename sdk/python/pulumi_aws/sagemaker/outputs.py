@@ -158,6 +158,27 @@ __all__ = [
     'FlowDefinitionOutputConfig',
     'HubS3StorageConfig',
     'HumanTaskUIUiTemplate',
+    'LabelingJobHumanTaskConfig',
+    'LabelingJobHumanTaskConfigAnnotationConsolidationConfig',
+    'LabelingJobHumanTaskConfigPublicWorkforceTaskPrice',
+    'LabelingJobHumanTaskConfigPublicWorkforceTaskPriceAmountInUsd',
+    'LabelingJobHumanTaskConfigUiConfig',
+    'LabelingJobInputConfig',
+    'LabelingJobInputConfigDataAttributes',
+    'LabelingJobInputConfigDataSource',
+    'LabelingJobInputConfigDataSourceS3DataSource',
+    'LabelingJobInputConfigDataSourceSnsDataSource',
+    'LabelingJobLabelCounter',
+    'LabelingJobLabelingJobAlgorithmsConfig',
+    'LabelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfig',
+    'LabelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfigVpcConfig',
+    'LabelingJobOutputConfig',
+    'LabelingJobStoppingCondition',
+    'ModelCardExportJobExportArtifact',
+    'ModelCardExportJobOutputConfig',
+    'ModelCardExportJobTimeouts',
+    'ModelCardSecurityConfig',
+    'ModelCardTimeouts',
     'ModelContainer',
     'ModelContainerAdditionalModelDataSource',
     'ModelContainerAdditionalModelDataSourceS3DataSource',
@@ -181,6 +202,25 @@ __all__ = [
     'ModelPrimaryContainerMultiModelConfig',
     'ModelVpcConfig',
     'MonitoringScheduleMonitoringScheduleConfig',
+    'MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinition',
+    'MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaseline',
+    'MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineConstraintsResource',
+    'MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineStatisticsResource',
+    'MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringAppSpecification',
+    'MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputs',
+    'MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInput',
+    'MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormat',
+    'MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatCsv',
+    'MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatJson',
+    'MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsEndpointInput',
+    'MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfig',
+    'MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigMonitoringOutputs',
+    'MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigMonitoringOutputsS3Output',
+    'MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResources',
+    'MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResourcesClusterConfig',
+    'MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfig',
+    'MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfigVpcConfig',
+    'MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionStoppingCondition',
     'MonitoringScheduleMonitoringScheduleConfigScheduleConfig',
     'NotebookInstanceInstanceMetadataServiceConfiguration',
     'PipelineParallelismConfiguration',
@@ -8895,6 +8935,1076 @@ class HumanTaskUIUiTemplate(dict):
 
 
 @pulumi.output_type
+class LabelingJobHumanTaskConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "numberOfHumanWorkersPerDataObject":
+            suggest = "number_of_human_workers_per_data_object"
+        elif key == "taskDescription":
+            suggest = "task_description"
+        elif key == "taskTimeLimitInSeconds":
+            suggest = "task_time_limit_in_seconds"
+        elif key == "taskTitle":
+            suggest = "task_title"
+        elif key == "workteamArn":
+            suggest = "workteam_arn"
+        elif key == "annotationConsolidationConfig":
+            suggest = "annotation_consolidation_config"
+        elif key == "maxConcurrentTaskCount":
+            suggest = "max_concurrent_task_count"
+        elif key == "preHumanTaskLambdaArn":
+            suggest = "pre_human_task_lambda_arn"
+        elif key == "publicWorkforceTaskPrice":
+            suggest = "public_workforce_task_price"
+        elif key == "taskAvailabilityLifetimeInSeconds":
+            suggest = "task_availability_lifetime_in_seconds"
+        elif key == "taskKeywords":
+            suggest = "task_keywords"
+        elif key == "uiConfig":
+            suggest = "ui_config"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LabelingJobHumanTaskConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LabelingJobHumanTaskConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LabelingJobHumanTaskConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 number_of_human_workers_per_data_object: _builtins.int,
+                 task_description: _builtins.str,
+                 task_time_limit_in_seconds: _builtins.int,
+                 task_title: _builtins.str,
+                 workteam_arn: _builtins.str,
+                 annotation_consolidation_config: Optional['outputs.LabelingJobHumanTaskConfigAnnotationConsolidationConfig'] = None,
+                 max_concurrent_task_count: Optional[_builtins.int] = None,
+                 pre_human_task_lambda_arn: Optional[_builtins.str] = None,
+                 public_workforce_task_price: Optional['outputs.LabelingJobHumanTaskConfigPublicWorkforceTaskPrice'] = None,
+                 task_availability_lifetime_in_seconds: Optional[_builtins.int] = None,
+                 task_keywords: Optional[Sequence[_builtins.str]] = None,
+                 ui_config: Optional['outputs.LabelingJobHumanTaskConfigUiConfig'] = None):
+        """
+        :param _builtins.int number_of_human_workers_per_data_object: Number of human workers that will label an object.
+        :param _builtins.str task_description: Description of the task.
+        :param _builtins.int task_time_limit_in_seconds: Amount of time that a worker has to complete a task.
+        :param _builtins.str task_title: Title for the task.
+        :param _builtins.str workteam_arn: ARN of the work team assigned to complete the tasks.
+        :param 'LabelingJobHumanTaskConfigAnnotationConsolidationConfigArgs' annotation_consolidation_config: How labels are consolidated across human workers. Fields are documented below.
+        :param _builtins.int max_concurrent_task_count: Maximum number of data objects that can be labeled by human workers at the same time.
+        :param _builtins.str pre_human_task_lambda_arn: ARN of a Lambda function that is run before a data object is sent to a human worker.
+        :param 'LabelingJobHumanTaskConfigPublicWorkforceTaskPriceArgs' public_workforce_task_price: Price to pay for each task performed by an Amazon Mechanical Turk worker. Fields are documented below.
+        :param _builtins.int task_availability_lifetime_in_seconds: length of time that a task remains available for labeling by human workers.
+        :param Sequence[_builtins.str] task_keywords: Keywords used to describe the task.
+        :param 'LabelingJobHumanTaskConfigUiConfigArgs' ui_config: Information about the user interface that workers use to complete the labeling task. Fields are documented below.
+        """
+        pulumi.set(__self__, "number_of_human_workers_per_data_object", number_of_human_workers_per_data_object)
+        pulumi.set(__self__, "task_description", task_description)
+        pulumi.set(__self__, "task_time_limit_in_seconds", task_time_limit_in_seconds)
+        pulumi.set(__self__, "task_title", task_title)
+        pulumi.set(__self__, "workteam_arn", workteam_arn)
+        if annotation_consolidation_config is not None:
+            pulumi.set(__self__, "annotation_consolidation_config", annotation_consolidation_config)
+        if max_concurrent_task_count is not None:
+            pulumi.set(__self__, "max_concurrent_task_count", max_concurrent_task_count)
+        if pre_human_task_lambda_arn is not None:
+            pulumi.set(__self__, "pre_human_task_lambda_arn", pre_human_task_lambda_arn)
+        if public_workforce_task_price is not None:
+            pulumi.set(__self__, "public_workforce_task_price", public_workforce_task_price)
+        if task_availability_lifetime_in_seconds is not None:
+            pulumi.set(__self__, "task_availability_lifetime_in_seconds", task_availability_lifetime_in_seconds)
+        if task_keywords is not None:
+            pulumi.set(__self__, "task_keywords", task_keywords)
+        if ui_config is not None:
+            pulumi.set(__self__, "ui_config", ui_config)
+
+    @_builtins.property
+    @pulumi.getter(name="numberOfHumanWorkersPerDataObject")
+    def number_of_human_workers_per_data_object(self) -> _builtins.int:
+        """
+        Number of human workers that will label an object.
+        """
+        return pulumi.get(self, "number_of_human_workers_per_data_object")
+
+    @_builtins.property
+    @pulumi.getter(name="taskDescription")
+    def task_description(self) -> _builtins.str:
+        """
+        Description of the task.
+        """
+        return pulumi.get(self, "task_description")
+
+    @_builtins.property
+    @pulumi.getter(name="taskTimeLimitInSeconds")
+    def task_time_limit_in_seconds(self) -> _builtins.int:
+        """
+        Amount of time that a worker has to complete a task.
+        """
+        return pulumi.get(self, "task_time_limit_in_seconds")
+
+    @_builtins.property
+    @pulumi.getter(name="taskTitle")
+    def task_title(self) -> _builtins.str:
+        """
+        Title for the task.
+        """
+        return pulumi.get(self, "task_title")
+
+    @_builtins.property
+    @pulumi.getter(name="workteamArn")
+    def workteam_arn(self) -> _builtins.str:
+        """
+        ARN of the work team assigned to complete the tasks.
+        """
+        return pulumi.get(self, "workteam_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="annotationConsolidationConfig")
+    def annotation_consolidation_config(self) -> Optional['outputs.LabelingJobHumanTaskConfigAnnotationConsolidationConfig']:
+        """
+        How labels are consolidated across human workers. Fields are documented below.
+        """
+        return pulumi.get(self, "annotation_consolidation_config")
+
+    @_builtins.property
+    @pulumi.getter(name="maxConcurrentTaskCount")
+    def max_concurrent_task_count(self) -> Optional[_builtins.int]:
+        """
+        Maximum number of data objects that can be labeled by human workers at the same time.
+        """
+        return pulumi.get(self, "max_concurrent_task_count")
+
+    @_builtins.property
+    @pulumi.getter(name="preHumanTaskLambdaArn")
+    def pre_human_task_lambda_arn(self) -> Optional[_builtins.str]:
+        """
+        ARN of a Lambda function that is run before a data object is sent to a human worker.
+        """
+        return pulumi.get(self, "pre_human_task_lambda_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="publicWorkforceTaskPrice")
+    def public_workforce_task_price(self) -> Optional['outputs.LabelingJobHumanTaskConfigPublicWorkforceTaskPrice']:
+        """
+        Price to pay for each task performed by an Amazon Mechanical Turk worker. Fields are documented below.
+        """
+        return pulumi.get(self, "public_workforce_task_price")
+
+    @_builtins.property
+    @pulumi.getter(name="taskAvailabilityLifetimeInSeconds")
+    def task_availability_lifetime_in_seconds(self) -> Optional[_builtins.int]:
+        """
+        length of time that a task remains available for labeling by human workers.
+        """
+        return pulumi.get(self, "task_availability_lifetime_in_seconds")
+
+    @_builtins.property
+    @pulumi.getter(name="taskKeywords")
+    def task_keywords(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        Keywords used to describe the task.
+        """
+        return pulumi.get(self, "task_keywords")
+
+    @_builtins.property
+    @pulumi.getter(name="uiConfig")
+    def ui_config(self) -> Optional['outputs.LabelingJobHumanTaskConfigUiConfig']:
+        """
+        Information about the user interface that workers use to complete the labeling task. Fields are documented below.
+        """
+        return pulumi.get(self, "ui_config")
+
+
+@pulumi.output_type
+class LabelingJobHumanTaskConfigAnnotationConsolidationConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "annotationConsolidationLambdaArn":
+            suggest = "annotation_consolidation_lambda_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LabelingJobHumanTaskConfigAnnotationConsolidationConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LabelingJobHumanTaskConfigAnnotationConsolidationConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LabelingJobHumanTaskConfigAnnotationConsolidationConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 annotation_consolidation_lambda_arn: _builtins.str):
+        """
+        :param _builtins.str annotation_consolidation_lambda_arn: ARN of a Lambda function that implements the logic for annotation consolidation and to process output data.
+        """
+        pulumi.set(__self__, "annotation_consolidation_lambda_arn", annotation_consolidation_lambda_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="annotationConsolidationLambdaArn")
+    def annotation_consolidation_lambda_arn(self) -> _builtins.str:
+        """
+        ARN of a Lambda function that implements the logic for annotation consolidation and to process output data.
+        """
+        return pulumi.get(self, "annotation_consolidation_lambda_arn")
+
+
+@pulumi.output_type
+class LabelingJobHumanTaskConfigPublicWorkforceTaskPrice(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "amountInUsd":
+            suggest = "amount_in_usd"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LabelingJobHumanTaskConfigPublicWorkforceTaskPrice. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LabelingJobHumanTaskConfigPublicWorkforceTaskPrice.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LabelingJobHumanTaskConfigPublicWorkforceTaskPrice.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 amount_in_usd: Optional['outputs.LabelingJobHumanTaskConfigPublicWorkforceTaskPriceAmountInUsd'] = None):
+        """
+        :param 'LabelingJobHumanTaskConfigPublicWorkforceTaskPriceAmountInUsdArgs' amount_in_usd: Amount of money paid to an Amazon Mechanical Turk worker in United States dollars. Fields are documented below.
+        """
+        if amount_in_usd is not None:
+            pulumi.set(__self__, "amount_in_usd", amount_in_usd)
+
+    @_builtins.property
+    @pulumi.getter(name="amountInUsd")
+    def amount_in_usd(self) -> Optional['outputs.LabelingJobHumanTaskConfigPublicWorkforceTaskPriceAmountInUsd']:
+        """
+        Amount of money paid to an Amazon Mechanical Turk worker in United States dollars. Fields are documented below.
+        """
+        return pulumi.get(self, "amount_in_usd")
+
+
+@pulumi.output_type
+class LabelingJobHumanTaskConfigPublicWorkforceTaskPriceAmountInUsd(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "tenthFractionsOfACent":
+            suggest = "tenth_fractions_of_a_cent"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LabelingJobHumanTaskConfigPublicWorkforceTaskPriceAmountInUsd. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LabelingJobHumanTaskConfigPublicWorkforceTaskPriceAmountInUsd.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LabelingJobHumanTaskConfigPublicWorkforceTaskPriceAmountInUsd.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 cents: Optional[_builtins.int] = None,
+                 dollars: Optional[_builtins.int] = None,
+                 tenth_fractions_of_a_cent: Optional[_builtins.int] = None):
+        """
+        :param _builtins.int cents: Fractional portion, in cents, of the amount.
+        :param _builtins.int dollars: Whole number of dollars in the amount.
+        :param _builtins.int tenth_fractions_of_a_cent: Fractions of a cent, in tenths.
+        """
+        if cents is not None:
+            pulumi.set(__self__, "cents", cents)
+        if dollars is not None:
+            pulumi.set(__self__, "dollars", dollars)
+        if tenth_fractions_of_a_cent is not None:
+            pulumi.set(__self__, "tenth_fractions_of_a_cent", tenth_fractions_of_a_cent)
+
+    @_builtins.property
+    @pulumi.getter
+    def cents(self) -> Optional[_builtins.int]:
+        """
+        Fractional portion, in cents, of the amount.
+        """
+        return pulumi.get(self, "cents")
+
+    @_builtins.property
+    @pulumi.getter
+    def dollars(self) -> Optional[_builtins.int]:
+        """
+        Whole number of dollars in the amount.
+        """
+        return pulumi.get(self, "dollars")
+
+    @_builtins.property
+    @pulumi.getter(name="tenthFractionsOfACent")
+    def tenth_fractions_of_a_cent(self) -> Optional[_builtins.int]:
+        """
+        Fractions of a cent, in tenths.
+        """
+        return pulumi.get(self, "tenth_fractions_of_a_cent")
+
+
+@pulumi.output_type
+class LabelingJobHumanTaskConfigUiConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "humanTaskUiArn":
+            suggest = "human_task_ui_arn"
+        elif key == "uiTemplateS3Uri":
+            suggest = "ui_template_s3_uri"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LabelingJobHumanTaskConfigUiConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LabelingJobHumanTaskConfigUiConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LabelingJobHumanTaskConfigUiConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 human_task_ui_arn: Optional[_builtins.str] = None,
+                 ui_template_s3_uri: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str human_task_ui_arn: ARN of the worker task template used to render the worker UI and tools for labeling job tasks.
+        :param _builtins.str ui_template_s3_uri: S3 bucket location of the UI template, or worker task template.
+        """
+        if human_task_ui_arn is not None:
+            pulumi.set(__self__, "human_task_ui_arn", human_task_ui_arn)
+        if ui_template_s3_uri is not None:
+            pulumi.set(__self__, "ui_template_s3_uri", ui_template_s3_uri)
+
+    @_builtins.property
+    @pulumi.getter(name="humanTaskUiArn")
+    def human_task_ui_arn(self) -> Optional[_builtins.str]:
+        """
+        ARN of the worker task template used to render the worker UI and tools for labeling job tasks.
+        """
+        return pulumi.get(self, "human_task_ui_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="uiTemplateS3Uri")
+    def ui_template_s3_uri(self) -> Optional[_builtins.str]:
+        """
+        S3 bucket location of the UI template, or worker task template.
+        """
+        return pulumi.get(self, "ui_template_s3_uri")
+
+
+@pulumi.output_type
+class LabelingJobInputConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dataAttributes":
+            suggest = "data_attributes"
+        elif key == "dataSource":
+            suggest = "data_source"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LabelingJobInputConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LabelingJobInputConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LabelingJobInputConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 data_attributes: Optional['outputs.LabelingJobInputConfigDataAttributes'] = None,
+                 data_source: Optional['outputs.LabelingJobInputConfigDataSource'] = None):
+        """
+        :param 'LabelingJobInputConfigDataAttributesArgs' data_attributes: Attributes of the data. Fields are documented below.
+        :param 'LabelingJobInputConfigDataSourceArgs' data_source: Location of the input data.. Fields are documented below.
+        """
+        if data_attributes is not None:
+            pulumi.set(__self__, "data_attributes", data_attributes)
+        if data_source is not None:
+            pulumi.set(__self__, "data_source", data_source)
+
+    @_builtins.property
+    @pulumi.getter(name="dataAttributes")
+    def data_attributes(self) -> Optional['outputs.LabelingJobInputConfigDataAttributes']:
+        """
+        Attributes of the data. Fields are documented below.
+        """
+        return pulumi.get(self, "data_attributes")
+
+    @_builtins.property
+    @pulumi.getter(name="dataSource")
+    def data_source(self) -> Optional['outputs.LabelingJobInputConfigDataSource']:
+        """
+        Location of the input data.. Fields are documented below.
+        """
+        return pulumi.get(self, "data_source")
+
+
+@pulumi.output_type
+class LabelingJobInputConfigDataAttributes(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "contentClassifiers":
+            suggest = "content_classifiers"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LabelingJobInputConfigDataAttributes. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LabelingJobInputConfigDataAttributes.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LabelingJobInputConfigDataAttributes.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 content_classifiers: Optional[Sequence[_builtins.str]] = None):
+        """
+        :param Sequence[_builtins.str] content_classifiers: Declares that your content is free of personally identifiable information or adult content. Valid values: `FreeOfPersonallyIdentifiableInformation`, `FreeOfAdultContent`.
+        """
+        if content_classifiers is not None:
+            pulumi.set(__self__, "content_classifiers", content_classifiers)
+
+    @_builtins.property
+    @pulumi.getter(name="contentClassifiers")
+    def content_classifiers(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        Declares that your content is free of personally identifiable information or adult content. Valid values: `FreeOfPersonallyIdentifiableInformation`, `FreeOfAdultContent`.
+        """
+        return pulumi.get(self, "content_classifiers")
+
+
+@pulumi.output_type
+class LabelingJobInputConfigDataSource(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "s3DataSource":
+            suggest = "s3_data_source"
+        elif key == "snsDataSource":
+            suggest = "sns_data_source"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LabelingJobInputConfigDataSource. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LabelingJobInputConfigDataSource.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LabelingJobInputConfigDataSource.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 s3_data_source: Optional['outputs.LabelingJobInputConfigDataSourceS3DataSource'] = None,
+                 sns_data_source: Optional['outputs.LabelingJobInputConfigDataSourceSnsDataSource'] = None):
+        """
+        :param 'LabelingJobInputConfigDataSourceS3DataSourceArgs' s3_data_source: S3 location of the input data objects.. Fields are documented below.
+        :param 'LabelingJobInputConfigDataSourceSnsDataSourceArgs' sns_data_source: SNS data source used for streaming labeling jobs. Fields are documented below.
+        """
+        if s3_data_source is not None:
+            pulumi.set(__self__, "s3_data_source", s3_data_source)
+        if sns_data_source is not None:
+            pulumi.set(__self__, "sns_data_source", sns_data_source)
+
+    @_builtins.property
+    @pulumi.getter(name="s3DataSource")
+    def s3_data_source(self) -> Optional['outputs.LabelingJobInputConfigDataSourceS3DataSource']:
+        """
+        S3 location of the input data objects.. Fields are documented below.
+        """
+        return pulumi.get(self, "s3_data_source")
+
+    @_builtins.property
+    @pulumi.getter(name="snsDataSource")
+    def sns_data_source(self) -> Optional['outputs.LabelingJobInputConfigDataSourceSnsDataSource']:
+        """
+        SNS data source used for streaming labeling jobs. Fields are documented below.
+        """
+        return pulumi.get(self, "sns_data_source")
+
+
+@pulumi.output_type
+class LabelingJobInputConfigDataSourceS3DataSource(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "manifestS3Uri":
+            suggest = "manifest_s3_uri"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LabelingJobInputConfigDataSourceS3DataSource. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LabelingJobInputConfigDataSourceS3DataSource.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LabelingJobInputConfigDataSourceS3DataSource.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 manifest_s3_uri: _builtins.str):
+        """
+        :param _builtins.str manifest_s3_uri: S3 location of the manifest file that describes the input data objects.
+        """
+        pulumi.set(__self__, "manifest_s3_uri", manifest_s3_uri)
+
+    @_builtins.property
+    @pulumi.getter(name="manifestS3Uri")
+    def manifest_s3_uri(self) -> _builtins.str:
+        """
+        S3 location of the manifest file that describes the input data objects.
+        """
+        return pulumi.get(self, "manifest_s3_uri")
+
+
+@pulumi.output_type
+class LabelingJobInputConfigDataSourceSnsDataSource(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "snsTopicArn":
+            suggest = "sns_topic_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LabelingJobInputConfigDataSourceSnsDataSource. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LabelingJobInputConfigDataSourceSnsDataSource.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LabelingJobInputConfigDataSourceSnsDataSource.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 sns_topic_arn: _builtins.str):
+        """
+        :param _builtins.str sns_topic_arn: SNS input topic ARN.
+        """
+        pulumi.set(__self__, "sns_topic_arn", sns_topic_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="snsTopicArn")
+    def sns_topic_arn(self) -> _builtins.str:
+        """
+        SNS input topic ARN.
+        """
+        return pulumi.get(self, "sns_topic_arn")
+
+
+@pulumi.output_type
+class LabelingJobLabelCounter(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "failedNonRetryableError":
+            suggest = "failed_non_retryable_error"
+        elif key == "humanLabeled":
+            suggest = "human_labeled"
+        elif key == "machineLabeled":
+            suggest = "machine_labeled"
+        elif key == "totalLabeled":
+            suggest = "total_labeled"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LabelingJobLabelCounter. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LabelingJobLabelCounter.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LabelingJobLabelCounter.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 failed_non_retryable_error: _builtins.int,
+                 human_labeled: _builtins.int,
+                 machine_labeled: _builtins.int,
+                 total_labeled: _builtins.int,
+                 unlabeled: _builtins.int):
+        """
+        :param _builtins.int failed_non_retryable_error: Total number of objects that could not be labeled due to an error.
+        :param _builtins.int human_labeled: Total number of objects labeled by a human worker.
+        :param _builtins.int machine_labeled: Total number of objects labeled by automated data labeling.
+        :param _builtins.int total_labeled: Total number of objects labeled.
+        :param _builtins.int unlabeled: Total number of objects not yet labeled.
+        """
+        pulumi.set(__self__, "failed_non_retryable_error", failed_non_retryable_error)
+        pulumi.set(__self__, "human_labeled", human_labeled)
+        pulumi.set(__self__, "machine_labeled", machine_labeled)
+        pulumi.set(__self__, "total_labeled", total_labeled)
+        pulumi.set(__self__, "unlabeled", unlabeled)
+
+    @_builtins.property
+    @pulumi.getter(name="failedNonRetryableError")
+    def failed_non_retryable_error(self) -> _builtins.int:
+        """
+        Total number of objects that could not be labeled due to an error.
+        """
+        return pulumi.get(self, "failed_non_retryable_error")
+
+    @_builtins.property
+    @pulumi.getter(name="humanLabeled")
+    def human_labeled(self) -> _builtins.int:
+        """
+        Total number of objects labeled by a human worker.
+        """
+        return pulumi.get(self, "human_labeled")
+
+    @_builtins.property
+    @pulumi.getter(name="machineLabeled")
+    def machine_labeled(self) -> _builtins.int:
+        """
+        Total number of objects labeled by automated data labeling.
+        """
+        return pulumi.get(self, "machine_labeled")
+
+    @_builtins.property
+    @pulumi.getter(name="totalLabeled")
+    def total_labeled(self) -> _builtins.int:
+        """
+        Total number of objects labeled.
+        """
+        return pulumi.get(self, "total_labeled")
+
+    @_builtins.property
+    @pulumi.getter
+    def unlabeled(self) -> _builtins.int:
+        """
+        Total number of objects not yet labeled.
+        """
+        return pulumi.get(self, "unlabeled")
+
+
+@pulumi.output_type
+class LabelingJobLabelingJobAlgorithmsConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "labelingJobAlgorithmSpecificationArn":
+            suggest = "labeling_job_algorithm_specification_arn"
+        elif key == "initialActiveLearningModelArn":
+            suggest = "initial_active_learning_model_arn"
+        elif key == "labelingJobResourceConfig":
+            suggest = "labeling_job_resource_config"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LabelingJobLabelingJobAlgorithmsConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LabelingJobLabelingJobAlgorithmsConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LabelingJobLabelingJobAlgorithmsConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 labeling_job_algorithm_specification_arn: _builtins.str,
+                 initial_active_learning_model_arn: Optional[_builtins.str] = None,
+                 labeling_job_resource_config: Optional['outputs.LabelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfig'] = None):
+        """
+        :param _builtins.str labeling_job_algorithm_specification_arn: ARN of the algorithm used for auto-labeling.
+        :param _builtins.str initial_active_learning_model_arn: ARN of the final model used for auto-labeling.
+        :param 'LabelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfigArgs' labeling_job_resource_config: Configuration information for the labeling job. Fields are documented below.
+        """
+        pulumi.set(__self__, "labeling_job_algorithm_specification_arn", labeling_job_algorithm_specification_arn)
+        if initial_active_learning_model_arn is not None:
+            pulumi.set(__self__, "initial_active_learning_model_arn", initial_active_learning_model_arn)
+        if labeling_job_resource_config is not None:
+            pulumi.set(__self__, "labeling_job_resource_config", labeling_job_resource_config)
+
+    @_builtins.property
+    @pulumi.getter(name="labelingJobAlgorithmSpecificationArn")
+    def labeling_job_algorithm_specification_arn(self) -> _builtins.str:
+        """
+        ARN of the algorithm used for auto-labeling.
+        """
+        return pulumi.get(self, "labeling_job_algorithm_specification_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="initialActiveLearningModelArn")
+    def initial_active_learning_model_arn(self) -> Optional[_builtins.str]:
+        """
+        ARN of the final model used for auto-labeling.
+        """
+        return pulumi.get(self, "initial_active_learning_model_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="labelingJobResourceConfig")
+    def labeling_job_resource_config(self) -> Optional['outputs.LabelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfig']:
+        """
+        Configuration information for the labeling job. Fields are documented below.
+        """
+        return pulumi.get(self, "labeling_job_resource_config")
+
+
+@pulumi.output_type
+class LabelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "volumeKmsKeyId":
+            suggest = "volume_kms_key_id"
+        elif key == "vpcConfig":
+            suggest = "vpc_config"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LabelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LabelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LabelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 volume_kms_key_id: Optional[_builtins.str] = None,
+                 vpc_config: Optional['outputs.LabelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfigVpcConfig'] = None):
+        """
+        :param _builtins.str volume_kms_key_id: ID of the key that Amazon SageMaker uses to encrypt data on the storage volume attached to the ML compute instance(s) that run the training and inference jobs used for automated data labeling.
+        :param 'LabelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfigVpcConfigArgs' vpc_config: VPC that SageMaker jobs, hosted models, and compute resources have access to. Fields are documented below.
+        """
+        if volume_kms_key_id is not None:
+            pulumi.set(__self__, "volume_kms_key_id", volume_kms_key_id)
+        if vpc_config is not None:
+            pulumi.set(__self__, "vpc_config", vpc_config)
+
+    @_builtins.property
+    @pulumi.getter(name="volumeKmsKeyId")
+    def volume_kms_key_id(self) -> Optional[_builtins.str]:
+        """
+        ID of the key that Amazon SageMaker uses to encrypt data on the storage volume attached to the ML compute instance(s) that run the training and inference jobs used for automated data labeling.
+        """
+        return pulumi.get(self, "volume_kms_key_id")
+
+    @_builtins.property
+    @pulumi.getter(name="vpcConfig")
+    def vpc_config(self) -> Optional['outputs.LabelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfigVpcConfig']:
+        """
+        VPC that SageMaker jobs, hosted models, and compute resources have access to. Fields are documented below.
+        """
+        return pulumi.get(self, "vpc_config")
+
+
+@pulumi.output_type
+class LabelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfigVpcConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "securityGroupIds":
+            suggest = "security_group_ids"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LabelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfigVpcConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LabelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfigVpcConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LabelingJobLabelingJobAlgorithmsConfigLabelingJobResourceConfigVpcConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 security_group_ids: Sequence[_builtins.str],
+                 subnets: Sequence[_builtins.str]):
+        """
+        :param Sequence[_builtins.str] security_group_ids: VPC security group IDs.
+        :param Sequence[_builtins.str] subnets: IDs of the subnets in the VPC to which to connect the training job. Fields are documented below.
+        """
+        pulumi.set(__self__, "security_group_ids", security_group_ids)
+        pulumi.set(__self__, "subnets", subnets)
+
+    @_builtins.property
+    @pulumi.getter(name="securityGroupIds")
+    def security_group_ids(self) -> Sequence[_builtins.str]:
+        """
+        VPC security group IDs.
+        """
+        return pulumi.get(self, "security_group_ids")
+
+    @_builtins.property
+    @pulumi.getter
+    def subnets(self) -> Sequence[_builtins.str]:
+        """
+        IDs of the subnets in the VPC to which to connect the training job. Fields are documented below.
+        """
+        return pulumi.get(self, "subnets")
+
+
+@pulumi.output_type
+class LabelingJobOutputConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "s3OutputPath":
+            suggest = "s3_output_path"
+        elif key == "kmsKeyId":
+            suggest = "kms_key_id"
+        elif key == "snsTopicArn":
+            suggest = "sns_topic_arn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LabelingJobOutputConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LabelingJobOutputConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LabelingJobOutputConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 s3_output_path: _builtins.str,
+                 kms_key_id: Optional[_builtins.str] = None,
+                 sns_topic_arn: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str s3_output_path: S3 location to write output data.
+        :param _builtins.str kms_key_id: ID of the key used to encrypt the output data.
+        :param _builtins.str sns_topic_arn: SNS output topic ARN.
+        """
+        pulumi.set(__self__, "s3_output_path", s3_output_path)
+        if kms_key_id is not None:
+            pulumi.set(__self__, "kms_key_id", kms_key_id)
+        if sns_topic_arn is not None:
+            pulumi.set(__self__, "sns_topic_arn", sns_topic_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="s3OutputPath")
+    def s3_output_path(self) -> _builtins.str:
+        """
+        S3 location to write output data.
+        """
+        return pulumi.get(self, "s3_output_path")
+
+    @_builtins.property
+    @pulumi.getter(name="kmsKeyId")
+    def kms_key_id(self) -> Optional[_builtins.str]:
+        """
+        ID of the key used to encrypt the output data.
+        """
+        return pulumi.get(self, "kms_key_id")
+
+    @_builtins.property
+    @pulumi.getter(name="snsTopicArn")
+    def sns_topic_arn(self) -> Optional[_builtins.str]:
+        """
+        SNS output topic ARN.
+        """
+        return pulumi.get(self, "sns_topic_arn")
+
+
+@pulumi.output_type
+class LabelingJobStoppingCondition(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "maxHumanLabeledObjectCount":
+            suggest = "max_human_labeled_object_count"
+        elif key == "maxPercentageOfInputDatasetLabeled":
+            suggest = "max_percentage_of_input_dataset_labeled"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LabelingJobStoppingCondition. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LabelingJobStoppingCondition.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LabelingJobStoppingCondition.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 max_human_labeled_object_count: _builtins.int,
+                 max_percentage_of_input_dataset_labeled: _builtins.int):
+        """
+        :param _builtins.int max_human_labeled_object_count: Maximum number of objects that can be labeled by human workers.
+        :param _builtins.int max_percentage_of_input_dataset_labeled: Maximum number of input data objects that should be labeled.
+        """
+        pulumi.set(__self__, "max_human_labeled_object_count", max_human_labeled_object_count)
+        pulumi.set(__self__, "max_percentage_of_input_dataset_labeled", max_percentage_of_input_dataset_labeled)
+
+    @_builtins.property
+    @pulumi.getter(name="maxHumanLabeledObjectCount")
+    def max_human_labeled_object_count(self) -> _builtins.int:
+        """
+        Maximum number of objects that can be labeled by human workers.
+        """
+        return pulumi.get(self, "max_human_labeled_object_count")
+
+    @_builtins.property
+    @pulumi.getter(name="maxPercentageOfInputDatasetLabeled")
+    def max_percentage_of_input_dataset_labeled(self) -> _builtins.int:
+        """
+        Maximum number of input data objects that should be labeled.
+        """
+        return pulumi.get(self, "max_percentage_of_input_dataset_labeled")
+
+
+@pulumi.output_type
+class ModelCardExportJobExportArtifact(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "s3ExportArtifacts":
+            suggest = "s3_export_artifacts"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ModelCardExportJobExportArtifact. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ModelCardExportJobExportArtifact.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ModelCardExportJobExportArtifact.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 s3_export_artifacts: _builtins.str):
+        """
+        :param _builtins.str s3_export_artifacts: Amazon S3 URI of the exported model artifacts.
+        """
+        pulumi.set(__self__, "s3_export_artifacts", s3_export_artifacts)
+
+    @_builtins.property
+    @pulumi.getter(name="s3ExportArtifacts")
+    def s3_export_artifacts(self) -> _builtins.str:
+        """
+        Amazon S3 URI of the exported model artifacts.
+        """
+        return pulumi.get(self, "s3_export_artifacts")
+
+
+@pulumi.output_type
+class ModelCardExportJobOutputConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "s3OutputPath":
+            suggest = "s3_output_path"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ModelCardExportJobOutputConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ModelCardExportJobOutputConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ModelCardExportJobOutputConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 s3_output_path: _builtins.str):
+        """
+        :param _builtins.str s3_output_path: Amazon S3 output path.
+        """
+        pulumi.set(__self__, "s3_output_path", s3_output_path)
+
+    @_builtins.property
+    @pulumi.getter(name="s3OutputPath")
+    def s3_output_path(self) -> _builtins.str:
+        """
+        Amazon S3 output path.
+        """
+        return pulumi.get(self, "s3_output_path")
+
+
+@pulumi.output_type
+class ModelCardExportJobTimeouts(dict):
+    def __init__(__self__, *,
+                 create: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str create: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        if create is not None:
+            pulumi.set(__self__, "create", create)
+
+    @_builtins.property
+    @pulumi.getter
+    def create(self) -> Optional[_builtins.str]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "create")
+
+
+@pulumi.output_type
+class ModelCardSecurityConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "kmsKeyId":
+            suggest = "kms_key_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ModelCardSecurityConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ModelCardSecurityConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ModelCardSecurityConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 kms_key_id: _builtins.str):
+        """
+        :param _builtins.str kms_key_id: KMS key ARN.
+        """
+        pulumi.set(__self__, "kms_key_id", kms_key_id)
+
+    @_builtins.property
+    @pulumi.getter(name="kmsKeyId")
+    def kms_key_id(self) -> _builtins.str:
+        """
+        KMS key ARN.
+        """
+        return pulumi.get(self, "kms_key_id")
+
+
+@pulumi.output_type
+class ModelCardTimeouts(dict):
+    def __init__(__self__, *,
+                 delete: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str delete: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        """
+        if delete is not None:
+            pulumi.set(__self__, "delete", delete)
+
+    @_builtins.property
+    @pulumi.getter
+    def delete(self) -> Optional[_builtins.str]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        """
+        return pulumi.get(self, "delete")
+
+
+@pulumi.output_type
 class ModelContainer(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -10149,10 +11259,12 @@ class MonitoringScheduleMonitoringScheduleConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "monitoringJobDefinitionName":
-            suggest = "monitoring_job_definition_name"
-        elif key == "monitoringType":
+        if key == "monitoringType":
             suggest = "monitoring_type"
+        elif key == "monitoringJobDefinition":
+            suggest = "monitoring_job_definition"
+        elif key == "monitoringJobDefinitionName":
+            suggest = "monitoring_job_definition_name"
         elif key == "scheduleConfig":
             suggest = "schedule_config"
 
@@ -10168,26 +11280,23 @@ class MonitoringScheduleMonitoringScheduleConfig(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 monitoring_job_definition_name: _builtins.str,
                  monitoring_type: _builtins.str,
+                 monitoring_job_definition: Optional['outputs.MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinition'] = None,
+                 monitoring_job_definition_name: Optional[_builtins.str] = None,
                  schedule_config: Optional['outputs.MonitoringScheduleMonitoringScheduleConfigScheduleConfig'] = None):
         """
-        :param _builtins.str monitoring_job_definition_name: The name of the monitoring job definition to schedule.
         :param _builtins.str monitoring_type: The type of the monitoring job definition to schedule. Valid values are `DataQuality`, `ModelQuality`, `ModelBias` or `ModelExplainability`
+        :param 'MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionArgs' monitoring_job_definition: Defines the monitoring job. Fields are documented below.
+        :param _builtins.str monitoring_job_definition_name: The name of the monitoring job definition to schedule.
         :param 'MonitoringScheduleMonitoringScheduleConfigScheduleConfigArgs' schedule_config: Configures the monitoring schedule. Fields are documented below.
         """
-        pulumi.set(__self__, "monitoring_job_definition_name", monitoring_job_definition_name)
         pulumi.set(__self__, "monitoring_type", monitoring_type)
+        if monitoring_job_definition is not None:
+            pulumi.set(__self__, "monitoring_job_definition", monitoring_job_definition)
+        if monitoring_job_definition_name is not None:
+            pulumi.set(__self__, "monitoring_job_definition_name", monitoring_job_definition_name)
         if schedule_config is not None:
             pulumi.set(__self__, "schedule_config", schedule_config)
-
-    @_builtins.property
-    @pulumi.getter(name="monitoringJobDefinitionName")
-    def monitoring_job_definition_name(self) -> _builtins.str:
-        """
-        The name of the monitoring job definition to schedule.
-        """
-        return pulumi.get(self, "monitoring_job_definition_name")
 
     @_builtins.property
     @pulumi.getter(name="monitoringType")
@@ -10198,12 +11307,1262 @@ class MonitoringScheduleMonitoringScheduleConfig(dict):
         return pulumi.get(self, "monitoring_type")
 
     @_builtins.property
+    @pulumi.getter(name="monitoringJobDefinition")
+    def monitoring_job_definition(self) -> Optional['outputs.MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinition']:
+        """
+        Defines the monitoring job. Fields are documented below.
+        """
+        return pulumi.get(self, "monitoring_job_definition")
+
+    @_builtins.property
+    @pulumi.getter(name="monitoringJobDefinitionName")
+    def monitoring_job_definition_name(self) -> Optional[_builtins.str]:
+        """
+        The name of the monitoring job definition to schedule.
+        """
+        return pulumi.get(self, "monitoring_job_definition_name")
+
+    @_builtins.property
     @pulumi.getter(name="scheduleConfig")
     def schedule_config(self) -> Optional['outputs.MonitoringScheduleMonitoringScheduleConfigScheduleConfig']:
         """
         Configures the monitoring schedule. Fields are documented below.
         """
         return pulumi.get(self, "schedule_config")
+
+
+@pulumi.output_type
+class MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinition(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "monitoringAppSpecification":
+            suggest = "monitoring_app_specification"
+        elif key == "monitoringInputs":
+            suggest = "monitoring_inputs"
+        elif key == "monitoringOutputConfig":
+            suggest = "monitoring_output_config"
+        elif key == "monitoringResources":
+            suggest = "monitoring_resources"
+        elif key == "roleArn":
+            suggest = "role_arn"
+        elif key == "networkConfig":
+            suggest = "network_config"
+        elif key == "stoppingConditions":
+            suggest = "stopping_conditions"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinition. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinition.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinition.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 monitoring_app_specification: 'outputs.MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringAppSpecification',
+                 monitoring_inputs: 'outputs.MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputs',
+                 monitoring_output_config: 'outputs.MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfig',
+                 monitoring_resources: 'outputs.MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResources',
+                 role_arn: _builtins.str,
+                 baseline: Optional['outputs.MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaseline'] = None,
+                 environment: Optional[Mapping[str, _builtins.str]] = None,
+                 network_config: Optional['outputs.MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfig'] = None,
+                 stopping_conditions: Optional[Sequence['outputs.MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionStoppingCondition']] = None):
+        """
+        :param 'MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringAppSpecificationArgs' monitoring_app_specification: Configures the monitoring job to run a specified Docker container image. Fields are documented below.
+        :param 'MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsArgs' monitoring_inputs: Inputs for the monitoring job. Fields are documented below.
+        :param 'MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigArgs' monitoring_output_config: Outputs from the monitoring job to be uploaded to Amazon S3. Fields are documented below.
+        :param 'MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResourcesArgs' monitoring_resources: Identifies the resources, ML compute instances, and ML storage volumes to deploy for a monitoring job. Fields are documented below.
+        :param _builtins.str role_arn: ARN of an IAM role that Amazon SageMaker AI can assume to perform tasks on your behalf.
+        :param 'MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineArgs' baseline: Baseline configuration used to validate that the data conforms to the specified constraints and statistics. Fields are documented below.
+        :param Mapping[str, _builtins.str] environment: Map of environment variables in the Docker container.
+        :param 'MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfigArgs' network_config: Networking options for the monitoring job. Fields are documented below.
+        :param Sequence['MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionStoppingConditionArgs'] stopping_conditions: How long the monitoring job is allowed to run. Fields are documented below.
+        """
+        pulumi.set(__self__, "monitoring_app_specification", monitoring_app_specification)
+        pulumi.set(__self__, "monitoring_inputs", monitoring_inputs)
+        pulumi.set(__self__, "monitoring_output_config", monitoring_output_config)
+        pulumi.set(__self__, "monitoring_resources", monitoring_resources)
+        pulumi.set(__self__, "role_arn", role_arn)
+        if baseline is not None:
+            pulumi.set(__self__, "baseline", baseline)
+        if environment is not None:
+            pulumi.set(__self__, "environment", environment)
+        if network_config is not None:
+            pulumi.set(__self__, "network_config", network_config)
+        if stopping_conditions is not None:
+            pulumi.set(__self__, "stopping_conditions", stopping_conditions)
+
+    @_builtins.property
+    @pulumi.getter(name="monitoringAppSpecification")
+    def monitoring_app_specification(self) -> 'outputs.MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringAppSpecification':
+        """
+        Configures the monitoring job to run a specified Docker container image. Fields are documented below.
+        """
+        return pulumi.get(self, "monitoring_app_specification")
+
+    @_builtins.property
+    @pulumi.getter(name="monitoringInputs")
+    def monitoring_inputs(self) -> 'outputs.MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputs':
+        """
+        Inputs for the monitoring job. Fields are documented below.
+        """
+        return pulumi.get(self, "monitoring_inputs")
+
+    @_builtins.property
+    @pulumi.getter(name="monitoringOutputConfig")
+    def monitoring_output_config(self) -> 'outputs.MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfig':
+        """
+        Outputs from the monitoring job to be uploaded to Amazon S3. Fields are documented below.
+        """
+        return pulumi.get(self, "monitoring_output_config")
+
+    @_builtins.property
+    @pulumi.getter(name="monitoringResources")
+    def monitoring_resources(self) -> 'outputs.MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResources':
+        """
+        Identifies the resources, ML compute instances, and ML storage volumes to deploy for a monitoring job. Fields are documented below.
+        """
+        return pulumi.get(self, "monitoring_resources")
+
+    @_builtins.property
+    @pulumi.getter(name="roleArn")
+    def role_arn(self) -> _builtins.str:
+        """
+        ARN of an IAM role that Amazon SageMaker AI can assume to perform tasks on your behalf.
+        """
+        return pulumi.get(self, "role_arn")
+
+    @_builtins.property
+    @pulumi.getter
+    def baseline(self) -> Optional['outputs.MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaseline']:
+        """
+        Baseline configuration used to validate that the data conforms to the specified constraints and statistics. Fields are documented below.
+        """
+        return pulumi.get(self, "baseline")
+
+    @_builtins.property
+    @pulumi.getter
+    def environment(self) -> Optional[Mapping[str, _builtins.str]]:
+        """
+        Map of environment variables in the Docker container.
+        """
+        return pulumi.get(self, "environment")
+
+    @_builtins.property
+    @pulumi.getter(name="networkConfig")
+    def network_config(self) -> Optional['outputs.MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfig']:
+        """
+        Networking options for the monitoring job. Fields are documented below.
+        """
+        return pulumi.get(self, "network_config")
+
+    @_builtins.property
+    @pulumi.getter(name="stoppingConditions")
+    def stopping_conditions(self) -> Optional[Sequence['outputs.MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionStoppingCondition']]:
+        """
+        How long the monitoring job is allowed to run. Fields are documented below.
+        """
+        return pulumi.get(self, "stopping_conditions")
+
+
+@pulumi.output_type
+class MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaseline(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "baseliningJobName":
+            suggest = "baselining_job_name"
+        elif key == "constraintsResource":
+            suggest = "constraints_resource"
+        elif key == "statisticsResource":
+            suggest = "statistics_resource"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaseline. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaseline.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaseline.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 baselining_job_name: Optional[_builtins.str] = None,
+                 constraints_resource: Optional['outputs.MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineConstraintsResource'] = None,
+                 statistics_resource: Optional['outputs.MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineStatisticsResource'] = None):
+        if baselining_job_name is not None:
+            pulumi.set(__self__, "baselining_job_name", baselining_job_name)
+        if constraints_resource is not None:
+            pulumi.set(__self__, "constraints_resource", constraints_resource)
+        if statistics_resource is not None:
+            pulumi.set(__self__, "statistics_resource", statistics_resource)
+
+    @_builtins.property
+    @pulumi.getter(name="baseliningJobName")
+    def baselining_job_name(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "baselining_job_name")
+
+    @_builtins.property
+    @pulumi.getter(name="constraintsResource")
+    def constraints_resource(self) -> Optional['outputs.MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineConstraintsResource']:
+        return pulumi.get(self, "constraints_resource")
+
+    @_builtins.property
+    @pulumi.getter(name="statisticsResource")
+    def statistics_resource(self) -> Optional['outputs.MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineStatisticsResource']:
+        return pulumi.get(self, "statistics_resource")
+
+
+@pulumi.output_type
+class MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineConstraintsResource(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "s3Uri":
+            suggest = "s3_uri"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineConstraintsResource. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineConstraintsResource.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineConstraintsResource.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 s3_uri: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str s3_uri: URI that identifies the Amazon S3 storage location where Amazon SageMaker AI saves the results of a monitoring job.
+        """
+        if s3_uri is not None:
+            pulumi.set(__self__, "s3_uri", s3_uri)
+
+    @_builtins.property
+    @pulumi.getter(name="s3Uri")
+    def s3_uri(self) -> Optional[_builtins.str]:
+        """
+        URI that identifies the Amazon S3 storage location where Amazon SageMaker AI saves the results of a monitoring job.
+        """
+        return pulumi.get(self, "s3_uri")
+
+
+@pulumi.output_type
+class MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineStatisticsResource(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "s3Uri":
+            suggest = "s3_uri"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineStatisticsResource. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineStatisticsResource.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionBaselineStatisticsResource.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 s3_uri: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str s3_uri: URI that identifies the Amazon S3 storage location where Amazon SageMaker AI saves the results of a monitoring job.
+        """
+        if s3_uri is not None:
+            pulumi.set(__self__, "s3_uri", s3_uri)
+
+    @_builtins.property
+    @pulumi.getter(name="s3Uri")
+    def s3_uri(self) -> Optional[_builtins.str]:
+        """
+        URI that identifies the Amazon S3 storage location where Amazon SageMaker AI saves the results of a monitoring job.
+        """
+        return pulumi.get(self, "s3_uri")
+
+
+@pulumi.output_type
+class MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringAppSpecification(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "imageUri":
+            suggest = "image_uri"
+        elif key == "containerArguments":
+            suggest = "container_arguments"
+        elif key == "containerEntrypoints":
+            suggest = "container_entrypoints"
+        elif key == "postAnalyticsProcessorSourceUri":
+            suggest = "post_analytics_processor_source_uri"
+        elif key == "recordPreprocessorSourceUri":
+            suggest = "record_preprocessor_source_uri"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringAppSpecification. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringAppSpecification.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringAppSpecification.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 image_uri: _builtins.str,
+                 container_arguments: Optional[Sequence[_builtins.str]] = None,
+                 container_entrypoints: Optional[Sequence[_builtins.str]] = None,
+                 post_analytics_processor_source_uri: Optional[_builtins.str] = None,
+                 record_preprocessor_source_uri: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str image_uri: Container image to be run by the monitoring job.
+        :param Sequence[_builtins.str] container_arguments: List of arguments for the container used to run the monitoring job.
+        :param Sequence[_builtins.str] container_entrypoints: Entrypoint for the container used to run the monitoring job.
+        :param _builtins.str post_analytics_processor_source_uri: Script that is called after analysis has been performed.
+        :param _builtins.str record_preprocessor_source_uri: Script that is called per row prior to running analysis.
+        """
+        pulumi.set(__self__, "image_uri", image_uri)
+        if container_arguments is not None:
+            pulumi.set(__self__, "container_arguments", container_arguments)
+        if container_entrypoints is not None:
+            pulumi.set(__self__, "container_entrypoints", container_entrypoints)
+        if post_analytics_processor_source_uri is not None:
+            pulumi.set(__self__, "post_analytics_processor_source_uri", post_analytics_processor_source_uri)
+        if record_preprocessor_source_uri is not None:
+            pulumi.set(__self__, "record_preprocessor_source_uri", record_preprocessor_source_uri)
+
+    @_builtins.property
+    @pulumi.getter(name="imageUri")
+    def image_uri(self) -> _builtins.str:
+        """
+        Container image to be run by the monitoring job.
+        """
+        return pulumi.get(self, "image_uri")
+
+    @_builtins.property
+    @pulumi.getter(name="containerArguments")
+    def container_arguments(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        List of arguments for the container used to run the monitoring job.
+        """
+        return pulumi.get(self, "container_arguments")
+
+    @_builtins.property
+    @pulumi.getter(name="containerEntrypoints")
+    def container_entrypoints(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        Entrypoint for the container used to run the monitoring job.
+        """
+        return pulumi.get(self, "container_entrypoints")
+
+    @_builtins.property
+    @pulumi.getter(name="postAnalyticsProcessorSourceUri")
+    def post_analytics_processor_source_uri(self) -> Optional[_builtins.str]:
+        """
+        Script that is called after analysis has been performed.
+        """
+        return pulumi.get(self, "post_analytics_processor_source_uri")
+
+    @_builtins.property
+    @pulumi.getter(name="recordPreprocessorSourceUri")
+    def record_preprocessor_source_uri(self) -> Optional[_builtins.str]:
+        """
+        Script that is called per row prior to running analysis.
+        """
+        return pulumi.get(self, "record_preprocessor_source_uri")
+
+
+@pulumi.output_type
+class MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputs(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "batchTransformInput":
+            suggest = "batch_transform_input"
+        elif key == "endpointInput":
+            suggest = "endpoint_input"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputs. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputs.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputs.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 batch_transform_input: Optional['outputs.MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInput'] = None,
+                 endpoint_input: Optional['outputs.MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsEndpointInput'] = None):
+        """
+        :param 'MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputArgs' batch_transform_input: Input object for the batch transform job. Fields are documented below.
+        :param 'MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsEndpointInputArgs' endpoint_input: Endpoint for a monitoring job. Fields are documented below.
+        """
+        if batch_transform_input is not None:
+            pulumi.set(__self__, "batch_transform_input", batch_transform_input)
+        if endpoint_input is not None:
+            pulumi.set(__self__, "endpoint_input", endpoint_input)
+
+    @_builtins.property
+    @pulumi.getter(name="batchTransformInput")
+    def batch_transform_input(self) -> Optional['outputs.MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInput']:
+        """
+        Input object for the batch transform job. Fields are documented below.
+        """
+        return pulumi.get(self, "batch_transform_input")
+
+    @_builtins.property
+    @pulumi.getter(name="endpointInput")
+    def endpoint_input(self) -> Optional['outputs.MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsEndpointInput']:
+        """
+        Endpoint for a monitoring job. Fields are documented below.
+        """
+        return pulumi.get(self, "endpoint_input")
+
+
+@pulumi.output_type
+class MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInput(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dataCapturedDestinationS3Uri":
+            suggest = "data_captured_destination_s3_uri"
+        elif key == "datasetFormat":
+            suggest = "dataset_format"
+        elif key == "localPath":
+            suggest = "local_path"
+        elif key == "endTimeOffset":
+            suggest = "end_time_offset"
+        elif key == "excludeFeaturesAttribute":
+            suggest = "exclude_features_attribute"
+        elif key == "featuresAttribute":
+            suggest = "features_attribute"
+        elif key == "inferenceAttribute":
+            suggest = "inference_attribute"
+        elif key == "probabilityAttribute":
+            suggest = "probability_attribute"
+        elif key == "probabilityThresholdAttribute":
+            suggest = "probability_threshold_attribute"
+        elif key == "s3DataDistributionType":
+            suggest = "s3_data_distribution_type"
+        elif key == "s3InputMode":
+            suggest = "s3_input_mode"
+        elif key == "startTimeOffset":
+            suggest = "start_time_offset"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInput.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 data_captured_destination_s3_uri: _builtins.str,
+                 dataset_format: 'outputs.MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormat',
+                 local_path: _builtins.str,
+                 end_time_offset: Optional[_builtins.str] = None,
+                 exclude_features_attribute: Optional[_builtins.str] = None,
+                 features_attribute: Optional[_builtins.str] = None,
+                 inference_attribute: Optional[_builtins.str] = None,
+                 probability_attribute: Optional[_builtins.str] = None,
+                 probability_threshold_attribute: Optional[_builtins.float] = None,
+                 s3_data_distribution_type: Optional[_builtins.str] = None,
+                 s3_input_mode: Optional[_builtins.str] = None,
+                 start_time_offset: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str data_captured_destination_s3_uri: Amazon S3 location being used to capture the data.
+        :param 'MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatArgs' dataset_format: Dataset format for the batch transform job. Fields are documented below.
+        :param _builtins.str local_path: Path to the filesystem where the batch transform data is available to the container.
+        :param _builtins.str end_time_offset: Monitoring jobs subtract this time from the end time.
+        :param _builtins.str exclude_features_attribute: Attributes of the input data to exclude from the analysis.
+        :param _builtins.str features_attribute: Attributes of the input data that are the input features.
+        :param _builtins.str inference_attribute: Attribute of the input data that represents the ground truth label.
+        :param _builtins.str probability_attribute: In a classification problem, the attribute that represents the class probability.
+        :param _builtins.float probability_threshold_attribute: Threshold for the class probability to be evaluated as a positive result.
+        :param _builtins.str s3_data_distribution_type: Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Valid values: `FullyReplicated`, `ShardedByS3Key`.
+        :param _builtins.str s3_input_mode: Input mode for transferring data for the monitoring job. Valid values: `Pipe`, `File`.
+        :param _builtins.str start_time_offset: Monitoring jobs subtract this time from the start time.
+        """
+        pulumi.set(__self__, "data_captured_destination_s3_uri", data_captured_destination_s3_uri)
+        pulumi.set(__self__, "dataset_format", dataset_format)
+        pulumi.set(__self__, "local_path", local_path)
+        if end_time_offset is not None:
+            pulumi.set(__self__, "end_time_offset", end_time_offset)
+        if exclude_features_attribute is not None:
+            pulumi.set(__self__, "exclude_features_attribute", exclude_features_attribute)
+        if features_attribute is not None:
+            pulumi.set(__self__, "features_attribute", features_attribute)
+        if inference_attribute is not None:
+            pulumi.set(__self__, "inference_attribute", inference_attribute)
+        if probability_attribute is not None:
+            pulumi.set(__self__, "probability_attribute", probability_attribute)
+        if probability_threshold_attribute is not None:
+            pulumi.set(__self__, "probability_threshold_attribute", probability_threshold_attribute)
+        if s3_data_distribution_type is not None:
+            pulumi.set(__self__, "s3_data_distribution_type", s3_data_distribution_type)
+        if s3_input_mode is not None:
+            pulumi.set(__self__, "s3_input_mode", s3_input_mode)
+        if start_time_offset is not None:
+            pulumi.set(__self__, "start_time_offset", start_time_offset)
+
+    @_builtins.property
+    @pulumi.getter(name="dataCapturedDestinationS3Uri")
+    def data_captured_destination_s3_uri(self) -> _builtins.str:
+        """
+        Amazon S3 location being used to capture the data.
+        """
+        return pulumi.get(self, "data_captured_destination_s3_uri")
+
+    @_builtins.property
+    @pulumi.getter(name="datasetFormat")
+    def dataset_format(self) -> 'outputs.MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormat':
+        """
+        Dataset format for the batch transform job. Fields are documented below.
+        """
+        return pulumi.get(self, "dataset_format")
+
+    @_builtins.property
+    @pulumi.getter(name="localPath")
+    def local_path(self) -> _builtins.str:
+        """
+        Path to the filesystem where the batch transform data is available to the container.
+        """
+        return pulumi.get(self, "local_path")
+
+    @_builtins.property
+    @pulumi.getter(name="endTimeOffset")
+    def end_time_offset(self) -> Optional[_builtins.str]:
+        """
+        Monitoring jobs subtract this time from the end time.
+        """
+        return pulumi.get(self, "end_time_offset")
+
+    @_builtins.property
+    @pulumi.getter(name="excludeFeaturesAttribute")
+    def exclude_features_attribute(self) -> Optional[_builtins.str]:
+        """
+        Attributes of the input data to exclude from the analysis.
+        """
+        return pulumi.get(self, "exclude_features_attribute")
+
+    @_builtins.property
+    @pulumi.getter(name="featuresAttribute")
+    def features_attribute(self) -> Optional[_builtins.str]:
+        """
+        Attributes of the input data that are the input features.
+        """
+        return pulumi.get(self, "features_attribute")
+
+    @_builtins.property
+    @pulumi.getter(name="inferenceAttribute")
+    def inference_attribute(self) -> Optional[_builtins.str]:
+        """
+        Attribute of the input data that represents the ground truth label.
+        """
+        return pulumi.get(self, "inference_attribute")
+
+    @_builtins.property
+    @pulumi.getter(name="probabilityAttribute")
+    def probability_attribute(self) -> Optional[_builtins.str]:
+        """
+        In a classification problem, the attribute that represents the class probability.
+        """
+        return pulumi.get(self, "probability_attribute")
+
+    @_builtins.property
+    @pulumi.getter(name="probabilityThresholdAttribute")
+    def probability_threshold_attribute(self) -> Optional[_builtins.float]:
+        """
+        Threshold for the class probability to be evaluated as a positive result.
+        """
+        return pulumi.get(self, "probability_threshold_attribute")
+
+    @_builtins.property
+    @pulumi.getter(name="s3DataDistributionType")
+    def s3_data_distribution_type(self) -> Optional[_builtins.str]:
+        """
+        Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Valid values: `FullyReplicated`, `ShardedByS3Key`.
+        """
+        return pulumi.get(self, "s3_data_distribution_type")
+
+    @_builtins.property
+    @pulumi.getter(name="s3InputMode")
+    def s3_input_mode(self) -> Optional[_builtins.str]:
+        """
+        Input mode for transferring data for the monitoring job. Valid values: `Pipe`, `File`.
+        """
+        return pulumi.get(self, "s3_input_mode")
+
+    @_builtins.property
+    @pulumi.getter(name="startTimeOffset")
+    def start_time_offset(self) -> Optional[_builtins.str]:
+        """
+        Monitoring jobs subtract this time from the start time.
+        """
+        return pulumi.get(self, "start_time_offset")
+
+
+@pulumi.output_type
+class MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormat(dict):
+    def __init__(__self__, *,
+                 csv: Optional['outputs.MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatCsv'] = None,
+                 json: Optional['outputs.MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatJson'] = None):
+        """
+        :param 'MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatCsvArgs' csv: CSV dataset used in the monitoring job. Fields are documented below.
+        :param 'MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatJsonArgs' json: JSON dataset used in the monitoring job. Fields are documented below.
+        """
+        if csv is not None:
+            pulumi.set(__self__, "csv", csv)
+        if json is not None:
+            pulumi.set(__self__, "json", json)
+
+    @_builtins.property
+    @pulumi.getter
+    def csv(self) -> Optional['outputs.MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatCsv']:
+        """
+        CSV dataset used in the monitoring job. Fields are documented below.
+        """
+        return pulumi.get(self, "csv")
+
+    @_builtins.property
+    @pulumi.getter
+    def json(self) -> Optional['outputs.MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatJson']:
+        """
+        JSON dataset used in the monitoring job. Fields are documented below.
+        """
+        return pulumi.get(self, "json")
+
+
+@pulumi.output_type
+class MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatCsv(dict):
+    def __init__(__self__, *,
+                 header: Optional[_builtins.bool] = None):
+        """
+        :param _builtins.bool header: Indicates if the CSV data has a header.
+        """
+        if header is not None:
+            pulumi.set(__self__, "header", header)
+
+    @_builtins.property
+    @pulumi.getter
+    def header(self) -> Optional[_builtins.bool]:
+        """
+        Indicates if the CSV data has a header.
+        """
+        return pulumi.get(self, "header")
+
+
+@pulumi.output_type
+class MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsBatchTransformInputDatasetFormatJson(dict):
+    def __init__(__self__, *,
+                 line: Optional[_builtins.bool] = None):
+        """
+        :param _builtins.bool line: Indicates if the file should be read as a JSON object per line.
+        """
+        if line is not None:
+            pulumi.set(__self__, "line", line)
+
+    @_builtins.property
+    @pulumi.getter
+    def line(self) -> Optional[_builtins.bool]:
+        """
+        Indicates if the file should be read as a JSON object per line.
+        """
+        return pulumi.get(self, "line")
+
+
+@pulumi.output_type
+class MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsEndpointInput(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "endpointName":
+            suggest = "endpoint_name"
+        elif key == "localPath":
+            suggest = "local_path"
+        elif key == "endTimeOffset":
+            suggest = "end_time_offset"
+        elif key == "excludeFeaturesAttribute":
+            suggest = "exclude_features_attribute"
+        elif key == "featuresAttribute":
+            suggest = "features_attribute"
+        elif key == "inferenceAttribute":
+            suggest = "inference_attribute"
+        elif key == "probabilityAttribute":
+            suggest = "probability_attribute"
+        elif key == "probabilityThresholdAttribute":
+            suggest = "probability_threshold_attribute"
+        elif key == "s3DataDistributionType":
+            suggest = "s3_data_distribution_type"
+        elif key == "s3InputMode":
+            suggest = "s3_input_mode"
+        elif key == "startTimeOffset":
+            suggest = "start_time_offset"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsEndpointInput. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsEndpointInput.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringInputsEndpointInput.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 endpoint_name: _builtins.str,
+                 local_path: _builtins.str,
+                 end_time_offset: Optional[_builtins.str] = None,
+                 exclude_features_attribute: Optional[_builtins.str] = None,
+                 features_attribute: Optional[_builtins.str] = None,
+                 inference_attribute: Optional[_builtins.str] = None,
+                 probability_attribute: Optional[_builtins.str] = None,
+                 probability_threshold_attribute: Optional[_builtins.float] = None,
+                 s3_data_distribution_type: Optional[_builtins.str] = None,
+                 s3_input_mode: Optional[_builtins.str] = None,
+                 start_time_offset: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str endpoint_name: Endpoint in customer's account which has enabled `DataCaptureConfig`.
+        :param _builtins.str local_path: Path to the filesystem where the endpoint data is available to the container.
+        :param _builtins.str end_time_offset: Monitoring jobs subtract this time from the end time.
+        :param _builtins.str exclude_features_attribute: Attributes of the input data to exclude from the analysis.
+        :param _builtins.str features_attribute: Attributes of the input data that are the input features.
+        :param _builtins.str inference_attribute: Attribute of the input data that represents the ground truth label.
+        :param _builtins.str probability_attribute: In a classification problem, the attribute that represents the class probability.
+        :param _builtins.float probability_threshold_attribute: Threshold for the class probability to be evaluated as a positive result.
+        :param _builtins.str s3_data_distribution_type: Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Valid values: `FullyReplicated`, `ShardedByS3Key`.
+        :param _builtins.str s3_input_mode: Input mode for transferring data for the monitoring job. Valid values: `Pipe`, `File`.
+        :param _builtins.str start_time_offset: Monitoring jobs subtract this time from the start time.
+        """
+        pulumi.set(__self__, "endpoint_name", endpoint_name)
+        pulumi.set(__self__, "local_path", local_path)
+        if end_time_offset is not None:
+            pulumi.set(__self__, "end_time_offset", end_time_offset)
+        if exclude_features_attribute is not None:
+            pulumi.set(__self__, "exclude_features_attribute", exclude_features_attribute)
+        if features_attribute is not None:
+            pulumi.set(__self__, "features_attribute", features_attribute)
+        if inference_attribute is not None:
+            pulumi.set(__self__, "inference_attribute", inference_attribute)
+        if probability_attribute is not None:
+            pulumi.set(__self__, "probability_attribute", probability_attribute)
+        if probability_threshold_attribute is not None:
+            pulumi.set(__self__, "probability_threshold_attribute", probability_threshold_attribute)
+        if s3_data_distribution_type is not None:
+            pulumi.set(__self__, "s3_data_distribution_type", s3_data_distribution_type)
+        if s3_input_mode is not None:
+            pulumi.set(__self__, "s3_input_mode", s3_input_mode)
+        if start_time_offset is not None:
+            pulumi.set(__self__, "start_time_offset", start_time_offset)
+
+    @_builtins.property
+    @pulumi.getter(name="endpointName")
+    def endpoint_name(self) -> _builtins.str:
+        """
+        Endpoint in customer's account which has enabled `DataCaptureConfig`.
+        """
+        return pulumi.get(self, "endpoint_name")
+
+    @_builtins.property
+    @pulumi.getter(name="localPath")
+    def local_path(self) -> _builtins.str:
+        """
+        Path to the filesystem where the endpoint data is available to the container.
+        """
+        return pulumi.get(self, "local_path")
+
+    @_builtins.property
+    @pulumi.getter(name="endTimeOffset")
+    def end_time_offset(self) -> Optional[_builtins.str]:
+        """
+        Monitoring jobs subtract this time from the end time.
+        """
+        return pulumi.get(self, "end_time_offset")
+
+    @_builtins.property
+    @pulumi.getter(name="excludeFeaturesAttribute")
+    def exclude_features_attribute(self) -> Optional[_builtins.str]:
+        """
+        Attributes of the input data to exclude from the analysis.
+        """
+        return pulumi.get(self, "exclude_features_attribute")
+
+    @_builtins.property
+    @pulumi.getter(name="featuresAttribute")
+    def features_attribute(self) -> Optional[_builtins.str]:
+        """
+        Attributes of the input data that are the input features.
+        """
+        return pulumi.get(self, "features_attribute")
+
+    @_builtins.property
+    @pulumi.getter(name="inferenceAttribute")
+    def inference_attribute(self) -> Optional[_builtins.str]:
+        """
+        Attribute of the input data that represents the ground truth label.
+        """
+        return pulumi.get(self, "inference_attribute")
+
+    @_builtins.property
+    @pulumi.getter(name="probabilityAttribute")
+    def probability_attribute(self) -> Optional[_builtins.str]:
+        """
+        In a classification problem, the attribute that represents the class probability.
+        """
+        return pulumi.get(self, "probability_attribute")
+
+    @_builtins.property
+    @pulumi.getter(name="probabilityThresholdAttribute")
+    def probability_threshold_attribute(self) -> Optional[_builtins.float]:
+        """
+        Threshold for the class probability to be evaluated as a positive result.
+        """
+        return pulumi.get(self, "probability_threshold_attribute")
+
+    @_builtins.property
+    @pulumi.getter(name="s3DataDistributionType")
+    def s3_data_distribution_type(self) -> Optional[_builtins.str]:
+        """
+        Whether input data distributed in Amazon S3 is fully replicated or sharded by an S3 key. Valid values: `FullyReplicated`, `ShardedByS3Key`.
+        """
+        return pulumi.get(self, "s3_data_distribution_type")
+
+    @_builtins.property
+    @pulumi.getter(name="s3InputMode")
+    def s3_input_mode(self) -> Optional[_builtins.str]:
+        """
+        Input mode for transferring data for the monitoring job. Valid values: `Pipe`, `File`.
+        """
+        return pulumi.get(self, "s3_input_mode")
+
+    @_builtins.property
+    @pulumi.getter(name="startTimeOffset")
+    def start_time_offset(self) -> Optional[_builtins.str]:
+        """
+        Monitoring jobs subtract this time from the start time.
+        """
+        return pulumi.get(self, "start_time_offset")
+
+
+@pulumi.output_type
+class MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "monitoringOutputs":
+            suggest = "monitoring_outputs"
+        elif key == "kmsKeyId":
+            suggest = "kms_key_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 monitoring_outputs: 'outputs.MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigMonitoringOutputs',
+                 kms_key_id: Optional[_builtins.str] = None):
+        """
+        :param 'MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigMonitoringOutputsArgs' monitoring_outputs: Monitoring outputs for monitoring jobs. Fields are documented below.
+        :param _builtins.str kms_key_id: AWS KMS key that Amazon SageMaker AI uses to encrypt the model artifacts at rest using Amazon S3 server-side encryption.
+        """
+        pulumi.set(__self__, "monitoring_outputs", monitoring_outputs)
+        if kms_key_id is not None:
+            pulumi.set(__self__, "kms_key_id", kms_key_id)
+
+    @_builtins.property
+    @pulumi.getter(name="monitoringOutputs")
+    def monitoring_outputs(self) -> 'outputs.MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigMonitoringOutputs':
+        """
+        Monitoring outputs for monitoring jobs. Fields are documented below.
+        """
+        return pulumi.get(self, "monitoring_outputs")
+
+    @_builtins.property
+    @pulumi.getter(name="kmsKeyId")
+    def kms_key_id(self) -> Optional[_builtins.str]:
+        """
+        AWS KMS key that Amazon SageMaker AI uses to encrypt the model artifacts at rest using Amazon S3 server-side encryption.
+        """
+        return pulumi.get(self, "kms_key_id")
+
+
+@pulumi.output_type
+class MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigMonitoringOutputs(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "s3Output":
+            suggest = "s3_output"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigMonitoringOutputs. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigMonitoringOutputs.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigMonitoringOutputs.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 s3_output: 'outputs.MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigMonitoringOutputsS3Output'):
+        """
+        :param 'MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigMonitoringOutputsS3OutputArgs' s3_output: Amazon S3 storage location where the results of a monitoring job are saved. Fields are documented below.
+        """
+        pulumi.set(__self__, "s3_output", s3_output)
+
+    @_builtins.property
+    @pulumi.getter(name="s3Output")
+    def s3_output(self) -> 'outputs.MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigMonitoringOutputsS3Output':
+        """
+        Amazon S3 storage location where the results of a monitoring job are saved. Fields are documented below.
+        """
+        return pulumi.get(self, "s3_output")
+
+
+@pulumi.output_type
+class MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigMonitoringOutputsS3Output(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "localPath":
+            suggest = "local_path"
+        elif key == "s3Uri":
+            suggest = "s3_uri"
+        elif key == "s3UploadMode":
+            suggest = "s3_upload_mode"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigMonitoringOutputsS3Output. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigMonitoringOutputsS3Output.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringOutputConfigMonitoringOutputsS3Output.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 local_path: _builtins.str,
+                 s3_uri: _builtins.str,
+                 s3_upload_mode: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str local_path: Local path to the Amazon S3 storage location where Amazon SageMaker AI saves the results of a monitoring job.
+        :param _builtins.str s3_uri: URI that identifies the Amazon S3 storage location where Amazon SageMaker AI saves the results of a monitoring job.
+        :param _builtins.str s3_upload_mode: Whether to upload the results of the monitoring job continuously or after the job completes. Valid values: `Continuous`, `EndOfJob`.
+        """
+        pulumi.set(__self__, "local_path", local_path)
+        pulumi.set(__self__, "s3_uri", s3_uri)
+        if s3_upload_mode is not None:
+            pulumi.set(__self__, "s3_upload_mode", s3_upload_mode)
+
+    @_builtins.property
+    @pulumi.getter(name="localPath")
+    def local_path(self) -> _builtins.str:
+        """
+        Local path to the Amazon S3 storage location where Amazon SageMaker AI saves the results of a monitoring job.
+        """
+        return pulumi.get(self, "local_path")
+
+    @_builtins.property
+    @pulumi.getter(name="s3Uri")
+    def s3_uri(self) -> _builtins.str:
+        """
+        URI that identifies the Amazon S3 storage location where Amazon SageMaker AI saves the results of a monitoring job.
+        """
+        return pulumi.get(self, "s3_uri")
+
+    @_builtins.property
+    @pulumi.getter(name="s3UploadMode")
+    def s3_upload_mode(self) -> Optional[_builtins.str]:
+        """
+        Whether to upload the results of the monitoring job continuously or after the job completes. Valid values: `Continuous`, `EndOfJob`.
+        """
+        return pulumi.get(self, "s3_upload_mode")
+
+
+@pulumi.output_type
+class MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResources(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clusterConfig":
+            suggest = "cluster_config"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResources. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResources.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResources.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 cluster_config: 'outputs.MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResourcesClusterConfig'):
+        """
+        :param 'MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResourcesClusterConfigArgs' cluster_config: Configuration for the cluster resources used to run the processing job. Fields are documented below.
+        """
+        pulumi.set(__self__, "cluster_config", cluster_config)
+
+    @_builtins.property
+    @pulumi.getter(name="clusterConfig")
+    def cluster_config(self) -> 'outputs.MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResourcesClusterConfig':
+        """
+        Configuration for the cluster resources used to run the processing job. Fields are documented below.
+        """
+        return pulumi.get(self, "cluster_config")
+
+
+@pulumi.output_type
+class MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResourcesClusterConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "instanceCount":
+            suggest = "instance_count"
+        elif key == "instanceType":
+            suggest = "instance_type"
+        elif key == "volumeSizeInGb":
+            suggest = "volume_size_in_gb"
+        elif key == "volumeKmsKeyId":
+            suggest = "volume_kms_key_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResourcesClusterConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResourcesClusterConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionMonitoringResourcesClusterConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 instance_count: _builtins.int,
+                 instance_type: _builtins.str,
+                 volume_size_in_gb: _builtins.int,
+                 volume_kms_key_id: Optional[_builtins.str] = None):
+        """
+        :param _builtins.int instance_count: Number of ML compute instances to use in the model monitoring job.
+        :param _builtins.str instance_type: ML compute instance type for the processing job.
+        :param _builtins.int volume_size_in_gb: size of the ML storage volume, in gigabytes, to provision.
+        :param _builtins.str volume_kms_key_id: AWS KMS key that Amazon SageMaker AI uses to encrypt data on the storage volume attached to the ML compute instance(s) that run the model monitoring job.
+        """
+        pulumi.set(__self__, "instance_count", instance_count)
+        pulumi.set(__self__, "instance_type", instance_type)
+        pulumi.set(__self__, "volume_size_in_gb", volume_size_in_gb)
+        if volume_kms_key_id is not None:
+            pulumi.set(__self__, "volume_kms_key_id", volume_kms_key_id)
+
+    @_builtins.property
+    @pulumi.getter(name="instanceCount")
+    def instance_count(self) -> _builtins.int:
+        """
+        Number of ML compute instances to use in the model monitoring job.
+        """
+        return pulumi.get(self, "instance_count")
+
+    @_builtins.property
+    @pulumi.getter(name="instanceType")
+    def instance_type(self) -> _builtins.str:
+        """
+        ML compute instance type for the processing job.
+        """
+        return pulumi.get(self, "instance_type")
+
+    @_builtins.property
+    @pulumi.getter(name="volumeSizeInGb")
+    def volume_size_in_gb(self) -> _builtins.int:
+        """
+        size of the ML storage volume, in gigabytes, to provision.
+        """
+        return pulumi.get(self, "volume_size_in_gb")
+
+    @_builtins.property
+    @pulumi.getter(name="volumeKmsKeyId")
+    def volume_kms_key_id(self) -> Optional[_builtins.str]:
+        """
+        AWS KMS key that Amazon SageMaker AI uses to encrypt data on the storage volume attached to the ML compute instance(s) that run the model monitoring job.
+        """
+        return pulumi.get(self, "volume_kms_key_id")
+
+
+@pulumi.output_type
+class MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "enableInterContainerTrafficEncryption":
+            suggest = "enable_inter_container_traffic_encryption"
+        elif key == "enableNetworkIsolation":
+            suggest = "enable_network_isolation"
+        elif key == "vpcConfig":
+            suggest = "vpc_config"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 enable_inter_container_traffic_encryption: Optional[_builtins.bool] = None,
+                 enable_network_isolation: Optional[_builtins.bool] = None,
+                 vpc_config: Optional['outputs.MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfigVpcConfig'] = None):
+        """
+        :param _builtins.bool enable_inter_container_traffic_encryption: Whether to encrypt all communications between distributed processing jobs.
+        :param _builtins.bool enable_network_isolation: Whether to allow inbound and outbound network calls to and from the containers used for the processing job.
+        :param 'MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfigVpcConfigArgs' vpc_config: VPC that SageMaker jobs, hosted models, and compute resources have access to. Fields are documented below.
+        """
+        if enable_inter_container_traffic_encryption is not None:
+            pulumi.set(__self__, "enable_inter_container_traffic_encryption", enable_inter_container_traffic_encryption)
+        if enable_network_isolation is not None:
+            pulumi.set(__self__, "enable_network_isolation", enable_network_isolation)
+        if vpc_config is not None:
+            pulumi.set(__self__, "vpc_config", vpc_config)
+
+    @_builtins.property
+    @pulumi.getter(name="enableInterContainerTrafficEncryption")
+    def enable_inter_container_traffic_encryption(self) -> Optional[_builtins.bool]:
+        """
+        Whether to encrypt all communications between distributed processing jobs.
+        """
+        return pulumi.get(self, "enable_inter_container_traffic_encryption")
+
+    @_builtins.property
+    @pulumi.getter(name="enableNetworkIsolation")
+    def enable_network_isolation(self) -> Optional[_builtins.bool]:
+        """
+        Whether to allow inbound and outbound network calls to and from the containers used for the processing job.
+        """
+        return pulumi.get(self, "enable_network_isolation")
+
+    @_builtins.property
+    @pulumi.getter(name="vpcConfig")
+    def vpc_config(self) -> Optional['outputs.MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfigVpcConfig']:
+        """
+        VPC that SageMaker jobs, hosted models, and compute resources have access to. Fields are documented below.
+        """
+        return pulumi.get(self, "vpc_config")
+
+
+@pulumi.output_type
+class MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfigVpcConfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "securityGroupIds":
+            suggest = "security_group_ids"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfigVpcConfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfigVpcConfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionNetworkConfigVpcConfig.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 security_group_ids: Sequence[_builtins.str],
+                 subnets: Sequence[_builtins.str]):
+        """
+        :param Sequence[_builtins.str] security_group_ids: VPC security group IDs.
+        :param Sequence[_builtins.str] subnets: Subnet IDs.
+        """
+        pulumi.set(__self__, "security_group_ids", security_group_ids)
+        pulumi.set(__self__, "subnets", subnets)
+
+    @_builtins.property
+    @pulumi.getter(name="securityGroupIds")
+    def security_group_ids(self) -> Sequence[_builtins.str]:
+        """
+        VPC security group IDs.
+        """
+        return pulumi.get(self, "security_group_ids")
+
+    @_builtins.property
+    @pulumi.getter
+    def subnets(self) -> Sequence[_builtins.str]:
+        """
+        Subnet IDs.
+        """
+        return pulumi.get(self, "subnets")
+
+
+@pulumi.output_type
+class MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionStoppingCondition(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "maxRuntimeInSeconds":
+            suggest = "max_runtime_in_seconds"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionStoppingCondition. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionStoppingCondition.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionStoppingCondition.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 max_runtime_in_seconds: Optional[_builtins.int] = None):
+        """
+        :param _builtins.int max_runtime_in_seconds: Maximum runtime allowed in seconds.
+        """
+        if max_runtime_in_seconds is not None:
+            pulumi.set(__self__, "max_runtime_in_seconds", max_runtime_in_seconds)
+
+    @_builtins.property
+    @pulumi.getter(name="maxRuntimeInSeconds")
+    def max_runtime_in_seconds(self) -> Optional[_builtins.int]:
+        """
+        Maximum runtime allowed in seconds.
+        """
+        return pulumi.get(self, "max_runtime_in_seconds")
 
 
 @pulumi.output_type

@@ -3,9 +3,11 @@
 
 package com.pulumi.aws.odb.inputs;
 
+import com.pulumi.aws.odb.inputs.NetworkManagedServiceKmsAccessArgs;
 import com.pulumi.aws.odb.inputs.NetworkManagedServiceManagedS3BackupAccessArgs;
 import com.pulumi.aws.odb.inputs.NetworkManagedServiceS3AccessArgs;
 import com.pulumi.aws.odb.inputs.NetworkManagedServiceServiceNetworkEndpointArgs;
+import com.pulumi.aws.odb.inputs.NetworkManagedServiceStsAccessArgs;
 import com.pulumi.aws.odb.inputs.NetworkManagedServiceZeroEtlAccessArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
@@ -18,6 +20,21 @@ import java.util.Objects;
 public final class NetworkManagedServiceArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final NetworkManagedServiceArgs Empty = new NetworkManagedServiceArgs();
+
+    /**
+     * Specifies the configuration for KMS access from the ODB network.
+     * 
+     */
+    @Import(name="kmsAccesses", required=true)
+    private Output<List<NetworkManagedServiceKmsAccessArgs>> kmsAccesses;
+
+    /**
+     * @return Specifies the configuration for KMS access from the ODB network.
+     * 
+     */
+    public Output<List<NetworkManagedServiceKmsAccessArgs>> kmsAccesses() {
+        return this.kmsAccesses;
+    }
 
     @Import(name="managedS3BackupAccesses", required=true)
     private Output<List<NetworkManagedServiceManagedS3BackupAccessArgs>> managedS3BackupAccesses;
@@ -70,6 +87,21 @@ public final class NetworkManagedServiceArgs extends com.pulumi.resources.Resour
     }
 
     /**
+     * Specifies the configuration for STS access from the ODB network.
+     * 
+     */
+    @Import(name="stsAccesses", required=true)
+    private Output<List<NetworkManagedServiceStsAccessArgs>> stsAccesses;
+
+    /**
+     * @return Specifies the configuration for STS access from the ODB network.
+     * 
+     */
+    public Output<List<NetworkManagedServiceStsAccessArgs>> stsAccesses() {
+        return this.stsAccesses;
+    }
+
+    /**
      * Specifies the configuration for Zero-ETL access from the ODB network.
      * 
      * The following arguments are optional:
@@ -91,12 +123,14 @@ public final class NetworkManagedServiceArgs extends com.pulumi.resources.Resour
     private NetworkManagedServiceArgs() {}
 
     private NetworkManagedServiceArgs(NetworkManagedServiceArgs $) {
+        this.kmsAccesses = $.kmsAccesses;
         this.managedS3BackupAccesses = $.managedS3BackupAccesses;
         this.managedServiceIpv4Cidrs = $.managedServiceIpv4Cidrs;
         this.resourceGatewayArn = $.resourceGatewayArn;
         this.s3Accesses = $.s3Accesses;
         this.serviceNetworkArn = $.serviceNetworkArn;
         this.serviceNetworkEndpoints = $.serviceNetworkEndpoints;
+        this.stsAccesses = $.stsAccesses;
         this.zeroEtlAccesses = $.zeroEtlAccesses;
     }
 
@@ -116,6 +150,37 @@ public final class NetworkManagedServiceArgs extends com.pulumi.resources.Resour
 
         public Builder(NetworkManagedServiceArgs defaults) {
             $ = new NetworkManagedServiceArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param kmsAccesses Specifies the configuration for KMS access from the ODB network.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder kmsAccesses(Output<List<NetworkManagedServiceKmsAccessArgs>> kmsAccesses) {
+            $.kmsAccesses = kmsAccesses;
+            return this;
+        }
+
+        /**
+         * @param kmsAccesses Specifies the configuration for KMS access from the ODB network.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder kmsAccesses(List<NetworkManagedServiceKmsAccessArgs> kmsAccesses) {
+            return kmsAccesses(Output.of(kmsAccesses));
+        }
+
+        /**
+         * @param kmsAccesses Specifies the configuration for KMS access from the ODB network.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder kmsAccesses(NetworkManagedServiceKmsAccessArgs... kmsAccesses) {
+            return kmsAccesses(List.of(kmsAccesses));
         }
 
         public Builder managedS3BackupAccesses(Output<List<NetworkManagedServiceManagedS3BackupAccessArgs>> managedS3BackupAccesses) {
@@ -207,6 +272,37 @@ public final class NetworkManagedServiceArgs extends com.pulumi.resources.Resour
         }
 
         /**
+         * @param stsAccesses Specifies the configuration for STS access from the ODB network.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder stsAccesses(Output<List<NetworkManagedServiceStsAccessArgs>> stsAccesses) {
+            $.stsAccesses = stsAccesses;
+            return this;
+        }
+
+        /**
+         * @param stsAccesses Specifies the configuration for STS access from the ODB network.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder stsAccesses(List<NetworkManagedServiceStsAccessArgs> stsAccesses) {
+            return stsAccesses(Output.of(stsAccesses));
+        }
+
+        /**
+         * @param stsAccesses Specifies the configuration for STS access from the ODB network.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder stsAccesses(NetworkManagedServiceStsAccessArgs... stsAccesses) {
+            return stsAccesses(List.of(stsAccesses));
+        }
+
+        /**
          * @param zeroEtlAccesses Specifies the configuration for Zero-ETL access from the ODB network.
          * 
          * The following arguments are optional:
@@ -244,6 +340,9 @@ public final class NetworkManagedServiceArgs extends com.pulumi.resources.Resour
         }
 
         public NetworkManagedServiceArgs build() {
+            if ($.kmsAccesses == null) {
+                throw new MissingRequiredPropertyException("NetworkManagedServiceArgs", "kmsAccesses");
+            }
             if ($.managedS3BackupAccesses == null) {
                 throw new MissingRequiredPropertyException("NetworkManagedServiceArgs", "managedS3BackupAccesses");
             }
@@ -261,6 +360,9 @@ public final class NetworkManagedServiceArgs extends com.pulumi.resources.Resour
             }
             if ($.serviceNetworkEndpoints == null) {
                 throw new MissingRequiredPropertyException("NetworkManagedServiceArgs", "serviceNetworkEndpoints");
+            }
+            if ($.stsAccesses == null) {
+                throw new MissingRequiredPropertyException("NetworkManagedServiceArgs", "stsAccesses");
             }
             if ($.zeroEtlAccesses == null) {
                 throw new MissingRequiredPropertyException("NetworkManagedServiceArgs", "zeroEtlAccesses");

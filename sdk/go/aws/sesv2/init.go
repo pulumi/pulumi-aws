@@ -45,6 +45,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &EmailIdentityPolicy{}
 	case "aws:sesv2/tenant:Tenant":
 		r = &Tenant{}
+	case "aws:sesv2/tenantResourceAssociation:TenantResourceAssociation":
+		r = &TenantResourceAssociation{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -116,6 +118,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"sesv2/tenant",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"sesv2/tenantResourceAssociation",
 		&module{version},
 	)
 }

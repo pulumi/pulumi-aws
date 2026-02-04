@@ -159,8 +159,38 @@ public final class SubnetArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * ID of an IPv4 VPC Resource Planning IPAM Pool. The CIDR of this pool is used to allocate the CIDR for the subnet.
+     * 
+     */
+    @Import(name="ipv4IpamPoolId")
+    private @Nullable Output<String> ipv4IpamPoolId;
+
+    /**
+     * @return ID of an IPv4 VPC Resource Planning IPAM Pool. The CIDR of this pool is used to allocate the CIDR for the subnet.
+     * 
+     */
+    public Optional<Output<String>> ipv4IpamPoolId() {
+        return Optional.ofNullable(this.ipv4IpamPoolId);
+    }
+
+    /**
+     * Netmask. Requires specifying a `ipv4IpamPoolId`.
+     * 
+     */
+    @Import(name="ipv4NetmaskLength")
+    private @Nullable Output<Integer> ipv4NetmaskLength;
+
+    /**
+     * @return Netmask. Requires specifying a `ipv4IpamPoolId`.
+     * 
+     */
+    public Optional<Output<Integer>> ipv4NetmaskLength() {
+        return Optional.ofNullable(this.ipv4NetmaskLength);
+    }
+
+    /**
      * The IPv6 network range for the subnet,
-     * in CIDR notation. The subnet size must use a /64 prefix length.
+     * in CIDR notation. The subnet size must use a /64 prefix length. If the existing IPv6 subnet was created with `assignIpv6AddressOnCreation = true`, changing this value will force resource recreation.
      * 
      */
     @Import(name="ipv6CidrBlock")
@@ -168,11 +198,26 @@ public final class SubnetArgs extends com.pulumi.resources.ResourceArgs {
 
     /**
      * @return The IPv6 network range for the subnet,
-     * in CIDR notation. The subnet size must use a /64 prefix length.
+     * in CIDR notation. The subnet size must use a /64 prefix length. If the existing IPv6 subnet was created with `assignIpv6AddressOnCreation = true`, changing this value will force resource recreation.
      * 
      */
     public Optional<Output<String>> ipv6CidrBlock() {
         return Optional.ofNullable(this.ipv6CidrBlock);
+    }
+
+    /**
+     * ID of an IPv6 VPC Resource Planning IPAM Pool. The CIDR of this pool is used to allocate the CIDR for the subnet.
+     * 
+     */
+    @Import(name="ipv6IpamPoolId")
+    private @Nullable Output<String> ipv6IpamPoolId;
+
+    /**
+     * @return ID of an IPv6 VPC Resource Planning IPAM Pool. The CIDR of this pool is used to allocate the CIDR for the subnet.
+     * 
+     */
+    public Optional<Output<String>> ipv6IpamPoolId() {
+        return Optional.ofNullable(this.ipv6IpamPoolId);
     }
 
     /**
@@ -191,6 +236,21 @@ public final class SubnetArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Netmask. Requires specifying a `ipv6IpamPoolId`. Valid values are from 44 to 64 in increments of 4.
+     * 
+     */
+    @Import(name="ipv6NetmaskLength")
+    private @Nullable Output<Integer> ipv6NetmaskLength;
+
+    /**
+     * @return Netmask. Requires specifying a `ipv6IpamPoolId`. Valid values are from 44 to 64 in increments of 4.
+     * 
+     */
+    public Optional<Output<Integer>> ipv6NetmaskLength() {
+        return Optional.ofNullable(this.ipv6NetmaskLength);
+    }
+
+    /**
      * Specify `true` to indicate that network interfaces created in the subnet should be assigned a customer owned IP address. The `customerOwnedIpv4Pool` and `outpostArn` arguments must be specified when set to `true`. Default is `false`.
      * 
      */
@@ -206,18 +266,14 @@ public final class SubnetArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specify true to indicate
-     * that instances launched into the subnet should be assigned
-     * a public IP address. Default is `false`.
+     * Specify true to indicate that instances launched into the subnet should be assigned a public IP address. Default is `false`.
      * 
      */
     @Import(name="mapPublicIpOnLaunch")
     private @Nullable Output<Boolean> mapPublicIpOnLaunch;
 
     /**
-     * @return Specify true to indicate
-     * that instances launched into the subnet should be assigned
-     * a public IP address. Default is `false`.
+     * @return Specify true to indicate that instances launched into the subnet should be assigned a public IP address. Default is `false`.
      * 
      */
     public Optional<Output<Boolean>> mapPublicIpOnLaunch() {
@@ -311,8 +367,12 @@ public final class SubnetArgs extends com.pulumi.resources.ResourceArgs {
         this.enableLniAtDeviceIndex = $.enableLniAtDeviceIndex;
         this.enableResourceNameDnsARecordOnLaunch = $.enableResourceNameDnsARecordOnLaunch;
         this.enableResourceNameDnsAaaaRecordOnLaunch = $.enableResourceNameDnsAaaaRecordOnLaunch;
+        this.ipv4IpamPoolId = $.ipv4IpamPoolId;
+        this.ipv4NetmaskLength = $.ipv4NetmaskLength;
         this.ipv6CidrBlock = $.ipv6CidrBlock;
+        this.ipv6IpamPoolId = $.ipv6IpamPoolId;
         this.ipv6Native = $.ipv6Native;
+        this.ipv6NetmaskLength = $.ipv6NetmaskLength;
         this.mapCustomerOwnedIpOnLaunch = $.mapCustomerOwnedIpOnLaunch;
         this.mapPublicIpOnLaunch = $.mapPublicIpOnLaunch;
         this.outpostArn = $.outpostArn;
@@ -534,8 +594,50 @@ public final class SubnetArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param ipv4IpamPoolId ID of an IPv4 VPC Resource Planning IPAM Pool. The CIDR of this pool is used to allocate the CIDR for the subnet.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ipv4IpamPoolId(@Nullable Output<String> ipv4IpamPoolId) {
+            $.ipv4IpamPoolId = ipv4IpamPoolId;
+            return this;
+        }
+
+        /**
+         * @param ipv4IpamPoolId ID of an IPv4 VPC Resource Planning IPAM Pool. The CIDR of this pool is used to allocate the CIDR for the subnet.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ipv4IpamPoolId(String ipv4IpamPoolId) {
+            return ipv4IpamPoolId(Output.of(ipv4IpamPoolId));
+        }
+
+        /**
+         * @param ipv4NetmaskLength Netmask. Requires specifying a `ipv4IpamPoolId`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ipv4NetmaskLength(@Nullable Output<Integer> ipv4NetmaskLength) {
+            $.ipv4NetmaskLength = ipv4NetmaskLength;
+            return this;
+        }
+
+        /**
+         * @param ipv4NetmaskLength Netmask. Requires specifying a `ipv4IpamPoolId`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ipv4NetmaskLength(Integer ipv4NetmaskLength) {
+            return ipv4NetmaskLength(Output.of(ipv4NetmaskLength));
+        }
+
+        /**
          * @param ipv6CidrBlock The IPv6 network range for the subnet,
-         * in CIDR notation. The subnet size must use a /64 prefix length.
+         * in CIDR notation. The subnet size must use a /64 prefix length. If the existing IPv6 subnet was created with `assignIpv6AddressOnCreation = true`, changing this value will force resource recreation.
          * 
          * @return builder
          * 
@@ -547,13 +649,34 @@ public final class SubnetArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param ipv6CidrBlock The IPv6 network range for the subnet,
-         * in CIDR notation. The subnet size must use a /64 prefix length.
+         * in CIDR notation. The subnet size must use a /64 prefix length. If the existing IPv6 subnet was created with `assignIpv6AddressOnCreation = true`, changing this value will force resource recreation.
          * 
          * @return builder
          * 
          */
         public Builder ipv6CidrBlock(String ipv6CidrBlock) {
             return ipv6CidrBlock(Output.of(ipv6CidrBlock));
+        }
+
+        /**
+         * @param ipv6IpamPoolId ID of an IPv6 VPC Resource Planning IPAM Pool. The CIDR of this pool is used to allocate the CIDR for the subnet.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ipv6IpamPoolId(@Nullable Output<String> ipv6IpamPoolId) {
+            $.ipv6IpamPoolId = ipv6IpamPoolId;
+            return this;
+        }
+
+        /**
+         * @param ipv6IpamPoolId ID of an IPv6 VPC Resource Planning IPAM Pool. The CIDR of this pool is used to allocate the CIDR for the subnet.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ipv6IpamPoolId(String ipv6IpamPoolId) {
+            return ipv6IpamPoolId(Output.of(ipv6IpamPoolId));
         }
 
         /**
@@ -578,6 +701,27 @@ public final class SubnetArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param ipv6NetmaskLength Netmask. Requires specifying a `ipv6IpamPoolId`. Valid values are from 44 to 64 in increments of 4.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ipv6NetmaskLength(@Nullable Output<Integer> ipv6NetmaskLength) {
+            $.ipv6NetmaskLength = ipv6NetmaskLength;
+            return this;
+        }
+
+        /**
+         * @param ipv6NetmaskLength Netmask. Requires specifying a `ipv6IpamPoolId`. Valid values are from 44 to 64 in increments of 4.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ipv6NetmaskLength(Integer ipv6NetmaskLength) {
+            return ipv6NetmaskLength(Output.of(ipv6NetmaskLength));
+        }
+
+        /**
          * @param mapCustomerOwnedIpOnLaunch Specify `true` to indicate that network interfaces created in the subnet should be assigned a customer owned IP address. The `customerOwnedIpv4Pool` and `outpostArn` arguments must be specified when set to `true`. Default is `false`.
          * 
          * @return builder
@@ -599,9 +743,7 @@ public final class SubnetArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param mapPublicIpOnLaunch Specify true to indicate
-         * that instances launched into the subnet should be assigned
-         * a public IP address. Default is `false`.
+         * @param mapPublicIpOnLaunch Specify true to indicate that instances launched into the subnet should be assigned a public IP address. Default is `false`.
          * 
          * @return builder
          * 
@@ -612,9 +754,7 @@ public final class SubnetArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param mapPublicIpOnLaunch Specify true to indicate
-         * that instances launched into the subnet should be assigned
-         * a public IP address. Default is `false`.
+         * @param mapPublicIpOnLaunch Specify true to indicate that instances launched into the subnet should be assigned a public IP address. Default is `false`.
          * 
          * @return builder
          * 

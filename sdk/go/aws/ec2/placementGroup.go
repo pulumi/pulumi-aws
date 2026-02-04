@@ -58,7 +58,7 @@ type PlacementGroup struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The number of partitions to create in the
 	// placement group.  Can only be specified when the `strategy` is set to
-	// `partition`.  Valid values are 1 - 7 (default is `2`).
+	// `partition`.  Must be at least `1`. (default is `2`).
 	PartitionCount pulumi.IntOutput `pulumi:"partitionCount"`
 	// The ID of the placement group.
 	PlacementGroupId pulumi.StringOutput `pulumi:"placementGroupId"`
@@ -114,7 +114,7 @@ type placementGroupState struct {
 	Name *string `pulumi:"name"`
 	// The number of partitions to create in the
 	// placement group.  Can only be specified when the `strategy` is set to
-	// `partition`.  Valid values are 1 - 7 (default is `2`).
+	// `partition`.  Must be at least `1`. (default is `2`).
 	PartitionCount *int `pulumi:"partitionCount"`
 	// The ID of the placement group.
 	PlacementGroupId *string `pulumi:"placementGroupId"`
@@ -138,7 +138,7 @@ type PlacementGroupState struct {
 	Name pulumi.StringPtrInput
 	// The number of partitions to create in the
 	// placement group.  Can only be specified when the `strategy` is set to
-	// `partition`.  Valid values are 1 - 7 (default is `2`).
+	// `partition`.  Must be at least `1`. (default is `2`).
 	PartitionCount pulumi.IntPtrInput
 	// The ID of the placement group.
 	PlacementGroupId pulumi.StringPtrInput
@@ -164,7 +164,7 @@ type placementGroupArgs struct {
 	Name *string `pulumi:"name"`
 	// The number of partitions to create in the
 	// placement group.  Can only be specified when the `strategy` is set to
-	// `partition`.  Valid values are 1 - 7 (default is `2`).
+	// `partition`.  Must be at least `1`. (default is `2`).
 	PartitionCount *int `pulumi:"partitionCount"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
@@ -183,7 +183,7 @@ type PlacementGroupArgs struct {
 	Name pulumi.StringPtrInput
 	// The number of partitions to create in the
 	// placement group.  Can only be specified when the `strategy` is set to
-	// `partition`.  Valid values are 1 - 7 (default is `2`).
+	// `partition`.  Must be at least `1`. (default is `2`).
 	PartitionCount pulumi.IntPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
@@ -295,7 +295,7 @@ func (o PlacementGroupOutput) Name() pulumi.StringOutput {
 
 // The number of partitions to create in the
 // placement group.  Can only be specified when the `strategy` is set to
-// `partition`.  Valid values are 1 - 7 (default is `2`).
+// `partition`.  Must be at least `1`. (default is `2`).
 func (o PlacementGroupOutput) PartitionCount() pulumi.IntOutput {
 	return o.ApplyT(func(v *PlacementGroup) pulumi.IntOutput { return v.PartitionCount }).(pulumi.IntOutput)
 }

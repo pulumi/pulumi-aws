@@ -8955,9 +8955,11 @@ func (o AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigura
 }
 
 type AgentDataSourceVectorIngestionConfigurationParsingConfiguration struct {
+	// Settings for using Amazon Bedrock Data Automation to parse documents. See `bedrockDataAutomationConfiguration` block for details.
+	BedrockDataAutomationConfiguration *AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockDataAutomationConfiguration `pulumi:"bedrockDataAutomationConfiguration"`
 	// Settings for a foundation model used to parse documents in a data source. See `bedrockFoundationModelConfiguration` block for details.
 	BedrockFoundationModelConfiguration *AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfiguration `pulumi:"bedrockFoundationModelConfiguration"`
-	// Currently only `BEDROCK_FOUNDATION_MODEL` is supported
+	// The parsing strategy to use. Valid values: `BEDROCK_FOUNDATION_MODEL`, `BEDROCK_DATA_AUTOMATION`.
 	ParsingStrategy string `pulumi:"parsingStrategy"`
 }
 
@@ -8973,9 +8975,11 @@ type AgentDataSourceVectorIngestionConfigurationParsingConfigurationInput interf
 }
 
 type AgentDataSourceVectorIngestionConfigurationParsingConfigurationArgs struct {
+	// Settings for using Amazon Bedrock Data Automation to parse documents. See `bedrockDataAutomationConfiguration` block for details.
+	BedrockDataAutomationConfiguration AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockDataAutomationConfigurationPtrInput `pulumi:"bedrockDataAutomationConfiguration"`
 	// Settings for a foundation model used to parse documents in a data source. See `bedrockFoundationModelConfiguration` block for details.
 	BedrockFoundationModelConfiguration AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationPtrInput `pulumi:"bedrockFoundationModelConfiguration"`
-	// Currently only `BEDROCK_FOUNDATION_MODEL` is supported
+	// The parsing strategy to use. Valid values: `BEDROCK_FOUNDATION_MODEL`, `BEDROCK_DATA_AUTOMATION`.
 	ParsingStrategy pulumi.StringInput `pulumi:"parsingStrategy"`
 }
 
@@ -9056,6 +9060,13 @@ func (o AgentDataSourceVectorIngestionConfigurationParsingConfigurationOutput) T
 	}).(AgentDataSourceVectorIngestionConfigurationParsingConfigurationPtrOutput)
 }
 
+// Settings for using Amazon Bedrock Data Automation to parse documents. See `bedrockDataAutomationConfiguration` block for details.
+func (o AgentDataSourceVectorIngestionConfigurationParsingConfigurationOutput) BedrockDataAutomationConfiguration() AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockDataAutomationConfigurationPtrOutput {
+	return o.ApplyT(func(v AgentDataSourceVectorIngestionConfigurationParsingConfiguration) *AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockDataAutomationConfiguration {
+		return v.BedrockDataAutomationConfiguration
+	}).(AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockDataAutomationConfigurationPtrOutput)
+}
+
 // Settings for a foundation model used to parse documents in a data source. See `bedrockFoundationModelConfiguration` block for details.
 func (o AgentDataSourceVectorIngestionConfigurationParsingConfigurationOutput) BedrockFoundationModelConfiguration() AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationPtrOutput {
 	return o.ApplyT(func(v AgentDataSourceVectorIngestionConfigurationParsingConfiguration) *AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfiguration {
@@ -9063,7 +9074,7 @@ func (o AgentDataSourceVectorIngestionConfigurationParsingConfigurationOutput) B
 	}).(AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationPtrOutput)
 }
 
-// Currently only `BEDROCK_FOUNDATION_MODEL` is supported
+// The parsing strategy to use. Valid values: `BEDROCK_FOUNDATION_MODEL`, `BEDROCK_DATA_AUTOMATION`.
 func (o AgentDataSourceVectorIngestionConfigurationParsingConfigurationOutput) ParsingStrategy() pulumi.StringOutput {
 	return o.ApplyT(func(v AgentDataSourceVectorIngestionConfigurationParsingConfiguration) string {
 		return v.ParsingStrategy
@@ -9094,6 +9105,16 @@ func (o AgentDataSourceVectorIngestionConfigurationParsingConfigurationPtrOutput
 	}).(AgentDataSourceVectorIngestionConfigurationParsingConfigurationOutput)
 }
 
+// Settings for using Amazon Bedrock Data Automation to parse documents. See `bedrockDataAutomationConfiguration` block for details.
+func (o AgentDataSourceVectorIngestionConfigurationParsingConfigurationPtrOutput) BedrockDataAutomationConfiguration() AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockDataAutomationConfigurationPtrOutput {
+	return o.ApplyT(func(v *AgentDataSourceVectorIngestionConfigurationParsingConfiguration) *AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockDataAutomationConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.BedrockDataAutomationConfiguration
+	}).(AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockDataAutomationConfigurationPtrOutput)
+}
+
 // Settings for a foundation model used to parse documents in a data source. See `bedrockFoundationModelConfiguration` block for details.
 func (o AgentDataSourceVectorIngestionConfigurationParsingConfigurationPtrOutput) BedrockFoundationModelConfiguration() AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationPtrOutput {
 	return o.ApplyT(func(v *AgentDataSourceVectorIngestionConfigurationParsingConfiguration) *AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfiguration {
@@ -9104,7 +9125,7 @@ func (o AgentDataSourceVectorIngestionConfigurationParsingConfigurationPtrOutput
 	}).(AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationPtrOutput)
 }
 
-// Currently only `BEDROCK_FOUNDATION_MODEL` is supported
+// The parsing strategy to use. Valid values: `BEDROCK_FOUNDATION_MODEL`, `BEDROCK_DATA_AUTOMATION`.
 func (o AgentDataSourceVectorIngestionConfigurationParsingConfigurationPtrOutput) ParsingStrategy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentDataSourceVectorIngestionConfigurationParsingConfiguration) *string {
 		if v == nil {
@@ -9114,9 +9135,150 @@ func (o AgentDataSourceVectorIngestionConfigurationParsingConfigurationPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
+type AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockDataAutomationConfiguration struct {
+	// Specifies whether to enable parsing of multimodal data, including both text and images. Valid value: `MULTIMODAL`.
+	ParsingModality *string `pulumi:"parsingModality"`
+}
+
+// AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockDataAutomationConfigurationInput is an input type that accepts AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockDataAutomationConfigurationArgs and AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockDataAutomationConfigurationOutput values.
+// You can construct a concrete instance of `AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockDataAutomationConfigurationInput` via:
+//
+//	AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockDataAutomationConfigurationArgs{...}
+type AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockDataAutomationConfigurationInput interface {
+	pulumi.Input
+
+	ToAgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockDataAutomationConfigurationOutput() AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockDataAutomationConfigurationOutput
+	ToAgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockDataAutomationConfigurationOutputWithContext(context.Context) AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockDataAutomationConfigurationOutput
+}
+
+type AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockDataAutomationConfigurationArgs struct {
+	// Specifies whether to enable parsing of multimodal data, including both text and images. Valid value: `MULTIMODAL`.
+	ParsingModality pulumi.StringPtrInput `pulumi:"parsingModality"`
+}
+
+func (AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockDataAutomationConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockDataAutomationConfiguration)(nil)).Elem()
+}
+
+func (i AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockDataAutomationConfigurationArgs) ToAgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockDataAutomationConfigurationOutput() AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockDataAutomationConfigurationOutput {
+	return i.ToAgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockDataAutomationConfigurationOutputWithContext(context.Background())
+}
+
+func (i AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockDataAutomationConfigurationArgs) ToAgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockDataAutomationConfigurationOutputWithContext(ctx context.Context) AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockDataAutomationConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockDataAutomationConfigurationOutput)
+}
+
+func (i AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockDataAutomationConfigurationArgs) ToAgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockDataAutomationConfigurationPtrOutput() AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockDataAutomationConfigurationPtrOutput {
+	return i.ToAgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockDataAutomationConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockDataAutomationConfigurationArgs) ToAgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockDataAutomationConfigurationPtrOutputWithContext(ctx context.Context) AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockDataAutomationConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockDataAutomationConfigurationOutput).ToAgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockDataAutomationConfigurationPtrOutputWithContext(ctx)
+}
+
+// AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockDataAutomationConfigurationPtrInput is an input type that accepts AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockDataAutomationConfigurationArgs, AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockDataAutomationConfigurationPtr and AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockDataAutomationConfigurationPtrOutput values.
+// You can construct a concrete instance of `AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockDataAutomationConfigurationPtrInput` via:
+//
+//	        AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockDataAutomationConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockDataAutomationConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToAgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockDataAutomationConfigurationPtrOutput() AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockDataAutomationConfigurationPtrOutput
+	ToAgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockDataAutomationConfigurationPtrOutputWithContext(context.Context) AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockDataAutomationConfigurationPtrOutput
+}
+
+type agentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockDataAutomationConfigurationPtrType AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockDataAutomationConfigurationArgs
+
+func AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockDataAutomationConfigurationPtr(v *AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockDataAutomationConfigurationArgs) AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockDataAutomationConfigurationPtrInput {
+	return (*agentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockDataAutomationConfigurationPtrType)(v)
+}
+
+func (*agentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockDataAutomationConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockDataAutomationConfiguration)(nil)).Elem()
+}
+
+func (i *agentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockDataAutomationConfigurationPtrType) ToAgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockDataAutomationConfigurationPtrOutput() AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockDataAutomationConfigurationPtrOutput {
+	return i.ToAgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockDataAutomationConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *agentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockDataAutomationConfigurationPtrType) ToAgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockDataAutomationConfigurationPtrOutputWithContext(ctx context.Context) AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockDataAutomationConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockDataAutomationConfigurationPtrOutput)
+}
+
+type AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockDataAutomationConfigurationOutput struct{ *pulumi.OutputState }
+
+func (AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockDataAutomationConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockDataAutomationConfiguration)(nil)).Elem()
+}
+
+func (o AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockDataAutomationConfigurationOutput) ToAgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockDataAutomationConfigurationOutput() AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockDataAutomationConfigurationOutput {
+	return o
+}
+
+func (o AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockDataAutomationConfigurationOutput) ToAgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockDataAutomationConfigurationOutputWithContext(ctx context.Context) AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockDataAutomationConfigurationOutput {
+	return o
+}
+
+func (o AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockDataAutomationConfigurationOutput) ToAgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockDataAutomationConfigurationPtrOutput() AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockDataAutomationConfigurationPtrOutput {
+	return o.ToAgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockDataAutomationConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockDataAutomationConfigurationOutput) ToAgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockDataAutomationConfigurationPtrOutputWithContext(ctx context.Context) AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockDataAutomationConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockDataAutomationConfiguration) *AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockDataAutomationConfiguration {
+		return &v
+	}).(AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockDataAutomationConfigurationPtrOutput)
+}
+
+// Specifies whether to enable parsing of multimodal data, including both text and images. Valid value: `MULTIMODAL`.
+func (o AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockDataAutomationConfigurationOutput) ParsingModality() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockDataAutomationConfiguration) *string {
+		return v.ParsingModality
+	}).(pulumi.StringPtrOutput)
+}
+
+type AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockDataAutomationConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockDataAutomationConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockDataAutomationConfiguration)(nil)).Elem()
+}
+
+func (o AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockDataAutomationConfigurationPtrOutput) ToAgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockDataAutomationConfigurationPtrOutput() AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockDataAutomationConfigurationPtrOutput {
+	return o
+}
+
+func (o AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockDataAutomationConfigurationPtrOutput) ToAgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockDataAutomationConfigurationPtrOutputWithContext(ctx context.Context) AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockDataAutomationConfigurationPtrOutput {
+	return o
+}
+
+func (o AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockDataAutomationConfigurationPtrOutput) Elem() AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockDataAutomationConfigurationOutput {
+	return o.ApplyT(func(v *AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockDataAutomationConfiguration) AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockDataAutomationConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockDataAutomationConfiguration
+		return ret
+	}).(AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockDataAutomationConfigurationOutput)
+}
+
+// Specifies whether to enable parsing of multimodal data, including both text and images. Valid value: `MULTIMODAL`.
+func (o AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockDataAutomationConfigurationPtrOutput) ParsingModality() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockDataAutomationConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ParsingModality
+	}).(pulumi.StringPtrOutput)
+}
+
 type AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfiguration struct {
 	// The ARN of the model used to parse documents
 	ModelArn string `pulumi:"modelArn"`
+	// Specifies whether to enable parsing of multimodal data, including both text and images. Valid values: `MULTIMODAL`.
+	ParsingModality *string `pulumi:"parsingModality"`
 	// Instructions for interpreting the contents of the document. See `parsingPrompt` block for details.
 	ParsingPrompt *AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationParsingPrompt `pulumi:"parsingPrompt"`
 }
@@ -9135,6 +9297,8 @@ type AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFound
 type AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationArgs struct {
 	// The ARN of the model used to parse documents
 	ModelArn pulumi.StringInput `pulumi:"modelArn"`
+	// Specifies whether to enable parsing of multimodal data, including both text and images. Valid values: `MULTIMODAL`.
+	ParsingModality pulumi.StringPtrInput `pulumi:"parsingModality"`
 	// Instructions for interpreting the contents of the document. See `parsingPrompt` block for details.
 	ParsingPrompt AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationParsingPromptPtrInput `pulumi:"parsingPrompt"`
 }
@@ -9223,6 +9387,13 @@ func (o AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFo
 	}).(pulumi.StringOutput)
 }
 
+// Specifies whether to enable parsing of multimodal data, including both text and images. Valid values: `MULTIMODAL`.
+func (o AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationOutput) ParsingModality() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfiguration) *string {
+		return v.ParsingModality
+	}).(pulumi.StringPtrOutput)
+}
+
 // Instructions for interpreting the contents of the document. See `parsingPrompt` block for details.
 func (o AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationOutput) ParsingPrompt() AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationParsingPromptPtrOutput {
 	return o.ApplyT(func(v AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfiguration) *AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationParsingPrompt {
@@ -9261,6 +9432,16 @@ func (o AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFo
 			return nil
 		}
 		return &v.ModelArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies whether to enable parsing of multimodal data, including both text and images. Valid values: `MULTIMODAL`.
+func (o AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationPtrOutput) ParsingModality() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ParsingModality
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -49211,6 +49392,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionTransformationLambdaConfigurationPtrInput)(nil)).Elem(), AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionTransformationLambdaConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentDataSourceVectorIngestionConfigurationParsingConfigurationInput)(nil)).Elem(), AgentDataSourceVectorIngestionConfigurationParsingConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentDataSourceVectorIngestionConfigurationParsingConfigurationPtrInput)(nil)).Elem(), AgentDataSourceVectorIngestionConfigurationParsingConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockDataAutomationConfigurationInput)(nil)).Elem(), AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockDataAutomationConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockDataAutomationConfigurationPtrInput)(nil)).Elem(), AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockDataAutomationConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationInput)(nil)).Elem(), AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationPtrInput)(nil)).Elem(), AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationParsingPromptInput)(nil)).Elem(), AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationParsingPromptArgs{})
@@ -49857,6 +50040,8 @@ func init() {
 	pulumi.RegisterOutputType(AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionTransformationLambdaConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(AgentDataSourceVectorIngestionConfigurationParsingConfigurationOutput{})
 	pulumi.RegisterOutputType(AgentDataSourceVectorIngestionConfigurationParsingConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockDataAutomationConfigurationOutput{})
+	pulumi.RegisterOutputType(AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockDataAutomationConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationOutput{})
 	pulumi.RegisterOutputType(AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationPtrOutput{})
 	pulumi.RegisterOutputType(AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationParsingPromptOutput{})

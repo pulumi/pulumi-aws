@@ -33,6 +33,21 @@ public final class WindowsFileSystemSelfManagedActiveDirectoryArgs extends com.p
     }
 
     /**
+     * The Amazon Resource Name (ARN) for the AWS Secrets Manager secret that contains the credentials for the service account on your self-managed AD domain. Conflicts with `username` and `password`.
+     * 
+     */
+    @Import(name="domainJoinServiceAccountSecret")
+    private @Nullable Output<String> domainJoinServiceAccountSecret;
+
+    /**
+     * @return The Amazon Resource Name (ARN) for the AWS Secrets Manager secret that contains the credentials for the service account on your self-managed AD domain. Conflicts with `username` and `password`.
+     * 
+     */
+    public Optional<Output<String>> domainJoinServiceAccountSecret() {
+        return Optional.ofNullable(this.domainJoinServiceAccountSecret);
+    }
+
+    /**
      * The fully qualified domain name of the self-managed AD directory. For example, `corp.example.com`.
      * 
      */
@@ -78,39 +93,40 @@ public final class WindowsFileSystemSelfManagedActiveDirectoryArgs extends com.p
     }
 
     /**
-     * The password for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain.
+     * The password for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain. Conflicts with `domainJoinServiceAccountSecret`.
      * 
      */
-    @Import(name="password", required=true)
-    private Output<String> password;
+    @Import(name="password")
+    private @Nullable Output<String> password;
 
     /**
-     * @return The password for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain.
+     * @return The password for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain. Conflicts with `domainJoinServiceAccountSecret`.
      * 
      */
-    public Output<String> password() {
-        return this.password;
+    public Optional<Output<String>> password() {
+        return Optional.ofNullable(this.password);
     }
 
     /**
-     * The user name for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain.
+     * The user name for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain. Conflicts with `domainJoinServiceAccountSecret`.
      * 
      */
-    @Import(name="username", required=true)
-    private Output<String> username;
+    @Import(name="username")
+    private @Nullable Output<String> username;
 
     /**
-     * @return The user name for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain.
+     * @return The user name for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain. Conflicts with `domainJoinServiceAccountSecret`.
      * 
      */
-    public Output<String> username() {
-        return this.username;
+    public Optional<Output<String>> username() {
+        return Optional.ofNullable(this.username);
     }
 
     private WindowsFileSystemSelfManagedActiveDirectoryArgs() {}
 
     private WindowsFileSystemSelfManagedActiveDirectoryArgs(WindowsFileSystemSelfManagedActiveDirectoryArgs $) {
         this.dnsIps = $.dnsIps;
+        this.domainJoinServiceAccountSecret = $.domainJoinServiceAccountSecret;
         this.domainName = $.domainName;
         this.fileSystemAdministratorsGroup = $.fileSystemAdministratorsGroup;
         this.organizationalUnitDistinguishedName = $.organizationalUnitDistinguishedName;
@@ -165,6 +181,27 @@ public final class WindowsFileSystemSelfManagedActiveDirectoryArgs extends com.p
          */
         public Builder dnsIps(String... dnsIps) {
             return dnsIps(List.of(dnsIps));
+        }
+
+        /**
+         * @param domainJoinServiceAccountSecret The Amazon Resource Name (ARN) for the AWS Secrets Manager secret that contains the credentials for the service account on your self-managed AD domain. Conflicts with `username` and `password`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder domainJoinServiceAccountSecret(@Nullable Output<String> domainJoinServiceAccountSecret) {
+            $.domainJoinServiceAccountSecret = domainJoinServiceAccountSecret;
+            return this;
+        }
+
+        /**
+         * @param domainJoinServiceAccountSecret The Amazon Resource Name (ARN) for the AWS Secrets Manager secret that contains the credentials for the service account on your self-managed AD domain. Conflicts with `username` and `password`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder domainJoinServiceAccountSecret(String domainJoinServiceAccountSecret) {
+            return domainJoinServiceAccountSecret(Output.of(domainJoinServiceAccountSecret));
         }
 
         /**
@@ -231,18 +268,18 @@ public final class WindowsFileSystemSelfManagedActiveDirectoryArgs extends com.p
         }
 
         /**
-         * @param password The password for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain.
+         * @param password The password for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain. Conflicts with `domainJoinServiceAccountSecret`.
          * 
          * @return builder
          * 
          */
-        public Builder password(Output<String> password) {
+        public Builder password(@Nullable Output<String> password) {
             $.password = password;
             return this;
         }
 
         /**
-         * @param password The password for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain.
+         * @param password The password for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain. Conflicts with `domainJoinServiceAccountSecret`.
          * 
          * @return builder
          * 
@@ -252,18 +289,18 @@ public final class WindowsFileSystemSelfManagedActiveDirectoryArgs extends com.p
         }
 
         /**
-         * @param username The user name for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain.
+         * @param username The user name for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain. Conflicts with `domainJoinServiceAccountSecret`.
          * 
          * @return builder
          * 
          */
-        public Builder username(Output<String> username) {
+        public Builder username(@Nullable Output<String> username) {
             $.username = username;
             return this;
         }
 
         /**
-         * @param username The user name for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain.
+         * @param username The user name for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain. Conflicts with `domainJoinServiceAccountSecret`.
          * 
          * @return builder
          * 
@@ -278,12 +315,6 @@ public final class WindowsFileSystemSelfManagedActiveDirectoryArgs extends com.p
             }
             if ($.domainName == null) {
                 throw new MissingRequiredPropertyException("WindowsFileSystemSelfManagedActiveDirectoryArgs", "domainName");
-            }
-            if ($.password == null) {
-                throw new MissingRequiredPropertyException("WindowsFileSystemSelfManagedActiveDirectoryArgs", "password");
-            }
-            if ($.username == null) {
-                throw new MissingRequiredPropertyException("WindowsFileSystemSelfManagedActiveDirectoryArgs", "username");
             }
             return $;
         }

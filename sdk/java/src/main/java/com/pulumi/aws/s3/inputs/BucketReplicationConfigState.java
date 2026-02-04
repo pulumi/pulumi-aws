@@ -64,6 +64,7 @@ public final class BucketReplicationConfigState extends com.pulumi.resources.Res
 
     /**
      * List of configuration blocks describing the rules managing the replication. See below.
+     * 
      * &gt; **NOTE:** Replication to multiple destination buckets requires that `priority` is specified in the `rule` object. If the corresponding rule requires no filter, an empty configuration block `filter {}` must be specified.
      * 
      * &gt; **NOTE:** Amazon S3&#39;s latest version of the replication configuration is V2, which includes the `filter` attribute for replication rules.
@@ -77,6 +78,7 @@ public final class BucketReplicationConfigState extends com.pulumi.resources.Res
 
     /**
      * @return List of configuration blocks describing the rules managing the replication. See below.
+     * 
      * &gt; **NOTE:** Replication to multiple destination buckets requires that `priority` is specified in the `rule` object. If the corresponding rule requires no filter, an empty configuration block `filter {}` must be specified.
      * 
      * &gt; **NOTE:** Amazon S3&#39;s latest version of the replication configuration is V2, which includes the `filter` attribute for replication rules.
@@ -199,6 +201,7 @@ public final class BucketReplicationConfigState extends com.pulumi.resources.Res
 
         /**
          * @param rules List of configuration blocks describing the rules managing the replication. See below.
+         * 
          * &gt; **NOTE:** Replication to multiple destination buckets requires that `priority` is specified in the `rule` object. If the corresponding rule requires no filter, an empty configuration block `filter {}` must be specified.
          * 
          * &gt; **NOTE:** Amazon S3&#39;s latest version of the replication configuration is V2, which includes the `filter` attribute for replication rules.
@@ -216,6 +219,7 @@ public final class BucketReplicationConfigState extends com.pulumi.resources.Res
 
         /**
          * @param rules List of configuration blocks describing the rules managing the replication. See below.
+         * 
          * &gt; **NOTE:** Replication to multiple destination buckets requires that `priority` is specified in the `rule` object. If the corresponding rule requires no filter, an empty configuration block `filter {}` must be specified.
          * 
          * &gt; **NOTE:** Amazon S3&#39;s latest version of the replication configuration is V2, which includes the `filter` attribute for replication rules.
@@ -232,6 +236,7 @@ public final class BucketReplicationConfigState extends com.pulumi.resources.Res
 
         /**
          * @param rules List of configuration blocks describing the rules managing the replication. See below.
+         * 
          * &gt; **NOTE:** Replication to multiple destination buckets requires that `priority` is specified in the `rule` object. If the corresponding rule requires no filter, an empty configuration block `filter {}` must be specified.
          * 
          * &gt; **NOTE:** Amazon S3&#39;s latest version of the replication configuration is V2, which includes the `filter` attribute for replication rules.

@@ -3,9 +3,11 @@
 
 package com.pulumi.aws.odb.outputs;
 
+import com.pulumi.aws.odb.outputs.GetNetworkManagedServiceKmsAccess;
 import com.pulumi.aws.odb.outputs.GetNetworkManagedServiceManagedS3BackupAccess;
 import com.pulumi.aws.odb.outputs.GetNetworkManagedServiceS3Access;
 import com.pulumi.aws.odb.outputs.GetNetworkManagedServiceServiceNetworkEndpoint;
+import com.pulumi.aws.odb.outputs.GetNetworkManagedServiceStsAccess;
 import com.pulumi.aws.odb.outputs.GetNetworkManagedServiceZeroTlAccess;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
@@ -15,15 +17,20 @@ import java.util.Objects;
 
 @CustomType
 public final class GetNetworkManagedService {
+    private List<GetNetworkManagedServiceKmsAccess> kmsAccesses;
     private List<GetNetworkManagedServiceManagedS3BackupAccess> managedS3BackupAccesses;
     private List<String> managedServiceIpv4Cidrs;
     private String resourceGatewayArn;
     private List<GetNetworkManagedServiceS3Access> s3Accesses;
     private String serviceNetworkArn;
     private List<GetNetworkManagedServiceServiceNetworkEndpoint> serviceNetworkEndpoints;
+    private List<GetNetworkManagedServiceStsAccess> stsAccesses;
     private List<GetNetworkManagedServiceZeroTlAccess> zeroTlAccesses;
 
     private GetNetworkManagedService() {}
+    public List<GetNetworkManagedServiceKmsAccess> kmsAccesses() {
+        return this.kmsAccesses;
+    }
     public List<GetNetworkManagedServiceManagedS3BackupAccess> managedS3BackupAccesses() {
         return this.managedS3BackupAccesses;
     }
@@ -42,6 +49,9 @@ public final class GetNetworkManagedService {
     public List<GetNetworkManagedServiceServiceNetworkEndpoint> serviceNetworkEndpoints() {
         return this.serviceNetworkEndpoints;
     }
+    public List<GetNetworkManagedServiceStsAccess> stsAccesses() {
+        return this.stsAccesses;
+    }
     public List<GetNetworkManagedServiceZeroTlAccess> zeroTlAccesses() {
         return this.zeroTlAccesses;
     }
@@ -55,25 +65,40 @@ public final class GetNetworkManagedService {
     }
     @CustomType.Builder
     public static final class Builder {
+        private List<GetNetworkManagedServiceKmsAccess> kmsAccesses;
         private List<GetNetworkManagedServiceManagedS3BackupAccess> managedS3BackupAccesses;
         private List<String> managedServiceIpv4Cidrs;
         private String resourceGatewayArn;
         private List<GetNetworkManagedServiceS3Access> s3Accesses;
         private String serviceNetworkArn;
         private List<GetNetworkManagedServiceServiceNetworkEndpoint> serviceNetworkEndpoints;
+        private List<GetNetworkManagedServiceStsAccess> stsAccesses;
         private List<GetNetworkManagedServiceZeroTlAccess> zeroTlAccesses;
         public Builder() {}
         public Builder(GetNetworkManagedService defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.kmsAccesses = defaults.kmsAccesses;
     	      this.managedS3BackupAccesses = defaults.managedS3BackupAccesses;
     	      this.managedServiceIpv4Cidrs = defaults.managedServiceIpv4Cidrs;
     	      this.resourceGatewayArn = defaults.resourceGatewayArn;
     	      this.s3Accesses = defaults.s3Accesses;
     	      this.serviceNetworkArn = defaults.serviceNetworkArn;
     	      this.serviceNetworkEndpoints = defaults.serviceNetworkEndpoints;
+    	      this.stsAccesses = defaults.stsAccesses;
     	      this.zeroTlAccesses = defaults.zeroTlAccesses;
         }
 
+        @CustomType.Setter
+        public Builder kmsAccesses(List<GetNetworkManagedServiceKmsAccess> kmsAccesses) {
+            if (kmsAccesses == null) {
+              throw new MissingRequiredPropertyException("GetNetworkManagedService", "kmsAccesses");
+            }
+            this.kmsAccesses = kmsAccesses;
+            return this;
+        }
+        public Builder kmsAccesses(GetNetworkManagedServiceKmsAccess... kmsAccesses) {
+            return kmsAccesses(List.of(kmsAccesses));
+        }
         @CustomType.Setter
         public Builder managedS3BackupAccesses(List<GetNetworkManagedServiceManagedS3BackupAccess> managedS3BackupAccesses) {
             if (managedS3BackupAccesses == null) {
@@ -135,6 +160,17 @@ public final class GetNetworkManagedService {
             return serviceNetworkEndpoints(List.of(serviceNetworkEndpoints));
         }
         @CustomType.Setter
+        public Builder stsAccesses(List<GetNetworkManagedServiceStsAccess> stsAccesses) {
+            if (stsAccesses == null) {
+              throw new MissingRequiredPropertyException("GetNetworkManagedService", "stsAccesses");
+            }
+            this.stsAccesses = stsAccesses;
+            return this;
+        }
+        public Builder stsAccesses(GetNetworkManagedServiceStsAccess... stsAccesses) {
+            return stsAccesses(List.of(stsAccesses));
+        }
+        @CustomType.Setter
         public Builder zeroTlAccesses(List<GetNetworkManagedServiceZeroTlAccess> zeroTlAccesses) {
             if (zeroTlAccesses == null) {
               throw new MissingRequiredPropertyException("GetNetworkManagedService", "zeroTlAccesses");
@@ -147,12 +183,14 @@ public final class GetNetworkManagedService {
         }
         public GetNetworkManagedService build() {
             final var _resultValue = new GetNetworkManagedService();
+            _resultValue.kmsAccesses = kmsAccesses;
             _resultValue.managedS3BackupAccesses = managedS3BackupAccesses;
             _resultValue.managedServiceIpv4Cidrs = managedServiceIpv4Cidrs;
             _resultValue.resourceGatewayArn = resourceGatewayArn;
             _resultValue.s3Accesses = s3Accesses;
             _resultValue.serviceNetworkArn = serviceNetworkArn;
             _resultValue.serviceNetworkEndpoints = serviceNetworkEndpoints;
+            _resultValue.stsAccesses = stsAccesses;
             _resultValue.zeroTlAccesses = zeroTlAccesses;
             return _resultValue;
         }

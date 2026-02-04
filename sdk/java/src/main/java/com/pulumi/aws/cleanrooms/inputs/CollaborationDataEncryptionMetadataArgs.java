@@ -14,30 +14,62 @@ public final class CollaborationDataEncryptionMetadataArgs extends com.pulumi.re
 
     public static final CollaborationDataEncryptionMetadataArgs Empty = new CollaborationDataEncryptionMetadataArgs();
 
+    /**
+     * Whether encrypted tables can contain cleartext data. This is a boolean field.
+     * 
+     */
     @Import(name="allowClearText", required=true)
     private Output<Boolean> allowClearText;
 
+    /**
+     * @return Whether encrypted tables can contain cleartext data. This is a boolean field.
+     * 
+     */
     public Output<Boolean> allowClearText() {
         return this.allowClearText;
     }
 
+    /**
+     * Whether Fingerprint columns can contain duplicate entries. This is a boolean field.
+     * 
+     */
     @Import(name="allowDuplicates", required=true)
     private Output<Boolean> allowDuplicates;
 
+    /**
+     * @return Whether Fingerprint columns can contain duplicate entries. This is a boolean field.
+     * 
+     */
     public Output<Boolean> allowDuplicates() {
         return this.allowDuplicates;
     }
 
+    /**
+     * Whether Fingerprint columns can be joined on any other Fingerprint column with a different name. This is a boolean field.
+     * 
+     */
     @Import(name="allowJoinsOnColumnsWithDifferentNames", required=true)
     private Output<Boolean> allowJoinsOnColumnsWithDifferentNames;
 
+    /**
+     * @return Whether Fingerprint columns can be joined on any other Fingerprint column with a different name. This is a boolean field.
+     * 
+     */
     public Output<Boolean> allowJoinsOnColumnsWithDifferentNames() {
         return this.allowJoinsOnColumnsWithDifferentNames;
     }
 
+    /**
+     * Whether NULL values are to be copied as NULL to encrypted tables (true) or cryptographically processed (false).
+     * 
+     */
     @Import(name="preserveNulls", required=true)
     private Output<Boolean> preserveNulls;
 
+    /**
+     * @return Whether NULL values are to be copied as NULL to encrypted tables (true) or cryptographically processed (false).
+     * 
+     */
     public Output<Boolean> preserveNulls() {
         return this.preserveNulls;
     }
@@ -69,38 +101,86 @@ public final class CollaborationDataEncryptionMetadataArgs extends com.pulumi.re
             $ = new CollaborationDataEncryptionMetadataArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param allowClearText Whether encrypted tables can contain cleartext data. This is a boolean field.
+         * 
+         * @return builder
+         * 
+         */
         public Builder allowClearText(Output<Boolean> allowClearText) {
             $.allowClearText = allowClearText;
             return this;
         }
 
+        /**
+         * @param allowClearText Whether encrypted tables can contain cleartext data. This is a boolean field.
+         * 
+         * @return builder
+         * 
+         */
         public Builder allowClearText(Boolean allowClearText) {
             return allowClearText(Output.of(allowClearText));
         }
 
+        /**
+         * @param allowDuplicates Whether Fingerprint columns can contain duplicate entries. This is a boolean field.
+         * 
+         * @return builder
+         * 
+         */
         public Builder allowDuplicates(Output<Boolean> allowDuplicates) {
             $.allowDuplicates = allowDuplicates;
             return this;
         }
 
+        /**
+         * @param allowDuplicates Whether Fingerprint columns can contain duplicate entries. This is a boolean field.
+         * 
+         * @return builder
+         * 
+         */
         public Builder allowDuplicates(Boolean allowDuplicates) {
             return allowDuplicates(Output.of(allowDuplicates));
         }
 
+        /**
+         * @param allowJoinsOnColumnsWithDifferentNames Whether Fingerprint columns can be joined on any other Fingerprint column with a different name. This is a boolean field.
+         * 
+         * @return builder
+         * 
+         */
         public Builder allowJoinsOnColumnsWithDifferentNames(Output<Boolean> allowJoinsOnColumnsWithDifferentNames) {
             $.allowJoinsOnColumnsWithDifferentNames = allowJoinsOnColumnsWithDifferentNames;
             return this;
         }
 
+        /**
+         * @param allowJoinsOnColumnsWithDifferentNames Whether Fingerprint columns can be joined on any other Fingerprint column with a different name. This is a boolean field.
+         * 
+         * @return builder
+         * 
+         */
         public Builder allowJoinsOnColumnsWithDifferentNames(Boolean allowJoinsOnColumnsWithDifferentNames) {
             return allowJoinsOnColumnsWithDifferentNames(Output.of(allowJoinsOnColumnsWithDifferentNames));
         }
 
+        /**
+         * @param preserveNulls Whether NULL values are to be copied as NULL to encrypted tables (true) or cryptographically processed (false).
+         * 
+         * @return builder
+         * 
+         */
         public Builder preserveNulls(Output<Boolean> preserveNulls) {
             $.preserveNulls = preserveNulls;
             return this;
         }
 
+        /**
+         * @param preserveNulls Whether NULL values are to be copied as NULL to encrypted tables (true) or cryptographically processed (false).
+         * 
+         * @return builder
+         * 
+         */
         public Builder preserveNulls(Boolean preserveNulls) {
             return preserveNulls(Output.of(preserveNulls));
         }

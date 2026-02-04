@@ -261,7 +261,7 @@ namespace Pulumi.Aws.Ec2
     ///     {
     ///         Triggers = 
     ///         {
-    ///             { "rerunUponChangeOf", Std.Join.Invoke(new()
+    ///             { "rerun_upon_change_of", Std.Join.Invoke(new()
     ///             {
     ///                 Separator = ",",
     ///                 Input = exampleAwsVpcEndpoint.SecurityGroupIds,

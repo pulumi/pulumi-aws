@@ -87,6 +87,12 @@ namespace Pulumi.Aws.Ec2
         public Output<ImmutableArray<Outputs.VpcIpamResourceDiscoveryOperatingRegion>> OperatingRegions { get; private set; } = null!;
 
         /// <summary>
+        /// Add an Organizational Unit (OU) exclusion to IPAM. If IPAM is integrated with AWS Organizations and OU exclusion is added, IPAM will not manage the IP addresses in accounts in the OU exclusion. Refer to [IPAM Quotas](https://docs.aws.amazon.com/vpc/latest/ipam/quotas-ipam.html) for the limit of exclusions that can be created.
+        /// </summary>
+        [Output("organizationalUnitExclusions")]
+        public Output<ImmutableArray<Outputs.VpcIpamResourceDiscoveryOrganizationalUnitExclusion>> OrganizationalUnitExclusions { get; private set; } = null!;
+
+        /// <summary>
         /// The account ID for the account that manages the Resource Discovery
         /// </summary>
         [Output("ownerId")]
@@ -174,6 +180,18 @@ namespace Pulumi.Aws.Ec2
             set => _operatingRegions = value;
         }
 
+        [Input("organizationalUnitExclusions")]
+        private InputList<Inputs.VpcIpamResourceDiscoveryOrganizationalUnitExclusionArgs>? _organizationalUnitExclusions;
+
+        /// <summary>
+        /// Add an Organizational Unit (OU) exclusion to IPAM. If IPAM is integrated with AWS Organizations and OU exclusion is added, IPAM will not manage the IP addresses in accounts in the OU exclusion. Refer to [IPAM Quotas](https://docs.aws.amazon.com/vpc/latest/ipam/quotas-ipam.html) for the limit of exclusions that can be created.
+        /// </summary>
+        public InputList<Inputs.VpcIpamResourceDiscoveryOrganizationalUnitExclusionArgs> OrganizationalUnitExclusions
+        {
+            get => _organizationalUnitExclusions ?? (_organizationalUnitExclusions = new InputList<Inputs.VpcIpamResourceDiscoveryOrganizationalUnitExclusionArgs>());
+            set => _organizationalUnitExclusions = value;
+        }
+
         /// <summary>
         /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         /// </summary>
@@ -234,6 +252,18 @@ namespace Pulumi.Aws.Ec2
         {
             get => _operatingRegions ?? (_operatingRegions = new InputList<Inputs.VpcIpamResourceDiscoveryOperatingRegionGetArgs>());
             set => _operatingRegions = value;
+        }
+
+        [Input("organizationalUnitExclusions")]
+        private InputList<Inputs.VpcIpamResourceDiscoveryOrganizationalUnitExclusionGetArgs>? _organizationalUnitExclusions;
+
+        /// <summary>
+        /// Add an Organizational Unit (OU) exclusion to IPAM. If IPAM is integrated with AWS Organizations and OU exclusion is added, IPAM will not manage the IP addresses in accounts in the OU exclusion. Refer to [IPAM Quotas](https://docs.aws.amazon.com/vpc/latest/ipam/quotas-ipam.html) for the limit of exclusions that can be created.
+        /// </summary>
+        public InputList<Inputs.VpcIpamResourceDiscoveryOrganizationalUnitExclusionGetArgs> OrganizationalUnitExclusions
+        {
+            get => _organizationalUnitExclusions ?? (_organizationalUnitExclusions = new InputList<Inputs.VpcIpamResourceDiscoveryOrganizationalUnitExclusionGetArgs>());
+            set => _organizationalUnitExclusions = value;
         }
 
         /// <summary>

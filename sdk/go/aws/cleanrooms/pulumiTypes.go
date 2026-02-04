@@ -14,10 +14,14 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type CollaborationDataEncryptionMetadata struct {
-	AllowClearText                        bool `pulumi:"allowClearText"`
-	AllowDuplicates                       bool `pulumi:"allowDuplicates"`
+	// Whether encrypted tables can contain cleartext data. This is a boolean field.
+	AllowClearText bool `pulumi:"allowClearText"`
+	// Whether Fingerprint columns can contain duplicate entries. This is a boolean field.
+	AllowDuplicates bool `pulumi:"allowDuplicates"`
+	// Whether Fingerprint columns can be joined on any other Fingerprint column with a different name. This is a boolean field.
 	AllowJoinsOnColumnsWithDifferentNames bool `pulumi:"allowJoinsOnColumnsWithDifferentNames"`
-	PreserveNulls                         bool `pulumi:"preserveNulls"`
+	// Whether NULL values are to be copied as NULL to encrypted tables (true) or cryptographically processed (false).
+	PreserveNulls bool `pulumi:"preserveNulls"`
 }
 
 // CollaborationDataEncryptionMetadataInput is an input type that accepts CollaborationDataEncryptionMetadataArgs and CollaborationDataEncryptionMetadataOutput values.
@@ -32,10 +36,14 @@ type CollaborationDataEncryptionMetadataInput interface {
 }
 
 type CollaborationDataEncryptionMetadataArgs struct {
-	AllowClearText                        pulumi.BoolInput `pulumi:"allowClearText"`
-	AllowDuplicates                       pulumi.BoolInput `pulumi:"allowDuplicates"`
+	// Whether encrypted tables can contain cleartext data. This is a boolean field.
+	AllowClearText pulumi.BoolInput `pulumi:"allowClearText"`
+	// Whether Fingerprint columns can contain duplicate entries. This is a boolean field.
+	AllowDuplicates pulumi.BoolInput `pulumi:"allowDuplicates"`
+	// Whether Fingerprint columns can be joined on any other Fingerprint column with a different name. This is a boolean field.
 	AllowJoinsOnColumnsWithDifferentNames pulumi.BoolInput `pulumi:"allowJoinsOnColumnsWithDifferentNames"`
-	PreserveNulls                         pulumi.BoolInput `pulumi:"preserveNulls"`
+	// Whether NULL values are to be copied as NULL to encrypted tables (true) or cryptographically processed (false).
+	PreserveNulls pulumi.BoolInput `pulumi:"preserveNulls"`
 }
 
 func (CollaborationDataEncryptionMetadataArgs) ElementType() reflect.Type {
@@ -115,18 +123,22 @@ func (o CollaborationDataEncryptionMetadataOutput) ToCollaborationDataEncryption
 	}).(CollaborationDataEncryptionMetadataPtrOutput)
 }
 
+// Whether encrypted tables can contain cleartext data. This is a boolean field.
 func (o CollaborationDataEncryptionMetadataOutput) AllowClearText() pulumi.BoolOutput {
 	return o.ApplyT(func(v CollaborationDataEncryptionMetadata) bool { return v.AllowClearText }).(pulumi.BoolOutput)
 }
 
+// Whether Fingerprint columns can contain duplicate entries. This is a boolean field.
 func (o CollaborationDataEncryptionMetadataOutput) AllowDuplicates() pulumi.BoolOutput {
 	return o.ApplyT(func(v CollaborationDataEncryptionMetadata) bool { return v.AllowDuplicates }).(pulumi.BoolOutput)
 }
 
+// Whether Fingerprint columns can be joined on any other Fingerprint column with a different name. This is a boolean field.
 func (o CollaborationDataEncryptionMetadataOutput) AllowJoinsOnColumnsWithDifferentNames() pulumi.BoolOutput {
 	return o.ApplyT(func(v CollaborationDataEncryptionMetadata) bool { return v.AllowJoinsOnColumnsWithDifferentNames }).(pulumi.BoolOutput)
 }
 
+// Whether NULL values are to be copied as NULL to encrypted tables (true) or cryptographically processed (false).
 func (o CollaborationDataEncryptionMetadataOutput) PreserveNulls() pulumi.BoolOutput {
 	return o.ApplyT(func(v CollaborationDataEncryptionMetadata) bool { return v.PreserveNulls }).(pulumi.BoolOutput)
 }
@@ -155,6 +167,7 @@ func (o CollaborationDataEncryptionMetadataPtrOutput) Elem() CollaborationDataEn
 	}).(CollaborationDataEncryptionMetadataOutput)
 }
 
+// Whether encrypted tables can contain cleartext data. This is a boolean field.
 func (o CollaborationDataEncryptionMetadataPtrOutput) AllowClearText() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *CollaborationDataEncryptionMetadata) *bool {
 		if v == nil {
@@ -164,6 +177,7 @@ func (o CollaborationDataEncryptionMetadataPtrOutput) AllowClearText() pulumi.Bo
 	}).(pulumi.BoolPtrOutput)
 }
 
+// Whether Fingerprint columns can contain duplicate entries. This is a boolean field.
 func (o CollaborationDataEncryptionMetadataPtrOutput) AllowDuplicates() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *CollaborationDataEncryptionMetadata) *bool {
 		if v == nil {
@@ -173,6 +187,7 @@ func (o CollaborationDataEncryptionMetadataPtrOutput) AllowDuplicates() pulumi.B
 	}).(pulumi.BoolPtrOutput)
 }
 
+// Whether Fingerprint columns can be joined on any other Fingerprint column with a different name. This is a boolean field.
 func (o CollaborationDataEncryptionMetadataPtrOutput) AllowJoinsOnColumnsWithDifferentNames() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *CollaborationDataEncryptionMetadata) *bool {
 		if v == nil {
@@ -182,6 +197,7 @@ func (o CollaborationDataEncryptionMetadataPtrOutput) AllowJoinsOnColumnsWithDif
 	}).(pulumi.BoolPtrOutput)
 }
 
+// Whether NULL values are to be copied as NULL to encrypted tables (true) or cryptographically processed (false).
 func (o CollaborationDataEncryptionMetadataPtrOutput) PreserveNulls() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *CollaborationDataEncryptionMetadata) *bool {
 		if v == nil {
@@ -192,10 +208,14 @@ func (o CollaborationDataEncryptionMetadataPtrOutput) PreserveNulls() pulumi.Boo
 }
 
 type CollaborationMember struct {
-	AccountId       string   `pulumi:"accountId"`
-	DisplayName     string   `pulumi:"displayName"`
+	// Account ID for the invited member.
+	AccountId string `pulumi:"accountId"`
+	// Display name for the invited member.
+	DisplayName string `pulumi:"displayName"`
+	// List of abilities for the invited member. Valid values [may be found here](https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_CreateCollaboration.html#API-CreateCollaboration-request-creatorMemberAbilities).
 	MemberAbilities []string `pulumi:"memberAbilities"`
-	Status          *string  `pulumi:"status"`
+	// For each member included in the collaboration an additional computed attribute of status is added. These values [may be found here](https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_MemberSummary.html#API-Type-MemberSummary-status).
+	Status *string `pulumi:"status"`
 }
 
 // CollaborationMemberInput is an input type that accepts CollaborationMemberArgs and CollaborationMemberOutput values.
@@ -210,10 +230,14 @@ type CollaborationMemberInput interface {
 }
 
 type CollaborationMemberArgs struct {
-	AccountId       pulumi.StringInput      `pulumi:"accountId"`
-	DisplayName     pulumi.StringInput      `pulumi:"displayName"`
+	// Account ID for the invited member.
+	AccountId pulumi.StringInput `pulumi:"accountId"`
+	// Display name for the invited member.
+	DisplayName pulumi.StringInput `pulumi:"displayName"`
+	// List of abilities for the invited member. Valid values [may be found here](https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_CreateCollaboration.html#API-CreateCollaboration-request-creatorMemberAbilities).
 	MemberAbilities pulumi.StringArrayInput `pulumi:"memberAbilities"`
-	Status          pulumi.StringPtrInput   `pulumi:"status"`
+	// For each member included in the collaboration an additional computed attribute of status is added. These values [may be found here](https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_MemberSummary.html#API-Type-MemberSummary-status).
+	Status pulumi.StringPtrInput `pulumi:"status"`
 }
 
 func (CollaborationMemberArgs) ElementType() reflect.Type {
@@ -267,18 +291,22 @@ func (o CollaborationMemberOutput) ToCollaborationMemberOutputWithContext(ctx co
 	return o
 }
 
+// Account ID for the invited member.
 func (o CollaborationMemberOutput) AccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v CollaborationMember) string { return v.AccountId }).(pulumi.StringOutput)
 }
 
+// Display name for the invited member.
 func (o CollaborationMemberOutput) DisplayName() pulumi.StringOutput {
 	return o.ApplyT(func(v CollaborationMember) string { return v.DisplayName }).(pulumi.StringOutput)
 }
 
+// List of abilities for the invited member. Valid values [may be found here](https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_CreateCollaboration.html#API-CreateCollaboration-request-creatorMemberAbilities).
 func (o CollaborationMemberOutput) MemberAbilities() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v CollaborationMember) []string { return v.MemberAbilities }).(pulumi.StringArrayOutput)
 }
 
+// For each member included in the collaboration an additional computed attribute of status is added. These values [may be found here](https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_MemberSummary.html#API-Type-MemberSummary-status).
 func (o CollaborationMemberOutput) Status() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CollaborationMember) *string { return v.Status }).(pulumi.StringPtrOutput)
 }

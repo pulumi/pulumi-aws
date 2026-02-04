@@ -375,6 +375,42 @@ class AgentDataSource(pulumi.CustomResource):
             })
         ```
 
+        ### Multimodal Parsing
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.bedrock.AgentDataSource("example",
+            knowledge_base_id=example_aws_bedrockagent_knowledge_base["id"],
+            name="multimodal-example",
+            data_source_configuration={
+                "type": "S3",
+                "s3_configuration": {
+                    "bucket_arn": example_aws_s3_bucket["arn"],
+                },
+            },
+            vector_ingestion_configuration={
+                "chunking_configuration": {
+                    "chunking_strategy": "FIXED_SIZE",
+                    "fixed_size_chunking_configuration": {
+                        "max_tokens": 512,
+                        "overlap_percentage": 20,
+                    },
+                },
+                "parsing_configuration": {
+                    "parsing_strategy": "BEDROCK_FOUNDATION_MODEL",
+                    "bedrock_foundation_model_configuration": {
+                        "model_arn": "arn:aws:bedrock:us-east-1::foundation-model/anthropic.claude-3-sonnet-20240229-v1:0",
+                        "parsing_modality": "MULTIMODAL",
+                        "parsing_prompt": {
+                            "parsing_prompt_string": "Extract and transcribe all text and visual content from the document.",
+                        },
+                    },
+                },
+            })
+        ```
+
         ## Import
 
         Using `pulumi import`, import Agents for Amazon Bedrock Data Source using the data source ID and the knowledge base ID. For example:
@@ -420,6 +456,42 @@ class AgentDataSource(pulumi.CustomResource):
                 "type": "S3",
                 "s3_configuration": {
                     "bucket_arn": "arn:aws:s3:::example-bucket",
+                },
+            })
+        ```
+
+        ### Multimodal Parsing
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.bedrock.AgentDataSource("example",
+            knowledge_base_id=example_aws_bedrockagent_knowledge_base["id"],
+            name="multimodal-example",
+            data_source_configuration={
+                "type": "S3",
+                "s3_configuration": {
+                    "bucket_arn": example_aws_s3_bucket["arn"],
+                },
+            },
+            vector_ingestion_configuration={
+                "chunking_configuration": {
+                    "chunking_strategy": "FIXED_SIZE",
+                    "fixed_size_chunking_configuration": {
+                        "max_tokens": 512,
+                        "overlap_percentage": 20,
+                    },
+                },
+                "parsing_configuration": {
+                    "parsing_strategy": "BEDROCK_FOUNDATION_MODEL",
+                    "bedrock_foundation_model_configuration": {
+                        "model_arn": "arn:aws:bedrock:us-east-1::foundation-model/anthropic.claude-3-sonnet-20240229-v1:0",
+                        "parsing_modality": "MULTIMODAL",
+                        "parsing_prompt": {
+                            "parsing_prompt_string": "Extract and transcribe all text and visual content from the document.",
+                        },
+                    },
                 },
             })
         ```

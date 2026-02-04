@@ -38,6 +38,10 @@ namespace Pulumi.Aws.NetworkManager.Outputs
         /// </summary>
         public readonly string? Mode;
         /// <summary>
+        /// A list of routing policy names to apply to segment sharing. The routing policies control how routes are propagated between the shared segments. Only applicable when `Action` is `Share`. Available in policy version `2025.11` and later.
+        /// </summary>
+        public readonly ImmutableArray<string> RoutingPolicyNames;
+        /// <summary>
         /// Name of the segment.
         /// </summary>
         public readonly string Segment;
@@ -72,6 +76,8 @@ namespace Pulumi.Aws.NetworkManager.Outputs
 
             string? mode,
 
+            ImmutableArray<string> routingPolicyNames,
+
             string segment,
 
             ImmutableArray<string> shareWithExcepts,
@@ -88,6 +94,7 @@ namespace Pulumi.Aws.NetworkManager.Outputs
             Destinations = destinations;
             EdgeLocationAssociation = edgeLocationAssociation;
             Mode = mode;
+            RoutingPolicyNames = routingPolicyNames;
             Segment = segment;
             ShareWithExcepts = shareWithExcepts;
             ShareWiths = shareWiths;

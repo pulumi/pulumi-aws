@@ -23,18 +23,22 @@ class VpcIpamResourceDiscoveryArgs:
     def __init__(__self__, *,
                  operating_regions: pulumi.Input[Sequence[pulumi.Input['VpcIpamResourceDiscoveryOperatingRegionArgs']]],
                  description: Optional[pulumi.Input[_builtins.str]] = None,
+                 organizational_unit_exclusions: Optional[pulumi.Input[Sequence[pulumi.Input['VpcIpamResourceDiscoveryOrganizationalUnitExclusionArgs']]]] = None,
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a VpcIpamResourceDiscovery resource.
         :param pulumi.Input[Sequence[pulumi.Input['VpcIpamResourceDiscoveryOperatingRegionArgs']]] operating_regions: Determines which regions the Resource Discovery will enable IPAM features for usage and monitoring. Locale is the Region where you want to make an IPAM pool available for allocations. You can only create pools with locales that match the operating Regions of the IPAM Resource Discovery. You can only create VPCs from a pool whose locale matches the VPC's Region. You specify a region using the region_name parameter. **You must set your provider block region as an operating_region.**
         :param pulumi.Input[_builtins.str] description: A description for the IPAM Resource Discovery.
+        :param pulumi.Input[Sequence[pulumi.Input['VpcIpamResourceDiscoveryOrganizationalUnitExclusionArgs']]] organizational_unit_exclusions: Add an Organizational Unit (OU) exclusion to IPAM. If IPAM is integrated with AWS Organizations and OU exclusion is added, IPAM will not manage the IP addresses in accounts in the OU exclusion. Refer to [IPAM Quotas](https://docs.aws.amazon.com/vpc/latest/ipam/quotas-ipam.html) for the limit of exclusions that can be created.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "operating_regions", operating_regions)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if organizational_unit_exclusions is not None:
+            pulumi.set(__self__, "organizational_unit_exclusions", organizational_unit_exclusions)
         if region is not None:
             pulumi.set(__self__, "region", region)
         if tags is not None:
@@ -63,6 +67,18 @@ class VpcIpamResourceDiscoveryArgs:
     @description.setter
     def description(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "description", value)
+
+    @_builtins.property
+    @pulumi.getter(name="organizationalUnitExclusions")
+    def organizational_unit_exclusions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VpcIpamResourceDiscoveryOrganizationalUnitExclusionArgs']]]]:
+        """
+        Add an Organizational Unit (OU) exclusion to IPAM. If IPAM is integrated with AWS Organizations and OU exclusion is added, IPAM will not manage the IP addresses in accounts in the OU exclusion. Refer to [IPAM Quotas](https://docs.aws.amazon.com/vpc/latest/ipam/quotas-ipam.html) for the limit of exclusions that can be created.
+        """
+        return pulumi.get(self, "organizational_unit_exclusions")
+
+    @organizational_unit_exclusions.setter
+    def organizational_unit_exclusions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VpcIpamResourceDiscoveryOrganizationalUnitExclusionArgs']]]]):
+        pulumi.set(self, "organizational_unit_exclusions", value)
 
     @_builtins.property
     @pulumi.getter
@@ -97,6 +113,7 @@ class _VpcIpamResourceDiscoveryState:
                  ipam_resource_discovery_region: Optional[pulumi.Input[_builtins.str]] = None,
                  is_default: Optional[pulumi.Input[_builtins.bool]] = None,
                  operating_regions: Optional[pulumi.Input[Sequence[pulumi.Input['VpcIpamResourceDiscoveryOperatingRegionArgs']]]] = None,
+                 organizational_unit_exclusions: Optional[pulumi.Input[Sequence[pulumi.Input['VpcIpamResourceDiscoveryOrganizationalUnitExclusionArgs']]]] = None,
                  owner_id: Optional[pulumi.Input[_builtins.str]] = None,
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -108,6 +125,7 @@ class _VpcIpamResourceDiscoveryState:
         :param pulumi.Input[_builtins.str] ipam_resource_discovery_region: The home region of the Resource Discovery
         :param pulumi.Input[_builtins.bool] is_default: A boolean to identify if the Resource Discovery is the accounts default resource discovery
         :param pulumi.Input[Sequence[pulumi.Input['VpcIpamResourceDiscoveryOperatingRegionArgs']]] operating_regions: Determines which regions the Resource Discovery will enable IPAM features for usage and monitoring. Locale is the Region where you want to make an IPAM pool available for allocations. You can only create pools with locales that match the operating Regions of the IPAM Resource Discovery. You can only create VPCs from a pool whose locale matches the VPC's Region. You specify a region using the region_name parameter. **You must set your provider block region as an operating_region.**
+        :param pulumi.Input[Sequence[pulumi.Input['VpcIpamResourceDiscoveryOrganizationalUnitExclusionArgs']]] organizational_unit_exclusions: Add an Organizational Unit (OU) exclusion to IPAM. If IPAM is integrated with AWS Organizations and OU exclusion is added, IPAM will not manage the IP addresses in accounts in the OU exclusion. Refer to [IPAM Quotas](https://docs.aws.amazon.com/vpc/latest/ipam/quotas-ipam.html) for the limit of exclusions that can be created.
         :param pulumi.Input[_builtins.str] owner_id: The account ID for the account that manages the Resource Discovery
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -123,6 +141,8 @@ class _VpcIpamResourceDiscoveryState:
             pulumi.set(__self__, "is_default", is_default)
         if operating_regions is not None:
             pulumi.set(__self__, "operating_regions", operating_regions)
+        if organizational_unit_exclusions is not None:
+            pulumi.set(__self__, "organizational_unit_exclusions", organizational_unit_exclusions)
         if owner_id is not None:
             pulumi.set(__self__, "owner_id", owner_id)
         if region is not None:
@@ -193,6 +213,18 @@ class _VpcIpamResourceDiscoveryState:
         pulumi.set(self, "operating_regions", value)
 
     @_builtins.property
+    @pulumi.getter(name="organizationalUnitExclusions")
+    def organizational_unit_exclusions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VpcIpamResourceDiscoveryOrganizationalUnitExclusionArgs']]]]:
+        """
+        Add an Organizational Unit (OU) exclusion to IPAM. If IPAM is integrated with AWS Organizations and OU exclusion is added, IPAM will not manage the IP addresses in accounts in the OU exclusion. Refer to [IPAM Quotas](https://docs.aws.amazon.com/vpc/latest/ipam/quotas-ipam.html) for the limit of exclusions that can be created.
+        """
+        return pulumi.get(self, "organizational_unit_exclusions")
+
+    @organizational_unit_exclusions.setter
+    def organizational_unit_exclusions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VpcIpamResourceDiscoveryOrganizationalUnitExclusionArgs']]]]):
+        pulumi.set(self, "organizational_unit_exclusions", value)
+
+    @_builtins.property
     @pulumi.getter(name="ownerId")
     def owner_id(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
@@ -249,6 +281,7 @@ class VpcIpamResourceDiscovery(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  operating_regions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['VpcIpamResourceDiscoveryOperatingRegionArgs', 'VpcIpamResourceDiscoveryOperatingRegionArgsDict']]]]] = None,
+                 organizational_unit_exclusions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['VpcIpamResourceDiscoveryOrganizationalUnitExclusionArgs', 'VpcIpamResourceDiscoveryOrganizationalUnitExclusionArgsDict']]]]] = None,
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
@@ -286,6 +319,7 @@ class VpcIpamResourceDiscovery(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: A description for the IPAM Resource Discovery.
         :param pulumi.Input[Sequence[pulumi.Input[Union['VpcIpamResourceDiscoveryOperatingRegionArgs', 'VpcIpamResourceDiscoveryOperatingRegionArgsDict']]]] operating_regions: Determines which regions the Resource Discovery will enable IPAM features for usage and monitoring. Locale is the Region where you want to make an IPAM pool available for allocations. You can only create pools with locales that match the operating Regions of the IPAM Resource Discovery. You can only create VPCs from a pool whose locale matches the VPC's Region. You specify a region using the region_name parameter. **You must set your provider block region as an operating_region.**
+        :param pulumi.Input[Sequence[pulumi.Input[Union['VpcIpamResourceDiscoveryOrganizationalUnitExclusionArgs', 'VpcIpamResourceDiscoveryOrganizationalUnitExclusionArgsDict']]]] organizational_unit_exclusions: Add an Organizational Unit (OU) exclusion to IPAM. If IPAM is integrated with AWS Organizations and OU exclusion is added, IPAM will not manage the IP addresses in accounts in the OU exclusion. Refer to [IPAM Quotas](https://docs.aws.amazon.com/vpc/latest/ipam/quotas-ipam.html) for the limit of exclusions that can be created.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -342,6 +376,7 @@ class VpcIpamResourceDiscovery(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  operating_regions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['VpcIpamResourceDiscoveryOperatingRegionArgs', 'VpcIpamResourceDiscoveryOperatingRegionArgsDict']]]]] = None,
+                 organizational_unit_exclusions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['VpcIpamResourceDiscoveryOrganizationalUnitExclusionArgs', 'VpcIpamResourceDiscoveryOrganizationalUnitExclusionArgsDict']]]]] = None,
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
@@ -357,6 +392,7 @@ class VpcIpamResourceDiscovery(pulumi.CustomResource):
             if operating_regions is None and not opts.urn:
                 raise TypeError("Missing required property 'operating_regions'")
             __props__.__dict__["operating_regions"] = operating_regions
+            __props__.__dict__["organizational_unit_exclusions"] = organizational_unit_exclusions
             __props__.__dict__["region"] = region
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
@@ -379,6 +415,7 @@ class VpcIpamResourceDiscovery(pulumi.CustomResource):
             ipam_resource_discovery_region: Optional[pulumi.Input[_builtins.str]] = None,
             is_default: Optional[pulumi.Input[_builtins.bool]] = None,
             operating_regions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['VpcIpamResourceDiscoveryOperatingRegionArgs', 'VpcIpamResourceDiscoveryOperatingRegionArgsDict']]]]] = None,
+            organizational_unit_exclusions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['VpcIpamResourceDiscoveryOrganizationalUnitExclusionArgs', 'VpcIpamResourceDiscoveryOrganizationalUnitExclusionArgsDict']]]]] = None,
             owner_id: Optional[pulumi.Input[_builtins.str]] = None,
             region: Optional[pulumi.Input[_builtins.str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -395,6 +432,7 @@ class VpcIpamResourceDiscovery(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] ipam_resource_discovery_region: The home region of the Resource Discovery
         :param pulumi.Input[_builtins.bool] is_default: A boolean to identify if the Resource Discovery is the accounts default resource discovery
         :param pulumi.Input[Sequence[pulumi.Input[Union['VpcIpamResourceDiscoveryOperatingRegionArgs', 'VpcIpamResourceDiscoveryOperatingRegionArgsDict']]]] operating_regions: Determines which regions the Resource Discovery will enable IPAM features for usage and monitoring. Locale is the Region where you want to make an IPAM pool available for allocations. You can only create pools with locales that match the operating Regions of the IPAM Resource Discovery. You can only create VPCs from a pool whose locale matches the VPC's Region. You specify a region using the region_name parameter. **You must set your provider block region as an operating_region.**
+        :param pulumi.Input[Sequence[pulumi.Input[Union['VpcIpamResourceDiscoveryOrganizationalUnitExclusionArgs', 'VpcIpamResourceDiscoveryOrganizationalUnitExclusionArgsDict']]]] organizational_unit_exclusions: Add an Organizational Unit (OU) exclusion to IPAM. If IPAM is integrated with AWS Organizations and OU exclusion is added, IPAM will not manage the IP addresses in accounts in the OU exclusion. Refer to [IPAM Quotas](https://docs.aws.amazon.com/vpc/latest/ipam/quotas-ipam.html) for the limit of exclusions that can be created.
         :param pulumi.Input[_builtins.str] owner_id: The account ID for the account that manages the Resource Discovery
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -409,6 +447,7 @@ class VpcIpamResourceDiscovery(pulumi.CustomResource):
         __props__.__dict__["ipam_resource_discovery_region"] = ipam_resource_discovery_region
         __props__.__dict__["is_default"] = is_default
         __props__.__dict__["operating_regions"] = operating_regions
+        __props__.__dict__["organizational_unit_exclusions"] = organizational_unit_exclusions
         __props__.__dict__["owner_id"] = owner_id
         __props__.__dict__["region"] = region
         __props__.__dict__["tags"] = tags
@@ -454,6 +493,14 @@ class VpcIpamResourceDiscovery(pulumi.CustomResource):
         Determines which regions the Resource Discovery will enable IPAM features for usage and monitoring. Locale is the Region where you want to make an IPAM pool available for allocations. You can only create pools with locales that match the operating Regions of the IPAM Resource Discovery. You can only create VPCs from a pool whose locale matches the VPC's Region. You specify a region using the region_name parameter. **You must set your provider block region as an operating_region.**
         """
         return pulumi.get(self, "operating_regions")
+
+    @_builtins.property
+    @pulumi.getter(name="organizationalUnitExclusions")
+    def organizational_unit_exclusions(self) -> pulumi.Output[Optional[Sequence['outputs.VpcIpamResourceDiscoveryOrganizationalUnitExclusion']]]:
+        """
+        Add an Organizational Unit (OU) exclusion to IPAM. If IPAM is integrated with AWS Organizations and OU exclusion is added, IPAM will not manage the IP addresses in accounts in the OU exclusion. Refer to [IPAM Quotas](https://docs.aws.amazon.com/vpc/latest/ipam/quotas-ipam.html) for the limit of exclusions that can be created.
+        """
+        return pulumi.get(self, "organizational_unit_exclusions")
 
     @_builtins.property
     @pulumi.getter(name="ownerId")

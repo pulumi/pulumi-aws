@@ -509,6 +509,20 @@ public class DomainName extends com.pulumi.resources.CustomResource {
         return this.regionalZoneId;
     }
     /**
+     * Mode to route traffic for the domain name. Valid values: `BASE_PATH_MAPPING_ONLY`, `ROUTING_RULE_ONLY`, `ROUTING_RULE_THEN_BASE_PATH_MAPPING`.
+     * 
+     */
+    @Export(name="routingMode", refs={String.class}, tree="[0]")
+    private Output<String> routingMode;
+
+    /**
+     * @return Mode to route traffic for the domain name. Valid values: `BASE_PATH_MAPPING_ONLY`, `ROUTING_RULE_ONLY`, `ROUTING_RULE_THEN_BASE_PATH_MAPPING`.
+     * 
+     */
+    public Output<String> routingMode() {
+        return this.routingMode;
+    }
+    /**
      * Transport Layer Security (TLS) version + cipher suite for this DomainName. Must be configured to perform drift detection. For a list of valid security policies, see [DomainName](https://docs.aws.amazon.com/apigateway/latest/api/API_DomainName.html) in the Amazon API Gateway API Reference.
      * 
      */

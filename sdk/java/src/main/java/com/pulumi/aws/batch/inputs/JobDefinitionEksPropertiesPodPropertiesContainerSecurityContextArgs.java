@@ -16,9 +16,32 @@ public final class JobDefinitionEksPropertiesPodPropertiesContainerSecurityConte
 
     public static final JobDefinitionEksPropertiesPodPropertiesContainerSecurityContextArgs Empty = new JobDefinitionEksPropertiesPodPropertiesContainerSecurityContextArgs();
 
+    /**
+     * Whether or not a container or a Kubernetes pod is allowed to gain more privileges than its parent process. The default value is `false`.
+     * 
+     */
+    @Import(name="allowPrivilegeEscalation")
+    private @Nullable Output<Boolean> allowPrivilegeEscalation;
+
+    /**
+     * @return Whether or not a container or a Kubernetes pod is allowed to gain more privileges than its parent process. The default value is `false`.
+     * 
+     */
+    public Optional<Output<Boolean>> allowPrivilegeEscalation() {
+        return Optional.ofNullable(this.allowPrivilegeEscalation);
+    }
+
+    /**
+     * When this parameter is `true`, the container is given elevated permissions on the host container instance. The level of permissions are similar to the root user permissions. The default value is `false`.
+     * 
+     */
     @Import(name="privileged")
     private @Nullable Output<Boolean> privileged;
 
+    /**
+     * @return When this parameter is `true`, the container is given elevated permissions on the host container instance. The level of permissions are similar to the root user permissions. The default value is `false`.
+     * 
+     */
     public Optional<Output<Boolean>> privileged() {
         return Optional.ofNullable(this.privileged);
     }
@@ -30,23 +53,47 @@ public final class JobDefinitionEksPropertiesPodPropertiesContainerSecurityConte
         return Optional.ofNullable(this.readOnlyRootFileSystem);
     }
 
+    /**
+     * When this parameter is specified, the container is run as the specified group ID (gid). If this parameter isn&#39;t specified, the default is the group that&#39;s specified in the image metadata.
+     * 
+     */
     @Import(name="runAsGroup")
     private @Nullable Output<Integer> runAsGroup;
 
+    /**
+     * @return When this parameter is specified, the container is run as the specified group ID (gid). If this parameter isn&#39;t specified, the default is the group that&#39;s specified in the image metadata.
+     * 
+     */
     public Optional<Output<Integer>> runAsGroup() {
         return Optional.ofNullable(this.runAsGroup);
     }
 
+    /**
+     * When this parameter is specified, the container is run as a user with a uid other than 0. If this parameter isn&#39;t specified, so such rule is enforced.
+     * 
+     */
     @Import(name="runAsNonRoot")
     private @Nullable Output<Boolean> runAsNonRoot;
 
+    /**
+     * @return When this parameter is specified, the container is run as a user with a uid other than 0. If this parameter isn&#39;t specified, so such rule is enforced.
+     * 
+     */
     public Optional<Output<Boolean>> runAsNonRoot() {
         return Optional.ofNullable(this.runAsNonRoot);
     }
 
+    /**
+     * When this parameter is specified, the container is run as the specified user ID (uid). If this parameter isn&#39;t specified, the default is the user that&#39;s specified in the image metadata.
+     * 
+     */
     @Import(name="runAsUser")
     private @Nullable Output<Integer> runAsUser;
 
+    /**
+     * @return When this parameter is specified, the container is run as the specified user ID (uid). If this parameter isn&#39;t specified, the default is the user that&#39;s specified in the image metadata.
+     * 
+     */
     public Optional<Output<Integer>> runAsUser() {
         return Optional.ofNullable(this.runAsUser);
     }
@@ -54,6 +101,7 @@ public final class JobDefinitionEksPropertiesPodPropertiesContainerSecurityConte
     private JobDefinitionEksPropertiesPodPropertiesContainerSecurityContextArgs() {}
 
     private JobDefinitionEksPropertiesPodPropertiesContainerSecurityContextArgs(JobDefinitionEksPropertiesPodPropertiesContainerSecurityContextArgs $) {
+        this.allowPrivilegeEscalation = $.allowPrivilegeEscalation;
         this.privileged = $.privileged;
         this.readOnlyRootFileSystem = $.readOnlyRootFileSystem;
         this.runAsGroup = $.runAsGroup;
@@ -79,11 +127,44 @@ public final class JobDefinitionEksPropertiesPodPropertiesContainerSecurityConte
             $ = new JobDefinitionEksPropertiesPodPropertiesContainerSecurityContextArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param allowPrivilegeEscalation Whether or not a container or a Kubernetes pod is allowed to gain more privileges than its parent process. The default value is `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder allowPrivilegeEscalation(@Nullable Output<Boolean> allowPrivilegeEscalation) {
+            $.allowPrivilegeEscalation = allowPrivilegeEscalation;
+            return this;
+        }
+
+        /**
+         * @param allowPrivilegeEscalation Whether or not a container or a Kubernetes pod is allowed to gain more privileges than its parent process. The default value is `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder allowPrivilegeEscalation(Boolean allowPrivilegeEscalation) {
+            return allowPrivilegeEscalation(Output.of(allowPrivilegeEscalation));
+        }
+
+        /**
+         * @param privileged When this parameter is `true`, the container is given elevated permissions on the host container instance. The level of permissions are similar to the root user permissions. The default value is `false`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder privileged(@Nullable Output<Boolean> privileged) {
             $.privileged = privileged;
             return this;
         }
 
+        /**
+         * @param privileged When this parameter is `true`, the container is given elevated permissions on the host container instance. The level of permissions are similar to the root user permissions. The default value is `false`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder privileged(Boolean privileged) {
             return privileged(Output.of(privileged));
         }
@@ -97,29 +178,65 @@ public final class JobDefinitionEksPropertiesPodPropertiesContainerSecurityConte
             return readOnlyRootFileSystem(Output.of(readOnlyRootFileSystem));
         }
 
+        /**
+         * @param runAsGroup When this parameter is specified, the container is run as the specified group ID (gid). If this parameter isn&#39;t specified, the default is the group that&#39;s specified in the image metadata.
+         * 
+         * @return builder
+         * 
+         */
         public Builder runAsGroup(@Nullable Output<Integer> runAsGroup) {
             $.runAsGroup = runAsGroup;
             return this;
         }
 
+        /**
+         * @param runAsGroup When this parameter is specified, the container is run as the specified group ID (gid). If this parameter isn&#39;t specified, the default is the group that&#39;s specified in the image metadata.
+         * 
+         * @return builder
+         * 
+         */
         public Builder runAsGroup(Integer runAsGroup) {
             return runAsGroup(Output.of(runAsGroup));
         }
 
+        /**
+         * @param runAsNonRoot When this parameter is specified, the container is run as a user with a uid other than 0. If this parameter isn&#39;t specified, so such rule is enforced.
+         * 
+         * @return builder
+         * 
+         */
         public Builder runAsNonRoot(@Nullable Output<Boolean> runAsNonRoot) {
             $.runAsNonRoot = runAsNonRoot;
             return this;
         }
 
+        /**
+         * @param runAsNonRoot When this parameter is specified, the container is run as a user with a uid other than 0. If this parameter isn&#39;t specified, so such rule is enforced.
+         * 
+         * @return builder
+         * 
+         */
         public Builder runAsNonRoot(Boolean runAsNonRoot) {
             return runAsNonRoot(Output.of(runAsNonRoot));
         }
 
+        /**
+         * @param runAsUser When this parameter is specified, the container is run as the specified user ID (uid). If this parameter isn&#39;t specified, the default is the user that&#39;s specified in the image metadata.
+         * 
+         * @return builder
+         * 
+         */
         public Builder runAsUser(@Nullable Output<Integer> runAsUser) {
             $.runAsUser = runAsUser;
             return this;
         }
 
+        /**
+         * @param runAsUser When this parameter is specified, the container is run as the specified user ID (uid). If this parameter isn&#39;t specified, the default is the user that&#39;s specified in the image metadata.
+         * 
+         * @return builder
+         * 
+         */
         public Builder runAsUser(Integer runAsUser) {
             return runAsUser(Output.of(runAsUser));
         }

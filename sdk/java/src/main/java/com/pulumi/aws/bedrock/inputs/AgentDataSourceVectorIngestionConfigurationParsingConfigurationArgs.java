@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.bedrock.inputs;
 
+import com.pulumi.aws.bedrock.inputs.AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockDataAutomationConfigurationArgs;
 import com.pulumi.aws.bedrock.inputs.AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
@@ -16,6 +17,21 @@ import javax.annotation.Nullable;
 public final class AgentDataSourceVectorIngestionConfigurationParsingConfigurationArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final AgentDataSourceVectorIngestionConfigurationParsingConfigurationArgs Empty = new AgentDataSourceVectorIngestionConfigurationParsingConfigurationArgs();
+
+    /**
+     * Settings for using Amazon Bedrock Data Automation to parse documents. See `bedrockDataAutomationConfiguration` block for details.
+     * 
+     */
+    @Import(name="bedrockDataAutomationConfiguration")
+    private @Nullable Output<AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockDataAutomationConfigurationArgs> bedrockDataAutomationConfiguration;
+
+    /**
+     * @return Settings for using Amazon Bedrock Data Automation to parse documents. See `bedrockDataAutomationConfiguration` block for details.
+     * 
+     */
+    public Optional<Output<AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockDataAutomationConfigurationArgs>> bedrockDataAutomationConfiguration() {
+        return Optional.ofNullable(this.bedrockDataAutomationConfiguration);
+    }
 
     /**
      * Settings for a foundation model used to parse documents in a data source. See `bedrockFoundationModelConfiguration` block for details.
@@ -33,14 +49,14 @@ public final class AgentDataSourceVectorIngestionConfigurationParsingConfigurati
     }
 
     /**
-     * Currently only `BEDROCK_FOUNDATION_MODEL` is supported
+     * The parsing strategy to use. Valid values: `BEDROCK_FOUNDATION_MODEL`, `BEDROCK_DATA_AUTOMATION`.
      * 
      */
     @Import(name="parsingStrategy", required=true)
     private Output<String> parsingStrategy;
 
     /**
-     * @return Currently only `BEDROCK_FOUNDATION_MODEL` is supported
+     * @return The parsing strategy to use. Valid values: `BEDROCK_FOUNDATION_MODEL`, `BEDROCK_DATA_AUTOMATION`.
      * 
      */
     public Output<String> parsingStrategy() {
@@ -50,6 +66,7 @@ public final class AgentDataSourceVectorIngestionConfigurationParsingConfigurati
     private AgentDataSourceVectorIngestionConfigurationParsingConfigurationArgs() {}
 
     private AgentDataSourceVectorIngestionConfigurationParsingConfigurationArgs(AgentDataSourceVectorIngestionConfigurationParsingConfigurationArgs $) {
+        this.bedrockDataAutomationConfiguration = $.bedrockDataAutomationConfiguration;
         this.bedrockFoundationModelConfiguration = $.bedrockFoundationModelConfiguration;
         this.parsingStrategy = $.parsingStrategy;
     }
@@ -70,6 +87,27 @@ public final class AgentDataSourceVectorIngestionConfigurationParsingConfigurati
 
         public Builder(AgentDataSourceVectorIngestionConfigurationParsingConfigurationArgs defaults) {
             $ = new AgentDataSourceVectorIngestionConfigurationParsingConfigurationArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param bedrockDataAutomationConfiguration Settings for using Amazon Bedrock Data Automation to parse documents. See `bedrockDataAutomationConfiguration` block for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder bedrockDataAutomationConfiguration(@Nullable Output<AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockDataAutomationConfigurationArgs> bedrockDataAutomationConfiguration) {
+            $.bedrockDataAutomationConfiguration = bedrockDataAutomationConfiguration;
+            return this;
+        }
+
+        /**
+         * @param bedrockDataAutomationConfiguration Settings for using Amazon Bedrock Data Automation to parse documents. See `bedrockDataAutomationConfiguration` block for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder bedrockDataAutomationConfiguration(AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockDataAutomationConfigurationArgs bedrockDataAutomationConfiguration) {
+            return bedrockDataAutomationConfiguration(Output.of(bedrockDataAutomationConfiguration));
         }
 
         /**
@@ -94,7 +132,7 @@ public final class AgentDataSourceVectorIngestionConfigurationParsingConfigurati
         }
 
         /**
-         * @param parsingStrategy Currently only `BEDROCK_FOUNDATION_MODEL` is supported
+         * @param parsingStrategy The parsing strategy to use. Valid values: `BEDROCK_FOUNDATION_MODEL`, `BEDROCK_DATA_AUTOMATION`.
          * 
          * @return builder
          * 
@@ -105,7 +143,7 @@ public final class AgentDataSourceVectorIngestionConfigurationParsingConfigurati
         }
 
         /**
-         * @param parsingStrategy Currently only `BEDROCK_FOUNDATION_MODEL` is supported
+         * @param parsingStrategy The parsing strategy to use. Valid values: `BEDROCK_FOUNDATION_MODEL`, `BEDROCK_DATA_AUTOMATION`.
          * 
          * @return builder
          * 

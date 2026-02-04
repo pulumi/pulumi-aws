@@ -20,6 +20,7 @@ from .integration_response import *
 from .model import *
 from .route import *
 from .route_response import *
+from .routing_rule import *
 from .stage import *
 from .vpc_link import *
 from ._inputs import *

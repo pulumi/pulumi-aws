@@ -72,6 +72,7 @@ const (
 	apigatewayv2Mod             = "ApiGatewayV2"             // API Gateway V2
 	appautoscalingMod           = "AppAutoScaling"           // Application Auto Scaling
 	appRunnerMod                = "AppRunner"                // AppRunner
+	arcRegionSwitchMod          = "ArcRegionSwitch"          // ARC Region Switch
 	athenaMod                   = "Athena"                   // Athena
 	auditmanagerMod             = "Auditmanager"             // Audit Manager
 	autoscalingMod              = "AutoScaling"              // Auto Scaling
@@ -227,6 +228,7 @@ const (
 	route53DomainsMod           = "Route53Domains"           // Route 53 Domains
 	rumMod                      = "Rum"                      // RUM
 	sagemakerMod                = "Sagemaker"                // Sagemaker
+	savingsPlansMod             = "SavingsPlans"             // Savings Plans
 	schedulerMod                = "Scheduler"                // EventBridge Scheduler
 	schemasMod                  = "Schemas"                  // Schemas
 	securityhubMod              = "SecurityHub"              // SecurityHub
@@ -303,6 +305,7 @@ var moduleMap = map[string]string{
 	"apprunner":                       appRunnerMod,
 	"appstream":                       appStreamMod,
 	"appsync":                         appsyncMod,
+	"arcregionswitch":                 arcRegionSwitchMod,
 	"athena":                          athenaMod,
 	"autoscaling":                     autoscalingMod,
 	"autoscalingplans":                autoscalingPlansMod,
@@ -471,6 +474,7 @@ var moduleMap = map[string]string{
 	"s3outposts":                      s3OutpostsMod,
 	"s3tables":                        s3TablesMod,
 	"sagemaker":                       sagemakerMod,
+	"savingsplans":                    savingsPlansMod,
 	"scheduler":                       schedulerMod,
 	"schemas":                         schemasMod,
 	"secretsmanager":                  secretsmanagerMod,
@@ -2061,6 +2065,7 @@ func ProviderFromMeta(metaInfo *tfbridge.MetadataInfo) *tfbridge.ProviderInfo {
 					},
 				},
 			},
+			"aws_vpc_security_group_rules_exclusive": {Tok: awsResource(ec2Mod, "VpcSecurityGroupRulesExclusive")},
 			"aws_snapshot_create_volume_permission": {Tok: awsResource(ec2Mod, "SnapshotCreateVolumePermission")},
 			"aws_spot_datafeed_subscription":        {Tok: awsResource(ec2Mod, "SpotDatafeedSubscription")},
 			"aws_spot_instance_request": {

@@ -18,14 +18,9 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Provides an DocumentDB Cluster Resource Instance. A Cluster Instance Resource defines
- * attributes that are specific to a single instance in a [DocumentDB Cluster][1].
+ * Provides an DocumentDB Cluster Resource Instance. A Cluster Instance Resource defines attributes that are specific to a single instance in a DocumentDB Cluster.
  * 
- * You do not designate a primary and subsequent replicas. Instead, you simply add DocumentDB
- * Instances and DocumentDB manages the replication. You can use the [count][3]
- * meta-parameter to make multiple instances and join them all to the same DocumentDB
- * Cluster, or you may specify different Cluster Instance resources with various
- * `instanceClass` sizes.
+ * You do not designate a primary and subsequent replicas. Instead, you simply add DocumentDB Instances and DocumentDB manages the replication. You can use the count meta-parameter to make multiple instances and join them all to the same DocumentDB Cluster, or you may specify different Cluster Instance resources with various `instanceClass` sizes.
  * 
  * ## Example Usage
  * 
@@ -90,86 +85,98 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:docdb/clusterInstance:ClusterInstance")
 public class ClusterInstance extends com.pulumi.resources.CustomResource {
     /**
-     * Specifies whether any database modifications
-     * are applied immediately, or during the next maintenance window. Default is`false`.
+     * Whether any database modifications are applied immediately, or during the next maintenance window. Default is`false`.
      * 
      */
     @Export(name="applyImmediately", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> applyImmediately;
 
     /**
-     * @return Specifies whether any database modifications
-     * are applied immediately, or during the next maintenance window. Default is`false`.
+     * @return Whether any database modifications are applied immediately, or during the next maintenance window. Default is`false`.
      * 
      */
     public Output<Optional<Boolean>> applyImmediately() {
         return Codegen.optional(this.applyImmediately);
     }
     /**
-     * Amazon Resource Name (ARN) of cluster instance
+     * ARN of cluster instance
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of cluster instance
+     * @return ARN of cluster instance
      * 
      */
     public Output<String> arn() {
         return this.arn;
     }
     /**
-     * This parameter does not apply to Amazon DocumentDB. Amazon DocumentDB does not perform minor version upgrades regardless of the value set (see [docs](https://docs.aws.amazon.com/documentdb/latest/developerguide/API_DBInstance.html)). Default `true`.
+     * Parameter does not apply to Amazon DocumentDB. Amazon DocumentDB does not perform minor version upgrades regardless of the value set (see [docs](https://docs.aws.amazon.com/documentdb/latest/developerguide/API_DBInstance.html)). Default `true`.
      * 
      */
     @Export(name="autoMinorVersionUpgrade", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> autoMinorVersionUpgrade;
 
     /**
-     * @return This parameter does not apply to Amazon DocumentDB. Amazon DocumentDB does not perform minor version upgrades regardless of the value set (see [docs](https://docs.aws.amazon.com/documentdb/latest/developerguide/API_DBInstance.html)). Default `true`.
+     * @return Parameter does not apply to Amazon DocumentDB. Amazon DocumentDB does not perform minor version upgrades regardless of the value set (see [docs](https://docs.aws.amazon.com/documentdb/latest/developerguide/API_DBInstance.html)). Default `true`.
      * 
      */
     public Output<Optional<Boolean>> autoMinorVersionUpgrade() {
         return Codegen.optional(this.autoMinorVersionUpgrade);
     }
     /**
-     * The EC2 Availability Zone that the DB instance is created in. See [docs](https://docs.aws.amazon.com/documentdb/latest/developerguide/API_CreateDBInstance.html) about the details.
+     * EC2 Availability Zone that the DB instance is created in. See [docs](https://docs.aws.amazon.com/documentdb/latest/developerguide/API_CreateDBInstance.html) about the details.
      * 
      */
     @Export(name="availabilityZone", refs={String.class}, tree="[0]")
     private Output<String> availabilityZone;
 
     /**
-     * @return The EC2 Availability Zone that the DB instance is created in. See [docs](https://docs.aws.amazon.com/documentdb/latest/developerguide/API_CreateDBInstance.html) about the details.
+     * @return EC2 Availability Zone that the DB instance is created in. See [docs](https://docs.aws.amazon.com/documentdb/latest/developerguide/API_CreateDBInstance.html) about the details.
      * 
      */
     public Output<String> availabilityZone() {
         return this.availabilityZone;
     }
     /**
-     * The identifier of the certificate authority (CA) certificate for the DB instance.
+     * Identifier of the certificate authority (CA) certificate for the DB instance.
      * 
      */
     @Export(name="caCertIdentifier", refs={String.class}, tree="[0]")
     private Output<String> caCertIdentifier;
 
     /**
-     * @return The identifier of the certificate authority (CA) certificate for the DB instance.
+     * @return Identifier of the certificate authority (CA) certificate for the DB instance.
      * 
      */
     public Output<String> caCertIdentifier() {
         return this.caCertIdentifier;
     }
     /**
-     * The identifier of the `aws.docdb.Cluster` in which to launch this instance.
+     * Whether to restart the DB instance when rotating its SSL/TLS certificate. By default, AWS restarts the DB instance when you rotate your SSL/TLS certificate. The certificate is not updated until the DB instance is restarted. Set to `false` only if you are not using SSL/TLS to connect to the DB instance.
+     * 
+     */
+    @Export(name="certificateRotationRestart", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> certificateRotationRestart;
+
+    /**
+     * @return Whether to restart the DB instance when rotating its SSL/TLS certificate. By default, AWS restarts the DB instance when you rotate your SSL/TLS certificate. The certificate is not updated until the DB instance is restarted. Set to `false` only if you are not using SSL/TLS to connect to the DB instance.
+     * 
+     */
+    public Output<Optional<String>> certificateRotationRestart() {
+        return Codegen.optional(this.certificateRotationRestart);
+    }
+    /**
+     * Identifier of the `aws.docdb.Cluster` in which to launch this instance.
      * 
      */
     @Export(name="clusterIdentifier", refs={String.class}, tree="[0]")
     private Output<String> clusterIdentifier;
 
     /**
-     * @return The identifier of the `aws.docdb.Cluster` in which to launch this instance.
+     * @return Identifier of the `aws.docdb.Cluster` in which to launch this instance.
      * 
      */
     public Output<String> clusterIdentifier() {
@@ -190,84 +197,84 @@ public class ClusterInstance extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.copyTagsToSnapshot);
     }
     /**
-     * The DB subnet group to associate with this DB instance.
+     * DB subnet group to associate with this DB instance.
      * 
      */
     @Export(name="dbSubnetGroupName", refs={String.class}, tree="[0]")
     private Output<String> dbSubnetGroupName;
 
     /**
-     * @return The DB subnet group to associate with this DB instance.
+     * @return DB subnet group to associate with this DB instance.
      * 
      */
     public Output<String> dbSubnetGroupName() {
         return this.dbSubnetGroupName;
     }
     /**
-     * The region-unique, immutable identifier for the DB instance.
+     * Region-unique, immutable identifier for the DB instance.
      * 
      */
     @Export(name="dbiResourceId", refs={String.class}, tree="[0]")
     private Output<String> dbiResourceId;
 
     /**
-     * @return The region-unique, immutable identifier for the DB instance.
+     * @return Region-unique, immutable identifier for the DB instance.
      * 
      */
     public Output<String> dbiResourceId() {
         return this.dbiResourceId;
     }
     /**
-     * A value that indicates whether to enable Performance Insights for the DB Instance. Default `false`. See [docs] (https://docs.aws.amazon.com/documentdb/latest/developerguide/performance-insights.html) about the details.
+     * Value that indicates whether to enable Performance Insights for the DB Instance. Default `false`. See [docs] (https://docs.aws.amazon.com/documentdb/latest/developerguide/performance-insights.html) about the details.
      * 
      */
     @Export(name="enablePerformanceInsights", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enablePerformanceInsights;
 
     /**
-     * @return A value that indicates whether to enable Performance Insights for the DB Instance. Default `false`. See [docs] (https://docs.aws.amazon.com/documentdb/latest/developerguide/performance-insights.html) about the details.
+     * @return Value that indicates whether to enable Performance Insights for the DB Instance. Default `false`. See [docs] (https://docs.aws.amazon.com/documentdb/latest/developerguide/performance-insights.html) about the details.
      * 
      */
     public Output<Optional<Boolean>> enablePerformanceInsights() {
         return Codegen.optional(this.enablePerformanceInsights);
     }
     /**
-     * The DNS address for this instance. May not be writable
+     * DNS address for this instance. May not be writable
      * 
      */
     @Export(name="endpoint", refs={String.class}, tree="[0]")
     private Output<String> endpoint;
 
     /**
-     * @return The DNS address for this instance. May not be writable
+     * @return DNS address for this instance. May not be writable
      * 
      */
     public Output<String> endpoint() {
         return this.endpoint;
     }
     /**
-     * The name of the database engine to be used for the DocumentDB instance. Defaults to `docdb`. Valid Values: `docdb`.
+     * Name of the database engine to be used for the DocumentDB instance. Defaults to `docdb`. Valid Values: `docdb`.
      * 
      */
     @Export(name="engine", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> engine;
 
     /**
-     * @return The name of the database engine to be used for the DocumentDB instance. Defaults to `docdb`. Valid Values: `docdb`.
+     * @return Name of the database engine to be used for the DocumentDB instance. Defaults to `docdb`. Valid Values: `docdb`.
      * 
      */
     public Output<Optional<String>> engine() {
         return Codegen.optional(this.engine);
     }
     /**
-     * The database engine version
+     * Database engine version
      * 
      */
     @Export(name="engineVersion", refs={String.class}, tree="[0]")
     private Output<String> engineVersion;
 
     /**
-     * @return The database engine version
+     * @return Database engine version
      * 
      */
     public Output<String> engineVersion() {
@@ -302,146 +309,98 @@ public class ClusterInstance extends com.pulumi.resources.CustomResource {
         return this.identifierPrefix;
     }
     /**
-     * The instance class to use. For details on CPU and memory, see [Scaling for DocumentDB Instances](https://docs.aws.amazon.com/documentdb/latest/developerguide/db-cluster-manage-performance.html#db-cluster-manage-scaling-instance).
-     * DocumentDB currently supports the below instance classes.
-     * Please see [AWS Documentation](https://docs.aws.amazon.com/documentdb/latest/developerguide/db-instance-classes.html#db-instance-class-specs) for complete details.
-     * - db.r6g.large
-     * - db.r6g.xlarge
-     * - db.r6g.2xlarge
-     * - db.r6g.4xlarge
-     * - db.r6g.8xlarge
-     * - db.r6g.12xlarge
-     * - db.r6g.16xlarge
-     * - db.r5.large
-     * - db.r5.xlarge
-     * - db.r5.2xlarge
-     * - db.r5.4xlarge
-     * - db.r5.12xlarge
-     * - db.r5.24xlarge
-     * - db.r4.large
-     * - db.r4.xlarge
-     * - db.r4.2xlarge
-     * - db.r4.4xlarge
-     * - db.r4.8xlarge
-     * - db.r4.16xlarge
-     * - db.t4g.medium
-     * - db.t3.medium
+     * Instance class to use. For details on CPU and memory, see [Scaling for DocumentDB Instances](https://docs.aws.amazon.com/documentdb/latest/developerguide/db-cluster-manage-performance.html#db-cluster-manage-scaling-instance). See the `aws.docdb.getOrderableDbInstance` data source. See [AWS Documentation](https://docs.aws.amazon.com/documentdb/latest/developerguide/db-instance-classes.html#db-instance-class-specs) for complete details.
      * 
      */
     @Export(name="instanceClass", refs={String.class}, tree="[0]")
     private Output<String> instanceClass;
 
     /**
-     * @return The instance class to use. For details on CPU and memory, see [Scaling for DocumentDB Instances](https://docs.aws.amazon.com/documentdb/latest/developerguide/db-cluster-manage-performance.html#db-cluster-manage-scaling-instance).
-     * DocumentDB currently supports the below instance classes.
-     * Please see [AWS Documentation](https://docs.aws.amazon.com/documentdb/latest/developerguide/db-instance-classes.html#db-instance-class-specs) for complete details.
-     * - db.r6g.large
-     * - db.r6g.xlarge
-     * - db.r6g.2xlarge
-     * - db.r6g.4xlarge
-     * - db.r6g.8xlarge
-     * - db.r6g.12xlarge
-     * - db.r6g.16xlarge
-     * - db.r5.large
-     * - db.r5.xlarge
-     * - db.r5.2xlarge
-     * - db.r5.4xlarge
-     * - db.r5.12xlarge
-     * - db.r5.24xlarge
-     * - db.r4.large
-     * - db.r4.xlarge
-     * - db.r4.2xlarge
-     * - db.r4.4xlarge
-     * - db.r4.8xlarge
-     * - db.r4.16xlarge
-     * - db.t4g.medium
-     * - db.t3.medium
+     * @return Instance class to use. For details on CPU and memory, see [Scaling for DocumentDB Instances](https://docs.aws.amazon.com/documentdb/latest/developerguide/db-cluster-manage-performance.html#db-cluster-manage-scaling-instance). See the `aws.docdb.getOrderableDbInstance` data source. See [AWS Documentation](https://docs.aws.amazon.com/documentdb/latest/developerguide/db-instance-classes.html#db-instance-class-specs) for complete details.
      * 
      */
     public Output<String> instanceClass() {
         return this.instanceClass;
     }
     /**
-     * The ARN for the KMS encryption key if one is set to the cluster.
+     * ARN for the KMS encryption key if one is set to the cluster.
      * 
      */
     @Export(name="kmsKeyId", refs={String.class}, tree="[0]")
     private Output<String> kmsKeyId;
 
     /**
-     * @return The ARN for the KMS encryption key if one is set to the cluster.
+     * @return ARN for the KMS encryption key if one is set to the cluster.
      * 
      */
     public Output<String> kmsKeyId() {
         return this.kmsKeyId;
     }
     /**
-     * The KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key. If you do not specify a value for PerformanceInsightsKMSKeyId, then Amazon DocumentDB uses your default KMS key.
+     * KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key. If you do not specify a value for PerformanceInsightsKMSKeyId, then Amazon DocumentDB uses your default KMS key.
      * 
      */
     @Export(name="performanceInsightsKmsKeyId", refs={String.class}, tree="[0]")
     private Output<String> performanceInsightsKmsKeyId;
 
     /**
-     * @return The KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key. If you do not specify a value for PerformanceInsightsKMSKeyId, then Amazon DocumentDB uses your default KMS key.
+     * @return KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key. If you do not specify a value for PerformanceInsightsKMSKeyId, then Amazon DocumentDB uses your default KMS key.
      * 
      */
     public Output<String> performanceInsightsKmsKeyId() {
         return this.performanceInsightsKmsKeyId;
     }
     /**
-     * The database port
+     * Database port
      * 
      */
     @Export(name="port", refs={Integer.class}, tree="[0]")
     private Output<Integer> port;
 
     /**
-     * @return The database port
+     * @return Database port
      * 
      */
     public Output<Integer> port() {
         return this.port;
     }
     /**
-     * The daily time range during which automated backups are created if automated backups are enabled.
+     * Daily time range during which automated backups are created if automated backups are enabled.
      * 
      */
     @Export(name="preferredBackupWindow", refs={String.class}, tree="[0]")
     private Output<String> preferredBackupWindow;
 
     /**
-     * @return The daily time range during which automated backups are created if automated backups are enabled.
+     * @return Daily time range during which automated backups are created if automated backups are enabled.
      * 
      */
     public Output<String> preferredBackupWindow() {
         return this.preferredBackupWindow;
     }
     /**
-     * The window to perform maintenance in.
-     * Syntax: &#34;ddd:hh24:mi-ddd:hh24:mi&#34;. Eg: &#34;Mon:00:00-Mon:03:00&#34;.
+     * Window to perform maintenance in. Syntax: &#34;ddd:hh24:mi-ddd:hh24:mi&#34;. Eg: &#34;Mon:00:00-Mon:03:00&#34;.
      * 
      */
     @Export(name="preferredMaintenanceWindow", refs={String.class}, tree="[0]")
     private Output<String> preferredMaintenanceWindow;
 
     /**
-     * @return The window to perform maintenance in.
-     * Syntax: &#34;ddd:hh24:mi-ddd:hh24:mi&#34;. Eg: &#34;Mon:00:00-Mon:03:00&#34;.
+     * @return Window to perform maintenance in. Syntax: &#34;ddd:hh24:mi-ddd:hh24:mi&#34;. Eg: &#34;Mon:00:00-Mon:03:00&#34;.
      * 
      */
     public Output<String> preferredMaintenanceWindow() {
         return this.preferredMaintenanceWindow;
     }
     /**
-     * Default 0. Failover Priority setting on instance level. The reader who has lower tier has higher priority to get promoter to writer.
+     * Failover Priority setting on instance level. Default `0`. The reader who has lower tier has higher priority to get promoter to writer.
      * 
      */
     @Export(name="promotionTier", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> promotionTier;
 
     /**
-     * @return Default 0. Failover Priority setting on instance level. The reader who has lower tier has higher priority to get promoter to writer.
+     * @return Failover Priority setting on instance level. Default `0`. The reader who has lower tier has higher priority to get promoter to writer.
      * 
      */
     public Output<Optional<Integer>> promotionTier() {
@@ -468,56 +427,56 @@ public class ClusterInstance extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * Specifies whether the DB cluster is encrypted.
+     * Whether the DB cluster is encrypted.
      * 
      */
     @Export(name="storageEncrypted", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> storageEncrypted;
 
     /**
-     * @return Specifies whether the DB cluster is encrypted.
+     * @return Whether the DB cluster is encrypted.
      * 
      */
     public Output<Boolean> storageEncrypted() {
         return this.storageEncrypted;
     }
     /**
-     * A map of tags to assign to the instance. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the instance. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the instance. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the instance. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
     }
     /**
-     * Boolean indicating if this instance is writable. `False` indicates this instance is a read replica.
+     * Whether this instance is writable. `False` indicates this instance is a read replica.
      * 
      */
     @Export(name="writer", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> writer;
 
     /**
-     * @return Boolean indicating if this instance is writable. `False` indicates this instance is a read replica.
+     * @return Whether this instance is writable. `False` indicates this instance is a read replica.
      * 
      */
     public Output<Boolean> writer() {

@@ -12,6 +12,18 @@ namespace Pulumi.Aws.Odb.Inputs
 
     public sealed class NetworkManagedServiceArgs : global::Pulumi.ResourceArgs
     {
+        [Input("kmsAccesses", required: true)]
+        private InputList<Inputs.NetworkManagedServiceKmsAccessArgs>? _kmsAccesses;
+
+        /// <summary>
+        /// Specifies the configuration for KMS access from the ODB network.
+        /// </summary>
+        public InputList<Inputs.NetworkManagedServiceKmsAccessArgs> KmsAccesses
+        {
+            get => _kmsAccesses ?? (_kmsAccesses = new InputList<Inputs.NetworkManagedServiceKmsAccessArgs>());
+            set => _kmsAccesses = value;
+        }
+
         [Input("managedS3BackupAccesses", required: true)]
         private InputList<Inputs.NetworkManagedServiceManagedS3BackupAccessArgs>? _managedS3BackupAccesses;
         public InputList<Inputs.NetworkManagedServiceManagedS3BackupAccessArgs> ManagedS3BackupAccesses
@@ -52,6 +64,18 @@ namespace Pulumi.Aws.Odb.Inputs
         {
             get => _serviceNetworkEndpoints ?? (_serviceNetworkEndpoints = new InputList<Inputs.NetworkManagedServiceServiceNetworkEndpointArgs>());
             set => _serviceNetworkEndpoints = value;
+        }
+
+        [Input("stsAccesses", required: true)]
+        private InputList<Inputs.NetworkManagedServiceStsAccessArgs>? _stsAccesses;
+
+        /// <summary>
+        /// Specifies the configuration for STS access from the ODB network.
+        /// </summary>
+        public InputList<Inputs.NetworkManagedServiceStsAccessArgs> StsAccesses
+        {
+            get => _stsAccesses ?? (_stsAccesses = new InputList<Inputs.NetworkManagedServiceStsAccessArgs>());
+            set => _stsAccesses = value;
         }
 
         [Input("zeroEtlAccesses", required: true)]

@@ -28,7 +28,7 @@ import (
 // )
 // func main() {
 // pulumi.Run(func(ctx *pulumi.Context) error {
-// example, err := organizations.LookupOrganization(ctx, map[string]interface{}{
+// example, err := organizations.LookupOrganization(ctx, &organizations.LookupOrganizationArgs{
 // }, nil);
 // if err != nil {
 // return err
@@ -54,7 +54,7 @@ import (
 // )
 // func main() {
 // pulumi.Run(func(ctx *pulumi.Context) error {
-// example, err := organizations.LookupOrganization(ctx, map[string]interface{}{
+// example, err := organizations.LookupOrganization(ctx, &organizations.LookupOrganizationArgs{
 // }, nil);
 // if err != nil {
 // return err
@@ -111,14 +111,20 @@ import (
 // })
 // }
 // ```
-func LookupOrganization(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*LookupOrganizationResult, error) {
+func LookupOrganization(ctx *pulumi.Context, args *LookupOrganizationArgs, opts ...pulumi.InvokeOption) (*LookupOrganizationResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupOrganizationResult
-	err := ctx.Invoke("aws:organizations/getOrganization:getOrganization", nil, &rv, opts...)
+	err := ctx.Invoke("aws:organizations/getOrganization:getOrganization", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return &rv, nil
+}
+
+// A collection of arguments for invoking getOrganization.
+type LookupOrganizationArgs struct {
+	// Return (as attributes) only the results of the [`DescribeOrganization`](https://docs.aws.amazon.com/organizations/latest/APIReference/API_DescribeOrganization.html) API to avoid [API limits](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_reference_limits.html#throttling-limits). When configured to `true` only the `arn`, `featureSet`, `masterAccountArn`, `masterAccountEmail` and `masterAccountId` attributes will be returned. All others will be empty. Default: `false`.
+	ReturnOrganizationOnly *bool `pulumi:"returnOrganizationOnly"`
 }
 
 // A collection of values returned by getOrganization.
@@ -144,16 +150,29 @@ type LookupOrganizationResult struct {
 	// Name of the master account of an organization.
 	MasterAccountName string `pulumi:"masterAccountName"`
 	// List of organization accounts excluding the master account. For a list including the master account, see the `accounts` attribute. All elements have these attributes:
-	NonMasterAccounts []GetOrganizationNonMasterAccount `pulumi:"nonMasterAccounts"`
+	NonMasterAccounts      []GetOrganizationNonMasterAccount `pulumi:"nonMasterAccounts"`
+	ReturnOrganizationOnly *bool                             `pulumi:"returnOrganizationOnly"`
 	// List of organization roots. All elements have these attributes:
 	Roots []GetOrganizationRoot `pulumi:"roots"`
 }
 
-func LookupOrganizationOutput(ctx *pulumi.Context, opts ...pulumi.InvokeOption) LookupOrganizationResultOutput {
-	return pulumi.ToOutput(0).ApplyT(func(int) (LookupOrganizationResultOutput, error) {
-		options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-		return ctx.InvokeOutput("aws:organizations/getOrganization:getOrganization", nil, LookupOrganizationResultOutput{}, options).(LookupOrganizationResultOutput), nil
-	}).(LookupOrganizationResultOutput)
+func LookupOrganizationOutput(ctx *pulumi.Context, args LookupOrganizationOutputArgs, opts ...pulumi.InvokeOption) LookupOrganizationResultOutput {
+	return pulumi.ToOutputWithContext(ctx.Context(), args).
+		ApplyT(func(v interface{}) (LookupOrganizationResultOutput, error) {
+			args := v.(LookupOrganizationArgs)
+			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+			return ctx.InvokeOutput("aws:organizations/getOrganization:getOrganization", args, LookupOrganizationResultOutput{}, options).(LookupOrganizationResultOutput), nil
+		}).(LookupOrganizationResultOutput)
+}
+
+// A collection of arguments for invoking getOrganization.
+type LookupOrganizationOutputArgs struct {
+	// Return (as attributes) only the results of the [`DescribeOrganization`](https://docs.aws.amazon.com/organizations/latest/APIReference/API_DescribeOrganization.html) API to avoid [API limits](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_reference_limits.html#throttling-limits). When configured to `true` only the `arn`, `featureSet`, `masterAccountArn`, `masterAccountEmail` and `masterAccountId` attributes will be returned. All others will be empty. Default: `false`.
+	ReturnOrganizationOnly pulumi.BoolPtrInput `pulumi:"returnOrganizationOnly"`
+}
+
+func (LookupOrganizationOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupOrganizationArgs)(nil)).Elem()
 }
 
 // A collection of values returned by getOrganization.
@@ -224,6 +243,10 @@ func (o LookupOrganizationResultOutput) MasterAccountName() pulumi.StringOutput 
 // List of organization accounts excluding the master account. For a list including the master account, see the `accounts` attribute. All elements have these attributes:
 func (o LookupOrganizationResultOutput) NonMasterAccounts() GetOrganizationNonMasterAccountArrayOutput {
 	return o.ApplyT(func(v LookupOrganizationResult) []GetOrganizationNonMasterAccount { return v.NonMasterAccounts }).(GetOrganizationNonMasterAccountArrayOutput)
+}
+
+func (o LookupOrganizationResultOutput) ReturnOrganizationOnly() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LookupOrganizationResult) *bool { return v.ReturnOrganizationOnly }).(pulumi.BoolPtrOutput)
 }
 
 // List of organization roots. All elements have these attributes:

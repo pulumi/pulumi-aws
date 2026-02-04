@@ -114,6 +114,10 @@ export class Organization extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly nonMasterAccounts: pulumi.Output<outputs.organizations.OrganizationNonMasterAccount[]>;
     /**
+     * Return (as attributes) only the results of the [`DescribeOrganization`](https://docs.aws.amazon.com/organizations/latest/APIReference/API_DescribeOrganization.html) API to avoid [API limits](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_reference_limits.html#throttling-limits). When configured to `true` only the `arn`, `featureSet`, `masterAccountArn`, `masterAccountEmail` and `masterAccountId` attributes will be returned. All others will be empty. Default: `false`.
+     */
+    declare public readonly returnOrganizationOnly: pulumi.Output<boolean | undefined>;
+    /**
      * List of organization roots. All elements have these attributes:
      */
     declare public /*out*/ readonly roots: pulumi.Output<outputs.organizations.OrganizationRoot[]>;
@@ -141,12 +145,14 @@ export class Organization extends pulumi.CustomResource {
             resourceInputs["masterAccountId"] = state?.masterAccountId;
             resourceInputs["masterAccountName"] = state?.masterAccountName;
             resourceInputs["nonMasterAccounts"] = state?.nonMasterAccounts;
+            resourceInputs["returnOrganizationOnly"] = state?.returnOrganizationOnly;
             resourceInputs["roots"] = state?.roots;
         } else {
             const args = argsOrState as OrganizationArgs | undefined;
             resourceInputs["awsServiceAccessPrincipals"] = args?.awsServiceAccessPrincipals;
             resourceInputs["enabledPolicyTypes"] = args?.enabledPolicyTypes;
             resourceInputs["featureSet"] = args?.featureSet;
+            resourceInputs["returnOrganizationOnly"] = args?.returnOrganizationOnly;
             resourceInputs["accounts"] = undefined /*out*/;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["masterAccountArn"] = undefined /*out*/;
@@ -206,6 +212,10 @@ export interface OrganizationState {
      */
     nonMasterAccounts?: pulumi.Input<pulumi.Input<inputs.organizations.OrganizationNonMasterAccount>[]>;
     /**
+     * Return (as attributes) only the results of the [`DescribeOrganization`](https://docs.aws.amazon.com/organizations/latest/APIReference/API_DescribeOrganization.html) API to avoid [API limits](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_reference_limits.html#throttling-limits). When configured to `true` only the `arn`, `featureSet`, `masterAccountArn`, `masterAccountEmail` and `masterAccountId` attributes will be returned. All others will be empty. Default: `false`.
+     */
+    returnOrganizationOnly?: pulumi.Input<boolean>;
+    /**
      * List of organization roots. All elements have these attributes:
      */
     roots?: pulumi.Input<pulumi.Input<inputs.organizations.OrganizationRoot>[]>;
@@ -227,4 +237,8 @@ export interface OrganizationArgs {
      * Specify `ALL` (default) or `CONSOLIDATED_BILLING`.
      */
     featureSet?: pulumi.Input<string>;
+    /**
+     * Return (as attributes) only the results of the [`DescribeOrganization`](https://docs.aws.amazon.com/organizations/latest/APIReference/API_DescribeOrganization.html) API to avoid [API limits](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_reference_limits.html#throttling-limits). When configured to `true` only the `arn`, `featureSet`, `masterAccountArn`, `masterAccountEmail` and `masterAccountId` attributes will be returned. All others will be empty. Default: `false`.
+     */
+    returnOrganizationOnly?: pulumi.Input<boolean>;
 }

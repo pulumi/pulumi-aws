@@ -370,6 +370,10 @@ namespace Pulumi.Aws.Ec2
         /// ID of the source IPAM pool.
         /// </summary>
         public readonly string SourceIpamPoolId;
+        /// <summary>
+        /// Resource used to create the resource planning pool.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetVpcIpamPoolSourceResourceResult> SourceResources;
         public readonly string State;
         /// <summary>
         /// Map of tags to assigned to the resource.
@@ -416,6 +420,8 @@ namespace Pulumi.Aws.Ec2
 
             string sourceIpamPoolId,
 
+            ImmutableArray<Outputs.GetVpcIpamPoolSourceResourceResult> sourceResources,
+
             string state,
 
             ImmutableDictionary<string, string> tags)
@@ -439,6 +445,7 @@ namespace Pulumi.Aws.Ec2
             PubliclyAdvertisable = publiclyAdvertisable;
             Region = region;
             SourceIpamPoolId = sourceIpamPoolId;
+            SourceResources = sourceResources;
             State = state;
             Tags = tags;
         }

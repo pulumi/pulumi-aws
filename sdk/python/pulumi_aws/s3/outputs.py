@@ -182,6 +182,25 @@ __all__ = [
     'VectorsVectorBucketEncryptionConfiguration',
     'GetAccessPointPublicAccessBlockConfigurationResult',
     'GetAccessPointVpcConfigurationResult',
+    'GetBucketObjectLockConfigurationRuleResult',
+    'GetBucketObjectLockConfigurationRuleDefaultRetentionResult',
+    'GetBucketReplicationConfigurationRuleResult',
+    'GetBucketReplicationConfigurationRuleDeleteMarkerReplicationResult',
+    'GetBucketReplicationConfigurationRuleDestinationResult',
+    'GetBucketReplicationConfigurationRuleDestinationAccessControlTranslationResult',
+    'GetBucketReplicationConfigurationRuleDestinationEncryptionConfigurationResult',
+    'GetBucketReplicationConfigurationRuleDestinationMetricResult',
+    'GetBucketReplicationConfigurationRuleDestinationMetricEventThresholdResult',
+    'GetBucketReplicationConfigurationRuleDestinationReplicationTimeResult',
+    'GetBucketReplicationConfigurationRuleDestinationReplicationTimeTimeResult',
+    'GetBucketReplicationConfigurationRuleExistingObjectReplicationResult',
+    'GetBucketReplicationConfigurationRuleFilterResult',
+    'GetBucketReplicationConfigurationRuleFilterAndResult',
+    'GetBucketReplicationConfigurationRuleFilterAndTagResult',
+    'GetBucketReplicationConfigurationRuleFilterTagResult',
+    'GetBucketReplicationConfigurationRuleSourceSelectionCriteriaResult',
+    'GetBucketReplicationConfigurationRuleSourceSelectionCriteriaReplicaModificationResult',
+    'GetBucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectResult',
 ]
 
 @pulumi.output_type
@@ -8419,5 +8438,473 @@ class GetAccessPointVpcConfigurationResult(dict):
         Access point will only allow connections from this VPC.
         """
         return pulumi.get(self, "vpc_id")
+
+
+@pulumi.output_type
+class GetBucketObjectLockConfigurationRuleResult(dict):
+    def __init__(__self__, *,
+                 default_retentions: Sequence['outputs.GetBucketObjectLockConfigurationRuleDefaultRetentionResult']):
+        """
+        :param Sequence['GetBucketObjectLockConfigurationRuleDefaultRetentionArgs'] default_retentions: Default object lock retention settings for new objects placed in the bucket. See Default Retention below.
+        """
+        pulumi.set(__self__, "default_retentions", default_retentions)
+
+    @_builtins.property
+    @pulumi.getter(name="defaultRetentions")
+    def default_retentions(self) -> Sequence['outputs.GetBucketObjectLockConfigurationRuleDefaultRetentionResult']:
+        """
+        Default object lock retention settings for new objects placed in the bucket. See Default Retention below.
+        """
+        return pulumi.get(self, "default_retentions")
+
+
+@pulumi.output_type
+class GetBucketObjectLockConfigurationRuleDefaultRetentionResult(dict):
+    def __init__(__self__, *,
+                 days: _builtins.int,
+                 mode: _builtins.str,
+                 years: _builtins.int):
+        """
+        :param _builtins.int days: Default retention period in days.
+        :param _builtins.str mode: Default object lock retention mode. Valid values are `GOVERNANCE` and `COMPLIANCE`.
+        :param _builtins.int years: Default retention period in years.
+        """
+        pulumi.set(__self__, "days", days)
+        pulumi.set(__self__, "mode", mode)
+        pulumi.set(__self__, "years", years)
+
+    @_builtins.property
+    @pulumi.getter
+    def days(self) -> _builtins.int:
+        """
+        Default retention period in days.
+        """
+        return pulumi.get(self, "days")
+
+    @_builtins.property
+    @pulumi.getter
+    def mode(self) -> _builtins.str:
+        """
+        Default object lock retention mode. Valid values are `GOVERNANCE` and `COMPLIANCE`.
+        """
+        return pulumi.get(self, "mode")
+
+    @_builtins.property
+    @pulumi.getter
+    def years(self) -> _builtins.int:
+        """
+        Default retention period in years.
+        """
+        return pulumi.get(self, "years")
+
+
+@pulumi.output_type
+class GetBucketReplicationConfigurationRuleResult(dict):
+    def __init__(__self__, *,
+                 delete_marker_replications: Sequence['outputs.GetBucketReplicationConfigurationRuleDeleteMarkerReplicationResult'],
+                 destinations: Sequence['outputs.GetBucketReplicationConfigurationRuleDestinationResult'],
+                 existing_object_replications: Sequence['outputs.GetBucketReplicationConfigurationRuleExistingObjectReplicationResult'],
+                 filters: Sequence['outputs.GetBucketReplicationConfigurationRuleFilterResult'],
+                 id: _builtins.str,
+                 prefix: _builtins.str,
+                 priority: _builtins.int,
+                 source_selection_criterias: Sequence['outputs.GetBucketReplicationConfigurationRuleSourceSelectionCriteriaResult'],
+                 status: _builtins.str):
+        """
+        :param _builtins.str prefix: The object key name prefix that identifies the subset of objects to which the rule applies.
+        """
+        pulumi.set(__self__, "delete_marker_replications", delete_marker_replications)
+        pulumi.set(__self__, "destinations", destinations)
+        pulumi.set(__self__, "existing_object_replications", existing_object_replications)
+        pulumi.set(__self__, "filters", filters)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "prefix", prefix)
+        pulumi.set(__self__, "priority", priority)
+        pulumi.set(__self__, "source_selection_criterias", source_selection_criterias)
+        pulumi.set(__self__, "status", status)
+
+    @_builtins.property
+    @pulumi.getter(name="deleteMarkerReplications")
+    def delete_marker_replications(self) -> Sequence['outputs.GetBucketReplicationConfigurationRuleDeleteMarkerReplicationResult']:
+        return pulumi.get(self, "delete_marker_replications")
+
+    @_builtins.property
+    @pulumi.getter
+    def destinations(self) -> Sequence['outputs.GetBucketReplicationConfigurationRuleDestinationResult']:
+        return pulumi.get(self, "destinations")
+
+    @_builtins.property
+    @pulumi.getter(name="existingObjectReplications")
+    def existing_object_replications(self) -> Sequence['outputs.GetBucketReplicationConfigurationRuleExistingObjectReplicationResult']:
+        return pulumi.get(self, "existing_object_replications")
+
+    @_builtins.property
+    @pulumi.getter
+    def filters(self) -> Sequence['outputs.GetBucketReplicationConfigurationRuleFilterResult']:
+        return pulumi.get(self, "filters")
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> _builtins.str:
+        return pulumi.get(self, "id")
+
+    @_builtins.property
+    @pulumi.getter
+    def prefix(self) -> _builtins.str:
+        """
+        The object key name prefix that identifies the subset of objects to which the rule applies.
+        """
+        return pulumi.get(self, "prefix")
+
+    @_builtins.property
+    @pulumi.getter
+    def priority(self) -> _builtins.int:
+        return pulumi.get(self, "priority")
+
+    @_builtins.property
+    @pulumi.getter(name="sourceSelectionCriterias")
+    def source_selection_criterias(self) -> Sequence['outputs.GetBucketReplicationConfigurationRuleSourceSelectionCriteriaResult']:
+        return pulumi.get(self, "source_selection_criterias")
+
+    @_builtins.property
+    @pulumi.getter
+    def status(self) -> _builtins.str:
+        return pulumi.get(self, "status")
+
+
+@pulumi.output_type
+class GetBucketReplicationConfigurationRuleDeleteMarkerReplicationResult(dict):
+    def __init__(__self__, *,
+                 status: _builtins.str):
+        pulumi.set(__self__, "status", status)
+
+    @_builtins.property
+    @pulumi.getter
+    def status(self) -> _builtins.str:
+        return pulumi.get(self, "status")
+
+
+@pulumi.output_type
+class GetBucketReplicationConfigurationRuleDestinationResult(dict):
+    def __init__(__self__, *,
+                 access_control_translations: Sequence['outputs.GetBucketReplicationConfigurationRuleDestinationAccessControlTranslationResult'],
+                 account: _builtins.str,
+                 bucket: _builtins.str,
+                 encryption_configurations: Sequence['outputs.GetBucketReplicationConfigurationRuleDestinationEncryptionConfigurationResult'],
+                 metrics: Sequence['outputs.GetBucketReplicationConfigurationRuleDestinationMetricResult'],
+                 replication_times: Sequence['outputs.GetBucketReplicationConfigurationRuleDestinationReplicationTimeResult'],
+                 storage_class: _builtins.str):
+        """
+        :param _builtins.str bucket: The name of the bucket to get the replication configuration for.
+        """
+        pulumi.set(__self__, "access_control_translations", access_control_translations)
+        pulumi.set(__self__, "account", account)
+        pulumi.set(__self__, "bucket", bucket)
+        pulumi.set(__self__, "encryption_configurations", encryption_configurations)
+        pulumi.set(__self__, "metrics", metrics)
+        pulumi.set(__self__, "replication_times", replication_times)
+        pulumi.set(__self__, "storage_class", storage_class)
+
+    @_builtins.property
+    @pulumi.getter(name="accessControlTranslations")
+    def access_control_translations(self) -> Sequence['outputs.GetBucketReplicationConfigurationRuleDestinationAccessControlTranslationResult']:
+        return pulumi.get(self, "access_control_translations")
+
+    @_builtins.property
+    @pulumi.getter
+    def account(self) -> _builtins.str:
+        return pulumi.get(self, "account")
+
+    @_builtins.property
+    @pulumi.getter
+    def bucket(self) -> _builtins.str:
+        """
+        The name of the bucket to get the replication configuration for.
+        """
+        return pulumi.get(self, "bucket")
+
+    @_builtins.property
+    @pulumi.getter(name="encryptionConfigurations")
+    def encryption_configurations(self) -> Sequence['outputs.GetBucketReplicationConfigurationRuleDestinationEncryptionConfigurationResult']:
+        return pulumi.get(self, "encryption_configurations")
+
+    @_builtins.property
+    @pulumi.getter
+    def metrics(self) -> Sequence['outputs.GetBucketReplicationConfigurationRuleDestinationMetricResult']:
+        return pulumi.get(self, "metrics")
+
+    @_builtins.property
+    @pulumi.getter(name="replicationTimes")
+    def replication_times(self) -> Sequence['outputs.GetBucketReplicationConfigurationRuleDestinationReplicationTimeResult']:
+        return pulumi.get(self, "replication_times")
+
+    @_builtins.property
+    @pulumi.getter(name="storageClass")
+    def storage_class(self) -> _builtins.str:
+        return pulumi.get(self, "storage_class")
+
+
+@pulumi.output_type
+class GetBucketReplicationConfigurationRuleDestinationAccessControlTranslationResult(dict):
+    def __init__(__self__, *,
+                 owner: _builtins.str):
+        pulumi.set(__self__, "owner", owner)
+
+    @_builtins.property
+    @pulumi.getter
+    def owner(self) -> _builtins.str:
+        return pulumi.get(self, "owner")
+
+
+@pulumi.output_type
+class GetBucketReplicationConfigurationRuleDestinationEncryptionConfigurationResult(dict):
+    def __init__(__self__, *,
+                 replica_kms_key_id: _builtins.str):
+        pulumi.set(__self__, "replica_kms_key_id", replica_kms_key_id)
+
+    @_builtins.property
+    @pulumi.getter(name="replicaKmsKeyId")
+    def replica_kms_key_id(self) -> _builtins.str:
+        return pulumi.get(self, "replica_kms_key_id")
+
+
+@pulumi.output_type
+class GetBucketReplicationConfigurationRuleDestinationMetricResult(dict):
+    def __init__(__self__, *,
+                 event_thresholds: Sequence['outputs.GetBucketReplicationConfigurationRuleDestinationMetricEventThresholdResult'],
+                 status: _builtins.str):
+        pulumi.set(__self__, "event_thresholds", event_thresholds)
+        pulumi.set(__self__, "status", status)
+
+    @_builtins.property
+    @pulumi.getter(name="eventThresholds")
+    def event_thresholds(self) -> Sequence['outputs.GetBucketReplicationConfigurationRuleDestinationMetricEventThresholdResult']:
+        return pulumi.get(self, "event_thresholds")
+
+    @_builtins.property
+    @pulumi.getter
+    def status(self) -> _builtins.str:
+        return pulumi.get(self, "status")
+
+
+@pulumi.output_type
+class GetBucketReplicationConfigurationRuleDestinationMetricEventThresholdResult(dict):
+    def __init__(__self__, *,
+                 minutes: _builtins.int):
+        pulumi.set(__self__, "minutes", minutes)
+
+    @_builtins.property
+    @pulumi.getter
+    def minutes(self) -> _builtins.int:
+        return pulumi.get(self, "minutes")
+
+
+@pulumi.output_type
+class GetBucketReplicationConfigurationRuleDestinationReplicationTimeResult(dict):
+    def __init__(__self__, *,
+                 status: _builtins.str,
+                 times: Sequence['outputs.GetBucketReplicationConfigurationRuleDestinationReplicationTimeTimeResult']):
+        pulumi.set(__self__, "status", status)
+        pulumi.set(__self__, "times", times)
+
+    @_builtins.property
+    @pulumi.getter
+    def status(self) -> _builtins.str:
+        return pulumi.get(self, "status")
+
+    @_builtins.property
+    @pulumi.getter
+    def times(self) -> Sequence['outputs.GetBucketReplicationConfigurationRuleDestinationReplicationTimeTimeResult']:
+        return pulumi.get(self, "times")
+
+
+@pulumi.output_type
+class GetBucketReplicationConfigurationRuleDestinationReplicationTimeTimeResult(dict):
+    def __init__(__self__, *,
+                 minutes: _builtins.int):
+        pulumi.set(__self__, "minutes", minutes)
+
+    @_builtins.property
+    @pulumi.getter
+    def minutes(self) -> _builtins.int:
+        return pulumi.get(self, "minutes")
+
+
+@pulumi.output_type
+class GetBucketReplicationConfigurationRuleExistingObjectReplicationResult(dict):
+    def __init__(__self__, *,
+                 status: _builtins.str):
+        pulumi.set(__self__, "status", status)
+
+    @_builtins.property
+    @pulumi.getter
+    def status(self) -> _builtins.str:
+        return pulumi.get(self, "status")
+
+
+@pulumi.output_type
+class GetBucketReplicationConfigurationRuleFilterResult(dict):
+    def __init__(__self__, *,
+                 ands: Sequence['outputs.GetBucketReplicationConfigurationRuleFilterAndResult'],
+                 prefix: _builtins.str,
+                 tags: Sequence['outputs.GetBucketReplicationConfigurationRuleFilterTagResult']):
+        """
+        :param _builtins.str prefix: The object key name prefix that identifies the subset of objects to which the rule applies.
+        :param Sequence['GetBucketReplicationConfigurationRuleFilterTagArgs'] tags: An unordered list of tags that identify a subset of objects to which the rule applies.
+        """
+        pulumi.set(__self__, "ands", ands)
+        pulumi.set(__self__, "prefix", prefix)
+        pulumi.set(__self__, "tags", tags)
+
+    @_builtins.property
+    @pulumi.getter
+    def ands(self) -> Sequence['outputs.GetBucketReplicationConfigurationRuleFilterAndResult']:
+        return pulumi.get(self, "ands")
+
+    @_builtins.property
+    @pulumi.getter
+    def prefix(self) -> _builtins.str:
+        """
+        The object key name prefix that identifies the subset of objects to which the rule applies.
+        """
+        return pulumi.get(self, "prefix")
+
+    @_builtins.property
+    @pulumi.getter
+    def tags(self) -> Sequence['outputs.GetBucketReplicationConfigurationRuleFilterTagResult']:
+        """
+        An unordered list of tags that identify a subset of objects to which the rule applies.
+        """
+        return pulumi.get(self, "tags")
+
+
+@pulumi.output_type
+class GetBucketReplicationConfigurationRuleFilterAndResult(dict):
+    def __init__(__self__, *,
+                 prefix: _builtins.str,
+                 tags: Sequence['outputs.GetBucketReplicationConfigurationRuleFilterAndTagResult']):
+        """
+        :param _builtins.str prefix: The object key name prefix that identifies the subset of objects to which the rule applies.
+        :param Sequence['GetBucketReplicationConfigurationRuleFilterAndTagArgs'] tags: An unordered list of tags that identify a subset of objects to which the rule applies.
+        """
+        pulumi.set(__self__, "prefix", prefix)
+        pulumi.set(__self__, "tags", tags)
+
+    @_builtins.property
+    @pulumi.getter
+    def prefix(self) -> _builtins.str:
+        """
+        The object key name prefix that identifies the subset of objects to which the rule applies.
+        """
+        return pulumi.get(self, "prefix")
+
+    @_builtins.property
+    @pulumi.getter
+    def tags(self) -> Sequence['outputs.GetBucketReplicationConfigurationRuleFilterAndTagResult']:
+        """
+        An unordered list of tags that identify a subset of objects to which the rule applies.
+        """
+        return pulumi.get(self, "tags")
+
+
+@pulumi.output_type
+class GetBucketReplicationConfigurationRuleFilterAndTagResult(dict):
+    def __init__(__self__, *,
+                 key: _builtins.str,
+                 value: _builtins.str):
+        """
+        :param _builtins.str key: The key of the tag.
+        :param _builtins.str value: The value of the tag.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        """
+        The key of the tag.
+        """
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.str:
+        """
+        The value of the tag.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetBucketReplicationConfigurationRuleFilterTagResult(dict):
+    def __init__(__self__, *,
+                 key: _builtins.str,
+                 value: _builtins.str):
+        """
+        :param _builtins.str key: The key of the tag.
+        :param _builtins.str value: The value of the tag.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        """
+        The key of the tag.
+        """
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> _builtins.str:
+        """
+        The value of the tag.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class GetBucketReplicationConfigurationRuleSourceSelectionCriteriaResult(dict):
+    def __init__(__self__, *,
+                 replica_modifications: Sequence['outputs.GetBucketReplicationConfigurationRuleSourceSelectionCriteriaReplicaModificationResult'],
+                 sse_kms_encrypted_objects: Sequence['outputs.GetBucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectResult']):
+        pulumi.set(__self__, "replica_modifications", replica_modifications)
+        pulumi.set(__self__, "sse_kms_encrypted_objects", sse_kms_encrypted_objects)
+
+    @_builtins.property
+    @pulumi.getter(name="replicaModifications")
+    def replica_modifications(self) -> Sequence['outputs.GetBucketReplicationConfigurationRuleSourceSelectionCriteriaReplicaModificationResult']:
+        return pulumi.get(self, "replica_modifications")
+
+    @_builtins.property
+    @pulumi.getter(name="sseKmsEncryptedObjects")
+    def sse_kms_encrypted_objects(self) -> Sequence['outputs.GetBucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectResult']:
+        return pulumi.get(self, "sse_kms_encrypted_objects")
+
+
+@pulumi.output_type
+class GetBucketReplicationConfigurationRuleSourceSelectionCriteriaReplicaModificationResult(dict):
+    def __init__(__self__, *,
+                 status: _builtins.str):
+        pulumi.set(__self__, "status", status)
+
+    @_builtins.property
+    @pulumi.getter
+    def status(self) -> _builtins.str:
+        return pulumi.get(self, "status")
+
+
+@pulumi.output_type
+class GetBucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectResult(dict):
+    def __init__(__self__, *,
+                 status: _builtins.str):
+        pulumi.set(__self__, "status", status)
+
+    @_builtins.property
+    @pulumi.getter
+    def status(self) -> _builtins.str:
+        return pulumi.get(self, "status")
 
 

@@ -30,6 +30,43 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
+ * ### Multimodal Parsing
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.bedrock.AgentDataSource("example", {
+ *     knowledgeBaseId: exampleAwsBedrockagentKnowledgeBase.id,
+ *     name: "multimodal-example",
+ *     dataSourceConfiguration: {
+ *         type: "S3",
+ *         s3Configuration: {
+ *             bucketArn: exampleAwsS3Bucket.arn,
+ *         },
+ *     },
+ *     vectorIngestionConfiguration: {
+ *         chunkingConfiguration: {
+ *             chunkingStrategy: "FIXED_SIZE",
+ *             fixedSizeChunkingConfiguration: {
+ *                 maxTokens: 512,
+ *                 overlapPercentage: 20,
+ *             },
+ *         },
+ *         parsingConfiguration: {
+ *             parsingStrategy: "BEDROCK_FOUNDATION_MODEL",
+ *             bedrockFoundationModelConfiguration: {
+ *                 modelArn: "arn:aws:bedrock:us-east-1::foundation-model/anthropic.claude-3-sonnet-20240229-v1:0",
+ *                 parsingModality: "MULTIMODAL",
+ *                 parsingPrompt: {
+ *                     parsingPromptString: "Extract and transcribe all text and visual content from the document.",
+ *                 },
+ *             },
+ *         },
+ *     },
+ * });
+ * ```
+ *
  * ## Import
  *
  * Using `pulumi import`, import Agents for Amazon Bedrock Data Source using the data source ID and the knowledge base ID. For example:

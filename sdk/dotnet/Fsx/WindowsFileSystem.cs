@@ -80,6 +80,40 @@ namespace Pulumi.Aws.Fsx
     /// });
     /// ```
     /// 
+    /// ### Using a Self-Managed Microsoft Active Directory with Secrets Manager
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.Fsx.WindowsFileSystem("example", new()
+    ///     {
+    ///         KmsKeyId = exampleAwsKmsKey.Arn,
+    ///         StorageCapacity = 32,
+    ///         SubnetIds = new[]
+    ///         {
+    ///             exampleAwsSubnet.Id,
+    ///         },
+    ///         ThroughputCapacity = 32,
+    ///         SelfManagedActiveDirectory = new Aws.Fsx.Inputs.WindowsFileSystemSelfManagedActiveDirectoryArgs
+    ///         {
+    ///             DnsIps = new[]
+    ///             {
+    ///                 "10.0.0.111",
+    ///                 "10.0.0.222",
+    ///             },
+    ///             DomainName = "corp.example.com",
+    ///             DomainJoinServiceAccountSecret = exampleAwsSecretsmanagerSecret.Arn,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import FSx File Systems using the `id`. For example:

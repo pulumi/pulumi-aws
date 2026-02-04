@@ -20,7 +20,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  * import * as random from "@pulumi/random";
  *
- * const example = new random.index.Password("example", {length: 16});
+ * const example = new random.RandomPassword("example", {length: 16});
  * const exampleUser = new aws.memorydb.User("example", {
  *     userName: "my-user",
  *     accessString: "on ~* &* +@all",

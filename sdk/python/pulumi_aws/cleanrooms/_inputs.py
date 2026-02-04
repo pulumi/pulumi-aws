@@ -38,9 +38,21 @@ MYPY = False
 if not MYPY:
     class CollaborationDataEncryptionMetadataArgsDict(TypedDict):
         allow_clear_text: pulumi.Input[_builtins.bool]
+        """
+        Whether encrypted tables can contain cleartext data. This is a boolean field.
+        """
         allow_duplicates: pulumi.Input[_builtins.bool]
+        """
+        Whether Fingerprint columns can contain duplicate entries. This is a boolean field.
+        """
         allow_joins_on_columns_with_different_names: pulumi.Input[_builtins.bool]
+        """
+        Whether Fingerprint columns can be joined on any other Fingerprint column with a different name. This is a boolean field.
+        """
         preserve_nulls: pulumi.Input[_builtins.bool]
+        """
+        Whether NULL values are to be copied as NULL to encrypted tables (true) or cryptographically processed (false).
+        """
 elif False:
     CollaborationDataEncryptionMetadataArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -51,6 +63,12 @@ class CollaborationDataEncryptionMetadataArgs:
                  allow_duplicates: pulumi.Input[_builtins.bool],
                  allow_joins_on_columns_with_different_names: pulumi.Input[_builtins.bool],
                  preserve_nulls: pulumi.Input[_builtins.bool]):
+        """
+        :param pulumi.Input[_builtins.bool] allow_clear_text: Whether encrypted tables can contain cleartext data. This is a boolean field.
+        :param pulumi.Input[_builtins.bool] allow_duplicates: Whether Fingerprint columns can contain duplicate entries. This is a boolean field.
+        :param pulumi.Input[_builtins.bool] allow_joins_on_columns_with_different_names: Whether Fingerprint columns can be joined on any other Fingerprint column with a different name. This is a boolean field.
+        :param pulumi.Input[_builtins.bool] preserve_nulls: Whether NULL values are to be copied as NULL to encrypted tables (true) or cryptographically processed (false).
+        """
         pulumi.set(__self__, "allow_clear_text", allow_clear_text)
         pulumi.set(__self__, "allow_duplicates", allow_duplicates)
         pulumi.set(__self__, "allow_joins_on_columns_with_different_names", allow_joins_on_columns_with_different_names)
@@ -59,6 +77,9 @@ class CollaborationDataEncryptionMetadataArgs:
     @_builtins.property
     @pulumi.getter(name="allowClearText")
     def allow_clear_text(self) -> pulumi.Input[_builtins.bool]:
+        """
+        Whether encrypted tables can contain cleartext data. This is a boolean field.
+        """
         return pulumi.get(self, "allow_clear_text")
 
     @allow_clear_text.setter
@@ -68,6 +89,9 @@ class CollaborationDataEncryptionMetadataArgs:
     @_builtins.property
     @pulumi.getter(name="allowDuplicates")
     def allow_duplicates(self) -> pulumi.Input[_builtins.bool]:
+        """
+        Whether Fingerprint columns can contain duplicate entries. This is a boolean field.
+        """
         return pulumi.get(self, "allow_duplicates")
 
     @allow_duplicates.setter
@@ -77,6 +101,9 @@ class CollaborationDataEncryptionMetadataArgs:
     @_builtins.property
     @pulumi.getter(name="allowJoinsOnColumnsWithDifferentNames")
     def allow_joins_on_columns_with_different_names(self) -> pulumi.Input[_builtins.bool]:
+        """
+        Whether Fingerprint columns can be joined on any other Fingerprint column with a different name. This is a boolean field.
+        """
         return pulumi.get(self, "allow_joins_on_columns_with_different_names")
 
     @allow_joins_on_columns_with_different_names.setter
@@ -86,6 +113,9 @@ class CollaborationDataEncryptionMetadataArgs:
     @_builtins.property
     @pulumi.getter(name="preserveNulls")
     def preserve_nulls(self) -> pulumi.Input[_builtins.bool]:
+        """
+        Whether NULL values are to be copied as NULL to encrypted tables (true) or cryptographically processed (false).
+        """
         return pulumi.get(self, "preserve_nulls")
 
     @preserve_nulls.setter
@@ -96,9 +126,21 @@ class CollaborationDataEncryptionMetadataArgs:
 if not MYPY:
     class CollaborationMemberArgsDict(TypedDict):
         account_id: pulumi.Input[_builtins.str]
+        """
+        Account ID for the invited member.
+        """
         display_name: pulumi.Input[_builtins.str]
+        """
+        Display name for the invited member.
+        """
         member_abilities: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+        """
+        List of abilities for the invited member. Valid values [may be found here](https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_CreateCollaboration.html#API-CreateCollaboration-request-creatorMemberAbilities).
+        """
         status: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        For each member included in the collaboration an additional computed attribute of status is added. These values [may be found here](https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_MemberSummary.html#API-Type-MemberSummary-status).
+        """
 elif False:
     CollaborationMemberArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -109,6 +151,12 @@ class CollaborationMemberArgs:
                  display_name: pulumi.Input[_builtins.str],
                  member_abilities: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
                  status: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] account_id: Account ID for the invited member.
+        :param pulumi.Input[_builtins.str] display_name: Display name for the invited member.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] member_abilities: List of abilities for the invited member. Valid values [may be found here](https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_CreateCollaboration.html#API-CreateCollaboration-request-creatorMemberAbilities).
+        :param pulumi.Input[_builtins.str] status: For each member included in the collaboration an additional computed attribute of status is added. These values [may be found here](https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_MemberSummary.html#API-Type-MemberSummary-status).
+        """
         pulumi.set(__self__, "account_id", account_id)
         pulumi.set(__self__, "display_name", display_name)
         pulumi.set(__self__, "member_abilities", member_abilities)
@@ -118,6 +166,9 @@ class CollaborationMemberArgs:
     @_builtins.property
     @pulumi.getter(name="accountId")
     def account_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        Account ID for the invited member.
+        """
         return pulumi.get(self, "account_id")
 
     @account_id.setter
@@ -127,6 +178,9 @@ class CollaborationMemberArgs:
     @_builtins.property
     @pulumi.getter(name="displayName")
     def display_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Display name for the invited member.
+        """
         return pulumi.get(self, "display_name")
 
     @display_name.setter
@@ -136,6 +190,9 @@ class CollaborationMemberArgs:
     @_builtins.property
     @pulumi.getter(name="memberAbilities")
     def member_abilities(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
+        """
+        List of abilities for the invited member. Valid values [may be found here](https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_CreateCollaboration.html#API-CreateCollaboration-request-creatorMemberAbilities).
+        """
         return pulumi.get(self, "member_abilities")
 
     @member_abilities.setter
@@ -145,6 +202,9 @@ class CollaborationMemberArgs:
     @_builtins.property
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        For each member included in the collaboration an additional computed attribute of status is added. These values [may be found here](https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_MemberSummary.html#API-Type-MemberSummary-status).
+        """
         return pulumi.get(self, "status")
 
     @status.setter

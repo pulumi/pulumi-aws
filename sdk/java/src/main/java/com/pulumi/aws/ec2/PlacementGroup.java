@@ -96,7 +96,7 @@ public class PlacementGroup extends com.pulumi.resources.CustomResource {
     /**
      * The number of partitions to create in the
      * placement group.  Can only be specified when the `strategy` is set to
-     * `partition`.  Valid values are 1 - 7 (default is `2`).
+     * `partition`.  Must be at least `1`. (default is `2`).
      * 
      */
     @Export(name="partitionCount", refs={Integer.class}, tree="[0]")
@@ -105,7 +105,7 @@ public class PlacementGroup extends com.pulumi.resources.CustomResource {
     /**
      * @return The number of partitions to create in the
      * placement group.  Can only be specified when the `strategy` is set to
-     * `partition`.  Valid values are 1 - 7 (default is `2`).
+     * `partition`.  Must be at least `1`. (default is `2`).
      * 
      */
     public Output<Integer> partitionCount() {

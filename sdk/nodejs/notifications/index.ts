@@ -20,6 +20,16 @@ export type EventRule = import("./eventRule").EventRule;
 export const EventRule: typeof import("./eventRule").EventRule = null as any;
 utilities.lazyLoad(exports, ["EventRule"], () => require("./eventRule"));
 
+export { ManagedNotificationAccountContactAssociationArgs, ManagedNotificationAccountContactAssociationState } from "./managedNotificationAccountContactAssociation";
+export type ManagedNotificationAccountContactAssociation = import("./managedNotificationAccountContactAssociation").ManagedNotificationAccountContactAssociation;
+export const ManagedNotificationAccountContactAssociation: typeof import("./managedNotificationAccountContactAssociation").ManagedNotificationAccountContactAssociation = null as any;
+utilities.lazyLoad(exports, ["ManagedNotificationAccountContactAssociation"], () => require("./managedNotificationAccountContactAssociation"));
+
+export { ManagedNotificationAdditionalChannelAssociationArgs, ManagedNotificationAdditionalChannelAssociationState } from "./managedNotificationAdditionalChannelAssociation";
+export type ManagedNotificationAdditionalChannelAssociation = import("./managedNotificationAdditionalChannelAssociation").ManagedNotificationAdditionalChannelAssociation;
+export const ManagedNotificationAdditionalChannelAssociation: typeof import("./managedNotificationAdditionalChannelAssociation").ManagedNotificationAdditionalChannelAssociation = null as any;
+utilities.lazyLoad(exports, ["ManagedNotificationAdditionalChannelAssociation"], () => require("./managedNotificationAdditionalChannelAssociation"));
+
 export { NotificationConfigurationArgs, NotificationConfigurationState } from "./notificationConfiguration";
 export type NotificationConfiguration = import("./notificationConfiguration").NotificationConfiguration;
 export const NotificationConfiguration: typeof import("./notificationConfiguration").NotificationConfiguration = null as any;
@@ -29,6 +39,16 @@ export { NotificationHubArgs, NotificationHubState } from "./notificationHub";
 export type NotificationHub = import("./notificationHub").NotificationHub;
 export const NotificationHub: typeof import("./notificationHub").NotificationHub = null as any;
 utilities.lazyLoad(exports, ["NotificationHub"], () => require("./notificationHub"));
+
+export { OrganizationalUnitAssociationArgs, OrganizationalUnitAssociationState } from "./organizationalUnitAssociation";
+export type OrganizationalUnitAssociation = import("./organizationalUnitAssociation").OrganizationalUnitAssociation;
+export const OrganizationalUnitAssociation: typeof import("./organizationalUnitAssociation").OrganizationalUnitAssociation = null as any;
+utilities.lazyLoad(exports, ["OrganizationalUnitAssociation"], () => require("./organizationalUnitAssociation"));
+
+export { OrganizationsAccessArgs, OrganizationsAccessState } from "./organizationsAccess";
+export type OrganizationsAccess = import("./organizationsAccess").OrganizationsAccess;
+export const OrganizationsAccess: typeof import("./organizationsAccess").OrganizationsAccess = null as any;
+utilities.lazyLoad(exports, ["OrganizationsAccess"], () => require("./organizationsAccess"));
 
 
 const _module = {
@@ -41,10 +61,18 @@ const _module = {
                 return new ContactsEmailContact(name, <any>undefined, { urn })
             case "aws:notifications/eventRule:EventRule":
                 return new EventRule(name, <any>undefined, { urn })
+            case "aws:notifications/managedNotificationAccountContactAssociation:ManagedNotificationAccountContactAssociation":
+                return new ManagedNotificationAccountContactAssociation(name, <any>undefined, { urn })
+            case "aws:notifications/managedNotificationAdditionalChannelAssociation:ManagedNotificationAdditionalChannelAssociation":
+                return new ManagedNotificationAdditionalChannelAssociation(name, <any>undefined, { urn })
             case "aws:notifications/notificationConfiguration:NotificationConfiguration":
                 return new NotificationConfiguration(name, <any>undefined, { urn })
             case "aws:notifications/notificationHub:NotificationHub":
                 return new NotificationHub(name, <any>undefined, { urn })
+            case "aws:notifications/organizationalUnitAssociation:OrganizationalUnitAssociation":
+                return new OrganizationalUnitAssociation(name, <any>undefined, { urn })
+            case "aws:notifications/organizationsAccess:OrganizationsAccess":
+                return new OrganizationsAccess(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
@@ -53,5 +81,9 @@ const _module = {
 pulumi.runtime.registerResourceModule("aws", "notifications/channelAssociation", _module)
 pulumi.runtime.registerResourceModule("aws", "notifications/contactsEmailContact", _module)
 pulumi.runtime.registerResourceModule("aws", "notifications/eventRule", _module)
+pulumi.runtime.registerResourceModule("aws", "notifications/managedNotificationAccountContactAssociation", _module)
+pulumi.runtime.registerResourceModule("aws", "notifications/managedNotificationAdditionalChannelAssociation", _module)
 pulumi.runtime.registerResourceModule("aws", "notifications/notificationConfiguration", _module)
 pulumi.runtime.registerResourceModule("aws", "notifications/notificationHub", _module)
+pulumi.runtime.registerResourceModule("aws", "notifications/organizationalUnitAssociation", _module)
+pulumi.runtime.registerResourceModule("aws", "notifications/organizationsAccess", _module)

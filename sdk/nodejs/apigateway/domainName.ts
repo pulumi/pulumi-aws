@@ -235,6 +235,10 @@ export class DomainName extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly regionalZoneId: pulumi.Output<string>;
     /**
+     * Mode to route traffic for the domain name. Valid values: `BASE_PATH_MAPPING_ONLY`, `ROUTING_RULE_ONLY`, `ROUTING_RULE_THEN_BASE_PATH_MAPPING`.
+     */
+    declare public readonly routingMode: pulumi.Output<string>;
+    /**
      * Transport Layer Security (TLS) version + cipher suite for this DomainName. Must be configured to perform drift detection. For a list of valid security policies, see [DomainName](https://docs.aws.amazon.com/apigateway/latest/api/API_DomainName.html) in the Amazon API Gateway API Reference.
      */
     declare public readonly securityPolicy: pulumi.Output<string>;
@@ -283,6 +287,7 @@ export class DomainName extends pulumi.CustomResource {
             resourceInputs["regionalCertificateName"] = state?.regionalCertificateName;
             resourceInputs["regionalDomainName"] = state?.regionalDomainName;
             resourceInputs["regionalZoneId"] = state?.regionalZoneId;
+            resourceInputs["routingMode"] = state?.routingMode;
             resourceInputs["securityPolicy"] = state?.securityPolicy;
             resourceInputs["tags"] = state?.tags;
             resourceInputs["tagsAll"] = state?.tagsAll;
@@ -305,6 +310,7 @@ export class DomainName extends pulumi.CustomResource {
             resourceInputs["region"] = args?.region;
             resourceInputs["regionalCertificateArn"] = args?.regionalCertificateArn;
             resourceInputs["regionalCertificateName"] = args?.regionalCertificateName;
+            resourceInputs["routingMode"] = args?.routingMode;
             resourceInputs["securityPolicy"] = args?.securityPolicy;
             resourceInputs["tags"] = args?.tags;
             resourceInputs["arn"] = undefined /*out*/;
@@ -414,6 +420,10 @@ export interface DomainNameState {
      */
     regionalZoneId?: pulumi.Input<string>;
     /**
+     * Mode to route traffic for the domain name. Valid values: `BASE_PATH_MAPPING_ONLY`, `ROUTING_RULE_ONLY`, `ROUTING_RULE_THEN_BASE_PATH_MAPPING`.
+     */
+    routingMode?: pulumi.Input<string>;
+    /**
      * Transport Layer Security (TLS) version + cipher suite for this DomainName. Must be configured to perform drift detection. For a list of valid security policies, see [DomainName](https://docs.aws.amazon.com/apigateway/latest/api/API_DomainName.html) in the Amazon API Gateway API Reference.
      */
     securityPolicy?: pulumi.Input<string>;
@@ -491,6 +501,10 @@ export interface DomainNameArgs {
      * User-friendly name of the certificate that will be used by regional endpoint for this domain name. Conflicts with `certificateArn`, `certificateName`, `certificateBody`, `certificateChain`, and `certificatePrivateKey`.
      */
     regionalCertificateName?: pulumi.Input<string>;
+    /**
+     * Mode to route traffic for the domain name. Valid values: `BASE_PATH_MAPPING_ONLY`, `ROUTING_RULE_ONLY`, `ROUTING_RULE_THEN_BASE_PATH_MAPPING`.
+     */
+    routingMode?: pulumi.Input<string>;
     /**
      * Transport Layer Security (TLS) version + cipher suite for this DomainName. Must be configured to perform drift detection. For a list of valid security policies, see [DomainName](https://docs.aws.amazon.com/apigateway/latest/api/API_DomainName.html) in the Amazon API Gateway API Reference.
      */

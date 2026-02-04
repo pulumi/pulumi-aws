@@ -5,6 +5,11 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { ApplicationArgs, ApplicationState } from "./application";
+export type Application = import("./application").Application;
+export const Application: typeof import("./application").Application = null as any;
+utilities.lazyLoad(exports, ["Application"], () => require("./application"));
+
 export { AuthorizeVpcEndpointAccessArgs, AuthorizeVpcEndpointAccessState } from "./authorizeVpcEndpointAccess";
 export type AuthorizeVpcEndpointAccess = import("./authorizeVpcEndpointAccess").AuthorizeVpcEndpointAccess;
 export const AuthorizeVpcEndpointAccess: typeof import("./authorizeVpcEndpointAccess").AuthorizeVpcEndpointAccess = null as any;
@@ -120,6 +125,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "aws:opensearch/application:Application":
+                return new Application(name, <any>undefined, { urn })
             case "aws:opensearch/authorizeVpcEndpointAccess:AuthorizeVpcEndpointAccess":
                 return new AuthorizeVpcEndpointAccess(name, <any>undefined, { urn })
             case "aws:opensearch/domain:Domain":
@@ -155,6 +162,7 @@ const _module = {
         }
     },
 };
+pulumi.runtime.registerResourceModule("aws", "opensearch/application", _module)
 pulumi.runtime.registerResourceModule("aws", "opensearch/authorizeVpcEndpointAccess", _module)
 pulumi.runtime.registerResourceModule("aws", "opensearch/domain", _module)
 pulumi.runtime.registerResourceModule("aws", "opensearch/domainPolicy", _module)

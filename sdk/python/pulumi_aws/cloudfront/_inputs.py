@@ -15,6 +15,8 @@ else:
 from .. import _utilities
 
 __all__ = [
+    'AnycastIpListTimeoutsArgs',
+    'AnycastIpListTimeoutsArgsDict',
     'CachePolicyParametersInCacheKeyAndForwardedToOriginArgs',
     'CachePolicyParametersInCacheKeyAndForwardedToOriginArgsDict',
     'CachePolicyParametersInCacheKeyAndForwardedToOriginCookiesConfigArgs',
@@ -276,6 +278,38 @@ __all__ = [
 ]
 
 MYPY = False
+
+if not MYPY:
+    class AnycastIpListTimeoutsArgsDict(TypedDict):
+        create: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+elif False:
+    AnycastIpListTimeoutsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AnycastIpListTimeoutsArgs:
+    def __init__(__self__, *,
+                 create: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] create: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        if create is not None:
+            pulumi.set(__self__, "create", create)
+
+    @_builtins.property
+    @pulumi.getter
+    def create(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "create")
+
+    @create.setter
+    def create(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "create", value)
+
 
 if not MYPY:
     class CachePolicyParametersInCacheKeyAndForwardedToOriginArgsDict(TypedDict):
@@ -6422,9 +6456,9 @@ class MultitenantDistributionOriginCustomOriginConfigArgs:
 
 if not MYPY:
     class MultitenantDistributionOriginGroupArgsDict(TypedDict):
-        origin_id: pulumi.Input[_builtins.str]
+        id: pulumi.Input[_builtins.str]
         """
-        Unique identifier for the origin group.
+        Identifier for the distribution.
         """
         failover_criteria: NotRequired[pulumi.Input['MultitenantDistributionOriginGroupFailoverCriteriaArgsDict']]
         """
@@ -6440,31 +6474,31 @@ elif False:
 @pulumi.input_type
 class MultitenantDistributionOriginGroupArgs:
     def __init__(__self__, *,
-                 origin_id: pulumi.Input[_builtins.str],
+                 id: pulumi.Input[_builtins.str],
                  failover_criteria: Optional[pulumi.Input['MultitenantDistributionOriginGroupFailoverCriteriaArgs']] = None,
                  members: Optional[pulumi.Input[Sequence[pulumi.Input['MultitenantDistributionOriginGroupMemberArgs']]]] = None):
         """
-        :param pulumi.Input[_builtins.str] origin_id: Unique identifier for the origin group.
+        :param pulumi.Input[_builtins.str] id: Identifier for the distribution.
         :param pulumi.Input['MultitenantDistributionOriginGroupFailoverCriteriaArgs'] failover_criteria: Failover criteria for when to failover to the secondary origin. See Failover Criteria below.
         :param pulumi.Input[Sequence[pulumi.Input['MultitenantDistributionOriginGroupMemberArgs']]] members: List of origins in this origin group. Must contain exactly 2 members. See Origin Group Member below.
         """
-        pulumi.set(__self__, "origin_id", origin_id)
+        pulumi.set(__self__, "id", id)
         if failover_criteria is not None:
             pulumi.set(__self__, "failover_criteria", failover_criteria)
         if members is not None:
             pulumi.set(__self__, "members", members)
 
     @_builtins.property
-    @pulumi.getter(name="originId")
-    def origin_id(self) -> pulumi.Input[_builtins.str]:
+    @pulumi.getter
+    def id(self) -> pulumi.Input[_builtins.str]:
         """
-        Unique identifier for the origin group.
+        Identifier for the distribution.
         """
-        return pulumi.get(self, "origin_id")
+        return pulumi.get(self, "id")
 
-    @origin_id.setter
-    def origin_id(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "origin_id", value)
+    @id.setter
+    def id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "id", value)
 
     @_builtins.property
     @pulumi.getter(name="failoverCriteria")

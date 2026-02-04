@@ -75,6 +75,8 @@ type VpcIpamResourceDiscovery struct {
 	IsDefault pulumi.BoolOutput `pulumi:"isDefault"`
 	// Determines which regions the Resource Discovery will enable IPAM features for usage and monitoring. Locale is the Region where you want to make an IPAM pool available for allocations. You can only create pools with locales that match the operating Regions of the IPAM Resource Discovery. You can only create VPCs from a pool whose locale matches the VPC's Region. You specify a region using the regionName parameter. **You must set your provider block region as an operating_region.**
 	OperatingRegions VpcIpamResourceDiscoveryOperatingRegionArrayOutput `pulumi:"operatingRegions"`
+	// Add an Organizational Unit (OU) exclusion to IPAM. If IPAM is integrated with AWS Organizations and OU exclusion is added, IPAM will not manage the IP addresses in accounts in the OU exclusion. Refer to [IPAM Quotas](https://docs.aws.amazon.com/vpc/latest/ipam/quotas-ipam.html) for the limit of exclusions that can be created.
+	OrganizationalUnitExclusions VpcIpamResourceDiscoveryOrganizationalUnitExclusionArrayOutput `pulumi:"organizationalUnitExclusions"`
 	// The account ID for the account that manages the Resource Discovery
 	OwnerId pulumi.StringOutput `pulumi:"ownerId"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -128,6 +130,8 @@ type vpcIpamResourceDiscoveryState struct {
 	IsDefault *bool `pulumi:"isDefault"`
 	// Determines which regions the Resource Discovery will enable IPAM features for usage and monitoring. Locale is the Region where you want to make an IPAM pool available for allocations. You can only create pools with locales that match the operating Regions of the IPAM Resource Discovery. You can only create VPCs from a pool whose locale matches the VPC's Region. You specify a region using the regionName parameter. **You must set your provider block region as an operating_region.**
 	OperatingRegions []VpcIpamResourceDiscoveryOperatingRegion `pulumi:"operatingRegions"`
+	// Add an Organizational Unit (OU) exclusion to IPAM. If IPAM is integrated with AWS Organizations and OU exclusion is added, IPAM will not manage the IP addresses in accounts in the OU exclusion. Refer to [IPAM Quotas](https://docs.aws.amazon.com/vpc/latest/ipam/quotas-ipam.html) for the limit of exclusions that can be created.
+	OrganizationalUnitExclusions []VpcIpamResourceDiscoveryOrganizationalUnitExclusion `pulumi:"organizationalUnitExclusions"`
 	// The account ID for the account that manages the Resource Discovery
 	OwnerId *string `pulumi:"ownerId"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -149,6 +153,8 @@ type VpcIpamResourceDiscoveryState struct {
 	IsDefault pulumi.BoolPtrInput
 	// Determines which regions the Resource Discovery will enable IPAM features for usage and monitoring. Locale is the Region where you want to make an IPAM pool available for allocations. You can only create pools with locales that match the operating Regions of the IPAM Resource Discovery. You can only create VPCs from a pool whose locale matches the VPC's Region. You specify a region using the regionName parameter. **You must set your provider block region as an operating_region.**
 	OperatingRegions VpcIpamResourceDiscoveryOperatingRegionArrayInput
+	// Add an Organizational Unit (OU) exclusion to IPAM. If IPAM is integrated with AWS Organizations and OU exclusion is added, IPAM will not manage the IP addresses in accounts in the OU exclusion. Refer to [IPAM Quotas](https://docs.aws.amazon.com/vpc/latest/ipam/quotas-ipam.html) for the limit of exclusions that can be created.
+	OrganizationalUnitExclusions VpcIpamResourceDiscoveryOrganizationalUnitExclusionArrayInput
 	// The account ID for the account that manages the Resource Discovery
 	OwnerId pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -168,6 +174,8 @@ type vpcIpamResourceDiscoveryArgs struct {
 	Description *string `pulumi:"description"`
 	// Determines which regions the Resource Discovery will enable IPAM features for usage and monitoring. Locale is the Region where you want to make an IPAM pool available for allocations. You can only create pools with locales that match the operating Regions of the IPAM Resource Discovery. You can only create VPCs from a pool whose locale matches the VPC's Region. You specify a region using the regionName parameter. **You must set your provider block region as an operating_region.**
 	OperatingRegions []VpcIpamResourceDiscoveryOperatingRegion `pulumi:"operatingRegions"`
+	// Add an Organizational Unit (OU) exclusion to IPAM. If IPAM is integrated with AWS Organizations and OU exclusion is added, IPAM will not manage the IP addresses in accounts in the OU exclusion. Refer to [IPAM Quotas](https://docs.aws.amazon.com/vpc/latest/ipam/quotas-ipam.html) for the limit of exclusions that can be created.
+	OrganizationalUnitExclusions []VpcIpamResourceDiscoveryOrganizationalUnitExclusion `pulumi:"organizationalUnitExclusions"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -180,6 +188,8 @@ type VpcIpamResourceDiscoveryArgs struct {
 	Description pulumi.StringPtrInput
 	// Determines which regions the Resource Discovery will enable IPAM features for usage and monitoring. Locale is the Region where you want to make an IPAM pool available for allocations. You can only create pools with locales that match the operating Regions of the IPAM Resource Discovery. You can only create VPCs from a pool whose locale matches the VPC's Region. You specify a region using the regionName parameter. **You must set your provider block region as an operating_region.**
 	OperatingRegions VpcIpamResourceDiscoveryOperatingRegionArrayInput
+	// Add an Organizational Unit (OU) exclusion to IPAM. If IPAM is integrated with AWS Organizations and OU exclusion is added, IPAM will not manage the IP addresses in accounts in the OU exclusion. Refer to [IPAM Quotas](https://docs.aws.amazon.com/vpc/latest/ipam/quotas-ipam.html) for the limit of exclusions that can be created.
+	OrganizationalUnitExclusions VpcIpamResourceDiscoveryOrganizationalUnitExclusionArrayInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -298,6 +308,13 @@ func (o VpcIpamResourceDiscoveryOutput) OperatingRegions() VpcIpamResourceDiscov
 	return o.ApplyT(func(v *VpcIpamResourceDiscovery) VpcIpamResourceDiscoveryOperatingRegionArrayOutput {
 		return v.OperatingRegions
 	}).(VpcIpamResourceDiscoveryOperatingRegionArrayOutput)
+}
+
+// Add an Organizational Unit (OU) exclusion to IPAM. If IPAM is integrated with AWS Organizations and OU exclusion is added, IPAM will not manage the IP addresses in accounts in the OU exclusion. Refer to [IPAM Quotas](https://docs.aws.amazon.com/vpc/latest/ipam/quotas-ipam.html) for the limit of exclusions that can be created.
+func (o VpcIpamResourceDiscoveryOutput) OrganizationalUnitExclusions() VpcIpamResourceDiscoveryOrganizationalUnitExclusionArrayOutput {
+	return o.ApplyT(func(v *VpcIpamResourceDiscovery) VpcIpamResourceDiscoveryOrganizationalUnitExclusionArrayOutput {
+		return v.OrganizationalUnitExclusions
+	}).(VpcIpamResourceDiscoveryOrganizationalUnitExclusionArrayOutput)
 }
 
 // The account ID for the account that manages the Resource Discovery

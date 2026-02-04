@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Ecr
 {
     /// <summary>
-    /// Provides a resource to manage AWS ECR Basic Scan Type
+    /// Provides a resource to manage AWS ECR account settings
     /// 
     /// ## Example Usage
     /// 
@@ -28,6 +28,25 @@ namespace Pulumi.Aws.Ecr
     ///     {
     ///         Name = "BASIC_SCAN_TYPE_VERSION",
     ///         Value = "AWS_NATIVE",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ### Configuring Blob Mounting (Cross-Repository Layer Sharing)
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var blobMounting = new Aws.Ecr.AccountSetting("blob_mounting", new()
+    ///     {
+    ///         Name = "BLOB_MOUNTING",
+    ///         Value = "ENABLED",
     ///     });
     /// 
     /// });
@@ -64,7 +83,7 @@ namespace Pulumi.Aws.Ecr
     public partial class AccountSetting : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Name of the account setting. One of: `BASIC_SCAN_TYPE_VERSION`, `REGISTRY_POLICY_SCOPE`.
+        /// Name of the account setting. One of: `BASIC_SCAN_TYPE_VERSION`, `BLOB_MOUNTING`, `REGISTRY_POLICY_SCOPE`.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -78,6 +97,7 @@ namespace Pulumi.Aws.Ecr
         /// <summary>
         /// Setting value that is specified. Valid values are:
         /// * If `Name` is specified as `BASIC_SCAN_TYPE_VERSION`, one of: `AWS_NATIVE`, `CLAIR`.
+        /// * If `Name` is specified as `BLOB_MOUNTING`, one of: `ENABLED`, `DISABLED`.
         /// * If `Name` is specified as `REGISTRY_POLICY_SCOPE`, one of: `V1`, `V2`.
         /// </summary>
         [Output("value")]
@@ -130,7 +150,7 @@ namespace Pulumi.Aws.Ecr
     public sealed class AccountSettingArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Name of the account setting. One of: `BASIC_SCAN_TYPE_VERSION`, `REGISTRY_POLICY_SCOPE`.
+        /// Name of the account setting. One of: `BASIC_SCAN_TYPE_VERSION`, `BLOB_MOUNTING`, `REGISTRY_POLICY_SCOPE`.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -144,6 +164,7 @@ namespace Pulumi.Aws.Ecr
         /// <summary>
         /// Setting value that is specified. Valid values are:
         /// * If `Name` is specified as `BASIC_SCAN_TYPE_VERSION`, one of: `AWS_NATIVE`, `CLAIR`.
+        /// * If `Name` is specified as `BLOB_MOUNTING`, one of: `ENABLED`, `DISABLED`.
         /// * If `Name` is specified as `REGISTRY_POLICY_SCOPE`, one of: `V1`, `V2`.
         /// </summary>
         [Input("value", required: true)]
@@ -158,7 +179,7 @@ namespace Pulumi.Aws.Ecr
     public sealed class AccountSettingState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Name of the account setting. One of: `BASIC_SCAN_TYPE_VERSION`, `REGISTRY_POLICY_SCOPE`.
+        /// Name of the account setting. One of: `BASIC_SCAN_TYPE_VERSION`, `BLOB_MOUNTING`, `REGISTRY_POLICY_SCOPE`.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -172,6 +193,7 @@ namespace Pulumi.Aws.Ecr
         /// <summary>
         /// Setting value that is specified. Valid values are:
         /// * If `Name` is specified as `BASIC_SCAN_TYPE_VERSION`, one of: `AWS_NATIVE`, `CLAIR`.
+        /// * If `Name` is specified as `BLOB_MOUNTING`, one of: `ENABLED`, `DISABLED`.
         /// * If `Name` is specified as `REGISTRY_POLICY_SCOPE`, one of: `V1`, `V2`.
         /// </summary>
         [Input("value")]

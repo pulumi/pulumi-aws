@@ -12,18 +12,36 @@ namespace Pulumi.Aws.Batch.Inputs
 
     public sealed class JobDefinitionEksPropertiesPodPropertiesInitContainerSecurityContextArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Whether or not a container or a Kubernetes pod is allowed to gain more privileges than its parent process. The default value is `False`.
+        /// </summary>
+        [Input("allowPrivilegeEscalation")]
+        public Input<bool>? AllowPrivilegeEscalation { get; set; }
+
+        /// <summary>
+        /// When this parameter is `True`, the container is given elevated permissions on the host container instance. The level of permissions are similar to the root user permissions. The default value is `False`.
+        /// </summary>
         [Input("privileged")]
         public Input<bool>? Privileged { get; set; }
 
         [Input("readOnlyRootFileSystem")]
         public Input<bool>? ReadOnlyRootFileSystem { get; set; }
 
+        /// <summary>
+        /// When this parameter is specified, the container is run as the specified group ID (gid). If this parameter isn't specified, the default is the group that's specified in the image metadata.
+        /// </summary>
         [Input("runAsGroup")]
         public Input<int>? RunAsGroup { get; set; }
 
+        /// <summary>
+        /// When this parameter is specified, the container is run as a user with a uid other than 0. If this parameter isn't specified, so such rule is enforced.
+        /// </summary>
         [Input("runAsNonRoot")]
         public Input<bool>? RunAsNonRoot { get; set; }
 
+        /// <summary>
+        /// When this parameter is specified, the container is run as the specified user ID (uid). If this parameter isn't specified, the default is the user that's specified in the image metadata.
+        /// </summary>
         [Input("runAsUser")]
         public Input<int>? RunAsUser { get; set; }
 

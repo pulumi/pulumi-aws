@@ -119,6 +119,10 @@ export class DomainName extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
+     * Mode to route traffic for the domain name. Valid values: `API_MAPPING_ONLY`, `ROUTING_RULE_ONLY`, `ROUTING_RULE_THEN_API_MAPPING`.
+     */
+    declare public readonly routingMode: pulumi.Output<string>;
+    /**
      * Map of tags to assign to the domain name. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
@@ -146,6 +150,7 @@ export class DomainName extends pulumi.CustomResource {
             resourceInputs["domainNameConfiguration"] = state?.domainNameConfiguration;
             resourceInputs["mutualTlsAuthentication"] = state?.mutualTlsAuthentication;
             resourceInputs["region"] = state?.region;
+            resourceInputs["routingMode"] = state?.routingMode;
             resourceInputs["tags"] = state?.tags;
             resourceInputs["tagsAll"] = state?.tagsAll;
         } else {
@@ -160,6 +165,7 @@ export class DomainName extends pulumi.CustomResource {
             resourceInputs["domainNameConfiguration"] = args?.domainNameConfiguration;
             resourceInputs["mutualTlsAuthentication"] = args?.mutualTlsAuthentication;
             resourceInputs["region"] = args?.region;
+            resourceInputs["routingMode"] = args?.routingMode;
             resourceInputs["tags"] = args?.tags;
             resourceInputs["apiMappingSelectionExpression"] = undefined /*out*/;
             resourceInputs["arn"] = undefined /*out*/;
@@ -199,6 +205,10 @@ export interface DomainNameState {
      */
     region?: pulumi.Input<string>;
     /**
+     * Mode to route traffic for the domain name. Valid values: `API_MAPPING_ONLY`, `ROUTING_RULE_ONLY`, `ROUTING_RULE_THEN_API_MAPPING`.
+     */
+    routingMode?: pulumi.Input<string>;
+    /**
      * Map of tags to assign to the domain name. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
@@ -228,6 +238,10 @@ export interface DomainNameArgs {
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string>;
+    /**
+     * Mode to route traffic for the domain name. Valid values: `API_MAPPING_ONLY`, `ROUTING_RULE_ONLY`, `ROUTING_RULE_THEN_API_MAPPING`.
+     */
+    routingMode?: pulumi.Input<string>;
     /**
      * Map of tags to assign to the domain name. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

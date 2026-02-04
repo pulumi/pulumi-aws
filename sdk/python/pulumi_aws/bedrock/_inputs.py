@@ -137,6 +137,8 @@ __all__ = [
     'AgentDataSourceVectorIngestionConfigurationCustomTransformationConfigurationTransformationTransformationFunctionTransformationLambdaConfigurationArgsDict',
     'AgentDataSourceVectorIngestionConfigurationParsingConfigurationArgs',
     'AgentDataSourceVectorIngestionConfigurationParsingConfigurationArgsDict',
+    'AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockDataAutomationConfigurationArgs',
+    'AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockDataAutomationConfigurationArgsDict',
     'AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationArgs',
     'AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationArgsDict',
     'AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationParsingPromptArgs',
@@ -3991,7 +3993,11 @@ if not MYPY:
     class AgentDataSourceVectorIngestionConfigurationParsingConfigurationArgsDict(TypedDict):
         parsing_strategy: pulumi.Input[_builtins.str]
         """
-        Currently only `BEDROCK_FOUNDATION_MODEL` is supported
+        The parsing strategy to use. Valid values: `BEDROCK_FOUNDATION_MODEL`, `BEDROCK_DATA_AUTOMATION`.
+        """
+        bedrock_data_automation_configuration: NotRequired[pulumi.Input['AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockDataAutomationConfigurationArgsDict']]
+        """
+        Settings for using Amazon Bedrock Data Automation to parse documents. See `bedrock_data_automation_configuration` block for details.
         """
         bedrock_foundation_model_configuration: NotRequired[pulumi.Input['AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationArgsDict']]
         """
@@ -4004,12 +4010,16 @@ elif False:
 class AgentDataSourceVectorIngestionConfigurationParsingConfigurationArgs:
     def __init__(__self__, *,
                  parsing_strategy: pulumi.Input[_builtins.str],
+                 bedrock_data_automation_configuration: Optional[pulumi.Input['AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockDataAutomationConfigurationArgs']] = None,
                  bedrock_foundation_model_configuration: Optional[pulumi.Input['AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationArgs']] = None):
         """
-        :param pulumi.Input[_builtins.str] parsing_strategy: Currently only `BEDROCK_FOUNDATION_MODEL` is supported
+        :param pulumi.Input[_builtins.str] parsing_strategy: The parsing strategy to use. Valid values: `BEDROCK_FOUNDATION_MODEL`, `BEDROCK_DATA_AUTOMATION`.
+        :param pulumi.Input['AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockDataAutomationConfigurationArgs'] bedrock_data_automation_configuration: Settings for using Amazon Bedrock Data Automation to parse documents. See `bedrock_data_automation_configuration` block for details.
         :param pulumi.Input['AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationArgs'] bedrock_foundation_model_configuration: Settings for a foundation model used to parse documents in a data source. See `bedrock_foundation_model_configuration` block for details.
         """
         pulumi.set(__self__, "parsing_strategy", parsing_strategy)
+        if bedrock_data_automation_configuration is not None:
+            pulumi.set(__self__, "bedrock_data_automation_configuration", bedrock_data_automation_configuration)
         if bedrock_foundation_model_configuration is not None:
             pulumi.set(__self__, "bedrock_foundation_model_configuration", bedrock_foundation_model_configuration)
 
@@ -4017,13 +4027,25 @@ class AgentDataSourceVectorIngestionConfigurationParsingConfigurationArgs:
     @pulumi.getter(name="parsingStrategy")
     def parsing_strategy(self) -> pulumi.Input[_builtins.str]:
         """
-        Currently only `BEDROCK_FOUNDATION_MODEL` is supported
+        The parsing strategy to use. Valid values: `BEDROCK_FOUNDATION_MODEL`, `BEDROCK_DATA_AUTOMATION`.
         """
         return pulumi.get(self, "parsing_strategy")
 
     @parsing_strategy.setter
     def parsing_strategy(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "parsing_strategy", value)
+
+    @_builtins.property
+    @pulumi.getter(name="bedrockDataAutomationConfiguration")
+    def bedrock_data_automation_configuration(self) -> Optional[pulumi.Input['AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockDataAutomationConfigurationArgs']]:
+        """
+        Settings for using Amazon Bedrock Data Automation to parse documents. See `bedrock_data_automation_configuration` block for details.
+        """
+        return pulumi.get(self, "bedrock_data_automation_configuration")
+
+    @bedrock_data_automation_configuration.setter
+    def bedrock_data_automation_configuration(self, value: Optional[pulumi.Input['AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockDataAutomationConfigurationArgs']]):
+        pulumi.set(self, "bedrock_data_automation_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="bedrockFoundationModelConfiguration")
@@ -4039,10 +4061,46 @@ class AgentDataSourceVectorIngestionConfigurationParsingConfigurationArgs:
 
 
 if not MYPY:
+    class AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockDataAutomationConfigurationArgsDict(TypedDict):
+        parsing_modality: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Specifies whether to enable parsing of multimodal data, including both text and images. Valid value: `MULTIMODAL`.
+        """
+elif False:
+    AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockDataAutomationConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockDataAutomationConfigurationArgs:
+    def __init__(__self__, *,
+                 parsing_modality: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] parsing_modality: Specifies whether to enable parsing of multimodal data, including both text and images. Valid value: `MULTIMODAL`.
+        """
+        if parsing_modality is not None:
+            pulumi.set(__self__, "parsing_modality", parsing_modality)
+
+    @_builtins.property
+    @pulumi.getter(name="parsingModality")
+    def parsing_modality(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Specifies whether to enable parsing of multimodal data, including both text and images. Valid value: `MULTIMODAL`.
+        """
+        return pulumi.get(self, "parsing_modality")
+
+    @parsing_modality.setter
+    def parsing_modality(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "parsing_modality", value)
+
+
+if not MYPY:
     class AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationArgsDict(TypedDict):
         model_arn: pulumi.Input[_builtins.str]
         """
         The ARN of the model used to parse documents
+        """
+        parsing_modality: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Specifies whether to enable parsing of multimodal data, including both text and images. Valid values: `MULTIMODAL`.
         """
         parsing_prompt: NotRequired[pulumi.Input['AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationParsingPromptArgsDict']]
         """
@@ -4055,12 +4113,16 @@ elif False:
 class AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationArgs:
     def __init__(__self__, *,
                  model_arn: pulumi.Input[_builtins.str],
+                 parsing_modality: Optional[pulumi.Input[_builtins.str]] = None,
                  parsing_prompt: Optional[pulumi.Input['AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationParsingPromptArgs']] = None):
         """
         :param pulumi.Input[_builtins.str] model_arn: The ARN of the model used to parse documents
+        :param pulumi.Input[_builtins.str] parsing_modality: Specifies whether to enable parsing of multimodal data, including both text and images. Valid values: `MULTIMODAL`.
         :param pulumi.Input['AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationParsingPromptArgs'] parsing_prompt: Instructions for interpreting the contents of the document. See `parsing_prompt` block for details.
         """
         pulumi.set(__self__, "model_arn", model_arn)
+        if parsing_modality is not None:
+            pulumi.set(__self__, "parsing_modality", parsing_modality)
         if parsing_prompt is not None:
             pulumi.set(__self__, "parsing_prompt", parsing_prompt)
 
@@ -4075,6 +4137,18 @@ class AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoun
     @model_arn.setter
     def model_arn(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "model_arn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="parsingModality")
+    def parsing_modality(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Specifies whether to enable parsing of multimodal data, including both text and images. Valid values: `MULTIMODAL`.
+        """
+        return pulumi.get(self, "parsing_modality")
+
+    @parsing_modality.setter
+    def parsing_modality(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "parsing_modality", value)
 
     @_builtins.property
     @pulumi.getter(name="parsingPrompt")

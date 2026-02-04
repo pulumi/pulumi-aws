@@ -8,9 +8,12 @@ import com.pulumi.aws.organizations.outputs.GetOrganizationNonMasterAccount;
 import com.pulumi.aws.organizations.outputs.GetOrganizationRoot;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetOrganizationResult {
@@ -69,6 +72,7 @@ public final class GetOrganizationResult {
      * 
      */
     private List<GetOrganizationNonMasterAccount> nonMasterAccounts;
+    private @Nullable Boolean returnOrganizationOnly;
     /**
      * @return List of organization roots. All elements have these attributes:
      * 
@@ -153,6 +157,9 @@ public final class GetOrganizationResult {
     public List<GetOrganizationNonMasterAccount> nonMasterAccounts() {
         return this.nonMasterAccounts;
     }
+    public Optional<Boolean> returnOrganizationOnly() {
+        return Optional.ofNullable(this.returnOrganizationOnly);
+    }
     /**
      * @return List of organization roots. All elements have these attributes:
      * 
@@ -181,6 +188,7 @@ public final class GetOrganizationResult {
         private String masterAccountId;
         private String masterAccountName;
         private List<GetOrganizationNonMasterAccount> nonMasterAccounts;
+        private @Nullable Boolean returnOrganizationOnly;
         private List<GetOrganizationRoot> roots;
         public Builder() {}
         public Builder(GetOrganizationResult defaults) {
@@ -196,6 +204,7 @@ public final class GetOrganizationResult {
     	      this.masterAccountId = defaults.masterAccountId;
     	      this.masterAccountName = defaults.masterAccountName;
     	      this.nonMasterAccounts = defaults.nonMasterAccounts;
+    	      this.returnOrganizationOnly = defaults.returnOrganizationOnly;
     	      this.roots = defaults.roots;
         }
 
@@ -300,6 +309,12 @@ public final class GetOrganizationResult {
             return nonMasterAccounts(List.of(nonMasterAccounts));
         }
         @CustomType.Setter
+        public Builder returnOrganizationOnly(@Nullable Boolean returnOrganizationOnly) {
+
+            this.returnOrganizationOnly = returnOrganizationOnly;
+            return this;
+        }
+        @CustomType.Setter
         public Builder roots(List<GetOrganizationRoot> roots) {
             if (roots == null) {
               throw new MissingRequiredPropertyException("GetOrganizationResult", "roots");
@@ -323,6 +338,7 @@ public final class GetOrganizationResult {
             _resultValue.masterAccountId = masterAccountId;
             _resultValue.masterAccountName = masterAccountName;
             _resultValue.nonMasterAccounts = nonMasterAccounts;
+            _resultValue.returnOrganizationOnly = returnOrganizationOnly;
             _resultValue.roots = roots;
             return _resultValue;
         }

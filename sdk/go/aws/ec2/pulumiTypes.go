@@ -17091,6 +17091,143 @@ func (o LaunchTemplateNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationP
 	}).(pulumi.BoolPtrOutput)
 }
 
+type LaunchTemplateNetworkPerformanceOptions struct {
+	// Specify the bandwidth weighting option to boost the associated type of baseline bandwidth. Valid values: `default`, `vpc-1`, `ebs-1`. Default value is `default`. Setting `vpc-1` boosts networking baseline bandwidth and reduces EBS baseline bandwidth. Setting `ebs-1` boosts EBS baseline bandwidth and reduces networking baseline bandwidth. Only supported on select instance types. See [AWS Documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configure-bandwidth-weighting.html) for more information.
+	BandwidthWeighting *string `pulumi:"bandwidthWeighting"`
+}
+
+// LaunchTemplateNetworkPerformanceOptionsInput is an input type that accepts LaunchTemplateNetworkPerformanceOptionsArgs and LaunchTemplateNetworkPerformanceOptionsOutput values.
+// You can construct a concrete instance of `LaunchTemplateNetworkPerformanceOptionsInput` via:
+//
+//	LaunchTemplateNetworkPerformanceOptionsArgs{...}
+type LaunchTemplateNetworkPerformanceOptionsInput interface {
+	pulumi.Input
+
+	ToLaunchTemplateNetworkPerformanceOptionsOutput() LaunchTemplateNetworkPerformanceOptionsOutput
+	ToLaunchTemplateNetworkPerformanceOptionsOutputWithContext(context.Context) LaunchTemplateNetworkPerformanceOptionsOutput
+}
+
+type LaunchTemplateNetworkPerformanceOptionsArgs struct {
+	// Specify the bandwidth weighting option to boost the associated type of baseline bandwidth. Valid values: `default`, `vpc-1`, `ebs-1`. Default value is `default`. Setting `vpc-1` boosts networking baseline bandwidth and reduces EBS baseline bandwidth. Setting `ebs-1` boosts EBS baseline bandwidth and reduces networking baseline bandwidth. Only supported on select instance types. See [AWS Documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configure-bandwidth-weighting.html) for more information.
+	BandwidthWeighting pulumi.StringPtrInput `pulumi:"bandwidthWeighting"`
+}
+
+func (LaunchTemplateNetworkPerformanceOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchTemplateNetworkPerformanceOptions)(nil)).Elem()
+}
+
+func (i LaunchTemplateNetworkPerformanceOptionsArgs) ToLaunchTemplateNetworkPerformanceOptionsOutput() LaunchTemplateNetworkPerformanceOptionsOutput {
+	return i.ToLaunchTemplateNetworkPerformanceOptionsOutputWithContext(context.Background())
+}
+
+func (i LaunchTemplateNetworkPerformanceOptionsArgs) ToLaunchTemplateNetworkPerformanceOptionsOutputWithContext(ctx context.Context) LaunchTemplateNetworkPerformanceOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateNetworkPerformanceOptionsOutput)
+}
+
+func (i LaunchTemplateNetworkPerformanceOptionsArgs) ToLaunchTemplateNetworkPerformanceOptionsPtrOutput() LaunchTemplateNetworkPerformanceOptionsPtrOutput {
+	return i.ToLaunchTemplateNetworkPerformanceOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i LaunchTemplateNetworkPerformanceOptionsArgs) ToLaunchTemplateNetworkPerformanceOptionsPtrOutputWithContext(ctx context.Context) LaunchTemplateNetworkPerformanceOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateNetworkPerformanceOptionsOutput).ToLaunchTemplateNetworkPerformanceOptionsPtrOutputWithContext(ctx)
+}
+
+// LaunchTemplateNetworkPerformanceOptionsPtrInput is an input type that accepts LaunchTemplateNetworkPerformanceOptionsArgs, LaunchTemplateNetworkPerformanceOptionsPtr and LaunchTemplateNetworkPerformanceOptionsPtrOutput values.
+// You can construct a concrete instance of `LaunchTemplateNetworkPerformanceOptionsPtrInput` via:
+//
+//	        LaunchTemplateNetworkPerformanceOptionsArgs{...}
+//
+//	or:
+//
+//	        nil
+type LaunchTemplateNetworkPerformanceOptionsPtrInput interface {
+	pulumi.Input
+
+	ToLaunchTemplateNetworkPerformanceOptionsPtrOutput() LaunchTemplateNetworkPerformanceOptionsPtrOutput
+	ToLaunchTemplateNetworkPerformanceOptionsPtrOutputWithContext(context.Context) LaunchTemplateNetworkPerformanceOptionsPtrOutput
+}
+
+type launchTemplateNetworkPerformanceOptionsPtrType LaunchTemplateNetworkPerformanceOptionsArgs
+
+func LaunchTemplateNetworkPerformanceOptionsPtr(v *LaunchTemplateNetworkPerformanceOptionsArgs) LaunchTemplateNetworkPerformanceOptionsPtrInput {
+	return (*launchTemplateNetworkPerformanceOptionsPtrType)(v)
+}
+
+func (*launchTemplateNetworkPerformanceOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**LaunchTemplateNetworkPerformanceOptions)(nil)).Elem()
+}
+
+func (i *launchTemplateNetworkPerformanceOptionsPtrType) ToLaunchTemplateNetworkPerformanceOptionsPtrOutput() LaunchTemplateNetworkPerformanceOptionsPtrOutput {
+	return i.ToLaunchTemplateNetworkPerformanceOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *launchTemplateNetworkPerformanceOptionsPtrType) ToLaunchTemplateNetworkPerformanceOptionsPtrOutputWithContext(ctx context.Context) LaunchTemplateNetworkPerformanceOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateNetworkPerformanceOptionsPtrOutput)
+}
+
+type LaunchTemplateNetworkPerformanceOptionsOutput struct{ *pulumi.OutputState }
+
+func (LaunchTemplateNetworkPerformanceOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchTemplateNetworkPerformanceOptions)(nil)).Elem()
+}
+
+func (o LaunchTemplateNetworkPerformanceOptionsOutput) ToLaunchTemplateNetworkPerformanceOptionsOutput() LaunchTemplateNetworkPerformanceOptionsOutput {
+	return o
+}
+
+func (o LaunchTemplateNetworkPerformanceOptionsOutput) ToLaunchTemplateNetworkPerformanceOptionsOutputWithContext(ctx context.Context) LaunchTemplateNetworkPerformanceOptionsOutput {
+	return o
+}
+
+func (o LaunchTemplateNetworkPerformanceOptionsOutput) ToLaunchTemplateNetworkPerformanceOptionsPtrOutput() LaunchTemplateNetworkPerformanceOptionsPtrOutput {
+	return o.ToLaunchTemplateNetworkPerformanceOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o LaunchTemplateNetworkPerformanceOptionsOutput) ToLaunchTemplateNetworkPerformanceOptionsPtrOutputWithContext(ctx context.Context) LaunchTemplateNetworkPerformanceOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v LaunchTemplateNetworkPerformanceOptions) *LaunchTemplateNetworkPerformanceOptions {
+		return &v
+	}).(LaunchTemplateNetworkPerformanceOptionsPtrOutput)
+}
+
+// Specify the bandwidth weighting option to boost the associated type of baseline bandwidth. Valid values: `default`, `vpc-1`, `ebs-1`. Default value is `default`. Setting `vpc-1` boosts networking baseline bandwidth and reduces EBS baseline bandwidth. Setting `ebs-1` boosts EBS baseline bandwidth and reduces networking baseline bandwidth. Only supported on select instance types. See [AWS Documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configure-bandwidth-weighting.html) for more information.
+func (o LaunchTemplateNetworkPerformanceOptionsOutput) BandwidthWeighting() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateNetworkPerformanceOptions) *string { return v.BandwidthWeighting }).(pulumi.StringPtrOutput)
+}
+
+type LaunchTemplateNetworkPerformanceOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (LaunchTemplateNetworkPerformanceOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**LaunchTemplateNetworkPerformanceOptions)(nil)).Elem()
+}
+
+func (o LaunchTemplateNetworkPerformanceOptionsPtrOutput) ToLaunchTemplateNetworkPerformanceOptionsPtrOutput() LaunchTemplateNetworkPerformanceOptionsPtrOutput {
+	return o
+}
+
+func (o LaunchTemplateNetworkPerformanceOptionsPtrOutput) ToLaunchTemplateNetworkPerformanceOptionsPtrOutputWithContext(ctx context.Context) LaunchTemplateNetworkPerformanceOptionsPtrOutput {
+	return o
+}
+
+func (o LaunchTemplateNetworkPerformanceOptionsPtrOutput) Elem() LaunchTemplateNetworkPerformanceOptionsOutput {
+	return o.ApplyT(func(v *LaunchTemplateNetworkPerformanceOptions) LaunchTemplateNetworkPerformanceOptions {
+		if v != nil {
+			return *v
+		}
+		var ret LaunchTemplateNetworkPerformanceOptions
+		return ret
+	}).(LaunchTemplateNetworkPerformanceOptionsOutput)
+}
+
+// Specify the bandwidth weighting option to boost the associated type of baseline bandwidth. Valid values: `default`, `vpc-1`, `ebs-1`. Default value is `default`. Setting `vpc-1` boosts networking baseline bandwidth and reduces EBS baseline bandwidth. Setting `ebs-1` boosts EBS baseline bandwidth and reduces networking baseline bandwidth. Only supported on select instance types. See [AWS Documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/configure-bandwidth-weighting.html) for more information.
+func (o LaunchTemplateNetworkPerformanceOptionsPtrOutput) BandwidthWeighting() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplateNetworkPerformanceOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.BandwidthWeighting
+	}).(pulumi.StringPtrOutput)
+}
+
 type LaunchTemplatePlacement struct {
 	// The affinity setting for an instance on a Dedicated Host.
 	Affinity *string `pulumi:"affinity"`
@@ -39152,6 +39289,200 @@ func (o VpcIpamPoolCidrCidrAuthorizationContextPtrOutput) Signature() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
+type VpcIpamPoolSourceResource struct {
+	// ID of the resource.
+	ResourceId string `pulumi:"resourceId"`
+	// Owner of the resource.
+	ResourceOwner string `pulumi:"resourceOwner"`
+	// Region where the resource exists. Must match the `locale` of the parent IPAM Pool.
+	ResourceRegion string `pulumi:"resourceRegion"`
+	// Type of the resource. (`vpc`)
+	ResourceType string `pulumi:"resourceType"`
+}
+
+// VpcIpamPoolSourceResourceInput is an input type that accepts VpcIpamPoolSourceResourceArgs and VpcIpamPoolSourceResourceOutput values.
+// You can construct a concrete instance of `VpcIpamPoolSourceResourceInput` via:
+//
+//	VpcIpamPoolSourceResourceArgs{...}
+type VpcIpamPoolSourceResourceInput interface {
+	pulumi.Input
+
+	ToVpcIpamPoolSourceResourceOutput() VpcIpamPoolSourceResourceOutput
+	ToVpcIpamPoolSourceResourceOutputWithContext(context.Context) VpcIpamPoolSourceResourceOutput
+}
+
+type VpcIpamPoolSourceResourceArgs struct {
+	// ID of the resource.
+	ResourceId pulumi.StringInput `pulumi:"resourceId"`
+	// Owner of the resource.
+	ResourceOwner pulumi.StringInput `pulumi:"resourceOwner"`
+	// Region where the resource exists. Must match the `locale` of the parent IPAM Pool.
+	ResourceRegion pulumi.StringInput `pulumi:"resourceRegion"`
+	// Type of the resource. (`vpc`)
+	ResourceType pulumi.StringInput `pulumi:"resourceType"`
+}
+
+func (VpcIpamPoolSourceResourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpcIpamPoolSourceResource)(nil)).Elem()
+}
+
+func (i VpcIpamPoolSourceResourceArgs) ToVpcIpamPoolSourceResourceOutput() VpcIpamPoolSourceResourceOutput {
+	return i.ToVpcIpamPoolSourceResourceOutputWithContext(context.Background())
+}
+
+func (i VpcIpamPoolSourceResourceArgs) ToVpcIpamPoolSourceResourceOutputWithContext(ctx context.Context) VpcIpamPoolSourceResourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpcIpamPoolSourceResourceOutput)
+}
+
+func (i VpcIpamPoolSourceResourceArgs) ToVpcIpamPoolSourceResourcePtrOutput() VpcIpamPoolSourceResourcePtrOutput {
+	return i.ToVpcIpamPoolSourceResourcePtrOutputWithContext(context.Background())
+}
+
+func (i VpcIpamPoolSourceResourceArgs) ToVpcIpamPoolSourceResourcePtrOutputWithContext(ctx context.Context) VpcIpamPoolSourceResourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpcIpamPoolSourceResourceOutput).ToVpcIpamPoolSourceResourcePtrOutputWithContext(ctx)
+}
+
+// VpcIpamPoolSourceResourcePtrInput is an input type that accepts VpcIpamPoolSourceResourceArgs, VpcIpamPoolSourceResourcePtr and VpcIpamPoolSourceResourcePtrOutput values.
+// You can construct a concrete instance of `VpcIpamPoolSourceResourcePtrInput` via:
+//
+//	        VpcIpamPoolSourceResourceArgs{...}
+//
+//	or:
+//
+//	        nil
+type VpcIpamPoolSourceResourcePtrInput interface {
+	pulumi.Input
+
+	ToVpcIpamPoolSourceResourcePtrOutput() VpcIpamPoolSourceResourcePtrOutput
+	ToVpcIpamPoolSourceResourcePtrOutputWithContext(context.Context) VpcIpamPoolSourceResourcePtrOutput
+}
+
+type vpcIpamPoolSourceResourcePtrType VpcIpamPoolSourceResourceArgs
+
+func VpcIpamPoolSourceResourcePtr(v *VpcIpamPoolSourceResourceArgs) VpcIpamPoolSourceResourcePtrInput {
+	return (*vpcIpamPoolSourceResourcePtrType)(v)
+}
+
+func (*vpcIpamPoolSourceResourcePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VpcIpamPoolSourceResource)(nil)).Elem()
+}
+
+func (i *vpcIpamPoolSourceResourcePtrType) ToVpcIpamPoolSourceResourcePtrOutput() VpcIpamPoolSourceResourcePtrOutput {
+	return i.ToVpcIpamPoolSourceResourcePtrOutputWithContext(context.Background())
+}
+
+func (i *vpcIpamPoolSourceResourcePtrType) ToVpcIpamPoolSourceResourcePtrOutputWithContext(ctx context.Context) VpcIpamPoolSourceResourcePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpcIpamPoolSourceResourcePtrOutput)
+}
+
+type VpcIpamPoolSourceResourceOutput struct{ *pulumi.OutputState }
+
+func (VpcIpamPoolSourceResourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpcIpamPoolSourceResource)(nil)).Elem()
+}
+
+func (o VpcIpamPoolSourceResourceOutput) ToVpcIpamPoolSourceResourceOutput() VpcIpamPoolSourceResourceOutput {
+	return o
+}
+
+func (o VpcIpamPoolSourceResourceOutput) ToVpcIpamPoolSourceResourceOutputWithContext(ctx context.Context) VpcIpamPoolSourceResourceOutput {
+	return o
+}
+
+func (o VpcIpamPoolSourceResourceOutput) ToVpcIpamPoolSourceResourcePtrOutput() VpcIpamPoolSourceResourcePtrOutput {
+	return o.ToVpcIpamPoolSourceResourcePtrOutputWithContext(context.Background())
+}
+
+func (o VpcIpamPoolSourceResourceOutput) ToVpcIpamPoolSourceResourcePtrOutputWithContext(ctx context.Context) VpcIpamPoolSourceResourcePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VpcIpamPoolSourceResource) *VpcIpamPoolSourceResource {
+		return &v
+	}).(VpcIpamPoolSourceResourcePtrOutput)
+}
+
+// ID of the resource.
+func (o VpcIpamPoolSourceResourceOutput) ResourceId() pulumi.StringOutput {
+	return o.ApplyT(func(v VpcIpamPoolSourceResource) string { return v.ResourceId }).(pulumi.StringOutput)
+}
+
+// Owner of the resource.
+func (o VpcIpamPoolSourceResourceOutput) ResourceOwner() pulumi.StringOutput {
+	return o.ApplyT(func(v VpcIpamPoolSourceResource) string { return v.ResourceOwner }).(pulumi.StringOutput)
+}
+
+// Region where the resource exists. Must match the `locale` of the parent IPAM Pool.
+func (o VpcIpamPoolSourceResourceOutput) ResourceRegion() pulumi.StringOutput {
+	return o.ApplyT(func(v VpcIpamPoolSourceResource) string { return v.ResourceRegion }).(pulumi.StringOutput)
+}
+
+// Type of the resource. (`vpc`)
+func (o VpcIpamPoolSourceResourceOutput) ResourceType() pulumi.StringOutput {
+	return o.ApplyT(func(v VpcIpamPoolSourceResource) string { return v.ResourceType }).(pulumi.StringOutput)
+}
+
+type VpcIpamPoolSourceResourcePtrOutput struct{ *pulumi.OutputState }
+
+func (VpcIpamPoolSourceResourcePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VpcIpamPoolSourceResource)(nil)).Elem()
+}
+
+func (o VpcIpamPoolSourceResourcePtrOutput) ToVpcIpamPoolSourceResourcePtrOutput() VpcIpamPoolSourceResourcePtrOutput {
+	return o
+}
+
+func (o VpcIpamPoolSourceResourcePtrOutput) ToVpcIpamPoolSourceResourcePtrOutputWithContext(ctx context.Context) VpcIpamPoolSourceResourcePtrOutput {
+	return o
+}
+
+func (o VpcIpamPoolSourceResourcePtrOutput) Elem() VpcIpamPoolSourceResourceOutput {
+	return o.ApplyT(func(v *VpcIpamPoolSourceResource) VpcIpamPoolSourceResource {
+		if v != nil {
+			return *v
+		}
+		var ret VpcIpamPoolSourceResource
+		return ret
+	}).(VpcIpamPoolSourceResourceOutput)
+}
+
+// ID of the resource.
+func (o VpcIpamPoolSourceResourcePtrOutput) ResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VpcIpamPoolSourceResource) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ResourceId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Owner of the resource.
+func (o VpcIpamPoolSourceResourcePtrOutput) ResourceOwner() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VpcIpamPoolSourceResource) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ResourceOwner
+	}).(pulumi.StringPtrOutput)
+}
+
+// Region where the resource exists. Must match the `locale` of the parent IPAM Pool.
+func (o VpcIpamPoolSourceResourcePtrOutput) ResourceRegion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VpcIpamPoolSourceResource) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ResourceRegion
+	}).(pulumi.StringPtrOutput)
+}
+
+// Type of the resource. (`vpc`)
+func (o VpcIpamPoolSourceResourcePtrOutput) ResourceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *VpcIpamPoolSourceResource) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ResourceType
+	}).(pulumi.StringPtrOutput)
+}
+
 type VpcIpamResourceDiscoveryOperatingRegion struct {
 	// The name of the Region you want to add to the IPAM.
 	RegionName string `pulumi:"regionName"`
@@ -39247,6 +39578,103 @@ func (o VpcIpamResourceDiscoveryOperatingRegionArrayOutput) Index(i pulumi.IntIn
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VpcIpamResourceDiscoveryOperatingRegion {
 		return vs[0].([]VpcIpamResourceDiscoveryOperatingRegion)[vs[1].(int)]
 	}).(VpcIpamResourceDiscoveryOperatingRegionOutput)
+}
+
+type VpcIpamResourceDiscoveryOrganizationalUnitExclusion struct {
+	// AWS Organizations entity path. Build the path for the OU(s) using AWS Organizations IDs separated by a `/`. Include all child OUs by ending the path with `/*`.
+	OrganizationsEntityPath string `pulumi:"organizationsEntityPath"`
+}
+
+// VpcIpamResourceDiscoveryOrganizationalUnitExclusionInput is an input type that accepts VpcIpamResourceDiscoveryOrganizationalUnitExclusionArgs and VpcIpamResourceDiscoveryOrganizationalUnitExclusionOutput values.
+// You can construct a concrete instance of `VpcIpamResourceDiscoveryOrganizationalUnitExclusionInput` via:
+//
+//	VpcIpamResourceDiscoveryOrganizationalUnitExclusionArgs{...}
+type VpcIpamResourceDiscoveryOrganizationalUnitExclusionInput interface {
+	pulumi.Input
+
+	ToVpcIpamResourceDiscoveryOrganizationalUnitExclusionOutput() VpcIpamResourceDiscoveryOrganizationalUnitExclusionOutput
+	ToVpcIpamResourceDiscoveryOrganizationalUnitExclusionOutputWithContext(context.Context) VpcIpamResourceDiscoveryOrganizationalUnitExclusionOutput
+}
+
+type VpcIpamResourceDiscoveryOrganizationalUnitExclusionArgs struct {
+	// AWS Organizations entity path. Build the path for the OU(s) using AWS Organizations IDs separated by a `/`. Include all child OUs by ending the path with `/*`.
+	OrganizationsEntityPath pulumi.StringInput `pulumi:"organizationsEntityPath"`
+}
+
+func (VpcIpamResourceDiscoveryOrganizationalUnitExclusionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpcIpamResourceDiscoveryOrganizationalUnitExclusion)(nil)).Elem()
+}
+
+func (i VpcIpamResourceDiscoveryOrganizationalUnitExclusionArgs) ToVpcIpamResourceDiscoveryOrganizationalUnitExclusionOutput() VpcIpamResourceDiscoveryOrganizationalUnitExclusionOutput {
+	return i.ToVpcIpamResourceDiscoveryOrganizationalUnitExclusionOutputWithContext(context.Background())
+}
+
+func (i VpcIpamResourceDiscoveryOrganizationalUnitExclusionArgs) ToVpcIpamResourceDiscoveryOrganizationalUnitExclusionOutputWithContext(ctx context.Context) VpcIpamResourceDiscoveryOrganizationalUnitExclusionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpcIpamResourceDiscoveryOrganizationalUnitExclusionOutput)
+}
+
+// VpcIpamResourceDiscoveryOrganizationalUnitExclusionArrayInput is an input type that accepts VpcIpamResourceDiscoveryOrganizationalUnitExclusionArray and VpcIpamResourceDiscoveryOrganizationalUnitExclusionArrayOutput values.
+// You can construct a concrete instance of `VpcIpamResourceDiscoveryOrganizationalUnitExclusionArrayInput` via:
+//
+//	VpcIpamResourceDiscoveryOrganizationalUnitExclusionArray{ VpcIpamResourceDiscoveryOrganizationalUnitExclusionArgs{...} }
+type VpcIpamResourceDiscoveryOrganizationalUnitExclusionArrayInput interface {
+	pulumi.Input
+
+	ToVpcIpamResourceDiscoveryOrganizationalUnitExclusionArrayOutput() VpcIpamResourceDiscoveryOrganizationalUnitExclusionArrayOutput
+	ToVpcIpamResourceDiscoveryOrganizationalUnitExclusionArrayOutputWithContext(context.Context) VpcIpamResourceDiscoveryOrganizationalUnitExclusionArrayOutput
+}
+
+type VpcIpamResourceDiscoveryOrganizationalUnitExclusionArray []VpcIpamResourceDiscoveryOrganizationalUnitExclusionInput
+
+func (VpcIpamResourceDiscoveryOrganizationalUnitExclusionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VpcIpamResourceDiscoveryOrganizationalUnitExclusion)(nil)).Elem()
+}
+
+func (i VpcIpamResourceDiscoveryOrganizationalUnitExclusionArray) ToVpcIpamResourceDiscoveryOrganizationalUnitExclusionArrayOutput() VpcIpamResourceDiscoveryOrganizationalUnitExclusionArrayOutput {
+	return i.ToVpcIpamResourceDiscoveryOrganizationalUnitExclusionArrayOutputWithContext(context.Background())
+}
+
+func (i VpcIpamResourceDiscoveryOrganizationalUnitExclusionArray) ToVpcIpamResourceDiscoveryOrganizationalUnitExclusionArrayOutputWithContext(ctx context.Context) VpcIpamResourceDiscoveryOrganizationalUnitExclusionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VpcIpamResourceDiscoveryOrganizationalUnitExclusionArrayOutput)
+}
+
+type VpcIpamResourceDiscoveryOrganizationalUnitExclusionOutput struct{ *pulumi.OutputState }
+
+func (VpcIpamResourceDiscoveryOrganizationalUnitExclusionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VpcIpamResourceDiscoveryOrganizationalUnitExclusion)(nil)).Elem()
+}
+
+func (o VpcIpamResourceDiscoveryOrganizationalUnitExclusionOutput) ToVpcIpamResourceDiscoveryOrganizationalUnitExclusionOutput() VpcIpamResourceDiscoveryOrganizationalUnitExclusionOutput {
+	return o
+}
+
+func (o VpcIpamResourceDiscoveryOrganizationalUnitExclusionOutput) ToVpcIpamResourceDiscoveryOrganizationalUnitExclusionOutputWithContext(ctx context.Context) VpcIpamResourceDiscoveryOrganizationalUnitExclusionOutput {
+	return o
+}
+
+// AWS Organizations entity path. Build the path for the OU(s) using AWS Organizations IDs separated by a `/`. Include all child OUs by ending the path with `/*`.
+func (o VpcIpamResourceDiscoveryOrganizationalUnitExclusionOutput) OrganizationsEntityPath() pulumi.StringOutput {
+	return o.ApplyT(func(v VpcIpamResourceDiscoveryOrganizationalUnitExclusion) string { return v.OrganizationsEntityPath }).(pulumi.StringOutput)
+}
+
+type VpcIpamResourceDiscoveryOrganizationalUnitExclusionArrayOutput struct{ *pulumi.OutputState }
+
+func (VpcIpamResourceDiscoveryOrganizationalUnitExclusionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VpcIpamResourceDiscoveryOrganizationalUnitExclusion)(nil)).Elem()
+}
+
+func (o VpcIpamResourceDiscoveryOrganizationalUnitExclusionArrayOutput) ToVpcIpamResourceDiscoveryOrganizationalUnitExclusionArrayOutput() VpcIpamResourceDiscoveryOrganizationalUnitExclusionArrayOutput {
+	return o
+}
+
+func (o VpcIpamResourceDiscoveryOrganizationalUnitExclusionArrayOutput) ToVpcIpamResourceDiscoveryOrganizationalUnitExclusionArrayOutputWithContext(ctx context.Context) VpcIpamResourceDiscoveryOrganizationalUnitExclusionArrayOutput {
+	return o
+}
+
+func (o VpcIpamResourceDiscoveryOrganizationalUnitExclusionArrayOutput) Index(i pulumi.IntInput) VpcIpamResourceDiscoveryOrganizationalUnitExclusionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VpcIpamResourceDiscoveryOrganizationalUnitExclusion {
+		return vs[0].([]VpcIpamResourceDiscoveryOrganizationalUnitExclusion)[vs[1].(int)]
+	}).(VpcIpamResourceDiscoveryOrganizationalUnitExclusionOutput)
 }
 
 type VpcPeeringConnectionAccepterType struct {
@@ -64003,6 +64431,130 @@ func (o GetVpcIpamPoolFilterArrayOutput) Index(i pulumi.IntInput) GetVpcIpamPool
 	}).(GetVpcIpamPoolFilterOutput)
 }
 
+type GetVpcIpamPoolSourceResource struct {
+	// (Required) ID of the resource.
+	ResourceId string `pulumi:"resourceId"`
+	// (Required) Owner of the resource.
+	ResourceOwner string `pulumi:"resourceOwner"`
+	// (Required) Region where the resource exists. Must match the `locale` of the parent IPAM Pool.
+	ResourceRegion string `pulumi:"resourceRegion"`
+	// (Required) Type of the resource. (`vpc`)
+	ResourceType string `pulumi:"resourceType"`
+}
+
+// GetVpcIpamPoolSourceResourceInput is an input type that accepts GetVpcIpamPoolSourceResourceArgs and GetVpcIpamPoolSourceResourceOutput values.
+// You can construct a concrete instance of `GetVpcIpamPoolSourceResourceInput` via:
+//
+//	GetVpcIpamPoolSourceResourceArgs{...}
+type GetVpcIpamPoolSourceResourceInput interface {
+	pulumi.Input
+
+	ToGetVpcIpamPoolSourceResourceOutput() GetVpcIpamPoolSourceResourceOutput
+	ToGetVpcIpamPoolSourceResourceOutputWithContext(context.Context) GetVpcIpamPoolSourceResourceOutput
+}
+
+type GetVpcIpamPoolSourceResourceArgs struct {
+	// (Required) ID of the resource.
+	ResourceId pulumi.StringInput `pulumi:"resourceId"`
+	// (Required) Owner of the resource.
+	ResourceOwner pulumi.StringInput `pulumi:"resourceOwner"`
+	// (Required) Region where the resource exists. Must match the `locale` of the parent IPAM Pool.
+	ResourceRegion pulumi.StringInput `pulumi:"resourceRegion"`
+	// (Required) Type of the resource. (`vpc`)
+	ResourceType pulumi.StringInput `pulumi:"resourceType"`
+}
+
+func (GetVpcIpamPoolSourceResourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVpcIpamPoolSourceResource)(nil)).Elem()
+}
+
+func (i GetVpcIpamPoolSourceResourceArgs) ToGetVpcIpamPoolSourceResourceOutput() GetVpcIpamPoolSourceResourceOutput {
+	return i.ToGetVpcIpamPoolSourceResourceOutputWithContext(context.Background())
+}
+
+func (i GetVpcIpamPoolSourceResourceArgs) ToGetVpcIpamPoolSourceResourceOutputWithContext(ctx context.Context) GetVpcIpamPoolSourceResourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVpcIpamPoolSourceResourceOutput)
+}
+
+// GetVpcIpamPoolSourceResourceArrayInput is an input type that accepts GetVpcIpamPoolSourceResourceArray and GetVpcIpamPoolSourceResourceArrayOutput values.
+// You can construct a concrete instance of `GetVpcIpamPoolSourceResourceArrayInput` via:
+//
+//	GetVpcIpamPoolSourceResourceArray{ GetVpcIpamPoolSourceResourceArgs{...} }
+type GetVpcIpamPoolSourceResourceArrayInput interface {
+	pulumi.Input
+
+	ToGetVpcIpamPoolSourceResourceArrayOutput() GetVpcIpamPoolSourceResourceArrayOutput
+	ToGetVpcIpamPoolSourceResourceArrayOutputWithContext(context.Context) GetVpcIpamPoolSourceResourceArrayOutput
+}
+
+type GetVpcIpamPoolSourceResourceArray []GetVpcIpamPoolSourceResourceInput
+
+func (GetVpcIpamPoolSourceResourceArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVpcIpamPoolSourceResource)(nil)).Elem()
+}
+
+func (i GetVpcIpamPoolSourceResourceArray) ToGetVpcIpamPoolSourceResourceArrayOutput() GetVpcIpamPoolSourceResourceArrayOutput {
+	return i.ToGetVpcIpamPoolSourceResourceArrayOutputWithContext(context.Background())
+}
+
+func (i GetVpcIpamPoolSourceResourceArray) ToGetVpcIpamPoolSourceResourceArrayOutputWithContext(ctx context.Context) GetVpcIpamPoolSourceResourceArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVpcIpamPoolSourceResourceArrayOutput)
+}
+
+type GetVpcIpamPoolSourceResourceOutput struct{ *pulumi.OutputState }
+
+func (GetVpcIpamPoolSourceResourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVpcIpamPoolSourceResource)(nil)).Elem()
+}
+
+func (o GetVpcIpamPoolSourceResourceOutput) ToGetVpcIpamPoolSourceResourceOutput() GetVpcIpamPoolSourceResourceOutput {
+	return o
+}
+
+func (o GetVpcIpamPoolSourceResourceOutput) ToGetVpcIpamPoolSourceResourceOutputWithContext(ctx context.Context) GetVpcIpamPoolSourceResourceOutput {
+	return o
+}
+
+// (Required) ID of the resource.
+func (o GetVpcIpamPoolSourceResourceOutput) ResourceId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVpcIpamPoolSourceResource) string { return v.ResourceId }).(pulumi.StringOutput)
+}
+
+// (Required) Owner of the resource.
+func (o GetVpcIpamPoolSourceResourceOutput) ResourceOwner() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVpcIpamPoolSourceResource) string { return v.ResourceOwner }).(pulumi.StringOutput)
+}
+
+// (Required) Region where the resource exists. Must match the `locale` of the parent IPAM Pool.
+func (o GetVpcIpamPoolSourceResourceOutput) ResourceRegion() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVpcIpamPoolSourceResource) string { return v.ResourceRegion }).(pulumi.StringOutput)
+}
+
+// (Required) Type of the resource. (`vpc`)
+func (o GetVpcIpamPoolSourceResourceOutput) ResourceType() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVpcIpamPoolSourceResource) string { return v.ResourceType }).(pulumi.StringOutput)
+}
+
+type GetVpcIpamPoolSourceResourceArrayOutput struct{ *pulumi.OutputState }
+
+func (GetVpcIpamPoolSourceResourceArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVpcIpamPoolSourceResource)(nil)).Elem()
+}
+
+func (o GetVpcIpamPoolSourceResourceArrayOutput) ToGetVpcIpamPoolSourceResourceArrayOutput() GetVpcIpamPoolSourceResourceArrayOutput {
+	return o
+}
+
+func (o GetVpcIpamPoolSourceResourceArrayOutput) ToGetVpcIpamPoolSourceResourceArrayOutputWithContext(ctx context.Context) GetVpcIpamPoolSourceResourceArrayOutput {
+	return o
+}
+
+func (o GetVpcIpamPoolSourceResourceArrayOutput) Index(i pulumi.IntInput) GetVpcIpamPoolSourceResourceOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetVpcIpamPoolSourceResource {
+		return vs[0].([]GetVpcIpamPoolSourceResource)[vs[1].(int)]
+	}).(GetVpcIpamPoolSourceResourceOutput)
+}
+
 type GetVpcIpamPoolsFilter struct {
 	// The name of the filter. Filter names are case-sensitive.
 	Name string `pulumi:"name"`
@@ -66152,6 +66704,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplateNetworkInterfaceEnaSrdSpecificationPtrInput)(nil)).Elem(), LaunchTemplateNetworkInterfaceEnaSrdSpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplateNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationInput)(nil)).Elem(), LaunchTemplateNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplateNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationPtrInput)(nil)).Elem(), LaunchTemplateNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplateNetworkPerformanceOptionsInput)(nil)).Elem(), LaunchTemplateNetworkPerformanceOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplateNetworkPerformanceOptionsPtrInput)(nil)).Elem(), LaunchTemplateNetworkPerformanceOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplatePlacementInput)(nil)).Elem(), LaunchTemplatePlacementArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplatePlacementPtrInput)(nil)).Elem(), LaunchTemplatePlacementArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplatePrivateDnsNameOptionsInput)(nil)).Elem(), LaunchTemplatePrivateDnsNameOptionsArgs{})
@@ -66461,8 +67015,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*VpcIpamOperatingRegionArrayInput)(nil)).Elem(), VpcIpamOperatingRegionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VpcIpamPoolCidrCidrAuthorizationContextInput)(nil)).Elem(), VpcIpamPoolCidrCidrAuthorizationContextArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VpcIpamPoolCidrCidrAuthorizationContextPtrInput)(nil)).Elem(), VpcIpamPoolCidrCidrAuthorizationContextArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VpcIpamPoolSourceResourceInput)(nil)).Elem(), VpcIpamPoolSourceResourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VpcIpamPoolSourceResourcePtrInput)(nil)).Elem(), VpcIpamPoolSourceResourceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VpcIpamResourceDiscoveryOperatingRegionInput)(nil)).Elem(), VpcIpamResourceDiscoveryOperatingRegionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VpcIpamResourceDiscoveryOperatingRegionArrayInput)(nil)).Elem(), VpcIpamResourceDiscoveryOperatingRegionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VpcIpamResourceDiscoveryOrganizationalUnitExclusionInput)(nil)).Elem(), VpcIpamResourceDiscoveryOrganizationalUnitExclusionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VpcIpamResourceDiscoveryOrganizationalUnitExclusionArrayInput)(nil)).Elem(), VpcIpamResourceDiscoveryOrganizationalUnitExclusionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VpcPeeringConnectionAccepterTypeInput)(nil)).Elem(), VpcPeeringConnectionAccepterTypeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VpcPeeringConnectionAccepterTypePtrInput)(nil)).Elem(), VpcPeeringConnectionAccepterTypeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VpcPeeringConnectionAccepterAccepterInput)(nil)).Elem(), VpcPeeringConnectionAccepterAccepterArgs{})
@@ -66881,6 +67439,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetVpcIpamPoolCidrsIpamPoolCidrArrayInput)(nil)).Elem(), GetVpcIpamPoolCidrsIpamPoolCidrArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetVpcIpamPoolFilterInput)(nil)).Elem(), GetVpcIpamPoolFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetVpcIpamPoolFilterArrayInput)(nil)).Elem(), GetVpcIpamPoolFilterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetVpcIpamPoolSourceResourceInput)(nil)).Elem(), GetVpcIpamPoolSourceResourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetVpcIpamPoolSourceResourceArrayInput)(nil)).Elem(), GetVpcIpamPoolSourceResourceArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetVpcIpamPoolsFilterInput)(nil)).Elem(), GetVpcIpamPoolsFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetVpcIpamPoolsFilterArrayInput)(nil)).Elem(), GetVpcIpamPoolsFilterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetVpcIpamPoolsIpamPoolInput)(nil)).Elem(), GetVpcIpamPoolsIpamPoolArgs{})
@@ -67107,6 +67667,8 @@ func init() {
 	pulumi.RegisterOutputType(LaunchTemplateNetworkInterfaceEnaSrdSpecificationPtrOutput{})
 	pulumi.RegisterOutputType(LaunchTemplateNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationOutput{})
 	pulumi.RegisterOutputType(LaunchTemplateNetworkInterfaceEnaSrdSpecificationEnaSrdUdpSpecificationPtrOutput{})
+	pulumi.RegisterOutputType(LaunchTemplateNetworkPerformanceOptionsOutput{})
+	pulumi.RegisterOutputType(LaunchTemplateNetworkPerformanceOptionsPtrOutput{})
 	pulumi.RegisterOutputType(LaunchTemplatePlacementOutput{})
 	pulumi.RegisterOutputType(LaunchTemplatePlacementPtrOutput{})
 	pulumi.RegisterOutputType(LaunchTemplatePrivateDnsNameOptionsOutput{})
@@ -67416,8 +67978,12 @@ func init() {
 	pulumi.RegisterOutputType(VpcIpamOperatingRegionArrayOutput{})
 	pulumi.RegisterOutputType(VpcIpamPoolCidrCidrAuthorizationContextOutput{})
 	pulumi.RegisterOutputType(VpcIpamPoolCidrCidrAuthorizationContextPtrOutput{})
+	pulumi.RegisterOutputType(VpcIpamPoolSourceResourceOutput{})
+	pulumi.RegisterOutputType(VpcIpamPoolSourceResourcePtrOutput{})
 	pulumi.RegisterOutputType(VpcIpamResourceDiscoveryOperatingRegionOutput{})
 	pulumi.RegisterOutputType(VpcIpamResourceDiscoveryOperatingRegionArrayOutput{})
+	pulumi.RegisterOutputType(VpcIpamResourceDiscoveryOrganizationalUnitExclusionOutput{})
+	pulumi.RegisterOutputType(VpcIpamResourceDiscoveryOrganizationalUnitExclusionArrayOutput{})
 	pulumi.RegisterOutputType(VpcPeeringConnectionAccepterTypeOutput{})
 	pulumi.RegisterOutputType(VpcPeeringConnectionAccepterTypePtrOutput{})
 	pulumi.RegisterOutputType(VpcPeeringConnectionAccepterAccepterOutput{})
@@ -67836,6 +68402,8 @@ func init() {
 	pulumi.RegisterOutputType(GetVpcIpamPoolCidrsIpamPoolCidrArrayOutput{})
 	pulumi.RegisterOutputType(GetVpcIpamPoolFilterOutput{})
 	pulumi.RegisterOutputType(GetVpcIpamPoolFilterArrayOutput{})
+	pulumi.RegisterOutputType(GetVpcIpamPoolSourceResourceOutput{})
+	pulumi.RegisterOutputType(GetVpcIpamPoolSourceResourceArrayOutput{})
 	pulumi.RegisterOutputType(GetVpcIpamPoolsFilterOutput{})
 	pulumi.RegisterOutputType(GetVpcIpamPoolsFilterArrayOutput{})
 	pulumi.RegisterOutputType(GetVpcIpamPoolsIpamPoolOutput{})

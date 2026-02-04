@@ -14,6 +14,10 @@ namespace Pulumi.Aws.Batch.Outputs
     public sealed class GetJobDefinitionEksPropertyPodPropertyInitContainerSecurityContextResult
     {
         /// <summary>
+        /// Whether or not a container or a Kubernetes pod is allowed to gain more privileges than its parent process. The default value is `False`.
+        /// </summary>
+        public readonly bool AllowPrivilegeEscalation;
+        /// <summary>
         /// When this parameter is true, the container is given elevated permissions on the host container instance (similar to the root user).
         /// </summary>
         public readonly bool Privileged;
@@ -33,6 +37,8 @@ namespace Pulumi.Aws.Batch.Outputs
 
         [OutputConstructor]
         private GetJobDefinitionEksPropertyPodPropertyInitContainerSecurityContextResult(
+            bool allowPrivilegeEscalation,
+
             bool privileged,
 
             bool readOnlyRootFileSystem,
@@ -43,6 +49,7 @@ namespace Pulumi.Aws.Batch.Outputs
 
             int runAsUser)
         {
+            AllowPrivilegeEscalation = allowPrivilegeEscalation;
             Privileged = privileged;
             ReadOnlyRootFileSystem = readOnlyRootFileSystem;
             RunAsGroup = runAsGroup;

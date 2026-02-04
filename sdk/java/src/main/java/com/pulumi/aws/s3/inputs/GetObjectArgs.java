@@ -48,6 +48,21 @@ public final class GetObjectArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
+     * Set to `true` to always download object data to `bodyBase64` attribute. If unset and conditions described above are met, `body` will be available but `bodyBase64` will not be. If set to `false`, the body is not downloaded and neither `body` nor `bodyBase64` is available, which may improve performance.
+     * 
+     */
+    @Import(name="downloadBody")
+    private @Nullable Output<String> downloadBody;
+
+    /**
+     * @return Set to `true` to always download object data to `bodyBase64` attribute. If unset and conditions described above are met, `body` will be available but `bodyBase64` will not be. If set to `false`, the body is not downloaded and neither `body` nor `bodyBase64` is available, which may improve performance.
+     * 
+     */
+    public Optional<Output<String>> downloadBody() {
+        return Optional.ofNullable(this.downloadBody);
+    }
+
+    /**
      * Full path to the object inside the bucket
      * 
      */
@@ -119,6 +134,7 @@ public final class GetObjectArgs extends com.pulumi.resources.InvokeArgs {
     private GetObjectArgs(GetObjectArgs $) {
         this.bucket = $.bucket;
         this.checksumMode = $.checksumMode;
+        this.downloadBody = $.downloadBody;
         this.key = $.key;
         this.range = $.range;
         this.region = $.region;
@@ -184,6 +200,27 @@ public final class GetObjectArgs extends com.pulumi.resources.InvokeArgs {
          */
         public Builder checksumMode(String checksumMode) {
             return checksumMode(Output.of(checksumMode));
+        }
+
+        /**
+         * @param downloadBody Set to `true` to always download object data to `bodyBase64` attribute. If unset and conditions described above are met, `body` will be available but `bodyBase64` will not be. If set to `false`, the body is not downloaded and neither `body` nor `bodyBase64` is available, which may improve performance.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder downloadBody(@Nullable Output<String> downloadBody) {
+            $.downloadBody = downloadBody;
+            return this;
+        }
+
+        /**
+         * @param downloadBody Set to `true` to always download object data to `bodyBase64` attribute. If unset and conditions described above are met, `body` will be available but `bodyBase64` will not be. If set to `false`, the body is not downloaded and neither `body` nor `bodyBase64` is available, which may improve performance.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder downloadBody(String downloadBody) {
+            return downloadBody(Output.of(downloadBody));
         }
 
         /**

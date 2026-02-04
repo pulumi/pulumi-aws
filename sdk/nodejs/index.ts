@@ -95,6 +95,7 @@ import * as appmesh from "./appmesh";
 import * as apprunner from "./apprunner";
 import * as appstream from "./appstream";
 import * as appsync from "./appsync";
+import * as arcregionswitch from "./arcregionswitch";
 import * as athena from "./athena";
 import * as auditmanager from "./auditmanager";
 import * as autoscaling from "./autoscaling";
@@ -263,6 +264,7 @@ import * as s3control from "./s3control";
 import * as s3outposts from "./s3outposts";
 import * as s3tables from "./s3tables";
 import * as sagemaker from "./sagemaker";
+import * as savingsplans from "./savingsplans";
 import * as scheduler from "./scheduler";
 import * as schemas from "./schemas";
 import * as secretsmanager from "./secretsmanager";
@@ -325,6 +327,7 @@ export {
     apprunner,
     appstream,
     appsync,
+    arcregionswitch,
     athena,
     auditmanager,
     autoscaling,
@@ -493,6 +496,7 @@ export {
     s3outposts,
     s3tables,
     sagemaker,
+    savingsplans,
     scheduler,
     schemas,
     secretsmanager,

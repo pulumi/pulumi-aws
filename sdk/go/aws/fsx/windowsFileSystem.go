@@ -94,6 +94,45 @@ import (
 //
 // ```
 //
+// ### Using a Self-Managed Microsoft Active Directory with Secrets Manager
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/fsx"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := fsx.NewWindowsFileSystem(ctx, "example", &fsx.WindowsFileSystemArgs{
+//				KmsKeyId:        pulumi.Any(exampleAwsKmsKey.Arn),
+//				StorageCapacity: pulumi.Int(32),
+//				SubnetIds: pulumi.StringArray{
+//					exampleAwsSubnet.Id,
+//				},
+//				ThroughputCapacity: pulumi.Int(32),
+//				SelfManagedActiveDirectory: &fsx.WindowsFileSystemSelfManagedActiveDirectoryArgs{
+//					DnsIps: pulumi.StringArray{
+//						pulumi.String("10.0.0.111"),
+//						pulumi.String("10.0.0.222"),
+//					},
+//					DomainName:                     pulumi.String("corp.example.com"),
+//					DomainJoinServiceAccountSecret: pulumi.Any(exampleAwsSecretsmanagerSecret.Arn),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Using `pulumi import`, import FSx File Systems using the `id`. For example:

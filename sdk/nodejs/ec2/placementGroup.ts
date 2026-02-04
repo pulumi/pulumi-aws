@@ -70,7 +70,7 @@ export class PlacementGroup extends pulumi.CustomResource {
     /**
      * The number of partitions to create in the
      * placement group.  Can only be specified when the `strategy` is set to
-     * `partition`.  Valid values are 1 - 7 (default is `2`).
+     * `partition`.  Must be at least `1`. (default is `2`).
      */
     declare public readonly partitionCount: pulumi.Output<number>;
     /**
@@ -156,7 +156,7 @@ export interface PlacementGroupState {
     /**
      * The number of partitions to create in the
      * placement group.  Can only be specified when the `strategy` is set to
-     * `partition`.  Valid values are 1 - 7 (default is `2`).
+     * `partition`.  Must be at least `1`. (default is `2`).
      */
     partitionCount?: pulumi.Input<number>;
     /**
@@ -197,7 +197,7 @@ export interface PlacementGroupArgs {
     /**
      * The number of partitions to create in the
      * placement group.  Can only be specified when the `strategy` is set to
-     * `partition`.  Valid values are 1 - 7 (default is `2`).
+     * `partition`.  Must be at least `1`. (default is `2`).
      */
     partitionCount?: pulumi.Input<number>;
     /**

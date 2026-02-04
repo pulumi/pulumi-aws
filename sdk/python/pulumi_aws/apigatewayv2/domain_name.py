@@ -25,6 +25,7 @@ class DomainNameArgs:
                  domain_name_configuration: pulumi.Input['DomainNameDomainNameConfigurationArgs'],
                  mutual_tls_authentication: Optional[pulumi.Input['DomainNameMutualTlsAuthenticationArgs']] = None,
                  region: Optional[pulumi.Input[_builtins.str]] = None,
+                 routing_mode: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a DomainName resource.
@@ -32,6 +33,7 @@ class DomainNameArgs:
         :param pulumi.Input['DomainNameDomainNameConfigurationArgs'] domain_name_configuration: Domain name configuration. See below.
         :param pulumi.Input['DomainNameMutualTlsAuthenticationArgs'] mutual_tls_authentication: Mutual TLS authentication configuration for the domain name.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        :param pulumi.Input[_builtins.str] routing_mode: Mode to route traffic for the domain name. Valid values: `API_MAPPING_ONLY`, `ROUTING_RULE_ONLY`, `ROUTING_RULE_THEN_API_MAPPING`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the domain name. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "domain_name", domain_name)
@@ -40,6 +42,8 @@ class DomainNameArgs:
             pulumi.set(__self__, "mutual_tls_authentication", mutual_tls_authentication)
         if region is not None:
             pulumi.set(__self__, "region", region)
+        if routing_mode is not None:
+            pulumi.set(__self__, "routing_mode", routing_mode)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
@@ -92,6 +96,18 @@ class DomainNameArgs:
         pulumi.set(self, "region", value)
 
     @_builtins.property
+    @pulumi.getter(name="routingMode")
+    def routing_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Mode to route traffic for the domain name. Valid values: `API_MAPPING_ONLY`, `ROUTING_RULE_ONLY`, `ROUTING_RULE_THEN_API_MAPPING`.
+        """
+        return pulumi.get(self, "routing_mode")
+
+    @routing_mode.setter
+    def routing_mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "routing_mode", value)
+
+    @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
@@ -113,6 +129,7 @@ class _DomainNameState:
                  domain_name_configuration: Optional[pulumi.Input['DomainNameDomainNameConfigurationArgs']] = None,
                  mutual_tls_authentication: Optional[pulumi.Input['DomainNameMutualTlsAuthenticationArgs']] = None,
                  region: Optional[pulumi.Input[_builtins.str]] = None,
+                 routing_mode: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
@@ -123,6 +140,7 @@ class _DomainNameState:
         :param pulumi.Input['DomainNameDomainNameConfigurationArgs'] domain_name_configuration: Domain name configuration. See below.
         :param pulumi.Input['DomainNameMutualTlsAuthenticationArgs'] mutual_tls_authentication: Mutual TLS authentication configuration for the domain name.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        :param pulumi.Input[_builtins.str] routing_mode: Mode to route traffic for the domain name. Valid values: `API_MAPPING_ONLY`, `ROUTING_RULE_ONLY`, `ROUTING_RULE_THEN_API_MAPPING`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the domain name. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
@@ -138,6 +156,8 @@ class _DomainNameState:
             pulumi.set(__self__, "mutual_tls_authentication", mutual_tls_authentication)
         if region is not None:
             pulumi.set(__self__, "region", region)
+        if routing_mode is not None:
+            pulumi.set(__self__, "routing_mode", routing_mode)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
@@ -216,6 +236,18 @@ class _DomainNameState:
         pulumi.set(self, "region", value)
 
     @_builtins.property
+    @pulumi.getter(name="routingMode")
+    def routing_mode(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Mode to route traffic for the domain name. Valid values: `API_MAPPING_ONLY`, `ROUTING_RULE_ONLY`, `ROUTING_RULE_THEN_API_MAPPING`.
+        """
+        return pulumi.get(self, "routing_mode")
+
+    @routing_mode.setter
+    def routing_mode(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "routing_mode", value)
+
+    @_builtins.property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
@@ -250,6 +282,7 @@ class DomainName(pulumi.CustomResource):
                  domain_name_configuration: Optional[pulumi.Input[Union['DomainNameDomainNameConfigurationArgs', 'DomainNameDomainNameConfigurationArgsDict']]] = None,
                  mutual_tls_authentication: Optional[pulumi.Input[Union['DomainNameMutualTlsAuthenticationArgs', 'DomainNameMutualTlsAuthenticationArgsDict']]] = None,
                  region: Optional[pulumi.Input[_builtins.str]] = None,
+                 routing_mode: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
@@ -314,6 +347,7 @@ class DomainName(pulumi.CustomResource):
         :param pulumi.Input[Union['DomainNameDomainNameConfigurationArgs', 'DomainNameDomainNameConfigurationArgsDict']] domain_name_configuration: Domain name configuration. See below.
         :param pulumi.Input[Union['DomainNameMutualTlsAuthenticationArgs', 'DomainNameMutualTlsAuthenticationArgsDict']] mutual_tls_authentication: Mutual TLS authentication configuration for the domain name.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        :param pulumi.Input[_builtins.str] routing_mode: Mode to route traffic for the domain name. Valid values: `API_MAPPING_ONLY`, `ROUTING_RULE_ONLY`, `ROUTING_RULE_THEN_API_MAPPING`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the domain name. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
@@ -397,6 +431,7 @@ class DomainName(pulumi.CustomResource):
                  domain_name_configuration: Optional[pulumi.Input[Union['DomainNameDomainNameConfigurationArgs', 'DomainNameDomainNameConfigurationArgsDict']]] = None,
                  mutual_tls_authentication: Optional[pulumi.Input[Union['DomainNameMutualTlsAuthenticationArgs', 'DomainNameMutualTlsAuthenticationArgsDict']]] = None,
                  region: Optional[pulumi.Input[_builtins.str]] = None,
+                 routing_mode: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -415,6 +450,7 @@ class DomainName(pulumi.CustomResource):
             __props__.__dict__["domain_name_configuration"] = domain_name_configuration
             __props__.__dict__["mutual_tls_authentication"] = mutual_tls_authentication
             __props__.__dict__["region"] = region
+            __props__.__dict__["routing_mode"] = routing_mode
             __props__.__dict__["tags"] = tags
             __props__.__dict__["api_mapping_selection_expression"] = None
             __props__.__dict__["arn"] = None
@@ -435,6 +471,7 @@ class DomainName(pulumi.CustomResource):
             domain_name_configuration: Optional[pulumi.Input[Union['DomainNameDomainNameConfigurationArgs', 'DomainNameDomainNameConfigurationArgsDict']]] = None,
             mutual_tls_authentication: Optional[pulumi.Input[Union['DomainNameMutualTlsAuthenticationArgs', 'DomainNameMutualTlsAuthenticationArgsDict']]] = None,
             region: Optional[pulumi.Input[_builtins.str]] = None,
+            routing_mode: Optional[pulumi.Input[_builtins.str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None) -> 'DomainName':
         """
@@ -450,6 +487,7 @@ class DomainName(pulumi.CustomResource):
         :param pulumi.Input[Union['DomainNameDomainNameConfigurationArgs', 'DomainNameDomainNameConfigurationArgsDict']] domain_name_configuration: Domain name configuration. See below.
         :param pulumi.Input[Union['DomainNameMutualTlsAuthenticationArgs', 'DomainNameMutualTlsAuthenticationArgsDict']] mutual_tls_authentication: Mutual TLS authentication configuration for the domain name.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        :param pulumi.Input[_builtins.str] routing_mode: Mode to route traffic for the domain name. Valid values: `API_MAPPING_ONLY`, `ROUTING_RULE_ONLY`, `ROUTING_RULE_THEN_API_MAPPING`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the domain name. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
@@ -463,6 +501,7 @@ class DomainName(pulumi.CustomResource):
         __props__.__dict__["domain_name_configuration"] = domain_name_configuration
         __props__.__dict__["mutual_tls_authentication"] = mutual_tls_authentication
         __props__.__dict__["region"] = region
+        __props__.__dict__["routing_mode"] = routing_mode
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
         return DomainName(resource_name, opts=opts, __props__=__props__)
@@ -514,6 +553,14 @@ class DomainName(pulumi.CustomResource):
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
+
+    @_builtins.property
+    @pulumi.getter(name="routingMode")
+    def routing_mode(self) -> pulumi.Output[_builtins.str]:
+        """
+        Mode to route traffic for the domain name. Valid values: `API_MAPPING_ONLY`, `ROUTING_RULE_ONLY`, `ROUTING_RULE_THEN_API_MAPPING`.
+        """
+        return pulumi.get(self, "routing_mode")
 
     @_builtins.property
     @pulumi.getter

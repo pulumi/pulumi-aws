@@ -30,7 +30,12 @@ export const getDelegatedServices: typeof import("./getDelegatedServices").getDe
 export const getDelegatedServicesOutput: typeof import("./getDelegatedServices").getDelegatedServicesOutput = null as any;
 utilities.lazyLoad(exports, ["getDelegatedServices","getDelegatedServicesOutput"], () => require("./getDelegatedServices"));
 
-export { GetOrganizationResult } from "./getOrganization";
+export { GetEntityPathArgs, GetEntityPathResult, GetEntityPathOutputArgs } from "./getEntityPath";
+export const getEntityPath: typeof import("./getEntityPath").getEntityPath = null as any;
+export const getEntityPathOutput: typeof import("./getEntityPath").getEntityPathOutput = null as any;
+utilities.lazyLoad(exports, ["getEntityPath","getEntityPathOutput"], () => require("./getEntityPath"));
+
+export { GetOrganizationArgs, GetOrganizationResult, GetOrganizationOutputArgs } from "./getOrganization";
 export const getOrganization: typeof import("./getOrganization").getOrganization = null as any;
 export const getOrganizationOutput: typeof import("./getOrganization").getOrganizationOutput = null as any;
 utilities.lazyLoad(exports, ["getOrganization","getOrganizationOutput"], () => require("./getOrganization"));

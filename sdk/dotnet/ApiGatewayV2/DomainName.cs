@@ -130,6 +130,12 @@ namespace Pulumi.Aws.ApiGatewayV2
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
+        /// Mode to route traffic for the domain name. Valid values: `API_MAPPING_ONLY`, `ROUTING_RULE_ONLY`, `ROUTING_RULE_THEN_API_MAPPING`.
+        /// </summary>
+        [Output("routingMode")]
+        public Output<string> RoutingMode { get; private set; } = null!;
+
+        /// <summary>
         /// Map of tags to assign to the domain name. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
@@ -211,6 +217,12 @@ namespace Pulumi.Aws.ApiGatewayV2
         [Input("region")]
         public Input<string>? Region { get; set; }
 
+        /// <summary>
+        /// Mode to route traffic for the domain name. Valid values: `API_MAPPING_ONLY`, `ROUTING_RULE_ONLY`, `ROUTING_RULE_THEN_API_MAPPING`.
+        /// </summary>
+        [Input("routingMode")]
+        public Input<string>? RoutingMode { get; set; }
+
         [Input("tags")]
         private InputMap<string>? _tags;
 
@@ -266,6 +278,12 @@ namespace Pulumi.Aws.ApiGatewayV2
         /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
+
+        /// <summary>
+        /// Mode to route traffic for the domain name. Valid values: `API_MAPPING_ONLY`, `ROUTING_RULE_ONLY`, `ROUTING_RULE_THEN_API_MAPPING`.
+        /// </summary>
+        [Input("routingMode")]
+        public Input<string>? RoutingMode { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

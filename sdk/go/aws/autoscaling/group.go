@@ -755,7 +755,7 @@ type Group struct {
 	SuspendedProcesses pulumi.StringArrayOutput `pulumi:"suspendedProcesses"`
 	// Configuration block(s) containing resource tags. See Tag below for more details.
 	Tags GroupTagArrayOutput `pulumi:"tags"`
-	// Set of `alb.TargetGroup` ARNs, for use with Application or Network Load Balancing. To remove all target group attachments an empty list should be specified.
+	// Set of `lb.TargetGroup` ARNs, for use with Application or Network Load Balancing. To remove all target group attachments an empty list should be specified.
 	TargetGroupArns pulumi.StringArrayOutput `pulumi:"targetGroupArns"`
 	// List of policies to decide how the instances in the Auto Scaling Group should be terminated. The allowed values are `OldestInstance`, `NewestInstance`, `OldestLaunchConfiguration`, `ClosestToNextInstanceHour`, `OldestLaunchTemplate`, `AllocationStrategy`, `Default`. Additionally, the ARN of a Lambda function can be specified for custom termination policies.
 	TerminationPolicies pulumi.StringArrayOutput `pulumi:"terminationPolicies"`
@@ -917,7 +917,7 @@ type groupState struct {
 	SuspendedProcesses []string `pulumi:"suspendedProcesses"`
 	// Configuration block(s) containing resource tags. See Tag below for more details.
 	Tags []GroupTag `pulumi:"tags"`
-	// Set of `alb.TargetGroup` ARNs, for use with Application or Network Load Balancing. To remove all target group attachments an empty list should be specified.
+	// Set of `lb.TargetGroup` ARNs, for use with Application or Network Load Balancing. To remove all target group attachments an empty list should be specified.
 	TargetGroupArns []string `pulumi:"targetGroupArns"`
 	// List of policies to decide how the instances in the Auto Scaling Group should be terminated. The allowed values are `OldestInstance`, `NewestInstance`, `OldestLaunchConfiguration`, `ClosestToNextInstanceHour`, `OldestLaunchTemplate`, `AllocationStrategy`, `Default`. Additionally, the ARN of a Lambda function can be specified for custom termination policies.
 	TerminationPolicies []string `pulumi:"terminationPolicies"`
@@ -1044,7 +1044,7 @@ type GroupState struct {
 	SuspendedProcesses pulumi.StringArrayInput
 	// Configuration block(s) containing resource tags. See Tag below for more details.
 	Tags GroupTagArrayInput
-	// Set of `alb.TargetGroup` ARNs, for use with Application or Network Load Balancing. To remove all target group attachments an empty list should be specified.
+	// Set of `lb.TargetGroup` ARNs, for use with Application or Network Load Balancing. To remove all target group attachments an empty list should be specified.
 	TargetGroupArns pulumi.StringArrayInput
 	// List of policies to decide how the instances in the Auto Scaling Group should be terminated. The allowed values are `OldestInstance`, `NewestInstance`, `OldestLaunchConfiguration`, `ClosestToNextInstanceHour`, `OldestLaunchTemplate`, `AllocationStrategy`, `Default`. Additionally, the ARN of a Lambda function can be specified for custom termination policies.
 	TerminationPolicies pulumi.StringArrayInput
@@ -1171,7 +1171,7 @@ type groupArgs struct {
 	SuspendedProcesses []string `pulumi:"suspendedProcesses"`
 	// Configuration block(s) containing resource tags. See Tag below for more details.
 	Tags []GroupTag `pulumi:"tags"`
-	// Set of `alb.TargetGroup` ARNs, for use with Application or Network Load Balancing. To remove all target group attachments an empty list should be specified.
+	// Set of `lb.TargetGroup` ARNs, for use with Application or Network Load Balancing. To remove all target group attachments an empty list should be specified.
 	TargetGroupArns []string `pulumi:"targetGroupArns"`
 	// List of policies to decide how the instances in the Auto Scaling Group should be terminated. The allowed values are `OldestInstance`, `NewestInstance`, `OldestLaunchConfiguration`, `ClosestToNextInstanceHour`, `OldestLaunchTemplate`, `AllocationStrategy`, `Default`. Additionally, the ARN of a Lambda function can be specified for custom termination policies.
 	TerminationPolicies []string `pulumi:"terminationPolicies"`
@@ -1293,7 +1293,7 @@ type GroupArgs struct {
 	SuspendedProcesses pulumi.StringArrayInput
 	// Configuration block(s) containing resource tags. See Tag below for more details.
 	Tags GroupTagArrayInput
-	// Set of `alb.TargetGroup` ARNs, for use with Application or Network Load Balancing. To remove all target group attachments an empty list should be specified.
+	// Set of `lb.TargetGroup` ARNs, for use with Application or Network Load Balancing. To remove all target group attachments an empty list should be specified.
 	TargetGroupArns pulumi.StringArrayInput
 	// List of policies to decide how the instances in the Auto Scaling Group should be terminated. The allowed values are `OldestInstance`, `NewestInstance`, `OldestLaunchConfiguration`, `ClosestToNextInstanceHour`, `OldestLaunchTemplate`, `AllocationStrategy`, `Default`. Additionally, the ARN of a Lambda function can be specified for custom termination policies.
 	TerminationPolicies pulumi.StringArrayInput
@@ -1615,7 +1615,7 @@ func (o GroupOutput) Tags() GroupTagArrayOutput {
 	return o.ApplyT(func(v *Group) GroupTagArrayOutput { return v.Tags }).(GroupTagArrayOutput)
 }
 
-// Set of `alb.TargetGroup` ARNs, for use with Application or Network Load Balancing. To remove all target group attachments an empty list should be specified.
+// Set of `lb.TargetGroup` ARNs, for use with Application or Network Load Balancing. To remove all target group attachments an empty list should be specified.
 func (o GroupOutput) TargetGroupArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Group) pulumi.StringArrayOutput { return v.TargetGroupArns }).(pulumi.StringArrayOutput)
 }

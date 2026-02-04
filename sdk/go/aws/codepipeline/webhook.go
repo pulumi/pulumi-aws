@@ -109,13 +109,11 @@ import (
 //			_, err = github.NewRepositoryWebhook(ctx, "bar", &github.RepositoryWebhookArgs{
 //				Repository: pulumi.Any(repo.Name),
 //				Name:       "web",
-//				Configuration: github.RepositoryWebhookConfigurationArgs{
-//					map[string]interface{}{
-//						"url":         barWebhook.Url,
-//						"contentType": "json",
-//						"insecureSsl": true,
-//						"secret":      webhookSecret,
-//					},
+//				Configuration: &github.RepositoryWebhookConfigurationArgs{
+//					Url:         barWebhook.Url,
+//					ContentType: pulumi.String("json"),
+//					InsecureSsl: pulumi.Bool(true),
+//					Secret:      pulumi.String(webhookSecret),
 //				},
 //				Events: pulumi.StringArray{
 //					pulumi.String("push"),

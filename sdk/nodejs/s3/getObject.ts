@@ -73,6 +73,7 @@ export function getObject(args: GetObjectArgs, opts?: pulumi.InvokeOptions): Pro
     return pulumi.runtime.invoke("aws:s3/getObject:getObject", {
         "bucket": args.bucket,
         "checksumMode": args.checksumMode,
+        "downloadBody": args.downloadBody,
         "key": args.key,
         "range": args.range,
         "region": args.region,
@@ -93,6 +94,10 @@ export interface GetObjectArgs {
      * To retrieve the object's checksum, this argument must be `ENABLED`. If you enable `checksumMode` and the object is encrypted with KMS, you must have permission to use the `kms:Decrypt` action. Valid values: `ENABLED`
      */
     checksumMode?: string;
+    /**
+     * Set to `true` to always download object data to `bodyBase64` attribute. If unset and conditions described above are met, `body` will be available but `bodyBase64` will not be. If set to `false`, the body is not downloaded and neither `body` nor `bodyBase64` is available, which may improve performance.
+     */
+    downloadBody?: string;
     /**
      * Full path to the object inside the bucket
      */
@@ -121,9 +126,13 @@ export interface GetObjectResult {
      */
     readonly arn: string;
     /**
-     * Object data (see **limitations above** to understand cases in which this field is actually available)
+     * Object data (see **limitations above** to understand cases in which this field is actually available). If `downloadBody` is set to `false`, `body` is not available.
      */
     readonly body: string;
+    /**
+     * Object data as base64 encoded string. **This is only available if `downloadBody` is set to `true`.**
+     */
+    readonly bodyBase64: string;
     readonly bucket: string;
     /**
      * (Optional) Whether or not to use [Amazon S3 Bucket Keys](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html) for SSE-KMS.
@@ -174,6 +183,7 @@ export interface GetObjectResult {
      * Standard MIME type describing the format of the object data.
      */
     readonly contentType: string;
+    readonly downloadBody?: string;
     /**
      * [ETag](https://en.wikipedia.org/wiki/HTTP_ETag) generated for the object (an MD5 sum of the object content in case it's not encrypted)
      */
@@ -307,6 +317,7 @@ export function getObjectOutput(args: GetObjectOutputArgs, opts?: pulumi.InvokeO
     return pulumi.runtime.invokeOutput("aws:s3/getObject:getObject", {
         "bucket": args.bucket,
         "checksumMode": args.checksumMode,
+        "downloadBody": args.downloadBody,
         "key": args.key,
         "range": args.range,
         "region": args.region,
@@ -327,6 +338,10 @@ export interface GetObjectOutputArgs {
      * To retrieve the object's checksum, this argument must be `ENABLED`. If you enable `checksumMode` and the object is encrypted with KMS, you must have permission to use the `kms:Decrypt` action. Valid values: `ENABLED`
      */
     checksumMode?: pulumi.Input<string>;
+    /**
+     * Set to `true` to always download object data to `bodyBase64` attribute. If unset and conditions described above are met, `body` will be available but `bodyBase64` will not be. If set to `false`, the body is not downloaded and neither `body` nor `bodyBase64` is available, which may improve performance.
+     */
+    downloadBody?: pulumi.Input<string>;
     /**
      * Full path to the object inside the bucket
      */

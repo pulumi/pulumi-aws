@@ -395,14 +395,18 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * When an item in the table is modified, StreamViewType determines what information is written to the table&#39;s stream. Valid values are `KEYS_ONLY`, `NEW_IMAGE`, `OLD_IMAGE`, `NEW_AND_OLD_IMAGES`.
+     * When an item in the table is modified, StreamViewType determines what information is written to the table&#39;s stream.
+     * Valid values are `KEYS_ONLY`, `NEW_IMAGE`, `OLD_IMAGE`, `NEW_AND_OLD_IMAGES`.
+     * Only valid when `streamEnabled` is true.
      * 
      */
     @Import(name="streamViewType")
     private @Nullable Output<String> streamViewType;
 
     /**
-     * @return When an item in the table is modified, StreamViewType determines what information is written to the table&#39;s stream. Valid values are `KEYS_ONLY`, `NEW_IMAGE`, `OLD_IMAGE`, `NEW_AND_OLD_IMAGES`.
+     * @return When an item in the table is modified, StreamViewType determines what information is written to the table&#39;s stream.
+     * Valid values are `KEYS_ONLY`, `NEW_IMAGE`, `OLD_IMAGE`, `NEW_AND_OLD_IMAGES`.
+     * Only valid when `streamEnabled` is true.
      * 
      */
     public Optional<Output<String>> streamViewType() {
@@ -1106,7 +1110,9 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param streamViewType When an item in the table is modified, StreamViewType determines what information is written to the table&#39;s stream. Valid values are `KEYS_ONLY`, `NEW_IMAGE`, `OLD_IMAGE`, `NEW_AND_OLD_IMAGES`.
+         * @param streamViewType When an item in the table is modified, StreamViewType determines what information is written to the table&#39;s stream.
+         * Valid values are `KEYS_ONLY`, `NEW_IMAGE`, `OLD_IMAGE`, `NEW_AND_OLD_IMAGES`.
+         * Only valid when `streamEnabled` is true.
          * 
          * @return builder
          * 
@@ -1117,7 +1123,9 @@ public final class TableState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param streamViewType When an item in the table is modified, StreamViewType determines what information is written to the table&#39;s stream. Valid values are `KEYS_ONLY`, `NEW_IMAGE`, `OLD_IMAGE`, `NEW_AND_OLD_IMAGES`.
+         * @param streamViewType When an item in the table is modified, StreamViewType determines what information is written to the table&#39;s stream.
+         * Valid values are `KEYS_ONLY`, `NEW_IMAGE`, `OLD_IMAGE`, `NEW_AND_OLD_IMAGES`.
+         * Only valid when `streamEnabled` is true.
          * 
          * @return builder
          * 

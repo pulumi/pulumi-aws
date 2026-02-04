@@ -127,7 +127,9 @@ type LookupVpcIpamPoolResult struct {
 	Region               string `pulumi:"region"`
 	// ID of the source IPAM pool.
 	SourceIpamPoolId string `pulumi:"sourceIpamPoolId"`
-	State            string `pulumi:"state"`
+	// Resource used to create the resource planning pool.
+	SourceResources []GetVpcIpamPoolSourceResource `pulumi:"sourceResources"`
+	State           string                         `pulumi:"state"`
 	// Map of tags to assigned to the resource.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -264,6 +266,11 @@ func (o LookupVpcIpamPoolResultOutput) Region() pulumi.StringOutput {
 // ID of the source IPAM pool.
 func (o LookupVpcIpamPoolResultOutput) SourceIpamPoolId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupVpcIpamPoolResult) string { return v.SourceIpamPoolId }).(pulumi.StringOutput)
+}
+
+// Resource used to create the resource planning pool.
+func (o LookupVpcIpamPoolResultOutput) SourceResources() GetVpcIpamPoolSourceResourceArrayOutput {
+	return o.ApplyT(func(v LookupVpcIpamPoolResult) []GetVpcIpamPoolSourceResource { return v.SourceResources }).(GetVpcIpamPoolSourceResourceArrayOutput)
 }
 
 func (o LookupVpcIpamPoolResultOutput) State() pulumi.StringOutput {

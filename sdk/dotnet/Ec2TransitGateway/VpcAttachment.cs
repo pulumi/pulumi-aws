@@ -100,15 +100,9 @@ namespace Pulumi.Aws.Ec2TransitGateway
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
-        /// <summary>
-        /// Boolean whether the VPC Attachment should be associated with the EC2 Transit Gateway association default route table. This cannot be configured or perform drift detection with Resource Access Manager shared EC2 Transit Gateways. Default value: `True`.
-        /// </summary>
         [Output("transitGatewayDefaultRouteTableAssociation")]
         public Output<bool> TransitGatewayDefaultRouteTableAssociation { get; private set; } = null!;
 
-        /// <summary>
-        /// Boolean whether the VPC Attachment should propagate routes with the EC2 Transit Gateway propagation default route table. This cannot be configured or perform drift detection with Resource Access Manager shared EC2 Transit Gateways. Default value: `True`.
-        /// </summary>
         [Output("transitGatewayDefaultRouteTablePropagation")]
         public Output<bool> TransitGatewayDefaultRouteTablePropagation { get; private set; } = null!;
 
@@ -230,15 +224,9 @@ namespace Pulumi.Aws.Ec2TransitGateway
             set => _tags = value;
         }
 
-        /// <summary>
-        /// Boolean whether the VPC Attachment should be associated with the EC2 Transit Gateway association default route table. This cannot be configured or perform drift detection with Resource Access Manager shared EC2 Transit Gateways. Default value: `True`.
-        /// </summary>
         [Input("transitGatewayDefaultRouteTableAssociation")]
         public Input<bool>? TransitGatewayDefaultRouteTableAssociation { get; set; }
 
-        /// <summary>
-        /// Boolean whether the VPC Attachment should propagate routes with the EC2 Transit Gateway propagation default route table. This cannot be configured or perform drift detection with Resource Access Manager shared EC2 Transit Gateways. Default value: `True`.
-        /// </summary>
         [Input("transitGatewayDefaultRouteTablePropagation")]
         public Input<bool>? TransitGatewayDefaultRouteTablePropagation { get; set; }
 
@@ -334,15 +322,9 @@ namespace Pulumi.Aws.Ec2TransitGateway
             set => _tagsAll = value;
         }
 
-        /// <summary>
-        /// Boolean whether the VPC Attachment should be associated with the EC2 Transit Gateway association default route table. This cannot be configured or perform drift detection with Resource Access Manager shared EC2 Transit Gateways. Default value: `True`.
-        /// </summary>
         [Input("transitGatewayDefaultRouteTableAssociation")]
         public Input<bool>? TransitGatewayDefaultRouteTableAssociation { get; set; }
 
-        /// <summary>
-        /// Boolean whether the VPC Attachment should propagate routes with the EC2 Transit Gateway propagation default route table. This cannot be configured or perform drift detection with Resource Access Manager shared EC2 Transit Gateways. Default value: `True`.
-        /// </summary>
         [Input("transitGatewayDefaultRouteTablePropagation")]
         public Input<bool>? TransitGatewayDefaultRouteTablePropagation { get; set; }
 

@@ -12,25 +12,69 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class JobDefinitionEksPropertiesPodPropertiesInitContainerSecurityContext {
+    /**
+     * @return Whether or not a container or a Kubernetes pod is allowed to gain more privileges than its parent process. The default value is `false`.
+     * 
+     */
+    private @Nullable Boolean allowPrivilegeEscalation;
+    /**
+     * @return When this parameter is `true`, the container is given elevated permissions on the host container instance. The level of permissions are similar to the root user permissions. The default value is `false`.
+     * 
+     */
     private @Nullable Boolean privileged;
     private @Nullable Boolean readOnlyRootFileSystem;
+    /**
+     * @return When this parameter is specified, the container is run as the specified group ID (gid). If this parameter isn&#39;t specified, the default is the group that&#39;s specified in the image metadata.
+     * 
+     */
     private @Nullable Integer runAsGroup;
+    /**
+     * @return When this parameter is specified, the container is run as a user with a uid other than 0. If this parameter isn&#39;t specified, so such rule is enforced.
+     * 
+     */
     private @Nullable Boolean runAsNonRoot;
+    /**
+     * @return When this parameter is specified, the container is run as the specified user ID (uid). If this parameter isn&#39;t specified, the default is the user that&#39;s specified in the image metadata.
+     * 
+     */
     private @Nullable Integer runAsUser;
 
     private JobDefinitionEksPropertiesPodPropertiesInitContainerSecurityContext() {}
+    /**
+     * @return Whether or not a container or a Kubernetes pod is allowed to gain more privileges than its parent process. The default value is `false`.
+     * 
+     */
+    public Optional<Boolean> allowPrivilegeEscalation() {
+        return Optional.ofNullable(this.allowPrivilegeEscalation);
+    }
+    /**
+     * @return When this parameter is `true`, the container is given elevated permissions on the host container instance. The level of permissions are similar to the root user permissions. The default value is `false`.
+     * 
+     */
     public Optional<Boolean> privileged() {
         return Optional.ofNullable(this.privileged);
     }
     public Optional<Boolean> readOnlyRootFileSystem() {
         return Optional.ofNullable(this.readOnlyRootFileSystem);
     }
+    /**
+     * @return When this parameter is specified, the container is run as the specified group ID (gid). If this parameter isn&#39;t specified, the default is the group that&#39;s specified in the image metadata.
+     * 
+     */
     public Optional<Integer> runAsGroup() {
         return Optional.ofNullable(this.runAsGroup);
     }
+    /**
+     * @return When this parameter is specified, the container is run as a user with a uid other than 0. If this parameter isn&#39;t specified, so such rule is enforced.
+     * 
+     */
     public Optional<Boolean> runAsNonRoot() {
         return Optional.ofNullable(this.runAsNonRoot);
     }
+    /**
+     * @return When this parameter is specified, the container is run as the specified user ID (uid). If this parameter isn&#39;t specified, the default is the user that&#39;s specified in the image metadata.
+     * 
+     */
     public Optional<Integer> runAsUser() {
         return Optional.ofNullable(this.runAsUser);
     }
@@ -44,6 +88,7 @@ public final class JobDefinitionEksPropertiesPodPropertiesInitContainerSecurityC
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable Boolean allowPrivilegeEscalation;
         private @Nullable Boolean privileged;
         private @Nullable Boolean readOnlyRootFileSystem;
         private @Nullable Integer runAsGroup;
@@ -52,6 +97,7 @@ public final class JobDefinitionEksPropertiesPodPropertiesInitContainerSecurityC
         public Builder() {}
         public Builder(JobDefinitionEksPropertiesPodPropertiesInitContainerSecurityContext defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.allowPrivilegeEscalation = defaults.allowPrivilegeEscalation;
     	      this.privileged = defaults.privileged;
     	      this.readOnlyRootFileSystem = defaults.readOnlyRootFileSystem;
     	      this.runAsGroup = defaults.runAsGroup;
@@ -59,6 +105,12 @@ public final class JobDefinitionEksPropertiesPodPropertiesInitContainerSecurityC
     	      this.runAsUser = defaults.runAsUser;
         }
 
+        @CustomType.Setter
+        public Builder allowPrivilegeEscalation(@Nullable Boolean allowPrivilegeEscalation) {
+
+            this.allowPrivilegeEscalation = allowPrivilegeEscalation;
+            return this;
+        }
         @CustomType.Setter
         public Builder privileged(@Nullable Boolean privileged) {
 
@@ -91,6 +143,7 @@ public final class JobDefinitionEksPropertiesPodPropertiesInitContainerSecurityC
         }
         public JobDefinitionEksPropertiesPodPropertiesInitContainerSecurityContext build() {
             final var _resultValue = new JobDefinitionEksPropertiesPodPropertiesInitContainerSecurityContext();
+            _resultValue.allowPrivilegeEscalation = allowPrivilegeEscalation;
             _resultValue.privileged = privileged;
             _resultValue.readOnlyRootFileSystem = readOnlyRootFileSystem;
             _resultValue.runAsGroup = runAsGroup;

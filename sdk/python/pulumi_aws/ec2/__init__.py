@@ -170,6 +170,7 @@ from .vpc_ipv6_cidr_block_association import *
 from .vpc_network_performance_metric_subscription import *
 from .vpc_peering_connection import *
 from .vpc_peering_connection_accepter import *
+from .vpc_security_group_rules_exclusive import *
 from .vpn_concentrator import *
 from .vpn_connection import *
 from .vpn_connection_route import *

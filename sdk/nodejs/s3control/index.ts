@@ -50,10 +50,20 @@ export type DirectoryBucketAccessPointScope = import("./directoryBucketAccessPoi
 export const DirectoryBucketAccessPointScope: typeof import("./directoryBucketAccessPointScope").DirectoryBucketAccessPointScope = null as any;
 utilities.lazyLoad(exports, ["DirectoryBucketAccessPointScope"], () => require("./directoryBucketAccessPointScope"));
 
+export { GetAccessPointsArgs, GetAccessPointsResult, GetAccessPointsOutputArgs } from "./getAccessPoints";
+export const getAccessPoints: typeof import("./getAccessPoints").getAccessPoints = null as any;
+export const getAccessPointsOutput: typeof import("./getAccessPoints").getAccessPointsOutput = null as any;
+utilities.lazyLoad(exports, ["getAccessPoints","getAccessPointsOutput"], () => require("./getAccessPoints"));
+
 export { GetMultiRegionAccessPointArgs, GetMultiRegionAccessPointResult, GetMultiRegionAccessPointOutputArgs } from "./getMultiRegionAccessPoint";
 export const getMultiRegionAccessPoint: typeof import("./getMultiRegionAccessPoint").getMultiRegionAccessPoint = null as any;
 export const getMultiRegionAccessPointOutput: typeof import("./getMultiRegionAccessPoint").getMultiRegionAccessPointOutput = null as any;
 utilities.lazyLoad(exports, ["getMultiRegionAccessPoint","getMultiRegionAccessPointOutput"], () => require("./getMultiRegionAccessPoint"));
+
+export { GetMultiRegionAccessPointsArgs, GetMultiRegionAccessPointsResult, GetMultiRegionAccessPointsOutputArgs } from "./getMultiRegionAccessPoints";
+export const getMultiRegionAccessPoints: typeof import("./getMultiRegionAccessPoints").getMultiRegionAccessPoints = null as any;
+export const getMultiRegionAccessPointsOutput: typeof import("./getMultiRegionAccessPoints").getMultiRegionAccessPointsOutput = null as any;
+utilities.lazyLoad(exports, ["getMultiRegionAccessPoints","getMultiRegionAccessPointsOutput"], () => require("./getMultiRegionAccessPoints"));
 
 export { MultiRegionAccessPointArgs, MultiRegionAccessPointState } from "./multiRegionAccessPoint";
 export type MultiRegionAccessPoint = import("./multiRegionAccessPoint").MultiRegionAccessPoint;

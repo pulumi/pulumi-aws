@@ -1160,6 +1160,814 @@ func (o RouteRequestParameterArrayOutput) Index(i pulumi.IntInput) RouteRequestP
 	}).(RouteRequestParameterOutput)
 }
 
+type RoutingRuleAction struct {
+	// Configuration to invoke a stage of a target API. Only REST APIs are supported. See below.
+	InvokeApi *RoutingRuleActionInvokeApi `pulumi:"invokeApi"`
+}
+
+// RoutingRuleActionInput is an input type that accepts RoutingRuleActionArgs and RoutingRuleActionOutput values.
+// You can construct a concrete instance of `RoutingRuleActionInput` via:
+//
+//	RoutingRuleActionArgs{...}
+type RoutingRuleActionInput interface {
+	pulumi.Input
+
+	ToRoutingRuleActionOutput() RoutingRuleActionOutput
+	ToRoutingRuleActionOutputWithContext(context.Context) RoutingRuleActionOutput
+}
+
+type RoutingRuleActionArgs struct {
+	// Configuration to invoke a stage of a target API. Only REST APIs are supported. See below.
+	InvokeApi RoutingRuleActionInvokeApiPtrInput `pulumi:"invokeApi"`
+}
+
+func (RoutingRuleActionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RoutingRuleAction)(nil)).Elem()
+}
+
+func (i RoutingRuleActionArgs) ToRoutingRuleActionOutput() RoutingRuleActionOutput {
+	return i.ToRoutingRuleActionOutputWithContext(context.Background())
+}
+
+func (i RoutingRuleActionArgs) ToRoutingRuleActionOutputWithContext(ctx context.Context) RoutingRuleActionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RoutingRuleActionOutput)
+}
+
+// RoutingRuleActionArrayInput is an input type that accepts RoutingRuleActionArray and RoutingRuleActionArrayOutput values.
+// You can construct a concrete instance of `RoutingRuleActionArrayInput` via:
+//
+//	RoutingRuleActionArray{ RoutingRuleActionArgs{...} }
+type RoutingRuleActionArrayInput interface {
+	pulumi.Input
+
+	ToRoutingRuleActionArrayOutput() RoutingRuleActionArrayOutput
+	ToRoutingRuleActionArrayOutputWithContext(context.Context) RoutingRuleActionArrayOutput
+}
+
+type RoutingRuleActionArray []RoutingRuleActionInput
+
+func (RoutingRuleActionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RoutingRuleAction)(nil)).Elem()
+}
+
+func (i RoutingRuleActionArray) ToRoutingRuleActionArrayOutput() RoutingRuleActionArrayOutput {
+	return i.ToRoutingRuleActionArrayOutputWithContext(context.Background())
+}
+
+func (i RoutingRuleActionArray) ToRoutingRuleActionArrayOutputWithContext(ctx context.Context) RoutingRuleActionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RoutingRuleActionArrayOutput)
+}
+
+type RoutingRuleActionOutput struct{ *pulumi.OutputState }
+
+func (RoutingRuleActionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RoutingRuleAction)(nil)).Elem()
+}
+
+func (o RoutingRuleActionOutput) ToRoutingRuleActionOutput() RoutingRuleActionOutput {
+	return o
+}
+
+func (o RoutingRuleActionOutput) ToRoutingRuleActionOutputWithContext(ctx context.Context) RoutingRuleActionOutput {
+	return o
+}
+
+// Configuration to invoke a stage of a target API. Only REST APIs are supported. See below.
+func (o RoutingRuleActionOutput) InvokeApi() RoutingRuleActionInvokeApiPtrOutput {
+	return o.ApplyT(func(v RoutingRuleAction) *RoutingRuleActionInvokeApi { return v.InvokeApi }).(RoutingRuleActionInvokeApiPtrOutput)
+}
+
+type RoutingRuleActionArrayOutput struct{ *pulumi.OutputState }
+
+func (RoutingRuleActionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RoutingRuleAction)(nil)).Elem()
+}
+
+func (o RoutingRuleActionArrayOutput) ToRoutingRuleActionArrayOutput() RoutingRuleActionArrayOutput {
+	return o
+}
+
+func (o RoutingRuleActionArrayOutput) ToRoutingRuleActionArrayOutputWithContext(ctx context.Context) RoutingRuleActionArrayOutput {
+	return o
+}
+
+func (o RoutingRuleActionArrayOutput) Index(i pulumi.IntInput) RoutingRuleActionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RoutingRuleAction {
+		return vs[0].([]RoutingRuleAction)[vs[1].(int)]
+	}).(RoutingRuleActionOutput)
+}
+
+type RoutingRuleActionInvokeApi struct {
+	// Action to invoke a stage of a target API. Only REST APIs are supported.
+	ApiId string `pulumi:"apiId"`
+	// Action to invoke a stage of a target API. Only REST APIs are supported.
+	Stage string `pulumi:"stage"`
+	// Action to invoke a stage of a target API. Only REST APIs are supported.
+	StripBasePath *bool `pulumi:"stripBasePath"`
+}
+
+// RoutingRuleActionInvokeApiInput is an input type that accepts RoutingRuleActionInvokeApiArgs and RoutingRuleActionInvokeApiOutput values.
+// You can construct a concrete instance of `RoutingRuleActionInvokeApiInput` via:
+//
+//	RoutingRuleActionInvokeApiArgs{...}
+type RoutingRuleActionInvokeApiInput interface {
+	pulumi.Input
+
+	ToRoutingRuleActionInvokeApiOutput() RoutingRuleActionInvokeApiOutput
+	ToRoutingRuleActionInvokeApiOutputWithContext(context.Context) RoutingRuleActionInvokeApiOutput
+}
+
+type RoutingRuleActionInvokeApiArgs struct {
+	// Action to invoke a stage of a target API. Only REST APIs are supported.
+	ApiId pulumi.StringInput `pulumi:"apiId"`
+	// Action to invoke a stage of a target API. Only REST APIs are supported.
+	Stage pulumi.StringInput `pulumi:"stage"`
+	// Action to invoke a stage of a target API. Only REST APIs are supported.
+	StripBasePath pulumi.BoolPtrInput `pulumi:"stripBasePath"`
+}
+
+func (RoutingRuleActionInvokeApiArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RoutingRuleActionInvokeApi)(nil)).Elem()
+}
+
+func (i RoutingRuleActionInvokeApiArgs) ToRoutingRuleActionInvokeApiOutput() RoutingRuleActionInvokeApiOutput {
+	return i.ToRoutingRuleActionInvokeApiOutputWithContext(context.Background())
+}
+
+func (i RoutingRuleActionInvokeApiArgs) ToRoutingRuleActionInvokeApiOutputWithContext(ctx context.Context) RoutingRuleActionInvokeApiOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RoutingRuleActionInvokeApiOutput)
+}
+
+func (i RoutingRuleActionInvokeApiArgs) ToRoutingRuleActionInvokeApiPtrOutput() RoutingRuleActionInvokeApiPtrOutput {
+	return i.ToRoutingRuleActionInvokeApiPtrOutputWithContext(context.Background())
+}
+
+func (i RoutingRuleActionInvokeApiArgs) ToRoutingRuleActionInvokeApiPtrOutputWithContext(ctx context.Context) RoutingRuleActionInvokeApiPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RoutingRuleActionInvokeApiOutput).ToRoutingRuleActionInvokeApiPtrOutputWithContext(ctx)
+}
+
+// RoutingRuleActionInvokeApiPtrInput is an input type that accepts RoutingRuleActionInvokeApiArgs, RoutingRuleActionInvokeApiPtr and RoutingRuleActionInvokeApiPtrOutput values.
+// You can construct a concrete instance of `RoutingRuleActionInvokeApiPtrInput` via:
+//
+//	        RoutingRuleActionInvokeApiArgs{...}
+//
+//	or:
+//
+//	        nil
+type RoutingRuleActionInvokeApiPtrInput interface {
+	pulumi.Input
+
+	ToRoutingRuleActionInvokeApiPtrOutput() RoutingRuleActionInvokeApiPtrOutput
+	ToRoutingRuleActionInvokeApiPtrOutputWithContext(context.Context) RoutingRuleActionInvokeApiPtrOutput
+}
+
+type routingRuleActionInvokeApiPtrType RoutingRuleActionInvokeApiArgs
+
+func RoutingRuleActionInvokeApiPtr(v *RoutingRuleActionInvokeApiArgs) RoutingRuleActionInvokeApiPtrInput {
+	return (*routingRuleActionInvokeApiPtrType)(v)
+}
+
+func (*routingRuleActionInvokeApiPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RoutingRuleActionInvokeApi)(nil)).Elem()
+}
+
+func (i *routingRuleActionInvokeApiPtrType) ToRoutingRuleActionInvokeApiPtrOutput() RoutingRuleActionInvokeApiPtrOutput {
+	return i.ToRoutingRuleActionInvokeApiPtrOutputWithContext(context.Background())
+}
+
+func (i *routingRuleActionInvokeApiPtrType) ToRoutingRuleActionInvokeApiPtrOutputWithContext(ctx context.Context) RoutingRuleActionInvokeApiPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RoutingRuleActionInvokeApiPtrOutput)
+}
+
+type RoutingRuleActionInvokeApiOutput struct{ *pulumi.OutputState }
+
+func (RoutingRuleActionInvokeApiOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RoutingRuleActionInvokeApi)(nil)).Elem()
+}
+
+func (o RoutingRuleActionInvokeApiOutput) ToRoutingRuleActionInvokeApiOutput() RoutingRuleActionInvokeApiOutput {
+	return o
+}
+
+func (o RoutingRuleActionInvokeApiOutput) ToRoutingRuleActionInvokeApiOutputWithContext(ctx context.Context) RoutingRuleActionInvokeApiOutput {
+	return o
+}
+
+func (o RoutingRuleActionInvokeApiOutput) ToRoutingRuleActionInvokeApiPtrOutput() RoutingRuleActionInvokeApiPtrOutput {
+	return o.ToRoutingRuleActionInvokeApiPtrOutputWithContext(context.Background())
+}
+
+func (o RoutingRuleActionInvokeApiOutput) ToRoutingRuleActionInvokeApiPtrOutputWithContext(ctx context.Context) RoutingRuleActionInvokeApiPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RoutingRuleActionInvokeApi) *RoutingRuleActionInvokeApi {
+		return &v
+	}).(RoutingRuleActionInvokeApiPtrOutput)
+}
+
+// Action to invoke a stage of a target API. Only REST APIs are supported.
+func (o RoutingRuleActionInvokeApiOutput) ApiId() pulumi.StringOutput {
+	return o.ApplyT(func(v RoutingRuleActionInvokeApi) string { return v.ApiId }).(pulumi.StringOutput)
+}
+
+// Action to invoke a stage of a target API. Only REST APIs are supported.
+func (o RoutingRuleActionInvokeApiOutput) Stage() pulumi.StringOutput {
+	return o.ApplyT(func(v RoutingRuleActionInvokeApi) string { return v.Stage }).(pulumi.StringOutput)
+}
+
+// Action to invoke a stage of a target API. Only REST APIs are supported.
+func (o RoutingRuleActionInvokeApiOutput) StripBasePath() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v RoutingRuleActionInvokeApi) *bool { return v.StripBasePath }).(pulumi.BoolPtrOutput)
+}
+
+type RoutingRuleActionInvokeApiPtrOutput struct{ *pulumi.OutputState }
+
+func (RoutingRuleActionInvokeApiPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RoutingRuleActionInvokeApi)(nil)).Elem()
+}
+
+func (o RoutingRuleActionInvokeApiPtrOutput) ToRoutingRuleActionInvokeApiPtrOutput() RoutingRuleActionInvokeApiPtrOutput {
+	return o
+}
+
+func (o RoutingRuleActionInvokeApiPtrOutput) ToRoutingRuleActionInvokeApiPtrOutputWithContext(ctx context.Context) RoutingRuleActionInvokeApiPtrOutput {
+	return o
+}
+
+func (o RoutingRuleActionInvokeApiPtrOutput) Elem() RoutingRuleActionInvokeApiOutput {
+	return o.ApplyT(func(v *RoutingRuleActionInvokeApi) RoutingRuleActionInvokeApi {
+		if v != nil {
+			return *v
+		}
+		var ret RoutingRuleActionInvokeApi
+		return ret
+	}).(RoutingRuleActionInvokeApiOutput)
+}
+
+// Action to invoke a stage of a target API. Only REST APIs are supported.
+func (o RoutingRuleActionInvokeApiPtrOutput) ApiId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RoutingRuleActionInvokeApi) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ApiId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Action to invoke a stage of a target API. Only REST APIs are supported.
+func (o RoutingRuleActionInvokeApiPtrOutput) Stage() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RoutingRuleActionInvokeApi) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Stage
+	}).(pulumi.StringPtrOutput)
+}
+
+// Action to invoke a stage of a target API. Only REST APIs are supported.
+func (o RoutingRuleActionInvokeApiPtrOutput) StripBasePath() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *RoutingRuleActionInvokeApi) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.StripBasePath
+	}).(pulumi.BoolPtrOutput)
+}
+
+type RoutingRuleCondition struct {
+	// The base path to be matched. See below.
+	MatchBasePaths *RoutingRuleConditionMatchBasePaths `pulumi:"matchBasePaths"`
+	// The headers to be matched. See below.
+	MatchHeaders *RoutingRuleConditionMatchHeaders `pulumi:"matchHeaders"`
+}
+
+// RoutingRuleConditionInput is an input type that accepts RoutingRuleConditionArgs and RoutingRuleConditionOutput values.
+// You can construct a concrete instance of `RoutingRuleConditionInput` via:
+//
+//	RoutingRuleConditionArgs{...}
+type RoutingRuleConditionInput interface {
+	pulumi.Input
+
+	ToRoutingRuleConditionOutput() RoutingRuleConditionOutput
+	ToRoutingRuleConditionOutputWithContext(context.Context) RoutingRuleConditionOutput
+}
+
+type RoutingRuleConditionArgs struct {
+	// The base path to be matched. See below.
+	MatchBasePaths RoutingRuleConditionMatchBasePathsPtrInput `pulumi:"matchBasePaths"`
+	// The headers to be matched. See below.
+	MatchHeaders RoutingRuleConditionMatchHeadersPtrInput `pulumi:"matchHeaders"`
+}
+
+func (RoutingRuleConditionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RoutingRuleCondition)(nil)).Elem()
+}
+
+func (i RoutingRuleConditionArgs) ToRoutingRuleConditionOutput() RoutingRuleConditionOutput {
+	return i.ToRoutingRuleConditionOutputWithContext(context.Background())
+}
+
+func (i RoutingRuleConditionArgs) ToRoutingRuleConditionOutputWithContext(ctx context.Context) RoutingRuleConditionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RoutingRuleConditionOutput)
+}
+
+// RoutingRuleConditionArrayInput is an input type that accepts RoutingRuleConditionArray and RoutingRuleConditionArrayOutput values.
+// You can construct a concrete instance of `RoutingRuleConditionArrayInput` via:
+//
+//	RoutingRuleConditionArray{ RoutingRuleConditionArgs{...} }
+type RoutingRuleConditionArrayInput interface {
+	pulumi.Input
+
+	ToRoutingRuleConditionArrayOutput() RoutingRuleConditionArrayOutput
+	ToRoutingRuleConditionArrayOutputWithContext(context.Context) RoutingRuleConditionArrayOutput
+}
+
+type RoutingRuleConditionArray []RoutingRuleConditionInput
+
+func (RoutingRuleConditionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RoutingRuleCondition)(nil)).Elem()
+}
+
+func (i RoutingRuleConditionArray) ToRoutingRuleConditionArrayOutput() RoutingRuleConditionArrayOutput {
+	return i.ToRoutingRuleConditionArrayOutputWithContext(context.Background())
+}
+
+func (i RoutingRuleConditionArray) ToRoutingRuleConditionArrayOutputWithContext(ctx context.Context) RoutingRuleConditionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RoutingRuleConditionArrayOutput)
+}
+
+type RoutingRuleConditionOutput struct{ *pulumi.OutputState }
+
+func (RoutingRuleConditionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RoutingRuleCondition)(nil)).Elem()
+}
+
+func (o RoutingRuleConditionOutput) ToRoutingRuleConditionOutput() RoutingRuleConditionOutput {
+	return o
+}
+
+func (o RoutingRuleConditionOutput) ToRoutingRuleConditionOutputWithContext(ctx context.Context) RoutingRuleConditionOutput {
+	return o
+}
+
+// The base path to be matched. See below.
+func (o RoutingRuleConditionOutput) MatchBasePaths() RoutingRuleConditionMatchBasePathsPtrOutput {
+	return o.ApplyT(func(v RoutingRuleCondition) *RoutingRuleConditionMatchBasePaths { return v.MatchBasePaths }).(RoutingRuleConditionMatchBasePathsPtrOutput)
+}
+
+// The headers to be matched. See below.
+func (o RoutingRuleConditionOutput) MatchHeaders() RoutingRuleConditionMatchHeadersPtrOutput {
+	return o.ApplyT(func(v RoutingRuleCondition) *RoutingRuleConditionMatchHeaders { return v.MatchHeaders }).(RoutingRuleConditionMatchHeadersPtrOutput)
+}
+
+type RoutingRuleConditionArrayOutput struct{ *pulumi.OutputState }
+
+func (RoutingRuleConditionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RoutingRuleCondition)(nil)).Elem()
+}
+
+func (o RoutingRuleConditionArrayOutput) ToRoutingRuleConditionArrayOutput() RoutingRuleConditionArrayOutput {
+	return o
+}
+
+func (o RoutingRuleConditionArrayOutput) ToRoutingRuleConditionArrayOutputWithContext(ctx context.Context) RoutingRuleConditionArrayOutput {
+	return o
+}
+
+func (o RoutingRuleConditionArrayOutput) Index(i pulumi.IntInput) RoutingRuleConditionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RoutingRuleCondition {
+		return vs[0].([]RoutingRuleCondition)[vs[1].(int)]
+	}).(RoutingRuleConditionOutput)
+}
+
+type RoutingRuleConditionMatchBasePaths struct {
+	// List of strings of the case sensitive base path to be matched.
+	AnyOfs []string `pulumi:"anyOfs"`
+}
+
+// RoutingRuleConditionMatchBasePathsInput is an input type that accepts RoutingRuleConditionMatchBasePathsArgs and RoutingRuleConditionMatchBasePathsOutput values.
+// You can construct a concrete instance of `RoutingRuleConditionMatchBasePathsInput` via:
+//
+//	RoutingRuleConditionMatchBasePathsArgs{...}
+type RoutingRuleConditionMatchBasePathsInput interface {
+	pulumi.Input
+
+	ToRoutingRuleConditionMatchBasePathsOutput() RoutingRuleConditionMatchBasePathsOutput
+	ToRoutingRuleConditionMatchBasePathsOutputWithContext(context.Context) RoutingRuleConditionMatchBasePathsOutput
+}
+
+type RoutingRuleConditionMatchBasePathsArgs struct {
+	// List of strings of the case sensitive base path to be matched.
+	AnyOfs pulumi.StringArrayInput `pulumi:"anyOfs"`
+}
+
+func (RoutingRuleConditionMatchBasePathsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RoutingRuleConditionMatchBasePaths)(nil)).Elem()
+}
+
+func (i RoutingRuleConditionMatchBasePathsArgs) ToRoutingRuleConditionMatchBasePathsOutput() RoutingRuleConditionMatchBasePathsOutput {
+	return i.ToRoutingRuleConditionMatchBasePathsOutputWithContext(context.Background())
+}
+
+func (i RoutingRuleConditionMatchBasePathsArgs) ToRoutingRuleConditionMatchBasePathsOutputWithContext(ctx context.Context) RoutingRuleConditionMatchBasePathsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RoutingRuleConditionMatchBasePathsOutput)
+}
+
+func (i RoutingRuleConditionMatchBasePathsArgs) ToRoutingRuleConditionMatchBasePathsPtrOutput() RoutingRuleConditionMatchBasePathsPtrOutput {
+	return i.ToRoutingRuleConditionMatchBasePathsPtrOutputWithContext(context.Background())
+}
+
+func (i RoutingRuleConditionMatchBasePathsArgs) ToRoutingRuleConditionMatchBasePathsPtrOutputWithContext(ctx context.Context) RoutingRuleConditionMatchBasePathsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RoutingRuleConditionMatchBasePathsOutput).ToRoutingRuleConditionMatchBasePathsPtrOutputWithContext(ctx)
+}
+
+// RoutingRuleConditionMatchBasePathsPtrInput is an input type that accepts RoutingRuleConditionMatchBasePathsArgs, RoutingRuleConditionMatchBasePathsPtr and RoutingRuleConditionMatchBasePathsPtrOutput values.
+// You can construct a concrete instance of `RoutingRuleConditionMatchBasePathsPtrInput` via:
+//
+//	        RoutingRuleConditionMatchBasePathsArgs{...}
+//
+//	or:
+//
+//	        nil
+type RoutingRuleConditionMatchBasePathsPtrInput interface {
+	pulumi.Input
+
+	ToRoutingRuleConditionMatchBasePathsPtrOutput() RoutingRuleConditionMatchBasePathsPtrOutput
+	ToRoutingRuleConditionMatchBasePathsPtrOutputWithContext(context.Context) RoutingRuleConditionMatchBasePathsPtrOutput
+}
+
+type routingRuleConditionMatchBasePathsPtrType RoutingRuleConditionMatchBasePathsArgs
+
+func RoutingRuleConditionMatchBasePathsPtr(v *RoutingRuleConditionMatchBasePathsArgs) RoutingRuleConditionMatchBasePathsPtrInput {
+	return (*routingRuleConditionMatchBasePathsPtrType)(v)
+}
+
+func (*routingRuleConditionMatchBasePathsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RoutingRuleConditionMatchBasePaths)(nil)).Elem()
+}
+
+func (i *routingRuleConditionMatchBasePathsPtrType) ToRoutingRuleConditionMatchBasePathsPtrOutput() RoutingRuleConditionMatchBasePathsPtrOutput {
+	return i.ToRoutingRuleConditionMatchBasePathsPtrOutputWithContext(context.Background())
+}
+
+func (i *routingRuleConditionMatchBasePathsPtrType) ToRoutingRuleConditionMatchBasePathsPtrOutputWithContext(ctx context.Context) RoutingRuleConditionMatchBasePathsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RoutingRuleConditionMatchBasePathsPtrOutput)
+}
+
+type RoutingRuleConditionMatchBasePathsOutput struct{ *pulumi.OutputState }
+
+func (RoutingRuleConditionMatchBasePathsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RoutingRuleConditionMatchBasePaths)(nil)).Elem()
+}
+
+func (o RoutingRuleConditionMatchBasePathsOutput) ToRoutingRuleConditionMatchBasePathsOutput() RoutingRuleConditionMatchBasePathsOutput {
+	return o
+}
+
+func (o RoutingRuleConditionMatchBasePathsOutput) ToRoutingRuleConditionMatchBasePathsOutputWithContext(ctx context.Context) RoutingRuleConditionMatchBasePathsOutput {
+	return o
+}
+
+func (o RoutingRuleConditionMatchBasePathsOutput) ToRoutingRuleConditionMatchBasePathsPtrOutput() RoutingRuleConditionMatchBasePathsPtrOutput {
+	return o.ToRoutingRuleConditionMatchBasePathsPtrOutputWithContext(context.Background())
+}
+
+func (o RoutingRuleConditionMatchBasePathsOutput) ToRoutingRuleConditionMatchBasePathsPtrOutputWithContext(ctx context.Context) RoutingRuleConditionMatchBasePathsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RoutingRuleConditionMatchBasePaths) *RoutingRuleConditionMatchBasePaths {
+		return &v
+	}).(RoutingRuleConditionMatchBasePathsPtrOutput)
+}
+
+// List of strings of the case sensitive base path to be matched.
+func (o RoutingRuleConditionMatchBasePathsOutput) AnyOfs() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v RoutingRuleConditionMatchBasePaths) []string { return v.AnyOfs }).(pulumi.StringArrayOutput)
+}
+
+type RoutingRuleConditionMatchBasePathsPtrOutput struct{ *pulumi.OutputState }
+
+func (RoutingRuleConditionMatchBasePathsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RoutingRuleConditionMatchBasePaths)(nil)).Elem()
+}
+
+func (o RoutingRuleConditionMatchBasePathsPtrOutput) ToRoutingRuleConditionMatchBasePathsPtrOutput() RoutingRuleConditionMatchBasePathsPtrOutput {
+	return o
+}
+
+func (o RoutingRuleConditionMatchBasePathsPtrOutput) ToRoutingRuleConditionMatchBasePathsPtrOutputWithContext(ctx context.Context) RoutingRuleConditionMatchBasePathsPtrOutput {
+	return o
+}
+
+func (o RoutingRuleConditionMatchBasePathsPtrOutput) Elem() RoutingRuleConditionMatchBasePathsOutput {
+	return o.ApplyT(func(v *RoutingRuleConditionMatchBasePaths) RoutingRuleConditionMatchBasePaths {
+		if v != nil {
+			return *v
+		}
+		var ret RoutingRuleConditionMatchBasePaths
+		return ret
+	}).(RoutingRuleConditionMatchBasePathsOutput)
+}
+
+// List of strings of the case sensitive base path to be matched.
+func (o RoutingRuleConditionMatchBasePathsPtrOutput) AnyOfs() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *RoutingRuleConditionMatchBasePaths) []string {
+		if v == nil {
+			return nil
+		}
+		return v.AnyOfs
+	}).(pulumi.StringArrayOutput)
+}
+
+type RoutingRuleConditionMatchHeaders struct {
+	// Configuration of the headers to be matched. There is a match if any of the header name and header value globs are matched. See below.
+	AnyOf *RoutingRuleConditionMatchHeadersAnyOf `pulumi:"anyOf"`
+}
+
+// RoutingRuleConditionMatchHeadersInput is an input type that accepts RoutingRuleConditionMatchHeadersArgs and RoutingRuleConditionMatchHeadersOutput values.
+// You can construct a concrete instance of `RoutingRuleConditionMatchHeadersInput` via:
+//
+//	RoutingRuleConditionMatchHeadersArgs{...}
+type RoutingRuleConditionMatchHeadersInput interface {
+	pulumi.Input
+
+	ToRoutingRuleConditionMatchHeadersOutput() RoutingRuleConditionMatchHeadersOutput
+	ToRoutingRuleConditionMatchHeadersOutputWithContext(context.Context) RoutingRuleConditionMatchHeadersOutput
+}
+
+type RoutingRuleConditionMatchHeadersArgs struct {
+	// Configuration of the headers to be matched. There is a match if any of the header name and header value globs are matched. See below.
+	AnyOf RoutingRuleConditionMatchHeadersAnyOfPtrInput `pulumi:"anyOf"`
+}
+
+func (RoutingRuleConditionMatchHeadersArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RoutingRuleConditionMatchHeaders)(nil)).Elem()
+}
+
+func (i RoutingRuleConditionMatchHeadersArgs) ToRoutingRuleConditionMatchHeadersOutput() RoutingRuleConditionMatchHeadersOutput {
+	return i.ToRoutingRuleConditionMatchHeadersOutputWithContext(context.Background())
+}
+
+func (i RoutingRuleConditionMatchHeadersArgs) ToRoutingRuleConditionMatchHeadersOutputWithContext(ctx context.Context) RoutingRuleConditionMatchHeadersOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RoutingRuleConditionMatchHeadersOutput)
+}
+
+func (i RoutingRuleConditionMatchHeadersArgs) ToRoutingRuleConditionMatchHeadersPtrOutput() RoutingRuleConditionMatchHeadersPtrOutput {
+	return i.ToRoutingRuleConditionMatchHeadersPtrOutputWithContext(context.Background())
+}
+
+func (i RoutingRuleConditionMatchHeadersArgs) ToRoutingRuleConditionMatchHeadersPtrOutputWithContext(ctx context.Context) RoutingRuleConditionMatchHeadersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RoutingRuleConditionMatchHeadersOutput).ToRoutingRuleConditionMatchHeadersPtrOutputWithContext(ctx)
+}
+
+// RoutingRuleConditionMatchHeadersPtrInput is an input type that accepts RoutingRuleConditionMatchHeadersArgs, RoutingRuleConditionMatchHeadersPtr and RoutingRuleConditionMatchHeadersPtrOutput values.
+// You can construct a concrete instance of `RoutingRuleConditionMatchHeadersPtrInput` via:
+//
+//	        RoutingRuleConditionMatchHeadersArgs{...}
+//
+//	or:
+//
+//	        nil
+type RoutingRuleConditionMatchHeadersPtrInput interface {
+	pulumi.Input
+
+	ToRoutingRuleConditionMatchHeadersPtrOutput() RoutingRuleConditionMatchHeadersPtrOutput
+	ToRoutingRuleConditionMatchHeadersPtrOutputWithContext(context.Context) RoutingRuleConditionMatchHeadersPtrOutput
+}
+
+type routingRuleConditionMatchHeadersPtrType RoutingRuleConditionMatchHeadersArgs
+
+func RoutingRuleConditionMatchHeadersPtr(v *RoutingRuleConditionMatchHeadersArgs) RoutingRuleConditionMatchHeadersPtrInput {
+	return (*routingRuleConditionMatchHeadersPtrType)(v)
+}
+
+func (*routingRuleConditionMatchHeadersPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RoutingRuleConditionMatchHeaders)(nil)).Elem()
+}
+
+func (i *routingRuleConditionMatchHeadersPtrType) ToRoutingRuleConditionMatchHeadersPtrOutput() RoutingRuleConditionMatchHeadersPtrOutput {
+	return i.ToRoutingRuleConditionMatchHeadersPtrOutputWithContext(context.Background())
+}
+
+func (i *routingRuleConditionMatchHeadersPtrType) ToRoutingRuleConditionMatchHeadersPtrOutputWithContext(ctx context.Context) RoutingRuleConditionMatchHeadersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RoutingRuleConditionMatchHeadersPtrOutput)
+}
+
+type RoutingRuleConditionMatchHeadersOutput struct{ *pulumi.OutputState }
+
+func (RoutingRuleConditionMatchHeadersOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RoutingRuleConditionMatchHeaders)(nil)).Elem()
+}
+
+func (o RoutingRuleConditionMatchHeadersOutput) ToRoutingRuleConditionMatchHeadersOutput() RoutingRuleConditionMatchHeadersOutput {
+	return o
+}
+
+func (o RoutingRuleConditionMatchHeadersOutput) ToRoutingRuleConditionMatchHeadersOutputWithContext(ctx context.Context) RoutingRuleConditionMatchHeadersOutput {
+	return o
+}
+
+func (o RoutingRuleConditionMatchHeadersOutput) ToRoutingRuleConditionMatchHeadersPtrOutput() RoutingRuleConditionMatchHeadersPtrOutput {
+	return o.ToRoutingRuleConditionMatchHeadersPtrOutputWithContext(context.Background())
+}
+
+func (o RoutingRuleConditionMatchHeadersOutput) ToRoutingRuleConditionMatchHeadersPtrOutputWithContext(ctx context.Context) RoutingRuleConditionMatchHeadersPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RoutingRuleConditionMatchHeaders) *RoutingRuleConditionMatchHeaders {
+		return &v
+	}).(RoutingRuleConditionMatchHeadersPtrOutput)
+}
+
+// Configuration of the headers to be matched. There is a match if any of the header name and header value globs are matched. See below.
+func (o RoutingRuleConditionMatchHeadersOutput) AnyOf() RoutingRuleConditionMatchHeadersAnyOfPtrOutput {
+	return o.ApplyT(func(v RoutingRuleConditionMatchHeaders) *RoutingRuleConditionMatchHeadersAnyOf { return v.AnyOf }).(RoutingRuleConditionMatchHeadersAnyOfPtrOutput)
+}
+
+type RoutingRuleConditionMatchHeadersPtrOutput struct{ *pulumi.OutputState }
+
+func (RoutingRuleConditionMatchHeadersPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RoutingRuleConditionMatchHeaders)(nil)).Elem()
+}
+
+func (o RoutingRuleConditionMatchHeadersPtrOutput) ToRoutingRuleConditionMatchHeadersPtrOutput() RoutingRuleConditionMatchHeadersPtrOutput {
+	return o
+}
+
+func (o RoutingRuleConditionMatchHeadersPtrOutput) ToRoutingRuleConditionMatchHeadersPtrOutputWithContext(ctx context.Context) RoutingRuleConditionMatchHeadersPtrOutput {
+	return o
+}
+
+func (o RoutingRuleConditionMatchHeadersPtrOutput) Elem() RoutingRuleConditionMatchHeadersOutput {
+	return o.ApplyT(func(v *RoutingRuleConditionMatchHeaders) RoutingRuleConditionMatchHeaders {
+		if v != nil {
+			return *v
+		}
+		var ret RoutingRuleConditionMatchHeaders
+		return ret
+	}).(RoutingRuleConditionMatchHeadersOutput)
+}
+
+// Configuration of the headers to be matched. There is a match if any of the header name and header value globs are matched. See below.
+func (o RoutingRuleConditionMatchHeadersPtrOutput) AnyOf() RoutingRuleConditionMatchHeadersAnyOfPtrOutput {
+	return o.ApplyT(func(v *RoutingRuleConditionMatchHeaders) *RoutingRuleConditionMatchHeadersAnyOf {
+		if v == nil {
+			return nil
+		}
+		return v.AnyOf
+	}).(RoutingRuleConditionMatchHeadersAnyOfPtrOutput)
+}
+
+type RoutingRuleConditionMatchHeadersAnyOf struct {
+	// The case insensitive header name to be matched. The header name must be less than 40 characters and the only allowed characters are a-z, A-Z, 0-9, and the following special characters: *?-!#$%&'.^_`|~.
+	Header string `pulumi:"header"`
+	// The case sensitive header glob value to be matched against entire header value. The header glob value must be less than 128 characters and the only allowed characters are a-z, A-Z, 0-9, and the following special characters: \*?-!#$%&'.^_`|~. Wildcard matching is supported for header glob values but must be for \*prefix-match, suffix-match*, or \*infix*-match.
+	ValueGlob string `pulumi:"valueGlob"`
+}
+
+// RoutingRuleConditionMatchHeadersAnyOfInput is an input type that accepts RoutingRuleConditionMatchHeadersAnyOfArgs and RoutingRuleConditionMatchHeadersAnyOfOutput values.
+// You can construct a concrete instance of `RoutingRuleConditionMatchHeadersAnyOfInput` via:
+//
+//	RoutingRuleConditionMatchHeadersAnyOfArgs{...}
+type RoutingRuleConditionMatchHeadersAnyOfInput interface {
+	pulumi.Input
+
+	ToRoutingRuleConditionMatchHeadersAnyOfOutput() RoutingRuleConditionMatchHeadersAnyOfOutput
+	ToRoutingRuleConditionMatchHeadersAnyOfOutputWithContext(context.Context) RoutingRuleConditionMatchHeadersAnyOfOutput
+}
+
+type RoutingRuleConditionMatchHeadersAnyOfArgs struct {
+	// The case insensitive header name to be matched. The header name must be less than 40 characters and the only allowed characters are a-z, A-Z, 0-9, and the following special characters: *?-!#$%&'.^_`|~.
+	Header pulumi.StringInput `pulumi:"header"`
+	// The case sensitive header glob value to be matched against entire header value. The header glob value must be less than 128 characters and the only allowed characters are a-z, A-Z, 0-9, and the following special characters: \*?-!#$%&'.^_`|~. Wildcard matching is supported for header glob values but must be for \*prefix-match, suffix-match*, or \*infix*-match.
+	ValueGlob pulumi.StringInput `pulumi:"valueGlob"`
+}
+
+func (RoutingRuleConditionMatchHeadersAnyOfArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RoutingRuleConditionMatchHeadersAnyOf)(nil)).Elem()
+}
+
+func (i RoutingRuleConditionMatchHeadersAnyOfArgs) ToRoutingRuleConditionMatchHeadersAnyOfOutput() RoutingRuleConditionMatchHeadersAnyOfOutput {
+	return i.ToRoutingRuleConditionMatchHeadersAnyOfOutputWithContext(context.Background())
+}
+
+func (i RoutingRuleConditionMatchHeadersAnyOfArgs) ToRoutingRuleConditionMatchHeadersAnyOfOutputWithContext(ctx context.Context) RoutingRuleConditionMatchHeadersAnyOfOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RoutingRuleConditionMatchHeadersAnyOfOutput)
+}
+
+func (i RoutingRuleConditionMatchHeadersAnyOfArgs) ToRoutingRuleConditionMatchHeadersAnyOfPtrOutput() RoutingRuleConditionMatchHeadersAnyOfPtrOutput {
+	return i.ToRoutingRuleConditionMatchHeadersAnyOfPtrOutputWithContext(context.Background())
+}
+
+func (i RoutingRuleConditionMatchHeadersAnyOfArgs) ToRoutingRuleConditionMatchHeadersAnyOfPtrOutputWithContext(ctx context.Context) RoutingRuleConditionMatchHeadersAnyOfPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RoutingRuleConditionMatchHeadersAnyOfOutput).ToRoutingRuleConditionMatchHeadersAnyOfPtrOutputWithContext(ctx)
+}
+
+// RoutingRuleConditionMatchHeadersAnyOfPtrInput is an input type that accepts RoutingRuleConditionMatchHeadersAnyOfArgs, RoutingRuleConditionMatchHeadersAnyOfPtr and RoutingRuleConditionMatchHeadersAnyOfPtrOutput values.
+// You can construct a concrete instance of `RoutingRuleConditionMatchHeadersAnyOfPtrInput` via:
+//
+//	        RoutingRuleConditionMatchHeadersAnyOfArgs{...}
+//
+//	or:
+//
+//	        nil
+type RoutingRuleConditionMatchHeadersAnyOfPtrInput interface {
+	pulumi.Input
+
+	ToRoutingRuleConditionMatchHeadersAnyOfPtrOutput() RoutingRuleConditionMatchHeadersAnyOfPtrOutput
+	ToRoutingRuleConditionMatchHeadersAnyOfPtrOutputWithContext(context.Context) RoutingRuleConditionMatchHeadersAnyOfPtrOutput
+}
+
+type routingRuleConditionMatchHeadersAnyOfPtrType RoutingRuleConditionMatchHeadersAnyOfArgs
+
+func RoutingRuleConditionMatchHeadersAnyOfPtr(v *RoutingRuleConditionMatchHeadersAnyOfArgs) RoutingRuleConditionMatchHeadersAnyOfPtrInput {
+	return (*routingRuleConditionMatchHeadersAnyOfPtrType)(v)
+}
+
+func (*routingRuleConditionMatchHeadersAnyOfPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RoutingRuleConditionMatchHeadersAnyOf)(nil)).Elem()
+}
+
+func (i *routingRuleConditionMatchHeadersAnyOfPtrType) ToRoutingRuleConditionMatchHeadersAnyOfPtrOutput() RoutingRuleConditionMatchHeadersAnyOfPtrOutput {
+	return i.ToRoutingRuleConditionMatchHeadersAnyOfPtrOutputWithContext(context.Background())
+}
+
+func (i *routingRuleConditionMatchHeadersAnyOfPtrType) ToRoutingRuleConditionMatchHeadersAnyOfPtrOutputWithContext(ctx context.Context) RoutingRuleConditionMatchHeadersAnyOfPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RoutingRuleConditionMatchHeadersAnyOfPtrOutput)
+}
+
+type RoutingRuleConditionMatchHeadersAnyOfOutput struct{ *pulumi.OutputState }
+
+func (RoutingRuleConditionMatchHeadersAnyOfOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RoutingRuleConditionMatchHeadersAnyOf)(nil)).Elem()
+}
+
+func (o RoutingRuleConditionMatchHeadersAnyOfOutput) ToRoutingRuleConditionMatchHeadersAnyOfOutput() RoutingRuleConditionMatchHeadersAnyOfOutput {
+	return o
+}
+
+func (o RoutingRuleConditionMatchHeadersAnyOfOutput) ToRoutingRuleConditionMatchHeadersAnyOfOutputWithContext(ctx context.Context) RoutingRuleConditionMatchHeadersAnyOfOutput {
+	return o
+}
+
+func (o RoutingRuleConditionMatchHeadersAnyOfOutput) ToRoutingRuleConditionMatchHeadersAnyOfPtrOutput() RoutingRuleConditionMatchHeadersAnyOfPtrOutput {
+	return o.ToRoutingRuleConditionMatchHeadersAnyOfPtrOutputWithContext(context.Background())
+}
+
+func (o RoutingRuleConditionMatchHeadersAnyOfOutput) ToRoutingRuleConditionMatchHeadersAnyOfPtrOutputWithContext(ctx context.Context) RoutingRuleConditionMatchHeadersAnyOfPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RoutingRuleConditionMatchHeadersAnyOf) *RoutingRuleConditionMatchHeadersAnyOf {
+		return &v
+	}).(RoutingRuleConditionMatchHeadersAnyOfPtrOutput)
+}
+
+// The case insensitive header name to be matched. The header name must be less than 40 characters and the only allowed characters are a-z, A-Z, 0-9, and the following special characters: *?-!#$%&'.^_`|~.
+func (o RoutingRuleConditionMatchHeadersAnyOfOutput) Header() pulumi.StringOutput {
+	return o.ApplyT(func(v RoutingRuleConditionMatchHeadersAnyOf) string { return v.Header }).(pulumi.StringOutput)
+}
+
+// The case sensitive header glob value to be matched against entire header value. The header glob value must be less than 128 characters and the only allowed characters are a-z, A-Z, 0-9, and the following special characters: \*?-!#$%&'.^_`|~. Wildcard matching is supported for header glob values but must be for \*prefix-match, suffix-match*, or \*infix*-match.
+func (o RoutingRuleConditionMatchHeadersAnyOfOutput) ValueGlob() pulumi.StringOutput {
+	return o.ApplyT(func(v RoutingRuleConditionMatchHeadersAnyOf) string { return v.ValueGlob }).(pulumi.StringOutput)
+}
+
+type RoutingRuleConditionMatchHeadersAnyOfPtrOutput struct{ *pulumi.OutputState }
+
+func (RoutingRuleConditionMatchHeadersAnyOfPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RoutingRuleConditionMatchHeadersAnyOf)(nil)).Elem()
+}
+
+func (o RoutingRuleConditionMatchHeadersAnyOfPtrOutput) ToRoutingRuleConditionMatchHeadersAnyOfPtrOutput() RoutingRuleConditionMatchHeadersAnyOfPtrOutput {
+	return o
+}
+
+func (o RoutingRuleConditionMatchHeadersAnyOfPtrOutput) ToRoutingRuleConditionMatchHeadersAnyOfPtrOutputWithContext(ctx context.Context) RoutingRuleConditionMatchHeadersAnyOfPtrOutput {
+	return o
+}
+
+func (o RoutingRuleConditionMatchHeadersAnyOfPtrOutput) Elem() RoutingRuleConditionMatchHeadersAnyOfOutput {
+	return o.ApplyT(func(v *RoutingRuleConditionMatchHeadersAnyOf) RoutingRuleConditionMatchHeadersAnyOf {
+		if v != nil {
+			return *v
+		}
+		var ret RoutingRuleConditionMatchHeadersAnyOf
+		return ret
+	}).(RoutingRuleConditionMatchHeadersAnyOfOutput)
+}
+
+// The case insensitive header name to be matched. The header name must be less than 40 characters and the only allowed characters are a-z, A-Z, 0-9, and the following special characters: *?-!#$%&'.^_`|~.
+func (o RoutingRuleConditionMatchHeadersAnyOfPtrOutput) Header() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RoutingRuleConditionMatchHeadersAnyOf) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Header
+	}).(pulumi.StringPtrOutput)
+}
+
+// The case sensitive header glob value to be matched against entire header value. The header glob value must be less than 128 characters and the only allowed characters are a-z, A-Z, 0-9, and the following special characters: \*?-!#$%&'.^_`|~. Wildcard matching is supported for header glob values but must be for \*prefix-match, suffix-match*, or \*infix*-match.
+func (o RoutingRuleConditionMatchHeadersAnyOfPtrOutput) ValueGlob() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RoutingRuleConditionMatchHeadersAnyOf) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ValueGlob
+	}).(pulumi.StringPtrOutput)
+}
+
 type StageAccessLogSettings struct {
 	// ARN of the CloudWatch Logs log group to receive access logs. Any trailing `:*` is trimmed from the ARN.
 	DestinationArn string `pulumi:"destinationArn"`
@@ -1842,6 +2650,18 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationTlsConfigPtrInput)(nil)).Elem(), IntegrationTlsConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RouteRequestParameterInput)(nil)).Elem(), RouteRequestParameterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RouteRequestParameterArrayInput)(nil)).Elem(), RouteRequestParameterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RoutingRuleActionInput)(nil)).Elem(), RoutingRuleActionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RoutingRuleActionArrayInput)(nil)).Elem(), RoutingRuleActionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RoutingRuleActionInvokeApiInput)(nil)).Elem(), RoutingRuleActionInvokeApiArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RoutingRuleActionInvokeApiPtrInput)(nil)).Elem(), RoutingRuleActionInvokeApiArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RoutingRuleConditionInput)(nil)).Elem(), RoutingRuleConditionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RoutingRuleConditionArrayInput)(nil)).Elem(), RoutingRuleConditionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RoutingRuleConditionMatchBasePathsInput)(nil)).Elem(), RoutingRuleConditionMatchBasePathsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RoutingRuleConditionMatchBasePathsPtrInput)(nil)).Elem(), RoutingRuleConditionMatchBasePathsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RoutingRuleConditionMatchHeadersInput)(nil)).Elem(), RoutingRuleConditionMatchHeadersArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RoutingRuleConditionMatchHeadersPtrInput)(nil)).Elem(), RoutingRuleConditionMatchHeadersArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RoutingRuleConditionMatchHeadersAnyOfInput)(nil)).Elem(), RoutingRuleConditionMatchHeadersAnyOfArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RoutingRuleConditionMatchHeadersAnyOfPtrInput)(nil)).Elem(), RoutingRuleConditionMatchHeadersAnyOfArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StageAccessLogSettingsInput)(nil)).Elem(), StageAccessLogSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StageAccessLogSettingsPtrInput)(nil)).Elem(), StageAccessLogSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*StageDefaultRouteSettingsInput)(nil)).Elem(), StageDefaultRouteSettingsArgs{})
@@ -1864,6 +2684,18 @@ func init() {
 	pulumi.RegisterOutputType(IntegrationTlsConfigPtrOutput{})
 	pulumi.RegisterOutputType(RouteRequestParameterOutput{})
 	pulumi.RegisterOutputType(RouteRequestParameterArrayOutput{})
+	pulumi.RegisterOutputType(RoutingRuleActionOutput{})
+	pulumi.RegisterOutputType(RoutingRuleActionArrayOutput{})
+	pulumi.RegisterOutputType(RoutingRuleActionInvokeApiOutput{})
+	pulumi.RegisterOutputType(RoutingRuleActionInvokeApiPtrOutput{})
+	pulumi.RegisterOutputType(RoutingRuleConditionOutput{})
+	pulumi.RegisterOutputType(RoutingRuleConditionArrayOutput{})
+	pulumi.RegisterOutputType(RoutingRuleConditionMatchBasePathsOutput{})
+	pulumi.RegisterOutputType(RoutingRuleConditionMatchBasePathsPtrOutput{})
+	pulumi.RegisterOutputType(RoutingRuleConditionMatchHeadersOutput{})
+	pulumi.RegisterOutputType(RoutingRuleConditionMatchHeadersPtrOutput{})
+	pulumi.RegisterOutputType(RoutingRuleConditionMatchHeadersAnyOfOutput{})
+	pulumi.RegisterOutputType(RoutingRuleConditionMatchHeadersAnyOfPtrOutput{})
 	pulumi.RegisterOutputType(StageAccessLogSettingsOutput{})
 	pulumi.RegisterOutputType(StageAccessLogSettingsPtrOutput{})
 	pulumi.RegisterOutputType(StageDefaultRouteSettingsOutput{})

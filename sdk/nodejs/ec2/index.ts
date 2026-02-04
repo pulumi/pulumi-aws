@@ -820,6 +820,11 @@ export type VpcPeeringConnectionAccepter = import("./vpcPeeringConnectionAccepte
 export const VpcPeeringConnectionAccepter: typeof import("./vpcPeeringConnectionAccepter").VpcPeeringConnectionAccepter = null as any;
 utilities.lazyLoad(exports, ["VpcPeeringConnectionAccepter"], () => require("./vpcPeeringConnectionAccepter"));
 
+export { VpcSecurityGroupRulesExclusiveArgs, VpcSecurityGroupRulesExclusiveState } from "./vpcSecurityGroupRulesExclusive";
+export type VpcSecurityGroupRulesExclusive = import("./vpcSecurityGroupRulesExclusive").VpcSecurityGroupRulesExclusive;
+export const VpcSecurityGroupRulesExclusive: typeof import("./vpcSecurityGroupRulesExclusive").VpcSecurityGroupRulesExclusive = null as any;
+utilities.lazyLoad(exports, ["VpcSecurityGroupRulesExclusive"], () => require("./vpcSecurityGroupRulesExclusive"));
+
 export { VpnConcentratorArgs, VpnConcentratorState } from "./vpnConcentrator";
 export type VpnConcentrator = import("./vpnConcentrator").VpnConcentrator;
 export const VpnConcentrator: typeof import("./vpnConcentrator").VpnConcentrator = null as any;
@@ -1056,6 +1061,8 @@ const _module = {
                 return new VpcPeeringConnection(name, <any>undefined, { urn })
             case "aws:ec2/vpcPeeringConnectionAccepter:VpcPeeringConnectionAccepter":
                 return new VpcPeeringConnectionAccepter(name, <any>undefined, { urn })
+            case "aws:ec2/vpcSecurityGroupRulesExclusive:VpcSecurityGroupRulesExclusive":
+                return new VpcSecurityGroupRulesExclusive(name, <any>undefined, { urn })
             case "aws:ec2/vpnConcentrator:VpnConcentrator":
                 return new VpnConcentrator(name, <any>undefined, { urn })
             case "aws:ec2/vpnConnection:VpnConnection":
@@ -1172,6 +1179,7 @@ pulumi.runtime.registerResourceModule("aws", "ec2/vpcIpv6CidrBlockAssociation", 
 pulumi.runtime.registerResourceModule("aws", "ec2/vpcNetworkPerformanceMetricSubscription", _module)
 pulumi.runtime.registerResourceModule("aws", "ec2/vpcPeeringConnection", _module)
 pulumi.runtime.registerResourceModule("aws", "ec2/vpcPeeringConnectionAccepter", _module)
+pulumi.runtime.registerResourceModule("aws", "ec2/vpcSecurityGroupRulesExclusive", _module)
 pulumi.runtime.registerResourceModule("aws", "ec2/vpnConcentrator", _module)
 pulumi.runtime.registerResourceModule("aws", "ec2/vpnConnection", _module)
 pulumi.runtime.registerResourceModule("aws", "ec2/vpnConnectionRoute", _module)

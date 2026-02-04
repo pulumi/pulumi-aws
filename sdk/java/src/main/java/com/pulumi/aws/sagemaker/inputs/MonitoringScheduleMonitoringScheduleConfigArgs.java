@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.sagemaker.inputs;
 
+import com.pulumi.aws.sagemaker.inputs.MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionArgs;
 import com.pulumi.aws.sagemaker.inputs.MonitoringScheduleMonitoringScheduleConfigScheduleConfigArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
@@ -18,18 +19,33 @@ public final class MonitoringScheduleMonitoringScheduleConfigArgs extends com.pu
     public static final MonitoringScheduleMonitoringScheduleConfigArgs Empty = new MonitoringScheduleMonitoringScheduleConfigArgs();
 
     /**
+     * Defines the monitoring job. Fields are documented below.
+     * 
+     */
+    @Import(name="monitoringJobDefinition")
+    private @Nullable Output<MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionArgs> monitoringJobDefinition;
+
+    /**
+     * @return Defines the monitoring job. Fields are documented below.
+     * 
+     */
+    public Optional<Output<MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionArgs>> monitoringJobDefinition() {
+        return Optional.ofNullable(this.monitoringJobDefinition);
+    }
+
+    /**
      * The name of the monitoring job definition to schedule.
      * 
      */
-    @Import(name="monitoringJobDefinitionName", required=true)
-    private Output<String> monitoringJobDefinitionName;
+    @Import(name="monitoringJobDefinitionName")
+    private @Nullable Output<String> monitoringJobDefinitionName;
 
     /**
      * @return The name of the monitoring job definition to schedule.
      * 
      */
-    public Output<String> monitoringJobDefinitionName() {
-        return this.monitoringJobDefinitionName;
+    public Optional<Output<String>> monitoringJobDefinitionName() {
+        return Optional.ofNullable(this.monitoringJobDefinitionName);
     }
 
     /**
@@ -65,6 +81,7 @@ public final class MonitoringScheduleMonitoringScheduleConfigArgs extends com.pu
     private MonitoringScheduleMonitoringScheduleConfigArgs() {}
 
     private MonitoringScheduleMonitoringScheduleConfigArgs(MonitoringScheduleMonitoringScheduleConfigArgs $) {
+        this.monitoringJobDefinition = $.monitoringJobDefinition;
         this.monitoringJobDefinitionName = $.monitoringJobDefinitionName;
         this.monitoringType = $.monitoringType;
         this.scheduleConfig = $.scheduleConfig;
@@ -89,12 +106,33 @@ public final class MonitoringScheduleMonitoringScheduleConfigArgs extends com.pu
         }
 
         /**
+         * @param monitoringJobDefinition Defines the monitoring job. Fields are documented below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder monitoringJobDefinition(@Nullable Output<MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionArgs> monitoringJobDefinition) {
+            $.monitoringJobDefinition = monitoringJobDefinition;
+            return this;
+        }
+
+        /**
+         * @param monitoringJobDefinition Defines the monitoring job. Fields are documented below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder monitoringJobDefinition(MonitoringScheduleMonitoringScheduleConfigMonitoringJobDefinitionArgs monitoringJobDefinition) {
+            return monitoringJobDefinition(Output.of(monitoringJobDefinition));
+        }
+
+        /**
          * @param monitoringJobDefinitionName The name of the monitoring job definition to schedule.
          * 
          * @return builder
          * 
          */
-        public Builder monitoringJobDefinitionName(Output<String> monitoringJobDefinitionName) {
+        public Builder monitoringJobDefinitionName(@Nullable Output<String> monitoringJobDefinitionName) {
             $.monitoringJobDefinitionName = monitoringJobDefinitionName;
             return this;
         }
@@ -152,9 +190,6 @@ public final class MonitoringScheduleMonitoringScheduleConfigArgs extends com.pu
         }
 
         public MonitoringScheduleMonitoringScheduleConfigArgs build() {
-            if ($.monitoringJobDefinitionName == null) {
-                throw new MissingRequiredPropertyException("MonitoringScheduleMonitoringScheduleConfigArgs", "monitoringJobDefinitionName");
-            }
             if ($.monitoringType == null) {
                 throw new MissingRequiredPropertyException("MonitoringScheduleMonitoringScheduleConfigArgs", "monitoringType");
             }

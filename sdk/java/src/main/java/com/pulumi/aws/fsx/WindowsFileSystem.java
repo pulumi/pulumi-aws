@@ -114,6 +114,50 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * 
+ * ### Using a Self-Managed Microsoft Active Directory with Secrets Manager
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.fsx.WindowsFileSystem;
+ * import com.pulumi.aws.fsx.WindowsFileSystemArgs;
+ * import com.pulumi.aws.fsx.inputs.WindowsFileSystemSelfManagedActiveDirectoryArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new WindowsFileSystem("example", WindowsFileSystemArgs.builder()
+ *             .kmsKeyId(exampleAwsKmsKey.arn())
+ *             .storageCapacity(32)
+ *             .subnetIds(exampleAwsSubnet.id())
+ *             .throughputCapacity(32)
+ *             .selfManagedActiveDirectory(WindowsFileSystemSelfManagedActiveDirectoryArgs.builder()
+ *                 .dnsIps(                
+ *                     "10.0.0.111",
+ *                     "10.0.0.222")
+ *                 .domainName("corp.example.com")
+ *                 .domainJoinServiceAccountSecret(exampleAwsSecretsmanagerSecret.arn())
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
  * ## Import
  * 
  * Using `pulumi import`, import FSx File Systems using the `id`. For example:

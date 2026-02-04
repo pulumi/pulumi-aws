@@ -475,18 +475,18 @@ public class HealthCheck extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.referenceName);
     }
     /**
-     * A list of AWS regions that you want Amazon Route 53 health checkers to check the specified endpoint from.
+     * List of AWS Regions from which Amazon Route 53 health checkers check the specified endpoint. Valid values are `us-east-1`, `us-west-1`, `us-west-2`, `eu-west-1`, `ap-southeast-1`, `ap-southeast-2`, `ap-northeast-1`, and `sa-east-1`. If not specified, all of the regions listed under **Valid values** are used by default. Once this argument is set, removing it has no effect.
      * 
      */
     @Export(name="regions", refs={List.class,String.class}, tree="[0,1]")
-    private Output</* @Nullable */ List<String>> regions;
+    private Output<List<String>> regions;
 
     /**
-     * @return A list of AWS regions that you want Amazon Route 53 health checkers to check the specified endpoint from.
+     * @return List of AWS Regions from which Amazon Route 53 health checkers check the specified endpoint. Valid values are `us-east-1`, `us-west-1`, `us-west-2`, `eu-west-1`, `ap-southeast-1`, `ap-southeast-2`, `ap-northeast-1`, and `sa-east-1`. If not specified, all of the regions listed under **Valid values** are used by default. Once this argument is set, removing it has no effect.
      * 
      */
-    public Output<Optional<List<String>>> regions() {
-        return Codegen.optional(this.regions);
+    public Output<List<String>> regions() {
+        return this.regions;
     }
     /**
      * The number of seconds between the time that Amazon Route 53 gets a response from your endpoint and the time that it sends the next health-check request.

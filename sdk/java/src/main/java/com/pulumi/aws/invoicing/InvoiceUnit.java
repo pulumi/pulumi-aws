@@ -146,7 +146,11 @@ public class InvoiceUnit extends com.pulumi.resources.CustomResource {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      * 
+     * @deprecated
+     * This attribute will be removed in a future verion of the provider.
+     * 
      */
+    @Deprecated /* This attribute will be removed in a future verion of the provider. */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
@@ -158,7 +162,7 @@ public class InvoiceUnit extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * Configuration block for invoice unit rules. See below.
+     * Configuration block for invoice unit rules. See `rule` below.
      * 
      * The following arguments are optional:
      * 
@@ -167,7 +171,7 @@ public class InvoiceUnit extends com.pulumi.resources.CustomResource {
     private Output</* @Nullable */ List<InvoiceUnitRule>> rules;
 
     /**
-     * @return Configuration block for invoice unit rules. See below.
+     * @return Configuration block for invoice unit rules. See `rule` below.
      * 
      * The following arguments are optional:
      * 

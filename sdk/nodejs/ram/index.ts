@@ -10,6 +10,11 @@ export const getResourceShare: typeof import("./getResourceShare").getResourceSh
 export const getResourceShareOutput: typeof import("./getResourceShare").getResourceShareOutput = null as any;
 utilities.lazyLoad(exports, ["getResourceShare","getResourceShareOutput"], () => require("./getResourceShare"));
 
+export { PermissionArgs, PermissionState } from "./permission";
+export type Permission = import("./permission").Permission;
+export const Permission: typeof import("./permission").Permission = null as any;
+utilities.lazyLoad(exports, ["Permission"], () => require("./permission"));
+
 export { PrincipalAssociationArgs, PrincipalAssociationState } from "./principalAssociation";
 export type PrincipalAssociation = import("./principalAssociation").PrincipalAssociation;
 export const PrincipalAssociation: typeof import("./principalAssociation").PrincipalAssociation = null as any;
@@ -30,6 +35,11 @@ export type ResourceShareAccepter = import("./resourceShareAccepter").ResourceSh
 export const ResourceShareAccepter: typeof import("./resourceShareAccepter").ResourceShareAccepter = null as any;
 utilities.lazyLoad(exports, ["ResourceShareAccepter"], () => require("./resourceShareAccepter"));
 
+export { ResourceShareAssociationsExclusiveArgs, ResourceShareAssociationsExclusiveState } from "./resourceShareAssociationsExclusive";
+export type ResourceShareAssociationsExclusive = import("./resourceShareAssociationsExclusive").ResourceShareAssociationsExclusive;
+export const ResourceShareAssociationsExclusive: typeof import("./resourceShareAssociationsExclusive").ResourceShareAssociationsExclusive = null as any;
+utilities.lazyLoad(exports, ["ResourceShareAssociationsExclusive"], () => require("./resourceShareAssociationsExclusive"));
+
 export { SharingWithOrganizationArgs, SharingWithOrganizationState } from "./sharingWithOrganization";
 export type SharingWithOrganization = import("./sharingWithOrganization").SharingWithOrganization;
 export const SharingWithOrganization: typeof import("./sharingWithOrganization").SharingWithOrganization = null as any;
@@ -40,6 +50,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "aws:ram/permission:Permission":
+                return new Permission(name, <any>undefined, { urn })
             case "aws:ram/principalAssociation:PrincipalAssociation":
                 return new PrincipalAssociation(name, <any>undefined, { urn })
             case "aws:ram/resourceAssociation:ResourceAssociation":
@@ -48,6 +60,8 @@ const _module = {
                 return new ResourceShare(name, <any>undefined, { urn })
             case "aws:ram/resourceShareAccepter:ResourceShareAccepter":
                 return new ResourceShareAccepter(name, <any>undefined, { urn })
+            case "aws:ram/resourceShareAssociationsExclusive:ResourceShareAssociationsExclusive":
+                return new ResourceShareAssociationsExclusive(name, <any>undefined, { urn })
             case "aws:ram/sharingWithOrganization:SharingWithOrganization":
                 return new SharingWithOrganization(name, <any>undefined, { urn })
             default:
@@ -55,8 +69,10 @@ const _module = {
         }
     },
 };
+pulumi.runtime.registerResourceModule("aws", "ram/permission", _module)
 pulumi.runtime.registerResourceModule("aws", "ram/principalAssociation", _module)
 pulumi.runtime.registerResourceModule("aws", "ram/resourceAssociation", _module)
 pulumi.runtime.registerResourceModule("aws", "ram/resourceShare", _module)
 pulumi.runtime.registerResourceModule("aws", "ram/resourceShareAccepter", _module)
+pulumi.runtime.registerResourceModule("aws", "ram/resourceShareAssociationsExclusive", _module)
 pulumi.runtime.registerResourceModule("aws", "ram/sharingWithOrganization", _module)

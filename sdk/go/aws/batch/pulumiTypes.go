@@ -1511,7 +1511,7 @@ type JobDefinitionEksPropertiesPodPropertiesContainer struct {
 	Name *string `pulumi:"name"`
 	// Type and amount of resources to assign to a container. The supported resources include `memory`, `cpu`, and `nvidia.com/gpu`.
 	Resources *JobDefinitionEksPropertiesPodPropertiesContainerResources `pulumi:"resources"`
-	// Security context for a job.
+	// Security context for a job. See `securityContext` below.
 	SecurityContext *JobDefinitionEksPropertiesPodPropertiesContainerSecurityContext `pulumi:"securityContext"`
 	// Volume mounts for the container.
 	VolumeMounts []JobDefinitionEksPropertiesPodPropertiesContainerVolumeMount `pulumi:"volumeMounts"`
@@ -1543,7 +1543,7 @@ type JobDefinitionEksPropertiesPodPropertiesContainerArgs struct {
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// Type and amount of resources to assign to a container. The supported resources include `memory`, `cpu`, and `nvidia.com/gpu`.
 	Resources JobDefinitionEksPropertiesPodPropertiesContainerResourcesPtrInput `pulumi:"resources"`
-	// Security context for a job.
+	// Security context for a job. See `securityContext` below.
 	SecurityContext JobDefinitionEksPropertiesPodPropertiesContainerSecurityContextPtrInput `pulumi:"securityContext"`
 	// Volume mounts for the container.
 	VolumeMounts JobDefinitionEksPropertiesPodPropertiesContainerVolumeMountArrayInput `pulumi:"volumeMounts"`
@@ -1639,7 +1639,7 @@ func (o JobDefinitionEksPropertiesPodPropertiesContainerOutput) Resources() JobD
 	}).(JobDefinitionEksPropertiesPodPropertiesContainerResourcesPtrOutput)
 }
 
-// Security context for a job.
+// Security context for a job. See `securityContext` below.
 func (o JobDefinitionEksPropertiesPodPropertiesContainerOutput) SecurityContext() JobDefinitionEksPropertiesPodPropertiesContainerSecurityContextPtrOutput {
 	return o.ApplyT(func(v JobDefinitionEksPropertiesPodPropertiesContainer) *JobDefinitionEksPropertiesPodPropertiesContainerSecurityContext {
 		return v.SecurityContext
@@ -1928,11 +1928,17 @@ func (o JobDefinitionEksPropertiesPodPropertiesContainerResourcesPtrOutput) Requ
 }
 
 type JobDefinitionEksPropertiesPodPropertiesContainerSecurityContext struct {
+	// Whether or not a container or a Kubernetes pod is allowed to gain more privileges than its parent process. The default value is `false`.
+	AllowPrivilegeEscalation *bool `pulumi:"allowPrivilegeEscalation"`
+	// When this parameter is `true`, the container is given elevated permissions on the host container instance. The level of permissions are similar to the root user permissions. The default value is `false`.
 	Privileged             *bool `pulumi:"privileged"`
 	ReadOnlyRootFileSystem *bool `pulumi:"readOnlyRootFileSystem"`
-	RunAsGroup             *int  `pulumi:"runAsGroup"`
-	RunAsNonRoot           *bool `pulumi:"runAsNonRoot"`
-	RunAsUser              *int  `pulumi:"runAsUser"`
+	// When this parameter is specified, the container is run as the specified group ID (gid). If this parameter isn't specified, the default is the group that's specified in the image metadata.
+	RunAsGroup *int `pulumi:"runAsGroup"`
+	// When this parameter is specified, the container is run as a user with a uid other than 0. If this parameter isn't specified, so such rule is enforced.
+	RunAsNonRoot *bool `pulumi:"runAsNonRoot"`
+	// When this parameter is specified, the container is run as the specified user ID (uid). If this parameter isn't specified, the default is the user that's specified in the image metadata.
+	RunAsUser *int `pulumi:"runAsUser"`
 }
 
 // JobDefinitionEksPropertiesPodPropertiesContainerSecurityContextInput is an input type that accepts JobDefinitionEksPropertiesPodPropertiesContainerSecurityContextArgs and JobDefinitionEksPropertiesPodPropertiesContainerSecurityContextOutput values.
@@ -1947,11 +1953,17 @@ type JobDefinitionEksPropertiesPodPropertiesContainerSecurityContextInput interf
 }
 
 type JobDefinitionEksPropertiesPodPropertiesContainerSecurityContextArgs struct {
+	// Whether or not a container or a Kubernetes pod is allowed to gain more privileges than its parent process. The default value is `false`.
+	AllowPrivilegeEscalation pulumi.BoolPtrInput `pulumi:"allowPrivilegeEscalation"`
+	// When this parameter is `true`, the container is given elevated permissions on the host container instance. The level of permissions are similar to the root user permissions. The default value is `false`.
 	Privileged             pulumi.BoolPtrInput `pulumi:"privileged"`
 	ReadOnlyRootFileSystem pulumi.BoolPtrInput `pulumi:"readOnlyRootFileSystem"`
-	RunAsGroup             pulumi.IntPtrInput  `pulumi:"runAsGroup"`
-	RunAsNonRoot           pulumi.BoolPtrInput `pulumi:"runAsNonRoot"`
-	RunAsUser              pulumi.IntPtrInput  `pulumi:"runAsUser"`
+	// When this parameter is specified, the container is run as the specified group ID (gid). If this parameter isn't specified, the default is the group that's specified in the image metadata.
+	RunAsGroup pulumi.IntPtrInput `pulumi:"runAsGroup"`
+	// When this parameter is specified, the container is run as a user with a uid other than 0. If this parameter isn't specified, so such rule is enforced.
+	RunAsNonRoot pulumi.BoolPtrInput `pulumi:"runAsNonRoot"`
+	// When this parameter is specified, the container is run as the specified user ID (uid). If this parameter isn't specified, the default is the user that's specified in the image metadata.
+	RunAsUser pulumi.IntPtrInput `pulumi:"runAsUser"`
 }
 
 func (JobDefinitionEksPropertiesPodPropertiesContainerSecurityContextArgs) ElementType() reflect.Type {
@@ -2031,6 +2043,14 @@ func (o JobDefinitionEksPropertiesPodPropertiesContainerSecurityContextOutput) T
 	}).(JobDefinitionEksPropertiesPodPropertiesContainerSecurityContextPtrOutput)
 }
 
+// Whether or not a container or a Kubernetes pod is allowed to gain more privileges than its parent process. The default value is `false`.
+func (o JobDefinitionEksPropertiesPodPropertiesContainerSecurityContextOutput) AllowPrivilegeEscalation() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v JobDefinitionEksPropertiesPodPropertiesContainerSecurityContext) *bool {
+		return v.AllowPrivilegeEscalation
+	}).(pulumi.BoolPtrOutput)
+}
+
+// When this parameter is `true`, the container is given elevated permissions on the host container instance. The level of permissions are similar to the root user permissions. The default value is `false`.
 func (o JobDefinitionEksPropertiesPodPropertiesContainerSecurityContextOutput) Privileged() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v JobDefinitionEksPropertiesPodPropertiesContainerSecurityContext) *bool { return v.Privileged }).(pulumi.BoolPtrOutput)
 }
@@ -2041,14 +2061,17 @@ func (o JobDefinitionEksPropertiesPodPropertiesContainerSecurityContextOutput) R
 	}).(pulumi.BoolPtrOutput)
 }
 
+// When this parameter is specified, the container is run as the specified group ID (gid). If this parameter isn't specified, the default is the group that's specified in the image metadata.
 func (o JobDefinitionEksPropertiesPodPropertiesContainerSecurityContextOutput) RunAsGroup() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v JobDefinitionEksPropertiesPodPropertiesContainerSecurityContext) *int { return v.RunAsGroup }).(pulumi.IntPtrOutput)
 }
 
+// When this parameter is specified, the container is run as a user with a uid other than 0. If this parameter isn't specified, so such rule is enforced.
 func (o JobDefinitionEksPropertiesPodPropertiesContainerSecurityContextOutput) RunAsNonRoot() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v JobDefinitionEksPropertiesPodPropertiesContainerSecurityContext) *bool { return v.RunAsNonRoot }).(pulumi.BoolPtrOutput)
 }
 
+// When this parameter is specified, the container is run as the specified user ID (uid). If this parameter isn't specified, the default is the user that's specified in the image metadata.
 func (o JobDefinitionEksPropertiesPodPropertiesContainerSecurityContextOutput) RunAsUser() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v JobDefinitionEksPropertiesPodPropertiesContainerSecurityContext) *int { return v.RunAsUser }).(pulumi.IntPtrOutput)
 }
@@ -2077,6 +2100,17 @@ func (o JobDefinitionEksPropertiesPodPropertiesContainerSecurityContextPtrOutput
 	}).(JobDefinitionEksPropertiesPodPropertiesContainerSecurityContextOutput)
 }
 
+// Whether or not a container or a Kubernetes pod is allowed to gain more privileges than its parent process. The default value is `false`.
+func (o JobDefinitionEksPropertiesPodPropertiesContainerSecurityContextPtrOutput) AllowPrivilegeEscalation() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *JobDefinitionEksPropertiesPodPropertiesContainerSecurityContext) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.AllowPrivilegeEscalation
+	}).(pulumi.BoolPtrOutput)
+}
+
+// When this parameter is `true`, the container is given elevated permissions on the host container instance. The level of permissions are similar to the root user permissions. The default value is `false`.
 func (o JobDefinitionEksPropertiesPodPropertiesContainerSecurityContextPtrOutput) Privileged() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *JobDefinitionEksPropertiesPodPropertiesContainerSecurityContext) *bool {
 		if v == nil {
@@ -2095,6 +2129,7 @@ func (o JobDefinitionEksPropertiesPodPropertiesContainerSecurityContextPtrOutput
 	}).(pulumi.BoolPtrOutput)
 }
 
+// When this parameter is specified, the container is run as the specified group ID (gid). If this parameter isn't specified, the default is the group that's specified in the image metadata.
 func (o JobDefinitionEksPropertiesPodPropertiesContainerSecurityContextPtrOutput) RunAsGroup() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *JobDefinitionEksPropertiesPodPropertiesContainerSecurityContext) *int {
 		if v == nil {
@@ -2104,6 +2139,7 @@ func (o JobDefinitionEksPropertiesPodPropertiesContainerSecurityContextPtrOutput
 	}).(pulumi.IntPtrOutput)
 }
 
+// When this parameter is specified, the container is run as a user with a uid other than 0. If this parameter isn't specified, so such rule is enforced.
 func (o JobDefinitionEksPropertiesPodPropertiesContainerSecurityContextPtrOutput) RunAsNonRoot() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *JobDefinitionEksPropertiesPodPropertiesContainerSecurityContext) *bool {
 		if v == nil {
@@ -2113,6 +2149,7 @@ func (o JobDefinitionEksPropertiesPodPropertiesContainerSecurityContextPtrOutput
 	}).(pulumi.BoolPtrOutput)
 }
 
+// When this parameter is specified, the container is run as the specified user ID (uid). If this parameter isn't specified, the default is the user that's specified in the image metadata.
 func (o JobDefinitionEksPropertiesPodPropertiesContainerSecurityContextPtrOutput) RunAsUser() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *JobDefinitionEksPropertiesPodPropertiesContainerSecurityContext) *int {
 		if v == nil {
@@ -2343,7 +2380,7 @@ type JobDefinitionEksPropertiesPodPropertiesInitContainer struct {
 	Name *string `pulumi:"name"`
 	// Type and amount of resources to assign to a container. The supported resources include `memory`, `cpu`, and `nvidia.com/gpu`.
 	Resources *JobDefinitionEksPropertiesPodPropertiesInitContainerResources `pulumi:"resources"`
-	// Security context for a job.
+	// Security context for a job. See `securityContext` below.
 	SecurityContext *JobDefinitionEksPropertiesPodPropertiesInitContainerSecurityContext `pulumi:"securityContext"`
 	// Volume mounts for the container.
 	VolumeMounts []JobDefinitionEksPropertiesPodPropertiesInitContainerVolumeMount `pulumi:"volumeMounts"`
@@ -2375,7 +2412,7 @@ type JobDefinitionEksPropertiesPodPropertiesInitContainerArgs struct {
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// Type and amount of resources to assign to a container. The supported resources include `memory`, `cpu`, and `nvidia.com/gpu`.
 	Resources JobDefinitionEksPropertiesPodPropertiesInitContainerResourcesPtrInput `pulumi:"resources"`
-	// Security context for a job.
+	// Security context for a job. See `securityContext` below.
 	SecurityContext JobDefinitionEksPropertiesPodPropertiesInitContainerSecurityContextPtrInput `pulumi:"securityContext"`
 	// Volume mounts for the container.
 	VolumeMounts JobDefinitionEksPropertiesPodPropertiesInitContainerVolumeMountArrayInput `pulumi:"volumeMounts"`
@@ -2471,7 +2508,7 @@ func (o JobDefinitionEksPropertiesPodPropertiesInitContainerOutput) Resources() 
 	}).(JobDefinitionEksPropertiesPodPropertiesInitContainerResourcesPtrOutput)
 }
 
-// Security context for a job.
+// Security context for a job. See `securityContext` below.
 func (o JobDefinitionEksPropertiesPodPropertiesInitContainerOutput) SecurityContext() JobDefinitionEksPropertiesPodPropertiesInitContainerSecurityContextPtrOutput {
 	return o.ApplyT(func(v JobDefinitionEksPropertiesPodPropertiesInitContainer) *JobDefinitionEksPropertiesPodPropertiesInitContainerSecurityContext {
 		return v.SecurityContext
@@ -2764,11 +2801,17 @@ func (o JobDefinitionEksPropertiesPodPropertiesInitContainerResourcesPtrOutput) 
 }
 
 type JobDefinitionEksPropertiesPodPropertiesInitContainerSecurityContext struct {
+	// Whether or not a container or a Kubernetes pod is allowed to gain more privileges than its parent process. The default value is `false`.
+	AllowPrivilegeEscalation *bool `pulumi:"allowPrivilegeEscalation"`
+	// When this parameter is `true`, the container is given elevated permissions on the host container instance. The level of permissions are similar to the root user permissions. The default value is `false`.
 	Privileged             *bool `pulumi:"privileged"`
 	ReadOnlyRootFileSystem *bool `pulumi:"readOnlyRootFileSystem"`
-	RunAsGroup             *int  `pulumi:"runAsGroup"`
-	RunAsNonRoot           *bool `pulumi:"runAsNonRoot"`
-	RunAsUser              *int  `pulumi:"runAsUser"`
+	// When this parameter is specified, the container is run as the specified group ID (gid). If this parameter isn't specified, the default is the group that's specified in the image metadata.
+	RunAsGroup *int `pulumi:"runAsGroup"`
+	// When this parameter is specified, the container is run as a user with a uid other than 0. If this parameter isn't specified, so such rule is enforced.
+	RunAsNonRoot *bool `pulumi:"runAsNonRoot"`
+	// When this parameter is specified, the container is run as the specified user ID (uid). If this parameter isn't specified, the default is the user that's specified in the image metadata.
+	RunAsUser *int `pulumi:"runAsUser"`
 }
 
 // JobDefinitionEksPropertiesPodPropertiesInitContainerSecurityContextInput is an input type that accepts JobDefinitionEksPropertiesPodPropertiesInitContainerSecurityContextArgs and JobDefinitionEksPropertiesPodPropertiesInitContainerSecurityContextOutput values.
@@ -2783,11 +2826,17 @@ type JobDefinitionEksPropertiesPodPropertiesInitContainerSecurityContextInput in
 }
 
 type JobDefinitionEksPropertiesPodPropertiesInitContainerSecurityContextArgs struct {
+	// Whether or not a container or a Kubernetes pod is allowed to gain more privileges than its parent process. The default value is `false`.
+	AllowPrivilegeEscalation pulumi.BoolPtrInput `pulumi:"allowPrivilegeEscalation"`
+	// When this parameter is `true`, the container is given elevated permissions on the host container instance. The level of permissions are similar to the root user permissions. The default value is `false`.
 	Privileged             pulumi.BoolPtrInput `pulumi:"privileged"`
 	ReadOnlyRootFileSystem pulumi.BoolPtrInput `pulumi:"readOnlyRootFileSystem"`
-	RunAsGroup             pulumi.IntPtrInput  `pulumi:"runAsGroup"`
-	RunAsNonRoot           pulumi.BoolPtrInput `pulumi:"runAsNonRoot"`
-	RunAsUser              pulumi.IntPtrInput  `pulumi:"runAsUser"`
+	// When this parameter is specified, the container is run as the specified group ID (gid). If this parameter isn't specified, the default is the group that's specified in the image metadata.
+	RunAsGroup pulumi.IntPtrInput `pulumi:"runAsGroup"`
+	// When this parameter is specified, the container is run as a user with a uid other than 0. If this parameter isn't specified, so such rule is enforced.
+	RunAsNonRoot pulumi.BoolPtrInput `pulumi:"runAsNonRoot"`
+	// When this parameter is specified, the container is run as the specified user ID (uid). If this parameter isn't specified, the default is the user that's specified in the image metadata.
+	RunAsUser pulumi.IntPtrInput `pulumi:"runAsUser"`
 }
 
 func (JobDefinitionEksPropertiesPodPropertiesInitContainerSecurityContextArgs) ElementType() reflect.Type {
@@ -2867,6 +2916,14 @@ func (o JobDefinitionEksPropertiesPodPropertiesInitContainerSecurityContextOutpu
 	}).(JobDefinitionEksPropertiesPodPropertiesInitContainerSecurityContextPtrOutput)
 }
 
+// Whether or not a container or a Kubernetes pod is allowed to gain more privileges than its parent process. The default value is `false`.
+func (o JobDefinitionEksPropertiesPodPropertiesInitContainerSecurityContextOutput) AllowPrivilegeEscalation() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v JobDefinitionEksPropertiesPodPropertiesInitContainerSecurityContext) *bool {
+		return v.AllowPrivilegeEscalation
+	}).(pulumi.BoolPtrOutput)
+}
+
+// When this parameter is `true`, the container is given elevated permissions on the host container instance. The level of permissions are similar to the root user permissions. The default value is `false`.
 func (o JobDefinitionEksPropertiesPodPropertiesInitContainerSecurityContextOutput) Privileged() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v JobDefinitionEksPropertiesPodPropertiesInitContainerSecurityContext) *bool { return v.Privileged }).(pulumi.BoolPtrOutput)
 }
@@ -2877,16 +2934,19 @@ func (o JobDefinitionEksPropertiesPodPropertiesInitContainerSecurityContextOutpu
 	}).(pulumi.BoolPtrOutput)
 }
 
+// When this parameter is specified, the container is run as the specified group ID (gid). If this parameter isn't specified, the default is the group that's specified in the image metadata.
 func (o JobDefinitionEksPropertiesPodPropertiesInitContainerSecurityContextOutput) RunAsGroup() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v JobDefinitionEksPropertiesPodPropertiesInitContainerSecurityContext) *int { return v.RunAsGroup }).(pulumi.IntPtrOutput)
 }
 
+// When this parameter is specified, the container is run as a user with a uid other than 0. If this parameter isn't specified, so such rule is enforced.
 func (o JobDefinitionEksPropertiesPodPropertiesInitContainerSecurityContextOutput) RunAsNonRoot() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v JobDefinitionEksPropertiesPodPropertiesInitContainerSecurityContext) *bool {
 		return v.RunAsNonRoot
 	}).(pulumi.BoolPtrOutput)
 }
 
+// When this parameter is specified, the container is run as the specified user ID (uid). If this parameter isn't specified, the default is the user that's specified in the image metadata.
 func (o JobDefinitionEksPropertiesPodPropertiesInitContainerSecurityContextOutput) RunAsUser() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v JobDefinitionEksPropertiesPodPropertiesInitContainerSecurityContext) *int { return v.RunAsUser }).(pulumi.IntPtrOutput)
 }
@@ -2915,6 +2975,17 @@ func (o JobDefinitionEksPropertiesPodPropertiesInitContainerSecurityContextPtrOu
 	}).(JobDefinitionEksPropertiesPodPropertiesInitContainerSecurityContextOutput)
 }
 
+// Whether or not a container or a Kubernetes pod is allowed to gain more privileges than its parent process. The default value is `false`.
+func (o JobDefinitionEksPropertiesPodPropertiesInitContainerSecurityContextPtrOutput) AllowPrivilegeEscalation() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *JobDefinitionEksPropertiesPodPropertiesInitContainerSecurityContext) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.AllowPrivilegeEscalation
+	}).(pulumi.BoolPtrOutput)
+}
+
+// When this parameter is `true`, the container is given elevated permissions on the host container instance. The level of permissions are similar to the root user permissions. The default value is `false`.
 func (o JobDefinitionEksPropertiesPodPropertiesInitContainerSecurityContextPtrOutput) Privileged() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *JobDefinitionEksPropertiesPodPropertiesInitContainerSecurityContext) *bool {
 		if v == nil {
@@ -2933,6 +3004,7 @@ func (o JobDefinitionEksPropertiesPodPropertiesInitContainerSecurityContextPtrOu
 	}).(pulumi.BoolPtrOutput)
 }
 
+// When this parameter is specified, the container is run as the specified group ID (gid). If this parameter isn't specified, the default is the group that's specified in the image metadata.
 func (o JobDefinitionEksPropertiesPodPropertiesInitContainerSecurityContextPtrOutput) RunAsGroup() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *JobDefinitionEksPropertiesPodPropertiesInitContainerSecurityContext) *int {
 		if v == nil {
@@ -2942,6 +3014,7 @@ func (o JobDefinitionEksPropertiesPodPropertiesInitContainerSecurityContextPtrOu
 	}).(pulumi.IntPtrOutput)
 }
 
+// When this parameter is specified, the container is run as a user with a uid other than 0. If this parameter isn't specified, so such rule is enforced.
 func (o JobDefinitionEksPropertiesPodPropertiesInitContainerSecurityContextPtrOutput) RunAsNonRoot() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *JobDefinitionEksPropertiesPodPropertiesInitContainerSecurityContext) *bool {
 		if v == nil {
@@ -2951,6 +3024,7 @@ func (o JobDefinitionEksPropertiesPodPropertiesInitContainerSecurityContextPtrOu
 	}).(pulumi.BoolPtrOutput)
 }
 
+// When this parameter is specified, the container is run as the specified user ID (uid). If this parameter isn't specified, the default is the user that's specified in the image metadata.
 func (o JobDefinitionEksPropertiesPodPropertiesInitContainerSecurityContextPtrOutput) RunAsUser() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *JobDefinitionEksPropertiesPodPropertiesInitContainerSecurityContext) *int {
 		if v == nil {
@@ -5642,6 +5716,8 @@ func (o GetJobDefinitionEksPropertyPodPropertyContainerResourceArrayOutput) Inde
 }
 
 type GetJobDefinitionEksPropertyPodPropertyContainerSecurityContext struct {
+	// Whether or not a container or a Kubernetes pod is allowed to gain more privileges than its parent process. The default value is `false`.
+	AllowPrivilegeEscalation bool `pulumi:"allowPrivilegeEscalation"`
 	// When this parameter is true, the container is given elevated permissions on the host container instance (similar to the root user).
 	Privileged             bool `pulumi:"privileged"`
 	ReadOnlyRootFileSystem bool `pulumi:"readOnlyRootFileSystem"`
@@ -5665,6 +5741,8 @@ type GetJobDefinitionEksPropertyPodPropertyContainerSecurityContextInput interfa
 }
 
 type GetJobDefinitionEksPropertyPodPropertyContainerSecurityContextArgs struct {
+	// Whether or not a container or a Kubernetes pod is allowed to gain more privileges than its parent process. The default value is `false`.
+	AllowPrivilegeEscalation pulumi.BoolInput `pulumi:"allowPrivilegeEscalation"`
 	// When this parameter is true, the container is given elevated permissions on the host container instance (similar to the root user).
 	Privileged             pulumi.BoolInput `pulumi:"privileged"`
 	ReadOnlyRootFileSystem pulumi.BoolInput `pulumi:"readOnlyRootFileSystem"`
@@ -5725,6 +5803,13 @@ func (o GetJobDefinitionEksPropertyPodPropertyContainerSecurityContextOutput) To
 
 func (o GetJobDefinitionEksPropertyPodPropertyContainerSecurityContextOutput) ToGetJobDefinitionEksPropertyPodPropertyContainerSecurityContextOutputWithContext(ctx context.Context) GetJobDefinitionEksPropertyPodPropertyContainerSecurityContextOutput {
 	return o
+}
+
+// Whether or not a container or a Kubernetes pod is allowed to gain more privileges than its parent process. The default value is `false`.
+func (o GetJobDefinitionEksPropertyPodPropertyContainerSecurityContextOutput) AllowPrivilegeEscalation() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetJobDefinitionEksPropertyPodPropertyContainerSecurityContext) bool {
+		return v.AllowPrivilegeEscalation
+	}).(pulumi.BoolOutput)
 }
 
 // When this parameter is true, the container is given elevated permissions on the host container instance (similar to the root user).
@@ -6377,6 +6462,8 @@ func (o GetJobDefinitionEksPropertyPodPropertyInitContainerResourceArrayOutput) 
 }
 
 type GetJobDefinitionEksPropertyPodPropertyInitContainerSecurityContext struct {
+	// Whether or not a container or a Kubernetes pod is allowed to gain more privileges than its parent process. The default value is `false`.
+	AllowPrivilegeEscalation bool `pulumi:"allowPrivilegeEscalation"`
 	// When this parameter is true, the container is given elevated permissions on the host container instance (similar to the root user).
 	Privileged             bool `pulumi:"privileged"`
 	ReadOnlyRootFileSystem bool `pulumi:"readOnlyRootFileSystem"`
@@ -6400,6 +6487,8 @@ type GetJobDefinitionEksPropertyPodPropertyInitContainerSecurityContextInput int
 }
 
 type GetJobDefinitionEksPropertyPodPropertyInitContainerSecurityContextArgs struct {
+	// Whether or not a container or a Kubernetes pod is allowed to gain more privileges than its parent process. The default value is `false`.
+	AllowPrivilegeEscalation pulumi.BoolInput `pulumi:"allowPrivilegeEscalation"`
 	// When this parameter is true, the container is given elevated permissions on the host container instance (similar to the root user).
 	Privileged             pulumi.BoolInput `pulumi:"privileged"`
 	ReadOnlyRootFileSystem pulumi.BoolInput `pulumi:"readOnlyRootFileSystem"`
@@ -6460,6 +6549,13 @@ func (o GetJobDefinitionEksPropertyPodPropertyInitContainerSecurityContextOutput
 
 func (o GetJobDefinitionEksPropertyPodPropertyInitContainerSecurityContextOutput) ToGetJobDefinitionEksPropertyPodPropertyInitContainerSecurityContextOutputWithContext(ctx context.Context) GetJobDefinitionEksPropertyPodPropertyInitContainerSecurityContextOutput {
 	return o
+}
+
+// Whether or not a container or a Kubernetes pod is allowed to gain more privileges than its parent process. The default value is `false`.
+func (o GetJobDefinitionEksPropertyPodPropertyInitContainerSecurityContextOutput) AllowPrivilegeEscalation() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetJobDefinitionEksPropertyPodPropertyInitContainerSecurityContext) bool {
+		return v.AllowPrivilegeEscalation
+	}).(pulumi.BoolOutput)
 }
 
 // When this parameter is true, the container is given elevated permissions on the host container instance (similar to the root user).

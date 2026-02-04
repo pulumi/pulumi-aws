@@ -14,6 +14,8 @@ namespace Pulumi.Aws.SsoAdmin
     /// 
     /// &gt; **NOTE:** Creating this resource will automatically [Provision the Permission Set](https://docs.aws.amazon.com/singlesignon/latest/APIReference/API_ProvisionPermissionSet.html) to apply the corresponding updates to all assigned accounts.
     /// 
+    /// !&gt; **WARNING:** Do not use this resource together with the `aws.ssoadmin.ManagedPolicyAttachmentsExclusive` resource for the same permission set. Doing so will cause a conflict and will lead to managed policies being removed.
+    /// 
     /// ## Example Usage
     /// 
     /// ### Basic Usage

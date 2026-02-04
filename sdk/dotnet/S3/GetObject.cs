@@ -283,6 +283,12 @@ namespace Pulumi.Aws.S3
         public string? ChecksumMode { get; set; }
 
         /// <summary>
+        /// Set to `True` to always download object data to `BodyBase64` attribute. If unset and conditions described above are met, `Body` will be available but `BodyBase64` will not be. If set to `False`, the body is not downloaded and neither `Body` nor `BodyBase64` is available, which may improve performance.
+        /// </summary>
+        [Input("downloadBody")]
+        public string? DownloadBody { get; set; }
+
+        /// <summary>
         /// Full path to the object inside the bucket
         /// </summary>
         [Input("key", required: true)]
@@ -336,6 +342,12 @@ namespace Pulumi.Aws.S3
         public Input<string>? ChecksumMode { get; set; }
 
         /// <summary>
+        /// Set to `True` to always download object data to `BodyBase64` attribute. If unset and conditions described above are met, `Body` will be available but `BodyBase64` will not be. If set to `False`, the body is not downloaded and neither `Body` nor `BodyBase64` is available, which may improve performance.
+        /// </summary>
+        [Input("downloadBody")]
+        public Input<string>? DownloadBody { get; set; }
+
+        /// <summary>
         /// Full path to the object inside the bucket
         /// </summary>
         [Input("key", required: true)]
@@ -383,9 +395,13 @@ namespace Pulumi.Aws.S3
         /// </summary>
         public readonly string Arn;
         /// <summary>
-        /// Object data (see **limitations above** to understand cases in which this field is actually available)
+        /// Object data (see **limitations above** to understand cases in which this field is actually available). If `DownloadBody` is set to `False`, `Body` is not available.
         /// </summary>
         public readonly string Body;
+        /// <summary>
+        /// Object data as base64 encoded string. **This is only available if `DownloadBody` is set to `True`.**
+        /// </summary>
+        public readonly string BodyBase64;
         public readonly string Bucket;
         /// <summary>
         /// (Optional) Whether or not to use [Amazon S3 Bucket Keys](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html) for SSE-KMS.
@@ -436,6 +452,7 @@ namespace Pulumi.Aws.S3
         /// Standard MIME type describing the format of the object data.
         /// </summary>
         public readonly string ContentType;
+        public readonly string? DownloadBody;
         /// <summary>
         /// [ETag](https://en.wikipedia.org/wiki/HTTP_ETag) generated for the object (an MD5 sum of the object content in case it's not encrypted)
         /// </summary>
@@ -506,6 +523,8 @@ namespace Pulumi.Aws.S3
 
             string body,
 
+            string bodyBase64,
+
             string bucket,
 
             bool bucketKeyEnabled,
@@ -533,6 +552,8 @@ namespace Pulumi.Aws.S3
             int contentLength,
 
             string contentType,
+
+            string? downloadBody,
 
             string etag,
 
@@ -572,6 +593,7 @@ namespace Pulumi.Aws.S3
         {
             Arn = arn;
             Body = body;
+            BodyBase64 = bodyBase64;
             Bucket = bucket;
             BucketKeyEnabled = bucketKeyEnabled;
             CacheControl = cacheControl;
@@ -586,6 +608,7 @@ namespace Pulumi.Aws.S3
             ContentLanguage = contentLanguage;
             ContentLength = contentLength;
             ContentType = contentType;
+            DownloadBody = downloadBody;
             Etag = etag;
             Expiration = expiration;
             Expires = expires;

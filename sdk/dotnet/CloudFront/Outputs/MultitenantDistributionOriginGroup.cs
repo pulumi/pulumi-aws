@@ -18,25 +18,25 @@ namespace Pulumi.Aws.CloudFront.Outputs
         /// </summary>
         public readonly Outputs.MultitenantDistributionOriginGroupFailoverCriteria? FailoverCriteria;
         /// <summary>
+        /// Identifier for the distribution.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// List of origins in this origin group. Must contain exactly 2 members. See Origin Group Member below.
         /// </summary>
         public readonly ImmutableArray<Outputs.MultitenantDistributionOriginGroupMember> Members;
-        /// <summary>
-        /// Unique identifier for the origin group.
-        /// </summary>
-        public readonly string OriginId;
 
         [OutputConstructor]
         private MultitenantDistributionOriginGroup(
             Outputs.MultitenantDistributionOriginGroupFailoverCriteria? failoverCriteria,
 
-            ImmutableArray<Outputs.MultitenantDistributionOriginGroupMember> members,
+            string id,
 
-            string originId)
+            ImmutableArray<Outputs.MultitenantDistributionOriginGroupMember> members)
         {
             FailoverCriteria = failoverCriteria;
+            Id = id;
             Members = members;
-            OriginId = originId;
         }
     }
 }

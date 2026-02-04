@@ -219,6 +219,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &VpcPeeringConnection{}
 	case "aws:ec2/vpcPeeringConnectionAccepter:VpcPeeringConnectionAccepter":
 		r = &VpcPeeringConnectionAccepter{}
+	case "aws:ec2/vpcSecurityGroupRulesExclusive:VpcSecurityGroupRulesExclusive":
+		r = &VpcSecurityGroupRulesExclusive{}
 	case "aws:ec2/vpnConcentrator:VpnConcentrator":
 		r = &VpnConcentrator{}
 	case "aws:ec2/vpnConnection:VpnConnection":
@@ -737,6 +739,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"ec2/vpcPeeringConnectionAccepter",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"ec2/vpcSecurityGroupRulesExclusive",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

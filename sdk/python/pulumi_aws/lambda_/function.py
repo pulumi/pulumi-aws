@@ -84,7 +84,7 @@ class FunctionArgs:
         :param pulumi.Input[_builtins.str] kms_key_arn: ARN of the AWS Key Management Service key used to encrypt environment variables. If not provided when environment variables are in use, AWS Lambda uses a default service key. If provided when environment variables are not in use, the AWS Lambda API does not save this configuration.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] layers: List of Lambda Layer Version ARNs (maximum of 5) to attach to your Lambda Function.
         :param pulumi.Input['FunctionLoggingConfigArgs'] logging_config: Configuration block for advanced logging settings. See below.
-        :param pulumi.Input[_builtins.int] memory_size: Amount of memory in MB your Lambda Function can use at runtime. Valid value between 128 MB to 10,240 MB (10 GB), in 1 MB increments. Defaults to 128.
+        :param pulumi.Input[_builtins.int] memory_size: Amount of memory in MB your Lambda Function can use at runtime. Valid value between 128 MB to 32,768 MB (32 GB), in 1 MB increments. Defaults to 128.
         :param pulumi.Input[_builtins.str] name: Unique name for your Lambda Function.
         :param pulumi.Input[_builtins.str] package_type: Lambda deployment package type. Valid values are `Zip` and `Image`. Defaults to `Zip`.
         :param pulumi.Input[_builtins.bool] publish: Whether to publish creation/change as new Lambda Function Version. Defaults to `false`.
@@ -409,7 +409,7 @@ class FunctionArgs:
     @pulumi.getter(name="memorySize")
     def memory_size(self) -> Optional[pulumi.Input[_builtins.int]]:
         """
-        Amount of memory in MB your Lambda Function can use at runtime. Valid value between 128 MB to 10,240 MB (10 GB), in 1 MB increments. Defaults to 128.
+        Amount of memory in MB your Lambda Function can use at runtime. Valid value between 128 MB to 32,768 MB (32 GB), in 1 MB increments. Defaults to 128.
         """
         return pulumi.get(self, "memory_size")
 
@@ -746,7 +746,7 @@ class _FunctionState:
         :param pulumi.Input[_builtins.str] last_modified: Date this resource was last modified.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] layers: List of Lambda Layer Version ARNs (maximum of 5) to attach to your Lambda Function.
         :param pulumi.Input['FunctionLoggingConfigArgs'] logging_config: Configuration block for advanced logging settings. See below.
-        :param pulumi.Input[_builtins.int] memory_size: Amount of memory in MB your Lambda Function can use at runtime. Valid value between 128 MB to 10,240 MB (10 GB), in 1 MB increments. Defaults to 128.
+        :param pulumi.Input[_builtins.int] memory_size: Amount of memory in MB your Lambda Function can use at runtime. Valid value between 128 MB to 32,768 MB (32 GB), in 1 MB increments. Defaults to 128.
         :param pulumi.Input[_builtins.str] name: Unique name for your Lambda Function.
         :param pulumi.Input[_builtins.str] package_type: Lambda deployment package type. Valid values are `Zip` and `Image`. Defaults to `Zip`.
         :param pulumi.Input[_builtins.bool] publish: Whether to publish creation/change as new Lambda Function Version. Defaults to `false`.
@@ -1127,7 +1127,7 @@ class _FunctionState:
     @pulumi.getter(name="memorySize")
     def memory_size(self) -> Optional[pulumi.Input[_builtins.int]]:
         """
-        Amount of memory in MB your Lambda Function can use at runtime. Valid value between 128 MB to 10,240 MB (10 GB), in 1 MB increments. Defaults to 128.
+        Amount of memory in MB your Lambda Function can use at runtime. Valid value between 128 MB to 32,768 MB (32 GB), in 1 MB increments. Defaults to 128.
         """
         return pulumi.get(self, "memory_size")
 
@@ -2009,7 +2009,7 @@ class Function(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] kms_key_arn: ARN of the AWS Key Management Service key used to encrypt environment variables. If not provided when environment variables are in use, AWS Lambda uses a default service key. If provided when environment variables are not in use, the AWS Lambda API does not save this configuration.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] layers: List of Lambda Layer Version ARNs (maximum of 5) to attach to your Lambda Function.
         :param pulumi.Input[Union['FunctionLoggingConfigArgs', 'FunctionLoggingConfigArgsDict']] logging_config: Configuration block for advanced logging settings. See below.
-        :param pulumi.Input[_builtins.int] memory_size: Amount of memory in MB your Lambda Function can use at runtime. Valid value between 128 MB to 10,240 MB (10 GB), in 1 MB increments. Defaults to 128.
+        :param pulumi.Input[_builtins.int] memory_size: Amount of memory in MB your Lambda Function can use at runtime. Valid value between 128 MB to 32,768 MB (32 GB), in 1 MB increments. Defaults to 128.
         :param pulumi.Input[_builtins.str] name: Unique name for your Lambda Function.
         :param pulumi.Input[_builtins.str] package_type: Lambda deployment package type. Valid values are `Zip` and `Image`. Defaults to `Zip`.
         :param pulumi.Input[_builtins.bool] publish: Whether to publish creation/change as new Lambda Function Version. Defaults to `false`.
@@ -2691,7 +2691,7 @@ class Function(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] last_modified: Date this resource was last modified.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] layers: List of Lambda Layer Version ARNs (maximum of 5) to attach to your Lambda Function.
         :param pulumi.Input[Union['FunctionLoggingConfigArgs', 'FunctionLoggingConfigArgsDict']] logging_config: Configuration block for advanced logging settings. See below.
-        :param pulumi.Input[_builtins.int] memory_size: Amount of memory in MB your Lambda Function can use at runtime. Valid value between 128 MB to 10,240 MB (10 GB), in 1 MB increments. Defaults to 128.
+        :param pulumi.Input[_builtins.int] memory_size: Amount of memory in MB your Lambda Function can use at runtime. Valid value between 128 MB to 32,768 MB (32 GB), in 1 MB increments. Defaults to 128.
         :param pulumi.Input[_builtins.str] name: Unique name for your Lambda Function.
         :param pulumi.Input[_builtins.str] package_type: Lambda deployment package type. Valid values are `Zip` and `Image`. Defaults to `Zip`.
         :param pulumi.Input[_builtins.bool] publish: Whether to publish creation/change as new Lambda Function Version. Defaults to `false`.
@@ -2946,7 +2946,7 @@ class Function(pulumi.CustomResource):
     @pulumi.getter(name="memorySize")
     def memory_size(self) -> pulumi.Output[Optional[_builtins.int]]:
         """
-        Amount of memory in MB your Lambda Function can use at runtime. Valid value between 128 MB to 10,240 MB (10 GB), in 1 MB increments. Defaults to 128.
+        Amount of memory in MB your Lambda Function can use at runtime. Valid value between 128 MB to 32,768 MB (32 GB), in 1 MB increments. Defaults to 128.
         """
         return pulumi.get(self, "memory_size")
 

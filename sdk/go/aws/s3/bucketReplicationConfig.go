@@ -29,6 +29,7 @@ type BucketReplicationConfig struct {
 	// ARN of the IAM role for Amazon S3 to assume when replicating the objects.
 	Role pulumi.StringOutput `pulumi:"role"`
 	// List of configuration blocks describing the rules managing the replication. See below.
+	//
 	// > **NOTE:** Replication to multiple destination buckets requires that `priority` is specified in the `rule` object. If the corresponding rule requires no filter, an empty configuration block `filter {}` must be specified.
 	//
 	// > **NOTE:** Amazon S3's latest version of the replication configuration is V2, which includes the `filter` attribute for replication rules.
@@ -94,6 +95,7 @@ type bucketReplicationConfigState struct {
 	// ARN of the IAM role for Amazon S3 to assume when replicating the objects.
 	Role *string `pulumi:"role"`
 	// List of configuration blocks describing the rules managing the replication. See below.
+	//
 	// > **NOTE:** Replication to multiple destination buckets requires that `priority` is specified in the `rule` object. If the corresponding rule requires no filter, an empty configuration block `filter {}` must be specified.
 	//
 	// > **NOTE:** Amazon S3's latest version of the replication configuration is V2, which includes the `filter` attribute for replication rules.
@@ -114,6 +116,7 @@ type BucketReplicationConfigState struct {
 	// ARN of the IAM role for Amazon S3 to assume when replicating the objects.
 	Role pulumi.StringPtrInput
 	// List of configuration blocks describing the rules managing the replication. See below.
+	//
 	// > **NOTE:** Replication to multiple destination buckets requires that `priority` is specified in the `rule` object. If the corresponding rule requires no filter, an empty configuration block `filter {}` must be specified.
 	//
 	// > **NOTE:** Amazon S3's latest version of the replication configuration is V2, which includes the `filter` attribute for replication rules.
@@ -138,6 +141,7 @@ type bucketReplicationConfigArgs struct {
 	// ARN of the IAM role for Amazon S3 to assume when replicating the objects.
 	Role string `pulumi:"role"`
 	// List of configuration blocks describing the rules managing the replication. See below.
+	//
 	// > **NOTE:** Replication to multiple destination buckets requires that `priority` is specified in the `rule` object. If the corresponding rule requires no filter, an empty configuration block `filter {}` must be specified.
 	//
 	// > **NOTE:** Amazon S3's latest version of the replication configuration is V2, which includes the `filter` attribute for replication rules.
@@ -159,6 +163,7 @@ type BucketReplicationConfigArgs struct {
 	// ARN of the IAM role for Amazon S3 to assume when replicating the objects.
 	Role pulumi.StringInput
 	// List of configuration blocks describing the rules managing the replication. See below.
+	//
 	// > **NOTE:** Replication to multiple destination buckets requires that `priority` is specified in the `rule` object. If the corresponding rule requires no filter, an empty configuration block `filter {}` must be specified.
 	//
 	// > **NOTE:** Amazon S3's latest version of the replication configuration is V2, which includes the `filter` attribute for replication rules.
@@ -274,6 +279,7 @@ func (o BucketReplicationConfigOutput) Role() pulumi.StringOutput {
 }
 
 // List of configuration blocks describing the rules managing the replication. See below.
+//
 // > **NOTE:** Replication to multiple destination buckets requires that `priority` is specified in the `rule` object. If the corresponding rule requires no filter, an empty configuration block `filter {}` must be specified.
 //
 // > **NOTE:** Amazon S3's latest version of the replication configuration is V2, which includes the `filter` attribute for replication rules.

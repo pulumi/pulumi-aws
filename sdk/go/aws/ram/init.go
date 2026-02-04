@@ -21,6 +21,8 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
+	case "aws:ram/permission:Permission":
+		r = &Permission{}
 	case "aws:ram/principalAssociation:PrincipalAssociation":
 		r = &PrincipalAssociation{}
 	case "aws:ram/resourceAssociation:ResourceAssociation":
@@ -29,6 +31,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &ResourceShare{}
 	case "aws:ram/resourceShareAccepter:ResourceShareAccepter":
 		r = &ResourceShareAccepter{}
+	case "aws:ram/resourceShareAssociationsExclusive:ResourceShareAssociationsExclusive":
+		r = &ResourceShareAssociationsExclusive{}
 	case "aws:ram/sharingWithOrganization:SharingWithOrganization":
 		r = &SharingWithOrganization{}
 	default:
@@ -44,6 +48,11 @@ func init() {
 	if err != nil {
 		version = semver.Version{Major: 1}
 	}
+	pulumi.RegisterResourceModule(
+		"aws",
+		"ram/permission",
+		&module{version},
+	)
 	pulumi.RegisterResourceModule(
 		"aws",
 		"ram/principalAssociation",
@@ -62,6 +71,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"ram/resourceShareAccepter",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"ram/resourceShareAssociationsExclusive",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

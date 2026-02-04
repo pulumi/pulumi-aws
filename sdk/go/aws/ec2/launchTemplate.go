@@ -85,7 +85,8 @@ type LaunchTemplate struct {
 	NamePrefix pulumi.StringOutput `pulumi:"namePrefix"`
 	// Customize network interfaces to be attached at instance boot time. See Network
 	// Interfaces below for more details.
-	NetworkInterfaces LaunchTemplateNetworkInterfaceArrayOutput `pulumi:"networkInterfaces"`
+	NetworkInterfaces         LaunchTemplateNetworkInterfaceArrayOutput        `pulumi:"networkInterfaces"`
+	NetworkPerformanceOptions LaunchTemplateNetworkPerformanceOptionsPtrOutput `pulumi:"networkPerformanceOptions"`
 	// The placement of the instance. See Placement below for more details.
 	Placement LaunchTemplatePlacementPtrOutput `pulumi:"placement"`
 	// The options for the instance hostname. The default values are inherited from the subnet. See Private DNS Name Options below for more details.
@@ -203,7 +204,8 @@ type launchTemplateState struct {
 	NamePrefix *string `pulumi:"namePrefix"`
 	// Customize network interfaces to be attached at instance boot time. See Network
 	// Interfaces below for more details.
-	NetworkInterfaces []LaunchTemplateNetworkInterface `pulumi:"networkInterfaces"`
+	NetworkInterfaces         []LaunchTemplateNetworkInterface         `pulumi:"networkInterfaces"`
+	NetworkPerformanceOptions *LaunchTemplateNetworkPerformanceOptions `pulumi:"networkPerformanceOptions"`
 	// The placement of the instance. See Placement below for more details.
 	Placement *LaunchTemplatePlacement `pulumi:"placement"`
 	// The options for the instance hostname. The default values are inherited from the subnet. See Private DNS Name Options below for more details.
@@ -292,7 +294,8 @@ type LaunchTemplateState struct {
 	NamePrefix pulumi.StringPtrInput
 	// Customize network interfaces to be attached at instance boot time. See Network
 	// Interfaces below for more details.
-	NetworkInterfaces LaunchTemplateNetworkInterfaceArrayInput
+	NetworkInterfaces         LaunchTemplateNetworkInterfaceArrayInput
+	NetworkPerformanceOptions LaunchTemplateNetworkPerformanceOptionsPtrInput
 	// The placement of the instance. See Placement below for more details.
 	Placement LaunchTemplatePlacementPtrInput
 	// The options for the instance hostname. The default values are inherited from the subnet. See Private DNS Name Options below for more details.
@@ -381,7 +384,8 @@ type launchTemplateArgs struct {
 	NamePrefix *string `pulumi:"namePrefix"`
 	// Customize network interfaces to be attached at instance boot time. See Network
 	// Interfaces below for more details.
-	NetworkInterfaces []LaunchTemplateNetworkInterface `pulumi:"networkInterfaces"`
+	NetworkInterfaces         []LaunchTemplateNetworkInterface         `pulumi:"networkInterfaces"`
+	NetworkPerformanceOptions *LaunchTemplateNetworkPerformanceOptions `pulumi:"networkPerformanceOptions"`
 	// The placement of the instance. See Placement below for more details.
 	Placement *LaunchTemplatePlacement `pulumi:"placement"`
 	// The options for the instance hostname. The default values are inherited from the subnet. See Private DNS Name Options below for more details.
@@ -465,7 +469,8 @@ type LaunchTemplateArgs struct {
 	NamePrefix pulumi.StringPtrInput
 	// Customize network interfaces to be attached at instance boot time. See Network
 	// Interfaces below for more details.
-	NetworkInterfaces LaunchTemplateNetworkInterfaceArrayInput
+	NetworkInterfaces         LaunchTemplateNetworkInterfaceArrayInput
+	NetworkPerformanceOptions LaunchTemplateNetworkPerformanceOptionsPtrInput
 	// The placement of the instance. See Placement below for more details.
 	Placement LaunchTemplatePlacementPtrInput
 	// The options for the instance hostname. The default values are inherited from the subnet. See Private DNS Name Options below for more details.
@@ -723,6 +728,12 @@ func (o LaunchTemplateOutput) NamePrefix() pulumi.StringOutput {
 // Interfaces below for more details.
 func (o LaunchTemplateOutput) NetworkInterfaces() LaunchTemplateNetworkInterfaceArrayOutput {
 	return o.ApplyT(func(v *LaunchTemplate) LaunchTemplateNetworkInterfaceArrayOutput { return v.NetworkInterfaces }).(LaunchTemplateNetworkInterfaceArrayOutput)
+}
+
+func (o LaunchTemplateOutput) NetworkPerformanceOptions() LaunchTemplateNetworkPerformanceOptionsPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplate) LaunchTemplateNetworkPerformanceOptionsPtrOutput {
+		return v.NetworkPerformanceOptions
+	}).(LaunchTemplateNetworkPerformanceOptionsPtrOutput)
 }
 
 // The placement of the instance. See Placement below for more details.

@@ -42,7 +42,7 @@ namespace Pulumi.Aws.Batch.Outputs
         /// </summary>
         public readonly Outputs.JobDefinitionEksPropertiesPodPropertiesContainerResources? Resources;
         /// <summary>
-        /// Security context for a job.
+        /// Security context for a job. See `SecurityContext` below.
         /// </summary>
         public readonly Outputs.JobDefinitionEksPropertiesPodPropertiesContainerSecurityContext? SecurityContext;
         /// <summary>

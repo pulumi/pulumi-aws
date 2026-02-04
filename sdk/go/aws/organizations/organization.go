@@ -85,6 +85,8 @@ type Organization struct {
 	MasterAccountName pulumi.StringOutput `pulumi:"masterAccountName"`
 	// List of organization accounts excluding the master account. For a list including the master account, see the `accounts` attribute. All elements have these attributes:
 	NonMasterAccounts OrganizationNonMasterAccountArrayOutput `pulumi:"nonMasterAccounts"`
+	// Return (as attributes) only the results of the [`DescribeOrganization`](https://docs.aws.amazon.com/organizations/latest/APIReference/API_DescribeOrganization.html) API to avoid [API limits](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_reference_limits.html#throttling-limits). When configured to `true` only the `arn`, `featureSet`, `masterAccountArn`, `masterAccountEmail` and `masterAccountId` attributes will be returned. All others will be empty. Default: `false`.
+	ReturnOrganizationOnly pulumi.BoolPtrOutput `pulumi:"returnOrganizationOnly"`
 	// List of organization roots. All elements have these attributes:
 	Roots OrganizationRootArrayOutput `pulumi:"roots"`
 }
@@ -139,6 +141,8 @@ type organizationState struct {
 	MasterAccountName *string `pulumi:"masterAccountName"`
 	// List of organization accounts excluding the master account. For a list including the master account, see the `accounts` attribute. All elements have these attributes:
 	NonMasterAccounts []OrganizationNonMasterAccount `pulumi:"nonMasterAccounts"`
+	// Return (as attributes) only the results of the [`DescribeOrganization`](https://docs.aws.amazon.com/organizations/latest/APIReference/API_DescribeOrganization.html) API to avoid [API limits](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_reference_limits.html#throttling-limits). When configured to `true` only the `arn`, `featureSet`, `masterAccountArn`, `masterAccountEmail` and `masterAccountId` attributes will be returned. All others will be empty. Default: `false`.
+	ReturnOrganizationOnly *bool `pulumi:"returnOrganizationOnly"`
 	// List of organization roots. All elements have these attributes:
 	Roots []OrganizationRoot `pulumi:"roots"`
 }
@@ -164,6 +168,8 @@ type OrganizationState struct {
 	MasterAccountName pulumi.StringPtrInput
 	// List of organization accounts excluding the master account. For a list including the master account, see the `accounts` attribute. All elements have these attributes:
 	NonMasterAccounts OrganizationNonMasterAccountArrayInput
+	// Return (as attributes) only the results of the [`DescribeOrganization`](https://docs.aws.amazon.com/organizations/latest/APIReference/API_DescribeOrganization.html) API to avoid [API limits](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_reference_limits.html#throttling-limits). When configured to `true` only the `arn`, `featureSet`, `masterAccountArn`, `masterAccountEmail` and `masterAccountId` attributes will be returned. All others will be empty. Default: `false`.
+	ReturnOrganizationOnly pulumi.BoolPtrInput
 	// List of organization roots. All elements have these attributes:
 	Roots OrganizationRootArrayInput
 }
@@ -179,6 +185,8 @@ type organizationArgs struct {
 	EnabledPolicyTypes []string `pulumi:"enabledPolicyTypes"`
 	// Specify `ALL` (default) or `CONSOLIDATED_BILLING`.
 	FeatureSet *string `pulumi:"featureSet"`
+	// Return (as attributes) only the results of the [`DescribeOrganization`](https://docs.aws.amazon.com/organizations/latest/APIReference/API_DescribeOrganization.html) API to avoid [API limits](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_reference_limits.html#throttling-limits). When configured to `true` only the `arn`, `featureSet`, `masterAccountArn`, `masterAccountEmail` and `masterAccountId` attributes will be returned. All others will be empty. Default: `false`.
+	ReturnOrganizationOnly *bool `pulumi:"returnOrganizationOnly"`
 }
 
 // The set of arguments for constructing a Organization resource.
@@ -189,6 +197,8 @@ type OrganizationArgs struct {
 	EnabledPolicyTypes pulumi.StringArrayInput
 	// Specify `ALL` (default) or `CONSOLIDATED_BILLING`.
 	FeatureSet pulumi.StringPtrInput
+	// Return (as attributes) only the results of the [`DescribeOrganization`](https://docs.aws.amazon.com/organizations/latest/APIReference/API_DescribeOrganization.html) API to avoid [API limits](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_reference_limits.html#throttling-limits). When configured to `true` only the `arn`, `featureSet`, `masterAccountArn`, `masterAccountEmail` and `masterAccountId` attributes will be returned. All others will be empty. Default: `false`.
+	ReturnOrganizationOnly pulumi.BoolPtrInput
 }
 
 func (OrganizationArgs) ElementType() reflect.Type {
@@ -326,6 +336,11 @@ func (o OrganizationOutput) MasterAccountName() pulumi.StringOutput {
 // List of organization accounts excluding the master account. For a list including the master account, see the `accounts` attribute. All elements have these attributes:
 func (o OrganizationOutput) NonMasterAccounts() OrganizationNonMasterAccountArrayOutput {
 	return o.ApplyT(func(v *Organization) OrganizationNonMasterAccountArrayOutput { return v.NonMasterAccounts }).(OrganizationNonMasterAccountArrayOutput)
+}
+
+// Return (as attributes) only the results of the [`DescribeOrganization`](https://docs.aws.amazon.com/organizations/latest/APIReference/API_DescribeOrganization.html) API to avoid [API limits](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_reference_limits.html#throttling-limits). When configured to `true` only the `arn`, `featureSet`, `masterAccountArn`, `masterAccountEmail` and `masterAccountId` attributes will be returned. All others will be empty. Default: `false`.
+func (o OrganizationOutput) ReturnOrganizationOnly() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Organization) pulumi.BoolPtrOutput { return v.ReturnOrganizationOnly }).(pulumi.BoolPtrOutput)
 }
 
 // List of organization roots. All elements have these attributes:

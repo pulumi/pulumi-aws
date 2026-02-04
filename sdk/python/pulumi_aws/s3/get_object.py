@@ -26,13 +26,16 @@ class GetObjectResult:
     """
     A collection of values returned by getObject.
     """
-    def __init__(__self__, arn=None, body=None, bucket=None, bucket_key_enabled=None, cache_control=None, checksum_crc32=None, checksum_crc32c=None, checksum_crc64nvme=None, checksum_mode=None, checksum_sha1=None, checksum_sha256=None, content_disposition=None, content_encoding=None, content_language=None, content_length=None, content_type=None, etag=None, expiration=None, expires=None, id=None, key=None, last_modified=None, metadata=None, object_lock_legal_hold_status=None, object_lock_mode=None, object_lock_retain_until_date=None, range=None, region=None, server_side_encryption=None, sse_kms_key_id=None, storage_class=None, tags=None, version_id=None, website_redirect_location=None):
+    def __init__(__self__, arn=None, body=None, body_base64=None, bucket=None, bucket_key_enabled=None, cache_control=None, checksum_crc32=None, checksum_crc32c=None, checksum_crc64nvme=None, checksum_mode=None, checksum_sha1=None, checksum_sha256=None, content_disposition=None, content_encoding=None, content_language=None, content_length=None, content_type=None, download_body=None, etag=None, expiration=None, expires=None, id=None, key=None, last_modified=None, metadata=None, object_lock_legal_hold_status=None, object_lock_mode=None, object_lock_retain_until_date=None, range=None, region=None, server_side_encryption=None, sse_kms_key_id=None, storage_class=None, tags=None, version_id=None, website_redirect_location=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
         if body and not isinstance(body, str):
             raise TypeError("Expected argument 'body' to be a str")
         pulumi.set(__self__, "body", body)
+        if body_base64 and not isinstance(body_base64, str):
+            raise TypeError("Expected argument 'body_base64' to be a str")
+        pulumi.set(__self__, "body_base64", body_base64)
         if bucket and not isinstance(bucket, str):
             raise TypeError("Expected argument 'bucket' to be a str")
         pulumi.set(__self__, "bucket", bucket)
@@ -75,6 +78,9 @@ class GetObjectResult:
         if content_type and not isinstance(content_type, str):
             raise TypeError("Expected argument 'content_type' to be a str")
         pulumi.set(__self__, "content_type", content_type)
+        if download_body and not isinstance(download_body, str):
+            raise TypeError("Expected argument 'download_body' to be a str")
+        pulumi.set(__self__, "download_body", download_body)
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
@@ -142,9 +148,17 @@ class GetObjectResult:
     @pulumi.getter
     def body(self) -> _builtins.str:
         """
-        Object data (see **limitations above** to understand cases in which this field is actually available)
+        Object data (see **limitations above** to understand cases in which this field is actually available). If `download_body` is set to `false`, `body` is not available.
         """
         return pulumi.get(self, "body")
+
+    @_builtins.property
+    @pulumi.getter(name="bodyBase64")
+    def body_base64(self) -> _builtins.str:
+        """
+        Object data as base64 encoded string. **This is only available if `download_body` is set to `true`.**
+        """
+        return pulumi.get(self, "body_base64")
 
     @_builtins.property
     @pulumi.getter
@@ -251,6 +265,11 @@ class GetObjectResult:
         Standard MIME type describing the format of the object data.
         """
         return pulumi.get(self, "content_type")
+
+    @_builtins.property
+    @pulumi.getter(name="downloadBody")
+    def download_body(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "download_body")
 
     @_builtins.property
     @pulumi.getter
@@ -396,6 +415,7 @@ class AwaitableGetObjectResult(GetObjectResult):
         return GetObjectResult(
             arn=self.arn,
             body=self.body,
+            body_base64=self.body_base64,
             bucket=self.bucket,
             bucket_key_enabled=self.bucket_key_enabled,
             cache_control=self.cache_control,
@@ -410,6 +430,7 @@ class AwaitableGetObjectResult(GetObjectResult):
             content_language=self.content_language,
             content_length=self.content_length,
             content_type=self.content_type,
+            download_body=self.download_body,
             etag=self.etag,
             expiration=self.expiration,
             expires=self.expires,
@@ -432,6 +453,7 @@ class AwaitableGetObjectResult(GetObjectResult):
 
 def get_object(bucket: Optional[_builtins.str] = None,
                checksum_mode: Optional[_builtins.str] = None,
+               download_body: Optional[_builtins.str] = None,
                key: Optional[_builtins.str] = None,
                range: Optional[_builtins.str] = None,
                region: Optional[_builtins.str] = None,
@@ -499,6 +521,7 @@ def get_object(bucket: Optional[_builtins.str] = None,
 
     :param _builtins.str bucket: Name of the bucket to read the object from. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified
     :param _builtins.str checksum_mode: To retrieve the object's checksum, this argument must be `ENABLED`. If you enable `checksum_mode` and the object is encrypted with KMS, you must have permission to use the `kms:Decrypt` action. Valid values: `ENABLED`
+    :param _builtins.str download_body: Set to `true` to always download object data to `body_base64` attribute. If unset and conditions described above are met, `body` will be available but `body_base64` will not be. If set to `false`, the body is not downloaded and neither `body` nor `body_base64` is available, which may improve performance.
     :param _builtins.str key: Full path to the object inside the bucket
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, _builtins.str] tags: Map of tags assigned to the object.
@@ -507,6 +530,7 @@ def get_object(bucket: Optional[_builtins.str] = None,
     __args__ = dict()
     __args__['bucket'] = bucket
     __args__['checksumMode'] = checksum_mode
+    __args__['downloadBody'] = download_body
     __args__['key'] = key
     __args__['range'] = range
     __args__['region'] = region
@@ -518,6 +542,7 @@ def get_object(bucket: Optional[_builtins.str] = None,
     return AwaitableGetObjectResult(
         arn=pulumi.get(__ret__, 'arn'),
         body=pulumi.get(__ret__, 'body'),
+        body_base64=pulumi.get(__ret__, 'body_base64'),
         bucket=pulumi.get(__ret__, 'bucket'),
         bucket_key_enabled=pulumi.get(__ret__, 'bucket_key_enabled'),
         cache_control=pulumi.get(__ret__, 'cache_control'),
@@ -532,6 +557,7 @@ def get_object(bucket: Optional[_builtins.str] = None,
         content_language=pulumi.get(__ret__, 'content_language'),
         content_length=pulumi.get(__ret__, 'content_length'),
         content_type=pulumi.get(__ret__, 'content_type'),
+        download_body=pulumi.get(__ret__, 'download_body'),
         etag=pulumi.get(__ret__, 'etag'),
         expiration=pulumi.get(__ret__, 'expiration'),
         expires=pulumi.get(__ret__, 'expires'),
@@ -552,6 +578,7 @@ def get_object(bucket: Optional[_builtins.str] = None,
         website_redirect_location=pulumi.get(__ret__, 'website_redirect_location'))
 def get_object_output(bucket: Optional[pulumi.Input[_builtins.str]] = None,
                       checksum_mode: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+                      download_body: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                       key: Optional[pulumi.Input[_builtins.str]] = None,
                       range: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                       region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
@@ -619,6 +646,7 @@ def get_object_output(bucket: Optional[pulumi.Input[_builtins.str]] = None,
 
     :param _builtins.str bucket: Name of the bucket to read the object from. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified
     :param _builtins.str checksum_mode: To retrieve the object's checksum, this argument must be `ENABLED`. If you enable `checksum_mode` and the object is encrypted with KMS, you must have permission to use the `kms:Decrypt` action. Valid values: `ENABLED`
+    :param _builtins.str download_body: Set to `true` to always download object data to `body_base64` attribute. If unset and conditions described above are met, `body` will be available but `body_base64` will not be. If set to `false`, the body is not downloaded and neither `body` nor `body_base64` is available, which may improve performance.
     :param _builtins.str key: Full path to the object inside the bucket
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, _builtins.str] tags: Map of tags assigned to the object.
@@ -627,6 +655,7 @@ def get_object_output(bucket: Optional[pulumi.Input[_builtins.str]] = None,
     __args__ = dict()
     __args__['bucket'] = bucket
     __args__['checksumMode'] = checksum_mode
+    __args__['downloadBody'] = download_body
     __args__['key'] = key
     __args__['range'] = range
     __args__['region'] = region
@@ -637,6 +666,7 @@ def get_object_output(bucket: Optional[pulumi.Input[_builtins.str]] = None,
     return __ret__.apply(lambda __response__: GetObjectResult(
         arn=pulumi.get(__response__, 'arn'),
         body=pulumi.get(__response__, 'body'),
+        body_base64=pulumi.get(__response__, 'body_base64'),
         bucket=pulumi.get(__response__, 'bucket'),
         bucket_key_enabled=pulumi.get(__response__, 'bucket_key_enabled'),
         cache_control=pulumi.get(__response__, 'cache_control'),
@@ -651,6 +681,7 @@ def get_object_output(bucket: Optional[pulumi.Input[_builtins.str]] = None,
         content_language=pulumi.get(__response__, 'content_language'),
         content_length=pulumi.get(__response__, 'content_length'),
         content_type=pulumi.get(__response__, 'content_type'),
+        download_body=pulumi.get(__response__, 'download_body'),
         etag=pulumi.get(__response__, 'etag'),
         expiration=pulumi.get(__response__, 'expiration'),
         expires=pulumi.get(__response__, 'expires'),

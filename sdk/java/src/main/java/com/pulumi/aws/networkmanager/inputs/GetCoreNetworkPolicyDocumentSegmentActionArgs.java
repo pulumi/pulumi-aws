@@ -111,6 +111,21 @@ public final class GetCoreNetworkPolicyDocumentSegmentActionArgs extends com.pul
     }
 
     /**
+     * A list of routing policy names to apply to segment sharing. The routing policies control how routes are propagated between the shared segments. Only applicable when `action` is `share`. Available in policy version `2025.11` and later.
+     * 
+     */
+    @Import(name="routingPolicyNames")
+    private @Nullable Output<List<String>> routingPolicyNames;
+
+    /**
+     * @return A list of routing policy names to apply to segment sharing. The routing policies control how routes are propagated between the shared segments. Only applicable when `action` is `share`. Available in policy version `2025.11` and later.
+     * 
+     */
+    public Optional<Output<List<String>>> routingPolicyNames() {
+        return Optional.ofNullable(this.routingPolicyNames);
+    }
+
+    /**
      * Name of the segment.
      * 
      */
@@ -194,6 +209,7 @@ public final class GetCoreNetworkPolicyDocumentSegmentActionArgs extends com.pul
         this.destinations = $.destinations;
         this.edgeLocationAssociation = $.edgeLocationAssociation;
         this.mode = $.mode;
+        this.routingPolicyNames = $.routingPolicyNames;
         this.segment = $.segment;
         this.shareWithExcepts = $.shareWithExcepts;
         this.shareWiths = $.shareWiths;
@@ -363,6 +379,37 @@ public final class GetCoreNetworkPolicyDocumentSegmentActionArgs extends com.pul
          */
         public Builder mode(String mode) {
             return mode(Output.of(mode));
+        }
+
+        /**
+         * @param routingPolicyNames A list of routing policy names to apply to segment sharing. The routing policies control how routes are propagated between the shared segments. Only applicable when `action` is `share`. Available in policy version `2025.11` and later.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder routingPolicyNames(@Nullable Output<List<String>> routingPolicyNames) {
+            $.routingPolicyNames = routingPolicyNames;
+            return this;
+        }
+
+        /**
+         * @param routingPolicyNames A list of routing policy names to apply to segment sharing. The routing policies control how routes are propagated between the shared segments. Only applicable when `action` is `share`. Available in policy version `2025.11` and later.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder routingPolicyNames(List<String> routingPolicyNames) {
+            return routingPolicyNames(Output.of(routingPolicyNames));
+        }
+
+        /**
+         * @param routingPolicyNames A list of routing policy names to apply to segment sharing. The routing policies control how routes are propagated between the shared segments. Only applicable when `action` is `share`. Available in policy version `2025.11` and later.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder routingPolicyNames(String... routingPolicyNames) {
+            return routingPolicyNames(List.of(routingPolicyNames));
         }
 
         /**

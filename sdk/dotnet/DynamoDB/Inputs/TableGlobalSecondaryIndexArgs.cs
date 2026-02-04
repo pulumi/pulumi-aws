@@ -13,10 +13,18 @@ namespace Pulumi.Aws.DynamoDB.Inputs
     public sealed class TableGlobalSecondaryIndexArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Name of the hash key in the index; must be defined as an attribute in the resource.
+        /// and `HashKeys` are `mutually exclusive`, but one is `Required`. Refer to [AWS SDK Documentation](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GSI.DesignPattern.MultiAttributeKeys.html)
         /// </summary>
-        [Input("hashKey", required: true)]
-        public Input<string> HashKey { get; set; } = null!;
+        [Input("hashKey")]
+        public Input<string>? HashKey { get; set; }
+
+        [Input("keySchemas")]
+        private InputList<Inputs.TableGlobalSecondaryIndexKeySchemaArgs>? _keySchemas;
+        public InputList<Inputs.TableGlobalSecondaryIndexKeySchemaArgs> KeySchemas
+        {
+            get => _keySchemas ?? (_keySchemas = new InputList<Inputs.TableGlobalSecondaryIndexKeySchemaArgs>());
+            set => _keySchemas = value;
+        }
 
         /// <summary>
         /// Name of the index.
@@ -49,7 +57,7 @@ namespace Pulumi.Aws.DynamoDB.Inputs
         public Input<string> ProjectionType { get; set; } = null!;
 
         /// <summary>
-        /// Name of the range key; must be defined
+        /// and `RangeKeys` are `mutually exclusive`, but are both `Optional`. Refer to [AWS SDK Documentation](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GSI.DesignPattern.MultiAttributeKeys.html)
         /// </summary>
         [Input("rangeKey")]
         public Input<string>? RangeKey { get; set; }

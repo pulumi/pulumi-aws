@@ -64,6 +64,96 @@ import javax.annotation.Nullable;
  * - `trustedSigners` in cache behaviors - Use `trustedKeyGroups` instead
  * - Cache behavior TTL settings (`defaultTtl`, `maxTtl`, `minTtl`) - Use cache policies instead
  * 
+ * ## Example Usage
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.cloudfront.MultitenantDistribution;
+ * import com.pulumi.aws.cloudfront.MultitenantDistributionArgs;
+ * import com.pulumi.aws.cloudfront.inputs.MultitenantDistributionOriginArgs;
+ * import com.pulumi.aws.cloudfront.inputs.MultitenantDistributionDefaultCacheBehaviorArgs;
+ * import com.pulumi.aws.cloudfront.inputs.MultitenantDistributionDefaultCacheBehaviorAllowedMethodsArgs;
+ * import com.pulumi.aws.cloudfront.inputs.MultitenantDistributionRestrictionsArgs;
+ * import com.pulumi.aws.cloudfront.inputs.MultitenantDistributionRestrictionsGeoRestrictionArgs;
+ * import com.pulumi.aws.cloudfront.inputs.MultitenantDistributionViewerCertificateArgs;
+ * import com.pulumi.aws.cloudfront.inputs.MultitenantDistributionTenantConfigArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new MultitenantDistribution("example", MultitenantDistributionArgs.builder()
+ *             .comment("Multi-tenant distribution for my application")
+ *             .enabled(true)
+ *             .origins(MultitenantDistributionOriginArgs.builder()
+ *                 .domainName("example.com")
+ *                 .id("example-origin")
+ *                 .customOriginConfigs(MultitenantDistributionOriginCustomOriginConfigArgs.builder()
+ *                     .httpPort(80)
+ *                     .httpsPort(443)
+ *                     .originProtocolPolicy("https-only")
+ *                     .originSslProtocols("TLSv1.2")
+ *                     .build())
+ *                 .build())
+ *             .defaultCacheBehavior(MultitenantDistributionDefaultCacheBehaviorArgs.builder()
+ *                 .targetOriginId("example-origin")
+ *                 .viewerProtocolPolicy("redirect-to-https")
+ *                 .cachePolicyId(exampleAwsCloudfrontCachePolicy.id())
+ *                 .allowedMethods(MultitenantDistributionDefaultCacheBehaviorAllowedMethodsArgs.builder()
+ *                     .items(                    
+ *                         "DELETE",
+ *                         "GET",
+ *                         "HEAD",
+ *                         "OPTIONS",
+ *                         "PATCH",
+ *                         "POST",
+ *                         "PUT")
+ *                     .cachedMethods(                    
+ *                         "GET",
+ *                         "HEAD")
+ *                     .build())
+ *                 .build())
+ *             .restrictions(MultitenantDistributionRestrictionsArgs.builder()
+ *                 .geoRestriction(MultitenantDistributionRestrictionsGeoRestrictionArgs.builder()
+ *                     .restrictionType("none")
+ *                     .build())
+ *                 .build())
+ *             .viewerCertificate(MultitenantDistributionViewerCertificateArgs.builder()
+ *                 .acmCertificateArn(exampleAwsAcmCertificate.arn())
+ *                 .sslSupportMethod("sni-only")
+ *                 .build())
+ *             .tenantConfig(MultitenantDistributionTenantConfigArgs.builder()
+ *                 .parameterDefinitions(MultitenantDistributionTenantConfigParameterDefinitionArgs.builder()
+ *                     .name("origin_domain")
+ *                     .definitions(MultitenantDistributionTenantConfigParameterDefinitionDefinitionArgs.builder()
+ *                         .stringSchemas(MultitenantDistributionTenantConfigParameterDefinitionDefinitionStringSchemaArgs.builder()
+ *                             .required(true)
+ *                             .comment("Origin domain parameter for tenants")
+ *                             .build())
+ *                         .build())
+ *                     .build())
+ *                 .build())
+ *             .tags(Map.of("Environment", "production"))
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
  * ## Import
  * 
  * Using `pulumi import`, import CloudFront Multi-tenant Distributions using the `id`. For example:

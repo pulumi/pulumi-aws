@@ -13,6 +13,7 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from . import outputs
 
 __all__ = [
     'ApiCorsConfiguration',
@@ -22,6 +23,12 @@ __all__ = [
     'IntegrationResponseParameter',
     'IntegrationTlsConfig',
     'RouteRequestParameter',
+    'RoutingRuleAction',
+    'RoutingRuleActionInvokeApi',
+    'RoutingRuleCondition',
+    'RoutingRuleConditionMatchBasePaths',
+    'RoutingRuleConditionMatchHeaders',
+    'RoutingRuleConditionMatchHeadersAnyOf',
     'StageAccessLogSettings',
     'StageDefaultRouteSettings',
     'StageRouteSetting',
@@ -459,6 +466,269 @@ class RouteRequestParameter(dict):
         Boolean whether or not the parameter is required.
         """
         return pulumi.get(self, "required")
+
+
+@pulumi.output_type
+class RoutingRuleAction(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "invokeApi":
+            suggest = "invoke_api"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RoutingRuleAction. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RoutingRuleAction.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RoutingRuleAction.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 invoke_api: Optional['outputs.RoutingRuleActionInvokeApi'] = None):
+        """
+        :param 'RoutingRuleActionInvokeApiArgs' invoke_api: Configuration to invoke a stage of a target API. Only REST APIs are supported. See below.
+        """
+        if invoke_api is not None:
+            pulumi.set(__self__, "invoke_api", invoke_api)
+
+    @_builtins.property
+    @pulumi.getter(name="invokeApi")
+    def invoke_api(self) -> Optional['outputs.RoutingRuleActionInvokeApi']:
+        """
+        Configuration to invoke a stage of a target API. Only REST APIs are supported. See below.
+        """
+        return pulumi.get(self, "invoke_api")
+
+
+@pulumi.output_type
+class RoutingRuleActionInvokeApi(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "apiId":
+            suggest = "api_id"
+        elif key == "stripBasePath":
+            suggest = "strip_base_path"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RoutingRuleActionInvokeApi. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RoutingRuleActionInvokeApi.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RoutingRuleActionInvokeApi.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 api_id: _builtins.str,
+                 stage: _builtins.str,
+                 strip_base_path: Optional[_builtins.bool] = None):
+        """
+        :param _builtins.str api_id: Action to invoke a stage of a target API. Only REST APIs are supported.
+        :param _builtins.str stage: Action to invoke a stage of a target API. Only REST APIs are supported.
+        :param _builtins.bool strip_base_path: Action to invoke a stage of a target API. Only REST APIs are supported.
+        """
+        pulumi.set(__self__, "api_id", api_id)
+        pulumi.set(__self__, "stage", stage)
+        if strip_base_path is not None:
+            pulumi.set(__self__, "strip_base_path", strip_base_path)
+
+    @_builtins.property
+    @pulumi.getter(name="apiId")
+    def api_id(self) -> _builtins.str:
+        """
+        Action to invoke a stage of a target API. Only REST APIs are supported.
+        """
+        return pulumi.get(self, "api_id")
+
+    @_builtins.property
+    @pulumi.getter
+    def stage(self) -> _builtins.str:
+        """
+        Action to invoke a stage of a target API. Only REST APIs are supported.
+        """
+        return pulumi.get(self, "stage")
+
+    @_builtins.property
+    @pulumi.getter(name="stripBasePath")
+    def strip_base_path(self) -> Optional[_builtins.bool]:
+        """
+        Action to invoke a stage of a target API. Only REST APIs are supported.
+        """
+        return pulumi.get(self, "strip_base_path")
+
+
+@pulumi.output_type
+class RoutingRuleCondition(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "matchBasePaths":
+            suggest = "match_base_paths"
+        elif key == "matchHeaders":
+            suggest = "match_headers"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RoutingRuleCondition. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RoutingRuleCondition.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RoutingRuleCondition.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 match_base_paths: Optional['outputs.RoutingRuleConditionMatchBasePaths'] = None,
+                 match_headers: Optional['outputs.RoutingRuleConditionMatchHeaders'] = None):
+        """
+        :param 'RoutingRuleConditionMatchBasePathsArgs' match_base_paths: The base path to be matched. See below.
+        :param 'RoutingRuleConditionMatchHeadersArgs' match_headers: The headers to be matched. See below.
+        """
+        if match_base_paths is not None:
+            pulumi.set(__self__, "match_base_paths", match_base_paths)
+        if match_headers is not None:
+            pulumi.set(__self__, "match_headers", match_headers)
+
+    @_builtins.property
+    @pulumi.getter(name="matchBasePaths")
+    def match_base_paths(self) -> Optional['outputs.RoutingRuleConditionMatchBasePaths']:
+        """
+        The base path to be matched. See below.
+        """
+        return pulumi.get(self, "match_base_paths")
+
+    @_builtins.property
+    @pulumi.getter(name="matchHeaders")
+    def match_headers(self) -> Optional['outputs.RoutingRuleConditionMatchHeaders']:
+        """
+        The headers to be matched. See below.
+        """
+        return pulumi.get(self, "match_headers")
+
+
+@pulumi.output_type
+class RoutingRuleConditionMatchBasePaths(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "anyOfs":
+            suggest = "any_ofs"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RoutingRuleConditionMatchBasePaths. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RoutingRuleConditionMatchBasePaths.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RoutingRuleConditionMatchBasePaths.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 any_ofs: Sequence[_builtins.str]):
+        """
+        :param Sequence[_builtins.str] any_ofs: List of strings of the case sensitive base path to be matched.
+        """
+        pulumi.set(__self__, "any_ofs", any_ofs)
+
+    @_builtins.property
+    @pulumi.getter(name="anyOfs")
+    def any_ofs(self) -> Sequence[_builtins.str]:
+        """
+        List of strings of the case sensitive base path to be matched.
+        """
+        return pulumi.get(self, "any_ofs")
+
+
+@pulumi.output_type
+class RoutingRuleConditionMatchHeaders(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "anyOf":
+            suggest = "any_of"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RoutingRuleConditionMatchHeaders. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RoutingRuleConditionMatchHeaders.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RoutingRuleConditionMatchHeaders.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 any_of: Optional['outputs.RoutingRuleConditionMatchHeadersAnyOf'] = None):
+        """
+        :param 'RoutingRuleConditionMatchHeadersAnyOfArgs' any_of: Configuration of the headers to be matched. There is a match if any of the header name and header value globs are matched. See below.
+        """
+        if any_of is not None:
+            pulumi.set(__self__, "any_of", any_of)
+
+    @_builtins.property
+    @pulumi.getter(name="anyOf")
+    def any_of(self) -> Optional['outputs.RoutingRuleConditionMatchHeadersAnyOf']:
+        """
+        Configuration of the headers to be matched. There is a match if any of the header name and header value globs are matched. See below.
+        """
+        return pulumi.get(self, "any_of")
+
+
+@pulumi.output_type
+class RoutingRuleConditionMatchHeadersAnyOf(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "valueGlob":
+            suggest = "value_glob"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RoutingRuleConditionMatchHeadersAnyOf. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RoutingRuleConditionMatchHeadersAnyOf.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RoutingRuleConditionMatchHeadersAnyOf.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 header: _builtins.str,
+                 value_glob: _builtins.str):
+        """
+        :param _builtins.str header: The case insensitive header name to be matched. The header name must be less than 40 characters and the only allowed characters are a-z, A-Z, 0-9, and the following special characters: *?-!#$%&'.^_`|~.
+        :param _builtins.str value_glob: The case sensitive header glob value to be matched against entire header value. The header glob value must be less than 128 characters and the only allowed characters are a-z, A-Z, 0-9, and the following special characters: \\*?-!#$%&'.^_`|~. Wildcard matching is supported for header glob values but must be for \\*prefix-match, suffix-match*, or \\*infix*-match.
+        """
+        pulumi.set(__self__, "header", header)
+        pulumi.set(__self__, "value_glob", value_glob)
+
+    @_builtins.property
+    @pulumi.getter
+    def header(self) -> _builtins.str:
+        """
+        The case insensitive header name to be matched. The header name must be less than 40 characters and the only allowed characters are a-z, A-Z, 0-9, and the following special characters: *?-!#$%&'.^_`|~.
+        """
+        return pulumi.get(self, "header")
+
+    @_builtins.property
+    @pulumi.getter(name="valueGlob")
+    def value_glob(self) -> _builtins.str:
+        """
+        The case sensitive header glob value to be matched against entire header value. The header glob value must be less than 128 characters and the only allowed characters are a-z, A-Z, 0-9, and the following special characters: \\*?-!#$%&'.^_`|~. Wildcard matching is supported for header glob values but must be for \\*prefix-match, suffix-match*, or \\*infix*-match.
+        """
+        return pulumi.get(self, "value_glob")
 
 
 @pulumi.output_type

@@ -124,6 +124,109 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * 
+ * ### Basic Example containing Global Secondary Indexs using Multi-attribute keys pattern
+ * 
+ * The following dynamodb table description models the table and GSIs shown in the [AWS SDK example documentation](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GSI.DesignPattern.MultiAttributeKeys.html)
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.dynamodb.Table;
+ * import com.pulumi.aws.dynamodb.TableArgs;
+ * import com.pulumi.aws.dynamodb.inputs.TableAttributeArgs;
+ * import com.pulumi.aws.dynamodb.inputs.TableTtlArgs;
+ * import com.pulumi.aws.dynamodb.inputs.TableGlobalSecondaryIndexArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var basic_dynamodb_table = new Table("basic-dynamodb-table", TableArgs.builder()
+ *             .name("TournamentMatches")
+ *             .billingMode("PROVISIONED")
+ *             .readCapacity(20)
+ *             .writeCapacity(20)
+ *             .hashKey("matchId")
+ *             .attributes(            
+ *                 TableAttributeArgs.builder()
+ *                     .name("matchId")
+ *                     .type("S")
+ *                     .build(),
+ *                 TableAttributeArgs.builder()
+ *                     .name("tournamentId")
+ *                     .type("S")
+ *                     .build(),
+ *                 TableAttributeArgs.builder()
+ *                     .name("region")
+ *                     .type("S")
+ *                     .build(),
+ *                 TableAttributeArgs.builder()
+ *                     .name("round")
+ *                     .type("S")
+ *                     .build(),
+ *                 TableAttributeArgs.builder()
+ *                     .name("bracket")
+ *                     .type("S")
+ *                     .build(),
+ *                 TableAttributeArgs.builder()
+ *                     .name("playerId")
+ *                     .type(N)
+ *                     .build(),
+ *                 TableAttributeArgs.builder()
+ *                     .name("matchDate")
+ *                     .type(S)
+ *                     .build())
+ *             .ttl(TableTtlArgs.builder()
+ *                 .attributeName("TimeToExist")
+ *                 .enabled(true)
+ *                 .build())
+ *             .globalSecondaryIndexes(            
+ *                 TableGlobalSecondaryIndexArgs.builder()
+ *                     .name("TournamentRegionIndex")
+ *                     .hashKeys(List.of(                    
+ *                         "tournamentId",
+ *                         "region"))
+ *                     .rangeKeys(List.of(                    
+ *                         "round",
+ *                         "bracket",
+ *                         "matchId"))
+ *                     .writeCapacity(10)
+ *                     .readCapacity(10)
+ *                     .projectionType("ALL")
+ *                     .build(),
+ *                 TableGlobalSecondaryIndexArgs.builder()
+ *                     .name("PlayerMatchHistoryIndex")
+ *                     .hashKey("playerId")
+ *                     .rangeKeys(List.of(                    
+ *                         "matchDate",
+ *                         "round"))
+ *                     .writeCapacity(10)
+ *                     .readCapacity(10)
+ *                     .projectionType("ALL")
+ *                     .build())
+ *             .tags(Map.ofEntries(
+ *                 Map.entry("Name", "dynamodb-table-1"),
+ *                 Map.entry("Environment", "production")
+ *             ))
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
  * ### Global Tables
  * 
  * This resource implements support for [DynamoDB Global Tables V2 (version 2019.11.21)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html) via `replica` configuration blocks. For working with [DynamoDB Global Tables V1 (version 2017.11.29)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V1.html), see the `aws.dynamodb.GlobalTable` resource.
@@ -725,14 +828,18 @@ public class Table extends com.pulumi.resources.CustomResource {
         return this.streamLabel;
     }
     /**
-     * When an item in the table is modified, StreamViewType determines what information is written to the table&#39;s stream. Valid values are `KEYS_ONLY`, `NEW_IMAGE`, `OLD_IMAGE`, `NEW_AND_OLD_IMAGES`.
+     * When an item in the table is modified, StreamViewType determines what information is written to the table&#39;s stream.
+     * Valid values are `KEYS_ONLY`, `NEW_IMAGE`, `OLD_IMAGE`, `NEW_AND_OLD_IMAGES`.
+     * Only valid when `streamEnabled` is true.
      * 
      */
     @Export(name="streamViewType", refs={String.class}, tree="[0]")
     private Output<String> streamViewType;
 
     /**
-     * @return When an item in the table is modified, StreamViewType determines what information is written to the table&#39;s stream. Valid values are `KEYS_ONLY`, `NEW_IMAGE`, `OLD_IMAGE`, `NEW_AND_OLD_IMAGES`.
+     * @return When an item in the table is modified, StreamViewType determines what information is written to the table&#39;s stream.
+     * Valid values are `KEYS_ONLY`, `NEW_IMAGE`, `OLD_IMAGE`, `NEW_AND_OLD_IMAGES`.
+     * Only valid when `streamEnabled` is true.
      * 
      */
     public Output<String> streamViewType() {

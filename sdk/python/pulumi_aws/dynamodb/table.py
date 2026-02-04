@@ -73,7 +73,9 @@ class TableArgs:
         :param pulumi.Input[_builtins.bool] restore_to_latest_time: If set, restores table to the most recent point-in-time recovery point.
         :param pulumi.Input['TableServerSideEncryptionArgs'] server_side_encryption: Encryption at rest options. AWS DynamoDB tables are automatically encrypted at rest with an AWS-owned Customer Master Key if this argument isn't specified. Must be supplied for cross-region restores. See below.
         :param pulumi.Input[_builtins.bool] stream_enabled: Whether Streams are enabled.
-        :param pulumi.Input[_builtins.str] stream_view_type: When an item in the table is modified, StreamViewType determines what information is written to the table's stream. Valid values are `KEYS_ONLY`, `NEW_IMAGE`, `OLD_IMAGE`, `NEW_AND_OLD_IMAGES`.
+        :param pulumi.Input[_builtins.str] stream_view_type: When an item in the table is modified, StreamViewType determines what information is written to the table's stream.
+               Valid values are `KEYS_ONLY`, `NEW_IMAGE`, `OLD_IMAGE`, `NEW_AND_OLD_IMAGES`.
+               Only valid when `stream_enabled` is true.
         :param pulumi.Input[_builtins.str] table_class: Storage class of the table.
                Valid values are `STANDARD` and `STANDARD_INFREQUENT_ACCESS`.
                Default value is `STANDARD`.
@@ -395,7 +397,9 @@ class TableArgs:
     @pulumi.getter(name="streamViewType")
     def stream_view_type(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        When an item in the table is modified, StreamViewType determines what information is written to the table's stream. Valid values are `KEYS_ONLY`, `NEW_IMAGE`, `OLD_IMAGE`, `NEW_AND_OLD_IMAGES`.
+        When an item in the table is modified, StreamViewType determines what information is written to the table's stream.
+        Valid values are `KEYS_ONLY`, `NEW_IMAGE`, `OLD_IMAGE`, `NEW_AND_OLD_IMAGES`.
+        Only valid when `stream_enabled` is true.
         """
         return pulumi.get(self, "stream_view_type")
 
@@ -528,7 +532,9 @@ class _TableState:
         :param pulumi.Input[_builtins.str] stream_arn: ARN of the Table Stream. Only available when `stream_enabled = true`
         :param pulumi.Input[_builtins.bool] stream_enabled: Whether Streams are enabled.
         :param pulumi.Input[_builtins.str] stream_label: Timestamp, in ISO 8601 format, for this stream. Note that this timestamp is not a unique identifier for the stream on its own. However, the combination of AWS customer ID, table name and this field is guaranteed to be unique. It can be used for creating CloudWatch Alarms. Only available when `stream_enabled = true`.
-        :param pulumi.Input[_builtins.str] stream_view_type: When an item in the table is modified, StreamViewType determines what information is written to the table's stream. Valid values are `KEYS_ONLY`, `NEW_IMAGE`, `OLD_IMAGE`, `NEW_AND_OLD_IMAGES`.
+        :param pulumi.Input[_builtins.str] stream_view_type: When an item in the table is modified, StreamViewType determines what information is written to the table's stream.
+               Valid values are `KEYS_ONLY`, `NEW_IMAGE`, `OLD_IMAGE`, `NEW_AND_OLD_IMAGES`.
+               Only valid when `stream_enabled` is true.
         :param pulumi.Input[_builtins.str] table_class: Storage class of the table.
                Valid values are `STANDARD` and `STANDARD_INFREQUENT_ACCESS`.
                Default value is `STANDARD`.
@@ -895,7 +901,9 @@ class _TableState:
     @pulumi.getter(name="streamViewType")
     def stream_view_type(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        When an item in the table is modified, StreamViewType determines what information is written to the table's stream. Valid values are `KEYS_ONLY`, `NEW_IMAGE`, `OLD_IMAGE`, `NEW_AND_OLD_IMAGES`.
+        When an item in the table is modified, StreamViewType determines what information is written to the table's stream.
+        Valid values are `KEYS_ONLY`, `NEW_IMAGE`, `OLD_IMAGE`, `NEW_AND_OLD_IMAGES`.
+        Only valid when `stream_enabled` is true.
         """
         return pulumi.get(self, "stream_view_type")
 
@@ -1082,6 +1090,88 @@ class Table(pulumi.CustomResource):
             })
         ```
 
+        ### Basic Example containing Global Secondary Indexs using Multi-attribute keys pattern
+
+        The following dynamodb table description models the table and GSIs shown in the [AWS SDK example documentation](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GSI.DesignPattern.MultiAttributeKeys.html)
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        basic_dynamodb_table = aws.dynamodb.Table("basic-dynamodb-table",
+            name="TournamentMatches",
+            billing_mode="PROVISIONED",
+            read_capacity=20,
+            write_capacity=20,
+            hash_key="matchId",
+            attributes=[
+                {
+                    "name": "matchId",
+                    "type": "S",
+                },
+                {
+                    "name": "tournamentId",
+                    "type": "S",
+                },
+                {
+                    "name": "region",
+                    "type": "S",
+                },
+                {
+                    "name": "round",
+                    "type": "S",
+                },
+                {
+                    "name": "bracket",
+                    "type": "S",
+                },
+                {
+                    "name": "playerId",
+                    "type": n,
+                },
+                {
+                    "name": "matchDate",
+                    "type": s,
+                },
+            ],
+            ttl={
+                "attribute_name": "TimeToExist",
+                "enabled": True,
+            },
+            global_secondary_indexes=[
+                {
+                    "name": "TournamentRegionIndex",
+                    "hash_keys": [
+                        "tournamentId",
+                        "region",
+                    ],
+                    "range_keys": [
+                        "round",
+                        "bracket",
+                        "matchId",
+                    ],
+                    "write_capacity": 10,
+                    "read_capacity": 10,
+                    "projection_type": "ALL",
+                },
+                {
+                    "name": "PlayerMatchHistoryIndex",
+                    "hash_key": "playerId",
+                    "range_keys": [
+                        "matchDate",
+                        "round",
+                    ],
+                    "write_capacity": 10,
+                    "read_capacity": 10,
+                    "projection_type": "ALL",
+                },
+            ],
+            tags={
+                "Name": "dynamodb-table-1",
+                "Environment": "production",
+            })
+        ```
+
         ### Global Tables
 
         This resource implements support for [DynamoDB Global Tables V2 (version 2019.11.21)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html) via `replica` configuration blocks. For working with [DynamoDB Global Tables V1 (version 2017.11.29)](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V1.html), see the `dynamodb.GlobalTable` resource.
@@ -1251,7 +1341,9 @@ class Table(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] restore_to_latest_time: If set, restores table to the most recent point-in-time recovery point.
         :param pulumi.Input[Union['TableServerSideEncryptionArgs', 'TableServerSideEncryptionArgsDict']] server_side_encryption: Encryption at rest options. AWS DynamoDB tables are automatically encrypted at rest with an AWS-owned Customer Master Key if this argument isn't specified. Must be supplied for cross-region restores. See below.
         :param pulumi.Input[_builtins.bool] stream_enabled: Whether Streams are enabled.
-        :param pulumi.Input[_builtins.str] stream_view_type: When an item in the table is modified, StreamViewType determines what information is written to the table's stream. Valid values are `KEYS_ONLY`, `NEW_IMAGE`, `OLD_IMAGE`, `NEW_AND_OLD_IMAGES`.
+        :param pulumi.Input[_builtins.str] stream_view_type: When an item in the table is modified, StreamViewType determines what information is written to the table's stream.
+               Valid values are `KEYS_ONLY`, `NEW_IMAGE`, `OLD_IMAGE`, `NEW_AND_OLD_IMAGES`.
+               Only valid when `stream_enabled` is true.
         :param pulumi.Input[_builtins.str] table_class: Storage class of the table.
                Valid values are `STANDARD` and `STANDARD_INFREQUENT_ACCESS`.
                Default value is `STANDARD`.
@@ -1330,6 +1422,88 @@ class Table(pulumi.CustomResource):
                 "projection_type": "INCLUDE",
                 "non_key_attributes": ["UserId"],
             }],
+            tags={
+                "Name": "dynamodb-table-1",
+                "Environment": "production",
+            })
+        ```
+
+        ### Basic Example containing Global Secondary Indexs using Multi-attribute keys pattern
+
+        The following dynamodb table description models the table and GSIs shown in the [AWS SDK example documentation](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GSI.DesignPattern.MultiAttributeKeys.html)
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        basic_dynamodb_table = aws.dynamodb.Table("basic-dynamodb-table",
+            name="TournamentMatches",
+            billing_mode="PROVISIONED",
+            read_capacity=20,
+            write_capacity=20,
+            hash_key="matchId",
+            attributes=[
+                {
+                    "name": "matchId",
+                    "type": "S",
+                },
+                {
+                    "name": "tournamentId",
+                    "type": "S",
+                },
+                {
+                    "name": "region",
+                    "type": "S",
+                },
+                {
+                    "name": "round",
+                    "type": "S",
+                },
+                {
+                    "name": "bracket",
+                    "type": "S",
+                },
+                {
+                    "name": "playerId",
+                    "type": n,
+                },
+                {
+                    "name": "matchDate",
+                    "type": s,
+                },
+            ],
+            ttl={
+                "attribute_name": "TimeToExist",
+                "enabled": True,
+            },
+            global_secondary_indexes=[
+                {
+                    "name": "TournamentRegionIndex",
+                    "hash_keys": [
+                        "tournamentId",
+                        "region",
+                    ],
+                    "range_keys": [
+                        "round",
+                        "bracket",
+                        "matchId",
+                    ],
+                    "write_capacity": 10,
+                    "read_capacity": 10,
+                    "projection_type": "ALL",
+                },
+                {
+                    "name": "PlayerMatchHistoryIndex",
+                    "hash_key": "playerId",
+                    "range_keys": [
+                        "matchDate",
+                        "round",
+                    ],
+                    "write_capacity": 10,
+                    "read_capacity": 10,
+                    "projection_type": "ALL",
+                },
+            ],
             tags={
                 "Name": "dynamodb-table-1",
                 "Environment": "production",
@@ -1636,7 +1810,9 @@ class Table(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] stream_arn: ARN of the Table Stream. Only available when `stream_enabled = true`
         :param pulumi.Input[_builtins.bool] stream_enabled: Whether Streams are enabled.
         :param pulumi.Input[_builtins.str] stream_label: Timestamp, in ISO 8601 format, for this stream. Note that this timestamp is not a unique identifier for the stream on its own. However, the combination of AWS customer ID, table name and this field is guaranteed to be unique. It can be used for creating CloudWatch Alarms. Only available when `stream_enabled = true`.
-        :param pulumi.Input[_builtins.str] stream_view_type: When an item in the table is modified, StreamViewType determines what information is written to the table's stream. Valid values are `KEYS_ONLY`, `NEW_IMAGE`, `OLD_IMAGE`, `NEW_AND_OLD_IMAGES`.
+        :param pulumi.Input[_builtins.str] stream_view_type: When an item in the table is modified, StreamViewType determines what information is written to the table's stream.
+               Valid values are `KEYS_ONLY`, `NEW_IMAGE`, `OLD_IMAGE`, `NEW_AND_OLD_IMAGES`.
+               Only valid when `stream_enabled` is true.
         :param pulumi.Input[_builtins.str] table_class: Storage class of the table.
                Valid values are `STANDARD` and `STANDARD_INFREQUENT_ACCESS`.
                Default value is `STANDARD`.
@@ -1881,7 +2057,9 @@ class Table(pulumi.CustomResource):
     @pulumi.getter(name="streamViewType")
     def stream_view_type(self) -> pulumi.Output[_builtins.str]:
         """
-        When an item in the table is modified, StreamViewType determines what information is written to the table's stream. Valid values are `KEYS_ONLY`, `NEW_IMAGE`, `OLD_IMAGE`, `NEW_AND_OLD_IMAGES`.
+        When an item in the table is modified, StreamViewType determines what information is written to the table's stream.
+        Valid values are `KEYS_ONLY`, `NEW_IMAGE`, `OLD_IMAGE`, `NEW_AND_OLD_IMAGES`.
+        Only valid when `stream_enabled` is true.
         """
         return pulumi.get(self, "stream_view_type")
 

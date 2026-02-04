@@ -73,8 +73,10 @@ type InvoiceUnit struct {
 	// Unique name of the invoice unit. Cannot be changed after creation.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	//
+	// Deprecated: This attribute will be removed in a future verion of the provider.
 	Region pulumi.StringOutput `pulumi:"region"`
-	// Configuration block for invoice unit rules. See below.
+	// Configuration block for invoice unit rules. See `rule` below.
 	//
 	// The following arguments are optional:
 	Rules InvoiceUnitRuleArrayOutput `pulumi:"rules"`
@@ -131,8 +133,10 @@ type invoiceUnitState struct {
 	// Unique name of the invoice unit. Cannot be changed after creation.
 	Name *string `pulumi:"name"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	//
+	// Deprecated: This attribute will be removed in a future verion of the provider.
 	Region *string `pulumi:"region"`
-	// Configuration block for invoice unit rules. See below.
+	// Configuration block for invoice unit rules. See `rule` below.
 	//
 	// The following arguments are optional:
 	Rules []InvoiceUnitRule `pulumi:"rules"`
@@ -157,8 +161,10 @@ type InvoiceUnitState struct {
 	// Unique name of the invoice unit. Cannot be changed after creation.
 	Name pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	//
+	// Deprecated: This attribute will be removed in a future verion of the provider.
 	Region pulumi.StringPtrInput
-	// Configuration block for invoice unit rules. See below.
+	// Configuration block for invoice unit rules. See `rule` below.
 	//
 	// The following arguments are optional:
 	Rules InvoiceUnitRuleArrayInput
@@ -183,8 +189,10 @@ type invoiceUnitArgs struct {
 	// Unique name of the invoice unit. Cannot be changed after creation.
 	Name *string `pulumi:"name"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	//
+	// Deprecated: This attribute will be removed in a future verion of the provider.
 	Region *string `pulumi:"region"`
-	// Configuration block for invoice unit rules. See below.
+	// Configuration block for invoice unit rules. See `rule` below.
 	//
 	// The following arguments are optional:
 	Rules []InvoiceUnitRule `pulumi:"rules"`
@@ -204,8 +212,10 @@ type InvoiceUnitArgs struct {
 	// Unique name of the invoice unit. Cannot be changed after creation.
 	Name pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	//
+	// Deprecated: This attribute will be removed in a future verion of the provider.
 	Region pulumi.StringPtrInput
-	// Configuration block for invoice unit rules. See below.
+	// Configuration block for invoice unit rules. See `rule` below.
 	//
 	// The following arguments are optional:
 	Rules InvoiceUnitRuleArrayInput
@@ -329,11 +339,13 @@ func (o InvoiceUnitOutput) Name() pulumi.StringOutput {
 }
 
 // Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+//
+// Deprecated: This attribute will be removed in a future verion of the provider.
 func (o InvoiceUnitOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *InvoiceUnit) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Configuration block for invoice unit rules. See below.
+// Configuration block for invoice unit rules. See `rule` below.
 //
 // The following arguments are optional:
 func (o InvoiceUnitOutput) Rules() InvoiceUnitRuleArrayOutput {

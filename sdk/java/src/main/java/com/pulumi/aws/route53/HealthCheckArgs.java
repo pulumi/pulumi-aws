@@ -243,14 +243,14 @@ public final class HealthCheckArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A list of AWS regions that you want Amazon Route 53 health checkers to check the specified endpoint from.
+     * List of AWS Regions from which Amazon Route 53 health checkers check the specified endpoint. Valid values are `us-east-1`, `us-west-1`, `us-west-2`, `eu-west-1`, `ap-southeast-1`, `ap-southeast-2`, `ap-northeast-1`, and `sa-east-1`. If not specified, all of the regions listed under **Valid values** are used by default. Once this argument is set, removing it has no effect.
      * 
      */
     @Import(name="regions")
     private @Nullable Output<List<String>> regions;
 
     /**
-     * @return A list of AWS regions that you want Amazon Route 53 health checkers to check the specified endpoint from.
+     * @return List of AWS Regions from which Amazon Route 53 health checkers check the specified endpoint. Valid values are `us-east-1`, `us-west-1`, `us-west-2`, `eu-west-1`, `ap-southeast-1`, `ap-southeast-2`, `ap-northeast-1`, and `sa-east-1`. If not specified, all of the regions listed under **Valid values** are used by default. Once this argument is set, removing it has no effect.
      * 
      */
     public Optional<Output<List<String>>> regions() {
@@ -724,7 +724,7 @@ public final class HealthCheckArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param regions A list of AWS regions that you want Amazon Route 53 health checkers to check the specified endpoint from.
+         * @param regions List of AWS Regions from which Amazon Route 53 health checkers check the specified endpoint. Valid values are `us-east-1`, `us-west-1`, `us-west-2`, `eu-west-1`, `ap-southeast-1`, `ap-southeast-2`, `ap-northeast-1`, and `sa-east-1`. If not specified, all of the regions listed under **Valid values** are used by default. Once this argument is set, removing it has no effect.
          * 
          * @return builder
          * 
@@ -735,7 +735,7 @@ public final class HealthCheckArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param regions A list of AWS regions that you want Amazon Route 53 health checkers to check the specified endpoint from.
+         * @param regions List of AWS Regions from which Amazon Route 53 health checkers check the specified endpoint. Valid values are `us-east-1`, `us-west-1`, `us-west-2`, `eu-west-1`, `ap-southeast-1`, `ap-southeast-2`, `ap-northeast-1`, and `sa-east-1`. If not specified, all of the regions listed under **Valid values** are used by default. Once this argument is set, removing it has no effect.
          * 
          * @return builder
          * 
@@ -745,7 +745,7 @@ public final class HealthCheckArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param regions A list of AWS regions that you want Amazon Route 53 health checkers to check the specified endpoint from.
+         * @param regions List of AWS Regions from which Amazon Route 53 health checkers check the specified endpoint. Valid values are `us-east-1`, `us-west-1`, `us-west-2`, `eu-west-1`, `ap-southeast-1`, `ap-southeast-2`, `ap-northeast-1`, and `sa-east-1`. If not specified, all of the regions listed under **Valid values** are used by default. Once this argument is set, removing it has no effect.
          * 
          * @return builder
          * 

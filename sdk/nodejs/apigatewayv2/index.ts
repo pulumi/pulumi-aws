@@ -75,6 +75,11 @@ export type RouteResponse = import("./routeResponse").RouteResponse;
 export const RouteResponse: typeof import("./routeResponse").RouteResponse = null as any;
 utilities.lazyLoad(exports, ["RouteResponse"], () => require("./routeResponse"));
 
+export { RoutingRuleArgs, RoutingRuleState } from "./routingRule";
+export type RoutingRule = import("./routingRule").RoutingRule;
+export const RoutingRule: typeof import("./routingRule").RoutingRule = null as any;
+utilities.lazyLoad(exports, ["RoutingRule"], () => require("./routingRule"));
+
 export { StageArgs, StageState } from "./stage";
 export type Stage = import("./stage").Stage;
 export const Stage: typeof import("./stage").Stage = null as any;
@@ -110,6 +115,8 @@ const _module = {
                 return new Route(name, <any>undefined, { urn })
             case "aws:apigatewayv2/routeResponse:RouteResponse":
                 return new RouteResponse(name, <any>undefined, { urn })
+            case "aws:apigatewayv2/routingRule:RoutingRule":
+                return new RoutingRule(name, <any>undefined, { urn })
             case "aws:apigatewayv2/stage:Stage":
                 return new Stage(name, <any>undefined, { urn })
             case "aws:apigatewayv2/vpcLink:VpcLink":
@@ -129,5 +136,6 @@ pulumi.runtime.registerResourceModule("aws", "apigatewayv2/integrationResponse",
 pulumi.runtime.registerResourceModule("aws", "apigatewayv2/model", _module)
 pulumi.runtime.registerResourceModule("aws", "apigatewayv2/route", _module)
 pulumi.runtime.registerResourceModule("aws", "apigatewayv2/routeResponse", _module)
+pulumi.runtime.registerResourceModule("aws", "apigatewayv2/routingRule", _module)
 pulumi.runtime.registerResourceModule("aws", "apigatewayv2/stage", _module)
 pulumi.runtime.registerResourceModule("aws", "apigatewayv2/vpcLink", _module)

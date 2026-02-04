@@ -33,28 +33,16 @@ class CollaborationArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a Collaboration resource.
-        :param pulumi.Input[_builtins.str] creator_display_name: The name for the member record for the collaboration creator.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] creator_member_abilities: The list of member abilities for the creator of the collaboration.  Valid values [may be found here](https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_CreateCollaboration.html#API-CreateCollaboration-request-creatorMemberAbilities).
-        :param pulumi.Input[_builtins.str] description: A description for a collaboration.
-        :param pulumi.Input[_builtins.str] query_log_status: Determines if members of the collaboration can enable query logs within their own.
-               emberships. Valid values [may be found here](https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_CreateCollaboration.html#API-CreateCollaboration-request-queryLogStatus).
+        :param pulumi.Input[_builtins.str] creator_display_name: Name for the member record for the collaboration creator.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] creator_member_abilities: List of member abilities for the creator of the collaboration. Valid values [may be found here](https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_CreateCollaboration.html#API-CreateCollaboration-request-creatorMemberAbilities).
+        :param pulumi.Input[_builtins.str] description: Description for a collaboration.
+        :param pulumi.Input[_builtins.str] query_log_status: Whether members of the collaboration can enable query logs within their own memberships. Valid values [may be found here](https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_CreateCollaboration.html#API-CreateCollaboration-request-queryLogStatus).
                
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] analytics_engine: Analytics engine used by the collaboration. Valid values are `CLEAN_ROOMS_SQL` (deprecated) and `SPARK`.
-        :param pulumi.Input['CollaborationDataEncryptionMetadataArgs'] data_encryption_metadata: a collection of settings which determine how the [c3r client](https://docs.aws.amazon.com/clean-rooms/latest/userguide/crypto-computing.html) will encrypt data for use within this collaboration.
-               * `data_encryption_metadata.allow_clear_text` - (Required - Forces new resource) - Indicates whether encrypted tables can contain cleartext data. This is a boolea
-               field.
-               * `data_encryption_metadata.allow_duplicates` - (Required - Forces new resource ) - Indicates whether Fingerprint columns can contain duplicate entries. This is a
-               boolean field.
-               * `data_encryption_metadata.allow_joins_on_columns_with_different_names` - (Required - Forces new resource) - Indicates whether Fingerprint columns can be joined
-               n any other Fingerprint column with a different name. This is a boolean field.
-               * `data_encryption_metadata.preserve_nulls` - (Required - Forces new resource) - Indicates whether NULL values are to be copied as NULL to encrypted tables (true)
-               or cryptographically processed (false).
-        :param pulumi.Input[Sequence[pulumi.Input['CollaborationMemberArgs']]] members: Additional members of the collaboration which will be invited to join the collaboration.
-               * `member.account_id` - (Required - Forces new resource) - The account id for the invited member.
-               * `member.display_name` - (Required - Forces new resource) - The display name for the invited member.
-               * `member.member_abilities` - (Required - Forces new resource) - The list of abilities for the invited member. Valid values [may be found here](https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_CreateCollaboration.html#API-CreateCollaboration-request-creatorMemberAbilities).
-        :param pulumi.Input[_builtins.str] name: The name of the collaboration.  Collaboration names do not need to be unique.
+        :param pulumi.Input['CollaborationDataEncryptionMetadataArgs'] data_encryption_metadata: Collection of settings which determine how the [c3r client](https://docs.aws.amazon.com/clean-rooms/latest/userguide/crypto-computing.html) will encrypt data for use within this collaboration. See below.
+        :param pulumi.Input[Sequence[pulumi.Input['CollaborationMemberArgs']]] members: Additional members of the collaboration which will be invited to join the collaboration. See below.
+        :param pulumi.Input[_builtins.str] name: Name of the collaboration.  Collaboration names do not need to be unique.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key value pairs which tag the collaboration.
         """
@@ -79,7 +67,7 @@ class CollaborationArgs:
     @pulumi.getter(name="creatorDisplayName")
     def creator_display_name(self) -> pulumi.Input[_builtins.str]:
         """
-        The name for the member record for the collaboration creator.
+        Name for the member record for the collaboration creator.
         """
         return pulumi.get(self, "creator_display_name")
 
@@ -91,7 +79,7 @@ class CollaborationArgs:
     @pulumi.getter(name="creatorMemberAbilities")
     def creator_member_abilities(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
         """
-        The list of member abilities for the creator of the collaboration.  Valid values [may be found here](https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_CreateCollaboration.html#API-CreateCollaboration-request-creatorMemberAbilities).
+        List of member abilities for the creator of the collaboration. Valid values [may be found here](https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_CreateCollaboration.html#API-CreateCollaboration-request-creatorMemberAbilities).
         """
         return pulumi.get(self, "creator_member_abilities")
 
@@ -103,7 +91,7 @@ class CollaborationArgs:
     @pulumi.getter
     def description(self) -> pulumi.Input[_builtins.str]:
         """
-        A description for a collaboration.
+        Description for a collaboration.
         """
         return pulumi.get(self, "description")
 
@@ -115,8 +103,7 @@ class CollaborationArgs:
     @pulumi.getter(name="queryLogStatus")
     def query_log_status(self) -> pulumi.Input[_builtins.str]:
         """
-        Determines if members of the collaboration can enable query logs within their own.
-        emberships. Valid values [may be found here](https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_CreateCollaboration.html#API-CreateCollaboration-request-queryLogStatus).
+        Whether members of the collaboration can enable query logs within their own memberships. Valid values [may be found here](https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_CreateCollaboration.html#API-CreateCollaboration-request-queryLogStatus).
 
         The following arguments are optional:
         """
@@ -142,15 +129,7 @@ class CollaborationArgs:
     @pulumi.getter(name="dataEncryptionMetadata")
     def data_encryption_metadata(self) -> Optional[pulumi.Input['CollaborationDataEncryptionMetadataArgs']]:
         """
-        a collection of settings which determine how the [c3r client](https://docs.aws.amazon.com/clean-rooms/latest/userguide/crypto-computing.html) will encrypt data for use within this collaboration.
-        * `data_encryption_metadata.allow_clear_text` - (Required - Forces new resource) - Indicates whether encrypted tables can contain cleartext data. This is a boolea
-        field.
-        * `data_encryption_metadata.allow_duplicates` - (Required - Forces new resource ) - Indicates whether Fingerprint columns can contain duplicate entries. This is a
-        boolean field.
-        * `data_encryption_metadata.allow_joins_on_columns_with_different_names` - (Required - Forces new resource) - Indicates whether Fingerprint columns can be joined
-        n any other Fingerprint column with a different name. This is a boolean field.
-        * `data_encryption_metadata.preserve_nulls` - (Required - Forces new resource) - Indicates whether NULL values are to be copied as NULL to encrypted tables (true)
-        or cryptographically processed (false).
+        Collection of settings which determine how the [c3r client](https://docs.aws.amazon.com/clean-rooms/latest/userguide/crypto-computing.html) will encrypt data for use within this collaboration. See below.
         """
         return pulumi.get(self, "data_encryption_metadata")
 
@@ -162,10 +141,7 @@ class CollaborationArgs:
     @pulumi.getter
     def members(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CollaborationMemberArgs']]]]:
         """
-        Additional members of the collaboration which will be invited to join the collaboration.
-        * `member.account_id` - (Required - Forces new resource) - The account id for the invited member.
-        * `member.display_name` - (Required - Forces new resource) - The display name for the invited member.
-        * `member.member_abilities` - (Required - Forces new resource) - The list of abilities for the invited member. Valid values [may be found here](https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_CreateCollaboration.html#API-CreateCollaboration-request-creatorMemberAbilities).
+        Additional members of the collaboration which will be invited to join the collaboration. See below.
         """
         return pulumi.get(self, "members")
 
@@ -177,7 +153,7 @@ class CollaborationArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The name of the collaboration.  Collaboration names do not need to be unique.
+        Name of the collaboration.  Collaboration names do not need to be unique.
         """
         return pulumi.get(self, "name")
 
@@ -232,30 +208,18 @@ class _CollaborationState:
         :param pulumi.Input[_builtins.str] analytics_engine: Analytics engine used by the collaboration. Valid values are `CLEAN_ROOMS_SQL` (deprecated) and `SPARK`.
         :param pulumi.Input[_builtins.str] arn: ARN of the collaboration.
         :param pulumi.Input[_builtins.str] create_time: Date and time the collaboration was created.
-               * `member status` - For each member included in the collaboration an additional computed attribute of status is added. These values [may be found here](https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_MemberSummary.html#API-Type-MemberSummary-status).
-        :param pulumi.Input[_builtins.str] creator_display_name: The name for the member record for the collaboration creator.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] creator_member_abilities: The list of member abilities for the creator of the collaboration.  Valid values [may be found here](https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_CreateCollaboration.html#API-CreateCollaboration-request-creatorMemberAbilities).
-        :param pulumi.Input['CollaborationDataEncryptionMetadataArgs'] data_encryption_metadata: a collection of settings which determine how the [c3r client](https://docs.aws.amazon.com/clean-rooms/latest/userguide/crypto-computing.html) will encrypt data for use within this collaboration.
-               * `data_encryption_metadata.allow_clear_text` - (Required - Forces new resource) - Indicates whether encrypted tables can contain cleartext data. This is a boolea
-               field.
-               * `data_encryption_metadata.allow_duplicates` - (Required - Forces new resource ) - Indicates whether Fingerprint columns can contain duplicate entries. This is a
-               boolean field.
-               * `data_encryption_metadata.allow_joins_on_columns_with_different_names` - (Required - Forces new resource) - Indicates whether Fingerprint columns can be joined
-               n any other Fingerprint column with a different name. This is a boolean field.
-               * `data_encryption_metadata.preserve_nulls` - (Required - Forces new resource) - Indicates whether NULL values are to be copied as NULL to encrypted tables (true)
-               or cryptographically processed (false).
-        :param pulumi.Input[_builtins.str] description: A description for a collaboration.
-        :param pulumi.Input[Sequence[pulumi.Input['CollaborationMemberArgs']]] members: Additional members of the collaboration which will be invited to join the collaboration.
-               * `member.account_id` - (Required - Forces new resource) - The account id for the invited member.
-               * `member.display_name` - (Required - Forces new resource) - The display name for the invited member.
-               * `member.member_abilities` - (Required - Forces new resource) - The list of abilities for the invited member. Valid values [may be found here](https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_CreateCollaboration.html#API-CreateCollaboration-request-creatorMemberAbilities).
-        :param pulumi.Input[_builtins.str] name: The name of the collaboration.  Collaboration names do not need to be unique.
-        :param pulumi.Input[_builtins.str] query_log_status: Determines if members of the collaboration can enable query logs within their own.
-               emberships. Valid values [may be found here](https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_CreateCollaboration.html#API-CreateCollaboration-request-queryLogStatus).
+        :param pulumi.Input[_builtins.str] creator_display_name: Name for the member record for the collaboration creator.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] creator_member_abilities: List of member abilities for the creator of the collaboration. Valid values [may be found here](https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_CreateCollaboration.html#API-CreateCollaboration-request-creatorMemberAbilities).
+        :param pulumi.Input['CollaborationDataEncryptionMetadataArgs'] data_encryption_metadata: Collection of settings which determine how the [c3r client](https://docs.aws.amazon.com/clean-rooms/latest/userguide/crypto-computing.html) will encrypt data for use within this collaboration. See below.
+        :param pulumi.Input[_builtins.str] description: Description for a collaboration.
+        :param pulumi.Input[Sequence[pulumi.Input['CollaborationMemberArgs']]] members: Additional members of the collaboration which will be invited to join the collaboration. See below.
+        :param pulumi.Input[_builtins.str] name: Name of the collaboration.  Collaboration names do not need to be unique.
+        :param pulumi.Input[_builtins.str] query_log_status: Whether members of the collaboration can enable query logs within their own memberships. Valid values [may be found here](https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_CreateCollaboration.html#API-CreateCollaboration-request-queryLogStatus).
                
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key value pairs which tag the collaboration.
+        :param pulumi.Input[_builtins.str] update_time: Date and time the collaboration was last updated.
         """
         if analytics_engine is not None:
             pulumi.set(__self__, "analytics_engine", analytics_engine)
@@ -315,7 +279,6 @@ class _CollaborationState:
     def create_time(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         Date and time the collaboration was created.
-        * `member status` - For each member included in the collaboration an additional computed attribute of status is added. These values [may be found here](https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_MemberSummary.html#API-Type-MemberSummary-status).
         """
         return pulumi.get(self, "create_time")
 
@@ -327,7 +290,7 @@ class _CollaborationState:
     @pulumi.getter(name="creatorDisplayName")
     def creator_display_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The name for the member record for the collaboration creator.
+        Name for the member record for the collaboration creator.
         """
         return pulumi.get(self, "creator_display_name")
 
@@ -339,7 +302,7 @@ class _CollaborationState:
     @pulumi.getter(name="creatorMemberAbilities")
     def creator_member_abilities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        The list of member abilities for the creator of the collaboration.  Valid values [may be found here](https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_CreateCollaboration.html#API-CreateCollaboration-request-creatorMemberAbilities).
+        List of member abilities for the creator of the collaboration. Valid values [may be found here](https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_CreateCollaboration.html#API-CreateCollaboration-request-creatorMemberAbilities).
         """
         return pulumi.get(self, "creator_member_abilities")
 
@@ -351,15 +314,7 @@ class _CollaborationState:
     @pulumi.getter(name="dataEncryptionMetadata")
     def data_encryption_metadata(self) -> Optional[pulumi.Input['CollaborationDataEncryptionMetadataArgs']]:
         """
-        a collection of settings which determine how the [c3r client](https://docs.aws.amazon.com/clean-rooms/latest/userguide/crypto-computing.html) will encrypt data for use within this collaboration.
-        * `data_encryption_metadata.allow_clear_text` - (Required - Forces new resource) - Indicates whether encrypted tables can contain cleartext data. This is a boolea
-        field.
-        * `data_encryption_metadata.allow_duplicates` - (Required - Forces new resource ) - Indicates whether Fingerprint columns can contain duplicate entries. This is a
-        boolean field.
-        * `data_encryption_metadata.allow_joins_on_columns_with_different_names` - (Required - Forces new resource) - Indicates whether Fingerprint columns can be joined
-        n any other Fingerprint column with a different name. This is a boolean field.
-        * `data_encryption_metadata.preserve_nulls` - (Required - Forces new resource) - Indicates whether NULL values are to be copied as NULL to encrypted tables (true)
-        or cryptographically processed (false).
+        Collection of settings which determine how the [c3r client](https://docs.aws.amazon.com/clean-rooms/latest/userguide/crypto-computing.html) will encrypt data for use within this collaboration. See below.
         """
         return pulumi.get(self, "data_encryption_metadata")
 
@@ -371,7 +326,7 @@ class _CollaborationState:
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        A description for a collaboration.
+        Description for a collaboration.
         """
         return pulumi.get(self, "description")
 
@@ -383,10 +338,7 @@ class _CollaborationState:
     @pulumi.getter
     def members(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CollaborationMemberArgs']]]]:
         """
-        Additional members of the collaboration which will be invited to join the collaboration.
-        * `member.account_id` - (Required - Forces new resource) - The account id for the invited member.
-        * `member.display_name` - (Required - Forces new resource) - The display name for the invited member.
-        * `member.member_abilities` - (Required - Forces new resource) - The list of abilities for the invited member. Valid values [may be found here](https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_CreateCollaboration.html#API-CreateCollaboration-request-creatorMemberAbilities).
+        Additional members of the collaboration which will be invited to join the collaboration. See below.
         """
         return pulumi.get(self, "members")
 
@@ -398,7 +350,7 @@ class _CollaborationState:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The name of the collaboration.  Collaboration names do not need to be unique.
+        Name of the collaboration.  Collaboration names do not need to be unique.
         """
         return pulumi.get(self, "name")
 
@@ -410,8 +362,7 @@ class _CollaborationState:
     @pulumi.getter(name="queryLogStatus")
     def query_log_status(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Determines if members of the collaboration can enable query logs within their own.
-        emberships. Valid values [may be found here](https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_CreateCollaboration.html#API-CreateCollaboration-request-queryLogStatus).
+        Whether members of the collaboration can enable query logs within their own memberships. Valid values [may be found here](https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_CreateCollaboration.html#API-CreateCollaboration-request-queryLogStatus).
 
         The following arguments are optional:
         """
@@ -457,6 +408,9 @@ class _CollaborationState:
     @_builtins.property
     @pulumi.getter(name="updateTime")
     def update_time(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Date and time the collaboration was last updated.
+        """
         return pulumi.get(self, "update_time")
 
     @update_time.setter
@@ -538,25 +492,13 @@ class Collaboration(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] analytics_engine: Analytics engine used by the collaboration. Valid values are `CLEAN_ROOMS_SQL` (deprecated) and `SPARK`.
-        :param pulumi.Input[_builtins.str] creator_display_name: The name for the member record for the collaboration creator.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] creator_member_abilities: The list of member abilities for the creator of the collaboration.  Valid values [may be found here](https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_CreateCollaboration.html#API-CreateCollaboration-request-creatorMemberAbilities).
-        :param pulumi.Input[Union['CollaborationDataEncryptionMetadataArgs', 'CollaborationDataEncryptionMetadataArgsDict']] data_encryption_metadata: a collection of settings which determine how the [c3r client](https://docs.aws.amazon.com/clean-rooms/latest/userguide/crypto-computing.html) will encrypt data for use within this collaboration.
-               * `data_encryption_metadata.allow_clear_text` - (Required - Forces new resource) - Indicates whether encrypted tables can contain cleartext data. This is a boolea
-               field.
-               * `data_encryption_metadata.allow_duplicates` - (Required - Forces new resource ) - Indicates whether Fingerprint columns can contain duplicate entries. This is a
-               boolean field.
-               * `data_encryption_metadata.allow_joins_on_columns_with_different_names` - (Required - Forces new resource) - Indicates whether Fingerprint columns can be joined
-               n any other Fingerprint column with a different name. This is a boolean field.
-               * `data_encryption_metadata.preserve_nulls` - (Required - Forces new resource) - Indicates whether NULL values are to be copied as NULL to encrypted tables (true)
-               or cryptographically processed (false).
-        :param pulumi.Input[_builtins.str] description: A description for a collaboration.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['CollaborationMemberArgs', 'CollaborationMemberArgsDict']]]] members: Additional members of the collaboration which will be invited to join the collaboration.
-               * `member.account_id` - (Required - Forces new resource) - The account id for the invited member.
-               * `member.display_name` - (Required - Forces new resource) - The display name for the invited member.
-               * `member.member_abilities` - (Required - Forces new resource) - The list of abilities for the invited member. Valid values [may be found here](https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_CreateCollaboration.html#API-CreateCollaboration-request-creatorMemberAbilities).
-        :param pulumi.Input[_builtins.str] name: The name of the collaboration.  Collaboration names do not need to be unique.
-        :param pulumi.Input[_builtins.str] query_log_status: Determines if members of the collaboration can enable query logs within their own.
-               emberships. Valid values [may be found here](https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_CreateCollaboration.html#API-CreateCollaboration-request-queryLogStatus).
+        :param pulumi.Input[_builtins.str] creator_display_name: Name for the member record for the collaboration creator.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] creator_member_abilities: List of member abilities for the creator of the collaboration. Valid values [may be found here](https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_CreateCollaboration.html#API-CreateCollaboration-request-creatorMemberAbilities).
+        :param pulumi.Input[Union['CollaborationDataEncryptionMetadataArgs', 'CollaborationDataEncryptionMetadataArgsDict']] data_encryption_metadata: Collection of settings which determine how the [c3r client](https://docs.aws.amazon.com/clean-rooms/latest/userguide/crypto-computing.html) will encrypt data for use within this collaboration. See below.
+        :param pulumi.Input[_builtins.str] description: Description for a collaboration.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['CollaborationMemberArgs', 'CollaborationMemberArgsDict']]]] members: Additional members of the collaboration which will be invited to join the collaboration. See below.
+        :param pulumi.Input[_builtins.str] name: Name of the collaboration.  Collaboration names do not need to be unique.
+        :param pulumi.Input[_builtins.str] query_log_status: Whether members of the collaboration can enable query logs within their own memberships. Valid values [may be found here](https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_CreateCollaboration.html#API-CreateCollaboration-request-queryLogStatus).
                
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -712,30 +654,18 @@ class Collaboration(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] analytics_engine: Analytics engine used by the collaboration. Valid values are `CLEAN_ROOMS_SQL` (deprecated) and `SPARK`.
         :param pulumi.Input[_builtins.str] arn: ARN of the collaboration.
         :param pulumi.Input[_builtins.str] create_time: Date and time the collaboration was created.
-               * `member status` - For each member included in the collaboration an additional computed attribute of status is added. These values [may be found here](https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_MemberSummary.html#API-Type-MemberSummary-status).
-        :param pulumi.Input[_builtins.str] creator_display_name: The name for the member record for the collaboration creator.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] creator_member_abilities: The list of member abilities for the creator of the collaboration.  Valid values [may be found here](https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_CreateCollaboration.html#API-CreateCollaboration-request-creatorMemberAbilities).
-        :param pulumi.Input[Union['CollaborationDataEncryptionMetadataArgs', 'CollaborationDataEncryptionMetadataArgsDict']] data_encryption_metadata: a collection of settings which determine how the [c3r client](https://docs.aws.amazon.com/clean-rooms/latest/userguide/crypto-computing.html) will encrypt data for use within this collaboration.
-               * `data_encryption_metadata.allow_clear_text` - (Required - Forces new resource) - Indicates whether encrypted tables can contain cleartext data. This is a boolea
-               field.
-               * `data_encryption_metadata.allow_duplicates` - (Required - Forces new resource ) - Indicates whether Fingerprint columns can contain duplicate entries. This is a
-               boolean field.
-               * `data_encryption_metadata.allow_joins_on_columns_with_different_names` - (Required - Forces new resource) - Indicates whether Fingerprint columns can be joined
-               n any other Fingerprint column with a different name. This is a boolean field.
-               * `data_encryption_metadata.preserve_nulls` - (Required - Forces new resource) - Indicates whether NULL values are to be copied as NULL to encrypted tables (true)
-               or cryptographically processed (false).
-        :param pulumi.Input[_builtins.str] description: A description for a collaboration.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['CollaborationMemberArgs', 'CollaborationMemberArgsDict']]]] members: Additional members of the collaboration which will be invited to join the collaboration.
-               * `member.account_id` - (Required - Forces new resource) - The account id for the invited member.
-               * `member.display_name` - (Required - Forces new resource) - The display name for the invited member.
-               * `member.member_abilities` - (Required - Forces new resource) - The list of abilities for the invited member. Valid values [may be found here](https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_CreateCollaboration.html#API-CreateCollaboration-request-creatorMemberAbilities).
-        :param pulumi.Input[_builtins.str] name: The name of the collaboration.  Collaboration names do not need to be unique.
-        :param pulumi.Input[_builtins.str] query_log_status: Determines if members of the collaboration can enable query logs within their own.
-               emberships. Valid values [may be found here](https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_CreateCollaboration.html#API-CreateCollaboration-request-queryLogStatus).
+        :param pulumi.Input[_builtins.str] creator_display_name: Name for the member record for the collaboration creator.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] creator_member_abilities: List of member abilities for the creator of the collaboration. Valid values [may be found here](https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_CreateCollaboration.html#API-CreateCollaboration-request-creatorMemberAbilities).
+        :param pulumi.Input[Union['CollaborationDataEncryptionMetadataArgs', 'CollaborationDataEncryptionMetadataArgsDict']] data_encryption_metadata: Collection of settings which determine how the [c3r client](https://docs.aws.amazon.com/clean-rooms/latest/userguide/crypto-computing.html) will encrypt data for use within this collaboration. See below.
+        :param pulumi.Input[_builtins.str] description: Description for a collaboration.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['CollaborationMemberArgs', 'CollaborationMemberArgsDict']]]] members: Additional members of the collaboration which will be invited to join the collaboration. See below.
+        :param pulumi.Input[_builtins.str] name: Name of the collaboration.  Collaboration names do not need to be unique.
+        :param pulumi.Input[_builtins.str] query_log_status: Whether members of the collaboration can enable query logs within their own memberships. Valid values [may be found here](https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_CreateCollaboration.html#API-CreateCollaboration-request-queryLogStatus).
                
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key value pairs which tag the collaboration.
+        :param pulumi.Input[_builtins.str] update_time: Date and time the collaboration was last updated.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -778,7 +708,6 @@ class Collaboration(pulumi.CustomResource):
     def create_time(self) -> pulumi.Output[_builtins.str]:
         """
         Date and time the collaboration was created.
-        * `member status` - For each member included in the collaboration an additional computed attribute of status is added. These values [may be found here](https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_MemberSummary.html#API-Type-MemberSummary-status).
         """
         return pulumi.get(self, "create_time")
 
@@ -786,7 +715,7 @@ class Collaboration(pulumi.CustomResource):
     @pulumi.getter(name="creatorDisplayName")
     def creator_display_name(self) -> pulumi.Output[_builtins.str]:
         """
-        The name for the member record for the collaboration creator.
+        Name for the member record for the collaboration creator.
         """
         return pulumi.get(self, "creator_display_name")
 
@@ -794,7 +723,7 @@ class Collaboration(pulumi.CustomResource):
     @pulumi.getter(name="creatorMemberAbilities")
     def creator_member_abilities(self) -> pulumi.Output[Sequence[_builtins.str]]:
         """
-        The list of member abilities for the creator of the collaboration.  Valid values [may be found here](https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_CreateCollaboration.html#API-CreateCollaboration-request-creatorMemberAbilities).
+        List of member abilities for the creator of the collaboration. Valid values [may be found here](https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_CreateCollaboration.html#API-CreateCollaboration-request-creatorMemberAbilities).
         """
         return pulumi.get(self, "creator_member_abilities")
 
@@ -802,15 +731,7 @@ class Collaboration(pulumi.CustomResource):
     @pulumi.getter(name="dataEncryptionMetadata")
     def data_encryption_metadata(self) -> pulumi.Output[Optional['outputs.CollaborationDataEncryptionMetadata']]:
         """
-        a collection of settings which determine how the [c3r client](https://docs.aws.amazon.com/clean-rooms/latest/userguide/crypto-computing.html) will encrypt data for use within this collaboration.
-        * `data_encryption_metadata.allow_clear_text` - (Required - Forces new resource) - Indicates whether encrypted tables can contain cleartext data. This is a boolea
-        field.
-        * `data_encryption_metadata.allow_duplicates` - (Required - Forces new resource ) - Indicates whether Fingerprint columns can contain duplicate entries. This is a
-        boolean field.
-        * `data_encryption_metadata.allow_joins_on_columns_with_different_names` - (Required - Forces new resource) - Indicates whether Fingerprint columns can be joined
-        n any other Fingerprint column with a different name. This is a boolean field.
-        * `data_encryption_metadata.preserve_nulls` - (Required - Forces new resource) - Indicates whether NULL values are to be copied as NULL to encrypted tables (true)
-        or cryptographically processed (false).
+        Collection of settings which determine how the [c3r client](https://docs.aws.amazon.com/clean-rooms/latest/userguide/crypto-computing.html) will encrypt data for use within this collaboration. See below.
         """
         return pulumi.get(self, "data_encryption_metadata")
 
@@ -818,7 +739,7 @@ class Collaboration(pulumi.CustomResource):
     @pulumi.getter
     def description(self) -> pulumi.Output[_builtins.str]:
         """
-        A description for a collaboration.
+        Description for a collaboration.
         """
         return pulumi.get(self, "description")
 
@@ -826,10 +747,7 @@ class Collaboration(pulumi.CustomResource):
     @pulumi.getter
     def members(self) -> pulumi.Output[Optional[Sequence['outputs.CollaborationMember']]]:
         """
-        Additional members of the collaboration which will be invited to join the collaboration.
-        * `member.account_id` - (Required - Forces new resource) - The account id for the invited member.
-        * `member.display_name` - (Required - Forces new resource) - The display name for the invited member.
-        * `member.member_abilities` - (Required - Forces new resource) - The list of abilities for the invited member. Valid values [may be found here](https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_CreateCollaboration.html#API-CreateCollaboration-request-creatorMemberAbilities).
+        Additional members of the collaboration which will be invited to join the collaboration. See below.
         """
         return pulumi.get(self, "members")
 
@@ -837,7 +755,7 @@ class Collaboration(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
         """
-        The name of the collaboration.  Collaboration names do not need to be unique.
+        Name of the collaboration.  Collaboration names do not need to be unique.
         """
         return pulumi.get(self, "name")
 
@@ -845,8 +763,7 @@ class Collaboration(pulumi.CustomResource):
     @pulumi.getter(name="queryLogStatus")
     def query_log_status(self) -> pulumi.Output[_builtins.str]:
         """
-        Determines if members of the collaboration can enable query logs within their own.
-        emberships. Valid values [may be found here](https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_CreateCollaboration.html#API-CreateCollaboration-request-queryLogStatus).
+        Whether members of the collaboration can enable query logs within their own memberships. Valid values [may be found here](https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_CreateCollaboration.html#API-CreateCollaboration-request-queryLogStatus).
 
         The following arguments are optional:
         """
@@ -876,5 +793,8 @@ class Collaboration(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="updateTime")
     def update_time(self) -> pulumi.Output[_builtins.str]:
+        """
+        Date and time the collaboration was last updated.
+        """
         return pulumi.get(self, "update_time")
 

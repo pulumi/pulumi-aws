@@ -6,6 +6,7 @@ package com.pulumi.aws.ec2;
 import com.pulumi.aws.Utilities;
 import com.pulumi.aws.ec2.VpcIpamPoolArgs;
 import com.pulumi.aws.ec2.inputs.VpcIpamPoolState;
+import com.pulumi.aws.ec2.outputs.VpcIpamPoolSourceResource;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
@@ -19,6 +20,8 @@ import javax.annotation.Nullable;
 
 /**
  * Provides an IP address pool resource for IPAM.
+ * 
+ * &gt; **NOTE:** When provisioning resource planning IPAM pools, it can take upto 30 minutes for the CIDR to be managed by IPAM.
  * 
  * ## Example Usage
  * 
@@ -131,6 +134,85 @@ import javax.annotation.Nullable;
  *         var childTest = new VpcIpamPoolCidr("childTest", VpcIpamPoolCidrArgs.builder()
  *             .ipamPoolId(child.id())
  *             .cidr("172.20.0.0/24")
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
+ * Resource Planning Pools:
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.AwsFunctions;
+ * import com.pulumi.aws.inputs.GetRegionArgs;
+ * import com.pulumi.aws.ec2.VpcIpam;
+ * import com.pulumi.aws.ec2.VpcIpamArgs;
+ * import com.pulumi.aws.ec2.inputs.VpcIpamOperatingRegionArgs;
+ * import com.pulumi.aws.ec2.VpcIpamPool;
+ * import com.pulumi.aws.ec2.VpcIpamPoolArgs;
+ * import com.pulumi.aws.ec2.VpcIpamPoolCidr;
+ * import com.pulumi.aws.ec2.VpcIpamPoolCidrArgs;
+ * import com.pulumi.aws.ec2.Vpc;
+ * import com.pulumi.aws.ec2.VpcArgs;
+ * import com.pulumi.aws.ec2.inputs.VpcIpamPoolSourceResourceArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         final var current = AwsFunctions.getRegion(GetRegionArgs.builder()
+ *             .build());
+ * 
+ *         var example = new VpcIpam("example", VpcIpamArgs.builder()
+ *             .operatingRegions(VpcIpamOperatingRegionArgs.builder()
+ *                 .regionName(current.region())
+ *                 .build())
+ *             .build());
+ * 
+ *         var test = new VpcIpamPool("test", VpcIpamPoolArgs.builder()
+ *             .addressFamily("ipv4")
+ *             .ipamScopeId(example.privateDefaultScopeId())
+ *             .build());
+ * 
+ *         var testVpcIpamPoolCidr = new VpcIpamPoolCidr("testVpcIpamPoolCidr", VpcIpamPoolCidrArgs.builder()
+ *             .ipamPoolId(parent.id())
+ *             .cidr("10.0.0.0/16")
+ *             .build());
+ * 
+ *         var testVpc = new Vpc("testVpc", VpcArgs.builder()
+ *             .ipv4IpamPoolId(test.id())
+ *             .ipv4NetmaskLength(24)
+ *             .build(), CustomResourceOptions.builder()
+ *                 .dependsOn(testVpcIpamPoolCidr)
+ *                 .build());
+ * 
+ *         var vpc = new VpcIpamPool("vpc", VpcIpamPoolArgs.builder()
+ *             .addressFamily("ipv4")
+ *             .ipamScopeId(testAwsVpcIpam.privateDefaultScopeId())
+ *             .locale(current.name())
+ *             .sourceIpamPoolId(test.id())
+ *             .sourceResource(VpcIpamPoolSourceResourceArgs.builder()
+ *                 .resourceId(testVpc.id())
+ *                 .resourceOwner(currentAwsCallerIdentity.accountId())
+ *                 .resourceRegion(current.name())
+ *                 .resourceType("vpc")
+ *                 .build())
  *             .build());
  * 
  *     }
@@ -386,6 +468,20 @@ public class VpcIpamPool extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<String>> sourceIpamPoolId() {
         return Codegen.optional(this.sourceIpamPoolId);
+    }
+    /**
+     * Resource to use to use to configure a resource planning IPAM Pool. If configured, the `locale` of the parent pool must match the region that the vpc resides in.
+     * 
+     */
+    @Export(name="sourceResource", refs={VpcIpamPoolSourceResource.class}, tree="[0]")
+    private Output</* @Nullable */ VpcIpamPoolSourceResource> sourceResource;
+
+    /**
+     * @return Resource to use to use to configure a resource planning IPAM Pool. If configured, the `locale` of the parent pool must match the region that the vpc resides in.
+     * 
+     */
+    public Output<Optional<VpcIpamPoolSourceResource>> sourceResource() {
+        return Codegen.optional(this.sourceResource);
     }
     /**
      * The ID of the IPAM
