@@ -416,10 +416,10 @@ class ContactsRotationRecurrenceShiftCoverage(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "mapBlockKey":
-            suggest = "map_block_key"
-        elif key == "coverageTimes":
+        if key == "coverageTimes":
             suggest = "coverage_times"
+        elif key == "mapBlockKey":
+            suggest = "map_block_key"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in ContactsRotationRecurrenceShiftCoverage. Access the value via the '{suggest}' property getter instead.")
@@ -433,27 +433,26 @@ class ContactsRotationRecurrenceShiftCoverage(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 map_block_key: _builtins.str,
-                 coverage_times: Optional[Sequence['outputs.ContactsRotationRecurrenceShiftCoverageCoverageTime']] = None):
+                 coverage_times: Sequence['outputs.ContactsRotationRecurrenceShiftCoverageCoverageTime'],
+                 map_block_key: _builtins.str):
         """
         :param Sequence['ContactsRotationRecurrenceShiftCoverageCoverageTimeArgs'] coverage_times: (Required) Information about when an on-call shift begins and ends. See Coverage Times for more details.
         """
+        pulumi.set(__self__, "coverage_times", coverage_times)
         pulumi.set(__self__, "map_block_key", map_block_key)
-        if coverage_times is not None:
-            pulumi.set(__self__, "coverage_times", coverage_times)
+
+    @_builtins.property
+    @pulumi.getter(name="coverageTimes")
+    def coverage_times(self) -> Sequence['outputs.ContactsRotationRecurrenceShiftCoverageCoverageTime']:
+        """
+        (Required) Information about when an on-call shift begins and ends. See Coverage Times for more details.
+        """
+        return pulumi.get(self, "coverage_times")
 
     @_builtins.property
     @pulumi.getter(name="mapBlockKey")
     def map_block_key(self) -> _builtins.str:
         return pulumi.get(self, "map_block_key")
-
-    @_builtins.property
-    @pulumi.getter(name="coverageTimes")
-    def coverage_times(self) -> Optional[Sequence['outputs.ContactsRotationRecurrenceShiftCoverageCoverageTime']]:
-        """
-        (Required) Information about when an on-call shift begins and ends. See Coverage Times for more details.
-        """
-        return pulumi.get(self, "coverage_times")
 
 
 @pulumi.output_type

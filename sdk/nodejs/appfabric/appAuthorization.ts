@@ -87,7 +87,7 @@ export class AppAuthorization extends pulumi.CustomResource {
      * Contains credentials for the application, such as an API key or OAuth2 client ID and secret.
      * Specify credentials that match the authorization type for your request. For example, if the authorization type for your request is OAuth2 (oauth2), then you should provide only the OAuth2 credentials.
      */
-    declare public readonly credential: pulumi.Output<outputs.appfabric.AppAuthorizationCredential | undefined>;
+    declare public readonly credential: pulumi.Output<outputs.appfabric.AppAuthorizationCredential>;
     /**
      * The user persona of the app authorization.
      */
@@ -101,7 +101,7 @@ export class AppAuthorization extends pulumi.CustomResource {
     /**
      * Contains information about an application tenant, such as the application display name and identifier.
      */
-    declare public readonly tenants: pulumi.Output<outputs.appfabric.AppAuthorizationTenant[] | undefined>;
+    declare public readonly tenants: pulumi.Output<outputs.appfabric.AppAuthorizationTenant[]>;
     declare public readonly timeouts: pulumi.Output<outputs.appfabric.AppAuthorizationTimeouts | undefined>;
     declare public /*out*/ readonly updatedAt: pulumi.Output<string>;
 
@@ -142,6 +142,12 @@ export class AppAuthorization extends pulumi.CustomResource {
             }
             if (args?.authType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'authType'");
+            }
+            if (args?.credential === undefined && !opts.urn) {
+                throw new Error("Missing required property 'credential'");
+            }
+            if (args?.tenants === undefined && !opts.urn) {
+                throw new Error("Missing required property 'tenants'");
             }
             resourceInputs["app"] = args?.app;
             resourceInputs["appBundleArn"] = args?.appBundleArn;
@@ -231,7 +237,7 @@ export interface AppAuthorizationArgs {
      * Contains credentials for the application, such as an API key or OAuth2 client ID and secret.
      * Specify credentials that match the authorization type for your request. For example, if the authorization type for your request is OAuth2 (oauth2), then you should provide only the OAuth2 credentials.
      */
-    credential?: pulumi.Input<inputs.appfabric.AppAuthorizationCredential>;
+    credential: pulumi.Input<inputs.appfabric.AppAuthorizationCredential>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
@@ -240,6 +246,6 @@ export interface AppAuthorizationArgs {
     /**
      * Contains information about an application tenant, such as the application display name and identifier.
      */
-    tenants?: pulumi.Input<pulumi.Input<inputs.appfabric.AppAuthorizationTenant>[]>;
+    tenants: pulumi.Input<pulumi.Input<inputs.appfabric.AppAuthorizationTenant>[]>;
     timeouts?: pulumi.Input<inputs.appfabric.AppAuthorizationTimeouts>;
 }

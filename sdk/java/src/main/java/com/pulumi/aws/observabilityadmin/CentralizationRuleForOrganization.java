@@ -269,7 +269,7 @@ public class CentralizationRuleForOrganization extends com.pulumi.resources.Cust
      * 
      */
     @Export(name="rule", refs={CentralizationRuleForOrganizationRule.class}, tree="[0]")
-    private Output</* @Nullable */ CentralizationRuleForOrganizationRule> rule;
+    private Output<CentralizationRuleForOrganizationRule> rule;
 
     /**
      * @return Configuration block for the centralization rule. See `rule` below.
@@ -277,8 +277,8 @@ public class CentralizationRuleForOrganization extends com.pulumi.resources.Cust
      * The following arguments are optional:
      * 
      */
-    public Output<Optional<CentralizationRuleForOrganizationRule>> rule() {
-        return Codegen.optional(this.rule);
+    public Output<CentralizationRuleForOrganizationRule> rule() {
+        return this.rule;
     }
     /**
      * ARN of the centralization rule.

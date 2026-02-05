@@ -52,7 +52,7 @@ namespace Pulumi.Aws.CodeGuruProfiler
         /// Specifies whether profiling is enabled or disabled for the created profiling. See Agent Orchestration Config for more details.
         /// </summary>
         [Output("agentOrchestrationConfig")]
-        public Output<Outputs.ProfilingGroupAgentOrchestrationConfig?> AgentOrchestrationConfig { get; private set; } = null!;
+        public Output<Outputs.ProfilingGroupAgentOrchestrationConfig> AgentOrchestrationConfig { get; private set; } = null!;
 
         /// <summary>
         /// ARN of the profiling group.
@@ -100,7 +100,7 @@ namespace Pulumi.Aws.CodeGuruProfiler
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public ProfilingGroup(string name, ProfilingGroupArgs? args = null, CustomResourceOptions? options = null)
+        public ProfilingGroup(string name, ProfilingGroupArgs args, CustomResourceOptions? options = null)
             : base("aws:codeguruprofiler/profilingGroup:ProfilingGroup", name, args ?? new ProfilingGroupArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -141,8 +141,8 @@ namespace Pulumi.Aws.CodeGuruProfiler
         /// <summary>
         /// Specifies whether profiling is enabled or disabled for the created profiling. See Agent Orchestration Config for more details.
         /// </summary>
-        [Input("agentOrchestrationConfig")]
-        public Input<Inputs.ProfilingGroupAgentOrchestrationConfigArgs>? AgentOrchestrationConfig { get; set; }
+        [Input("agentOrchestrationConfig", required: true)]
+        public Input<Inputs.ProfilingGroupAgentOrchestrationConfigArgs> AgentOrchestrationConfig { get; set; } = null!;
 
         /// <summary>
         /// Compute platform of the profiling group.

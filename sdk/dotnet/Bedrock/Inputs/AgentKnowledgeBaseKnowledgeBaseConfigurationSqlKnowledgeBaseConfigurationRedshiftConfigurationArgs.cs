@@ -15,8 +15,8 @@ namespace Pulumi.Aws.Bedrock.Inputs
         /// <summary>
         /// Configurations for an Amazon Redshift query engine. See `QueryEngineConfiguration` block for details.
         /// </summary>
-        [Input("queryEngineConfiguration")]
-        public Input<Inputs.AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationArgs>? QueryEngineConfiguration { get; set; }
+        [Input("queryEngineConfiguration", required: true)]
+        public Input<Inputs.AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationArgs> QueryEngineConfiguration { get; set; } = null!;
 
         /// <summary>
         /// Configurations for generating queries. See `QueryGenerationConfiguration` block for details.
@@ -27,8 +27,8 @@ namespace Pulumi.Aws.Bedrock.Inputs
         /// <summary>
         /// Configurations for Amazon Redshift database storage. See `StorageConfiguration` block for details.
         /// </summary>
-        [Input("storageConfiguration")]
-        public Input<Inputs.AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationArgs>? StorageConfiguration { get; set; }
+        [Input("storageConfiguration", required: true)]
+        public Input<Inputs.AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationArgs> StorageConfiguration { get; set; } = null!;
 
         public AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationArgs()
         {

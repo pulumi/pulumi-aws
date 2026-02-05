@@ -21,30 +21,41 @@ __all__ = ['CustomLogSourceArgs', 'CustomLogSource']
 @pulumi.input_type
 class CustomLogSourceArgs:
     def __init__(__self__, *,
+                 configuration: pulumi.Input['CustomLogSourceConfigurationArgs'],
                  source_name: pulumi.Input[_builtins.str],
-                 configuration: Optional[pulumi.Input['CustomLogSourceConfigurationArgs']] = None,
                  event_classes: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  source_version: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a CustomLogSource resource.
+        :param pulumi.Input['CustomLogSourceConfigurationArgs'] configuration: The configuration for the third-party custom source.
         :param pulumi.Input[_builtins.str] source_name: Specify the name for a third-party custom source.
                This must be a Regionally unique value.
                Has a maximum length of 20.
-        :param pulumi.Input['CustomLogSourceConfigurationArgs'] configuration: The configuration for the third-party custom source.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] event_classes: The Open Cybersecurity Schema Framework (OCSF) event classes which describes the type of data that the custom source will send to Security Lake.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] source_version: Specify the source version for the third-party custom source, to limit log collection to a specific version of custom data source.
         """
+        pulumi.set(__self__, "configuration", configuration)
         pulumi.set(__self__, "source_name", source_name)
-        if configuration is not None:
-            pulumi.set(__self__, "configuration", configuration)
         if event_classes is not None:
             pulumi.set(__self__, "event_classes", event_classes)
         if region is not None:
             pulumi.set(__self__, "region", region)
         if source_version is not None:
             pulumi.set(__self__, "source_version", source_version)
+
+    @_builtins.property
+    @pulumi.getter
+    def configuration(self) -> pulumi.Input['CustomLogSourceConfigurationArgs']:
+        """
+        The configuration for the third-party custom source.
+        """
+        return pulumi.get(self, "configuration")
+
+    @configuration.setter
+    def configuration(self, value: pulumi.Input['CustomLogSourceConfigurationArgs']):
+        pulumi.set(self, "configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="sourceName")
@@ -59,18 +70,6 @@ class CustomLogSourceArgs:
     @source_name.setter
     def source_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "source_name", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def configuration(self) -> Optional[pulumi.Input['CustomLogSourceConfigurationArgs']]:
-        """
-        The configuration for the third-party custom source.
-        """
-        return pulumi.get(self, "configuration")
-
-    @configuration.setter
-    def configuration(self, value: Optional[pulumi.Input['CustomLogSourceConfigurationArgs']]):
-        pulumi.set(self, "configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="eventClasses")
@@ -364,6 +363,8 @@ class CustomLogSource(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = CustomLogSourceArgs.__new__(CustomLogSourceArgs)
 
+            if configuration is None and not opts.urn:
+                raise TypeError("Missing required property 'configuration'")
             __props__.__dict__["configuration"] = configuration
             __props__.__dict__["event_classes"] = event_classes
             __props__.__dict__["region"] = region
@@ -430,7 +431,7 @@ class CustomLogSource(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
-    def configuration(self) -> pulumi.Output[Optional['outputs.CustomLogSourceConfiguration']]:
+    def configuration(self) -> pulumi.Output['outputs.CustomLogSourceConfiguration']:
         """
         The configuration for the third-party custom source.
         """

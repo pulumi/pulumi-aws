@@ -71,7 +71,7 @@ public final class LabelingJobHumanTaskConfig {
      * @return Information about the user interface that workers use to complete the labeling task. Fields are documented below.
      * 
      */
-    private @Nullable LabelingJobHumanTaskConfigUiConfig uiConfig;
+    private LabelingJobHumanTaskConfigUiConfig uiConfig;
     /**
      * @return ARN of the work team assigned to complete the tasks.
      * 
@@ -153,8 +153,8 @@ public final class LabelingJobHumanTaskConfig {
      * @return Information about the user interface that workers use to complete the labeling task. Fields are documented below.
      * 
      */
-    public Optional<LabelingJobHumanTaskConfigUiConfig> uiConfig() {
-        return Optional.ofNullable(this.uiConfig);
+    public LabelingJobHumanTaskConfigUiConfig uiConfig() {
+        return this.uiConfig;
     }
     /**
      * @return ARN of the work team assigned to complete the tasks.
@@ -183,7 +183,7 @@ public final class LabelingJobHumanTaskConfig {
         private @Nullable List<String> taskKeywords;
         private Integer taskTimeLimitInSeconds;
         private String taskTitle;
-        private @Nullable LabelingJobHumanTaskConfigUiConfig uiConfig;
+        private LabelingJobHumanTaskConfigUiConfig uiConfig;
         private String workteamArn;
         public Builder() {}
         public Builder(LabelingJobHumanTaskConfig defaults) {
@@ -274,8 +274,10 @@ public final class LabelingJobHumanTaskConfig {
             return this;
         }
         @CustomType.Setter
-        public Builder uiConfig(@Nullable LabelingJobHumanTaskConfigUiConfig uiConfig) {
-
+        public Builder uiConfig(LabelingJobHumanTaskConfigUiConfig uiConfig) {
+            if (uiConfig == null) {
+              throw new MissingRequiredPropertyException("LabelingJobHumanTaskConfig", "uiConfig");
+            }
             this.uiConfig = uiConfig;
             return this;
         }

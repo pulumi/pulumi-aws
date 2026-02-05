@@ -5002,6 +5002,10 @@ class MultitenantDistributionActiveTrustedKeyGroupItemArgs:
 
 if not MYPY:
     class MultitenantDistributionCacheBehaviorArgsDict(TypedDict):
+        allowed_methods: pulumi.Input['MultitenantDistributionCacheBehaviorAllowedMethodsArgsDict']
+        """
+        Controls which HTTP methods CloudFront processes and forwards to your Amazon S3 bucket or your custom origin.
+        """
         path_pattern: pulumi.Input[_builtins.str]
         """
         Pattern that specifies which requests you want this cache behavior to apply to.
@@ -5013,10 +5017,6 @@ if not MYPY:
         viewer_protocol_policy: pulumi.Input[_builtins.str]
         """
         Use this element to specify the protocol that users can use to access the files in the origin specified by TargetOriginId when a request matches the path pattern in PathPattern. One of `allow-all`, `https-only`, or `redirect-to-https`.
-        """
-        allowed_methods: NotRequired[pulumi.Input['MultitenantDistributionCacheBehaviorAllowedMethodsArgsDict']]
-        """
-        Controls which HTTP methods CloudFront processes and forwards to your Amazon S3 bucket or your custom origin.
         """
         cache_policy_id: NotRequired[pulumi.Input[_builtins.str]]
         """
@@ -5060,10 +5060,10 @@ elif False:
 @pulumi.input_type
 class MultitenantDistributionCacheBehaviorArgs:
     def __init__(__self__, *,
+                 allowed_methods: pulumi.Input['MultitenantDistributionCacheBehaviorAllowedMethodsArgs'],
                  path_pattern: pulumi.Input[_builtins.str],
                  target_origin_id: pulumi.Input[_builtins.str],
                  viewer_protocol_policy: pulumi.Input[_builtins.str],
-                 allowed_methods: Optional[pulumi.Input['MultitenantDistributionCacheBehaviorAllowedMethodsArgs']] = None,
                  cache_policy_id: Optional[pulumi.Input[_builtins.str]] = None,
                  compress: Optional[pulumi.Input[_builtins.bool]] = None,
                  field_level_encryption_id: Optional[pulumi.Input[_builtins.str]] = None,
@@ -5074,10 +5074,10 @@ class MultitenantDistributionCacheBehaviorArgs:
                  response_headers_policy_id: Optional[pulumi.Input[_builtins.str]] = None,
                  trusted_key_groups: Optional[pulumi.Input['MultitenantDistributionCacheBehaviorTrustedKeyGroupsArgs']] = None):
         """
+        :param pulumi.Input['MultitenantDistributionCacheBehaviorAllowedMethodsArgs'] allowed_methods: Controls which HTTP methods CloudFront processes and forwards to your Amazon S3 bucket or your custom origin.
         :param pulumi.Input[_builtins.str] path_pattern: Pattern that specifies which requests you want this cache behavior to apply to.
         :param pulumi.Input[_builtins.str] target_origin_id: Value of ID for the origin that you want CloudFront to route requests to when a request matches the path pattern either for a cache behavior or for the default cache behavior.
         :param pulumi.Input[_builtins.str] viewer_protocol_policy: Use this element to specify the protocol that users can use to access the files in the origin specified by TargetOriginId when a request matches the path pattern in PathPattern. One of `allow-all`, `https-only`, or `redirect-to-https`.
-        :param pulumi.Input['MultitenantDistributionCacheBehaviorAllowedMethodsArgs'] allowed_methods: Controls which HTTP methods CloudFront processes and forwards to your Amazon S3 bucket or your custom origin.
         :param pulumi.Input[_builtins.str] cache_policy_id: Unique identifier of the cache policy that is attached to the cache behavior.
         :param pulumi.Input[_builtins.bool] compress: Whether you want CloudFront to automatically compress content for web requests that include `Accept-Encoding: gzip` in the request header. Default: `false`.
         :param pulumi.Input[_builtins.str] field_level_encryption_id: Field level encryption configuration ID.
@@ -5088,11 +5088,10 @@ class MultitenantDistributionCacheBehaviorArgs:
         :param pulumi.Input[_builtins.str] response_headers_policy_id: Identifier for a response headers policy.
         :param pulumi.Input['MultitenantDistributionCacheBehaviorTrustedKeyGroupsArgs'] trusted_key_groups: List of key group IDs that CloudFront can use to validate signed URLs or signed cookies.
         """
+        pulumi.set(__self__, "allowed_methods", allowed_methods)
         pulumi.set(__self__, "path_pattern", path_pattern)
         pulumi.set(__self__, "target_origin_id", target_origin_id)
         pulumi.set(__self__, "viewer_protocol_policy", viewer_protocol_policy)
-        if allowed_methods is not None:
-            pulumi.set(__self__, "allowed_methods", allowed_methods)
         if cache_policy_id is not None:
             pulumi.set(__self__, "cache_policy_id", cache_policy_id)
         if compress is not None:
@@ -5111,6 +5110,18 @@ class MultitenantDistributionCacheBehaviorArgs:
             pulumi.set(__self__, "response_headers_policy_id", response_headers_policy_id)
         if trusted_key_groups is not None:
             pulumi.set(__self__, "trusted_key_groups", trusted_key_groups)
+
+    @_builtins.property
+    @pulumi.getter(name="allowedMethods")
+    def allowed_methods(self) -> pulumi.Input['MultitenantDistributionCacheBehaviorAllowedMethodsArgs']:
+        """
+        Controls which HTTP methods CloudFront processes and forwards to your Amazon S3 bucket or your custom origin.
+        """
+        return pulumi.get(self, "allowed_methods")
+
+    @allowed_methods.setter
+    def allowed_methods(self, value: pulumi.Input['MultitenantDistributionCacheBehaviorAllowedMethodsArgs']):
+        pulumi.set(self, "allowed_methods", value)
 
     @_builtins.property
     @pulumi.getter(name="pathPattern")
@@ -5147,18 +5158,6 @@ class MultitenantDistributionCacheBehaviorArgs:
     @viewer_protocol_policy.setter
     def viewer_protocol_policy(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "viewer_protocol_policy", value)
-
-    @_builtins.property
-    @pulumi.getter(name="allowedMethods")
-    def allowed_methods(self) -> Optional[pulumi.Input['MultitenantDistributionCacheBehaviorAllowedMethodsArgs']]:
-        """
-        Controls which HTTP methods CloudFront processes and forwards to your Amazon S3 bucket or your custom origin.
-        """
-        return pulumi.get(self, "allowed_methods")
-
-    @allowed_methods.setter
-    def allowed_methods(self, value: Optional[pulumi.Input['MultitenantDistributionCacheBehaviorAllowedMethodsArgs']]):
-        pulumi.set(self, "allowed_methods", value)
 
     @_builtins.property
     @pulumi.getter(name="cachePolicyId")
@@ -5570,6 +5569,10 @@ class MultitenantDistributionCustomErrorResponseArgs:
 
 if not MYPY:
     class MultitenantDistributionDefaultCacheBehaviorArgsDict(TypedDict):
+        allowed_methods: pulumi.Input['MultitenantDistributionDefaultCacheBehaviorAllowedMethodsArgsDict']
+        """
+        Controls which HTTP methods CloudFront processes and forwards to your Amazon S3 bucket or your custom origin.
+        """
         target_origin_id: pulumi.Input[_builtins.str]
         """
         Value of ID for the origin that you want CloudFront to route requests to when a request matches the path pattern either for a cache behavior or for the default cache behavior.
@@ -5577,10 +5580,6 @@ if not MYPY:
         viewer_protocol_policy: pulumi.Input[_builtins.str]
         """
         Use this element to specify the protocol that users can use to access the files in the origin specified by TargetOriginId when a request matches the path pattern in PathPattern. One of `allow-all`, `https-only`, or `redirect-to-https`.
-        """
-        allowed_methods: NotRequired[pulumi.Input['MultitenantDistributionDefaultCacheBehaviorAllowedMethodsArgsDict']]
-        """
-        Controls which HTTP methods CloudFront processes and forwards to your Amazon S3 bucket or your custom origin.
         """
         cache_policy_id: NotRequired[pulumi.Input[_builtins.str]]
         """
@@ -5624,9 +5623,9 @@ elif False:
 @pulumi.input_type
 class MultitenantDistributionDefaultCacheBehaviorArgs:
     def __init__(__self__, *,
+                 allowed_methods: pulumi.Input['MultitenantDistributionDefaultCacheBehaviorAllowedMethodsArgs'],
                  target_origin_id: pulumi.Input[_builtins.str],
                  viewer_protocol_policy: pulumi.Input[_builtins.str],
-                 allowed_methods: Optional[pulumi.Input['MultitenantDistributionDefaultCacheBehaviorAllowedMethodsArgs']] = None,
                  cache_policy_id: Optional[pulumi.Input[_builtins.str]] = None,
                  compress: Optional[pulumi.Input[_builtins.bool]] = None,
                  field_level_encryption_id: Optional[pulumi.Input[_builtins.str]] = None,
@@ -5637,9 +5636,9 @@ class MultitenantDistributionDefaultCacheBehaviorArgs:
                  response_headers_policy_id: Optional[pulumi.Input[_builtins.str]] = None,
                  trusted_key_groups: Optional[pulumi.Input['MultitenantDistributionDefaultCacheBehaviorTrustedKeyGroupsArgs']] = None):
         """
+        :param pulumi.Input['MultitenantDistributionDefaultCacheBehaviorAllowedMethodsArgs'] allowed_methods: Controls which HTTP methods CloudFront processes and forwards to your Amazon S3 bucket or your custom origin.
         :param pulumi.Input[_builtins.str] target_origin_id: Value of ID for the origin that you want CloudFront to route requests to when a request matches the path pattern either for a cache behavior or for the default cache behavior.
         :param pulumi.Input[_builtins.str] viewer_protocol_policy: Use this element to specify the protocol that users can use to access the files in the origin specified by TargetOriginId when a request matches the path pattern in PathPattern. One of `allow-all`, `https-only`, or `redirect-to-https`.
-        :param pulumi.Input['MultitenantDistributionDefaultCacheBehaviorAllowedMethodsArgs'] allowed_methods: Controls which HTTP methods CloudFront processes and forwards to your Amazon S3 bucket or your custom origin.
         :param pulumi.Input[_builtins.str] cache_policy_id: Unique identifier of the cache policy that is attached to the cache behavior.
         :param pulumi.Input[_builtins.bool] compress: Whether you want CloudFront to automatically compress content for web requests that include `Accept-Encoding: gzip` in the request header. Default: `false`.
         :param pulumi.Input[_builtins.str] field_level_encryption_id: Field level encryption configuration ID.
@@ -5650,10 +5649,9 @@ class MultitenantDistributionDefaultCacheBehaviorArgs:
         :param pulumi.Input[_builtins.str] response_headers_policy_id: Identifier for a response headers policy.
         :param pulumi.Input['MultitenantDistributionDefaultCacheBehaviorTrustedKeyGroupsArgs'] trusted_key_groups: List of key group IDs that CloudFront can use to validate signed URLs or signed cookies.
         """
+        pulumi.set(__self__, "allowed_methods", allowed_methods)
         pulumi.set(__self__, "target_origin_id", target_origin_id)
         pulumi.set(__self__, "viewer_protocol_policy", viewer_protocol_policy)
-        if allowed_methods is not None:
-            pulumi.set(__self__, "allowed_methods", allowed_methods)
         if cache_policy_id is not None:
             pulumi.set(__self__, "cache_policy_id", cache_policy_id)
         if compress is not None:
@@ -5672,6 +5670,18 @@ class MultitenantDistributionDefaultCacheBehaviorArgs:
             pulumi.set(__self__, "response_headers_policy_id", response_headers_policy_id)
         if trusted_key_groups is not None:
             pulumi.set(__self__, "trusted_key_groups", trusted_key_groups)
+
+    @_builtins.property
+    @pulumi.getter(name="allowedMethods")
+    def allowed_methods(self) -> pulumi.Input['MultitenantDistributionDefaultCacheBehaviorAllowedMethodsArgs']:
+        """
+        Controls which HTTP methods CloudFront processes and forwards to your Amazon S3 bucket or your custom origin.
+        """
+        return pulumi.get(self, "allowed_methods")
+
+    @allowed_methods.setter
+    def allowed_methods(self, value: pulumi.Input['MultitenantDistributionDefaultCacheBehaviorAllowedMethodsArgs']):
+        pulumi.set(self, "allowed_methods", value)
 
     @_builtins.property
     @pulumi.getter(name="targetOriginId")
@@ -5696,18 +5706,6 @@ class MultitenantDistributionDefaultCacheBehaviorArgs:
     @viewer_protocol_policy.setter
     def viewer_protocol_policy(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "viewer_protocol_policy", value)
-
-    @_builtins.property
-    @pulumi.getter(name="allowedMethods")
-    def allowed_methods(self) -> Optional[pulumi.Input['MultitenantDistributionDefaultCacheBehaviorAllowedMethodsArgs']]:
-        """
-        Controls which HTTP methods CloudFront processes and forwards to your Amazon S3 bucket or your custom origin.
-        """
-        return pulumi.get(self, "allowed_methods")
-
-    @allowed_methods.setter
-    def allowed_methods(self, value: Optional[pulumi.Input['MultitenantDistributionDefaultCacheBehaviorAllowedMethodsArgs']]):
-        pulumi.set(self, "allowed_methods", value)
 
     @_builtins.property
     @pulumi.getter(name="cachePolicyId")
@@ -6456,15 +6454,15 @@ class MultitenantDistributionOriginCustomOriginConfigArgs:
 
 if not MYPY:
     class MultitenantDistributionOriginGroupArgsDict(TypedDict):
+        failover_criteria: pulumi.Input['MultitenantDistributionOriginGroupFailoverCriteriaArgsDict']
+        """
+        Failover criteria for when to failover to the secondary origin. See Failover Criteria below.
+        """
         id: pulumi.Input[_builtins.str]
         """
         Identifier for the distribution.
         """
-        failover_criteria: NotRequired[pulumi.Input['MultitenantDistributionOriginGroupFailoverCriteriaArgsDict']]
-        """
-        Failover criteria for when to failover to the secondary origin. See Failover Criteria below.
-        """
-        members: NotRequired[pulumi.Input[Sequence[pulumi.Input['MultitenantDistributionOriginGroupMemberArgsDict']]]]
+        members: pulumi.Input[Sequence[pulumi.Input['MultitenantDistributionOriginGroupMemberArgsDict']]]
         """
         List of origins in this origin group. Must contain exactly 2 members. See Origin Group Member below.
         """
@@ -6474,19 +6472,29 @@ elif False:
 @pulumi.input_type
 class MultitenantDistributionOriginGroupArgs:
     def __init__(__self__, *,
+                 failover_criteria: pulumi.Input['MultitenantDistributionOriginGroupFailoverCriteriaArgs'],
                  id: pulumi.Input[_builtins.str],
-                 failover_criteria: Optional[pulumi.Input['MultitenantDistributionOriginGroupFailoverCriteriaArgs']] = None,
-                 members: Optional[pulumi.Input[Sequence[pulumi.Input['MultitenantDistributionOriginGroupMemberArgs']]]] = None):
+                 members: pulumi.Input[Sequence[pulumi.Input['MultitenantDistributionOriginGroupMemberArgs']]]):
         """
-        :param pulumi.Input[_builtins.str] id: Identifier for the distribution.
         :param pulumi.Input['MultitenantDistributionOriginGroupFailoverCriteriaArgs'] failover_criteria: Failover criteria for when to failover to the secondary origin. See Failover Criteria below.
+        :param pulumi.Input[_builtins.str] id: Identifier for the distribution.
         :param pulumi.Input[Sequence[pulumi.Input['MultitenantDistributionOriginGroupMemberArgs']]] members: List of origins in this origin group. Must contain exactly 2 members. See Origin Group Member below.
         """
+        pulumi.set(__self__, "failover_criteria", failover_criteria)
         pulumi.set(__self__, "id", id)
-        if failover_criteria is not None:
-            pulumi.set(__self__, "failover_criteria", failover_criteria)
-        if members is not None:
-            pulumi.set(__self__, "members", members)
+        pulumi.set(__self__, "members", members)
+
+    @_builtins.property
+    @pulumi.getter(name="failoverCriteria")
+    def failover_criteria(self) -> pulumi.Input['MultitenantDistributionOriginGroupFailoverCriteriaArgs']:
+        """
+        Failover criteria for when to failover to the secondary origin. See Failover Criteria below.
+        """
+        return pulumi.get(self, "failover_criteria")
+
+    @failover_criteria.setter
+    def failover_criteria(self, value: pulumi.Input['MultitenantDistributionOriginGroupFailoverCriteriaArgs']):
+        pulumi.set(self, "failover_criteria", value)
 
     @_builtins.property
     @pulumi.getter
@@ -6501,27 +6509,15 @@ class MultitenantDistributionOriginGroupArgs:
         pulumi.set(self, "id", value)
 
     @_builtins.property
-    @pulumi.getter(name="failoverCriteria")
-    def failover_criteria(self) -> Optional[pulumi.Input['MultitenantDistributionOriginGroupFailoverCriteriaArgs']]:
-        """
-        Failover criteria for when to failover to the secondary origin. See Failover Criteria below.
-        """
-        return pulumi.get(self, "failover_criteria")
-
-    @failover_criteria.setter
-    def failover_criteria(self, value: Optional[pulumi.Input['MultitenantDistributionOriginGroupFailoverCriteriaArgs']]):
-        pulumi.set(self, "failover_criteria", value)
-
-    @_builtins.property
     @pulumi.getter
-    def members(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MultitenantDistributionOriginGroupMemberArgs']]]]:
+    def members(self) -> pulumi.Input[Sequence[pulumi.Input['MultitenantDistributionOriginGroupMemberArgs']]]:
         """
         List of origins in this origin group. Must contain exactly 2 members. See Origin Group Member below.
         """
         return pulumi.get(self, "members")
 
     @members.setter
-    def members(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['MultitenantDistributionOriginGroupMemberArgs']]]]):
+    def members(self, value: pulumi.Input[Sequence[pulumi.Input['MultitenantDistributionOriginGroupMemberArgs']]]):
         pulumi.set(self, "members", value)
 
 
@@ -6702,7 +6698,7 @@ class MultitenantDistributionOriginVpcOriginConfigArgs:
 
 if not MYPY:
     class MultitenantDistributionRestrictionsArgsDict(TypedDict):
-        geo_restriction: NotRequired[pulumi.Input['MultitenantDistributionRestrictionsGeoRestrictionArgsDict']]
+        geo_restriction: pulumi.Input['MultitenantDistributionRestrictionsGeoRestrictionArgsDict']
         """
         Geographic restriction configuration. See Geo Restriction below.
         """
@@ -6712,23 +6708,22 @@ elif False:
 @pulumi.input_type
 class MultitenantDistributionRestrictionsArgs:
     def __init__(__self__, *,
-                 geo_restriction: Optional[pulumi.Input['MultitenantDistributionRestrictionsGeoRestrictionArgs']] = None):
+                 geo_restriction: pulumi.Input['MultitenantDistributionRestrictionsGeoRestrictionArgs']):
         """
         :param pulumi.Input['MultitenantDistributionRestrictionsGeoRestrictionArgs'] geo_restriction: Geographic restriction configuration. See Geo Restriction below.
         """
-        if geo_restriction is not None:
-            pulumi.set(__self__, "geo_restriction", geo_restriction)
+        pulumi.set(__self__, "geo_restriction", geo_restriction)
 
     @_builtins.property
     @pulumi.getter(name="geoRestriction")
-    def geo_restriction(self) -> Optional[pulumi.Input['MultitenantDistributionRestrictionsGeoRestrictionArgs']]:
+    def geo_restriction(self) -> pulumi.Input['MultitenantDistributionRestrictionsGeoRestrictionArgs']:
         """
         Geographic restriction configuration. See Geo Restriction below.
         """
         return pulumi.get(self, "geo_restriction")
 
     @geo_restriction.setter
-    def geo_restriction(self, value: Optional[pulumi.Input['MultitenantDistributionRestrictionsGeoRestrictionArgs']]):
+    def geo_restriction(self, value: pulumi.Input['MultitenantDistributionRestrictionsGeoRestrictionArgs']):
         pulumi.set(self, "geo_restriction", value)
 
 
@@ -8318,7 +8313,7 @@ class ResponseHeadersPolicyServerTimingHeadersConfigArgs:
 
 if not MYPY:
     class TrustStoreCaCertificatesBundleSourceArgsDict(TypedDict):
-        ca_certificates_bundle_s3_location: NotRequired[pulumi.Input['TrustStoreCaCertificatesBundleSourceCaCertificatesBundleS3LocationArgsDict']]
+        ca_certificates_bundle_s3_location: pulumi.Input['TrustStoreCaCertificatesBundleSourceCaCertificatesBundleS3LocationArgsDict']
         """
         Configuration block for the S3 location of the CA certificates bundle. See `ca_certificates_bundle_s3_location` below.
         """
@@ -8328,23 +8323,22 @@ elif False:
 @pulumi.input_type
 class TrustStoreCaCertificatesBundleSourceArgs:
     def __init__(__self__, *,
-                 ca_certificates_bundle_s3_location: Optional[pulumi.Input['TrustStoreCaCertificatesBundleSourceCaCertificatesBundleS3LocationArgs']] = None):
+                 ca_certificates_bundle_s3_location: pulumi.Input['TrustStoreCaCertificatesBundleSourceCaCertificatesBundleS3LocationArgs']):
         """
         :param pulumi.Input['TrustStoreCaCertificatesBundleSourceCaCertificatesBundleS3LocationArgs'] ca_certificates_bundle_s3_location: Configuration block for the S3 location of the CA certificates bundle. See `ca_certificates_bundle_s3_location` below.
         """
-        if ca_certificates_bundle_s3_location is not None:
-            pulumi.set(__self__, "ca_certificates_bundle_s3_location", ca_certificates_bundle_s3_location)
+        pulumi.set(__self__, "ca_certificates_bundle_s3_location", ca_certificates_bundle_s3_location)
 
     @_builtins.property
     @pulumi.getter(name="caCertificatesBundleS3Location")
-    def ca_certificates_bundle_s3_location(self) -> Optional[pulumi.Input['TrustStoreCaCertificatesBundleSourceCaCertificatesBundleS3LocationArgs']]:
+    def ca_certificates_bundle_s3_location(self) -> pulumi.Input['TrustStoreCaCertificatesBundleSourceCaCertificatesBundleS3LocationArgs']:
         """
         Configuration block for the S3 location of the CA certificates bundle. See `ca_certificates_bundle_s3_location` below.
         """
         return pulumi.get(self, "ca_certificates_bundle_s3_location")
 
     @ca_certificates_bundle_s3_location.setter
-    def ca_certificates_bundle_s3_location(self, value: Optional[pulumi.Input['TrustStoreCaCertificatesBundleSourceCaCertificatesBundleS3LocationArgs']]):
+    def ca_certificates_bundle_s3_location(self, value: pulumi.Input['TrustStoreCaCertificatesBundleSourceCaCertificatesBundleS3LocationArgs']):
         pulumi.set(self, "ca_certificates_bundle_s3_location", value)
 
 
@@ -8603,7 +8597,7 @@ if not MYPY:
         """
         The origin protocol policy for the CloudFront VPC origin endpoint configuration.
         """
-        origin_ssl_protocols: NotRequired[pulumi.Input['VpcOriginVpcOriginEndpointConfigOriginSslProtocolsArgsDict']]
+        origin_ssl_protocols: pulumi.Input['VpcOriginVpcOriginEndpointConfigOriginSslProtocolsArgsDict']
         """
         A complex type that contains information about the SSL/TLS protocols that CloudFront can use when establishing an HTTPS connection with your origin.
         """
@@ -8618,7 +8612,7 @@ class VpcOriginVpcOriginEndpointConfigArgs:
                  https_port: pulumi.Input[_builtins.int],
                  name: pulumi.Input[_builtins.str],
                  origin_protocol_policy: pulumi.Input[_builtins.str],
-                 origin_ssl_protocols: Optional[pulumi.Input['VpcOriginVpcOriginEndpointConfigOriginSslProtocolsArgs']] = None):
+                 origin_ssl_protocols: pulumi.Input['VpcOriginVpcOriginEndpointConfigOriginSslProtocolsArgs']):
         """
         :param pulumi.Input[_builtins.str] arn: The VPC origin ARN.
         :param pulumi.Input[_builtins.int] http_port: The HTTP port for the CloudFront VPC origin endpoint configuration.
@@ -8632,8 +8626,7 @@ class VpcOriginVpcOriginEndpointConfigArgs:
         pulumi.set(__self__, "https_port", https_port)
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "origin_protocol_policy", origin_protocol_policy)
-        if origin_ssl_protocols is not None:
-            pulumi.set(__self__, "origin_ssl_protocols", origin_ssl_protocols)
+        pulumi.set(__self__, "origin_ssl_protocols", origin_ssl_protocols)
 
     @_builtins.property
     @pulumi.getter
@@ -8697,14 +8690,14 @@ class VpcOriginVpcOriginEndpointConfigArgs:
 
     @_builtins.property
     @pulumi.getter(name="originSslProtocols")
-    def origin_ssl_protocols(self) -> Optional[pulumi.Input['VpcOriginVpcOriginEndpointConfigOriginSslProtocolsArgs']]:
+    def origin_ssl_protocols(self) -> pulumi.Input['VpcOriginVpcOriginEndpointConfigOriginSslProtocolsArgs']:
         """
         A complex type that contains information about the SSL/TLS protocols that CloudFront can use when establishing an HTTPS connection with your origin.
         """
         return pulumi.get(self, "origin_ssl_protocols")
 
     @origin_ssl_protocols.setter
-    def origin_ssl_protocols(self, value: Optional[pulumi.Input['VpcOriginVpcOriginEndpointConfigOriginSslProtocolsArgs']]):
+    def origin_ssl_protocols(self, value: pulumi.Input['VpcOriginVpcOriginEndpointConfigOriginSslProtocolsArgs']):
         pulumi.set(self, "origin_ssl_protocols", value)
 
 

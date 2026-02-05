@@ -21,23 +21,24 @@ __all__ = ['TlsInspectionConfigurationArgs', 'TlsInspectionConfiguration']
 @pulumi.input_type
 class TlsInspectionConfigurationArgs:
     def __init__(__self__, *,
+                 tls_inspection_configuration: pulumi.Input['TlsInspectionConfigurationTlsInspectionConfigurationArgs'],
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  encryption_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['TlsInspectionConfigurationEncryptionConfigurationArgs']]]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: Optional[pulumi.Input['TlsInspectionConfigurationTimeoutsArgs']] = None,
-                 tls_inspection_configuration: Optional[pulumi.Input['TlsInspectionConfigurationTlsInspectionConfigurationArgs']] = None):
+                 timeouts: Optional[pulumi.Input['TlsInspectionConfigurationTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a TlsInspectionConfiguration resource.
+        :param pulumi.Input['TlsInspectionConfigurationTlsInspectionConfigurationArgs'] tls_inspection_configuration: TLS inspection configuration block. Detailed below.
+               
+               The following arguments are optional:
         :param pulumi.Input[_builtins.str] description: Description of the TLS inspection configuration.
         :param pulumi.Input[Sequence[pulumi.Input['TlsInspectionConfigurationEncryptionConfigurationArgs']]] encryption_configurations: Encryption configuration block. Detailed below.
         :param pulumi.Input[_builtins.str] name: Descriptive name of the TLS inspection configuration.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input['TlsInspectionConfigurationTlsInspectionConfigurationArgs'] tls_inspection_configuration: TLS inspection configuration block. Detailed below.
-               
-               The following arguments are optional:
         """
+        pulumi.set(__self__, "tls_inspection_configuration", tls_inspection_configuration)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if encryption_configurations is not None:
@@ -50,8 +51,20 @@ class TlsInspectionConfigurationArgs:
             pulumi.set(__self__, "tags", tags)
         if timeouts is not None:
             pulumi.set(__self__, "timeouts", timeouts)
-        if tls_inspection_configuration is not None:
-            pulumi.set(__self__, "tls_inspection_configuration", tls_inspection_configuration)
+
+    @_builtins.property
+    @pulumi.getter(name="tlsInspectionConfiguration")
+    def tls_inspection_configuration(self) -> pulumi.Input['TlsInspectionConfigurationTlsInspectionConfigurationArgs']:
+        """
+        TLS inspection configuration block. Detailed below.
+
+        The following arguments are optional:
+        """
+        return pulumi.get(self, "tls_inspection_configuration")
+
+    @tls_inspection_configuration.setter
+    def tls_inspection_configuration(self, value: pulumi.Input['TlsInspectionConfigurationTlsInspectionConfigurationArgs']):
+        pulumi.set(self, "tls_inspection_configuration", value)
 
     @_builtins.property
     @pulumi.getter
@@ -118,20 +131,6 @@ class TlsInspectionConfigurationArgs:
     @timeouts.setter
     def timeouts(self, value: Optional[pulumi.Input['TlsInspectionConfigurationTimeoutsArgs']]):
         pulumi.set(self, "timeouts", value)
-
-    @_builtins.property
-    @pulumi.getter(name="tlsInspectionConfiguration")
-    def tls_inspection_configuration(self) -> Optional[pulumi.Input['TlsInspectionConfigurationTlsInspectionConfigurationArgs']]:
-        """
-        TLS inspection configuration block. Detailed below.
-
-        The following arguments are optional:
-        """
-        return pulumi.get(self, "tls_inspection_configuration")
-
-    @tls_inspection_configuration.setter
-    def tls_inspection_configuration(self, value: Optional[pulumi.Input['TlsInspectionConfigurationTlsInspectionConfigurationArgs']]):
-        pulumi.set(self, "tls_inspection_configuration", value)
 
 
 @pulumi.input_type
@@ -615,7 +614,7 @@ class TlsInspectionConfiguration(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: Optional[TlsInspectionConfigurationArgs] = None,
+                 args: TlsInspectionConfigurationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Resource for managing an AWS Network Firewall TLS Inspection Configuration.
@@ -883,6 +882,8 @@ class TlsInspectionConfiguration(pulumi.CustomResource):
             __props__.__dict__["region"] = region
             __props__.__dict__["tags"] = tags
             __props__.__dict__["timeouts"] = timeouts
+            if tls_inspection_configuration is None and not opts.urn:
+                raise TypeError("Missing required property 'tls_inspection_configuration'")
             __props__.__dict__["tls_inspection_configuration"] = tls_inspection_configuration
             __props__.__dict__["arn"] = None
             __props__.__dict__["certificate_authorities"] = None
@@ -1037,7 +1038,7 @@ class TlsInspectionConfiguration(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="tlsInspectionConfiguration")
-    def tls_inspection_configuration(self) -> pulumi.Output[Optional['outputs.TlsInspectionConfigurationTlsInspectionConfiguration']]:
+    def tls_inspection_configuration(self) -> pulumi.Output['outputs.TlsInspectionConfigurationTlsInspectionConfiguration']:
         """
         TLS inspection configuration block. Detailed below.
 

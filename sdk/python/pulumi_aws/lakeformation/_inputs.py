@@ -123,6 +123,10 @@ if not MYPY:
         """
         The name of the data cells filter.
         """
+        row_filter: pulumi.Input['DataCellsFilterTableDataRowFilterArgsDict']
+        """
+        A PartiQL predicate. See Row Filter below for details.
+        """
         table_catalog_id: pulumi.Input[_builtins.str]
         """
         The ID of the Data Catalog.
@@ -139,10 +143,6 @@ if not MYPY:
         """
         A wildcard with exclusions. See Column Wildcard below for details.
         """
-        row_filter: NotRequired[pulumi.Input['DataCellsFilterTableDataRowFilterArgsDict']]
-        """
-        A PartiQL predicate. See Row Filter below for details.
-        """
         version_id: NotRequired[pulumi.Input[_builtins.str]]
         """
         ID of the data cells filter version.
@@ -155,32 +155,31 @@ class DataCellsFilterTableDataArgs:
     def __init__(__self__, *,
                  database_name: pulumi.Input[_builtins.str],
                  name: pulumi.Input[_builtins.str],
+                 row_filter: pulumi.Input['DataCellsFilterTableDataRowFilterArgs'],
                  table_catalog_id: pulumi.Input[_builtins.str],
                  table_name: pulumi.Input[_builtins.str],
                  column_names: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  column_wildcard: Optional[pulumi.Input['DataCellsFilterTableDataColumnWildcardArgs']] = None,
-                 row_filter: Optional[pulumi.Input['DataCellsFilterTableDataRowFilterArgs']] = None,
                  version_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] database_name: The name of the database.
         :param pulumi.Input[_builtins.str] name: The name of the data cells filter.
+        :param pulumi.Input['DataCellsFilterTableDataRowFilterArgs'] row_filter: A PartiQL predicate. See Row Filter below for details.
         :param pulumi.Input[_builtins.str] table_catalog_id: The ID of the Data Catalog.
         :param pulumi.Input[_builtins.str] table_name: The name of the table.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] column_names: A list of column names and/or nested column attributes.
         :param pulumi.Input['DataCellsFilterTableDataColumnWildcardArgs'] column_wildcard: A wildcard with exclusions. See Column Wildcard below for details.
-        :param pulumi.Input['DataCellsFilterTableDataRowFilterArgs'] row_filter: A PartiQL predicate. See Row Filter below for details.
         :param pulumi.Input[_builtins.str] version_id: ID of the data cells filter version.
         """
         pulumi.set(__self__, "database_name", database_name)
         pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "row_filter", row_filter)
         pulumi.set(__self__, "table_catalog_id", table_catalog_id)
         pulumi.set(__self__, "table_name", table_name)
         if column_names is not None:
             pulumi.set(__self__, "column_names", column_names)
         if column_wildcard is not None:
             pulumi.set(__self__, "column_wildcard", column_wildcard)
-        if row_filter is not None:
-            pulumi.set(__self__, "row_filter", row_filter)
         if version_id is not None:
             pulumi.set(__self__, "version_id", version_id)
 
@@ -207,6 +206,18 @@ class DataCellsFilterTableDataArgs:
     @name.setter
     def name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="rowFilter")
+    def row_filter(self) -> pulumi.Input['DataCellsFilterTableDataRowFilterArgs']:
+        """
+        A PartiQL predicate. See Row Filter below for details.
+        """
+        return pulumi.get(self, "row_filter")
+
+    @row_filter.setter
+    def row_filter(self, value: pulumi.Input['DataCellsFilterTableDataRowFilterArgs']):
+        pulumi.set(self, "row_filter", value)
 
     @_builtins.property
     @pulumi.getter(name="tableCatalogId")
@@ -255,18 +266,6 @@ class DataCellsFilterTableDataArgs:
     @column_wildcard.setter
     def column_wildcard(self, value: Optional[pulumi.Input['DataCellsFilterTableDataColumnWildcardArgs']]):
         pulumi.set(self, "column_wildcard", value)
-
-    @_builtins.property
-    @pulumi.getter(name="rowFilter")
-    def row_filter(self) -> Optional[pulumi.Input['DataCellsFilterTableDataRowFilterArgs']]:
-        """
-        A PartiQL predicate. See Row Filter below for details.
-        """
-        return pulumi.get(self, "row_filter")
-
-    @row_filter.setter
-    def row_filter(self, value: Optional[pulumi.Input['DataCellsFilterTableDataRowFilterArgs']]):
-        pulumi.set(self, "row_filter", value)
 
     @_builtins.property
     @pulumi.getter(name="versionId")

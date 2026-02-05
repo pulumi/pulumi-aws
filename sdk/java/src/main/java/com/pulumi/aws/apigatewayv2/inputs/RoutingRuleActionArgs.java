@@ -6,9 +6,8 @@ package com.pulumi.aws.apigatewayv2.inputs;
 import com.pulumi.aws.apigatewayv2.inputs.RoutingRuleActionInvokeApiArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.Objects;
-import java.util.Optional;
-import javax.annotation.Nullable;
 
 
 public final class RoutingRuleActionArgs extends com.pulumi.resources.ResourceArgs {
@@ -19,15 +18,15 @@ public final class RoutingRuleActionArgs extends com.pulumi.resources.ResourceAr
      * Configuration to invoke a stage of a target API. Only REST APIs are supported. See below.
      * 
      */
-    @Import(name="invokeApi")
-    private @Nullable Output<RoutingRuleActionInvokeApiArgs> invokeApi;
+    @Import(name="invokeApi", required=true)
+    private Output<RoutingRuleActionInvokeApiArgs> invokeApi;
 
     /**
      * @return Configuration to invoke a stage of a target API. Only REST APIs are supported. See below.
      * 
      */
-    public Optional<Output<RoutingRuleActionInvokeApiArgs>> invokeApi() {
-        return Optional.ofNullable(this.invokeApi);
+    public Output<RoutingRuleActionInvokeApiArgs> invokeApi() {
+        return this.invokeApi;
     }
 
     private RoutingRuleActionArgs() {}
@@ -60,7 +59,7 @@ public final class RoutingRuleActionArgs extends com.pulumi.resources.ResourceAr
          * @return builder
          * 
          */
-        public Builder invokeApi(@Nullable Output<RoutingRuleActionInvokeApiArgs> invokeApi) {
+        public Builder invokeApi(Output<RoutingRuleActionInvokeApiArgs> invokeApi) {
             $.invokeApi = invokeApi;
             return this;
         }
@@ -76,6 +75,9 @@ public final class RoutingRuleActionArgs extends com.pulumi.resources.ResourceAr
         }
 
         public RoutingRuleActionArgs build() {
+            if ($.invokeApi == null) {
+                throw new MissingRequiredPropertyException("RoutingRuleActionArgs", "invokeApi");
+            }
             return $;
         }
     }

@@ -20,19 +20,19 @@ namespace Pulumi.Aws.S3.Outputs
         /// <summary>
         /// Inventory table configuration. See `InventoryTableConfiguration` Block for details.
         /// </summary>
-        public readonly Outputs.BucketMetadataConfigurationMetadataConfigurationInventoryTableConfiguration? InventoryTableConfiguration;
+        public readonly Outputs.BucketMetadataConfigurationMetadataConfigurationInventoryTableConfiguration InventoryTableConfiguration;
         /// <summary>
         /// Journal table configuration. See `JournalTableConfiguration` Block for details.
         /// </summary>
-        public readonly Outputs.BucketMetadataConfigurationMetadataConfigurationJournalTableConfiguration? JournalTableConfiguration;
+        public readonly Outputs.BucketMetadataConfigurationMetadataConfigurationJournalTableConfiguration JournalTableConfiguration;
 
         [OutputConstructor]
         private BucketMetadataConfigurationMetadataConfiguration(
             ImmutableArray<Outputs.BucketMetadataConfigurationMetadataConfigurationDestination> destinations,
 
-            Outputs.BucketMetadataConfigurationMetadataConfigurationInventoryTableConfiguration? inventoryTableConfiguration,
+            Outputs.BucketMetadataConfigurationMetadataConfigurationInventoryTableConfiguration inventoryTableConfiguration,
 
-            Outputs.BucketMetadataConfigurationMetadataConfigurationJournalTableConfiguration? journalTableConfiguration)
+            Outputs.BucketMetadataConfigurationMetadataConfigurationJournalTableConfiguration journalTableConfiguration)
         {
             Destinations = destinations;
             InventoryTableConfiguration = inventoryTableConfiguration;

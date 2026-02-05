@@ -67,7 +67,7 @@ namespace Pulumi.Aws.LakeFormation
         /// Information about the data cells filter. See Table Data below for details.
         /// </summary>
         [Output("tableData")]
-        public Output<Outputs.DataCellsFilterTableData?> TableData { get; private set; } = null!;
+        public Output<Outputs.DataCellsFilterTableData> TableData { get; private set; } = null!;
 
         [Output("timeouts")]
         public Output<Outputs.DataCellsFilterTimeouts?> Timeouts { get; private set; } = null!;
@@ -80,7 +80,7 @@ namespace Pulumi.Aws.LakeFormation
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public DataCellsFilter(string name, DataCellsFilterArgs? args = null, CustomResourceOptions? options = null)
+        public DataCellsFilter(string name, DataCellsFilterArgs args, CustomResourceOptions? options = null)
             : base("aws:lakeformation/dataCellsFilter:DataCellsFilter", name, args ?? new DataCellsFilterArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -127,8 +127,8 @@ namespace Pulumi.Aws.LakeFormation
         /// <summary>
         /// Information about the data cells filter. See Table Data below for details.
         /// </summary>
-        [Input("tableData")]
-        public Input<Inputs.DataCellsFilterTableDataArgs>? TableData { get; set; }
+        [Input("tableData", required: true)]
+        public Input<Inputs.DataCellsFilterTableDataArgs> TableData { get; set; } = null!;
 
         [Input("timeouts")]
         public Input<Inputs.DataCellsFilterTimeoutsArgs>? Timeouts { get; set; }

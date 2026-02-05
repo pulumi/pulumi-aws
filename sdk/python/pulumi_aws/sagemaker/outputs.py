@@ -8947,6 +8947,8 @@ class LabelingJobHumanTaskConfig(dict):
             suggest = "task_time_limit_in_seconds"
         elif key == "taskTitle":
             suggest = "task_title"
+        elif key == "uiConfig":
+            suggest = "ui_config"
         elif key == "workteamArn":
             suggest = "workteam_arn"
         elif key == "annotationConsolidationConfig":
@@ -8961,8 +8963,6 @@ class LabelingJobHumanTaskConfig(dict):
             suggest = "task_availability_lifetime_in_seconds"
         elif key == "taskKeywords":
             suggest = "task_keywords"
-        elif key == "uiConfig":
-            suggest = "ui_config"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in LabelingJobHumanTaskConfig. Access the value via the '{suggest}' property getter instead.")
@@ -8980,19 +8980,20 @@ class LabelingJobHumanTaskConfig(dict):
                  task_description: _builtins.str,
                  task_time_limit_in_seconds: _builtins.int,
                  task_title: _builtins.str,
+                 ui_config: 'outputs.LabelingJobHumanTaskConfigUiConfig',
                  workteam_arn: _builtins.str,
                  annotation_consolidation_config: Optional['outputs.LabelingJobHumanTaskConfigAnnotationConsolidationConfig'] = None,
                  max_concurrent_task_count: Optional[_builtins.int] = None,
                  pre_human_task_lambda_arn: Optional[_builtins.str] = None,
                  public_workforce_task_price: Optional['outputs.LabelingJobHumanTaskConfigPublicWorkforceTaskPrice'] = None,
                  task_availability_lifetime_in_seconds: Optional[_builtins.int] = None,
-                 task_keywords: Optional[Sequence[_builtins.str]] = None,
-                 ui_config: Optional['outputs.LabelingJobHumanTaskConfigUiConfig'] = None):
+                 task_keywords: Optional[Sequence[_builtins.str]] = None):
         """
         :param _builtins.int number_of_human_workers_per_data_object: Number of human workers that will label an object.
         :param _builtins.str task_description: Description of the task.
         :param _builtins.int task_time_limit_in_seconds: Amount of time that a worker has to complete a task.
         :param _builtins.str task_title: Title for the task.
+        :param 'LabelingJobHumanTaskConfigUiConfigArgs' ui_config: Information about the user interface that workers use to complete the labeling task. Fields are documented below.
         :param _builtins.str workteam_arn: ARN of the work team assigned to complete the tasks.
         :param 'LabelingJobHumanTaskConfigAnnotationConsolidationConfigArgs' annotation_consolidation_config: How labels are consolidated across human workers. Fields are documented below.
         :param _builtins.int max_concurrent_task_count: Maximum number of data objects that can be labeled by human workers at the same time.
@@ -9000,12 +9001,12 @@ class LabelingJobHumanTaskConfig(dict):
         :param 'LabelingJobHumanTaskConfigPublicWorkforceTaskPriceArgs' public_workforce_task_price: Price to pay for each task performed by an Amazon Mechanical Turk worker. Fields are documented below.
         :param _builtins.int task_availability_lifetime_in_seconds: length of time that a task remains available for labeling by human workers.
         :param Sequence[_builtins.str] task_keywords: Keywords used to describe the task.
-        :param 'LabelingJobHumanTaskConfigUiConfigArgs' ui_config: Information about the user interface that workers use to complete the labeling task. Fields are documented below.
         """
         pulumi.set(__self__, "number_of_human_workers_per_data_object", number_of_human_workers_per_data_object)
         pulumi.set(__self__, "task_description", task_description)
         pulumi.set(__self__, "task_time_limit_in_seconds", task_time_limit_in_seconds)
         pulumi.set(__self__, "task_title", task_title)
+        pulumi.set(__self__, "ui_config", ui_config)
         pulumi.set(__self__, "workteam_arn", workteam_arn)
         if annotation_consolidation_config is not None:
             pulumi.set(__self__, "annotation_consolidation_config", annotation_consolidation_config)
@@ -9019,8 +9020,6 @@ class LabelingJobHumanTaskConfig(dict):
             pulumi.set(__self__, "task_availability_lifetime_in_seconds", task_availability_lifetime_in_seconds)
         if task_keywords is not None:
             pulumi.set(__self__, "task_keywords", task_keywords)
-        if ui_config is not None:
-            pulumi.set(__self__, "ui_config", ui_config)
 
     @_builtins.property
     @pulumi.getter(name="numberOfHumanWorkersPerDataObject")
@@ -9053,6 +9052,14 @@ class LabelingJobHumanTaskConfig(dict):
         Title for the task.
         """
         return pulumi.get(self, "task_title")
+
+    @_builtins.property
+    @pulumi.getter(name="uiConfig")
+    def ui_config(self) -> 'outputs.LabelingJobHumanTaskConfigUiConfig':
+        """
+        Information about the user interface that workers use to complete the labeling task. Fields are documented below.
+        """
+        return pulumi.get(self, "ui_config")
 
     @_builtins.property
     @pulumi.getter(name="workteamArn")
@@ -9109,14 +9116,6 @@ class LabelingJobHumanTaskConfig(dict):
         Keywords used to describe the task.
         """
         return pulumi.get(self, "task_keywords")
-
-    @_builtins.property
-    @pulumi.getter(name="uiConfig")
-    def ui_config(self) -> Optional['outputs.LabelingJobHumanTaskConfigUiConfig']:
-        """
-        Information about the user interface that workers use to complete the labeling task. Fields are documented below.
-        """
-        return pulumi.get(self, "ui_config")
 
 
 @pulumi.output_type
@@ -9305,10 +9304,10 @@ class LabelingJobInputConfig(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "dataAttributes":
-            suggest = "data_attributes"
-        elif key == "dataSource":
+        if key == "dataSource":
             suggest = "data_source"
+        elif key == "dataAttributes":
+            suggest = "data_attributes"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in LabelingJobInputConfig. Access the value via the '{suggest}' property getter instead.")
@@ -9322,16 +9321,23 @@ class LabelingJobInputConfig(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 data_attributes: Optional['outputs.LabelingJobInputConfigDataAttributes'] = None,
-                 data_source: Optional['outputs.LabelingJobInputConfigDataSource'] = None):
+                 data_source: 'outputs.LabelingJobInputConfigDataSource',
+                 data_attributes: Optional['outputs.LabelingJobInputConfigDataAttributes'] = None):
         """
-        :param 'LabelingJobInputConfigDataAttributesArgs' data_attributes: Attributes of the data. Fields are documented below.
         :param 'LabelingJobInputConfigDataSourceArgs' data_source: Location of the input data.. Fields are documented below.
+        :param 'LabelingJobInputConfigDataAttributesArgs' data_attributes: Attributes of the data. Fields are documented below.
         """
+        pulumi.set(__self__, "data_source", data_source)
         if data_attributes is not None:
             pulumi.set(__self__, "data_attributes", data_attributes)
-        if data_source is not None:
-            pulumi.set(__self__, "data_source", data_source)
+
+    @_builtins.property
+    @pulumi.getter(name="dataSource")
+    def data_source(self) -> 'outputs.LabelingJobInputConfigDataSource':
+        """
+        Location of the input data.. Fields are documented below.
+        """
+        return pulumi.get(self, "data_source")
 
     @_builtins.property
     @pulumi.getter(name="dataAttributes")
@@ -9340,14 +9346,6 @@ class LabelingJobInputConfig(dict):
         Attributes of the data. Fields are documented below.
         """
         return pulumi.get(self, "data_attributes")
-
-    @_builtins.property
-    @pulumi.getter(name="dataSource")
-    def data_source(self) -> Optional['outputs.LabelingJobInputConfigDataSource']:
-        """
-        Location of the input data.. Fields are documented below.
-        """
-        return pulumi.get(self, "data_source")
 
 
 @pulumi.output_type

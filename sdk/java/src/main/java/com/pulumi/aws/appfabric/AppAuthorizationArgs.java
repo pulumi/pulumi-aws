@@ -71,16 +71,16 @@ public final class AppAuthorizationArgs extends com.pulumi.resources.ResourceArg
      * Specify credentials that match the authorization type for your request. For example, if the authorization type for your request is OAuth2 (oauth2), then you should provide only the OAuth2 credentials.
      * 
      */
-    @Import(name="credential")
-    private @Nullable Output<AppAuthorizationCredentialArgs> credential;
+    @Import(name="credential", required=true)
+    private Output<AppAuthorizationCredentialArgs> credential;
 
     /**
      * @return Contains credentials for the application, such as an API key or OAuth2 client ID and secret.
      * Specify credentials that match the authorization type for your request. For example, if the authorization type for your request is OAuth2 (oauth2), then you should provide only the OAuth2 credentials.
      * 
      */
-    public Optional<Output<AppAuthorizationCredentialArgs>> credential() {
-        return Optional.ofNullable(this.credential);
+    public Output<AppAuthorizationCredentialArgs> credential() {
+        return this.credential;
     }
 
     /**
@@ -109,15 +109,15 @@ public final class AppAuthorizationArgs extends com.pulumi.resources.ResourceArg
      * Contains information about an application tenant, such as the application display name and identifier.
      * 
      */
-    @Import(name="tenants")
-    private @Nullable Output<List<AppAuthorizationTenantArgs>> tenants;
+    @Import(name="tenants", required=true)
+    private Output<List<AppAuthorizationTenantArgs>> tenants;
 
     /**
      * @return Contains information about an application tenant, such as the application display name and identifier.
      * 
      */
-    public Optional<Output<List<AppAuthorizationTenantArgs>>> tenants() {
-        return Optional.ofNullable(this.tenants);
+    public Output<List<AppAuthorizationTenantArgs>> tenants() {
+        return this.tenants;
     }
 
     @Import(name="timeouts")
@@ -228,7 +228,7 @@ public final class AppAuthorizationArgs extends com.pulumi.resources.ResourceArg
          * @return builder
          * 
          */
-        public Builder credential(@Nullable Output<AppAuthorizationCredentialArgs> credential) {
+        public Builder credential(Output<AppAuthorizationCredentialArgs> credential) {
             $.credential = credential;
             return this;
         }
@@ -280,7 +280,7 @@ public final class AppAuthorizationArgs extends com.pulumi.resources.ResourceArg
          * @return builder
          * 
          */
-        public Builder tenants(@Nullable Output<List<AppAuthorizationTenantArgs>> tenants) {
+        public Builder tenants(Output<List<AppAuthorizationTenantArgs>> tenants) {
             $.tenants = tenants;
             return this;
         }
@@ -323,6 +323,12 @@ public final class AppAuthorizationArgs extends com.pulumi.resources.ResourceArg
             }
             if ($.authType == null) {
                 throw new MissingRequiredPropertyException("AppAuthorizationArgs", "authType");
+            }
+            if ($.credential == null) {
+                throw new MissingRequiredPropertyException("AppAuthorizationArgs", "credential");
+            }
+            if ($.tenants == null) {
+                throw new MissingRequiredPropertyException("AppAuthorizationArgs", "tenants");
             }
             return $;
         }

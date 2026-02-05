@@ -29,15 +29,15 @@ public final class CustomPermissionsArgs extends com.pulumi.resources.ResourceAr
      * Actions to include in the custom permissions profile. See capabilities.
      * 
      */
-    @Import(name="capabilities")
-    private @Nullable Output<CustomPermissionsCapabilitiesArgs> capabilities;
+    @Import(name="capabilities", required=true)
+    private Output<CustomPermissionsCapabilitiesArgs> capabilities;
 
     /**
      * @return Actions to include in the custom permissions profile. See capabilities.
      * 
      */
-    public Optional<Output<CustomPermissionsCapabilitiesArgs>> capabilities() {
-        return Optional.ofNullable(this.capabilities);
+    public Output<CustomPermissionsCapabilitiesArgs> capabilities() {
+        return this.capabilities;
     }
 
     /**
@@ -132,7 +132,7 @@ public final class CustomPermissionsArgs extends com.pulumi.resources.ResourceAr
          * @return builder
          * 
          */
-        public Builder capabilities(@Nullable Output<CustomPermissionsCapabilitiesArgs> capabilities) {
+        public Builder capabilities(Output<CustomPermissionsCapabilitiesArgs> capabilities) {
             $.capabilities = capabilities;
             return this;
         }
@@ -215,6 +215,9 @@ public final class CustomPermissionsArgs extends com.pulumi.resources.ResourceAr
         }
 
         public CustomPermissionsArgs build() {
+            if ($.capabilities == null) {
+                throw new MissingRequiredPropertyException("CustomPermissionsArgs", "capabilities");
+            }
             if ($.customPermissionsName == null) {
                 throw new MissingRequiredPropertyException("CustomPermissionsArgs", "customPermissionsName");
             }

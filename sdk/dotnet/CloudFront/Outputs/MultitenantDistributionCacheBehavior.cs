@@ -16,7 +16,7 @@ namespace Pulumi.Aws.CloudFront.Outputs
         /// <summary>
         /// Controls which HTTP methods CloudFront processes and forwards to your Amazon S3 bucket or your custom origin.
         /// </summary>
-        public readonly Outputs.MultitenantDistributionCacheBehaviorAllowedMethods? AllowedMethods;
+        public readonly Outputs.MultitenantDistributionCacheBehaviorAllowedMethods AllowedMethods;
         /// <summary>
         /// Unique identifier of the cache policy that is attached to the cache behavior.
         /// </summary>
@@ -68,7 +68,7 @@ namespace Pulumi.Aws.CloudFront.Outputs
 
         [OutputConstructor]
         private MultitenantDistributionCacheBehavior(
-            Outputs.MultitenantDistributionCacheBehaviorAllowedMethods? allowedMethods,
+            Outputs.MultitenantDistributionCacheBehaviorAllowedMethods allowedMethods,
 
             string? cachePolicyId,
 

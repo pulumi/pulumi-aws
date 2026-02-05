@@ -15,8 +15,8 @@ namespace Pulumi.Aws.Networkflowmonitor.Inputs
         /// <summary>
         /// The identifier for a target, which is currently always an account ID.
         /// </summary>
-        [Input("targetId")]
-        public Input<Inputs.ScopeTargetTargetIdentifierTargetIdGetArgs>? TargetId { get; set; }
+        [Input("targetId", required: true)]
+        public Input<Inputs.ScopeTargetTargetIdentifierTargetIdGetArgs> TargetId { get; set; } = null!;
 
         /// <summary>
         /// The type of a target. A target type is currently always `ACCOUNT`.

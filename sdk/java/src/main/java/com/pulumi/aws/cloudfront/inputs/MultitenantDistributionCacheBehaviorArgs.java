@@ -26,15 +26,15 @@ public final class MultitenantDistributionCacheBehaviorArgs extends com.pulumi.r
      * Controls which HTTP methods CloudFront processes and forwards to your Amazon S3 bucket or your custom origin.
      * 
      */
-    @Import(name="allowedMethods")
-    private @Nullable Output<MultitenantDistributionCacheBehaviorAllowedMethodsArgs> allowedMethods;
+    @Import(name="allowedMethods", required=true)
+    private Output<MultitenantDistributionCacheBehaviorAllowedMethodsArgs> allowedMethods;
 
     /**
      * @return Controls which HTTP methods CloudFront processes and forwards to your Amazon S3 bucket or your custom origin.
      * 
      */
-    public Optional<Output<MultitenantDistributionCacheBehaviorAllowedMethodsArgs>> allowedMethods() {
-        return Optional.ofNullable(this.allowedMethods);
+    public Output<MultitenantDistributionCacheBehaviorAllowedMethodsArgs> allowedMethods() {
+        return this.allowedMethods;
     }
 
     /**
@@ -259,7 +259,7 @@ public final class MultitenantDistributionCacheBehaviorArgs extends com.pulumi.r
          * @return builder
          * 
          */
-        public Builder allowedMethods(@Nullable Output<MultitenantDistributionCacheBehaviorAllowedMethodsArgs> allowedMethods) {
+        public Builder allowedMethods(Output<MultitenantDistributionCacheBehaviorAllowedMethodsArgs> allowedMethods) {
             $.allowedMethods = allowedMethods;
             return this;
         }
@@ -547,6 +547,9 @@ public final class MultitenantDistributionCacheBehaviorArgs extends com.pulumi.r
         }
 
         public MultitenantDistributionCacheBehaviorArgs build() {
+            if ($.allowedMethods == null) {
+                throw new MissingRequiredPropertyException("MultitenantDistributionCacheBehaviorArgs", "allowedMethods");
+            }
             if ($.pathPattern == null) {
                 throw new MissingRequiredPropertyException("MultitenantDistributionCacheBehaviorArgs", "pathPattern");
             }

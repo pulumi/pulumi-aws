@@ -87,12 +87,15 @@ namespace Pulumi.Aws.CodeBuild
     ///         },
     ///         Name = "example",
     ///         Repository = exampleGithubRepository.Name,
-    ///         Configuration = new Github.Inputs.RepositoryWebhookConfigurationArgs
+    ///         Configuration = new[]
     ///         {
-    ///             Url = example.PayloadUrl,
-    ///             Secret = example.Secret,
-    ///             ContentType = "json",
-    ///             InsecureSsl = false,
+    ///             
+    ///             {
+    ///                 { "url", example.PayloadUrl },
+    ///                 { "secret", example.Secret },
+    ///                 { "contentType", "json" },
+    ///                 { "insecureSsl", false },
+    ///             },
     ///         },
     ///     });
     /// 

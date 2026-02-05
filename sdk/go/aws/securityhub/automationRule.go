@@ -92,7 +92,7 @@ type AutomationRule struct {
 	// The ARN of the Security Hub automation rule.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// A block that specifies a set of ASFF finding field attributes and corresponding expected values that Security Hub uses to filter findings. Documented below.
-	Criteria AutomationRuleCriteriaPtrOutput `pulumi:"criteria"`
+	Criteria AutomationRuleCriteriaOutput `pulumi:"criteria"`
 	// The description of the rule.
 	Description pulumi.StringOutput `pulumi:"description"`
 	// Specifies whether a rule is the last to be applied with respect to a finding that matches the rule criteria. Defaults to `false`.
@@ -116,6 +116,12 @@ func NewAutomationRule(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
+	if args.Actions == nil {
+		return nil, errors.New("invalid value for required argument 'Actions'")
+	}
+	if args.Criteria == nil {
+		return nil, errors.New("invalid value for required argument 'Criteria'")
+	}
 	if args.Description == nil {
 		return nil, errors.New("invalid value for required argument 'Description'")
 	}
@@ -201,7 +207,7 @@ type automationRuleArgs struct {
 	// A block that specifies one or more actions to update finding fields if a finding matches the conditions specified in `Criteria`. Documented below.
 	Actions []AutomationRuleAction `pulumi:"actions"`
 	// A block that specifies a set of ASFF finding field attributes and corresponding expected values that Security Hub uses to filter findings. Documented below.
-	Criteria *AutomationRuleCriteria `pulumi:"criteria"`
+	Criteria AutomationRuleCriteria `pulumi:"criteria"`
 	// The description of the rule.
 	Description string `pulumi:"description"`
 	// Specifies whether a rule is the last to be applied with respect to a finding that matches the rule criteria. Defaults to `false`.
@@ -222,7 +228,7 @@ type AutomationRuleArgs struct {
 	// A block that specifies one or more actions to update finding fields if a finding matches the conditions specified in `Criteria`. Documented below.
 	Actions AutomationRuleActionArrayInput
 	// A block that specifies a set of ASFF finding field attributes and corresponding expected values that Security Hub uses to filter findings. Documented below.
-	Criteria AutomationRuleCriteriaPtrInput
+	Criteria AutomationRuleCriteriaInput
 	// The description of the rule.
 	Description pulumi.StringInput
 	// Specifies whether a rule is the last to be applied with respect to a finding that matches the rule criteria. Defaults to `false`.
@@ -336,8 +342,8 @@ func (o AutomationRuleOutput) Arn() pulumi.StringOutput {
 }
 
 // A block that specifies a set of ASFF finding field attributes and corresponding expected values that Security Hub uses to filter findings. Documented below.
-func (o AutomationRuleOutput) Criteria() AutomationRuleCriteriaPtrOutput {
-	return o.ApplyT(func(v *AutomationRule) AutomationRuleCriteriaPtrOutput { return v.Criteria }).(AutomationRuleCriteriaPtrOutput)
+func (o AutomationRuleOutput) Criteria() AutomationRuleCriteriaOutput {
+	return o.ApplyT(func(v *AutomationRule) AutomationRuleCriteriaOutput { return v.Criteria }).(AutomationRuleCriteriaOutput)
 }
 
 // The description of the rule.

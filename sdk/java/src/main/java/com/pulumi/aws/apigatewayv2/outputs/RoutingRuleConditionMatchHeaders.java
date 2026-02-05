@@ -5,9 +5,8 @@ package com.pulumi.aws.apigatewayv2.outputs;
 
 import com.pulumi.aws.apigatewayv2.outputs.RoutingRuleConditionMatchHeadersAnyOf;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.Objects;
-import java.util.Optional;
-import javax.annotation.Nullable;
 
 @CustomType
 public final class RoutingRuleConditionMatchHeaders {
@@ -15,15 +14,15 @@ public final class RoutingRuleConditionMatchHeaders {
      * @return Configuration of the headers to be matched. There is a match if any of the header name and header value globs are matched. See below.
      * 
      */
-    private @Nullable RoutingRuleConditionMatchHeadersAnyOf anyOf;
+    private RoutingRuleConditionMatchHeadersAnyOf anyOf;
 
     private RoutingRuleConditionMatchHeaders() {}
     /**
      * @return Configuration of the headers to be matched. There is a match if any of the header name and header value globs are matched. See below.
      * 
      */
-    public Optional<RoutingRuleConditionMatchHeadersAnyOf> anyOf() {
-        return Optional.ofNullable(this.anyOf);
+    public RoutingRuleConditionMatchHeadersAnyOf anyOf() {
+        return this.anyOf;
     }
 
     public static Builder builder() {
@@ -35,7 +34,7 @@ public final class RoutingRuleConditionMatchHeaders {
     }
     @CustomType.Builder
     public static final class Builder {
-        private @Nullable RoutingRuleConditionMatchHeadersAnyOf anyOf;
+        private RoutingRuleConditionMatchHeadersAnyOf anyOf;
         public Builder() {}
         public Builder(RoutingRuleConditionMatchHeaders defaults) {
     	      Objects.requireNonNull(defaults);
@@ -43,8 +42,10 @@ public final class RoutingRuleConditionMatchHeaders {
         }
 
         @CustomType.Setter
-        public Builder anyOf(@Nullable RoutingRuleConditionMatchHeadersAnyOf anyOf) {
-
+        public Builder anyOf(RoutingRuleConditionMatchHeadersAnyOf anyOf) {
+            if (anyOf == null) {
+              throw new MissingRequiredPropertyException("RoutingRuleConditionMatchHeaders", "anyOf");
+            }
             this.anyOf = anyOf;
             return this;
         }

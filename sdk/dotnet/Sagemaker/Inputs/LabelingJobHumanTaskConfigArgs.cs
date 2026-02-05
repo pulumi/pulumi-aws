@@ -81,8 +81,8 @@ namespace Pulumi.Aws.Sagemaker.Inputs
         /// <summary>
         /// Information about the user interface that workers use to complete the labeling task. Fields are documented below.
         /// </summary>
-        [Input("uiConfig")]
-        public Input<Inputs.LabelingJobHumanTaskConfigUiConfigArgs>? UiConfig { get; set; }
+        [Input("uiConfig", required: true)]
+        public Input<Inputs.LabelingJobHumanTaskConfigUiConfigArgs> UiConfig { get; set; } = null!;
 
         /// <summary>
         /// ARN of the work team assigned to complete the tasks.

@@ -125,28 +125,28 @@ public class LabelingJob extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="humanTaskConfig", refs={LabelingJobHumanTaskConfig.class}, tree="[0]")
-    private Output</* @Nullable */ LabelingJobHumanTaskConfig> humanTaskConfig;
+    private Output<LabelingJobHumanTaskConfig> humanTaskConfig;
 
     /**
      * @return Configuration information required for human workers to complete a labeling task. Fields are documented below.
      * 
      */
-    public Output<Optional<LabelingJobHumanTaskConfig>> humanTaskConfig() {
-        return Codegen.optional(this.humanTaskConfig);
+    public Output<LabelingJobHumanTaskConfig> humanTaskConfig() {
+        return this.humanTaskConfig;
     }
     /**
      * Input data for the labeling job. Fields are documented below.
      * 
      */
     @Export(name="inputConfig", refs={LabelingJobInputConfig.class}, tree="[0]")
-    private Output</* @Nullable */ LabelingJobInputConfig> inputConfig;
+    private Output<LabelingJobInputConfig> inputConfig;
 
     /**
      * @return Input data for the labeling job. Fields are documented below.
      * 
      */
-    public Output<Optional<LabelingJobInputConfig>> inputConfig() {
-        return Codegen.optional(this.inputConfig);
+    public Output<LabelingJobInputConfig> inputConfig() {
+        return this.inputConfig;
     }
     /**
      * Unique identifier for work done as part of a labeling job.
@@ -265,14 +265,14 @@ public class LabelingJob extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="outputConfig", refs={LabelingJobOutputConfig.class}, tree="[0]")
-    private Output</* @Nullable */ LabelingJobOutputConfig> outputConfig;
+    private Output<LabelingJobOutputConfig> outputConfig;
 
     /**
      * @return Location of the output data. Fields are documented below.
      * 
      */
-    public Output<Optional<LabelingJobOutputConfig>> outputConfig() {
-        return Codegen.optional(this.outputConfig);
+    public Output<LabelingJobOutputConfig> outputConfig() {
+        return this.outputConfig;
     }
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.

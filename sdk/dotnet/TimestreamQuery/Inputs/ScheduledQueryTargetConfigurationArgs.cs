@@ -15,8 +15,8 @@ namespace Pulumi.Aws.TimestreamQuery.Inputs
         /// <summary>
         /// Configuration block for information needed to write data into the Timestream database and table. See below.
         /// </summary>
-        [Input("timestreamConfiguration")]
-        public Input<Inputs.ScheduledQueryTargetConfigurationTimestreamConfigurationArgs>? TimestreamConfiguration { get; set; }
+        [Input("timestreamConfiguration", required: true)]
+        public Input<Inputs.ScheduledQueryTargetConfigurationTimestreamConfigurationArgs> TimestreamConfiguration { get; set; } = null!;
 
         public ScheduledQueryTargetConfigurationArgs()
         {

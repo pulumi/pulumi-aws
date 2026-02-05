@@ -153,7 +153,7 @@ namespace Pulumi.Aws.ImageBuilder
         /// The following arguments are optional:
         /// </summary>
         [Output("resourceSelection")]
-        public Output<Outputs.LifecyclePolicyResourceSelection?> ResourceSelection { get; private set; } = null!;
+        public Output<Outputs.LifecyclePolicyResourceSelection> ResourceSelection { get; private set; } = null!;
 
         /// <summary>
         /// The type of Image Builder resource that the lifecycle policy applies to. Valid values: `AMI_IMAGE` or `CONTAINER_IMAGE`.
@@ -243,7 +243,7 @@ namespace Pulumi.Aws.ImageBuilder
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        [Input("policyDetails")]
+        [Input("policyDetails", required: true)]
         private InputList<Inputs.LifecyclePolicyPolicyDetailArgs>? _policyDetails;
 
         /// <summary>
@@ -266,8 +266,8 @@ namespace Pulumi.Aws.ImageBuilder
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("resourceSelection")]
-        public Input<Inputs.LifecyclePolicyResourceSelectionArgs>? ResourceSelection { get; set; }
+        [Input("resourceSelection", required: true)]
+        public Input<Inputs.LifecyclePolicyResourceSelectionArgs> ResourceSelection { get; set; } = null!;
 
         /// <summary>
         /// The type of Image Builder resource that the lifecycle policy applies to. Valid values: `AMI_IMAGE` or `CONTAINER_IMAGE`.

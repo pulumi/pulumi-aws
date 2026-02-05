@@ -99,15 +99,15 @@ public final class CloudAutonomousVmClusterArgs extends com.pulumi.resources.Res
      * The maintenance window of the Autonomous VM cluster.
      * 
      */
-    @Import(name="maintenanceWindow")
-    private @Nullable Output<CloudAutonomousVmClusterMaintenanceWindowArgs> maintenanceWindow;
+    @Import(name="maintenanceWindow", required=true)
+    private Output<CloudAutonomousVmClusterMaintenanceWindowArgs> maintenanceWindow;
 
     /**
      * @return The maintenance window of the Autonomous VM cluster.
      * 
      */
-    public Optional<Output<CloudAutonomousVmClusterMaintenanceWindowArgs>> maintenanceWindow() {
-        return Optional.ofNullable(this.maintenanceWindow);
+    public Output<CloudAutonomousVmClusterMaintenanceWindowArgs> maintenanceWindow() {
+        return this.maintenanceWindow;
     }
 
     @Import(name="memoryPerOracleComputeUnitInGbs", required=true)
@@ -336,7 +336,7 @@ public final class CloudAutonomousVmClusterArgs extends com.pulumi.resources.Res
          * @return builder
          * 
          */
-        public Builder maintenanceWindow(@Nullable Output<CloudAutonomousVmClusterMaintenanceWindowArgs> maintenanceWindow) {
+        public Builder maintenanceWindow(Output<CloudAutonomousVmClusterMaintenanceWindowArgs> maintenanceWindow) {
             $.maintenanceWindow = maintenanceWindow;
             return this;
         }
@@ -471,6 +471,9 @@ public final class CloudAutonomousVmClusterArgs extends com.pulumi.resources.Res
             }
             if ($.displayName == null) {
                 throw new MissingRequiredPropertyException("CloudAutonomousVmClusterArgs", "displayName");
+            }
+            if ($.maintenanceWindow == null) {
+                throw new MissingRequiredPropertyException("CloudAutonomousVmClusterArgs", "maintenanceWindow");
             }
             if ($.memoryPerOracleComputeUnitInGbs == null) {
                 throw new MissingRequiredPropertyException("CloudAutonomousVmClusterArgs", "memoryPerOracleComputeUnitInGbs");

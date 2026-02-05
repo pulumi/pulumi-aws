@@ -20,7 +20,7 @@ namespace Pulumi.Aws.Lex.Outputs
         /// <summary>
         /// Configuration block for the allowed input types of the prompt attempt. See `AllowedInputTypes`.
         /// </summary>
-        public readonly Outputs.V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationAllowedInputTypes AllowedInputTypes;
+        public readonly Outputs.V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationAllowedInputTypes? AllowedInputTypes;
         /// <summary>
         /// Configuration block for settings on audio and DTMF input. See `AudioAndDtmfInputSpecification`.
         /// </summary>
@@ -38,7 +38,7 @@ namespace Pulumi.Aws.Lex.Outputs
         private V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecification(
             bool? allowInterrupt,
 
-            Outputs.V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationAllowedInputTypes allowedInputTypes,
+            Outputs.V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationAllowedInputTypes? allowedInputTypes,
 
             Outputs.V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecification? audioAndDtmfInputSpecification,
 

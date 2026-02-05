@@ -189,7 +189,7 @@ export class AgentcoreGateway extends pulumi.CustomResource {
     /**
      * List of interceptor configurations for the gateway. Minimum of 1, maximum of 2. See `interceptorConfiguration` below.
      */
-    declare public readonly interceptorConfigurations: pulumi.Output<outputs.bedrock.AgentcoreGatewayInterceptorConfiguration[]>;
+    declare public readonly interceptorConfigurations: pulumi.Output<outputs.bedrock.AgentcoreGatewayInterceptorConfiguration[] | undefined>;
     /**
      * ARN of the KMS key used to encrypt the gateway data.
      */
@@ -265,9 +265,6 @@ export class AgentcoreGateway extends pulumi.CustomResource {
             const args = argsOrState as AgentcoreGatewayArgs | undefined;
             if (args?.authorizerType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'authorizerType'");
-            }
-            if (args?.interceptorConfigurations === undefined && !opts.urn) {
-                throw new Error("Missing required property 'interceptorConfigurations'");
             }
             if (args?.protocolType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'protocolType'");
@@ -399,7 +396,7 @@ export interface AgentcoreGatewayArgs {
     /**
      * List of interceptor configurations for the gateway. Minimum of 1, maximum of 2. See `interceptorConfiguration` below.
      */
-    interceptorConfigurations: pulumi.Input<pulumi.Input<inputs.bedrock.AgentcoreGatewayInterceptorConfiguration>[]>;
+    interceptorConfigurations?: pulumi.Input<pulumi.Input<inputs.bedrock.AgentcoreGatewayInterceptorConfiguration>[]>;
     /**
      * ARN of the KMS key used to encrypt the gateway data.
      */

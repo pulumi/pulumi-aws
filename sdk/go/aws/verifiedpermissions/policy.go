@@ -60,7 +60,7 @@ type Policy struct {
 	// The date the policy was created.
 	CreatedDate pulumi.StringOutput `pulumi:"createdDate"`
 	// The definition of the policy. See Definition below.
-	Definition PolicyDefinitionPtrOutput `pulumi:"definition"`
+	Definition PolicyDefinitionOutput `pulumi:"definition"`
 	// The Policy ID of the policy.
 	PolicyId pulumi.StringOutput `pulumi:"policyId"`
 	// The Policy Store ID of the policy store.
@@ -76,6 +76,9 @@ func NewPolicy(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
+	if args.Definition == nil {
+		return nil, errors.New("invalid value for required argument 'Definition'")
+	}
 	if args.PolicyStoreId == nil {
 		return nil, errors.New("invalid value for required argument 'PolicyStoreId'")
 	}
@@ -133,7 +136,7 @@ func (PolicyState) ElementType() reflect.Type {
 
 type policyArgs struct {
 	// The definition of the policy. See Definition below.
-	Definition *PolicyDefinition `pulumi:"definition"`
+	Definition PolicyDefinition `pulumi:"definition"`
 	// The Policy Store ID of the policy store.
 	PolicyStoreId string `pulumi:"policyStoreId"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -143,7 +146,7 @@ type policyArgs struct {
 // The set of arguments for constructing a Policy resource.
 type PolicyArgs struct {
 	// The definition of the policy. See Definition below.
-	Definition PolicyDefinitionPtrInput
+	Definition PolicyDefinitionInput
 	// The Policy Store ID of the policy store.
 	PolicyStoreId pulumi.StringInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -243,8 +246,8 @@ func (o PolicyOutput) CreatedDate() pulumi.StringOutput {
 }
 
 // The definition of the policy. See Definition below.
-func (o PolicyOutput) Definition() PolicyDefinitionPtrOutput {
-	return o.ApplyT(func(v *Policy) PolicyDefinitionPtrOutput { return v.Definition }).(PolicyDefinitionPtrOutput)
+func (o PolicyOutput) Definition() PolicyDefinitionOutput {
+	return o.ApplyT(func(v *Policy) PolicyDefinitionOutput { return v.Definition }).(PolicyDefinitionOutput)
 }
 
 // The Policy ID of the policy.

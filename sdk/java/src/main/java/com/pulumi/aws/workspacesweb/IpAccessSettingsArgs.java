@@ -85,8 +85,8 @@ public final class IpAccessSettingsArgs extends com.pulumi.resources.ResourceArg
      * The following arguments are optional:
      * 
      */
-    @Import(name="ipRules")
-    private @Nullable Output<List<IpAccessSettingsIpRuleArgs>> ipRules;
+    @Import(name="ipRules", required=true)
+    private Output<List<IpAccessSettingsIpRuleArgs>> ipRules;
 
     /**
      * @return The IP rules of the IP access settings. See IP Rule below.
@@ -94,8 +94,8 @@ public final class IpAccessSettingsArgs extends com.pulumi.resources.ResourceArg
      * The following arguments are optional:
      * 
      */
-    public Optional<Output<List<IpAccessSettingsIpRuleArgs>>> ipRules() {
-        return Optional.ofNullable(this.ipRules);
+    public Output<List<IpAccessSettingsIpRuleArgs>> ipRules() {
+        return this.ipRules;
     }
 
     /**
@@ -250,7 +250,7 @@ public final class IpAccessSettingsArgs extends com.pulumi.resources.ResourceArg
          * @return builder
          * 
          */
-        public Builder ipRules(@Nullable Output<List<IpAccessSettingsIpRuleArgs>> ipRules) {
+        public Builder ipRules(Output<List<IpAccessSettingsIpRuleArgs>> ipRules) {
             $.ipRules = ipRules;
             return this;
         }
@@ -324,6 +324,9 @@ public final class IpAccessSettingsArgs extends com.pulumi.resources.ResourceArg
         public IpAccessSettingsArgs build() {
             if ($.displayName == null) {
                 throw new MissingRequiredPropertyException("IpAccessSettingsArgs", "displayName");
+            }
+            if ($.ipRules == null) {
+                throw new MissingRequiredPropertyException("IpAccessSettingsArgs", "ipRules");
             }
             return $;
         }

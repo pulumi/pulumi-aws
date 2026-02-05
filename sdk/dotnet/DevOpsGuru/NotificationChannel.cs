@@ -96,7 +96,7 @@ namespace Pulumi.Aws.DevOpsGuru
         /// The following arguments are optional:
         /// </summary>
         [Output("sns")]
-        public Output<Outputs.NotificationChannelSns?> Sns { get; private set; } = null!;
+        public Output<Outputs.NotificationChannelSns> Sns { get; private set; } = null!;
 
 
         /// <summary>
@@ -106,7 +106,7 @@ namespace Pulumi.Aws.DevOpsGuru
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public NotificationChannel(string name, NotificationChannelArgs? args = null, CustomResourceOptions? options = null)
+        public NotificationChannel(string name, NotificationChannelArgs args, CustomResourceOptions? options = null)
             : base("aws:devopsguru/notificationChannel:NotificationChannel", name, args ?? new NotificationChannelArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -161,8 +161,8 @@ namespace Pulumi.Aws.DevOpsGuru
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("sns")]
-        public Input<Inputs.NotificationChannelSnsArgs>? Sns { get; set; }
+        [Input("sns", required: true)]
+        public Input<Inputs.NotificationChannelSnsArgs> Sns { get; set; } = null!;
 
         public NotificationChannelArgs()
         {

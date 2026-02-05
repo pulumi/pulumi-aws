@@ -7,6 +7,7 @@ import com.pulumi.aws.sagemaker.inputs.LabelingJobInputConfigDataAttributesArgs;
 import com.pulumi.aws.sagemaker.inputs.LabelingJobInputConfigDataSourceArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -35,15 +36,15 @@ public final class LabelingJobInputConfigArgs extends com.pulumi.resources.Resou
      * Location of the input data.. Fields are documented below.
      * 
      */
-    @Import(name="dataSource")
-    private @Nullable Output<LabelingJobInputConfigDataSourceArgs> dataSource;
+    @Import(name="dataSource", required=true)
+    private Output<LabelingJobInputConfigDataSourceArgs> dataSource;
 
     /**
      * @return Location of the input data.. Fields are documented below.
      * 
      */
-    public Optional<Output<LabelingJobInputConfigDataSourceArgs>> dataSource() {
-        return Optional.ofNullable(this.dataSource);
+    public Output<LabelingJobInputConfigDataSourceArgs> dataSource() {
+        return this.dataSource;
     }
 
     private LabelingJobInputConfigArgs() {}
@@ -98,7 +99,7 @@ public final class LabelingJobInputConfigArgs extends com.pulumi.resources.Resou
          * @return builder
          * 
          */
-        public Builder dataSource(@Nullable Output<LabelingJobInputConfigDataSourceArgs> dataSource) {
+        public Builder dataSource(Output<LabelingJobInputConfigDataSourceArgs> dataSource) {
             $.dataSource = dataSource;
             return this;
         }
@@ -114,6 +115,9 @@ public final class LabelingJobInputConfigArgs extends com.pulumi.resources.Resou
         }
 
         public LabelingJobInputConfigArgs build() {
+            if ($.dataSource == null) {
+                throw new MissingRequiredPropertyException("LabelingJobInputConfigArgs", "dataSource");
+            }
             return $;
         }
     }

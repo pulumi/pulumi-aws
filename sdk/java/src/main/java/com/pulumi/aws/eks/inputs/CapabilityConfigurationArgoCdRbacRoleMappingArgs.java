@@ -10,8 +10,6 @@ import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
-import java.util.Optional;
-import javax.annotation.Nullable;
 
 
 public final class CapabilityConfigurationArgoCdRbacRoleMappingArgs extends com.pulumi.resources.ResourceArgs {
@@ -22,15 +20,15 @@ public final class CapabilityConfigurationArgoCdRbacRoleMappingArgs extends com.
      * List of identities. See `identity` below.
      * 
      */
-    @Import(name="identities")
-    private @Nullable Output<List<CapabilityConfigurationArgoCdRbacRoleMappingIdentityArgs>> identities;
+    @Import(name="identities", required=true)
+    private Output<List<CapabilityConfigurationArgoCdRbacRoleMappingIdentityArgs>> identities;
 
     /**
      * @return List of identities. See `identity` below.
      * 
      */
-    public Optional<Output<List<CapabilityConfigurationArgoCdRbacRoleMappingIdentityArgs>>> identities() {
-        return Optional.ofNullable(this.identities);
+    public Output<List<CapabilityConfigurationArgoCdRbacRoleMappingIdentityArgs>> identities() {
+        return this.identities;
     }
 
     /**
@@ -79,7 +77,7 @@ public final class CapabilityConfigurationArgoCdRbacRoleMappingArgs extends com.
          * @return builder
          * 
          */
-        public Builder identities(@Nullable Output<List<CapabilityConfigurationArgoCdRbacRoleMappingIdentityArgs>> identities) {
+        public Builder identities(Output<List<CapabilityConfigurationArgoCdRbacRoleMappingIdentityArgs>> identities) {
             $.identities = identities;
             return this;
         }
@@ -126,6 +124,9 @@ public final class CapabilityConfigurationArgoCdRbacRoleMappingArgs extends com.
         }
 
         public CapabilityConfigurationArgoCdRbacRoleMappingArgs build() {
+            if ($.identities == null) {
+                throw new MissingRequiredPropertyException("CapabilityConfigurationArgoCdRbacRoleMappingArgs", "identities");
+            }
             if ($.role == null) {
                 throw new MissingRequiredPropertyException("CapabilityConfigurationArgoCdRbacRoleMappingArgs", "role");
             }

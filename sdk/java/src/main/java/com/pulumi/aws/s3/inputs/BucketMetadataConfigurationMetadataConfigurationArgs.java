@@ -8,6 +8,7 @@ import com.pulumi.aws.s3.inputs.BucketMetadataConfigurationMetadataConfiguration
 import com.pulumi.aws.s3.inputs.BucketMetadataConfigurationMetadataConfigurationJournalTableConfigurationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
@@ -37,30 +38,30 @@ public final class BucketMetadataConfigurationMetadataConfigurationArgs extends 
      * Inventory table configuration. See `inventoryTableConfiguration` Block for details.
      * 
      */
-    @Import(name="inventoryTableConfiguration")
-    private @Nullable Output<BucketMetadataConfigurationMetadataConfigurationInventoryTableConfigurationArgs> inventoryTableConfiguration;
+    @Import(name="inventoryTableConfiguration", required=true)
+    private Output<BucketMetadataConfigurationMetadataConfigurationInventoryTableConfigurationArgs> inventoryTableConfiguration;
 
     /**
      * @return Inventory table configuration. See `inventoryTableConfiguration` Block for details.
      * 
      */
-    public Optional<Output<BucketMetadataConfigurationMetadataConfigurationInventoryTableConfigurationArgs>> inventoryTableConfiguration() {
-        return Optional.ofNullable(this.inventoryTableConfiguration);
+    public Output<BucketMetadataConfigurationMetadataConfigurationInventoryTableConfigurationArgs> inventoryTableConfiguration() {
+        return this.inventoryTableConfiguration;
     }
 
     /**
      * Journal table configuration. See `journalTableConfiguration` Block for details.
      * 
      */
-    @Import(name="journalTableConfiguration")
-    private @Nullable Output<BucketMetadataConfigurationMetadataConfigurationJournalTableConfigurationArgs> journalTableConfiguration;
+    @Import(name="journalTableConfiguration", required=true)
+    private Output<BucketMetadataConfigurationMetadataConfigurationJournalTableConfigurationArgs> journalTableConfiguration;
 
     /**
      * @return Journal table configuration. See `journalTableConfiguration` Block for details.
      * 
      */
-    public Optional<Output<BucketMetadataConfigurationMetadataConfigurationJournalTableConfigurationArgs>> journalTableConfiguration() {
-        return Optional.ofNullable(this.journalTableConfiguration);
+    public Output<BucketMetadataConfigurationMetadataConfigurationJournalTableConfigurationArgs> journalTableConfiguration() {
+        return this.journalTableConfiguration;
     }
 
     private BucketMetadataConfigurationMetadataConfigurationArgs() {}
@@ -126,7 +127,7 @@ public final class BucketMetadataConfigurationMetadataConfigurationArgs extends 
          * @return builder
          * 
          */
-        public Builder inventoryTableConfiguration(@Nullable Output<BucketMetadataConfigurationMetadataConfigurationInventoryTableConfigurationArgs> inventoryTableConfiguration) {
+        public Builder inventoryTableConfiguration(Output<BucketMetadataConfigurationMetadataConfigurationInventoryTableConfigurationArgs> inventoryTableConfiguration) {
             $.inventoryTableConfiguration = inventoryTableConfiguration;
             return this;
         }
@@ -147,7 +148,7 @@ public final class BucketMetadataConfigurationMetadataConfigurationArgs extends 
          * @return builder
          * 
          */
-        public Builder journalTableConfiguration(@Nullable Output<BucketMetadataConfigurationMetadataConfigurationJournalTableConfigurationArgs> journalTableConfiguration) {
+        public Builder journalTableConfiguration(Output<BucketMetadataConfigurationMetadataConfigurationJournalTableConfigurationArgs> journalTableConfiguration) {
             $.journalTableConfiguration = journalTableConfiguration;
             return this;
         }
@@ -163,6 +164,12 @@ public final class BucketMetadataConfigurationMetadataConfigurationArgs extends 
         }
 
         public BucketMetadataConfigurationMetadataConfigurationArgs build() {
+            if ($.inventoryTableConfiguration == null) {
+                throw new MissingRequiredPropertyException("BucketMetadataConfigurationMetadataConfigurationArgs", "inventoryTableConfiguration");
+            }
+            if ($.journalTableConfiguration == null) {
+                throw new MissingRequiredPropertyException("BucketMetadataConfigurationMetadataConfigurationArgs", "journalTableConfiguration");
+            }
             return $;
         }
     }

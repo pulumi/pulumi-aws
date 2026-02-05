@@ -9,8 +9,6 @@ import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
-import java.util.Optional;
-import javax.annotation.Nullable;
 
 
 public final class ChannelNamespaceHandlerConfigsOnPublishArgs extends com.pulumi.resources.ResourceArgs {
@@ -36,15 +34,15 @@ public final class ChannelNamespaceHandlerConfigsOnPublishArgs extends com.pulum
      * Integration data source configuration for the handler. See Integration below.
      * 
      */
-    @Import(name="integration")
-    private @Nullable Output<ChannelNamespaceHandlerConfigsOnPublishIntegrationArgs> integration;
+    @Import(name="integration", required=true)
+    private Output<ChannelNamespaceHandlerConfigsOnPublishIntegrationArgs> integration;
 
     /**
      * @return Integration data source configuration for the handler. See Integration below.
      * 
      */
-    public Optional<Output<ChannelNamespaceHandlerConfigsOnPublishIntegrationArgs>> integration() {
-        return Optional.ofNullable(this.integration);
+    public Output<ChannelNamespaceHandlerConfigsOnPublishIntegrationArgs> integration() {
+        return this.integration;
     }
 
     private ChannelNamespaceHandlerConfigsOnPublishArgs() {}
@@ -99,7 +97,7 @@ public final class ChannelNamespaceHandlerConfigsOnPublishArgs extends com.pulum
          * @return builder
          * 
          */
-        public Builder integration(@Nullable Output<ChannelNamespaceHandlerConfigsOnPublishIntegrationArgs> integration) {
+        public Builder integration(Output<ChannelNamespaceHandlerConfigsOnPublishIntegrationArgs> integration) {
             $.integration = integration;
             return this;
         }
@@ -117,6 +115,9 @@ public final class ChannelNamespaceHandlerConfigsOnPublishArgs extends com.pulum
         public ChannelNamespaceHandlerConfigsOnPublishArgs build() {
             if ($.behavior == null) {
                 throw new MissingRequiredPropertyException("ChannelNamespaceHandlerConfigsOnPublishArgs", "behavior");
+            }
+            if ($.integration == null) {
+                throw new MissingRequiredPropertyException("ChannelNamespaceHandlerConfigsOnPublishArgs", "integration");
             }
             return $;
         }

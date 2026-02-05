@@ -68,7 +68,7 @@ type ModelCardExportJob struct {
 	ModelCardName    pulumi.StringOutput `pulumi:"modelCardName"`
 	ModelCardVersion pulumi.IntOutput    `pulumi:"modelCardVersion"`
 	// Export output details. Fields are documented below.
-	OutputConfig ModelCardExportJobOutputConfigPtrOutput `pulumi:"outputConfig"`
+	OutputConfig ModelCardExportJobOutputConfigOutput `pulumi:"outputConfig"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration
 	Region   pulumi.StringOutput                 `pulumi:"region"`
 	Timeouts ModelCardExportJobTimeoutsPtrOutput `pulumi:"timeouts"`
@@ -86,6 +86,9 @@ func NewModelCardExportJob(ctx *pulumi.Context,
 	}
 	if args.ModelCardName == nil {
 		return nil, errors.New("invalid value for required argument 'ModelCardName'")
+	}
+	if args.OutputConfig == nil {
+		return nil, errors.New("invalid value for required argument 'OutputConfig'")
 	}
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ModelCardExportJob
@@ -154,7 +157,7 @@ type modelCardExportJobArgs struct {
 	ModelCardName    string `pulumi:"modelCardName"`
 	ModelCardVersion *int   `pulumi:"modelCardVersion"`
 	// Export output details. Fields are documented below.
-	OutputConfig *ModelCardExportJobOutputConfig `pulumi:"outputConfig"`
+	OutputConfig ModelCardExportJobOutputConfig `pulumi:"outputConfig"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration
 	Region   *string                     `pulumi:"region"`
 	Timeouts *ModelCardExportJobTimeouts `pulumi:"timeouts"`
@@ -168,7 +171,7 @@ type ModelCardExportJobArgs struct {
 	ModelCardName    pulumi.StringInput
 	ModelCardVersion pulumi.IntPtrInput
 	// Export output details. Fields are documented below.
-	OutputConfig ModelCardExportJobOutputConfigPtrInput
+	OutputConfig ModelCardExportJobOutputConfigInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration
 	Region   pulumi.StringPtrInput
 	Timeouts ModelCardExportJobTimeoutsPtrInput
@@ -286,8 +289,8 @@ func (o ModelCardExportJobOutput) ModelCardVersion() pulumi.IntOutput {
 }
 
 // Export output details. Fields are documented below.
-func (o ModelCardExportJobOutput) OutputConfig() ModelCardExportJobOutputConfigPtrOutput {
-	return o.ApplyT(func(v *ModelCardExportJob) ModelCardExportJobOutputConfigPtrOutput { return v.OutputConfig }).(ModelCardExportJobOutputConfigPtrOutput)
+func (o ModelCardExportJobOutput) OutputConfig() ModelCardExportJobOutputConfigOutput {
+	return o.ApplyT(func(v *ModelCardExportJob) ModelCardExportJobOutputConfigOutput { return v.OutputConfig }).(ModelCardExportJobOutputConfigOutput)
 }
 
 // Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration

@@ -22,30 +22,29 @@ __all__ = ['ContactsRotationArgs', 'ContactsRotation']
 class ContactsRotationArgs:
     def __init__(__self__, *,
                  contact_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
+                 recurrence: pulumi.Input['ContactsRotationRecurrenceArgs'],
                  time_zone_id: pulumi.Input[_builtins.str],
                  name: Optional[pulumi.Input[_builtins.str]] = None,
-                 recurrence: Optional[pulumi.Input['ContactsRotationRecurrenceArgs']] = None,
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  start_time: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ContactsRotation resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] contact_ids: Amazon Resource Names (ARNs) of the contacts to add to the rotation. The order in which you list the contacts is their shift order in the rotation schedule.
-        :param pulumi.Input[_builtins.str] time_zone_id: The time zone to base the rotation’s activity on in Internet Assigned Numbers Authority (IANA) format.
-        :param pulumi.Input[_builtins.str] name: The name for the rotation.
         :param pulumi.Input['ContactsRotationRecurrenceArgs'] recurrence: Information about when an on-call rotation is in effect and how long the rotation period lasts. Exactly one of either `daily_settings`, `monthly_settings`, or `weekly_settings` must be populated. See Recurrence for more details.
                
                The following arguments are optional:
+        :param pulumi.Input[_builtins.str] time_zone_id: The time zone to base the rotation’s activity on in Internet Assigned Numbers Authority (IANA) format.
+        :param pulumi.Input[_builtins.str] name: The name for the rotation.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] start_time: The date and time, in RFC 3339 format, that the rotation goes into effect.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "contact_ids", contact_ids)
+        pulumi.set(__self__, "recurrence", recurrence)
         pulumi.set(__self__, "time_zone_id", time_zone_id)
         if name is not None:
             pulumi.set(__self__, "name", name)
-        if recurrence is not None:
-            pulumi.set(__self__, "recurrence", recurrence)
         if region is not None:
             pulumi.set(__self__, "region", region)
         if start_time is not None:
@@ -64,6 +63,20 @@ class ContactsRotationArgs:
     @contact_ids.setter
     def contact_ids(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
         pulumi.set(self, "contact_ids", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def recurrence(self) -> pulumi.Input['ContactsRotationRecurrenceArgs']:
+        """
+        Information about when an on-call rotation is in effect and how long the rotation period lasts. Exactly one of either `daily_settings`, `monthly_settings`, or `weekly_settings` must be populated. See Recurrence for more details.
+
+        The following arguments are optional:
+        """
+        return pulumi.get(self, "recurrence")
+
+    @recurrence.setter
+    def recurrence(self, value: pulumi.Input['ContactsRotationRecurrenceArgs']):
+        pulumi.set(self, "recurrence", value)
 
     @_builtins.property
     @pulumi.getter(name="timeZoneId")
@@ -88,20 +101,6 @@ class ContactsRotationArgs:
     @name.setter
     def name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "name", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def recurrence(self) -> Optional[pulumi.Input['ContactsRotationRecurrenceArgs']]:
-        """
-        Information about when an on-call rotation is in effect and how long the rotation period lasts. Exactly one of either `daily_settings`, `monthly_settings`, or `weekly_settings` must be populated. See Recurrence for more details.
-
-        The following arguments are optional:
-        """
-        return pulumi.get(self, "recurrence")
-
-    @recurrence.setter
-    def recurrence(self, value: Optional[pulumi.Input['ContactsRotationRecurrenceArgs']]):
-        pulumi.set(self, "recurrence", value)
 
     @_builtins.property
     @pulumi.getter
@@ -603,6 +602,8 @@ class ContactsRotation(pulumi.CustomResource):
                 raise TypeError("Missing required property 'contact_ids'")
             __props__.__dict__["contact_ids"] = contact_ids
             __props__.__dict__["name"] = name
+            if recurrence is None and not opts.urn:
+                raise TypeError("Missing required property 'recurrence'")
             __props__.__dict__["recurrence"] = recurrence
             __props__.__dict__["region"] = region
             __props__.__dict__["start_time"] = start_time
@@ -691,7 +692,7 @@ class ContactsRotation(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
-    def recurrence(self) -> pulumi.Output[Optional['outputs.ContactsRotationRecurrence']]:
+    def recurrence(self) -> pulumi.Output['outputs.ContactsRotationRecurrence']:
         """
         Information about when an on-call rotation is in effect and how long the rotation period lasts. Exactly one of either `daily_settings`, `monthly_settings`, or `weekly_settings` must be populated. See Recurrence for more details.
 

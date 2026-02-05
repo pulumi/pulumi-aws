@@ -21,22 +21,33 @@ __all__ = ['LogDeliveryConfigurationArgs', 'LogDeliveryConfiguration']
 @pulumi.input_type
 class LogDeliveryConfigurationArgs:
     def __init__(__self__, *,
+                 log_configurations: pulumi.Input[Sequence[pulumi.Input['LogDeliveryConfigurationLogConfigurationArgs']]],
                  user_pool_id: pulumi.Input[_builtins.str],
-                 log_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['LogDeliveryConfigurationLogConfigurationArgs']]]] = None,
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a LogDeliveryConfiguration resource.
+        :param pulumi.Input[Sequence[pulumi.Input['LogDeliveryConfigurationLogConfigurationArgs']]] log_configurations: Configuration block for log delivery. At least one configuration block is required. See Log Configurations below.
         :param pulumi.Input[_builtins.str] user_pool_id: The ID of the user pool for which to configure log delivery.
                
                The following arguments are optional:
-        :param pulumi.Input[Sequence[pulumi.Input['LogDeliveryConfigurationLogConfigurationArgs']]] log_configurations: Configuration block for log delivery. At least one configuration block is required. See Log Configurations below.
         :param pulumi.Input[_builtins.str] region: The AWS region.
         """
+        pulumi.set(__self__, "log_configurations", log_configurations)
         pulumi.set(__self__, "user_pool_id", user_pool_id)
-        if log_configurations is not None:
-            pulumi.set(__self__, "log_configurations", log_configurations)
         if region is not None:
             pulumi.set(__self__, "region", region)
+
+    @_builtins.property
+    @pulumi.getter(name="logConfigurations")
+    def log_configurations(self) -> pulumi.Input[Sequence[pulumi.Input['LogDeliveryConfigurationLogConfigurationArgs']]]:
+        """
+        Configuration block for log delivery. At least one configuration block is required. See Log Configurations below.
+        """
+        return pulumi.get(self, "log_configurations")
+
+    @log_configurations.setter
+    def log_configurations(self, value: pulumi.Input[Sequence[pulumi.Input['LogDeliveryConfigurationLogConfigurationArgs']]]):
+        pulumi.set(self, "log_configurations", value)
 
     @_builtins.property
     @pulumi.getter(name="userPoolId")
@@ -51,18 +62,6 @@ class LogDeliveryConfigurationArgs:
     @user_pool_id.setter
     def user_pool_id(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "user_pool_id", value)
-
-    @_builtins.property
-    @pulumi.getter(name="logConfigurations")
-    def log_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LogDeliveryConfigurationLogConfigurationArgs']]]]:
-        """
-        Configuration block for log delivery. At least one configuration block is required. See Log Configurations below.
-        """
-        return pulumi.get(self, "log_configurations")
-
-    @log_configurations.setter
-    def log_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LogDeliveryConfigurationLogConfigurationArgs']]]]):
-        pulumi.set(self, "log_configurations", value)
 
     @_builtins.property
     @pulumi.getter
@@ -458,6 +457,8 @@ class LogDeliveryConfiguration(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = LogDeliveryConfigurationArgs.__new__(LogDeliveryConfigurationArgs)
 
+            if log_configurations is None and not opts.urn:
+                raise TypeError("Missing required property 'log_configurations'")
             __props__.__dict__["log_configurations"] = log_configurations
             __props__.__dict__["region"] = region
             if user_pool_id is None and not opts.urn:
@@ -500,7 +501,7 @@ class LogDeliveryConfiguration(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="logConfigurations")
-    def log_configurations(self) -> pulumi.Output[Optional[Sequence['outputs.LogDeliveryConfigurationLogConfiguration']]]:
+    def log_configurations(self) -> pulumi.Output[Sequence['outputs.LogDeliveryConfigurationLogConfiguration']]:
         """
         Configuration block for log delivery. At least one configuration block is required. See Log Configurations below.
         """

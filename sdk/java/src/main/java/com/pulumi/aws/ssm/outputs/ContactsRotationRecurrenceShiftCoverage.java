@@ -9,7 +9,6 @@ import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
-import javax.annotation.Nullable;
 
 @CustomType
 public final class ContactsRotationRecurrenceShiftCoverage {
@@ -17,7 +16,7 @@ public final class ContactsRotationRecurrenceShiftCoverage {
      * @return (Required) Information about when an on-call shift begins and ends. See Coverage Times for more details.
      * 
      */
-    private @Nullable List<ContactsRotationRecurrenceShiftCoverageCoverageTime> coverageTimes;
+    private List<ContactsRotationRecurrenceShiftCoverageCoverageTime> coverageTimes;
     private String mapBlockKey;
 
     private ContactsRotationRecurrenceShiftCoverage() {}
@@ -26,7 +25,7 @@ public final class ContactsRotationRecurrenceShiftCoverage {
      * 
      */
     public List<ContactsRotationRecurrenceShiftCoverageCoverageTime> coverageTimes() {
-        return this.coverageTimes == null ? List.of() : this.coverageTimes;
+        return this.coverageTimes;
     }
     public String mapBlockKey() {
         return this.mapBlockKey;
@@ -41,7 +40,7 @@ public final class ContactsRotationRecurrenceShiftCoverage {
     }
     @CustomType.Builder
     public static final class Builder {
-        private @Nullable List<ContactsRotationRecurrenceShiftCoverageCoverageTime> coverageTimes;
+        private List<ContactsRotationRecurrenceShiftCoverageCoverageTime> coverageTimes;
         private String mapBlockKey;
         public Builder() {}
         public Builder(ContactsRotationRecurrenceShiftCoverage defaults) {
@@ -51,8 +50,10 @@ public final class ContactsRotationRecurrenceShiftCoverage {
         }
 
         @CustomType.Setter
-        public Builder coverageTimes(@Nullable List<ContactsRotationRecurrenceShiftCoverageCoverageTime> coverageTimes) {
-
+        public Builder coverageTimes(List<ContactsRotationRecurrenceShiftCoverageCoverageTime> coverageTimes) {
+            if (coverageTimes == null) {
+              throw new MissingRequiredPropertyException("ContactsRotationRecurrenceShiftCoverage", "coverageTimes");
+            }
             this.coverageTimes = coverageTimes;
             return this;
         }

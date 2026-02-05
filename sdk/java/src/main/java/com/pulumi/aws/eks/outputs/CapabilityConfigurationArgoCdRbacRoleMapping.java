@@ -9,7 +9,6 @@ import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
-import javax.annotation.Nullable;
 
 @CustomType
 public final class CapabilityConfigurationArgoCdRbacRoleMapping {
@@ -17,7 +16,7 @@ public final class CapabilityConfigurationArgoCdRbacRoleMapping {
      * @return List of identities. See `identity` below.
      * 
      */
-    private @Nullable List<CapabilityConfigurationArgoCdRbacRoleMappingIdentity> identities;
+    private List<CapabilityConfigurationArgoCdRbacRoleMappingIdentity> identities;
     /**
      * @return ArgoCD role. Valid values: `ADMIN`, `EDITOR`, `VIEWER`.
      * 
@@ -30,7 +29,7 @@ public final class CapabilityConfigurationArgoCdRbacRoleMapping {
      * 
      */
     public List<CapabilityConfigurationArgoCdRbacRoleMappingIdentity> identities() {
-        return this.identities == null ? List.of() : this.identities;
+        return this.identities;
     }
     /**
      * @return ArgoCD role. Valid values: `ADMIN`, `EDITOR`, `VIEWER`.
@@ -49,7 +48,7 @@ public final class CapabilityConfigurationArgoCdRbacRoleMapping {
     }
     @CustomType.Builder
     public static final class Builder {
-        private @Nullable List<CapabilityConfigurationArgoCdRbacRoleMappingIdentity> identities;
+        private List<CapabilityConfigurationArgoCdRbacRoleMappingIdentity> identities;
         private String role;
         public Builder() {}
         public Builder(CapabilityConfigurationArgoCdRbacRoleMapping defaults) {
@@ -59,8 +58,10 @@ public final class CapabilityConfigurationArgoCdRbacRoleMapping {
         }
 
         @CustomType.Setter
-        public Builder identities(@Nullable List<CapabilityConfigurationArgoCdRbacRoleMappingIdentity> identities) {
-
+        public Builder identities(List<CapabilityConfigurationArgoCdRbacRoleMappingIdentity> identities) {
+            if (identities == null) {
+              throw new MissingRequiredPropertyException("CapabilityConfigurationArgoCdRbacRoleMapping", "identities");
+            }
             this.identities = identities;
             return this;
         }

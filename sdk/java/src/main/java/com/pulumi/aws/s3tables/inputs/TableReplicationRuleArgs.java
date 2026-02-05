@@ -6,10 +6,9 @@ package com.pulumi.aws.s3tables.inputs;
 import com.pulumi.aws.s3tables.inputs.TableReplicationRuleDestinationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
-import java.util.Optional;
-import javax.annotation.Nullable;
 
 
 public final class TableReplicationRuleArgs extends com.pulumi.resources.ResourceArgs {
@@ -20,15 +19,15 @@ public final class TableReplicationRuleArgs extends com.pulumi.resources.Resourc
      * Replication destination. See Destination below for more details.
      * 
      */
-    @Import(name="destinations")
-    private @Nullable Output<List<TableReplicationRuleDestinationArgs>> destinations;
+    @Import(name="destinations", required=true)
+    private Output<List<TableReplicationRuleDestinationArgs>> destinations;
 
     /**
      * @return Replication destination. See Destination below for more details.
      * 
      */
-    public Optional<Output<List<TableReplicationRuleDestinationArgs>>> destinations() {
-        return Optional.ofNullable(this.destinations);
+    public Output<List<TableReplicationRuleDestinationArgs>> destinations() {
+        return this.destinations;
     }
 
     private TableReplicationRuleArgs() {}
@@ -61,7 +60,7 @@ public final class TableReplicationRuleArgs extends com.pulumi.resources.Resourc
          * @return builder
          * 
          */
-        public Builder destinations(@Nullable Output<List<TableReplicationRuleDestinationArgs>> destinations) {
+        public Builder destinations(Output<List<TableReplicationRuleDestinationArgs>> destinations) {
             $.destinations = destinations;
             return this;
         }
@@ -87,6 +86,9 @@ public final class TableReplicationRuleArgs extends com.pulumi.resources.Resourc
         }
 
         public TableReplicationRuleArgs build() {
+            if ($.destinations == null) {
+                throw new MissingRequiredPropertyException("TableReplicationRuleArgs", "destinations");
+            }
             return $;
         }
     }

@@ -143,7 +143,7 @@ export class ContinuousDeploymentPolicy extends pulumi.CustomResource {
     /**
      * CloudFront domain name of the staging distribution. See `stagingDistributionDnsNames`.
      */
-    declare public readonly stagingDistributionDnsNames: pulumi.Output<outputs.cloudfront.ContinuousDeploymentPolicyStagingDistributionDnsNames | undefined>;
+    declare public readonly stagingDistributionDnsNames: pulumi.Output<outputs.cloudfront.ContinuousDeploymentPolicyStagingDistributionDnsNames>;
     /**
      * Parameters for routing production traffic from primary to staging distributions. See `trafficConfig`.
      */
@@ -172,6 +172,9 @@ export class ContinuousDeploymentPolicy extends pulumi.CustomResource {
             const args = argsOrState as ContinuousDeploymentPolicyArgs | undefined;
             if (args?.enabled === undefined && !opts.urn) {
                 throw new Error("Missing required property 'enabled'");
+            }
+            if (args?.stagingDistributionDnsNames === undefined && !opts.urn) {
+                throw new Error("Missing required property 'stagingDistributionDnsNames'");
             }
             resourceInputs["enabled"] = args?.enabled;
             resourceInputs["stagingDistributionDnsNames"] = args?.stagingDistributionDnsNames;
@@ -226,7 +229,7 @@ export interface ContinuousDeploymentPolicyArgs {
     /**
      * CloudFront domain name of the staging distribution. See `stagingDistributionDnsNames`.
      */
-    stagingDistributionDnsNames?: pulumi.Input<inputs.cloudfront.ContinuousDeploymentPolicyStagingDistributionDnsNames>;
+    stagingDistributionDnsNames: pulumi.Input<inputs.cloudfront.ContinuousDeploymentPolicyStagingDistributionDnsNames>;
     /**
      * Parameters for routing production traffic from primary to staging distributions. See `trafficConfig`.
      */

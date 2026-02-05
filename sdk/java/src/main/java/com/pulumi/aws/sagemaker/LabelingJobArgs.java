@@ -27,30 +27,30 @@ public final class LabelingJobArgs extends com.pulumi.resources.ResourceArgs {
      * Configuration information required for human workers to complete a labeling task. Fields are documented below.
      * 
      */
-    @Import(name="humanTaskConfig")
-    private @Nullable Output<LabelingJobHumanTaskConfigArgs> humanTaskConfig;
+    @Import(name="humanTaskConfig", required=true)
+    private Output<LabelingJobHumanTaskConfigArgs> humanTaskConfig;
 
     /**
      * @return Configuration information required for human workers to complete a labeling task. Fields are documented below.
      * 
      */
-    public Optional<Output<LabelingJobHumanTaskConfigArgs>> humanTaskConfig() {
-        return Optional.ofNullable(this.humanTaskConfig);
+    public Output<LabelingJobHumanTaskConfigArgs> humanTaskConfig() {
+        return this.humanTaskConfig;
     }
 
     /**
      * Input data for the labeling job. Fields are documented below.
      * 
      */
-    @Import(name="inputConfig")
-    private @Nullable Output<LabelingJobInputConfigArgs> inputConfig;
+    @Import(name="inputConfig", required=true)
+    private Output<LabelingJobInputConfigArgs> inputConfig;
 
     /**
      * @return Input data for the labeling job. Fields are documented below.
      * 
      */
-    public Optional<Output<LabelingJobInputConfigArgs>> inputConfig() {
-        return Optional.ofNullable(this.inputConfig);
+    public Output<LabelingJobInputConfigArgs> inputConfig() {
+        return this.inputConfig;
     }
 
     /**
@@ -117,15 +117,15 @@ public final class LabelingJobArgs extends com.pulumi.resources.ResourceArgs {
      * Location of the output data. Fields are documented below.
      * 
      */
-    @Import(name="outputConfig")
-    private @Nullable Output<LabelingJobOutputConfigArgs> outputConfig;
+    @Import(name="outputConfig", required=true)
+    private Output<LabelingJobOutputConfigArgs> outputConfig;
 
     /**
      * @return Location of the output data. Fields are documented below.
      * 
      */
-    public Optional<Output<LabelingJobOutputConfigArgs>> outputConfig() {
-        return Optional.ofNullable(this.outputConfig);
+    public Output<LabelingJobOutputConfigArgs> outputConfig() {
+        return this.outputConfig;
     }
 
     /**
@@ -228,7 +228,7 @@ public final class LabelingJobArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder humanTaskConfig(@Nullable Output<LabelingJobHumanTaskConfigArgs> humanTaskConfig) {
+        public Builder humanTaskConfig(Output<LabelingJobHumanTaskConfigArgs> humanTaskConfig) {
             $.humanTaskConfig = humanTaskConfig;
             return this;
         }
@@ -249,7 +249,7 @@ public final class LabelingJobArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder inputConfig(@Nullable Output<LabelingJobInputConfigArgs> inputConfig) {
+        public Builder inputConfig(Output<LabelingJobInputConfigArgs> inputConfig) {
             $.inputConfig = inputConfig;
             return this;
         }
@@ -354,7 +354,7 @@ public final class LabelingJobArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder outputConfig(@Nullable Output<LabelingJobOutputConfigArgs> outputConfig) {
+        public Builder outputConfig(Output<LabelingJobOutputConfigArgs> outputConfig) {
             $.outputConfig = outputConfig;
             return this;
         }
@@ -464,11 +464,20 @@ public final class LabelingJobArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public LabelingJobArgs build() {
+            if ($.humanTaskConfig == null) {
+                throw new MissingRequiredPropertyException("LabelingJobArgs", "humanTaskConfig");
+            }
+            if ($.inputConfig == null) {
+                throw new MissingRequiredPropertyException("LabelingJobArgs", "inputConfig");
+            }
             if ($.labelAttributeName == null) {
                 throw new MissingRequiredPropertyException("LabelingJobArgs", "labelAttributeName");
             }
             if ($.labelingJobName == null) {
                 throw new MissingRequiredPropertyException("LabelingJobArgs", "labelingJobName");
+            }
+            if ($.outputConfig == null) {
+                throw new MissingRequiredPropertyException("LabelingJobArgs", "outputConfig");
             }
             if ($.roleArn == null) {
                 throw new MissingRequiredPropertyException("LabelingJobArgs", "roleArn");

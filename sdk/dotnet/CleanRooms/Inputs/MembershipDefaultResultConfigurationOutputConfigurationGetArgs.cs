@@ -12,8 +12,8 @@ namespace Pulumi.Aws.CleanRooms.Inputs
 
     public sealed class MembershipDefaultResultConfigurationOutputConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
-        [Input("s3")]
-        public Input<Inputs.MembershipDefaultResultConfigurationOutputConfigurationS3GetArgs>? S3 { get; set; }
+        [Input("s3", required: true)]
+        public Input<Inputs.MembershipDefaultResultConfigurationOutputConfigurationS3GetArgs> S3 { get; set; } = null!;
 
         public MembershipDefaultResultConfigurationOutputConfigurationGetArgs()
         {

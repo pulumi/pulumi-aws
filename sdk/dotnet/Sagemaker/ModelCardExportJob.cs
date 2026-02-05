@@ -79,7 +79,7 @@ namespace Pulumi.Aws.Sagemaker
         /// Export output details. Fields are documented below.
         /// </summary>
         [Output("outputConfig")]
-        public Output<Outputs.ModelCardExportJobOutputConfig?> OutputConfig { get; private set; } = null!;
+        public Output<Outputs.ModelCardExportJobOutputConfig> OutputConfig { get; private set; } = null!;
 
         /// <summary>
         /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration
@@ -154,8 +154,8 @@ namespace Pulumi.Aws.Sagemaker
         /// <summary>
         /// Export output details. Fields are documented below.
         /// </summary>
-        [Input("outputConfig")]
-        public Input<Inputs.ModelCardExportJobOutputConfigArgs>? OutputConfig { get; set; }
+        [Input("outputConfig", required: true)]
+        public Input<Inputs.ModelCardExportJobOutputConfigArgs> OutputConfig { get; set; } = null!;
 
         /// <summary>
         /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration

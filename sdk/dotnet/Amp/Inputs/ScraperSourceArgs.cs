@@ -15,8 +15,8 @@ namespace Pulumi.Aws.Amp.Inputs
         /// <summary>
         /// Configuration block for an EKS cluster source. See `Eks`.
         /// </summary>
-        [Input("eks")]
-        public Input<Inputs.ScraperSourceEksArgs>? Eks { get; set; }
+        [Input("eks", required: true)]
+        public Input<Inputs.ScraperSourceEksArgs> Eks { get; set; } = null!;
 
         public ScraperSourceArgs()
         {

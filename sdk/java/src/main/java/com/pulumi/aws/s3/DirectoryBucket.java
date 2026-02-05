@@ -169,14 +169,14 @@ public class DirectoryBucket extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="location", refs={DirectoryBucketLocation.class}, tree="[0]")
-    private Output</* @Nullable */ DirectoryBucketLocation> location;
+    private Output<DirectoryBucketLocation> location;
 
     /**
      * @return Bucket location. See Location below for more details.
      * 
      */
-    public Output<Optional<DirectoryBucketLocation>> location() {
-        return Codegen.optional(this.location);
+    public Output<DirectoryBucketLocation> location() {
+        return this.location;
     }
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.

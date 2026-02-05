@@ -22,15 +22,16 @@ __all__ = ['TrustedTokenIssuerArgs', 'TrustedTokenIssuer']
 class TrustedTokenIssuerArgs:
     def __init__(__self__, *,
                  instance_arn: pulumi.Input[_builtins.str],
+                 trusted_token_issuer_configuration: pulumi.Input['TrustedTokenIssuerTrustedTokenIssuerConfigurationArgs'],
                  trusted_token_issuer_type: pulumi.Input[_builtins.str],
                  client_token: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  region: Optional[pulumi.Input[_builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 trusted_token_issuer_configuration: Optional[pulumi.Input['TrustedTokenIssuerTrustedTokenIssuerConfigurationArgs']] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a TrustedTokenIssuer resource.
         :param pulumi.Input[_builtins.str] instance_arn: ARN of the instance of IAM Identity Center.
+        :param pulumi.Input['TrustedTokenIssuerTrustedTokenIssuerConfigurationArgs'] trusted_token_issuer_configuration: A block that specifies settings that apply to the trusted token issuer, these change depending on the type you specify in `trusted_token_issuer_type`. Documented below.
         :param pulumi.Input[_builtins.str] trusted_token_issuer_type: Specifies the type of the trusted token issuer. Valid values are `OIDC_JWT`
                
                The following arguments are optional:
@@ -38,9 +39,9 @@ class TrustedTokenIssuerArgs:
         :param pulumi.Input[_builtins.str] name: Name of the trusted token issuer.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input['TrustedTokenIssuerTrustedTokenIssuerConfigurationArgs'] trusted_token_issuer_configuration: A block that specifies settings that apply to the trusted token issuer, these change depending on the type you specify in `trusted_token_issuer_type`. Documented below.
         """
         pulumi.set(__self__, "instance_arn", instance_arn)
+        pulumi.set(__self__, "trusted_token_issuer_configuration", trusted_token_issuer_configuration)
         pulumi.set(__self__, "trusted_token_issuer_type", trusted_token_issuer_type)
         if client_token is not None:
             pulumi.set(__self__, "client_token", client_token)
@@ -50,8 +51,6 @@ class TrustedTokenIssuerArgs:
             pulumi.set(__self__, "region", region)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if trusted_token_issuer_configuration is not None:
-            pulumi.set(__self__, "trusted_token_issuer_configuration", trusted_token_issuer_configuration)
 
     @_builtins.property
     @pulumi.getter(name="instanceArn")
@@ -64,6 +63,18 @@ class TrustedTokenIssuerArgs:
     @instance_arn.setter
     def instance_arn(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "instance_arn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="trustedTokenIssuerConfiguration")
+    def trusted_token_issuer_configuration(self) -> pulumi.Input['TrustedTokenIssuerTrustedTokenIssuerConfigurationArgs']:
+        """
+        A block that specifies settings that apply to the trusted token issuer, these change depending on the type you specify in `trusted_token_issuer_type`. Documented below.
+        """
+        return pulumi.get(self, "trusted_token_issuer_configuration")
+
+    @trusted_token_issuer_configuration.setter
+    def trusted_token_issuer_configuration(self, value: pulumi.Input['TrustedTokenIssuerTrustedTokenIssuerConfigurationArgs']):
+        pulumi.set(self, "trusted_token_issuer_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="trustedTokenIssuerType")
@@ -126,18 +137,6 @@ class TrustedTokenIssuerArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
-
-    @_builtins.property
-    @pulumi.getter(name="trustedTokenIssuerConfiguration")
-    def trusted_token_issuer_configuration(self) -> Optional[pulumi.Input['TrustedTokenIssuerTrustedTokenIssuerConfigurationArgs']]:
-        """
-        A block that specifies settings that apply to the trusted token issuer, these change depending on the type you specify in `trusted_token_issuer_type`. Documented below.
-        """
-        return pulumi.get(self, "trusted_token_issuer_configuration")
-
-    @trusted_token_issuer_configuration.setter
-    def trusted_token_issuer_configuration(self, value: Optional[pulumi.Input['TrustedTokenIssuerTrustedTokenIssuerConfigurationArgs']]):
-        pulumi.set(self, "trusted_token_issuer_configuration", value)
 
 
 @pulumi.input_type
@@ -434,6 +433,8 @@ class TrustedTokenIssuer(pulumi.CustomResource):
             __props__.__dict__["name"] = name
             __props__.__dict__["region"] = region
             __props__.__dict__["tags"] = tags
+            if trusted_token_issuer_configuration is None and not opts.urn:
+                raise TypeError("Missing required property 'trusted_token_issuer_configuration'")
             __props__.__dict__["trusted_token_issuer_configuration"] = trusted_token_issuer_configuration
             if trusted_token_issuer_type is None and not opts.urn:
                 raise TypeError("Missing required property 'trusted_token_issuer_type'")
@@ -551,7 +552,7 @@ class TrustedTokenIssuer(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="trustedTokenIssuerConfiguration")
-    def trusted_token_issuer_configuration(self) -> pulumi.Output[Optional['outputs.TrustedTokenIssuerTrustedTokenIssuerConfiguration']]:
+    def trusted_token_issuer_configuration(self) -> pulumi.Output['outputs.TrustedTokenIssuerTrustedTokenIssuerConfiguration']:
         """
         A block that specifies settings that apply to the trusted token issuer, these change depending on the type you specify in `trusted_token_issuer_type`. Documented below.
         """

@@ -172,7 +172,7 @@ type FormType struct {
 	DomainIdentifier pulumi.StringOutput       `pulumi:"domainIdentifier"`
 	Imports          FormTypeImportArrayOutput `pulumi:"imports"`
 	// Object of the model of the form type that contains the following attributes.
-	Model FormTypeModelPtrOutput `pulumi:"model"`
+	Model FormTypeModelOutput `pulumi:"model"`
 	// Name of the form type. Must be the name of the structure in smithy document.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Origin domain id of the Form Type.
@@ -198,6 +198,9 @@ func NewFormType(ctx *pulumi.Context,
 
 	if args.DomainIdentifier == nil {
 		return nil, errors.New("invalid value for required argument 'DomainIdentifier'")
+	}
+	if args.Model == nil {
+		return nil, errors.New("invalid value for required argument 'Model'")
 	}
 	if args.OwningProjectIdentifier == nil {
 		return nil, errors.New("invalid value for required argument 'OwningProjectIdentifier'")
@@ -290,7 +293,7 @@ type formTypeArgs struct {
 	// Identifier of the domain.
 	DomainIdentifier string `pulumi:"domainIdentifier"`
 	// Object of the model of the form type that contains the following attributes.
-	Model *FormTypeModel `pulumi:"model"`
+	Model FormTypeModel `pulumi:"model"`
 	// Name of the form type. Must be the name of the structure in smithy document.
 	Name *string `pulumi:"name"`
 	// Identifier of project that owns the form type. Must follow regex of ^[a-zA-Z0-9_-]{1,36}.
@@ -308,7 +311,7 @@ type FormTypeArgs struct {
 	// Identifier of the domain.
 	DomainIdentifier pulumi.StringInput
 	// Object of the model of the form type that contains the following attributes.
-	Model FormTypeModelPtrInput
+	Model FormTypeModelInput
 	// Name of the form type. Must be the name of the structure in smithy document.
 	Name pulumi.StringPtrInput
 	// Identifier of project that owns the form type. Must follow regex of ^[a-zA-Z0-9_-]{1,36}.
@@ -431,8 +434,8 @@ func (o FormTypeOutput) Imports() FormTypeImportArrayOutput {
 }
 
 // Object of the model of the form type that contains the following attributes.
-func (o FormTypeOutput) Model() FormTypeModelPtrOutput {
-	return o.ApplyT(func(v *FormType) FormTypeModelPtrOutput { return v.Model }).(FormTypeModelPtrOutput)
+func (o FormTypeOutput) Model() FormTypeModelOutput {
+	return o.ApplyT(func(v *FormType) FormTypeModelOutput { return v.Model }).(FormTypeModelOutput)
 }
 
 // Name of the form type. Must be the name of the structure in smithy document.

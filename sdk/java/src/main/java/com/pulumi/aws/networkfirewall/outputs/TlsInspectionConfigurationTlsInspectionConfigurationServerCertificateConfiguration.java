@@ -7,6 +7,7 @@ import com.pulumi.aws.networkfirewall.outputs.TlsInspectionConfigurationTlsInspe
 import com.pulumi.aws.networkfirewall.outputs.TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScope;
 import com.pulumi.aws.networkfirewall.outputs.TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationServerCertificate;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -29,7 +30,7 @@ public final class TlsInspectionConfigurationTlsInspectionConfigurationServerCer
      * @return Scope block. Detailed below.
      * 
      */
-    private @Nullable List<TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScope> scopes;
+    private List<TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScope> scopes;
     /**
      * @return Server certificates to use for inbound SSL/TLS inspection. See [Using SSL/TLS certificates with TLS inspection configurations](https://docs.aws.amazon.com/network-firewall/latest/developerguide/tls-inspection-certificate-requirements.html).
      * 
@@ -56,7 +57,7 @@ public final class TlsInspectionConfigurationTlsInspectionConfigurationServerCer
      * 
      */
     public List<TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScope> scopes() {
-        return this.scopes == null ? List.of() : this.scopes;
+        return this.scopes;
     }
     /**
      * @return Server certificates to use for inbound SSL/TLS inspection. See [Using SSL/TLS certificates with TLS inspection configurations](https://docs.aws.amazon.com/network-firewall/latest/developerguide/tls-inspection-certificate-requirements.html).
@@ -77,7 +78,7 @@ public final class TlsInspectionConfigurationTlsInspectionConfigurationServerCer
     public static final class Builder {
         private @Nullable String certificateAuthorityArn;
         private @Nullable TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationCheckCertificateRevocationStatus checkCertificateRevocationStatus;
-        private @Nullable List<TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScope> scopes;
+        private List<TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScope> scopes;
         private @Nullable List<TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationServerCertificate> serverCertificates;
         public Builder() {}
         public Builder(TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfiguration defaults) {
@@ -101,8 +102,10 @@ public final class TlsInspectionConfigurationTlsInspectionConfigurationServerCer
             return this;
         }
         @CustomType.Setter
-        public Builder scopes(@Nullable List<TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScope> scopes) {
-
+        public Builder scopes(List<TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScope> scopes) {
+            if (scopes == null) {
+              throw new MissingRequiredPropertyException("TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfiguration", "scopes");
+            }
             this.scopes = scopes;
             return this;
         }

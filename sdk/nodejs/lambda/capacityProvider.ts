@@ -85,7 +85,7 @@ export class CapacityProvider extends pulumi.CustomResource {
      *
      * The following arguments are optional:
      */
-    declare public readonly permissionsConfig: pulumi.Output<outputs.lambda.CapacityProviderPermissionsConfig | undefined>;
+    declare public readonly permissionsConfig: pulumi.Output<outputs.lambda.CapacityProviderPermissionsConfig>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
@@ -102,7 +102,7 @@ export class CapacityProvider extends pulumi.CustomResource {
     /**
      * Configuration block for VPC settings. See VPC Config below.
      */
-    declare public readonly vpcConfig: pulumi.Output<outputs.lambda.CapacityProviderVpcConfig | undefined>;
+    declare public readonly vpcConfig: pulumi.Output<outputs.lambda.CapacityProviderVpcConfig>;
 
     /**
      * Create a CapacityProvider resource with the given unique name, arguments, and options.
@@ -111,7 +111,7 @@ export class CapacityProvider extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: CapacityProviderArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, args: CapacityProviderArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: CapacityProviderArgs | CapacityProviderState, opts?: pulumi.CustomResourceOptions) {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
@@ -130,6 +130,12 @@ export class CapacityProvider extends pulumi.CustomResource {
             resourceInputs["vpcConfig"] = state?.vpcConfig;
         } else {
             const args = argsOrState as CapacityProviderArgs | undefined;
+            if (args?.permissionsConfig === undefined && !opts.urn) {
+                throw new Error("Missing required property 'permissionsConfig'");
+            }
+            if (args?.vpcConfig === undefined && !opts.urn) {
+                throw new Error("Missing required property 'vpcConfig'");
+            }
             resourceInputs["capacityProviderScalingConfigs"] = args?.capacityProviderScalingConfigs;
             resourceInputs["instanceRequirements"] = args?.instanceRequirements;
             resourceInputs["kmsKeyArn"] = args?.kmsKeyArn;
@@ -209,7 +215,7 @@ export interface CapacityProviderArgs {
      *
      * The following arguments are optional:
      */
-    permissionsConfig?: pulumi.Input<inputs.lambda.CapacityProviderPermissionsConfig>;
+    permissionsConfig: pulumi.Input<inputs.lambda.CapacityProviderPermissionsConfig>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
@@ -222,5 +228,5 @@ export interface CapacityProviderArgs {
     /**
      * Configuration block for VPC settings. See VPC Config below.
      */
-    vpcConfig?: pulumi.Input<inputs.lambda.CapacityProviderVpcConfig>;
+    vpcConfig: pulumi.Input<inputs.lambda.CapacityProviderVpcConfig>;
 }

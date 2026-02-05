@@ -8,6 +8,7 @@ import com.pulumi.aws.bedrock.outputs.AgentPromptVariantTemplateConfigurationCha
 import com.pulumi.aws.bedrock.outputs.AgentPromptVariantTemplateConfigurationChatSystem;
 import com.pulumi.aws.bedrock.outputs.AgentPromptVariantTemplateConfigurationChatToolConfiguration;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
@@ -20,7 +21,7 @@ public final class AgentPromptVariantTemplateConfigurationChat {
      * @return A list of messages in the chat for the prompt. See Message for more information.
      * 
      */
-    private @Nullable List<AgentPromptVariantTemplateConfigurationChatMessage> messages;
+    private List<AgentPromptVariantTemplateConfigurationChatMessage> messages;
     /**
      * @return A list of system prompts to provide context to the model or to describe how it should behave. See System for more information.
      * 
@@ -41,7 +42,7 @@ public final class AgentPromptVariantTemplateConfigurationChat {
      * 
      */
     public List<AgentPromptVariantTemplateConfigurationChatMessage> messages() {
-        return this.messages == null ? List.of() : this.messages;
+        return this.messages;
     }
     /**
      * @return A list of system prompts to provide context to the model or to describe how it should behave. See System for more information.
@@ -68,7 +69,7 @@ public final class AgentPromptVariantTemplateConfigurationChat {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable List<AgentPromptVariantTemplateConfigurationChatInputVariable> inputVariables;
-        private @Nullable List<AgentPromptVariantTemplateConfigurationChatMessage> messages;
+        private List<AgentPromptVariantTemplateConfigurationChatMessage> messages;
         private @Nullable List<AgentPromptVariantTemplateConfigurationChatSystem> systems;
         private @Nullable AgentPromptVariantTemplateConfigurationChatToolConfiguration toolConfiguration;
         public Builder() {}
@@ -90,8 +91,10 @@ public final class AgentPromptVariantTemplateConfigurationChat {
             return inputVariables(List.of(inputVariables));
         }
         @CustomType.Setter
-        public Builder messages(@Nullable List<AgentPromptVariantTemplateConfigurationChatMessage> messages) {
-
+        public Builder messages(List<AgentPromptVariantTemplateConfigurationChatMessage> messages) {
+            if (messages == null) {
+              throw new MissingRequiredPropertyException("AgentPromptVariantTemplateConfigurationChat", "messages");
+            }
             this.messages = messages;
             return this;
         }

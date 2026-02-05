@@ -238,14 +238,14 @@ public class ConnectionFunction extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="connectionFunctionConfig", refs={ConnectionFunctionConnectionFunctionConfig.class}, tree="[0]")
-    private Output</* @Nullable */ ConnectionFunctionConnectionFunctionConfig> connectionFunctionConfig;
+    private Output<ConnectionFunctionConnectionFunctionConfig> connectionFunctionConfig;
 
     /**
      * @return Configuration information for the connection function. See `connectionFunctionConfig` below.
      * 
      */
-    public Output<Optional<ConnectionFunctionConnectionFunctionConfig>> connectionFunctionConfig() {
-        return Codegen.optional(this.connectionFunctionConfig);
+    public Output<ConnectionFunctionConnectionFunctionConfig> connectionFunctionConfig() {
+        return this.connectionFunctionConfig;
     }
     /**
      * ETag of the connection function.

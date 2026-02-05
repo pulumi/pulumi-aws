@@ -74,7 +74,7 @@ namespace Pulumi.Aws.SecurityLake
         /// Specify the natively-supported AWS service to add as a source in Security Lake.
         /// </summary>
         [Output("source")]
-        public Output<Outputs.AwsLogSourceSource?> Source { get; private set; } = null!;
+        public Output<Outputs.AwsLogSourceSource> Source { get; private set; } = null!;
 
 
         /// <summary>
@@ -84,7 +84,7 @@ namespace Pulumi.Aws.SecurityLake
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public AwsLogSource(string name, AwsLogSourceArgs? args = null, CustomResourceOptions? options = null)
+        public AwsLogSource(string name, AwsLogSourceArgs args, CustomResourceOptions? options = null)
             : base("aws:securitylake/awsLogSource:AwsLogSource", name, args ?? new AwsLogSourceArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -131,8 +131,8 @@ namespace Pulumi.Aws.SecurityLake
         /// <summary>
         /// Specify the natively-supported AWS service to add as a source in Security Lake.
         /// </summary>
-        [Input("source")]
-        public Input<Inputs.AwsLogSourceSourceArgs>? Source { get; set; }
+        [Input("source", required: true)]
+        public Input<Inputs.AwsLogSourceSourceArgs> Source { get; set; } = null!;
 
         public AwsLogSourceArgs()
         {

@@ -21,20 +21,31 @@ __all__ = ['SubscriberNotificationArgs', 'SubscriberNotification']
 @pulumi.input_type
 class SubscriberNotificationArgs:
     def __init__(__self__, *,
+                 configuration: pulumi.Input['SubscriberNotificationConfigurationArgs'],
                  subscriber_id: pulumi.Input[_builtins.str],
-                 configuration: Optional[pulumi.Input['SubscriberNotificationConfigurationArgs']] = None,
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a SubscriberNotification resource.
-        :param pulumi.Input[_builtins.str] subscriber_id: The subscriber ID for the notification subscription.
         :param pulumi.Input['SubscriberNotificationConfigurationArgs'] configuration: Specify the configuration using which you want to create the subscriber notification..
+        :param pulumi.Input[_builtins.str] subscriber_id: The subscriber ID for the notification subscription.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
+        pulumi.set(__self__, "configuration", configuration)
         pulumi.set(__self__, "subscriber_id", subscriber_id)
-        if configuration is not None:
-            pulumi.set(__self__, "configuration", configuration)
         if region is not None:
             pulumi.set(__self__, "region", region)
+
+    @_builtins.property
+    @pulumi.getter
+    def configuration(self) -> pulumi.Input['SubscriberNotificationConfigurationArgs']:
+        """
+        Specify the configuration using which you want to create the subscriber notification..
+        """
+        return pulumi.get(self, "configuration")
+
+    @configuration.setter
+    def configuration(self, value: pulumi.Input['SubscriberNotificationConfigurationArgs']):
+        pulumi.set(self, "configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="subscriberId")
@@ -47,18 +58,6 @@ class SubscriberNotificationArgs:
     @subscriber_id.setter
     def subscriber_id(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "subscriber_id", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def configuration(self) -> Optional[pulumi.Input['SubscriberNotificationConfigurationArgs']]:
-        """
-        Specify the configuration using which you want to create the subscriber notification..
-        """
-        return pulumi.get(self, "configuration")
-
-    @configuration.setter
-    def configuration(self, value: Optional[pulumi.Input['SubscriberNotificationConfigurationArgs']]):
-        pulumi.set(self, "configuration", value)
 
     @_builtins.property
     @pulumi.getter
@@ -282,6 +281,8 @@ class SubscriberNotification(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = SubscriberNotificationArgs.__new__(SubscriberNotificationArgs)
 
+            if configuration is None and not opts.urn:
+                raise TypeError("Missing required property 'configuration'")
             __props__.__dict__["configuration"] = configuration
             __props__.__dict__["region"] = region
             if subscriber_id is None and not opts.urn:
@@ -330,7 +331,7 @@ class SubscriberNotification(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
-    def configuration(self) -> pulumi.Output[Optional['outputs.SubscriberNotificationConfiguration']]:
+    def configuration(self) -> pulumi.Output['outputs.SubscriberNotificationConfiguration']:
         """
         Specify the configuration using which you want to create the subscriber notification..
         """

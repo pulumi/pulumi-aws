@@ -83,7 +83,7 @@ export class VpcEndpointAssociation extends pulumi.CustomResource {
     /**
      * The ID for a subnet that's used in an association with a firewall. See Subnet Mapping below for details.
      */
-    declare public readonly subnetMapping: pulumi.Output<outputs.networkfirewall.VpcEndpointAssociationSubnetMapping | undefined>;
+    declare public readonly subnetMapping: pulumi.Output<outputs.networkfirewall.VpcEndpointAssociationSubnetMapping>;
     /**
      * Map of resource tags to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -138,6 +138,9 @@ export class VpcEndpointAssociation extends pulumi.CustomResource {
             const args = argsOrState as VpcEndpointAssociationArgs | undefined;
             if (args?.firewallArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'firewallArn'");
+            }
+            if (args?.subnetMapping === undefined && !opts.urn) {
+                throw new Error("Missing required property 'subnetMapping'");
             }
             if (args?.vpcId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'vpcId'");
@@ -225,7 +228,7 @@ export interface VpcEndpointAssociationArgs {
     /**
      * The ID for a subnet that's used in an association with a firewall. See Subnet Mapping below for details.
      */
-    subnetMapping?: pulumi.Input<inputs.networkfirewall.VpcEndpointAssociationSubnetMapping>;
+    subnetMapping: pulumi.Input<inputs.networkfirewall.VpcEndpointAssociationSubnetMapping>;
     /**
      * Map of resource tags to associate with the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

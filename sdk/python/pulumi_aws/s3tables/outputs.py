@@ -209,16 +209,15 @@ class TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettings(
 @pulumi.output_type
 class TableBucketReplicationRule(dict):
     def __init__(__self__, *,
-                 destinations: Optional[Sequence['outputs.TableBucketReplicationRuleDestination']] = None):
+                 destinations: Sequence['outputs.TableBucketReplicationRuleDestination']):
         """
         :param Sequence['TableBucketReplicationRuleDestinationArgs'] destinations: Replication destination. See Destination below for more details.
         """
-        if destinations is not None:
-            pulumi.set(__self__, "destinations", destinations)
+        pulumi.set(__self__, "destinations", destinations)
 
     @_builtins.property
     @pulumi.getter
-    def destinations(self) -> Optional[Sequence['outputs.TableBucketReplicationRuleDestination']]:
+    def destinations(self) -> Sequence['outputs.TableBucketReplicationRuleDestination']:
         """
         Replication destination. See Destination below for more details.
         """
@@ -558,17 +557,16 @@ class TableMetadataIceberg(dict):
 @pulumi.output_type
 class TableMetadataIcebergSchema(dict):
     def __init__(__self__, *,
-                 fields: Optional[Sequence['outputs.TableMetadataIcebergSchemaField']] = None):
+                 fields: Sequence['outputs.TableMetadataIcebergSchemaField']):
         """
         :param Sequence['TableMetadataIcebergSchemaFieldArgs'] fields: List of schema fields for the Iceberg table. Each field defines a column in the table schema.
                See `field` below.
         """
-        if fields is not None:
-            pulumi.set(__self__, "fields", fields)
+        pulumi.set(__self__, "fields", fields)
 
     @_builtins.property
     @pulumi.getter
-    def fields(self) -> Optional[Sequence['outputs.TableMetadataIcebergSchemaField']]:
+    def fields(self) -> Sequence['outputs.TableMetadataIcebergSchemaField']:
         """
         List of schema fields for the Iceberg table. Each field defines a column in the table schema.
         See `field` below.
@@ -620,16 +618,15 @@ class TableMetadataIcebergSchemaField(dict):
 @pulumi.output_type
 class TableReplicationRule(dict):
     def __init__(__self__, *,
-                 destinations: Optional[Sequence['outputs.TableReplicationRuleDestination']] = None):
+                 destinations: Sequence['outputs.TableReplicationRuleDestination']):
         """
         :param Sequence['TableReplicationRuleDestinationArgs'] destinations: Replication destination. See Destination below for more details.
         """
-        if destinations is not None:
-            pulumi.set(__self__, "destinations", destinations)
+        pulumi.set(__self__, "destinations", destinations)
 
     @_builtins.property
     @pulumi.getter
-    def destinations(self) -> Optional[Sequence['outputs.TableReplicationRuleDestination']]:
+    def destinations(self) -> Sequence['outputs.TableReplicationRuleDestination']:
         """
         Replication destination. See Destination below for more details.
         """

@@ -10,6 +10,7 @@ import com.pulumi.aws.appsync.inputs.ApiEventConfigDefaultSubscribeAuthModeArgs;
 import com.pulumi.aws.appsync.inputs.ApiEventConfigLogConfigArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
@@ -24,60 +25,60 @@ public final class ApiEventConfigArgs extends com.pulumi.resources.ResourceArgs 
      * List of authentication providers. See Auth Providers below.
      * 
      */
-    @Import(name="authProviders")
-    private @Nullable Output<List<ApiEventConfigAuthProviderArgs>> authProviders;
+    @Import(name="authProviders", required=true)
+    private Output<List<ApiEventConfigAuthProviderArgs>> authProviders;
 
     /**
      * @return List of authentication providers. See Auth Providers below.
      * 
      */
-    public Optional<Output<List<ApiEventConfigAuthProviderArgs>>> authProviders() {
-        return Optional.ofNullable(this.authProviders);
+    public Output<List<ApiEventConfigAuthProviderArgs>> authProviders() {
+        return this.authProviders;
     }
 
     /**
      * List of authentication modes for connections. See Auth Modes below.
      * 
      */
-    @Import(name="connectionAuthModes")
-    private @Nullable Output<List<ApiEventConfigConnectionAuthModeArgs>> connectionAuthModes;
+    @Import(name="connectionAuthModes", required=true)
+    private Output<List<ApiEventConfigConnectionAuthModeArgs>> connectionAuthModes;
 
     /**
      * @return List of authentication modes for connections. See Auth Modes below.
      * 
      */
-    public Optional<Output<List<ApiEventConfigConnectionAuthModeArgs>>> connectionAuthModes() {
-        return Optional.ofNullable(this.connectionAuthModes);
+    public Output<List<ApiEventConfigConnectionAuthModeArgs>> connectionAuthModes() {
+        return this.connectionAuthModes;
     }
 
     /**
      * List of default authentication modes for publishing. See Auth Modes below.
      * 
      */
-    @Import(name="defaultPublishAuthModes")
-    private @Nullable Output<List<ApiEventConfigDefaultPublishAuthModeArgs>> defaultPublishAuthModes;
+    @Import(name="defaultPublishAuthModes", required=true)
+    private Output<List<ApiEventConfigDefaultPublishAuthModeArgs>> defaultPublishAuthModes;
 
     /**
      * @return List of default authentication modes for publishing. See Auth Modes below.
      * 
      */
-    public Optional<Output<List<ApiEventConfigDefaultPublishAuthModeArgs>>> defaultPublishAuthModes() {
-        return Optional.ofNullable(this.defaultPublishAuthModes);
+    public Output<List<ApiEventConfigDefaultPublishAuthModeArgs>> defaultPublishAuthModes() {
+        return this.defaultPublishAuthModes;
     }
 
     /**
      * List of default authentication modes for subscribing. See Auth Modes below.
      * 
      */
-    @Import(name="defaultSubscribeAuthModes")
-    private @Nullable Output<List<ApiEventConfigDefaultSubscribeAuthModeArgs>> defaultSubscribeAuthModes;
+    @Import(name="defaultSubscribeAuthModes", required=true)
+    private Output<List<ApiEventConfigDefaultSubscribeAuthModeArgs>> defaultSubscribeAuthModes;
 
     /**
      * @return List of default authentication modes for subscribing. See Auth Modes below.
      * 
      */
-    public Optional<Output<List<ApiEventConfigDefaultSubscribeAuthModeArgs>>> defaultSubscribeAuthModes() {
-        return Optional.ofNullable(this.defaultSubscribeAuthModes);
+    public Output<List<ApiEventConfigDefaultSubscribeAuthModeArgs>> defaultSubscribeAuthModes() {
+        return this.defaultSubscribeAuthModes;
     }
 
     /**
@@ -129,7 +130,7 @@ public final class ApiEventConfigArgs extends com.pulumi.resources.ResourceArgs 
          * @return builder
          * 
          */
-        public Builder authProviders(@Nullable Output<List<ApiEventConfigAuthProviderArgs>> authProviders) {
+        public Builder authProviders(Output<List<ApiEventConfigAuthProviderArgs>> authProviders) {
             $.authProviders = authProviders;
             return this;
         }
@@ -160,7 +161,7 @@ public final class ApiEventConfigArgs extends com.pulumi.resources.ResourceArgs 
          * @return builder
          * 
          */
-        public Builder connectionAuthModes(@Nullable Output<List<ApiEventConfigConnectionAuthModeArgs>> connectionAuthModes) {
+        public Builder connectionAuthModes(Output<List<ApiEventConfigConnectionAuthModeArgs>> connectionAuthModes) {
             $.connectionAuthModes = connectionAuthModes;
             return this;
         }
@@ -191,7 +192,7 @@ public final class ApiEventConfigArgs extends com.pulumi.resources.ResourceArgs 
          * @return builder
          * 
          */
-        public Builder defaultPublishAuthModes(@Nullable Output<List<ApiEventConfigDefaultPublishAuthModeArgs>> defaultPublishAuthModes) {
+        public Builder defaultPublishAuthModes(Output<List<ApiEventConfigDefaultPublishAuthModeArgs>> defaultPublishAuthModes) {
             $.defaultPublishAuthModes = defaultPublishAuthModes;
             return this;
         }
@@ -222,7 +223,7 @@ public final class ApiEventConfigArgs extends com.pulumi.resources.ResourceArgs 
          * @return builder
          * 
          */
-        public Builder defaultSubscribeAuthModes(@Nullable Output<List<ApiEventConfigDefaultSubscribeAuthModeArgs>> defaultSubscribeAuthModes) {
+        public Builder defaultSubscribeAuthModes(Output<List<ApiEventConfigDefaultSubscribeAuthModeArgs>> defaultSubscribeAuthModes) {
             $.defaultSubscribeAuthModes = defaultSubscribeAuthModes;
             return this;
         }
@@ -269,6 +270,18 @@ public final class ApiEventConfigArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         public ApiEventConfigArgs build() {
+            if ($.authProviders == null) {
+                throw new MissingRequiredPropertyException("ApiEventConfigArgs", "authProviders");
+            }
+            if ($.connectionAuthModes == null) {
+                throw new MissingRequiredPropertyException("ApiEventConfigArgs", "connectionAuthModes");
+            }
+            if ($.defaultPublishAuthModes == null) {
+                throw new MissingRequiredPropertyException("ApiEventConfigArgs", "defaultPublishAuthModes");
+            }
+            if ($.defaultSubscribeAuthModes == null) {
+                throw new MissingRequiredPropertyException("ApiEventConfigArgs", "defaultSubscribeAuthModes");
+            }
             return $;
         }
     }

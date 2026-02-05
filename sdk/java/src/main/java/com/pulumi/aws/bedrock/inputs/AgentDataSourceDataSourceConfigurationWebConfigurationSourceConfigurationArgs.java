@@ -6,9 +6,8 @@ package com.pulumi.aws.bedrock.inputs;
 import com.pulumi.aws.bedrock.inputs.AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.Objects;
-import java.util.Optional;
-import javax.annotation.Nullable;
 
 
 public final class AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationArgs extends com.pulumi.resources.ResourceArgs {
@@ -19,15 +18,15 @@ public final class AgentDataSourceDataSourceConfigurationWebConfigurationSourceC
      * The URL configuration of your web data source. See `urlConfiguration` block for details.
      * 
      */
-    @Import(name="urlConfiguration")
-    private @Nullable Output<AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationArgs> urlConfiguration;
+    @Import(name="urlConfiguration", required=true)
+    private Output<AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationArgs> urlConfiguration;
 
     /**
      * @return The URL configuration of your web data source. See `urlConfiguration` block for details.
      * 
      */
-    public Optional<Output<AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationArgs>> urlConfiguration() {
-        return Optional.ofNullable(this.urlConfiguration);
+    public Output<AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationArgs> urlConfiguration() {
+        return this.urlConfiguration;
     }
 
     private AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationArgs() {}
@@ -60,7 +59,7 @@ public final class AgentDataSourceDataSourceConfigurationWebConfigurationSourceC
          * @return builder
          * 
          */
-        public Builder urlConfiguration(@Nullable Output<AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationArgs> urlConfiguration) {
+        public Builder urlConfiguration(Output<AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationArgs> urlConfiguration) {
             $.urlConfiguration = urlConfiguration;
             return this;
         }
@@ -76,6 +75,9 @@ public final class AgentDataSourceDataSourceConfigurationWebConfigurationSourceC
         }
 
         public AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationArgs build() {
+            if ($.urlConfiguration == null) {
+                throw new MissingRequiredPropertyException("AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationArgs", "urlConfiguration");
+            }
             return $;
         }
     }

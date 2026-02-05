@@ -23,8 +23,8 @@ class ModelCardExportJobArgs:
     def __init__(__self__, *,
                  model_card_export_job_name: pulumi.Input[_builtins.str],
                  model_card_name: pulumi.Input[_builtins.str],
+                 output_config: pulumi.Input['ModelCardExportJobOutputConfigArgs'],
                  model_card_version: Optional[pulumi.Input[_builtins.int]] = None,
-                 output_config: Optional[pulumi.Input['ModelCardExportJobOutputConfigArgs']] = None,
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  timeouts: Optional[pulumi.Input['ModelCardExportJobTimeoutsArgs']] = None):
         """
@@ -36,10 +36,9 @@ class ModelCardExportJobArgs:
         """
         pulumi.set(__self__, "model_card_export_job_name", model_card_export_job_name)
         pulumi.set(__self__, "model_card_name", model_card_name)
+        pulumi.set(__self__, "output_config", output_config)
         if model_card_version is not None:
             pulumi.set(__self__, "model_card_version", model_card_version)
-        if output_config is not None:
-            pulumi.set(__self__, "output_config", output_config)
         if region is not None:
             pulumi.set(__self__, "region", region)
         if timeouts is not None:
@@ -70,6 +69,18 @@ class ModelCardExportJobArgs:
         pulumi.set(self, "model_card_name", value)
 
     @_builtins.property
+    @pulumi.getter(name="outputConfig")
+    def output_config(self) -> pulumi.Input['ModelCardExportJobOutputConfigArgs']:
+        """
+        Export output details. Fields are documented below.
+        """
+        return pulumi.get(self, "output_config")
+
+    @output_config.setter
+    def output_config(self, value: pulumi.Input['ModelCardExportJobOutputConfigArgs']):
+        pulumi.set(self, "output_config", value)
+
+    @_builtins.property
     @pulumi.getter(name="modelCardVersion")
     def model_card_version(self) -> Optional[pulumi.Input[_builtins.int]]:
         return pulumi.get(self, "model_card_version")
@@ -77,18 +88,6 @@ class ModelCardExportJobArgs:
     @model_card_version.setter
     def model_card_version(self, value: Optional[pulumi.Input[_builtins.int]]):
         pulumi.set(self, "model_card_version", value)
-
-    @_builtins.property
-    @pulumi.getter(name="outputConfig")
-    def output_config(self) -> Optional[pulumi.Input['ModelCardExportJobOutputConfigArgs']]:
-        """
-        Export output details. Fields are documented below.
-        """
-        return pulumi.get(self, "output_config")
-
-    @output_config.setter
-    def output_config(self, value: Optional[pulumi.Input['ModelCardExportJobOutputConfigArgs']]):
-        pulumi.set(self, "output_config", value)
 
     @_builtins.property
     @pulumi.getter
@@ -357,6 +356,8 @@ class ModelCardExportJob(pulumi.CustomResource):
                 raise TypeError("Missing required property 'model_card_name'")
             __props__.__dict__["model_card_name"] = model_card_name
             __props__.__dict__["model_card_version"] = model_card_version
+            if output_config is None and not opts.urn:
+                raise TypeError("Missing required property 'output_config'")
             __props__.__dict__["output_config"] = output_config
             __props__.__dict__["region"] = region
             __props__.__dict__["timeouts"] = timeouts
@@ -447,7 +448,7 @@ class ModelCardExportJob(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="outputConfig")
-    def output_config(self) -> pulumi.Output[Optional['outputs.ModelCardExportJobOutputConfig']]:
+    def output_config(self) -> pulumi.Output['outputs.ModelCardExportJobOutputConfig']:
         """
         Export output details. Fields are documented below.
         """

@@ -15,8 +15,8 @@ namespace Pulumi.Aws.CloudFront.Inputs
         /// <summary>
         /// Failover criteria for when to failover to the secondary origin. See Failover Criteria below.
         /// </summary>
-        [Input("failoverCriteria")]
-        public Input<Inputs.MultitenantDistributionOriginGroupFailoverCriteriaArgs>? FailoverCriteria { get; set; }
+        [Input("failoverCriteria", required: true)]
+        public Input<Inputs.MultitenantDistributionOriginGroupFailoverCriteriaArgs> FailoverCriteria { get; set; } = null!;
 
         /// <summary>
         /// Identifier for the distribution.
@@ -24,7 +24,7 @@ namespace Pulumi.Aws.CloudFront.Inputs
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
 
-        [Input("members")]
+        [Input("members", required: true)]
         private InputList<Inputs.MultitenantDistributionOriginGroupMemberArgs>? _members;
 
         /// <summary>

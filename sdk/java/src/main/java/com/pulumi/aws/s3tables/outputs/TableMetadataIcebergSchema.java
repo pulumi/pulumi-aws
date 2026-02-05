@@ -5,9 +5,9 @@ package com.pulumi.aws.s3tables.outputs;
 
 import com.pulumi.aws.s3tables.outputs.TableMetadataIcebergSchemaField;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
-import javax.annotation.Nullable;
 
 @CustomType
 public final class TableMetadataIcebergSchema {
@@ -16,7 +16,7 @@ public final class TableMetadataIcebergSchema {
      * See `field` below.
      * 
      */
-    private @Nullable List<TableMetadataIcebergSchemaField> fields;
+    private List<TableMetadataIcebergSchemaField> fields;
 
     private TableMetadataIcebergSchema() {}
     /**
@@ -25,7 +25,7 @@ public final class TableMetadataIcebergSchema {
      * 
      */
     public List<TableMetadataIcebergSchemaField> fields() {
-        return this.fields == null ? List.of() : this.fields;
+        return this.fields;
     }
 
     public static Builder builder() {
@@ -37,7 +37,7 @@ public final class TableMetadataIcebergSchema {
     }
     @CustomType.Builder
     public static final class Builder {
-        private @Nullable List<TableMetadataIcebergSchemaField> fields;
+        private List<TableMetadataIcebergSchemaField> fields;
         public Builder() {}
         public Builder(TableMetadataIcebergSchema defaults) {
     	      Objects.requireNonNull(defaults);
@@ -45,8 +45,10 @@ public final class TableMetadataIcebergSchema {
         }
 
         @CustomType.Setter
-        public Builder fields(@Nullable List<TableMetadataIcebergSchemaField> fields) {
-
+        public Builder fields(List<TableMetadataIcebergSchemaField> fields) {
+            if (fields == null) {
+              throw new MissingRequiredPropertyException("TableMetadataIcebergSchema", "fields");
+            }
             this.fields = fields;
             return this;
         }

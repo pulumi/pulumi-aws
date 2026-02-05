@@ -24,7 +24,7 @@ namespace Pulumi.Aws.NetworkFirewall.Inputs
             set => _destinationPorts = value;
         }
 
-        [Input("destinations")]
+        [Input("destinations", required: true)]
         private InputList<Inputs.TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeDestinationGetArgs>? _destinations;
 
         /// <summary>

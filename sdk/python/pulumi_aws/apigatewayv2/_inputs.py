@@ -572,7 +572,7 @@ class RouteRequestParameterArgs:
 
 if not MYPY:
     class RoutingRuleActionArgsDict(TypedDict):
-        invoke_api: NotRequired[pulumi.Input['RoutingRuleActionInvokeApiArgsDict']]
+        invoke_api: pulumi.Input['RoutingRuleActionInvokeApiArgsDict']
         """
         Configuration to invoke a stage of a target API. Only REST APIs are supported. See below.
         """
@@ -582,23 +582,22 @@ elif False:
 @pulumi.input_type
 class RoutingRuleActionArgs:
     def __init__(__self__, *,
-                 invoke_api: Optional[pulumi.Input['RoutingRuleActionInvokeApiArgs']] = None):
+                 invoke_api: pulumi.Input['RoutingRuleActionInvokeApiArgs']):
         """
         :param pulumi.Input['RoutingRuleActionInvokeApiArgs'] invoke_api: Configuration to invoke a stage of a target API. Only REST APIs are supported. See below.
         """
-        if invoke_api is not None:
-            pulumi.set(__self__, "invoke_api", invoke_api)
+        pulumi.set(__self__, "invoke_api", invoke_api)
 
     @_builtins.property
     @pulumi.getter(name="invokeApi")
-    def invoke_api(self) -> Optional[pulumi.Input['RoutingRuleActionInvokeApiArgs']]:
+    def invoke_api(self) -> pulumi.Input['RoutingRuleActionInvokeApiArgs']:
         """
         Configuration to invoke a stage of a target API. Only REST APIs are supported. See below.
         """
         return pulumi.get(self, "invoke_api")
 
     @invoke_api.setter
-    def invoke_api(self, value: Optional[pulumi.Input['RoutingRuleActionInvokeApiArgs']]):
+    def invoke_api(self, value: pulumi.Input['RoutingRuleActionInvokeApiArgs']):
         pulumi.set(self, "invoke_api", value)
 
 
@@ -757,7 +756,7 @@ class RoutingRuleConditionMatchBasePathsArgs:
 
 if not MYPY:
     class RoutingRuleConditionMatchHeadersArgsDict(TypedDict):
-        any_of: NotRequired[pulumi.Input['RoutingRuleConditionMatchHeadersAnyOfArgsDict']]
+        any_of: pulumi.Input['RoutingRuleConditionMatchHeadersAnyOfArgsDict']
         """
         Configuration of the headers to be matched. There is a match if any of the header name and header value globs are matched. See below.
         """
@@ -767,23 +766,22 @@ elif False:
 @pulumi.input_type
 class RoutingRuleConditionMatchHeadersArgs:
     def __init__(__self__, *,
-                 any_of: Optional[pulumi.Input['RoutingRuleConditionMatchHeadersAnyOfArgs']] = None):
+                 any_of: pulumi.Input['RoutingRuleConditionMatchHeadersAnyOfArgs']):
         """
         :param pulumi.Input['RoutingRuleConditionMatchHeadersAnyOfArgs'] any_of: Configuration of the headers to be matched. There is a match if any of the header name and header value globs are matched. See below.
         """
-        if any_of is not None:
-            pulumi.set(__self__, "any_of", any_of)
+        pulumi.set(__self__, "any_of", any_of)
 
     @_builtins.property
     @pulumi.getter(name="anyOf")
-    def any_of(self) -> Optional[pulumi.Input['RoutingRuleConditionMatchHeadersAnyOfArgs']]:
+    def any_of(self) -> pulumi.Input['RoutingRuleConditionMatchHeadersAnyOfArgs']:
         """
         Configuration of the headers to be matched. There is a match if any of the header name and header value globs are matched. See below.
         """
         return pulumi.get(self, "any_of")
 
     @any_of.setter
-    def any_of(self, value: Optional[pulumi.Input['RoutingRuleConditionMatchHeadersAnyOfArgs']]):
+    def any_of(self, value: pulumi.Input['RoutingRuleConditionMatchHeadersAnyOfArgs']):
         pulumi.set(self, "any_of", value)
 
 

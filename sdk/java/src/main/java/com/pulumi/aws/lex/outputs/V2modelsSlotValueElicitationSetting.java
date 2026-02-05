@@ -13,6 +13,7 @@ import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 @CustomType
@@ -28,7 +29,7 @@ public final class V2modelsSlotValueElicitationSetting {
      * See the `aws.lex.V2modelsIntent` resource for details on the `promptSpecification` argument reference - they are identical.
      * 
      */
-    private V2modelsSlotValueElicitationSettingPromptSpecification promptSpecification;
+    private @Nullable V2modelsSlotValueElicitationSettingPromptSpecification promptSpecification;
     private @Nullable List<V2modelsSlotValueElicitationSettingSampleUtterance> sampleUtterances;
     /**
      * @return Whether the slot is required or optional. Valid values are `Required` or `Optional`.
@@ -62,8 +63,8 @@ public final class V2modelsSlotValueElicitationSetting {
      * See the `aws.lex.V2modelsIntent` resource for details on the `promptSpecification` argument reference - they are identical.
      * 
      */
-    public V2modelsSlotValueElicitationSettingPromptSpecification promptSpecification() {
-        return this.promptSpecification;
+    public Optional<V2modelsSlotValueElicitationSettingPromptSpecification> promptSpecification() {
+        return Optional.ofNullable(this.promptSpecification);
     }
     public List<V2modelsSlotValueElicitationSettingSampleUtterance> sampleUtterances() {
         return this.sampleUtterances == null ? List.of() : this.sampleUtterances;
@@ -102,7 +103,7 @@ public final class V2modelsSlotValueElicitationSetting {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable List<V2modelsSlotValueElicitationSettingDefaultValueSpecification> defaultValueSpecifications;
-        private V2modelsSlotValueElicitationSettingPromptSpecification promptSpecification;
+        private @Nullable V2modelsSlotValueElicitationSettingPromptSpecification promptSpecification;
         private @Nullable List<V2modelsSlotValueElicitationSettingSampleUtterance> sampleUtterances;
         private String slotConstraint;
         private @Nullable List<V2modelsSlotValueElicitationSettingSlotResolutionSetting> slotResolutionSettings;
@@ -128,10 +129,8 @@ public final class V2modelsSlotValueElicitationSetting {
             return defaultValueSpecifications(List.of(defaultValueSpecifications));
         }
         @CustomType.Setter
-        public Builder promptSpecification(V2modelsSlotValueElicitationSettingPromptSpecification promptSpecification) {
-            if (promptSpecification == null) {
-              throw new MissingRequiredPropertyException("V2modelsSlotValueElicitationSetting", "promptSpecification");
-            }
+        public Builder promptSpecification(@Nullable V2modelsSlotValueElicitationSettingPromptSpecification promptSpecification) {
+
             this.promptSpecification = promptSpecification;
             return this;
         }

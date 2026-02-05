@@ -164,7 +164,7 @@ type MultitenantDistribution struct {
 	// One or more custom error response elements. See Custom Error Response below.
 	CustomErrorResponses MultitenantDistributionCustomErrorResponseArrayOutput `pulumi:"customErrorResponses"`
 	// Default cache behavior for this distribution. See Default Cache Behavior below.
-	DefaultCacheBehavior MultitenantDistributionDefaultCacheBehaviorPtrOutput `pulumi:"defaultCacheBehavior"`
+	DefaultCacheBehavior MultitenantDistributionDefaultCacheBehaviorOutput `pulumi:"defaultCacheBehavior"`
 	// Object that you want CloudFront to return when an end user requests the root URL.
 	DefaultRootObject pulumi.StringPtrOutput `pulumi:"defaultRootObject"`
 	// Domain name corresponding to the distribution.
@@ -192,10 +192,10 @@ type MultitenantDistribution struct {
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Tenant configuration that contains parameter definitions for multi-tenant distributions. See Tenant Config below.
-	TenantConfig MultitenantDistributionTenantConfigPtrOutput `pulumi:"tenantConfig"`
-	Timeouts     MultitenantDistributionTimeoutsPtrOutput     `pulumi:"timeouts"`
+	TenantConfig MultitenantDistributionTenantConfigOutput `pulumi:"tenantConfig"`
+	Timeouts     MultitenantDistributionTimeoutsPtrOutput  `pulumi:"timeouts"`
 	// SSL configuration for this distribution. See Viewer Certificate below.
-	ViewerCertificate MultitenantDistributionViewerCertificatePtrOutput `pulumi:"viewerCertificate"`
+	ViewerCertificate MultitenantDistributionViewerCertificateOutput `pulumi:"viewerCertificate"`
 	// Unique identifier that specifies the AWS WAF v2 web ACL to associate with this distribution.
 	WebAclId pulumi.StringPtrOutput `pulumi:"webAclId"`
 }
@@ -210,8 +210,17 @@ func NewMultitenantDistribution(ctx *pulumi.Context,
 	if args.Comment == nil {
 		return nil, errors.New("invalid value for required argument 'Comment'")
 	}
+	if args.DefaultCacheBehavior == nil {
+		return nil, errors.New("invalid value for required argument 'DefaultCacheBehavior'")
+	}
 	if args.Enabled == nil {
 		return nil, errors.New("invalid value for required argument 'Enabled'")
+	}
+	if args.TenantConfig == nil {
+		return nil, errors.New("invalid value for required argument 'TenantConfig'")
+	}
+	if args.ViewerCertificate == nil {
+		return nil, errors.New("invalid value for required argument 'ViewerCertificate'")
 	}
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource MultitenantDistribution
@@ -353,7 +362,7 @@ type multitenantDistributionArgs struct {
 	// One or more custom error response elements. See Custom Error Response below.
 	CustomErrorResponses []MultitenantDistributionCustomErrorResponse `pulumi:"customErrorResponses"`
 	// Default cache behavior for this distribution. See Default Cache Behavior below.
-	DefaultCacheBehavior *MultitenantDistributionDefaultCacheBehavior `pulumi:"defaultCacheBehavior"`
+	DefaultCacheBehavior MultitenantDistributionDefaultCacheBehavior `pulumi:"defaultCacheBehavior"`
 	// Object that you want CloudFront to return when an end user requests the root URL.
 	DefaultRootObject *string `pulumi:"defaultRootObject"`
 	// Whether the distribution is enabled to accept end user requests for content.
@@ -369,10 +378,10 @@ type multitenantDistributionArgs struct {
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// Tenant configuration that contains parameter definitions for multi-tenant distributions. See Tenant Config below.
-	TenantConfig *MultitenantDistributionTenantConfig `pulumi:"tenantConfig"`
-	Timeouts     *MultitenantDistributionTimeouts     `pulumi:"timeouts"`
+	TenantConfig MultitenantDistributionTenantConfig `pulumi:"tenantConfig"`
+	Timeouts     *MultitenantDistributionTimeouts    `pulumi:"timeouts"`
 	// SSL configuration for this distribution. See Viewer Certificate below.
-	ViewerCertificate *MultitenantDistributionViewerCertificate `pulumi:"viewerCertificate"`
+	ViewerCertificate MultitenantDistributionViewerCertificate `pulumi:"viewerCertificate"`
 	// Unique identifier that specifies the AWS WAF v2 web ACL to associate with this distribution.
 	WebAclId *string `pulumi:"webAclId"`
 }
@@ -388,7 +397,7 @@ type MultitenantDistributionArgs struct {
 	// One or more custom error response elements. See Custom Error Response below.
 	CustomErrorResponses MultitenantDistributionCustomErrorResponseArrayInput
 	// Default cache behavior for this distribution. See Default Cache Behavior below.
-	DefaultCacheBehavior MultitenantDistributionDefaultCacheBehaviorPtrInput
+	DefaultCacheBehavior MultitenantDistributionDefaultCacheBehaviorInput
 	// Object that you want CloudFront to return when an end user requests the root URL.
 	DefaultRootObject pulumi.StringPtrInput
 	// Whether the distribution is enabled to accept end user requests for content.
@@ -404,10 +413,10 @@ type MultitenantDistributionArgs struct {
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// Tenant configuration that contains parameter definitions for multi-tenant distributions. See Tenant Config below.
-	TenantConfig MultitenantDistributionTenantConfigPtrInput
+	TenantConfig MultitenantDistributionTenantConfigInput
 	Timeouts     MultitenantDistributionTimeoutsPtrInput
 	// SSL configuration for this distribution. See Viewer Certificate below.
-	ViewerCertificate MultitenantDistributionViewerCertificatePtrInput
+	ViewerCertificate MultitenantDistributionViewerCertificateInput
 	// Unique identifier that specifies the AWS WAF v2 web ACL to associate with this distribution.
 	WebAclId pulumi.StringPtrInput
 }
@@ -541,10 +550,10 @@ func (o MultitenantDistributionOutput) CustomErrorResponses() MultitenantDistrib
 }
 
 // Default cache behavior for this distribution. See Default Cache Behavior below.
-func (o MultitenantDistributionOutput) DefaultCacheBehavior() MultitenantDistributionDefaultCacheBehaviorPtrOutput {
-	return o.ApplyT(func(v *MultitenantDistribution) MultitenantDistributionDefaultCacheBehaviorPtrOutput {
+func (o MultitenantDistributionOutput) DefaultCacheBehavior() MultitenantDistributionDefaultCacheBehaviorOutput {
+	return o.ApplyT(func(v *MultitenantDistribution) MultitenantDistributionDefaultCacheBehaviorOutput {
 		return v.DefaultCacheBehavior
-	}).(MultitenantDistributionDefaultCacheBehaviorPtrOutput)
+	}).(MultitenantDistributionDefaultCacheBehaviorOutput)
 }
 
 // Object that you want CloudFront to return when an end user requests the root URL.
@@ -613,8 +622,8 @@ func (o MultitenantDistributionOutput) TagsAll() pulumi.StringMapOutput {
 }
 
 // Tenant configuration that contains parameter definitions for multi-tenant distributions. See Tenant Config below.
-func (o MultitenantDistributionOutput) TenantConfig() MultitenantDistributionTenantConfigPtrOutput {
-	return o.ApplyT(func(v *MultitenantDistribution) MultitenantDistributionTenantConfigPtrOutput { return v.TenantConfig }).(MultitenantDistributionTenantConfigPtrOutput)
+func (o MultitenantDistributionOutput) TenantConfig() MultitenantDistributionTenantConfigOutput {
+	return o.ApplyT(func(v *MultitenantDistribution) MultitenantDistributionTenantConfigOutput { return v.TenantConfig }).(MultitenantDistributionTenantConfigOutput)
 }
 
 func (o MultitenantDistributionOutput) Timeouts() MultitenantDistributionTimeoutsPtrOutput {
@@ -622,10 +631,10 @@ func (o MultitenantDistributionOutput) Timeouts() MultitenantDistributionTimeout
 }
 
 // SSL configuration for this distribution. See Viewer Certificate below.
-func (o MultitenantDistributionOutput) ViewerCertificate() MultitenantDistributionViewerCertificatePtrOutput {
-	return o.ApplyT(func(v *MultitenantDistribution) MultitenantDistributionViewerCertificatePtrOutput {
+func (o MultitenantDistributionOutput) ViewerCertificate() MultitenantDistributionViewerCertificateOutput {
+	return o.ApplyT(func(v *MultitenantDistribution) MultitenantDistributionViewerCertificateOutput {
 		return v.ViewerCertificate
-	}).(MultitenantDistributionViewerCertificatePtrOutput)
+	}).(MultitenantDistributionViewerCertificateOutput)
 }
 
 // Unique identifier that specifies the AWS WAF v2 web ACL to associate with this distribution.

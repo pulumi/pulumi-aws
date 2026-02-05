@@ -140,14 +140,14 @@ public class ModelCardExportJob extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="outputConfig", refs={ModelCardExportJobOutputConfig.class}, tree="[0]")
-    private Output</* @Nullable */ ModelCardExportJobOutputConfig> outputConfig;
+    private Output<ModelCardExportJobOutputConfig> outputConfig;
 
     /**
      * @return Export output details. Fields are documented below.
      * 
      */
-    public Output<Optional<ModelCardExportJobOutputConfig>> outputConfig() {
-        return Codegen.optional(this.outputConfig);
+    public Output<ModelCardExportJobOutputConfig> outputConfig() {
+        return this.outputConfig;
     }
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration

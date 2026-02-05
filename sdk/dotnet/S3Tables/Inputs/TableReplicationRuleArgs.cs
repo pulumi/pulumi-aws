@@ -12,7 +12,7 @@ namespace Pulumi.Aws.S3Tables.Inputs
 
     public sealed class TableReplicationRuleArgs : global::Pulumi.ResourceArgs
     {
-        [Input("destinations")]
+        [Input("destinations", required: true)]
         private InputList<Inputs.TableReplicationRuleDestinationArgs>? _destinations;
 
         /// <summary>

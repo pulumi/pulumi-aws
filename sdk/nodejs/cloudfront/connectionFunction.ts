@@ -135,7 +135,7 @@ export class ConnectionFunction extends pulumi.CustomResource {
     /**
      * Configuration information for the connection function. See `connectionFunctionConfig` below.
      */
-    declare public readonly connectionFunctionConfig: pulumi.Output<outputs.cloudfront.ConnectionFunctionConnectionFunctionConfig | undefined>;
+    declare public readonly connectionFunctionConfig: pulumi.Output<outputs.cloudfront.ConnectionFunctionConnectionFunctionConfig>;
     /**
      * ETag of the connection function.
      */
@@ -194,6 +194,9 @@ export class ConnectionFunction extends pulumi.CustomResource {
             const args = argsOrState as ConnectionFunctionArgs | undefined;
             if (args?.connectionFunctionCode === undefined && !opts.urn) {
                 throw new Error("Missing required property 'connectionFunctionCode'");
+            }
+            if (args?.connectionFunctionConfig === undefined && !opts.urn) {
+                throw new Error("Missing required property 'connectionFunctionConfig'");
             }
             resourceInputs["connectionFunctionCode"] = args?.connectionFunctionCode;
             resourceInputs["connectionFunctionConfig"] = args?.connectionFunctionConfig;
@@ -270,7 +273,7 @@ export interface ConnectionFunctionArgs {
     /**
      * Configuration information for the connection function. See `connectionFunctionConfig` below.
      */
-    connectionFunctionConfig?: pulumi.Input<inputs.cloudfront.ConnectionFunctionConnectionFunctionConfig>;
+    connectionFunctionConfig: pulumi.Input<inputs.cloudfront.ConnectionFunctionConnectionFunctionConfig>;
     /**
      * Name for the connection function. Must be 1-64 characters and can contain letters, numbers, hyphens, and underscores. Changing this forces a new resource to be created.
      *

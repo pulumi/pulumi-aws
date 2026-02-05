@@ -12,7 +12,6 @@ import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
-import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
@@ -108,14 +107,14 @@ public class SubscriberNotification extends com.pulumi.resources.CustomResource 
      * 
      */
     @Export(name="configuration", refs={SubscriberNotificationConfiguration.class}, tree="[0]")
-    private Output</* @Nullable */ SubscriberNotificationConfiguration> configuration;
+    private Output<SubscriberNotificationConfiguration> configuration;
 
     /**
      * @return Specify the configuration using which you want to create the subscriber notification..
      * 
      */
-    public Output<Optional<SubscriberNotificationConfiguration>> configuration() {
-        return Codegen.optional(this.configuration);
+    public Output<SubscriberNotificationConfiguration> configuration() {
+        return this.configuration;
     }
     /**
      * (**Deprecated**) The subscriber endpoint to which exception messages are posted.

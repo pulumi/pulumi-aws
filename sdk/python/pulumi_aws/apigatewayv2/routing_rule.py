@@ -21,29 +21,51 @@ __all__ = ['RoutingRuleArgs', 'RoutingRule']
 @pulumi.input_type
 class RoutingRuleArgs:
     def __init__(__self__, *,
+                 actions: pulumi.Input[Sequence[pulumi.Input['RoutingRuleActionArgs']]],
+                 conditions: pulumi.Input[Sequence[pulumi.Input['RoutingRuleConditionArgs']]],
                  domain_name: pulumi.Input[_builtins.str],
                  priority: pulumi.Input[_builtins.int],
-                 actions: Optional[pulumi.Input[Sequence[pulumi.Input['RoutingRuleActionArgs']]]] = None,
-                 conditions: Optional[pulumi.Input[Sequence[pulumi.Input['RoutingRuleConditionArgs']]]] = None,
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a RoutingRule resource.
+        :param pulumi.Input[Sequence[pulumi.Input['RoutingRuleActionArgs']]] actions: Configuration of resulting action based on matching routing rules condition. See below.
+        :param pulumi.Input[Sequence[pulumi.Input['RoutingRuleConditionArgs']]] conditions: Conditions configuration. See below.
         :param pulumi.Input[_builtins.str] domain_name: Domain name. Must be between 1 and 512 characters in length.
                
                The following arguments are optional:
         :param pulumi.Input[_builtins.int] priority: The order of rule evaluation. Priority is evaluated from the lowest value to the highest value. Rules can't have the same priority. Value must be between 1 and 1,000,000.
-        :param pulumi.Input[Sequence[pulumi.Input['RoutingRuleActionArgs']]] actions: Configuration of resulting action based on matching routing rules condition. See below.
-        :param pulumi.Input[Sequence[pulumi.Input['RoutingRuleConditionArgs']]] conditions: Conditions configuration. See below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
+        pulumi.set(__self__, "actions", actions)
+        pulumi.set(__self__, "conditions", conditions)
         pulumi.set(__self__, "domain_name", domain_name)
         pulumi.set(__self__, "priority", priority)
-        if actions is not None:
-            pulumi.set(__self__, "actions", actions)
-        if conditions is not None:
-            pulumi.set(__self__, "conditions", conditions)
         if region is not None:
             pulumi.set(__self__, "region", region)
+
+    @_builtins.property
+    @pulumi.getter
+    def actions(self) -> pulumi.Input[Sequence[pulumi.Input['RoutingRuleActionArgs']]]:
+        """
+        Configuration of resulting action based on matching routing rules condition. See below.
+        """
+        return pulumi.get(self, "actions")
+
+    @actions.setter
+    def actions(self, value: pulumi.Input[Sequence[pulumi.Input['RoutingRuleActionArgs']]]):
+        pulumi.set(self, "actions", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def conditions(self) -> pulumi.Input[Sequence[pulumi.Input['RoutingRuleConditionArgs']]]:
+        """
+        Conditions configuration. See below.
+        """
+        return pulumi.get(self, "conditions")
+
+    @conditions.setter
+    def conditions(self, value: pulumi.Input[Sequence[pulumi.Input['RoutingRuleConditionArgs']]]):
+        pulumi.set(self, "conditions", value)
 
     @_builtins.property
     @pulumi.getter(name="domainName")
@@ -70,30 +92,6 @@ class RoutingRuleArgs:
     @priority.setter
     def priority(self, value: pulumi.Input[_builtins.int]):
         pulumi.set(self, "priority", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RoutingRuleActionArgs']]]]:
-        """
-        Configuration of resulting action based on matching routing rules condition. See below.
-        """
-        return pulumi.get(self, "actions")
-
-    @actions.setter
-    def actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RoutingRuleActionArgs']]]]):
-        pulumi.set(self, "actions", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def conditions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RoutingRuleConditionArgs']]]]:
-        """
-        Conditions configuration. See below.
-        """
-        return pulumi.get(self, "conditions")
-
-    @conditions.setter
-    def conditions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RoutingRuleConditionArgs']]]]):
-        pulumi.set(self, "conditions", value)
 
     @_builtins.property
     @pulumi.getter
@@ -379,7 +377,11 @@ class RoutingRule(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = RoutingRuleArgs.__new__(RoutingRuleArgs)
 
+            if actions is None and not opts.urn:
+                raise TypeError("Missing required property 'actions'")
             __props__.__dict__["actions"] = actions
+            if conditions is None and not opts.urn:
+                raise TypeError("Missing required property 'conditions'")
             __props__.__dict__["conditions"] = conditions
             if domain_name is None and not opts.urn:
                 raise TypeError("Missing required property 'domain_name'")
@@ -439,7 +441,7 @@ class RoutingRule(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
-    def actions(self) -> pulumi.Output[Optional[Sequence['outputs.RoutingRuleAction']]]:
+    def actions(self) -> pulumi.Output[Sequence['outputs.RoutingRuleAction']]:
         """
         Configuration of resulting action based on matching routing rules condition. See below.
         """
@@ -447,7 +449,7 @@ class RoutingRule(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
-    def conditions(self) -> pulumi.Output[Optional[Sequence['outputs.RoutingRuleCondition']]]:
+    def conditions(self) -> pulumi.Output[Sequence['outputs.RoutingRuleCondition']]:
         """
         Conditions configuration. See below.
         """

@@ -62,7 +62,7 @@ export class QueryLoggingConfiguration extends pulumi.CustomResource {
     /**
      * Configuration block for the logging destinations. See `destinations`.
      */
-    declare public readonly destinations: pulumi.Output<outputs.amp.QueryLoggingConfigurationDestination[] | undefined>;
+    declare public readonly destinations: pulumi.Output<outputs.amp.QueryLoggingConfigurationDestination[]>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
@@ -94,6 +94,9 @@ export class QueryLoggingConfiguration extends pulumi.CustomResource {
             resourceInputs["workspaceId"] = state?.workspaceId;
         } else {
             const args = argsOrState as QueryLoggingConfigurationArgs | undefined;
+            if (args?.destinations === undefined && !opts.urn) {
+                throw new Error("Missing required property 'destinations'");
+            }
             if (args?.workspaceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'workspaceId'");
             }
@@ -135,7 +138,7 @@ export interface QueryLoggingConfigurationArgs {
     /**
      * Configuration block for the logging destinations. See `destinations`.
      */
-    destinations?: pulumi.Input<pulumi.Input<inputs.amp.QueryLoggingConfigurationDestination>[]>;
+    destinations: pulumi.Input<pulumi.Input<inputs.amp.QueryLoggingConfigurationDestination>[]>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */

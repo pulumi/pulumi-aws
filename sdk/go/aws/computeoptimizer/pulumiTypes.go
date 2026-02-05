@@ -578,7 +578,7 @@ type RecommendationPreferencesUtilizationPreference struct {
 	// The name of the resource utilization metric name to customize. Valid values: `CpuUtilization`, `MemoryUtilization`.
 	MetricName string `pulumi:"metricName"`
 	// The parameters to set when customizing the resource utilization thresholds.
-	MetricParameters *RecommendationPreferencesUtilizationPreferenceMetricParameters `pulumi:"metricParameters"`
+	MetricParameters RecommendationPreferencesUtilizationPreferenceMetricParameters `pulumi:"metricParameters"`
 }
 
 // RecommendationPreferencesUtilizationPreferenceInput is an input type that accepts RecommendationPreferencesUtilizationPreferenceArgs and RecommendationPreferencesUtilizationPreferenceOutput values.
@@ -596,7 +596,7 @@ type RecommendationPreferencesUtilizationPreferenceArgs struct {
 	// The name of the resource utilization metric name to customize. Valid values: `CpuUtilization`, `MemoryUtilization`.
 	MetricName pulumi.StringInput `pulumi:"metricName"`
 	// The parameters to set when customizing the resource utilization thresholds.
-	MetricParameters RecommendationPreferencesUtilizationPreferenceMetricParametersPtrInput `pulumi:"metricParameters"`
+	MetricParameters RecommendationPreferencesUtilizationPreferenceMetricParametersInput `pulumi:"metricParameters"`
 }
 
 func (RecommendationPreferencesUtilizationPreferenceArgs) ElementType() reflect.Type {
@@ -656,10 +656,10 @@ func (o RecommendationPreferencesUtilizationPreferenceOutput) MetricName() pulum
 }
 
 // The parameters to set when customizing the resource utilization thresholds.
-func (o RecommendationPreferencesUtilizationPreferenceOutput) MetricParameters() RecommendationPreferencesUtilizationPreferenceMetricParametersPtrOutput {
-	return o.ApplyT(func(v RecommendationPreferencesUtilizationPreference) *RecommendationPreferencesUtilizationPreferenceMetricParameters {
+func (o RecommendationPreferencesUtilizationPreferenceOutput) MetricParameters() RecommendationPreferencesUtilizationPreferenceMetricParametersOutput {
+	return o.ApplyT(func(v RecommendationPreferencesUtilizationPreference) RecommendationPreferencesUtilizationPreferenceMetricParameters {
 		return v.MetricParameters
-	}).(RecommendationPreferencesUtilizationPreferenceMetricParametersPtrOutput)
+	}).(RecommendationPreferencesUtilizationPreferenceMetricParametersOutput)
 }
 
 type RecommendationPreferencesUtilizationPreferenceArrayOutput struct{ *pulumi.OutputState }
@@ -719,47 +719,6 @@ func (i RecommendationPreferencesUtilizationPreferenceMetricParametersArgs) ToRe
 	return pulumi.ToOutputWithContext(ctx, i).(RecommendationPreferencesUtilizationPreferenceMetricParametersOutput)
 }
 
-func (i RecommendationPreferencesUtilizationPreferenceMetricParametersArgs) ToRecommendationPreferencesUtilizationPreferenceMetricParametersPtrOutput() RecommendationPreferencesUtilizationPreferenceMetricParametersPtrOutput {
-	return i.ToRecommendationPreferencesUtilizationPreferenceMetricParametersPtrOutputWithContext(context.Background())
-}
-
-func (i RecommendationPreferencesUtilizationPreferenceMetricParametersArgs) ToRecommendationPreferencesUtilizationPreferenceMetricParametersPtrOutputWithContext(ctx context.Context) RecommendationPreferencesUtilizationPreferenceMetricParametersPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RecommendationPreferencesUtilizationPreferenceMetricParametersOutput).ToRecommendationPreferencesUtilizationPreferenceMetricParametersPtrOutputWithContext(ctx)
-}
-
-// RecommendationPreferencesUtilizationPreferenceMetricParametersPtrInput is an input type that accepts RecommendationPreferencesUtilizationPreferenceMetricParametersArgs, RecommendationPreferencesUtilizationPreferenceMetricParametersPtr and RecommendationPreferencesUtilizationPreferenceMetricParametersPtrOutput values.
-// You can construct a concrete instance of `RecommendationPreferencesUtilizationPreferenceMetricParametersPtrInput` via:
-//
-//	        RecommendationPreferencesUtilizationPreferenceMetricParametersArgs{...}
-//
-//	or:
-//
-//	        nil
-type RecommendationPreferencesUtilizationPreferenceMetricParametersPtrInput interface {
-	pulumi.Input
-
-	ToRecommendationPreferencesUtilizationPreferenceMetricParametersPtrOutput() RecommendationPreferencesUtilizationPreferenceMetricParametersPtrOutput
-	ToRecommendationPreferencesUtilizationPreferenceMetricParametersPtrOutputWithContext(context.Context) RecommendationPreferencesUtilizationPreferenceMetricParametersPtrOutput
-}
-
-type recommendationPreferencesUtilizationPreferenceMetricParametersPtrType RecommendationPreferencesUtilizationPreferenceMetricParametersArgs
-
-func RecommendationPreferencesUtilizationPreferenceMetricParametersPtr(v *RecommendationPreferencesUtilizationPreferenceMetricParametersArgs) RecommendationPreferencesUtilizationPreferenceMetricParametersPtrInput {
-	return (*recommendationPreferencesUtilizationPreferenceMetricParametersPtrType)(v)
-}
-
-func (*recommendationPreferencesUtilizationPreferenceMetricParametersPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**RecommendationPreferencesUtilizationPreferenceMetricParameters)(nil)).Elem()
-}
-
-func (i *recommendationPreferencesUtilizationPreferenceMetricParametersPtrType) ToRecommendationPreferencesUtilizationPreferenceMetricParametersPtrOutput() RecommendationPreferencesUtilizationPreferenceMetricParametersPtrOutput {
-	return i.ToRecommendationPreferencesUtilizationPreferenceMetricParametersPtrOutputWithContext(context.Background())
-}
-
-func (i *recommendationPreferencesUtilizationPreferenceMetricParametersPtrType) ToRecommendationPreferencesUtilizationPreferenceMetricParametersPtrOutputWithContext(ctx context.Context) RecommendationPreferencesUtilizationPreferenceMetricParametersPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RecommendationPreferencesUtilizationPreferenceMetricParametersPtrOutput)
-}
-
 type RecommendationPreferencesUtilizationPreferenceMetricParametersOutput struct{ *pulumi.OutputState }
 
 func (RecommendationPreferencesUtilizationPreferenceMetricParametersOutput) ElementType() reflect.Type {
@@ -774,16 +733,6 @@ func (o RecommendationPreferencesUtilizationPreferenceMetricParametersOutput) To
 	return o
 }
 
-func (o RecommendationPreferencesUtilizationPreferenceMetricParametersOutput) ToRecommendationPreferencesUtilizationPreferenceMetricParametersPtrOutput() RecommendationPreferencesUtilizationPreferenceMetricParametersPtrOutput {
-	return o.ToRecommendationPreferencesUtilizationPreferenceMetricParametersPtrOutputWithContext(context.Background())
-}
-
-func (o RecommendationPreferencesUtilizationPreferenceMetricParametersOutput) ToRecommendationPreferencesUtilizationPreferenceMetricParametersPtrOutputWithContext(ctx context.Context) RecommendationPreferencesUtilizationPreferenceMetricParametersPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v RecommendationPreferencesUtilizationPreferenceMetricParameters) *RecommendationPreferencesUtilizationPreferenceMetricParameters {
-		return &v
-	}).(RecommendationPreferencesUtilizationPreferenceMetricParametersPtrOutput)
-}
-
 // The headroom value in percentage used for the specified metric parameter. Valid values: `PERCENT_30`, `PERCENT_20`, `PERCENT_10`, `PERCENT_0`.
 func (o RecommendationPreferencesUtilizationPreferenceMetricParametersOutput) Headroom() pulumi.StringOutput {
 	return o.ApplyT(func(v RecommendationPreferencesUtilizationPreferenceMetricParameters) string { return v.Headroom }).(pulumi.StringOutput)
@@ -792,50 +741,6 @@ func (o RecommendationPreferencesUtilizationPreferenceMetricParametersOutput) He
 // The threshold value used for the specified metric parameter. You can only specify the threshold value for CPU utilization. Valid values: `P90`, `P95`, `P99_5`.
 func (o RecommendationPreferencesUtilizationPreferenceMetricParametersOutput) Threshold() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RecommendationPreferencesUtilizationPreferenceMetricParameters) *string { return v.Threshold }).(pulumi.StringPtrOutput)
-}
-
-type RecommendationPreferencesUtilizationPreferenceMetricParametersPtrOutput struct{ *pulumi.OutputState }
-
-func (RecommendationPreferencesUtilizationPreferenceMetricParametersPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**RecommendationPreferencesUtilizationPreferenceMetricParameters)(nil)).Elem()
-}
-
-func (o RecommendationPreferencesUtilizationPreferenceMetricParametersPtrOutput) ToRecommendationPreferencesUtilizationPreferenceMetricParametersPtrOutput() RecommendationPreferencesUtilizationPreferenceMetricParametersPtrOutput {
-	return o
-}
-
-func (o RecommendationPreferencesUtilizationPreferenceMetricParametersPtrOutput) ToRecommendationPreferencesUtilizationPreferenceMetricParametersPtrOutputWithContext(ctx context.Context) RecommendationPreferencesUtilizationPreferenceMetricParametersPtrOutput {
-	return o
-}
-
-func (o RecommendationPreferencesUtilizationPreferenceMetricParametersPtrOutput) Elem() RecommendationPreferencesUtilizationPreferenceMetricParametersOutput {
-	return o.ApplyT(func(v *RecommendationPreferencesUtilizationPreferenceMetricParameters) RecommendationPreferencesUtilizationPreferenceMetricParameters {
-		if v != nil {
-			return *v
-		}
-		var ret RecommendationPreferencesUtilizationPreferenceMetricParameters
-		return ret
-	}).(RecommendationPreferencesUtilizationPreferenceMetricParametersOutput)
-}
-
-// The headroom value in percentage used for the specified metric parameter. Valid values: `PERCENT_30`, `PERCENT_20`, `PERCENT_10`, `PERCENT_0`.
-func (o RecommendationPreferencesUtilizationPreferenceMetricParametersPtrOutput) Headroom() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *RecommendationPreferencesUtilizationPreferenceMetricParameters) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Headroom
-	}).(pulumi.StringPtrOutput)
-}
-
-// The threshold value used for the specified metric parameter. You can only specify the threshold value for CPU utilization. Valid values: `P90`, `P95`, `P99_5`.
-func (o RecommendationPreferencesUtilizationPreferenceMetricParametersPtrOutput) Threshold() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *RecommendationPreferencesUtilizationPreferenceMetricParameters) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Threshold
-	}).(pulumi.StringPtrOutput)
 }
 
 func init() {
@@ -850,7 +755,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RecommendationPreferencesUtilizationPreferenceInput)(nil)).Elem(), RecommendationPreferencesUtilizationPreferenceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RecommendationPreferencesUtilizationPreferenceArrayInput)(nil)).Elem(), RecommendationPreferencesUtilizationPreferenceArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RecommendationPreferencesUtilizationPreferenceMetricParametersInput)(nil)).Elem(), RecommendationPreferencesUtilizationPreferenceMetricParametersArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*RecommendationPreferencesUtilizationPreferenceMetricParametersPtrInput)(nil)).Elem(), RecommendationPreferencesUtilizationPreferenceMetricParametersArgs{})
 	pulumi.RegisterOutputType(EnrollmentStatusTimeoutsOutput{})
 	pulumi.RegisterOutputType(EnrollmentStatusTimeoutsPtrOutput{})
 	pulumi.RegisterOutputType(RecommendationPreferencesExternalMetricsPreferenceOutput{})
@@ -862,5 +766,4 @@ func init() {
 	pulumi.RegisterOutputType(RecommendationPreferencesUtilizationPreferenceOutput{})
 	pulumi.RegisterOutputType(RecommendationPreferencesUtilizationPreferenceArrayOutput{})
 	pulumi.RegisterOutputType(RecommendationPreferencesUtilizationPreferenceMetricParametersOutput{})
-	pulumi.RegisterOutputType(RecommendationPreferencesUtilizationPreferenceMetricParametersPtrOutput{})
 }

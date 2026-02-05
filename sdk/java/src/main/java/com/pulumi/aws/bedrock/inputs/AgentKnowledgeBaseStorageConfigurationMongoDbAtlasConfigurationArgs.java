@@ -96,15 +96,15 @@ public final class AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurati
      * Contains the names of the fields to which to map information about the vector store.
      * 
      */
-    @Import(name="fieldMapping")
-    private @Nullable Output<AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationFieldMappingArgs> fieldMapping;
+    @Import(name="fieldMapping", required=true)
+    private Output<AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationFieldMappingArgs> fieldMapping;
 
     /**
      * @return Contains the names of the fields to which to map information about the vector store.
      * 
      */
-    public Optional<Output<AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationFieldMappingArgs>> fieldMapping() {
-        return Optional.ofNullable(this.fieldMapping);
+    public Output<AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationFieldMappingArgs> fieldMapping() {
+        return this.fieldMapping;
     }
 
     /**
@@ -279,7 +279,7 @@ public final class AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurati
          * @return builder
          * 
          */
-        public Builder fieldMapping(@Nullable Output<AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationFieldMappingArgs> fieldMapping) {
+        public Builder fieldMapping(Output<AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationFieldMappingArgs> fieldMapping) {
             $.fieldMapping = fieldMapping;
             return this;
         }
@@ -348,6 +348,9 @@ public final class AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurati
             }
             if ($.endpoint == null) {
                 throw new MissingRequiredPropertyException("AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationArgs", "endpoint");
+            }
+            if ($.fieldMapping == null) {
+                throw new MissingRequiredPropertyException("AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationArgs", "fieldMapping");
             }
             if ($.vectorIndexName == null) {
                 throw new MissingRequiredPropertyException("AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationArgs", "vectorIndexName");

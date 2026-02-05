@@ -16,7 +16,7 @@ namespace Pulumi.Aws.ImageBuilder.Outputs
         /// <summary>
         /// Configuration details for the policy action.
         /// </summary>
-        public readonly Outputs.LifecyclePolicyPolicyDetailAction? Action;
+        public readonly Outputs.LifecyclePolicyPolicyDetailAction Action;
         /// <summary>
         /// Additional rules to specify resources that should be exempt from policy actions.
         /// </summary>
@@ -26,15 +26,15 @@ namespace Pulumi.Aws.ImageBuilder.Outputs
         /// 
         /// The following arguments are optional:
         /// </summary>
-        public readonly Outputs.LifecyclePolicyPolicyDetailFilter? Filter;
+        public readonly Outputs.LifecyclePolicyPolicyDetailFilter Filter;
 
         [OutputConstructor]
         private LifecyclePolicyPolicyDetail(
-            Outputs.LifecyclePolicyPolicyDetailAction? action,
+            Outputs.LifecyclePolicyPolicyDetailAction action,
 
             Outputs.LifecyclePolicyPolicyDetailExclusionRules? exclusionRules,
 
-            Outputs.LifecyclePolicyPolicyDetailFilter? filter)
+            Outputs.LifecyclePolicyPolicyDetailFilter filter)
         {
             Action = action;
             ExclusionRules = exclusionRules;

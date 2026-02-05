@@ -68,7 +68,7 @@ namespace Pulumi.Aws.DataExchange
         /// Described in `Action` Configuration Block below.
         /// </summary>
         [Output("action")]
-        public Output<Outputs.EventActionAction?> Action { get; private set; } = null!;
+        public Output<Outputs.EventActionAction> Action { get; private set; } = null!;
 
         /// <summary>
         /// Amazon Resource Name (ARN) of the event action.
@@ -87,7 +87,7 @@ namespace Pulumi.Aws.DataExchange
         /// Described in `Event` Configuration Block below.
         /// </summary>
         [Output("event")]
-        public Output<Outputs.EventActionEvent?> Event { get; private set; } = null!;
+        public Output<Outputs.EventActionEvent> Event { get; private set; } = null!;
 
         /// <summary>
         /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -109,7 +109,7 @@ namespace Pulumi.Aws.DataExchange
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public EventAction(string name, EventActionArgs? args = null, CustomResourceOptions? options = null)
+        public EventAction(string name, EventActionArgs args, CustomResourceOptions? options = null)
             : base("aws:dataexchange/eventAction:EventAction", name, args ?? new EventActionArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -151,15 +151,15 @@ namespace Pulumi.Aws.DataExchange
         /// Describes the action to take.
         /// Described in `Action` Configuration Block below.
         /// </summary>
-        [Input("action")]
-        public Input<Inputs.EventActionActionArgs>? Action { get; set; }
+        [Input("action", required: true)]
+        public Input<Inputs.EventActionActionArgs> Action { get; set; } = null!;
 
         /// <summary>
         /// Describes the event that triggers the `Action`.
         /// Described in `Event` Configuration Block below.
         /// </summary>
-        [Input("event")]
-        public Input<Inputs.EventActionEventArgs>? Event { get; set; }
+        [Input("event", required: true)]
+        public Input<Inputs.EventActionEventArgs> Event { get; set; } = null!;
 
         /// <summary>
         /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.

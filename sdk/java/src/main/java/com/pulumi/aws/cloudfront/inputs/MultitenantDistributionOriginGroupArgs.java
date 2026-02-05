@@ -11,8 +11,6 @@ import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
-import java.util.Optional;
-import javax.annotation.Nullable;
 
 
 public final class MultitenantDistributionOriginGroupArgs extends com.pulumi.resources.ResourceArgs {
@@ -23,15 +21,15 @@ public final class MultitenantDistributionOriginGroupArgs extends com.pulumi.res
      * Failover criteria for when to failover to the secondary origin. See Failover Criteria below.
      * 
      */
-    @Import(name="failoverCriteria")
-    private @Nullable Output<MultitenantDistributionOriginGroupFailoverCriteriaArgs> failoverCriteria;
+    @Import(name="failoverCriteria", required=true)
+    private Output<MultitenantDistributionOriginGroupFailoverCriteriaArgs> failoverCriteria;
 
     /**
      * @return Failover criteria for when to failover to the secondary origin. See Failover Criteria below.
      * 
      */
-    public Optional<Output<MultitenantDistributionOriginGroupFailoverCriteriaArgs>> failoverCriteria() {
-        return Optional.ofNullable(this.failoverCriteria);
+    public Output<MultitenantDistributionOriginGroupFailoverCriteriaArgs> failoverCriteria() {
+        return this.failoverCriteria;
     }
 
     /**
@@ -53,15 +51,15 @@ public final class MultitenantDistributionOriginGroupArgs extends com.pulumi.res
      * List of origins in this origin group. Must contain exactly 2 members. See Origin Group Member below.
      * 
      */
-    @Import(name="members")
-    private @Nullable Output<List<MultitenantDistributionOriginGroupMemberArgs>> members;
+    @Import(name="members", required=true)
+    private Output<List<MultitenantDistributionOriginGroupMemberArgs>> members;
 
     /**
      * @return List of origins in this origin group. Must contain exactly 2 members. See Origin Group Member below.
      * 
      */
-    public Optional<Output<List<MultitenantDistributionOriginGroupMemberArgs>>> members() {
-        return Optional.ofNullable(this.members);
+    public Output<List<MultitenantDistributionOriginGroupMemberArgs>> members() {
+        return this.members;
     }
 
     private MultitenantDistributionOriginGroupArgs() {}
@@ -96,7 +94,7 @@ public final class MultitenantDistributionOriginGroupArgs extends com.pulumi.res
          * @return builder
          * 
          */
-        public Builder failoverCriteria(@Nullable Output<MultitenantDistributionOriginGroupFailoverCriteriaArgs> failoverCriteria) {
+        public Builder failoverCriteria(Output<MultitenantDistributionOriginGroupFailoverCriteriaArgs> failoverCriteria) {
             $.failoverCriteria = failoverCriteria;
             return this;
         }
@@ -138,7 +136,7 @@ public final class MultitenantDistributionOriginGroupArgs extends com.pulumi.res
          * @return builder
          * 
          */
-        public Builder members(@Nullable Output<List<MultitenantDistributionOriginGroupMemberArgs>> members) {
+        public Builder members(Output<List<MultitenantDistributionOriginGroupMemberArgs>> members) {
             $.members = members;
             return this;
         }
@@ -164,8 +162,14 @@ public final class MultitenantDistributionOriginGroupArgs extends com.pulumi.res
         }
 
         public MultitenantDistributionOriginGroupArgs build() {
+            if ($.failoverCriteria == null) {
+                throw new MissingRequiredPropertyException("MultitenantDistributionOriginGroupArgs", "failoverCriteria");
+            }
             if ($.id == null) {
                 throw new MissingRequiredPropertyException("MultitenantDistributionOriginGroupArgs", "id");
+            }
+            if ($.members == null) {
+                throw new MissingRequiredPropertyException("MultitenantDistributionOriginGroupArgs", "members");
             }
             return $;
         }

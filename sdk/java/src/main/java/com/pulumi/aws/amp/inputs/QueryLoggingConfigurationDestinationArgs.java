@@ -7,9 +7,8 @@ import com.pulumi.aws.amp.inputs.QueryLoggingConfigurationDestinationCloudwatchL
 import com.pulumi.aws.amp.inputs.QueryLoggingConfigurationDestinationFiltersArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.Objects;
-import java.util.Optional;
-import javax.annotation.Nullable;
 
 
 public final class QueryLoggingConfigurationDestinationArgs extends com.pulumi.resources.ResourceArgs {
@@ -20,30 +19,30 @@ public final class QueryLoggingConfigurationDestinationArgs extends com.pulumi.r
      * Configuration block for CloudWatch Logs destination. See `cloudwatchLogs`.
      * 
      */
-    @Import(name="cloudwatchLogs")
-    private @Nullable Output<QueryLoggingConfigurationDestinationCloudwatchLogsArgs> cloudwatchLogs;
+    @Import(name="cloudwatchLogs", required=true)
+    private Output<QueryLoggingConfigurationDestinationCloudwatchLogsArgs> cloudwatchLogs;
 
     /**
      * @return Configuration block for CloudWatch Logs destination. See `cloudwatchLogs`.
      * 
      */
-    public Optional<Output<QueryLoggingConfigurationDestinationCloudwatchLogsArgs>> cloudwatchLogs() {
-        return Optional.ofNullable(this.cloudwatchLogs);
+    public Output<QueryLoggingConfigurationDestinationCloudwatchLogsArgs> cloudwatchLogs() {
+        return this.cloudwatchLogs;
     }
 
     /**
      * A list of filter configurations that specify which logs should be sent to the destination. See `filters`.
      * 
      */
-    @Import(name="filters")
-    private @Nullable Output<QueryLoggingConfigurationDestinationFiltersArgs> filters;
+    @Import(name="filters", required=true)
+    private Output<QueryLoggingConfigurationDestinationFiltersArgs> filters;
 
     /**
      * @return A list of filter configurations that specify which logs should be sent to the destination. See `filters`.
      * 
      */
-    public Optional<Output<QueryLoggingConfigurationDestinationFiltersArgs>> filters() {
-        return Optional.ofNullable(this.filters);
+    public Output<QueryLoggingConfigurationDestinationFiltersArgs> filters() {
+        return this.filters;
     }
 
     private QueryLoggingConfigurationDestinationArgs() {}
@@ -77,7 +76,7 @@ public final class QueryLoggingConfigurationDestinationArgs extends com.pulumi.r
          * @return builder
          * 
          */
-        public Builder cloudwatchLogs(@Nullable Output<QueryLoggingConfigurationDestinationCloudwatchLogsArgs> cloudwatchLogs) {
+        public Builder cloudwatchLogs(Output<QueryLoggingConfigurationDestinationCloudwatchLogsArgs> cloudwatchLogs) {
             $.cloudwatchLogs = cloudwatchLogs;
             return this;
         }
@@ -98,7 +97,7 @@ public final class QueryLoggingConfigurationDestinationArgs extends com.pulumi.r
          * @return builder
          * 
          */
-        public Builder filters(@Nullable Output<QueryLoggingConfigurationDestinationFiltersArgs> filters) {
+        public Builder filters(Output<QueryLoggingConfigurationDestinationFiltersArgs> filters) {
             $.filters = filters;
             return this;
         }
@@ -114,6 +113,12 @@ public final class QueryLoggingConfigurationDestinationArgs extends com.pulumi.r
         }
 
         public QueryLoggingConfigurationDestinationArgs build() {
+            if ($.cloudwatchLogs == null) {
+                throw new MissingRequiredPropertyException("QueryLoggingConfigurationDestinationArgs", "cloudwatchLogs");
+            }
+            if ($.filters == null) {
+                throw new MissingRequiredPropertyException("QueryLoggingConfigurationDestinationArgs", "filters");
+            }
             return $;
         }
     }

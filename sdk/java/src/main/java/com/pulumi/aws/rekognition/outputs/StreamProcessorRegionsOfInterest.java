@@ -6,9 +6,10 @@ package com.pulumi.aws.rekognition.outputs;
 import com.pulumi.aws.rekognition.outputs.StreamProcessorRegionsOfInterestBoundingBox;
 import com.pulumi.aws.rekognition.outputs.StreamProcessorRegionsOfInterestPolygon;
 import com.pulumi.core.annotations.CustomType;
-import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class StreamProcessorRegionsOfInterest {
@@ -16,27 +17,27 @@ public final class StreamProcessorRegionsOfInterest {
      * @return Box representing a region of interest on screen. Only 1 per region is allowed. See `boundingBox`.
      * 
      */
-    private StreamProcessorRegionsOfInterestBoundingBox boundingBox;
+    private @Nullable StreamProcessorRegionsOfInterestBoundingBox boundingBox;
     /**
      * @return Shape made up of up to 10 Point objects to define a region of interest. See `polygon`.
      * 
      */
-    private List<StreamProcessorRegionsOfInterestPolygon> polygons;
+    private @Nullable List<StreamProcessorRegionsOfInterestPolygon> polygons;
 
     private StreamProcessorRegionsOfInterest() {}
     /**
      * @return Box representing a region of interest on screen. Only 1 per region is allowed. See `boundingBox`.
      * 
      */
-    public StreamProcessorRegionsOfInterestBoundingBox boundingBox() {
-        return this.boundingBox;
+    public Optional<StreamProcessorRegionsOfInterestBoundingBox> boundingBox() {
+        return Optional.ofNullable(this.boundingBox);
     }
     /**
      * @return Shape made up of up to 10 Point objects to define a region of interest. See `polygon`.
      * 
      */
     public List<StreamProcessorRegionsOfInterestPolygon> polygons() {
-        return this.polygons;
+        return this.polygons == null ? List.of() : this.polygons;
     }
 
     public static Builder builder() {
@@ -48,8 +49,8 @@ public final class StreamProcessorRegionsOfInterest {
     }
     @CustomType.Builder
     public static final class Builder {
-        private StreamProcessorRegionsOfInterestBoundingBox boundingBox;
-        private List<StreamProcessorRegionsOfInterestPolygon> polygons;
+        private @Nullable StreamProcessorRegionsOfInterestBoundingBox boundingBox;
+        private @Nullable List<StreamProcessorRegionsOfInterestPolygon> polygons;
         public Builder() {}
         public Builder(StreamProcessorRegionsOfInterest defaults) {
     	      Objects.requireNonNull(defaults);
@@ -58,18 +59,14 @@ public final class StreamProcessorRegionsOfInterest {
         }
 
         @CustomType.Setter
-        public Builder boundingBox(StreamProcessorRegionsOfInterestBoundingBox boundingBox) {
-            if (boundingBox == null) {
-              throw new MissingRequiredPropertyException("StreamProcessorRegionsOfInterest", "boundingBox");
-            }
+        public Builder boundingBox(@Nullable StreamProcessorRegionsOfInterestBoundingBox boundingBox) {
+
             this.boundingBox = boundingBox;
             return this;
         }
         @CustomType.Setter
-        public Builder polygons(List<StreamProcessorRegionsOfInterestPolygon> polygons) {
-            if (polygons == null) {
-              throw new MissingRequiredPropertyException("StreamProcessorRegionsOfInterest", "polygons");
-            }
+        public Builder polygons(@Nullable List<StreamProcessorRegionsOfInterestPolygon> polygons) {
+
             this.polygons = polygons;
             return this;
         }

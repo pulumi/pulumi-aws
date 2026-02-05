@@ -106,14 +106,14 @@ public class RestoreTestingPlan extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="recoveryPointSelection", refs={RestoreTestingPlanRecoveryPointSelection.class}, tree="[0]")
-    private Output</* @Nullable */ RestoreTestingPlanRecoveryPointSelection> recoveryPointSelection;
+    private Output<RestoreTestingPlanRecoveryPointSelection> recoveryPointSelection;
 
     /**
      * @return Specifies the recovery point selection configuration. See RecoveryPointSelection section for more details.
      * 
      */
-    public Output<Optional<RestoreTestingPlanRecoveryPointSelection>> recoveryPointSelection() {
-        return Codegen.optional(this.recoveryPointSelection);
+    public Output<RestoreTestingPlanRecoveryPointSelection> recoveryPointSelection() {
+        return this.recoveryPointSelection;
     }
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.

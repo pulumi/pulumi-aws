@@ -51,15 +51,15 @@ public final class AgentKnowledgeBaseStorageConfigurationPineconeConfigurationAr
      * The names of the fields to which to map information about the vector store. This block supports the following arguments:
      * 
      */
-    @Import(name="fieldMapping")
-    private @Nullable Output<AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMappingArgs> fieldMapping;
+    @Import(name="fieldMapping", required=true)
+    private Output<AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMappingArgs> fieldMapping;
 
     /**
      * @return The names of the fields to which to map information about the vector store. This block supports the following arguments:
      * 
      */
-    public Optional<Output<AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMappingArgs>> fieldMapping() {
-        return Optional.ofNullable(this.fieldMapping);
+    public Output<AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMappingArgs> fieldMapping() {
+        return this.fieldMapping;
     }
 
     /**
@@ -152,7 +152,7 @@ public final class AgentKnowledgeBaseStorageConfigurationPineconeConfigurationAr
          * @return builder
          * 
          */
-        public Builder fieldMapping(@Nullable Output<AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMappingArgs> fieldMapping) {
+        public Builder fieldMapping(Output<AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMappingArgs> fieldMapping) {
             $.fieldMapping = fieldMapping;
             return this;
         }
@@ -194,6 +194,9 @@ public final class AgentKnowledgeBaseStorageConfigurationPineconeConfigurationAr
             }
             if ($.credentialsSecretArn == null) {
                 throw new MissingRequiredPropertyException("AgentKnowledgeBaseStorageConfigurationPineconeConfigurationArgs", "credentialsSecretArn");
+            }
+            if ($.fieldMapping == null) {
+                throw new MissingRequiredPropertyException("AgentKnowledgeBaseStorageConfigurationPineconeConfigurationArgs", "fieldMapping");
             }
             return $;
         }

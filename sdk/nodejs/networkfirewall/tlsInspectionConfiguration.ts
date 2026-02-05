@@ -311,7 +311,7 @@ export class TlsInspectionConfiguration extends pulumi.CustomResource {
      *
      * The following arguments are optional:
      */
-    declare public readonly tlsInspectionConfiguration: pulumi.Output<outputs.networkfirewall.TlsInspectionConfigurationTlsInspectionConfiguration | undefined>;
+    declare public readonly tlsInspectionConfiguration: pulumi.Output<outputs.networkfirewall.TlsInspectionConfigurationTlsInspectionConfiguration>;
     /**
      * A unique identifier for the TLS inspection configuration.
      */
@@ -328,7 +328,7 @@ export class TlsInspectionConfiguration extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: TlsInspectionConfigurationArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, args: TlsInspectionConfigurationArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: TlsInspectionConfigurationArgs | TlsInspectionConfigurationState, opts?: pulumi.CustomResourceOptions) {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
@@ -350,6 +350,9 @@ export class TlsInspectionConfiguration extends pulumi.CustomResource {
             resourceInputs["updateToken"] = state?.updateToken;
         } else {
             const args = argsOrState as TlsInspectionConfigurationArgs | undefined;
+            if (args?.tlsInspectionConfiguration === undefined && !opts.urn) {
+                throw new Error("Missing required property 'tlsInspectionConfiguration'");
+            }
             resourceInputs["description"] = args?.description;
             resourceInputs["encryptionConfigurations"] = args?.encryptionConfigurations;
             resourceInputs["name"] = args?.name;
@@ -452,5 +455,5 @@ export interface TlsInspectionConfigurationArgs {
      *
      * The following arguments are optional:
      */
-    tlsInspectionConfiguration?: pulumi.Input<inputs.networkfirewall.TlsInspectionConfigurationTlsInspectionConfiguration>;
+    tlsInspectionConfiguration: pulumi.Input<inputs.networkfirewall.TlsInspectionConfigurationTlsInspectionConfiguration>;
 }

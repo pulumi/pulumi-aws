@@ -6,6 +6,7 @@ package com.pulumi.aws.dataexchange.outputs;
 import com.pulumi.aws.dataexchange.outputs.EventActionActionExportRevisionToS3Encryption;
 import com.pulumi.aws.dataexchange.outputs.EventActionActionExportRevisionToS3RevisionDestination;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -23,7 +24,7 @@ public final class EventActionActionExportRevisionToS3 {
      * Described in `revisionDestination` Configuration Block below.
      * 
      */
-    private @Nullable EventActionActionExportRevisionToS3RevisionDestination revisionDestination;
+    private EventActionActionExportRevisionToS3RevisionDestination revisionDestination;
 
     private EventActionActionExportRevisionToS3() {}
     /**
@@ -39,8 +40,8 @@ public final class EventActionActionExportRevisionToS3 {
      * Described in `revisionDestination` Configuration Block below.
      * 
      */
-    public Optional<EventActionActionExportRevisionToS3RevisionDestination> revisionDestination() {
-        return Optional.ofNullable(this.revisionDestination);
+    public EventActionActionExportRevisionToS3RevisionDestination revisionDestination() {
+        return this.revisionDestination;
     }
 
     public static Builder builder() {
@@ -53,7 +54,7 @@ public final class EventActionActionExportRevisionToS3 {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable EventActionActionExportRevisionToS3Encryption encryption;
-        private @Nullable EventActionActionExportRevisionToS3RevisionDestination revisionDestination;
+        private EventActionActionExportRevisionToS3RevisionDestination revisionDestination;
         public Builder() {}
         public Builder(EventActionActionExportRevisionToS3 defaults) {
     	      Objects.requireNonNull(defaults);
@@ -68,8 +69,10 @@ public final class EventActionActionExportRevisionToS3 {
             return this;
         }
         @CustomType.Setter
-        public Builder revisionDestination(@Nullable EventActionActionExportRevisionToS3RevisionDestination revisionDestination) {
-
+        public Builder revisionDestination(EventActionActionExportRevisionToS3RevisionDestination revisionDestination) {
+            if (revisionDestination == null) {
+              throw new MissingRequiredPropertyException("EventActionActionExportRevisionToS3", "revisionDestination");
+            }
             this.revisionDestination = revisionDestination;
             return this;
         }

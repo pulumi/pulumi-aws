@@ -1656,7 +1656,7 @@ func (o MalwareProtectionPlanActionTaggingArrayOutput) Index(i pulumi.IntInput) 
 
 type MalwareProtectionPlanProtectedResource struct {
 	// Information about the protected S3 bucket resource. See `s3Bucket` below.
-	S3Bucket *MalwareProtectionPlanProtectedResourceS3Bucket `pulumi:"s3Bucket"`
+	S3Bucket MalwareProtectionPlanProtectedResourceS3Bucket `pulumi:"s3Bucket"`
 }
 
 // MalwareProtectionPlanProtectedResourceInput is an input type that accepts MalwareProtectionPlanProtectedResourceArgs and MalwareProtectionPlanProtectedResourceOutput values.
@@ -1672,7 +1672,7 @@ type MalwareProtectionPlanProtectedResourceInput interface {
 
 type MalwareProtectionPlanProtectedResourceArgs struct {
 	// Information about the protected S3 bucket resource. See `s3Bucket` below.
-	S3Bucket MalwareProtectionPlanProtectedResourceS3BucketPtrInput `pulumi:"s3Bucket"`
+	S3Bucket MalwareProtectionPlanProtectedResourceS3BucketInput `pulumi:"s3Bucket"`
 }
 
 func (MalwareProtectionPlanProtectedResourceArgs) ElementType() reflect.Type {
@@ -1753,10 +1753,10 @@ func (o MalwareProtectionPlanProtectedResourceOutput) ToMalwareProtectionPlanPro
 }
 
 // Information about the protected S3 bucket resource. See `s3Bucket` below.
-func (o MalwareProtectionPlanProtectedResourceOutput) S3Bucket() MalwareProtectionPlanProtectedResourceS3BucketPtrOutput {
-	return o.ApplyT(func(v MalwareProtectionPlanProtectedResource) *MalwareProtectionPlanProtectedResourceS3Bucket {
+func (o MalwareProtectionPlanProtectedResourceOutput) S3Bucket() MalwareProtectionPlanProtectedResourceS3BucketOutput {
+	return o.ApplyT(func(v MalwareProtectionPlanProtectedResource) MalwareProtectionPlanProtectedResourceS3Bucket {
 		return v.S3Bucket
-	}).(MalwareProtectionPlanProtectedResourceS3BucketPtrOutput)
+	}).(MalwareProtectionPlanProtectedResourceS3BucketOutput)
 }
 
 type MalwareProtectionPlanProtectedResourcePtrOutput struct{ *pulumi.OutputState }
@@ -1789,7 +1789,7 @@ func (o MalwareProtectionPlanProtectedResourcePtrOutput) S3Bucket() MalwareProte
 		if v == nil {
 			return nil
 		}
-		return v.S3Bucket
+		return &v.S3Bucket
 	}).(MalwareProtectionPlanProtectedResourceS3BucketPtrOutput)
 }
 

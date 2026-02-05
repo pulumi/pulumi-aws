@@ -7,6 +7,7 @@ import com.pulumi.aws.lakeformation.inputs.DataCellsFilterTableDataArgs;
 import com.pulumi.aws.lakeformation.inputs.DataCellsFilterTimeoutsArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -36,15 +37,15 @@ public final class DataCellsFilterArgs extends com.pulumi.resources.ResourceArgs
      * Information about the data cells filter. See Table Data below for details.
      * 
      */
-    @Import(name="tableData")
-    private @Nullable Output<DataCellsFilterTableDataArgs> tableData;
+    @Import(name="tableData", required=true)
+    private Output<DataCellsFilterTableDataArgs> tableData;
 
     /**
      * @return Information about the data cells filter. See Table Data below for details.
      * 
      */
-    public Optional<Output<DataCellsFilterTableDataArgs>> tableData() {
-        return Optional.ofNullable(this.tableData);
+    public Output<DataCellsFilterTableDataArgs> tableData() {
+        return this.tableData;
     }
 
     @Import(name="timeouts")
@@ -107,7 +108,7 @@ public final class DataCellsFilterArgs extends com.pulumi.resources.ResourceArgs
          * @return builder
          * 
          */
-        public Builder tableData(@Nullable Output<DataCellsFilterTableDataArgs> tableData) {
+        public Builder tableData(Output<DataCellsFilterTableDataArgs> tableData) {
             $.tableData = tableData;
             return this;
         }
@@ -132,6 +133,9 @@ public final class DataCellsFilterArgs extends com.pulumi.resources.ResourceArgs
         }
 
         public DataCellsFilterArgs build() {
+            if ($.tableData == null) {
+                throw new MissingRequiredPropertyException("DataCellsFilterArgs", "tableData");
+            }
             return $;
         }
     }

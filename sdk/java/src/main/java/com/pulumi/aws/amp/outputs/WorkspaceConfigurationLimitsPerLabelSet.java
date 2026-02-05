@@ -9,8 +9,6 @@ import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
-import java.util.Optional;
-import javax.annotation.Nullable;
 
 @CustomType
 public final class WorkspaceConfigurationLimitsPerLabelSet {
@@ -23,7 +21,7 @@ public final class WorkspaceConfigurationLimitsPerLabelSet {
      * @return Configuration block for the limits to apply to the specified label set. Detailed below.
      * 
      */
-    private @Nullable WorkspaceConfigurationLimitsPerLabelSetLimits limits;
+    private WorkspaceConfigurationLimitsPerLabelSetLimits limits;
 
     private WorkspaceConfigurationLimitsPerLabelSet() {}
     /**
@@ -37,8 +35,8 @@ public final class WorkspaceConfigurationLimitsPerLabelSet {
      * @return Configuration block for the limits to apply to the specified label set. Detailed below.
      * 
      */
-    public Optional<WorkspaceConfigurationLimitsPerLabelSetLimits> limits() {
-        return Optional.ofNullable(this.limits);
+    public WorkspaceConfigurationLimitsPerLabelSetLimits limits() {
+        return this.limits;
     }
 
     public static Builder builder() {
@@ -51,7 +49,7 @@ public final class WorkspaceConfigurationLimitsPerLabelSet {
     @CustomType.Builder
     public static final class Builder {
         private Map<String,String> labelSet;
-        private @Nullable WorkspaceConfigurationLimitsPerLabelSetLimits limits;
+        private WorkspaceConfigurationLimitsPerLabelSetLimits limits;
         public Builder() {}
         public Builder(WorkspaceConfigurationLimitsPerLabelSet defaults) {
     	      Objects.requireNonNull(defaults);
@@ -68,8 +66,10 @@ public final class WorkspaceConfigurationLimitsPerLabelSet {
             return this;
         }
         @CustomType.Setter
-        public Builder limits(@Nullable WorkspaceConfigurationLimitsPerLabelSetLimits limits) {
-
+        public Builder limits(WorkspaceConfigurationLimitsPerLabelSetLimits limits) {
+            if (limits == null) {
+              throw new MissingRequiredPropertyException("WorkspaceConfigurationLimitsPerLabelSet", "limits");
+            }
             this.limits = limits;
             return this;
         }

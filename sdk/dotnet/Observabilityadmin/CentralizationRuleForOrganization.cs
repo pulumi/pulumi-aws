@@ -199,7 +199,7 @@ namespace Pulumi.Aws.Observabilityadmin
         /// The following arguments are optional:
         /// </summary>
         [Output("rule")]
-        public Output<Outputs.CentralizationRuleForOrganizationRule?> Rule { get; private set; } = null!;
+        public Output<Outputs.CentralizationRuleForOrganizationRule> Rule { get; private set; } = null!;
 
         /// <summary>
         /// ARN of the centralization rule.
@@ -285,8 +285,8 @@ namespace Pulumi.Aws.Observabilityadmin
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("rule")]
-        public Input<Inputs.CentralizationRuleForOrganizationRuleArgs>? Rule { get; set; }
+        [Input("rule", required: true)]
+        public Input<Inputs.CentralizationRuleForOrganizationRuleArgs> Rule { get; set; } = null!;
 
         /// <summary>
         /// Name of the centralization rule. Must be unique within the organization.

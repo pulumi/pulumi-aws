@@ -336,7 +336,7 @@ namespace Pulumi.Aws.Rekognition
         /// Input video stream. See `Input`.
         /// </summary>
         [Output("input")]
-        public Output<Outputs.StreamProcessorInput?> Input { get; private set; } = null!;
+        public Output<Outputs.StreamProcessorInput> Input { get; private set; } = null!;
 
         /// <summary>
         /// Optional parameter for label detection stream processors.
@@ -360,7 +360,7 @@ namespace Pulumi.Aws.Rekognition
         /// Kinesis data stream stream or Amazon S3 bucket location to which Amazon Rekognition Video puts the analysis results. See `Output`.
         /// </summary>
         [Output("output")]
-        public Output<Outputs.StreamProcessorOutput?> Output { get; private set; } = null!;
+        public Output<Outputs.StreamProcessorOutput> Output { get; private set; } = null!;
 
         /// <summary>
         /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -386,7 +386,7 @@ namespace Pulumi.Aws.Rekognition
         /// The following arguments are optional:
         /// </summary>
         [Output("settings")]
-        public Output<Outputs.StreamProcessorSettings?> Settings { get; private set; } = null!;
+        public Output<Outputs.StreamProcessorSettings> Settings { get; private set; } = null!;
 
         /// <summary>
         /// (**Deprecated**) ARN of the Stream Processor.
@@ -465,8 +465,8 @@ namespace Pulumi.Aws.Rekognition
         /// <summary>
         /// Input video stream. See `Input`.
         /// </summary>
-        [Input("input")]
-        public Input<Inputs.StreamProcessorInputArgs>? Input { get; set; }
+        [Input("input", required: true)]
+        public Input<Inputs.StreamProcessorInputArgs> Input { get; set; } = null!;
 
         /// <summary>
         /// Optional parameter for label detection stream processors.
@@ -489,8 +489,8 @@ namespace Pulumi.Aws.Rekognition
         /// <summary>
         /// Kinesis data stream stream or Amazon S3 bucket location to which Amazon Rekognition Video puts the analysis results. See `Output`.
         /// </summary>
-        [Input("output")]
-        public Input<Inputs.StreamProcessorOutputArgs>? Output { get; set; }
+        [Input("output", required: true)]
+        public Input<Inputs.StreamProcessorOutputArgs> Output { get; set; } = null!;
 
         /// <summary>
         /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -521,8 +521,8 @@ namespace Pulumi.Aws.Rekognition
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("settings")]
-        public Input<Inputs.StreamProcessorSettingsArgs>? Settings { get; set; }
+        [Input("settings", required: true)]
+        public Input<Inputs.StreamProcessorSettingsArgs> Settings { get; set; } = null!;
 
         [Input("tags")]
         private InputMap<string>? _tags;

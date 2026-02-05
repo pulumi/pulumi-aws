@@ -6427,7 +6427,7 @@ func (o AgentDataSourceDataSourceConfigurationWebConfigurationCrawlerConfigurati
 
 type AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfiguration struct {
 	// The URL configuration of your web data source. See `urlConfiguration` block for details.
-	UrlConfiguration *AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfiguration `pulumi:"urlConfiguration"`
+	UrlConfiguration AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfiguration `pulumi:"urlConfiguration"`
 }
 
 // AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationInput is an input type that accepts AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationArgs and AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationOutput values.
@@ -6443,7 +6443,7 @@ type AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationIn
 
 type AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationArgs struct {
 	// The URL configuration of your web data source. See `urlConfiguration` block for details.
-	UrlConfiguration AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationPtrInput `pulumi:"urlConfiguration"`
+	UrlConfiguration AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationInput `pulumi:"urlConfiguration"`
 }
 
 func (AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationArgs) ElementType() reflect.Type {
@@ -6524,10 +6524,10 @@ func (o AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfiguratio
 }
 
 // The URL configuration of your web data source. See `urlConfiguration` block for details.
-func (o AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationOutput) UrlConfiguration() AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationPtrOutput {
-	return o.ApplyT(func(v AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfiguration) *AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfiguration {
+func (o AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationOutput) UrlConfiguration() AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationOutput {
+	return o.ApplyT(func(v AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfiguration) AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfiguration {
 		return v.UrlConfiguration
-	}).(AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationPtrOutput)
+	}).(AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationOutput)
 }
 
 type AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationPtrOutput struct{ *pulumi.OutputState }
@@ -6560,7 +6560,7 @@ func (o AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfiguratio
 		if v == nil {
 			return nil
 		}
-		return v.UrlConfiguration
+		return &v.UrlConfiguration
 	}).(AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfigurationPtrOutput)
 }
 
@@ -18515,11 +18515,11 @@ func (o AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfiguratio
 
 type AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfiguration struct {
 	// Configurations for an Amazon Redshift query engine. See `queryEngineConfiguration` block for details.
-	QueryEngineConfiguration *AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfiguration `pulumi:"queryEngineConfiguration"`
+	QueryEngineConfiguration AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfiguration `pulumi:"queryEngineConfiguration"`
 	// Configurations for generating queries. See `queryGenerationConfiguration` block for details.
 	QueryGenerationConfiguration *AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfiguration `pulumi:"queryGenerationConfiguration"`
 	// Configurations for Amazon Redshift database storage. See `storageConfiguration` block for details.
-	StorageConfiguration *AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfiguration `pulumi:"storageConfiguration"`
+	StorageConfiguration AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfiguration `pulumi:"storageConfiguration"`
 }
 
 // AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationInput is an input type that accepts AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationArgs and AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationOutput values.
@@ -18535,11 +18535,11 @@ type AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRe
 
 type AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationArgs struct {
 	// Configurations for an Amazon Redshift query engine. See `queryEngineConfiguration` block for details.
-	QueryEngineConfiguration AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationPtrInput `pulumi:"queryEngineConfiguration"`
+	QueryEngineConfiguration AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationInput `pulumi:"queryEngineConfiguration"`
 	// Configurations for generating queries. See `queryGenerationConfiguration` block for details.
 	QueryGenerationConfiguration AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryGenerationConfigurationPtrInput `pulumi:"queryGenerationConfiguration"`
 	// Configurations for Amazon Redshift database storage. See `storageConfiguration` block for details.
-	StorageConfiguration AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationPtrInput `pulumi:"storageConfiguration"`
+	StorageConfiguration AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationInput `pulumi:"storageConfiguration"`
 }
 
 func (AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationArgs) ElementType() reflect.Type {
@@ -18620,10 +18620,10 @@ func (o AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfiguratio
 }
 
 // Configurations for an Amazon Redshift query engine. See `queryEngineConfiguration` block for details.
-func (o AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationOutput) QueryEngineConfiguration() AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationPtrOutput {
-	return o.ApplyT(func(v AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfiguration) *AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfiguration {
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationOutput) QueryEngineConfiguration() AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationOutput {
+	return o.ApplyT(func(v AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfiguration) AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfiguration {
 		return v.QueryEngineConfiguration
-	}).(AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationPtrOutput)
+	}).(AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationOutput)
 }
 
 // Configurations for generating queries. See `queryGenerationConfiguration` block for details.
@@ -18634,10 +18634,10 @@ func (o AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfiguratio
 }
 
 // Configurations for Amazon Redshift database storage. See `storageConfiguration` block for details.
-func (o AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationOutput) StorageConfiguration() AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationPtrOutput {
-	return o.ApplyT(func(v AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfiguration) *AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfiguration {
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationOutput) StorageConfiguration() AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationOutput {
+	return o.ApplyT(func(v AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfiguration) AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfiguration {
 		return v.StorageConfiguration
-	}).(AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationPtrOutput)
+	}).(AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationOutput)
 }
 
 type AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationPtrOutput struct{ *pulumi.OutputState }
@@ -18670,7 +18670,7 @@ func (o AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfiguratio
 		if v == nil {
 			return nil
 		}
-		return v.QueryEngineConfiguration
+		return &v.QueryEngineConfiguration
 	}).(AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationPtrOutput)
 }
 
@@ -18690,7 +18690,7 @@ func (o AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfiguratio
 		if v == nil {
 			return nil
 		}
-		return v.StorageConfiguration
+		return &v.StorageConfiguration
 	}).(AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationPtrOutput)
 }
 
@@ -18877,7 +18877,7 @@ func (o AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfiguratio
 
 type AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfiguration struct {
 	// Configurations for authentication to Amazon Redshift. See `authConfiguration` block for details.
-	AuthConfiguration *AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationAuthConfiguration `pulumi:"authConfiguration"`
+	AuthConfiguration AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationAuthConfiguration `pulumi:"authConfiguration"`
 	// ID of the Amazon Redshift cluster.
 	ClusterIdentifier string `pulumi:"clusterIdentifier"`
 }
@@ -18895,7 +18895,7 @@ type AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRe
 
 type AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationArgs struct {
 	// Configurations for authentication to Amazon Redshift. See `authConfiguration` block for details.
-	AuthConfiguration AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationAuthConfigurationPtrInput `pulumi:"authConfiguration"`
+	AuthConfiguration AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationAuthConfigurationInput `pulumi:"authConfiguration"`
 	// ID of the Amazon Redshift cluster.
 	ClusterIdentifier pulumi.StringInput `pulumi:"clusterIdentifier"`
 }
@@ -18978,10 +18978,10 @@ func (o AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfiguratio
 }
 
 // Configurations for authentication to Amazon Redshift. See `authConfiguration` block for details.
-func (o AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationOutput) AuthConfiguration() AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationAuthConfigurationPtrOutput {
-	return o.ApplyT(func(v AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfiguration) *AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationAuthConfiguration {
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationOutput) AuthConfiguration() AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationAuthConfigurationOutput {
+	return o.ApplyT(func(v AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfiguration) AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationAuthConfiguration {
 		return v.AuthConfiguration
-	}).(AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationAuthConfigurationPtrOutput)
+	}).(AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationAuthConfigurationOutput)
 }
 
 // ID of the Amazon Redshift cluster.
@@ -19021,7 +19021,7 @@ func (o AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfiguratio
 		if v == nil {
 			return nil
 		}
-		return v.AuthConfiguration
+		return &v.AuthConfiguration
 	}).(AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationAuthConfigurationPtrOutput)
 }
 
@@ -19218,7 +19218,7 @@ func (o AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfiguratio
 
 type AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfiguration struct {
 	// Configurations for authentication to a Redshift Serverless. See `authConfiguration` block for details.
-	AuthConfiguration *AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationAuthConfiguration `pulumi:"authConfiguration"`
+	AuthConfiguration AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationAuthConfiguration `pulumi:"authConfiguration"`
 	// ARN of the Amazon Redshift workgroup.
 	WorkgroupArn string `pulumi:"workgroupArn"`
 }
@@ -19236,7 +19236,7 @@ type AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRe
 
 type AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationArgs struct {
 	// Configurations for authentication to a Redshift Serverless. See `authConfiguration` block for details.
-	AuthConfiguration AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationAuthConfigurationPtrInput `pulumi:"authConfiguration"`
+	AuthConfiguration AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationAuthConfigurationInput `pulumi:"authConfiguration"`
 	// ARN of the Amazon Redshift workgroup.
 	WorkgroupArn pulumi.StringInput `pulumi:"workgroupArn"`
 }
@@ -19319,10 +19319,10 @@ func (o AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfiguratio
 }
 
 // Configurations for authentication to a Redshift Serverless. See `authConfiguration` block for details.
-func (o AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationOutput) AuthConfiguration() AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationAuthConfigurationPtrOutput {
-	return o.ApplyT(func(v AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfiguration) *AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationAuthConfiguration {
+func (o AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationOutput) AuthConfiguration() AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationAuthConfigurationOutput {
+	return o.ApplyT(func(v AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfiguration) AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationAuthConfiguration {
 		return v.AuthConfiguration
-	}).(AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationAuthConfigurationPtrOutput)
+	}).(AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationAuthConfigurationOutput)
 }
 
 // ARN of the Amazon Redshift workgroup.
@@ -19362,7 +19362,7 @@ func (o AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfiguratio
 		if v == nil {
 			return nil
 		}
-		return v.AuthConfiguration
+		return &v.AuthConfiguration
 	}).(AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationServerlessConfigurationAuthConfigurationPtrOutput)
 }
 
@@ -21863,7 +21863,7 @@ type AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfiguration struct {
 	// The name of the service that hosts the MongoDB Atlas database.
 	EndpointServiceName *string `pulumi:"endpointServiceName"`
 	// Contains the names of the fields to which to map information about the vector store.
-	FieldMapping *AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationFieldMapping `pulumi:"fieldMapping"`
+	FieldMapping AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationFieldMapping `pulumi:"fieldMapping"`
 	// The name of the vector index.
 	TextIndexName *string `pulumi:"textIndexName"`
 	// The name of the vector index.
@@ -21893,7 +21893,7 @@ type AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationArgs struct 
 	// The name of the service that hosts the MongoDB Atlas database.
 	EndpointServiceName pulumi.StringPtrInput `pulumi:"endpointServiceName"`
 	// Contains the names of the fields to which to map information about the vector store.
-	FieldMapping AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationFieldMappingPtrInput `pulumi:"fieldMapping"`
+	FieldMapping AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationFieldMappingInput `pulumi:"fieldMapping"`
 	// The name of the vector index.
 	TextIndexName pulumi.StringPtrInput `pulumi:"textIndexName"`
 	// The name of the vector index.
@@ -22009,10 +22009,10 @@ func (o AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationOutput) E
 }
 
 // Contains the names of the fields to which to map information about the vector store.
-func (o AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationOutput) FieldMapping() AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationFieldMappingPtrOutput {
-	return o.ApplyT(func(v AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfiguration) *AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationFieldMapping {
+func (o AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationOutput) FieldMapping() AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationFieldMappingOutput {
+	return o.ApplyT(func(v AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfiguration) AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationFieldMapping {
 		return v.FieldMapping
-	}).(AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationFieldMappingPtrOutput)
+	}).(AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationFieldMappingOutput)
 }
 
 // The name of the vector index.
@@ -22109,7 +22109,7 @@ func (o AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationPtrOutput
 		if v == nil {
 			return nil
 		}
-		return v.FieldMapping
+		return &v.FieldMapping
 	}).(AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationFieldMappingPtrOutput)
 }
 
@@ -22316,7 +22316,7 @@ func (o AgentKnowledgeBaseStorageConfigurationMongoDbAtlasConfigurationFieldMapp
 
 type AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfiguration struct {
 	// The names of the fields to which to map information about the vector store. This block supports the following arguments:
-	FieldMapping *AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationFieldMapping `pulumi:"fieldMapping"`
+	FieldMapping AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationFieldMapping `pulumi:"fieldMapping"`
 	// ARN of the Neptune Analytics vector store.
 	GraphArn string `pulumi:"graphArn"`
 }
@@ -22334,7 +22334,7 @@ type AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationInput in
 
 type AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationArgs struct {
 	// The names of the fields to which to map information about the vector store. This block supports the following arguments:
-	FieldMapping AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationFieldMappingPtrInput `pulumi:"fieldMapping"`
+	FieldMapping AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationFieldMappingInput `pulumi:"fieldMapping"`
 	// ARN of the Neptune Analytics vector store.
 	GraphArn pulumi.StringInput `pulumi:"graphArn"`
 }
@@ -22417,10 +22417,10 @@ func (o AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationOutpu
 }
 
 // The names of the fields to which to map information about the vector store. This block supports the following arguments:
-func (o AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationOutput) FieldMapping() AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationFieldMappingPtrOutput {
-	return o.ApplyT(func(v AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfiguration) *AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationFieldMapping {
+func (o AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationOutput) FieldMapping() AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationFieldMappingOutput {
+	return o.ApplyT(func(v AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfiguration) AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationFieldMapping {
 		return v.FieldMapping
-	}).(AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationFieldMappingPtrOutput)
+	}).(AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationFieldMappingOutput)
 }
 
 // ARN of the Neptune Analytics vector store.
@@ -22458,7 +22458,7 @@ func (o AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationPtrOu
 		if v == nil {
 			return nil
 		}
-		return v.FieldMapping
+		return &v.FieldMapping
 	}).(AgentKnowledgeBaseStorageConfigurationNeptuneAnalyticsConfigurationFieldMappingPtrOutput)
 }
 
@@ -22638,7 +22638,7 @@ type AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfiguration
 	// Endpoint URL of the OpenSearch domain.
 	DomainEndpoint string `pulumi:"domainEndpoint"`
 	// The names of the fields to which to map information about the vector store. This block supports the following arguments:
-	FieldMapping *AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationFieldMapping `pulumi:"fieldMapping"`
+	FieldMapping AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationFieldMapping `pulumi:"fieldMapping"`
 	// Name of the vector store.
 	VectorIndexName string `pulumi:"vectorIndexName"`
 }
@@ -22660,7 +22660,7 @@ type AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfiguration
 	// Endpoint URL of the OpenSearch domain.
 	DomainEndpoint pulumi.StringInput `pulumi:"domainEndpoint"`
 	// The names of the fields to which to map information about the vector store. This block supports the following arguments:
-	FieldMapping AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationFieldMappingPtrInput `pulumi:"fieldMapping"`
+	FieldMapping AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationFieldMappingInput `pulumi:"fieldMapping"`
 	// Name of the vector store.
 	VectorIndexName pulumi.StringInput `pulumi:"vectorIndexName"`
 }
@@ -22757,10 +22757,10 @@ func (o AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurat
 }
 
 // The names of the fields to which to map information about the vector store. This block supports the following arguments:
-func (o AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationOutput) FieldMapping() AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationFieldMappingPtrOutput {
-	return o.ApplyT(func(v AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfiguration) *AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationFieldMapping {
+func (o AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationOutput) FieldMapping() AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationFieldMappingOutput {
+	return o.ApplyT(func(v AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfiguration) AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationFieldMapping {
 		return v.FieldMapping
-	}).(AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationFieldMappingPtrOutput)
+	}).(AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationFieldMappingOutput)
 }
 
 // Name of the vector store.
@@ -22820,7 +22820,7 @@ func (o AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurat
 		if v == nil {
 			return nil
 		}
-		return v.FieldMapping
+		return &v.FieldMapping
 	}).(AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationFieldMappingPtrOutput)
 }
 
@@ -23019,7 +23019,7 @@ type AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfiguration str
 	// ARN of the OpenSearch Service vector store.
 	CollectionArn string `pulumi:"collectionArn"`
 	// The names of the fields to which to map information about the vector store. This block supports the following arguments:
-	FieldMapping *AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMapping `pulumi:"fieldMapping"`
+	FieldMapping AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMapping `pulumi:"fieldMapping"`
 	// Name of the vector store.
 	VectorIndexName string `pulumi:"vectorIndexName"`
 }
@@ -23039,7 +23039,7 @@ type AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationArgs
 	// ARN of the OpenSearch Service vector store.
 	CollectionArn pulumi.StringInput `pulumi:"collectionArn"`
 	// The names of the fields to which to map information about the vector store. This block supports the following arguments:
-	FieldMapping AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMappingPtrInput `pulumi:"fieldMapping"`
+	FieldMapping AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMappingInput `pulumi:"fieldMapping"`
 	// Name of the vector store.
 	VectorIndexName pulumi.StringInput `pulumi:"vectorIndexName"`
 }
@@ -23129,10 +23129,10 @@ func (o AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationO
 }
 
 // The names of the fields to which to map information about the vector store. This block supports the following arguments:
-func (o AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationOutput) FieldMapping() AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMappingPtrOutput {
-	return o.ApplyT(func(v AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfiguration) *AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMapping {
+func (o AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationOutput) FieldMapping() AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMappingOutput {
+	return o.ApplyT(func(v AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfiguration) AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMapping {
 		return v.FieldMapping
-	}).(AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMappingPtrOutput)
+	}).(AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMappingOutput)
 }
 
 // Name of the vector store.
@@ -23182,7 +23182,7 @@ func (o AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationP
 		if v == nil {
 			return nil
 		}
-		return v.FieldMapping
+		return &v.FieldMapping
 	}).(AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMappingPtrOutput)
 }
 
@@ -23383,7 +23383,7 @@ type AgentKnowledgeBaseStorageConfigurationPineconeConfiguration struct {
 	// ARN of the secret that you created in AWS Secrets Manager that is linked to your Pinecone API key.
 	CredentialsSecretArn string `pulumi:"credentialsSecretArn"`
 	// The names of the fields to which to map information about the vector store. This block supports the following arguments:
-	FieldMapping *AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMapping `pulumi:"fieldMapping"`
+	FieldMapping AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMapping `pulumi:"fieldMapping"`
 	// Namespace to be used to write new data to your database.
 	Namespace *string `pulumi:"namespace"`
 }
@@ -23405,7 +23405,7 @@ type AgentKnowledgeBaseStorageConfigurationPineconeConfigurationArgs struct {
 	// ARN of the secret that you created in AWS Secrets Manager that is linked to your Pinecone API key.
 	CredentialsSecretArn pulumi.StringInput `pulumi:"credentialsSecretArn"`
 	// The names of the fields to which to map information about the vector store. This block supports the following arguments:
-	FieldMapping AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMappingPtrInput `pulumi:"fieldMapping"`
+	FieldMapping AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMappingInput `pulumi:"fieldMapping"`
 	// Namespace to be used to write new data to your database.
 	Namespace pulumi.StringPtrInput `pulumi:"namespace"`
 }
@@ -23500,10 +23500,10 @@ func (o AgentKnowledgeBaseStorageConfigurationPineconeConfigurationOutput) Crede
 }
 
 // The names of the fields to which to map information about the vector store. This block supports the following arguments:
-func (o AgentKnowledgeBaseStorageConfigurationPineconeConfigurationOutput) FieldMapping() AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMappingPtrOutput {
-	return o.ApplyT(func(v AgentKnowledgeBaseStorageConfigurationPineconeConfiguration) *AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMapping {
+func (o AgentKnowledgeBaseStorageConfigurationPineconeConfigurationOutput) FieldMapping() AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMappingOutput {
+	return o.ApplyT(func(v AgentKnowledgeBaseStorageConfigurationPineconeConfiguration) AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMapping {
 		return v.FieldMapping
-	}).(AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMappingPtrOutput)
+	}).(AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMappingOutput)
 }
 
 // Namespace to be used to write new data to your database.
@@ -23561,7 +23561,7 @@ func (o AgentKnowledgeBaseStorageConfigurationPineconeConfigurationPtrOutput) Fi
 		if v == nil {
 			return nil
 		}
-		return v.FieldMapping
+		return &v.FieldMapping
 	}).(AgentKnowledgeBaseStorageConfigurationPineconeConfigurationFieldMappingPtrOutput)
 }
 
@@ -23741,7 +23741,7 @@ type AgentKnowledgeBaseStorageConfigurationRdsConfiguration struct {
 	// Name of your Amazon RDS database.
 	DatabaseName string `pulumi:"databaseName"`
 	// Names of the fields to which to map information about the vector store. This block supports the following arguments:
-	FieldMapping *AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMapping `pulumi:"fieldMapping"`
+	FieldMapping AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMapping `pulumi:"fieldMapping"`
 	// ARN of the vector store.
 	ResourceArn string `pulumi:"resourceArn"`
 	// Name of the table in the database.
@@ -23765,7 +23765,7 @@ type AgentKnowledgeBaseStorageConfigurationRdsConfigurationArgs struct {
 	// Name of your Amazon RDS database.
 	DatabaseName pulumi.StringInput `pulumi:"databaseName"`
 	// Names of the fields to which to map information about the vector store. This block supports the following arguments:
-	FieldMapping AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMappingPtrInput `pulumi:"fieldMapping"`
+	FieldMapping AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMappingInput `pulumi:"fieldMapping"`
 	// ARN of the vector store.
 	ResourceArn pulumi.StringInput `pulumi:"resourceArn"`
 	// Name of the table in the database.
@@ -23860,10 +23860,10 @@ func (o AgentKnowledgeBaseStorageConfigurationRdsConfigurationOutput) DatabaseNa
 }
 
 // Names of the fields to which to map information about the vector store. This block supports the following arguments:
-func (o AgentKnowledgeBaseStorageConfigurationRdsConfigurationOutput) FieldMapping() AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMappingPtrOutput {
-	return o.ApplyT(func(v AgentKnowledgeBaseStorageConfigurationRdsConfiguration) *AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMapping {
+func (o AgentKnowledgeBaseStorageConfigurationRdsConfigurationOutput) FieldMapping() AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMappingOutput {
+	return o.ApplyT(func(v AgentKnowledgeBaseStorageConfigurationRdsConfiguration) AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMapping {
 		return v.FieldMapping
-	}).(AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMappingPtrOutput)
+	}).(AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMappingOutput)
 }
 
 // ARN of the vector store.
@@ -23926,7 +23926,7 @@ func (o AgentKnowledgeBaseStorageConfigurationRdsConfigurationPtrOutput) FieldMa
 		if v == nil {
 			return nil
 		}
-		return v.FieldMapping
+		return &v.FieldMapping
 	}).(AgentKnowledgeBaseStorageConfigurationRdsConfigurationFieldMappingPtrOutput)
 }
 
@@ -24177,7 +24177,7 @@ type AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfiguration str
 	// Endpoint URL of the Redis Enterprise Cloud database.
 	Endpoint string `pulumi:"endpoint"`
 	// The names of the fields to which to map information about the vector store. This block supports the following arguments:
-	FieldMapping *AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMapping `pulumi:"fieldMapping"`
+	FieldMapping AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMapping `pulumi:"fieldMapping"`
 	// Name of the vector index.
 	VectorIndexName string `pulumi:"vectorIndexName"`
 }
@@ -24199,7 +24199,7 @@ type AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationArgs
 	// Endpoint URL of the Redis Enterprise Cloud database.
 	Endpoint pulumi.StringInput `pulumi:"endpoint"`
 	// The names of the fields to which to map information about the vector store. This block supports the following arguments:
-	FieldMapping AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMappingPtrInput `pulumi:"fieldMapping"`
+	FieldMapping AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMappingInput `pulumi:"fieldMapping"`
 	// Name of the vector index.
 	VectorIndexName pulumi.StringInput `pulumi:"vectorIndexName"`
 }
@@ -24296,10 +24296,10 @@ func (o AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationO
 }
 
 // The names of the fields to which to map information about the vector store. This block supports the following arguments:
-func (o AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationOutput) FieldMapping() AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMappingPtrOutput {
-	return o.ApplyT(func(v AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfiguration) *AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMapping {
+func (o AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationOutput) FieldMapping() AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMappingOutput {
+	return o.ApplyT(func(v AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfiguration) AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMapping {
 		return v.FieldMapping
-	}).(AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMappingPtrOutput)
+	}).(AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMappingOutput)
 }
 
 // Name of the vector index.
@@ -24359,7 +24359,7 @@ func (o AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationP
 		if v == nil {
 			return nil
 		}
-		return v.FieldMapping
+		return &v.FieldMapping
 	}).(AgentKnowledgeBaseStorageConfigurationRedisEnterpriseCloudConfigurationFieldMappingPtrOutput)
 }
 
@@ -34345,7 +34345,7 @@ type AgentcoreGatewayTargetTargetConfigurationMcpLambda struct {
 	// ARN of the Lambda function to invoke.
 	LambdaArn string `pulumi:"lambdaArn"`
 	// Schema definition for the tool. See `toolSchema` below.
-	ToolSchema *AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchema `pulumi:"toolSchema"`
+	ToolSchema AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchema `pulumi:"toolSchema"`
 }
 
 // AgentcoreGatewayTargetTargetConfigurationMcpLambdaInput is an input type that accepts AgentcoreGatewayTargetTargetConfigurationMcpLambdaArgs and AgentcoreGatewayTargetTargetConfigurationMcpLambdaOutput values.
@@ -34363,7 +34363,7 @@ type AgentcoreGatewayTargetTargetConfigurationMcpLambdaArgs struct {
 	// ARN of the Lambda function to invoke.
 	LambdaArn pulumi.StringInput `pulumi:"lambdaArn"`
 	// Schema definition for the tool. See `toolSchema` below.
-	ToolSchema AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaPtrInput `pulumi:"toolSchema"`
+	ToolSchema AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInput `pulumi:"toolSchema"`
 }
 
 func (AgentcoreGatewayTargetTargetConfigurationMcpLambdaArgs) ElementType() reflect.Type {
@@ -34449,10 +34449,10 @@ func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaOutput) LambdaArn() pu
 }
 
 // Schema definition for the tool. See `toolSchema` below.
-func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaOutput) ToolSchema() AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaPtrOutput {
-	return o.ApplyT(func(v AgentcoreGatewayTargetTargetConfigurationMcpLambda) *AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchema {
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaOutput) ToolSchema() AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaOutput {
+	return o.ApplyT(func(v AgentcoreGatewayTargetTargetConfigurationMcpLambda) AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchema {
 		return v.ToolSchema
-	}).(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaPtrOutput)
+	}).(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaOutput)
 }
 
 type AgentcoreGatewayTargetTargetConfigurationMcpLambdaPtrOutput struct{ *pulumi.OutputState }
@@ -34495,7 +34495,7 @@ func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaPtrOutput) ToolSchema(
 		if v == nil {
 			return nil
 		}
-		return v.ToolSchema
+		return &v.ToolSchema
 	}).(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaPtrOutput)
 }
 
@@ -34663,7 +34663,7 @@ type AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayload s
 	// Description of what the tool does.
 	Description string `pulumi:"description"`
 	// Schema for the tool's input. See `schemaDefinition` below.
-	InputSchema *AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchema `pulumi:"inputSchema"`
+	InputSchema AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchema `pulumi:"inputSchema"`
 	// Name of the tool.
 	Name string `pulumi:"name"`
 	// Schema for the tool's output. See `schemaDefinition` below.
@@ -34685,7 +34685,7 @@ type AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadAr
 	// Description of what the tool does.
 	Description pulumi.StringInput `pulumi:"description"`
 	// Schema for the tool's input. See `schemaDefinition` below.
-	InputSchema AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPtrInput `pulumi:"inputSchema"`
+	InputSchema AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaInput `pulumi:"inputSchema"`
 	// Name of the tool.
 	Name pulumi.StringInput `pulumi:"name"`
 	// Schema for the tool's output. See `schemaDefinition` below.
@@ -34751,10 +34751,10 @@ func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloa
 }
 
 // Schema for the tool's input. See `schemaDefinition` below.
-func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutput) InputSchema() AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPtrOutput {
-	return o.ApplyT(func(v AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayload) *AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchema {
+func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutput) InputSchema() AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaOutput {
+	return o.ApplyT(func(v AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayload) AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchema {
 		return v.InputSchema
-	}).(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPtrOutput)
+	}).(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaOutput)
 }
 
 // Name of the tool.
@@ -34830,47 +34830,6 @@ func (i AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloa
 	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaOutput)
 }
 
-func (i AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaArgs) ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPtrOutput() AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPtrOutput {
-	return i.ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPtrOutputWithContext(context.Background())
-}
-
-func (i AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaArgs) ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPtrOutputWithContext(ctx context.Context) AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaOutput).ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPtrOutputWithContext(ctx)
-}
-
-// AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPtrInput is an input type that accepts AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaArgs, AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPtr and AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPtrOutput values.
-// You can construct a concrete instance of `AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPtrInput` via:
-//
-//	        AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaArgs{...}
-//
-//	or:
-//
-//	        nil
-type AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPtrInput interface {
-	pulumi.Input
-
-	ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPtrOutput() AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPtrOutput
-	ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPtrOutputWithContext(context.Context) AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPtrOutput
-}
-
-type agentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPtrType AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaArgs
-
-func AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPtr(v *AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaArgs) AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPtrInput {
-	return (*agentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPtrType)(v)
-}
-
-func (*agentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchema)(nil)).Elem()
-}
-
-func (i *agentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPtrType) ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPtrOutput() AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPtrOutput {
-	return i.ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPtrOutputWithContext(context.Background())
-}
-
-func (i *agentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPtrType) ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPtrOutputWithContext(ctx context.Context) AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPtrOutput)
-}
-
 type AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaOutput struct{ *pulumi.OutputState }
 
 func (AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaOutput) ElementType() reflect.Type {
@@ -34883,16 +34842,6 @@ func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloa
 
 func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaOutput) ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaOutputWithContext(ctx context.Context) AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaOutput {
 	return o
-}
-
-func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaOutput) ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPtrOutput() AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPtrOutput {
-	return o.ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPtrOutputWithContext(context.Background())
-}
-
-func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaOutput) ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPtrOutputWithContext(ctx context.Context) AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchema) *AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchema {
-		return &v
-	}).(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPtrOutput)
 }
 
 // Description of the gateway target.
@@ -34918,67 +34867,6 @@ func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloa
 	return o.ApplyT(func(v AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchema) string {
 		return v.Type
 	}).(pulumi.StringOutput)
-}
-
-type AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPtrOutput struct{ *pulumi.OutputState }
-
-func (AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchema)(nil)).Elem()
-}
-
-func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPtrOutput) ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPtrOutput() AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPtrOutput {
-	return o
-}
-
-func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPtrOutput) ToAgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPtrOutputWithContext(ctx context.Context) AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPtrOutput {
-	return o
-}
-
-func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPtrOutput) Elem() AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaOutput {
-	return o.ApplyT(func(v *AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchema) AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchema {
-		if v != nil {
-			return *v
-		}
-		var ret AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchema
-		return ret
-	}).(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaOutput)
-}
-
-// Description of the gateway target.
-func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPtrOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchema) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Description
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPtrOutput) Items() AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsPtrOutput {
-	return o.ApplyT(func(v *AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchema) *AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItems {
-		if v == nil {
-			return nil
-		}
-		return v.Items
-	}).(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsPtrOutput)
-}
-
-func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPtrOutput) Properties() AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyArrayOutput {
-	return o.ApplyT(func(v *AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchema) []AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaProperty {
-		if v == nil {
-			return nil
-		}
-		return v.Properties
-	}).(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyArrayOutput)
-}
-
-func (o AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPtrOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchema) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Type
-	}).(pulumi.StringPtrOutput)
 }
 
 type AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItems struct {
@@ -49727,7 +49615,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInput)(nil)).Elem(), AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadArrayInput)(nil)).Elem(), AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaInput)(nil)).Elem(), AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPtrInput)(nil)).Elem(), AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsInput)(nil)).Elem(), AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsPtrInput)(nil)).Elem(), AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsItemsInput)(nil)).Elem(), AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsItemsArgs{})
@@ -50375,7 +50262,6 @@ func init() {
 	pulumi.RegisterOutputType(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutput{})
 	pulumi.RegisterOutputType(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadArrayOutput{})
 	pulumi.RegisterOutputType(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaOutput{})
-	pulumi.RegisterOutputType(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPtrOutput{})
 	pulumi.RegisterOutputType(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsOutput{})
 	pulumi.RegisterOutputType(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsPtrOutput{})
 	pulumi.RegisterOutputType(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsItemsOutput{})

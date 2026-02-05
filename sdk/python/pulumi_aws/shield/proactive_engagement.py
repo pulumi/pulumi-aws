@@ -21,16 +21,27 @@ __all__ = ['ProactiveEngagementArgs', 'ProactiveEngagement']
 @pulumi.input_type
 class ProactiveEngagementArgs:
     def __init__(__self__, *,
-                 enabled: pulumi.Input[_builtins.bool],
-                 emergency_contacts: Optional[pulumi.Input[Sequence[pulumi.Input['ProactiveEngagementEmergencyContactArgs']]]] = None):
+                 emergency_contacts: pulumi.Input[Sequence[pulumi.Input['ProactiveEngagementEmergencyContactArgs']]],
+                 enabled: pulumi.Input[_builtins.bool]):
         """
         The set of arguments for constructing a ProactiveEngagement resource.
-        :param pulumi.Input[_builtins.bool] enabled: Boolean value indicating if Proactive Engagement should be enabled or not.
         :param pulumi.Input[Sequence[pulumi.Input['ProactiveEngagementEmergencyContactArgs']]] emergency_contacts: One or more emergency contacts. You must provide at least one phone number in the emergency contact list. See `emergency_contacts`.
+        :param pulumi.Input[_builtins.bool] enabled: Boolean value indicating if Proactive Engagement should be enabled or not.
         """
+        pulumi.set(__self__, "emergency_contacts", emergency_contacts)
         pulumi.set(__self__, "enabled", enabled)
-        if emergency_contacts is not None:
-            pulumi.set(__self__, "emergency_contacts", emergency_contacts)
+
+    @_builtins.property
+    @pulumi.getter(name="emergencyContacts")
+    def emergency_contacts(self) -> pulumi.Input[Sequence[pulumi.Input['ProactiveEngagementEmergencyContactArgs']]]:
+        """
+        One or more emergency contacts. You must provide at least one phone number in the emergency contact list. See `emergency_contacts`.
+        """
+        return pulumi.get(self, "emergency_contacts")
+
+    @emergency_contacts.setter
+    def emergency_contacts(self, value: pulumi.Input[Sequence[pulumi.Input['ProactiveEngagementEmergencyContactArgs']]]):
+        pulumi.set(self, "emergency_contacts", value)
 
     @_builtins.property
     @pulumi.getter
@@ -43,18 +54,6 @@ class ProactiveEngagementArgs:
     @enabled.setter
     def enabled(self, value: pulumi.Input[_builtins.bool]):
         pulumi.set(self, "enabled", value)
-
-    @_builtins.property
-    @pulumi.getter(name="emergencyContacts")
-    def emergency_contacts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ProactiveEngagementEmergencyContactArgs']]]]:
-        """
-        One or more emergency contacts. You must provide at least one phone number in the emergency contact list. See `emergency_contacts`.
-        """
-        return pulumi.get(self, "emergency_contacts")
-
-    @emergency_contacts.setter
-    def emergency_contacts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ProactiveEngagementEmergencyContactArgs']]]]):
-        pulumi.set(self, "emergency_contacts", value)
 
 
 @pulumi.input_type
@@ -261,6 +260,8 @@ class ProactiveEngagement(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ProactiveEngagementArgs.__new__(ProactiveEngagementArgs)
 
+            if emergency_contacts is None and not opts.urn:
+                raise TypeError("Missing required property 'emergency_contacts'")
             __props__.__dict__["emergency_contacts"] = emergency_contacts
             if enabled is None and not opts.urn:
                 raise TypeError("Missing required property 'enabled'")
@@ -297,7 +298,7 @@ class ProactiveEngagement(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="emergencyContacts")
-    def emergency_contacts(self) -> pulumi.Output[Optional[Sequence['outputs.ProactiveEngagementEmergencyContact']]]:
+    def emergency_contacts(self) -> pulumi.Output[Sequence['outputs.ProactiveEngagementEmergencyContact']]:
         """
         One or more emergency contacts. You must provide at least one phone number in the emergency contact list. See `emergency_contacts`.
         """

@@ -9,8 +9,6 @@ import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
-import java.util.Optional;
-import javax.annotation.Nullable;
 
 
 public final class AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationArgs extends com.pulumi.resources.ResourceArgs {
@@ -36,15 +34,15 @@ public final class AgentKnowledgeBaseStorageConfigurationOpensearchServerlessCon
      * The names of the fields to which to map information about the vector store. This block supports the following arguments:
      * 
      */
-    @Import(name="fieldMapping")
-    private @Nullable Output<AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMappingArgs> fieldMapping;
+    @Import(name="fieldMapping", required=true)
+    private Output<AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMappingArgs> fieldMapping;
 
     /**
      * @return The names of the fields to which to map information about the vector store. This block supports the following arguments:
      * 
      */
-    public Optional<Output<AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMappingArgs>> fieldMapping() {
-        return Optional.ofNullable(this.fieldMapping);
+    public Output<AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMappingArgs> fieldMapping() {
+        return this.fieldMapping;
     }
 
     /**
@@ -115,7 +113,7 @@ public final class AgentKnowledgeBaseStorageConfigurationOpensearchServerlessCon
          * @return builder
          * 
          */
-        public Builder fieldMapping(@Nullable Output<AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMappingArgs> fieldMapping) {
+        public Builder fieldMapping(Output<AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMappingArgs> fieldMapping) {
             $.fieldMapping = fieldMapping;
             return this;
         }
@@ -154,6 +152,9 @@ public final class AgentKnowledgeBaseStorageConfigurationOpensearchServerlessCon
         public AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationArgs build() {
             if ($.collectionArn == null) {
                 throw new MissingRequiredPropertyException("AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationArgs", "collectionArn");
+            }
+            if ($.fieldMapping == null) {
+                throw new MissingRequiredPropertyException("AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationArgs", "fieldMapping");
             }
             if ($.vectorIndexName == null) {
                 throw new MissingRequiredPropertyException("AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationArgs", "vectorIndexName");

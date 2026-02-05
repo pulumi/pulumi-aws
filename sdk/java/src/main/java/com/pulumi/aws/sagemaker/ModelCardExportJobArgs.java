@@ -60,15 +60,15 @@ public final class ModelCardExportJobArgs extends com.pulumi.resources.ResourceA
      * Export output details. Fields are documented below.
      * 
      */
-    @Import(name="outputConfig")
-    private @Nullable Output<ModelCardExportJobOutputConfigArgs> outputConfig;
+    @Import(name="outputConfig", required=true)
+    private Output<ModelCardExportJobOutputConfigArgs> outputConfig;
 
     /**
      * @return Export output details. Fields are documented below.
      * 
      */
-    public Optional<Output<ModelCardExportJobOutputConfigArgs>> outputConfig() {
-        return Optional.ofNullable(this.outputConfig);
+    public Output<ModelCardExportJobOutputConfigArgs> outputConfig() {
+        return this.outputConfig;
     }
 
     /**
@@ -179,7 +179,7 @@ public final class ModelCardExportJobArgs extends com.pulumi.resources.ResourceA
          * @return builder
          * 
          */
-        public Builder outputConfig(@Nullable Output<ModelCardExportJobOutputConfigArgs> outputConfig) {
+        public Builder outputConfig(Output<ModelCardExportJobOutputConfigArgs> outputConfig) {
             $.outputConfig = outputConfig;
             return this;
         }
@@ -230,6 +230,9 @@ public final class ModelCardExportJobArgs extends com.pulumi.resources.ResourceA
             }
             if ($.modelCardName == null) {
                 throw new MissingRequiredPropertyException("ModelCardExportJobArgs", "modelCardName");
+            }
+            if ($.outputConfig == null) {
+                throw new MissingRequiredPropertyException("ModelCardExportJobArgs", "outputConfig");
             }
             return $;
         }

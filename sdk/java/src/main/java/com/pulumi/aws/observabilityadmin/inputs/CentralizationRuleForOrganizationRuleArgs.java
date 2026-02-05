@@ -7,9 +7,8 @@ import com.pulumi.aws.observabilityadmin.inputs.CentralizationRuleForOrganizatio
 import com.pulumi.aws.observabilityadmin.inputs.CentralizationRuleForOrganizationRuleSourceArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.Objects;
-import java.util.Optional;
-import javax.annotation.Nullable;
 
 
 public final class CentralizationRuleForOrganizationRuleArgs extends com.pulumi.resources.ResourceArgs {
@@ -20,30 +19,30 @@ public final class CentralizationRuleForOrganizationRuleArgs extends com.pulumi.
      * Configuration block for the destination where logs will be centralized. See `destination` below.
      * 
      */
-    @Import(name="destination")
-    private @Nullable Output<CentralizationRuleForOrganizationRuleDestinationArgs> destination;
+    @Import(name="destination", required=true)
+    private Output<CentralizationRuleForOrganizationRuleDestinationArgs> destination;
 
     /**
      * @return Configuration block for the destination where logs will be centralized. See `destination` below.
      * 
      */
-    public Optional<Output<CentralizationRuleForOrganizationRuleDestinationArgs>> destination() {
-        return Optional.ofNullable(this.destination);
+    public Output<CentralizationRuleForOrganizationRuleDestinationArgs> destination() {
+        return this.destination;
     }
 
     /**
      * Configuration block for the source of logs to be centralized. See `source` below.
      * 
      */
-    @Import(name="source")
-    private @Nullable Output<CentralizationRuleForOrganizationRuleSourceArgs> source;
+    @Import(name="source", required=true)
+    private Output<CentralizationRuleForOrganizationRuleSourceArgs> source;
 
     /**
      * @return Configuration block for the source of logs to be centralized. See `source` below.
      * 
      */
-    public Optional<Output<CentralizationRuleForOrganizationRuleSourceArgs>> source() {
-        return Optional.ofNullable(this.source);
+    public Output<CentralizationRuleForOrganizationRuleSourceArgs> source() {
+        return this.source;
     }
 
     private CentralizationRuleForOrganizationRuleArgs() {}
@@ -77,7 +76,7 @@ public final class CentralizationRuleForOrganizationRuleArgs extends com.pulumi.
          * @return builder
          * 
          */
-        public Builder destination(@Nullable Output<CentralizationRuleForOrganizationRuleDestinationArgs> destination) {
+        public Builder destination(Output<CentralizationRuleForOrganizationRuleDestinationArgs> destination) {
             $.destination = destination;
             return this;
         }
@@ -98,7 +97,7 @@ public final class CentralizationRuleForOrganizationRuleArgs extends com.pulumi.
          * @return builder
          * 
          */
-        public Builder source(@Nullable Output<CentralizationRuleForOrganizationRuleSourceArgs> source) {
+        public Builder source(Output<CentralizationRuleForOrganizationRuleSourceArgs> source) {
             $.source = source;
             return this;
         }
@@ -114,6 +113,12 @@ public final class CentralizationRuleForOrganizationRuleArgs extends com.pulumi.
         }
 
         public CentralizationRuleForOrganizationRuleArgs build() {
+            if ($.destination == null) {
+                throw new MissingRequiredPropertyException("CentralizationRuleForOrganizationRuleArgs", "destination");
+            }
+            if ($.source == null) {
+                throw new MissingRequiredPropertyException("CentralizationRuleForOrganizationRuleArgs", "source");
+            }
             return $;
         }
     }

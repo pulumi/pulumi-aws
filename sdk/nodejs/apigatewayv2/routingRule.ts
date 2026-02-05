@@ -84,11 +84,11 @@ export class RoutingRule extends pulumi.CustomResource {
     /**
      * Configuration of resulting action based on matching routing rules condition. See below.
      */
-    declare public readonly actions: pulumi.Output<outputs.apigatewayv2.RoutingRuleAction[] | undefined>;
+    declare public readonly actions: pulumi.Output<outputs.apigatewayv2.RoutingRuleAction[]>;
     /**
      * Conditions configuration. See below.
      */
-    declare public readonly conditions: pulumi.Output<outputs.apigatewayv2.RoutingRuleCondition[] | undefined>;
+    declare public readonly conditions: pulumi.Output<outputs.apigatewayv2.RoutingRuleCondition[]>;
     /**
      * Domain name. Must be between 1 and 512 characters in length.
      *
@@ -134,6 +134,12 @@ export class RoutingRule extends pulumi.CustomResource {
             resourceInputs["routingRuleId"] = state?.routingRuleId;
         } else {
             const args = argsOrState as RoutingRuleArgs | undefined;
+            if (args?.actions === undefined && !opts.urn) {
+                throw new Error("Missing required property 'actions'");
+            }
+            if (args?.conditions === undefined && !opts.urn) {
+                throw new Error("Missing required property 'conditions'");
+            }
             if (args?.domainName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'domainName'");
             }
@@ -196,11 +202,11 @@ export interface RoutingRuleArgs {
     /**
      * Configuration of resulting action based on matching routing rules condition. See below.
      */
-    actions?: pulumi.Input<pulumi.Input<inputs.apigatewayv2.RoutingRuleAction>[]>;
+    actions: pulumi.Input<pulumi.Input<inputs.apigatewayv2.RoutingRuleAction>[]>;
     /**
      * Conditions configuration. See below.
      */
-    conditions?: pulumi.Input<pulumi.Input<inputs.apigatewayv2.RoutingRuleCondition>[]>;
+    conditions: pulumi.Input<pulumi.Input<inputs.apigatewayv2.RoutingRuleCondition>[]>;
     /**
      * Domain name. Must be between 1 and 512 characters in length.
      *

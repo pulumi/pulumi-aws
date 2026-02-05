@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -185,7 +186,7 @@ type WebApp struct {
 	// Block for details of the identity provider to use with the web app. See Identity provider details below.
 	//
 	// The following arguments are optional:
-	IdentityProviderDetails WebAppIdentityProviderDetailsPtrOutput `pulumi:"identityProviderDetails"`
+	IdentityProviderDetails WebAppIdentityProviderDetailsOutput `pulumi:"identityProviderDetails"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Key-value pairs that can be used to group and search for web apps.
@@ -204,9 +205,12 @@ type WebApp struct {
 func NewWebApp(ctx *pulumi.Context,
 	name string, args *WebAppArgs, opts ...pulumi.ResourceOption) (*WebApp, error) {
 	if args == nil {
-		args = &WebAppArgs{}
+		return nil, errors.New("missing one or more required arguments")
 	}
 
+	if args.IdentityProviderDetails == nil {
+		return nil, errors.New("invalid value for required argument 'IdentityProviderDetails'")
+	}
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource WebApp
 	err := ctx.RegisterResource("aws:transfer/webApp:WebApp", name, args, &resource, opts...)
@@ -291,7 +295,7 @@ type webAppArgs struct {
 	// Block for details of the identity provider to use with the web app. See Identity provider details below.
 	//
 	// The following arguments are optional:
-	IdentityProviderDetails *WebAppIdentityProviderDetails `pulumi:"identityProviderDetails"`
+	IdentityProviderDetails WebAppIdentityProviderDetails `pulumi:"identityProviderDetails"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Key-value pairs that can be used to group and search for web apps.
@@ -312,7 +316,7 @@ type WebAppArgs struct {
 	// Block for details of the identity provider to use with the web app. See Identity provider details below.
 	//
 	// The following arguments are optional:
-	IdentityProviderDetails WebAppIdentityProviderDetailsPtrInput
+	IdentityProviderDetails WebAppIdentityProviderDetailsInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Key-value pairs that can be used to group and search for web apps.
@@ -429,8 +433,8 @@ func (o WebAppOutput) EndpointDetails() WebAppEndpointDetailsPtrOutput {
 // Block for details of the identity provider to use with the web app. See Identity provider details below.
 //
 // The following arguments are optional:
-func (o WebAppOutput) IdentityProviderDetails() WebAppIdentityProviderDetailsPtrOutput {
-	return o.ApplyT(func(v *WebApp) WebAppIdentityProviderDetailsPtrOutput { return v.IdentityProviderDetails }).(WebAppIdentityProviderDetailsPtrOutput)
+func (o WebAppOutput) IdentityProviderDetails() WebAppIdentityProviderDetailsOutput {
+	return o.ApplyT(func(v *WebApp) WebAppIdentityProviderDetailsOutput { return v.IdentityProviderDetails }).(WebAppIdentityProviderDetailsOutput)
 }
 
 // Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.

@@ -10,8 +10,6 @@ import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
-import java.util.Optional;
-import javax.annotation.Nullable;
 
 
 public final class VpcOriginVpcOriginEndpointConfigArgs extends com.pulumi.resources.ResourceArgs {
@@ -97,15 +95,15 @@ public final class VpcOriginVpcOriginEndpointConfigArgs extends com.pulumi.resou
      * A complex type that contains information about the SSL/TLS protocols that CloudFront can use when establishing an HTTPS connection with your origin.
      * 
      */
-    @Import(name="originSslProtocols")
-    private @Nullable Output<VpcOriginVpcOriginEndpointConfigOriginSslProtocolsArgs> originSslProtocols;
+    @Import(name="originSslProtocols", required=true)
+    private Output<VpcOriginVpcOriginEndpointConfigOriginSslProtocolsArgs> originSslProtocols;
 
     /**
      * @return A complex type that contains information about the SSL/TLS protocols that CloudFront can use when establishing an HTTPS connection with your origin.
      * 
      */
-    public Optional<Output<VpcOriginVpcOriginEndpointConfigOriginSslProtocolsArgs>> originSslProtocols() {
-        return Optional.ofNullable(this.originSslProtocols);
+    public Output<VpcOriginVpcOriginEndpointConfigOriginSslProtocolsArgs> originSslProtocols() {
+        return this.originSslProtocols;
     }
 
     private VpcOriginVpcOriginEndpointConfigArgs() {}
@@ -248,7 +246,7 @@ public final class VpcOriginVpcOriginEndpointConfigArgs extends com.pulumi.resou
          * @return builder
          * 
          */
-        public Builder originSslProtocols(@Nullable Output<VpcOriginVpcOriginEndpointConfigOriginSslProtocolsArgs> originSslProtocols) {
+        public Builder originSslProtocols(Output<VpcOriginVpcOriginEndpointConfigOriginSslProtocolsArgs> originSslProtocols) {
             $.originSslProtocols = originSslProtocols;
             return this;
         }
@@ -278,6 +276,9 @@ public final class VpcOriginVpcOriginEndpointConfigArgs extends com.pulumi.resou
             }
             if ($.originProtocolPolicy == null) {
                 throw new MissingRequiredPropertyException("VpcOriginVpcOriginEndpointConfigArgs", "originProtocolPolicy");
+            }
+            if ($.originSslProtocols == null) {
+                throw new MissingRequiredPropertyException("VpcOriginVpcOriginEndpointConfigArgs", "originSslProtocols");
             }
             return $;
         }

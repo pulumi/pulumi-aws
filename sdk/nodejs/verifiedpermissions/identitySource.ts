@@ -108,7 +108,7 @@ export class IdentitySource extends pulumi.CustomResource {
     /**
      * Specifies the details required to communicate with the identity provider (IdP) associated with this identity source. See Configuration below.
      */
-    declare public readonly configuration: pulumi.Output<outputs.verifiedpermissions.IdentitySourceConfiguration | undefined>;
+    declare public readonly configuration: pulumi.Output<outputs.verifiedpermissions.IdentitySourceConfiguration>;
     /**
      * Specifies the ID of the policy store in which you want to store this identity source.
      */
@@ -141,6 +141,9 @@ export class IdentitySource extends pulumi.CustomResource {
             resourceInputs["region"] = state?.region;
         } else {
             const args = argsOrState as IdentitySourceArgs | undefined;
+            if (args?.configuration === undefined && !opts.urn) {
+                throw new Error("Missing required property 'configuration'");
+            }
             if (args?.policyStoreId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'policyStoreId'");
             }
@@ -183,7 +186,7 @@ export interface IdentitySourceArgs {
     /**
      * Specifies the details required to communicate with the identity provider (IdP) associated with this identity source. See Configuration below.
      */
-    configuration?: pulumi.Input<inputs.verifiedpermissions.IdentitySourceConfiguration>;
+    configuration: pulumi.Input<inputs.verifiedpermissions.IdentitySourceConfiguration>;
     /**
      * Specifies the ID of the policy store in which you want to store this identity source.
      */

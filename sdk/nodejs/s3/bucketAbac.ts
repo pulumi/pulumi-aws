@@ -78,7 +78,7 @@ export class BucketAbac extends pulumi.CustomResource {
      *
      * The following arguments are optional:
      */
-    declare public readonly abacStatus: pulumi.Output<outputs.s3.BucketAbacAbacStatus | undefined>;
+    declare public readonly abacStatus: pulumi.Output<outputs.s3.BucketAbacAbacStatus>;
     /**
      * General purpose bucket that you want to create the metadata configuration for.
      */
@@ -111,6 +111,9 @@ export class BucketAbac extends pulumi.CustomResource {
             resourceInputs["region"] = state?.region;
         } else {
             const args = argsOrState as BucketAbacArgs | undefined;
+            if (args?.abacStatus === undefined && !opts.urn) {
+                throw new Error("Missing required property 'abacStatus'");
+            }
             if (args?.bucket === undefined && !opts.urn) {
                 throw new Error("Missing required property 'bucket'");
             }
@@ -157,7 +160,7 @@ export interface BucketAbacArgs {
      *
      * The following arguments are optional:
      */
-    abacStatus?: pulumi.Input<inputs.s3.BucketAbacAbacStatus>;
+    abacStatus: pulumi.Input<inputs.s3.BucketAbacAbacStatus>;
     /**
      * General purpose bucket that you want to create the metadata configuration for.
      */

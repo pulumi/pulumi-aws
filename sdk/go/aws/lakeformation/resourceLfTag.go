@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -60,7 +61,7 @@ type ResourceLfTag struct {
 	// Set of LF-tags to attach to the resource. See LF Tag for more details.
 	//
 	// Exactly one of the following is required:
-	LfTag ResourceLfTagLfTagPtrOutput `pulumi:"lfTag"`
+	LfTag ResourceLfTagLfTagOutput `pulumi:"lfTag"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Configuration block for a table resource. See Table for more details.
@@ -76,9 +77,12 @@ type ResourceLfTag struct {
 func NewResourceLfTag(ctx *pulumi.Context,
 	name string, args *ResourceLfTagArgs, opts ...pulumi.ResourceOption) (*ResourceLfTag, error) {
 	if args == nil {
-		args = &ResourceLfTagArgs{}
+		return nil, errors.New("missing one or more required arguments")
 	}
 
+	if args.LfTag == nil {
+		return nil, errors.New("invalid value for required argument 'LfTag'")
+	}
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ResourceLfTag
 	err := ctx.RegisterResource("aws:lakeformation/resourceLfTag:ResourceLfTag", name, args, &resource, opts...)
@@ -153,7 +157,7 @@ type resourceLfTagArgs struct {
 	// Set of LF-tags to attach to the resource. See LF Tag for more details.
 	//
 	// Exactly one of the following is required:
-	LfTag *ResourceLfTagLfTag `pulumi:"lfTag"`
+	LfTag ResourceLfTagLfTag `pulumi:"lfTag"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Configuration block for a table resource. See Table for more details.
@@ -174,7 +178,7 @@ type ResourceLfTagArgs struct {
 	// Set of LF-tags to attach to the resource. See LF Tag for more details.
 	//
 	// Exactly one of the following is required:
-	LfTag ResourceLfTagLfTagPtrInput
+	LfTag ResourceLfTagLfTagInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Configuration block for a table resource. See Table for more details.
@@ -286,8 +290,8 @@ func (o ResourceLfTagOutput) Database() ResourceLfTagDatabasePtrOutput {
 // Set of LF-tags to attach to the resource. See LF Tag for more details.
 //
 // Exactly one of the following is required:
-func (o ResourceLfTagOutput) LfTag() ResourceLfTagLfTagPtrOutput {
-	return o.ApplyT(func(v *ResourceLfTag) ResourceLfTagLfTagPtrOutput { return v.LfTag }).(ResourceLfTagLfTagPtrOutput)
+func (o ResourceLfTagOutput) LfTag() ResourceLfTagLfTagOutput {
+	return o.ApplyT(func(v *ResourceLfTag) ResourceLfTagLfTagOutput { return v.LfTag }).(ResourceLfTagLfTagOutput)
 }
 
 // Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.

@@ -10786,7 +10786,7 @@ func (o MultitenantDistributionActiveTrustedKeyGroupItemArrayOutput) Index(i pul
 
 type MultitenantDistributionCacheBehavior struct {
 	// Controls which HTTP methods CloudFront processes and forwards to your Amazon S3 bucket or your custom origin.
-	AllowedMethods *MultitenantDistributionCacheBehaviorAllowedMethods `pulumi:"allowedMethods"`
+	AllowedMethods MultitenantDistributionCacheBehaviorAllowedMethods `pulumi:"allowedMethods"`
 	// Unique identifier of the cache policy that is attached to the cache behavior.
 	CachePolicyId *string `pulumi:"cachePolicyId"`
 	// Whether you want CloudFront to automatically compress content for web requests that include `Accept-Encoding: gzip` in the request header. Default: `false`.
@@ -10826,7 +10826,7 @@ type MultitenantDistributionCacheBehaviorInput interface {
 
 type MultitenantDistributionCacheBehaviorArgs struct {
 	// Controls which HTTP methods CloudFront processes and forwards to your Amazon S3 bucket or your custom origin.
-	AllowedMethods MultitenantDistributionCacheBehaviorAllowedMethodsPtrInput `pulumi:"allowedMethods"`
+	AllowedMethods MultitenantDistributionCacheBehaviorAllowedMethodsInput `pulumi:"allowedMethods"`
 	// Unique identifier of the cache policy that is attached to the cache behavior.
 	CachePolicyId pulumi.StringPtrInput `pulumi:"cachePolicyId"`
 	// Whether you want CloudFront to automatically compress content for web requests that include `Accept-Encoding: gzip` in the request header. Default: `false`.
@@ -10905,10 +10905,10 @@ func (o MultitenantDistributionCacheBehaviorOutput) ToMultitenantDistributionCac
 }
 
 // Controls which HTTP methods CloudFront processes and forwards to your Amazon S3 bucket or your custom origin.
-func (o MultitenantDistributionCacheBehaviorOutput) AllowedMethods() MultitenantDistributionCacheBehaviorAllowedMethodsPtrOutput {
-	return o.ApplyT(func(v MultitenantDistributionCacheBehavior) *MultitenantDistributionCacheBehaviorAllowedMethods {
+func (o MultitenantDistributionCacheBehaviorOutput) AllowedMethods() MultitenantDistributionCacheBehaviorAllowedMethodsOutput {
+	return o.ApplyT(func(v MultitenantDistributionCacheBehavior) MultitenantDistributionCacheBehaviorAllowedMethods {
 		return v.AllowedMethods
-	}).(MultitenantDistributionCacheBehaviorAllowedMethodsPtrOutput)
+	}).(MultitenantDistributionCacheBehaviorAllowedMethodsOutput)
 }
 
 // Unique identifier of the cache policy that is attached to the cache behavior.
@@ -11032,47 +11032,6 @@ func (i MultitenantDistributionCacheBehaviorAllowedMethodsArgs) ToMultitenantDis
 	return pulumi.ToOutputWithContext(ctx, i).(MultitenantDistributionCacheBehaviorAllowedMethodsOutput)
 }
 
-func (i MultitenantDistributionCacheBehaviorAllowedMethodsArgs) ToMultitenantDistributionCacheBehaviorAllowedMethodsPtrOutput() MultitenantDistributionCacheBehaviorAllowedMethodsPtrOutput {
-	return i.ToMultitenantDistributionCacheBehaviorAllowedMethodsPtrOutputWithContext(context.Background())
-}
-
-func (i MultitenantDistributionCacheBehaviorAllowedMethodsArgs) ToMultitenantDistributionCacheBehaviorAllowedMethodsPtrOutputWithContext(ctx context.Context) MultitenantDistributionCacheBehaviorAllowedMethodsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MultitenantDistributionCacheBehaviorAllowedMethodsOutput).ToMultitenantDistributionCacheBehaviorAllowedMethodsPtrOutputWithContext(ctx)
-}
-
-// MultitenantDistributionCacheBehaviorAllowedMethodsPtrInput is an input type that accepts MultitenantDistributionCacheBehaviorAllowedMethodsArgs, MultitenantDistributionCacheBehaviorAllowedMethodsPtr and MultitenantDistributionCacheBehaviorAllowedMethodsPtrOutput values.
-// You can construct a concrete instance of `MultitenantDistributionCacheBehaviorAllowedMethodsPtrInput` via:
-//
-//	        MultitenantDistributionCacheBehaviorAllowedMethodsArgs{...}
-//
-//	or:
-//
-//	        nil
-type MultitenantDistributionCacheBehaviorAllowedMethodsPtrInput interface {
-	pulumi.Input
-
-	ToMultitenantDistributionCacheBehaviorAllowedMethodsPtrOutput() MultitenantDistributionCacheBehaviorAllowedMethodsPtrOutput
-	ToMultitenantDistributionCacheBehaviorAllowedMethodsPtrOutputWithContext(context.Context) MultitenantDistributionCacheBehaviorAllowedMethodsPtrOutput
-}
-
-type multitenantDistributionCacheBehaviorAllowedMethodsPtrType MultitenantDistributionCacheBehaviorAllowedMethodsArgs
-
-func MultitenantDistributionCacheBehaviorAllowedMethodsPtr(v *MultitenantDistributionCacheBehaviorAllowedMethodsArgs) MultitenantDistributionCacheBehaviorAllowedMethodsPtrInput {
-	return (*multitenantDistributionCacheBehaviorAllowedMethodsPtrType)(v)
-}
-
-func (*multitenantDistributionCacheBehaviorAllowedMethodsPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**MultitenantDistributionCacheBehaviorAllowedMethods)(nil)).Elem()
-}
-
-func (i *multitenantDistributionCacheBehaviorAllowedMethodsPtrType) ToMultitenantDistributionCacheBehaviorAllowedMethodsPtrOutput() MultitenantDistributionCacheBehaviorAllowedMethodsPtrOutput {
-	return i.ToMultitenantDistributionCacheBehaviorAllowedMethodsPtrOutputWithContext(context.Background())
-}
-
-func (i *multitenantDistributionCacheBehaviorAllowedMethodsPtrType) ToMultitenantDistributionCacheBehaviorAllowedMethodsPtrOutputWithContext(ctx context.Context) MultitenantDistributionCacheBehaviorAllowedMethodsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MultitenantDistributionCacheBehaviorAllowedMethodsPtrOutput)
-}
-
 type MultitenantDistributionCacheBehaviorAllowedMethodsOutput struct{ *pulumi.OutputState }
 
 func (MultitenantDistributionCacheBehaviorAllowedMethodsOutput) ElementType() reflect.Type {
@@ -11087,16 +11046,6 @@ func (o MultitenantDistributionCacheBehaviorAllowedMethodsOutput) ToMultitenantD
 	return o
 }
 
-func (o MultitenantDistributionCacheBehaviorAllowedMethodsOutput) ToMultitenantDistributionCacheBehaviorAllowedMethodsPtrOutput() MultitenantDistributionCacheBehaviorAllowedMethodsPtrOutput {
-	return o.ToMultitenantDistributionCacheBehaviorAllowedMethodsPtrOutputWithContext(context.Background())
-}
-
-func (o MultitenantDistributionCacheBehaviorAllowedMethodsOutput) ToMultitenantDistributionCacheBehaviorAllowedMethodsPtrOutputWithContext(ctx context.Context) MultitenantDistributionCacheBehaviorAllowedMethodsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v MultitenantDistributionCacheBehaviorAllowedMethods) *MultitenantDistributionCacheBehaviorAllowedMethods {
-		return &v
-	}).(MultitenantDistributionCacheBehaviorAllowedMethodsPtrOutput)
-}
-
 // Controls whether CloudFront caches the response to requests using the specified HTTP methods.
 func (o MultitenantDistributionCacheBehaviorAllowedMethodsOutput) CachedMethods() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v MultitenantDistributionCacheBehaviorAllowedMethods) []string { return v.CachedMethods }).(pulumi.StringArrayOutput)
@@ -11104,49 +11053,6 @@ func (o MultitenantDistributionCacheBehaviorAllowedMethodsOutput) CachedMethods(
 
 func (o MultitenantDistributionCacheBehaviorAllowedMethodsOutput) Items() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v MultitenantDistributionCacheBehaviorAllowedMethods) []string { return v.Items }).(pulumi.StringArrayOutput)
-}
-
-type MultitenantDistributionCacheBehaviorAllowedMethodsPtrOutput struct{ *pulumi.OutputState }
-
-func (MultitenantDistributionCacheBehaviorAllowedMethodsPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**MultitenantDistributionCacheBehaviorAllowedMethods)(nil)).Elem()
-}
-
-func (o MultitenantDistributionCacheBehaviorAllowedMethodsPtrOutput) ToMultitenantDistributionCacheBehaviorAllowedMethodsPtrOutput() MultitenantDistributionCacheBehaviorAllowedMethodsPtrOutput {
-	return o
-}
-
-func (o MultitenantDistributionCacheBehaviorAllowedMethodsPtrOutput) ToMultitenantDistributionCacheBehaviorAllowedMethodsPtrOutputWithContext(ctx context.Context) MultitenantDistributionCacheBehaviorAllowedMethodsPtrOutput {
-	return o
-}
-
-func (o MultitenantDistributionCacheBehaviorAllowedMethodsPtrOutput) Elem() MultitenantDistributionCacheBehaviorAllowedMethodsOutput {
-	return o.ApplyT(func(v *MultitenantDistributionCacheBehaviorAllowedMethods) MultitenantDistributionCacheBehaviorAllowedMethods {
-		if v != nil {
-			return *v
-		}
-		var ret MultitenantDistributionCacheBehaviorAllowedMethods
-		return ret
-	}).(MultitenantDistributionCacheBehaviorAllowedMethodsOutput)
-}
-
-// Controls whether CloudFront caches the response to requests using the specified HTTP methods.
-func (o MultitenantDistributionCacheBehaviorAllowedMethodsPtrOutput) CachedMethods() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *MultitenantDistributionCacheBehaviorAllowedMethods) []string {
-		if v == nil {
-			return nil
-		}
-		return v.CachedMethods
-	}).(pulumi.StringArrayOutput)
-}
-
-func (o MultitenantDistributionCacheBehaviorAllowedMethodsPtrOutput) Items() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *MultitenantDistributionCacheBehaviorAllowedMethods) []string {
-		if v == nil {
-			return nil
-		}
-		return v.Items
-	}).(pulumi.StringArrayOutput)
 }
 
 type MultitenantDistributionCacheBehaviorFunctionAssociation struct {
@@ -11650,7 +11556,7 @@ func (o MultitenantDistributionCustomErrorResponseArrayOutput) Index(i pulumi.In
 
 type MultitenantDistributionDefaultCacheBehavior struct {
 	// Controls which HTTP methods CloudFront processes and forwards to your Amazon S3 bucket or your custom origin.
-	AllowedMethods *MultitenantDistributionDefaultCacheBehaviorAllowedMethods `pulumi:"allowedMethods"`
+	AllowedMethods MultitenantDistributionDefaultCacheBehaviorAllowedMethods `pulumi:"allowedMethods"`
 	// Unique identifier of the cache policy that is attached to the cache behavior.
 	CachePolicyId *string `pulumi:"cachePolicyId"`
 	// Whether you want CloudFront to automatically compress content for web requests that include `Accept-Encoding: gzip` in the request header. Default: `false`.
@@ -11688,7 +11594,7 @@ type MultitenantDistributionDefaultCacheBehaviorInput interface {
 
 type MultitenantDistributionDefaultCacheBehaviorArgs struct {
 	// Controls which HTTP methods CloudFront processes and forwards to your Amazon S3 bucket or your custom origin.
-	AllowedMethods MultitenantDistributionDefaultCacheBehaviorAllowedMethodsPtrInput `pulumi:"allowedMethods"`
+	AllowedMethods MultitenantDistributionDefaultCacheBehaviorAllowedMethodsInput `pulumi:"allowedMethods"`
 	// Unique identifier of the cache policy that is attached to the cache behavior.
 	CachePolicyId pulumi.StringPtrInput `pulumi:"cachePolicyId"`
 	// Whether you want CloudFront to automatically compress content for web requests that include `Accept-Encoding: gzip` in the request header. Default: `false`.
@@ -11791,10 +11697,10 @@ func (o MultitenantDistributionDefaultCacheBehaviorOutput) ToMultitenantDistribu
 }
 
 // Controls which HTTP methods CloudFront processes and forwards to your Amazon S3 bucket or your custom origin.
-func (o MultitenantDistributionDefaultCacheBehaviorOutput) AllowedMethods() MultitenantDistributionDefaultCacheBehaviorAllowedMethodsPtrOutput {
-	return o.ApplyT(func(v MultitenantDistributionDefaultCacheBehavior) *MultitenantDistributionDefaultCacheBehaviorAllowedMethods {
+func (o MultitenantDistributionDefaultCacheBehaviorOutput) AllowedMethods() MultitenantDistributionDefaultCacheBehaviorAllowedMethodsOutput {
+	return o.ApplyT(func(v MultitenantDistributionDefaultCacheBehavior) MultitenantDistributionDefaultCacheBehaviorAllowedMethods {
 		return v.AllowedMethods
-	}).(MultitenantDistributionDefaultCacheBehaviorAllowedMethodsPtrOutput)
+	}).(MultitenantDistributionDefaultCacheBehaviorAllowedMethodsOutput)
 }
 
 // Unique identifier of the cache policy that is attached to the cache behavior.
@@ -11888,7 +11794,7 @@ func (o MultitenantDistributionDefaultCacheBehaviorPtrOutput) AllowedMethods() M
 		if v == nil {
 			return nil
 		}
-		return v.AllowedMethods
+		return &v.AllowedMethods
 	}).(MultitenantDistributionDefaultCacheBehaviorAllowedMethodsPtrOutput)
 }
 
@@ -12987,7 +12893,7 @@ func (o MultitenantDistributionOriginCustomOriginConfigArrayOutput) Index(i pulu
 
 type MultitenantDistributionOriginGroup struct {
 	// Failover criteria for when to failover to the secondary origin. See Failover Criteria below.
-	FailoverCriteria *MultitenantDistributionOriginGroupFailoverCriteria `pulumi:"failoverCriteria"`
+	FailoverCriteria MultitenantDistributionOriginGroupFailoverCriteria `pulumi:"failoverCriteria"`
 	// Identifier for the distribution.
 	Id string `pulumi:"id"`
 	// List of origins in this origin group. Must contain exactly 2 members. See Origin Group Member below.
@@ -13007,7 +12913,7 @@ type MultitenantDistributionOriginGroupInput interface {
 
 type MultitenantDistributionOriginGroupArgs struct {
 	// Failover criteria for when to failover to the secondary origin. See Failover Criteria below.
-	FailoverCriteria MultitenantDistributionOriginGroupFailoverCriteriaPtrInput `pulumi:"failoverCriteria"`
+	FailoverCriteria MultitenantDistributionOriginGroupFailoverCriteriaInput `pulumi:"failoverCriteria"`
 	// Identifier for the distribution.
 	Id pulumi.StringInput `pulumi:"id"`
 	// List of origins in this origin group. Must contain exactly 2 members. See Origin Group Member below.
@@ -13066,10 +12972,10 @@ func (o MultitenantDistributionOriginGroupOutput) ToMultitenantDistributionOrigi
 }
 
 // Failover criteria for when to failover to the secondary origin. See Failover Criteria below.
-func (o MultitenantDistributionOriginGroupOutput) FailoverCriteria() MultitenantDistributionOriginGroupFailoverCriteriaPtrOutput {
-	return o.ApplyT(func(v MultitenantDistributionOriginGroup) *MultitenantDistributionOriginGroupFailoverCriteria {
+func (o MultitenantDistributionOriginGroupOutput) FailoverCriteria() MultitenantDistributionOriginGroupFailoverCriteriaOutput {
+	return o.ApplyT(func(v MultitenantDistributionOriginGroup) MultitenantDistributionOriginGroupFailoverCriteria {
 		return v.FailoverCriteria
-	}).(MultitenantDistributionOriginGroupFailoverCriteriaPtrOutput)
+	}).(MultitenantDistributionOriginGroupFailoverCriteriaOutput)
 }
 
 // Identifier for the distribution.
@@ -13137,47 +13043,6 @@ func (i MultitenantDistributionOriginGroupFailoverCriteriaArgs) ToMultitenantDis
 	return pulumi.ToOutputWithContext(ctx, i).(MultitenantDistributionOriginGroupFailoverCriteriaOutput)
 }
 
-func (i MultitenantDistributionOriginGroupFailoverCriteriaArgs) ToMultitenantDistributionOriginGroupFailoverCriteriaPtrOutput() MultitenantDistributionOriginGroupFailoverCriteriaPtrOutput {
-	return i.ToMultitenantDistributionOriginGroupFailoverCriteriaPtrOutputWithContext(context.Background())
-}
-
-func (i MultitenantDistributionOriginGroupFailoverCriteriaArgs) ToMultitenantDistributionOriginGroupFailoverCriteriaPtrOutputWithContext(ctx context.Context) MultitenantDistributionOriginGroupFailoverCriteriaPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MultitenantDistributionOriginGroupFailoverCriteriaOutput).ToMultitenantDistributionOriginGroupFailoverCriteriaPtrOutputWithContext(ctx)
-}
-
-// MultitenantDistributionOriginGroupFailoverCriteriaPtrInput is an input type that accepts MultitenantDistributionOriginGroupFailoverCriteriaArgs, MultitenantDistributionOriginGroupFailoverCriteriaPtr and MultitenantDistributionOriginGroupFailoverCriteriaPtrOutput values.
-// You can construct a concrete instance of `MultitenantDistributionOriginGroupFailoverCriteriaPtrInput` via:
-//
-//	        MultitenantDistributionOriginGroupFailoverCriteriaArgs{...}
-//
-//	or:
-//
-//	        nil
-type MultitenantDistributionOriginGroupFailoverCriteriaPtrInput interface {
-	pulumi.Input
-
-	ToMultitenantDistributionOriginGroupFailoverCriteriaPtrOutput() MultitenantDistributionOriginGroupFailoverCriteriaPtrOutput
-	ToMultitenantDistributionOriginGroupFailoverCriteriaPtrOutputWithContext(context.Context) MultitenantDistributionOriginGroupFailoverCriteriaPtrOutput
-}
-
-type multitenantDistributionOriginGroupFailoverCriteriaPtrType MultitenantDistributionOriginGroupFailoverCriteriaArgs
-
-func MultitenantDistributionOriginGroupFailoverCriteriaPtr(v *MultitenantDistributionOriginGroupFailoverCriteriaArgs) MultitenantDistributionOriginGroupFailoverCriteriaPtrInput {
-	return (*multitenantDistributionOriginGroupFailoverCriteriaPtrType)(v)
-}
-
-func (*multitenantDistributionOriginGroupFailoverCriteriaPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**MultitenantDistributionOriginGroupFailoverCriteria)(nil)).Elem()
-}
-
-func (i *multitenantDistributionOriginGroupFailoverCriteriaPtrType) ToMultitenantDistributionOriginGroupFailoverCriteriaPtrOutput() MultitenantDistributionOriginGroupFailoverCriteriaPtrOutput {
-	return i.ToMultitenantDistributionOriginGroupFailoverCriteriaPtrOutputWithContext(context.Background())
-}
-
-func (i *multitenantDistributionOriginGroupFailoverCriteriaPtrType) ToMultitenantDistributionOriginGroupFailoverCriteriaPtrOutputWithContext(ctx context.Context) MultitenantDistributionOriginGroupFailoverCriteriaPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(MultitenantDistributionOriginGroupFailoverCriteriaPtrOutput)
-}
-
 type MultitenantDistributionOriginGroupFailoverCriteriaOutput struct{ *pulumi.OutputState }
 
 func (MultitenantDistributionOriginGroupFailoverCriteriaOutput) ElementType() reflect.Type {
@@ -13192,53 +13057,9 @@ func (o MultitenantDistributionOriginGroupFailoverCriteriaOutput) ToMultitenantD
 	return o
 }
 
-func (o MultitenantDistributionOriginGroupFailoverCriteriaOutput) ToMultitenantDistributionOriginGroupFailoverCriteriaPtrOutput() MultitenantDistributionOriginGroupFailoverCriteriaPtrOutput {
-	return o.ToMultitenantDistributionOriginGroupFailoverCriteriaPtrOutputWithContext(context.Background())
-}
-
-func (o MultitenantDistributionOriginGroupFailoverCriteriaOutput) ToMultitenantDistributionOriginGroupFailoverCriteriaPtrOutputWithContext(ctx context.Context) MultitenantDistributionOriginGroupFailoverCriteriaPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v MultitenantDistributionOriginGroupFailoverCriteria) *MultitenantDistributionOriginGroupFailoverCriteria {
-		return &v
-	}).(MultitenantDistributionOriginGroupFailoverCriteriaPtrOutput)
-}
-
 // List of HTTP status codes that trigger a failover to the secondary origin.
 func (o MultitenantDistributionOriginGroupFailoverCriteriaOutput) StatusCodes() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v MultitenantDistributionOriginGroupFailoverCriteria) []int { return v.StatusCodes }).(pulumi.IntArrayOutput)
-}
-
-type MultitenantDistributionOriginGroupFailoverCriteriaPtrOutput struct{ *pulumi.OutputState }
-
-func (MultitenantDistributionOriginGroupFailoverCriteriaPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**MultitenantDistributionOriginGroupFailoverCriteria)(nil)).Elem()
-}
-
-func (o MultitenantDistributionOriginGroupFailoverCriteriaPtrOutput) ToMultitenantDistributionOriginGroupFailoverCriteriaPtrOutput() MultitenantDistributionOriginGroupFailoverCriteriaPtrOutput {
-	return o
-}
-
-func (o MultitenantDistributionOriginGroupFailoverCriteriaPtrOutput) ToMultitenantDistributionOriginGroupFailoverCriteriaPtrOutputWithContext(ctx context.Context) MultitenantDistributionOriginGroupFailoverCriteriaPtrOutput {
-	return o
-}
-
-func (o MultitenantDistributionOriginGroupFailoverCriteriaPtrOutput) Elem() MultitenantDistributionOriginGroupFailoverCriteriaOutput {
-	return o.ApplyT(func(v *MultitenantDistributionOriginGroupFailoverCriteria) MultitenantDistributionOriginGroupFailoverCriteria {
-		if v != nil {
-			return *v
-		}
-		var ret MultitenantDistributionOriginGroupFailoverCriteria
-		return ret
-	}).(MultitenantDistributionOriginGroupFailoverCriteriaOutput)
-}
-
-// List of HTTP status codes that trigger a failover to the secondary origin.
-func (o MultitenantDistributionOriginGroupFailoverCriteriaPtrOutput) StatusCodes() pulumi.IntArrayOutput {
-	return o.ApplyT(func(v *MultitenantDistributionOriginGroupFailoverCriteria) []int {
-		if v == nil {
-			return nil
-		}
-		return v.StatusCodes
-	}).(pulumi.IntArrayOutput)
 }
 
 type MultitenantDistributionOriginGroupMember struct {
@@ -13558,7 +13379,7 @@ func (o MultitenantDistributionOriginVpcOriginConfigArrayOutput) Index(i pulumi.
 
 type MultitenantDistributionRestrictions struct {
 	// Geographic restriction configuration. See Geo Restriction below.
-	GeoRestriction *MultitenantDistributionRestrictionsGeoRestriction `pulumi:"geoRestriction"`
+	GeoRestriction MultitenantDistributionRestrictionsGeoRestriction `pulumi:"geoRestriction"`
 }
 
 // MultitenantDistributionRestrictionsInput is an input type that accepts MultitenantDistributionRestrictionsArgs and MultitenantDistributionRestrictionsOutput values.
@@ -13574,7 +13395,7 @@ type MultitenantDistributionRestrictionsInput interface {
 
 type MultitenantDistributionRestrictionsArgs struct {
 	// Geographic restriction configuration. See Geo Restriction below.
-	GeoRestriction MultitenantDistributionRestrictionsGeoRestrictionPtrInput `pulumi:"geoRestriction"`
+	GeoRestriction MultitenantDistributionRestrictionsGeoRestrictionInput `pulumi:"geoRestriction"`
 }
 
 func (MultitenantDistributionRestrictionsArgs) ElementType() reflect.Type {
@@ -13655,10 +13476,10 @@ func (o MultitenantDistributionRestrictionsOutput) ToMultitenantDistributionRest
 }
 
 // Geographic restriction configuration. See Geo Restriction below.
-func (o MultitenantDistributionRestrictionsOutput) GeoRestriction() MultitenantDistributionRestrictionsGeoRestrictionPtrOutput {
-	return o.ApplyT(func(v MultitenantDistributionRestrictions) *MultitenantDistributionRestrictionsGeoRestriction {
+func (o MultitenantDistributionRestrictionsOutput) GeoRestriction() MultitenantDistributionRestrictionsGeoRestrictionOutput {
+	return o.ApplyT(func(v MultitenantDistributionRestrictions) MultitenantDistributionRestrictionsGeoRestriction {
 		return v.GeoRestriction
-	}).(MultitenantDistributionRestrictionsGeoRestrictionPtrOutput)
+	}).(MultitenantDistributionRestrictionsGeoRestrictionOutput)
 }
 
 type MultitenantDistributionRestrictionsPtrOutput struct{ *pulumi.OutputState }
@@ -13691,7 +13512,7 @@ func (o MultitenantDistributionRestrictionsPtrOutput) GeoRestriction() Multitena
 		if v == nil {
 			return nil
 		}
-		return v.GeoRestriction
+		return &v.GeoRestriction
 	}).(MultitenantDistributionRestrictionsGeoRestrictionPtrOutput)
 }
 
@@ -18515,7 +18336,7 @@ func (o ResponseHeadersPolicyServerTimingHeadersConfigPtrOutput) SamplingRate() 
 
 type TrustStoreCaCertificatesBundleSource struct {
 	// Configuration block for the S3 location of the CA certificates bundle. See `caCertificatesBundleS3Location` below.
-	CaCertificatesBundleS3Location *TrustStoreCaCertificatesBundleSourceCaCertificatesBundleS3Location `pulumi:"caCertificatesBundleS3Location"`
+	CaCertificatesBundleS3Location TrustStoreCaCertificatesBundleSourceCaCertificatesBundleS3Location `pulumi:"caCertificatesBundleS3Location"`
 }
 
 // TrustStoreCaCertificatesBundleSourceInput is an input type that accepts TrustStoreCaCertificatesBundleSourceArgs and TrustStoreCaCertificatesBundleSourceOutput values.
@@ -18531,7 +18352,7 @@ type TrustStoreCaCertificatesBundleSourceInput interface {
 
 type TrustStoreCaCertificatesBundleSourceArgs struct {
 	// Configuration block for the S3 location of the CA certificates bundle. See `caCertificatesBundleS3Location` below.
-	CaCertificatesBundleS3Location TrustStoreCaCertificatesBundleSourceCaCertificatesBundleS3LocationPtrInput `pulumi:"caCertificatesBundleS3Location"`
+	CaCertificatesBundleS3Location TrustStoreCaCertificatesBundleSourceCaCertificatesBundleS3LocationInput `pulumi:"caCertificatesBundleS3Location"`
 }
 
 func (TrustStoreCaCertificatesBundleSourceArgs) ElementType() reflect.Type {
@@ -18612,10 +18433,10 @@ func (o TrustStoreCaCertificatesBundleSourceOutput) ToTrustStoreCaCertificatesBu
 }
 
 // Configuration block for the S3 location of the CA certificates bundle. See `caCertificatesBundleS3Location` below.
-func (o TrustStoreCaCertificatesBundleSourceOutput) CaCertificatesBundleS3Location() TrustStoreCaCertificatesBundleSourceCaCertificatesBundleS3LocationPtrOutput {
-	return o.ApplyT(func(v TrustStoreCaCertificatesBundleSource) *TrustStoreCaCertificatesBundleSourceCaCertificatesBundleS3Location {
+func (o TrustStoreCaCertificatesBundleSourceOutput) CaCertificatesBundleS3Location() TrustStoreCaCertificatesBundleSourceCaCertificatesBundleS3LocationOutput {
+	return o.ApplyT(func(v TrustStoreCaCertificatesBundleSource) TrustStoreCaCertificatesBundleSourceCaCertificatesBundleS3Location {
 		return v.CaCertificatesBundleS3Location
-	}).(TrustStoreCaCertificatesBundleSourceCaCertificatesBundleS3LocationPtrOutput)
+	}).(TrustStoreCaCertificatesBundleSourceCaCertificatesBundleS3LocationOutput)
 }
 
 type TrustStoreCaCertificatesBundleSourcePtrOutput struct{ *pulumi.OutputState }
@@ -18648,7 +18469,7 @@ func (o TrustStoreCaCertificatesBundleSourcePtrOutput) CaCertificatesBundleS3Loc
 		if v == nil {
 			return nil
 		}
-		return v.CaCertificatesBundleS3Location
+		return &v.CaCertificatesBundleS3Location
 	}).(TrustStoreCaCertificatesBundleSourceCaCertificatesBundleS3LocationPtrOutput)
 }
 
@@ -19208,7 +19029,7 @@ type VpcOriginVpcOriginEndpointConfig struct {
 	// The origin protocol policy for the CloudFront VPC origin endpoint configuration.
 	OriginProtocolPolicy string `pulumi:"originProtocolPolicy"`
 	// A complex type that contains information about the SSL/TLS protocols that CloudFront can use when establishing an HTTPS connection with your origin.
-	OriginSslProtocols *VpcOriginVpcOriginEndpointConfigOriginSslProtocols `pulumi:"originSslProtocols"`
+	OriginSslProtocols VpcOriginVpcOriginEndpointConfigOriginSslProtocols `pulumi:"originSslProtocols"`
 }
 
 // VpcOriginVpcOriginEndpointConfigInput is an input type that accepts VpcOriginVpcOriginEndpointConfigArgs and VpcOriginVpcOriginEndpointConfigOutput values.
@@ -19234,7 +19055,7 @@ type VpcOriginVpcOriginEndpointConfigArgs struct {
 	// The origin protocol policy for the CloudFront VPC origin endpoint configuration.
 	OriginProtocolPolicy pulumi.StringInput `pulumi:"originProtocolPolicy"`
 	// A complex type that contains information about the SSL/TLS protocols that CloudFront can use when establishing an HTTPS connection with your origin.
-	OriginSslProtocols VpcOriginVpcOriginEndpointConfigOriginSslProtocolsPtrInput `pulumi:"originSslProtocols"`
+	OriginSslProtocols VpcOriginVpcOriginEndpointConfigOriginSslProtocolsInput `pulumi:"originSslProtocols"`
 }
 
 func (VpcOriginVpcOriginEndpointConfigArgs) ElementType() reflect.Type {
@@ -19340,10 +19161,10 @@ func (o VpcOriginVpcOriginEndpointConfigOutput) OriginProtocolPolicy() pulumi.St
 }
 
 // A complex type that contains information about the SSL/TLS protocols that CloudFront can use when establishing an HTTPS connection with your origin.
-func (o VpcOriginVpcOriginEndpointConfigOutput) OriginSslProtocols() VpcOriginVpcOriginEndpointConfigOriginSslProtocolsPtrOutput {
-	return o.ApplyT(func(v VpcOriginVpcOriginEndpointConfig) *VpcOriginVpcOriginEndpointConfigOriginSslProtocols {
+func (o VpcOriginVpcOriginEndpointConfigOutput) OriginSslProtocols() VpcOriginVpcOriginEndpointConfigOriginSslProtocolsOutput {
+	return o.ApplyT(func(v VpcOriginVpcOriginEndpointConfig) VpcOriginVpcOriginEndpointConfigOriginSslProtocols {
 		return v.OriginSslProtocols
-	}).(VpcOriginVpcOriginEndpointConfigOriginSslProtocolsPtrOutput)
+	}).(VpcOriginVpcOriginEndpointConfigOriginSslProtocolsOutput)
 }
 
 type VpcOriginVpcOriginEndpointConfigPtrOutput struct{ *pulumi.OutputState }
@@ -19426,7 +19247,7 @@ func (o VpcOriginVpcOriginEndpointConfigPtrOutput) OriginSslProtocols() VpcOrigi
 		if v == nil {
 			return nil
 		}
-		return v.OriginSslProtocols
+		return &v.OriginSslProtocols
 	}).(VpcOriginVpcOriginEndpointConfigOriginSslProtocolsPtrOutput)
 }
 
@@ -23894,7 +23715,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*MultitenantDistributionCacheBehaviorInput)(nil)).Elem(), MultitenantDistributionCacheBehaviorArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MultitenantDistributionCacheBehaviorArrayInput)(nil)).Elem(), MultitenantDistributionCacheBehaviorArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MultitenantDistributionCacheBehaviorAllowedMethodsInput)(nil)).Elem(), MultitenantDistributionCacheBehaviorAllowedMethodsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*MultitenantDistributionCacheBehaviorAllowedMethodsPtrInput)(nil)).Elem(), MultitenantDistributionCacheBehaviorAllowedMethodsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MultitenantDistributionCacheBehaviorFunctionAssociationInput)(nil)).Elem(), MultitenantDistributionCacheBehaviorFunctionAssociationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MultitenantDistributionCacheBehaviorFunctionAssociationArrayInput)(nil)).Elem(), MultitenantDistributionCacheBehaviorFunctionAssociationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MultitenantDistributionCacheBehaviorLambdaFunctionAssociationInput)(nil)).Elem(), MultitenantDistributionCacheBehaviorLambdaFunctionAssociationArgs{})
@@ -23922,7 +23742,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*MultitenantDistributionOriginGroupInput)(nil)).Elem(), MultitenantDistributionOriginGroupArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MultitenantDistributionOriginGroupArrayInput)(nil)).Elem(), MultitenantDistributionOriginGroupArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MultitenantDistributionOriginGroupFailoverCriteriaInput)(nil)).Elem(), MultitenantDistributionOriginGroupFailoverCriteriaArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*MultitenantDistributionOriginGroupFailoverCriteriaPtrInput)(nil)).Elem(), MultitenantDistributionOriginGroupFailoverCriteriaArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MultitenantDistributionOriginGroupMemberInput)(nil)).Elem(), MultitenantDistributionOriginGroupMemberArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MultitenantDistributionOriginGroupMemberArrayInput)(nil)).Elem(), MultitenantDistributionOriginGroupMemberArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MultitenantDistributionOriginOriginShieldInput)(nil)).Elem(), MultitenantDistributionOriginOriginShieldArgs{})
@@ -24230,7 +24049,6 @@ func init() {
 	pulumi.RegisterOutputType(MultitenantDistributionCacheBehaviorOutput{})
 	pulumi.RegisterOutputType(MultitenantDistributionCacheBehaviorArrayOutput{})
 	pulumi.RegisterOutputType(MultitenantDistributionCacheBehaviorAllowedMethodsOutput{})
-	pulumi.RegisterOutputType(MultitenantDistributionCacheBehaviorAllowedMethodsPtrOutput{})
 	pulumi.RegisterOutputType(MultitenantDistributionCacheBehaviorFunctionAssociationOutput{})
 	pulumi.RegisterOutputType(MultitenantDistributionCacheBehaviorFunctionAssociationArrayOutput{})
 	pulumi.RegisterOutputType(MultitenantDistributionCacheBehaviorLambdaFunctionAssociationOutput{})
@@ -24258,7 +24076,6 @@ func init() {
 	pulumi.RegisterOutputType(MultitenantDistributionOriginGroupOutput{})
 	pulumi.RegisterOutputType(MultitenantDistributionOriginGroupArrayOutput{})
 	pulumi.RegisterOutputType(MultitenantDistributionOriginGroupFailoverCriteriaOutput{})
-	pulumi.RegisterOutputType(MultitenantDistributionOriginGroupFailoverCriteriaPtrOutput{})
 	pulumi.RegisterOutputType(MultitenantDistributionOriginGroupMemberOutput{})
 	pulumi.RegisterOutputType(MultitenantDistributionOriginGroupMemberArrayOutput{})
 	pulumi.RegisterOutputType(MultitenantDistributionOriginOriginShieldOutput{})

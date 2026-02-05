@@ -104,7 +104,7 @@ namespace Pulumi.Aws.SecurityHub
         /// A block that specifies a set of ASFF finding field attributes and corresponding expected values that Security Hub uses to filter findings. Documented below.
         /// </summary>
         [Output("criteria")]
-        public Output<Outputs.AutomationRuleCriteria?> Criteria { get; private set; } = null!;
+        public Output<Outputs.AutomationRuleCriteria> Criteria { get; private set; } = null!;
 
         /// <summary>
         /// The description of the rule.
@@ -194,7 +194,7 @@ namespace Pulumi.Aws.SecurityHub
 
     public sealed class AutomationRuleArgs : global::Pulumi.ResourceArgs
     {
-        [Input("actions")]
+        [Input("actions", required: true)]
         private InputList<Inputs.AutomationRuleActionArgs>? _actions;
 
         /// <summary>
@@ -209,8 +209,8 @@ namespace Pulumi.Aws.SecurityHub
         /// <summary>
         /// A block that specifies a set of ASFF finding field attributes and corresponding expected values that Security Hub uses to filter findings. Documented below.
         /// </summary>
-        [Input("criteria")]
-        public Input<Inputs.AutomationRuleCriteriaArgs>? Criteria { get; set; }
+        [Input("criteria", required: true)]
+        public Input<Inputs.AutomationRuleCriteriaArgs> Criteria { get; set; } = null!;
 
         /// <summary>
         /// The description of the rule.

@@ -28,7 +28,7 @@ namespace Pulumi.Aws.Lex.Outputs
         /// <summary>
         /// Configuration block that contains the responses and actions that Amazon Lex takes after the Lambda function is complete. See `PostCodeHookSpecification`.
         /// </summary>
-        public readonly Outputs.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecification PostCodeHookSpecification;
+        public readonly Outputs.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecification? PostCodeHookSpecification;
 
         [OutputConstructor]
         private V2modelsIntentConfirmationSettingCodeHook(
@@ -38,7 +38,7 @@ namespace Pulumi.Aws.Lex.Outputs
 
             string? invocationLabel,
 
-            Outputs.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecification postCodeHookSpecification)
+            Outputs.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecification? postCodeHookSpecification)
         {
             Active = active;
             EnableCodeHookInvocation = enableCodeHookInvocation;

@@ -6,10 +6,9 @@ package com.pulumi.aws.bedrock.inputs;
 import com.pulumi.aws.bedrock.inputs.AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
-import java.util.Optional;
-import javax.annotation.Nullable;
 
 
 public final class AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationArgs extends com.pulumi.resources.ResourceArgs {
@@ -20,15 +19,15 @@ public final class AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBa
      * A storage location specification for images extracted from multimodal documents in your data source.  See `storageLocation` block for details.
      * 
      */
-    @Import(name="storageLocations")
-    private @Nullable Output<List<AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationArgs>> storageLocations;
+    @Import(name="storageLocations", required=true)
+    private Output<List<AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationArgs>> storageLocations;
 
     /**
      * @return A storage location specification for images extracted from multimodal documents in your data source.  See `storageLocation` block for details.
      * 
      */
-    public Optional<Output<List<AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationArgs>>> storageLocations() {
-        return Optional.ofNullable(this.storageLocations);
+    public Output<List<AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationArgs>> storageLocations() {
+        return this.storageLocations;
     }
 
     private AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationArgs() {}
@@ -61,7 +60,7 @@ public final class AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBa
          * @return builder
          * 
          */
-        public Builder storageLocations(@Nullable Output<List<AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationArgs>> storageLocations) {
+        public Builder storageLocations(Output<List<AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationStorageLocationArgs>> storageLocations) {
             $.storageLocations = storageLocations;
             return this;
         }
@@ -87,6 +86,9 @@ public final class AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBa
         }
 
         public AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationArgs build() {
+            if ($.storageLocations == null) {
+                throw new MissingRequiredPropertyException("AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationArgs", "storageLocations");
+            }
             return $;
         }
     }

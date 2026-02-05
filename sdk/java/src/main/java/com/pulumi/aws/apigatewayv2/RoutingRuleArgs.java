@@ -24,30 +24,30 @@ public final class RoutingRuleArgs extends com.pulumi.resources.ResourceArgs {
      * Configuration of resulting action based on matching routing rules condition. See below.
      * 
      */
-    @Import(name="actions")
-    private @Nullable Output<List<RoutingRuleActionArgs>> actions;
+    @Import(name="actions", required=true)
+    private Output<List<RoutingRuleActionArgs>> actions;
 
     /**
      * @return Configuration of resulting action based on matching routing rules condition. See below.
      * 
      */
-    public Optional<Output<List<RoutingRuleActionArgs>>> actions() {
-        return Optional.ofNullable(this.actions);
+    public Output<List<RoutingRuleActionArgs>> actions() {
+        return this.actions;
     }
 
     /**
      * Conditions configuration. See below.
      * 
      */
-    @Import(name="conditions")
-    private @Nullable Output<List<RoutingRuleConditionArgs>> conditions;
+    @Import(name="conditions", required=true)
+    private Output<List<RoutingRuleConditionArgs>> conditions;
 
     /**
      * @return Conditions configuration. See below.
      * 
      */
-    public Optional<Output<List<RoutingRuleConditionArgs>>> conditions() {
-        return Optional.ofNullable(this.conditions);
+    public Output<List<RoutingRuleConditionArgs>> conditions() {
+        return this.conditions;
     }
 
     /**
@@ -133,7 +133,7 @@ public final class RoutingRuleArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder actions(@Nullable Output<List<RoutingRuleActionArgs>> actions) {
+        public Builder actions(Output<List<RoutingRuleActionArgs>> actions) {
             $.actions = actions;
             return this;
         }
@@ -164,7 +164,7 @@ public final class RoutingRuleArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder conditions(@Nullable Output<List<RoutingRuleConditionArgs>> conditions) {
+        public Builder conditions(Output<List<RoutingRuleConditionArgs>> conditions) {
             $.conditions = conditions;
             return this;
         }
@@ -257,6 +257,12 @@ public final class RoutingRuleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public RoutingRuleArgs build() {
+            if ($.actions == null) {
+                throw new MissingRequiredPropertyException("RoutingRuleArgs", "actions");
+            }
+            if ($.conditions == null) {
+                throw new MissingRequiredPropertyException("RoutingRuleArgs", "conditions");
+            }
             if ($.domainName == null) {
                 throw new MissingRequiredPropertyException("RoutingRuleArgs", "domainName");
             }

@@ -21,8 +21,8 @@ namespace Pulumi.Aws.Sagemaker.Inputs
         /// <summary>
         /// Location of the input data.. Fields are documented below.
         /// </summary>
-        [Input("dataSource")]
-        public Input<Inputs.LabelingJobInputConfigDataSourceArgs>? DataSource { get; set; }
+        [Input("dataSource", required: true)]
+        public Input<Inputs.LabelingJobInputConfigDataSourceArgs> DataSource { get; set; } = null!;
 
         public LabelingJobInputConfigArgs()
         {

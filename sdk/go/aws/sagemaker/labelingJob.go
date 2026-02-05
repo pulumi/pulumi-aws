@@ -85,9 +85,9 @@ type LabelingJob struct {
 	// If the job failed, the reason that it failed.
 	FailureReason pulumi.StringOutput `pulumi:"failureReason"`
 	// Configuration information required for human workers to complete a labeling task. Fields are documented below.
-	HumanTaskConfig LabelingJobHumanTaskConfigPtrOutput `pulumi:"humanTaskConfig"`
+	HumanTaskConfig LabelingJobHumanTaskConfigOutput `pulumi:"humanTaskConfig"`
 	// Input data for the labeling job. Fields are documented below.
-	InputConfig LabelingJobInputConfigPtrOutput `pulumi:"inputConfig"`
+	InputConfig LabelingJobInputConfigOutput `pulumi:"inputConfig"`
 	// Unique identifier for work done as part of a labeling job.
 	JobReferenceCode pulumi.StringOutput `pulumi:"jobReferenceCode"`
 	// Attribute name to use for the label in the output manifest file.
@@ -105,7 +105,7 @@ type LabelingJob struct {
 	// Processing status of the labeling job.
 	LabelingJobStatus pulumi.StringOutput `pulumi:"labelingJobStatus"`
 	// Location of the output data. Fields are documented below.
-	OutputConfig LabelingJobOutputConfigPtrOutput `pulumi:"outputConfig"`
+	OutputConfig LabelingJobOutputConfigOutput `pulumi:"outputConfig"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// ARN of IAM role that Amazon SageMaker assumes to perform tasks during data labeling.
@@ -125,11 +125,20 @@ func NewLabelingJob(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
+	if args.HumanTaskConfig == nil {
+		return nil, errors.New("invalid value for required argument 'HumanTaskConfig'")
+	}
+	if args.InputConfig == nil {
+		return nil, errors.New("invalid value for required argument 'InputConfig'")
+	}
 	if args.LabelAttributeName == nil {
 		return nil, errors.New("invalid value for required argument 'LabelAttributeName'")
 	}
 	if args.LabelingJobName == nil {
 		return nil, errors.New("invalid value for required argument 'LabelingJobName'")
+	}
+	if args.OutputConfig == nil {
+		return nil, errors.New("invalid value for required argument 'OutputConfig'")
 	}
 	if args.RoleArn == nil {
 		return nil, errors.New("invalid value for required argument 'RoleArn'")
@@ -236,9 +245,9 @@ func (LabelingJobState) ElementType() reflect.Type {
 
 type labelingJobArgs struct {
 	// Configuration information required for human workers to complete a labeling task. Fields are documented below.
-	HumanTaskConfig *LabelingJobHumanTaskConfig `pulumi:"humanTaskConfig"`
+	HumanTaskConfig LabelingJobHumanTaskConfig `pulumi:"humanTaskConfig"`
 	// Input data for the labeling job. Fields are documented below.
-	InputConfig *LabelingJobInputConfig `pulumi:"inputConfig"`
+	InputConfig LabelingJobInputConfig `pulumi:"inputConfig"`
 	// Attribute name to use for the label in the output manifest file.
 	LabelAttributeName string `pulumi:"labelAttributeName"`
 	// S3 URI of the file that defines the categories used to label the data objects.
@@ -248,7 +257,7 @@ type labelingJobArgs struct {
 	// Name of the labeling job.
 	LabelingJobName string `pulumi:"labelingJobName"`
 	// Location of the output data. Fields are documented below.
-	OutputConfig *LabelingJobOutputConfig `pulumi:"outputConfig"`
+	OutputConfig LabelingJobOutputConfig `pulumi:"outputConfig"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// ARN of IAM role that Amazon SageMaker assumes to perform tasks during data labeling.
@@ -262,9 +271,9 @@ type labelingJobArgs struct {
 // The set of arguments for constructing a LabelingJob resource.
 type LabelingJobArgs struct {
 	// Configuration information required for human workers to complete a labeling task. Fields are documented below.
-	HumanTaskConfig LabelingJobHumanTaskConfigPtrInput
+	HumanTaskConfig LabelingJobHumanTaskConfigInput
 	// Input data for the labeling job. Fields are documented below.
-	InputConfig LabelingJobInputConfigPtrInput
+	InputConfig LabelingJobInputConfigInput
 	// Attribute name to use for the label in the output manifest file.
 	LabelAttributeName pulumi.StringInput
 	// S3 URI of the file that defines the categories used to label the data objects.
@@ -274,7 +283,7 @@ type LabelingJobArgs struct {
 	// Name of the labeling job.
 	LabelingJobName pulumi.StringInput
 	// Location of the output data. Fields are documented below.
-	OutputConfig LabelingJobOutputConfigPtrInput
+	OutputConfig LabelingJobOutputConfigInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// ARN of IAM role that Amazon SageMaker assumes to perform tasks during data labeling.
@@ -378,13 +387,13 @@ func (o LabelingJobOutput) FailureReason() pulumi.StringOutput {
 }
 
 // Configuration information required for human workers to complete a labeling task. Fields are documented below.
-func (o LabelingJobOutput) HumanTaskConfig() LabelingJobHumanTaskConfigPtrOutput {
-	return o.ApplyT(func(v *LabelingJob) LabelingJobHumanTaskConfigPtrOutput { return v.HumanTaskConfig }).(LabelingJobHumanTaskConfigPtrOutput)
+func (o LabelingJobOutput) HumanTaskConfig() LabelingJobHumanTaskConfigOutput {
+	return o.ApplyT(func(v *LabelingJob) LabelingJobHumanTaskConfigOutput { return v.HumanTaskConfig }).(LabelingJobHumanTaskConfigOutput)
 }
 
 // Input data for the labeling job. Fields are documented below.
-func (o LabelingJobOutput) InputConfig() LabelingJobInputConfigPtrOutput {
-	return o.ApplyT(func(v *LabelingJob) LabelingJobInputConfigPtrOutput { return v.InputConfig }).(LabelingJobInputConfigPtrOutput)
+func (o LabelingJobOutput) InputConfig() LabelingJobInputConfigOutput {
+	return o.ApplyT(func(v *LabelingJob) LabelingJobInputConfigOutput { return v.InputConfig }).(LabelingJobInputConfigOutput)
 }
 
 // Unique identifier for work done as part of a labeling job.
@@ -430,8 +439,8 @@ func (o LabelingJobOutput) LabelingJobStatus() pulumi.StringOutput {
 }
 
 // Location of the output data. Fields are documented below.
-func (o LabelingJobOutput) OutputConfig() LabelingJobOutputConfigPtrOutput {
-	return o.ApplyT(func(v *LabelingJob) LabelingJobOutputConfigPtrOutput { return v.OutputConfig }).(LabelingJobOutputConfigPtrOutput)
+func (o LabelingJobOutput) OutputConfig() LabelingJobOutputConfigOutput {
+	return o.ApplyT(func(v *LabelingJob) LabelingJobOutputConfigOutput { return v.OutputConfig }).(LabelingJobOutputConfigOutput)
 }
 
 // Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
