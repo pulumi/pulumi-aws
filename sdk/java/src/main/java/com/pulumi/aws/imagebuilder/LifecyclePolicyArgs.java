@@ -69,15 +69,15 @@ public final class LifecyclePolicyArgs extends com.pulumi.resources.ResourceArgs
      * Configuration block with policy details. Detailed below.
      * 
      */
-    @Import(name="policyDetails")
-    private @Nullable Output<List<LifecyclePolicyPolicyDetailArgs>> policyDetails;
+    @Import(name="policyDetails", required=true)
+    private Output<List<LifecyclePolicyPolicyDetailArgs>> policyDetails;
 
     /**
      * @return Configuration block with policy details. Detailed below.
      * 
      */
-    public Optional<Output<List<LifecyclePolicyPolicyDetailArgs>>> policyDetails() {
-        return Optional.ofNullable(this.policyDetails);
+    public Output<List<LifecyclePolicyPolicyDetailArgs>> policyDetails() {
+        return this.policyDetails;
     }
 
     /**
@@ -101,8 +101,8 @@ public final class LifecyclePolicyArgs extends com.pulumi.resources.ResourceArgs
      * The following arguments are optional:
      * 
      */
-    @Import(name="resourceSelection")
-    private @Nullable Output<LifecyclePolicyResourceSelectionArgs> resourceSelection;
+    @Import(name="resourceSelection", required=true)
+    private Output<LifecyclePolicyResourceSelectionArgs> resourceSelection;
 
     /**
      * @return Selection criteria for the resources that the lifecycle policy applies to. Detailed below.
@@ -110,8 +110,8 @@ public final class LifecyclePolicyArgs extends com.pulumi.resources.ResourceArgs
      * The following arguments are optional:
      * 
      */
-    public Optional<Output<LifecyclePolicyResourceSelectionArgs>> resourceSelection() {
-        return Optional.ofNullable(this.resourceSelection);
+    public Output<LifecyclePolicyResourceSelectionArgs> resourceSelection() {
+        return this.resourceSelection;
     }
 
     /**
@@ -260,7 +260,7 @@ public final class LifecyclePolicyArgs extends com.pulumi.resources.ResourceArgs
          * @return builder
          * 
          */
-        public Builder policyDetails(@Nullable Output<List<LifecyclePolicyPolicyDetailArgs>> policyDetails) {
+        public Builder policyDetails(Output<List<LifecyclePolicyPolicyDetailArgs>> policyDetails) {
             $.policyDetails = policyDetails;
             return this;
         }
@@ -314,7 +314,7 @@ public final class LifecyclePolicyArgs extends com.pulumi.resources.ResourceArgs
          * @return builder
          * 
          */
-        public Builder resourceSelection(@Nullable Output<LifecyclePolicyResourceSelectionArgs> resourceSelection) {
+        public Builder resourceSelection(Output<LifecyclePolicyResourceSelectionArgs> resourceSelection) {
             $.resourceSelection = resourceSelection;
             return this;
         }
@@ -397,6 +397,12 @@ public final class LifecyclePolicyArgs extends com.pulumi.resources.ResourceArgs
         public LifecyclePolicyArgs build() {
             if ($.executionRole == null) {
                 throw new MissingRequiredPropertyException("LifecyclePolicyArgs", "executionRole");
+            }
+            if ($.policyDetails == null) {
+                throw new MissingRequiredPropertyException("LifecyclePolicyArgs", "policyDetails");
+            }
+            if ($.resourceSelection == null) {
+                throw new MissingRequiredPropertyException("LifecyclePolicyArgs", "resourceSelection");
             }
             if ($.resourceType == null) {
                 throw new MissingRequiredPropertyException("LifecyclePolicyArgs", "resourceType");

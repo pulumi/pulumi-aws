@@ -8,8 +8,6 @@ import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
-import java.util.Optional;
-import javax.annotation.Nullable;
 
 @CustomType
 public final class ScopeTargetTargetIdentifier {
@@ -17,7 +15,7 @@ public final class ScopeTargetTargetIdentifier {
      * @return The identifier for a target, which is currently always an account ID.
      * 
      */
-    private @Nullable ScopeTargetTargetIdentifierTargetId targetId;
+    private ScopeTargetTargetIdentifierTargetId targetId;
     /**
      * @return The type of a target. A target type is currently always `ACCOUNT`.
      * 
@@ -29,8 +27,8 @@ public final class ScopeTargetTargetIdentifier {
      * @return The identifier for a target, which is currently always an account ID.
      * 
      */
-    public Optional<ScopeTargetTargetIdentifierTargetId> targetId() {
-        return Optional.ofNullable(this.targetId);
+    public ScopeTargetTargetIdentifierTargetId targetId() {
+        return this.targetId;
     }
     /**
      * @return The type of a target. A target type is currently always `ACCOUNT`.
@@ -49,7 +47,7 @@ public final class ScopeTargetTargetIdentifier {
     }
     @CustomType.Builder
     public static final class Builder {
-        private @Nullable ScopeTargetTargetIdentifierTargetId targetId;
+        private ScopeTargetTargetIdentifierTargetId targetId;
         private String targetType;
         public Builder() {}
         public Builder(ScopeTargetTargetIdentifier defaults) {
@@ -59,8 +57,10 @@ public final class ScopeTargetTargetIdentifier {
         }
 
         @CustomType.Setter
-        public Builder targetId(@Nullable ScopeTargetTargetIdentifierTargetId targetId) {
-
+        public Builder targetId(ScopeTargetTargetIdentifierTargetId targetId) {
+            if (targetId == null) {
+              throw new MissingRequiredPropertyException("ScopeTargetTargetIdentifier", "targetId");
+            }
             this.targetId = targetId;
             return this;
         }

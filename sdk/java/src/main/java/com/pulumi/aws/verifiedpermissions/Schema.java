@@ -13,7 +13,6 @@ import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
 import java.util.List;
-import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
@@ -81,14 +80,14 @@ public class Schema extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="definition", refs={SchemaDefinition.class}, tree="[0]")
-    private Output</* @Nullable */ SchemaDefinition> definition;
+    private Output<SchemaDefinition> definition;
 
     /**
      * @return The definition of the schema.
      * 
      */
-    public Output<Optional<SchemaDefinition>> definition() {
-        return Codegen.optional(this.definition);
+    public Output<SchemaDefinition> definition() {
+        return this.definition;
     }
     /**
      * (Optional) Identifies the namespaces of the entities referenced by this schema.

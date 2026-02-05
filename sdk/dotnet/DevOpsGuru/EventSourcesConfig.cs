@@ -73,7 +73,7 @@ namespace Pulumi.Aws.DevOpsGuru
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public EventSourcesConfig(string name, EventSourcesConfigArgs? args = null, CustomResourceOptions? options = null)
+        public EventSourcesConfig(string name, EventSourcesConfigArgs args, CustomResourceOptions? options = null)
             : base("aws:devopsguru/eventSourcesConfig:EventSourcesConfig", name, args ?? new EventSourcesConfigArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -111,7 +111,7 @@ namespace Pulumi.Aws.DevOpsGuru
 
     public sealed class EventSourcesConfigArgs : global::Pulumi.ResourceArgs
     {
-        [Input("eventSources")]
+        [Input("eventSources", required: true)]
         private InputList<Inputs.EventSourcesConfigEventSourceArgs>? _eventSources;
 
         /// <summary>

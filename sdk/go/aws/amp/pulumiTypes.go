@@ -15,9 +15,9 @@ var _ = internal.GetEnvOrDefault
 
 type QueryLoggingConfigurationDestination struct {
 	// Configuration block for CloudWatch Logs destination. See `cloudwatchLogs`.
-	CloudwatchLogs *QueryLoggingConfigurationDestinationCloudwatchLogs `pulumi:"cloudwatchLogs"`
+	CloudwatchLogs QueryLoggingConfigurationDestinationCloudwatchLogs `pulumi:"cloudwatchLogs"`
 	// A list of filter configurations that specify which logs should be sent to the destination. See `filters`.
-	Filters *QueryLoggingConfigurationDestinationFilters `pulumi:"filters"`
+	Filters QueryLoggingConfigurationDestinationFilters `pulumi:"filters"`
 }
 
 // QueryLoggingConfigurationDestinationInput is an input type that accepts QueryLoggingConfigurationDestinationArgs and QueryLoggingConfigurationDestinationOutput values.
@@ -33,9 +33,9 @@ type QueryLoggingConfigurationDestinationInput interface {
 
 type QueryLoggingConfigurationDestinationArgs struct {
 	// Configuration block for CloudWatch Logs destination. See `cloudwatchLogs`.
-	CloudwatchLogs QueryLoggingConfigurationDestinationCloudwatchLogsPtrInput `pulumi:"cloudwatchLogs"`
+	CloudwatchLogs QueryLoggingConfigurationDestinationCloudwatchLogsInput `pulumi:"cloudwatchLogs"`
 	// A list of filter configurations that specify which logs should be sent to the destination. See `filters`.
-	Filters QueryLoggingConfigurationDestinationFiltersPtrInput `pulumi:"filters"`
+	Filters QueryLoggingConfigurationDestinationFiltersInput `pulumi:"filters"`
 }
 
 func (QueryLoggingConfigurationDestinationArgs) ElementType() reflect.Type {
@@ -90,17 +90,17 @@ func (o QueryLoggingConfigurationDestinationOutput) ToQueryLoggingConfigurationD
 }
 
 // Configuration block for CloudWatch Logs destination. See `cloudwatchLogs`.
-func (o QueryLoggingConfigurationDestinationOutput) CloudwatchLogs() QueryLoggingConfigurationDestinationCloudwatchLogsPtrOutput {
-	return o.ApplyT(func(v QueryLoggingConfigurationDestination) *QueryLoggingConfigurationDestinationCloudwatchLogs {
+func (o QueryLoggingConfigurationDestinationOutput) CloudwatchLogs() QueryLoggingConfigurationDestinationCloudwatchLogsOutput {
+	return o.ApplyT(func(v QueryLoggingConfigurationDestination) QueryLoggingConfigurationDestinationCloudwatchLogs {
 		return v.CloudwatchLogs
-	}).(QueryLoggingConfigurationDestinationCloudwatchLogsPtrOutput)
+	}).(QueryLoggingConfigurationDestinationCloudwatchLogsOutput)
 }
 
 // A list of filter configurations that specify which logs should be sent to the destination. See `filters`.
-func (o QueryLoggingConfigurationDestinationOutput) Filters() QueryLoggingConfigurationDestinationFiltersPtrOutput {
-	return o.ApplyT(func(v QueryLoggingConfigurationDestination) *QueryLoggingConfigurationDestinationFilters {
+func (o QueryLoggingConfigurationDestinationOutput) Filters() QueryLoggingConfigurationDestinationFiltersOutput {
+	return o.ApplyT(func(v QueryLoggingConfigurationDestination) QueryLoggingConfigurationDestinationFilters {
 		return v.Filters
-	}).(QueryLoggingConfigurationDestinationFiltersPtrOutput)
+	}).(QueryLoggingConfigurationDestinationFiltersOutput)
 }
 
 type QueryLoggingConfigurationDestinationArrayOutput struct{ *pulumi.OutputState }
@@ -156,47 +156,6 @@ func (i QueryLoggingConfigurationDestinationCloudwatchLogsArgs) ToQueryLoggingCo
 	return pulumi.ToOutputWithContext(ctx, i).(QueryLoggingConfigurationDestinationCloudwatchLogsOutput)
 }
 
-func (i QueryLoggingConfigurationDestinationCloudwatchLogsArgs) ToQueryLoggingConfigurationDestinationCloudwatchLogsPtrOutput() QueryLoggingConfigurationDestinationCloudwatchLogsPtrOutput {
-	return i.ToQueryLoggingConfigurationDestinationCloudwatchLogsPtrOutputWithContext(context.Background())
-}
-
-func (i QueryLoggingConfigurationDestinationCloudwatchLogsArgs) ToQueryLoggingConfigurationDestinationCloudwatchLogsPtrOutputWithContext(ctx context.Context) QueryLoggingConfigurationDestinationCloudwatchLogsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(QueryLoggingConfigurationDestinationCloudwatchLogsOutput).ToQueryLoggingConfigurationDestinationCloudwatchLogsPtrOutputWithContext(ctx)
-}
-
-// QueryLoggingConfigurationDestinationCloudwatchLogsPtrInput is an input type that accepts QueryLoggingConfigurationDestinationCloudwatchLogsArgs, QueryLoggingConfigurationDestinationCloudwatchLogsPtr and QueryLoggingConfigurationDestinationCloudwatchLogsPtrOutput values.
-// You can construct a concrete instance of `QueryLoggingConfigurationDestinationCloudwatchLogsPtrInput` via:
-//
-//	        QueryLoggingConfigurationDestinationCloudwatchLogsArgs{...}
-//
-//	or:
-//
-//	        nil
-type QueryLoggingConfigurationDestinationCloudwatchLogsPtrInput interface {
-	pulumi.Input
-
-	ToQueryLoggingConfigurationDestinationCloudwatchLogsPtrOutput() QueryLoggingConfigurationDestinationCloudwatchLogsPtrOutput
-	ToQueryLoggingConfigurationDestinationCloudwatchLogsPtrOutputWithContext(context.Context) QueryLoggingConfigurationDestinationCloudwatchLogsPtrOutput
-}
-
-type queryLoggingConfigurationDestinationCloudwatchLogsPtrType QueryLoggingConfigurationDestinationCloudwatchLogsArgs
-
-func QueryLoggingConfigurationDestinationCloudwatchLogsPtr(v *QueryLoggingConfigurationDestinationCloudwatchLogsArgs) QueryLoggingConfigurationDestinationCloudwatchLogsPtrInput {
-	return (*queryLoggingConfigurationDestinationCloudwatchLogsPtrType)(v)
-}
-
-func (*queryLoggingConfigurationDestinationCloudwatchLogsPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**QueryLoggingConfigurationDestinationCloudwatchLogs)(nil)).Elem()
-}
-
-func (i *queryLoggingConfigurationDestinationCloudwatchLogsPtrType) ToQueryLoggingConfigurationDestinationCloudwatchLogsPtrOutput() QueryLoggingConfigurationDestinationCloudwatchLogsPtrOutput {
-	return i.ToQueryLoggingConfigurationDestinationCloudwatchLogsPtrOutputWithContext(context.Background())
-}
-
-func (i *queryLoggingConfigurationDestinationCloudwatchLogsPtrType) ToQueryLoggingConfigurationDestinationCloudwatchLogsPtrOutputWithContext(ctx context.Context) QueryLoggingConfigurationDestinationCloudwatchLogsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(QueryLoggingConfigurationDestinationCloudwatchLogsPtrOutput)
-}
-
 type QueryLoggingConfigurationDestinationCloudwatchLogsOutput struct{ *pulumi.OutputState }
 
 func (QueryLoggingConfigurationDestinationCloudwatchLogsOutput) ElementType() reflect.Type {
@@ -211,53 +170,9 @@ func (o QueryLoggingConfigurationDestinationCloudwatchLogsOutput) ToQueryLogging
 	return o
 }
 
-func (o QueryLoggingConfigurationDestinationCloudwatchLogsOutput) ToQueryLoggingConfigurationDestinationCloudwatchLogsPtrOutput() QueryLoggingConfigurationDestinationCloudwatchLogsPtrOutput {
-	return o.ToQueryLoggingConfigurationDestinationCloudwatchLogsPtrOutputWithContext(context.Background())
-}
-
-func (o QueryLoggingConfigurationDestinationCloudwatchLogsOutput) ToQueryLoggingConfigurationDestinationCloudwatchLogsPtrOutputWithContext(ctx context.Context) QueryLoggingConfigurationDestinationCloudwatchLogsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v QueryLoggingConfigurationDestinationCloudwatchLogs) *QueryLoggingConfigurationDestinationCloudwatchLogs {
-		return &v
-	}).(QueryLoggingConfigurationDestinationCloudwatchLogsPtrOutput)
-}
-
 // The ARN of the CloudWatch log group to which query logs will be sent. The ARN must end with `:*`
 func (o QueryLoggingConfigurationDestinationCloudwatchLogsOutput) LogGroupArn() pulumi.StringOutput {
 	return o.ApplyT(func(v QueryLoggingConfigurationDestinationCloudwatchLogs) string { return v.LogGroupArn }).(pulumi.StringOutput)
-}
-
-type QueryLoggingConfigurationDestinationCloudwatchLogsPtrOutput struct{ *pulumi.OutputState }
-
-func (QueryLoggingConfigurationDestinationCloudwatchLogsPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**QueryLoggingConfigurationDestinationCloudwatchLogs)(nil)).Elem()
-}
-
-func (o QueryLoggingConfigurationDestinationCloudwatchLogsPtrOutput) ToQueryLoggingConfigurationDestinationCloudwatchLogsPtrOutput() QueryLoggingConfigurationDestinationCloudwatchLogsPtrOutput {
-	return o
-}
-
-func (o QueryLoggingConfigurationDestinationCloudwatchLogsPtrOutput) ToQueryLoggingConfigurationDestinationCloudwatchLogsPtrOutputWithContext(ctx context.Context) QueryLoggingConfigurationDestinationCloudwatchLogsPtrOutput {
-	return o
-}
-
-func (o QueryLoggingConfigurationDestinationCloudwatchLogsPtrOutput) Elem() QueryLoggingConfigurationDestinationCloudwatchLogsOutput {
-	return o.ApplyT(func(v *QueryLoggingConfigurationDestinationCloudwatchLogs) QueryLoggingConfigurationDestinationCloudwatchLogs {
-		if v != nil {
-			return *v
-		}
-		var ret QueryLoggingConfigurationDestinationCloudwatchLogs
-		return ret
-	}).(QueryLoggingConfigurationDestinationCloudwatchLogsOutput)
-}
-
-// The ARN of the CloudWatch log group to which query logs will be sent. The ARN must end with `:*`
-func (o QueryLoggingConfigurationDestinationCloudwatchLogsPtrOutput) LogGroupArn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *QueryLoggingConfigurationDestinationCloudwatchLogs) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.LogGroupArn
-	}).(pulumi.StringPtrOutput)
 }
 
 type QueryLoggingConfigurationDestinationFilters struct {
@@ -293,47 +208,6 @@ func (i QueryLoggingConfigurationDestinationFiltersArgs) ToQueryLoggingConfigura
 	return pulumi.ToOutputWithContext(ctx, i).(QueryLoggingConfigurationDestinationFiltersOutput)
 }
 
-func (i QueryLoggingConfigurationDestinationFiltersArgs) ToQueryLoggingConfigurationDestinationFiltersPtrOutput() QueryLoggingConfigurationDestinationFiltersPtrOutput {
-	return i.ToQueryLoggingConfigurationDestinationFiltersPtrOutputWithContext(context.Background())
-}
-
-func (i QueryLoggingConfigurationDestinationFiltersArgs) ToQueryLoggingConfigurationDestinationFiltersPtrOutputWithContext(ctx context.Context) QueryLoggingConfigurationDestinationFiltersPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(QueryLoggingConfigurationDestinationFiltersOutput).ToQueryLoggingConfigurationDestinationFiltersPtrOutputWithContext(ctx)
-}
-
-// QueryLoggingConfigurationDestinationFiltersPtrInput is an input type that accepts QueryLoggingConfigurationDestinationFiltersArgs, QueryLoggingConfigurationDestinationFiltersPtr and QueryLoggingConfigurationDestinationFiltersPtrOutput values.
-// You can construct a concrete instance of `QueryLoggingConfigurationDestinationFiltersPtrInput` via:
-//
-//	        QueryLoggingConfigurationDestinationFiltersArgs{...}
-//
-//	or:
-//
-//	        nil
-type QueryLoggingConfigurationDestinationFiltersPtrInput interface {
-	pulumi.Input
-
-	ToQueryLoggingConfigurationDestinationFiltersPtrOutput() QueryLoggingConfigurationDestinationFiltersPtrOutput
-	ToQueryLoggingConfigurationDestinationFiltersPtrOutputWithContext(context.Context) QueryLoggingConfigurationDestinationFiltersPtrOutput
-}
-
-type queryLoggingConfigurationDestinationFiltersPtrType QueryLoggingConfigurationDestinationFiltersArgs
-
-func QueryLoggingConfigurationDestinationFiltersPtr(v *QueryLoggingConfigurationDestinationFiltersArgs) QueryLoggingConfigurationDestinationFiltersPtrInput {
-	return (*queryLoggingConfigurationDestinationFiltersPtrType)(v)
-}
-
-func (*queryLoggingConfigurationDestinationFiltersPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**QueryLoggingConfigurationDestinationFilters)(nil)).Elem()
-}
-
-func (i *queryLoggingConfigurationDestinationFiltersPtrType) ToQueryLoggingConfigurationDestinationFiltersPtrOutput() QueryLoggingConfigurationDestinationFiltersPtrOutput {
-	return i.ToQueryLoggingConfigurationDestinationFiltersPtrOutputWithContext(context.Background())
-}
-
-func (i *queryLoggingConfigurationDestinationFiltersPtrType) ToQueryLoggingConfigurationDestinationFiltersPtrOutputWithContext(ctx context.Context) QueryLoggingConfigurationDestinationFiltersPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(QueryLoggingConfigurationDestinationFiltersPtrOutput)
-}
-
 type QueryLoggingConfigurationDestinationFiltersOutput struct{ *pulumi.OutputState }
 
 func (QueryLoggingConfigurationDestinationFiltersOutput) ElementType() reflect.Type {
@@ -348,53 +222,9 @@ func (o QueryLoggingConfigurationDestinationFiltersOutput) ToQueryLoggingConfigu
 	return o
 }
 
-func (o QueryLoggingConfigurationDestinationFiltersOutput) ToQueryLoggingConfigurationDestinationFiltersPtrOutput() QueryLoggingConfigurationDestinationFiltersPtrOutput {
-	return o.ToQueryLoggingConfigurationDestinationFiltersPtrOutputWithContext(context.Background())
-}
-
-func (o QueryLoggingConfigurationDestinationFiltersOutput) ToQueryLoggingConfigurationDestinationFiltersPtrOutputWithContext(ctx context.Context) QueryLoggingConfigurationDestinationFiltersPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v QueryLoggingConfigurationDestinationFilters) *QueryLoggingConfigurationDestinationFilters {
-		return &v
-	}).(QueryLoggingConfigurationDestinationFiltersPtrOutput)
-}
-
 // The Query Samples Processed (QSP) threshold above which queries will be logged. Queries processing more samples than this threshold will be captured in logs.
 func (o QueryLoggingConfigurationDestinationFiltersOutput) QspThreshold() pulumi.IntOutput {
 	return o.ApplyT(func(v QueryLoggingConfigurationDestinationFilters) int { return v.QspThreshold }).(pulumi.IntOutput)
-}
-
-type QueryLoggingConfigurationDestinationFiltersPtrOutput struct{ *pulumi.OutputState }
-
-func (QueryLoggingConfigurationDestinationFiltersPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**QueryLoggingConfigurationDestinationFilters)(nil)).Elem()
-}
-
-func (o QueryLoggingConfigurationDestinationFiltersPtrOutput) ToQueryLoggingConfigurationDestinationFiltersPtrOutput() QueryLoggingConfigurationDestinationFiltersPtrOutput {
-	return o
-}
-
-func (o QueryLoggingConfigurationDestinationFiltersPtrOutput) ToQueryLoggingConfigurationDestinationFiltersPtrOutputWithContext(ctx context.Context) QueryLoggingConfigurationDestinationFiltersPtrOutput {
-	return o
-}
-
-func (o QueryLoggingConfigurationDestinationFiltersPtrOutput) Elem() QueryLoggingConfigurationDestinationFiltersOutput {
-	return o.ApplyT(func(v *QueryLoggingConfigurationDestinationFilters) QueryLoggingConfigurationDestinationFilters {
-		if v != nil {
-			return *v
-		}
-		var ret QueryLoggingConfigurationDestinationFilters
-		return ret
-	}).(QueryLoggingConfigurationDestinationFiltersOutput)
-}
-
-// The Query Samples Processed (QSP) threshold above which queries will be logged. Queries processing more samples than this threshold will be captured in logs.
-func (o QueryLoggingConfigurationDestinationFiltersPtrOutput) QspThreshold() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *QueryLoggingConfigurationDestinationFilters) *int {
-		if v == nil {
-			return nil
-		}
-		return &v.QspThreshold
-	}).(pulumi.IntPtrOutput)
 }
 
 type QueryLoggingConfigurationTimeouts struct {
@@ -1179,7 +1009,7 @@ func (o ScraperRoleConfigurationPtrOutput) TargetRoleArn() pulumi.StringPtrOutpu
 
 type ScraperSource struct {
 	// Configuration block for an EKS cluster source. See `eks`.
-	Eks *ScraperSourceEks `pulumi:"eks"`
+	Eks ScraperSourceEks `pulumi:"eks"`
 }
 
 // ScraperSourceInput is an input type that accepts ScraperSourceArgs and ScraperSourceOutput values.
@@ -1195,7 +1025,7 @@ type ScraperSourceInput interface {
 
 type ScraperSourceArgs struct {
 	// Configuration block for an EKS cluster source. See `eks`.
-	Eks ScraperSourceEksPtrInput `pulumi:"eks"`
+	Eks ScraperSourceEksInput `pulumi:"eks"`
 }
 
 func (ScraperSourceArgs) ElementType() reflect.Type {
@@ -1276,8 +1106,8 @@ func (o ScraperSourceOutput) ToScraperSourcePtrOutputWithContext(ctx context.Con
 }
 
 // Configuration block for an EKS cluster source. See `eks`.
-func (o ScraperSourceOutput) Eks() ScraperSourceEksPtrOutput {
-	return o.ApplyT(func(v ScraperSource) *ScraperSourceEks { return v.Eks }).(ScraperSourceEksPtrOutput)
+func (o ScraperSourceOutput) Eks() ScraperSourceEksOutput {
+	return o.ApplyT(func(v ScraperSource) ScraperSourceEks { return v.Eks }).(ScraperSourceEksOutput)
 }
 
 type ScraperSourcePtrOutput struct{ *pulumi.OutputState }
@@ -1310,7 +1140,7 @@ func (o ScraperSourcePtrOutput) Eks() ScraperSourceEksPtrOutput {
 		if v == nil {
 			return nil
 		}
-		return v.Eks
+		return &v.Eks
 	}).(ScraperSourceEksPtrOutput)
 }
 
@@ -1664,7 +1494,7 @@ type WorkspaceConfigurationLimitsPerLabelSet struct {
 	// Map of label key-value pairs that identify the metrics to which the limits apply. An empty map represents the default bucket for metrics that don't match any other label set.
 	LabelSet map[string]string `pulumi:"labelSet"`
 	// Configuration block for the limits to apply to the specified label set. Detailed below.
-	Limits *WorkspaceConfigurationLimitsPerLabelSetLimits `pulumi:"limits"`
+	Limits WorkspaceConfigurationLimitsPerLabelSetLimits `pulumi:"limits"`
 }
 
 // WorkspaceConfigurationLimitsPerLabelSetInput is an input type that accepts WorkspaceConfigurationLimitsPerLabelSetArgs and WorkspaceConfigurationLimitsPerLabelSetOutput values.
@@ -1682,7 +1512,7 @@ type WorkspaceConfigurationLimitsPerLabelSetArgs struct {
 	// Map of label key-value pairs that identify the metrics to which the limits apply. An empty map represents the default bucket for metrics that don't match any other label set.
 	LabelSet pulumi.StringMapInput `pulumi:"labelSet"`
 	// Configuration block for the limits to apply to the specified label set. Detailed below.
-	Limits WorkspaceConfigurationLimitsPerLabelSetLimitsPtrInput `pulumi:"limits"`
+	Limits WorkspaceConfigurationLimitsPerLabelSetLimitsInput `pulumi:"limits"`
 }
 
 func (WorkspaceConfigurationLimitsPerLabelSetArgs) ElementType() reflect.Type {
@@ -1742,10 +1572,10 @@ func (o WorkspaceConfigurationLimitsPerLabelSetOutput) LabelSet() pulumi.StringM
 }
 
 // Configuration block for the limits to apply to the specified label set. Detailed below.
-func (o WorkspaceConfigurationLimitsPerLabelSetOutput) Limits() WorkspaceConfigurationLimitsPerLabelSetLimitsPtrOutput {
-	return o.ApplyT(func(v WorkspaceConfigurationLimitsPerLabelSet) *WorkspaceConfigurationLimitsPerLabelSetLimits {
+func (o WorkspaceConfigurationLimitsPerLabelSetOutput) Limits() WorkspaceConfigurationLimitsPerLabelSetLimitsOutput {
+	return o.ApplyT(func(v WorkspaceConfigurationLimitsPerLabelSet) WorkspaceConfigurationLimitsPerLabelSetLimits {
 		return v.Limits
-	}).(WorkspaceConfigurationLimitsPerLabelSetLimitsPtrOutput)
+	}).(WorkspaceConfigurationLimitsPerLabelSetLimitsOutput)
 }
 
 type WorkspaceConfigurationLimitsPerLabelSetArrayOutput struct{ *pulumi.OutputState }
@@ -1801,47 +1631,6 @@ func (i WorkspaceConfigurationLimitsPerLabelSetLimitsArgs) ToWorkspaceConfigurat
 	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceConfigurationLimitsPerLabelSetLimitsOutput)
 }
 
-func (i WorkspaceConfigurationLimitsPerLabelSetLimitsArgs) ToWorkspaceConfigurationLimitsPerLabelSetLimitsPtrOutput() WorkspaceConfigurationLimitsPerLabelSetLimitsPtrOutput {
-	return i.ToWorkspaceConfigurationLimitsPerLabelSetLimitsPtrOutputWithContext(context.Background())
-}
-
-func (i WorkspaceConfigurationLimitsPerLabelSetLimitsArgs) ToWorkspaceConfigurationLimitsPerLabelSetLimitsPtrOutputWithContext(ctx context.Context) WorkspaceConfigurationLimitsPerLabelSetLimitsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceConfigurationLimitsPerLabelSetLimitsOutput).ToWorkspaceConfigurationLimitsPerLabelSetLimitsPtrOutputWithContext(ctx)
-}
-
-// WorkspaceConfigurationLimitsPerLabelSetLimitsPtrInput is an input type that accepts WorkspaceConfigurationLimitsPerLabelSetLimitsArgs, WorkspaceConfigurationLimitsPerLabelSetLimitsPtr and WorkspaceConfigurationLimitsPerLabelSetLimitsPtrOutput values.
-// You can construct a concrete instance of `WorkspaceConfigurationLimitsPerLabelSetLimitsPtrInput` via:
-//
-//	        WorkspaceConfigurationLimitsPerLabelSetLimitsArgs{...}
-//
-//	or:
-//
-//	        nil
-type WorkspaceConfigurationLimitsPerLabelSetLimitsPtrInput interface {
-	pulumi.Input
-
-	ToWorkspaceConfigurationLimitsPerLabelSetLimitsPtrOutput() WorkspaceConfigurationLimitsPerLabelSetLimitsPtrOutput
-	ToWorkspaceConfigurationLimitsPerLabelSetLimitsPtrOutputWithContext(context.Context) WorkspaceConfigurationLimitsPerLabelSetLimitsPtrOutput
-}
-
-type workspaceConfigurationLimitsPerLabelSetLimitsPtrType WorkspaceConfigurationLimitsPerLabelSetLimitsArgs
-
-func WorkspaceConfigurationLimitsPerLabelSetLimitsPtr(v *WorkspaceConfigurationLimitsPerLabelSetLimitsArgs) WorkspaceConfigurationLimitsPerLabelSetLimitsPtrInput {
-	return (*workspaceConfigurationLimitsPerLabelSetLimitsPtrType)(v)
-}
-
-func (*workspaceConfigurationLimitsPerLabelSetLimitsPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**WorkspaceConfigurationLimitsPerLabelSetLimits)(nil)).Elem()
-}
-
-func (i *workspaceConfigurationLimitsPerLabelSetLimitsPtrType) ToWorkspaceConfigurationLimitsPerLabelSetLimitsPtrOutput() WorkspaceConfigurationLimitsPerLabelSetLimitsPtrOutput {
-	return i.ToWorkspaceConfigurationLimitsPerLabelSetLimitsPtrOutputWithContext(context.Background())
-}
-
-func (i *workspaceConfigurationLimitsPerLabelSetLimitsPtrType) ToWorkspaceConfigurationLimitsPerLabelSetLimitsPtrOutputWithContext(ctx context.Context) WorkspaceConfigurationLimitsPerLabelSetLimitsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceConfigurationLimitsPerLabelSetLimitsPtrOutput)
-}
-
 type WorkspaceConfigurationLimitsPerLabelSetLimitsOutput struct{ *pulumi.OutputState }
 
 func (WorkspaceConfigurationLimitsPerLabelSetLimitsOutput) ElementType() reflect.Type {
@@ -1856,53 +1645,9 @@ func (o WorkspaceConfigurationLimitsPerLabelSetLimitsOutput) ToWorkspaceConfigur
 	return o
 }
 
-func (o WorkspaceConfigurationLimitsPerLabelSetLimitsOutput) ToWorkspaceConfigurationLimitsPerLabelSetLimitsPtrOutput() WorkspaceConfigurationLimitsPerLabelSetLimitsPtrOutput {
-	return o.ToWorkspaceConfigurationLimitsPerLabelSetLimitsPtrOutputWithContext(context.Background())
-}
-
-func (o WorkspaceConfigurationLimitsPerLabelSetLimitsOutput) ToWorkspaceConfigurationLimitsPerLabelSetLimitsPtrOutputWithContext(ctx context.Context) WorkspaceConfigurationLimitsPerLabelSetLimitsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkspaceConfigurationLimitsPerLabelSetLimits) *WorkspaceConfigurationLimitsPerLabelSetLimits {
-		return &v
-	}).(WorkspaceConfigurationLimitsPerLabelSetLimitsPtrOutput)
-}
-
 // Maximum number of active time series that can be ingested for metrics matching the label set.
 func (o WorkspaceConfigurationLimitsPerLabelSetLimitsOutput) MaxSeries() pulumi.IntOutput {
 	return o.ApplyT(func(v WorkspaceConfigurationLimitsPerLabelSetLimits) int { return v.MaxSeries }).(pulumi.IntOutput)
-}
-
-type WorkspaceConfigurationLimitsPerLabelSetLimitsPtrOutput struct{ *pulumi.OutputState }
-
-func (WorkspaceConfigurationLimitsPerLabelSetLimitsPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**WorkspaceConfigurationLimitsPerLabelSetLimits)(nil)).Elem()
-}
-
-func (o WorkspaceConfigurationLimitsPerLabelSetLimitsPtrOutput) ToWorkspaceConfigurationLimitsPerLabelSetLimitsPtrOutput() WorkspaceConfigurationLimitsPerLabelSetLimitsPtrOutput {
-	return o
-}
-
-func (o WorkspaceConfigurationLimitsPerLabelSetLimitsPtrOutput) ToWorkspaceConfigurationLimitsPerLabelSetLimitsPtrOutputWithContext(ctx context.Context) WorkspaceConfigurationLimitsPerLabelSetLimitsPtrOutput {
-	return o
-}
-
-func (o WorkspaceConfigurationLimitsPerLabelSetLimitsPtrOutput) Elem() WorkspaceConfigurationLimitsPerLabelSetLimitsOutput {
-	return o.ApplyT(func(v *WorkspaceConfigurationLimitsPerLabelSetLimits) WorkspaceConfigurationLimitsPerLabelSetLimits {
-		if v != nil {
-			return *v
-		}
-		var ret WorkspaceConfigurationLimitsPerLabelSetLimits
-		return ret
-	}).(WorkspaceConfigurationLimitsPerLabelSetLimitsOutput)
-}
-
-// Maximum number of active time series that can be ingested for metrics matching the label set.
-func (o WorkspaceConfigurationLimitsPerLabelSetLimitsPtrOutput) MaxSeries() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *WorkspaceConfigurationLimitsPerLabelSetLimits) *int {
-		if v == nil {
-			return nil
-		}
-		return &v.MaxSeries
-	}).(pulumi.IntPtrOutput)
 }
 
 type WorkspaceConfigurationTimeouts struct {
@@ -2202,9 +1947,7 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*QueryLoggingConfigurationDestinationInput)(nil)).Elem(), QueryLoggingConfigurationDestinationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*QueryLoggingConfigurationDestinationArrayInput)(nil)).Elem(), QueryLoggingConfigurationDestinationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*QueryLoggingConfigurationDestinationCloudwatchLogsInput)(nil)).Elem(), QueryLoggingConfigurationDestinationCloudwatchLogsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*QueryLoggingConfigurationDestinationCloudwatchLogsPtrInput)(nil)).Elem(), QueryLoggingConfigurationDestinationCloudwatchLogsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*QueryLoggingConfigurationDestinationFiltersInput)(nil)).Elem(), QueryLoggingConfigurationDestinationFiltersArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*QueryLoggingConfigurationDestinationFiltersPtrInput)(nil)).Elem(), QueryLoggingConfigurationDestinationFiltersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*QueryLoggingConfigurationTimeoutsInput)(nil)).Elem(), QueryLoggingConfigurationTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*QueryLoggingConfigurationTimeoutsPtrInput)(nil)).Elem(), QueryLoggingConfigurationTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResourcePolicyTimeoutsInput)(nil)).Elem(), ResourcePolicyTimeoutsArgs{})
@@ -2224,7 +1967,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceConfigurationLimitsPerLabelSetInput)(nil)).Elem(), WorkspaceConfigurationLimitsPerLabelSetArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceConfigurationLimitsPerLabelSetArrayInput)(nil)).Elem(), WorkspaceConfigurationLimitsPerLabelSetArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceConfigurationLimitsPerLabelSetLimitsInput)(nil)).Elem(), WorkspaceConfigurationLimitsPerLabelSetLimitsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceConfigurationLimitsPerLabelSetLimitsPtrInput)(nil)).Elem(), WorkspaceConfigurationLimitsPerLabelSetLimitsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceConfigurationTimeoutsInput)(nil)).Elem(), WorkspaceConfigurationTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceConfigurationTimeoutsPtrInput)(nil)).Elem(), WorkspaceConfigurationTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceLoggingConfigurationInput)(nil)).Elem(), WorkspaceLoggingConfigurationArgs{})
@@ -2232,9 +1974,7 @@ func init() {
 	pulumi.RegisterOutputType(QueryLoggingConfigurationDestinationOutput{})
 	pulumi.RegisterOutputType(QueryLoggingConfigurationDestinationArrayOutput{})
 	pulumi.RegisterOutputType(QueryLoggingConfigurationDestinationCloudwatchLogsOutput{})
-	pulumi.RegisterOutputType(QueryLoggingConfigurationDestinationCloudwatchLogsPtrOutput{})
 	pulumi.RegisterOutputType(QueryLoggingConfigurationDestinationFiltersOutput{})
-	pulumi.RegisterOutputType(QueryLoggingConfigurationDestinationFiltersPtrOutput{})
 	pulumi.RegisterOutputType(QueryLoggingConfigurationTimeoutsOutput{})
 	pulumi.RegisterOutputType(QueryLoggingConfigurationTimeoutsPtrOutput{})
 	pulumi.RegisterOutputType(ResourcePolicyTimeoutsOutput{})
@@ -2254,7 +1994,6 @@ func init() {
 	pulumi.RegisterOutputType(WorkspaceConfigurationLimitsPerLabelSetOutput{})
 	pulumi.RegisterOutputType(WorkspaceConfigurationLimitsPerLabelSetArrayOutput{})
 	pulumi.RegisterOutputType(WorkspaceConfigurationLimitsPerLabelSetLimitsOutput{})
-	pulumi.RegisterOutputType(WorkspaceConfigurationLimitsPerLabelSetLimitsPtrOutput{})
 	pulumi.RegisterOutputType(WorkspaceConfigurationTimeoutsOutput{})
 	pulumi.RegisterOutputType(WorkspaceConfigurationTimeoutsPtrOutput{})
 	pulumi.RegisterOutputType(WorkspaceLoggingConfigurationOutput{})

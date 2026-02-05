@@ -15,8 +15,8 @@ namespace Pulumi.Aws.CloudFront.Inputs
         /// <summary>
         /// Geographic restriction configuration. See Geo Restriction below.
         /// </summary>
-        [Input("geoRestriction")]
-        public Input<Inputs.MultitenantDistributionRestrictionsGeoRestrictionArgs>? GeoRestriction { get; set; }
+        [Input("geoRestriction", required: true)]
+        public Input<Inputs.MultitenantDistributionRestrictionsGeoRestrictionArgs> GeoRestriction { get; set; } = null!;
 
         public MultitenantDistributionRestrictionsArgs()
         {

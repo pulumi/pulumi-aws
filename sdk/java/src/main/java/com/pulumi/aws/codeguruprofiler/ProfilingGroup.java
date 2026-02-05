@@ -75,14 +75,14 @@ public class ProfilingGroup extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="agentOrchestrationConfig", refs={ProfilingGroupAgentOrchestrationConfig.class}, tree="[0]")
-    private Output</* @Nullable */ ProfilingGroupAgentOrchestrationConfig> agentOrchestrationConfig;
+    private Output<ProfilingGroupAgentOrchestrationConfig> agentOrchestrationConfig;
 
     /**
      * @return Specifies whether profiling is enabled or disabled for the created profiling. See Agent Orchestration Config for more details.
      * 
      */
-    public Output<Optional<ProfilingGroupAgentOrchestrationConfig>> agentOrchestrationConfig() {
-        return Codegen.optional(this.agentOrchestrationConfig);
+    public Output<ProfilingGroupAgentOrchestrationConfig> agentOrchestrationConfig() {
+        return this.agentOrchestrationConfig;
     }
     /**
      * ARN of the profiling group.
@@ -185,7 +185,7 @@ public class ProfilingGroup extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public ProfilingGroup(java.lang.String name, @Nullable ProfilingGroupArgs args) {
+    public ProfilingGroup(java.lang.String name, ProfilingGroupArgs args) {
         this(name, args, null);
     }
     /**
@@ -194,7 +194,7 @@ public class ProfilingGroup extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public ProfilingGroup(java.lang.String name, @Nullable ProfilingGroupArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public ProfilingGroup(java.lang.String name, ProfilingGroupArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:codeguruprofiler/profilingGroup:ProfilingGroup", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
@@ -202,7 +202,7 @@ public class ProfilingGroup extends com.pulumi.resources.CustomResource {
         super("aws:codeguruprofiler/profilingGroup:ProfilingGroup", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static ProfilingGroupArgs makeArgs(@Nullable ProfilingGroupArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    private static ProfilingGroupArgs makeArgs(ProfilingGroupArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         if (options != null && options.getUrn().isPresent()) {
             return null;
         }

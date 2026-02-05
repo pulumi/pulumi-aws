@@ -6,6 +6,7 @@ package com.pulumi.aws.quicksight;
 import com.pulumi.aws.quicksight.inputs.KeyRegistrationKeyRegistrationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -28,15 +29,15 @@ public final class KeyRegistrationArgs extends com.pulumi.resources.ResourceArgs
      * Registered keys. See key_registration.
      * 
      */
-    @Import(name="keyRegistrations")
-    private @Nullable Output<List<KeyRegistrationKeyRegistrationArgs>> keyRegistrations;
+    @Import(name="keyRegistrations", required=true)
+    private Output<List<KeyRegistrationKeyRegistrationArgs>> keyRegistrations;
 
     /**
      * @return Registered keys. See key_registration.
      * 
      */
-    public Optional<Output<List<KeyRegistrationKeyRegistrationArgs>>> keyRegistrations() {
-        return Optional.ofNullable(this.keyRegistrations);
+    public Output<List<KeyRegistrationKeyRegistrationArgs>> keyRegistrations() {
+        return this.keyRegistrations;
     }
 
     /**
@@ -95,7 +96,7 @@ public final class KeyRegistrationArgs extends com.pulumi.resources.ResourceArgs
          * @return builder
          * 
          */
-        public Builder keyRegistrations(@Nullable Output<List<KeyRegistrationKeyRegistrationArgs>> keyRegistrations) {
+        public Builder keyRegistrations(Output<List<KeyRegistrationKeyRegistrationArgs>> keyRegistrations) {
             $.keyRegistrations = keyRegistrations;
             return this;
         }
@@ -142,6 +143,9 @@ public final class KeyRegistrationArgs extends com.pulumi.resources.ResourceArgs
         }
 
         public KeyRegistrationArgs build() {
+            if ($.keyRegistrations == null) {
+                throw new MissingRequiredPropertyException("KeyRegistrationArgs", "keyRegistrations");
+            }
             return $;
         }
     }

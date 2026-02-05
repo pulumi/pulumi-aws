@@ -93,15 +93,15 @@ public final class MultitenantDistributionArgs extends com.pulumi.resources.Reso
      * Default cache behavior for this distribution. See Default Cache Behavior below.
      * 
      */
-    @Import(name="defaultCacheBehavior")
-    private @Nullable Output<MultitenantDistributionDefaultCacheBehaviorArgs> defaultCacheBehavior;
+    @Import(name="defaultCacheBehavior", required=true)
+    private Output<MultitenantDistributionDefaultCacheBehaviorArgs> defaultCacheBehavior;
 
     /**
      * @return Default cache behavior for this distribution. See Default Cache Behavior below.
      * 
      */
-    public Optional<Output<MultitenantDistributionDefaultCacheBehaviorArgs>> defaultCacheBehavior() {
-        return Optional.ofNullable(this.defaultCacheBehavior);
+    public Output<MultitenantDistributionDefaultCacheBehaviorArgs> defaultCacheBehavior() {
+        return this.defaultCacheBehavior;
     }
 
     /**
@@ -213,15 +213,15 @@ public final class MultitenantDistributionArgs extends com.pulumi.resources.Reso
      * Tenant configuration that contains parameter definitions for multi-tenant distributions. See Tenant Config below.
      * 
      */
-    @Import(name="tenantConfig")
-    private @Nullable Output<MultitenantDistributionTenantConfigArgs> tenantConfig;
+    @Import(name="tenantConfig", required=true)
+    private Output<MultitenantDistributionTenantConfigArgs> tenantConfig;
 
     /**
      * @return Tenant configuration that contains parameter definitions for multi-tenant distributions. See Tenant Config below.
      * 
      */
-    public Optional<Output<MultitenantDistributionTenantConfigArgs>> tenantConfig() {
-        return Optional.ofNullable(this.tenantConfig);
+    public Output<MultitenantDistributionTenantConfigArgs> tenantConfig() {
+        return this.tenantConfig;
     }
 
     @Import(name="timeouts")
@@ -235,15 +235,15 @@ public final class MultitenantDistributionArgs extends com.pulumi.resources.Reso
      * SSL configuration for this distribution. See Viewer Certificate below.
      * 
      */
-    @Import(name="viewerCertificate")
-    private @Nullable Output<MultitenantDistributionViewerCertificateArgs> viewerCertificate;
+    @Import(name="viewerCertificate", required=true)
+    private Output<MultitenantDistributionViewerCertificateArgs> viewerCertificate;
 
     /**
      * @return SSL configuration for this distribution. See Viewer Certificate below.
      * 
      */
-    public Optional<Output<MultitenantDistributionViewerCertificateArgs>> viewerCertificate() {
-        return Optional.ofNullable(this.viewerCertificate);
+    public Output<MultitenantDistributionViewerCertificateArgs> viewerCertificate() {
+        return this.viewerCertificate;
     }
 
     /**
@@ -420,7 +420,7 @@ public final class MultitenantDistributionArgs extends com.pulumi.resources.Reso
          * @return builder
          * 
          */
-        public Builder defaultCacheBehavior(@Nullable Output<MultitenantDistributionDefaultCacheBehaviorArgs> defaultCacheBehavior) {
+        public Builder defaultCacheBehavior(Output<MultitenantDistributionDefaultCacheBehaviorArgs> defaultCacheBehavior) {
             $.defaultCacheBehavior = defaultCacheBehavior;
             return this;
         }
@@ -608,7 +608,7 @@ public final class MultitenantDistributionArgs extends com.pulumi.resources.Reso
          * @return builder
          * 
          */
-        public Builder tenantConfig(@Nullable Output<MultitenantDistributionTenantConfigArgs> tenantConfig) {
+        public Builder tenantConfig(Output<MultitenantDistributionTenantConfigArgs> tenantConfig) {
             $.tenantConfig = tenantConfig;
             return this;
         }
@@ -638,7 +638,7 @@ public final class MultitenantDistributionArgs extends com.pulumi.resources.Reso
          * @return builder
          * 
          */
-        public Builder viewerCertificate(@Nullable Output<MultitenantDistributionViewerCertificateArgs> viewerCertificate) {
+        public Builder viewerCertificate(Output<MultitenantDistributionViewerCertificateArgs> viewerCertificate) {
             $.viewerCertificate = viewerCertificate;
             return this;
         }
@@ -678,8 +678,17 @@ public final class MultitenantDistributionArgs extends com.pulumi.resources.Reso
             if ($.comment == null) {
                 throw new MissingRequiredPropertyException("MultitenantDistributionArgs", "comment");
             }
+            if ($.defaultCacheBehavior == null) {
+                throw new MissingRequiredPropertyException("MultitenantDistributionArgs", "defaultCacheBehavior");
+            }
             if ($.enabled == null) {
                 throw new MissingRequiredPropertyException("MultitenantDistributionArgs", "enabled");
+            }
+            if ($.tenantConfig == null) {
+                throw new MissingRequiredPropertyException("MultitenantDistributionArgs", "tenantConfig");
+            }
+            if ($.viewerCertificate == null) {
+                throw new MissingRequiredPropertyException("MultitenantDistributionArgs", "viewerCertificate");
             }
             return $;
         }

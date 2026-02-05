@@ -9,8 +9,6 @@ import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
-import java.util.Optional;
-import javax.annotation.Nullable;
 
 
 public final class ScopeTargetArgs extends com.pulumi.resources.ResourceArgs {
@@ -36,15 +34,15 @@ public final class ScopeTargetArgs extends com.pulumi.resources.ResourceArgs {
      * A target identifier is a pair of identifying information for a scope.
      * 
      */
-    @Import(name="targetIdentifier")
-    private @Nullable Output<ScopeTargetTargetIdentifierArgs> targetIdentifier;
+    @Import(name="targetIdentifier", required=true)
+    private Output<ScopeTargetTargetIdentifierArgs> targetIdentifier;
 
     /**
      * @return A target identifier is a pair of identifying information for a scope.
      * 
      */
-    public Optional<Output<ScopeTargetTargetIdentifierArgs>> targetIdentifier() {
-        return Optional.ofNullable(this.targetIdentifier);
+    public Output<ScopeTargetTargetIdentifierArgs> targetIdentifier() {
+        return this.targetIdentifier;
     }
 
     private ScopeTargetArgs() {}
@@ -99,7 +97,7 @@ public final class ScopeTargetArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder targetIdentifier(@Nullable Output<ScopeTargetTargetIdentifierArgs> targetIdentifier) {
+        public Builder targetIdentifier(Output<ScopeTargetTargetIdentifierArgs> targetIdentifier) {
             $.targetIdentifier = targetIdentifier;
             return this;
         }
@@ -117,6 +115,9 @@ public final class ScopeTargetArgs extends com.pulumi.resources.ResourceArgs {
         public ScopeTargetArgs build() {
             if ($.region == null) {
                 throw new MissingRequiredPropertyException("ScopeTargetArgs", "region");
+            }
+            if ($.targetIdentifier == null) {
+                throw new MissingRequiredPropertyException("ScopeTargetArgs", "targetIdentifier");
             }
             return $;
         }

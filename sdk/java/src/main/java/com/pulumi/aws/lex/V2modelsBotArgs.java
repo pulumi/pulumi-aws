@@ -26,15 +26,15 @@ public final class V2modelsBotArgs extends com.pulumi.resources.ResourceArgs {
      * Provides information on additional privacy protections Amazon Lex should use with the bot&#39;s data. See `dataPrivacy`
      * 
      */
-    @Import(name="dataPrivacies")
-    private @Nullable Output<List<V2modelsBotDataPrivacyArgs>> dataPrivacies;
+    @Import(name="dataPrivacies", required=true)
+    private Output<List<V2modelsBotDataPrivacyArgs>> dataPrivacies;
 
     /**
      * @return Provides information on additional privacy protections Amazon Lex should use with the bot&#39;s data. See `dataPrivacy`
      * 
      */
-    public Optional<Output<List<V2modelsBotDataPrivacyArgs>>> dataPrivacies() {
-        return Optional.ofNullable(this.dataPrivacies);
+    public Output<List<V2modelsBotDataPrivacyArgs>> dataPrivacies() {
+        return this.dataPrivacies;
     }
 
     /**
@@ -223,7 +223,7 @@ public final class V2modelsBotArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder dataPrivacies(@Nullable Output<List<V2modelsBotDataPrivacyArgs>> dataPrivacies) {
+        public Builder dataPrivacies(Output<List<V2modelsBotDataPrivacyArgs>> dataPrivacies) {
             $.dataPrivacies = dataPrivacies;
             return this;
         }
@@ -461,6 +461,9 @@ public final class V2modelsBotArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public V2modelsBotArgs build() {
+            if ($.dataPrivacies == null) {
+                throw new MissingRequiredPropertyException("V2modelsBotArgs", "dataPrivacies");
+            }
             if ($.idleSessionTtlInSeconds == null) {
                 throw new MissingRequiredPropertyException("V2modelsBotArgs", "idleSessionTtlInSeconds");
             }

@@ -8,8 +8,6 @@ import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
-import java.util.Optional;
-import javax.annotation.Nullable;
 
 @CustomType
 public final class AgentcoreGatewayTargetTargetConfigurationMcpLambda {
@@ -22,7 +20,7 @@ public final class AgentcoreGatewayTargetTargetConfigurationMcpLambda {
      * @return Schema definition for the tool. See `toolSchema` below.
      * 
      */
-    private @Nullable AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchema toolSchema;
+    private AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchema toolSchema;
 
     private AgentcoreGatewayTargetTargetConfigurationMcpLambda() {}
     /**
@@ -36,8 +34,8 @@ public final class AgentcoreGatewayTargetTargetConfigurationMcpLambda {
      * @return Schema definition for the tool. See `toolSchema` below.
      * 
      */
-    public Optional<AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchema> toolSchema() {
-        return Optional.ofNullable(this.toolSchema);
+    public AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchema toolSchema() {
+        return this.toolSchema;
     }
 
     public static Builder builder() {
@@ -50,7 +48,7 @@ public final class AgentcoreGatewayTargetTargetConfigurationMcpLambda {
     @CustomType.Builder
     public static final class Builder {
         private String lambdaArn;
-        private @Nullable AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchema toolSchema;
+        private AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchema toolSchema;
         public Builder() {}
         public Builder(AgentcoreGatewayTargetTargetConfigurationMcpLambda defaults) {
     	      Objects.requireNonNull(defaults);
@@ -67,8 +65,10 @@ public final class AgentcoreGatewayTargetTargetConfigurationMcpLambda {
             return this;
         }
         @CustomType.Setter
-        public Builder toolSchema(@Nullable AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchema toolSchema) {
-
+        public Builder toolSchema(AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchema toolSchema) {
+            if (toolSchema == null) {
+              throw new MissingRequiredPropertyException("AgentcoreGatewayTargetTargetConfigurationMcpLambda", "toolSchema");
+            }
             this.toolSchema = toolSchema;
             return this;
         }

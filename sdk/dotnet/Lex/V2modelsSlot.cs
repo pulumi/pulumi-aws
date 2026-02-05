@@ -100,7 +100,7 @@ namespace Pulumi.Aws.Lex
         public Output<Outputs.V2modelsSlotTimeouts?> Timeouts { get; private set; } = null!;
 
         [Output("valueElicitationSetting")]
-        public Output<Outputs.V2modelsSlotValueElicitationSetting?> ValueElicitationSetting { get; private set; } = null!;
+        public Output<Outputs.V2modelsSlotValueElicitationSetting> ValueElicitationSetting { get; private set; } = null!;
 
 
         /// <summary>
@@ -238,8 +238,8 @@ namespace Pulumi.Aws.Lex
         [Input("timeouts")]
         public Input<Inputs.V2modelsSlotTimeoutsArgs>? Timeouts { get; set; }
 
-        [Input("valueElicitationSetting")]
-        public Input<Inputs.V2modelsSlotValueElicitationSettingArgs>? ValueElicitationSetting { get; set; }
+        [Input("valueElicitationSetting", required: true)]
+        public Input<Inputs.V2modelsSlotValueElicitationSettingArgs> ValueElicitationSetting { get; set; } = null!;
 
         public V2modelsSlotArgs()
         {

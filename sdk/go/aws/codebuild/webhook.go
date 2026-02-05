@@ -95,11 +95,13 @@ import (
 //				},
 //				Name:       "example",
 //				Repository: pulumi.Any(exampleGithubRepository.Name),
-//				Configuration: &github.RepositoryWebhookConfigurationArgs{
-//					Url:         example.PayloadUrl,
-//					Secret:      example.Secret,
-//					ContentType: pulumi.String("json"),
-//					InsecureSsl: pulumi.Bool(false),
+//				Configuration: github.RepositoryWebhookConfigurationArgs{
+//					map[string]interface{}{
+//						"url":         example.PayloadUrl,
+//						"secret":      example.Secret,
+//						"contentType": "json",
+//						"insecureSsl": false,
+//					},
 //				},
 //			})
 //			if err != nil {

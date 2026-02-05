@@ -39,15 +39,15 @@ public final class V2modelsIntentConfirmationSettingPromptSpecificationPromptAtt
      * Configuration block for the allowed input types of the prompt attempt. See `allowedInputTypes`.
      * 
      */
-    @Import(name="allowedInputTypes", required=true)
-    private Output<V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationAllowedInputTypesArgs> allowedInputTypes;
+    @Import(name="allowedInputTypes")
+    private @Nullable Output<V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationAllowedInputTypesArgs> allowedInputTypes;
 
     /**
      * @return Configuration block for the allowed input types of the prompt attempt. See `allowedInputTypes`.
      * 
      */
-    public Output<V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationAllowedInputTypesArgs> allowedInputTypes() {
-        return this.allowedInputTypes;
+    public Optional<Output<V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationAllowedInputTypesArgs>> allowedInputTypes() {
+        return Optional.ofNullable(this.allowedInputTypes);
     }
 
     /**
@@ -150,7 +150,7 @@ public final class V2modelsIntentConfirmationSettingPromptSpecificationPromptAtt
          * @return builder
          * 
          */
-        public Builder allowedInputTypes(Output<V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationAllowedInputTypesArgs> allowedInputTypes) {
+        public Builder allowedInputTypes(@Nullable Output<V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationAllowedInputTypesArgs> allowedInputTypes) {
             $.allowedInputTypes = allowedInputTypes;
             return this;
         }
@@ -229,9 +229,6 @@ public final class V2modelsIntentConfirmationSettingPromptSpecificationPromptAtt
         }
 
         public V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationArgs build() {
-            if ($.allowedInputTypes == null) {
-                throw new MissingRequiredPropertyException("V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationArgs", "allowedInputTypes");
-            }
             if ($.mapBlockKey == null) {
                 throw new MissingRequiredPropertyException("V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationArgs", "mapBlockKey");
             }

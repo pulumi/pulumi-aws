@@ -65,7 +65,7 @@ namespace Pulumi.Aws.Fsx
         /// Configuration to use when creating and attaching an S3 access point to an FSx for OpenZFS volume. See `OpenzfsConfiguration` Block for details.
         /// </summary>
         [Output("openzfsConfiguration")]
-        public Output<Outputs.S3AccessPointAttachmentOpenzfsConfiguration?> OpenzfsConfiguration { get; private set; } = null!;
+        public Output<Outputs.S3AccessPointAttachmentOpenzfsConfiguration> OpenzfsConfiguration { get; private set; } = null!;
 
         /// <summary>
         /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -157,8 +157,8 @@ namespace Pulumi.Aws.Fsx
         /// <summary>
         /// Configuration to use when creating and attaching an S3 access point to an FSx for OpenZFS volume. See `OpenzfsConfiguration` Block for details.
         /// </summary>
-        [Input("openzfsConfiguration")]
-        public Input<Inputs.S3AccessPointAttachmentOpenzfsConfigurationArgs>? OpenzfsConfiguration { get; set; }
+        [Input("openzfsConfiguration", required: true)]
+        public Input<Inputs.S3AccessPointAttachmentOpenzfsConfigurationArgs> OpenzfsConfiguration { get; set; } = null!;
 
         /// <summary>
         /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.

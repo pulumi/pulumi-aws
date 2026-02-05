@@ -16,10 +16,10 @@ namespace Pulumi.Aws.CloudFront.Outputs
         /// <summary>
         /// Geographic restriction configuration. See Geo Restriction below.
         /// </summary>
-        public readonly Outputs.MultitenantDistributionRestrictionsGeoRestriction? GeoRestriction;
+        public readonly Outputs.MultitenantDistributionRestrictionsGeoRestriction GeoRestriction;
 
         [OutputConstructor]
-        private MultitenantDistributionRestrictions(Outputs.MultitenantDistributionRestrictionsGeoRestriction? geoRestriction)
+        private MultitenantDistributionRestrictions(Outputs.MultitenantDistributionRestrictionsGeoRestriction geoRestriction)
         {
             GeoRestriction = geoRestriction;
         }

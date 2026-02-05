@@ -400,14 +400,14 @@ public class CloudAutonomousVmCluster extends com.pulumi.resources.CustomResourc
      * 
      */
     @Export(name="maintenanceWindow", refs={CloudAutonomousVmClusterMaintenanceWindow.class}, tree="[0]")
-    private Output</* @Nullable */ CloudAutonomousVmClusterMaintenanceWindow> maintenanceWindow;
+    private Output<CloudAutonomousVmClusterMaintenanceWindow> maintenanceWindow;
 
     /**
      * @return The maintenance window of the Autonomous VM cluster.
      * 
      */
-    public Output<Optional<CloudAutonomousVmClusterMaintenanceWindow>> maintenanceWindow() {
-        return Codegen.optional(this.maintenanceWindow);
+    public Output<CloudAutonomousVmClusterMaintenanceWindow> maintenanceWindow() {
+        return this.maintenanceWindow;
     }
     /**
      * The minimum value to which you can scale down the maximum number of Autonomous CDBs.

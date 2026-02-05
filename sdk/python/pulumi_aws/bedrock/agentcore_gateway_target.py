@@ -22,24 +22,25 @@ __all__ = ['AgentcoreGatewayTargetArgs', 'AgentcoreGatewayTarget']
 class AgentcoreGatewayTargetArgs:
     def __init__(__self__, *,
                  gateway_identifier: pulumi.Input[_builtins.str],
+                 target_configuration: pulumi.Input['AgentcoreGatewayTargetTargetConfigurationArgs'],
                  credential_provider_configuration: Optional[pulumi.Input['AgentcoreGatewayTargetCredentialProviderConfigurationArgs']] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  region: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_configuration: Optional[pulumi.Input['AgentcoreGatewayTargetTargetConfigurationArgs']] = None,
                  timeouts: Optional[pulumi.Input['AgentcoreGatewayTargetTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a AgentcoreGatewayTarget resource.
         :param pulumi.Input[_builtins.str] gateway_identifier: Identifier of the gateway that this target belongs to.
+        :param pulumi.Input['AgentcoreGatewayTargetTargetConfigurationArgs'] target_configuration: Configuration for the target endpoint. See `target_configuration` below.
+               
+               The following arguments are optional:
         :param pulumi.Input['AgentcoreGatewayTargetCredentialProviderConfigurationArgs'] credential_provider_configuration: Configuration for authenticating requests to the target. Required when using `lambda`, `open_api_schema` and `smithy_model` in `mcp` block. If using `mcp_server` in `mcp` block with no authorization, it should not be specified. See `credential_provider_configuration` below.
         :param pulumi.Input[_builtins.str] description: Description of the gateway target.
         :param pulumi.Input[_builtins.str] name: Name of the gateway target.
         :param pulumi.Input[_builtins.str] region: AWS region where the resource will be created. If not provided, the region from the provider configuration will be used.
-        :param pulumi.Input['AgentcoreGatewayTargetTargetConfigurationArgs'] target_configuration: Configuration for the target endpoint. See `target_configuration` below.
-               
-               The following arguments are optional:
         """
         pulumi.set(__self__, "gateway_identifier", gateway_identifier)
+        pulumi.set(__self__, "target_configuration", target_configuration)
         if credential_provider_configuration is not None:
             pulumi.set(__self__, "credential_provider_configuration", credential_provider_configuration)
         if description is not None:
@@ -48,8 +49,6 @@ class AgentcoreGatewayTargetArgs:
             pulumi.set(__self__, "name", name)
         if region is not None:
             pulumi.set(__self__, "region", region)
-        if target_configuration is not None:
-            pulumi.set(__self__, "target_configuration", target_configuration)
         if timeouts is not None:
             pulumi.set(__self__, "timeouts", timeouts)
 
@@ -64,6 +63,20 @@ class AgentcoreGatewayTargetArgs:
     @gateway_identifier.setter
     def gateway_identifier(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "gateway_identifier", value)
+
+    @_builtins.property
+    @pulumi.getter(name="targetConfiguration")
+    def target_configuration(self) -> pulumi.Input['AgentcoreGatewayTargetTargetConfigurationArgs']:
+        """
+        Configuration for the target endpoint. See `target_configuration` below.
+
+        The following arguments are optional:
+        """
+        return pulumi.get(self, "target_configuration")
+
+    @target_configuration.setter
+    def target_configuration(self, value: pulumi.Input['AgentcoreGatewayTargetTargetConfigurationArgs']):
+        pulumi.set(self, "target_configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="credentialProviderConfiguration")
@@ -112,20 +125,6 @@ class AgentcoreGatewayTargetArgs:
     @region.setter
     def region(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "region", value)
-
-    @_builtins.property
-    @pulumi.getter(name="targetConfiguration")
-    def target_configuration(self) -> Optional[pulumi.Input['AgentcoreGatewayTargetTargetConfigurationArgs']]:
-        """
-        Configuration for the target endpoint. See `target_configuration` below.
-
-        The following arguments are optional:
-        """
-        return pulumi.get(self, "target_configuration")
-
-    @target_configuration.setter
-    def target_configuration(self, value: Optional[pulumi.Input['AgentcoreGatewayTargetTargetConfigurationArgs']]):
-        pulumi.set(self, "target_configuration", value)
 
     @_builtins.property
     @pulumi.getter
@@ -882,6 +881,8 @@ class AgentcoreGatewayTarget(pulumi.CustomResource):
             __props__.__dict__["gateway_identifier"] = gateway_identifier
             __props__.__dict__["name"] = name
             __props__.__dict__["region"] = region
+            if target_configuration is None and not opts.urn:
+                raise TypeError("Missing required property 'target_configuration'")
             __props__.__dict__["target_configuration"] = target_configuration
             __props__.__dict__["timeouts"] = timeouts
             __props__.__dict__["target_id"] = None
@@ -976,7 +977,7 @@ class AgentcoreGatewayTarget(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="targetConfiguration")
-    def target_configuration(self) -> pulumi.Output[Optional['outputs.AgentcoreGatewayTargetTargetConfiguration']]:
+    def target_configuration(self) -> pulumi.Output['outputs.AgentcoreGatewayTargetTargetConfiguration']:
         """
         Configuration for the target endpoint. See `target_configuration` below.
 

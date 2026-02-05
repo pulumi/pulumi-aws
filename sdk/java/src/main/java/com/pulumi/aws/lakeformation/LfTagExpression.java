@@ -112,7 +112,7 @@ public class LfTagExpression extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="expressions", refs={List.class,LfTagExpressionExpression.class}, tree="[0,1]")
-    private Output</* @Nullable */ List<LfTagExpressionExpression>> expressions;
+    private Output<List<LfTagExpressionExpression>> expressions;
 
     /**
      * @return A list of LF-Tag conditions (key-value pairs). See expression for more details.
@@ -120,8 +120,8 @@ public class LfTagExpression extends com.pulumi.resources.CustomResource {
      * The following arguments are optional:
      * 
      */
-    public Output<Optional<List<LfTagExpressionExpression>>> expressions() {
-        return Codegen.optional(this.expressions);
+    public Output<List<LfTagExpressionExpression>> expressions() {
+        return this.expressions;
     }
     /**
      * Name of the LF-Tag Expression.
@@ -164,7 +164,7 @@ public class LfTagExpression extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public LfTagExpression(java.lang.String name, @Nullable LfTagExpressionArgs args) {
+    public LfTagExpression(java.lang.String name, LfTagExpressionArgs args) {
         this(name, args, null);
     }
     /**
@@ -173,7 +173,7 @@ public class LfTagExpression extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public LfTagExpression(java.lang.String name, @Nullable LfTagExpressionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public LfTagExpression(java.lang.String name, LfTagExpressionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:lakeformation/lfTagExpression:LfTagExpression", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
@@ -181,7 +181,7 @@ public class LfTagExpression extends com.pulumi.resources.CustomResource {
         super("aws:lakeformation/lfTagExpression:LfTagExpression", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static LfTagExpressionArgs makeArgs(@Nullable LfTagExpressionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    private static LfTagExpressionArgs makeArgs(LfTagExpressionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         if (options != null && options.getUrn().isPresent()) {
             return null;
         }

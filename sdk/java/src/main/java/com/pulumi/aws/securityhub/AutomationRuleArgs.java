@@ -26,30 +26,30 @@ public final class AutomationRuleArgs extends com.pulumi.resources.ResourceArgs 
      * A block that specifies one or more actions to update finding fields if a finding matches the conditions specified in `Criteria`. Documented below.
      * 
      */
-    @Import(name="actions")
-    private @Nullable Output<List<AutomationRuleActionArgs>> actions;
+    @Import(name="actions", required=true)
+    private Output<List<AutomationRuleActionArgs>> actions;
 
     /**
      * @return A block that specifies one or more actions to update finding fields if a finding matches the conditions specified in `Criteria`. Documented below.
      * 
      */
-    public Optional<Output<List<AutomationRuleActionArgs>>> actions() {
-        return Optional.ofNullable(this.actions);
+    public Output<List<AutomationRuleActionArgs>> actions() {
+        return this.actions;
     }
 
     /**
      * A block that specifies a set of ASFF finding field attributes and corresponding expected values that Security Hub uses to filter findings. Documented below.
      * 
      */
-    @Import(name="criteria")
-    private @Nullable Output<AutomationRuleCriteriaArgs> criteria;
+    @Import(name="criteria", required=true)
+    private Output<AutomationRuleCriteriaArgs> criteria;
 
     /**
      * @return A block that specifies a set of ASFF finding field attributes and corresponding expected values that Security Hub uses to filter findings. Documented below.
      * 
      */
-    public Optional<Output<AutomationRuleCriteriaArgs>> criteria() {
-        return Optional.ofNullable(this.criteria);
+    public Output<AutomationRuleCriteriaArgs> criteria() {
+        return this.criteria;
     }
 
     /**
@@ -187,7 +187,7 @@ public final class AutomationRuleArgs extends com.pulumi.resources.ResourceArgs 
          * @return builder
          * 
          */
-        public Builder actions(@Nullable Output<List<AutomationRuleActionArgs>> actions) {
+        public Builder actions(Output<List<AutomationRuleActionArgs>> actions) {
             $.actions = actions;
             return this;
         }
@@ -218,7 +218,7 @@ public final class AutomationRuleArgs extends com.pulumi.resources.ResourceArgs 
          * @return builder
          * 
          */
-        public Builder criteria(@Nullable Output<AutomationRuleCriteriaArgs> criteria) {
+        public Builder criteria(Output<AutomationRuleCriteriaArgs> criteria) {
             $.criteria = criteria;
             return this;
         }
@@ -369,6 +369,12 @@ public final class AutomationRuleArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         public AutomationRuleArgs build() {
+            if ($.actions == null) {
+                throw new MissingRequiredPropertyException("AutomationRuleArgs", "actions");
+            }
+            if ($.criteria == null) {
+                throw new MissingRequiredPropertyException("AutomationRuleArgs", "criteria");
+            }
             if ($.description == null) {
                 throw new MissingRequiredPropertyException("AutomationRuleArgs", "description");
             }

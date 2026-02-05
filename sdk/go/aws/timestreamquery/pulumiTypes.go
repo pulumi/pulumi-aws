@@ -2882,7 +2882,7 @@ func (o ScheduledQueryScheduleConfigurationPtrOutput) ScheduleExpression() pulum
 
 type ScheduledQueryTargetConfiguration struct {
 	// Configuration block for information needed to write data into the Timestream database and table. See below.
-	TimestreamConfiguration *ScheduledQueryTargetConfigurationTimestreamConfiguration `pulumi:"timestreamConfiguration"`
+	TimestreamConfiguration ScheduledQueryTargetConfigurationTimestreamConfiguration `pulumi:"timestreamConfiguration"`
 }
 
 // ScheduledQueryTargetConfigurationInput is an input type that accepts ScheduledQueryTargetConfigurationArgs and ScheduledQueryTargetConfigurationOutput values.
@@ -2898,7 +2898,7 @@ type ScheduledQueryTargetConfigurationInput interface {
 
 type ScheduledQueryTargetConfigurationArgs struct {
 	// Configuration block for information needed to write data into the Timestream database and table. See below.
-	TimestreamConfiguration ScheduledQueryTargetConfigurationTimestreamConfigurationPtrInput `pulumi:"timestreamConfiguration"`
+	TimestreamConfiguration ScheduledQueryTargetConfigurationTimestreamConfigurationInput `pulumi:"timestreamConfiguration"`
 }
 
 func (ScheduledQueryTargetConfigurationArgs) ElementType() reflect.Type {
@@ -2979,10 +2979,10 @@ func (o ScheduledQueryTargetConfigurationOutput) ToScheduledQueryTargetConfigura
 }
 
 // Configuration block for information needed to write data into the Timestream database and table. See below.
-func (o ScheduledQueryTargetConfigurationOutput) TimestreamConfiguration() ScheduledQueryTargetConfigurationTimestreamConfigurationPtrOutput {
-	return o.ApplyT(func(v ScheduledQueryTargetConfiguration) *ScheduledQueryTargetConfigurationTimestreamConfiguration {
+func (o ScheduledQueryTargetConfigurationOutput) TimestreamConfiguration() ScheduledQueryTargetConfigurationTimestreamConfigurationOutput {
+	return o.ApplyT(func(v ScheduledQueryTargetConfiguration) ScheduledQueryTargetConfigurationTimestreamConfiguration {
 		return v.TimestreamConfiguration
-	}).(ScheduledQueryTargetConfigurationTimestreamConfigurationPtrOutput)
+	}).(ScheduledQueryTargetConfigurationTimestreamConfigurationOutput)
 }
 
 type ScheduledQueryTargetConfigurationPtrOutput struct{ *pulumi.OutputState }
@@ -3015,7 +3015,7 @@ func (o ScheduledQueryTargetConfigurationPtrOutput) TimestreamConfiguration() Sc
 		if v == nil {
 			return nil
 		}
-		return v.TimestreamConfiguration
+		return &v.TimestreamConfiguration
 	}).(ScheduledQueryTargetConfigurationTimestreamConfigurationPtrOutput)
 }
 

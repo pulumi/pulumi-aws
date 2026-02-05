@@ -6,9 +6,8 @@ package com.pulumi.aws.cloudfront.inputs;
 import com.pulumi.aws.cloudfront.inputs.MultitenantDistributionRestrictionsGeoRestrictionArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.Objects;
-import java.util.Optional;
-import javax.annotation.Nullable;
 
 
 public final class MultitenantDistributionRestrictionsArgs extends com.pulumi.resources.ResourceArgs {
@@ -19,15 +18,15 @@ public final class MultitenantDistributionRestrictionsArgs extends com.pulumi.re
      * Geographic restriction configuration. See Geo Restriction below.
      * 
      */
-    @Import(name="geoRestriction")
-    private @Nullable Output<MultitenantDistributionRestrictionsGeoRestrictionArgs> geoRestriction;
+    @Import(name="geoRestriction", required=true)
+    private Output<MultitenantDistributionRestrictionsGeoRestrictionArgs> geoRestriction;
 
     /**
      * @return Geographic restriction configuration. See Geo Restriction below.
      * 
      */
-    public Optional<Output<MultitenantDistributionRestrictionsGeoRestrictionArgs>> geoRestriction() {
-        return Optional.ofNullable(this.geoRestriction);
+    public Output<MultitenantDistributionRestrictionsGeoRestrictionArgs> geoRestriction() {
+        return this.geoRestriction;
     }
 
     private MultitenantDistributionRestrictionsArgs() {}
@@ -60,7 +59,7 @@ public final class MultitenantDistributionRestrictionsArgs extends com.pulumi.re
          * @return builder
          * 
          */
-        public Builder geoRestriction(@Nullable Output<MultitenantDistributionRestrictionsGeoRestrictionArgs> geoRestriction) {
+        public Builder geoRestriction(Output<MultitenantDistributionRestrictionsGeoRestrictionArgs> geoRestriction) {
             $.geoRestriction = geoRestriction;
             return this;
         }
@@ -76,6 +75,9 @@ public final class MultitenantDistributionRestrictionsArgs extends com.pulumi.re
         }
 
         public MultitenantDistributionRestrictionsArgs build() {
+            if ($.geoRestriction == null) {
+                throw new MissingRequiredPropertyException("MultitenantDistributionRestrictionsArgs", "geoRestriction");
+            }
             return $;
         }
     }

@@ -10,8 +10,6 @@ import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.util.List;
 import java.util.Objects;
-import java.util.Optional;
-import javax.annotation.Nullable;
 
 
 public final class ProactiveEngagementArgs extends com.pulumi.resources.ResourceArgs {
@@ -22,15 +20,15 @@ public final class ProactiveEngagementArgs extends com.pulumi.resources.Resource
      * One or more emergency contacts. You must provide at least one phone number in the emergency contact list. See `emergencyContacts`.
      * 
      */
-    @Import(name="emergencyContacts")
-    private @Nullable Output<List<ProactiveEngagementEmergencyContactArgs>> emergencyContacts;
+    @Import(name="emergencyContacts", required=true)
+    private Output<List<ProactiveEngagementEmergencyContactArgs>> emergencyContacts;
 
     /**
      * @return One or more emergency contacts. You must provide at least one phone number in the emergency contact list. See `emergencyContacts`.
      * 
      */
-    public Optional<Output<List<ProactiveEngagementEmergencyContactArgs>>> emergencyContacts() {
-        return Optional.ofNullable(this.emergencyContacts);
+    public Output<List<ProactiveEngagementEmergencyContactArgs>> emergencyContacts() {
+        return this.emergencyContacts;
     }
 
     /**
@@ -79,7 +77,7 @@ public final class ProactiveEngagementArgs extends com.pulumi.resources.Resource
          * @return builder
          * 
          */
-        public Builder emergencyContacts(@Nullable Output<List<ProactiveEngagementEmergencyContactArgs>> emergencyContacts) {
+        public Builder emergencyContacts(Output<List<ProactiveEngagementEmergencyContactArgs>> emergencyContacts) {
             $.emergencyContacts = emergencyContacts;
             return this;
         }
@@ -126,6 +124,9 @@ public final class ProactiveEngagementArgs extends com.pulumi.resources.Resource
         }
 
         public ProactiveEngagementArgs build() {
+            if ($.emergencyContacts == null) {
+                throw new MissingRequiredPropertyException("ProactiveEngagementArgs", "emergencyContacts");
+            }
             if ($.enabled == null) {
                 throw new MissingRequiredPropertyException("ProactiveEngagementArgs", "enabled");
             }

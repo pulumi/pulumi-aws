@@ -116,7 +116,7 @@ public class BucketMetadataConfiguration extends com.pulumi.resources.CustomReso
      * 
      */
     @Export(name="metadataConfiguration", refs={BucketMetadataConfigurationMetadataConfiguration.class}, tree="[0]")
-    private Output</* @Nullable */ BucketMetadataConfigurationMetadataConfiguration> metadataConfiguration;
+    private Output<BucketMetadataConfigurationMetadataConfiguration> metadataConfiguration;
 
     /**
      * @return Metadata configuration. See `metadataConfiguration` Block for details.
@@ -124,8 +124,8 @@ public class BucketMetadataConfiguration extends com.pulumi.resources.CustomReso
      * The following arguments are optional:
      * 
      */
-    public Output<Optional<BucketMetadataConfigurationMetadataConfiguration>> metadataConfiguration() {
-        return Codegen.optional(this.metadataConfiguration);
+    public Output<BucketMetadataConfigurationMetadataConfiguration> metadataConfiguration() {
+        return this.metadataConfiguration;
     }
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.

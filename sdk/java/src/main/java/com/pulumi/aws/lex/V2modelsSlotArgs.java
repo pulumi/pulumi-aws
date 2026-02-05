@@ -200,11 +200,11 @@ public final class V2modelsSlotArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.timeouts);
     }
 
-    @Import(name="valueElicitationSetting")
-    private @Nullable Output<V2modelsSlotValueElicitationSettingArgs> valueElicitationSetting;
+    @Import(name="valueElicitationSetting", required=true)
+    private Output<V2modelsSlotValueElicitationSettingArgs> valueElicitationSetting;
 
-    public Optional<Output<V2modelsSlotValueElicitationSettingArgs>> valueElicitationSetting() {
-        return Optional.ofNullable(this.valueElicitationSetting);
+    public Output<V2modelsSlotValueElicitationSettingArgs> valueElicitationSetting() {
+        return this.valueElicitationSetting;
     }
 
     private V2modelsSlotArgs() {}
@@ -522,7 +522,7 @@ public final class V2modelsSlotArgs extends com.pulumi.resources.ResourceArgs {
             return timeouts(Output.of(timeouts));
         }
 
-        public Builder valueElicitationSetting(@Nullable Output<V2modelsSlotValueElicitationSettingArgs> valueElicitationSetting) {
+        public Builder valueElicitationSetting(Output<V2modelsSlotValueElicitationSettingArgs> valueElicitationSetting) {
             $.valueElicitationSetting = valueElicitationSetting;
             return this;
         }
@@ -543,6 +543,9 @@ public final class V2modelsSlotArgs extends com.pulumi.resources.ResourceArgs {
             }
             if ($.localeId == null) {
                 throw new MissingRequiredPropertyException("V2modelsSlotArgs", "localeId");
+            }
+            if ($.valueElicitationSetting == null) {
+                throw new MissingRequiredPropertyException("V2modelsSlotArgs", "valueElicitationSetting");
             }
             return $;
         }

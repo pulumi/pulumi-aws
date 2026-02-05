@@ -57,7 +57,7 @@ namespace Pulumi.Aws.Qbusiness
         /// Information about whether file upload functionality is activated or deactivated for your end user. See `AttachmentsConfiguration` below.
         /// </summary>
         [Output("attachmentsConfiguration")]
-        public Output<Outputs.ApplicationAttachmentsConfiguration?> AttachmentsConfiguration { get; private set; } = null!;
+        public Output<Outputs.ApplicationAttachmentsConfiguration> AttachmentsConfiguration { get; private set; } = null!;
 
         /// <summary>
         /// Description of the Amazon Q application.
@@ -164,8 +164,8 @@ namespace Pulumi.Aws.Qbusiness
         /// <summary>
         /// Information about whether file upload functionality is activated or deactivated for your end user. See `AttachmentsConfiguration` below.
         /// </summary>
-        [Input("attachmentsConfiguration")]
-        public Input<Inputs.ApplicationAttachmentsConfigurationArgs>? AttachmentsConfiguration { get; set; }
+        [Input("attachmentsConfiguration", required: true)]
+        public Input<Inputs.ApplicationAttachmentsConfigurationArgs> AttachmentsConfiguration { get; set; } = null!;
 
         /// <summary>
         /// Description of the Amazon Q application.

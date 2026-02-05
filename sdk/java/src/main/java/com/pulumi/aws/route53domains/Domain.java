@@ -149,14 +149,14 @@ public class Domain extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="adminContact", refs={DomainAdminContact.class}, tree="[0]")
-    private Output</* @Nullable */ DomainAdminContact> adminContact;
+    private Output<DomainAdminContact> adminContact;
 
     /**
      * @return Details about the domain administrative contact. See Contact Blocks for more details.
      * 
      */
-    public Output<Optional<DomainAdminContact>> adminContact() {
-        return Codegen.optional(this.adminContact);
+    public Output<DomainAdminContact> adminContact() {
+        return this.adminContact;
     }
     /**
      * Whether domain administrative contact information is concealed from WHOIS queries. Default: `true`.
@@ -303,14 +303,14 @@ public class Domain extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="registrantContact", refs={DomainRegistrantContact.class}, tree="[0]")
-    private Output</* @Nullable */ DomainRegistrantContact> registrantContact;
+    private Output<DomainRegistrantContact> registrantContact;
 
     /**
      * @return Details about the domain registrant. See Contact Blocks for more details.
      * 
      */
-    public Output<Optional<DomainRegistrantContact>> registrantContact() {
-        return Codegen.optional(this.registrantContact);
+    public Output<DomainRegistrantContact> registrantContact() {
+        return this.registrantContact;
     }
     /**
      * Whether domain registrant contact information is concealed from WHOIS queries. Default: `true`.
@@ -401,14 +401,14 @@ public class Domain extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="techContact", refs={DomainTechContact.class}, tree="[0]")
-    private Output</* @Nullable */ DomainTechContact> techContact;
+    private Output<DomainTechContact> techContact;
 
     /**
      * @return Details about the domain technical contact. See Contact Blocks for more details.
      * 
      */
-    public Output<Optional<DomainTechContact>> techContact() {
-        return Codegen.optional(this.techContact);
+    public Output<DomainTechContact> techContact() {
+        return this.techContact;
     }
     /**
      * Whether domain technical contact information is concealed from WHOIS queries. Default: `true`.

@@ -15,9 +15,9 @@ var _ = internal.GetEnvOrDefault
 
 type CentralizationRuleForOrganizationRule struct {
 	// Configuration block for the destination where logs will be centralized. See `destination` below.
-	Destination *CentralizationRuleForOrganizationRuleDestination `pulumi:"destination"`
+	Destination CentralizationRuleForOrganizationRuleDestination `pulumi:"destination"`
 	// Configuration block for the source of logs to be centralized. See `source` below.
-	Source *CentralizationRuleForOrganizationRuleSource `pulumi:"source"`
+	Source CentralizationRuleForOrganizationRuleSource `pulumi:"source"`
 }
 
 // CentralizationRuleForOrganizationRuleInput is an input type that accepts CentralizationRuleForOrganizationRuleArgs and CentralizationRuleForOrganizationRuleOutput values.
@@ -33,9 +33,9 @@ type CentralizationRuleForOrganizationRuleInput interface {
 
 type CentralizationRuleForOrganizationRuleArgs struct {
 	// Configuration block for the destination where logs will be centralized. See `destination` below.
-	Destination CentralizationRuleForOrganizationRuleDestinationPtrInput `pulumi:"destination"`
+	Destination CentralizationRuleForOrganizationRuleDestinationInput `pulumi:"destination"`
 	// Configuration block for the source of logs to be centralized. See `source` below.
-	Source CentralizationRuleForOrganizationRuleSourcePtrInput `pulumi:"source"`
+	Source CentralizationRuleForOrganizationRuleSourceInput `pulumi:"source"`
 }
 
 func (CentralizationRuleForOrganizationRuleArgs) ElementType() reflect.Type {
@@ -116,17 +116,17 @@ func (o CentralizationRuleForOrganizationRuleOutput) ToCentralizationRuleForOrga
 }
 
 // Configuration block for the destination where logs will be centralized. See `destination` below.
-func (o CentralizationRuleForOrganizationRuleOutput) Destination() CentralizationRuleForOrganizationRuleDestinationPtrOutput {
-	return o.ApplyT(func(v CentralizationRuleForOrganizationRule) *CentralizationRuleForOrganizationRuleDestination {
+func (o CentralizationRuleForOrganizationRuleOutput) Destination() CentralizationRuleForOrganizationRuleDestinationOutput {
+	return o.ApplyT(func(v CentralizationRuleForOrganizationRule) CentralizationRuleForOrganizationRuleDestination {
 		return v.Destination
-	}).(CentralizationRuleForOrganizationRuleDestinationPtrOutput)
+	}).(CentralizationRuleForOrganizationRuleDestinationOutput)
 }
 
 // Configuration block for the source of logs to be centralized. See `source` below.
-func (o CentralizationRuleForOrganizationRuleOutput) Source() CentralizationRuleForOrganizationRuleSourcePtrOutput {
-	return o.ApplyT(func(v CentralizationRuleForOrganizationRule) *CentralizationRuleForOrganizationRuleSource {
+func (o CentralizationRuleForOrganizationRuleOutput) Source() CentralizationRuleForOrganizationRuleSourceOutput {
+	return o.ApplyT(func(v CentralizationRuleForOrganizationRule) CentralizationRuleForOrganizationRuleSource {
 		return v.Source
-	}).(CentralizationRuleForOrganizationRuleSourcePtrOutput)
+	}).(CentralizationRuleForOrganizationRuleSourceOutput)
 }
 
 type CentralizationRuleForOrganizationRulePtrOutput struct{ *pulumi.OutputState }
@@ -159,7 +159,7 @@ func (o CentralizationRuleForOrganizationRulePtrOutput) Destination() Centraliza
 		if v == nil {
 			return nil
 		}
-		return v.Destination
+		return &v.Destination
 	}).(CentralizationRuleForOrganizationRuleDestinationPtrOutput)
 }
 
@@ -169,7 +169,7 @@ func (o CentralizationRuleForOrganizationRulePtrOutput) Source() CentralizationR
 		if v == nil {
 			return nil
 		}
-		return v.Source
+		return &v.Source
 	}).(CentralizationRuleForOrganizationRuleSourcePtrOutput)
 }
 

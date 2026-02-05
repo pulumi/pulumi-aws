@@ -23952,7 +23952,7 @@ type LabelingJobHumanTaskConfig struct {
 	// Title for the task.
 	TaskTitle string `pulumi:"taskTitle"`
 	// Information about the user interface that workers use to complete the labeling task. Fields are documented below.
-	UiConfig *LabelingJobHumanTaskConfigUiConfig `pulumi:"uiConfig"`
+	UiConfig LabelingJobHumanTaskConfigUiConfig `pulumi:"uiConfig"`
 	// ARN of the work team assigned to complete the tasks.
 	WorkteamArn string `pulumi:"workteamArn"`
 }
@@ -23990,7 +23990,7 @@ type LabelingJobHumanTaskConfigArgs struct {
 	// Title for the task.
 	TaskTitle pulumi.StringInput `pulumi:"taskTitle"`
 	// Information about the user interface that workers use to complete the labeling task. Fields are documented below.
-	UiConfig LabelingJobHumanTaskConfigUiConfigPtrInput `pulumi:"uiConfig"`
+	UiConfig LabelingJobHumanTaskConfigUiConfigInput `pulumi:"uiConfig"`
 	// ARN of the work team assigned to complete the tasks.
 	WorkteamArn pulumi.StringInput `pulumi:"workteamArn"`
 }
@@ -24127,8 +24127,8 @@ func (o LabelingJobHumanTaskConfigOutput) TaskTitle() pulumi.StringOutput {
 }
 
 // Information about the user interface that workers use to complete the labeling task. Fields are documented below.
-func (o LabelingJobHumanTaskConfigOutput) UiConfig() LabelingJobHumanTaskConfigUiConfigPtrOutput {
-	return o.ApplyT(func(v LabelingJobHumanTaskConfig) *LabelingJobHumanTaskConfigUiConfig { return v.UiConfig }).(LabelingJobHumanTaskConfigUiConfigPtrOutput)
+func (o LabelingJobHumanTaskConfigOutput) UiConfig() LabelingJobHumanTaskConfigUiConfigOutput {
+	return o.ApplyT(func(v LabelingJobHumanTaskConfig) LabelingJobHumanTaskConfigUiConfig { return v.UiConfig }).(LabelingJobHumanTaskConfigUiConfigOutput)
 }
 
 // ARN of the work team assigned to complete the tasks.
@@ -24266,7 +24266,7 @@ func (o LabelingJobHumanTaskConfigPtrOutput) UiConfig() LabelingJobHumanTaskConf
 		if v == nil {
 			return nil
 		}
-		return v.UiConfig
+		return &v.UiConfig
 	}).(LabelingJobHumanTaskConfigUiConfigPtrOutput)
 }
 
@@ -24895,7 +24895,7 @@ type LabelingJobInputConfig struct {
 	// Attributes of the data. Fields are documented below.
 	DataAttributes *LabelingJobInputConfigDataAttributes `pulumi:"dataAttributes"`
 	// Location of the input data.. Fields are documented below.
-	DataSource *LabelingJobInputConfigDataSource `pulumi:"dataSource"`
+	DataSource LabelingJobInputConfigDataSource `pulumi:"dataSource"`
 }
 
 // LabelingJobInputConfigInput is an input type that accepts LabelingJobInputConfigArgs and LabelingJobInputConfigOutput values.
@@ -24913,7 +24913,7 @@ type LabelingJobInputConfigArgs struct {
 	// Attributes of the data. Fields are documented below.
 	DataAttributes LabelingJobInputConfigDataAttributesPtrInput `pulumi:"dataAttributes"`
 	// Location of the input data.. Fields are documented below.
-	DataSource LabelingJobInputConfigDataSourcePtrInput `pulumi:"dataSource"`
+	DataSource LabelingJobInputConfigDataSourceInput `pulumi:"dataSource"`
 }
 
 func (LabelingJobInputConfigArgs) ElementType() reflect.Type {
@@ -24999,8 +24999,8 @@ func (o LabelingJobInputConfigOutput) DataAttributes() LabelingJobInputConfigDat
 }
 
 // Location of the input data.. Fields are documented below.
-func (o LabelingJobInputConfigOutput) DataSource() LabelingJobInputConfigDataSourcePtrOutput {
-	return o.ApplyT(func(v LabelingJobInputConfig) *LabelingJobInputConfigDataSource { return v.DataSource }).(LabelingJobInputConfigDataSourcePtrOutput)
+func (o LabelingJobInputConfigOutput) DataSource() LabelingJobInputConfigDataSourceOutput {
+	return o.ApplyT(func(v LabelingJobInputConfig) LabelingJobInputConfigDataSource { return v.DataSource }).(LabelingJobInputConfigDataSourceOutput)
 }
 
 type LabelingJobInputConfigPtrOutput struct{ *pulumi.OutputState }
@@ -25043,7 +25043,7 @@ func (o LabelingJobInputConfigPtrOutput) DataSource() LabelingJobInputConfigData
 		if v == nil {
 			return nil
 		}
-		return v.DataSource
+		return &v.DataSource
 	}).(LabelingJobInputConfigDataSourcePtrOutput)
 }
 

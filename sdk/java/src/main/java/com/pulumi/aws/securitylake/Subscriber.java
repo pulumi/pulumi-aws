@@ -247,14 +247,14 @@ public class Subscriber extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="sources", refs={List.class,SubscriberSource.class}, tree="[0,1]")
-    private Output</* @Nullable */ List<SubscriberSource>> sources;
+    private Output<List<SubscriberSource>> sources;
 
     /**
      * @return The supported AWS services from which logs and events are collected. Security Lake supports log and event collection for natively supported AWS services. See `source` Blocks below.
      * 
      */
-    public Output<Optional<List<SubscriberSource>>> sources() {
-        return Codegen.optional(this.sources);
+    public Output<List<SubscriberSource>> sources() {
+        return this.sources;
     }
     /**
      * The description for your subscriber account in Security Lake.
@@ -289,14 +289,14 @@ public class Subscriber extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="subscriberIdentity", refs={SubscriberSubscriberIdentity.class}, tree="[0]")
-    private Output</* @Nullable */ SubscriberSubscriberIdentity> subscriberIdentity;
+    private Output<SubscriberSubscriberIdentity> subscriberIdentity;
 
     /**
      * @return The AWS identity used to access your data. See `subscriberIdentity` Block below.
      * 
      */
-    public Output<Optional<SubscriberSubscriberIdentity>> subscriberIdentity() {
-        return Codegen.optional(this.subscriberIdentity);
+    public Output<SubscriberSubscriberIdentity> subscriberIdentity() {
+        return this.subscriberIdentity;
     }
     /**
      * The name of your Security Lake subscriber account.
@@ -373,7 +373,7 @@ public class Subscriber extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public Subscriber(java.lang.String name, @Nullable SubscriberArgs args) {
+    public Subscriber(java.lang.String name, SubscriberArgs args) {
         this(name, args, null);
     }
     /**
@@ -382,7 +382,7 @@ public class Subscriber extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public Subscriber(java.lang.String name, @Nullable SubscriberArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public Subscriber(java.lang.String name, SubscriberArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:securitylake/subscriber:Subscriber", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
@@ -390,7 +390,7 @@ public class Subscriber extends com.pulumi.resources.CustomResource {
         super("aws:securitylake/subscriber:Subscriber", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static SubscriberArgs makeArgs(@Nullable SubscriberArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    private static SubscriberArgs makeArgs(SubscriberArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         if (options != null && options.getUrn().isPresent()) {
             return null;
         }

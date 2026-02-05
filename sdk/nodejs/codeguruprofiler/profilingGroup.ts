@@ -66,7 +66,7 @@ export class ProfilingGroup extends pulumi.CustomResource {
     /**
      * Specifies whether profiling is enabled or disabled for the created profiling. See Agent Orchestration Config for more details.
      */
-    declare public readonly agentOrchestrationConfig: pulumi.Output<outputs.codeguruprofiler.ProfilingGroupAgentOrchestrationConfig | undefined>;
+    declare public readonly agentOrchestrationConfig: pulumi.Output<outputs.codeguruprofiler.ProfilingGroupAgentOrchestrationConfig>;
     /**
      * ARN of the profiling group.
      */
@@ -101,7 +101,7 @@ export class ProfilingGroup extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: ProfilingGroupArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, args: ProfilingGroupArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ProfilingGroupArgs | ProfilingGroupState, opts?: pulumi.CustomResourceOptions) {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
@@ -116,6 +116,9 @@ export class ProfilingGroup extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = state?.tagsAll;
         } else {
             const args = argsOrState as ProfilingGroupArgs | undefined;
+            if (args?.agentOrchestrationConfig === undefined && !opts.urn) {
+                throw new Error("Missing required property 'agentOrchestrationConfig'");
+            }
             resourceInputs["agentOrchestrationConfig"] = args?.agentOrchestrationConfig;
             resourceInputs["computePlatform"] = args?.computePlatform;
             resourceInputs["name"] = args?.name;
@@ -172,7 +175,7 @@ export interface ProfilingGroupArgs {
     /**
      * Specifies whether profiling is enabled or disabled for the created profiling. See Agent Orchestration Config for more details.
      */
-    agentOrchestrationConfig?: pulumi.Input<inputs.codeguruprofiler.ProfilingGroupAgentOrchestrationConfig>;
+    agentOrchestrationConfig: pulumi.Input<inputs.codeguruprofiler.ProfilingGroupAgentOrchestrationConfig>;
     /**
      * Compute platform of the profiling group.
      */

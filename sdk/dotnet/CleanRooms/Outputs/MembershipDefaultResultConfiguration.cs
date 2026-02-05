@@ -13,7 +13,7 @@ namespace Pulumi.Aws.CleanRooms.Outputs
     [OutputType]
     public sealed class MembershipDefaultResultConfiguration
     {
-        public readonly Outputs.MembershipDefaultResultConfigurationOutputConfiguration? OutputConfiguration;
+        public readonly Outputs.MembershipDefaultResultConfigurationOutputConfiguration OutputConfiguration;
         /// <summary>
         /// The ARN of the IAM role which will be used to create the membership.
         /// - `output_configuration.s3.bucket` - (Required) - The name of the S3 bucket where the query results will be stored.
@@ -24,7 +24,7 @@ namespace Pulumi.Aws.CleanRooms.Outputs
 
         [OutputConstructor]
         private MembershipDefaultResultConfiguration(
-            Outputs.MembershipDefaultResultConfigurationOutputConfiguration? outputConfiguration,
+            Outputs.MembershipDefaultResultConfigurationOutputConfiguration outputConfiguration,
 
             string? roleArn)
         {

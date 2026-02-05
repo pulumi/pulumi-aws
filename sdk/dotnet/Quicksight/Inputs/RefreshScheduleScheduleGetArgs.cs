@@ -21,8 +21,8 @@ namespace Pulumi.Aws.Quicksight.Inputs
         /// <summary>
         /// The configuration of the [schedule frequency](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_RefreshFrequency.html). See schedule_frequency.
         /// </summary>
-        [Input("scheduleFrequency")]
-        public Input<Inputs.RefreshScheduleScheduleScheduleFrequencyGetArgs>? ScheduleFrequency { get; set; }
+        [Input("scheduleFrequency", required: true)]
+        public Input<Inputs.RefreshScheduleScheduleScheduleFrequencyGetArgs> ScheduleFrequency { get; set; } = null!;
 
         /// <summary>
         /// Time after which the refresh schedule can be started, expressed in `YYYY-MM-DDTHH:MM:SS` format.

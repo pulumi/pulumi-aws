@@ -12,7 +12,6 @@ import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
-import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
@@ -190,14 +189,14 @@ public class CatalogTableOptimizer extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="configuration", refs={CatalogTableOptimizerConfiguration.class}, tree="[0]")
-    private Output</* @Nullable */ CatalogTableOptimizerConfiguration> configuration;
+    private Output<CatalogTableOptimizerConfiguration> configuration;
 
     /**
      * @return A configuration block that defines the table optimizer settings. See Configuration for additional details.
      * 
      */
-    public Output<Optional<CatalogTableOptimizerConfiguration>> configuration() {
-        return Codegen.optional(this.configuration);
+    public Output<CatalogTableOptimizerConfiguration> configuration() {
+        return this.configuration;
     }
     /**
      * The name of the database in the catalog in which the table resides.

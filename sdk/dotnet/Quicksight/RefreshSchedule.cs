@@ -145,7 +145,7 @@ namespace Pulumi.Aws.Quicksight
         /// The following arguments are optional:
         /// </summary>
         [Output("schedule")]
-        public Output<Outputs.RefreshScheduleSchedule?> Schedule { get; private set; } = null!;
+        public Output<Outputs.RefreshScheduleSchedule> Schedule { get; private set; } = null!;
 
         /// <summary>
         /// The ID of the refresh schedule.
@@ -219,8 +219,8 @@ namespace Pulumi.Aws.Quicksight
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("schedule")]
-        public Input<Inputs.RefreshScheduleScheduleArgs>? Schedule { get; set; }
+        [Input("schedule", required: true)]
+        public Input<Inputs.RefreshScheduleScheduleArgs> Schedule { get; set; } = null!;
 
         /// <summary>
         /// The ID of the refresh schedule.

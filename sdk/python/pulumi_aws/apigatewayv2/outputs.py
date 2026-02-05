@@ -488,16 +488,15 @@ class RoutingRuleAction(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 invoke_api: Optional['outputs.RoutingRuleActionInvokeApi'] = None):
+                 invoke_api: 'outputs.RoutingRuleActionInvokeApi'):
         """
         :param 'RoutingRuleActionInvokeApiArgs' invoke_api: Configuration to invoke a stage of a target API. Only REST APIs are supported. See below.
         """
-        if invoke_api is not None:
-            pulumi.set(__self__, "invoke_api", invoke_api)
+        pulumi.set(__self__, "invoke_api", invoke_api)
 
     @_builtins.property
     @pulumi.getter(name="invokeApi")
-    def invoke_api(self) -> Optional['outputs.RoutingRuleActionInvokeApi']:
+    def invoke_api(self) -> 'outputs.RoutingRuleActionInvokeApi':
         """
         Configuration to invoke a stage of a target API. Only REST APIs are supported. See below.
         """
@@ -669,16 +668,15 @@ class RoutingRuleConditionMatchHeaders(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 any_of: Optional['outputs.RoutingRuleConditionMatchHeadersAnyOf'] = None):
+                 any_of: 'outputs.RoutingRuleConditionMatchHeadersAnyOf'):
         """
         :param 'RoutingRuleConditionMatchHeadersAnyOfArgs' any_of: Configuration of the headers to be matched. There is a match if any of the header name and header value globs are matched. See below.
         """
-        if any_of is not None:
-            pulumi.set(__self__, "any_of", any_of)
+        pulumi.set(__self__, "any_of", any_of)
 
     @_builtins.property
     @pulumi.getter(name="anyOf")
-    def any_of(self) -> Optional['outputs.RoutingRuleConditionMatchHeadersAnyOf']:
+    def any_of(self) -> 'outputs.RoutingRuleConditionMatchHeadersAnyOf':
         """
         Configuration of the headers to be matched. There is a match if any of the header name and header value globs are matched. See below.
         """

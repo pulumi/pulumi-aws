@@ -5,9 +5,8 @@ package com.pulumi.aws.apigatewayv2.outputs;
 
 import com.pulumi.aws.apigatewayv2.outputs.RoutingRuleActionInvokeApi;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.Objects;
-import java.util.Optional;
-import javax.annotation.Nullable;
 
 @CustomType
 public final class RoutingRuleAction {
@@ -15,15 +14,15 @@ public final class RoutingRuleAction {
      * @return Configuration to invoke a stage of a target API. Only REST APIs are supported. See below.
      * 
      */
-    private @Nullable RoutingRuleActionInvokeApi invokeApi;
+    private RoutingRuleActionInvokeApi invokeApi;
 
     private RoutingRuleAction() {}
     /**
      * @return Configuration to invoke a stage of a target API. Only REST APIs are supported. See below.
      * 
      */
-    public Optional<RoutingRuleActionInvokeApi> invokeApi() {
-        return Optional.ofNullable(this.invokeApi);
+    public RoutingRuleActionInvokeApi invokeApi() {
+        return this.invokeApi;
     }
 
     public static Builder builder() {
@@ -35,7 +34,7 @@ public final class RoutingRuleAction {
     }
     @CustomType.Builder
     public static final class Builder {
-        private @Nullable RoutingRuleActionInvokeApi invokeApi;
+        private RoutingRuleActionInvokeApi invokeApi;
         public Builder() {}
         public Builder(RoutingRuleAction defaults) {
     	      Objects.requireNonNull(defaults);
@@ -43,8 +42,10 @@ public final class RoutingRuleAction {
         }
 
         @CustomType.Setter
-        public Builder invokeApi(@Nullable RoutingRuleActionInvokeApi invokeApi) {
-
+        public Builder invokeApi(RoutingRuleActionInvokeApi invokeApi) {
+            if (invokeApi == null) {
+              throw new MissingRequiredPropertyException("RoutingRuleAction", "invokeApi");
+            }
             this.invokeApi = invokeApi;
             return this;
         }

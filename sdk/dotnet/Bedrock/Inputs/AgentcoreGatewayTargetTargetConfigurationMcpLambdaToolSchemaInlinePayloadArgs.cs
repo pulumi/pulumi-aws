@@ -21,8 +21,8 @@ namespace Pulumi.Aws.Bedrock.Inputs
         /// <summary>
         /// Schema for the tool's input. See `SchemaDefinition` below.
         /// </summary>
-        [Input("inputSchema")]
-        public Input<Inputs.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaArgs>? InputSchema { get; set; }
+        [Input("inputSchema", required: true)]
+        public Input<Inputs.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaArgs> InputSchema { get; set; } = null!;
 
         /// <summary>
         /// Name of the tool.

@@ -51,16 +51,15 @@ class EventSourcesConfigEventSource(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 amazon_code_guru_profilers: Optional[Sequence['outputs.EventSourcesConfigEventSourceAmazonCodeGuruProfiler']] = None):
+                 amazon_code_guru_profilers: Sequence['outputs.EventSourcesConfigEventSourceAmazonCodeGuruProfiler']):
         """
         :param Sequence['EventSourcesConfigEventSourceAmazonCodeGuruProfilerArgs'] amazon_code_guru_profilers: Stores whether DevOps Guru is configured to consume recommendations which are generated from AWS CodeGuru Profiler. See `amazon_code_guru_profiler` below.
         """
-        if amazon_code_guru_profilers is not None:
-            pulumi.set(__self__, "amazon_code_guru_profilers", amazon_code_guru_profilers)
+        pulumi.set(__self__, "amazon_code_guru_profilers", amazon_code_guru_profilers)
 
     @_builtins.property
     @pulumi.getter(name="amazonCodeGuruProfilers")
-    def amazon_code_guru_profilers(self) -> Optional[Sequence['outputs.EventSourcesConfigEventSourceAmazonCodeGuruProfiler']]:
+    def amazon_code_guru_profilers(self) -> Sequence['outputs.EventSourcesConfigEventSourceAmazonCodeGuruProfiler']:
         """
         Stores whether DevOps Guru is configured to consume recommendations which are generated from AWS CodeGuru Profiler. See `amazon_code_guru_profiler` below.
         """

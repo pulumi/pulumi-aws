@@ -44,16 +44,16 @@ public final class V2modelsSlotValueElicitationSettingArgs extends com.pulumi.re
      * See the `aws.lex.V2modelsIntent` resource for details on the `promptSpecification` argument reference - they are identical.
      * 
      */
-    @Import(name="promptSpecification", required=true)
-    private Output<V2modelsSlotValueElicitationSettingPromptSpecificationArgs> promptSpecification;
+    @Import(name="promptSpecification")
+    private @Nullable Output<V2modelsSlotValueElicitationSettingPromptSpecificationArgs> promptSpecification;
 
     /**
      * @return Prompt that Amazon Lex uses to elicit the slot value from the user.
      * See the `aws.lex.V2modelsIntent` resource for details on the `promptSpecification` argument reference - they are identical.
      * 
      */
-    public Output<V2modelsSlotValueElicitationSettingPromptSpecificationArgs> promptSpecification() {
-        return this.promptSpecification;
+    public Optional<Output<V2modelsSlotValueElicitationSettingPromptSpecificationArgs>> promptSpecification() {
+        return Optional.ofNullable(this.promptSpecification);
     }
 
     @Import(name="sampleUtterances")
@@ -182,7 +182,7 @@ public final class V2modelsSlotValueElicitationSettingArgs extends com.pulumi.re
          * @return builder
          * 
          */
-        public Builder promptSpecification(Output<V2modelsSlotValueElicitationSettingPromptSpecificationArgs> promptSpecification) {
+        public Builder promptSpecification(@Nullable Output<V2modelsSlotValueElicitationSettingPromptSpecificationArgs> promptSpecification) {
             $.promptSpecification = promptSpecification;
             return this;
         }
@@ -301,9 +301,6 @@ public final class V2modelsSlotValueElicitationSettingArgs extends com.pulumi.re
         }
 
         public V2modelsSlotValueElicitationSettingArgs build() {
-            if ($.promptSpecification == null) {
-                throw new MissingRequiredPropertyException("V2modelsSlotValueElicitationSettingArgs", "promptSpecification");
-            }
             if ($.slotConstraint == null) {
                 throw new MissingRequiredPropertyException("V2modelsSlotValueElicitationSettingArgs", "slotConstraint");
             }

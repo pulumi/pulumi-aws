@@ -15,8 +15,8 @@ namespace Pulumi.Aws.ApiGatewayV2.Inputs
         /// <summary>
         /// Configuration of the headers to be matched. There is a match if any of the header name and header value globs are matched. See below.
         /// </summary>
-        [Input("anyOf")]
-        public Input<Inputs.RoutingRuleConditionMatchHeadersAnyOfArgs>? AnyOf { get; set; }
+        [Input("anyOf", required: true)]
+        public Input<Inputs.RoutingRuleConditionMatchHeadersAnyOfArgs> AnyOf { get; set; } = null!;
 
         public RoutingRuleConditionMatchHeadersArgs()
         {

@@ -251,9 +251,6 @@ func NewAgentcoreGateway(ctx *pulumi.Context,
 	if args.AuthorizerType == nil {
 		return nil, errors.New("invalid value for required argument 'AuthorizerType'")
 	}
-	if args.InterceptorConfigurations == nil {
-		return nil, errors.New("invalid value for required argument 'InterceptorConfigurations'")
-	}
 	if args.ProtocolType == nil {
 		return nil, errors.New("invalid value for required argument 'ProtocolType'")
 	}

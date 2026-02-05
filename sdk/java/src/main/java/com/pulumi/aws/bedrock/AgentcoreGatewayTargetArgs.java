@@ -100,8 +100,8 @@ public final class AgentcoreGatewayTargetArgs extends com.pulumi.resources.Resou
      * The following arguments are optional:
      * 
      */
-    @Import(name="targetConfiguration")
-    private @Nullable Output<AgentcoreGatewayTargetTargetConfigurationArgs> targetConfiguration;
+    @Import(name="targetConfiguration", required=true)
+    private Output<AgentcoreGatewayTargetTargetConfigurationArgs> targetConfiguration;
 
     /**
      * @return Configuration for the target endpoint. See `targetConfiguration` below.
@@ -109,8 +109,8 @@ public final class AgentcoreGatewayTargetArgs extends com.pulumi.resources.Resou
      * The following arguments are optional:
      * 
      */
-    public Optional<Output<AgentcoreGatewayTargetTargetConfigurationArgs>> targetConfiguration() {
-        return Optional.ofNullable(this.targetConfiguration);
+    public Output<AgentcoreGatewayTargetTargetConfigurationArgs> targetConfiguration() {
+        return this.targetConfiguration;
     }
 
     @Import(name="timeouts")
@@ -263,7 +263,7 @@ public final class AgentcoreGatewayTargetArgs extends com.pulumi.resources.Resou
          * @return builder
          * 
          */
-        public Builder targetConfiguration(@Nullable Output<AgentcoreGatewayTargetTargetConfigurationArgs> targetConfiguration) {
+        public Builder targetConfiguration(Output<AgentcoreGatewayTargetTargetConfigurationArgs> targetConfiguration) {
             $.targetConfiguration = targetConfiguration;
             return this;
         }
@@ -292,6 +292,9 @@ public final class AgentcoreGatewayTargetArgs extends com.pulumi.resources.Resou
         public AgentcoreGatewayTargetArgs build() {
             if ($.gatewayIdentifier == null) {
                 throw new MissingRequiredPropertyException("AgentcoreGatewayTargetArgs", "gatewayIdentifier");
+            }
+            if ($.targetConfiguration == null) {
+                throw new MissingRequiredPropertyException("AgentcoreGatewayTargetArgs", "targetConfiguration");
             }
             return $;
         }

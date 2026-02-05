@@ -5,9 +5,8 @@ package com.pulumi.aws.bedrock.outputs;
 
 import com.pulumi.aws.bedrock.outputs.AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfiguration;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.Objects;
-import java.util.Optional;
-import javax.annotation.Nullable;
 
 @CustomType
 public final class AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfiguration {
@@ -15,15 +14,15 @@ public final class AgentDataSourceDataSourceConfigurationWebConfigurationSourceC
      * @return The URL configuration of your web data source. See `urlConfiguration` block for details.
      * 
      */
-    private @Nullable AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfiguration urlConfiguration;
+    private AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfiguration urlConfiguration;
 
     private AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfiguration() {}
     /**
      * @return The URL configuration of your web data source. See `urlConfiguration` block for details.
      * 
      */
-    public Optional<AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfiguration> urlConfiguration() {
-        return Optional.ofNullable(this.urlConfiguration);
+    public AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfiguration urlConfiguration() {
+        return this.urlConfiguration;
     }
 
     public static Builder builder() {
@@ -35,7 +34,7 @@ public final class AgentDataSourceDataSourceConfigurationWebConfigurationSourceC
     }
     @CustomType.Builder
     public static final class Builder {
-        private @Nullable AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfiguration urlConfiguration;
+        private AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfiguration urlConfiguration;
         public Builder() {}
         public Builder(AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
@@ -43,8 +42,10 @@ public final class AgentDataSourceDataSourceConfigurationWebConfigurationSourceC
         }
 
         @CustomType.Setter
-        public Builder urlConfiguration(@Nullable AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfiguration urlConfiguration) {
-
+        public Builder urlConfiguration(AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfigurationUrlConfiguration urlConfiguration) {
+            if (urlConfiguration == null) {
+              throw new MissingRequiredPropertyException("AgentDataSourceDataSourceConfigurationWebConfigurationSourceConfiguration", "urlConfiguration");
+            }
             this.urlConfiguration = urlConfiguration;
             return this;
         }

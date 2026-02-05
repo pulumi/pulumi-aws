@@ -13,7 +13,6 @@ import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
-import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
@@ -91,15 +90,15 @@ public class EventAction extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="action", refs={EventActionAction.class}, tree="[0]")
-    private Output</* @Nullable */ EventActionAction> action;
+    private Output<EventActionAction> action;
 
     /**
      * @return Describes the action to take.
      * Described in `action` Configuration Block below.
      * 
      */
-    public Output<Optional<EventActionAction>> action() {
-        return Codegen.optional(this.action);
+    public Output<EventActionAction> action() {
+        return this.action;
     }
     /**
      * Amazon Resource Name (ARN) of the event action.
@@ -135,15 +134,15 @@ public class EventAction extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="event", refs={EventActionEvent.class}, tree="[0]")
-    private Output</* @Nullable */ EventActionEvent> event;
+    private Output<EventActionEvent> event;
 
     /**
      * @return Describes the event that triggers the `action`.
      * Described in `event` Configuration Block below.
      * 
      */
-    public Output<Optional<EventActionEvent>> event() {
-        return Codegen.optional(this.event);
+    public Output<EventActionEvent> event() {
+        return this.event;
     }
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -186,7 +185,7 @@ public class EventAction extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public EventAction(java.lang.String name, @Nullable EventActionArgs args) {
+    public EventAction(java.lang.String name, EventActionArgs args) {
         this(name, args, null);
     }
     /**
@@ -195,7 +194,7 @@ public class EventAction extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public EventAction(java.lang.String name, @Nullable EventActionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public EventAction(java.lang.String name, EventActionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:dataexchange/eventAction:EventAction", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
@@ -203,7 +202,7 @@ public class EventAction extends com.pulumi.resources.CustomResource {
         super("aws:dataexchange/eventAction:EventAction", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static EventActionArgs makeArgs(@Nullable EventActionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    private static EventActionArgs makeArgs(EventActionArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         if (options != null && options.getUrn().isPresent()) {
             return null;
         }

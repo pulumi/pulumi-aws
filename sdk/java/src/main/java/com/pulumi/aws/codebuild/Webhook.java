@@ -93,7 +93,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.codebuild.WebhookArgs;
  * import com.pulumi.github.RepositoryWebhook;
  * import com.pulumi.github.RepositoryWebhookArgs;
- * import com.pulumi.github.inputs.RepositoryWebhookConfigurationArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;

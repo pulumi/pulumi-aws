@@ -39,15 +39,15 @@ public final class ScheduledQueryTargetConfigurationTimestreamConfigurationArgs 
      * Configuration block for mapping of column(s) from the query result to the dimension in the destination table. See below.
      * 
      */
-    @Import(name="dimensionMappings")
-    private @Nullable Output<List<ScheduledQueryTargetConfigurationTimestreamConfigurationDimensionMappingArgs>> dimensionMappings;
+    @Import(name="dimensionMappings", required=true)
+    private Output<List<ScheduledQueryTargetConfigurationTimestreamConfigurationDimensionMappingArgs>> dimensionMappings;
 
     /**
      * @return Configuration block for mapping of column(s) from the query result to the dimension in the destination table. See below.
      * 
      */
-    public Optional<Output<List<ScheduledQueryTargetConfigurationTimestreamConfigurationDimensionMappingArgs>>> dimensionMappings() {
-        return Optional.ofNullable(this.dimensionMappings);
+    public Output<List<ScheduledQueryTargetConfigurationTimestreamConfigurationDimensionMappingArgs>> dimensionMappings() {
+        return this.dimensionMappings;
     }
 
     /**
@@ -182,7 +182,7 @@ public final class ScheduledQueryTargetConfigurationTimestreamConfigurationArgs 
          * @return builder
          * 
          */
-        public Builder dimensionMappings(@Nullable Output<List<ScheduledQueryTargetConfigurationTimestreamConfigurationDimensionMappingArgs>> dimensionMappings) {
+        public Builder dimensionMappings(Output<List<ScheduledQueryTargetConfigurationTimestreamConfigurationDimensionMappingArgs>> dimensionMappings) {
             $.dimensionMappings = dimensionMappings;
             return this;
         }
@@ -325,6 +325,9 @@ public final class ScheduledQueryTargetConfigurationTimestreamConfigurationArgs 
         public ScheduledQueryTargetConfigurationTimestreamConfigurationArgs build() {
             if ($.databaseName == null) {
                 throw new MissingRequiredPropertyException("ScheduledQueryTargetConfigurationTimestreamConfigurationArgs", "databaseName");
+            }
+            if ($.dimensionMappings == null) {
+                throw new MissingRequiredPropertyException("ScheduledQueryTargetConfigurationTimestreamConfigurationArgs", "dimensionMappings");
             }
             if ($.tableName == null) {
                 throw new MissingRequiredPropertyException("ScheduledQueryTargetConfigurationTimestreamConfigurationArgs", "tableName");

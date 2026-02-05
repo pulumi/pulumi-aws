@@ -211,10 +211,10 @@ public class ExpressGatewayService extends com.pulumi.resources.CustomResource {
         return this.networkConfigurations;
     }
     @Export(name="primaryContainer", refs={ExpressGatewayServicePrimaryContainer.class}, tree="[0]")
-    private Output</* @Nullable */ ExpressGatewayServicePrimaryContainer> primaryContainer;
+    private Output<ExpressGatewayServicePrimaryContainer> primaryContainer;
 
-    public Output<Optional<ExpressGatewayServicePrimaryContainer>> primaryContainer() {
-        return Codegen.optional(this.primaryContainer);
+    public Output<ExpressGatewayServicePrimaryContainer> primaryContainer() {
+        return this.primaryContainer;
     }
     /**
      * AWS region where the service will be created. If not specified, the region configured in the provider will be used.

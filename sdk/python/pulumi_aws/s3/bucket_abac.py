@@ -21,26 +21,39 @@ __all__ = ['BucketAbacArgs', 'BucketAbac']
 @pulumi.input_type
 class BucketAbacArgs:
     def __init__(__self__, *,
+                 abac_status: pulumi.Input['BucketAbacAbacStatusArgs'],
                  bucket: pulumi.Input[_builtins.str],
-                 abac_status: Optional[pulumi.Input['BucketAbacAbacStatusArgs']] = None,
                  expected_bucket_owner: Optional[pulumi.Input[_builtins.str]] = None,
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a BucketAbac resource.
-        :param pulumi.Input[_builtins.str] bucket: General purpose bucket that you want to create the metadata configuration for.
         :param pulumi.Input['BucketAbacAbacStatusArgs'] abac_status: ABAC status configuration. See `abac_status` Block for details.
                
                The following arguments are optional:
+        :param pulumi.Input[_builtins.str] bucket: General purpose bucket that you want to create the metadata configuration for.
         :param pulumi.Input[_builtins.str] expected_bucket_owner: Account ID of the expected bucket owner.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
+        pulumi.set(__self__, "abac_status", abac_status)
         pulumi.set(__self__, "bucket", bucket)
-        if abac_status is not None:
-            pulumi.set(__self__, "abac_status", abac_status)
         if expected_bucket_owner is not None:
             pulumi.set(__self__, "expected_bucket_owner", expected_bucket_owner)
         if region is not None:
             pulumi.set(__self__, "region", region)
+
+    @_builtins.property
+    @pulumi.getter(name="abacStatus")
+    def abac_status(self) -> pulumi.Input['BucketAbacAbacStatusArgs']:
+        """
+        ABAC status configuration. See `abac_status` Block for details.
+
+        The following arguments are optional:
+        """
+        return pulumi.get(self, "abac_status")
+
+    @abac_status.setter
+    def abac_status(self, value: pulumi.Input['BucketAbacAbacStatusArgs']):
+        pulumi.set(self, "abac_status", value)
 
     @_builtins.property
     @pulumi.getter
@@ -53,20 +66,6 @@ class BucketAbacArgs:
     @bucket.setter
     def bucket(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "bucket", value)
-
-    @_builtins.property
-    @pulumi.getter(name="abacStatus")
-    def abac_status(self) -> Optional[pulumi.Input['BucketAbacAbacStatusArgs']]:
-        """
-        ABAC status configuration. See `abac_status` Block for details.
-
-        The following arguments are optional:
-        """
-        return pulumi.get(self, "abac_status")
-
-    @abac_status.setter
-    def abac_status(self, value: Optional[pulumi.Input['BucketAbacAbacStatusArgs']]):
-        pulumi.set(self, "abac_status", value)
 
     @_builtins.property
     @pulumi.getter(name="expectedBucketOwner")
@@ -297,6 +296,8 @@ class BucketAbac(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = BucketAbacArgs.__new__(BucketAbacArgs)
 
+            if abac_status is None and not opts.urn:
+                raise TypeError("Missing required property 'abac_status'")
             __props__.__dict__["abac_status"] = abac_status
             if bucket is None and not opts.urn:
                 raise TypeError("Missing required property 'bucket'")
@@ -343,7 +344,7 @@ class BucketAbac(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="abacStatus")
-    def abac_status(self) -> pulumi.Output[Optional['outputs.BucketAbacAbacStatus']]:
+    def abac_status(self) -> pulumi.Output['outputs.BucketAbacAbacStatus']:
         """
         ABAC status configuration. See `abac_status` Block for details.
 

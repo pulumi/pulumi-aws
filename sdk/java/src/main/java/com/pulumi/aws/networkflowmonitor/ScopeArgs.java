@@ -7,6 +7,7 @@ import com.pulumi.aws.networkflowmonitor.inputs.ScopeTargetArgs;
 import com.pulumi.aws.networkflowmonitor.inputs.ScopeTimeoutsArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -55,8 +56,8 @@ public final class ScopeArgs extends com.pulumi.resources.ResourceArgs {
      * The following arguments are optional:
      * 
      */
-    @Import(name="targets")
-    private @Nullable Output<List<ScopeTargetArgs>> targets;
+    @Import(name="targets", required=true)
+    private Output<List<ScopeTargetArgs>> targets;
 
     /**
      * @return The targets to define the scope to be monitored. A target is an array of target resources, which are currently Region-account pairs.
@@ -64,8 +65,8 @@ public final class ScopeArgs extends com.pulumi.resources.ResourceArgs {
      * The following arguments are optional:
      * 
      */
-    public Optional<Output<List<ScopeTargetArgs>>> targets() {
-        return Optional.ofNullable(this.targets);
+    public Output<List<ScopeTargetArgs>> targets() {
+        return this.targets;
     }
 
     @Import(name="timeouts")
@@ -152,7 +153,7 @@ public final class ScopeArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder targets(@Nullable Output<List<ScopeTargetArgs>> targets) {
+        public Builder targets(Output<List<ScopeTargetArgs>> targets) {
             $.targets = targets;
             return this;
         }
@@ -191,6 +192,9 @@ public final class ScopeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public ScopeArgs build() {
+            if ($.targets == null) {
+                throw new MissingRequiredPropertyException("ScopeArgs", "targets");
+            }
             return $;
         }
     }

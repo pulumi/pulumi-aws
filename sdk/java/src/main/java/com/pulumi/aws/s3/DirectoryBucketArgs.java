@@ -68,15 +68,15 @@ public final class DirectoryBucketArgs extends com.pulumi.resources.ResourceArgs
      * Bucket location. See Location below for more details.
      * 
      */
-    @Import(name="location")
-    private @Nullable Output<DirectoryBucketLocationArgs> location;
+    @Import(name="location", required=true)
+    private Output<DirectoryBucketLocationArgs> location;
 
     /**
      * @return Bucket location. See Location below for more details.
      * 
      */
-    public Optional<Output<DirectoryBucketLocationArgs>> location() {
-        return Optional.ofNullable(this.location);
+    public Output<DirectoryBucketLocationArgs> location() {
+        return this.location;
     }
 
     /**
@@ -223,7 +223,7 @@ public final class DirectoryBucketArgs extends com.pulumi.resources.ResourceArgs
          * @return builder
          * 
          */
-        public Builder location(@Nullable Output<DirectoryBucketLocationArgs> location) {
+        public Builder location(Output<DirectoryBucketLocationArgs> location) {
             $.location = location;
             return this;
         }
@@ -304,6 +304,9 @@ public final class DirectoryBucketArgs extends com.pulumi.resources.ResourceArgs
         public DirectoryBucketArgs build() {
             if ($.bucket == null) {
                 throw new MissingRequiredPropertyException("DirectoryBucketArgs", "bucket");
+            }
+            if ($.location == null) {
+                throw new MissingRequiredPropertyException("DirectoryBucketArgs", "location");
             }
             return $;
         }

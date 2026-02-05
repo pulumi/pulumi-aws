@@ -94,11 +94,11 @@ export class LabelingJob extends pulumi.CustomResource {
     /**
      * Configuration information required for human workers to complete a labeling task. Fields are documented below.
      */
-    declare public readonly humanTaskConfig: pulumi.Output<outputs.sagemaker.LabelingJobHumanTaskConfig | undefined>;
+    declare public readonly humanTaskConfig: pulumi.Output<outputs.sagemaker.LabelingJobHumanTaskConfig>;
     /**
      * Input data for the labeling job. Fields are documented below.
      */
-    declare public readonly inputConfig: pulumi.Output<outputs.sagemaker.LabelingJobInputConfig | undefined>;
+    declare public readonly inputConfig: pulumi.Output<outputs.sagemaker.LabelingJobInputConfig>;
     /**
      * Unique identifier for work done as part of a labeling job.
      */
@@ -134,7 +134,7 @@ export class LabelingJob extends pulumi.CustomResource {
     /**
      * Location of the output data. Fields are documented below.
      */
-    declare public readonly outputConfig: pulumi.Output<outputs.sagemaker.LabelingJobOutputConfig | undefined>;
+    declare public readonly outputConfig: pulumi.Output<outputs.sagemaker.LabelingJobOutputConfig>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
@@ -188,11 +188,20 @@ export class LabelingJob extends pulumi.CustomResource {
             resourceInputs["tagsAll"] = state?.tagsAll;
         } else {
             const args = argsOrState as LabelingJobArgs | undefined;
+            if (args?.humanTaskConfig === undefined && !opts.urn) {
+                throw new Error("Missing required property 'humanTaskConfig'");
+            }
+            if (args?.inputConfig === undefined && !opts.urn) {
+                throw new Error("Missing required property 'inputConfig'");
+            }
             if (args?.labelAttributeName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'labelAttributeName'");
             }
             if (args?.labelingJobName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'labelingJobName'");
+            }
+            if (args?.outputConfig === undefined && !opts.urn) {
+                throw new Error("Missing required property 'outputConfig'");
             }
             if (args?.roleArn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'roleArn'");
@@ -301,11 +310,11 @@ export interface LabelingJobArgs {
     /**
      * Configuration information required for human workers to complete a labeling task. Fields are documented below.
      */
-    humanTaskConfig?: pulumi.Input<inputs.sagemaker.LabelingJobHumanTaskConfig>;
+    humanTaskConfig: pulumi.Input<inputs.sagemaker.LabelingJobHumanTaskConfig>;
     /**
      * Input data for the labeling job. Fields are documented below.
      */
-    inputConfig?: pulumi.Input<inputs.sagemaker.LabelingJobInputConfig>;
+    inputConfig: pulumi.Input<inputs.sagemaker.LabelingJobInputConfig>;
     /**
      * Attribute name to use for the label in the output manifest file.
      */
@@ -325,7 +334,7 @@ export interface LabelingJobArgs {
     /**
      * Location of the output data. Fields are documented below.
      */
-    outputConfig?: pulumi.Input<inputs.sagemaker.LabelingJobOutputConfig>;
+    outputConfig: pulumi.Input<inputs.sagemaker.LabelingJobOutputConfig>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */

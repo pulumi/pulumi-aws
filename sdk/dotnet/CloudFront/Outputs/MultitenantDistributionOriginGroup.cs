@@ -16,7 +16,7 @@ namespace Pulumi.Aws.CloudFront.Outputs
         /// <summary>
         /// Failover criteria for when to failover to the secondary origin. See Failover Criteria below.
         /// </summary>
-        public readonly Outputs.MultitenantDistributionOriginGroupFailoverCriteria? FailoverCriteria;
+        public readonly Outputs.MultitenantDistributionOriginGroupFailoverCriteria FailoverCriteria;
         /// <summary>
         /// Identifier for the distribution.
         /// </summary>
@@ -28,7 +28,7 @@ namespace Pulumi.Aws.CloudFront.Outputs
 
         [OutputConstructor]
         private MultitenantDistributionOriginGroup(
-            Outputs.MultitenantDistributionOriginGroupFailoverCriteria? failoverCriteria,
+            Outputs.MultitenantDistributionOriginGroupFailoverCriteria failoverCriteria,
 
             string id,
 

@@ -21,22 +21,35 @@ __all__ = ['VpcOriginArgs', 'VpcOrigin']
 @pulumi.input_type
 class VpcOriginArgs:
     def __init__(__self__, *,
+                 vpc_origin_endpoint_config: pulumi.Input['VpcOriginVpcOriginEndpointConfigArgs'],
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 timeouts: Optional[pulumi.Input['VpcOriginTimeoutsArgs']] = None,
-                 vpc_origin_endpoint_config: Optional[pulumi.Input['VpcOriginVpcOriginEndpointConfigArgs']] = None):
+                 timeouts: Optional[pulumi.Input['VpcOriginTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a VpcOrigin resource.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value tags for the place index. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input['VpcOriginVpcOriginEndpointConfigArgs'] vpc_origin_endpoint_config: The VPC origin endpoint configuration.
                
                The following arguments are optional:
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value tags for the place index. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
+        pulumi.set(__self__, "vpc_origin_endpoint_config", vpc_origin_endpoint_config)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if timeouts is not None:
             pulumi.set(__self__, "timeouts", timeouts)
-        if vpc_origin_endpoint_config is not None:
-            pulumi.set(__self__, "vpc_origin_endpoint_config", vpc_origin_endpoint_config)
+
+    @_builtins.property
+    @pulumi.getter(name="vpcOriginEndpointConfig")
+    def vpc_origin_endpoint_config(self) -> pulumi.Input['VpcOriginVpcOriginEndpointConfigArgs']:
+        """
+        The VPC origin endpoint configuration.
+
+        The following arguments are optional:
+        """
+        return pulumi.get(self, "vpc_origin_endpoint_config")
+
+    @vpc_origin_endpoint_config.setter
+    def vpc_origin_endpoint_config(self, value: pulumi.Input['VpcOriginVpcOriginEndpointConfigArgs']):
+        pulumi.set(self, "vpc_origin_endpoint_config", value)
 
     @_builtins.property
     @pulumi.getter
@@ -58,20 +71,6 @@ class VpcOriginArgs:
     @timeouts.setter
     def timeouts(self, value: Optional[pulumi.Input['VpcOriginTimeoutsArgs']]):
         pulumi.set(self, "timeouts", value)
-
-    @_builtins.property
-    @pulumi.getter(name="vpcOriginEndpointConfig")
-    def vpc_origin_endpoint_config(self) -> Optional[pulumi.Input['VpcOriginVpcOriginEndpointConfigArgs']]:
-        """
-        The VPC origin endpoint configuration.
-
-        The following arguments are optional:
-        """
-        return pulumi.get(self, "vpc_origin_endpoint_config")
-
-    @vpc_origin_endpoint_config.setter
-    def vpc_origin_endpoint_config(self, value: Optional[pulumi.Input['VpcOriginVpcOriginEndpointConfigArgs']]):
-        pulumi.set(self, "vpc_origin_endpoint_config", value)
 
 
 @pulumi.input_type
@@ -244,7 +243,7 @@ class VpcOrigin(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: Optional[VpcOriginArgs] = None,
+                 args: VpcOriginArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Creates an Amazon CloudFront VPC origin.
@@ -320,6 +319,8 @@ class VpcOrigin(pulumi.CustomResource):
 
             __props__.__dict__["tags"] = tags
             __props__.__dict__["timeouts"] = timeouts
+            if vpc_origin_endpoint_config is None and not opts.urn:
+                raise TypeError("Missing required property 'vpc_origin_endpoint_config'")
             __props__.__dict__["vpc_origin_endpoint_config"] = vpc_origin_endpoint_config
             __props__.__dict__["arn"] = None
             __props__.__dict__["etag"] = None
@@ -406,7 +407,7 @@ class VpcOrigin(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="vpcOriginEndpointConfig")
-    def vpc_origin_endpoint_config(self) -> pulumi.Output[Optional['outputs.VpcOriginVpcOriginEndpointConfig']]:
+    def vpc_origin_endpoint_config(self) -> pulumi.Output['outputs.VpcOriginVpcOriginEndpointConfig']:
         """
         The VPC origin endpoint configuration.
 

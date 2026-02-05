@@ -6,9 +6,8 @@ package com.pulumi.aws.rekognition.inputs;
 import com.pulumi.aws.rekognition.inputs.StreamProcessorInputKinesisVideoStreamArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.Objects;
-import java.util.Optional;
-import javax.annotation.Nullable;
 
 
 public final class StreamProcessorInputArgs extends com.pulumi.resources.ResourceArgs {
@@ -19,15 +18,15 @@ public final class StreamProcessorInputArgs extends com.pulumi.resources.Resourc
      * Kinesis input stream. See `kinesisVideoStream`.
      * 
      */
-    @Import(name="kinesisVideoStream")
-    private @Nullable Output<StreamProcessorInputKinesisVideoStreamArgs> kinesisVideoStream;
+    @Import(name="kinesisVideoStream", required=true)
+    private Output<StreamProcessorInputKinesisVideoStreamArgs> kinesisVideoStream;
 
     /**
      * @return Kinesis input stream. See `kinesisVideoStream`.
      * 
      */
-    public Optional<Output<StreamProcessorInputKinesisVideoStreamArgs>> kinesisVideoStream() {
-        return Optional.ofNullable(this.kinesisVideoStream);
+    public Output<StreamProcessorInputKinesisVideoStreamArgs> kinesisVideoStream() {
+        return this.kinesisVideoStream;
     }
 
     private StreamProcessorInputArgs() {}
@@ -60,7 +59,7 @@ public final class StreamProcessorInputArgs extends com.pulumi.resources.Resourc
          * @return builder
          * 
          */
-        public Builder kinesisVideoStream(@Nullable Output<StreamProcessorInputKinesisVideoStreamArgs> kinesisVideoStream) {
+        public Builder kinesisVideoStream(Output<StreamProcessorInputKinesisVideoStreamArgs> kinesisVideoStream) {
             $.kinesisVideoStream = kinesisVideoStream;
             return this;
         }
@@ -76,6 +75,9 @@ public final class StreamProcessorInputArgs extends com.pulumi.resources.Resourc
         }
 
         public StreamProcessorInputArgs build() {
+            if ($.kinesisVideoStream == null) {
+                throw new MissingRequiredPropertyException("StreamProcessorInputArgs", "kinesisVideoStream");
+            }
             return $;
         }
     }

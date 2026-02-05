@@ -5,9 +5,8 @@ package com.pulumi.aws.cloudfront.outputs;
 
 import com.pulumi.aws.cloudfront.outputs.MultitenantDistributionRestrictionsGeoRestriction;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.Objects;
-import java.util.Optional;
-import javax.annotation.Nullable;
 
 @CustomType
 public final class MultitenantDistributionRestrictions {
@@ -15,15 +14,15 @@ public final class MultitenantDistributionRestrictions {
      * @return Geographic restriction configuration. See Geo Restriction below.
      * 
      */
-    private @Nullable MultitenantDistributionRestrictionsGeoRestriction geoRestriction;
+    private MultitenantDistributionRestrictionsGeoRestriction geoRestriction;
 
     private MultitenantDistributionRestrictions() {}
     /**
      * @return Geographic restriction configuration. See Geo Restriction below.
      * 
      */
-    public Optional<MultitenantDistributionRestrictionsGeoRestriction> geoRestriction() {
-        return Optional.ofNullable(this.geoRestriction);
+    public MultitenantDistributionRestrictionsGeoRestriction geoRestriction() {
+        return this.geoRestriction;
     }
 
     public static Builder builder() {
@@ -35,7 +34,7 @@ public final class MultitenantDistributionRestrictions {
     }
     @CustomType.Builder
     public static final class Builder {
-        private @Nullable MultitenantDistributionRestrictionsGeoRestriction geoRestriction;
+        private MultitenantDistributionRestrictionsGeoRestriction geoRestriction;
         public Builder() {}
         public Builder(MultitenantDistributionRestrictions defaults) {
     	      Objects.requireNonNull(defaults);
@@ -43,8 +42,10 @@ public final class MultitenantDistributionRestrictions {
         }
 
         @CustomType.Setter
-        public Builder geoRestriction(@Nullable MultitenantDistributionRestrictionsGeoRestriction geoRestriction) {
-
+        public Builder geoRestriction(MultitenantDistributionRestrictionsGeoRestriction geoRestriction) {
+            if (geoRestriction == null) {
+              throw new MissingRequiredPropertyException("MultitenantDistributionRestrictions", "geoRestriction");
+            }
             this.geoRestriction = geoRestriction;
             return this;
         }

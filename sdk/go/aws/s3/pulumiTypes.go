@@ -8749,9 +8749,9 @@ type BucketMetadataConfigurationMetadataConfiguration struct {
 	// Destination information for the S3 Metadata configuration.
 	Destinations []BucketMetadataConfigurationMetadataConfigurationDestination `pulumi:"destinations"`
 	// Inventory table configuration. See `inventoryTableConfiguration` Block for details.
-	InventoryTableConfiguration *BucketMetadataConfigurationMetadataConfigurationInventoryTableConfiguration `pulumi:"inventoryTableConfiguration"`
+	InventoryTableConfiguration BucketMetadataConfigurationMetadataConfigurationInventoryTableConfiguration `pulumi:"inventoryTableConfiguration"`
 	// Journal table configuration. See `journalTableConfiguration` Block for details.
-	JournalTableConfiguration *BucketMetadataConfigurationMetadataConfigurationJournalTableConfiguration `pulumi:"journalTableConfiguration"`
+	JournalTableConfiguration BucketMetadataConfigurationMetadataConfigurationJournalTableConfiguration `pulumi:"journalTableConfiguration"`
 }
 
 // BucketMetadataConfigurationMetadataConfigurationInput is an input type that accepts BucketMetadataConfigurationMetadataConfigurationArgs and BucketMetadataConfigurationMetadataConfigurationOutput values.
@@ -8769,9 +8769,9 @@ type BucketMetadataConfigurationMetadataConfigurationArgs struct {
 	// Destination information for the S3 Metadata configuration.
 	Destinations BucketMetadataConfigurationMetadataConfigurationDestinationArrayInput `pulumi:"destinations"`
 	// Inventory table configuration. See `inventoryTableConfiguration` Block for details.
-	InventoryTableConfiguration BucketMetadataConfigurationMetadataConfigurationInventoryTableConfigurationPtrInput `pulumi:"inventoryTableConfiguration"`
+	InventoryTableConfiguration BucketMetadataConfigurationMetadataConfigurationInventoryTableConfigurationInput `pulumi:"inventoryTableConfiguration"`
 	// Journal table configuration. See `journalTableConfiguration` Block for details.
-	JournalTableConfiguration BucketMetadataConfigurationMetadataConfigurationJournalTableConfigurationPtrInput `pulumi:"journalTableConfiguration"`
+	JournalTableConfiguration BucketMetadataConfigurationMetadataConfigurationJournalTableConfigurationInput `pulumi:"journalTableConfiguration"`
 }
 
 func (BucketMetadataConfigurationMetadataConfigurationArgs) ElementType() reflect.Type {
@@ -8859,17 +8859,17 @@ func (o BucketMetadataConfigurationMetadataConfigurationOutput) Destinations() B
 }
 
 // Inventory table configuration. See `inventoryTableConfiguration` Block for details.
-func (o BucketMetadataConfigurationMetadataConfigurationOutput) InventoryTableConfiguration() BucketMetadataConfigurationMetadataConfigurationInventoryTableConfigurationPtrOutput {
-	return o.ApplyT(func(v BucketMetadataConfigurationMetadataConfiguration) *BucketMetadataConfigurationMetadataConfigurationInventoryTableConfiguration {
+func (o BucketMetadataConfigurationMetadataConfigurationOutput) InventoryTableConfiguration() BucketMetadataConfigurationMetadataConfigurationInventoryTableConfigurationOutput {
+	return o.ApplyT(func(v BucketMetadataConfigurationMetadataConfiguration) BucketMetadataConfigurationMetadataConfigurationInventoryTableConfiguration {
 		return v.InventoryTableConfiguration
-	}).(BucketMetadataConfigurationMetadataConfigurationInventoryTableConfigurationPtrOutput)
+	}).(BucketMetadataConfigurationMetadataConfigurationInventoryTableConfigurationOutput)
 }
 
 // Journal table configuration. See `journalTableConfiguration` Block for details.
-func (o BucketMetadataConfigurationMetadataConfigurationOutput) JournalTableConfiguration() BucketMetadataConfigurationMetadataConfigurationJournalTableConfigurationPtrOutput {
-	return o.ApplyT(func(v BucketMetadataConfigurationMetadataConfiguration) *BucketMetadataConfigurationMetadataConfigurationJournalTableConfiguration {
+func (o BucketMetadataConfigurationMetadataConfigurationOutput) JournalTableConfiguration() BucketMetadataConfigurationMetadataConfigurationJournalTableConfigurationOutput {
+	return o.ApplyT(func(v BucketMetadataConfigurationMetadataConfiguration) BucketMetadataConfigurationMetadataConfigurationJournalTableConfiguration {
 		return v.JournalTableConfiguration
-	}).(BucketMetadataConfigurationMetadataConfigurationJournalTableConfigurationPtrOutput)
+	}).(BucketMetadataConfigurationMetadataConfigurationJournalTableConfigurationOutput)
 }
 
 type BucketMetadataConfigurationMetadataConfigurationPtrOutput struct{ *pulumi.OutputState }
@@ -8912,7 +8912,7 @@ func (o BucketMetadataConfigurationMetadataConfigurationPtrOutput) InventoryTabl
 		if v == nil {
 			return nil
 		}
-		return v.InventoryTableConfiguration
+		return &v.InventoryTableConfiguration
 	}).(BucketMetadataConfigurationMetadataConfigurationInventoryTableConfigurationPtrOutput)
 }
 
@@ -8922,7 +8922,7 @@ func (o BucketMetadataConfigurationMetadataConfigurationPtrOutput) JournalTableC
 		if v == nil {
 			return nil
 		}
-		return v.JournalTableConfiguration
+		return &v.JournalTableConfiguration
 	}).(BucketMetadataConfigurationMetadataConfigurationJournalTableConfigurationPtrOutput)
 }
 
@@ -9407,7 +9407,7 @@ type BucketMetadataConfigurationMetadataConfigurationJournalTableConfiguration s
 	// Encryption configuration for the journal table. See `encryptionConfiguration` Block for details.
 	EncryptionConfiguration *BucketMetadataConfigurationMetadataConfigurationJournalTableConfigurationEncryptionConfiguration `pulumi:"encryptionConfiguration"`
 	// Journal table record expiration settings. See `recordExpiration` Block for details.
-	RecordExpiration *BucketMetadataConfigurationMetadataConfigurationJournalTableConfigurationRecordExpiration `pulumi:"recordExpiration"`
+	RecordExpiration BucketMetadataConfigurationMetadataConfigurationJournalTableConfigurationRecordExpiration `pulumi:"recordExpiration"`
 	// Journal table ARN.
 	TableArn *string `pulumi:"tableArn"`
 	// Journal table name.
@@ -9429,7 +9429,7 @@ type BucketMetadataConfigurationMetadataConfigurationJournalTableConfigurationAr
 	// Encryption configuration for the journal table. See `encryptionConfiguration` Block for details.
 	EncryptionConfiguration BucketMetadataConfigurationMetadataConfigurationJournalTableConfigurationEncryptionConfigurationPtrInput `pulumi:"encryptionConfiguration"`
 	// Journal table record expiration settings. See `recordExpiration` Block for details.
-	RecordExpiration BucketMetadataConfigurationMetadataConfigurationJournalTableConfigurationRecordExpirationPtrInput `pulumi:"recordExpiration"`
+	RecordExpiration BucketMetadataConfigurationMetadataConfigurationJournalTableConfigurationRecordExpirationInput `pulumi:"recordExpiration"`
 	// Journal table ARN.
 	TableArn pulumi.StringPtrInput `pulumi:"tableArn"`
 	// Journal table name.
@@ -9521,10 +9521,10 @@ func (o BucketMetadataConfigurationMetadataConfigurationJournalTableConfiguratio
 }
 
 // Journal table record expiration settings. See `recordExpiration` Block for details.
-func (o BucketMetadataConfigurationMetadataConfigurationJournalTableConfigurationOutput) RecordExpiration() BucketMetadataConfigurationMetadataConfigurationJournalTableConfigurationRecordExpirationPtrOutput {
-	return o.ApplyT(func(v BucketMetadataConfigurationMetadataConfigurationJournalTableConfiguration) *BucketMetadataConfigurationMetadataConfigurationJournalTableConfigurationRecordExpiration {
+func (o BucketMetadataConfigurationMetadataConfigurationJournalTableConfigurationOutput) RecordExpiration() BucketMetadataConfigurationMetadataConfigurationJournalTableConfigurationRecordExpirationOutput {
+	return o.ApplyT(func(v BucketMetadataConfigurationMetadataConfigurationJournalTableConfiguration) BucketMetadataConfigurationMetadataConfigurationJournalTableConfigurationRecordExpiration {
 		return v.RecordExpiration
-	}).(BucketMetadataConfigurationMetadataConfigurationJournalTableConfigurationRecordExpirationPtrOutput)
+	}).(BucketMetadataConfigurationMetadataConfigurationJournalTableConfigurationRecordExpirationOutput)
 }
 
 // Journal table ARN.
@@ -9581,7 +9581,7 @@ func (o BucketMetadataConfigurationMetadataConfigurationJournalTableConfiguratio
 		if v == nil {
 			return nil
 		}
-		return v.RecordExpiration
+		return &v.RecordExpiration
 	}).(BucketMetadataConfigurationMetadataConfigurationJournalTableConfigurationRecordExpirationPtrOutput)
 }
 

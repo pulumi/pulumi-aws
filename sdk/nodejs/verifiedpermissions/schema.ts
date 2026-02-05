@@ -66,7 +66,7 @@ export class Schema extends pulumi.CustomResource {
     /**
      * The definition of the schema.
      */
-    declare public readonly definition: pulumi.Output<outputs.verifiedpermissions.SchemaDefinition | undefined>;
+    declare public readonly definition: pulumi.Output<outputs.verifiedpermissions.SchemaDefinition>;
     /**
      * (Optional) Identifies the namespaces of the entities referenced by this schema.
      */
@@ -99,6 +99,9 @@ export class Schema extends pulumi.CustomResource {
             resourceInputs["region"] = state?.region;
         } else {
             const args = argsOrState as SchemaArgs | undefined;
+            if (args?.definition === undefined && !opts.urn) {
+                throw new Error("Missing required property 'definition'");
+            }
             if (args?.policyStoreId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'policyStoreId'");
             }
@@ -141,7 +144,7 @@ export interface SchemaArgs {
     /**
      * The definition of the schema.
      */
-    definition?: pulumi.Input<inputs.verifiedpermissions.SchemaDefinition>;
+    definition: pulumi.Input<inputs.verifiedpermissions.SchemaDefinition>;
     /**
      * The ID of the Policy Store.
      */

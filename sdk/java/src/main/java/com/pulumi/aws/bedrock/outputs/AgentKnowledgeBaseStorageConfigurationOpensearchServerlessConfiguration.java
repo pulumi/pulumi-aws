@@ -8,8 +8,6 @@ import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
-import java.util.Optional;
-import javax.annotation.Nullable;
 
 @CustomType
 public final class AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfiguration {
@@ -22,7 +20,7 @@ public final class AgentKnowledgeBaseStorageConfigurationOpensearchServerlessCon
      * @return The names of the fields to which to map information about the vector store. This block supports the following arguments:
      * 
      */
-    private @Nullable AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMapping fieldMapping;
+    private AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMapping fieldMapping;
     /**
      * @return Name of the vector store.
      * 
@@ -41,8 +39,8 @@ public final class AgentKnowledgeBaseStorageConfigurationOpensearchServerlessCon
      * @return The names of the fields to which to map information about the vector store. This block supports the following arguments:
      * 
      */
-    public Optional<AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMapping> fieldMapping() {
-        return Optional.ofNullable(this.fieldMapping);
+    public AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMapping fieldMapping() {
+        return this.fieldMapping;
     }
     /**
      * @return Name of the vector store.
@@ -62,7 +60,7 @@ public final class AgentKnowledgeBaseStorageConfigurationOpensearchServerlessCon
     @CustomType.Builder
     public static final class Builder {
         private String collectionArn;
-        private @Nullable AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMapping fieldMapping;
+        private AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMapping fieldMapping;
         private String vectorIndexName;
         public Builder() {}
         public Builder(AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfiguration defaults) {
@@ -81,8 +79,10 @@ public final class AgentKnowledgeBaseStorageConfigurationOpensearchServerlessCon
             return this;
         }
         @CustomType.Setter
-        public Builder fieldMapping(@Nullable AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMapping fieldMapping) {
-
+        public Builder fieldMapping(AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMapping fieldMapping) {
+            if (fieldMapping == null) {
+              throw new MissingRequiredPropertyException("AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfiguration", "fieldMapping");
+            }
             this.fieldMapping = fieldMapping;
             return this;
         }

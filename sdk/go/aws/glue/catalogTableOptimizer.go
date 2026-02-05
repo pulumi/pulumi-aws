@@ -141,7 +141,7 @@ type CatalogTableOptimizer struct {
 	// The Catalog ID of the table.
 	CatalogId pulumi.StringOutput `pulumi:"catalogId"`
 	// A configuration block that defines the table optimizer settings. See Configuration for additional details.
-	Configuration CatalogTableOptimizerConfigurationPtrOutput `pulumi:"configuration"`
+	Configuration CatalogTableOptimizerConfigurationOutput `pulumi:"configuration"`
 	// The name of the database in the catalog in which the table resides.
 	DatabaseName pulumi.StringOutput `pulumi:"databaseName"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -161,6 +161,9 @@ func NewCatalogTableOptimizer(ctx *pulumi.Context,
 
 	if args.CatalogId == nil {
 		return nil, errors.New("invalid value for required argument 'CatalogId'")
+	}
+	if args.Configuration == nil {
+		return nil, errors.New("invalid value for required argument 'Configuration'")
 	}
 	if args.DatabaseName == nil {
 		return nil, errors.New("invalid value for required argument 'DatabaseName'")
@@ -231,7 +234,7 @@ type catalogTableOptimizerArgs struct {
 	// The Catalog ID of the table.
 	CatalogId string `pulumi:"catalogId"`
 	// A configuration block that defines the table optimizer settings. See Configuration for additional details.
-	Configuration *CatalogTableOptimizerConfiguration `pulumi:"configuration"`
+	Configuration CatalogTableOptimizerConfiguration `pulumi:"configuration"`
 	// The name of the database in the catalog in which the table resides.
 	DatabaseName string `pulumi:"databaseName"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -247,7 +250,7 @@ type CatalogTableOptimizerArgs struct {
 	// The Catalog ID of the table.
 	CatalogId pulumi.StringInput
 	// A configuration block that defines the table optimizer settings. See Configuration for additional details.
-	Configuration CatalogTableOptimizerConfigurationPtrInput
+	Configuration CatalogTableOptimizerConfigurationInput
 	// The name of the database in the catalog in which the table resides.
 	DatabaseName pulumi.StringInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -351,8 +354,8 @@ func (o CatalogTableOptimizerOutput) CatalogId() pulumi.StringOutput {
 }
 
 // A configuration block that defines the table optimizer settings. See Configuration for additional details.
-func (o CatalogTableOptimizerOutput) Configuration() CatalogTableOptimizerConfigurationPtrOutput {
-	return o.ApplyT(func(v *CatalogTableOptimizer) CatalogTableOptimizerConfigurationPtrOutput { return v.Configuration }).(CatalogTableOptimizerConfigurationPtrOutput)
+func (o CatalogTableOptimizerOutput) Configuration() CatalogTableOptimizerConfigurationOutput {
+	return o.ApplyT(func(v *CatalogTableOptimizer) CatalogTableOptimizerConfigurationOutput { return v.Configuration }).(CatalogTableOptimizerConfigurationOutput)
 }
 
 // The name of the database in the catalog in which the table resides.

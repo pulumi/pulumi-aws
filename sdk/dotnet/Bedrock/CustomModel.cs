@@ -124,7 +124,7 @@ namespace Pulumi.Aws.Bedrock
         /// S3 location for the output data.
         /// </summary>
         [Output("outputDataConfig")]
-        public Output<Outputs.CustomModelOutputDataConfig?> OutputDataConfig { get; private set; } = null!;
+        public Output<Outputs.CustomModelOutputDataConfig> OutputDataConfig { get; private set; } = null!;
 
         /// <summary>
         /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -157,7 +157,7 @@ namespace Pulumi.Aws.Bedrock
         /// Information about the training dataset.
         /// </summary>
         [Output("trainingDataConfig")]
-        public Output<Outputs.CustomModelTrainingDataConfig?> TrainingDataConfig { get; private set; } = null!;
+        public Output<Outputs.CustomModelTrainingDataConfig> TrainingDataConfig { get; private set; } = null!;
 
         /// <summary>
         /// Metrics associated with the customization job.
@@ -274,8 +274,8 @@ namespace Pulumi.Aws.Bedrock
         /// <summary>
         /// S3 location for the output data.
         /// </summary>
-        [Input("outputDataConfig")]
-        public Input<Inputs.CustomModelOutputDataConfigArgs>? OutputDataConfig { get; set; }
+        [Input("outputDataConfig", required: true)]
+        public Input<Inputs.CustomModelOutputDataConfigArgs> OutputDataConfig { get; set; } = null!;
 
         /// <summary>
         /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -307,8 +307,8 @@ namespace Pulumi.Aws.Bedrock
         /// <summary>
         /// Information about the training dataset.
         /// </summary>
-        [Input("trainingDataConfig")]
-        public Input<Inputs.CustomModelTrainingDataConfigArgs>? TrainingDataConfig { get; set; }
+        [Input("trainingDataConfig", required: true)]
+        public Input<Inputs.CustomModelTrainingDataConfigArgs> TrainingDataConfig { get; set; } = null!;
 
         /// <summary>
         /// Information about the validation dataset.

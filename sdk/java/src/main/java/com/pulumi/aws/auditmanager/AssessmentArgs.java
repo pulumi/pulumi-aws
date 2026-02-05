@@ -100,15 +100,15 @@ public final class AssessmentArgs extends com.pulumi.resources.ResourceArgs {
      * List of roles for the assessment. See `roles` below.
      * 
      */
-    @Import(name="roles")
-    private @Nullable Output<List<AssessmentRoleArgs>> roles;
+    @Import(name="roles", required=true)
+    private Output<List<AssessmentRoleArgs>> roles;
 
     /**
      * @return List of roles for the assessment. See `roles` below.
      * 
      */
-    public Optional<Output<List<AssessmentRoleArgs>>> roles() {
-        return Optional.ofNullable(this.roles);
+    public Output<List<AssessmentRoleArgs>> roles() {
+        return this.roles;
     }
 
     /**
@@ -287,7 +287,7 @@ public final class AssessmentArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder roles(@Nullable Output<List<AssessmentRoleArgs>> roles) {
+        public Builder roles(Output<List<AssessmentRoleArgs>> roles) {
             $.roles = roles;
             return this;
         }
@@ -361,6 +361,9 @@ public final class AssessmentArgs extends com.pulumi.resources.ResourceArgs {
         public AssessmentArgs build() {
             if ($.frameworkId == null) {
                 throw new MissingRequiredPropertyException("AssessmentArgs", "frameworkId");
+            }
+            if ($.roles == null) {
+                throw new MissingRequiredPropertyException("AssessmentArgs", "roles");
             }
             return $;
         }

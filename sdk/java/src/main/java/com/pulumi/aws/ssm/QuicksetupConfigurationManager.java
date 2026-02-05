@@ -42,14 +42,14 @@ public class QuicksetupConfigurationManager extends com.pulumi.resources.CustomR
      * 
      */
     @Export(name="configurationDefinition", refs={QuicksetupConfigurationManagerConfigurationDefinition.class}, tree="[0]")
-    private Output</* @Nullable */ QuicksetupConfigurationManagerConfigurationDefinition> configurationDefinition;
+    private Output<QuicksetupConfigurationManagerConfigurationDefinition> configurationDefinition;
 
     /**
      * @return Definition of the Quick Setup configuration that the configuration manager deploys. See `configurationDefinition` below.
      * 
      */
-    public Output<Optional<QuicksetupConfigurationManagerConfigurationDefinition>> configurationDefinition() {
-        return Codegen.optional(this.configurationDefinition);
+    public Output<QuicksetupConfigurationManagerConfigurationDefinition> configurationDefinition() {
+        return this.configurationDefinition;
     }
     /**
      * Description of the configuration manager.
@@ -172,7 +172,7 @@ public class QuicksetupConfigurationManager extends com.pulumi.resources.CustomR
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public QuicksetupConfigurationManager(java.lang.String name, @Nullable QuicksetupConfigurationManagerArgs args) {
+    public QuicksetupConfigurationManager(java.lang.String name, QuicksetupConfigurationManagerArgs args) {
         this(name, args, null);
     }
     /**
@@ -181,7 +181,7 @@ public class QuicksetupConfigurationManager extends com.pulumi.resources.CustomR
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public QuicksetupConfigurationManager(java.lang.String name, @Nullable QuicksetupConfigurationManagerArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public QuicksetupConfigurationManager(java.lang.String name, QuicksetupConfigurationManagerArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:ssm/quicksetupConfigurationManager:QuicksetupConfigurationManager", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
@@ -189,7 +189,7 @@ public class QuicksetupConfigurationManager extends com.pulumi.resources.CustomR
         super("aws:ssm/quicksetupConfigurationManager:QuicksetupConfigurationManager", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static QuicksetupConfigurationManagerArgs makeArgs(@Nullable QuicksetupConfigurationManagerArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    private static QuicksetupConfigurationManagerArgs makeArgs(QuicksetupConfigurationManagerArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         if (options != null && options.getUrn().isPresent()) {
             return null;
         }

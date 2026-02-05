@@ -20,13 +20,13 @@ namespace Pulumi.Aws.Sagemaker.Outputs
         /// <summary>
         /// Location of the input data.. Fields are documented below.
         /// </summary>
-        public readonly Outputs.LabelingJobInputConfigDataSource? DataSource;
+        public readonly Outputs.LabelingJobInputConfigDataSource DataSource;
 
         [OutputConstructor]
         private LabelingJobInputConfig(
             Outputs.LabelingJobInputConfigDataAttributes? dataAttributes,
 
-            Outputs.LabelingJobInputConfigDataSource? dataSource)
+            Outputs.LabelingJobInputConfigDataSource dataSource)
         {
             DataAttributes = dataAttributes;
             DataSource = dataSource;

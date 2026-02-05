@@ -14,7 +14,6 @@ import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
-import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
@@ -130,42 +129,42 @@ public class ServiceIntegration extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="kmsServerSideEncryption", refs={ServiceIntegrationKmsServerSideEncryption.class}, tree="[0]")
-    private Output</* @Nullable */ ServiceIntegrationKmsServerSideEncryption> kmsServerSideEncryption;
+    private Output<ServiceIntegrationKmsServerSideEncryption> kmsServerSideEncryption;
 
     /**
      * @return Information about whether DevOps Guru is configured to encrypt server-side data using KMS. See `kmsServerSideEncryption` below.
      * 
      */
-    public Output<Optional<ServiceIntegrationKmsServerSideEncryption>> kmsServerSideEncryption() {
-        return Codegen.optional(this.kmsServerSideEncryption);
+    public Output<ServiceIntegrationKmsServerSideEncryption> kmsServerSideEncryption() {
+        return this.kmsServerSideEncryption;
     }
     /**
      * Information about whether DevOps Guru is configured to perform log anomaly detection on Amazon CloudWatch log groups. See `logsAnomalyDetection` below.
      * 
      */
     @Export(name="logsAnomalyDetection", refs={ServiceIntegrationLogsAnomalyDetection.class}, tree="[0]")
-    private Output</* @Nullable */ ServiceIntegrationLogsAnomalyDetection> logsAnomalyDetection;
+    private Output<ServiceIntegrationLogsAnomalyDetection> logsAnomalyDetection;
 
     /**
      * @return Information about whether DevOps Guru is configured to perform log anomaly detection on Amazon CloudWatch log groups. See `logsAnomalyDetection` below.
      * 
      */
-    public Output<Optional<ServiceIntegrationLogsAnomalyDetection>> logsAnomalyDetection() {
-        return Codegen.optional(this.logsAnomalyDetection);
+    public Output<ServiceIntegrationLogsAnomalyDetection> logsAnomalyDetection() {
+        return this.logsAnomalyDetection;
     }
     /**
      * Information about whether DevOps Guru is configured to create an OpsItem in AWS Systems Manager OpsCenter for each created insight. See `opsCenter` below.
      * 
      */
     @Export(name="opsCenter", refs={ServiceIntegrationOpsCenter.class}, tree="[0]")
-    private Output</* @Nullable */ ServiceIntegrationOpsCenter> opsCenter;
+    private Output<ServiceIntegrationOpsCenter> opsCenter;
 
     /**
      * @return Information about whether DevOps Guru is configured to create an OpsItem in AWS Systems Manager OpsCenter for each created insight. See `opsCenter` below.
      * 
      */
-    public Output<Optional<ServiceIntegrationOpsCenter>> opsCenter() {
-        return Codegen.optional(this.opsCenter);
+    public Output<ServiceIntegrationOpsCenter> opsCenter() {
+        return this.opsCenter;
     }
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -194,7 +193,7 @@ public class ServiceIntegration extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public ServiceIntegration(java.lang.String name, @Nullable ServiceIntegrationArgs args) {
+    public ServiceIntegration(java.lang.String name, ServiceIntegrationArgs args) {
         this(name, args, null);
     }
     /**
@@ -203,7 +202,7 @@ public class ServiceIntegration extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public ServiceIntegration(java.lang.String name, @Nullable ServiceIntegrationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public ServiceIntegration(java.lang.String name, ServiceIntegrationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:devopsguru/serviceIntegration:ServiceIntegration", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
@@ -211,7 +210,7 @@ public class ServiceIntegration extends com.pulumi.resources.CustomResource {
         super("aws:devopsguru/serviceIntegration:ServiceIntegration", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static ServiceIntegrationArgs makeArgs(@Nullable ServiceIntegrationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    private static ServiceIntegrationArgs makeArgs(ServiceIntegrationArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         if (options != null && options.getUrn().isPresent()) {
             return null;
         }

@@ -15,8 +15,8 @@ namespace Pulumi.Aws.ApiGatewayV2.Inputs
         /// <summary>
         /// Configuration to invoke a stage of a target API. Only REST APIs are supported. See below.
         /// </summary>
-        [Input("invokeApi")]
-        public Input<Inputs.RoutingRuleActionInvokeApiGetArgs>? InvokeApi { get; set; }
+        [Input("invokeApi", required: true)]
+        public Input<Inputs.RoutingRuleActionInvokeApiGetArgs> InvokeApi { get; set; } = null!;
 
         public RoutingRuleActionGetArgs()
         {

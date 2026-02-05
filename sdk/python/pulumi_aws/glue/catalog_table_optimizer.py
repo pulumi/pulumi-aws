@@ -22,26 +22,25 @@ __all__ = ['CatalogTableOptimizerArgs', 'CatalogTableOptimizer']
 class CatalogTableOptimizerArgs:
     def __init__(__self__, *,
                  catalog_id: pulumi.Input[_builtins.str],
+                 configuration: pulumi.Input['CatalogTableOptimizerConfigurationArgs'],
                  database_name: pulumi.Input[_builtins.str],
                  table_name: pulumi.Input[_builtins.str],
                  type: pulumi.Input[_builtins.str],
-                 configuration: Optional[pulumi.Input['CatalogTableOptimizerConfigurationArgs']] = None,
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a CatalogTableOptimizer resource.
         :param pulumi.Input[_builtins.str] catalog_id: The Catalog ID of the table.
+        :param pulumi.Input['CatalogTableOptimizerConfigurationArgs'] configuration: A configuration block that defines the table optimizer settings. See Configuration for additional details.
         :param pulumi.Input[_builtins.str] database_name: The name of the database in the catalog in which the table resides.
         :param pulumi.Input[_builtins.str] table_name: The name of the table.
         :param pulumi.Input[_builtins.str] type: The type of table optimizer. Valid values are `compaction`, `retention`, and `orphan_file_deletion`.
-        :param pulumi.Input['CatalogTableOptimizerConfigurationArgs'] configuration: A configuration block that defines the table optimizer settings. See Configuration for additional details.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "catalog_id", catalog_id)
+        pulumi.set(__self__, "configuration", configuration)
         pulumi.set(__self__, "database_name", database_name)
         pulumi.set(__self__, "table_name", table_name)
         pulumi.set(__self__, "type", type)
-        if configuration is not None:
-            pulumi.set(__self__, "configuration", configuration)
         if region is not None:
             pulumi.set(__self__, "region", region)
 
@@ -56,6 +55,18 @@ class CatalogTableOptimizerArgs:
     @catalog_id.setter
     def catalog_id(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "catalog_id", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def configuration(self) -> pulumi.Input['CatalogTableOptimizerConfigurationArgs']:
+        """
+        A configuration block that defines the table optimizer settings. See Configuration for additional details.
+        """
+        return pulumi.get(self, "configuration")
+
+    @configuration.setter
+    def configuration(self, value: pulumi.Input['CatalogTableOptimizerConfigurationArgs']):
+        pulumi.set(self, "configuration", value)
 
     @_builtins.property
     @pulumi.getter(name="databaseName")
@@ -92,18 +103,6 @@ class CatalogTableOptimizerArgs:
     @type.setter
     def type(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "type", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def configuration(self) -> Optional[pulumi.Input['CatalogTableOptimizerConfigurationArgs']]:
-        """
-        A configuration block that defines the table optimizer settings. See Configuration for additional details.
-        """
-        return pulumi.get(self, "configuration")
-
-    @configuration.setter
-    def configuration(self, value: Optional[pulumi.Input['CatalogTableOptimizerConfigurationArgs']]):
-        pulumi.set(self, "configuration", value)
 
     @_builtins.property
     @pulumi.getter
@@ -437,6 +436,8 @@ class CatalogTableOptimizer(pulumi.CustomResource):
             if catalog_id is None and not opts.urn:
                 raise TypeError("Missing required property 'catalog_id'")
             __props__.__dict__["catalog_id"] = catalog_id
+            if configuration is None and not opts.urn:
+                raise TypeError("Missing required property 'configuration'")
             __props__.__dict__["configuration"] = configuration
             if database_name is None and not opts.urn:
                 raise TypeError("Missing required property 'database_name'")
@@ -500,7 +501,7 @@ class CatalogTableOptimizer(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
-    def configuration(self) -> pulumi.Output[Optional['outputs.CatalogTableOptimizerConfiguration']]:
+    def configuration(self) -> pulumi.Output['outputs.CatalogTableOptimizerConfiguration']:
         """
         A configuration block that defines the table optimizer settings. See Configuration for additional details.
         """

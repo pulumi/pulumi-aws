@@ -16,10 +16,10 @@ namespace Pulumi.Aws.ApiGatewayV2.Outputs
         /// <summary>
         /// Configuration of the headers to be matched. There is a match if any of the header name and header value globs are matched. See below.
         /// </summary>
-        public readonly Outputs.RoutingRuleConditionMatchHeadersAnyOf? AnyOf;
+        public readonly Outputs.RoutingRuleConditionMatchHeadersAnyOf AnyOf;
 
         [OutputConstructor]
-        private RoutingRuleConditionMatchHeaders(Outputs.RoutingRuleConditionMatchHeadersAnyOf? anyOf)
+        private RoutingRuleConditionMatchHeaders(Outputs.RoutingRuleConditionMatchHeadersAnyOf anyOf)
         {
             AnyOf = anyOf;
         }

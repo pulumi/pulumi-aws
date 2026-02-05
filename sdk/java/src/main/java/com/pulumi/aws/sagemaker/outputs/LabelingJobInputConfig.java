@@ -6,6 +6,7 @@ package com.pulumi.aws.sagemaker.outputs;
 import com.pulumi.aws.sagemaker.outputs.LabelingJobInputConfigDataAttributes;
 import com.pulumi.aws.sagemaker.outputs.LabelingJobInputConfigDataSource;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -21,7 +22,7 @@ public final class LabelingJobInputConfig {
      * @return Location of the input data.. Fields are documented below.
      * 
      */
-    private @Nullable LabelingJobInputConfigDataSource dataSource;
+    private LabelingJobInputConfigDataSource dataSource;
 
     private LabelingJobInputConfig() {}
     /**
@@ -35,8 +36,8 @@ public final class LabelingJobInputConfig {
      * @return Location of the input data.. Fields are documented below.
      * 
      */
-    public Optional<LabelingJobInputConfigDataSource> dataSource() {
-        return Optional.ofNullable(this.dataSource);
+    public LabelingJobInputConfigDataSource dataSource() {
+        return this.dataSource;
     }
 
     public static Builder builder() {
@@ -49,7 +50,7 @@ public final class LabelingJobInputConfig {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable LabelingJobInputConfigDataAttributes dataAttributes;
-        private @Nullable LabelingJobInputConfigDataSource dataSource;
+        private LabelingJobInputConfigDataSource dataSource;
         public Builder() {}
         public Builder(LabelingJobInputConfig defaults) {
     	      Objects.requireNonNull(defaults);
@@ -64,8 +65,10 @@ public final class LabelingJobInputConfig {
             return this;
         }
         @CustomType.Setter
-        public Builder dataSource(@Nullable LabelingJobInputConfigDataSource dataSource) {
-
+        public Builder dataSource(LabelingJobInputConfigDataSource dataSource) {
+            if (dataSource == null) {
+              throw new MissingRequiredPropertyException("LabelingJobInputConfig", "dataSource");
+            }
             this.dataSource = dataSource;
             return this;
         }

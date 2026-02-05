@@ -10622,6 +10622,10 @@ if not MYPY:
         """
         Title for the task.
         """
+        ui_config: pulumi.Input['LabelingJobHumanTaskConfigUiConfigArgsDict']
+        """
+        Information about the user interface that workers use to complete the labeling task. Fields are documented below.
+        """
         workteam_arn: pulumi.Input[_builtins.str]
         """
         ARN of the work team assigned to complete the tasks.
@@ -10650,10 +10654,6 @@ if not MYPY:
         """
         Keywords used to describe the task.
         """
-        ui_config: NotRequired[pulumi.Input['LabelingJobHumanTaskConfigUiConfigArgsDict']]
-        """
-        Information about the user interface that workers use to complete the labeling task. Fields are documented below.
-        """
 elif False:
     LabelingJobHumanTaskConfigArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -10664,19 +10664,20 @@ class LabelingJobHumanTaskConfigArgs:
                  task_description: pulumi.Input[_builtins.str],
                  task_time_limit_in_seconds: pulumi.Input[_builtins.int],
                  task_title: pulumi.Input[_builtins.str],
+                 ui_config: pulumi.Input['LabelingJobHumanTaskConfigUiConfigArgs'],
                  workteam_arn: pulumi.Input[_builtins.str],
                  annotation_consolidation_config: Optional[pulumi.Input['LabelingJobHumanTaskConfigAnnotationConsolidationConfigArgs']] = None,
                  max_concurrent_task_count: Optional[pulumi.Input[_builtins.int]] = None,
                  pre_human_task_lambda_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  public_workforce_task_price: Optional[pulumi.Input['LabelingJobHumanTaskConfigPublicWorkforceTaskPriceArgs']] = None,
                  task_availability_lifetime_in_seconds: Optional[pulumi.Input[_builtins.int]] = None,
-                 task_keywords: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
-                 ui_config: Optional[pulumi.Input['LabelingJobHumanTaskConfigUiConfigArgs']] = None):
+                 task_keywords: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[_builtins.int] number_of_human_workers_per_data_object: Number of human workers that will label an object.
         :param pulumi.Input[_builtins.str] task_description: Description of the task.
         :param pulumi.Input[_builtins.int] task_time_limit_in_seconds: Amount of time that a worker has to complete a task.
         :param pulumi.Input[_builtins.str] task_title: Title for the task.
+        :param pulumi.Input['LabelingJobHumanTaskConfigUiConfigArgs'] ui_config: Information about the user interface that workers use to complete the labeling task. Fields are documented below.
         :param pulumi.Input[_builtins.str] workteam_arn: ARN of the work team assigned to complete the tasks.
         :param pulumi.Input['LabelingJobHumanTaskConfigAnnotationConsolidationConfigArgs'] annotation_consolidation_config: How labels are consolidated across human workers. Fields are documented below.
         :param pulumi.Input[_builtins.int] max_concurrent_task_count: Maximum number of data objects that can be labeled by human workers at the same time.
@@ -10684,12 +10685,12 @@ class LabelingJobHumanTaskConfigArgs:
         :param pulumi.Input['LabelingJobHumanTaskConfigPublicWorkforceTaskPriceArgs'] public_workforce_task_price: Price to pay for each task performed by an Amazon Mechanical Turk worker. Fields are documented below.
         :param pulumi.Input[_builtins.int] task_availability_lifetime_in_seconds: length of time that a task remains available for labeling by human workers.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] task_keywords: Keywords used to describe the task.
-        :param pulumi.Input['LabelingJobHumanTaskConfigUiConfigArgs'] ui_config: Information about the user interface that workers use to complete the labeling task. Fields are documented below.
         """
         pulumi.set(__self__, "number_of_human_workers_per_data_object", number_of_human_workers_per_data_object)
         pulumi.set(__self__, "task_description", task_description)
         pulumi.set(__self__, "task_time_limit_in_seconds", task_time_limit_in_seconds)
         pulumi.set(__self__, "task_title", task_title)
+        pulumi.set(__self__, "ui_config", ui_config)
         pulumi.set(__self__, "workteam_arn", workteam_arn)
         if annotation_consolidation_config is not None:
             pulumi.set(__self__, "annotation_consolidation_config", annotation_consolidation_config)
@@ -10703,8 +10704,6 @@ class LabelingJobHumanTaskConfigArgs:
             pulumi.set(__self__, "task_availability_lifetime_in_seconds", task_availability_lifetime_in_seconds)
         if task_keywords is not None:
             pulumi.set(__self__, "task_keywords", task_keywords)
-        if ui_config is not None:
-            pulumi.set(__self__, "ui_config", ui_config)
 
     @_builtins.property
     @pulumi.getter(name="numberOfHumanWorkersPerDataObject")
@@ -10753,6 +10752,18 @@ class LabelingJobHumanTaskConfigArgs:
     @task_title.setter
     def task_title(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "task_title", value)
+
+    @_builtins.property
+    @pulumi.getter(name="uiConfig")
+    def ui_config(self) -> pulumi.Input['LabelingJobHumanTaskConfigUiConfigArgs']:
+        """
+        Information about the user interface that workers use to complete the labeling task. Fields are documented below.
+        """
+        return pulumi.get(self, "ui_config")
+
+    @ui_config.setter
+    def ui_config(self, value: pulumi.Input['LabelingJobHumanTaskConfigUiConfigArgs']):
+        pulumi.set(self, "ui_config", value)
 
     @_builtins.property
     @pulumi.getter(name="workteamArn")
@@ -10837,18 +10848,6 @@ class LabelingJobHumanTaskConfigArgs:
     @task_keywords.setter
     def task_keywords(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "task_keywords", value)
-
-    @_builtins.property
-    @pulumi.getter(name="uiConfig")
-    def ui_config(self) -> Optional[pulumi.Input['LabelingJobHumanTaskConfigUiConfigArgs']]:
-        """
-        Information about the user interface that workers use to complete the labeling task. Fields are documented below.
-        """
-        return pulumi.get(self, "ui_config")
-
-    @ui_config.setter
-    def ui_config(self, value: Optional[pulumi.Input['LabelingJobHumanTaskConfigUiConfigArgs']]):
-        pulumi.set(self, "ui_config", value)
 
 
 if not MYPY:
@@ -11040,13 +11039,13 @@ class LabelingJobHumanTaskConfigUiConfigArgs:
 
 if not MYPY:
     class LabelingJobInputConfigArgsDict(TypedDict):
+        data_source: pulumi.Input['LabelingJobInputConfigDataSourceArgsDict']
+        """
+        Location of the input data.. Fields are documented below.
+        """
         data_attributes: NotRequired[pulumi.Input['LabelingJobInputConfigDataAttributesArgsDict']]
         """
         Attributes of the data. Fields are documented below.
-        """
-        data_source: NotRequired[pulumi.Input['LabelingJobInputConfigDataSourceArgsDict']]
-        """
-        Location of the input data.. Fields are documented below.
         """
 elif False:
     LabelingJobInputConfigArgsDict: TypeAlias = Mapping[str, Any]
@@ -11054,16 +11053,27 @@ elif False:
 @pulumi.input_type
 class LabelingJobInputConfigArgs:
     def __init__(__self__, *,
-                 data_attributes: Optional[pulumi.Input['LabelingJobInputConfigDataAttributesArgs']] = None,
-                 data_source: Optional[pulumi.Input['LabelingJobInputConfigDataSourceArgs']] = None):
+                 data_source: pulumi.Input['LabelingJobInputConfigDataSourceArgs'],
+                 data_attributes: Optional[pulumi.Input['LabelingJobInputConfigDataAttributesArgs']] = None):
         """
-        :param pulumi.Input['LabelingJobInputConfigDataAttributesArgs'] data_attributes: Attributes of the data. Fields are documented below.
         :param pulumi.Input['LabelingJobInputConfigDataSourceArgs'] data_source: Location of the input data.. Fields are documented below.
+        :param pulumi.Input['LabelingJobInputConfigDataAttributesArgs'] data_attributes: Attributes of the data. Fields are documented below.
         """
+        pulumi.set(__self__, "data_source", data_source)
         if data_attributes is not None:
             pulumi.set(__self__, "data_attributes", data_attributes)
-        if data_source is not None:
-            pulumi.set(__self__, "data_source", data_source)
+
+    @_builtins.property
+    @pulumi.getter(name="dataSource")
+    def data_source(self) -> pulumi.Input['LabelingJobInputConfigDataSourceArgs']:
+        """
+        Location of the input data.. Fields are documented below.
+        """
+        return pulumi.get(self, "data_source")
+
+    @data_source.setter
+    def data_source(self, value: pulumi.Input['LabelingJobInputConfigDataSourceArgs']):
+        pulumi.set(self, "data_source", value)
 
     @_builtins.property
     @pulumi.getter(name="dataAttributes")
@@ -11076,18 +11086,6 @@ class LabelingJobInputConfigArgs:
     @data_attributes.setter
     def data_attributes(self, value: Optional[pulumi.Input['LabelingJobInputConfigDataAttributesArgs']]):
         pulumi.set(self, "data_attributes", value)
-
-    @_builtins.property
-    @pulumi.getter(name="dataSource")
-    def data_source(self) -> Optional[pulumi.Input['LabelingJobInputConfigDataSourceArgs']]:
-        """
-        Location of the input data.. Fields are documented below.
-        """
-        return pulumi.get(self, "data_source")
-
-    @data_source.setter
-    def data_source(self, value: Optional[pulumi.Input['LabelingJobInputConfigDataSourceArgs']]):
-        pulumi.set(self, "data_source", value)
 
 
 if not MYPY:

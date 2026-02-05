@@ -33,8 +33,8 @@ namespace Pulumi.Aws.Ecr.Inputs
         /// <summary>
         /// Collects parameters describing the selection criteria for the ECR lifecycle policy:
         /// </summary>
-        [Input("selection")]
-        public Input<Inputs.GetLifecyclePolicyDocumentRuleSelectionInputArgs>? Selection { get; set; }
+        [Input("selection", required: true)]
+        public Input<Inputs.GetLifecyclePolicyDocumentRuleSelectionInputArgs> Selection { get; set; } = null!;
 
         public GetLifecyclePolicyDocumentRuleInputArgs()
         {

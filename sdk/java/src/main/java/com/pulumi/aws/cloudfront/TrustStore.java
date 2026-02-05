@@ -140,7 +140,7 @@ public class TrustStore extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="caCertificatesBundleSource", refs={TrustStoreCaCertificatesBundleSource.class}, tree="[0]")
-    private Output</* @Nullable */ TrustStoreCaCertificatesBundleSource> caCertificatesBundleSource;
+    private Output<TrustStoreCaCertificatesBundleSource> caCertificatesBundleSource;
 
     /**
      * @return Configuration block for the CA certificates bundle source. See `caCertificatesBundleSource` below.
@@ -148,8 +148,8 @@ public class TrustStore extends com.pulumi.resources.CustomResource {
      * The following arguments are optional:
      * 
      */
-    public Output<Optional<TrustStoreCaCertificatesBundleSource>> caCertificatesBundleSource() {
-        return Codegen.optional(this.caCertificatesBundleSource);
+    public Output<TrustStoreCaCertificatesBundleSource> caCertificatesBundleSource() {
+        return this.caCertificatesBundleSource;
     }
     /**
      * ETag of the trust store.
@@ -240,7 +240,7 @@ public class TrustStore extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public TrustStore(java.lang.String name, @Nullable TrustStoreArgs args) {
+    public TrustStore(java.lang.String name, TrustStoreArgs args) {
         this(name, args, null);
     }
     /**
@@ -249,7 +249,7 @@ public class TrustStore extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public TrustStore(java.lang.String name, @Nullable TrustStoreArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public TrustStore(java.lang.String name, TrustStoreArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:cloudfront/trustStore:TrustStore", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
@@ -257,7 +257,7 @@ public class TrustStore extends com.pulumi.resources.CustomResource {
         super("aws:cloudfront/trustStore:TrustStore", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static TrustStoreArgs makeArgs(@Nullable TrustStoreArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    private static TrustStoreArgs makeArgs(TrustStoreArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         if (options != null && options.getUrn().isPresent()) {
             return null;
         }

@@ -107,7 +107,7 @@ public class ResourceLfTag extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="lfTag", refs={ResourceLfTagLfTag.class}, tree="[0]")
-    private Output</* @Nullable */ ResourceLfTagLfTag> lfTag;
+    private Output<ResourceLfTagLfTag> lfTag;
 
     /**
      * @return Set of LF-tags to attach to the resource. See LF Tag for more details.
@@ -115,8 +115,8 @@ public class ResourceLfTag extends com.pulumi.resources.CustomResource {
      * Exactly one of the following is required:
      * 
      */
-    public Output<Optional<ResourceLfTagLfTag>> lfTag() {
-        return Codegen.optional(this.lfTag);
+    public Output<ResourceLfTagLfTag> lfTag() {
+        return this.lfTag;
     }
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -183,7 +183,7 @@ public class ResourceLfTag extends com.pulumi.resources.CustomResource {
      * @param name The _unique_ name of the resulting resource.
      * @param args The arguments to use to populate this resource's properties.
      */
-    public ResourceLfTag(java.lang.String name, @Nullable ResourceLfTagArgs args) {
+    public ResourceLfTag(java.lang.String name, ResourceLfTagArgs args) {
         this(name, args, null);
     }
     /**
@@ -192,7 +192,7 @@ public class ResourceLfTag extends com.pulumi.resources.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param options A bag of options that control this resource's behavior.
      */
-    public ResourceLfTag(java.lang.String name, @Nullable ResourceLfTagArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    public ResourceLfTag(java.lang.String name, ResourceLfTagArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         super("aws:lakeformation/resourceLfTag:ResourceLfTag", name, makeArgs(args, options), makeResourceOptions(options, Codegen.empty()), false);
     }
 
@@ -200,7 +200,7 @@ public class ResourceLfTag extends com.pulumi.resources.CustomResource {
         super("aws:lakeformation/resourceLfTag:ResourceLfTag", name, state, makeResourceOptions(options, id), false);
     }
 
-    private static ResourceLfTagArgs makeArgs(@Nullable ResourceLfTagArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
+    private static ResourceLfTagArgs makeArgs(ResourceLfTagArgs args, @Nullable com.pulumi.resources.CustomResourceOptions options) {
         if (options != null && options.getUrn().isPresent()) {
             return null;
         }

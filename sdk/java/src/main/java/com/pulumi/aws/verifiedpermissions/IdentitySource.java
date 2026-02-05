@@ -12,7 +12,6 @@ import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.String;
-import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
@@ -164,14 +163,14 @@ public class IdentitySource extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="configuration", refs={IdentitySourceConfiguration.class}, tree="[0]")
-    private Output</* @Nullable */ IdentitySourceConfiguration> configuration;
+    private Output<IdentitySourceConfiguration> configuration;
 
     /**
      * @return Specifies the details required to communicate with the identity provider (IdP) associated with this identity source. See Configuration below.
      * 
      */
-    public Output<Optional<IdentitySourceConfiguration>> configuration() {
-        return Codegen.optional(this.configuration);
+    public Output<IdentitySourceConfiguration> configuration() {
+        return this.configuration;
     }
     /**
      * Specifies the ID of the policy store in which you want to store this identity source.

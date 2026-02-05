@@ -26,15 +26,15 @@ public final class MultitenantDistributionDefaultCacheBehaviorArgs extends com.p
      * Controls which HTTP methods CloudFront processes and forwards to your Amazon S3 bucket or your custom origin.
      * 
      */
-    @Import(name="allowedMethods")
-    private @Nullable Output<MultitenantDistributionDefaultCacheBehaviorAllowedMethodsArgs> allowedMethods;
+    @Import(name="allowedMethods", required=true)
+    private Output<MultitenantDistributionDefaultCacheBehaviorAllowedMethodsArgs> allowedMethods;
 
     /**
      * @return Controls which HTTP methods CloudFront processes and forwards to your Amazon S3 bucket or your custom origin.
      * 
      */
-    public Optional<Output<MultitenantDistributionDefaultCacheBehaviorAllowedMethodsArgs>> allowedMethods() {
-        return Optional.ofNullable(this.allowedMethods);
+    public Output<MultitenantDistributionDefaultCacheBehaviorAllowedMethodsArgs> allowedMethods() {
+        return this.allowedMethods;
     }
 
     /**
@@ -243,7 +243,7 @@ public final class MultitenantDistributionDefaultCacheBehaviorArgs extends com.p
          * @return builder
          * 
          */
-        public Builder allowedMethods(@Nullable Output<MultitenantDistributionDefaultCacheBehaviorAllowedMethodsArgs> allowedMethods) {
+        public Builder allowedMethods(Output<MultitenantDistributionDefaultCacheBehaviorAllowedMethodsArgs> allowedMethods) {
             $.allowedMethods = allowedMethods;
             return this;
         }
@@ -510,6 +510,9 @@ public final class MultitenantDistributionDefaultCacheBehaviorArgs extends com.p
         }
 
         public MultitenantDistributionDefaultCacheBehaviorArgs build() {
+            if ($.allowedMethods == null) {
+                throw new MissingRequiredPropertyException("MultitenantDistributionDefaultCacheBehaviorArgs", "allowedMethods");
+            }
             if ($.targetOriginId == null) {
                 throw new MissingRequiredPropertyException("MultitenantDistributionDefaultCacheBehaviorArgs", "targetOriginId");
             }

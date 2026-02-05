@@ -130,7 +130,7 @@ namespace Pulumi.Aws.Glue
         /// A configuration block that defines the table optimizer settings. See Configuration for additional details.
         /// </summary>
         [Output("configuration")]
-        public Output<Outputs.CatalogTableOptimizerConfiguration?> Configuration { get; private set; } = null!;
+        public Output<Outputs.CatalogTableOptimizerConfiguration> Configuration { get; private set; } = null!;
 
         /// <summary>
         /// The name of the database in the catalog in which the table resides.
@@ -211,8 +211,8 @@ namespace Pulumi.Aws.Glue
         /// <summary>
         /// A configuration block that defines the table optimizer settings. See Configuration for additional details.
         /// </summary>
-        [Input("configuration")]
-        public Input<Inputs.CatalogTableOptimizerConfigurationArgs>? Configuration { get; set; }
+        [Input("configuration", required: true)]
+        public Input<Inputs.CatalogTableOptimizerConfigurationArgs> Configuration { get; set; } = null!;
 
         /// <summary>
         /// The name of the database in the catalog in which the table resides.

@@ -2999,19 +2999,20 @@ class V2modelsIntentClosingSettingClosingResponse(dict):
 @pulumi.output_type
 class V2modelsIntentClosingSettingClosingResponseMessageGroup(dict):
     def __init__(__self__, *,
-                 message: 'outputs.V2modelsIntentClosingSettingClosingResponseMessageGroupMessage',
+                 message: Optional['outputs.V2modelsIntentClosingSettingClosingResponseMessageGroupMessage'] = None,
                  variations: Optional[Sequence['outputs.V2modelsIntentClosingSettingClosingResponseMessageGroupVariation']] = None):
         """
         :param 'V2modelsIntentClosingSettingClosingResponseMessageGroupMessageArgs' message: Configuration block for the primary message that Amazon Lex should send to the user. See `message`.
         :param Sequence['V2modelsIntentClosingSettingClosingResponseMessageGroupVariationArgs'] variations: Configuration blocks for message variations to send to the user. When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user. See `variation`.
         """
-        pulumi.set(__self__, "message", message)
+        if message is not None:
+            pulumi.set(__self__, "message", message)
         if variations is not None:
             pulumi.set(__self__, "variations", variations)
 
     @_builtins.property
     @pulumi.getter
-    def message(self) -> 'outputs.V2modelsIntentClosingSettingClosingResponseMessageGroupMessage':
+    def message(self) -> Optional['outputs.V2modelsIntentClosingSettingClosingResponseMessageGroupMessage']:
         """
         Configuration block for the primary message that Amazon Lex should send to the user. See `message`.
         """
@@ -3495,10 +3496,10 @@ class V2modelsIntentClosingSettingConditional(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "defaultBranch":
-            suggest = "default_branch"
-        elif key == "conditionalBranches":
+        if key == "conditionalBranches":
             suggest = "conditional_branches"
+        elif key == "defaultBranch":
+            suggest = "default_branch"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in V2modelsIntentClosingSettingConditional. Access the value via the '{suggest}' property getter instead.")
@@ -3513,17 +3514,18 @@ class V2modelsIntentClosingSettingConditional(dict):
 
     def __init__(__self__, *,
                  active: _builtins.bool,
-                 default_branch: 'outputs.V2modelsIntentClosingSettingConditionalDefaultBranch',
-                 conditional_branches: Optional[Sequence['outputs.V2modelsIntentClosingSettingConditionalConditionalBranch']] = None):
+                 conditional_branches: Optional[Sequence['outputs.V2modelsIntentClosingSettingConditionalConditionalBranch']] = None,
+                 default_branch: Optional['outputs.V2modelsIntentClosingSettingConditionalDefaultBranch'] = None):
         """
         :param _builtins.bool active: Whether a conditional branch is active. When active is false, the conditions are not evaluated.
-        :param 'V2modelsIntentClosingSettingConditionalDefaultBranchArgs' default_branch: Configuration block for the conditional branch that should be followed when the conditions for other branches are not satisfied. A branch is made up of a condition, a response and a next step. See `default_branch`.
         :param Sequence['V2modelsIntentClosingSettingConditionalConditionalBranchArgs'] conditional_branches: Configuration blocks for conditional branches. A conditional branch is made up of a condition, a response and a next step. The response and next step are executed when the condition is true. See `conditional_branch`.
+        :param 'V2modelsIntentClosingSettingConditionalDefaultBranchArgs' default_branch: Configuration block for the conditional branch that should be followed when the conditions for other branches are not satisfied. A branch is made up of a condition, a response and a next step. See `default_branch`.
         """
         pulumi.set(__self__, "active", active)
-        pulumi.set(__self__, "default_branch", default_branch)
         if conditional_branches is not None:
             pulumi.set(__self__, "conditional_branches", conditional_branches)
+        if default_branch is not None:
+            pulumi.set(__self__, "default_branch", default_branch)
 
     @_builtins.property
     @pulumi.getter
@@ -3534,20 +3536,20 @@ class V2modelsIntentClosingSettingConditional(dict):
         return pulumi.get(self, "active")
 
     @_builtins.property
-    @pulumi.getter(name="defaultBranch")
-    def default_branch(self) -> 'outputs.V2modelsIntentClosingSettingConditionalDefaultBranch':
-        """
-        Configuration block for the conditional branch that should be followed when the conditions for other branches are not satisfied. A branch is made up of a condition, a response and a next step. See `default_branch`.
-        """
-        return pulumi.get(self, "default_branch")
-
-    @_builtins.property
     @pulumi.getter(name="conditionalBranches")
     def conditional_branches(self) -> Optional[Sequence['outputs.V2modelsIntentClosingSettingConditionalConditionalBranch']]:
         """
         Configuration blocks for conditional branches. A conditional branch is made up of a condition, a response and a next step. The response and next step are executed when the condition is true. See `conditional_branch`.
         """
         return pulumi.get(self, "conditional_branches")
+
+    @_builtins.property
+    @pulumi.getter(name="defaultBranch")
+    def default_branch(self) -> Optional['outputs.V2modelsIntentClosingSettingConditionalDefaultBranch']:
+        """
+        Configuration block for the conditional branch that should be followed when the conditions for other branches are not satisfied. A branch is made up of a condition, a response and a next step. See `default_branch`.
+        """
+        return pulumi.get(self, "default_branch")
 
 
 @pulumi.output_type
@@ -3570,29 +3572,23 @@ class V2modelsIntentClosingSettingConditionalConditionalBranch(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 condition: 'outputs.V2modelsIntentClosingSettingConditionalConditionalBranchCondition',
                  name: _builtins.str,
-                 next_step: 'outputs.V2modelsIntentClosingSettingConditionalConditionalBranchNextStep',
+                 condition: Optional['outputs.V2modelsIntentClosingSettingConditionalConditionalBranchCondition'] = None,
+                 next_step: Optional['outputs.V2modelsIntentClosingSettingConditionalConditionalBranchNextStep'] = None,
                  response: Optional['outputs.V2modelsIntentClosingSettingConditionalConditionalBranchResponse'] = None):
         """
-        :param 'V2modelsIntentClosingSettingConditionalConditionalBranchConditionArgs' condition: Configuration block for the expression to evaluate. If the condition is true, the branch's actions are taken. See `condition`.
         :param _builtins.str name: Name of the branch.
+        :param 'V2modelsIntentClosingSettingConditionalConditionalBranchConditionArgs' condition: Configuration block for the expression to evaluate. If the condition is true, the branch's actions are taken. See `condition`.
         :param 'V2modelsIntentClosingSettingConditionalConditionalBranchNextStepArgs' next_step: Configuration block for the next step in the conversation. See `next_step`.
         :param 'V2modelsIntentClosingSettingConditionalConditionalBranchResponseArgs' response: Configuration block for a list of message groups that Amazon Lex uses to respond to the user input. See `response`.
         """
-        pulumi.set(__self__, "condition", condition)
         pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "next_step", next_step)
+        if condition is not None:
+            pulumi.set(__self__, "condition", condition)
+        if next_step is not None:
+            pulumi.set(__self__, "next_step", next_step)
         if response is not None:
             pulumi.set(__self__, "response", response)
-
-    @_builtins.property
-    @pulumi.getter
-    def condition(self) -> 'outputs.V2modelsIntentClosingSettingConditionalConditionalBranchCondition':
-        """
-        Configuration block for the expression to evaluate. If the condition is true, the branch's actions are taken. See `condition`.
-        """
-        return pulumi.get(self, "condition")
 
     @_builtins.property
     @pulumi.getter
@@ -3603,8 +3599,16 @@ class V2modelsIntentClosingSettingConditionalConditionalBranch(dict):
         return pulumi.get(self, "name")
 
     @_builtins.property
+    @pulumi.getter
+    def condition(self) -> Optional['outputs.V2modelsIntentClosingSettingConditionalConditionalBranchCondition']:
+        """
+        Configuration block for the expression to evaluate. If the condition is true, the branch's actions are taken. See `condition`.
+        """
+        return pulumi.get(self, "condition")
+
+    @_builtins.property
     @pulumi.getter(name="nextStep")
-    def next_step(self) -> 'outputs.V2modelsIntentClosingSettingConditionalConditionalBranchNextStep':
+    def next_step(self) -> Optional['outputs.V2modelsIntentClosingSettingConditionalConditionalBranchNextStep']:
         """
         Configuration block for the next step in the conversation. See `next_step`.
         """
@@ -3956,19 +3960,20 @@ class V2modelsIntentClosingSettingConditionalConditionalBranchResponse(dict):
 @pulumi.output_type
 class V2modelsIntentClosingSettingConditionalConditionalBranchResponseMessageGroup(dict):
     def __init__(__self__, *,
-                 message: 'outputs.V2modelsIntentClosingSettingConditionalConditionalBranchResponseMessageGroupMessage',
+                 message: Optional['outputs.V2modelsIntentClosingSettingConditionalConditionalBranchResponseMessageGroupMessage'] = None,
                  variations: Optional[Sequence['outputs.V2modelsIntentClosingSettingConditionalConditionalBranchResponseMessageGroupVariation']] = None):
         """
         :param 'V2modelsIntentClosingSettingConditionalConditionalBranchResponseMessageGroupMessageArgs' message: Configuration block for the primary message that Amazon Lex should send to the user. See `message`.
         :param Sequence['V2modelsIntentClosingSettingConditionalConditionalBranchResponseMessageGroupVariationArgs'] variations: Configuration blocks for message variations to send to the user. When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user. See `variation`.
         """
-        pulumi.set(__self__, "message", message)
+        if message is not None:
+            pulumi.set(__self__, "message", message)
         if variations is not None:
             pulumi.set(__self__, "variations", variations)
 
     @_builtins.property
     @pulumi.getter
-    def message(self) -> 'outputs.V2modelsIntentClosingSettingConditionalConditionalBranchResponseMessageGroupMessage':
+    def message(self) -> Optional['outputs.V2modelsIntentClosingSettingConditionalConditionalBranchResponseMessageGroupMessage']:
         """
         Configuration block for the primary message that Amazon Lex should send to the user. See `message`.
         """
@@ -4797,19 +4802,20 @@ class V2modelsIntentClosingSettingConditionalDefaultBranchResponse(dict):
 @pulumi.output_type
 class V2modelsIntentClosingSettingConditionalDefaultBranchResponseMessageGroup(dict):
     def __init__(__self__, *,
-                 message: 'outputs.V2modelsIntentClosingSettingConditionalDefaultBranchResponseMessageGroupMessage',
+                 message: Optional['outputs.V2modelsIntentClosingSettingConditionalDefaultBranchResponseMessageGroupMessage'] = None,
                  variations: Optional[Sequence['outputs.V2modelsIntentClosingSettingConditionalDefaultBranchResponseMessageGroupVariation']] = None):
         """
         :param 'V2modelsIntentClosingSettingConditionalDefaultBranchResponseMessageGroupMessageArgs' message: Configuration block for the primary message that Amazon Lex should send to the user. See `message`.
         :param Sequence['V2modelsIntentClosingSettingConditionalDefaultBranchResponseMessageGroupVariationArgs'] variations: Configuration blocks for message variations to send to the user. When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user. See `variation`.
         """
-        pulumi.set(__self__, "message", message)
+        if message is not None:
+            pulumi.set(__self__, "message", message)
         if variations is not None:
             pulumi.set(__self__, "variations", variations)
 
     @_builtins.property
     @pulumi.getter
-    def message(self) -> 'outputs.V2modelsIntentClosingSettingConditionalDefaultBranchResponseMessageGroupMessage':
+    def message(self) -> Optional['outputs.V2modelsIntentClosingSettingConditionalDefaultBranchResponseMessageGroupMessage']:
         """
         Configuration block for the primary message that Amazon Lex should send to the user. See `message`.
         """
@@ -5542,9 +5548,7 @@ class V2modelsIntentConfirmationSetting(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "promptSpecification":
-            suggest = "prompt_specification"
-        elif key == "codeHook":
+        if key == "codeHook":
             suggest = "code_hook"
         elif key == "confirmationConditional":
             suggest = "confirmation_conditional"
@@ -5566,6 +5570,8 @@ class V2modelsIntentConfirmationSetting(dict):
             suggest = "failure_next_step"
         elif key == "failureResponse":
             suggest = "failure_response"
+        elif key == "promptSpecification":
+            suggest = "prompt_specification"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in V2modelsIntentConfirmationSetting. Access the value via the '{suggest}' property getter instead.")
@@ -5579,7 +5585,6 @@ class V2modelsIntentConfirmationSetting(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 prompt_specification: 'outputs.V2modelsIntentConfirmationSettingPromptSpecification',
                  active: Optional[_builtins.bool] = None,
                  code_hook: Optional['outputs.V2modelsIntentConfirmationSettingCodeHook'] = None,
                  confirmation_conditional: Optional['outputs.V2modelsIntentConfirmationSettingConfirmationConditional'] = None,
@@ -5591,9 +5596,9 @@ class V2modelsIntentConfirmationSetting(dict):
                  elicitation_code_hook: Optional['outputs.V2modelsIntentConfirmationSettingElicitationCodeHook'] = None,
                  failure_conditional: Optional['outputs.V2modelsIntentConfirmationSettingFailureConditional'] = None,
                  failure_next_step: Optional['outputs.V2modelsIntentConfirmationSettingFailureNextStep'] = None,
-                 failure_response: Optional['outputs.V2modelsIntentConfirmationSettingFailureResponse'] = None):
+                 failure_response: Optional['outputs.V2modelsIntentConfirmationSettingFailureResponse'] = None,
+                 prompt_specification: Optional['outputs.V2modelsIntentConfirmationSettingPromptSpecification'] = None):
         """
-        :param 'V2modelsIntentConfirmationSettingPromptSpecificationArgs' prompt_specification: Configuration block for prompting the user to confirm the intent. This question should have a yes or no answer. Amazon Lex uses this prompt to ensure that the user acknowledges that the intent is ready for fulfillment. See `prompt_specification`.
         :param _builtins.bool active: Whether the intent's confirmation is sent to the user. When this field is false, confirmation and declination responses aren't sent. If the active field isn't specified, the default is true.
         :param 'V2modelsIntentConfirmationSettingCodeHookArgs' code_hook: Configuration block for the intent's confirmation step. The dialog code hook is triggered based on these invocation settings when the confirmation next step or declination next step or failure next step is `invoke_dialog_code_hook`.  See `code_hook`.
         :param 'V2modelsIntentConfirmationSettingConfirmationConditionalArgs' confirmation_conditional: Configuration block for conditional branches to evaluate after the intent is closed. See `confirmation_conditional`.
@@ -5606,8 +5611,8 @@ class V2modelsIntentConfirmationSetting(dict):
         :param 'V2modelsIntentConfirmationSettingFailureConditionalArgs' failure_conditional: Configuration block for conditional branches. Branches are evaluated in the order that they are entered in the list. The first branch with a condition that evaluates to true is executed. The last branch in the list is the default branch. The default branch should not have any condition expression. The default branch is executed if no other branch has a matching condition. See `failure_conditional`.
         :param 'V2modelsIntentConfirmationSettingFailureNextStepArgs' failure_next_step: Configuration block for the next step to take in the conversation if the confirmation step fails. See `failure_next_step`.
         :param 'V2modelsIntentConfirmationSettingFailureResponseArgs' failure_response: Configuration block for message groups that Amazon Lex uses to respond the user input. See `failure_response`.
+        :param 'V2modelsIntentConfirmationSettingPromptSpecificationArgs' prompt_specification: Configuration block for prompting the user to confirm the intent. This question should have a yes or no answer. Amazon Lex uses this prompt to ensure that the user acknowledges that the intent is ready for fulfillment. See `prompt_specification`.
         """
-        pulumi.set(__self__, "prompt_specification", prompt_specification)
         if active is not None:
             pulumi.set(__self__, "active", active)
         if code_hook is not None:
@@ -5632,14 +5637,8 @@ class V2modelsIntentConfirmationSetting(dict):
             pulumi.set(__self__, "failure_next_step", failure_next_step)
         if failure_response is not None:
             pulumi.set(__self__, "failure_response", failure_response)
-
-    @_builtins.property
-    @pulumi.getter(name="promptSpecification")
-    def prompt_specification(self) -> 'outputs.V2modelsIntentConfirmationSettingPromptSpecification':
-        """
-        Configuration block for prompting the user to confirm the intent. This question should have a yes or no answer. Amazon Lex uses this prompt to ensure that the user acknowledges that the intent is ready for fulfillment. See `prompt_specification`.
-        """
-        return pulumi.get(self, "prompt_specification")
+        if prompt_specification is not None:
+            pulumi.set(__self__, "prompt_specification", prompt_specification)
 
     @_builtins.property
     @pulumi.getter
@@ -5737,6 +5736,14 @@ class V2modelsIntentConfirmationSetting(dict):
         """
         return pulumi.get(self, "failure_response")
 
+    @_builtins.property
+    @pulumi.getter(name="promptSpecification")
+    def prompt_specification(self) -> Optional['outputs.V2modelsIntentConfirmationSettingPromptSpecification']:
+        """
+        Configuration block for prompting the user to confirm the intent. This question should have a yes or no answer. Amazon Lex uses this prompt to ensure that the user acknowledges that the intent is ready for fulfillment. See `prompt_specification`.
+        """
+        return pulumi.get(self, "prompt_specification")
+
 
 @pulumi.output_type
 class V2modelsIntentConfirmationSettingCodeHook(dict):
@@ -5745,10 +5752,10 @@ class V2modelsIntentConfirmationSettingCodeHook(dict):
         suggest = None
         if key == "enableCodeHookInvocation":
             suggest = "enable_code_hook_invocation"
-        elif key == "postCodeHookSpecification":
-            suggest = "post_code_hook_specification"
         elif key == "invocationLabel":
             suggest = "invocation_label"
+        elif key == "postCodeHookSpecification":
+            suggest = "post_code_hook_specification"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in V2modelsIntentConfirmationSettingCodeHook. Access the value via the '{suggest}' property getter instead.")
@@ -5764,19 +5771,20 @@ class V2modelsIntentConfirmationSettingCodeHook(dict):
     def __init__(__self__, *,
                  active: _builtins.bool,
                  enable_code_hook_invocation: _builtins.bool,
-                 post_code_hook_specification: 'outputs.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecification',
-                 invocation_label: Optional[_builtins.str] = None):
+                 invocation_label: Optional[_builtins.str] = None,
+                 post_code_hook_specification: Optional['outputs.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecification'] = None):
         """
         :param _builtins.bool active: Whether a dialog code hook is used when the intent is activated.
         :param _builtins.bool enable_code_hook_invocation: Whether a Lambda function should be invoked for the dialog.
-        :param 'V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationArgs' post_code_hook_specification: Configuration block that contains the responses and actions that Amazon Lex takes after the Lambda function is complete. See `post_code_hook_specification`.
         :param _builtins.str invocation_label: Label that indicates the dialog step from which the dialog code hook is happening.
+        :param 'V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationArgs' post_code_hook_specification: Configuration block that contains the responses and actions that Amazon Lex takes after the Lambda function is complete. See `post_code_hook_specification`.
         """
         pulumi.set(__self__, "active", active)
         pulumi.set(__self__, "enable_code_hook_invocation", enable_code_hook_invocation)
-        pulumi.set(__self__, "post_code_hook_specification", post_code_hook_specification)
         if invocation_label is not None:
             pulumi.set(__self__, "invocation_label", invocation_label)
+        if post_code_hook_specification is not None:
+            pulumi.set(__self__, "post_code_hook_specification", post_code_hook_specification)
 
     @_builtins.property
     @pulumi.getter
@@ -5795,20 +5803,20 @@ class V2modelsIntentConfirmationSettingCodeHook(dict):
         return pulumi.get(self, "enable_code_hook_invocation")
 
     @_builtins.property
-    @pulumi.getter(name="postCodeHookSpecification")
-    def post_code_hook_specification(self) -> 'outputs.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecification':
-        """
-        Configuration block that contains the responses and actions that Amazon Lex takes after the Lambda function is complete. See `post_code_hook_specification`.
-        """
-        return pulumi.get(self, "post_code_hook_specification")
-
-    @_builtins.property
     @pulumi.getter(name="invocationLabel")
     def invocation_label(self) -> Optional[_builtins.str]:
         """
         Label that indicates the dialog step from which the dialog code hook is happening.
         """
         return pulumi.get(self, "invocation_label")
+
+    @_builtins.property
+    @pulumi.getter(name="postCodeHookSpecification")
+    def post_code_hook_specification(self) -> Optional['outputs.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecification']:
+        """
+        Configuration block that contains the responses and actions that Amazon Lex takes after the Lambda function is complete. See `post_code_hook_specification`.
+        """
+        return pulumi.get(self, "post_code_hook_specification")
 
 
 @pulumi.output_type
@@ -5964,10 +5972,10 @@ class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureC
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "defaultBranch":
-            suggest = "default_branch"
-        elif key == "conditionalBranches":
+        if key == "conditionalBranches":
             suggest = "conditional_branches"
+        elif key == "defaultBranch":
+            suggest = "default_branch"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditional. Access the value via the '{suggest}' property getter instead.")
@@ -5982,17 +5990,18 @@ class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureC
 
     def __init__(__self__, *,
                  active: _builtins.bool,
-                 default_branch: 'outputs.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranch',
-                 conditional_branches: Optional[Sequence['outputs.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranch']] = None):
+                 conditional_branches: Optional[Sequence['outputs.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranch']] = None,
+                 default_branch: Optional['outputs.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranch'] = None):
         """
         :param _builtins.bool active: Whether a conditional branch is active. When active is false, the conditions are not evaluated.
-        :param 'V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchArgs' default_branch: Configuration block for the conditional branch that should be followed when the conditions for other branches are not satisfied. A branch is made up of a condition, a response and a next step. See `default_branch`.
         :param Sequence['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchArgs'] conditional_branches: Configuration blocks for conditional branches. A conditional branch is made up of a condition, a response and a next step. The response and next step are executed when the condition is true. See `conditional_branch`.
+        :param 'V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchArgs' default_branch: Configuration block for the conditional branch that should be followed when the conditions for other branches are not satisfied. A branch is made up of a condition, a response and a next step. See `default_branch`.
         """
         pulumi.set(__self__, "active", active)
-        pulumi.set(__self__, "default_branch", default_branch)
         if conditional_branches is not None:
             pulumi.set(__self__, "conditional_branches", conditional_branches)
+        if default_branch is not None:
+            pulumi.set(__self__, "default_branch", default_branch)
 
     @_builtins.property
     @pulumi.getter
@@ -6003,20 +6012,20 @@ class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureC
         return pulumi.get(self, "active")
 
     @_builtins.property
-    @pulumi.getter(name="defaultBranch")
-    def default_branch(self) -> 'outputs.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranch':
-        """
-        Configuration block for the conditional branch that should be followed when the conditions for other branches are not satisfied. A branch is made up of a condition, a response and a next step. See `default_branch`.
-        """
-        return pulumi.get(self, "default_branch")
-
-    @_builtins.property
     @pulumi.getter(name="conditionalBranches")
     def conditional_branches(self) -> Optional[Sequence['outputs.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranch']]:
         """
         Configuration blocks for conditional branches. A conditional branch is made up of a condition, a response and a next step. The response and next step are executed when the condition is true. See `conditional_branch`.
         """
         return pulumi.get(self, "conditional_branches")
+
+    @_builtins.property
+    @pulumi.getter(name="defaultBranch")
+    def default_branch(self) -> Optional['outputs.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranch']:
+        """
+        Configuration block for the conditional branch that should be followed when the conditions for other branches are not satisfied. A branch is made up of a condition, a response and a next step. See `default_branch`.
+        """
+        return pulumi.get(self, "default_branch")
 
 
 @pulumi.output_type
@@ -6039,29 +6048,23 @@ class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureC
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 condition: 'outputs.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchCondition',
                  name: _builtins.str,
-                 next_step: 'outputs.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchNextStep',
+                 condition: Optional['outputs.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchCondition'] = None,
+                 next_step: Optional['outputs.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchNextStep'] = None,
                  response: Optional['outputs.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchResponse'] = None):
         """
-        :param 'V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchConditionArgs' condition: Configuration block for the expression to evaluate. If the condition is true, the branch's actions are taken. See `condition`.
         :param _builtins.str name: Name of the branch.
+        :param 'V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchConditionArgs' condition: Configuration block for the expression to evaluate. If the condition is true, the branch's actions are taken. See `condition`.
         :param 'V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchNextStepArgs' next_step: Configuration block for the next step in the conversation. See `next_step`.
         :param 'V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchResponseArgs' response: Configuration block for a list of message groups that Amazon Lex uses to respond to the user input. See `response`.
         """
-        pulumi.set(__self__, "condition", condition)
         pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "next_step", next_step)
+        if condition is not None:
+            pulumi.set(__self__, "condition", condition)
+        if next_step is not None:
+            pulumi.set(__self__, "next_step", next_step)
         if response is not None:
             pulumi.set(__self__, "response", response)
-
-    @_builtins.property
-    @pulumi.getter
-    def condition(self) -> 'outputs.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchCondition':
-        """
-        Configuration block for the expression to evaluate. If the condition is true, the branch's actions are taken. See `condition`.
-        """
-        return pulumi.get(self, "condition")
 
     @_builtins.property
     @pulumi.getter
@@ -6072,8 +6075,16 @@ class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureC
         return pulumi.get(self, "name")
 
     @_builtins.property
+    @pulumi.getter
+    def condition(self) -> Optional['outputs.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchCondition']:
+        """
+        Configuration block for the expression to evaluate. If the condition is true, the branch's actions are taken. See `condition`.
+        """
+        return pulumi.get(self, "condition")
+
+    @_builtins.property
     @pulumi.getter(name="nextStep")
-    def next_step(self) -> 'outputs.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchNextStep':
+    def next_step(self) -> Optional['outputs.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchNextStep']:
         """
         Configuration block for the next step in the conversation. See `next_step`.
         """
@@ -6425,19 +6436,20 @@ class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureC
 @pulumi.output_type
 class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchResponseMessageGroup(dict):
     def __init__(__self__, *,
-                 message: 'outputs.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchResponseMessageGroupMessage',
+                 message: Optional['outputs.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchResponseMessageGroupMessage'] = None,
                  variations: Optional[Sequence['outputs.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchResponseMessageGroupVariation']] = None):
         """
         :param 'V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchResponseMessageGroupMessageArgs' message: Configuration block for the primary message that Amazon Lex should send to the user. See `message`.
         :param Sequence['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchResponseMessageGroupVariationArgs'] variations: Configuration blocks for message variations to send to the user. When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user. See `variation`.
         """
-        pulumi.set(__self__, "message", message)
+        if message is not None:
+            pulumi.set(__self__, "message", message)
         if variations is not None:
             pulumi.set(__self__, "variations", variations)
 
     @_builtins.property
     @pulumi.getter
-    def message(self) -> 'outputs.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchResponseMessageGroupMessage':
+    def message(self) -> Optional['outputs.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchResponseMessageGroupMessage']:
         """
         Configuration block for the primary message that Amazon Lex should send to the user. See `message`.
         """
@@ -7266,19 +7278,20 @@ class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureC
 @pulumi.output_type
 class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchResponseMessageGroup(dict):
     def __init__(__self__, *,
-                 message: 'outputs.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchResponseMessageGroupMessage',
+                 message: Optional['outputs.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchResponseMessageGroupMessage'] = None,
                  variations: Optional[Sequence['outputs.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchResponseMessageGroupVariation']] = None):
         """
         :param 'V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchResponseMessageGroupMessageArgs' message: Configuration block for the primary message that Amazon Lex should send to the user. See `message`.
         :param Sequence['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchResponseMessageGroupVariationArgs'] variations: Configuration blocks for message variations to send to the user. When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user. See `variation`.
         """
-        pulumi.set(__self__, "message", message)
+        if message is not None:
+            pulumi.set(__self__, "message", message)
         if variations is not None:
             pulumi.set(__self__, "variations", variations)
 
     @_builtins.property
     @pulumi.getter
-    def message(self) -> 'outputs.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchResponseMessageGroupMessage':
+    def message(self) -> Optional['outputs.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchResponseMessageGroupMessage']:
         """
         Configuration block for the primary message that Amazon Lex should send to the user. See `message`.
         """
@@ -8059,19 +8072,20 @@ class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureR
 @pulumi.output_type
 class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureResponseMessageGroup(dict):
     def __init__(__self__, *,
-                 message: 'outputs.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureResponseMessageGroupMessage',
+                 message: Optional['outputs.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureResponseMessageGroupMessage'] = None,
                  variations: Optional[Sequence['outputs.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureResponseMessageGroupVariation']] = None):
         """
         :param 'V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureResponseMessageGroupMessageArgs' message: Configuration block for the primary message that Amazon Lex should send to the user. See `message`.
         :param Sequence['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureResponseMessageGroupVariationArgs'] variations: Configuration blocks for message variations to send to the user. When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user. See `variation`.
         """
-        pulumi.set(__self__, "message", message)
+        if message is not None:
+            pulumi.set(__self__, "message", message)
         if variations is not None:
             pulumi.set(__self__, "variations", variations)
 
     @_builtins.property
     @pulumi.getter
-    def message(self) -> 'outputs.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureResponseMessageGroupMessage':
+    def message(self) -> Optional['outputs.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationFailureResponseMessageGroupMessage']:
         """
         Configuration block for the primary message that Amazon Lex should send to the user. See `message`.
         """
@@ -8555,10 +8569,10 @@ class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessC
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "defaultBranch":
-            suggest = "default_branch"
-        elif key == "conditionalBranches":
+        if key == "conditionalBranches":
             suggest = "conditional_branches"
+        elif key == "defaultBranch":
+            suggest = "default_branch"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditional. Access the value via the '{suggest}' property getter instead.")
@@ -8573,17 +8587,18 @@ class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessC
 
     def __init__(__self__, *,
                  active: _builtins.bool,
-                 default_branch: 'outputs.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranch',
-                 conditional_branches: Optional[Sequence['outputs.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranch']] = None):
+                 conditional_branches: Optional[Sequence['outputs.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranch']] = None,
+                 default_branch: Optional['outputs.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranch'] = None):
         """
         :param _builtins.bool active: Whether a conditional branch is active. When active is false, the conditions are not evaluated.
-        :param 'V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchArgs' default_branch: Configuration block for the conditional branch that should be followed when the conditions for other branches are not satisfied. A branch is made up of a condition, a response and a next step. See `default_branch`.
         :param Sequence['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchArgs'] conditional_branches: Configuration blocks for conditional branches. A conditional branch is made up of a condition, a response and a next step. The response and next step are executed when the condition is true. See `conditional_branch`.
+        :param 'V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchArgs' default_branch: Configuration block for the conditional branch that should be followed when the conditions for other branches are not satisfied. A branch is made up of a condition, a response and a next step. See `default_branch`.
         """
         pulumi.set(__self__, "active", active)
-        pulumi.set(__self__, "default_branch", default_branch)
         if conditional_branches is not None:
             pulumi.set(__self__, "conditional_branches", conditional_branches)
+        if default_branch is not None:
+            pulumi.set(__self__, "default_branch", default_branch)
 
     @_builtins.property
     @pulumi.getter
@@ -8594,20 +8609,20 @@ class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessC
         return pulumi.get(self, "active")
 
     @_builtins.property
-    @pulumi.getter(name="defaultBranch")
-    def default_branch(self) -> 'outputs.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranch':
-        """
-        Configuration block for the conditional branch that should be followed when the conditions for other branches are not satisfied. A branch is made up of a condition, a response and a next step. See `default_branch`.
-        """
-        return pulumi.get(self, "default_branch")
-
-    @_builtins.property
     @pulumi.getter(name="conditionalBranches")
     def conditional_branches(self) -> Optional[Sequence['outputs.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranch']]:
         """
         Configuration blocks for conditional branches. A conditional branch is made up of a condition, a response and a next step. The response and next step are executed when the condition is true. See `conditional_branch`.
         """
         return pulumi.get(self, "conditional_branches")
+
+    @_builtins.property
+    @pulumi.getter(name="defaultBranch")
+    def default_branch(self) -> Optional['outputs.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranch']:
+        """
+        Configuration block for the conditional branch that should be followed when the conditions for other branches are not satisfied. A branch is made up of a condition, a response and a next step. See `default_branch`.
+        """
+        return pulumi.get(self, "default_branch")
 
 
 @pulumi.output_type
@@ -8630,29 +8645,23 @@ class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessC
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 condition: 'outputs.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchCondition',
                  name: _builtins.str,
-                 next_step: 'outputs.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchNextStep',
+                 condition: Optional['outputs.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchCondition'] = None,
+                 next_step: Optional['outputs.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchNextStep'] = None,
                  response: Optional['outputs.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchResponse'] = None):
         """
-        :param 'V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchConditionArgs' condition: Configuration block for the expression to evaluate. If the condition is true, the branch's actions are taken. See `condition`.
         :param _builtins.str name: Name of the branch.
+        :param 'V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchConditionArgs' condition: Configuration block for the expression to evaluate. If the condition is true, the branch's actions are taken. See `condition`.
         :param 'V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchNextStepArgs' next_step: Configuration block for the next step in the conversation. See `next_step`.
         :param 'V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchResponseArgs' response: Configuration block for a list of message groups that Amazon Lex uses to respond to the user input. See `response`.
         """
-        pulumi.set(__self__, "condition", condition)
         pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "next_step", next_step)
+        if condition is not None:
+            pulumi.set(__self__, "condition", condition)
+        if next_step is not None:
+            pulumi.set(__self__, "next_step", next_step)
         if response is not None:
             pulumi.set(__self__, "response", response)
-
-    @_builtins.property
-    @pulumi.getter
-    def condition(self) -> 'outputs.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchCondition':
-        """
-        Configuration block for the expression to evaluate. If the condition is true, the branch's actions are taken. See `condition`.
-        """
-        return pulumi.get(self, "condition")
 
     @_builtins.property
     @pulumi.getter
@@ -8663,8 +8672,16 @@ class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessC
         return pulumi.get(self, "name")
 
     @_builtins.property
+    @pulumi.getter
+    def condition(self) -> Optional['outputs.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchCondition']:
+        """
+        Configuration block for the expression to evaluate. If the condition is true, the branch's actions are taken. See `condition`.
+        """
+        return pulumi.get(self, "condition")
+
+    @_builtins.property
     @pulumi.getter(name="nextStep")
-    def next_step(self) -> 'outputs.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchNextStep':
+    def next_step(self) -> Optional['outputs.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchNextStep']:
         """
         Configuration block for the next step in the conversation. See `next_step`.
         """
@@ -9016,19 +9033,20 @@ class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessC
 @pulumi.output_type
 class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchResponseMessageGroup(dict):
     def __init__(__self__, *,
-                 message: 'outputs.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchResponseMessageGroupMessage',
+                 message: Optional['outputs.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchResponseMessageGroupMessage'] = None,
                  variations: Optional[Sequence['outputs.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchResponseMessageGroupVariation']] = None):
         """
         :param 'V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchResponseMessageGroupMessageArgs' message: Configuration block for the primary message that Amazon Lex should send to the user. See `message`.
         :param Sequence['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchResponseMessageGroupVariationArgs'] variations: Configuration blocks for message variations to send to the user. When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user. See `variation`.
         """
-        pulumi.set(__self__, "message", message)
+        if message is not None:
+            pulumi.set(__self__, "message", message)
         if variations is not None:
             pulumi.set(__self__, "variations", variations)
 
     @_builtins.property
     @pulumi.getter
-    def message(self) -> 'outputs.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchResponseMessageGroupMessage':
+    def message(self) -> Optional['outputs.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchResponseMessageGroupMessage']:
         """
         Configuration block for the primary message that Amazon Lex should send to the user. See `message`.
         """
@@ -9857,19 +9875,20 @@ class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessC
 @pulumi.output_type
 class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchResponseMessageGroup(dict):
     def __init__(__self__, *,
-                 message: 'outputs.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchResponseMessageGroupMessage',
+                 message: Optional['outputs.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchResponseMessageGroupMessage'] = None,
                  variations: Optional[Sequence['outputs.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchResponseMessageGroupVariation']] = None):
         """
         :param 'V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchResponseMessageGroupMessageArgs' message: Configuration block for the primary message that Amazon Lex should send to the user. See `message`.
         :param Sequence['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchResponseMessageGroupVariationArgs'] variations: Configuration blocks for message variations to send to the user. When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user. See `variation`.
         """
-        pulumi.set(__self__, "message", message)
+        if message is not None:
+            pulumi.set(__self__, "message", message)
         if variations is not None:
             pulumi.set(__self__, "variations", variations)
 
     @_builtins.property
     @pulumi.getter
-    def message(self) -> 'outputs.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchResponseMessageGroupMessage':
+    def message(self) -> Optional['outputs.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchResponseMessageGroupMessage']:
         """
         Configuration block for the primary message that Amazon Lex should send to the user. See `message`.
         """
@@ -10650,19 +10669,20 @@ class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessR
 @pulumi.output_type
 class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessResponseMessageGroup(dict):
     def __init__(__self__, *,
-                 message: 'outputs.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessResponseMessageGroupMessage',
+                 message: Optional['outputs.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessResponseMessageGroupMessage'] = None,
                  variations: Optional[Sequence['outputs.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessResponseMessageGroupVariation']] = None):
         """
         :param 'V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessResponseMessageGroupMessageArgs' message: Configuration block for the primary message that Amazon Lex should send to the user. See `message`.
         :param Sequence['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessResponseMessageGroupVariationArgs'] variations: Configuration blocks for message variations to send to the user. When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user. See `variation`.
         """
-        pulumi.set(__self__, "message", message)
+        if message is not None:
+            pulumi.set(__self__, "message", message)
         if variations is not None:
             pulumi.set(__self__, "variations", variations)
 
     @_builtins.property
     @pulumi.getter
-    def message(self) -> 'outputs.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessResponseMessageGroupMessage':
+    def message(self) -> Optional['outputs.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationSuccessResponseMessageGroupMessage']:
         """
         Configuration block for the primary message that Amazon Lex should send to the user. See `message`.
         """
@@ -11146,10 +11166,10 @@ class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutC
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "defaultBranch":
-            suggest = "default_branch"
-        elif key == "conditionalBranches":
+        if key == "conditionalBranches":
             suggest = "conditional_branches"
+        elif key == "defaultBranch":
+            suggest = "default_branch"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditional. Access the value via the '{suggest}' property getter instead.")
@@ -11164,17 +11184,18 @@ class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutC
 
     def __init__(__self__, *,
                  active: _builtins.bool,
-                 default_branch: 'outputs.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranch',
-                 conditional_branches: Optional[Sequence['outputs.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranch']] = None):
+                 conditional_branches: Optional[Sequence['outputs.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranch']] = None,
+                 default_branch: Optional['outputs.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranch'] = None):
         """
         :param _builtins.bool active: Whether a conditional branch is active. When active is false, the conditions are not evaluated.
-        :param 'V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchArgs' default_branch: Configuration block for the conditional branch that should be followed when the conditions for other branches are not satisfied. A branch is made up of a condition, a response and a next step. See `default_branch`.
         :param Sequence['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchArgs'] conditional_branches: Configuration blocks for conditional branches. A conditional branch is made up of a condition, a response and a next step. The response and next step are executed when the condition is true. See `conditional_branch`.
+        :param 'V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchArgs' default_branch: Configuration block for the conditional branch that should be followed when the conditions for other branches are not satisfied. A branch is made up of a condition, a response and a next step. See `default_branch`.
         """
         pulumi.set(__self__, "active", active)
-        pulumi.set(__self__, "default_branch", default_branch)
         if conditional_branches is not None:
             pulumi.set(__self__, "conditional_branches", conditional_branches)
+        if default_branch is not None:
+            pulumi.set(__self__, "default_branch", default_branch)
 
     @_builtins.property
     @pulumi.getter
@@ -11185,20 +11206,20 @@ class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutC
         return pulumi.get(self, "active")
 
     @_builtins.property
-    @pulumi.getter(name="defaultBranch")
-    def default_branch(self) -> 'outputs.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranch':
-        """
-        Configuration block for the conditional branch that should be followed when the conditions for other branches are not satisfied. A branch is made up of a condition, a response and a next step. See `default_branch`.
-        """
-        return pulumi.get(self, "default_branch")
-
-    @_builtins.property
     @pulumi.getter(name="conditionalBranches")
     def conditional_branches(self) -> Optional[Sequence['outputs.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranch']]:
         """
         Configuration blocks for conditional branches. A conditional branch is made up of a condition, a response and a next step. The response and next step are executed when the condition is true. See `conditional_branch`.
         """
         return pulumi.get(self, "conditional_branches")
+
+    @_builtins.property
+    @pulumi.getter(name="defaultBranch")
+    def default_branch(self) -> Optional['outputs.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranch']:
+        """
+        Configuration block for the conditional branch that should be followed when the conditions for other branches are not satisfied. A branch is made up of a condition, a response and a next step. See `default_branch`.
+        """
+        return pulumi.get(self, "default_branch")
 
 
 @pulumi.output_type
@@ -11221,29 +11242,23 @@ class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutC
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 condition: 'outputs.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchCondition',
                  name: _builtins.str,
-                 next_step: 'outputs.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchNextStep',
+                 condition: Optional['outputs.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchCondition'] = None,
+                 next_step: Optional['outputs.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchNextStep'] = None,
                  response: Optional['outputs.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchResponse'] = None):
         """
-        :param 'V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchConditionArgs' condition: Configuration block for the expression to evaluate. If the condition is true, the branch's actions are taken. See `condition`.
         :param _builtins.str name: Name of the branch.
+        :param 'V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchConditionArgs' condition: Configuration block for the expression to evaluate. If the condition is true, the branch's actions are taken. See `condition`.
         :param 'V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchNextStepArgs' next_step: Configuration block for the next step in the conversation. See `next_step`.
         :param 'V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchResponseArgs' response: Configuration block for a list of message groups that Amazon Lex uses to respond to the user input. See `response`.
         """
-        pulumi.set(__self__, "condition", condition)
         pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "next_step", next_step)
+        if condition is not None:
+            pulumi.set(__self__, "condition", condition)
+        if next_step is not None:
+            pulumi.set(__self__, "next_step", next_step)
         if response is not None:
             pulumi.set(__self__, "response", response)
-
-    @_builtins.property
-    @pulumi.getter
-    def condition(self) -> 'outputs.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchCondition':
-        """
-        Configuration block for the expression to evaluate. If the condition is true, the branch's actions are taken. See `condition`.
-        """
-        return pulumi.get(self, "condition")
 
     @_builtins.property
     @pulumi.getter
@@ -11254,8 +11269,16 @@ class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutC
         return pulumi.get(self, "name")
 
     @_builtins.property
+    @pulumi.getter
+    def condition(self) -> Optional['outputs.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchCondition']:
+        """
+        Configuration block for the expression to evaluate. If the condition is true, the branch's actions are taken. See `condition`.
+        """
+        return pulumi.get(self, "condition")
+
+    @_builtins.property
     @pulumi.getter(name="nextStep")
-    def next_step(self) -> 'outputs.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchNextStep':
+    def next_step(self) -> Optional['outputs.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchNextStep']:
         """
         Configuration block for the next step in the conversation. See `next_step`.
         """
@@ -11607,19 +11630,20 @@ class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutC
 @pulumi.output_type
 class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchResponseMessageGroup(dict):
     def __init__(__self__, *,
-                 message: 'outputs.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupMessage',
+                 message: Optional['outputs.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupMessage'] = None,
                  variations: Optional[Sequence['outputs.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupVariation']] = None):
         """
         :param 'V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupMessageArgs' message: Configuration block for the primary message that Amazon Lex should send to the user. See `message`.
         :param Sequence['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupVariationArgs'] variations: Configuration blocks for message variations to send to the user. When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user. See `variation`.
         """
-        pulumi.set(__self__, "message", message)
+        if message is not None:
+            pulumi.set(__self__, "message", message)
         if variations is not None:
             pulumi.set(__self__, "variations", variations)
 
     @_builtins.property
     @pulumi.getter
-    def message(self) -> 'outputs.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupMessage':
+    def message(self) -> Optional['outputs.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupMessage']:
         """
         Configuration block for the primary message that Amazon Lex should send to the user. See `message`.
         """
@@ -12448,19 +12472,20 @@ class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutC
 @pulumi.output_type
 class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchResponseMessageGroup(dict):
     def __init__(__self__, *,
-                 message: 'outputs.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupMessage',
+                 message: Optional['outputs.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupMessage'] = None,
                  variations: Optional[Sequence['outputs.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupVariation']] = None):
         """
         :param 'V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupMessageArgs' message: Configuration block for the primary message that Amazon Lex should send to the user. See `message`.
         :param Sequence['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupVariationArgs'] variations: Configuration blocks for message variations to send to the user. When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user. See `variation`.
         """
-        pulumi.set(__self__, "message", message)
+        if message is not None:
+            pulumi.set(__self__, "message", message)
         if variations is not None:
             pulumi.set(__self__, "variations", variations)
 
     @_builtins.property
     @pulumi.getter
-    def message(self) -> 'outputs.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupMessage':
+    def message(self) -> Optional['outputs.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupMessage']:
         """
         Configuration block for the primary message that Amazon Lex should send to the user. See `message`.
         """
@@ -13241,19 +13266,20 @@ class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutR
 @pulumi.output_type
 class V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutResponseMessageGroup(dict):
     def __init__(__self__, *,
-                 message: 'outputs.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutResponseMessageGroupMessage',
+                 message: Optional['outputs.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutResponseMessageGroupMessage'] = None,
                  variations: Optional[Sequence['outputs.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutResponseMessageGroupVariation']] = None):
         """
         :param 'V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutResponseMessageGroupMessageArgs' message: Configuration block for the primary message that Amazon Lex should send to the user. See `message`.
         :param Sequence['V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutResponseMessageGroupVariationArgs'] variations: Configuration blocks for message variations to send to the user. When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user. See `variation`.
         """
-        pulumi.set(__self__, "message", message)
+        if message is not None:
+            pulumi.set(__self__, "message", message)
         if variations is not None:
             pulumi.set(__self__, "variations", variations)
 
     @_builtins.property
     @pulumi.getter
-    def message(self) -> 'outputs.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutResponseMessageGroupMessage':
+    def message(self) -> Optional['outputs.V2modelsIntentConfirmationSettingCodeHookPostCodeHookSpecificationTimeoutResponseMessageGroupMessage']:
         """
         Configuration block for the primary message that Amazon Lex should send to the user. See `message`.
         """
@@ -13737,10 +13763,10 @@ class V2modelsIntentConfirmationSettingConfirmationConditional(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "defaultBranch":
-            suggest = "default_branch"
-        elif key == "conditionalBranches":
+        if key == "conditionalBranches":
             suggest = "conditional_branches"
+        elif key == "defaultBranch":
+            suggest = "default_branch"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in V2modelsIntentConfirmationSettingConfirmationConditional. Access the value via the '{suggest}' property getter instead.")
@@ -13755,17 +13781,18 @@ class V2modelsIntentConfirmationSettingConfirmationConditional(dict):
 
     def __init__(__self__, *,
                  active: _builtins.bool,
-                 default_branch: 'outputs.V2modelsIntentConfirmationSettingConfirmationConditionalDefaultBranch',
-                 conditional_branches: Optional[Sequence['outputs.V2modelsIntentConfirmationSettingConfirmationConditionalConditionalBranch']] = None):
+                 conditional_branches: Optional[Sequence['outputs.V2modelsIntentConfirmationSettingConfirmationConditionalConditionalBranch']] = None,
+                 default_branch: Optional['outputs.V2modelsIntentConfirmationSettingConfirmationConditionalDefaultBranch'] = None):
         """
         :param _builtins.bool active: Whether a conditional branch is active. When active is false, the conditions are not evaluated.
-        :param 'V2modelsIntentConfirmationSettingConfirmationConditionalDefaultBranchArgs' default_branch: Configuration block for the conditional branch that should be followed when the conditions for other branches are not satisfied. A branch is made up of a condition, a response and a next step. See `default_branch`.
         :param Sequence['V2modelsIntentConfirmationSettingConfirmationConditionalConditionalBranchArgs'] conditional_branches: Configuration blocks for conditional branches. A conditional branch is made up of a condition, a response and a next step. The response and next step are executed when the condition is true. See `conditional_branch`.
+        :param 'V2modelsIntentConfirmationSettingConfirmationConditionalDefaultBranchArgs' default_branch: Configuration block for the conditional branch that should be followed when the conditions for other branches are not satisfied. A branch is made up of a condition, a response and a next step. See `default_branch`.
         """
         pulumi.set(__self__, "active", active)
-        pulumi.set(__self__, "default_branch", default_branch)
         if conditional_branches is not None:
             pulumi.set(__self__, "conditional_branches", conditional_branches)
+        if default_branch is not None:
+            pulumi.set(__self__, "default_branch", default_branch)
 
     @_builtins.property
     @pulumi.getter
@@ -13776,20 +13803,20 @@ class V2modelsIntentConfirmationSettingConfirmationConditional(dict):
         return pulumi.get(self, "active")
 
     @_builtins.property
-    @pulumi.getter(name="defaultBranch")
-    def default_branch(self) -> 'outputs.V2modelsIntentConfirmationSettingConfirmationConditionalDefaultBranch':
-        """
-        Configuration block for the conditional branch that should be followed when the conditions for other branches are not satisfied. A branch is made up of a condition, a response and a next step. See `default_branch`.
-        """
-        return pulumi.get(self, "default_branch")
-
-    @_builtins.property
     @pulumi.getter(name="conditionalBranches")
     def conditional_branches(self) -> Optional[Sequence['outputs.V2modelsIntentConfirmationSettingConfirmationConditionalConditionalBranch']]:
         """
         Configuration blocks for conditional branches. A conditional branch is made up of a condition, a response and a next step. The response and next step are executed when the condition is true. See `conditional_branch`.
         """
         return pulumi.get(self, "conditional_branches")
+
+    @_builtins.property
+    @pulumi.getter(name="defaultBranch")
+    def default_branch(self) -> Optional['outputs.V2modelsIntentConfirmationSettingConfirmationConditionalDefaultBranch']:
+        """
+        Configuration block for the conditional branch that should be followed when the conditions for other branches are not satisfied. A branch is made up of a condition, a response and a next step. See `default_branch`.
+        """
+        return pulumi.get(self, "default_branch")
 
 
 @pulumi.output_type
@@ -13812,29 +13839,23 @@ class V2modelsIntentConfirmationSettingConfirmationConditionalConditionalBranch(
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 condition: 'outputs.V2modelsIntentConfirmationSettingConfirmationConditionalConditionalBranchCondition',
                  name: _builtins.str,
-                 next_step: 'outputs.V2modelsIntentConfirmationSettingConfirmationConditionalConditionalBranchNextStep',
+                 condition: Optional['outputs.V2modelsIntentConfirmationSettingConfirmationConditionalConditionalBranchCondition'] = None,
+                 next_step: Optional['outputs.V2modelsIntentConfirmationSettingConfirmationConditionalConditionalBranchNextStep'] = None,
                  response: Optional['outputs.V2modelsIntentConfirmationSettingConfirmationConditionalConditionalBranchResponse'] = None):
         """
-        :param 'V2modelsIntentConfirmationSettingConfirmationConditionalConditionalBranchConditionArgs' condition: Configuration block for the expression to evaluate. If the condition is true, the branch's actions are taken. See `condition`.
         :param _builtins.str name: Name of the branch.
+        :param 'V2modelsIntentConfirmationSettingConfirmationConditionalConditionalBranchConditionArgs' condition: Configuration block for the expression to evaluate. If the condition is true, the branch's actions are taken. See `condition`.
         :param 'V2modelsIntentConfirmationSettingConfirmationConditionalConditionalBranchNextStepArgs' next_step: Configuration block for the next step in the conversation. See `next_step`.
         :param 'V2modelsIntentConfirmationSettingConfirmationConditionalConditionalBranchResponseArgs' response: Configuration block for a list of message groups that Amazon Lex uses to respond to the user input. See `response`.
         """
-        pulumi.set(__self__, "condition", condition)
         pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "next_step", next_step)
+        if condition is not None:
+            pulumi.set(__self__, "condition", condition)
+        if next_step is not None:
+            pulumi.set(__self__, "next_step", next_step)
         if response is not None:
             pulumi.set(__self__, "response", response)
-
-    @_builtins.property
-    @pulumi.getter
-    def condition(self) -> 'outputs.V2modelsIntentConfirmationSettingConfirmationConditionalConditionalBranchCondition':
-        """
-        Configuration block for the expression to evaluate. If the condition is true, the branch's actions are taken. See `condition`.
-        """
-        return pulumi.get(self, "condition")
 
     @_builtins.property
     @pulumi.getter
@@ -13845,8 +13866,16 @@ class V2modelsIntentConfirmationSettingConfirmationConditionalConditionalBranch(
         return pulumi.get(self, "name")
 
     @_builtins.property
+    @pulumi.getter
+    def condition(self) -> Optional['outputs.V2modelsIntentConfirmationSettingConfirmationConditionalConditionalBranchCondition']:
+        """
+        Configuration block for the expression to evaluate. If the condition is true, the branch's actions are taken. See `condition`.
+        """
+        return pulumi.get(self, "condition")
+
+    @_builtins.property
     @pulumi.getter(name="nextStep")
-    def next_step(self) -> 'outputs.V2modelsIntentConfirmationSettingConfirmationConditionalConditionalBranchNextStep':
+    def next_step(self) -> Optional['outputs.V2modelsIntentConfirmationSettingConfirmationConditionalConditionalBranchNextStep']:
         """
         Configuration block for the next step in the conversation. See `next_step`.
         """
@@ -14198,19 +14227,20 @@ class V2modelsIntentConfirmationSettingConfirmationConditionalConditionalBranchR
 @pulumi.output_type
 class V2modelsIntentConfirmationSettingConfirmationConditionalConditionalBranchResponseMessageGroup(dict):
     def __init__(__self__, *,
-                 message: 'outputs.V2modelsIntentConfirmationSettingConfirmationConditionalConditionalBranchResponseMessageGroupMessage',
+                 message: Optional['outputs.V2modelsIntentConfirmationSettingConfirmationConditionalConditionalBranchResponseMessageGroupMessage'] = None,
                  variations: Optional[Sequence['outputs.V2modelsIntentConfirmationSettingConfirmationConditionalConditionalBranchResponseMessageGroupVariation']] = None):
         """
         :param 'V2modelsIntentConfirmationSettingConfirmationConditionalConditionalBranchResponseMessageGroupMessageArgs' message: Configuration block for the primary message that Amazon Lex should send to the user. See `message`.
         :param Sequence['V2modelsIntentConfirmationSettingConfirmationConditionalConditionalBranchResponseMessageGroupVariationArgs'] variations: Configuration blocks for message variations to send to the user. When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user. See `variation`.
         """
-        pulumi.set(__self__, "message", message)
+        if message is not None:
+            pulumi.set(__self__, "message", message)
         if variations is not None:
             pulumi.set(__self__, "variations", variations)
 
     @_builtins.property
     @pulumi.getter
-    def message(self) -> 'outputs.V2modelsIntentConfirmationSettingConfirmationConditionalConditionalBranchResponseMessageGroupMessage':
+    def message(self) -> Optional['outputs.V2modelsIntentConfirmationSettingConfirmationConditionalConditionalBranchResponseMessageGroupMessage']:
         """
         Configuration block for the primary message that Amazon Lex should send to the user. See `message`.
         """
@@ -15039,19 +15069,20 @@ class V2modelsIntentConfirmationSettingConfirmationConditionalDefaultBranchRespo
 @pulumi.output_type
 class V2modelsIntentConfirmationSettingConfirmationConditionalDefaultBranchResponseMessageGroup(dict):
     def __init__(__self__, *,
-                 message: 'outputs.V2modelsIntentConfirmationSettingConfirmationConditionalDefaultBranchResponseMessageGroupMessage',
+                 message: Optional['outputs.V2modelsIntentConfirmationSettingConfirmationConditionalDefaultBranchResponseMessageGroupMessage'] = None,
                  variations: Optional[Sequence['outputs.V2modelsIntentConfirmationSettingConfirmationConditionalDefaultBranchResponseMessageGroupVariation']] = None):
         """
         :param 'V2modelsIntentConfirmationSettingConfirmationConditionalDefaultBranchResponseMessageGroupMessageArgs' message: Configuration block for the primary message that Amazon Lex should send to the user. See `message`.
         :param Sequence['V2modelsIntentConfirmationSettingConfirmationConditionalDefaultBranchResponseMessageGroupVariationArgs'] variations: Configuration blocks for message variations to send to the user. When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user. See `variation`.
         """
-        pulumi.set(__self__, "message", message)
+        if message is not None:
+            pulumi.set(__self__, "message", message)
         if variations is not None:
             pulumi.set(__self__, "variations", variations)
 
     @_builtins.property
     @pulumi.getter
-    def message(self) -> 'outputs.V2modelsIntentConfirmationSettingConfirmationConditionalDefaultBranchResponseMessageGroupMessage':
+    def message(self) -> Optional['outputs.V2modelsIntentConfirmationSettingConfirmationConditionalDefaultBranchResponseMessageGroupMessage']:
         """
         Configuration block for the primary message that Amazon Lex should send to the user. See `message`.
         """
@@ -15832,19 +15863,20 @@ class V2modelsIntentConfirmationSettingConfirmationResponse(dict):
 @pulumi.output_type
 class V2modelsIntentConfirmationSettingConfirmationResponseMessageGroup(dict):
     def __init__(__self__, *,
-                 message: 'outputs.V2modelsIntentConfirmationSettingConfirmationResponseMessageGroupMessage',
+                 message: Optional['outputs.V2modelsIntentConfirmationSettingConfirmationResponseMessageGroupMessage'] = None,
                  variations: Optional[Sequence['outputs.V2modelsIntentConfirmationSettingConfirmationResponseMessageGroupVariation']] = None):
         """
         :param 'V2modelsIntentConfirmationSettingConfirmationResponseMessageGroupMessageArgs' message: Configuration block for the primary message that Amazon Lex should send to the user. See `message`.
         :param Sequence['V2modelsIntentConfirmationSettingConfirmationResponseMessageGroupVariationArgs'] variations: Configuration blocks for message variations to send to the user. When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user. See `variation`.
         """
-        pulumi.set(__self__, "message", message)
+        if message is not None:
+            pulumi.set(__self__, "message", message)
         if variations is not None:
             pulumi.set(__self__, "variations", variations)
 
     @_builtins.property
     @pulumi.getter
-    def message(self) -> 'outputs.V2modelsIntentConfirmationSettingConfirmationResponseMessageGroupMessage':
+    def message(self) -> Optional['outputs.V2modelsIntentConfirmationSettingConfirmationResponseMessageGroupMessage']:
         """
         Configuration block for the primary message that Amazon Lex should send to the user. See `message`.
         """
@@ -16328,10 +16360,10 @@ class V2modelsIntentConfirmationSettingDeclinationConditional(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "defaultBranch":
-            suggest = "default_branch"
-        elif key == "conditionalBranches":
+        if key == "conditionalBranches":
             suggest = "conditional_branches"
+        elif key == "defaultBranch":
+            suggest = "default_branch"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in V2modelsIntentConfirmationSettingDeclinationConditional. Access the value via the '{suggest}' property getter instead.")
@@ -16346,17 +16378,18 @@ class V2modelsIntentConfirmationSettingDeclinationConditional(dict):
 
     def __init__(__self__, *,
                  active: _builtins.bool,
-                 default_branch: 'outputs.V2modelsIntentConfirmationSettingDeclinationConditionalDefaultBranch',
-                 conditional_branches: Optional[Sequence['outputs.V2modelsIntentConfirmationSettingDeclinationConditionalConditionalBranch']] = None):
+                 conditional_branches: Optional[Sequence['outputs.V2modelsIntentConfirmationSettingDeclinationConditionalConditionalBranch']] = None,
+                 default_branch: Optional['outputs.V2modelsIntentConfirmationSettingDeclinationConditionalDefaultBranch'] = None):
         """
         :param _builtins.bool active: Whether a conditional branch is active. When active is false, the conditions are not evaluated.
-        :param 'V2modelsIntentConfirmationSettingDeclinationConditionalDefaultBranchArgs' default_branch: Configuration block for the conditional branch that should be followed when the conditions for other branches are not satisfied. A branch is made up of a condition, a response and a next step. See `default_branch`.
         :param Sequence['V2modelsIntentConfirmationSettingDeclinationConditionalConditionalBranchArgs'] conditional_branches: Configuration blocks for conditional branches. A conditional branch is made up of a condition, a response and a next step. The response and next step are executed when the condition is true. See `conditional_branch`.
+        :param 'V2modelsIntentConfirmationSettingDeclinationConditionalDefaultBranchArgs' default_branch: Configuration block for the conditional branch that should be followed when the conditions for other branches are not satisfied. A branch is made up of a condition, a response and a next step. See `default_branch`.
         """
         pulumi.set(__self__, "active", active)
-        pulumi.set(__self__, "default_branch", default_branch)
         if conditional_branches is not None:
             pulumi.set(__self__, "conditional_branches", conditional_branches)
+        if default_branch is not None:
+            pulumi.set(__self__, "default_branch", default_branch)
 
     @_builtins.property
     @pulumi.getter
@@ -16367,20 +16400,20 @@ class V2modelsIntentConfirmationSettingDeclinationConditional(dict):
         return pulumi.get(self, "active")
 
     @_builtins.property
-    @pulumi.getter(name="defaultBranch")
-    def default_branch(self) -> 'outputs.V2modelsIntentConfirmationSettingDeclinationConditionalDefaultBranch':
-        """
-        Configuration block for the conditional branch that should be followed when the conditions for other branches are not satisfied. A branch is made up of a condition, a response and a next step. See `default_branch`.
-        """
-        return pulumi.get(self, "default_branch")
-
-    @_builtins.property
     @pulumi.getter(name="conditionalBranches")
     def conditional_branches(self) -> Optional[Sequence['outputs.V2modelsIntentConfirmationSettingDeclinationConditionalConditionalBranch']]:
         """
         Configuration blocks for conditional branches. A conditional branch is made up of a condition, a response and a next step. The response and next step are executed when the condition is true. See `conditional_branch`.
         """
         return pulumi.get(self, "conditional_branches")
+
+    @_builtins.property
+    @pulumi.getter(name="defaultBranch")
+    def default_branch(self) -> Optional['outputs.V2modelsIntentConfirmationSettingDeclinationConditionalDefaultBranch']:
+        """
+        Configuration block for the conditional branch that should be followed when the conditions for other branches are not satisfied. A branch is made up of a condition, a response and a next step. See `default_branch`.
+        """
+        return pulumi.get(self, "default_branch")
 
 
 @pulumi.output_type
@@ -16403,29 +16436,23 @@ class V2modelsIntentConfirmationSettingDeclinationConditionalConditionalBranch(d
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 condition: 'outputs.V2modelsIntentConfirmationSettingDeclinationConditionalConditionalBranchCondition',
                  name: _builtins.str,
-                 next_step: 'outputs.V2modelsIntentConfirmationSettingDeclinationConditionalConditionalBranchNextStep',
+                 condition: Optional['outputs.V2modelsIntentConfirmationSettingDeclinationConditionalConditionalBranchCondition'] = None,
+                 next_step: Optional['outputs.V2modelsIntentConfirmationSettingDeclinationConditionalConditionalBranchNextStep'] = None,
                  response: Optional['outputs.V2modelsIntentConfirmationSettingDeclinationConditionalConditionalBranchResponse'] = None):
         """
-        :param 'V2modelsIntentConfirmationSettingDeclinationConditionalConditionalBranchConditionArgs' condition: Configuration block for the expression to evaluate. If the condition is true, the branch's actions are taken. See `condition`.
         :param _builtins.str name: Name of the branch.
+        :param 'V2modelsIntentConfirmationSettingDeclinationConditionalConditionalBranchConditionArgs' condition: Configuration block for the expression to evaluate. If the condition is true, the branch's actions are taken. See `condition`.
         :param 'V2modelsIntentConfirmationSettingDeclinationConditionalConditionalBranchNextStepArgs' next_step: Configuration block for the next step in the conversation. See `next_step`.
         :param 'V2modelsIntentConfirmationSettingDeclinationConditionalConditionalBranchResponseArgs' response: Configuration block for a list of message groups that Amazon Lex uses to respond to the user input. See `response`.
         """
-        pulumi.set(__self__, "condition", condition)
         pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "next_step", next_step)
+        if condition is not None:
+            pulumi.set(__self__, "condition", condition)
+        if next_step is not None:
+            pulumi.set(__self__, "next_step", next_step)
         if response is not None:
             pulumi.set(__self__, "response", response)
-
-    @_builtins.property
-    @pulumi.getter
-    def condition(self) -> 'outputs.V2modelsIntentConfirmationSettingDeclinationConditionalConditionalBranchCondition':
-        """
-        Configuration block for the expression to evaluate. If the condition is true, the branch's actions are taken. See `condition`.
-        """
-        return pulumi.get(self, "condition")
 
     @_builtins.property
     @pulumi.getter
@@ -16436,8 +16463,16 @@ class V2modelsIntentConfirmationSettingDeclinationConditionalConditionalBranch(d
         return pulumi.get(self, "name")
 
     @_builtins.property
+    @pulumi.getter
+    def condition(self) -> Optional['outputs.V2modelsIntentConfirmationSettingDeclinationConditionalConditionalBranchCondition']:
+        """
+        Configuration block for the expression to evaluate. If the condition is true, the branch's actions are taken. See `condition`.
+        """
+        return pulumi.get(self, "condition")
+
+    @_builtins.property
     @pulumi.getter(name="nextStep")
-    def next_step(self) -> 'outputs.V2modelsIntentConfirmationSettingDeclinationConditionalConditionalBranchNextStep':
+    def next_step(self) -> Optional['outputs.V2modelsIntentConfirmationSettingDeclinationConditionalConditionalBranchNextStep']:
         """
         Configuration block for the next step in the conversation. See `next_step`.
         """
@@ -16789,19 +16824,20 @@ class V2modelsIntentConfirmationSettingDeclinationConditionalConditionalBranchRe
 @pulumi.output_type
 class V2modelsIntentConfirmationSettingDeclinationConditionalConditionalBranchResponseMessageGroup(dict):
     def __init__(__self__, *,
-                 message: 'outputs.V2modelsIntentConfirmationSettingDeclinationConditionalConditionalBranchResponseMessageGroupMessage',
+                 message: Optional['outputs.V2modelsIntentConfirmationSettingDeclinationConditionalConditionalBranchResponseMessageGroupMessage'] = None,
                  variations: Optional[Sequence['outputs.V2modelsIntentConfirmationSettingDeclinationConditionalConditionalBranchResponseMessageGroupVariation']] = None):
         """
         :param 'V2modelsIntentConfirmationSettingDeclinationConditionalConditionalBranchResponseMessageGroupMessageArgs' message: Configuration block for the primary message that Amazon Lex should send to the user. See `message`.
         :param Sequence['V2modelsIntentConfirmationSettingDeclinationConditionalConditionalBranchResponseMessageGroupVariationArgs'] variations: Configuration blocks for message variations to send to the user. When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user. See `variation`.
         """
-        pulumi.set(__self__, "message", message)
+        if message is not None:
+            pulumi.set(__self__, "message", message)
         if variations is not None:
             pulumi.set(__self__, "variations", variations)
 
     @_builtins.property
     @pulumi.getter
-    def message(self) -> 'outputs.V2modelsIntentConfirmationSettingDeclinationConditionalConditionalBranchResponseMessageGroupMessage':
+    def message(self) -> Optional['outputs.V2modelsIntentConfirmationSettingDeclinationConditionalConditionalBranchResponseMessageGroupMessage']:
         """
         Configuration block for the primary message that Amazon Lex should send to the user. See `message`.
         """
@@ -17630,19 +17666,20 @@ class V2modelsIntentConfirmationSettingDeclinationConditionalDefaultBranchRespon
 @pulumi.output_type
 class V2modelsIntentConfirmationSettingDeclinationConditionalDefaultBranchResponseMessageGroup(dict):
     def __init__(__self__, *,
-                 message: 'outputs.V2modelsIntentConfirmationSettingDeclinationConditionalDefaultBranchResponseMessageGroupMessage',
+                 message: Optional['outputs.V2modelsIntentConfirmationSettingDeclinationConditionalDefaultBranchResponseMessageGroupMessage'] = None,
                  variations: Optional[Sequence['outputs.V2modelsIntentConfirmationSettingDeclinationConditionalDefaultBranchResponseMessageGroupVariation']] = None):
         """
         :param 'V2modelsIntentConfirmationSettingDeclinationConditionalDefaultBranchResponseMessageGroupMessageArgs' message: Configuration block for the primary message that Amazon Lex should send to the user. See `message`.
         :param Sequence['V2modelsIntentConfirmationSettingDeclinationConditionalDefaultBranchResponseMessageGroupVariationArgs'] variations: Configuration blocks for message variations to send to the user. When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user. See `variation`.
         """
-        pulumi.set(__self__, "message", message)
+        if message is not None:
+            pulumi.set(__self__, "message", message)
         if variations is not None:
             pulumi.set(__self__, "variations", variations)
 
     @_builtins.property
     @pulumi.getter
-    def message(self) -> 'outputs.V2modelsIntentConfirmationSettingDeclinationConditionalDefaultBranchResponseMessageGroupMessage':
+    def message(self) -> Optional['outputs.V2modelsIntentConfirmationSettingDeclinationConditionalDefaultBranchResponseMessageGroupMessage']:
         """
         Configuration block for the primary message that Amazon Lex should send to the user. See `message`.
         """
@@ -18423,19 +18460,20 @@ class V2modelsIntentConfirmationSettingDeclinationResponse(dict):
 @pulumi.output_type
 class V2modelsIntentConfirmationSettingDeclinationResponseMessageGroup(dict):
     def __init__(__self__, *,
-                 message: 'outputs.V2modelsIntentConfirmationSettingDeclinationResponseMessageGroupMessage',
+                 message: Optional['outputs.V2modelsIntentConfirmationSettingDeclinationResponseMessageGroupMessage'] = None,
                  variations: Optional[Sequence['outputs.V2modelsIntentConfirmationSettingDeclinationResponseMessageGroupVariation']] = None):
         """
         :param 'V2modelsIntentConfirmationSettingDeclinationResponseMessageGroupMessageArgs' message: Configuration block for the primary message that Amazon Lex should send to the user. See `message`.
         :param Sequence['V2modelsIntentConfirmationSettingDeclinationResponseMessageGroupVariationArgs'] variations: Configuration blocks for message variations to send to the user. When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user. See `variation`.
         """
-        pulumi.set(__self__, "message", message)
+        if message is not None:
+            pulumi.set(__self__, "message", message)
         if variations is not None:
             pulumi.set(__self__, "variations", variations)
 
     @_builtins.property
     @pulumi.getter
-    def message(self) -> 'outputs.V2modelsIntentConfirmationSettingDeclinationResponseMessageGroupMessage':
+    def message(self) -> Optional['outputs.V2modelsIntentConfirmationSettingDeclinationResponseMessageGroupMessage']:
         """
         Configuration block for the primary message that Amazon Lex should send to the user. See `message`.
         """
@@ -18969,10 +19007,10 @@ class V2modelsIntentConfirmationSettingFailureConditional(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "defaultBranch":
-            suggest = "default_branch"
-        elif key == "conditionalBranches":
+        if key == "conditionalBranches":
             suggest = "conditional_branches"
+        elif key == "defaultBranch":
+            suggest = "default_branch"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in V2modelsIntentConfirmationSettingFailureConditional. Access the value via the '{suggest}' property getter instead.")
@@ -18987,17 +19025,18 @@ class V2modelsIntentConfirmationSettingFailureConditional(dict):
 
     def __init__(__self__, *,
                  active: _builtins.bool,
-                 default_branch: 'outputs.V2modelsIntentConfirmationSettingFailureConditionalDefaultBranch',
-                 conditional_branches: Optional[Sequence['outputs.V2modelsIntentConfirmationSettingFailureConditionalConditionalBranch']] = None):
+                 conditional_branches: Optional[Sequence['outputs.V2modelsIntentConfirmationSettingFailureConditionalConditionalBranch']] = None,
+                 default_branch: Optional['outputs.V2modelsIntentConfirmationSettingFailureConditionalDefaultBranch'] = None):
         """
         :param _builtins.bool active: Whether a conditional branch is active. When active is false, the conditions are not evaluated.
-        :param 'V2modelsIntentConfirmationSettingFailureConditionalDefaultBranchArgs' default_branch: Configuration block for the conditional branch that should be followed when the conditions for other branches are not satisfied. A branch is made up of a condition, a response and a next step. See `default_branch`.
         :param Sequence['V2modelsIntentConfirmationSettingFailureConditionalConditionalBranchArgs'] conditional_branches: Configuration blocks for conditional branches. A conditional branch is made up of a condition, a response and a next step. The response and next step are executed when the condition is true. See `conditional_branch`.
+        :param 'V2modelsIntentConfirmationSettingFailureConditionalDefaultBranchArgs' default_branch: Configuration block for the conditional branch that should be followed when the conditions for other branches are not satisfied. A branch is made up of a condition, a response and a next step. See `default_branch`.
         """
         pulumi.set(__self__, "active", active)
-        pulumi.set(__self__, "default_branch", default_branch)
         if conditional_branches is not None:
             pulumi.set(__self__, "conditional_branches", conditional_branches)
+        if default_branch is not None:
+            pulumi.set(__self__, "default_branch", default_branch)
 
     @_builtins.property
     @pulumi.getter
@@ -19008,20 +19047,20 @@ class V2modelsIntentConfirmationSettingFailureConditional(dict):
         return pulumi.get(self, "active")
 
     @_builtins.property
-    @pulumi.getter(name="defaultBranch")
-    def default_branch(self) -> 'outputs.V2modelsIntentConfirmationSettingFailureConditionalDefaultBranch':
-        """
-        Configuration block for the conditional branch that should be followed when the conditions for other branches are not satisfied. A branch is made up of a condition, a response and a next step. See `default_branch`.
-        """
-        return pulumi.get(self, "default_branch")
-
-    @_builtins.property
     @pulumi.getter(name="conditionalBranches")
     def conditional_branches(self) -> Optional[Sequence['outputs.V2modelsIntentConfirmationSettingFailureConditionalConditionalBranch']]:
         """
         Configuration blocks for conditional branches. A conditional branch is made up of a condition, a response and a next step. The response and next step are executed when the condition is true. See `conditional_branch`.
         """
         return pulumi.get(self, "conditional_branches")
+
+    @_builtins.property
+    @pulumi.getter(name="defaultBranch")
+    def default_branch(self) -> Optional['outputs.V2modelsIntentConfirmationSettingFailureConditionalDefaultBranch']:
+        """
+        Configuration block for the conditional branch that should be followed when the conditions for other branches are not satisfied. A branch is made up of a condition, a response and a next step. See `default_branch`.
+        """
+        return pulumi.get(self, "default_branch")
 
 
 @pulumi.output_type
@@ -19044,29 +19083,23 @@ class V2modelsIntentConfirmationSettingFailureConditionalConditionalBranch(dict)
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 condition: 'outputs.V2modelsIntentConfirmationSettingFailureConditionalConditionalBranchCondition',
                  name: _builtins.str,
-                 next_step: 'outputs.V2modelsIntentConfirmationSettingFailureConditionalConditionalBranchNextStep',
+                 condition: Optional['outputs.V2modelsIntentConfirmationSettingFailureConditionalConditionalBranchCondition'] = None,
+                 next_step: Optional['outputs.V2modelsIntentConfirmationSettingFailureConditionalConditionalBranchNextStep'] = None,
                  response: Optional['outputs.V2modelsIntentConfirmationSettingFailureConditionalConditionalBranchResponse'] = None):
         """
-        :param 'V2modelsIntentConfirmationSettingFailureConditionalConditionalBranchConditionArgs' condition: Configuration block for the expression to evaluate. If the condition is true, the branch's actions are taken. See `condition`.
         :param _builtins.str name: Name of the branch.
+        :param 'V2modelsIntentConfirmationSettingFailureConditionalConditionalBranchConditionArgs' condition: Configuration block for the expression to evaluate. If the condition is true, the branch's actions are taken. See `condition`.
         :param 'V2modelsIntentConfirmationSettingFailureConditionalConditionalBranchNextStepArgs' next_step: Configuration block for the next step in the conversation. See `next_step`.
         :param 'V2modelsIntentConfirmationSettingFailureConditionalConditionalBranchResponseArgs' response: Configuration block for a list of message groups that Amazon Lex uses to respond to the user input. See `response`.
         """
-        pulumi.set(__self__, "condition", condition)
         pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "next_step", next_step)
+        if condition is not None:
+            pulumi.set(__self__, "condition", condition)
+        if next_step is not None:
+            pulumi.set(__self__, "next_step", next_step)
         if response is not None:
             pulumi.set(__self__, "response", response)
-
-    @_builtins.property
-    @pulumi.getter
-    def condition(self) -> 'outputs.V2modelsIntentConfirmationSettingFailureConditionalConditionalBranchCondition':
-        """
-        Configuration block for the expression to evaluate. If the condition is true, the branch's actions are taken. See `condition`.
-        """
-        return pulumi.get(self, "condition")
 
     @_builtins.property
     @pulumi.getter
@@ -19077,8 +19110,16 @@ class V2modelsIntentConfirmationSettingFailureConditionalConditionalBranch(dict)
         return pulumi.get(self, "name")
 
     @_builtins.property
+    @pulumi.getter
+    def condition(self) -> Optional['outputs.V2modelsIntentConfirmationSettingFailureConditionalConditionalBranchCondition']:
+        """
+        Configuration block for the expression to evaluate. If the condition is true, the branch's actions are taken. See `condition`.
+        """
+        return pulumi.get(self, "condition")
+
+    @_builtins.property
     @pulumi.getter(name="nextStep")
-    def next_step(self) -> 'outputs.V2modelsIntentConfirmationSettingFailureConditionalConditionalBranchNextStep':
+    def next_step(self) -> Optional['outputs.V2modelsIntentConfirmationSettingFailureConditionalConditionalBranchNextStep']:
         """
         Configuration block for the next step in the conversation. See `next_step`.
         """
@@ -19430,19 +19471,20 @@ class V2modelsIntentConfirmationSettingFailureConditionalConditionalBranchRespon
 @pulumi.output_type
 class V2modelsIntentConfirmationSettingFailureConditionalConditionalBranchResponseMessageGroup(dict):
     def __init__(__self__, *,
-                 message: 'outputs.V2modelsIntentConfirmationSettingFailureConditionalConditionalBranchResponseMessageGroupMessage',
+                 message: Optional['outputs.V2modelsIntentConfirmationSettingFailureConditionalConditionalBranchResponseMessageGroupMessage'] = None,
                  variations: Optional[Sequence['outputs.V2modelsIntentConfirmationSettingFailureConditionalConditionalBranchResponseMessageGroupVariation']] = None):
         """
         :param 'V2modelsIntentConfirmationSettingFailureConditionalConditionalBranchResponseMessageGroupMessageArgs' message: Configuration block for the primary message that Amazon Lex should send to the user. See `message`.
         :param Sequence['V2modelsIntentConfirmationSettingFailureConditionalConditionalBranchResponseMessageGroupVariationArgs'] variations: Configuration blocks for message variations to send to the user. When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user. See `variation`.
         """
-        pulumi.set(__self__, "message", message)
+        if message is not None:
+            pulumi.set(__self__, "message", message)
         if variations is not None:
             pulumi.set(__self__, "variations", variations)
 
     @_builtins.property
     @pulumi.getter
-    def message(self) -> 'outputs.V2modelsIntentConfirmationSettingFailureConditionalConditionalBranchResponseMessageGroupMessage':
+    def message(self) -> Optional['outputs.V2modelsIntentConfirmationSettingFailureConditionalConditionalBranchResponseMessageGroupMessage']:
         """
         Configuration block for the primary message that Amazon Lex should send to the user. See `message`.
         """
@@ -20271,19 +20313,20 @@ class V2modelsIntentConfirmationSettingFailureConditionalDefaultBranchResponse(d
 @pulumi.output_type
 class V2modelsIntentConfirmationSettingFailureConditionalDefaultBranchResponseMessageGroup(dict):
     def __init__(__self__, *,
-                 message: 'outputs.V2modelsIntentConfirmationSettingFailureConditionalDefaultBranchResponseMessageGroupMessage',
+                 message: Optional['outputs.V2modelsIntentConfirmationSettingFailureConditionalDefaultBranchResponseMessageGroupMessage'] = None,
                  variations: Optional[Sequence['outputs.V2modelsIntentConfirmationSettingFailureConditionalDefaultBranchResponseMessageGroupVariation']] = None):
         """
         :param 'V2modelsIntentConfirmationSettingFailureConditionalDefaultBranchResponseMessageGroupMessageArgs' message: Configuration block for the primary message that Amazon Lex should send to the user. See `message`.
         :param Sequence['V2modelsIntentConfirmationSettingFailureConditionalDefaultBranchResponseMessageGroupVariationArgs'] variations: Configuration blocks for message variations to send to the user. When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user. See `variation`.
         """
-        pulumi.set(__self__, "message", message)
+        if message is not None:
+            pulumi.set(__self__, "message", message)
         if variations is not None:
             pulumi.set(__self__, "variations", variations)
 
     @_builtins.property
     @pulumi.getter
-    def message(self) -> 'outputs.V2modelsIntentConfirmationSettingFailureConditionalDefaultBranchResponseMessageGroupMessage':
+    def message(self) -> Optional['outputs.V2modelsIntentConfirmationSettingFailureConditionalDefaultBranchResponseMessageGroupMessage']:
         """
         Configuration block for the primary message that Amazon Lex should send to the user. See `message`.
         """
@@ -21064,19 +21107,20 @@ class V2modelsIntentConfirmationSettingFailureResponse(dict):
 @pulumi.output_type
 class V2modelsIntentConfirmationSettingFailureResponseMessageGroup(dict):
     def __init__(__self__, *,
-                 message: 'outputs.V2modelsIntentConfirmationSettingFailureResponseMessageGroupMessage',
+                 message: Optional['outputs.V2modelsIntentConfirmationSettingFailureResponseMessageGroupMessage'] = None,
                  variations: Optional[Sequence['outputs.V2modelsIntentConfirmationSettingFailureResponseMessageGroupVariation']] = None):
         """
         :param 'V2modelsIntentConfirmationSettingFailureResponseMessageGroupMessageArgs' message: Configuration block for the primary message that Amazon Lex should send to the user. See `message`.
         :param Sequence['V2modelsIntentConfirmationSettingFailureResponseMessageGroupVariationArgs'] variations: Configuration blocks for message variations to send to the user. When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user. See `variation`.
         """
-        pulumi.set(__self__, "message", message)
+        if message is not None:
+            pulumi.set(__self__, "message", message)
         if variations is not None:
             pulumi.set(__self__, "variations", variations)
 
     @_builtins.property
     @pulumi.getter
-    def message(self) -> 'outputs.V2modelsIntentConfirmationSettingFailureResponseMessageGroupMessage':
+    def message(self) -> Optional['outputs.V2modelsIntentConfirmationSettingFailureResponseMessageGroupMessage']:
         """
         Configuration block for the primary message that Amazon Lex should send to the user. See `message`.
         """
@@ -21649,19 +21693,20 @@ class V2modelsIntentConfirmationSettingPromptSpecification(dict):
 @pulumi.output_type
 class V2modelsIntentConfirmationSettingPromptSpecificationMessageGroup(dict):
     def __init__(__self__, *,
-                 message: 'outputs.V2modelsIntentConfirmationSettingPromptSpecificationMessageGroupMessage',
+                 message: Optional['outputs.V2modelsIntentConfirmationSettingPromptSpecificationMessageGroupMessage'] = None,
                  variations: Optional[Sequence['outputs.V2modelsIntentConfirmationSettingPromptSpecificationMessageGroupVariation']] = None):
         """
         :param 'V2modelsIntentConfirmationSettingPromptSpecificationMessageGroupMessageArgs' message: Configuration block for the primary message that Amazon Lex should send to the user. See `message`.
         :param Sequence['V2modelsIntentConfirmationSettingPromptSpecificationMessageGroupVariationArgs'] variations: Configuration blocks for message variations to send to the user. When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user. See `variation`.
         """
-        pulumi.set(__self__, "message", message)
+        if message is not None:
+            pulumi.set(__self__, "message", message)
         if variations is not None:
             pulumi.set(__self__, "variations", variations)
 
     @_builtins.property
     @pulumi.getter
-    def message(self) -> 'outputs.V2modelsIntentConfirmationSettingPromptSpecificationMessageGroupMessage':
+    def message(self) -> Optional['outputs.V2modelsIntentConfirmationSettingPromptSpecificationMessageGroupMessage']:
         """
         Configuration block for the primary message that Amazon Lex should send to the user. See `message`.
         """
@@ -22145,12 +22190,12 @@ class V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecific
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "allowedInputTypes":
-            suggest = "allowed_input_types"
-        elif key == "mapBlockKey":
+        if key == "mapBlockKey":
             suggest = "map_block_key"
         elif key == "allowInterrupt":
             suggest = "allow_interrupt"
+        elif key == "allowedInputTypes":
+            suggest = "allowed_input_types"
         elif key == "audioAndDtmfInputSpecification":
             suggest = "audio_and_dtmf_input_specification"
         elif key == "textInputSpecification":
@@ -22168,34 +22213,27 @@ class V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecific
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 allowed_input_types: 'outputs.V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationAllowedInputTypes',
                  map_block_key: _builtins.str,
                  allow_interrupt: Optional[_builtins.bool] = None,
+                 allowed_input_types: Optional['outputs.V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationAllowedInputTypes'] = None,
                  audio_and_dtmf_input_specification: Optional['outputs.V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecification'] = None,
                  text_input_specification: Optional['outputs.V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationTextInputSpecification'] = None):
         """
-        :param 'V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationAllowedInputTypesArgs' allowed_input_types: Configuration block for the allowed input types of the prompt attempt. See `allowed_input_types`.
         :param _builtins.str map_block_key: Which attempt to configure. Valid values are `Initial`, `Retry1`, `Retry2`, `Retry3`, `Retry4`, `Retry5`.
         :param _builtins.bool allow_interrupt: Whether the user can interrupt a speech prompt attempt from the bot.
+        :param 'V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationAllowedInputTypesArgs' allowed_input_types: Configuration block for the allowed input types of the prompt attempt. See `allowed_input_types`.
         :param 'V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationArgs' audio_and_dtmf_input_specification: Configuration block for settings on audio and DTMF input. See `audio_and_dtmf_input_specification`.
         :param 'V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationTextInputSpecificationArgs' text_input_specification: Configuration block for the settings on text input. See `text_input_specification`.
         """
-        pulumi.set(__self__, "allowed_input_types", allowed_input_types)
         pulumi.set(__self__, "map_block_key", map_block_key)
         if allow_interrupt is not None:
             pulumi.set(__self__, "allow_interrupt", allow_interrupt)
+        if allowed_input_types is not None:
+            pulumi.set(__self__, "allowed_input_types", allowed_input_types)
         if audio_and_dtmf_input_specification is not None:
             pulumi.set(__self__, "audio_and_dtmf_input_specification", audio_and_dtmf_input_specification)
         if text_input_specification is not None:
             pulumi.set(__self__, "text_input_specification", text_input_specification)
-
-    @_builtins.property
-    @pulumi.getter(name="allowedInputTypes")
-    def allowed_input_types(self) -> 'outputs.V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationAllowedInputTypes':
-        """
-        Configuration block for the allowed input types of the prompt attempt. See `allowed_input_types`.
-        """
-        return pulumi.get(self, "allowed_input_types")
 
     @_builtins.property
     @pulumi.getter(name="mapBlockKey")
@@ -22212,6 +22250,14 @@ class V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecific
         Whether the user can interrupt a speech prompt attempt from the bot.
         """
         return pulumi.get(self, "allow_interrupt")
+
+    @_builtins.property
+    @pulumi.getter(name="allowedInputTypes")
+    def allowed_input_types(self) -> Optional['outputs.V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationAllowedInputTypes']:
+        """
+        Configuration block for the allowed input types of the prompt attempt. See `allowed_input_types`.
+        """
+        return pulumi.get(self, "allowed_input_types")
 
     @_builtins.property
     @pulumi.getter(name="audioAndDtmfInputSpecification")
@@ -22731,19 +22777,20 @@ class V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationStartRespo
 @pulumi.output_type
 class V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationStartResponseMessageGroup(dict):
     def __init__(__self__, *,
-                 message: 'outputs.V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationStartResponseMessageGroupMessage',
+                 message: Optional['outputs.V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationStartResponseMessageGroupMessage'] = None,
                  variations: Optional[Sequence['outputs.V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationStartResponseMessageGroupVariation']] = None):
         """
         :param 'V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationStartResponseMessageGroupMessageArgs' message: Configuration block for the primary message that Amazon Lex should send to the user. See `message`.
         :param Sequence['V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationStartResponseMessageGroupVariationArgs'] variations: Configuration blocks for message variations to send to the user. When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user. See `variation`.
         """
-        pulumi.set(__self__, "message", message)
+        if message is not None:
+            pulumi.set(__self__, "message", message)
         if variations is not None:
             pulumi.set(__self__, "variations", variations)
 
     @_builtins.property
     @pulumi.getter
-    def message(self) -> 'outputs.V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationStartResponseMessageGroupMessage':
+    def message(self) -> Optional['outputs.V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationStartResponseMessageGroupMessage']:
         """
         Configuration block for the primary message that Amazon Lex should send to the user. See `message`.
         """
@@ -23288,19 +23335,20 @@ class V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationUpdateResp
 @pulumi.output_type
 class V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationUpdateResponseMessageGroup(dict):
     def __init__(__self__, *,
-                 message: 'outputs.V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationUpdateResponseMessageGroupMessage',
+                 message: Optional['outputs.V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationUpdateResponseMessageGroupMessage'] = None,
                  variations: Optional[Sequence['outputs.V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationUpdateResponseMessageGroupVariation']] = None):
         """
         :param 'V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationUpdateResponseMessageGroupMessageArgs' message: Configuration block for the primary message that Amazon Lex should send to the user. See `message`.
         :param Sequence['V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationUpdateResponseMessageGroupVariationArgs'] variations: Configuration blocks for message variations to send to the user. When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user. See `variation`.
         """
-        pulumi.set(__self__, "message", message)
+        if message is not None:
+            pulumi.set(__self__, "message", message)
         if variations is not None:
             pulumi.set(__self__, "variations", variations)
 
     @_builtins.property
     @pulumi.getter
-    def message(self) -> 'outputs.V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationUpdateResponseMessageGroupMessage':
+    def message(self) -> Optional['outputs.V2modelsIntentFulfillmentCodeHookFulfillmentUpdatesSpecificationUpdateResponseMessageGroupMessage']:
         """
         Configuration block for the primary message that Amazon Lex should send to the user. See `message`.
         """
@@ -23932,10 +23980,10 @@ class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailure
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "defaultBranch":
-            suggest = "default_branch"
-        elif key == "conditionalBranches":
+        if key == "conditionalBranches":
             suggest = "conditional_branches"
+        elif key == "defaultBranch":
+            suggest = "default_branch"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditional. Access the value via the '{suggest}' property getter instead.")
@@ -23950,17 +23998,18 @@ class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailure
 
     def __init__(__self__, *,
                  active: _builtins.bool,
-                 default_branch: 'outputs.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalDefaultBranch',
-                 conditional_branches: Optional[Sequence['outputs.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalConditionalBranch']] = None):
+                 conditional_branches: Optional[Sequence['outputs.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalConditionalBranch']] = None,
+                 default_branch: Optional['outputs.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalDefaultBranch'] = None):
         """
         :param _builtins.bool active: Whether a conditional branch is active. When active is false, the conditions are not evaluated.
-        :param 'V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalDefaultBranchArgs' default_branch: Configuration block for the conditional branch that should be followed when the conditions for other branches are not satisfied. A branch is made up of a condition, a response and a next step. See `default_branch`.
         :param Sequence['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalConditionalBranchArgs'] conditional_branches: Configuration blocks for conditional branches. A conditional branch is made up of a condition, a response and a next step. The response and next step are executed when the condition is true. See `conditional_branch`.
+        :param 'V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalDefaultBranchArgs' default_branch: Configuration block for the conditional branch that should be followed when the conditions for other branches are not satisfied. A branch is made up of a condition, a response and a next step. See `default_branch`.
         """
         pulumi.set(__self__, "active", active)
-        pulumi.set(__self__, "default_branch", default_branch)
         if conditional_branches is not None:
             pulumi.set(__self__, "conditional_branches", conditional_branches)
+        if default_branch is not None:
+            pulumi.set(__self__, "default_branch", default_branch)
 
     @_builtins.property
     @pulumi.getter
@@ -23971,20 +24020,20 @@ class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailure
         return pulumi.get(self, "active")
 
     @_builtins.property
-    @pulumi.getter(name="defaultBranch")
-    def default_branch(self) -> 'outputs.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalDefaultBranch':
-        """
-        Configuration block for the conditional branch that should be followed when the conditions for other branches are not satisfied. A branch is made up of a condition, a response and a next step. See `default_branch`.
-        """
-        return pulumi.get(self, "default_branch")
-
-    @_builtins.property
     @pulumi.getter(name="conditionalBranches")
     def conditional_branches(self) -> Optional[Sequence['outputs.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalConditionalBranch']]:
         """
         Configuration blocks for conditional branches. A conditional branch is made up of a condition, a response and a next step. The response and next step are executed when the condition is true. See `conditional_branch`.
         """
         return pulumi.get(self, "conditional_branches")
+
+    @_builtins.property
+    @pulumi.getter(name="defaultBranch")
+    def default_branch(self) -> Optional['outputs.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalDefaultBranch']:
+        """
+        Configuration block for the conditional branch that should be followed when the conditions for other branches are not satisfied. A branch is made up of a condition, a response and a next step. See `default_branch`.
+        """
+        return pulumi.get(self, "default_branch")
 
 
 @pulumi.output_type
@@ -24007,29 +24056,23 @@ class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailure
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 condition: 'outputs.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalConditionalBranchCondition',
                  name: _builtins.str,
-                 next_step: 'outputs.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalConditionalBranchNextStep',
+                 condition: Optional['outputs.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalConditionalBranchCondition'] = None,
+                 next_step: Optional['outputs.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalConditionalBranchNextStep'] = None,
                  response: Optional['outputs.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalConditionalBranchResponse'] = None):
         """
-        :param 'V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalConditionalBranchConditionArgs' condition: Configuration block for the expression to evaluate. If the condition is true, the branch's actions are taken. See `condition`.
         :param _builtins.str name: Name of the branch.
+        :param 'V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalConditionalBranchConditionArgs' condition: Configuration block for the expression to evaluate. If the condition is true, the branch's actions are taken. See `condition`.
         :param 'V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalConditionalBranchNextStepArgs' next_step: Configuration block for the next step in the conversation. See `next_step`.
         :param 'V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalConditionalBranchResponseArgs' response: Configuration block for a list of message groups that Amazon Lex uses to respond to the user input. See `response`.
         """
-        pulumi.set(__self__, "condition", condition)
         pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "next_step", next_step)
+        if condition is not None:
+            pulumi.set(__self__, "condition", condition)
+        if next_step is not None:
+            pulumi.set(__self__, "next_step", next_step)
         if response is not None:
             pulumi.set(__self__, "response", response)
-
-    @_builtins.property
-    @pulumi.getter
-    def condition(self) -> 'outputs.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalConditionalBranchCondition':
-        """
-        Configuration block for the expression to evaluate. If the condition is true, the branch's actions are taken. See `condition`.
-        """
-        return pulumi.get(self, "condition")
 
     @_builtins.property
     @pulumi.getter
@@ -24040,8 +24083,16 @@ class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailure
         return pulumi.get(self, "name")
 
     @_builtins.property
+    @pulumi.getter
+    def condition(self) -> Optional['outputs.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalConditionalBranchCondition']:
+        """
+        Configuration block for the expression to evaluate. If the condition is true, the branch's actions are taken. See `condition`.
+        """
+        return pulumi.get(self, "condition")
+
+    @_builtins.property
     @pulumi.getter(name="nextStep")
-    def next_step(self) -> 'outputs.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalConditionalBranchNextStep':
+    def next_step(self) -> Optional['outputs.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalConditionalBranchNextStep']:
         """
         Configuration block for the next step in the conversation. See `next_step`.
         """
@@ -24393,19 +24444,20 @@ class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailure
 @pulumi.output_type
 class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalConditionalBranchResponseMessageGroup(dict):
     def __init__(__self__, *,
-                 message: 'outputs.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalConditionalBranchResponseMessageGroupMessage',
+                 message: Optional['outputs.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalConditionalBranchResponseMessageGroupMessage'] = None,
                  variations: Optional[Sequence['outputs.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalConditionalBranchResponseMessageGroupVariation']] = None):
         """
         :param 'V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalConditionalBranchResponseMessageGroupMessageArgs' message: Configuration block for the primary message that Amazon Lex should send to the user. See `message`.
         :param Sequence['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalConditionalBranchResponseMessageGroupVariationArgs'] variations: Configuration blocks for message variations to send to the user. When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user. See `variation`.
         """
-        pulumi.set(__self__, "message", message)
+        if message is not None:
+            pulumi.set(__self__, "message", message)
         if variations is not None:
             pulumi.set(__self__, "variations", variations)
 
     @_builtins.property
     @pulumi.getter
-    def message(self) -> 'outputs.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalConditionalBranchResponseMessageGroupMessage':
+    def message(self) -> Optional['outputs.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalConditionalBranchResponseMessageGroupMessage']:
         """
         Configuration block for the primary message that Amazon Lex should send to the user. See `message`.
         """
@@ -25234,19 +25286,20 @@ class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailure
 @pulumi.output_type
 class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalDefaultBranchResponseMessageGroup(dict):
     def __init__(__self__, *,
-                 message: 'outputs.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalDefaultBranchResponseMessageGroupMessage',
+                 message: Optional['outputs.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalDefaultBranchResponseMessageGroupMessage'] = None,
                  variations: Optional[Sequence['outputs.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalDefaultBranchResponseMessageGroupVariation']] = None):
         """
         :param 'V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalDefaultBranchResponseMessageGroupMessageArgs' message: Configuration block for the primary message that Amazon Lex should send to the user. See `message`.
         :param Sequence['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalDefaultBranchResponseMessageGroupVariationArgs'] variations: Configuration blocks for message variations to send to the user. When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user. See `variation`.
         """
-        pulumi.set(__self__, "message", message)
+        if message is not None:
+            pulumi.set(__self__, "message", message)
         if variations is not None:
             pulumi.set(__self__, "variations", variations)
 
     @_builtins.property
     @pulumi.getter
-    def message(self) -> 'outputs.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalDefaultBranchResponseMessageGroupMessage':
+    def message(self) -> Optional['outputs.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureConditionalDefaultBranchResponseMessageGroupMessage']:
         """
         Configuration block for the primary message that Amazon Lex should send to the user. See `message`.
         """
@@ -26027,19 +26080,20 @@ class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailure
 @pulumi.output_type
 class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureResponseMessageGroup(dict):
     def __init__(__self__, *,
-                 message: 'outputs.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureResponseMessageGroupMessage',
+                 message: Optional['outputs.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureResponseMessageGroupMessage'] = None,
                  variations: Optional[Sequence['outputs.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureResponseMessageGroupVariation']] = None):
         """
         :param 'V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureResponseMessageGroupMessageArgs' message: Configuration block for the primary message that Amazon Lex should send to the user. See `message`.
         :param Sequence['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureResponseMessageGroupVariationArgs'] variations: Configuration blocks for message variations to send to the user. When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user. See `variation`.
         """
-        pulumi.set(__self__, "message", message)
+        if message is not None:
+            pulumi.set(__self__, "message", message)
         if variations is not None:
             pulumi.set(__self__, "variations", variations)
 
     @_builtins.property
     @pulumi.getter
-    def message(self) -> 'outputs.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureResponseMessageGroupMessage':
+    def message(self) -> Optional['outputs.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationFailureResponseMessageGroupMessage']:
         """
         Configuration block for the primary message that Amazon Lex should send to the user. See `message`.
         """
@@ -26523,10 +26577,10 @@ class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccess
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "defaultBranch":
-            suggest = "default_branch"
-        elif key == "conditionalBranches":
+        if key == "conditionalBranches":
             suggest = "conditional_branches"
+        elif key == "defaultBranch":
+            suggest = "default_branch"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditional. Access the value via the '{suggest}' property getter instead.")
@@ -26541,17 +26595,18 @@ class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccess
 
     def __init__(__self__, *,
                  active: _builtins.bool,
-                 default_branch: 'outputs.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalDefaultBranch',
-                 conditional_branches: Optional[Sequence['outputs.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalConditionalBranch']] = None):
+                 conditional_branches: Optional[Sequence['outputs.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalConditionalBranch']] = None,
+                 default_branch: Optional['outputs.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalDefaultBranch'] = None):
         """
         :param _builtins.bool active: Whether a conditional branch is active. When active is false, the conditions are not evaluated.
-        :param 'V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalDefaultBranchArgs' default_branch: Configuration block for the conditional branch that should be followed when the conditions for other branches are not satisfied. A branch is made up of a condition, a response and a next step. See `default_branch`.
         :param Sequence['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalConditionalBranchArgs'] conditional_branches: Configuration blocks for conditional branches. A conditional branch is made up of a condition, a response and a next step. The response and next step are executed when the condition is true. See `conditional_branch`.
+        :param 'V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalDefaultBranchArgs' default_branch: Configuration block for the conditional branch that should be followed when the conditions for other branches are not satisfied. A branch is made up of a condition, a response and a next step. See `default_branch`.
         """
         pulumi.set(__self__, "active", active)
-        pulumi.set(__self__, "default_branch", default_branch)
         if conditional_branches is not None:
             pulumi.set(__self__, "conditional_branches", conditional_branches)
+        if default_branch is not None:
+            pulumi.set(__self__, "default_branch", default_branch)
 
     @_builtins.property
     @pulumi.getter
@@ -26562,20 +26617,20 @@ class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccess
         return pulumi.get(self, "active")
 
     @_builtins.property
-    @pulumi.getter(name="defaultBranch")
-    def default_branch(self) -> 'outputs.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalDefaultBranch':
-        """
-        Configuration block for the conditional branch that should be followed when the conditions for other branches are not satisfied. A branch is made up of a condition, a response and a next step. See `default_branch`.
-        """
-        return pulumi.get(self, "default_branch")
-
-    @_builtins.property
     @pulumi.getter(name="conditionalBranches")
     def conditional_branches(self) -> Optional[Sequence['outputs.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalConditionalBranch']]:
         """
         Configuration blocks for conditional branches. A conditional branch is made up of a condition, a response and a next step. The response and next step are executed when the condition is true. See `conditional_branch`.
         """
         return pulumi.get(self, "conditional_branches")
+
+    @_builtins.property
+    @pulumi.getter(name="defaultBranch")
+    def default_branch(self) -> Optional['outputs.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalDefaultBranch']:
+        """
+        Configuration block for the conditional branch that should be followed when the conditions for other branches are not satisfied. A branch is made up of a condition, a response and a next step. See `default_branch`.
+        """
+        return pulumi.get(self, "default_branch")
 
 
 @pulumi.output_type
@@ -26598,29 +26653,23 @@ class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccess
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 condition: 'outputs.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalConditionalBranchCondition',
                  name: _builtins.str,
-                 next_step: 'outputs.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalConditionalBranchNextStep',
+                 condition: Optional['outputs.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalConditionalBranchCondition'] = None,
+                 next_step: Optional['outputs.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalConditionalBranchNextStep'] = None,
                  response: Optional['outputs.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalConditionalBranchResponse'] = None):
         """
-        :param 'V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalConditionalBranchConditionArgs' condition: Configuration block for the expression to evaluate. If the condition is true, the branch's actions are taken. See `condition`.
         :param _builtins.str name: Name of the branch.
+        :param 'V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalConditionalBranchConditionArgs' condition: Configuration block for the expression to evaluate. If the condition is true, the branch's actions are taken. See `condition`.
         :param 'V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalConditionalBranchNextStepArgs' next_step: Configuration block for the next step in the conversation. See `next_step`.
         :param 'V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalConditionalBranchResponseArgs' response: Configuration block for a list of message groups that Amazon Lex uses to respond to the user input. See `response`.
         """
-        pulumi.set(__self__, "condition", condition)
         pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "next_step", next_step)
+        if condition is not None:
+            pulumi.set(__self__, "condition", condition)
+        if next_step is not None:
+            pulumi.set(__self__, "next_step", next_step)
         if response is not None:
             pulumi.set(__self__, "response", response)
-
-    @_builtins.property
-    @pulumi.getter
-    def condition(self) -> 'outputs.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalConditionalBranchCondition':
-        """
-        Configuration block for the expression to evaluate. If the condition is true, the branch's actions are taken. See `condition`.
-        """
-        return pulumi.get(self, "condition")
 
     @_builtins.property
     @pulumi.getter
@@ -26631,8 +26680,16 @@ class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccess
         return pulumi.get(self, "name")
 
     @_builtins.property
+    @pulumi.getter
+    def condition(self) -> Optional['outputs.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalConditionalBranchCondition']:
+        """
+        Configuration block for the expression to evaluate. If the condition is true, the branch's actions are taken. See `condition`.
+        """
+        return pulumi.get(self, "condition")
+
+    @_builtins.property
     @pulumi.getter(name="nextStep")
-    def next_step(self) -> 'outputs.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalConditionalBranchNextStep':
+    def next_step(self) -> Optional['outputs.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalConditionalBranchNextStep']:
         """
         Configuration block for the next step in the conversation. See `next_step`.
         """
@@ -26984,19 +27041,20 @@ class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccess
 @pulumi.output_type
 class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalConditionalBranchResponseMessageGroup(dict):
     def __init__(__self__, *,
-                 message: 'outputs.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalConditionalBranchResponseMessageGroupMessage',
+                 message: Optional['outputs.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalConditionalBranchResponseMessageGroupMessage'] = None,
                  variations: Optional[Sequence['outputs.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalConditionalBranchResponseMessageGroupVariation']] = None):
         """
         :param 'V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalConditionalBranchResponseMessageGroupMessageArgs' message: Configuration block for the primary message that Amazon Lex should send to the user. See `message`.
         :param Sequence['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalConditionalBranchResponseMessageGroupVariationArgs'] variations: Configuration blocks for message variations to send to the user. When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user. See `variation`.
         """
-        pulumi.set(__self__, "message", message)
+        if message is not None:
+            pulumi.set(__self__, "message", message)
         if variations is not None:
             pulumi.set(__self__, "variations", variations)
 
     @_builtins.property
     @pulumi.getter
-    def message(self) -> 'outputs.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalConditionalBranchResponseMessageGroupMessage':
+    def message(self) -> Optional['outputs.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalConditionalBranchResponseMessageGroupMessage']:
         """
         Configuration block for the primary message that Amazon Lex should send to the user. See `message`.
         """
@@ -27825,19 +27883,20 @@ class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccess
 @pulumi.output_type
 class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalDefaultBranchResponseMessageGroup(dict):
     def __init__(__self__, *,
-                 message: 'outputs.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalDefaultBranchResponseMessageGroupMessage',
+                 message: Optional['outputs.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalDefaultBranchResponseMessageGroupMessage'] = None,
                  variations: Optional[Sequence['outputs.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalDefaultBranchResponseMessageGroupVariation']] = None):
         """
         :param 'V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalDefaultBranchResponseMessageGroupMessageArgs' message: Configuration block for the primary message that Amazon Lex should send to the user. See `message`.
         :param Sequence['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalDefaultBranchResponseMessageGroupVariationArgs'] variations: Configuration blocks for message variations to send to the user. When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user. See `variation`.
         """
-        pulumi.set(__self__, "message", message)
+        if message is not None:
+            pulumi.set(__self__, "message", message)
         if variations is not None:
             pulumi.set(__self__, "variations", variations)
 
     @_builtins.property
     @pulumi.getter
-    def message(self) -> 'outputs.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalDefaultBranchResponseMessageGroupMessage':
+    def message(self) -> Optional['outputs.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessConditionalDefaultBranchResponseMessageGroupMessage']:
         """
         Configuration block for the primary message that Amazon Lex should send to the user. See `message`.
         """
@@ -28618,19 +28677,20 @@ class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccess
 @pulumi.output_type
 class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessResponseMessageGroup(dict):
     def __init__(__self__, *,
-                 message: 'outputs.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessResponseMessageGroupMessage',
+                 message: Optional['outputs.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessResponseMessageGroupMessage'] = None,
                  variations: Optional[Sequence['outputs.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessResponseMessageGroupVariation']] = None):
         """
         :param 'V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessResponseMessageGroupMessageArgs' message: Configuration block for the primary message that Amazon Lex should send to the user. See `message`.
         :param Sequence['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessResponseMessageGroupVariationArgs'] variations: Configuration blocks for message variations to send to the user. When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user. See `variation`.
         """
-        pulumi.set(__self__, "message", message)
+        if message is not None:
+            pulumi.set(__self__, "message", message)
         if variations is not None:
             pulumi.set(__self__, "variations", variations)
 
     @_builtins.property
     @pulumi.getter
-    def message(self) -> 'outputs.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessResponseMessageGroupMessage':
+    def message(self) -> Optional['outputs.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationSuccessResponseMessageGroupMessage']:
         """
         Configuration block for the primary message that Amazon Lex should send to the user. See `message`.
         """
@@ -29114,10 +29174,10 @@ class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeout
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "defaultBranch":
-            suggest = "default_branch"
-        elif key == "conditionalBranches":
+        if key == "conditionalBranches":
             suggest = "conditional_branches"
+        elif key == "defaultBranch":
+            suggest = "default_branch"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditional. Access the value via the '{suggest}' property getter instead.")
@@ -29132,17 +29192,18 @@ class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeout
 
     def __init__(__self__, *,
                  active: _builtins.bool,
-                 default_branch: 'outputs.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalDefaultBranch',
-                 conditional_branches: Optional[Sequence['outputs.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalConditionalBranch']] = None):
+                 conditional_branches: Optional[Sequence['outputs.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalConditionalBranch']] = None,
+                 default_branch: Optional['outputs.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalDefaultBranch'] = None):
         """
         :param _builtins.bool active: Whether a conditional branch is active. When active is false, the conditions are not evaluated.
-        :param 'V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalDefaultBranchArgs' default_branch: Configuration block for the conditional branch that should be followed when the conditions for other branches are not satisfied. A branch is made up of a condition, a response and a next step. See `default_branch`.
         :param Sequence['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalConditionalBranchArgs'] conditional_branches: Configuration blocks for conditional branches. A conditional branch is made up of a condition, a response and a next step. The response and next step are executed when the condition is true. See `conditional_branch`.
+        :param 'V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalDefaultBranchArgs' default_branch: Configuration block for the conditional branch that should be followed when the conditions for other branches are not satisfied. A branch is made up of a condition, a response and a next step. See `default_branch`.
         """
         pulumi.set(__self__, "active", active)
-        pulumi.set(__self__, "default_branch", default_branch)
         if conditional_branches is not None:
             pulumi.set(__self__, "conditional_branches", conditional_branches)
+        if default_branch is not None:
+            pulumi.set(__self__, "default_branch", default_branch)
 
     @_builtins.property
     @pulumi.getter
@@ -29153,20 +29214,20 @@ class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeout
         return pulumi.get(self, "active")
 
     @_builtins.property
-    @pulumi.getter(name="defaultBranch")
-    def default_branch(self) -> 'outputs.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalDefaultBranch':
-        """
-        Configuration block for the conditional branch that should be followed when the conditions for other branches are not satisfied. A branch is made up of a condition, a response and a next step. See `default_branch`.
-        """
-        return pulumi.get(self, "default_branch")
-
-    @_builtins.property
     @pulumi.getter(name="conditionalBranches")
     def conditional_branches(self) -> Optional[Sequence['outputs.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalConditionalBranch']]:
         """
         Configuration blocks for conditional branches. A conditional branch is made up of a condition, a response and a next step. The response and next step are executed when the condition is true. See `conditional_branch`.
         """
         return pulumi.get(self, "conditional_branches")
+
+    @_builtins.property
+    @pulumi.getter(name="defaultBranch")
+    def default_branch(self) -> Optional['outputs.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalDefaultBranch']:
+        """
+        Configuration block for the conditional branch that should be followed when the conditions for other branches are not satisfied. A branch is made up of a condition, a response and a next step. See `default_branch`.
+        """
+        return pulumi.get(self, "default_branch")
 
 
 @pulumi.output_type
@@ -29189,29 +29250,23 @@ class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeout
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 condition: 'outputs.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalConditionalBranchCondition',
                  name: _builtins.str,
-                 next_step: 'outputs.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalConditionalBranchNextStep',
+                 condition: Optional['outputs.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalConditionalBranchCondition'] = None,
+                 next_step: Optional['outputs.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalConditionalBranchNextStep'] = None,
                  response: Optional['outputs.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalConditionalBranchResponse'] = None):
         """
-        :param 'V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalConditionalBranchConditionArgs' condition: Configuration block for the expression to evaluate. If the condition is true, the branch's actions are taken. See `condition`.
         :param _builtins.str name: Name of the branch.
+        :param 'V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalConditionalBranchConditionArgs' condition: Configuration block for the expression to evaluate. If the condition is true, the branch's actions are taken. See `condition`.
         :param 'V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalConditionalBranchNextStepArgs' next_step: Configuration block for the next step in the conversation. See `next_step`.
         :param 'V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalConditionalBranchResponseArgs' response: Configuration block for a list of message groups that Amazon Lex uses to respond to the user input. See `response`.
         """
-        pulumi.set(__self__, "condition", condition)
         pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "next_step", next_step)
+        if condition is not None:
+            pulumi.set(__self__, "condition", condition)
+        if next_step is not None:
+            pulumi.set(__self__, "next_step", next_step)
         if response is not None:
             pulumi.set(__self__, "response", response)
-
-    @_builtins.property
-    @pulumi.getter
-    def condition(self) -> 'outputs.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalConditionalBranchCondition':
-        """
-        Configuration block for the expression to evaluate. If the condition is true, the branch's actions are taken. See `condition`.
-        """
-        return pulumi.get(self, "condition")
 
     @_builtins.property
     @pulumi.getter
@@ -29222,8 +29277,16 @@ class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeout
         return pulumi.get(self, "name")
 
     @_builtins.property
+    @pulumi.getter
+    def condition(self) -> Optional['outputs.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalConditionalBranchCondition']:
+        """
+        Configuration block for the expression to evaluate. If the condition is true, the branch's actions are taken. See `condition`.
+        """
+        return pulumi.get(self, "condition")
+
+    @_builtins.property
     @pulumi.getter(name="nextStep")
-    def next_step(self) -> 'outputs.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalConditionalBranchNextStep':
+    def next_step(self) -> Optional['outputs.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalConditionalBranchNextStep']:
         """
         Configuration block for the next step in the conversation. See `next_step`.
         """
@@ -29575,19 +29638,20 @@ class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeout
 @pulumi.output_type
 class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalConditionalBranchResponseMessageGroup(dict):
     def __init__(__self__, *,
-                 message: 'outputs.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupMessage',
+                 message: Optional['outputs.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupMessage'] = None,
                  variations: Optional[Sequence['outputs.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupVariation']] = None):
         """
         :param 'V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupMessageArgs' message: Configuration block for the primary message that Amazon Lex should send to the user. See `message`.
         :param Sequence['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupVariationArgs'] variations: Configuration blocks for message variations to send to the user. When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user. See `variation`.
         """
-        pulumi.set(__self__, "message", message)
+        if message is not None:
+            pulumi.set(__self__, "message", message)
         if variations is not None:
             pulumi.set(__self__, "variations", variations)
 
     @_builtins.property
     @pulumi.getter
-    def message(self) -> 'outputs.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupMessage':
+    def message(self) -> Optional['outputs.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupMessage']:
         """
         Configuration block for the primary message that Amazon Lex should send to the user. See `message`.
         """
@@ -30416,19 +30480,20 @@ class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeout
 @pulumi.output_type
 class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalDefaultBranchResponseMessageGroup(dict):
     def __init__(__self__, *,
-                 message: 'outputs.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupMessage',
+                 message: Optional['outputs.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupMessage'] = None,
                  variations: Optional[Sequence['outputs.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupVariation']] = None):
         """
         :param 'V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupMessageArgs' message: Configuration block for the primary message that Amazon Lex should send to the user. See `message`.
         :param Sequence['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupVariationArgs'] variations: Configuration blocks for message variations to send to the user. When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user. See `variation`.
         """
-        pulumi.set(__self__, "message", message)
+        if message is not None:
+            pulumi.set(__self__, "message", message)
         if variations is not None:
             pulumi.set(__self__, "variations", variations)
 
     @_builtins.property
     @pulumi.getter
-    def message(self) -> 'outputs.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupMessage':
+    def message(self) -> Optional['outputs.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupMessage']:
         """
         Configuration block for the primary message that Amazon Lex should send to the user. See `message`.
         """
@@ -31209,19 +31274,20 @@ class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeout
 @pulumi.output_type
 class V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutResponseMessageGroup(dict):
     def __init__(__self__, *,
-                 message: 'outputs.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutResponseMessageGroupMessage',
+                 message: Optional['outputs.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutResponseMessageGroupMessage'] = None,
                  variations: Optional[Sequence['outputs.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutResponseMessageGroupVariation']] = None):
         """
         :param 'V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutResponseMessageGroupMessageArgs' message: Configuration block for the primary message that Amazon Lex should send to the user. See `message`.
         :param Sequence['V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutResponseMessageGroupVariationArgs'] variations: Configuration blocks for message variations to send to the user. When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user. See `variation`.
         """
-        pulumi.set(__self__, "message", message)
+        if message is not None:
+            pulumi.set(__self__, "message", message)
         if variations is not None:
             pulumi.set(__self__, "variations", variations)
 
     @_builtins.property
     @pulumi.getter
-    def message(self) -> 'outputs.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutResponseMessageGroupMessage':
+    def message(self) -> Optional['outputs.V2modelsIntentFulfillmentCodeHookPostFulfillmentStatusSpecificationTimeoutResponseMessageGroupMessage']:
         """
         Configuration block for the primary message that Amazon Lex should send to the user. See `message`.
         """
@@ -31783,10 +31849,10 @@ class V2modelsIntentInitialResponseSettingCodeHook(dict):
         suggest = None
         if key == "enableCodeHookInvocation":
             suggest = "enable_code_hook_invocation"
-        elif key == "postCodeHookSpecification":
-            suggest = "post_code_hook_specification"
         elif key == "invocationLabel":
             suggest = "invocation_label"
+        elif key == "postCodeHookSpecification":
+            suggest = "post_code_hook_specification"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in V2modelsIntentInitialResponseSettingCodeHook. Access the value via the '{suggest}' property getter instead.")
@@ -31802,19 +31868,20 @@ class V2modelsIntentInitialResponseSettingCodeHook(dict):
     def __init__(__self__, *,
                  active: _builtins.bool,
                  enable_code_hook_invocation: _builtins.bool,
-                 post_code_hook_specification: 'outputs.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecification',
-                 invocation_label: Optional[_builtins.str] = None):
+                 invocation_label: Optional[_builtins.str] = None,
+                 post_code_hook_specification: Optional['outputs.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecification'] = None):
         """
         :param _builtins.bool active: Whether a dialog code hook is used when the intent is activated.
         :param _builtins.bool enable_code_hook_invocation: Whether a Lambda function should be invoked for the dialog.
-        :param 'V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationArgs' post_code_hook_specification: Configuration block that contains the responses and actions that Amazon Lex takes after the Lambda function is complete. See `post_code_hook_specification`.
         :param _builtins.str invocation_label: Label that indicates the dialog step from which the dialog code hook is happening.
+        :param 'V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationArgs' post_code_hook_specification: Configuration block that contains the responses and actions that Amazon Lex takes after the Lambda function is complete. See `post_code_hook_specification`.
         """
         pulumi.set(__self__, "active", active)
         pulumi.set(__self__, "enable_code_hook_invocation", enable_code_hook_invocation)
-        pulumi.set(__self__, "post_code_hook_specification", post_code_hook_specification)
         if invocation_label is not None:
             pulumi.set(__self__, "invocation_label", invocation_label)
+        if post_code_hook_specification is not None:
+            pulumi.set(__self__, "post_code_hook_specification", post_code_hook_specification)
 
     @_builtins.property
     @pulumi.getter
@@ -31833,20 +31900,20 @@ class V2modelsIntentInitialResponseSettingCodeHook(dict):
         return pulumi.get(self, "enable_code_hook_invocation")
 
     @_builtins.property
-    @pulumi.getter(name="postCodeHookSpecification")
-    def post_code_hook_specification(self) -> 'outputs.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecification':
-        """
-        Configuration block that contains the responses and actions that Amazon Lex takes after the Lambda function is complete. See `post_code_hook_specification`.
-        """
-        return pulumi.get(self, "post_code_hook_specification")
-
-    @_builtins.property
     @pulumi.getter(name="invocationLabel")
     def invocation_label(self) -> Optional[_builtins.str]:
         """
         Label that indicates the dialog step from which the dialog code hook is happening.
         """
         return pulumi.get(self, "invocation_label")
+
+    @_builtins.property
+    @pulumi.getter(name="postCodeHookSpecification")
+    def post_code_hook_specification(self) -> Optional['outputs.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecification']:
+        """
+        Configuration block that contains the responses and actions that Amazon Lex takes after the Lambda function is complete. See `post_code_hook_specification`.
+        """
+        return pulumi.get(self, "post_code_hook_specification")
 
 
 @pulumi.output_type
@@ -32002,10 +32069,10 @@ class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailu
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "defaultBranch":
-            suggest = "default_branch"
-        elif key == "conditionalBranches":
+        if key == "conditionalBranches":
             suggest = "conditional_branches"
+        elif key == "defaultBranch":
+            suggest = "default_branch"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditional. Access the value via the '{suggest}' property getter instead.")
@@ -32020,17 +32087,18 @@ class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailu
 
     def __init__(__self__, *,
                  active: _builtins.bool,
-                 default_branch: 'outputs.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranch',
-                 conditional_branches: Optional[Sequence['outputs.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranch']] = None):
+                 conditional_branches: Optional[Sequence['outputs.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranch']] = None,
+                 default_branch: Optional['outputs.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranch'] = None):
         """
         :param _builtins.bool active: Whether a conditional branch is active. When active is false, the conditions are not evaluated.
-        :param 'V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchArgs' default_branch: Configuration block for the conditional branch that should be followed when the conditions for other branches are not satisfied. A branch is made up of a condition, a response and a next step. See `default_branch`.
         :param Sequence['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchArgs'] conditional_branches: Configuration blocks for conditional branches. A conditional branch is made up of a condition, a response and a next step. The response and next step are executed when the condition is true. See `conditional_branch`.
+        :param 'V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchArgs' default_branch: Configuration block for the conditional branch that should be followed when the conditions for other branches are not satisfied. A branch is made up of a condition, a response and a next step. See `default_branch`.
         """
         pulumi.set(__self__, "active", active)
-        pulumi.set(__self__, "default_branch", default_branch)
         if conditional_branches is not None:
             pulumi.set(__self__, "conditional_branches", conditional_branches)
+        if default_branch is not None:
+            pulumi.set(__self__, "default_branch", default_branch)
 
     @_builtins.property
     @pulumi.getter
@@ -32041,20 +32109,20 @@ class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailu
         return pulumi.get(self, "active")
 
     @_builtins.property
-    @pulumi.getter(name="defaultBranch")
-    def default_branch(self) -> 'outputs.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranch':
-        """
-        Configuration block for the conditional branch that should be followed when the conditions for other branches are not satisfied. A branch is made up of a condition, a response and a next step. See `default_branch`.
-        """
-        return pulumi.get(self, "default_branch")
-
-    @_builtins.property
     @pulumi.getter(name="conditionalBranches")
     def conditional_branches(self) -> Optional[Sequence['outputs.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranch']]:
         """
         Configuration blocks for conditional branches. A conditional branch is made up of a condition, a response and a next step. The response and next step are executed when the condition is true. See `conditional_branch`.
         """
         return pulumi.get(self, "conditional_branches")
+
+    @_builtins.property
+    @pulumi.getter(name="defaultBranch")
+    def default_branch(self) -> Optional['outputs.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranch']:
+        """
+        Configuration block for the conditional branch that should be followed when the conditions for other branches are not satisfied. A branch is made up of a condition, a response and a next step. See `default_branch`.
+        """
+        return pulumi.get(self, "default_branch")
 
 
 @pulumi.output_type
@@ -32077,29 +32145,23 @@ class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailu
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 condition: 'outputs.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchCondition',
                  name: _builtins.str,
-                 next_step: 'outputs.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchNextStep',
+                 condition: Optional['outputs.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchCondition'] = None,
+                 next_step: Optional['outputs.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchNextStep'] = None,
                  response: Optional['outputs.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchResponse'] = None):
         """
-        :param 'V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchConditionArgs' condition: Configuration block for the expression to evaluate. If the condition is true, the branch's actions are taken. See `condition`.
         :param _builtins.str name: Name of the branch.
+        :param 'V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchConditionArgs' condition: Configuration block for the expression to evaluate. If the condition is true, the branch's actions are taken. See `condition`.
         :param 'V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchNextStepArgs' next_step: Configuration block for the next step in the conversation. See `next_step`.
         :param 'V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchResponseArgs' response: Configuration block for a list of message groups that Amazon Lex uses to respond to the user input. See `response`.
         """
-        pulumi.set(__self__, "condition", condition)
         pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "next_step", next_step)
+        if condition is not None:
+            pulumi.set(__self__, "condition", condition)
+        if next_step is not None:
+            pulumi.set(__self__, "next_step", next_step)
         if response is not None:
             pulumi.set(__self__, "response", response)
-
-    @_builtins.property
-    @pulumi.getter
-    def condition(self) -> 'outputs.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchCondition':
-        """
-        Configuration block for the expression to evaluate. If the condition is true, the branch's actions are taken. See `condition`.
-        """
-        return pulumi.get(self, "condition")
 
     @_builtins.property
     @pulumi.getter
@@ -32110,8 +32172,16 @@ class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailu
         return pulumi.get(self, "name")
 
     @_builtins.property
+    @pulumi.getter
+    def condition(self) -> Optional['outputs.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchCondition']:
+        """
+        Configuration block for the expression to evaluate. If the condition is true, the branch's actions are taken. See `condition`.
+        """
+        return pulumi.get(self, "condition")
+
+    @_builtins.property
     @pulumi.getter(name="nextStep")
-    def next_step(self) -> 'outputs.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchNextStep':
+    def next_step(self) -> Optional['outputs.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchNextStep']:
         """
         Configuration block for the next step in the conversation. See `next_step`.
         """
@@ -32463,19 +32533,20 @@ class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailu
 @pulumi.output_type
 class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchResponseMessageGroup(dict):
     def __init__(__self__, *,
-                 message: 'outputs.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchResponseMessageGroupMessage',
+                 message: Optional['outputs.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchResponseMessageGroupMessage'] = None,
                  variations: Optional[Sequence['outputs.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchResponseMessageGroupVariation']] = None):
         """
         :param 'V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchResponseMessageGroupMessageArgs' message: Configuration block for the primary message that Amazon Lex should send to the user. See `message`.
         :param Sequence['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchResponseMessageGroupVariationArgs'] variations: Configuration blocks for message variations to send to the user. When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user. See `variation`.
         """
-        pulumi.set(__self__, "message", message)
+        if message is not None:
+            pulumi.set(__self__, "message", message)
         if variations is not None:
             pulumi.set(__self__, "variations", variations)
 
     @_builtins.property
     @pulumi.getter
-    def message(self) -> 'outputs.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchResponseMessageGroupMessage':
+    def message(self) -> Optional['outputs.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalConditionalBranchResponseMessageGroupMessage']:
         """
         Configuration block for the primary message that Amazon Lex should send to the user. See `message`.
         """
@@ -33304,19 +33375,20 @@ class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailu
 @pulumi.output_type
 class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchResponseMessageGroup(dict):
     def __init__(__self__, *,
-                 message: 'outputs.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchResponseMessageGroupMessage',
+                 message: Optional['outputs.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchResponseMessageGroupMessage'] = None,
                  variations: Optional[Sequence['outputs.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchResponseMessageGroupVariation']] = None):
         """
         :param 'V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchResponseMessageGroupMessageArgs' message: Configuration block for the primary message that Amazon Lex should send to the user. See `message`.
         :param Sequence['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchResponseMessageGroupVariationArgs'] variations: Configuration blocks for message variations to send to the user. When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user. See `variation`.
         """
-        pulumi.set(__self__, "message", message)
+        if message is not None:
+            pulumi.set(__self__, "message", message)
         if variations is not None:
             pulumi.set(__self__, "variations", variations)
 
     @_builtins.property
     @pulumi.getter
-    def message(self) -> 'outputs.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchResponseMessageGroupMessage':
+    def message(self) -> Optional['outputs.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureConditionalDefaultBranchResponseMessageGroupMessage']:
         """
         Configuration block for the primary message that Amazon Lex should send to the user. See `message`.
         """
@@ -34097,19 +34169,20 @@ class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailu
 @pulumi.output_type
 class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureResponseMessageGroup(dict):
     def __init__(__self__, *,
-                 message: 'outputs.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureResponseMessageGroupMessage',
+                 message: Optional['outputs.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureResponseMessageGroupMessage'] = None,
                  variations: Optional[Sequence['outputs.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureResponseMessageGroupVariation']] = None):
         """
         :param 'V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureResponseMessageGroupMessageArgs' message: Configuration block for the primary message that Amazon Lex should send to the user. See `message`.
         :param Sequence['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureResponseMessageGroupVariationArgs'] variations: Configuration blocks for message variations to send to the user. When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user. See `variation`.
         """
-        pulumi.set(__self__, "message", message)
+        if message is not None:
+            pulumi.set(__self__, "message", message)
         if variations is not None:
             pulumi.set(__self__, "variations", variations)
 
     @_builtins.property
     @pulumi.getter
-    def message(self) -> 'outputs.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureResponseMessageGroupMessage':
+    def message(self) -> Optional['outputs.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationFailureResponseMessageGroupMessage']:
         """
         Configuration block for the primary message that Amazon Lex should send to the user. See `message`.
         """
@@ -34593,10 +34666,10 @@ class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSucce
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "defaultBranch":
-            suggest = "default_branch"
-        elif key == "conditionalBranches":
+        if key == "conditionalBranches":
             suggest = "conditional_branches"
+        elif key == "defaultBranch":
+            suggest = "default_branch"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditional. Access the value via the '{suggest}' property getter instead.")
@@ -34611,17 +34684,18 @@ class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSucce
 
     def __init__(__self__, *,
                  active: _builtins.bool,
-                 default_branch: 'outputs.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranch',
-                 conditional_branches: Optional[Sequence['outputs.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranch']] = None):
+                 conditional_branches: Optional[Sequence['outputs.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranch']] = None,
+                 default_branch: Optional['outputs.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranch'] = None):
         """
         :param _builtins.bool active: Whether a conditional branch is active. When active is false, the conditions are not evaluated.
-        :param 'V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchArgs' default_branch: Configuration block for the conditional branch that should be followed when the conditions for other branches are not satisfied. A branch is made up of a condition, a response and a next step. See `default_branch`.
         :param Sequence['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchArgs'] conditional_branches: Configuration blocks for conditional branches. A conditional branch is made up of a condition, a response and a next step. The response and next step are executed when the condition is true. See `conditional_branch`.
+        :param 'V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchArgs' default_branch: Configuration block for the conditional branch that should be followed when the conditions for other branches are not satisfied. A branch is made up of a condition, a response and a next step. See `default_branch`.
         """
         pulumi.set(__self__, "active", active)
-        pulumi.set(__self__, "default_branch", default_branch)
         if conditional_branches is not None:
             pulumi.set(__self__, "conditional_branches", conditional_branches)
+        if default_branch is not None:
+            pulumi.set(__self__, "default_branch", default_branch)
 
     @_builtins.property
     @pulumi.getter
@@ -34632,20 +34706,20 @@ class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSucce
         return pulumi.get(self, "active")
 
     @_builtins.property
-    @pulumi.getter(name="defaultBranch")
-    def default_branch(self) -> 'outputs.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranch':
-        """
-        Configuration block for the conditional branch that should be followed when the conditions for other branches are not satisfied. A branch is made up of a condition, a response and a next step. See `default_branch`.
-        """
-        return pulumi.get(self, "default_branch")
-
-    @_builtins.property
     @pulumi.getter(name="conditionalBranches")
     def conditional_branches(self) -> Optional[Sequence['outputs.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranch']]:
         """
         Configuration blocks for conditional branches. A conditional branch is made up of a condition, a response and a next step. The response and next step are executed when the condition is true. See `conditional_branch`.
         """
         return pulumi.get(self, "conditional_branches")
+
+    @_builtins.property
+    @pulumi.getter(name="defaultBranch")
+    def default_branch(self) -> Optional['outputs.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranch']:
+        """
+        Configuration block for the conditional branch that should be followed when the conditions for other branches are not satisfied. A branch is made up of a condition, a response and a next step. See `default_branch`.
+        """
+        return pulumi.get(self, "default_branch")
 
 
 @pulumi.output_type
@@ -34668,29 +34742,23 @@ class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSucce
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 condition: 'outputs.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchCondition',
                  name: _builtins.str,
-                 next_step: 'outputs.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchNextStep',
+                 condition: Optional['outputs.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchCondition'] = None,
+                 next_step: Optional['outputs.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchNextStep'] = None,
                  response: Optional['outputs.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchResponse'] = None):
         """
-        :param 'V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchConditionArgs' condition: Configuration block for the expression to evaluate. If the condition is true, the branch's actions are taken. See `condition`.
         :param _builtins.str name: Name of the branch.
+        :param 'V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchConditionArgs' condition: Configuration block for the expression to evaluate. If the condition is true, the branch's actions are taken. See `condition`.
         :param 'V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchNextStepArgs' next_step: Configuration block for the next step in the conversation. See `next_step`.
         :param 'V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchResponseArgs' response: Configuration block for a list of message groups that Amazon Lex uses to respond to the user input. See `response`.
         """
-        pulumi.set(__self__, "condition", condition)
         pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "next_step", next_step)
+        if condition is not None:
+            pulumi.set(__self__, "condition", condition)
+        if next_step is not None:
+            pulumi.set(__self__, "next_step", next_step)
         if response is not None:
             pulumi.set(__self__, "response", response)
-
-    @_builtins.property
-    @pulumi.getter
-    def condition(self) -> 'outputs.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchCondition':
-        """
-        Configuration block for the expression to evaluate. If the condition is true, the branch's actions are taken. See `condition`.
-        """
-        return pulumi.get(self, "condition")
 
     @_builtins.property
     @pulumi.getter
@@ -34701,8 +34769,16 @@ class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSucce
         return pulumi.get(self, "name")
 
     @_builtins.property
+    @pulumi.getter
+    def condition(self) -> Optional['outputs.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchCondition']:
+        """
+        Configuration block for the expression to evaluate. If the condition is true, the branch's actions are taken. See `condition`.
+        """
+        return pulumi.get(self, "condition")
+
+    @_builtins.property
     @pulumi.getter(name="nextStep")
-    def next_step(self) -> 'outputs.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchNextStep':
+    def next_step(self) -> Optional['outputs.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchNextStep']:
         """
         Configuration block for the next step in the conversation. See `next_step`.
         """
@@ -35054,19 +35130,20 @@ class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSucce
 @pulumi.output_type
 class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchResponseMessageGroup(dict):
     def __init__(__self__, *,
-                 message: 'outputs.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchResponseMessageGroupMessage',
+                 message: Optional['outputs.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchResponseMessageGroupMessage'] = None,
                  variations: Optional[Sequence['outputs.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchResponseMessageGroupVariation']] = None):
         """
         :param 'V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchResponseMessageGroupMessageArgs' message: Configuration block for the primary message that Amazon Lex should send to the user. See `message`.
         :param Sequence['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchResponseMessageGroupVariationArgs'] variations: Configuration blocks for message variations to send to the user. When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user. See `variation`.
         """
-        pulumi.set(__self__, "message", message)
+        if message is not None:
+            pulumi.set(__self__, "message", message)
         if variations is not None:
             pulumi.set(__self__, "variations", variations)
 
     @_builtins.property
     @pulumi.getter
-    def message(self) -> 'outputs.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchResponseMessageGroupMessage':
+    def message(self) -> Optional['outputs.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalConditionalBranchResponseMessageGroupMessage']:
         """
         Configuration block for the primary message that Amazon Lex should send to the user. See `message`.
         """
@@ -35895,19 +35972,20 @@ class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSucce
 @pulumi.output_type
 class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchResponseMessageGroup(dict):
     def __init__(__self__, *,
-                 message: 'outputs.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchResponseMessageGroupMessage',
+                 message: Optional['outputs.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchResponseMessageGroupMessage'] = None,
                  variations: Optional[Sequence['outputs.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchResponseMessageGroupVariation']] = None):
         """
         :param 'V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchResponseMessageGroupMessageArgs' message: Configuration block for the primary message that Amazon Lex should send to the user. See `message`.
         :param Sequence['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchResponseMessageGroupVariationArgs'] variations: Configuration blocks for message variations to send to the user. When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user. See `variation`.
         """
-        pulumi.set(__self__, "message", message)
+        if message is not None:
+            pulumi.set(__self__, "message", message)
         if variations is not None:
             pulumi.set(__self__, "variations", variations)
 
     @_builtins.property
     @pulumi.getter
-    def message(self) -> 'outputs.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchResponseMessageGroupMessage':
+    def message(self) -> Optional['outputs.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessConditionalDefaultBranchResponseMessageGroupMessage']:
         """
         Configuration block for the primary message that Amazon Lex should send to the user. See `message`.
         """
@@ -36688,19 +36766,20 @@ class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSucce
 @pulumi.output_type
 class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessResponseMessageGroup(dict):
     def __init__(__self__, *,
-                 message: 'outputs.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessResponseMessageGroupMessage',
+                 message: Optional['outputs.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessResponseMessageGroupMessage'] = None,
                  variations: Optional[Sequence['outputs.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessResponseMessageGroupVariation']] = None):
         """
         :param 'V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessResponseMessageGroupMessageArgs' message: Configuration block for the primary message that Amazon Lex should send to the user. See `message`.
         :param Sequence['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessResponseMessageGroupVariationArgs'] variations: Configuration blocks for message variations to send to the user. When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user. See `variation`.
         """
-        pulumi.set(__self__, "message", message)
+        if message is not None:
+            pulumi.set(__self__, "message", message)
         if variations is not None:
             pulumi.set(__self__, "variations", variations)
 
     @_builtins.property
     @pulumi.getter
-    def message(self) -> 'outputs.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessResponseMessageGroupMessage':
+    def message(self) -> Optional['outputs.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationSuccessResponseMessageGroupMessage']:
         """
         Configuration block for the primary message that Amazon Lex should send to the user. See `message`.
         """
@@ -37184,10 +37263,10 @@ class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeo
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "defaultBranch":
-            suggest = "default_branch"
-        elif key == "conditionalBranches":
+        if key == "conditionalBranches":
             suggest = "conditional_branches"
+        elif key == "defaultBranch":
+            suggest = "default_branch"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditional. Access the value via the '{suggest}' property getter instead.")
@@ -37202,17 +37281,18 @@ class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeo
 
     def __init__(__self__, *,
                  active: _builtins.bool,
-                 default_branch: 'outputs.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranch',
-                 conditional_branches: Optional[Sequence['outputs.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranch']] = None):
+                 conditional_branches: Optional[Sequence['outputs.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranch']] = None,
+                 default_branch: Optional['outputs.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranch'] = None):
         """
         :param _builtins.bool active: Whether a conditional branch is active. When active is false, the conditions are not evaluated.
-        :param 'V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchArgs' default_branch: Configuration block for the conditional branch that should be followed when the conditions for other branches are not satisfied. A branch is made up of a condition, a response and a next step. See `default_branch`.
         :param Sequence['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchArgs'] conditional_branches: Configuration blocks for conditional branches. A conditional branch is made up of a condition, a response and a next step. The response and next step are executed when the condition is true. See `conditional_branch`.
+        :param 'V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchArgs' default_branch: Configuration block for the conditional branch that should be followed when the conditions for other branches are not satisfied. A branch is made up of a condition, a response and a next step. See `default_branch`.
         """
         pulumi.set(__self__, "active", active)
-        pulumi.set(__self__, "default_branch", default_branch)
         if conditional_branches is not None:
             pulumi.set(__self__, "conditional_branches", conditional_branches)
+        if default_branch is not None:
+            pulumi.set(__self__, "default_branch", default_branch)
 
     @_builtins.property
     @pulumi.getter
@@ -37223,20 +37303,20 @@ class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeo
         return pulumi.get(self, "active")
 
     @_builtins.property
-    @pulumi.getter(name="defaultBranch")
-    def default_branch(self) -> 'outputs.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranch':
-        """
-        Configuration block for the conditional branch that should be followed when the conditions for other branches are not satisfied. A branch is made up of a condition, a response and a next step. See `default_branch`.
-        """
-        return pulumi.get(self, "default_branch")
-
-    @_builtins.property
     @pulumi.getter(name="conditionalBranches")
     def conditional_branches(self) -> Optional[Sequence['outputs.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranch']]:
         """
         Configuration blocks for conditional branches. A conditional branch is made up of a condition, a response and a next step. The response and next step are executed when the condition is true. See `conditional_branch`.
         """
         return pulumi.get(self, "conditional_branches")
+
+    @_builtins.property
+    @pulumi.getter(name="defaultBranch")
+    def default_branch(self) -> Optional['outputs.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranch']:
+        """
+        Configuration block for the conditional branch that should be followed when the conditions for other branches are not satisfied. A branch is made up of a condition, a response and a next step. See `default_branch`.
+        """
+        return pulumi.get(self, "default_branch")
 
 
 @pulumi.output_type
@@ -37259,29 +37339,23 @@ class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeo
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 condition: 'outputs.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchCondition',
                  name: _builtins.str,
-                 next_step: 'outputs.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchNextStep',
+                 condition: Optional['outputs.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchCondition'] = None,
+                 next_step: Optional['outputs.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchNextStep'] = None,
                  response: Optional['outputs.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchResponse'] = None):
         """
-        :param 'V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchConditionArgs' condition: Configuration block for the expression to evaluate. If the condition is true, the branch's actions are taken. See `condition`.
         :param _builtins.str name: Name of the branch.
+        :param 'V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchConditionArgs' condition: Configuration block for the expression to evaluate. If the condition is true, the branch's actions are taken. See `condition`.
         :param 'V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchNextStepArgs' next_step: Configuration block for the next step in the conversation. See `next_step`.
         :param 'V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchResponseArgs' response: Configuration block for a list of message groups that Amazon Lex uses to respond to the user input. See `response`.
         """
-        pulumi.set(__self__, "condition", condition)
         pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "next_step", next_step)
+        if condition is not None:
+            pulumi.set(__self__, "condition", condition)
+        if next_step is not None:
+            pulumi.set(__self__, "next_step", next_step)
         if response is not None:
             pulumi.set(__self__, "response", response)
-
-    @_builtins.property
-    @pulumi.getter
-    def condition(self) -> 'outputs.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchCondition':
-        """
-        Configuration block for the expression to evaluate. If the condition is true, the branch's actions are taken. See `condition`.
-        """
-        return pulumi.get(self, "condition")
 
     @_builtins.property
     @pulumi.getter
@@ -37292,8 +37366,16 @@ class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeo
         return pulumi.get(self, "name")
 
     @_builtins.property
+    @pulumi.getter
+    def condition(self) -> Optional['outputs.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchCondition']:
+        """
+        Configuration block for the expression to evaluate. If the condition is true, the branch's actions are taken. See `condition`.
+        """
+        return pulumi.get(self, "condition")
+
+    @_builtins.property
     @pulumi.getter(name="nextStep")
-    def next_step(self) -> 'outputs.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchNextStep':
+    def next_step(self) -> Optional['outputs.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchNextStep']:
         """
         Configuration block for the next step in the conversation. See `next_step`.
         """
@@ -37645,19 +37727,20 @@ class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeo
 @pulumi.output_type
 class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchResponseMessageGroup(dict):
     def __init__(__self__, *,
-                 message: 'outputs.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupMessage',
+                 message: Optional['outputs.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupMessage'] = None,
                  variations: Optional[Sequence['outputs.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupVariation']] = None):
         """
         :param 'V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupMessageArgs' message: Configuration block for the primary message that Amazon Lex should send to the user. See `message`.
         :param Sequence['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupVariationArgs'] variations: Configuration blocks for message variations to send to the user. When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user. See `variation`.
         """
-        pulumi.set(__self__, "message", message)
+        if message is not None:
+            pulumi.set(__self__, "message", message)
         if variations is not None:
             pulumi.set(__self__, "variations", variations)
 
     @_builtins.property
     @pulumi.getter
-    def message(self) -> 'outputs.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupMessage':
+    def message(self) -> Optional['outputs.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalConditionalBranchResponseMessageGroupMessage']:
         """
         Configuration block for the primary message that Amazon Lex should send to the user. See `message`.
         """
@@ -38486,19 +38569,20 @@ class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeo
 @pulumi.output_type
 class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchResponseMessageGroup(dict):
     def __init__(__self__, *,
-                 message: 'outputs.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupMessage',
+                 message: Optional['outputs.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupMessage'] = None,
                  variations: Optional[Sequence['outputs.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupVariation']] = None):
         """
         :param 'V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupMessageArgs' message: Configuration block for the primary message that Amazon Lex should send to the user. See `message`.
         :param Sequence['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupVariationArgs'] variations: Configuration blocks for message variations to send to the user. When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user. See `variation`.
         """
-        pulumi.set(__self__, "message", message)
+        if message is not None:
+            pulumi.set(__self__, "message", message)
         if variations is not None:
             pulumi.set(__self__, "variations", variations)
 
     @_builtins.property
     @pulumi.getter
-    def message(self) -> 'outputs.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupMessage':
+    def message(self) -> Optional['outputs.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutConditionalDefaultBranchResponseMessageGroupMessage']:
         """
         Configuration block for the primary message that Amazon Lex should send to the user. See `message`.
         """
@@ -39279,19 +39363,20 @@ class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeo
 @pulumi.output_type
 class V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutResponseMessageGroup(dict):
     def __init__(__self__, *,
-                 message: 'outputs.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutResponseMessageGroupMessage',
+                 message: Optional['outputs.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutResponseMessageGroupMessage'] = None,
                  variations: Optional[Sequence['outputs.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutResponseMessageGroupVariation']] = None):
         """
         :param 'V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutResponseMessageGroupMessageArgs' message: Configuration block for the primary message that Amazon Lex should send to the user. See `message`.
         :param Sequence['V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutResponseMessageGroupVariationArgs'] variations: Configuration blocks for message variations to send to the user. When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user. See `variation`.
         """
-        pulumi.set(__self__, "message", message)
+        if message is not None:
+            pulumi.set(__self__, "message", message)
         if variations is not None:
             pulumi.set(__self__, "variations", variations)
 
     @_builtins.property
     @pulumi.getter
-    def message(self) -> 'outputs.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutResponseMessageGroupMessage':
+    def message(self) -> Optional['outputs.V2modelsIntentInitialResponseSettingCodeHookPostCodeHookSpecificationTimeoutResponseMessageGroupMessage']:
         """
         Configuration block for the primary message that Amazon Lex should send to the user. See `message`.
         """
@@ -39775,10 +39860,10 @@ class V2modelsIntentInitialResponseSettingConditional(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "defaultBranch":
-            suggest = "default_branch"
-        elif key == "conditionalBranches":
+        if key == "conditionalBranches":
             suggest = "conditional_branches"
+        elif key == "defaultBranch":
+            suggest = "default_branch"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in V2modelsIntentInitialResponseSettingConditional. Access the value via the '{suggest}' property getter instead.")
@@ -39793,17 +39878,18 @@ class V2modelsIntentInitialResponseSettingConditional(dict):
 
     def __init__(__self__, *,
                  active: _builtins.bool,
-                 default_branch: 'outputs.V2modelsIntentInitialResponseSettingConditionalDefaultBranch',
-                 conditional_branches: Optional[Sequence['outputs.V2modelsIntentInitialResponseSettingConditionalConditionalBranch']] = None):
+                 conditional_branches: Optional[Sequence['outputs.V2modelsIntentInitialResponseSettingConditionalConditionalBranch']] = None,
+                 default_branch: Optional['outputs.V2modelsIntentInitialResponseSettingConditionalDefaultBranch'] = None):
         """
         :param _builtins.bool active: Whether a conditional branch is active. When active is false, the conditions are not evaluated.
-        :param 'V2modelsIntentInitialResponseSettingConditionalDefaultBranchArgs' default_branch: Configuration block for the conditional branch that should be followed when the conditions for other branches are not satisfied. A branch is made up of a condition, a response and a next step. See `default_branch`.
         :param Sequence['V2modelsIntentInitialResponseSettingConditionalConditionalBranchArgs'] conditional_branches: Configuration blocks for conditional branches. A conditional branch is made up of a condition, a response and a next step. The response and next step are executed when the condition is true. See `conditional_branch`.
+        :param 'V2modelsIntentInitialResponseSettingConditionalDefaultBranchArgs' default_branch: Configuration block for the conditional branch that should be followed when the conditions for other branches are not satisfied. A branch is made up of a condition, a response and a next step. See `default_branch`.
         """
         pulumi.set(__self__, "active", active)
-        pulumi.set(__self__, "default_branch", default_branch)
         if conditional_branches is not None:
             pulumi.set(__self__, "conditional_branches", conditional_branches)
+        if default_branch is not None:
+            pulumi.set(__self__, "default_branch", default_branch)
 
     @_builtins.property
     @pulumi.getter
@@ -39814,20 +39900,20 @@ class V2modelsIntentInitialResponseSettingConditional(dict):
         return pulumi.get(self, "active")
 
     @_builtins.property
-    @pulumi.getter(name="defaultBranch")
-    def default_branch(self) -> 'outputs.V2modelsIntentInitialResponseSettingConditionalDefaultBranch':
-        """
-        Configuration block for the conditional branch that should be followed when the conditions for other branches are not satisfied. A branch is made up of a condition, a response and a next step. See `default_branch`.
-        """
-        return pulumi.get(self, "default_branch")
-
-    @_builtins.property
     @pulumi.getter(name="conditionalBranches")
     def conditional_branches(self) -> Optional[Sequence['outputs.V2modelsIntentInitialResponseSettingConditionalConditionalBranch']]:
         """
         Configuration blocks for conditional branches. A conditional branch is made up of a condition, a response and a next step. The response and next step are executed when the condition is true. See `conditional_branch`.
         """
         return pulumi.get(self, "conditional_branches")
+
+    @_builtins.property
+    @pulumi.getter(name="defaultBranch")
+    def default_branch(self) -> Optional['outputs.V2modelsIntentInitialResponseSettingConditionalDefaultBranch']:
+        """
+        Configuration block for the conditional branch that should be followed when the conditions for other branches are not satisfied. A branch is made up of a condition, a response and a next step. See `default_branch`.
+        """
+        return pulumi.get(self, "default_branch")
 
 
 @pulumi.output_type
@@ -39850,29 +39936,23 @@ class V2modelsIntentInitialResponseSettingConditionalConditionalBranch(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 condition: 'outputs.V2modelsIntentInitialResponseSettingConditionalConditionalBranchCondition',
                  name: _builtins.str,
-                 next_step: 'outputs.V2modelsIntentInitialResponseSettingConditionalConditionalBranchNextStep',
+                 condition: Optional['outputs.V2modelsIntentInitialResponseSettingConditionalConditionalBranchCondition'] = None,
+                 next_step: Optional['outputs.V2modelsIntentInitialResponseSettingConditionalConditionalBranchNextStep'] = None,
                  response: Optional['outputs.V2modelsIntentInitialResponseSettingConditionalConditionalBranchResponse'] = None):
         """
-        :param 'V2modelsIntentInitialResponseSettingConditionalConditionalBranchConditionArgs' condition: Configuration block for the expression to evaluate. If the condition is true, the branch's actions are taken. See `condition`.
         :param _builtins.str name: Name of the branch.
+        :param 'V2modelsIntentInitialResponseSettingConditionalConditionalBranchConditionArgs' condition: Configuration block for the expression to evaluate. If the condition is true, the branch's actions are taken. See `condition`.
         :param 'V2modelsIntentInitialResponseSettingConditionalConditionalBranchNextStepArgs' next_step: Configuration block for the next step in the conversation. See `next_step`.
         :param 'V2modelsIntentInitialResponseSettingConditionalConditionalBranchResponseArgs' response: Configuration block for a list of message groups that Amazon Lex uses to respond to the user input. See `response`.
         """
-        pulumi.set(__self__, "condition", condition)
         pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "next_step", next_step)
+        if condition is not None:
+            pulumi.set(__self__, "condition", condition)
+        if next_step is not None:
+            pulumi.set(__self__, "next_step", next_step)
         if response is not None:
             pulumi.set(__self__, "response", response)
-
-    @_builtins.property
-    @pulumi.getter
-    def condition(self) -> 'outputs.V2modelsIntentInitialResponseSettingConditionalConditionalBranchCondition':
-        """
-        Configuration block for the expression to evaluate. If the condition is true, the branch's actions are taken. See `condition`.
-        """
-        return pulumi.get(self, "condition")
 
     @_builtins.property
     @pulumi.getter
@@ -39883,8 +39963,16 @@ class V2modelsIntentInitialResponseSettingConditionalConditionalBranch(dict):
         return pulumi.get(self, "name")
 
     @_builtins.property
+    @pulumi.getter
+    def condition(self) -> Optional['outputs.V2modelsIntentInitialResponseSettingConditionalConditionalBranchCondition']:
+        """
+        Configuration block for the expression to evaluate. If the condition is true, the branch's actions are taken. See `condition`.
+        """
+        return pulumi.get(self, "condition")
+
+    @_builtins.property
     @pulumi.getter(name="nextStep")
-    def next_step(self) -> 'outputs.V2modelsIntentInitialResponseSettingConditionalConditionalBranchNextStep':
+    def next_step(self) -> Optional['outputs.V2modelsIntentInitialResponseSettingConditionalConditionalBranchNextStep']:
         """
         Configuration block for the next step in the conversation. See `next_step`.
         """
@@ -40236,19 +40324,20 @@ class V2modelsIntentInitialResponseSettingConditionalConditionalBranchResponse(d
 @pulumi.output_type
 class V2modelsIntentInitialResponseSettingConditionalConditionalBranchResponseMessageGroup(dict):
     def __init__(__self__, *,
-                 message: 'outputs.V2modelsIntentInitialResponseSettingConditionalConditionalBranchResponseMessageGroupMessage',
+                 message: Optional['outputs.V2modelsIntentInitialResponseSettingConditionalConditionalBranchResponseMessageGroupMessage'] = None,
                  variations: Optional[Sequence['outputs.V2modelsIntentInitialResponseSettingConditionalConditionalBranchResponseMessageGroupVariation']] = None):
         """
         :param 'V2modelsIntentInitialResponseSettingConditionalConditionalBranchResponseMessageGroupMessageArgs' message: Configuration block for the primary message that Amazon Lex should send to the user. See `message`.
         :param Sequence['V2modelsIntentInitialResponseSettingConditionalConditionalBranchResponseMessageGroupVariationArgs'] variations: Configuration blocks for message variations to send to the user. When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user. See `variation`.
         """
-        pulumi.set(__self__, "message", message)
+        if message is not None:
+            pulumi.set(__self__, "message", message)
         if variations is not None:
             pulumi.set(__self__, "variations", variations)
 
     @_builtins.property
     @pulumi.getter
-    def message(self) -> 'outputs.V2modelsIntentInitialResponseSettingConditionalConditionalBranchResponseMessageGroupMessage':
+    def message(self) -> Optional['outputs.V2modelsIntentInitialResponseSettingConditionalConditionalBranchResponseMessageGroupMessage']:
         """
         Configuration block for the primary message that Amazon Lex should send to the user. See `message`.
         """
@@ -41077,19 +41166,20 @@ class V2modelsIntentInitialResponseSettingConditionalDefaultBranchResponse(dict)
 @pulumi.output_type
 class V2modelsIntentInitialResponseSettingConditionalDefaultBranchResponseMessageGroup(dict):
     def __init__(__self__, *,
-                 message: 'outputs.V2modelsIntentInitialResponseSettingConditionalDefaultBranchResponseMessageGroupMessage',
+                 message: Optional['outputs.V2modelsIntentInitialResponseSettingConditionalDefaultBranchResponseMessageGroupMessage'] = None,
                  variations: Optional[Sequence['outputs.V2modelsIntentInitialResponseSettingConditionalDefaultBranchResponseMessageGroupVariation']] = None):
         """
         :param 'V2modelsIntentInitialResponseSettingConditionalDefaultBranchResponseMessageGroupMessageArgs' message: Configuration block for the primary message that Amazon Lex should send to the user. See `message`.
         :param Sequence['V2modelsIntentInitialResponseSettingConditionalDefaultBranchResponseMessageGroupVariationArgs'] variations: Configuration blocks for message variations to send to the user. When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user. See `variation`.
         """
-        pulumi.set(__self__, "message", message)
+        if message is not None:
+            pulumi.set(__self__, "message", message)
         if variations is not None:
             pulumi.set(__self__, "variations", variations)
 
     @_builtins.property
     @pulumi.getter
-    def message(self) -> 'outputs.V2modelsIntentInitialResponseSettingConditionalDefaultBranchResponseMessageGroupMessage':
+    def message(self) -> Optional['outputs.V2modelsIntentInitialResponseSettingConditionalDefaultBranchResponseMessageGroupMessage']:
         """
         Configuration block for the primary message that Amazon Lex should send to the user. See `message`.
         """
@@ -41621,19 +41711,20 @@ class V2modelsIntentInitialResponseSettingInitialResponse(dict):
 @pulumi.output_type
 class V2modelsIntentInitialResponseSettingInitialResponseMessageGroup(dict):
     def __init__(__self__, *,
-                 message: 'outputs.V2modelsIntentInitialResponseSettingInitialResponseMessageGroupMessage',
+                 message: Optional['outputs.V2modelsIntentInitialResponseSettingInitialResponseMessageGroupMessage'] = None,
                  variations: Optional[Sequence['outputs.V2modelsIntentInitialResponseSettingInitialResponseMessageGroupVariation']] = None):
         """
         :param 'V2modelsIntentInitialResponseSettingInitialResponseMessageGroupMessageArgs' message: Configuration block for the primary message that Amazon Lex should send to the user. See `message`.
         :param Sequence['V2modelsIntentInitialResponseSettingInitialResponseMessageGroupVariationArgs'] variations: Configuration blocks for message variations to send to the user. When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user. See `variation`.
         """
-        pulumi.set(__self__, "message", message)
+        if message is not None:
+            pulumi.set(__self__, "message", message)
         if variations is not None:
             pulumi.set(__self__, "variations", variations)
 
     @_builtins.property
     @pulumi.getter
-    def message(self) -> 'outputs.V2modelsIntentInitialResponseSettingInitialResponseMessageGroupMessage':
+    def message(self) -> Optional['outputs.V2modelsIntentInitialResponseSettingInitialResponseMessageGroupMessage']:
         """
         Configuration block for the primary message that Amazon Lex should send to the user. See `message`.
         """
@@ -42794,10 +42885,10 @@ class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSetting(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "promptSpecification":
-            suggest = "prompt_specification"
-        elif key == "defaultValueSpecifications":
+        if key == "defaultValueSpecifications":
             suggest = "default_value_specifications"
+        elif key == "promptSpecification":
+            suggest = "prompt_specification"
         elif key == "sampleUtterances":
             suggest = "sample_utterances"
         elif key == "waitAndContinueSpecifications":
@@ -42815,34 +42906,26 @@ class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSetting(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 prompt_specification: 'outputs.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecification',
                  default_value_specifications: Optional[Sequence['outputs.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingDefaultValueSpecification']] = None,
+                 prompt_specification: Optional['outputs.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecification'] = None,
                  sample_utterances: Optional[Sequence['outputs.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingSampleUtterance']] = None,
                  wait_and_continue_specifications: Optional[Sequence['outputs.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecification']] = None):
         """
-        :param 'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationArgs' prompt_specification: Prompt that Amazon Lex uses to elicit the slot value from the user.
-               See the `lex.V2modelsIntent` resource for details on the `prompt_specification` argument reference - they are identical.
         :param Sequence['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingDefaultValueSpecificationArgs'] default_value_specifications: List of default values for a slot.
                See the `default_value_specification` argument reference below.
+        :param 'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationArgs' prompt_specification: Prompt that Amazon Lex uses to elicit the slot value from the user.
+               See the `lex.V2modelsIntent` resource for details on the `prompt_specification` argument reference - they are identical.
         :param Sequence['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationArgs'] wait_and_continue_specifications: Specifies the prompts that Amazon Lex uses while a bot is waiting for customer input.
                See the `wait_and_continue_specification` argument reference below.
         """
-        pulumi.set(__self__, "prompt_specification", prompt_specification)
         if default_value_specifications is not None:
             pulumi.set(__self__, "default_value_specifications", default_value_specifications)
+        if prompt_specification is not None:
+            pulumi.set(__self__, "prompt_specification", prompt_specification)
         if sample_utterances is not None:
             pulumi.set(__self__, "sample_utterances", sample_utterances)
         if wait_and_continue_specifications is not None:
             pulumi.set(__self__, "wait_and_continue_specifications", wait_and_continue_specifications)
-
-    @_builtins.property
-    @pulumi.getter(name="promptSpecification")
-    def prompt_specification(self) -> 'outputs.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecification':
-        """
-        Prompt that Amazon Lex uses to elicit the slot value from the user.
-        See the `lex.V2modelsIntent` resource for details on the `prompt_specification` argument reference - they are identical.
-        """
-        return pulumi.get(self, "prompt_specification")
 
     @_builtins.property
     @pulumi.getter(name="defaultValueSpecifications")
@@ -42852,6 +42935,15 @@ class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSetting(dict):
         See the `default_value_specification` argument reference below.
         """
         return pulumi.get(self, "default_value_specifications")
+
+    @_builtins.property
+    @pulumi.getter(name="promptSpecification")
+    def prompt_specification(self) -> Optional['outputs.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecification']:
+        """
+        Prompt that Amazon Lex uses to elicit the slot value from the user.
+        See the `lex.V2modelsIntent` resource for details on the `prompt_specification` argument reference - they are identical.
+        """
+        return pulumi.get(self, "prompt_specification")
 
     @_builtins.property
     @pulumi.getter(name="sampleUtterances")
@@ -42888,18 +42980,17 @@ class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingDefaultV
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 default_value_lists: Optional[Sequence['outputs.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingDefaultValueSpecificationDefaultValueList']] = None):
+                 default_value_lists: Sequence['outputs.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingDefaultValueSpecificationDefaultValueList']):
         """
         :param Sequence['V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingDefaultValueSpecificationDefaultValueListArgs'] default_value_lists: List of default values.
                Amazon Lex chooses the default value to use in the order that they are presented in the list.
                See the `default_value_list` argument reference below.
         """
-        if default_value_lists is not None:
-            pulumi.set(__self__, "default_value_lists", default_value_lists)
+        pulumi.set(__self__, "default_value_lists", default_value_lists)
 
     @_builtins.property
     @pulumi.getter(name="defaultValueLists")
-    def default_value_lists(self) -> Optional[Sequence['outputs.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingDefaultValueSpecificationDefaultValueList']]:
+    def default_value_lists(self) -> Sequence['outputs.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingDefaultValueSpecificationDefaultValueList']:
         """
         List of default values.
         Amazon Lex chooses the default value to use in the order that they are presented in the list.
@@ -43015,7 +43106,7 @@ class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSp
 @pulumi.output_type
 class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroup(dict):
     def __init__(__self__, *,
-                 message: 'outputs.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupMessage',
+                 message: Optional['outputs.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupMessage'] = None,
                  variations: Optional[Sequence['outputs.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupVariation']] = None):
         """
         :param 'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupMessageArgs' message: Configuration block for the primary message that Amazon Lex should send to the user.
@@ -43024,13 +43115,14 @@ class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSp
                When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user.
                See the `lex.V2modelsIntent` resource for details on the `variation` argument reference - they are identical.
         """
-        pulumi.set(__self__, "message", message)
+        if message is not None:
+            pulumi.set(__self__, "message", message)
         if variations is not None:
             pulumi.set(__self__, "variations", variations)
 
     @_builtins.property
     @pulumi.getter
-    def message(self) -> 'outputs.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupMessage':
+    def message(self) -> Optional['outputs.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationMessageGroupMessage']:
         """
         Configuration block for the primary message that Amazon Lex should send to the user.
         See the `lex.V2modelsIntent` resource for details on the `message` argument reference - they are identical.
@@ -43389,12 +43481,12 @@ class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSp
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "allowedInputTypes":
-            suggest = "allowed_input_types"
-        elif key == "mapBlockKey":
+        if key == "mapBlockKey":
             suggest = "map_block_key"
         elif key == "allowInterrupt":
             suggest = "allow_interrupt"
+        elif key == "allowedInputTypes":
+            suggest = "allowed_input_types"
         elif key == "audioAndDtmfInputSpecification":
             suggest = "audio_and_dtmf_input_specification"
         elif key == "textInputSpecification":
@@ -43412,24 +43504,20 @@ class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSp
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 allowed_input_types: 'outputs.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAllowedInputTypes',
                  map_block_key: _builtins.str,
                  allow_interrupt: Optional[_builtins.bool] = None,
+                 allowed_input_types: Optional['outputs.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAllowedInputTypes'] = None,
                  audio_and_dtmf_input_specification: Optional['outputs.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecification'] = None,
                  text_input_specification: Optional['outputs.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationTextInputSpecification'] = None):
-        pulumi.set(__self__, "allowed_input_types", allowed_input_types)
         pulumi.set(__self__, "map_block_key", map_block_key)
         if allow_interrupt is not None:
             pulumi.set(__self__, "allow_interrupt", allow_interrupt)
+        if allowed_input_types is not None:
+            pulumi.set(__self__, "allowed_input_types", allowed_input_types)
         if audio_and_dtmf_input_specification is not None:
             pulumi.set(__self__, "audio_and_dtmf_input_specification", audio_and_dtmf_input_specification)
         if text_input_specification is not None:
             pulumi.set(__self__, "text_input_specification", text_input_specification)
-
-    @_builtins.property
-    @pulumi.getter(name="allowedInputTypes")
-    def allowed_input_types(self) -> 'outputs.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAllowedInputTypes':
-        return pulumi.get(self, "allowed_input_types")
 
     @_builtins.property
     @pulumi.getter(name="mapBlockKey")
@@ -43440,6 +43528,11 @@ class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSp
     @pulumi.getter(name="allowInterrupt")
     def allow_interrupt(self) -> Optional[_builtins.bool]:
         return pulumi.get(self, "allow_interrupt")
+
+    @_builtins.property
+    @pulumi.getter(name="allowedInputTypes")
+    def allowed_input_types(self) -> Optional['outputs.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAllowedInputTypes']:
+        return pulumi.get(self, "allowed_input_types")
 
     @_builtins.property
     @pulumi.getter(name="audioAndDtmfInputSpecification")
@@ -43823,7 +43916,7 @@ class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndC
 @pulumi.output_type
 class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroup(dict):
     def __init__(__self__, *,
-                 message: 'outputs.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessage',
+                 message: Optional['outputs.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessage'] = None,
                  variations: Optional[Sequence['outputs.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariation']] = None):
         """
         :param 'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageArgs' message: Configuration block for the primary message that Amazon Lex should send to the user.
@@ -43832,13 +43925,14 @@ class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndC
                When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user.
                See the `lex.V2modelsIntent` resource for details on the `variation` argument reference - they are identical.
         """
-        pulumi.set(__self__, "message", message)
+        if message is not None:
+            pulumi.set(__self__, "message", message)
         if variations is not None:
             pulumi.set(__self__, "variations", variations)
 
     @_builtins.property
     @pulumi.getter
-    def message(self) -> 'outputs.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessage':
+    def message(self) -> Optional['outputs.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessage']:
         """
         Configuration block for the primary message that Amazon Lex should send to the user.
         See the `lex.V2modelsIntent` resource for details on the `message` argument reference - they are identical.
@@ -44267,7 +44361,7 @@ class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndC
 @pulumi.output_type
 class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroup(dict):
     def __init__(__self__, *,
-                 message: 'outputs.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessage',
+                 message: Optional['outputs.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessage'] = None,
                  variations: Optional[Sequence['outputs.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariation']] = None):
         """
         :param 'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageArgs' message: Configuration block for the primary message that Amazon Lex should send to the user.
@@ -44276,13 +44370,14 @@ class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndC
                When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user.
                See the `lex.V2modelsIntent` resource for details on the `variation` argument reference - they are identical.
         """
-        pulumi.set(__self__, "message", message)
+        if message is not None:
+            pulumi.set(__self__, "message", message)
         if variations is not None:
             pulumi.set(__self__, "variations", variations)
 
     @_builtins.property
     @pulumi.getter
-    def message(self) -> 'outputs.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessage':
+    def message(self) -> Optional['outputs.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessage']:
         """
         Configuration block for the primary message that Amazon Lex should send to the user.
         See the `lex.V2modelsIntent` resource for details on the `message` argument reference - they are identical.
@@ -44693,7 +44788,7 @@ class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndC
 @pulumi.output_type
 class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroup(dict):
     def __init__(__self__, *,
-                 message: 'outputs.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessage',
+                 message: Optional['outputs.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessage'] = None,
                  variations: Optional[Sequence['outputs.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariation']] = None):
         """
         :param 'V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageArgs' message: Configuration block for the primary message that Amazon Lex should send to the user.
@@ -44702,13 +44797,14 @@ class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndC
                When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user.
                See the `lex.V2modelsIntent` resource for details on the `variation` argument reference - they are identical.
         """
-        pulumi.set(__self__, "message", message)
+        if message is not None:
+            pulumi.set(__self__, "message", message)
         if variations is not None:
             pulumi.set(__self__, "variations", variations)
 
     @_builtins.property
     @pulumi.getter
-    def message(self) -> 'outputs.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessage':
+    def message(self) -> Optional['outputs.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessage']:
         """
         Configuration block for the primary message that Amazon Lex should send to the user.
         See the `lex.V2modelsIntent` resource for details on the `message` argument reference - they are identical.
@@ -45574,12 +45670,12 @@ class V2modelsSlotValueElicitationSetting(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "promptSpecification":
-            suggest = "prompt_specification"
-        elif key == "slotConstraint":
+        if key == "slotConstraint":
             suggest = "slot_constraint"
         elif key == "defaultValueSpecifications":
             suggest = "default_value_specifications"
+        elif key == "promptSpecification":
+            suggest = "prompt_specification"
         elif key == "sampleUtterances":
             suggest = "sample_utterances"
         elif key == "slotResolutionSettings":
@@ -45599,42 +45695,34 @@ class V2modelsSlotValueElicitationSetting(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 prompt_specification: 'outputs.V2modelsSlotValueElicitationSettingPromptSpecification',
                  slot_constraint: _builtins.str,
                  default_value_specifications: Optional[Sequence['outputs.V2modelsSlotValueElicitationSettingDefaultValueSpecification']] = None,
+                 prompt_specification: Optional['outputs.V2modelsSlotValueElicitationSettingPromptSpecification'] = None,
                  sample_utterances: Optional[Sequence['outputs.V2modelsSlotValueElicitationSettingSampleUtterance']] = None,
                  slot_resolution_settings: Optional[Sequence['outputs.V2modelsSlotValueElicitationSettingSlotResolutionSetting']] = None,
                  wait_and_continue_specifications: Optional[Sequence['outputs.V2modelsSlotValueElicitationSettingWaitAndContinueSpecification']] = None):
         """
-        :param 'V2modelsSlotValueElicitationSettingPromptSpecificationArgs' prompt_specification: Prompt that Amazon Lex uses to elicit the slot value from the user.
-               See the `lex.V2modelsIntent` resource for details on the `prompt_specification` argument reference - they are identical.
         :param _builtins.str slot_constraint: Whether the slot is required or optional. Valid values are `Required` or `Optional`.
         :param Sequence['V2modelsSlotValueElicitationSettingDefaultValueSpecificationArgs'] default_value_specifications: List of default values for a slot.
                See the `default_value_specification` argument reference below.
+        :param 'V2modelsSlotValueElicitationSettingPromptSpecificationArgs' prompt_specification: Prompt that Amazon Lex uses to elicit the slot value from the user.
+               See the `lex.V2modelsIntent` resource for details on the `prompt_specification` argument reference - they are identical.
         :param Sequence['V2modelsSlotValueElicitationSettingSlotResolutionSettingArgs'] slot_resolution_settings: Information about whether assisted slot resolution is turned on for the slot or not.
                See the `slot_resolution_setting` argument reference below.
         :param Sequence['V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationArgs'] wait_and_continue_specifications: Specifies the prompts that Amazon Lex uses while a bot is waiting for customer input.
                See the `wait_and_continue_specification` argument reference below.
         """
-        pulumi.set(__self__, "prompt_specification", prompt_specification)
         pulumi.set(__self__, "slot_constraint", slot_constraint)
         if default_value_specifications is not None:
             pulumi.set(__self__, "default_value_specifications", default_value_specifications)
+        if prompt_specification is not None:
+            pulumi.set(__self__, "prompt_specification", prompt_specification)
         if sample_utterances is not None:
             pulumi.set(__self__, "sample_utterances", sample_utterances)
         if slot_resolution_settings is not None:
             pulumi.set(__self__, "slot_resolution_settings", slot_resolution_settings)
         if wait_and_continue_specifications is not None:
             pulumi.set(__self__, "wait_and_continue_specifications", wait_and_continue_specifications)
-
-    @_builtins.property
-    @pulumi.getter(name="promptSpecification")
-    def prompt_specification(self) -> 'outputs.V2modelsSlotValueElicitationSettingPromptSpecification':
-        """
-        Prompt that Amazon Lex uses to elicit the slot value from the user.
-        See the `lex.V2modelsIntent` resource for details on the `prompt_specification` argument reference - they are identical.
-        """
-        return pulumi.get(self, "prompt_specification")
 
     @_builtins.property
     @pulumi.getter(name="slotConstraint")
@@ -45652,6 +45740,15 @@ class V2modelsSlotValueElicitationSetting(dict):
         See the `default_value_specification` argument reference below.
         """
         return pulumi.get(self, "default_value_specifications")
+
+    @_builtins.property
+    @pulumi.getter(name="promptSpecification")
+    def prompt_specification(self) -> Optional['outputs.V2modelsSlotValueElicitationSettingPromptSpecification']:
+        """
+        Prompt that Amazon Lex uses to elicit the slot value from the user.
+        See the `lex.V2modelsIntent` resource for details on the `prompt_specification` argument reference - they are identical.
+        """
+        return pulumi.get(self, "prompt_specification")
 
     @_builtins.property
     @pulumi.getter(name="sampleUtterances")
@@ -45697,18 +45794,17 @@ class V2modelsSlotValueElicitationSettingDefaultValueSpecification(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 default_value_lists: Optional[Sequence['outputs.V2modelsSlotValueElicitationSettingDefaultValueSpecificationDefaultValueList']] = None):
+                 default_value_lists: Sequence['outputs.V2modelsSlotValueElicitationSettingDefaultValueSpecificationDefaultValueList']):
         """
         :param Sequence['V2modelsSlotValueElicitationSettingDefaultValueSpecificationDefaultValueListArgs'] default_value_lists: List of default values.
                Amazon Lex chooses the default value to use in the order that they are presented in the list.
                See the `default_value_list` argument reference below.
         """
-        if default_value_lists is not None:
-            pulumi.set(__self__, "default_value_lists", default_value_lists)
+        pulumi.set(__self__, "default_value_lists", default_value_lists)
 
     @_builtins.property
     @pulumi.getter(name="defaultValueLists")
-    def default_value_lists(self) -> Optional[Sequence['outputs.V2modelsSlotValueElicitationSettingDefaultValueSpecificationDefaultValueList']]:
+    def default_value_lists(self) -> Sequence['outputs.V2modelsSlotValueElicitationSettingDefaultValueSpecificationDefaultValueList']:
         """
         List of default values.
         Amazon Lex chooses the default value to use in the order that they are presented in the list.
@@ -45824,7 +45920,7 @@ class V2modelsSlotValueElicitationSettingPromptSpecification(dict):
 @pulumi.output_type
 class V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroup(dict):
     def __init__(__self__, *,
-                 message: 'outputs.V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessage',
+                 message: Optional['outputs.V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessage'] = None,
                  variations: Optional[Sequence['outputs.V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupVariation']] = None):
         """
         :param 'V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessageArgs' message: Configuration block for the primary message that Amazon Lex should send to the user.
@@ -45833,13 +45929,14 @@ class V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroup(dict):
                When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user.
                See the `lex.V2modelsIntent` resource for details on the `variation` argument reference - they are identical.
         """
-        pulumi.set(__self__, "message", message)
+        if message is not None:
+            pulumi.set(__self__, "message", message)
         if variations is not None:
             pulumi.set(__self__, "variations", variations)
 
     @_builtins.property
     @pulumi.getter
-    def message(self) -> 'outputs.V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessage':
+    def message(self) -> Optional['outputs.V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessage']:
         """
         Configuration block for the primary message that Amazon Lex should send to the user.
         See the `lex.V2modelsIntent` resource for details on the `message` argument reference - they are identical.
@@ -46198,12 +46295,12 @@ class V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecif
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "allowedInputTypes":
-            suggest = "allowed_input_types"
-        elif key == "mapBlockKey":
+        if key == "mapBlockKey":
             suggest = "map_block_key"
         elif key == "allowInterrupt":
             suggest = "allow_interrupt"
+        elif key == "allowedInputTypes":
+            suggest = "allowed_input_types"
         elif key == "audioAndDtmfInputSpecification":
             suggest = "audio_and_dtmf_input_specification"
         elif key == "textInputSpecification":
@@ -46221,24 +46318,20 @@ class V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecif
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 allowed_input_types: 'outputs.V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAllowedInputTypes',
                  map_block_key: _builtins.str,
                  allow_interrupt: Optional[_builtins.bool] = None,
+                 allowed_input_types: Optional['outputs.V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAllowedInputTypes'] = None,
                  audio_and_dtmf_input_specification: Optional['outputs.V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecification'] = None,
                  text_input_specification: Optional['outputs.V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationTextInputSpecification'] = None):
-        pulumi.set(__self__, "allowed_input_types", allowed_input_types)
         pulumi.set(__self__, "map_block_key", map_block_key)
         if allow_interrupt is not None:
             pulumi.set(__self__, "allow_interrupt", allow_interrupt)
+        if allowed_input_types is not None:
+            pulumi.set(__self__, "allowed_input_types", allowed_input_types)
         if audio_and_dtmf_input_specification is not None:
             pulumi.set(__self__, "audio_and_dtmf_input_specification", audio_and_dtmf_input_specification)
         if text_input_specification is not None:
             pulumi.set(__self__, "text_input_specification", text_input_specification)
-
-    @_builtins.property
-    @pulumi.getter(name="allowedInputTypes")
-    def allowed_input_types(self) -> 'outputs.V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAllowedInputTypes':
-        return pulumi.get(self, "allowed_input_types")
 
     @_builtins.property
     @pulumi.getter(name="mapBlockKey")
@@ -46249,6 +46342,11 @@ class V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecif
     @pulumi.getter(name="allowInterrupt")
     def allow_interrupt(self) -> Optional[_builtins.bool]:
         return pulumi.get(self, "allow_interrupt")
+
+    @_builtins.property
+    @pulumi.getter(name="allowedInputTypes")
+    def allowed_input_types(self) -> Optional['outputs.V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAllowedInputTypes']:
+        return pulumi.get(self, "allowed_input_types")
 
     @_builtins.property
     @pulumi.getter(name="audioAndDtmfInputSpecification")
@@ -46673,7 +46771,7 @@ class V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueRes
 @pulumi.output_type
 class V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroup(dict):
     def __init__(__self__, *,
-                 message: 'outputs.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessage',
+                 message: Optional['outputs.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessage'] = None,
                  variations: Optional[Sequence['outputs.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariation']] = None):
         """
         :param 'V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageArgs' message: Configuration block for the primary message that Amazon Lex should send to the user.
@@ -46682,13 +46780,14 @@ class V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueRes
                When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user.
                See the `lex.V2modelsIntent` resource for details on the `variation` argument reference - they are identical.
         """
-        pulumi.set(__self__, "message", message)
+        if message is not None:
+            pulumi.set(__self__, "message", message)
         if variations is not None:
             pulumi.set(__self__, "variations", variations)
 
     @_builtins.property
     @pulumi.getter
-    def message(self) -> 'outputs.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessage':
+    def message(self) -> Optional['outputs.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessage']:
         """
         Configuration block for the primary message that Amazon Lex should send to the user.
         See the `lex.V2modelsIntent` resource for details on the `message` argument reference - they are identical.
@@ -47117,7 +47216,7 @@ class V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitin
 @pulumi.output_type
 class V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroup(dict):
     def __init__(__self__, *,
-                 message: 'outputs.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessage',
+                 message: Optional['outputs.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessage'] = None,
                  variations: Optional[Sequence['outputs.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariation']] = None):
         """
         :param 'V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageArgs' message: Configuration block for the primary message that Amazon Lex should send to the user.
@@ -47126,13 +47225,14 @@ class V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitin
                When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user.
                See the `lex.V2modelsIntent` resource for details on the `variation` argument reference - they are identical.
         """
-        pulumi.set(__self__, "message", message)
+        if message is not None:
+            pulumi.set(__self__, "message", message)
         if variations is not None:
             pulumi.set(__self__, "variations", variations)
 
     @_builtins.property
     @pulumi.getter
-    def message(self) -> 'outputs.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessage':
+    def message(self) -> Optional['outputs.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessage']:
         """
         Configuration block for the primary message that Amazon Lex should send to the user.
         See the `lex.V2modelsIntent` resource for details on the `message` argument reference - they are identical.
@@ -47543,7 +47643,7 @@ class V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResp
 @pulumi.output_type
 class V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroup(dict):
     def __init__(__self__, *,
-                 message: 'outputs.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessage',
+                 message: Optional['outputs.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessage'] = None,
                  variations: Optional[Sequence['outputs.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariation']] = None):
         """
         :param 'V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageArgs' message: Configuration block for the primary message that Amazon Lex should send to the user.
@@ -47552,13 +47652,14 @@ class V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResp
                When variations are defined, Amazon Lex chooses the primary message or one of the variations to send to the user.
                See the `lex.V2modelsIntent` resource for details on the `variation` argument reference - they are identical.
         """
-        pulumi.set(__self__, "message", message)
+        if message is not None:
+            pulumi.set(__self__, "message", message)
         if variations is not None:
             pulumi.set(__self__, "variations", variations)
 
     @_builtins.property
     @pulumi.getter
-    def message(self) -> 'outputs.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessage':
+    def message(self) -> Optional['outputs.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessage']:
         """
         Configuration block for the primary message that Amazon Lex should send to the user.
         See the `lex.V2modelsIntent` resource for details on the `message` argument reference - they are identical.

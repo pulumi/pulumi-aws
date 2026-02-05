@@ -6,6 +6,7 @@ package com.pulumi.aws.securitylake;
 import com.pulumi.aws.securitylake.inputs.AwsLogSourceSourceArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -35,15 +36,15 @@ public final class AwsLogSourceArgs extends com.pulumi.resources.ResourceArgs {
      * Specify the natively-supported AWS service to add as a source in Security Lake.
      * 
      */
-    @Import(name="source")
-    private @Nullable Output<AwsLogSourceSourceArgs> source;
+    @Import(name="source", required=true)
+    private Output<AwsLogSourceSourceArgs> source;
 
     /**
      * @return Specify the natively-supported AWS service to add as a source in Security Lake.
      * 
      */
-    public Optional<Output<AwsLogSourceSourceArgs>> source() {
-        return Optional.ofNullable(this.source);
+    public Output<AwsLogSourceSourceArgs> source() {
+        return this.source;
     }
 
     private AwsLogSourceArgs() {}
@@ -98,7 +99,7 @@ public final class AwsLogSourceArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder source(@Nullable Output<AwsLogSourceSourceArgs> source) {
+        public Builder source(Output<AwsLogSourceSourceArgs> source) {
             $.source = source;
             return this;
         }
@@ -114,6 +115,9 @@ public final class AwsLogSourceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public AwsLogSourceArgs build() {
+            if ($.source == null) {
+                throw new MissingRequiredPropertyException("AwsLogSourceArgs", "source");
+            }
             return $;
         }
     }

@@ -21,10 +21,10 @@ __all__ = ['AgentAgentCollaboratorArgs', 'AgentAgentCollaborator']
 @pulumi.input_type
 class AgentAgentCollaboratorArgs:
     def __init__(__self__, *,
+                 agent_descriptor: pulumi.Input['AgentAgentCollaboratorAgentDescriptorArgs'],
                  agent_id: pulumi.Input[_builtins.str],
                  collaboration_instruction: pulumi.Input[_builtins.str],
                  collaborator_name: pulumi.Input[_builtins.str],
-                 agent_descriptor: Optional[pulumi.Input['AgentAgentCollaboratorAgentDescriptorArgs']] = None,
                  agent_version: Optional[pulumi.Input[_builtins.str]] = None,
                  prepare_agent: Optional[pulumi.Input[_builtins.bool]] = None,
                  region: Optional[pulumi.Input[_builtins.str]] = None,
@@ -41,11 +41,10 @@ class AgentAgentCollaboratorArgs:
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] relay_conversation_history: Configure relaying the history to the collaborator.
         """
+        pulumi.set(__self__, "agent_descriptor", agent_descriptor)
         pulumi.set(__self__, "agent_id", agent_id)
         pulumi.set(__self__, "collaboration_instruction", collaboration_instruction)
         pulumi.set(__self__, "collaborator_name", collaborator_name)
-        if agent_descriptor is not None:
-            pulumi.set(__self__, "agent_descriptor", agent_descriptor)
         if agent_version is not None:
             pulumi.set(__self__, "agent_version", agent_version)
         if prepare_agent is not None:
@@ -56,6 +55,15 @@ class AgentAgentCollaboratorArgs:
             pulumi.set(__self__, "relay_conversation_history", relay_conversation_history)
         if timeouts is not None:
             pulumi.set(__self__, "timeouts", timeouts)
+
+    @_builtins.property
+    @pulumi.getter(name="agentDescriptor")
+    def agent_descriptor(self) -> pulumi.Input['AgentAgentCollaboratorAgentDescriptorArgs']:
+        return pulumi.get(self, "agent_descriptor")
+
+    @agent_descriptor.setter
+    def agent_descriptor(self, value: pulumi.Input['AgentAgentCollaboratorAgentDescriptorArgs']):
+        pulumi.set(self, "agent_descriptor", value)
 
     @_builtins.property
     @pulumi.getter(name="agentId")
@@ -94,15 +102,6 @@ class AgentAgentCollaboratorArgs:
     @collaborator_name.setter
     def collaborator_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "collaborator_name", value)
-
-    @_builtins.property
-    @pulumi.getter(name="agentDescriptor")
-    def agent_descriptor(self) -> Optional[pulumi.Input['AgentAgentCollaboratorAgentDescriptorArgs']]:
-        return pulumi.get(self, "agent_descriptor")
-
-    @agent_descriptor.setter
-    def agent_descriptor(self, value: Optional[pulumi.Input['AgentAgentCollaboratorAgentDescriptorArgs']]):
-        pulumi.set(self, "agent_descriptor", value)
 
     @_builtins.property
     @pulumi.getter(name="agentVersion")
@@ -567,6 +566,8 @@ class AgentAgentCollaborator(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = AgentAgentCollaboratorArgs.__new__(AgentAgentCollaboratorArgs)
 
+            if agent_descriptor is None and not opts.urn:
+                raise TypeError("Missing required property 'agent_descriptor'")
             __props__.__dict__["agent_descriptor"] = agent_descriptor
             if agent_id is None and not opts.urn:
                 raise TypeError("Missing required property 'agent_id'")
@@ -638,7 +639,7 @@ class AgentAgentCollaborator(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="agentDescriptor")
-    def agent_descriptor(self) -> pulumi.Output[Optional['outputs.AgentAgentCollaboratorAgentDescriptor']]:
+    def agent_descriptor(self) -> pulumi.Output['outputs.AgentAgentCollaboratorAgentDescriptor']:
         return pulumi.get(self, "agent_descriptor")
 
     @_builtins.property

@@ -56,7 +56,7 @@ namespace Pulumi.Aws.Sagemaker.Outputs
         /// <summary>
         /// Information about the user interface that workers use to complete the labeling task. Fields are documented below.
         /// </summary>
-        public readonly Outputs.LabelingJobHumanTaskConfigUiConfig? UiConfig;
+        public readonly Outputs.LabelingJobHumanTaskConfigUiConfig UiConfig;
         /// <summary>
         /// ARN of the work team assigned to complete the tasks.
         /// </summary>
@@ -84,7 +84,7 @@ namespace Pulumi.Aws.Sagemaker.Outputs
 
             string taskTitle,
 
-            Outputs.LabelingJobHumanTaskConfigUiConfig? uiConfig,
+            Outputs.LabelingJobHumanTaskConfigUiConfig uiConfig,
 
             string workteamArn)
         {

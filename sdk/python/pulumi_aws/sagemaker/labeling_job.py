@@ -21,50 +21,71 @@ __all__ = ['LabelingJobArgs', 'LabelingJob']
 @pulumi.input_type
 class LabelingJobArgs:
     def __init__(__self__, *,
+                 human_task_config: pulumi.Input['LabelingJobHumanTaskConfigArgs'],
+                 input_config: pulumi.Input['LabelingJobInputConfigArgs'],
                  label_attribute_name: pulumi.Input[_builtins.str],
                  labeling_job_name: pulumi.Input[_builtins.str],
+                 output_config: pulumi.Input['LabelingJobOutputConfigArgs'],
                  role_arn: pulumi.Input[_builtins.str],
-                 human_task_config: Optional[pulumi.Input['LabelingJobHumanTaskConfigArgs']] = None,
-                 input_config: Optional[pulumi.Input['LabelingJobInputConfigArgs']] = None,
                  label_category_config_s3_uri: Optional[pulumi.Input[_builtins.str]] = None,
                  labeling_job_algorithms_config: Optional[pulumi.Input['LabelingJobLabelingJobAlgorithmsConfigArgs']] = None,
-                 output_config: Optional[pulumi.Input['LabelingJobOutputConfigArgs']] = None,
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  stopping_conditions: Optional[pulumi.Input[Sequence[pulumi.Input['LabelingJobStoppingConditionArgs']]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a LabelingJob resource.
-        :param pulumi.Input[_builtins.str] label_attribute_name: Attribute name to use for the label in the output manifest file.
-        :param pulumi.Input[_builtins.str] labeling_job_name: Name of the labeling job.
-        :param pulumi.Input[_builtins.str] role_arn: ARN of IAM role that Amazon SageMaker assumes to perform tasks during data labeling.
         :param pulumi.Input['LabelingJobHumanTaskConfigArgs'] human_task_config: Configuration information required for human workers to complete a labeling task. Fields are documented below.
         :param pulumi.Input['LabelingJobInputConfigArgs'] input_config: Input data for the labeling job. Fields are documented below.
+        :param pulumi.Input[_builtins.str] label_attribute_name: Attribute name to use for the label in the output manifest file.
+        :param pulumi.Input[_builtins.str] labeling_job_name: Name of the labeling job.
+        :param pulumi.Input['LabelingJobOutputConfigArgs'] output_config: Location of the output data. Fields are documented below.
+        :param pulumi.Input[_builtins.str] role_arn: ARN of IAM role that Amazon SageMaker assumes to perform tasks during data labeling.
         :param pulumi.Input[_builtins.str] label_category_config_s3_uri: S3 URI of the file that defines the categories used to label the data objects.
         :param pulumi.Input['LabelingJobLabelingJobAlgorithmsConfigArgs'] labeling_job_algorithms_config: Information required to perform automated data labeling.. Fields are documented below.
-        :param pulumi.Input['LabelingJobOutputConfigArgs'] output_config: Location of the output data. Fields are documented below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input['LabelingJobStoppingConditionArgs']]] stopping_conditions: Conditions for stopping a labeling job. If any of the conditions are met, the job is automatically stopped. Fields are documented below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
+        pulumi.set(__self__, "human_task_config", human_task_config)
+        pulumi.set(__self__, "input_config", input_config)
         pulumi.set(__self__, "label_attribute_name", label_attribute_name)
         pulumi.set(__self__, "labeling_job_name", labeling_job_name)
+        pulumi.set(__self__, "output_config", output_config)
         pulumi.set(__self__, "role_arn", role_arn)
-        if human_task_config is not None:
-            pulumi.set(__self__, "human_task_config", human_task_config)
-        if input_config is not None:
-            pulumi.set(__self__, "input_config", input_config)
         if label_category_config_s3_uri is not None:
             pulumi.set(__self__, "label_category_config_s3_uri", label_category_config_s3_uri)
         if labeling_job_algorithms_config is not None:
             pulumi.set(__self__, "labeling_job_algorithms_config", labeling_job_algorithms_config)
-        if output_config is not None:
-            pulumi.set(__self__, "output_config", output_config)
         if region is not None:
             pulumi.set(__self__, "region", region)
         if stopping_conditions is not None:
             pulumi.set(__self__, "stopping_conditions", stopping_conditions)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+
+    @_builtins.property
+    @pulumi.getter(name="humanTaskConfig")
+    def human_task_config(self) -> pulumi.Input['LabelingJobHumanTaskConfigArgs']:
+        """
+        Configuration information required for human workers to complete a labeling task. Fields are documented below.
+        """
+        return pulumi.get(self, "human_task_config")
+
+    @human_task_config.setter
+    def human_task_config(self, value: pulumi.Input['LabelingJobHumanTaskConfigArgs']):
+        pulumi.set(self, "human_task_config", value)
+
+    @_builtins.property
+    @pulumi.getter(name="inputConfig")
+    def input_config(self) -> pulumi.Input['LabelingJobInputConfigArgs']:
+        """
+        Input data for the labeling job. Fields are documented below.
+        """
+        return pulumi.get(self, "input_config")
+
+    @input_config.setter
+    def input_config(self, value: pulumi.Input['LabelingJobInputConfigArgs']):
+        pulumi.set(self, "input_config", value)
 
     @_builtins.property
     @pulumi.getter(name="labelAttributeName")
@@ -91,6 +112,18 @@ class LabelingJobArgs:
         pulumi.set(self, "labeling_job_name", value)
 
     @_builtins.property
+    @pulumi.getter(name="outputConfig")
+    def output_config(self) -> pulumi.Input['LabelingJobOutputConfigArgs']:
+        """
+        Location of the output data. Fields are documented below.
+        """
+        return pulumi.get(self, "output_config")
+
+    @output_config.setter
+    def output_config(self, value: pulumi.Input['LabelingJobOutputConfigArgs']):
+        pulumi.set(self, "output_config", value)
+
+    @_builtins.property
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Input[_builtins.str]:
         """
@@ -101,30 +134,6 @@ class LabelingJobArgs:
     @role_arn.setter
     def role_arn(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "role_arn", value)
-
-    @_builtins.property
-    @pulumi.getter(name="humanTaskConfig")
-    def human_task_config(self) -> Optional[pulumi.Input['LabelingJobHumanTaskConfigArgs']]:
-        """
-        Configuration information required for human workers to complete a labeling task. Fields are documented below.
-        """
-        return pulumi.get(self, "human_task_config")
-
-    @human_task_config.setter
-    def human_task_config(self, value: Optional[pulumi.Input['LabelingJobHumanTaskConfigArgs']]):
-        pulumi.set(self, "human_task_config", value)
-
-    @_builtins.property
-    @pulumi.getter(name="inputConfig")
-    def input_config(self) -> Optional[pulumi.Input['LabelingJobInputConfigArgs']]:
-        """
-        Input data for the labeling job. Fields are documented below.
-        """
-        return pulumi.get(self, "input_config")
-
-    @input_config.setter
-    def input_config(self, value: Optional[pulumi.Input['LabelingJobInputConfigArgs']]):
-        pulumi.set(self, "input_config", value)
 
     @_builtins.property
     @pulumi.getter(name="labelCategoryConfigS3Uri")
@@ -149,18 +158,6 @@ class LabelingJobArgs:
     @labeling_job_algorithms_config.setter
     def labeling_job_algorithms_config(self, value: Optional[pulumi.Input['LabelingJobLabelingJobAlgorithmsConfigArgs']]):
         pulumi.set(self, "labeling_job_algorithms_config", value)
-
-    @_builtins.property
-    @pulumi.getter(name="outputConfig")
-    def output_config(self) -> Optional[pulumi.Input['LabelingJobOutputConfigArgs']]:
-        """
-        Location of the output data. Fields are documented below.
-        """
-        return pulumi.get(self, "output_config")
-
-    @output_config.setter
-    def output_config(self, value: Optional[pulumi.Input['LabelingJobOutputConfigArgs']]):
-        pulumi.set(self, "output_config", value)
 
     @_builtins.property
     @pulumi.getter
@@ -654,7 +651,11 @@ class LabelingJob(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = LabelingJobArgs.__new__(LabelingJobArgs)
 
+            if human_task_config is None and not opts.urn:
+                raise TypeError("Missing required property 'human_task_config'")
             __props__.__dict__["human_task_config"] = human_task_config
+            if input_config is None and not opts.urn:
+                raise TypeError("Missing required property 'input_config'")
             __props__.__dict__["input_config"] = input_config
             if label_attribute_name is None and not opts.urn:
                 raise TypeError("Missing required property 'label_attribute_name'")
@@ -664,6 +665,8 @@ class LabelingJob(pulumi.CustomResource):
             if labeling_job_name is None and not opts.urn:
                 raise TypeError("Missing required property 'labeling_job_name'")
             __props__.__dict__["labeling_job_name"] = labeling_job_name
+            if output_config is None and not opts.urn:
+                raise TypeError("Missing required property 'output_config'")
             __props__.__dict__["output_config"] = output_config
             __props__.__dict__["region"] = region
             if role_arn is None and not opts.urn:
@@ -762,7 +765,7 @@ class LabelingJob(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="humanTaskConfig")
-    def human_task_config(self) -> pulumi.Output[Optional['outputs.LabelingJobHumanTaskConfig']]:
+    def human_task_config(self) -> pulumi.Output['outputs.LabelingJobHumanTaskConfig']:
         """
         Configuration information required for human workers to complete a labeling task. Fields are documented below.
         """
@@ -770,7 +773,7 @@ class LabelingJob(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="inputConfig")
-    def input_config(self) -> pulumi.Output[Optional['outputs.LabelingJobInputConfig']]:
+    def input_config(self) -> pulumi.Output['outputs.LabelingJobInputConfig']:
         """
         Input data for the labeling job. Fields are documented below.
         """
@@ -842,7 +845,7 @@ class LabelingJob(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="outputConfig")
-    def output_config(self) -> pulumi.Output[Optional['outputs.LabelingJobOutputConfig']]:
+    def output_config(self) -> pulumi.Output['outputs.LabelingJobOutputConfig']:
         """
         Location of the output data. Fields are documented below.
         """

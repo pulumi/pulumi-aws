@@ -5,9 +5,9 @@ package com.pulumi.aws.devopsguru.outputs;
 
 import com.pulumi.aws.devopsguru.outputs.EventSourcesConfigEventSourceAmazonCodeGuruProfiler;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
-import javax.annotation.Nullable;
 
 @CustomType
 public final class EventSourcesConfigEventSource {
@@ -15,7 +15,7 @@ public final class EventSourcesConfigEventSource {
      * @return Stores whether DevOps Guru is configured to consume recommendations which are generated from AWS CodeGuru Profiler. See `amazonCodeGuruProfiler` below.
      * 
      */
-    private @Nullable List<EventSourcesConfigEventSourceAmazonCodeGuruProfiler> amazonCodeGuruProfilers;
+    private List<EventSourcesConfigEventSourceAmazonCodeGuruProfiler> amazonCodeGuruProfilers;
 
     private EventSourcesConfigEventSource() {}
     /**
@@ -23,7 +23,7 @@ public final class EventSourcesConfigEventSource {
      * 
      */
     public List<EventSourcesConfigEventSourceAmazonCodeGuruProfiler> amazonCodeGuruProfilers() {
-        return this.amazonCodeGuruProfilers == null ? List.of() : this.amazonCodeGuruProfilers;
+        return this.amazonCodeGuruProfilers;
     }
 
     public static Builder builder() {
@@ -35,7 +35,7 @@ public final class EventSourcesConfigEventSource {
     }
     @CustomType.Builder
     public static final class Builder {
-        private @Nullable List<EventSourcesConfigEventSourceAmazonCodeGuruProfiler> amazonCodeGuruProfilers;
+        private List<EventSourcesConfigEventSourceAmazonCodeGuruProfiler> amazonCodeGuruProfilers;
         public Builder() {}
         public Builder(EventSourcesConfigEventSource defaults) {
     	      Objects.requireNonNull(defaults);
@@ -43,8 +43,10 @@ public final class EventSourcesConfigEventSource {
         }
 
         @CustomType.Setter
-        public Builder amazonCodeGuruProfilers(@Nullable List<EventSourcesConfigEventSourceAmazonCodeGuruProfiler> amazonCodeGuruProfilers) {
-
+        public Builder amazonCodeGuruProfilers(List<EventSourcesConfigEventSourceAmazonCodeGuruProfiler> amazonCodeGuruProfilers) {
+            if (amazonCodeGuruProfilers == null) {
+              throw new MissingRequiredPropertyException("EventSourcesConfigEventSource", "amazonCodeGuruProfilers");
+            }
             this.amazonCodeGuruProfilers = amazonCodeGuruProfilers;
             return this;
         }

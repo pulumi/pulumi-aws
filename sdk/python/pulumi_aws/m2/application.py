@@ -21,8 +21,8 @@ __all__ = ['ApplicationArgs', 'Application']
 @pulumi.input_type
 class ApplicationArgs:
     def __init__(__self__, *,
+                 definition: pulumi.Input['ApplicationDefinitionArgs'],
                  engine_type: pulumi.Input[_builtins.str],
-                 definition: Optional[pulumi.Input['ApplicationDefinitionArgs']] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  kms_key_id: Optional[pulumi.Input[_builtins.str]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -32,8 +32,8 @@ class ApplicationArgs:
                  timeouts: Optional[pulumi.Input['ApplicationTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a Application resource.
-        :param pulumi.Input[_builtins.str] engine_type: Engine type must be `microfocus | bluage`.
         :param pulumi.Input['ApplicationDefinitionArgs'] definition: The application definition for this application. You can specify either inline JSON or an S3 bucket location.
+        :param pulumi.Input[_builtins.str] engine_type: Engine type must be `microfocus | bluage`.
         :param pulumi.Input[_builtins.str] description: Description of the application.
         :param pulumi.Input[_builtins.str] kms_key_id: KMS Key to use for the Application.
         :param pulumi.Input[_builtins.str] name: Unique identifier of the application.
@@ -43,9 +43,8 @@ class ApplicationArgs:
         :param pulumi.Input[_builtins.str] role_arn: ARN of role for application to use to access AWS resources.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
+        pulumi.set(__self__, "definition", definition)
         pulumi.set(__self__, "engine_type", engine_type)
-        if definition is not None:
-            pulumi.set(__self__, "definition", definition)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if kms_key_id is not None:
@@ -62,6 +61,18 @@ class ApplicationArgs:
             pulumi.set(__self__, "timeouts", timeouts)
 
     @_builtins.property
+    @pulumi.getter
+    def definition(self) -> pulumi.Input['ApplicationDefinitionArgs']:
+        """
+        The application definition for this application. You can specify either inline JSON or an S3 bucket location.
+        """
+        return pulumi.get(self, "definition")
+
+    @definition.setter
+    def definition(self, value: pulumi.Input['ApplicationDefinitionArgs']):
+        pulumi.set(self, "definition", value)
+
+    @_builtins.property
     @pulumi.getter(name="engineType")
     def engine_type(self) -> pulumi.Input[_builtins.str]:
         """
@@ -72,18 +83,6 @@ class ApplicationArgs:
     @engine_type.setter
     def engine_type(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "engine_type", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def definition(self) -> Optional[pulumi.Input['ApplicationDefinitionArgs']]:
-        """
-        The application definition for this application. You can specify either inline JSON or an S3 bucket location.
-        """
-        return pulumi.get(self, "definition")
-
-    @definition.setter
-    def definition(self, value: Optional[pulumi.Input['ApplicationDefinitionArgs']]):
-        pulumi.set(self, "definition", value)
 
     @_builtins.property
     @pulumi.getter
@@ -557,6 +556,8 @@ class Application(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ApplicationArgs.__new__(ApplicationArgs)
 
+            if definition is None and not opts.urn:
+                raise TypeError("Missing required property 'definition'")
             __props__.__dict__["definition"] = definition
             __props__.__dict__["description"] = description
             if engine_type is None and not opts.urn:
@@ -662,7 +663,7 @@ class Application(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
-    def definition(self) -> pulumi.Output[Optional['outputs.ApplicationDefinition']]:
+    def definition(self) -> pulumi.Output['outputs.ApplicationDefinition']:
         """
         The application definition for this application. You can specify either inline JSON or an S3 bucket location.
         """

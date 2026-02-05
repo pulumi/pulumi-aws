@@ -88,13 +88,13 @@ namespace Pulumi.Aws.Sagemaker
         /// Configuration information required for human workers to complete a labeling task. Fields are documented below.
         /// </summary>
         [Output("humanTaskConfig")]
-        public Output<Outputs.LabelingJobHumanTaskConfig?> HumanTaskConfig { get; private set; } = null!;
+        public Output<Outputs.LabelingJobHumanTaskConfig> HumanTaskConfig { get; private set; } = null!;
 
         /// <summary>
         /// Input data for the labeling job. Fields are documented below.
         /// </summary>
         [Output("inputConfig")]
-        public Output<Outputs.LabelingJobInputConfig?> InputConfig { get; private set; } = null!;
+        public Output<Outputs.LabelingJobInputConfig> InputConfig { get; private set; } = null!;
 
         /// <summary>
         /// Unique identifier for work done as part of a labeling job.
@@ -148,7 +148,7 @@ namespace Pulumi.Aws.Sagemaker
         /// Location of the output data. Fields are documented below.
         /// </summary>
         [Output("outputConfig")]
-        public Output<Outputs.LabelingJobOutputConfig?> OutputConfig { get; private set; } = null!;
+        public Output<Outputs.LabelingJobOutputConfig> OutputConfig { get; private set; } = null!;
 
         /// <summary>
         /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -229,14 +229,14 @@ namespace Pulumi.Aws.Sagemaker
         /// <summary>
         /// Configuration information required for human workers to complete a labeling task. Fields are documented below.
         /// </summary>
-        [Input("humanTaskConfig")]
-        public Input<Inputs.LabelingJobHumanTaskConfigArgs>? HumanTaskConfig { get; set; }
+        [Input("humanTaskConfig", required: true)]
+        public Input<Inputs.LabelingJobHumanTaskConfigArgs> HumanTaskConfig { get; set; } = null!;
 
         /// <summary>
         /// Input data for the labeling job. Fields are documented below.
         /// </summary>
-        [Input("inputConfig")]
-        public Input<Inputs.LabelingJobInputConfigArgs>? InputConfig { get; set; }
+        [Input("inputConfig", required: true)]
+        public Input<Inputs.LabelingJobInputConfigArgs> InputConfig { get; set; } = null!;
 
         /// <summary>
         /// Attribute name to use for the label in the output manifest file.
@@ -265,8 +265,8 @@ namespace Pulumi.Aws.Sagemaker
         /// <summary>
         /// Location of the output data. Fields are documented below.
         /// </summary>
-        [Input("outputConfig")]
-        public Input<Inputs.LabelingJobOutputConfigArgs>? OutputConfig { get; set; }
+        [Input("outputConfig", required: true)]
+        public Input<Inputs.LabelingJobOutputConfigArgs> OutputConfig { get; set; } = null!;
 
         /// <summary>
         /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.

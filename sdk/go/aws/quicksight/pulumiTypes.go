@@ -15529,7 +15529,7 @@ type RefreshScheduleSchedule struct {
 	// The type of refresh that the dataset undergoes. Valid values are `INCREMENTAL_REFRESH` and `FULL_REFRESH`.
 	RefreshType string `pulumi:"refreshType"`
 	// The configuration of the [schedule frequency](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_RefreshFrequency.html). See schedule_frequency.
-	ScheduleFrequency *RefreshScheduleScheduleScheduleFrequency `pulumi:"scheduleFrequency"`
+	ScheduleFrequency RefreshScheduleScheduleScheduleFrequency `pulumi:"scheduleFrequency"`
 	// Time after which the refresh schedule can be started, expressed in `YYYY-MM-DDTHH:MM:SS` format.
 	StartAfterDateTime *string `pulumi:"startAfterDateTime"`
 }
@@ -15549,7 +15549,7 @@ type RefreshScheduleScheduleArgs struct {
 	// The type of refresh that the dataset undergoes. Valid values are `INCREMENTAL_REFRESH` and `FULL_REFRESH`.
 	RefreshType pulumi.StringInput `pulumi:"refreshType"`
 	// The configuration of the [schedule frequency](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_RefreshFrequency.html). See schedule_frequency.
-	ScheduleFrequency RefreshScheduleScheduleScheduleFrequencyPtrInput `pulumi:"scheduleFrequency"`
+	ScheduleFrequency RefreshScheduleScheduleScheduleFrequencyInput `pulumi:"scheduleFrequency"`
 	// Time after which the refresh schedule can be started, expressed in `YYYY-MM-DDTHH:MM:SS` format.
 	StartAfterDateTime pulumi.StringPtrInput `pulumi:"startAfterDateTime"`
 }
@@ -15637,8 +15637,8 @@ func (o RefreshScheduleScheduleOutput) RefreshType() pulumi.StringOutput {
 }
 
 // The configuration of the [schedule frequency](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_RefreshFrequency.html). See schedule_frequency.
-func (o RefreshScheduleScheduleOutput) ScheduleFrequency() RefreshScheduleScheduleScheduleFrequencyPtrOutput {
-	return o.ApplyT(func(v RefreshScheduleSchedule) *RefreshScheduleScheduleScheduleFrequency { return v.ScheduleFrequency }).(RefreshScheduleScheduleScheduleFrequencyPtrOutput)
+func (o RefreshScheduleScheduleOutput) ScheduleFrequency() RefreshScheduleScheduleScheduleFrequencyOutput {
+	return o.ApplyT(func(v RefreshScheduleSchedule) RefreshScheduleScheduleScheduleFrequency { return v.ScheduleFrequency }).(RefreshScheduleScheduleScheduleFrequencyOutput)
 }
 
 // Time after which the refresh schedule can be started, expressed in `YYYY-MM-DDTHH:MM:SS` format.
@@ -15686,7 +15686,7 @@ func (o RefreshScheduleSchedulePtrOutput) ScheduleFrequency() RefreshScheduleSch
 		if v == nil {
 			return nil
 		}
-		return v.ScheduleFrequency
+		return &v.ScheduleFrequency
 	}).(RefreshScheduleScheduleScheduleFrequencyPtrOutput)
 }
 

@@ -6,9 +6,8 @@ package com.pulumi.aws.apigatewayv2.inputs;
 import com.pulumi.aws.apigatewayv2.inputs.RoutingRuleConditionMatchHeadersAnyOfArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.Objects;
-import java.util.Optional;
-import javax.annotation.Nullable;
 
 
 public final class RoutingRuleConditionMatchHeadersArgs extends com.pulumi.resources.ResourceArgs {
@@ -19,15 +18,15 @@ public final class RoutingRuleConditionMatchHeadersArgs extends com.pulumi.resou
      * Configuration of the headers to be matched. There is a match if any of the header name and header value globs are matched. See below.
      * 
      */
-    @Import(name="anyOf")
-    private @Nullable Output<RoutingRuleConditionMatchHeadersAnyOfArgs> anyOf;
+    @Import(name="anyOf", required=true)
+    private Output<RoutingRuleConditionMatchHeadersAnyOfArgs> anyOf;
 
     /**
      * @return Configuration of the headers to be matched. There is a match if any of the header name and header value globs are matched. See below.
      * 
      */
-    public Optional<Output<RoutingRuleConditionMatchHeadersAnyOfArgs>> anyOf() {
-        return Optional.ofNullable(this.anyOf);
+    public Output<RoutingRuleConditionMatchHeadersAnyOfArgs> anyOf() {
+        return this.anyOf;
     }
 
     private RoutingRuleConditionMatchHeadersArgs() {}
@@ -60,7 +59,7 @@ public final class RoutingRuleConditionMatchHeadersArgs extends com.pulumi.resou
          * @return builder
          * 
          */
-        public Builder anyOf(@Nullable Output<RoutingRuleConditionMatchHeadersAnyOfArgs> anyOf) {
+        public Builder anyOf(Output<RoutingRuleConditionMatchHeadersAnyOfArgs> anyOf) {
             $.anyOf = anyOf;
             return this;
         }
@@ -76,6 +75,9 @@ public final class RoutingRuleConditionMatchHeadersArgs extends com.pulumi.resou
         }
 
         public RoutingRuleConditionMatchHeadersArgs build() {
+            if ($.anyOf == null) {
+                throw new MissingRequiredPropertyException("RoutingRuleConditionMatchHeadersArgs", "anyOf");
+            }
             return $;
         }
     }

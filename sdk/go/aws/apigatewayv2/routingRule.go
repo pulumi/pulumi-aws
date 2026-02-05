@@ -103,6 +103,12 @@ func NewRoutingRule(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
+	if args.Actions == nil {
+		return nil, errors.New("invalid value for required argument 'Actions'")
+	}
+	if args.Conditions == nil {
+		return nil, errors.New("invalid value for required argument 'Conditions'")
+	}
 	if args.DomainName == nil {
 		return nil, errors.New("invalid value for required argument 'DomainName'")
 	}

@@ -20,7 +20,7 @@ namespace Pulumi.Aws.Quicksight.Outputs
         /// <summary>
         /// The configuration of the [schedule frequency](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_RefreshFrequency.html). See schedule_frequency.
         /// </summary>
-        public readonly Outputs.RefreshScheduleScheduleScheduleFrequency? ScheduleFrequency;
+        public readonly Outputs.RefreshScheduleScheduleScheduleFrequency ScheduleFrequency;
         /// <summary>
         /// Time after which the refresh schedule can be started, expressed in `YYYY-MM-DDTHH:MM:SS` format.
         /// </summary>
@@ -30,7 +30,7 @@ namespace Pulumi.Aws.Quicksight.Outputs
         private RefreshScheduleSchedule(
             string refreshType,
 
-            Outputs.RefreshScheduleScheduleScheduleFrequency? scheduleFrequency,
+            Outputs.RefreshScheduleScheduleScheduleFrequency scheduleFrequency,
 
             string? startAfterDateTime)
         {

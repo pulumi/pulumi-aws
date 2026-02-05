@@ -181,7 +181,7 @@ namespace Pulumi.Aws.DataZone
         /// Object of the model of the form type that contains the following attributes.
         /// </summary>
         [Output("model")]
-        public Output<Outputs.FormTypeModel?> Model { get; private set; } = null!;
+        public Output<Outputs.FormTypeModel> Model { get; private set; } = null!;
 
         /// <summary>
         /// Name of the form type. Must be the name of the structure in smithy document.
@@ -286,8 +286,8 @@ namespace Pulumi.Aws.DataZone
         /// <summary>
         /// Object of the model of the form type that contains the following attributes.
         /// </summary>
-        [Input("model")]
-        public Input<Inputs.FormTypeModelArgs>? Model { get; set; }
+        [Input("model", required: true)]
+        public Input<Inputs.FormTypeModelArgs> Model { get; set; } = null!;
 
         /// <summary>
         /// Name of the form type. Must be the name of the structure in smithy document.

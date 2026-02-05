@@ -8,6 +8,7 @@ import com.pulumi.aws.eks.inputs.CapabilityConfigurationArgoCdNetworkAccessArgs;
 import com.pulumi.aws.eks.inputs.CapabilityConfigurationArgoCdRbacRoleMappingArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -23,15 +24,15 @@ public final class CapabilityConfigurationArgoCdArgs extends com.pulumi.resource
      * AWS IAM Identity Center configuration. See `awsIdc` below.
      * 
      */
-    @Import(name="awsIdc")
-    private @Nullable Output<CapabilityConfigurationArgoCdAwsIdcArgs> awsIdc;
+    @Import(name="awsIdc", required=true)
+    private Output<CapabilityConfigurationArgoCdAwsIdcArgs> awsIdc;
 
     /**
      * @return AWS IAM Identity Center configuration. See `awsIdc` below.
      * 
      */
-    public Optional<Output<CapabilityConfigurationArgoCdAwsIdcArgs>> awsIdc() {
-        return Optional.ofNullable(this.awsIdc);
+    public Output<CapabilityConfigurationArgoCdAwsIdcArgs> awsIdc() {
+        return this.awsIdc;
     }
 
     /**
@@ -128,7 +129,7 @@ public final class CapabilityConfigurationArgoCdArgs extends com.pulumi.resource
          * @return builder
          * 
          */
-        public Builder awsIdc(@Nullable Output<CapabilityConfigurationArgoCdAwsIdcArgs> awsIdc) {
+        public Builder awsIdc(Output<CapabilityConfigurationArgoCdAwsIdcArgs> awsIdc) {
             $.awsIdc = awsIdc;
             return this;
         }
@@ -238,6 +239,9 @@ public final class CapabilityConfigurationArgoCdArgs extends com.pulumi.resource
         }
 
         public CapabilityConfigurationArgoCdArgs build() {
+            if ($.awsIdc == null) {
+                throw new MissingRequiredPropertyException("CapabilityConfigurationArgoCdArgs", "awsIdc");
+            }
             return $;
         }
     }

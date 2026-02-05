@@ -457,14 +457,14 @@ public class AgentKnowledgeBase extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="knowledgeBaseConfiguration", refs={AgentKnowledgeBaseKnowledgeBaseConfiguration.class}, tree="[0]")
-    private Output</* @Nullable */ AgentKnowledgeBaseKnowledgeBaseConfiguration> knowledgeBaseConfiguration;
+    private Output<AgentKnowledgeBaseKnowledgeBaseConfiguration> knowledgeBaseConfiguration;
 
     /**
      * @return Details about the embeddings configuration of the knowledge base. See `knowledgeBaseConfiguration` block for details.
      * 
      */
-    public Output<Optional<AgentKnowledgeBaseKnowledgeBaseConfiguration>> knowledgeBaseConfiguration() {
-        return Codegen.optional(this.knowledgeBaseConfiguration);
+    public Output<AgentKnowledgeBaseKnowledgeBaseConfiguration> knowledgeBaseConfiguration() {
+        return this.knowledgeBaseConfiguration;
     }
     /**
      * Name of the knowledge base.

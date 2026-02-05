@@ -27,29 +27,35 @@ namespace Pulumi.Aws.Iot
         /// {
         ///     var example = Aws.Iot.GetEndpoint.Invoke();
         /// 
-        ///     var agent = new Kubernetes.Core.V1.Pod("agent", new()
+        ///     var agent = new Kubernetes.Index.Pod("agent", new()
         ///     {
-        ///         Metadata = new Kubernetes.Types.Inputs.Meta.V1.ObjectMetaArgs
+        ///         Metadata = new[]
         ///         {
-        ///             Name = "my-device",
-        ///         },
-        ///         Spec = new Kubernetes.Types.Inputs.Core.V1.PodSpecArgs
-        ///         {
-        ///             Container = new[]
+        ///             
         ///             {
-        ///                 
+        ///                 { "name", "my-device" },
+        ///             },
+        ///         },
+        ///         Spec = new[]
+        ///         {
+        ///             
+        ///             {
+        ///                 { "container", new[]
         ///                 {
-        ///                     { "image", "gcr.io/my-project/image-name" },
-        ///                     { "name", "image-name" },
-        ///                     { "env", new[]
+        ///                     
         ///                     {
-        ///                         
+        ///                         { "image", "gcr.io/my-project/image-name" },
+        ///                         { "name", "image-name" },
+        ///                         { "env", new[]
         ///                         {
-        ///                             { "name", "IOT_ENDPOINT" },
-        ///                             { "value", example.Apply(getEndpointResult =&gt; getEndpointResult.EndpointAddress) },
-        ///                         },
-        ///                     } },
-        ///                 },
+        ///                             
+        ///                             {
+        ///                                 { "name", "IOT_ENDPOINT" },
+        ///                                 { "value", example.Apply(getEndpointResult =&gt; getEndpointResult.EndpointAddress) },
+        ///                             },
+        ///                         } },
+        ///                     },
+        ///                 } },
         ///             },
         ///         },
         ///     });
@@ -76,29 +82,35 @@ namespace Pulumi.Aws.Iot
         /// {
         ///     var example = Aws.Iot.GetEndpoint.Invoke();
         /// 
-        ///     var agent = new Kubernetes.Core.V1.Pod("agent", new()
+        ///     var agent = new Kubernetes.Index.Pod("agent", new()
         ///     {
-        ///         Metadata = new Kubernetes.Types.Inputs.Meta.V1.ObjectMetaArgs
+        ///         Metadata = new[]
         ///         {
-        ///             Name = "my-device",
-        ///         },
-        ///         Spec = new Kubernetes.Types.Inputs.Core.V1.PodSpecArgs
-        ///         {
-        ///             Container = new[]
+        ///             
         ///             {
-        ///                 
+        ///                 { "name", "my-device" },
+        ///             },
+        ///         },
+        ///         Spec = new[]
+        ///         {
+        ///             
+        ///             {
+        ///                 { "container", new[]
         ///                 {
-        ///                     { "image", "gcr.io/my-project/image-name" },
-        ///                     { "name", "image-name" },
-        ///                     { "env", new[]
+        ///                     
         ///                     {
-        ///                         
+        ///                         { "image", "gcr.io/my-project/image-name" },
+        ///                         { "name", "image-name" },
+        ///                         { "env", new[]
         ///                         {
-        ///                             { "name", "IOT_ENDPOINT" },
-        ///                             { "value", example.Apply(getEndpointResult =&gt; getEndpointResult.EndpointAddress) },
-        ///                         },
-        ///                     } },
-        ///                 },
+        ///                             
+        ///                             {
+        ///                                 { "name", "IOT_ENDPOINT" },
+        ///                                 { "value", example.Apply(getEndpointResult =&gt; getEndpointResult.EndpointAddress) },
+        ///                             },
+        ///                         } },
+        ///                     },
+        ///                 } },
         ///             },
         ///         },
         ///     });
@@ -125,29 +137,35 @@ namespace Pulumi.Aws.Iot
         /// {
         ///     var example = Aws.Iot.GetEndpoint.Invoke();
         /// 
-        ///     var agent = new Kubernetes.Core.V1.Pod("agent", new()
+        ///     var agent = new Kubernetes.Index.Pod("agent", new()
         ///     {
-        ///         Metadata = new Kubernetes.Types.Inputs.Meta.V1.ObjectMetaArgs
+        ///         Metadata = new[]
         ///         {
-        ///             Name = "my-device",
-        ///         },
-        ///         Spec = new Kubernetes.Types.Inputs.Core.V1.PodSpecArgs
-        ///         {
-        ///             Container = new[]
+        ///             
         ///             {
-        ///                 
+        ///                 { "name", "my-device" },
+        ///             },
+        ///         },
+        ///         Spec = new[]
+        ///         {
+        ///             
+        ///             {
+        ///                 { "container", new[]
         ///                 {
-        ///                     { "image", "gcr.io/my-project/image-name" },
-        ///                     { "name", "image-name" },
-        ///                     { "env", new[]
+        ///                     
         ///                     {
-        ///                         
+        ///                         { "image", "gcr.io/my-project/image-name" },
+        ///                         { "name", "image-name" },
+        ///                         { "env", new[]
         ///                         {
-        ///                             { "name", "IOT_ENDPOINT" },
-        ///                             { "value", example.Apply(getEndpointResult =&gt; getEndpointResult.EndpointAddress) },
-        ///                         },
-        ///                     } },
-        ///                 },
+        ///                             
+        ///                             {
+        ///                                 { "name", "IOT_ENDPOINT" },
+        ///                                 { "value", example.Apply(getEndpointResult =&gt; getEndpointResult.EndpointAddress) },
+        ///                             },
+        ///                         } },
+        ///                     },
+        ///                 } },
         ///             },
         ///         },
         ///     });

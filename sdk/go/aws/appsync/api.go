@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -196,7 +197,7 @@ type Api struct {
 	// DNS configuration for the Event API.
 	Dns pulumi.StringMapOutput `pulumi:"dns"`
 	// Configuration for the Event API. See Event Config below.
-	EventConfig ApiEventConfigPtrOutput `pulumi:"eventConfig"`
+	EventConfig ApiEventConfigOutput `pulumi:"eventConfig"`
 	// Name of the Event API.
 	//
 	// The following arguments are optional:
@@ -218,9 +219,12 @@ type Api struct {
 func NewApi(ctx *pulumi.Context,
 	name string, args *ApiArgs, opts ...pulumi.ResourceOption) (*Api, error) {
 	if args == nil {
-		args = &ApiArgs{}
+		return nil, errors.New("missing one or more required arguments")
 	}
 
+	if args.EventConfig == nil {
+		return nil, errors.New("invalid value for required argument 'EventConfig'")
+	}
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Api
 	err := ctx.RegisterResource("aws:appsync/api:Api", name, args, &resource, opts...)
@@ -301,7 +305,7 @@ func (ApiState) ElementType() reflect.Type {
 
 type apiArgs struct {
 	// Configuration for the Event API. See Event Config below.
-	EventConfig *ApiEventConfig `pulumi:"eventConfig"`
+	EventConfig ApiEventConfig `pulumi:"eventConfig"`
 	// Name of the Event API.
 	//
 	// The following arguments are optional:
@@ -317,7 +321,7 @@ type apiArgs struct {
 // The set of arguments for constructing a Api resource.
 type ApiArgs struct {
 	// Configuration for the Event API. See Event Config below.
-	EventConfig ApiEventConfigPtrInput
+	EventConfig ApiEventConfigInput
 	// Name of the Event API.
 	//
 	// The following arguments are optional:
@@ -433,8 +437,8 @@ func (o ApiOutput) Dns() pulumi.StringMapOutput {
 }
 
 // Configuration for the Event API. See Event Config below.
-func (o ApiOutput) EventConfig() ApiEventConfigPtrOutput {
-	return o.ApplyT(func(v *Api) ApiEventConfigPtrOutput { return v.EventConfig }).(ApiEventConfigPtrOutput)
+func (o ApiOutput) EventConfig() ApiEventConfigOutput {
+	return o.ApplyT(func(v *Api) ApiEventConfigOutput { return v.EventConfig }).(ApiEventConfigOutput)
 }
 
 // Name of the Event API.

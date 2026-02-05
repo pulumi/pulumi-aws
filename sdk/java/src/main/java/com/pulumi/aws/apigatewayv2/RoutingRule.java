@@ -15,7 +15,6 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
-import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
@@ -99,28 +98,28 @@ public class RoutingRule extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="actions", refs={List.class,RoutingRuleAction.class}, tree="[0,1]")
-    private Output</* @Nullable */ List<RoutingRuleAction>> actions;
+    private Output<List<RoutingRuleAction>> actions;
 
     /**
      * @return Configuration of resulting action based on matching routing rules condition. See below.
      * 
      */
-    public Output<Optional<List<RoutingRuleAction>>> actions() {
-        return Codegen.optional(this.actions);
+    public Output<List<RoutingRuleAction>> actions() {
+        return this.actions;
     }
     /**
      * Conditions configuration. See below.
      * 
      */
     @Export(name="conditions", refs={List.class,RoutingRuleCondition.class}, tree="[0,1]")
-    private Output</* @Nullable */ List<RoutingRuleCondition>> conditions;
+    private Output<List<RoutingRuleCondition>> conditions;
 
     /**
      * @return Conditions configuration. See below.
      * 
      */
-    public Output<Optional<List<RoutingRuleCondition>>> conditions() {
-        return Codegen.optional(this.conditions);
+    public Output<List<RoutingRuleCondition>> conditions() {
+        return this.conditions;
     }
     /**
      * Domain name. Must be between 1 and 512 characters in length.

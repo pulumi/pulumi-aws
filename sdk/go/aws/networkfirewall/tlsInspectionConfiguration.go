@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -433,7 +434,7 @@ type TlsInspectionConfiguration struct {
 	// TLS inspection configuration block. Detailed below.
 	//
 	// The following arguments are optional:
-	TlsInspectionConfiguration TlsInspectionConfigurationTlsInspectionConfigurationPtrOutput `pulumi:"tlsInspectionConfiguration"`
+	TlsInspectionConfiguration TlsInspectionConfigurationTlsInspectionConfigurationOutput `pulumi:"tlsInspectionConfiguration"`
 	// A unique identifier for the TLS inspection configuration.
 	TlsInspectionConfigurationId pulumi.StringOutput `pulumi:"tlsInspectionConfigurationId"`
 	// String token used when updating the rule group.
@@ -444,9 +445,12 @@ type TlsInspectionConfiguration struct {
 func NewTlsInspectionConfiguration(ctx *pulumi.Context,
 	name string, args *TlsInspectionConfigurationArgs, opts ...pulumi.ResourceOption) (*TlsInspectionConfiguration, error) {
 	if args == nil {
-		args = &TlsInspectionConfigurationArgs{}
+		return nil, errors.New("missing one or more required arguments")
 	}
 
+	if args.TlsInspectionConfiguration == nil {
+		return nil, errors.New("invalid value for required argument 'TlsInspectionConfiguration'")
+	}
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource TlsInspectionConfiguration
 	err := ctx.RegisterResource("aws:networkfirewall/tlsInspectionConfiguration:TlsInspectionConfiguration", name, args, &resource, opts...)
@@ -547,7 +551,7 @@ type tlsInspectionConfigurationArgs struct {
 	// TLS inspection configuration block. Detailed below.
 	//
 	// The following arguments are optional:
-	TlsInspectionConfiguration *TlsInspectionConfigurationTlsInspectionConfiguration `pulumi:"tlsInspectionConfiguration"`
+	TlsInspectionConfiguration TlsInspectionConfigurationTlsInspectionConfiguration `pulumi:"tlsInspectionConfiguration"`
 }
 
 // The set of arguments for constructing a TlsInspectionConfiguration resource.
@@ -565,7 +569,7 @@ type TlsInspectionConfigurationArgs struct {
 	// TLS inspection configuration block. Detailed below.
 	//
 	// The following arguments are optional:
-	TlsInspectionConfiguration TlsInspectionConfigurationTlsInspectionConfigurationPtrInput
+	TlsInspectionConfiguration TlsInspectionConfigurationTlsInspectionConfigurationInput
 }
 
 func (TlsInspectionConfigurationArgs) ElementType() reflect.Type {
@@ -716,10 +720,10 @@ func (o TlsInspectionConfigurationOutput) Timeouts() TlsInspectionConfigurationT
 // TLS inspection configuration block. Detailed below.
 //
 // The following arguments are optional:
-func (o TlsInspectionConfigurationOutput) TlsInspectionConfiguration() TlsInspectionConfigurationTlsInspectionConfigurationPtrOutput {
-	return o.ApplyT(func(v *TlsInspectionConfiguration) TlsInspectionConfigurationTlsInspectionConfigurationPtrOutput {
+func (o TlsInspectionConfigurationOutput) TlsInspectionConfiguration() TlsInspectionConfigurationTlsInspectionConfigurationOutput {
+	return o.ApplyT(func(v *TlsInspectionConfiguration) TlsInspectionConfigurationTlsInspectionConfigurationOutput {
 		return v.TlsInspectionConfiguration
-	}).(TlsInspectionConfigurationTlsInspectionConfigurationPtrOutput)
+	}).(TlsInspectionConfigurationTlsInspectionConfigurationOutput)
 }
 
 // A unique identifier for the TLS inspection configuration.

@@ -5,6 +5,7 @@ package com.pulumi.aws.timestreamquery.outputs;
 
 import com.pulumi.aws.timestreamquery.outputs.ScheduledQueryTargetConfigurationTimestreamConfigurationMultiMeasureMappingsMultiMeasureAttributeMapping;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -17,7 +18,7 @@ public final class ScheduledQueryTargetConfigurationTimestreamConfigurationMulti
      * @return Attribute mappings to be used for mapping query results to ingest data for multi-measure attributes. See above.
      * 
      */
-    private @Nullable List<ScheduledQueryTargetConfigurationTimestreamConfigurationMultiMeasureMappingsMultiMeasureAttributeMapping> multiMeasureAttributeMappings;
+    private List<ScheduledQueryTargetConfigurationTimestreamConfigurationMultiMeasureMappingsMultiMeasureAttributeMapping> multiMeasureAttributeMappings;
     /**
      * @return Name of the target multi-measure name in the derived table. This input is required when `measureNameColumn` is not provided. If `measureNameColumn` is provided, then the value from that column will be used as the multi-measure name.
      * 
@@ -30,7 +31,7 @@ public final class ScheduledQueryTargetConfigurationTimestreamConfigurationMulti
      * 
      */
     public List<ScheduledQueryTargetConfigurationTimestreamConfigurationMultiMeasureMappingsMultiMeasureAttributeMapping> multiMeasureAttributeMappings() {
-        return this.multiMeasureAttributeMappings == null ? List.of() : this.multiMeasureAttributeMappings;
+        return this.multiMeasureAttributeMappings;
     }
     /**
      * @return Name of the target multi-measure name in the derived table. This input is required when `measureNameColumn` is not provided. If `measureNameColumn` is provided, then the value from that column will be used as the multi-measure name.
@@ -49,7 +50,7 @@ public final class ScheduledQueryTargetConfigurationTimestreamConfigurationMulti
     }
     @CustomType.Builder
     public static final class Builder {
-        private @Nullable List<ScheduledQueryTargetConfigurationTimestreamConfigurationMultiMeasureMappingsMultiMeasureAttributeMapping> multiMeasureAttributeMappings;
+        private List<ScheduledQueryTargetConfigurationTimestreamConfigurationMultiMeasureMappingsMultiMeasureAttributeMapping> multiMeasureAttributeMappings;
         private @Nullable String targetMultiMeasureName;
         public Builder() {}
         public Builder(ScheduledQueryTargetConfigurationTimestreamConfigurationMultiMeasureMappings defaults) {
@@ -59,8 +60,10 @@ public final class ScheduledQueryTargetConfigurationTimestreamConfigurationMulti
         }
 
         @CustomType.Setter
-        public Builder multiMeasureAttributeMappings(@Nullable List<ScheduledQueryTargetConfigurationTimestreamConfigurationMultiMeasureMappingsMultiMeasureAttributeMapping> multiMeasureAttributeMappings) {
-
+        public Builder multiMeasureAttributeMappings(List<ScheduledQueryTargetConfigurationTimestreamConfigurationMultiMeasureMappingsMultiMeasureAttributeMapping> multiMeasureAttributeMappings) {
+            if (multiMeasureAttributeMappings == null) {
+              throw new MissingRequiredPropertyException("ScheduledQueryTargetConfigurationTimestreamConfigurationMultiMeasureMappings", "multiMeasureAttributeMappings");
+            }
             this.multiMeasureAttributeMappings = multiMeasureAttributeMappings;
             return this;
         }

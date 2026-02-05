@@ -13,7 +13,6 @@ import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.Boolean;
 import java.util.List;
-import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
@@ -126,14 +125,14 @@ public class ProactiveEngagement extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="emergencyContacts", refs={List.class,ProactiveEngagementEmergencyContact.class}, tree="[0,1]")
-    private Output</* @Nullable */ List<ProactiveEngagementEmergencyContact>> emergencyContacts;
+    private Output<List<ProactiveEngagementEmergencyContact>> emergencyContacts;
 
     /**
      * @return One or more emergency contacts. You must provide at least one phone number in the emergency contact list. See `emergencyContacts`.
      * 
      */
-    public Output<Optional<List<ProactiveEngagementEmergencyContact>>> emergencyContacts() {
-        return Codegen.optional(this.emergencyContacts);
+    public Output<List<ProactiveEngagementEmergencyContact>> emergencyContacts() {
+        return this.emergencyContacts;
     }
     /**
      * Boolean value indicating if Proactive Engagement should be enabled or not.

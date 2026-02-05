@@ -268,14 +268,14 @@ public class MultitenantDistribution extends com.pulumi.resources.CustomResource
      * 
      */
     @Export(name="defaultCacheBehavior", refs={MultitenantDistributionDefaultCacheBehavior.class}, tree="[0]")
-    private Output</* @Nullable */ MultitenantDistributionDefaultCacheBehavior> defaultCacheBehavior;
+    private Output<MultitenantDistributionDefaultCacheBehavior> defaultCacheBehavior;
 
     /**
      * @return Default cache behavior for this distribution. See Default Cache Behavior below.
      * 
      */
-    public Output<Optional<MultitenantDistributionDefaultCacheBehavior>> defaultCacheBehavior() {
-        return Codegen.optional(this.defaultCacheBehavior);
+    public Output<MultitenantDistributionDefaultCacheBehavior> defaultCacheBehavior() {
+        return this.defaultCacheBehavior;
     }
     /**
      * Object that you want CloudFront to return when an end user requests the root URL.
@@ -464,14 +464,14 @@ public class MultitenantDistribution extends com.pulumi.resources.CustomResource
      * 
      */
     @Export(name="tenantConfig", refs={MultitenantDistributionTenantConfig.class}, tree="[0]")
-    private Output</* @Nullable */ MultitenantDistributionTenantConfig> tenantConfig;
+    private Output<MultitenantDistributionTenantConfig> tenantConfig;
 
     /**
      * @return Tenant configuration that contains parameter definitions for multi-tenant distributions. See Tenant Config below.
      * 
      */
-    public Output<Optional<MultitenantDistributionTenantConfig>> tenantConfig() {
-        return Codegen.optional(this.tenantConfig);
+    public Output<MultitenantDistributionTenantConfig> tenantConfig() {
+        return this.tenantConfig;
     }
     @Export(name="timeouts", refs={MultitenantDistributionTimeouts.class}, tree="[0]")
     private Output</* @Nullable */ MultitenantDistributionTimeouts> timeouts;
@@ -484,14 +484,14 @@ public class MultitenantDistribution extends com.pulumi.resources.CustomResource
      * 
      */
     @Export(name="viewerCertificate", refs={MultitenantDistributionViewerCertificate.class}, tree="[0]")
-    private Output</* @Nullable */ MultitenantDistributionViewerCertificate> viewerCertificate;
+    private Output<MultitenantDistributionViewerCertificate> viewerCertificate;
 
     /**
      * @return SSL configuration for this distribution. See Viewer Certificate below.
      * 
      */
-    public Output<Optional<MultitenantDistributionViewerCertificate>> viewerCertificate() {
-        return Codegen.optional(this.viewerCertificate);
+    public Output<MultitenantDistributionViewerCertificate> viewerCertificate() {
+        return this.viewerCertificate;
     }
     /**
      * Unique identifier that specifies the AWS WAF v2 web ACL to associate with this distribution.

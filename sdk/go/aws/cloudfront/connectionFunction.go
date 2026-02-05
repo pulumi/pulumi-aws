@@ -170,7 +170,7 @@ type ConnectionFunction struct {
 	// Code for the connection function. Maximum length is 40960 characters.
 	ConnectionFunctionCode pulumi.StringOutput `pulumi:"connectionFunctionCode"`
 	// Configuration information for the connection function. See `connectionFunctionConfig` below.
-	ConnectionFunctionConfig ConnectionFunctionConnectionFunctionConfigPtrOutput `pulumi:"connectionFunctionConfig"`
+	ConnectionFunctionConfig ConnectionFunctionConnectionFunctionConfigOutput `pulumi:"connectionFunctionConfig"`
 	// ETag of the connection function.
 	Etag pulumi.StringOutput `pulumi:"etag"`
 	// ETag of the function's LIVE stage. Will be empty if the function has not been published.
@@ -198,6 +198,9 @@ func NewConnectionFunction(ctx *pulumi.Context,
 
 	if args.ConnectionFunctionCode == nil {
 		return nil, errors.New("invalid value for required argument 'ConnectionFunctionCode'")
+	}
+	if args.ConnectionFunctionConfig == nil {
+		return nil, errors.New("invalid value for required argument 'ConnectionFunctionConfig'")
 	}
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ConnectionFunction
@@ -279,7 +282,7 @@ type connectionFunctionArgs struct {
 	// Code for the connection function. Maximum length is 40960 characters.
 	ConnectionFunctionCode string `pulumi:"connectionFunctionCode"`
 	// Configuration information for the connection function. See `connectionFunctionConfig` below.
-	ConnectionFunctionConfig *ConnectionFunctionConnectionFunctionConfig `pulumi:"connectionFunctionConfig"`
+	ConnectionFunctionConfig ConnectionFunctionConnectionFunctionConfig `pulumi:"connectionFunctionConfig"`
 	// Name for the connection function. Must be 1-64 characters and can contain letters, numbers, hyphens, and underscores. Changing this forces a new resource to be created.
 	//
 	// The following arguments are optional:
@@ -295,7 +298,7 @@ type ConnectionFunctionArgs struct {
 	// Code for the connection function. Maximum length is 40960 characters.
 	ConnectionFunctionCode pulumi.StringInput
 	// Configuration information for the connection function. See `connectionFunctionConfig` below.
-	ConnectionFunctionConfig ConnectionFunctionConnectionFunctionConfigPtrInput
+	ConnectionFunctionConfig ConnectionFunctionConnectionFunctionConfigInput
 	// Name for the connection function. Must be 1-64 characters and can contain letters, numbers, hyphens, and underscores. Changing this forces a new resource to be created.
 	//
 	// The following arguments are optional:
@@ -404,10 +407,10 @@ func (o ConnectionFunctionOutput) ConnectionFunctionCode() pulumi.StringOutput {
 }
 
 // Configuration information for the connection function. See `connectionFunctionConfig` below.
-func (o ConnectionFunctionOutput) ConnectionFunctionConfig() ConnectionFunctionConnectionFunctionConfigPtrOutput {
-	return o.ApplyT(func(v *ConnectionFunction) ConnectionFunctionConnectionFunctionConfigPtrOutput {
+func (o ConnectionFunctionOutput) ConnectionFunctionConfig() ConnectionFunctionConnectionFunctionConfigOutput {
+	return o.ApplyT(func(v *ConnectionFunction) ConnectionFunctionConnectionFunctionConfigOutput {
 		return v.ConnectionFunctionConfig
-	}).(ConnectionFunctionConnectionFunctionConfigPtrOutput)
+	}).(ConnectionFunctionConnectionFunctionConfigOutput)
 }
 
 // ETag of the connection function.

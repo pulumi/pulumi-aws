@@ -15,14 +15,14 @@ namespace Pulumi.Aws.Observabilityadmin.Inputs
         /// <summary>
         /// Configuration block for the destination where logs will be centralized. See `Destination` below.
         /// </summary>
-        [Input("destination")]
-        public Input<Inputs.CentralizationRuleForOrganizationRuleDestinationGetArgs>? Destination { get; set; }
+        [Input("destination", required: true)]
+        public Input<Inputs.CentralizationRuleForOrganizationRuleDestinationGetArgs> Destination { get; set; } = null!;
 
         /// <summary>
         /// Configuration block for the source of logs to be centralized. See `Source` below.
         /// </summary>
-        [Input("source")]
-        public Input<Inputs.CentralizationRuleForOrganizationRuleSourceGetArgs>? Source { get; set; }
+        [Input("source", required: true)]
+        public Input<Inputs.CentralizationRuleForOrganizationRuleSourceGetArgs> Source { get; set; } = null!;
 
         public CentralizationRuleForOrganizationRuleGetArgs()
         {

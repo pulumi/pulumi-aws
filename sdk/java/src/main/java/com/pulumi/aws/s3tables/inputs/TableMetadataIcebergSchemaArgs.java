@@ -6,10 +6,9 @@ package com.pulumi.aws.s3tables.inputs;
 import com.pulumi.aws.s3tables.inputs.TableMetadataIcebergSchemaFieldArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
-import java.util.Optional;
-import javax.annotation.Nullable;
 
 
 public final class TableMetadataIcebergSchemaArgs extends com.pulumi.resources.ResourceArgs {
@@ -21,16 +20,16 @@ public final class TableMetadataIcebergSchemaArgs extends com.pulumi.resources.R
      * See `field` below.
      * 
      */
-    @Import(name="fields")
-    private @Nullable Output<List<TableMetadataIcebergSchemaFieldArgs>> fields;
+    @Import(name="fields", required=true)
+    private Output<List<TableMetadataIcebergSchemaFieldArgs>> fields;
 
     /**
      * @return List of schema fields for the Iceberg table. Each field defines a column in the table schema.
      * See `field` below.
      * 
      */
-    public Optional<Output<List<TableMetadataIcebergSchemaFieldArgs>>> fields() {
-        return Optional.ofNullable(this.fields);
+    public Output<List<TableMetadataIcebergSchemaFieldArgs>> fields() {
+        return this.fields;
     }
 
     private TableMetadataIcebergSchemaArgs() {}
@@ -64,7 +63,7 @@ public final class TableMetadataIcebergSchemaArgs extends com.pulumi.resources.R
          * @return builder
          * 
          */
-        public Builder fields(@Nullable Output<List<TableMetadataIcebergSchemaFieldArgs>> fields) {
+        public Builder fields(Output<List<TableMetadataIcebergSchemaFieldArgs>> fields) {
             $.fields = fields;
             return this;
         }
@@ -92,6 +91,9 @@ public final class TableMetadataIcebergSchemaArgs extends com.pulumi.resources.R
         }
 
         public TableMetadataIcebergSchemaArgs build() {
+            if ($.fields == null) {
+                throw new MissingRequiredPropertyException("TableMetadataIcebergSchemaArgs", "fields");
+            }
             return $;
         }
     }

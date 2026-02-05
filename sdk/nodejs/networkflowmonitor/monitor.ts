@@ -80,7 +80,7 @@ export class Monitor extends pulumi.CustomResource {
     /**
      * The local resources to monitor. A local resource in a workload is the location of the hosts where the Network Flow Monitor agent is installed.
      */
-    declare public readonly localResources: pulumi.Output<outputs.networkflowmonitor.MonitorLocalResource[] | undefined>;
+    declare public readonly localResources: pulumi.Output<outputs.networkflowmonitor.MonitorLocalResource[]>;
     /**
      * The Amazon Resource Name (ARN) of the monitor.
      */
@@ -137,6 +137,9 @@ export class Monitor extends pulumi.CustomResource {
             resourceInputs["timeouts"] = state?.timeouts;
         } else {
             const args = argsOrState as MonitorArgs | undefined;
+            if (args?.localResources === undefined && !opts.urn) {
+                throw new Error("Missing required property 'localResources'");
+            }
             if (args?.monitorName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'monitorName'");
             }
@@ -206,7 +209,7 @@ export interface MonitorArgs {
     /**
      * The local resources to monitor. A local resource in a workload is the location of the hosts where the Network Flow Monitor agent is installed.
      */
-    localResources?: pulumi.Input<pulumi.Input<inputs.networkflowmonitor.MonitorLocalResource>[]>;
+    localResources: pulumi.Input<pulumi.Input<inputs.networkflowmonitor.MonitorLocalResource>[]>;
     /**
      * The name of the monitor. Cannot be changed after creation.
      */

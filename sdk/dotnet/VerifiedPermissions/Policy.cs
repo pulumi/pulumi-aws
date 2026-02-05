@@ -60,7 +60,7 @@ namespace Pulumi.Aws.VerifiedPermissions
         /// The definition of the policy. See Definition below.
         /// </summary>
         [Output("definition")]
-        public Output<Outputs.PolicyDefinition?> Definition { get; private set; } = null!;
+        public Output<Outputs.PolicyDefinition> Definition { get; private set; } = null!;
 
         /// <summary>
         /// The Policy ID of the policy.
@@ -129,8 +129,8 @@ namespace Pulumi.Aws.VerifiedPermissions
         /// <summary>
         /// The definition of the policy. See Definition below.
         /// </summary>
-        [Input("definition")]
-        public Input<Inputs.PolicyDefinitionArgs>? Definition { get; set; }
+        [Input("definition", required: true)]
+        public Input<Inputs.PolicyDefinitionArgs> Definition { get; set; } = null!;
 
         /// <summary>
         /// The Policy Store ID of the policy store.

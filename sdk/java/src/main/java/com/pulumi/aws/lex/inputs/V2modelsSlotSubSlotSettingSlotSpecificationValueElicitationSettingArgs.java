@@ -9,7 +9,6 @@ import com.pulumi.aws.lex.inputs.V2modelsSlotSubSlotSettingSlotSpecificationValu
 import com.pulumi.aws.lex.inputs.V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingWaitAndContinueSpecificationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
-import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
@@ -42,16 +41,16 @@ public final class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSe
      * See the `aws.lex.V2modelsIntent` resource for details on the `promptSpecification` argument reference - they are identical.
      * 
      */
-    @Import(name="promptSpecification", required=true)
-    private Output<V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationArgs> promptSpecification;
+    @Import(name="promptSpecification")
+    private @Nullable Output<V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationArgs> promptSpecification;
 
     /**
      * @return Prompt that Amazon Lex uses to elicit the slot value from the user.
      * See the `aws.lex.V2modelsIntent` resource for details on the `promptSpecification` argument reference - they are identical.
      * 
      */
-    public Output<V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationArgs> promptSpecification() {
-        return this.promptSpecification;
+    public Optional<Output<V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationArgs>> promptSpecification() {
+        return Optional.ofNullable(this.promptSpecification);
     }
 
     @Import(name="sampleUtterances")
@@ -146,7 +145,7 @@ public final class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSe
          * @return builder
          * 
          */
-        public Builder promptSpecification(Output<V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationArgs> promptSpecification) {
+        public Builder promptSpecification(@Nullable Output<V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingPromptSpecificationArgs> promptSpecification) {
             $.promptSpecification = promptSpecification;
             return this;
         }
@@ -210,9 +209,6 @@ public final class V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSe
         }
 
         public V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingArgs build() {
-            if ($.promptSpecification == null) {
-                throw new MissingRequiredPropertyException("V2modelsSlotSubSlotSettingSlotSpecificationValueElicitationSettingArgs", "promptSpecification");
-            }
             return $;
         }
     }

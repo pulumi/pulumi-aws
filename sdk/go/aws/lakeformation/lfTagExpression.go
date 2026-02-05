@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"errors"
 	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
@@ -84,9 +85,12 @@ type LfTagExpression struct {
 func NewLfTagExpression(ctx *pulumi.Context,
 	name string, args *LfTagExpressionArgs, opts ...pulumi.ResourceOption) (*LfTagExpression, error) {
 	if args == nil {
-		args = &LfTagExpressionArgs{}
+		return nil, errors.New("missing one or more required arguments")
 	}
 
+	if args.Expressions == nil {
+		return nil, errors.New("invalid value for required argument 'Expressions'")
+	}
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource LfTagExpression
 	err := ctx.RegisterResource("aws:lakeformation/lfTagExpression:LfTagExpression", name, args, &resource, opts...)

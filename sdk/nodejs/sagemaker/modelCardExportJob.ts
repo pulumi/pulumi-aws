@@ -83,7 +83,7 @@ export class ModelCardExportJob extends pulumi.CustomResource {
     /**
      * Export output details. Fields are documented below.
      */
-    declare public readonly outputConfig: pulumi.Output<outputs.sagemaker.ModelCardExportJobOutputConfig | undefined>;
+    declare public readonly outputConfig: pulumi.Output<outputs.sagemaker.ModelCardExportJobOutputConfig>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration
      */
@@ -118,6 +118,9 @@ export class ModelCardExportJob extends pulumi.CustomResource {
             }
             if (args?.modelCardName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'modelCardName'");
+            }
+            if (args?.outputConfig === undefined && !opts.urn) {
+                throw new Error("Missing required property 'outputConfig'");
             }
             resourceInputs["modelCardExportJobName"] = args?.modelCardExportJobName;
             resourceInputs["modelCardName"] = args?.modelCardName;
@@ -181,7 +184,7 @@ export interface ModelCardExportJobArgs {
     /**
      * Export output details. Fields are documented below.
      */
-    outputConfig?: pulumi.Input<inputs.sagemaker.ModelCardExportJobOutputConfig>;
+    outputConfig: pulumi.Input<inputs.sagemaker.ModelCardExportJobOutputConfig>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration
      */

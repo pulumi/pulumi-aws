@@ -180,7 +180,7 @@ export class LogDeliveryConfiguration extends pulumi.CustomResource {
     /**
      * Configuration block for log delivery. At least one configuration block is required. See Log Configurations below.
      */
-    declare public readonly logConfigurations: pulumi.Output<outputs.cognito.LogDeliveryConfigurationLogConfiguration[] | undefined>;
+    declare public readonly logConfigurations: pulumi.Output<outputs.cognito.LogDeliveryConfigurationLogConfiguration[]>;
     /**
      * The AWS region.
      */
@@ -210,6 +210,9 @@ export class LogDeliveryConfiguration extends pulumi.CustomResource {
             resourceInputs["userPoolId"] = state?.userPoolId;
         } else {
             const args = argsOrState as LogDeliveryConfigurationArgs | undefined;
+            if (args?.logConfigurations === undefined && !opts.urn) {
+                throw new Error("Missing required property 'logConfigurations'");
+            }
             if (args?.userPoolId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'userPoolId'");
             }
@@ -249,7 +252,7 @@ export interface LogDeliveryConfigurationArgs {
     /**
      * Configuration block for log delivery. At least one configuration block is required. See Log Configurations below.
      */
-    logConfigurations?: pulumi.Input<pulumi.Input<inputs.cognito.LogDeliveryConfigurationLogConfiguration>[]>;
+    logConfigurations: pulumi.Input<pulumi.Input<inputs.cognito.LogDeliveryConfigurationLogConfiguration>[]>;
     /**
      * The AWS region.
      */

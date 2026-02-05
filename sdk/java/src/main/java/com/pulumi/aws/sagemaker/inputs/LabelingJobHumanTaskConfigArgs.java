@@ -175,15 +175,15 @@ public final class LabelingJobHumanTaskConfigArgs extends com.pulumi.resources.R
      * Information about the user interface that workers use to complete the labeling task. Fields are documented below.
      * 
      */
-    @Import(name="uiConfig")
-    private @Nullable Output<LabelingJobHumanTaskConfigUiConfigArgs> uiConfig;
+    @Import(name="uiConfig", required=true)
+    private Output<LabelingJobHumanTaskConfigUiConfigArgs> uiConfig;
 
     /**
      * @return Information about the user interface that workers use to complete the labeling task. Fields are documented below.
      * 
      */
-    public Optional<Output<LabelingJobHumanTaskConfigUiConfigArgs>> uiConfig() {
-        return Optional.ofNullable(this.uiConfig);
+    public Output<LabelingJobHumanTaskConfigUiConfigArgs> uiConfig() {
+        return this.uiConfig;
     }
 
     /**
@@ -462,7 +462,7 @@ public final class LabelingJobHumanTaskConfigArgs extends com.pulumi.resources.R
          * @return builder
          * 
          */
-        public Builder uiConfig(@Nullable Output<LabelingJobHumanTaskConfigUiConfigArgs> uiConfig) {
+        public Builder uiConfig(Output<LabelingJobHumanTaskConfigUiConfigArgs> uiConfig) {
             $.uiConfig = uiConfig;
             return this;
         }
@@ -510,6 +510,9 @@ public final class LabelingJobHumanTaskConfigArgs extends com.pulumi.resources.R
             }
             if ($.taskTitle == null) {
                 throw new MissingRequiredPropertyException("LabelingJobHumanTaskConfigArgs", "taskTitle");
+            }
+            if ($.uiConfig == null) {
+                throw new MissingRequiredPropertyException("LabelingJobHumanTaskConfigArgs", "uiConfig");
             }
             if ($.workteamArn == null) {
                 throw new MissingRequiredPropertyException("LabelingJobHumanTaskConfigArgs", "workteamArn");

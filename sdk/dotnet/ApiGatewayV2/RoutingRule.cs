@@ -168,7 +168,7 @@ namespace Pulumi.Aws.ApiGatewayV2
 
     public sealed class RoutingRuleArgs : global::Pulumi.ResourceArgs
     {
-        [Input("actions")]
+        [Input("actions", required: true)]
         private InputList<Inputs.RoutingRuleActionArgs>? _actions;
 
         /// <summary>
@@ -180,7 +180,7 @@ namespace Pulumi.Aws.ApiGatewayV2
             set => _actions = value;
         }
 
-        [Input("conditions")]
+        [Input("conditions", required: true)]
         private InputList<Inputs.RoutingRuleConditionArgs>? _conditions;
 
         /// <summary>

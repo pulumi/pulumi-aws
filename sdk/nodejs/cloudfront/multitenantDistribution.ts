@@ -175,7 +175,7 @@ export class MultitenantDistribution extends pulumi.CustomResource {
     /**
      * Default cache behavior for this distribution. See Default Cache Behavior below.
      */
-    declare public readonly defaultCacheBehavior: pulumi.Output<outputs.cloudfront.MultitenantDistributionDefaultCacheBehavior | undefined>;
+    declare public readonly defaultCacheBehavior: pulumi.Output<outputs.cloudfront.MultitenantDistributionDefaultCacheBehavior>;
     /**
      * Object that you want CloudFront to return when an end user requests the root URL.
      */
@@ -231,12 +231,12 @@ export class MultitenantDistribution extends pulumi.CustomResource {
     /**
      * Tenant configuration that contains parameter definitions for multi-tenant distributions. See Tenant Config below.
      */
-    declare public readonly tenantConfig: pulumi.Output<outputs.cloudfront.MultitenantDistributionTenantConfig | undefined>;
+    declare public readonly tenantConfig: pulumi.Output<outputs.cloudfront.MultitenantDistributionTenantConfig>;
     declare public readonly timeouts: pulumi.Output<outputs.cloudfront.MultitenantDistributionTimeouts | undefined>;
     /**
      * SSL configuration for this distribution. See Viewer Certificate below.
      */
-    declare public readonly viewerCertificate: pulumi.Output<outputs.cloudfront.MultitenantDistributionViewerCertificate | undefined>;
+    declare public readonly viewerCertificate: pulumi.Output<outputs.cloudfront.MultitenantDistributionViewerCertificate>;
     /**
      * Unique identifier that specifies the AWS WAF v2 web ACL to associate with this distribution.
      */
@@ -285,8 +285,17 @@ export class MultitenantDistribution extends pulumi.CustomResource {
             if (args?.comment === undefined && !opts.urn) {
                 throw new Error("Missing required property 'comment'");
             }
+            if (args?.defaultCacheBehavior === undefined && !opts.urn) {
+                throw new Error("Missing required property 'defaultCacheBehavior'");
+            }
             if (args?.enabled === undefined && !opts.urn) {
                 throw new Error("Missing required property 'enabled'");
+            }
+            if (args?.tenantConfig === undefined && !opts.urn) {
+                throw new Error("Missing required property 'tenantConfig'");
+            }
+            if (args?.viewerCertificate === undefined && !opts.urn) {
+                throw new Error("Missing required property 'viewerCertificate'");
             }
             resourceInputs["activeTrustedKeyGroups"] = args?.activeTrustedKeyGroups;
             resourceInputs["cacheBehaviors"] = args?.cacheBehaviors;
@@ -445,7 +454,7 @@ export interface MultitenantDistributionArgs {
     /**
      * Default cache behavior for this distribution. See Default Cache Behavior below.
      */
-    defaultCacheBehavior?: pulumi.Input<inputs.cloudfront.MultitenantDistributionDefaultCacheBehavior>;
+    defaultCacheBehavior: pulumi.Input<inputs.cloudfront.MultitenantDistributionDefaultCacheBehavior>;
     /**
      * Object that you want CloudFront to return when an end user requests the root URL.
      */
@@ -477,12 +486,12 @@ export interface MultitenantDistributionArgs {
     /**
      * Tenant configuration that contains parameter definitions for multi-tenant distributions. See Tenant Config below.
      */
-    tenantConfig?: pulumi.Input<inputs.cloudfront.MultitenantDistributionTenantConfig>;
+    tenantConfig: pulumi.Input<inputs.cloudfront.MultitenantDistributionTenantConfig>;
     timeouts?: pulumi.Input<inputs.cloudfront.MultitenantDistributionTimeouts>;
     /**
      * SSL configuration for this distribution. See Viewer Certificate below.
      */
-    viewerCertificate?: pulumi.Input<inputs.cloudfront.MultitenantDistributionViewerCertificate>;
+    viewerCertificate: pulumi.Input<inputs.cloudfront.MultitenantDistributionViewerCertificate>;
     /**
      * Unique identifier that specifies the AWS WAF v2 web ACL to associate with this distribution.
      */
