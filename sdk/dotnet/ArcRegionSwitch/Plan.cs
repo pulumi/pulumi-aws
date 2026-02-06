@@ -244,21 +244,21 @@ namespace Pulumi.Aws.ArcRegionSwitch
     ///                 },
     ///             },
     ///         },
-    ///         Trigger = new[]
+    ///         Triggers = new[]
     ///         {
-    ///             
+    ///             new Aws.ArcRegionSwitch.Inputs.PlanTriggerArgs
     ///             {
-    ///                 { "action", "activate" },
-    ///                 { "targetRegion", "us-west-2" },
-    ///                 { "minDelayMinutesBetweenExecutions", 30 },
-    ///                 { "conditions", new[]
+    ///                 Action = "activate",
+    ///                 TargetRegion = "us-west-2",
+    ///                 MinDelayMinutesBetweenExecutions = 30,
+    ///                 Conditions = new[]
     ///                 {
-    ///                     
+    ///                     new Aws.ArcRegionSwitch.Inputs.PlanTriggerConditionArgs
     ///                     {
-    ///                         { "associatedAlarmName", "application-health-alarm" },
-    ///                         { "condition", "red" },
+    ///                         AssociatedAlarmName = "application-health-alarm",
+    ///                         Condition = "red",
     ///                     },
-    ///                 } },
+    ///                 },
     ///             },
     ///         },
     ///         Tags = 
@@ -357,7 +357,7 @@ namespace Pulumi.Aws.ArcRegionSwitch
         public Output<Outputs.PlanTimeouts?> Timeouts { get; private set; } = null!;
 
         /// <summary>
-        /// Set of triggers that can initiate the plan execution. See Trigger below.
+        /// Set of triggers that can initiate the plan execution. See Triggers below.
         /// </summary>
         [Output("triggers")]
         public Output<ImmutableArray<Outputs.PlanTrigger>> Triggers { get; private set; } = null!;
@@ -501,7 +501,7 @@ namespace Pulumi.Aws.ArcRegionSwitch
         private InputList<Inputs.PlanTriggerArgs>? _triggers;
 
         /// <summary>
-        /// Set of triggers that can initiate the plan execution. See Trigger below.
+        /// Set of triggers that can initiate the plan execution. See Triggers below.
         /// </summary>
         public InputList<Inputs.PlanTriggerArgs> Triggers
         {
@@ -634,7 +634,7 @@ namespace Pulumi.Aws.ArcRegionSwitch
         private InputList<Inputs.PlanTriggerGetArgs>? _triggers;
 
         /// <summary>
-        /// Set of triggers that can initiate the plan execution. See Trigger below.
+        /// Set of triggers that can initiate the plan execution. See Triggers below.
         /// </summary>
         public InputList<Inputs.PlanTriggerGetArgs> Triggers
         {

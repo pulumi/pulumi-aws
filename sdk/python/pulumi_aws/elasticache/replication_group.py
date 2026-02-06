@@ -70,7 +70,7 @@ class ReplicationGroupArgs:
                When `engine` is `redis`, default is `false`.
                When `engine` is `valkey`, default is `true`.
         :param pulumi.Input[_builtins.str] auth_token: Password used to access a password protected server. Can be specified only if `transit_encryption_enabled = true`.
-        :param pulumi.Input[_builtins.str] auth_token_update_strategy: Strategy used when modifying `auth_token` on an existing replication group. Not used during initial create. Valid values are `SET`, `ROTATE`, and `DELETE`. If omitted during an auth token change, AWS defaults to `ROTATE`.
+        :param pulumi.Input[_builtins.str] auth_token_update_strategy: Strategy used when modifying `auth_token` on an existing replication group. Not used during initial create. Valid values are `SET`, `ROTATE`, and `DELETE`. If omitted during an auth token change, AWS defaults to `ROTATE`. If value is `DELETE` then `auth_token` must be omitted.
         :param pulumi.Input[_builtins.bool] auto_minor_version_upgrade: Specifies whether minor version engine upgrades will be applied automatically to the underlying Cache Cluster instances during the maintenance window.
                Only supported for engine types `"redis"` and `"valkey"` and if the engine version is 6 or higher.
                Defaults to `true`.
@@ -275,7 +275,7 @@ class ReplicationGroupArgs:
     @pulumi.getter(name="authTokenUpdateStrategy")
     def auth_token_update_strategy(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Strategy used when modifying `auth_token` on an existing replication group. Not used during initial create. Valid values are `SET`, `ROTATE`, and `DELETE`. If omitted during an auth token change, AWS defaults to `ROTATE`.
+        Strategy used when modifying `auth_token` on an existing replication group. Not used during initial create. Valid values are `SET`, `ROTATE`, and `DELETE`. If omitted during an auth token change, AWS defaults to `ROTATE`. If value is `DELETE` then `auth_token` must be omitted.
         """
         return pulumi.get(self, "auth_token_update_strategy")
 
@@ -807,7 +807,7 @@ class _ReplicationGroupState:
                When `engine` is `redis`, default is `false`.
                When `engine` is `valkey`, default is `true`.
         :param pulumi.Input[_builtins.str] auth_token: Password used to access a password protected server. Can be specified only if `transit_encryption_enabled = true`.
-        :param pulumi.Input[_builtins.str] auth_token_update_strategy: Strategy used when modifying `auth_token` on an existing replication group. Not used during initial create. Valid values are `SET`, `ROTATE`, and `DELETE`. If omitted during an auth token change, AWS defaults to `ROTATE`.
+        :param pulumi.Input[_builtins.str] auth_token_update_strategy: Strategy used when modifying `auth_token` on an existing replication group. Not used during initial create. Valid values are `SET`, `ROTATE`, and `DELETE`. If omitted during an auth token change, AWS defaults to `ROTATE`. If value is `DELETE` then `auth_token` must be omitted.
         :param pulumi.Input[_builtins.bool] auto_minor_version_upgrade: Specifies whether minor version engine upgrades will be applied automatically to the underlying Cache Cluster instances during the maintenance window.
                Only supported for engine types `"redis"` and `"valkey"` and if the engine version is 6 or higher.
                Defaults to `true`.
@@ -1037,7 +1037,7 @@ class _ReplicationGroupState:
     @pulumi.getter(name="authTokenUpdateStrategy")
     def auth_token_update_strategy(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Strategy used when modifying `auth_token` on an existing replication group. Not used during initial create. Valid values are `SET`, `ROTATE`, and `DELETE`. If omitted during an auth token change, AWS defaults to `ROTATE`.
+        Strategy used when modifying `auth_token` on an existing replication group. Not used during initial create. Valid values are `SET`, `ROTATE`, and `DELETE`. If omitted during an auth token change, AWS defaults to `ROTATE`. If value is `DELETE` then `auth_token` must be omitted.
         """
         return pulumi.get(self, "auth_token_update_strategy")
 
@@ -1880,7 +1880,7 @@ class ReplicationGroup(pulumi.CustomResource):
                When `engine` is `redis`, default is `false`.
                When `engine` is `valkey`, default is `true`.
         :param pulumi.Input[_builtins.str] auth_token: Password used to access a password protected server. Can be specified only if `transit_encryption_enabled = true`.
-        :param pulumi.Input[_builtins.str] auth_token_update_strategy: Strategy used when modifying `auth_token` on an existing replication group. Not used during initial create. Valid values are `SET`, `ROTATE`, and `DELETE`. If omitted during an auth token change, AWS defaults to `ROTATE`.
+        :param pulumi.Input[_builtins.str] auth_token_update_strategy: Strategy used when modifying `auth_token` on an existing replication group. Not used during initial create. Valid values are `SET`, `ROTATE`, and `DELETE`. If omitted during an auth token change, AWS defaults to `ROTATE`. If value is `DELETE` then `auth_token` must be omitted.
         :param pulumi.Input[_builtins.bool] auto_minor_version_upgrade: Specifies whether minor version engine upgrades will be applied automatically to the underlying Cache Cluster instances during the maintenance window.
                Only supported for engine types `"redis"` and `"valkey"` and if the engine version is 6 or higher.
                Defaults to `true`.
@@ -2366,7 +2366,7 @@ class ReplicationGroup(pulumi.CustomResource):
                When `engine` is `redis`, default is `false`.
                When `engine` is `valkey`, default is `true`.
         :param pulumi.Input[_builtins.str] auth_token: Password used to access a password protected server. Can be specified only if `transit_encryption_enabled = true`.
-        :param pulumi.Input[_builtins.str] auth_token_update_strategy: Strategy used when modifying `auth_token` on an existing replication group. Not used during initial create. Valid values are `SET`, `ROTATE`, and `DELETE`. If omitted during an auth token change, AWS defaults to `ROTATE`.
+        :param pulumi.Input[_builtins.str] auth_token_update_strategy: Strategy used when modifying `auth_token` on an existing replication group. Not used during initial create. Valid values are `SET`, `ROTATE`, and `DELETE`. If omitted during an auth token change, AWS defaults to `ROTATE`. If value is `DELETE` then `auth_token` must be omitted.
         :param pulumi.Input[_builtins.bool] auto_minor_version_upgrade: Specifies whether minor version engine upgrades will be applied automatically to the underlying Cache Cluster instances during the maintenance window.
                Only supported for engine types `"redis"` and `"valkey"` and if the engine version is 6 or higher.
                Defaults to `true`.
@@ -2536,7 +2536,7 @@ class ReplicationGroup(pulumi.CustomResource):
     @pulumi.getter(name="authTokenUpdateStrategy")
     def auth_token_update_strategy(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        Strategy used when modifying `auth_token` on an existing replication group. Not used during initial create. Valid values are `SET`, `ROTATE`, and `DELETE`. If omitted during an auth token change, AWS defaults to `ROTATE`.
+        Strategy used when modifying `auth_token` on an existing replication group. Not used during initial create. Valid values are `SET`, `ROTATE`, and `DELETE`. If omitted during an auth token change, AWS defaults to `ROTATE`. If value is `DELETE` then `auth_token` must be omitted.
         """
         return pulumi.get(self, "auth_token_update_strategy")
 

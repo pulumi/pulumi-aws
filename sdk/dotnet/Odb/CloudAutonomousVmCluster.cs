@@ -165,6 +165,12 @@ namespace Pulumi.Aws.Odb
         [Output("availableCpus")]
         public Output<double> AvailableCpus { get; private set; } = null!;
 
+        /// <summary>
+        /// The unique identifier of the Exadata infrastructure for this VM cluster. Changing this will create a new resource.
+        /// </summary>
+        [Output("cloudExadataInfrastructureArn")]
+        public Output<string> CloudExadataInfrastructureArn { get; private set; } = null!;
+
         [Output("cloudExadataInfrastructureId")]
         public Output<string> CloudExadataInfrastructureId { get; private set; } = null!;
 
@@ -296,6 +302,12 @@ namespace Pulumi.Aws.Odb
         /// </summary>
         [Output("ocid")]
         public Output<string> Ocid { get; private set; } = null!;
+
+        /// <summary>
+        /// The unique identifier of the ODB network for the VM cluster. This member is required. Changing this will create a new resource.
+        /// </summary>
+        [Output("odbNetworkArn")]
+        public Output<string> OdbNetworkArn { get; private set; } = null!;
 
         [Output("odbNetworkId")]
         public Output<string> OdbNetworkId { get; private set; } = null!;
@@ -454,8 +466,14 @@ namespace Pulumi.Aws.Odb
         [Input("autonomousDataStorageSizeInTbs", required: true)]
         public Input<double> AutonomousDataStorageSizeInTbs { get; set; } = null!;
 
-        [Input("cloudExadataInfrastructureId", required: true)]
-        public Input<string> CloudExadataInfrastructureId { get; set; } = null!;
+        /// <summary>
+        /// The unique identifier of the Exadata infrastructure for this VM cluster. Changing this will create a new resource.
+        /// </summary>
+        [Input("cloudExadataInfrastructureArn")]
+        public Input<string>? CloudExadataInfrastructureArn { get; set; }
+
+        [Input("cloudExadataInfrastructureId")]
+        public Input<string>? CloudExadataInfrastructureId { get; set; }
 
         /// <summary>
         /// The number of CPU cores enabled per node in the Autonomous VM cluster.
@@ -495,8 +513,14 @@ namespace Pulumi.Aws.Odb
         [Input("memoryPerOracleComputeUnitInGbs", required: true)]
         public Input<int> MemoryPerOracleComputeUnitInGbs { get; set; } = null!;
 
-        [Input("odbNetworkId", required: true)]
-        public Input<string> OdbNetworkId { get; set; } = null!;
+        /// <summary>
+        /// The unique identifier of the ODB network for the VM cluster. This member is required. Changing this will create a new resource.
+        /// </summary>
+        [Input("odbNetworkArn")]
+        public Input<string>? OdbNetworkArn { get; set; }
+
+        [Input("odbNetworkId")]
+        public Input<string>? OdbNetworkId { get; set; }
 
         /// <summary>
         /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -571,6 +595,12 @@ namespace Pulumi.Aws.Odb
         /// </summary>
         [Input("availableCpus")]
         public Input<double>? AvailableCpus { get; set; }
+
+        /// <summary>
+        /// The unique identifier of the Exadata infrastructure for this VM cluster. Changing this will create a new resource.
+        /// </summary>
+        [Input("cloudExadataInfrastructureArn")]
+        public Input<string>? CloudExadataInfrastructureArn { get; set; }
 
         [Input("cloudExadataInfrastructureId")]
         public Input<string>? CloudExadataInfrastructureId { get; set; }
@@ -708,6 +738,12 @@ namespace Pulumi.Aws.Odb
         /// </summary>
         [Input("ocid")]
         public Input<string>? Ocid { get; set; }
+
+        /// <summary>
+        /// The unique identifier of the ODB network for the VM cluster. This member is required. Changing this will create a new resource.
+        /// </summary>
+        [Input("odbNetworkArn")]
+        public Input<string>? OdbNetworkArn { get; set; }
 
         [Input("odbNetworkId")]
         public Input<string>? OdbNetworkId { get; set; }

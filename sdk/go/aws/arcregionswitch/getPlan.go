@@ -55,6 +55,8 @@ type LookupPlanArgs struct {
 	// ARN of the ARC Region Switch Plan.
 	Arn string `pulumi:"arn"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	//
+	// Deprecated: This attribute will be removed in a future version of the provider.
 	Region *string `pulumi:"region"`
 }
 
@@ -76,8 +78,9 @@ type LookupPlanResult struct {
 	// Recovery approach for the plan.
 	RecoveryApproach string `pulumi:"recoveryApproach"`
 	// Recovery time objective in minutes.
-	RecoveryTimeObjectiveMinutes int    `pulumi:"recoveryTimeObjectiveMinutes"`
-	Region                       string `pulumi:"region"`
+	RecoveryTimeObjectiveMinutes int `pulumi:"recoveryTimeObjectiveMinutes"`
+	// Deprecated: This attribute will be removed in a future version of the provider.
+	Region string `pulumi:"region"`
 	// List of regions included in the plan.
 	Regions []string `pulumi:"regions"`
 	// Map of tags assigned to the resource.
@@ -102,6 +105,8 @@ type LookupPlanOutputArgs struct {
 	// ARN of the ARC Region Switch Plan.
 	Arn pulumi.StringInput `pulumi:"arn"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	//
+	// Deprecated: This attribute will be removed in a future version of the provider.
 	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
@@ -168,6 +173,7 @@ func (o LookupPlanResultOutput) RecoveryTimeObjectiveMinutes() pulumi.IntOutput 
 	return o.ApplyT(func(v LookupPlanResult) int { return v.RecoveryTimeObjectiveMinutes }).(pulumi.IntOutput)
 }
 
+// Deprecated: This attribute will be removed in a future version of the provider.
 func (o LookupPlanResultOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupPlanResult) string { return v.Region }).(pulumi.StringOutput)
 }

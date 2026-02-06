@@ -394,28 +394,28 @@ public class ServerlessCache extends com.pulumi.resources.CustomResource {
         return this.securityGroupIds;
     }
     /**
-     * The list of ARN(s) of the snapshot that the new serverless cache will be created from. Available for Redis only.
+     * The list of ARN(s) of the snapshot that the new serverless cache will be created from. Only supported for engine types `&#34;redis&#34;` or `&#34;valkey&#34;`.
      * 
      */
     @Export(name="snapshotArnsToRestores", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> snapshotArnsToRestores;
 
     /**
-     * @return The list of ARN(s) of the snapshot that the new serverless cache will be created from. Available for Redis only.
+     * @return The list of ARN(s) of the snapshot that the new serverless cache will be created from. Only supported for engine types `&#34;redis&#34;` or `&#34;valkey&#34;`.
      * 
      */
     public Output<Optional<List<String>>> snapshotArnsToRestores() {
         return Codegen.optional(this.snapshotArnsToRestores);
     }
     /**
-     * The number of snapshots that will be retained for the serverless cache that is being created. As new snapshots beyond this limit are added, the oldest snapshots will be deleted on a rolling basis. Available for Redis only.
+     * The number of snapshots that will be retained for the serverless cache that is being created. As new snapshots beyond this limit are added, the oldest snapshots will be deleted on a rolling basis. Only supported for engine types `&#34;redis&#34;` or `&#34;valkey&#34;`.
      * 
      */
     @Export(name="snapshotRetentionLimit", refs={Integer.class}, tree="[0]")
     private Output<Integer> snapshotRetentionLimit;
 
     /**
-     * @return The number of snapshots that will be retained for the serverless cache that is being created. As new snapshots beyond this limit are added, the oldest snapshots will be deleted on a rolling basis. Available for Redis only.
+     * @return The number of snapshots that will be retained for the serverless cache that is being created. As new snapshots beyond this limit are added, the oldest snapshots will be deleted on a rolling basis. Only supported for engine types `&#34;redis&#34;` or `&#34;valkey&#34;`.
      * 
      */
     public Output<Integer> snapshotRetentionLimit() {

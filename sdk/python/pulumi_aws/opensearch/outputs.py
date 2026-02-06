@@ -26,6 +26,7 @@ __all__ = [
     'DomainAimlOptions',
     'DomainAimlOptionsNaturalLanguageQueryGenerationOptions',
     'DomainAimlOptionsS3VectorsEngine',
+    'DomainAimlOptionsServerlessVectorAcceleration',
     'DomainAutoTuneOptions',
     'DomainAutoTuneOptionsMaintenanceSchedule',
     'DomainAutoTuneOptionsMaintenanceScheduleDuration',
@@ -472,6 +473,8 @@ class DomainAimlOptions(dict):
             suggest = "natural_language_query_generation_options"
         elif key == "s3VectorsEngine":
             suggest = "s3_vectors_engine"
+        elif key == "serverlessVectorAcceleration":
+            suggest = "serverless_vector_acceleration"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in DomainAimlOptions. Access the value via the '{suggest}' property getter instead.")
@@ -486,15 +489,19 @@ class DomainAimlOptions(dict):
 
     def __init__(__self__, *,
                  natural_language_query_generation_options: Optional['outputs.DomainAimlOptionsNaturalLanguageQueryGenerationOptions'] = None,
-                 s3_vectors_engine: Optional['outputs.DomainAimlOptionsS3VectorsEngine'] = None):
+                 s3_vectors_engine: Optional['outputs.DomainAimlOptionsS3VectorsEngine'] = None,
+                 serverless_vector_acceleration: Optional['outputs.DomainAimlOptionsServerlessVectorAcceleration'] = None):
         """
         :param 'DomainAimlOptionsNaturalLanguageQueryGenerationOptionsArgs' natural_language_query_generation_options: Configuration block for parameters required for natural language query generation on the specified domain.
         :param 'DomainAimlOptionsS3VectorsEngineArgs' s3_vectors_engine: Configuration block for parameters required to enable S3 vectors engine features on the specified domain.
+        :param 'DomainAimlOptionsServerlessVectorAccelerationArgs' serverless_vector_acceleration: Configuration block for parameters required to enable GPU-accelerated vector search on the specified domain.
         """
         if natural_language_query_generation_options is not None:
             pulumi.set(__self__, "natural_language_query_generation_options", natural_language_query_generation_options)
         if s3_vectors_engine is not None:
             pulumi.set(__self__, "s3_vectors_engine", s3_vectors_engine)
+        if serverless_vector_acceleration is not None:
+            pulumi.set(__self__, "serverless_vector_acceleration", serverless_vector_acceleration)
 
     @_builtins.property
     @pulumi.getter(name="naturalLanguageQueryGenerationOptions")
@@ -511,6 +518,14 @@ class DomainAimlOptions(dict):
         Configuration block for parameters required to enable S3 vectors engine features on the specified domain.
         """
         return pulumi.get(self, "s3_vectors_engine")
+
+    @_builtins.property
+    @pulumi.getter(name="serverlessVectorAcceleration")
+    def serverless_vector_acceleration(self) -> Optional['outputs.DomainAimlOptionsServerlessVectorAcceleration']:
+        """
+        Configuration block for parameters required to enable GPU-accelerated vector search on the specified domain.
+        """
+        return pulumi.get(self, "serverless_vector_acceleration")
 
 
 @pulumi.output_type
@@ -564,6 +579,25 @@ class DomainAimlOptionsS3VectorsEngine(dict):
     def enabled(self) -> Optional[_builtins.bool]:
         """
         Enables S3 vectors engine features.
+        """
+        return pulumi.get(self, "enabled")
+
+
+@pulumi.output_type
+class DomainAimlOptionsServerlessVectorAcceleration(dict):
+    def __init__(__self__, *,
+                 enabled: Optional[_builtins.bool] = None):
+        """
+        :param _builtins.bool enabled: Enables GPU-accelerated vector search for improved performance on vector workloads.
+        """
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+
+    @_builtins.property
+    @pulumi.getter
+    def enabled(self) -> Optional[_builtins.bool]:
+        """
+        Enables GPU-accelerated vector search for improved performance on vector workloads.
         """
         return pulumi.get(self, "enabled")
 

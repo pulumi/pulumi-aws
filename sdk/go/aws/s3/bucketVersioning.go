@@ -169,8 +169,6 @@ import (
 //
 // * `account_id` (String) AWS Account where this resource is managed.
 //
-// * `expected_bucket_owner` (String) Account ID of the expected bucket owner.
-//
 // * `region` (String) Region where this resource is managed.
 //
 // If the owner (account ID) of the source bucket differs from the account used to configure the AWS Provider, import using the `bucket` and `expected_bucket_owner` separated by a comma (`,`):
@@ -200,6 +198,8 @@ type BucketVersioning struct {
 	// Name of the S3 bucket.
 	Bucket pulumi.StringOutput `pulumi:"bucket"`
 	// Account ID of the expected bucket owner.
+	//
+	// Deprecated: expected_bucket_owner is deprecated. It will be removed in a future verion of the provider.
 	ExpectedBucketOwner pulumi.StringPtrOutput `pulumi:"expectedBucketOwner"`
 	// Concatenation of the authentication device's serial number, a space, and the value that is displayed on your authentication device.
 	Mfa pulumi.StringPtrOutput `pulumi:"mfa"`
@@ -254,6 +254,8 @@ type bucketVersioningState struct {
 	// Name of the S3 bucket.
 	Bucket *string `pulumi:"bucket"`
 	// Account ID of the expected bucket owner.
+	//
+	// Deprecated: expected_bucket_owner is deprecated. It will be removed in a future verion of the provider.
 	ExpectedBucketOwner *string `pulumi:"expectedBucketOwner"`
 	// Concatenation of the authentication device's serial number, a space, and the value that is displayed on your authentication device.
 	Mfa *string `pulumi:"mfa"`
@@ -267,6 +269,8 @@ type BucketVersioningState struct {
 	// Name of the S3 bucket.
 	Bucket pulumi.StringPtrInput
 	// Account ID of the expected bucket owner.
+	//
+	// Deprecated: expected_bucket_owner is deprecated. It will be removed in a future verion of the provider.
 	ExpectedBucketOwner pulumi.StringPtrInput
 	// Concatenation of the authentication device's serial number, a space, and the value that is displayed on your authentication device.
 	Mfa pulumi.StringPtrInput
@@ -284,6 +288,8 @@ type bucketVersioningArgs struct {
 	// Name of the S3 bucket.
 	Bucket string `pulumi:"bucket"`
 	// Account ID of the expected bucket owner.
+	//
+	// Deprecated: expected_bucket_owner is deprecated. It will be removed in a future verion of the provider.
 	ExpectedBucketOwner *string `pulumi:"expectedBucketOwner"`
 	// Concatenation of the authentication device's serial number, a space, and the value that is displayed on your authentication device.
 	Mfa *string `pulumi:"mfa"`
@@ -298,6 +304,8 @@ type BucketVersioningArgs struct {
 	// Name of the S3 bucket.
 	Bucket pulumi.StringInput
 	// Account ID of the expected bucket owner.
+	//
+	// Deprecated: expected_bucket_owner is deprecated. It will be removed in a future verion of the provider.
 	ExpectedBucketOwner pulumi.StringPtrInput
 	// Concatenation of the authentication device's serial number, a space, and the value that is displayed on your authentication device.
 	Mfa pulumi.StringPtrInput
@@ -400,6 +408,8 @@ func (o BucketVersioningOutput) Bucket() pulumi.StringOutput {
 }
 
 // Account ID of the expected bucket owner.
+//
+// Deprecated: expected_bucket_owner is deprecated. It will be removed in a future verion of the provider.
 func (o BucketVersioningOutput) ExpectedBucketOwner() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BucketVersioning) pulumi.StringPtrOutput { return v.ExpectedBucketOwner }).(pulumi.StringPtrOutput)
 }

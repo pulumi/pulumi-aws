@@ -69,6 +69,8 @@ type BucketRequestPaymentConfigurationV2 struct {
 	// Name of the bucket.
 	Bucket pulumi.StringOutput `pulumi:"bucket"`
 	// Account ID of the expected bucket owner.
+	//
+	// Deprecated: expected_bucket_owner is deprecated. It will be removed in a future verion of the provider.
 	ExpectedBucketOwner pulumi.StringPtrOutput `pulumi:"expectedBucketOwner"`
 	// Specifies who pays for the download and request fees. Valid values: `BucketOwner`, `Requester`.
 	Payer pulumi.StringOutput `pulumi:"payer"`
@@ -121,6 +123,8 @@ type bucketRequestPaymentConfigurationV2State struct {
 	// Name of the bucket.
 	Bucket *string `pulumi:"bucket"`
 	// Account ID of the expected bucket owner.
+	//
+	// Deprecated: expected_bucket_owner is deprecated. It will be removed in a future verion of the provider.
 	ExpectedBucketOwner *string `pulumi:"expectedBucketOwner"`
 	// Specifies who pays for the download and request fees. Valid values: `BucketOwner`, `Requester`.
 	Payer *string `pulumi:"payer"`
@@ -132,6 +136,8 @@ type BucketRequestPaymentConfigurationV2State struct {
 	// Name of the bucket.
 	Bucket pulumi.StringPtrInput
 	// Account ID of the expected bucket owner.
+	//
+	// Deprecated: expected_bucket_owner is deprecated. It will be removed in a future verion of the provider.
 	ExpectedBucketOwner pulumi.StringPtrInput
 	// Specifies who pays for the download and request fees. Valid values: `BucketOwner`, `Requester`.
 	Payer pulumi.StringPtrInput
@@ -147,6 +153,8 @@ type bucketRequestPaymentConfigurationV2Args struct {
 	// Name of the bucket.
 	Bucket string `pulumi:"bucket"`
 	// Account ID of the expected bucket owner.
+	//
+	// Deprecated: expected_bucket_owner is deprecated. It will be removed in a future verion of the provider.
 	ExpectedBucketOwner *string `pulumi:"expectedBucketOwner"`
 	// Specifies who pays for the download and request fees. Valid values: `BucketOwner`, `Requester`.
 	Payer string `pulumi:"payer"`
@@ -159,6 +167,8 @@ type BucketRequestPaymentConfigurationV2Args struct {
 	// Name of the bucket.
 	Bucket pulumi.StringInput
 	// Account ID of the expected bucket owner.
+	//
+	// Deprecated: expected_bucket_owner is deprecated. It will be removed in a future verion of the provider.
 	ExpectedBucketOwner pulumi.StringPtrInput
 	// Specifies who pays for the download and request fees. Valid values: `BucketOwner`, `Requester`.
 	Payer pulumi.StringInput
@@ -259,6 +269,8 @@ func (o BucketRequestPaymentConfigurationV2Output) Bucket() pulumi.StringOutput 
 }
 
 // Account ID of the expected bucket owner.
+//
+// Deprecated: expected_bucket_owner is deprecated. It will be removed in a future verion of the provider.
 func (o BucketRequestPaymentConfigurationV2Output) ExpectedBucketOwner() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BucketRequestPaymentConfigurationV2) pulumi.StringPtrOutput { return v.ExpectedBucketOwner }).(pulumi.StringPtrOutput)
 }

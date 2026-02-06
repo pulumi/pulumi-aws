@@ -15,6 +15,11 @@ export const getPrimaryContact: typeof import("./getPrimaryContact").getPrimaryC
 export const getPrimaryContactOutput: typeof import("./getPrimaryContact").getPrimaryContactOutput = null as any;
 utilities.lazyLoad(exports, ["getPrimaryContact","getPrimaryContactOutput"], () => require("./getPrimaryContact"));
 
+export { GetRegionsArgs, GetRegionsResult, GetRegionsOutputArgs } from "./getRegions";
+export const getRegions: typeof import("./getRegions").getRegions = null as any;
+export const getRegionsOutput: typeof import("./getRegions").getRegionsOutput = null as any;
+utilities.lazyLoad(exports, ["getRegions","getRegionsOutput"], () => require("./getRegions"));
+
 export { PrimaryContactArgs, PrimaryContactState } from "./primaryContact";
 export type PrimaryContact = import("./primaryContact").PrimaryContact;
 export const PrimaryContact: typeof import("./primaryContact").PrimaryContact = null as any;

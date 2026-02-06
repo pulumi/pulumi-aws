@@ -35,6 +35,11 @@ export type CustomerManagedPolicyAttachment = import("./customerManagedPolicyAtt
 export const CustomerManagedPolicyAttachment: typeof import("./customerManagedPolicyAttachment").CustomerManagedPolicyAttachment = null as any;
 utilities.lazyLoad(exports, ["CustomerManagedPolicyAttachment"], () => require("./customerManagedPolicyAttachment"));
 
+export { CustomerManagedPolicyAttachmentsExclusiveArgs, CustomerManagedPolicyAttachmentsExclusiveState } from "./customerManagedPolicyAttachmentsExclusive";
+export type CustomerManagedPolicyAttachmentsExclusive = import("./customerManagedPolicyAttachmentsExclusive").CustomerManagedPolicyAttachmentsExclusive;
+export const CustomerManagedPolicyAttachmentsExclusive: typeof import("./customerManagedPolicyAttachmentsExclusive").CustomerManagedPolicyAttachmentsExclusive = null as any;
+utilities.lazyLoad(exports, ["CustomerManagedPolicyAttachmentsExclusive"], () => require("./customerManagedPolicyAttachmentsExclusive"));
+
 export { GetApplicationArgs, GetApplicationResult, GetApplicationOutputArgs } from "./getApplication";
 export const getApplication: typeof import("./getApplication").getApplication = null as any;
 export const getApplicationOutput: typeof import("./getApplication").getApplicationOutput = null as any;
@@ -122,6 +127,8 @@ const _module = {
                 return new ApplicationAssignmentConfiguration(name, <any>undefined, { urn })
             case "aws:ssoadmin/customerManagedPolicyAttachment:CustomerManagedPolicyAttachment":
                 return new CustomerManagedPolicyAttachment(name, <any>undefined, { urn })
+            case "aws:ssoadmin/customerManagedPolicyAttachmentsExclusive:CustomerManagedPolicyAttachmentsExclusive":
+                return new CustomerManagedPolicyAttachmentsExclusive(name, <any>undefined, { urn })
             case "aws:ssoadmin/instanceAccessControlAttributes:InstanceAccessControlAttributes":
                 return new InstanceAccessControlAttributes(name, <any>undefined, { urn })
             case "aws:ssoadmin/managedPolicyAttachment:ManagedPolicyAttachment":
@@ -147,6 +154,7 @@ pulumi.runtime.registerResourceModule("aws", "ssoadmin/applicationAccessScope", 
 pulumi.runtime.registerResourceModule("aws", "ssoadmin/applicationAssignment", _module)
 pulumi.runtime.registerResourceModule("aws", "ssoadmin/applicationAssignmentConfiguration", _module)
 pulumi.runtime.registerResourceModule("aws", "ssoadmin/customerManagedPolicyAttachment", _module)
+pulumi.runtime.registerResourceModule("aws", "ssoadmin/customerManagedPolicyAttachmentsExclusive", _module)
 pulumi.runtime.registerResourceModule("aws", "ssoadmin/instanceAccessControlAttributes", _module)
 pulumi.runtime.registerResourceModule("aws", "ssoadmin/managedPolicyAttachment", _module)
 pulumi.runtime.registerResourceModule("aws", "ssoadmin/managedPolicyAttachmentsExclusive", _module)

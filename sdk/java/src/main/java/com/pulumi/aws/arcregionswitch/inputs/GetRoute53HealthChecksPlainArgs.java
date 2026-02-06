@@ -33,14 +33,22 @@ public final class GetRoute53HealthChecksPlainArgs extends com.pulumi.resources.
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      * 
+     * @deprecated
+     * This attribute will be removed in a future version of the provider.
+     * 
      */
+    @Deprecated /* This attribute will be removed in a future version of the provider. */
     @Import(name="region")
     private @Nullable String region;
 
     /**
      * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      * 
+     * @deprecated
+     * This attribute will be removed in a future version of the provider.
+     * 
      */
+    @Deprecated /* This attribute will be removed in a future version of the provider. */
     public Optional<String> region() {
         return Optional.ofNullable(this.region);
     }
@@ -86,7 +94,11 @@ public final class GetRoute53HealthChecksPlainArgs extends com.pulumi.resources.
          * 
          * @return builder
          * 
+         * @deprecated
+         * This attribute will be removed in a future version of the provider.
+         * 
          */
+        @Deprecated /* This attribute will be removed in a future version of the provider. */
         public Builder region(@Nullable String region) {
             $.region = region;
             return this;

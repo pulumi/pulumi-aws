@@ -1072,6 +1072,8 @@ type DomainAimlOptions struct {
 	NaturalLanguageQueryGenerationOptions *DomainAimlOptionsNaturalLanguageQueryGenerationOptions `pulumi:"naturalLanguageQueryGenerationOptions"`
 	// Configuration block for parameters required to enable S3 vectors engine features on the specified domain.
 	S3VectorsEngine *DomainAimlOptionsS3VectorsEngine `pulumi:"s3VectorsEngine"`
+	// Configuration block for parameters required to enable GPU-accelerated vector search on the specified domain.
+	ServerlessVectorAcceleration *DomainAimlOptionsServerlessVectorAcceleration `pulumi:"serverlessVectorAcceleration"`
 }
 
 // DomainAimlOptionsInput is an input type that accepts DomainAimlOptionsArgs and DomainAimlOptionsOutput values.
@@ -1090,6 +1092,8 @@ type DomainAimlOptionsArgs struct {
 	NaturalLanguageQueryGenerationOptions DomainAimlOptionsNaturalLanguageQueryGenerationOptionsPtrInput `pulumi:"naturalLanguageQueryGenerationOptions"`
 	// Configuration block for parameters required to enable S3 vectors engine features on the specified domain.
 	S3VectorsEngine DomainAimlOptionsS3VectorsEnginePtrInput `pulumi:"s3VectorsEngine"`
+	// Configuration block for parameters required to enable GPU-accelerated vector search on the specified domain.
+	ServerlessVectorAcceleration DomainAimlOptionsServerlessVectorAccelerationPtrInput `pulumi:"serverlessVectorAcceleration"`
 }
 
 func (DomainAimlOptionsArgs) ElementType() reflect.Type {
@@ -1181,6 +1185,13 @@ func (o DomainAimlOptionsOutput) S3VectorsEngine() DomainAimlOptionsS3VectorsEng
 	return o.ApplyT(func(v DomainAimlOptions) *DomainAimlOptionsS3VectorsEngine { return v.S3VectorsEngine }).(DomainAimlOptionsS3VectorsEnginePtrOutput)
 }
 
+// Configuration block for parameters required to enable GPU-accelerated vector search on the specified domain.
+func (o DomainAimlOptionsOutput) ServerlessVectorAcceleration() DomainAimlOptionsServerlessVectorAccelerationPtrOutput {
+	return o.ApplyT(func(v DomainAimlOptions) *DomainAimlOptionsServerlessVectorAcceleration {
+		return v.ServerlessVectorAcceleration
+	}).(DomainAimlOptionsServerlessVectorAccelerationPtrOutput)
+}
+
 type DomainAimlOptionsPtrOutput struct{ *pulumi.OutputState }
 
 func (DomainAimlOptionsPtrOutput) ElementType() reflect.Type {
@@ -1223,6 +1234,16 @@ func (o DomainAimlOptionsPtrOutput) S3VectorsEngine() DomainAimlOptionsS3Vectors
 		}
 		return v.S3VectorsEngine
 	}).(DomainAimlOptionsS3VectorsEnginePtrOutput)
+}
+
+// Configuration block for parameters required to enable GPU-accelerated vector search on the specified domain.
+func (o DomainAimlOptionsPtrOutput) ServerlessVectorAcceleration() DomainAimlOptionsServerlessVectorAccelerationPtrOutput {
+	return o.ApplyT(func(v *DomainAimlOptions) *DomainAimlOptionsServerlessVectorAcceleration {
+		if v == nil {
+			return nil
+		}
+		return v.ServerlessVectorAcceleration
+	}).(DomainAimlOptionsServerlessVectorAccelerationPtrOutput)
 }
 
 type DomainAimlOptionsNaturalLanguageQueryGenerationOptions struct {
@@ -1492,6 +1513,143 @@ func (o DomainAimlOptionsS3VectorsEnginePtrOutput) Elem() DomainAimlOptionsS3Vec
 // Enables S3 vectors engine features.
 func (o DomainAimlOptionsS3VectorsEnginePtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *DomainAimlOptionsS3VectorsEngine) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+type DomainAimlOptionsServerlessVectorAcceleration struct {
+	// Enables GPU-accelerated vector search for improved performance on vector workloads.
+	Enabled *bool `pulumi:"enabled"`
+}
+
+// DomainAimlOptionsServerlessVectorAccelerationInput is an input type that accepts DomainAimlOptionsServerlessVectorAccelerationArgs and DomainAimlOptionsServerlessVectorAccelerationOutput values.
+// You can construct a concrete instance of `DomainAimlOptionsServerlessVectorAccelerationInput` via:
+//
+//	DomainAimlOptionsServerlessVectorAccelerationArgs{...}
+type DomainAimlOptionsServerlessVectorAccelerationInput interface {
+	pulumi.Input
+
+	ToDomainAimlOptionsServerlessVectorAccelerationOutput() DomainAimlOptionsServerlessVectorAccelerationOutput
+	ToDomainAimlOptionsServerlessVectorAccelerationOutputWithContext(context.Context) DomainAimlOptionsServerlessVectorAccelerationOutput
+}
+
+type DomainAimlOptionsServerlessVectorAccelerationArgs struct {
+	// Enables GPU-accelerated vector search for improved performance on vector workloads.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+}
+
+func (DomainAimlOptionsServerlessVectorAccelerationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainAimlOptionsServerlessVectorAcceleration)(nil)).Elem()
+}
+
+func (i DomainAimlOptionsServerlessVectorAccelerationArgs) ToDomainAimlOptionsServerlessVectorAccelerationOutput() DomainAimlOptionsServerlessVectorAccelerationOutput {
+	return i.ToDomainAimlOptionsServerlessVectorAccelerationOutputWithContext(context.Background())
+}
+
+func (i DomainAimlOptionsServerlessVectorAccelerationArgs) ToDomainAimlOptionsServerlessVectorAccelerationOutputWithContext(ctx context.Context) DomainAimlOptionsServerlessVectorAccelerationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainAimlOptionsServerlessVectorAccelerationOutput)
+}
+
+func (i DomainAimlOptionsServerlessVectorAccelerationArgs) ToDomainAimlOptionsServerlessVectorAccelerationPtrOutput() DomainAimlOptionsServerlessVectorAccelerationPtrOutput {
+	return i.ToDomainAimlOptionsServerlessVectorAccelerationPtrOutputWithContext(context.Background())
+}
+
+func (i DomainAimlOptionsServerlessVectorAccelerationArgs) ToDomainAimlOptionsServerlessVectorAccelerationPtrOutputWithContext(ctx context.Context) DomainAimlOptionsServerlessVectorAccelerationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainAimlOptionsServerlessVectorAccelerationOutput).ToDomainAimlOptionsServerlessVectorAccelerationPtrOutputWithContext(ctx)
+}
+
+// DomainAimlOptionsServerlessVectorAccelerationPtrInput is an input type that accepts DomainAimlOptionsServerlessVectorAccelerationArgs, DomainAimlOptionsServerlessVectorAccelerationPtr and DomainAimlOptionsServerlessVectorAccelerationPtrOutput values.
+// You can construct a concrete instance of `DomainAimlOptionsServerlessVectorAccelerationPtrInput` via:
+//
+//	        DomainAimlOptionsServerlessVectorAccelerationArgs{...}
+//
+//	or:
+//
+//	        nil
+type DomainAimlOptionsServerlessVectorAccelerationPtrInput interface {
+	pulumi.Input
+
+	ToDomainAimlOptionsServerlessVectorAccelerationPtrOutput() DomainAimlOptionsServerlessVectorAccelerationPtrOutput
+	ToDomainAimlOptionsServerlessVectorAccelerationPtrOutputWithContext(context.Context) DomainAimlOptionsServerlessVectorAccelerationPtrOutput
+}
+
+type domainAimlOptionsServerlessVectorAccelerationPtrType DomainAimlOptionsServerlessVectorAccelerationArgs
+
+func DomainAimlOptionsServerlessVectorAccelerationPtr(v *DomainAimlOptionsServerlessVectorAccelerationArgs) DomainAimlOptionsServerlessVectorAccelerationPtrInput {
+	return (*domainAimlOptionsServerlessVectorAccelerationPtrType)(v)
+}
+
+func (*domainAimlOptionsServerlessVectorAccelerationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainAimlOptionsServerlessVectorAcceleration)(nil)).Elem()
+}
+
+func (i *domainAimlOptionsServerlessVectorAccelerationPtrType) ToDomainAimlOptionsServerlessVectorAccelerationPtrOutput() DomainAimlOptionsServerlessVectorAccelerationPtrOutput {
+	return i.ToDomainAimlOptionsServerlessVectorAccelerationPtrOutputWithContext(context.Background())
+}
+
+func (i *domainAimlOptionsServerlessVectorAccelerationPtrType) ToDomainAimlOptionsServerlessVectorAccelerationPtrOutputWithContext(ctx context.Context) DomainAimlOptionsServerlessVectorAccelerationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainAimlOptionsServerlessVectorAccelerationPtrOutput)
+}
+
+type DomainAimlOptionsServerlessVectorAccelerationOutput struct{ *pulumi.OutputState }
+
+func (DomainAimlOptionsServerlessVectorAccelerationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainAimlOptionsServerlessVectorAcceleration)(nil)).Elem()
+}
+
+func (o DomainAimlOptionsServerlessVectorAccelerationOutput) ToDomainAimlOptionsServerlessVectorAccelerationOutput() DomainAimlOptionsServerlessVectorAccelerationOutput {
+	return o
+}
+
+func (o DomainAimlOptionsServerlessVectorAccelerationOutput) ToDomainAimlOptionsServerlessVectorAccelerationOutputWithContext(ctx context.Context) DomainAimlOptionsServerlessVectorAccelerationOutput {
+	return o
+}
+
+func (o DomainAimlOptionsServerlessVectorAccelerationOutput) ToDomainAimlOptionsServerlessVectorAccelerationPtrOutput() DomainAimlOptionsServerlessVectorAccelerationPtrOutput {
+	return o.ToDomainAimlOptionsServerlessVectorAccelerationPtrOutputWithContext(context.Background())
+}
+
+func (o DomainAimlOptionsServerlessVectorAccelerationOutput) ToDomainAimlOptionsServerlessVectorAccelerationPtrOutputWithContext(ctx context.Context) DomainAimlOptionsServerlessVectorAccelerationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DomainAimlOptionsServerlessVectorAcceleration) *DomainAimlOptionsServerlessVectorAcceleration {
+		return &v
+	}).(DomainAimlOptionsServerlessVectorAccelerationPtrOutput)
+}
+
+// Enables GPU-accelerated vector search for improved performance on vector workloads.
+func (o DomainAimlOptionsServerlessVectorAccelerationOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DomainAimlOptionsServerlessVectorAcceleration) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+type DomainAimlOptionsServerlessVectorAccelerationPtrOutput struct{ *pulumi.OutputState }
+
+func (DomainAimlOptionsServerlessVectorAccelerationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainAimlOptionsServerlessVectorAcceleration)(nil)).Elem()
+}
+
+func (o DomainAimlOptionsServerlessVectorAccelerationPtrOutput) ToDomainAimlOptionsServerlessVectorAccelerationPtrOutput() DomainAimlOptionsServerlessVectorAccelerationPtrOutput {
+	return o
+}
+
+func (o DomainAimlOptionsServerlessVectorAccelerationPtrOutput) ToDomainAimlOptionsServerlessVectorAccelerationPtrOutputWithContext(ctx context.Context) DomainAimlOptionsServerlessVectorAccelerationPtrOutput {
+	return o
+}
+
+func (o DomainAimlOptionsServerlessVectorAccelerationPtrOutput) Elem() DomainAimlOptionsServerlessVectorAccelerationOutput {
+	return o.ApplyT(func(v *DomainAimlOptionsServerlessVectorAcceleration) DomainAimlOptionsServerlessVectorAcceleration {
+		if v != nil {
+			return *v
+		}
+		var ret DomainAimlOptionsServerlessVectorAcceleration
+		return ret
+	}).(DomainAimlOptionsServerlessVectorAccelerationOutput)
+}
+
+// Enables GPU-accelerated vector search for improved performance on vector workloads.
+func (o DomainAimlOptionsServerlessVectorAccelerationPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DomainAimlOptionsServerlessVectorAcceleration) *bool {
 		if v == nil {
 			return nil
 		}
@@ -9353,6 +9511,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainAimlOptionsNaturalLanguageQueryGenerationOptionsPtrInput)(nil)).Elem(), DomainAimlOptionsNaturalLanguageQueryGenerationOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainAimlOptionsS3VectorsEngineInput)(nil)).Elem(), DomainAimlOptionsS3VectorsEngineArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainAimlOptionsS3VectorsEnginePtrInput)(nil)).Elem(), DomainAimlOptionsS3VectorsEngineArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainAimlOptionsServerlessVectorAccelerationInput)(nil)).Elem(), DomainAimlOptionsServerlessVectorAccelerationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainAimlOptionsServerlessVectorAccelerationPtrInput)(nil)).Elem(), DomainAimlOptionsServerlessVectorAccelerationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainAutoTuneOptionsInput)(nil)).Elem(), DomainAutoTuneOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainAutoTuneOptionsPtrInput)(nil)).Elem(), DomainAutoTuneOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainAutoTuneOptionsMaintenanceScheduleInput)(nil)).Elem(), DomainAutoTuneOptionsMaintenanceScheduleArgs{})
@@ -9479,6 +9639,8 @@ func init() {
 	pulumi.RegisterOutputType(DomainAimlOptionsNaturalLanguageQueryGenerationOptionsPtrOutput{})
 	pulumi.RegisterOutputType(DomainAimlOptionsS3VectorsEngineOutput{})
 	pulumi.RegisterOutputType(DomainAimlOptionsS3VectorsEnginePtrOutput{})
+	pulumi.RegisterOutputType(DomainAimlOptionsServerlessVectorAccelerationOutput{})
+	pulumi.RegisterOutputType(DomainAimlOptionsServerlessVectorAccelerationPtrOutput{})
 	pulumi.RegisterOutputType(DomainAutoTuneOptionsOutput{})
 	pulumi.RegisterOutputType(DomainAutoTuneOptionsPtrOutput{})
 	pulumi.RegisterOutputType(DomainAutoTuneOptionsMaintenanceScheduleOutput{})

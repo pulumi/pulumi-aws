@@ -88,8 +88,6 @@ import (
 //
 // * `account_id` (String) AWS Account where this resource is managed.
 //
-// * `expected_bucket_owner` (String) Account ID of the expected bucket owner.
-//
 // * `region` (String) Region where this resource is managed.
 //
 // If the owner (account ID) of the source bucket differs from the account used to configure the AWS Provider, import using the `bucket` and `expected_bucket_owner` separated by a comma (`,`):
@@ -121,6 +119,8 @@ type BucketCorsConfiguration struct {
 	// Set of origins and methods (cross-origin access that you want to allow). See below. You can configure up to 100 rules.
 	CorsRules BucketCorsConfigurationCorsRuleArrayOutput `pulumi:"corsRules"`
 	// Account ID of the expected bucket owner.
+	//
+	// Deprecated: expected_bucket_owner is deprecated. It will be removed in a future verion of the provider.
 	ExpectedBucketOwner pulumi.StringPtrOutput `pulumi:"expectedBucketOwner"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
@@ -173,6 +173,8 @@ type bucketCorsConfigurationState struct {
 	// Set of origins and methods (cross-origin access that you want to allow). See below. You can configure up to 100 rules.
 	CorsRules []BucketCorsConfigurationCorsRule `pulumi:"corsRules"`
 	// Account ID of the expected bucket owner.
+	//
+	// Deprecated: expected_bucket_owner is deprecated. It will be removed in a future verion of the provider.
 	ExpectedBucketOwner *string `pulumi:"expectedBucketOwner"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
@@ -184,6 +186,8 @@ type BucketCorsConfigurationState struct {
 	// Set of origins and methods (cross-origin access that you want to allow). See below. You can configure up to 100 rules.
 	CorsRules BucketCorsConfigurationCorsRuleArrayInput
 	// Account ID of the expected bucket owner.
+	//
+	// Deprecated: expected_bucket_owner is deprecated. It will be removed in a future verion of the provider.
 	ExpectedBucketOwner pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
@@ -199,6 +203,8 @@ type bucketCorsConfigurationArgs struct {
 	// Set of origins and methods (cross-origin access that you want to allow). See below. You can configure up to 100 rules.
 	CorsRules []BucketCorsConfigurationCorsRule `pulumi:"corsRules"`
 	// Account ID of the expected bucket owner.
+	//
+	// Deprecated: expected_bucket_owner is deprecated. It will be removed in a future verion of the provider.
 	ExpectedBucketOwner *string `pulumi:"expectedBucketOwner"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
@@ -211,6 +217,8 @@ type BucketCorsConfigurationArgs struct {
 	// Set of origins and methods (cross-origin access that you want to allow). See below. You can configure up to 100 rules.
 	CorsRules BucketCorsConfigurationCorsRuleArrayInput
 	// Account ID of the expected bucket owner.
+	//
+	// Deprecated: expected_bucket_owner is deprecated. It will be removed in a future verion of the provider.
 	ExpectedBucketOwner pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
@@ -314,6 +322,8 @@ func (o BucketCorsConfigurationOutput) CorsRules() BucketCorsConfigurationCorsRu
 }
 
 // Account ID of the expected bucket owner.
+//
+// Deprecated: expected_bucket_owner is deprecated. It will be removed in a future verion of the provider.
 func (o BucketCorsConfigurationOutput) ExpectedBucketOwner() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BucketCorsConfiguration) pulumi.StringPtrOutput { return v.ExpectedBucketOwner }).(pulumi.StringPtrOutput)
 }

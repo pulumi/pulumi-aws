@@ -236,10 +236,6 @@ import javax.annotation.Nullable;
  * 
  * * `account_id` (String) AWS Account where this resource is managed.
  * 
- * * `acl` (String) Canned ACL to apply to the bucket.
- * 
- * * `expected_bucket_owner` (String) Account ID of the expected bucket owner.
- * 
  * * `region` (String) Region where this resource is managed.
  * 
  * If the owner (account ID) of the source bucket is the _same_ account used to configure the AWS Provider, and the source bucket is **configured** with a
@@ -356,7 +352,11 @@ public class BucketAclV2 extends com.pulumi.resources.CustomResource {
     /**
      * Account ID of the expected bucket owner.
      * 
+     * @deprecated
+     * expected_bucket_owner is deprecated. It will be removed in a future verion of the provider.
+     * 
      */
+    @Deprecated /* expected_bucket_owner is deprecated. It will be removed in a future verion of the provider. */
     @Export(name="expectedBucketOwner", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> expectedBucketOwner;
 

@@ -35,6 +35,9 @@ class BucketCorsConfigurationArgs:
         pulumi.set(__self__, "bucket", bucket)
         pulumi.set(__self__, "cors_rules", cors_rules)
         if expected_bucket_owner is not None:
+            warnings.warn("""expected_bucket_owner is deprecated. It will be removed in a future verion of the provider.""", DeprecationWarning)
+            pulumi.log.warn("""expected_bucket_owner is deprecated: expected_bucket_owner is deprecated. It will be removed in a future verion of the provider.""")
+        if expected_bucket_owner is not None:
             pulumi.set(__self__, "expected_bucket_owner", expected_bucket_owner)
         if region is not None:
             pulumi.set(__self__, "region", region)
@@ -65,6 +68,7 @@ class BucketCorsConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="expectedBucketOwner")
+    @_utilities.deprecated("""expected_bucket_owner is deprecated. It will be removed in a future verion of the provider.""")
     def expected_bucket_owner(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         Account ID of the expected bucket owner.
@@ -107,6 +111,9 @@ class _BucketCorsConfigurationState:
         if cors_rules is not None:
             pulumi.set(__self__, "cors_rules", cors_rules)
         if expected_bucket_owner is not None:
+            warnings.warn("""expected_bucket_owner is deprecated. It will be removed in a future verion of the provider.""", DeprecationWarning)
+            pulumi.log.warn("""expected_bucket_owner is deprecated: expected_bucket_owner is deprecated. It will be removed in a future verion of the provider.""")
+        if expected_bucket_owner is not None:
             pulumi.set(__self__, "expected_bucket_owner", expected_bucket_owner)
         if region is not None:
             pulumi.set(__self__, "region", region)
@@ -137,6 +144,7 @@ class _BucketCorsConfigurationState:
 
     @_builtins.property
     @pulumi.getter(name="expectedBucketOwner")
+    @_utilities.deprecated("""expected_bucket_owner is deprecated. It will be removed in a future verion of the provider.""")
     def expected_bucket_owner(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         Account ID of the expected bucket owner.
@@ -216,8 +224,6 @@ class BucketCorsConfiguration(pulumi.CustomResource):
         #### Optional
 
         * `account_id` (String) AWS Account where this resource is managed.
-
-        * `expected_bucket_owner` (String) Account ID of the expected bucket owner.
 
         * `region` (String) Region where this resource is managed.
 
@@ -301,8 +307,6 @@ class BucketCorsConfiguration(pulumi.CustomResource):
         #### Optional
 
         * `account_id` (String) AWS Account where this resource is managed.
-
-        * `expected_bucket_owner` (String) Account ID of the expected bucket owner.
 
         * `region` (String) Region where this resource is managed.
 
@@ -420,6 +424,7 @@ class BucketCorsConfiguration(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="expectedBucketOwner")
+    @_utilities.deprecated("""expected_bucket_owner is deprecated. It will be removed in a future verion of the provider.""")
     def expected_bucket_owner(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
         Account ID of the expected bucket owner.

@@ -143,14 +143,14 @@ public final class EndpointConfigurationArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * Models that you want to host at this endpoint in shadow mode with production traffic replicated from the model specified on `oroductionVariants`. If you use this field, you can only specify one variant for `productionVariants` and one variant for `shadowProductionVariants`. See below (same arguments as `productionVariants`).
+     * Models that you want to host at this endpoint in shadow mode with production traffic replicated from the model specified on `productionVariants`. If you use this field, you can only specify one variant for `productionVariants` and one variant for `shadowProductionVariants`. See below (same arguments as `productionVariants`).
      * 
      */
     @Import(name="shadowProductionVariants")
     private @Nullable Output<List<EndpointConfigurationShadowProductionVariantArgs>> shadowProductionVariants;
 
     /**
-     * @return Models that you want to host at this endpoint in shadow mode with production traffic replicated from the model specified on `oroductionVariants`. If you use this field, you can only specify one variant for `productionVariants` and one variant for `shadowProductionVariants`. See below (same arguments as `productionVariants`).
+     * @return Models that you want to host at this endpoint in shadow mode with production traffic replicated from the model specified on `productionVariants`. If you use this field, you can only specify one variant for `productionVariants` and one variant for `shadowProductionVariants`. See below (same arguments as `productionVariants`).
      * 
      */
     public Optional<Output<List<EndpointConfigurationShadowProductionVariantArgs>>> shadowProductionVariants() {
@@ -384,7 +384,7 @@ public final class EndpointConfigurationArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param shadowProductionVariants Models that you want to host at this endpoint in shadow mode with production traffic replicated from the model specified on `oroductionVariants`. If you use this field, you can only specify one variant for `productionVariants` and one variant for `shadowProductionVariants`. See below (same arguments as `productionVariants`).
+         * @param shadowProductionVariants Models that you want to host at this endpoint in shadow mode with production traffic replicated from the model specified on `productionVariants`. If you use this field, you can only specify one variant for `productionVariants` and one variant for `shadowProductionVariants`. See below (same arguments as `productionVariants`).
          * 
          * @return builder
          * 
@@ -395,7 +395,7 @@ public final class EndpointConfigurationArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param shadowProductionVariants Models that you want to host at this endpoint in shadow mode with production traffic replicated from the model specified on `oroductionVariants`. If you use this field, you can only specify one variant for `productionVariants` and one variant for `shadowProductionVariants`. See below (same arguments as `productionVariants`).
+         * @param shadowProductionVariants Models that you want to host at this endpoint in shadow mode with production traffic replicated from the model specified on `productionVariants`. If you use this field, you can only specify one variant for `productionVariants` and one variant for `shadowProductionVariants`. See below (same arguments as `productionVariants`).
          * 
          * @return builder
          * 
@@ -405,7 +405,7 @@ public final class EndpointConfigurationArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param shadowProductionVariants Models that you want to host at this endpoint in shadow mode with production traffic replicated from the model specified on `oroductionVariants`. If you use this field, you can only specify one variant for `productionVariants` and one variant for `shadowProductionVariants`. See below (same arguments as `productionVariants`).
+         * @param shadowProductionVariants Models that you want to host at this endpoint in shadow mode with production traffic replicated from the model specified on `productionVariants`. If you use this field, you can only specify one variant for `productionVariants` and one variant for `shadowProductionVariants`. See below (same arguments as `productionVariants`).
          * 
          * @return builder
          * 

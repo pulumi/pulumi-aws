@@ -85,6 +85,8 @@ export class BucketAbac extends pulumi.CustomResource {
     declare public readonly bucket: pulumi.Output<string>;
     /**
      * Account ID of the expected bucket owner.
+     *
+     * @deprecated This attribute will be removed in a future verion of the provider.
      */
     declare public readonly expectedBucketOwner: pulumi.Output<string | undefined>;
     /**
@@ -143,6 +145,8 @@ export interface BucketAbacState {
     bucket?: pulumi.Input<string>;
     /**
      * Account ID of the expected bucket owner.
+     *
+     * @deprecated This attribute will be removed in a future verion of the provider.
      */
     expectedBucketOwner?: pulumi.Input<string>;
     /**
@@ -167,6 +171,8 @@ export interface BucketAbacArgs {
     bucket: pulumi.Input<string>;
     /**
      * Account ID of the expected bucket owner.
+     *
+     * @deprecated This attribute will be removed in a future verion of the provider.
      */
     expectedBucketOwner?: pulumi.Input<string>;
     /**

@@ -41,6 +41,8 @@ export interface GetRoute53HealthChecksArgs {
     planArn: string;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     *
+     * @deprecated This attribute will be removed in a future version of the provider.
      */
     region?: string;
 }
@@ -60,6 +62,8 @@ export interface GetRoute53HealthChecksResult {
     readonly planArn: string;
     /**
      * Region for the health check.
+     *
+     * @deprecated This attribute will be removed in a future version of the provider.
      */
     readonly region: string;
 }
@@ -97,6 +101,8 @@ export interface GetRoute53HealthChecksOutputArgs {
     planArn: pulumi.Input<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     *
+     * @deprecated This attribute will be removed in a future version of the provider.
      */
     region?: pulumi.Input<string>;
 }

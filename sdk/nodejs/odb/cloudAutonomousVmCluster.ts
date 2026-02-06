@@ -150,6 +150,10 @@ export class CloudAutonomousVmCluster extends pulumi.CustomResource {
      * The number of CPU cores available for allocation to Autonomous Databases.
      */
     declare public /*out*/ readonly availableCpus: pulumi.Output<number>;
+    /**
+     * The unique identifier of the Exadata infrastructure for this VM cluster. Changing this will create a new resource.
+     */
+    declare public readonly cloudExadataInfrastructureArn: pulumi.Output<string>;
     declare public readonly cloudExadataInfrastructureId: pulumi.Output<string>;
     /**
      * The compute model of the Autonomous VM cluster: ECPU or OCPU.
@@ -232,6 +236,10 @@ export class CloudAutonomousVmCluster extends pulumi.CustomResource {
      * The Oracle Cloud Identifier (OCID) of the Autonomous VM cluster.
      */
     declare public /*out*/ readonly ocid: pulumi.Output<string>;
+    /**
+     * The unique identifier of the ODB network for the VM cluster. This member is required. Changing this will create a new resource.
+     */
+    declare public readonly odbNetworkArn: pulumi.Output<string>;
     declare public readonly odbNetworkId: pulumi.Output<string>;
     /**
      * The local node storage allocated to the Autonomous VM cluster, in gigabytes (GB).
@@ -318,6 +326,7 @@ export class CloudAutonomousVmCluster extends pulumi.CustomResource {
             resourceInputs["availableAutonomousDataStorageSizeInTbs"] = state?.availableAutonomousDataStorageSizeInTbs;
             resourceInputs["availableContainerDatabases"] = state?.availableContainerDatabases;
             resourceInputs["availableCpus"] = state?.availableCpus;
+            resourceInputs["cloudExadataInfrastructureArn"] = state?.cloudExadataInfrastructureArn;
             resourceInputs["cloudExadataInfrastructureId"] = state?.cloudExadataInfrastructureId;
             resourceInputs["computeModel"] = state?.computeModel;
             resourceInputs["cpuCoreCount"] = state?.cpuCoreCount;
@@ -343,6 +352,7 @@ export class CloudAutonomousVmCluster extends pulumi.CustomResource {
             resourceInputs["ociResourceAnchorName"] = state?.ociResourceAnchorName;
             resourceInputs["ociUrl"] = state?.ociUrl;
             resourceInputs["ocid"] = state?.ocid;
+            resourceInputs["odbNetworkArn"] = state?.odbNetworkArn;
             resourceInputs["odbNetworkId"] = state?.odbNetworkId;
             resourceInputs["odbNodeStorageSizeInGbs"] = state?.odbNodeStorageSizeInGbs;
             resourceInputs["percentProgress"] = state?.percentProgress;
@@ -369,9 +379,6 @@ export class CloudAutonomousVmCluster extends pulumi.CustomResource {
             if (args?.autonomousDataStorageSizeInTbs === undefined && !opts.urn) {
                 throw new Error("Missing required property 'autonomousDataStorageSizeInTbs'");
             }
-            if (args?.cloudExadataInfrastructureId === undefined && !opts.urn) {
-                throw new Error("Missing required property 'cloudExadataInfrastructureId'");
-            }
             if (args?.cpuCoreCountPerNode === undefined && !opts.urn) {
                 throw new Error("Missing required property 'cpuCoreCountPerNode'");
             }
@@ -387,9 +394,6 @@ export class CloudAutonomousVmCluster extends pulumi.CustomResource {
             if (args?.memoryPerOracleComputeUnitInGbs === undefined && !opts.urn) {
                 throw new Error("Missing required property 'memoryPerOracleComputeUnitInGbs'");
             }
-            if (args?.odbNetworkId === undefined && !opts.urn) {
-                throw new Error("Missing required property 'odbNetworkId'");
-            }
             if (args?.scanListenerPortNonTls === undefined && !opts.urn) {
                 throw new Error("Missing required property 'scanListenerPortNonTls'");
             }
@@ -400,6 +404,7 @@ export class CloudAutonomousVmCluster extends pulumi.CustomResource {
                 throw new Error("Missing required property 'totalContainerDatabases'");
             }
             resourceInputs["autonomousDataStorageSizeInTbs"] = args?.autonomousDataStorageSizeInTbs;
+            resourceInputs["cloudExadataInfrastructureArn"] = args?.cloudExadataInfrastructureArn;
             resourceInputs["cloudExadataInfrastructureId"] = args?.cloudExadataInfrastructureId;
             resourceInputs["cpuCoreCountPerNode"] = args?.cpuCoreCountPerNode;
             resourceInputs["dbServers"] = args?.dbServers;
@@ -409,6 +414,7 @@ export class CloudAutonomousVmCluster extends pulumi.CustomResource {
             resourceInputs["licenseModel"] = args?.licenseModel;
             resourceInputs["maintenanceWindow"] = args?.maintenanceWindow;
             resourceInputs["memoryPerOracleComputeUnitInGbs"] = args?.memoryPerOracleComputeUnitInGbs;
+            resourceInputs["odbNetworkArn"] = args?.odbNetworkArn;
             resourceInputs["odbNetworkId"] = args?.odbNetworkId;
             resourceInputs["region"] = args?.region;
             resourceInputs["scanListenerPortNonTls"] = args?.scanListenerPortNonTls;
@@ -482,6 +488,10 @@ export interface CloudAutonomousVmClusterState {
      * The number of CPU cores available for allocation to Autonomous Databases.
      */
     availableCpus?: pulumi.Input<number>;
+    /**
+     * The unique identifier of the Exadata infrastructure for this VM cluster. Changing this will create a new resource.
+     */
+    cloudExadataInfrastructureArn?: pulumi.Input<string>;
     cloudExadataInfrastructureId?: pulumi.Input<string>;
     /**
      * The compute model of the Autonomous VM cluster: ECPU or OCPU.
@@ -564,6 +574,10 @@ export interface CloudAutonomousVmClusterState {
      * The Oracle Cloud Identifier (OCID) of the Autonomous VM cluster.
      */
     ocid?: pulumi.Input<string>;
+    /**
+     * The unique identifier of the ODB network for the VM cluster. This member is required. Changing this will create a new resource.
+     */
+    odbNetworkArn?: pulumi.Input<string>;
     odbNetworkId?: pulumi.Input<string>;
     /**
      * The local node storage allocated to the Autonomous VM cluster, in gigabytes (GB).
@@ -637,7 +651,11 @@ export interface CloudAutonomousVmClusterState {
  */
 export interface CloudAutonomousVmClusterArgs {
     autonomousDataStorageSizeInTbs: pulumi.Input<number>;
-    cloudExadataInfrastructureId: pulumi.Input<string>;
+    /**
+     * The unique identifier of the Exadata infrastructure for this VM cluster. Changing this will create a new resource.
+     */
+    cloudExadataInfrastructureArn?: pulumi.Input<string>;
+    cloudExadataInfrastructureId?: pulumi.Input<string>;
     /**
      * The number of CPU cores enabled per node in the Autonomous VM cluster.
      */
@@ -655,7 +673,11 @@ export interface CloudAutonomousVmClusterArgs {
      */
     maintenanceWindow: pulumi.Input<inputs.odb.CloudAutonomousVmClusterMaintenanceWindow>;
     memoryPerOracleComputeUnitInGbs: pulumi.Input<number>;
-    odbNetworkId: pulumi.Input<string>;
+    /**
+     * The unique identifier of the ODB network for the VM cluster. This member is required. Changing this will create a new resource.
+     */
+    odbNetworkArn?: pulumi.Input<string>;
+    odbNetworkId?: pulumi.Input<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */

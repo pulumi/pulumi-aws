@@ -74,6 +74,8 @@ type LookupCloudAutonomousVmClusterResult struct {
 	AvailableContainerDatabases int `pulumi:"availableContainerDatabases"`
 	// The number of CPU cores available for allocation to Autonomous Databases.
 	AvailableCpus float64 `pulumi:"availableCpus"`
+	// Cloud exadata infrastructure ARN associated with this cloud autonomous VM cluster.
+	CloudExadataInfrastructureArn string `pulumi:"cloudExadataInfrastructureArn"`
 	// Cloud exadata infrastructure id associated with this cloud autonomous VM cluster.
 	CloudExadataInfrastructureId string `pulumi:"cloudExadataInfrastructureId"`
 	// The compute model of the Autonomous VM cluster: ECPU or OCPU.
@@ -125,6 +127,8 @@ type LookupCloudAutonomousVmClusterResult struct {
 	OciUrl string `pulumi:"ociUrl"`
 	// The Oracle Cloud Identifier (OCID) of the Autonomous VM cluster.
 	Ocid string `pulumi:"ocid"`
+	// The arn of the ODB network associated with this Autonomous VM cluster.
+	OdbNetworkArn string `pulumi:"odbNetworkArn"`
 	// The unique identifier of the ODB network associated with this Autonomous VM cluster.
 	OdbNetworkId string `pulumi:"odbNetworkId"`
 	// The local node storage allocated to the Autonomous VM cluster, in gigabytes (GB).
@@ -228,6 +232,11 @@ func (o LookupCloudAutonomousVmClusterResultOutput) AvailableContainerDatabases(
 // The number of CPU cores available for allocation to Autonomous Databases.
 func (o LookupCloudAutonomousVmClusterResultOutput) AvailableCpus() pulumi.Float64Output {
 	return o.ApplyT(func(v LookupCloudAutonomousVmClusterResult) float64 { return v.AvailableCpus }).(pulumi.Float64Output)
+}
+
+// Cloud exadata infrastructure ARN associated with this cloud autonomous VM cluster.
+func (o LookupCloudAutonomousVmClusterResultOutput) CloudExadataInfrastructureArn() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupCloudAutonomousVmClusterResult) string { return v.CloudExadataInfrastructureArn }).(pulumi.StringOutput)
 }
 
 // Cloud exadata infrastructure id associated with this cloud autonomous VM cluster.
@@ -361,6 +370,11 @@ func (o LookupCloudAutonomousVmClusterResultOutput) OciUrl() pulumi.StringOutput
 // The Oracle Cloud Identifier (OCID) of the Autonomous VM cluster.
 func (o LookupCloudAutonomousVmClusterResultOutput) Ocid() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupCloudAutonomousVmClusterResult) string { return v.Ocid }).(pulumi.StringOutput)
+}
+
+// The arn of the ODB network associated with this Autonomous VM cluster.
+func (o LookupCloudAutonomousVmClusterResultOutput) OdbNetworkArn() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupCloudAutonomousVmClusterResult) string { return v.OdbNetworkArn }).(pulumi.StringOutput)
 }
 
 // The unique identifier of the ODB network associated with this Autonomous VM cluster.

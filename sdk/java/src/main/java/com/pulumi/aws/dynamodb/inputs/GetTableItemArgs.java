@@ -78,14 +78,14 @@ public final class GetTableItemArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * The name of the table containing the requested item.
+     * The name or ARN of the table containing the requested item.
      * 
      */
     @Import(name="tableName", required=true)
     private Output<String> tableName;
 
     /**
-     * @return The name of the table containing the requested item.
+     * @return The name or ARN of the table containing the requested item.
      * 
      */
     public Output<String> tableName() {
@@ -201,7 +201,7 @@ public final class GetTableItemArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param tableName The name of the table containing the requested item.
+         * @param tableName The name or ARN of the table containing the requested item.
          * 
          * @return builder
          * 
@@ -212,7 +212,7 @@ public final class GetTableItemArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param tableName The name of the table containing the requested item.
+         * @param tableName The name or ARN of the table containing the requested item.
          * 
          * @return builder
          * 

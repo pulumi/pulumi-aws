@@ -61,7 +61,7 @@ export interface GetTableItemArgs {
      */
     region?: string;
     /**
-     * The name of the table containing the requested item.
+     * The name or ARN of the table containing the requested item.
      */
     tableName: string;
 }
@@ -141,7 +141,7 @@ export interface GetTableItemOutputArgs {
      */
     region?: pulumi.Input<string>;
     /**
-     * The name of the table containing the requested item.
+     * The name or ARN of the table containing the requested item.
      */
     tableName: pulumi.Input<string>;
 }

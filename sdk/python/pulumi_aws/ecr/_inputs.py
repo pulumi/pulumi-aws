@@ -981,9 +981,11 @@ if not MYPY:
         type: _builtins.str
         """
         Specify an action type. The supported values are `expire` (to delete images) and `transition` (to move images to archive storage).
-        * `targetStorageClass` (Required if `type` is `transition`) - The storage class you want the lifecycle policy to transition the image to. `archive` is the only supported value.
         """
         target_storage_class: NotRequired[_builtins.str]
+        """
+        The storage class you want the lifecycle policy to transition the image to. `archive` is the only supported value.
+        """
 elif False:
     GetLifecyclePolicyDocumentRuleActionArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -994,7 +996,7 @@ class GetLifecyclePolicyDocumentRuleActionArgs:
                  target_storage_class: Optional[_builtins.str] = None):
         """
         :param _builtins.str type: Specify an action type. The supported values are `expire` (to delete images) and `transition` (to move images to archive storage).
-               * `targetStorageClass` (Required if `type` is `transition`) - The storage class you want the lifecycle policy to transition the image to. `archive` is the only supported value.
+        :param _builtins.str target_storage_class: The storage class you want the lifecycle policy to transition the image to. `archive` is the only supported value.
         """
         pulumi.set(__self__, "type", type)
         if target_storage_class is not None:
@@ -1005,7 +1007,6 @@ class GetLifecyclePolicyDocumentRuleActionArgs:
     def type(self) -> _builtins.str:
         """
         Specify an action type. The supported values are `expire` (to delete images) and `transition` (to move images to archive storage).
-        * `targetStorageClass` (Required if `type` is `transition`) - The storage class you want the lifecycle policy to transition the image to. `archive` is the only supported value.
         """
         return pulumi.get(self, "type")
 
@@ -1016,6 +1017,9 @@ class GetLifecyclePolicyDocumentRuleActionArgs:
     @_builtins.property
     @pulumi.getter(name="targetStorageClass")
     def target_storage_class(self) -> Optional[_builtins.str]:
+        """
+        The storage class you want the lifecycle policy to transition the image to. `archive` is the only supported value.
+        """
         return pulumi.get(self, "target_storage_class")
 
     @target_storage_class.setter

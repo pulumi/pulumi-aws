@@ -54,6 +54,12 @@ public final class GetPlanResult {
      * 
      */
     private Integer recoveryTimeObjectiveMinutes;
+    /**
+     * @deprecated
+     * This attribute will be removed in a future version of the provider.
+     * 
+     */
+    @Deprecated /* This attribute will be removed in a future version of the provider. */
     private String region;
     /**
      * @return List of regions included in the plan.
@@ -136,6 +142,12 @@ public final class GetPlanResult {
     public Integer recoveryTimeObjectiveMinutes() {
         return this.recoveryTimeObjectiveMinutes;
     }
+    /**
+     * @deprecated
+     * This attribute will be removed in a future version of the provider.
+     * 
+     */
+    @Deprecated /* This attribute will be removed in a future version of the provider. */
     public String region() {
         return this.region;
     }

@@ -98,7 +98,11 @@ public class BucketAccelerateConfiguration extends com.pulumi.resources.CustomRe
     /**
      * Account ID of the expected bucket owner.
      * 
+     * @deprecated
+     * expected_bucket_owner is deprecated. It will be removed in a future verion of the provider.
+     * 
      */
+    @Deprecated /* expected_bucket_owner is deprecated. It will be removed in a future verion of the provider. */
     @Export(name="expectedBucketOwner", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> expectedBucketOwner;
 

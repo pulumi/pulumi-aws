@@ -68,7 +68,7 @@ type LookupTableItemArgs struct {
 	ProjectionExpression *string `pulumi:"projectionExpression"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// The name of the table containing the requested item.
+	// The name or ARN of the table containing the requested item.
 	TableName string `pulumi:"tableName"`
 }
 
@@ -107,7 +107,7 @@ type LookupTableItemOutputArgs struct {
 	ProjectionExpression pulumi.StringPtrInput `pulumi:"projectionExpression"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
-	// The name of the table containing the requested item.
+	// The name or ARN of the table containing the requested item.
 	TableName pulumi.StringInput `pulumi:"tableName"`
 }
 

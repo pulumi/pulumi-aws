@@ -24,6 +24,12 @@ namespace Pulumi.Aws.OpenSearch.Inputs
         [Input("s3VectorsEngine")]
         public Input<Inputs.DomainAimlOptionsS3VectorsEngineGetArgs>? S3VectorsEngine { get; set; }
 
+        /// <summary>
+        /// Configuration block for parameters required to enable GPU-accelerated vector search on the specified domain.
+        /// </summary>
+        [Input("serverlessVectorAcceleration")]
+        public Input<Inputs.DomainAimlOptionsServerlessVectorAccelerationGetArgs>? ServerlessVectorAcceleration { get; set; }
+
         public DomainAimlOptionsGetArgs()
         {
         }

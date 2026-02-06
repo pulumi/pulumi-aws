@@ -115,8 +115,6 @@ import (
 //
 // * `account_id` (String) AWS Account where this resource is managed.
 //
-// * `expected_bucket_owner` (String) Account ID of the expected bucket owner.
-//
 // * `region` (String) Region where this resource is managed.
 //
 // If the owner (account ID) of the source bucket differs from the account used to configure the AWS Provider, import using the `bucket` and `expected_bucket_owner` separated by a comma (`,`):
@@ -148,6 +146,8 @@ type BucketWebsiteConfiguration struct {
 	// Name of the error document for the website. See below.
 	ErrorDocument BucketWebsiteConfigurationErrorDocumentPtrOutput `pulumi:"errorDocument"`
 	// Account ID of the expected bucket owner.
+	//
+	// Deprecated: expected_bucket_owner is deprecated. It will be removed in a future verion of the provider.
 	ExpectedBucketOwner pulumi.StringPtrOutput `pulumi:"expectedBucketOwner"`
 	// Name of the index document for the website. See below.
 	IndexDocument BucketWebsiteConfigurationIndexDocumentPtrOutput `pulumi:"indexDocument"`
@@ -210,6 +210,8 @@ type bucketWebsiteConfigurationState struct {
 	// Name of the error document for the website. See below.
 	ErrorDocument *BucketWebsiteConfigurationErrorDocument `pulumi:"errorDocument"`
 	// Account ID of the expected bucket owner.
+	//
+	// Deprecated: expected_bucket_owner is deprecated. It will be removed in a future verion of the provider.
 	ExpectedBucketOwner *string `pulumi:"expectedBucketOwner"`
 	// Name of the index document for the website. See below.
 	IndexDocument *BucketWebsiteConfigurationIndexDocument `pulumi:"indexDocument"`
@@ -234,6 +236,8 @@ type BucketWebsiteConfigurationState struct {
 	// Name of the error document for the website. See below.
 	ErrorDocument BucketWebsiteConfigurationErrorDocumentPtrInput
 	// Account ID of the expected bucket owner.
+	//
+	// Deprecated: expected_bucket_owner is deprecated. It will be removed in a future verion of the provider.
 	ExpectedBucketOwner pulumi.StringPtrInput
 	// Name of the index document for the website. See below.
 	IndexDocument BucketWebsiteConfigurationIndexDocumentPtrInput
@@ -262,6 +266,8 @@ type bucketWebsiteConfigurationArgs struct {
 	// Name of the error document for the website. See below.
 	ErrorDocument *BucketWebsiteConfigurationErrorDocument `pulumi:"errorDocument"`
 	// Account ID of the expected bucket owner.
+	//
+	// Deprecated: expected_bucket_owner is deprecated. It will be removed in a future verion of the provider.
 	ExpectedBucketOwner *string `pulumi:"expectedBucketOwner"`
 	// Name of the index document for the website. See below.
 	IndexDocument *BucketWebsiteConfigurationIndexDocument `pulumi:"indexDocument"`
@@ -283,6 +289,8 @@ type BucketWebsiteConfigurationArgs struct {
 	// Name of the error document for the website. See below.
 	ErrorDocument BucketWebsiteConfigurationErrorDocumentPtrInput
 	// Account ID of the expected bucket owner.
+	//
+	// Deprecated: expected_bucket_owner is deprecated. It will be removed in a future verion of the provider.
 	ExpectedBucketOwner pulumi.StringPtrInput
 	// Name of the index document for the website. See below.
 	IndexDocument BucketWebsiteConfigurationIndexDocumentPtrInput
@@ -397,6 +405,8 @@ func (o BucketWebsiteConfigurationOutput) ErrorDocument() BucketWebsiteConfigura
 }
 
 // Account ID of the expected bucket owner.
+//
+// Deprecated: expected_bucket_owner is deprecated. It will be removed in a future verion of the provider.
 func (o BucketWebsiteConfigurationOutput) ExpectedBucketOwner() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BucketWebsiteConfiguration) pulumi.StringPtrOutput { return v.ExpectedBucketOwner }).(pulumi.StringPtrOutput)
 }

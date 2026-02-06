@@ -493,6 +493,268 @@ func (o CustomerManagedPolicyAttachmentCustomerManagedPolicyReferencePtrOutput) 
 	}).(pulumi.StringPtrOutput)
 }
 
+type CustomerManagedPolicyAttachmentsExclusiveCustomerManagedPolicyReference struct {
+	// Name of the customer managed IAM Policy to be attached.
+	Name string `pulumi:"name"`
+	// The path to the IAM policy to be attached. The default is `/`. See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-friendly-names) for more information.
+	Path *string `pulumi:"path"`
+}
+
+// CustomerManagedPolicyAttachmentsExclusiveCustomerManagedPolicyReferenceInput is an input type that accepts CustomerManagedPolicyAttachmentsExclusiveCustomerManagedPolicyReferenceArgs and CustomerManagedPolicyAttachmentsExclusiveCustomerManagedPolicyReferenceOutput values.
+// You can construct a concrete instance of `CustomerManagedPolicyAttachmentsExclusiveCustomerManagedPolicyReferenceInput` via:
+//
+//	CustomerManagedPolicyAttachmentsExclusiveCustomerManagedPolicyReferenceArgs{...}
+type CustomerManagedPolicyAttachmentsExclusiveCustomerManagedPolicyReferenceInput interface {
+	pulumi.Input
+
+	ToCustomerManagedPolicyAttachmentsExclusiveCustomerManagedPolicyReferenceOutput() CustomerManagedPolicyAttachmentsExclusiveCustomerManagedPolicyReferenceOutput
+	ToCustomerManagedPolicyAttachmentsExclusiveCustomerManagedPolicyReferenceOutputWithContext(context.Context) CustomerManagedPolicyAttachmentsExclusiveCustomerManagedPolicyReferenceOutput
+}
+
+type CustomerManagedPolicyAttachmentsExclusiveCustomerManagedPolicyReferenceArgs struct {
+	// Name of the customer managed IAM Policy to be attached.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The path to the IAM policy to be attached. The default is `/`. See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-friendly-names) for more information.
+	Path pulumi.StringPtrInput `pulumi:"path"`
+}
+
+func (CustomerManagedPolicyAttachmentsExclusiveCustomerManagedPolicyReferenceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CustomerManagedPolicyAttachmentsExclusiveCustomerManagedPolicyReference)(nil)).Elem()
+}
+
+func (i CustomerManagedPolicyAttachmentsExclusiveCustomerManagedPolicyReferenceArgs) ToCustomerManagedPolicyAttachmentsExclusiveCustomerManagedPolicyReferenceOutput() CustomerManagedPolicyAttachmentsExclusiveCustomerManagedPolicyReferenceOutput {
+	return i.ToCustomerManagedPolicyAttachmentsExclusiveCustomerManagedPolicyReferenceOutputWithContext(context.Background())
+}
+
+func (i CustomerManagedPolicyAttachmentsExclusiveCustomerManagedPolicyReferenceArgs) ToCustomerManagedPolicyAttachmentsExclusiveCustomerManagedPolicyReferenceOutputWithContext(ctx context.Context) CustomerManagedPolicyAttachmentsExclusiveCustomerManagedPolicyReferenceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CustomerManagedPolicyAttachmentsExclusiveCustomerManagedPolicyReferenceOutput)
+}
+
+// CustomerManagedPolicyAttachmentsExclusiveCustomerManagedPolicyReferenceArrayInput is an input type that accepts CustomerManagedPolicyAttachmentsExclusiveCustomerManagedPolicyReferenceArray and CustomerManagedPolicyAttachmentsExclusiveCustomerManagedPolicyReferenceArrayOutput values.
+// You can construct a concrete instance of `CustomerManagedPolicyAttachmentsExclusiveCustomerManagedPolicyReferenceArrayInput` via:
+//
+//	CustomerManagedPolicyAttachmentsExclusiveCustomerManagedPolicyReferenceArray{ CustomerManagedPolicyAttachmentsExclusiveCustomerManagedPolicyReferenceArgs{...} }
+type CustomerManagedPolicyAttachmentsExclusiveCustomerManagedPolicyReferenceArrayInput interface {
+	pulumi.Input
+
+	ToCustomerManagedPolicyAttachmentsExclusiveCustomerManagedPolicyReferenceArrayOutput() CustomerManagedPolicyAttachmentsExclusiveCustomerManagedPolicyReferenceArrayOutput
+	ToCustomerManagedPolicyAttachmentsExclusiveCustomerManagedPolicyReferenceArrayOutputWithContext(context.Context) CustomerManagedPolicyAttachmentsExclusiveCustomerManagedPolicyReferenceArrayOutput
+}
+
+type CustomerManagedPolicyAttachmentsExclusiveCustomerManagedPolicyReferenceArray []CustomerManagedPolicyAttachmentsExclusiveCustomerManagedPolicyReferenceInput
+
+func (CustomerManagedPolicyAttachmentsExclusiveCustomerManagedPolicyReferenceArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CustomerManagedPolicyAttachmentsExclusiveCustomerManagedPolicyReference)(nil)).Elem()
+}
+
+func (i CustomerManagedPolicyAttachmentsExclusiveCustomerManagedPolicyReferenceArray) ToCustomerManagedPolicyAttachmentsExclusiveCustomerManagedPolicyReferenceArrayOutput() CustomerManagedPolicyAttachmentsExclusiveCustomerManagedPolicyReferenceArrayOutput {
+	return i.ToCustomerManagedPolicyAttachmentsExclusiveCustomerManagedPolicyReferenceArrayOutputWithContext(context.Background())
+}
+
+func (i CustomerManagedPolicyAttachmentsExclusiveCustomerManagedPolicyReferenceArray) ToCustomerManagedPolicyAttachmentsExclusiveCustomerManagedPolicyReferenceArrayOutputWithContext(ctx context.Context) CustomerManagedPolicyAttachmentsExclusiveCustomerManagedPolicyReferenceArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CustomerManagedPolicyAttachmentsExclusiveCustomerManagedPolicyReferenceArrayOutput)
+}
+
+type CustomerManagedPolicyAttachmentsExclusiveCustomerManagedPolicyReferenceOutput struct{ *pulumi.OutputState }
+
+func (CustomerManagedPolicyAttachmentsExclusiveCustomerManagedPolicyReferenceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CustomerManagedPolicyAttachmentsExclusiveCustomerManagedPolicyReference)(nil)).Elem()
+}
+
+func (o CustomerManagedPolicyAttachmentsExclusiveCustomerManagedPolicyReferenceOutput) ToCustomerManagedPolicyAttachmentsExclusiveCustomerManagedPolicyReferenceOutput() CustomerManagedPolicyAttachmentsExclusiveCustomerManagedPolicyReferenceOutput {
+	return o
+}
+
+func (o CustomerManagedPolicyAttachmentsExclusiveCustomerManagedPolicyReferenceOutput) ToCustomerManagedPolicyAttachmentsExclusiveCustomerManagedPolicyReferenceOutputWithContext(ctx context.Context) CustomerManagedPolicyAttachmentsExclusiveCustomerManagedPolicyReferenceOutput {
+	return o
+}
+
+// Name of the customer managed IAM Policy to be attached.
+func (o CustomerManagedPolicyAttachmentsExclusiveCustomerManagedPolicyReferenceOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v CustomerManagedPolicyAttachmentsExclusiveCustomerManagedPolicyReference) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The path to the IAM policy to be attached. The default is `/`. See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-friendly-names) for more information.
+func (o CustomerManagedPolicyAttachmentsExclusiveCustomerManagedPolicyReferenceOutput) Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CustomerManagedPolicyAttachmentsExclusiveCustomerManagedPolicyReference) *string { return v.Path }).(pulumi.StringPtrOutput)
+}
+
+type CustomerManagedPolicyAttachmentsExclusiveCustomerManagedPolicyReferenceArrayOutput struct{ *pulumi.OutputState }
+
+func (CustomerManagedPolicyAttachmentsExclusiveCustomerManagedPolicyReferenceArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CustomerManagedPolicyAttachmentsExclusiveCustomerManagedPolicyReference)(nil)).Elem()
+}
+
+func (o CustomerManagedPolicyAttachmentsExclusiveCustomerManagedPolicyReferenceArrayOutput) ToCustomerManagedPolicyAttachmentsExclusiveCustomerManagedPolicyReferenceArrayOutput() CustomerManagedPolicyAttachmentsExclusiveCustomerManagedPolicyReferenceArrayOutput {
+	return o
+}
+
+func (o CustomerManagedPolicyAttachmentsExclusiveCustomerManagedPolicyReferenceArrayOutput) ToCustomerManagedPolicyAttachmentsExclusiveCustomerManagedPolicyReferenceArrayOutputWithContext(ctx context.Context) CustomerManagedPolicyAttachmentsExclusiveCustomerManagedPolicyReferenceArrayOutput {
+	return o
+}
+
+func (o CustomerManagedPolicyAttachmentsExclusiveCustomerManagedPolicyReferenceArrayOutput) Index(i pulumi.IntInput) CustomerManagedPolicyAttachmentsExclusiveCustomerManagedPolicyReferenceOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CustomerManagedPolicyAttachmentsExclusiveCustomerManagedPolicyReference {
+		return vs[0].([]CustomerManagedPolicyAttachmentsExclusiveCustomerManagedPolicyReference)[vs[1].(int)]
+	}).(CustomerManagedPolicyAttachmentsExclusiveCustomerManagedPolicyReferenceOutput)
+}
+
+type CustomerManagedPolicyAttachmentsExclusiveTimeouts struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create *string `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Update *string `pulumi:"update"`
+}
+
+// CustomerManagedPolicyAttachmentsExclusiveTimeoutsInput is an input type that accepts CustomerManagedPolicyAttachmentsExclusiveTimeoutsArgs and CustomerManagedPolicyAttachmentsExclusiveTimeoutsOutput values.
+// You can construct a concrete instance of `CustomerManagedPolicyAttachmentsExclusiveTimeoutsInput` via:
+//
+//	CustomerManagedPolicyAttachmentsExclusiveTimeoutsArgs{...}
+type CustomerManagedPolicyAttachmentsExclusiveTimeoutsInput interface {
+	pulumi.Input
+
+	ToCustomerManagedPolicyAttachmentsExclusiveTimeoutsOutput() CustomerManagedPolicyAttachmentsExclusiveTimeoutsOutput
+	ToCustomerManagedPolicyAttachmentsExclusiveTimeoutsOutputWithContext(context.Context) CustomerManagedPolicyAttachmentsExclusiveTimeoutsOutput
+}
+
+type CustomerManagedPolicyAttachmentsExclusiveTimeoutsArgs struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create pulumi.StringPtrInput `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Update pulumi.StringPtrInput `pulumi:"update"`
+}
+
+func (CustomerManagedPolicyAttachmentsExclusiveTimeoutsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CustomerManagedPolicyAttachmentsExclusiveTimeouts)(nil)).Elem()
+}
+
+func (i CustomerManagedPolicyAttachmentsExclusiveTimeoutsArgs) ToCustomerManagedPolicyAttachmentsExclusiveTimeoutsOutput() CustomerManagedPolicyAttachmentsExclusiveTimeoutsOutput {
+	return i.ToCustomerManagedPolicyAttachmentsExclusiveTimeoutsOutputWithContext(context.Background())
+}
+
+func (i CustomerManagedPolicyAttachmentsExclusiveTimeoutsArgs) ToCustomerManagedPolicyAttachmentsExclusiveTimeoutsOutputWithContext(ctx context.Context) CustomerManagedPolicyAttachmentsExclusiveTimeoutsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CustomerManagedPolicyAttachmentsExclusiveTimeoutsOutput)
+}
+
+func (i CustomerManagedPolicyAttachmentsExclusiveTimeoutsArgs) ToCustomerManagedPolicyAttachmentsExclusiveTimeoutsPtrOutput() CustomerManagedPolicyAttachmentsExclusiveTimeoutsPtrOutput {
+	return i.ToCustomerManagedPolicyAttachmentsExclusiveTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i CustomerManagedPolicyAttachmentsExclusiveTimeoutsArgs) ToCustomerManagedPolicyAttachmentsExclusiveTimeoutsPtrOutputWithContext(ctx context.Context) CustomerManagedPolicyAttachmentsExclusiveTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CustomerManagedPolicyAttachmentsExclusiveTimeoutsOutput).ToCustomerManagedPolicyAttachmentsExclusiveTimeoutsPtrOutputWithContext(ctx)
+}
+
+// CustomerManagedPolicyAttachmentsExclusiveTimeoutsPtrInput is an input type that accepts CustomerManagedPolicyAttachmentsExclusiveTimeoutsArgs, CustomerManagedPolicyAttachmentsExclusiveTimeoutsPtr and CustomerManagedPolicyAttachmentsExclusiveTimeoutsPtrOutput values.
+// You can construct a concrete instance of `CustomerManagedPolicyAttachmentsExclusiveTimeoutsPtrInput` via:
+//
+//	        CustomerManagedPolicyAttachmentsExclusiveTimeoutsArgs{...}
+//
+//	or:
+//
+//	        nil
+type CustomerManagedPolicyAttachmentsExclusiveTimeoutsPtrInput interface {
+	pulumi.Input
+
+	ToCustomerManagedPolicyAttachmentsExclusiveTimeoutsPtrOutput() CustomerManagedPolicyAttachmentsExclusiveTimeoutsPtrOutput
+	ToCustomerManagedPolicyAttachmentsExclusiveTimeoutsPtrOutputWithContext(context.Context) CustomerManagedPolicyAttachmentsExclusiveTimeoutsPtrOutput
+}
+
+type customerManagedPolicyAttachmentsExclusiveTimeoutsPtrType CustomerManagedPolicyAttachmentsExclusiveTimeoutsArgs
+
+func CustomerManagedPolicyAttachmentsExclusiveTimeoutsPtr(v *CustomerManagedPolicyAttachmentsExclusiveTimeoutsArgs) CustomerManagedPolicyAttachmentsExclusiveTimeoutsPtrInput {
+	return (*customerManagedPolicyAttachmentsExclusiveTimeoutsPtrType)(v)
+}
+
+func (*customerManagedPolicyAttachmentsExclusiveTimeoutsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CustomerManagedPolicyAttachmentsExclusiveTimeouts)(nil)).Elem()
+}
+
+func (i *customerManagedPolicyAttachmentsExclusiveTimeoutsPtrType) ToCustomerManagedPolicyAttachmentsExclusiveTimeoutsPtrOutput() CustomerManagedPolicyAttachmentsExclusiveTimeoutsPtrOutput {
+	return i.ToCustomerManagedPolicyAttachmentsExclusiveTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i *customerManagedPolicyAttachmentsExclusiveTimeoutsPtrType) ToCustomerManagedPolicyAttachmentsExclusiveTimeoutsPtrOutputWithContext(ctx context.Context) CustomerManagedPolicyAttachmentsExclusiveTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CustomerManagedPolicyAttachmentsExclusiveTimeoutsPtrOutput)
+}
+
+type CustomerManagedPolicyAttachmentsExclusiveTimeoutsOutput struct{ *pulumi.OutputState }
+
+func (CustomerManagedPolicyAttachmentsExclusiveTimeoutsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CustomerManagedPolicyAttachmentsExclusiveTimeouts)(nil)).Elem()
+}
+
+func (o CustomerManagedPolicyAttachmentsExclusiveTimeoutsOutput) ToCustomerManagedPolicyAttachmentsExclusiveTimeoutsOutput() CustomerManagedPolicyAttachmentsExclusiveTimeoutsOutput {
+	return o
+}
+
+func (o CustomerManagedPolicyAttachmentsExclusiveTimeoutsOutput) ToCustomerManagedPolicyAttachmentsExclusiveTimeoutsOutputWithContext(ctx context.Context) CustomerManagedPolicyAttachmentsExclusiveTimeoutsOutput {
+	return o
+}
+
+func (o CustomerManagedPolicyAttachmentsExclusiveTimeoutsOutput) ToCustomerManagedPolicyAttachmentsExclusiveTimeoutsPtrOutput() CustomerManagedPolicyAttachmentsExclusiveTimeoutsPtrOutput {
+	return o.ToCustomerManagedPolicyAttachmentsExclusiveTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (o CustomerManagedPolicyAttachmentsExclusiveTimeoutsOutput) ToCustomerManagedPolicyAttachmentsExclusiveTimeoutsPtrOutputWithContext(ctx context.Context) CustomerManagedPolicyAttachmentsExclusiveTimeoutsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CustomerManagedPolicyAttachmentsExclusiveTimeouts) *CustomerManagedPolicyAttachmentsExclusiveTimeouts {
+		return &v
+	}).(CustomerManagedPolicyAttachmentsExclusiveTimeoutsPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o CustomerManagedPolicyAttachmentsExclusiveTimeoutsOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CustomerManagedPolicyAttachmentsExclusiveTimeouts) *string { return v.Create }).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o CustomerManagedPolicyAttachmentsExclusiveTimeoutsOutput) Update() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CustomerManagedPolicyAttachmentsExclusiveTimeouts) *string { return v.Update }).(pulumi.StringPtrOutput)
+}
+
+type CustomerManagedPolicyAttachmentsExclusiveTimeoutsPtrOutput struct{ *pulumi.OutputState }
+
+func (CustomerManagedPolicyAttachmentsExclusiveTimeoutsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CustomerManagedPolicyAttachmentsExclusiveTimeouts)(nil)).Elem()
+}
+
+func (o CustomerManagedPolicyAttachmentsExclusiveTimeoutsPtrOutput) ToCustomerManagedPolicyAttachmentsExclusiveTimeoutsPtrOutput() CustomerManagedPolicyAttachmentsExclusiveTimeoutsPtrOutput {
+	return o
+}
+
+func (o CustomerManagedPolicyAttachmentsExclusiveTimeoutsPtrOutput) ToCustomerManagedPolicyAttachmentsExclusiveTimeoutsPtrOutputWithContext(ctx context.Context) CustomerManagedPolicyAttachmentsExclusiveTimeoutsPtrOutput {
+	return o
+}
+
+func (o CustomerManagedPolicyAttachmentsExclusiveTimeoutsPtrOutput) Elem() CustomerManagedPolicyAttachmentsExclusiveTimeoutsOutput {
+	return o.ApplyT(func(v *CustomerManagedPolicyAttachmentsExclusiveTimeouts) CustomerManagedPolicyAttachmentsExclusiveTimeouts {
+		if v != nil {
+			return *v
+		}
+		var ret CustomerManagedPolicyAttachmentsExclusiveTimeouts
+		return ret
+	}).(CustomerManagedPolicyAttachmentsExclusiveTimeoutsOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o CustomerManagedPolicyAttachmentsExclusiveTimeoutsPtrOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CustomerManagedPolicyAttachmentsExclusiveTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Create
+	}).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o CustomerManagedPolicyAttachmentsExclusiveTimeoutsPtrOutput) Update() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CustomerManagedPolicyAttachmentsExclusiveTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Update
+	}).(pulumi.StringPtrOutput)
+}
+
 type InstanceAccessControlAttributesAttribute struct {
 	// The name of the attribute associated with your identities in your identity source. This is used to map a specified attribute in your identity source with an attribute in AWS SSO.
 	Key string `pulumi:"key"`
@@ -2182,6 +2444,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ApplicationPortalOptionsSignInOptionsPtrInput)(nil)).Elem(), ApplicationPortalOptionsSignInOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CustomerManagedPolicyAttachmentCustomerManagedPolicyReferenceInput)(nil)).Elem(), CustomerManagedPolicyAttachmentCustomerManagedPolicyReferenceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CustomerManagedPolicyAttachmentCustomerManagedPolicyReferencePtrInput)(nil)).Elem(), CustomerManagedPolicyAttachmentCustomerManagedPolicyReferenceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CustomerManagedPolicyAttachmentsExclusiveCustomerManagedPolicyReferenceInput)(nil)).Elem(), CustomerManagedPolicyAttachmentsExclusiveCustomerManagedPolicyReferenceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CustomerManagedPolicyAttachmentsExclusiveCustomerManagedPolicyReferenceArrayInput)(nil)).Elem(), CustomerManagedPolicyAttachmentsExclusiveCustomerManagedPolicyReferenceArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CustomerManagedPolicyAttachmentsExclusiveTimeoutsInput)(nil)).Elem(), CustomerManagedPolicyAttachmentsExclusiveTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CustomerManagedPolicyAttachmentsExclusiveTimeoutsPtrInput)(nil)).Elem(), CustomerManagedPolicyAttachmentsExclusiveTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceAccessControlAttributesAttributeInput)(nil)).Elem(), InstanceAccessControlAttributesAttributeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceAccessControlAttributesAttributeArrayInput)(nil)).Elem(), InstanceAccessControlAttributesAttributeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InstanceAccessControlAttributesAttributeValueInput)(nil)).Elem(), InstanceAccessControlAttributesAttributeValueArgs{})
@@ -2214,6 +2480,10 @@ func init() {
 	pulumi.RegisterOutputType(ApplicationPortalOptionsSignInOptionsPtrOutput{})
 	pulumi.RegisterOutputType(CustomerManagedPolicyAttachmentCustomerManagedPolicyReferenceOutput{})
 	pulumi.RegisterOutputType(CustomerManagedPolicyAttachmentCustomerManagedPolicyReferencePtrOutput{})
+	pulumi.RegisterOutputType(CustomerManagedPolicyAttachmentsExclusiveCustomerManagedPolicyReferenceOutput{})
+	pulumi.RegisterOutputType(CustomerManagedPolicyAttachmentsExclusiveCustomerManagedPolicyReferenceArrayOutput{})
+	pulumi.RegisterOutputType(CustomerManagedPolicyAttachmentsExclusiveTimeoutsOutput{})
+	pulumi.RegisterOutputType(CustomerManagedPolicyAttachmentsExclusiveTimeoutsPtrOutput{})
 	pulumi.RegisterOutputType(InstanceAccessControlAttributesAttributeOutput{})
 	pulumi.RegisterOutputType(InstanceAccessControlAttributesAttributeArrayOutput{})
 	pulumi.RegisterOutputType(InstanceAccessControlAttributesAttributeValueOutput{})

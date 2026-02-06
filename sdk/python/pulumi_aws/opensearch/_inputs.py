@@ -35,6 +35,8 @@ __all__ = [
     'DomainAimlOptionsNaturalLanguageQueryGenerationOptionsArgsDict',
     'DomainAimlOptionsS3VectorsEngineArgs',
     'DomainAimlOptionsS3VectorsEngineArgsDict',
+    'DomainAimlOptionsServerlessVectorAccelerationArgs',
+    'DomainAimlOptionsServerlessVectorAccelerationArgsDict',
     'DomainAutoTuneOptionsArgs',
     'DomainAutoTuneOptionsArgsDict',
     'DomainAutoTuneOptionsMaintenanceScheduleArgs',
@@ -589,6 +591,10 @@ if not MYPY:
         """
         Configuration block for parameters required to enable S3 vectors engine features on the specified domain.
         """
+        serverless_vector_acceleration: NotRequired[pulumi.Input['DomainAimlOptionsServerlessVectorAccelerationArgsDict']]
+        """
+        Configuration block for parameters required to enable GPU-accelerated vector search on the specified domain.
+        """
 elif False:
     DomainAimlOptionsArgsDict: TypeAlias = Mapping[str, Any]
 
@@ -596,15 +602,19 @@ elif False:
 class DomainAimlOptionsArgs:
     def __init__(__self__, *,
                  natural_language_query_generation_options: Optional[pulumi.Input['DomainAimlOptionsNaturalLanguageQueryGenerationOptionsArgs']] = None,
-                 s3_vectors_engine: Optional[pulumi.Input['DomainAimlOptionsS3VectorsEngineArgs']] = None):
+                 s3_vectors_engine: Optional[pulumi.Input['DomainAimlOptionsS3VectorsEngineArgs']] = None,
+                 serverless_vector_acceleration: Optional[pulumi.Input['DomainAimlOptionsServerlessVectorAccelerationArgs']] = None):
         """
         :param pulumi.Input['DomainAimlOptionsNaturalLanguageQueryGenerationOptionsArgs'] natural_language_query_generation_options: Configuration block for parameters required for natural language query generation on the specified domain.
         :param pulumi.Input['DomainAimlOptionsS3VectorsEngineArgs'] s3_vectors_engine: Configuration block for parameters required to enable S3 vectors engine features on the specified domain.
+        :param pulumi.Input['DomainAimlOptionsServerlessVectorAccelerationArgs'] serverless_vector_acceleration: Configuration block for parameters required to enable GPU-accelerated vector search on the specified domain.
         """
         if natural_language_query_generation_options is not None:
             pulumi.set(__self__, "natural_language_query_generation_options", natural_language_query_generation_options)
         if s3_vectors_engine is not None:
             pulumi.set(__self__, "s3_vectors_engine", s3_vectors_engine)
+        if serverless_vector_acceleration is not None:
+            pulumi.set(__self__, "serverless_vector_acceleration", serverless_vector_acceleration)
 
     @_builtins.property
     @pulumi.getter(name="naturalLanguageQueryGenerationOptions")
@@ -629,6 +639,18 @@ class DomainAimlOptionsArgs:
     @s3_vectors_engine.setter
     def s3_vectors_engine(self, value: Optional[pulumi.Input['DomainAimlOptionsS3VectorsEngineArgs']]):
         pulumi.set(self, "s3_vectors_engine", value)
+
+    @_builtins.property
+    @pulumi.getter(name="serverlessVectorAcceleration")
+    def serverless_vector_acceleration(self) -> Optional[pulumi.Input['DomainAimlOptionsServerlessVectorAccelerationArgs']]:
+        """
+        Configuration block for parameters required to enable GPU-accelerated vector search on the specified domain.
+        """
+        return pulumi.get(self, "serverless_vector_acceleration")
+
+    @serverless_vector_acceleration.setter
+    def serverless_vector_acceleration(self, value: Optional[pulumi.Input['DomainAimlOptionsServerlessVectorAccelerationArgs']]):
+        pulumi.set(self, "serverless_vector_acceleration", value)
 
 
 if not MYPY:
@@ -687,6 +709,38 @@ class DomainAimlOptionsS3VectorsEngineArgs:
     def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
         """
         Enables S3 vectors engine features.
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[_builtins.bool]]):
+        pulumi.set(self, "enabled", value)
+
+
+if not MYPY:
+    class DomainAimlOptionsServerlessVectorAccelerationArgsDict(TypedDict):
+        enabled: NotRequired[pulumi.Input[_builtins.bool]]
+        """
+        Enables GPU-accelerated vector search for improved performance on vector workloads.
+        """
+elif False:
+    DomainAimlOptionsServerlessVectorAccelerationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DomainAimlOptionsServerlessVectorAccelerationArgs:
+    def __init__(__self__, *,
+                 enabled: Optional[pulumi.Input[_builtins.bool]] = None):
+        """
+        :param pulumi.Input[_builtins.bool] enabled: Enables GPU-accelerated vector search for improved performance on vector workloads.
+        """
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+
+    @_builtins.property
+    @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Enables GPU-accelerated vector search for improved performance on vector workloads.
         """
         return pulumi.get(self, "enabled")
 

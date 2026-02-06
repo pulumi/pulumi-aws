@@ -19,6 +19,8 @@ __all__ = [
     'ApplicationPortalOptions',
     'ApplicationPortalOptionsSignInOptions',
     'CustomerManagedPolicyAttachmentCustomerManagedPolicyReference',
+    'CustomerManagedPolicyAttachmentsExclusiveCustomerManagedPolicyReference',
+    'CustomerManagedPolicyAttachmentsExclusiveTimeouts',
     'InstanceAccessControlAttributesAttribute',
     'InstanceAccessControlAttributesAttributeValue',
     'ManagedPolicyAttachmentsExclusiveTimeouts',
@@ -163,6 +165,67 @@ class CustomerManagedPolicyAttachmentCustomerManagedPolicyReference(dict):
         The path to the IAM policy to be attached. The default is `/`. See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-friendly-names) for more information.
         """
         return pulumi.get(self, "path")
+
+
+@pulumi.output_type
+class CustomerManagedPolicyAttachmentsExclusiveCustomerManagedPolicyReference(dict):
+    def __init__(__self__, *,
+                 name: _builtins.str,
+                 path: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str name: Name of the customer managed IAM Policy to be attached.
+        :param _builtins.str path: The path to the IAM policy to be attached. The default is `/`. See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-friendly-names) for more information.
+        """
+        pulumi.set(__self__, "name", name)
+        if path is not None:
+            pulumi.set(__self__, "path", path)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        """
+        Name of the customer managed IAM Policy to be attached.
+        """
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter
+    def path(self) -> Optional[_builtins.str]:
+        """
+        The path to the IAM policy to be attached. The default is `/`. See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-friendly-names) for more information.
+        """
+        return pulumi.get(self, "path")
+
+
+@pulumi.output_type
+class CustomerManagedPolicyAttachmentsExclusiveTimeouts(dict):
+    def __init__(__self__, *,
+                 create: Optional[_builtins.str] = None,
+                 update: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str create: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        :param _builtins.str update: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        if create is not None:
+            pulumi.set(__self__, "create", create)
+        if update is not None:
+            pulumi.set(__self__, "update", update)
+
+    @_builtins.property
+    @pulumi.getter
+    def create(self) -> Optional[_builtins.str]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "create")
+
+    @_builtins.property
+    @pulumi.getter
+    def update(self) -> Optional[_builtins.str]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "update")
 
 
 @pulumi.output_type

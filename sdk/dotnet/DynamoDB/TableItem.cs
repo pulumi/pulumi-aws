@@ -90,7 +90,7 @@ namespace Pulumi.Aws.DynamoDB
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// Name of the table to contain the item.
+        /// Name or ARN of the table to contain the item.
         /// 
         /// &gt; **Note:** Names included in `Item` are represented internally with everything but letters removed. There is the possibility of collisions if two names, once filtered, are the same. For example, the names `your-name-here` and `Yournamehere` will overlap and cause an error.
         /// </summary>
@@ -168,7 +168,7 @@ namespace Pulumi.Aws.DynamoDB
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// Name of the table to contain the item.
+        /// Name or ARN of the table to contain the item.
         /// 
         /// &gt; **Note:** Names included in `Item` are represented internally with everything but letters removed. There is the possibility of collisions if two names, once filtered, are the same. For example, the names `your-name-here` and `Yournamehere` will overlap and cause an error.
         /// </summary>
@@ -208,7 +208,7 @@ namespace Pulumi.Aws.DynamoDB
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// Name of the table to contain the item.
+        /// Name or ARN of the table to contain the item.
         /// 
         /// &gt; **Note:** Names included in `Item` are represented internally with everything but letters removed. There is the possibility of collisions if two names, once filtered, are the same. For example, the names `your-name-here` and `Yournamehere` will overlap and cause an error.
         /// </summary>

@@ -190,11 +190,11 @@ export class ServerlessCache extends pulumi.CustomResource {
      */
     declare public readonly securityGroupIds: pulumi.Output<string[]>;
     /**
-     * The list of ARN(s) of the snapshot that the new serverless cache will be created from. Available for Redis only.
+     * The list of ARN(s) of the snapshot that the new serverless cache will be created from. Only supported for engine types `"redis"` or `"valkey"`.
      */
     declare public readonly snapshotArnsToRestores: pulumi.Output<string[] | undefined>;
     /**
-     * The number of snapshots that will be retained for the serverless cache that is being created. As new snapshots beyond this limit are added, the oldest snapshots will be deleted on a rolling basis. Available for Redis only.
+     * The number of snapshots that will be retained for the serverless cache that is being created. As new snapshots beyond this limit are added, the oldest snapshots will be deleted on a rolling basis. Only supported for engine types `"redis"` or `"valkey"`.
      */
     declare public readonly snapshotRetentionLimit: pulumi.Output<number>;
     /**
@@ -348,11 +348,11 @@ export interface ServerlessCacheState {
      */
     securityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The list of ARN(s) of the snapshot that the new serverless cache will be created from. Available for Redis only.
+     * The list of ARN(s) of the snapshot that the new serverless cache will be created from. Only supported for engine types `"redis"` or `"valkey"`.
      */
     snapshotArnsToRestores?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The number of snapshots that will be retained for the serverless cache that is being created. As new snapshots beyond this limit are added, the oldest snapshots will be deleted on a rolling basis. Available for Redis only.
+     * The number of snapshots that will be retained for the serverless cache that is being created. As new snapshots beyond this limit are added, the oldest snapshots will be deleted on a rolling basis. Only supported for engine types `"redis"` or `"valkey"`.
      */
     snapshotRetentionLimit?: pulumi.Input<number>;
     /**
@@ -419,11 +419,11 @@ export interface ServerlessCacheArgs {
      */
     securityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The list of ARN(s) of the snapshot that the new serverless cache will be created from. Available for Redis only.
+     * The list of ARN(s) of the snapshot that the new serverless cache will be created from. Only supported for engine types `"redis"` or `"valkey"`.
      */
     snapshotArnsToRestores?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The number of snapshots that will be retained for the serverless cache that is being created. As new snapshots beyond this limit are added, the oldest snapshots will be deleted on a rolling basis. Available for Redis only.
+     * The number of snapshots that will be retained for the serverless cache that is being created. As new snapshots beyond this limit are added, the oldest snapshots will be deleted on a rolling basis. Only supported for engine types `"redis"` or `"valkey"`.
      */
     snapshotRetentionLimit?: pulumi.Input<number>;
     /**

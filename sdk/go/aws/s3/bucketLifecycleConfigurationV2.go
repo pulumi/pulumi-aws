@@ -540,6 +540,8 @@ type BucketLifecycleConfigurationV2 struct {
 	// Name of the source S3 bucket you want Amazon S3 to monitor.
 	Bucket pulumi.StringOutput `pulumi:"bucket"`
 	// Account ID of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
+	//
+	// Deprecated: This attribute will be removed in a future verion of the provider.
 	ExpectedBucketOwner pulumi.StringOutput `pulumi:"expectedBucketOwner"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
@@ -592,6 +594,8 @@ type bucketLifecycleConfigurationV2State struct {
 	// Name of the source S3 bucket you want Amazon S3 to monitor.
 	Bucket *string `pulumi:"bucket"`
 	// Account ID of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
+	//
+	// Deprecated: This attribute will be removed in a future verion of the provider.
 	ExpectedBucketOwner *string `pulumi:"expectedBucketOwner"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
@@ -606,6 +610,8 @@ type BucketLifecycleConfigurationV2State struct {
 	// Name of the source S3 bucket you want Amazon S3 to monitor.
 	Bucket pulumi.StringPtrInput
 	// Account ID of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
+	//
+	// Deprecated: This attribute will be removed in a future verion of the provider.
 	ExpectedBucketOwner pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
@@ -624,6 +630,8 @@ type bucketLifecycleConfigurationV2Args struct {
 	// Name of the source S3 bucket you want Amazon S3 to monitor.
 	Bucket string `pulumi:"bucket"`
 	// Account ID of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
+	//
+	// Deprecated: This attribute will be removed in a future verion of the provider.
 	ExpectedBucketOwner *string `pulumi:"expectedBucketOwner"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
@@ -639,6 +647,8 @@ type BucketLifecycleConfigurationV2Args struct {
 	// Name of the source S3 bucket you want Amazon S3 to monitor.
 	Bucket pulumi.StringInput
 	// Account ID of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
+	//
+	// Deprecated: This attribute will be removed in a future verion of the provider.
 	ExpectedBucketOwner pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
@@ -742,6 +752,8 @@ func (o BucketLifecycleConfigurationV2Output) Bucket() pulumi.StringOutput {
 }
 
 // Account ID of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
+//
+// Deprecated: This attribute will be removed in a future verion of the provider.
 func (o BucketLifecycleConfigurationV2Output) ExpectedBucketOwner() pulumi.StringOutput {
 	return o.ApplyT(func(v *BucketLifecycleConfigurationV2) pulumi.StringOutput { return v.ExpectedBucketOwner }).(pulumi.StringOutput)
 }

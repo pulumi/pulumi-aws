@@ -125,10 +125,6 @@ import * as utilities from "../utilities";
  *
  * * `account_id` (String) AWS Account where this resource is managed.
  *
- * * `acl` (String) Canned ACL to apply to the bucket.
- *
- * * `expected_bucket_owner` (String) Account ID of the expected bucket owner.
- *
  * * `region` (String) Region where this resource is managed.
  *
  * If the owner (account ID) of the source bucket is the _same_ account used to configure the AWS Provider, and the source bucket is **configured** with a
@@ -238,6 +234,8 @@ export class BucketAclV2 extends pulumi.CustomResource {
     declare public readonly bucket: pulumi.Output<string>;
     /**
      * Account ID of the expected bucket owner.
+     *
+     * @deprecated expected_bucket_owner is deprecated. It will be removed in a future verion of the provider.
      */
     declare public readonly expectedBucketOwner: pulumi.Output<string | undefined>;
     /**
@@ -302,6 +300,8 @@ export interface BucketAclV2State {
     bucket?: pulumi.Input<string>;
     /**
      * Account ID of the expected bucket owner.
+     *
+     * @deprecated expected_bucket_owner is deprecated. It will be removed in a future verion of the provider.
      */
     expectedBucketOwner?: pulumi.Input<string>;
     /**
@@ -328,6 +328,8 @@ export interface BucketAclV2Args {
     bucket: pulumi.Input<string>;
     /**
      * Account ID of the expected bucket owner.
+     *
+     * @deprecated expected_bucket_owner is deprecated. It will be removed in a future verion of the provider.
      */
     expectedBucketOwner?: pulumi.Input<string>;
     /**

@@ -200,8 +200,6 @@ import javax.annotation.Nullable;
  * 
  * * `account_id` (String) AWS Account where this resource is managed.
  * 
- * * `expected_bucket_owner` (String) Account ID of the expected bucket owner.
- * 
  * * `region` (String) Region where this resource is managed.
  * 
  * If the owner (account ID) of the source bucket differs from the account used to configure the AWS Provider, import using the `bucket` and `expected_bucket_owner` separated by a comma (`,`):
@@ -246,7 +244,11 @@ public class BucketVersioning extends com.pulumi.resources.CustomResource {
     /**
      * Account ID of the expected bucket owner.
      * 
+     * @deprecated
+     * expected_bucket_owner is deprecated. It will be removed in a future verion of the provider.
+     * 
      */
+    @Deprecated /* expected_bucket_owner is deprecated. It will be removed in a future verion of the provider. */
     @Export(name="expectedBucketOwner", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> expectedBucketOwner;
 

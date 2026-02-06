@@ -38,6 +38,8 @@ export interface GetPlanArgs {
     arn: string;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     *
+     * @deprecated This attribute will be removed in a future version of the provider.
      */
     region?: string;
 }
@@ -79,6 +81,9 @@ export interface GetPlanResult {
      * Recovery time objective in minutes.
      */
     readonly recoveryTimeObjectiveMinutes: number;
+    /**
+     * @deprecated This attribute will be removed in a future version of the provider.
+     */
     readonly region: string;
     /**
      * List of regions included in the plan.
@@ -131,6 +136,8 @@ export interface GetPlanOutputArgs {
     arn: pulumi.Input<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     *
+     * @deprecated This attribute will be removed in a future version of the provider.
      */
     region?: pulumi.Input<string>;
 }

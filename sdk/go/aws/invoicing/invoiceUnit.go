@@ -74,7 +74,7 @@ type InvoiceUnit struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	//
-	// Deprecated: This attribute will be removed in a future verion of the provider.
+	// Deprecated: This attribute will be removed in a future version of the provider.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Configuration block for invoice unit rules. See `rule` below.
 	//
@@ -134,7 +134,7 @@ type invoiceUnitState struct {
 	Name *string `pulumi:"name"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	//
-	// Deprecated: This attribute will be removed in a future verion of the provider.
+	// Deprecated: This attribute will be removed in a future version of the provider.
 	Region *string `pulumi:"region"`
 	// Configuration block for invoice unit rules. See `rule` below.
 	//
@@ -162,7 +162,7 @@ type InvoiceUnitState struct {
 	Name pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	//
-	// Deprecated: This attribute will be removed in a future verion of the provider.
+	// Deprecated: This attribute will be removed in a future version of the provider.
 	Region pulumi.StringPtrInput
 	// Configuration block for invoice unit rules. See `rule` below.
 	//
@@ -190,7 +190,7 @@ type invoiceUnitArgs struct {
 	Name *string `pulumi:"name"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	//
-	// Deprecated: This attribute will be removed in a future verion of the provider.
+	// Deprecated: This attribute will be removed in a future version of the provider.
 	Region *string `pulumi:"region"`
 	// Configuration block for invoice unit rules. See `rule` below.
 	//
@@ -213,7 +213,7 @@ type InvoiceUnitArgs struct {
 	Name pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	//
-	// Deprecated: This attribute will be removed in a future verion of the provider.
+	// Deprecated: This attribute will be removed in a future version of the provider.
 	Region pulumi.StringPtrInput
 	// Configuration block for invoice unit rules. See `rule` below.
 	//
@@ -340,7 +340,7 @@ func (o InvoiceUnitOutput) Name() pulumi.StringOutput {
 
 // Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 //
-// Deprecated: This attribute will be removed in a future verion of the provider.
+// Deprecated: This attribute will be removed in a future version of the provider.
 func (o InvoiceUnitOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *InvoiceUnit) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

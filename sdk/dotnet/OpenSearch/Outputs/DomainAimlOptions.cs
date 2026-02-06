@@ -21,15 +21,22 @@ namespace Pulumi.Aws.OpenSearch.Outputs
         /// Configuration block for parameters required to enable S3 vectors engine features on the specified domain.
         /// </summary>
         public readonly Outputs.DomainAimlOptionsS3VectorsEngine? S3VectorsEngine;
+        /// <summary>
+        /// Configuration block for parameters required to enable GPU-accelerated vector search on the specified domain.
+        /// </summary>
+        public readonly Outputs.DomainAimlOptionsServerlessVectorAcceleration? ServerlessVectorAcceleration;
 
         [OutputConstructor]
         private DomainAimlOptions(
             Outputs.DomainAimlOptionsNaturalLanguageQueryGenerationOptions? naturalLanguageQueryGenerationOptions,
 
-            Outputs.DomainAimlOptionsS3VectorsEngine? s3VectorsEngine)
+            Outputs.DomainAimlOptionsS3VectorsEngine? s3VectorsEngine,
+
+            Outputs.DomainAimlOptionsServerlessVectorAcceleration? serverlessVectorAcceleration)
         {
             NaturalLanguageQueryGenerationOptions = naturalLanguageQueryGenerationOptions;
             S3VectorsEngine = s3VectorsEngine;
+            ServerlessVectorAcceleration = serverlessVectorAcceleration;
         }
     }
 }

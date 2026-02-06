@@ -77,7 +77,7 @@ public final class TableItemArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Name of the table to contain the item.
+     * Name or ARN of the table to contain the item.
      * 
      * &gt; **Note:** Names included in `item` are represented internally with everything but letters removed. There is the possibility of collisions if two names, once filtered, are the same. For example, the names `your-name-here` and `yournamehere` will overlap and cause an error.
      * 
@@ -86,7 +86,7 @@ public final class TableItemArgs extends com.pulumi.resources.ResourceArgs {
     private Output<String> tableName;
 
     /**
-     * @return Name of the table to contain the item.
+     * @return Name or ARN of the table to contain the item.
      * 
      * &gt; **Note:** Names included in `item` are represented internally with everything but letters removed. There is the possibility of collisions if two names, once filtered, are the same. For example, the names `your-name-here` and `yournamehere` will overlap and cause an error.
      * 
@@ -208,7 +208,7 @@ public final class TableItemArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tableName Name of the table to contain the item.
+         * @param tableName Name or ARN of the table to contain the item.
          * 
          * &gt; **Note:** Names included in `item` are represented internally with everything but letters removed. There is the possibility of collisions if two names, once filtered, are the same. For example, the names `your-name-here` and `yournamehere` will overlap and cause an error.
          * 
@@ -221,7 +221,7 @@ public final class TableItemArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tableName Name of the table to contain the item.
+         * @param tableName Name or ARN of the table to contain the item.
          * 
          * &gt; **Note:** Names included in `item` are represented internally with everything but letters removed. There is the possibility of collisions if two names, once filtered, are the same. For example, the names `your-name-here` and `yournamehere` will overlap and cause an error.
          * 

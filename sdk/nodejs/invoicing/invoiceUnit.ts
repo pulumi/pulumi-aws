@@ -88,7 +88,7 @@ export class InvoiceUnit extends pulumi.CustomResource {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      *
-     * @deprecated This attribute will be removed in a future verion of the provider.
+     * @deprecated This attribute will be removed in a future version of the provider.
      */
     declare public readonly region: pulumi.Output<string>;
     /**
@@ -184,7 +184,7 @@ export interface InvoiceUnitState {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      *
-     * @deprecated This attribute will be removed in a future verion of the provider.
+     * @deprecated This attribute will be removed in a future version of the provider.
      */
     region?: pulumi.Input<string>;
     /**
@@ -227,7 +227,7 @@ export interface InvoiceUnitArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      *
-     * @deprecated This attribute will be removed in a future verion of the provider.
+     * @deprecated This attribute will be removed in a future version of the provider.
      */
     region?: pulumi.Input<string>;
     /**

@@ -50,8 +50,8 @@ class ServerlessCacheArgs:
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: A list of the one or more VPC security groups to be associated with the serverless cache. The security group will authorize traffic access for the VPC end-point (private-link). If no other information is given this will be the VPC’s Default Security Group that is associated with the cluster VPC end-point.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] snapshot_arns_to_restores: The list of ARN(s) of the snapshot that the new serverless cache will be created from. Available for Redis only.
-        :param pulumi.Input[_builtins.int] snapshot_retention_limit: The number of snapshots that will be retained for the serverless cache that is being created. As new snapshots beyond this limit are added, the oldest snapshots will be deleted on a rolling basis. Available for Redis only.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] snapshot_arns_to_restores: The list of ARN(s) of the snapshot that the new serverless cache will be created from. Only supported for engine types `"redis"` or `"valkey"`.
+        :param pulumi.Input[_builtins.int] snapshot_retention_limit: The number of snapshots that will be retained for the serverless cache that is being created. As new snapshots beyond this limit are added, the oldest snapshots will be deleted on a rolling basis. Only supported for engine types `"redis"` or `"valkey"`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: A list of the identifiers of the subnets where the VPC endpoint for the serverless cache will be deployed. All the subnetIds must belong to the same VPC.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[_builtins.str] user_group_id: The identifier of the UserGroup to be associated with the serverless cache. Available for Redis and Valkey. Default is NULL.
@@ -201,7 +201,7 @@ class ServerlessCacheArgs:
     @pulumi.getter(name="snapshotArnsToRestores")
     def snapshot_arns_to_restores(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        The list of ARN(s) of the snapshot that the new serverless cache will be created from. Available for Redis only.
+        The list of ARN(s) of the snapshot that the new serverless cache will be created from. Only supported for engine types `"redis"` or `"valkey"`.
         """
         return pulumi.get(self, "snapshot_arns_to_restores")
 
@@ -213,7 +213,7 @@ class ServerlessCacheArgs:
     @pulumi.getter(name="snapshotRetentionLimit")
     def snapshot_retention_limit(self) -> Optional[pulumi.Input[_builtins.int]]:
         """
-        The number of snapshots that will be retained for the serverless cache that is being created. As new snapshots beyond this limit are added, the oldest snapshots will be deleted on a rolling basis. Available for Redis only.
+        The number of snapshots that will be retained for the serverless cache that is being created. As new snapshots beyond this limit are added, the oldest snapshots will be deleted on a rolling basis. Only supported for engine types `"redis"` or `"valkey"`.
         """
         return pulumi.get(self, "snapshot_retention_limit")
 
@@ -311,8 +311,8 @@ class _ServerlessCacheState:
         :param pulumi.Input[Sequence[pulumi.Input['ServerlessCacheReaderEndpointArgs']]] reader_endpoints: Represents the information required for client programs to connect to a cache node. See `reader_endpoint` Block for details.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: A list of the one or more VPC security groups to be associated with the serverless cache. The security group will authorize traffic access for the VPC end-point (private-link). If no other information is given this will be the VPC’s Default Security Group that is associated with the cluster VPC end-point.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] snapshot_arns_to_restores: The list of ARN(s) of the snapshot that the new serverless cache will be created from. Available for Redis only.
-        :param pulumi.Input[_builtins.int] snapshot_retention_limit: The number of snapshots that will be retained for the serverless cache that is being created. As new snapshots beyond this limit are added, the oldest snapshots will be deleted on a rolling basis. Available for Redis only.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] snapshot_arns_to_restores: The list of ARN(s) of the snapshot that the new serverless cache will be created from. Only supported for engine types `"redis"` or `"valkey"`.
+        :param pulumi.Input[_builtins.int] snapshot_retention_limit: The number of snapshots that will be retained for the serverless cache that is being created. As new snapshots beyond this limit are added, the oldest snapshots will be deleted on a rolling basis. Only supported for engine types `"redis"` or `"valkey"`.
         :param pulumi.Input[_builtins.str] status: The current status of the serverless cache. The allowed values are CREATING, AVAILABLE, DELETING, CREATE-FAILED and MODIFYING.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: A list of the identifiers of the subnets where the VPC endpoint for the serverless cache will be deployed. All the subnetIds must belong to the same VPC.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -538,7 +538,7 @@ class _ServerlessCacheState:
     @pulumi.getter(name="snapshotArnsToRestores")
     def snapshot_arns_to_restores(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        The list of ARN(s) of the snapshot that the new serverless cache will be created from. Available for Redis only.
+        The list of ARN(s) of the snapshot that the new serverless cache will be created from. Only supported for engine types `"redis"` or `"valkey"`.
         """
         return pulumi.get(self, "snapshot_arns_to_restores")
 
@@ -550,7 +550,7 @@ class _ServerlessCacheState:
     @pulumi.getter(name="snapshotRetentionLimit")
     def snapshot_retention_limit(self) -> Optional[pulumi.Input[_builtins.int]]:
         """
-        The number of snapshots that will be retained for the serverless cache that is being created. As new snapshots beyond this limit are added, the oldest snapshots will be deleted on a rolling basis. Available for Redis only.
+        The number of snapshots that will be retained for the serverless cache that is being created. As new snapshots beyond this limit are added, the oldest snapshots will be deleted on a rolling basis. Only supported for engine types `"redis"` or `"valkey"`.
         """
         return pulumi.get(self, "snapshot_retention_limit")
 
@@ -753,8 +753,8 @@ class ServerlessCache(pulumi.CustomResource):
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: A list of the one or more VPC security groups to be associated with the serverless cache. The security group will authorize traffic access for the VPC end-point (private-link). If no other information is given this will be the VPC’s Default Security Group that is associated with the cluster VPC end-point.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] snapshot_arns_to_restores: The list of ARN(s) of the snapshot that the new serverless cache will be created from. Available for Redis only.
-        :param pulumi.Input[_builtins.int] snapshot_retention_limit: The number of snapshots that will be retained for the serverless cache that is being created. As new snapshots beyond this limit are added, the oldest snapshots will be deleted on a rolling basis. Available for Redis only.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] snapshot_arns_to_restores: The list of ARN(s) of the snapshot that the new serverless cache will be created from. Only supported for engine types `"redis"` or `"valkey"`.
+        :param pulumi.Input[_builtins.int] snapshot_retention_limit: The number of snapshots that will be retained for the serverless cache that is being created. As new snapshots beyond this limit are added, the oldest snapshots will be deleted on a rolling basis. Only supported for engine types `"redis"` or `"valkey"`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: A list of the identifiers of the subnets where the VPC endpoint for the serverless cache will be deployed. All the subnetIds must belong to the same VPC.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[_builtins.str] user_group_id: The identifier of the UserGroup to be associated with the serverless cache. Available for Redis and Valkey. Default is NULL.
@@ -976,8 +976,8 @@ class ServerlessCache(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union['ServerlessCacheReaderEndpointArgs', 'ServerlessCacheReaderEndpointArgsDict']]]] reader_endpoints: Represents the information required for client programs to connect to a cache node. See `reader_endpoint` Block for details.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: A list of the one or more VPC security groups to be associated with the serverless cache. The security group will authorize traffic access for the VPC end-point (private-link). If no other information is given this will be the VPC’s Default Security Group that is associated with the cluster VPC end-point.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] snapshot_arns_to_restores: The list of ARN(s) of the snapshot that the new serverless cache will be created from. Available for Redis only.
-        :param pulumi.Input[_builtins.int] snapshot_retention_limit: The number of snapshots that will be retained for the serverless cache that is being created. As new snapshots beyond this limit are added, the oldest snapshots will be deleted on a rolling basis. Available for Redis only.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] snapshot_arns_to_restores: The list of ARN(s) of the snapshot that the new serverless cache will be created from. Only supported for engine types `"redis"` or `"valkey"`.
+        :param pulumi.Input[_builtins.int] snapshot_retention_limit: The number of snapshots that will be retained for the serverless cache that is being created. As new snapshots beyond this limit are added, the oldest snapshots will be deleted on a rolling basis. Only supported for engine types `"redis"` or `"valkey"`.
         :param pulumi.Input[_builtins.str] status: The current status of the serverless cache. The allowed values are CREATING, AVAILABLE, DELETING, CREATE-FAILED and MODIFYING.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: A list of the identifiers of the subnets where the VPC endpoint for the serverless cache will be deployed. All the subnetIds must belong to the same VPC.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -1130,7 +1130,7 @@ class ServerlessCache(pulumi.CustomResource):
     @pulumi.getter(name="snapshotArnsToRestores")
     def snapshot_arns_to_restores(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
         """
-        The list of ARN(s) of the snapshot that the new serverless cache will be created from. Available for Redis only.
+        The list of ARN(s) of the snapshot that the new serverless cache will be created from. Only supported for engine types `"redis"` or `"valkey"`.
         """
         return pulumi.get(self, "snapshot_arns_to_restores")
 
@@ -1138,7 +1138,7 @@ class ServerlessCache(pulumi.CustomResource):
     @pulumi.getter(name="snapshotRetentionLimit")
     def snapshot_retention_limit(self) -> pulumi.Output[_builtins.int]:
         """
-        The number of snapshots that will be retained for the serverless cache that is being created. As new snapshots beyond this limit are added, the oldest snapshots will be deleted on a rolling basis. Available for Redis only.
+        The number of snapshots that will be retained for the serverless cache that is being created. As new snapshots beyond this limit are added, the oldest snapshots will be deleted on a rolling basis. Only supported for engine types `"redis"` or `"valkey"`.
         """
         return pulumi.get(self, "snapshot_retention_limit")
 
