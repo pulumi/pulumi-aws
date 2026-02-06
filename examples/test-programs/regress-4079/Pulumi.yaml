@@ -1,3 +1,0 @@
-name: regress-4079
-runtime: nodejs
-description: Reproduce AWS 4079
