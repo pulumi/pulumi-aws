@@ -34,7 +34,7 @@ namespace Pulumi.Aws.Ec2.Outputs
         /// </summary>
         public readonly string? KmsKeyId;
         /// <summary>
-        /// Map of tags to assign to the device.
+        /// Map of tags to assign to the device. **Note:** Tags specified here are applied after instance creation via a separate API call. This means they cannot be used with IAM policies that require tags during resource creation (e.g., ABAC policies with `ec2:CreateAction` conditions or SCPs requiring volume tags). For ABAC compliance, use `VolumeTags` instead, which applies uniform tags to all volumes during instance creation.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>

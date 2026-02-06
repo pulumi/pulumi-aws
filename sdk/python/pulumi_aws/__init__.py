@@ -12591,6 +12591,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "ssoadmin/customerManagedPolicyAttachmentsExclusive",
+  "fqn": "pulumi_aws.ssoadmin",
+  "classes": {
+   "aws:ssoadmin/customerManagedPolicyAttachmentsExclusive:CustomerManagedPolicyAttachmentsExclusive": "CustomerManagedPolicyAttachmentsExclusive"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "ssoadmin/instanceAccessControlAttributes",
   "fqn": "pulumi_aws.ssoadmin",
   "classes": {

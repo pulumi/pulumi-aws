@@ -55,6 +55,8 @@ type GetRoute53HealthChecksArgs struct {
 	// ARN of the ARC Region Switch Plan.
 	PlanArn string `pulumi:"planArn"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	//
+	// Deprecated: This attribute will be removed in a future version of the provider.
 	Region *string `pulumi:"region"`
 }
 
@@ -66,6 +68,8 @@ type GetRoute53HealthChecksResult struct {
 	Id      string `pulumi:"id"`
 	PlanArn string `pulumi:"planArn"`
 	// Region for the health check.
+	//
+	// Deprecated: This attribute will be removed in a future version of the provider.
 	Region string `pulumi:"region"`
 }
 
@@ -83,6 +87,8 @@ type GetRoute53HealthChecksOutputArgs struct {
 	// ARN of the ARC Region Switch Plan.
 	PlanArn pulumi.StringInput `pulumi:"planArn"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	//
+	// Deprecated: This attribute will be removed in a future version of the provider.
 	Region pulumi.StringPtrInput `pulumi:"region"`
 }
 
@@ -120,6 +126,8 @@ func (o GetRoute53HealthChecksResultOutput) PlanArn() pulumi.StringOutput {
 }
 
 // Region for the health check.
+//
+// Deprecated: This attribute will be removed in a future version of the provider.
 func (o GetRoute53HealthChecksResultOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v GetRoute53HealthChecksResult) string { return v.Region }).(pulumi.StringOutput)
 }

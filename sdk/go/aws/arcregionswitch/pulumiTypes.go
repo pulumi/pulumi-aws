@@ -326,7 +326,7 @@ type PlanTrigger struct {
 	Action string `pulumi:"action"`
 	// List of conditions that must be met. See Conditions below.
 	Conditions []PlanTriggerCondition `pulumi:"conditions"`
-	// Description of the plan.
+	// Description of the trigger.
 	Description *string `pulumi:"description"`
 	// Minimum delay in minutes between executions.
 	MinDelayMinutesBetweenExecutions int `pulumi:"minDelayMinutesBetweenExecutions"`
@@ -350,7 +350,7 @@ type PlanTriggerArgs struct {
 	Action pulumi.StringInput `pulumi:"action"`
 	// List of conditions that must be met. See Conditions below.
 	Conditions PlanTriggerConditionArrayInput `pulumi:"conditions"`
-	// Description of the plan.
+	// Description of the trigger.
 	Description pulumi.StringPtrInput `pulumi:"description"`
 	// Minimum delay in minutes between executions.
 	MinDelayMinutesBetweenExecutions pulumi.IntInput `pulumi:"minDelayMinutesBetweenExecutions"`
@@ -419,7 +419,7 @@ func (o PlanTriggerOutput) Conditions() PlanTriggerConditionArrayOutput {
 	return o.ApplyT(func(v PlanTrigger) []PlanTriggerCondition { return v.Conditions }).(PlanTriggerConditionArrayOutput)
 }
 
-// Description of the plan.
+// Description of the trigger.
 func (o PlanTriggerOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PlanTrigger) *string { return v.Description }).(pulumi.StringPtrOutput)
 }

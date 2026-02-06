@@ -50,14 +50,14 @@ public final class PlanTriggerArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Description of the plan.
+     * Description of the trigger.
      * 
      */
     @Import(name="description")
     private @Nullable Output<String> description;
 
     /**
-     * @return Description of the plan.
+     * @return Description of the trigger.
      * 
      */
     public Optional<Output<String>> description() {
@@ -175,7 +175,7 @@ public final class PlanTriggerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param description Description of the plan.
+         * @param description Description of the trigger.
          * 
          * @return builder
          * 
@@ -186,7 +186,7 @@ public final class PlanTriggerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param description Description of the plan.
+         * @param description Description of the trigger.
          * 
          * @return builder
          * 

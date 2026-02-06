@@ -189,10 +189,6 @@ namespace Pulumi.Aws.S3
     /// 
     /// * `account_id` (String) AWS Account where this resource is managed.
     /// 
-    /// * `acl` (String) Canned ACL to apply to the bucket.
-    /// 
-    /// * `expected_bucket_owner` (String) Account ID of the expected bucket owner.
-    /// 
     /// * `region` (String) Region where this resource is managed.
     /// 
     /// If the owner (account ID) of the source bucket is the _same_ account used to configure the AWS Provider, and the source bucket is **configured** with a

@@ -147,10 +147,10 @@ public class Application extends com.pulumi.resources.CustomResource {
      * (**Deprecated** Reference `arn` instead) ARN of the application.
      * 
      * @deprecated
-     * Use &#39;arn&#39; instead. This attribute will be removed in a future verion of the provider.
+     * Use &#39;arn&#39; instead. This attribute will be removed in a future version of the provider.
      * 
      */
-    @Deprecated /* Use 'arn' instead. This attribute will be removed in a future verion of the provider. */
+    @Deprecated /* Use 'arn' instead. This attribute will be removed in a future version of the provider. */
     @Export(name="applicationArn", refs={String.class}, tree="[0]")
     private Output<String> applicationArn;
 

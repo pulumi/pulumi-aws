@@ -343,7 +343,7 @@ namespace Pulumi.Aws.ElastiCache
         public Output<string?> AuthToken { get; private set; } = null!;
 
         /// <summary>
-        /// Strategy used when modifying `AuthToken` on an existing replication group. Not used during initial create. Valid values are `SET`, `ROTATE`, and `DELETE`. If omitted during an auth token change, AWS defaults to `ROTATE`.
+        /// Strategy used when modifying `AuthToken` on an existing replication group. Not used during initial create. Valid values are `SET`, `ROTATE`, and `DELETE`. If omitted during an auth token change, AWS defaults to `ROTATE`. If value is `DELETE` then `AuthToken` must be omitted.
         /// </summary>
         [Output("authTokenUpdateStrategy")]
         public Output<string?> AuthTokenUpdateStrategy { get; private set; } = null!;
@@ -724,7 +724,7 @@ namespace Pulumi.Aws.ElastiCache
         }
 
         /// <summary>
-        /// Strategy used when modifying `AuthToken` on an existing replication group. Not used during initial create. Valid values are `SET`, `ROTATE`, and `DELETE`. If omitted during an auth token change, AWS defaults to `ROTATE`.
+        /// Strategy used when modifying `AuthToken` on an existing replication group. Not used during initial create. Valid values are `SET`, `ROTATE`, and `DELETE`. If omitted during an auth token change, AWS defaults to `ROTATE`. If value is `DELETE` then `AuthToken` must be omitted.
         /// </summary>
         [Input("authTokenUpdateStrategy")]
         public Input<string>? AuthTokenUpdateStrategy { get; set; }
@@ -1075,7 +1075,7 @@ namespace Pulumi.Aws.ElastiCache
         }
 
         /// <summary>
-        /// Strategy used when modifying `AuthToken` on an existing replication group. Not used during initial create. Valid values are `SET`, `ROTATE`, and `DELETE`. If omitted during an auth token change, AWS defaults to `ROTATE`.
+        /// Strategy used when modifying `AuthToken` on an existing replication group. Not used during initial create. Valid values are `SET`, `ROTATE`, and `DELETE`. If omitted during an auth token change, AWS defaults to `ROTATE`. If value is `DELETE` then `AuthToken` must be omitted.
         /// </summary>
         [Input("authTokenUpdateStrategy")]
         public Input<string>? AuthTokenUpdateStrategy { get; set; }

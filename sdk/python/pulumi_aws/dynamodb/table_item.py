@@ -28,7 +28,7 @@ class TableItemArgs:
         The set of arguments for constructing a TableItem resource.
         :param pulumi.Input[_builtins.str] hash_key: Hash key to use for lookups and identification of the item
         :param pulumi.Input[_builtins.str] item: JSON representation of a map of attribute name/value pairs, one for each attribute. Only the primary key attributes are required; you can optionally provide other attribute name-value pairs for the item.
-        :param pulumi.Input[_builtins.str] table_name: Name of the table to contain the item.
+        :param pulumi.Input[_builtins.str] table_name: Name or ARN of the table to contain the item.
                
                > **Note:** Names included in `item` are represented internally with everything but letters removed. There is the possibility of collisions if two names, once filtered, are the same. For example, the names `your-name-here` and `yournamehere` will overlap and cause an error.
         :param pulumi.Input[_builtins.str] range_key: Range key to use for lookups and identification of the item. Required if there is range key defined in the table.
@@ -70,7 +70,7 @@ class TableItemArgs:
     @pulumi.getter(name="tableName")
     def table_name(self) -> pulumi.Input[_builtins.str]:
         """
-        Name of the table to contain the item.
+        Name or ARN of the table to contain the item.
 
         > **Note:** Names included in `item` are represented internally with everything but letters removed. There is the possibility of collisions if two names, once filtered, are the same. For example, the names `your-name-here` and `yournamehere` will overlap and cause an error.
         """
@@ -119,7 +119,7 @@ class _TableItemState:
         :param pulumi.Input[_builtins.str] item: JSON representation of a map of attribute name/value pairs, one for each attribute. Only the primary key attributes are required; you can optionally provide other attribute name-value pairs for the item.
         :param pulumi.Input[_builtins.str] range_key: Range key to use for lookups and identification of the item. Required if there is range key defined in the table.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] table_name: Name of the table to contain the item.
+        :param pulumi.Input[_builtins.str] table_name: Name or ARN of the table to contain the item.
                
                > **Note:** Names included in `item` are represented internally with everything but letters removed. There is the possibility of collisions if two names, once filtered, are the same. For example, the names `your-name-here` and `yournamehere` will overlap and cause an error.
         """
@@ -186,7 +186,7 @@ class _TableItemState:
     @pulumi.getter(name="tableName")
     def table_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Name of the table to contain the item.
+        Name or ARN of the table to contain the item.
 
         > **Note:** Names included in `item` are represented internally with everything but letters removed. There is the possibility of collisions if two names, once filtered, are the same. For example, the names `your-name-here` and `yournamehere` will overlap and cause an error.
         """
@@ -253,7 +253,7 @@ class TableItem(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] item: JSON representation of a map of attribute name/value pairs, one for each attribute. Only the primary key attributes are required; you can optionally provide other attribute name-value pairs for the item.
         :param pulumi.Input[_builtins.str] range_key: Range key to use for lookups and identification of the item. Required if there is range key defined in the table.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] table_name: Name of the table to contain the item.
+        :param pulumi.Input[_builtins.str] table_name: Name or ARN of the table to contain the item.
                
                > **Note:** Names included in `item` are represented internally with everything but letters removed. There is the possibility of collisions if two names, once filtered, are the same. For example, the names `your-name-here` and `yournamehere` will overlap and cause an error.
         """
@@ -367,7 +367,7 @@ class TableItem(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] item: JSON representation of a map of attribute name/value pairs, one for each attribute. Only the primary key attributes are required; you can optionally provide other attribute name-value pairs for the item.
         :param pulumi.Input[_builtins.str] range_key: Range key to use for lookups and identification of the item. Required if there is range key defined in the table.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] table_name: Name of the table to contain the item.
+        :param pulumi.Input[_builtins.str] table_name: Name or ARN of the table to contain the item.
                
                > **Note:** Names included in `item` are represented internally with everything but letters removed. There is the possibility of collisions if two names, once filtered, are the same. For example, the names `your-name-here` and `yournamehere` will overlap and cause an error.
         """
@@ -418,7 +418,7 @@ class TableItem(pulumi.CustomResource):
     @pulumi.getter(name="tableName")
     def table_name(self) -> pulumi.Output[_builtins.str]:
         """
-        Name of the table to contain the item.
+        Name or ARN of the table to contain the item.
 
         > **Note:** Names included in `item` are represented internally with everything but letters removed. There is the possibility of collisions if two names, once filtered, are the same. For example, the names `your-name-here` and `yournamehere` will overlap and cause an error.
         """

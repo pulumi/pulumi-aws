@@ -22,7 +22,7 @@ namespace Pulumi.Aws.ArcRegionSwitch.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.PlanTriggerCondition> Conditions;
         /// <summary>
-        /// Description of the plan.
+        /// Description of the trigger.
         /// </summary>
         public readonly string? Description;
         /// <summary>

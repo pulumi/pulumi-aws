@@ -98,7 +98,7 @@ export class Application extends pulumi.CustomResource {
     /**
      * (**Deprecated** Reference `arn` instead) ARN of the application.
      *
-     * @deprecated Use 'arn' instead. This attribute will be removed in a future verion of the provider.
+     * @deprecated Use 'arn' instead. This attribute will be removed in a future version of the provider.
      */
     declare public /*out*/ readonly applicationArn: pulumi.Output<string>;
     /**
@@ -212,7 +212,7 @@ export interface ApplicationState {
     /**
      * (**Deprecated** Reference `arn` instead) ARN of the application.
      *
-     * @deprecated Use 'arn' instead. This attribute will be removed in a future verion of the provider.
+     * @deprecated Use 'arn' instead. This attribute will be removed in a future version of the provider.
      */
     applicationArn?: pulumi.Input<string>;
     /**

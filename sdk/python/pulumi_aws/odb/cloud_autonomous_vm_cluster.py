@@ -22,19 +22,21 @@ __all__ = ['CloudAutonomousVmClusterArgs', 'CloudAutonomousVmCluster']
 class CloudAutonomousVmClusterArgs:
     def __init__(__self__, *,
                  autonomous_data_storage_size_in_tbs: pulumi.Input[_builtins.float],
-                 cloud_exadata_infrastructure_id: pulumi.Input[_builtins.str],
                  cpu_core_count_per_node: pulumi.Input[_builtins.int],
                  db_servers: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
                  display_name: pulumi.Input[_builtins.str],
                  maintenance_window: pulumi.Input['CloudAutonomousVmClusterMaintenanceWindowArgs'],
                  memory_per_oracle_compute_unit_in_gbs: pulumi.Input[_builtins.int],
-                 odb_network_id: pulumi.Input[_builtins.str],
                  scan_listener_port_non_tls: pulumi.Input[_builtins.int],
                  scan_listener_port_tls: pulumi.Input[_builtins.int],
                  total_container_databases: pulumi.Input[_builtins.int],
+                 cloud_exadata_infrastructure_arn: Optional[pulumi.Input[_builtins.str]] = None,
+                 cloud_exadata_infrastructure_id: Optional[pulumi.Input[_builtins.str]] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  is_mtls_enabled_vm_cluster: Optional[pulumi.Input[_builtins.bool]] = None,
                  license_model: Optional[pulumi.Input[_builtins.str]] = None,
+                 odb_network_arn: Optional[pulumi.Input[_builtins.str]] = None,
+                 odb_network_id: Optional[pulumi.Input[_builtins.str]] = None,
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  time_zone: Optional[pulumi.Input[_builtins.str]] = None,
@@ -43,27 +45,35 @@ class CloudAutonomousVmClusterArgs:
         The set of arguments for constructing a CloudAutonomousVmCluster resource.
         :param pulumi.Input[_builtins.int] cpu_core_count_per_node: The number of CPU cores enabled per node in the Autonomous VM cluster.
         :param pulumi.Input['CloudAutonomousVmClusterMaintenanceWindowArgs'] maintenance_window: The maintenance window of the Autonomous VM cluster.
+        :param pulumi.Input[_builtins.str] cloud_exadata_infrastructure_arn: The unique identifier of the Exadata infrastructure for this VM cluster. Changing this will create a new resource.
         :param pulumi.Input[_builtins.str] description: The description of the Autonomous VM cluster.
+        :param pulumi.Input[_builtins.str] odb_network_arn: The unique identifier of the ODB network for the VM cluster. This member is required. Changing this will create a new resource.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the exadata infrastructure. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "autonomous_data_storage_size_in_tbs", autonomous_data_storage_size_in_tbs)
-        pulumi.set(__self__, "cloud_exadata_infrastructure_id", cloud_exadata_infrastructure_id)
         pulumi.set(__self__, "cpu_core_count_per_node", cpu_core_count_per_node)
         pulumi.set(__self__, "db_servers", db_servers)
         pulumi.set(__self__, "display_name", display_name)
         pulumi.set(__self__, "maintenance_window", maintenance_window)
         pulumi.set(__self__, "memory_per_oracle_compute_unit_in_gbs", memory_per_oracle_compute_unit_in_gbs)
-        pulumi.set(__self__, "odb_network_id", odb_network_id)
         pulumi.set(__self__, "scan_listener_port_non_tls", scan_listener_port_non_tls)
         pulumi.set(__self__, "scan_listener_port_tls", scan_listener_port_tls)
         pulumi.set(__self__, "total_container_databases", total_container_databases)
+        if cloud_exadata_infrastructure_arn is not None:
+            pulumi.set(__self__, "cloud_exadata_infrastructure_arn", cloud_exadata_infrastructure_arn)
+        if cloud_exadata_infrastructure_id is not None:
+            pulumi.set(__self__, "cloud_exadata_infrastructure_id", cloud_exadata_infrastructure_id)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if is_mtls_enabled_vm_cluster is not None:
             pulumi.set(__self__, "is_mtls_enabled_vm_cluster", is_mtls_enabled_vm_cluster)
         if license_model is not None:
             pulumi.set(__self__, "license_model", license_model)
+        if odb_network_arn is not None:
+            pulumi.set(__self__, "odb_network_arn", odb_network_arn)
+        if odb_network_id is not None:
+            pulumi.set(__self__, "odb_network_id", odb_network_id)
         if region is not None:
             pulumi.set(__self__, "region", region)
         if tags is not None:
@@ -81,15 +91,6 @@ class CloudAutonomousVmClusterArgs:
     @autonomous_data_storage_size_in_tbs.setter
     def autonomous_data_storage_size_in_tbs(self, value: pulumi.Input[_builtins.float]):
         pulumi.set(self, "autonomous_data_storage_size_in_tbs", value)
-
-    @_builtins.property
-    @pulumi.getter(name="cloudExadataInfrastructureId")
-    def cloud_exadata_infrastructure_id(self) -> pulumi.Input[_builtins.str]:
-        return pulumi.get(self, "cloud_exadata_infrastructure_id")
-
-    @cloud_exadata_infrastructure_id.setter
-    def cloud_exadata_infrastructure_id(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "cloud_exadata_infrastructure_id", value)
 
     @_builtins.property
     @pulumi.getter(name="cpuCoreCountPerNode")
@@ -143,15 +144,6 @@ class CloudAutonomousVmClusterArgs:
         pulumi.set(self, "memory_per_oracle_compute_unit_in_gbs", value)
 
     @_builtins.property
-    @pulumi.getter(name="odbNetworkId")
-    def odb_network_id(self) -> pulumi.Input[_builtins.str]:
-        return pulumi.get(self, "odb_network_id")
-
-    @odb_network_id.setter
-    def odb_network_id(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "odb_network_id", value)
-
-    @_builtins.property
     @pulumi.getter(name="scanListenerPortNonTls")
     def scan_listener_port_non_tls(self) -> pulumi.Input[_builtins.int]:
         return pulumi.get(self, "scan_listener_port_non_tls")
@@ -177,6 +169,27 @@ class CloudAutonomousVmClusterArgs:
     @total_container_databases.setter
     def total_container_databases(self, value: pulumi.Input[_builtins.int]):
         pulumi.set(self, "total_container_databases", value)
+
+    @_builtins.property
+    @pulumi.getter(name="cloudExadataInfrastructureArn")
+    def cloud_exadata_infrastructure_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The unique identifier of the Exadata infrastructure for this VM cluster. Changing this will create a new resource.
+        """
+        return pulumi.get(self, "cloud_exadata_infrastructure_arn")
+
+    @cloud_exadata_infrastructure_arn.setter
+    def cloud_exadata_infrastructure_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "cloud_exadata_infrastructure_arn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="cloudExadataInfrastructureId")
+    def cloud_exadata_infrastructure_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "cloud_exadata_infrastructure_id")
+
+    @cloud_exadata_infrastructure_id.setter
+    def cloud_exadata_infrastructure_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "cloud_exadata_infrastructure_id", value)
 
     @_builtins.property
     @pulumi.getter
@@ -207,6 +220,27 @@ class CloudAutonomousVmClusterArgs:
     @license_model.setter
     def license_model(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "license_model", value)
+
+    @_builtins.property
+    @pulumi.getter(name="odbNetworkArn")
+    def odb_network_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The unique identifier of the ODB network for the VM cluster. This member is required. Changing this will create a new resource.
+        """
+        return pulumi.get(self, "odb_network_arn")
+
+    @odb_network_arn.setter
+    def odb_network_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "odb_network_arn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="odbNetworkId")
+    def odb_network_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        return pulumi.get(self, "odb_network_id")
+
+    @odb_network_id.setter
+    def odb_network_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "odb_network_id", value)
 
     @_builtins.property
     @pulumi.getter
@@ -260,6 +294,7 @@ class _CloudAutonomousVmClusterState:
                  available_autonomous_data_storage_size_in_tbs: Optional[pulumi.Input[_builtins.float]] = None,
                  available_container_databases: Optional[pulumi.Input[_builtins.int]] = None,
                  available_cpus: Optional[pulumi.Input[_builtins.float]] = None,
+                 cloud_exadata_infrastructure_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  cloud_exadata_infrastructure_id: Optional[pulumi.Input[_builtins.str]] = None,
                  compute_model: Optional[pulumi.Input[_builtins.str]] = None,
                  cpu_core_count: Optional[pulumi.Input[_builtins.int]] = None,
@@ -285,6 +320,7 @@ class _CloudAutonomousVmClusterState:
                  oci_resource_anchor_name: Optional[pulumi.Input[_builtins.str]] = None,
                  oci_url: Optional[pulumi.Input[_builtins.str]] = None,
                  ocid: Optional[pulumi.Input[_builtins.str]] = None,
+                 odb_network_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  odb_network_id: Optional[pulumi.Input[_builtins.str]] = None,
                  odb_node_storage_size_in_gbs: Optional[pulumi.Input[_builtins.int]] = None,
                  percent_progress: Optional[pulumi.Input[_builtins.float]] = None,
@@ -313,6 +349,7 @@ class _CloudAutonomousVmClusterState:
         :param pulumi.Input[_builtins.float] available_autonomous_data_storage_size_in_tbs: The available data storage space for Autonomous Databases in the Autonomous VM cluster, in TB.
         :param pulumi.Input[_builtins.int] available_container_databases: The number of Autonomous CDBs that you can create with the currently available storage.
         :param pulumi.Input[_builtins.float] available_cpus: The number of CPU cores available for allocation to Autonomous Databases.
+        :param pulumi.Input[_builtins.str] cloud_exadata_infrastructure_arn: The unique identifier of the Exadata infrastructure for this VM cluster. Changing this will create a new resource.
         :param pulumi.Input[_builtins.str] compute_model: The compute model of the Autonomous VM cluster: ECPU or OCPU.
         :param pulumi.Input[_builtins.int] cpu_core_count: The total number of CPU cores in the Autonomous VM cluster.
         :param pulumi.Input[_builtins.int] cpu_core_count_per_node: The number of CPU cores enabled per node in the Autonomous VM cluster.
@@ -332,6 +369,7 @@ class _CloudAutonomousVmClusterState:
         :param pulumi.Input[_builtins.str] oci_resource_anchor_name: The name of the OCI resource anchor associated with this Autonomous VM cluster.
         :param pulumi.Input[_builtins.str] oci_url: The URL for accessing the OCI console page for this Autonomous VM cluster.
         :param pulumi.Input[_builtins.str] ocid: The Oracle Cloud Identifier (OCID) of the Autonomous VM cluster.
+        :param pulumi.Input[_builtins.str] odb_network_arn: The unique identifier of the ODB network for the VM cluster. This member is required. Changing this will create a new resource.
         :param pulumi.Input[_builtins.int] odb_node_storage_size_in_gbs: The local node storage allocated to the Autonomous VM cluster, in gigabytes (GB).
         :param pulumi.Input[_builtins.float] percent_progress: The progress of the current operation on the Autonomous VM cluster, as a percentage.
         :param pulumi.Input[_builtins.int] provisionable_autonomous_container_databases: The number of Autonomous CDBs that can be provisioned in the Autonomous VM cluster.
@@ -360,6 +398,8 @@ class _CloudAutonomousVmClusterState:
             pulumi.set(__self__, "available_container_databases", available_container_databases)
         if available_cpus is not None:
             pulumi.set(__self__, "available_cpus", available_cpus)
+        if cloud_exadata_infrastructure_arn is not None:
+            pulumi.set(__self__, "cloud_exadata_infrastructure_arn", cloud_exadata_infrastructure_arn)
         if cloud_exadata_infrastructure_id is not None:
             pulumi.set(__self__, "cloud_exadata_infrastructure_id", cloud_exadata_infrastructure_id)
         if compute_model is not None:
@@ -410,6 +450,8 @@ class _CloudAutonomousVmClusterState:
             pulumi.set(__self__, "oci_url", oci_url)
         if ocid is not None:
             pulumi.set(__self__, "ocid", ocid)
+        if odb_network_arn is not None:
+            pulumi.set(__self__, "odb_network_arn", odb_network_arn)
         if odb_network_id is not None:
             pulumi.set(__self__, "odb_network_id", odb_network_id)
         if odb_node_storage_size_in_gbs is not None:
@@ -521,6 +563,18 @@ class _CloudAutonomousVmClusterState:
     @available_cpus.setter
     def available_cpus(self, value: Optional[pulumi.Input[_builtins.float]]):
         pulumi.set(self, "available_cpus", value)
+
+    @_builtins.property
+    @pulumi.getter(name="cloudExadataInfrastructureArn")
+    def cloud_exadata_infrastructure_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The unique identifier of the Exadata infrastructure for this VM cluster. Changing this will create a new resource.
+        """
+        return pulumi.get(self, "cloud_exadata_infrastructure_arn")
+
+    @cloud_exadata_infrastructure_arn.setter
+    def cloud_exadata_infrastructure_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "cloud_exadata_infrastructure_arn", value)
 
     @_builtins.property
     @pulumi.getter(name="cloudExadataInfrastructureId")
@@ -805,6 +859,18 @@ class _CloudAutonomousVmClusterState:
         pulumi.set(self, "ocid", value)
 
     @_builtins.property
+    @pulumi.getter(name="odbNetworkArn")
+    def odb_network_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The unique identifier of the ODB network for the VM cluster. This member is required. Changing this will create a new resource.
+        """
+        return pulumi.get(self, "odb_network_arn")
+
+    @odb_network_arn.setter
+    def odb_network_arn(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "odb_network_arn", value)
+
+    @_builtins.property
     @pulumi.getter(name="odbNetworkId")
     def odb_network_id(self) -> Optional[pulumi.Input[_builtins.str]]:
         return pulumi.get(self, "odb_network_id")
@@ -1046,6 +1112,7 @@ class CloudAutonomousVmCluster(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  autonomous_data_storage_size_in_tbs: Optional[pulumi.Input[_builtins.float]] = None,
+                 cloud_exadata_infrastructure_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  cloud_exadata_infrastructure_id: Optional[pulumi.Input[_builtins.str]] = None,
                  cpu_core_count_per_node: Optional[pulumi.Input[_builtins.int]] = None,
                  db_servers: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
@@ -1055,6 +1122,7 @@ class CloudAutonomousVmCluster(pulumi.CustomResource):
                  license_model: Optional[pulumi.Input[_builtins.str]] = None,
                  maintenance_window: Optional[pulumi.Input[Union['CloudAutonomousVmClusterMaintenanceWindowArgs', 'CloudAutonomousVmClusterMaintenanceWindowArgsDict']]] = None,
                  memory_per_oracle_compute_unit_in_gbs: Optional[pulumi.Input[_builtins.int]] = None,
+                 odb_network_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  odb_network_id: Optional[pulumi.Input[_builtins.str]] = None,
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  scan_listener_port_non_tls: Optional[pulumi.Input[_builtins.int]] = None,
@@ -1158,9 +1226,11 @@ class CloudAutonomousVmCluster(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[_builtins.str] cloud_exadata_infrastructure_arn: The unique identifier of the Exadata infrastructure for this VM cluster. Changing this will create a new resource.
         :param pulumi.Input[_builtins.int] cpu_core_count_per_node: The number of CPU cores enabled per node in the Autonomous VM cluster.
         :param pulumi.Input[_builtins.str] description: The description of the Autonomous VM cluster.
         :param pulumi.Input[Union['CloudAutonomousVmClusterMaintenanceWindowArgs', 'CloudAutonomousVmClusterMaintenanceWindowArgsDict']] maintenance_window: The maintenance window of the Autonomous VM cluster.
+        :param pulumi.Input[_builtins.str] odb_network_arn: The unique identifier of the ODB network for the VM cluster. This member is required. Changing this will create a new resource.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the exadata infrastructure. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -1278,6 +1348,7 @@ class CloudAutonomousVmCluster(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  autonomous_data_storage_size_in_tbs: Optional[pulumi.Input[_builtins.float]] = None,
+                 cloud_exadata_infrastructure_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  cloud_exadata_infrastructure_id: Optional[pulumi.Input[_builtins.str]] = None,
                  cpu_core_count_per_node: Optional[pulumi.Input[_builtins.int]] = None,
                  db_servers: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
@@ -1287,6 +1358,7 @@ class CloudAutonomousVmCluster(pulumi.CustomResource):
                  license_model: Optional[pulumi.Input[_builtins.str]] = None,
                  maintenance_window: Optional[pulumi.Input[Union['CloudAutonomousVmClusterMaintenanceWindowArgs', 'CloudAutonomousVmClusterMaintenanceWindowArgsDict']]] = None,
                  memory_per_oracle_compute_unit_in_gbs: Optional[pulumi.Input[_builtins.int]] = None,
+                 odb_network_arn: Optional[pulumi.Input[_builtins.str]] = None,
                  odb_network_id: Optional[pulumi.Input[_builtins.str]] = None,
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  scan_listener_port_non_tls: Optional[pulumi.Input[_builtins.int]] = None,
@@ -1307,8 +1379,7 @@ class CloudAutonomousVmCluster(pulumi.CustomResource):
             if autonomous_data_storage_size_in_tbs is None and not opts.urn:
                 raise TypeError("Missing required property 'autonomous_data_storage_size_in_tbs'")
             __props__.__dict__["autonomous_data_storage_size_in_tbs"] = autonomous_data_storage_size_in_tbs
-            if cloud_exadata_infrastructure_id is None and not opts.urn:
-                raise TypeError("Missing required property 'cloud_exadata_infrastructure_id'")
+            __props__.__dict__["cloud_exadata_infrastructure_arn"] = cloud_exadata_infrastructure_arn
             __props__.__dict__["cloud_exadata_infrastructure_id"] = cloud_exadata_infrastructure_id
             if cpu_core_count_per_node is None and not opts.urn:
                 raise TypeError("Missing required property 'cpu_core_count_per_node'")
@@ -1328,8 +1399,7 @@ class CloudAutonomousVmCluster(pulumi.CustomResource):
             if memory_per_oracle_compute_unit_in_gbs is None and not opts.urn:
                 raise TypeError("Missing required property 'memory_per_oracle_compute_unit_in_gbs'")
             __props__.__dict__["memory_per_oracle_compute_unit_in_gbs"] = memory_per_oracle_compute_unit_in_gbs
-            if odb_network_id is None and not opts.urn:
-                raise TypeError("Missing required property 'odb_network_id'")
+            __props__.__dict__["odb_network_arn"] = odb_network_arn
             __props__.__dict__["odb_network_id"] = odb_network_id
             __props__.__dict__["region"] = region
             if scan_listener_port_non_tls is None and not opts.urn:
@@ -1394,6 +1464,7 @@ class CloudAutonomousVmCluster(pulumi.CustomResource):
             available_autonomous_data_storage_size_in_tbs: Optional[pulumi.Input[_builtins.float]] = None,
             available_container_databases: Optional[pulumi.Input[_builtins.int]] = None,
             available_cpus: Optional[pulumi.Input[_builtins.float]] = None,
+            cloud_exadata_infrastructure_arn: Optional[pulumi.Input[_builtins.str]] = None,
             cloud_exadata_infrastructure_id: Optional[pulumi.Input[_builtins.str]] = None,
             compute_model: Optional[pulumi.Input[_builtins.str]] = None,
             cpu_core_count: Optional[pulumi.Input[_builtins.int]] = None,
@@ -1419,6 +1490,7 @@ class CloudAutonomousVmCluster(pulumi.CustomResource):
             oci_resource_anchor_name: Optional[pulumi.Input[_builtins.str]] = None,
             oci_url: Optional[pulumi.Input[_builtins.str]] = None,
             ocid: Optional[pulumi.Input[_builtins.str]] = None,
+            odb_network_arn: Optional[pulumi.Input[_builtins.str]] = None,
             odb_network_id: Optional[pulumi.Input[_builtins.str]] = None,
             odb_node_storage_size_in_gbs: Optional[pulumi.Input[_builtins.int]] = None,
             percent_progress: Optional[pulumi.Input[_builtins.float]] = None,
@@ -1452,6 +1524,7 @@ class CloudAutonomousVmCluster(pulumi.CustomResource):
         :param pulumi.Input[_builtins.float] available_autonomous_data_storage_size_in_tbs: The available data storage space for Autonomous Databases in the Autonomous VM cluster, in TB.
         :param pulumi.Input[_builtins.int] available_container_databases: The number of Autonomous CDBs that you can create with the currently available storage.
         :param pulumi.Input[_builtins.float] available_cpus: The number of CPU cores available for allocation to Autonomous Databases.
+        :param pulumi.Input[_builtins.str] cloud_exadata_infrastructure_arn: The unique identifier of the Exadata infrastructure for this VM cluster. Changing this will create a new resource.
         :param pulumi.Input[_builtins.str] compute_model: The compute model of the Autonomous VM cluster: ECPU or OCPU.
         :param pulumi.Input[_builtins.int] cpu_core_count: The total number of CPU cores in the Autonomous VM cluster.
         :param pulumi.Input[_builtins.int] cpu_core_count_per_node: The number of CPU cores enabled per node in the Autonomous VM cluster.
@@ -1471,6 +1544,7 @@ class CloudAutonomousVmCluster(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] oci_resource_anchor_name: The name of the OCI resource anchor associated with this Autonomous VM cluster.
         :param pulumi.Input[_builtins.str] oci_url: The URL for accessing the OCI console page for this Autonomous VM cluster.
         :param pulumi.Input[_builtins.str] ocid: The Oracle Cloud Identifier (OCID) of the Autonomous VM cluster.
+        :param pulumi.Input[_builtins.str] odb_network_arn: The unique identifier of the ODB network for the VM cluster. This member is required. Changing this will create a new resource.
         :param pulumi.Input[_builtins.int] odb_node_storage_size_in_gbs: The local node storage allocated to the Autonomous VM cluster, in gigabytes (GB).
         :param pulumi.Input[_builtins.float] percent_progress: The progress of the current operation on the Autonomous VM cluster, as a percentage.
         :param pulumi.Input[_builtins.int] provisionable_autonomous_container_databases: The number of Autonomous CDBs that can be provisioned in the Autonomous VM cluster.
@@ -1497,6 +1571,7 @@ class CloudAutonomousVmCluster(pulumi.CustomResource):
         __props__.__dict__["available_autonomous_data_storage_size_in_tbs"] = available_autonomous_data_storage_size_in_tbs
         __props__.__dict__["available_container_databases"] = available_container_databases
         __props__.__dict__["available_cpus"] = available_cpus
+        __props__.__dict__["cloud_exadata_infrastructure_arn"] = cloud_exadata_infrastructure_arn
         __props__.__dict__["cloud_exadata_infrastructure_id"] = cloud_exadata_infrastructure_id
         __props__.__dict__["compute_model"] = compute_model
         __props__.__dict__["cpu_core_count"] = cpu_core_count
@@ -1522,6 +1597,7 @@ class CloudAutonomousVmCluster(pulumi.CustomResource):
         __props__.__dict__["oci_resource_anchor_name"] = oci_resource_anchor_name
         __props__.__dict__["oci_url"] = oci_url
         __props__.__dict__["ocid"] = ocid
+        __props__.__dict__["odb_network_arn"] = odb_network_arn
         __props__.__dict__["odb_network_id"] = odb_network_id
         __props__.__dict__["odb_node_storage_size_in_gbs"] = odb_node_storage_size_in_gbs
         __props__.__dict__["percent_progress"] = percent_progress
@@ -1589,6 +1665,14 @@ class CloudAutonomousVmCluster(pulumi.CustomResource):
         The number of CPU cores available for allocation to Autonomous Databases.
         """
         return pulumi.get(self, "available_cpus")
+
+    @_builtins.property
+    @pulumi.getter(name="cloudExadataInfrastructureArn")
+    def cloud_exadata_infrastructure_arn(self) -> pulumi.Output[_builtins.str]:
+        """
+        The unique identifier of the Exadata infrastructure for this VM cluster. Changing this will create a new resource.
+        """
+        return pulumi.get(self, "cloud_exadata_infrastructure_arn")
 
     @_builtins.property
     @pulumi.getter(name="cloudExadataInfrastructureId")
@@ -1771,6 +1855,14 @@ class CloudAutonomousVmCluster(pulumi.CustomResource):
         The Oracle Cloud Identifier (OCID) of the Autonomous VM cluster.
         """
         return pulumi.get(self, "ocid")
+
+    @_builtins.property
+    @pulumi.getter(name="odbNetworkArn")
+    def odb_network_arn(self) -> pulumi.Output[_builtins.str]:
+        """
+        The unique identifier of the ODB network for the VM cluster. This member is required. Changing this will create a new resource.
+        """
+        return pulumi.get(self, "odb_network_arn")
 
     @_builtins.property
     @pulumi.getter(name="odbNetworkId")

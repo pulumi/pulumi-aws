@@ -141,6 +141,7 @@ class GetPlanResult:
 
     @_builtins.property
     @pulumi.getter
+    @_utilities.deprecated("""This attribute will be removed in a future version of the provider.""")
     def region(self) -> _builtins.str:
         return pulumi.get(self, "region")
 

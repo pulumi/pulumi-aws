@@ -4421,7 +4421,7 @@ class InstanceEbsBlockDevice(dict):
         :param _builtins.int iops: Amount of provisioned [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html). Only valid for volume_type of `io1`, `io2` or `gp3`.
         :param _builtins.str kms_key_id: Amazon Resource Name (ARN) of the KMS Key to use when encrypting the volume. Must be configured to perform drift detection.
         :param _builtins.str snapshot_id: Snapshot ID to mount.
-        :param Mapping[str, _builtins.str] tags: Map of tags to assign to the device.
+        :param Mapping[str, _builtins.str] tags: Map of tags to assign to the device. **Note:** Tags specified here are applied after instance creation via a separate API call. This means they cannot be used with IAM policies that require tags during resource creation (e.g., ABAC policies with `ec2:CreateAction` conditions or SCPs requiring volume tags). For ABAC compliance, use `volume_tags` instead, which applies uniform tags to all volumes during instance creation.
         :param Mapping[str, _builtins.str] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param _builtins.int throughput: Throughput to provision for a volume in mebibytes per second (MiB/s). This is only valid for `volume_type` of `gp3`.
         :param _builtins.str volume_id: ID of the volume. For example, the ID can be accessed like this, `aws_instance.web.root_block_device.0.volume_id`.
@@ -4506,7 +4506,7 @@ class InstanceEbsBlockDevice(dict):
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, _builtins.str]]:
         """
-        Map of tags to assign to the device.
+        Map of tags to assign to the device. **Note:** Tags specified here are applied after instance creation via a separate API call. This means they cannot be used with IAM policies that require tags during resource creation (e.g., ABAC policies with `ec2:CreateAction` conditions or SCPs requiring volume tags). For ABAC compliance, use `volume_tags` instead, which applies uniform tags to all volumes during instance creation.
         """
         return pulumi.get(self, "tags")
 
@@ -5184,7 +5184,7 @@ class InstanceRootBlockDevice(dict):
         :param _builtins.bool encrypted: Whether to enable volume encryption. Defaults to `false`. Must be configured to perform drift detection.
         :param _builtins.int iops: Amount of provisioned [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html). Only valid for volume_type of `io1`, `io2` or `gp3`.
         :param _builtins.str kms_key_id: Amazon Resource Name (ARN) of the KMS Key to use when encrypting the volume. Must be configured to perform drift detection.
-        :param Mapping[str, _builtins.str] tags: Map of tags to assign to the device.
+        :param Mapping[str, _builtins.str] tags: Map of tags to assign to the device. **Note:** Tags specified here are applied after instance creation via a separate API call. This means they cannot be used with IAM policies that require tags during resource creation (e.g., ABAC policies with `ec2:CreateAction` conditions or SCPs requiring volume tags). For ABAC compliance, use `volume_tags` instead, which applies uniform tags to all volumes during instance creation.
         :param Mapping[str, _builtins.str] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param _builtins.int throughput: Throughput to provision for a volume in mebibytes per second (MiB/s). This is only valid for `volume_type` of `gp3`.
         :param _builtins.str volume_id: ID of the volume. For example, the ID can be accessed like this, `aws_instance.web.root_block_device.0.volume_id`.
@@ -5260,7 +5260,7 @@ class InstanceRootBlockDevice(dict):
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, _builtins.str]]:
         """
-        Map of tags to assign to the device.
+        Map of tags to assign to the device. **Note:** Tags specified here are applied after instance creation via a separate API call. This means they cannot be used with IAM policies that require tags during resource creation (e.g., ABAC policies with `ec2:CreateAction` conditions or SCPs requiring volume tags). For ABAC compliance, use `volume_tags` instead, which applies uniform tags to all volumes during instance creation.
         """
         return pulumi.get(self, "tags")
 
@@ -7545,8 +7545,8 @@ class LaunchTemplateNetworkInterfaceConnectionTrackingSpecification(dict):
                  udp_timeout: Optional[_builtins.int] = None):
         """
         :param _builtins.int tcp_established_timeout: Timeout (in seconds) for idle TCP connections in an established state. Min: 60 seconds. Max: 432000 seconds (5 days). Default: 432000 seconds. Recommended: Less than 432000 seconds.
-        :param _builtins.int udp_stream_timeout: Timeout (in seconds) for idle UDP flows that have seen traffic only in a single direction or a single request-response transaction. Min: 30 seconds. Max: 60 seconds. Default: 30 seconds.
-        :param _builtins.int udp_timeout: Timeout (in seconds) for idle UDP flows classified as streams which have seen more than one request-response transaction. Min: 60 seconds. Max: 180 seconds (3 minutes). Default: 180 seconds.
+        :param _builtins.int udp_stream_timeout: Timeout (in seconds) for idle UDP flows classified as streams which have seen more than one request-response transaction. Min: 60 seconds. Max: 180 seconds (3 minutes). Default: 180 seconds.
+        :param _builtins.int udp_timeout: Timeout (in seconds) for idle UDP flows that have seen traffic only in a single direction or a single request-response transaction. Min: 30 seconds. Max: 60 seconds. Default: 30 seconds.
         """
         if tcp_established_timeout is not None:
             pulumi.set(__self__, "tcp_established_timeout", tcp_established_timeout)
@@ -7567,7 +7567,7 @@ class LaunchTemplateNetworkInterfaceConnectionTrackingSpecification(dict):
     @pulumi.getter(name="udpStreamTimeout")
     def udp_stream_timeout(self) -> Optional[_builtins.int]:
         """
-        Timeout (in seconds) for idle UDP flows that have seen traffic only in a single direction or a single request-response transaction. Min: 30 seconds. Max: 60 seconds. Default: 30 seconds.
+        Timeout (in seconds) for idle UDP flows classified as streams which have seen more than one request-response transaction. Min: 60 seconds. Max: 180 seconds (3 minutes). Default: 180 seconds.
         """
         return pulumi.get(self, "udp_stream_timeout")
 
@@ -7575,7 +7575,7 @@ class LaunchTemplateNetworkInterfaceConnectionTrackingSpecification(dict):
     @pulumi.getter(name="udpTimeout")
     def udp_timeout(self) -> Optional[_builtins.int]:
         """
-        Timeout (in seconds) for idle UDP flows classified as streams which have seen more than one request-response transaction. Min: 60 seconds. Max: 180 seconds (3 minutes). Default: 180 seconds.
+        Timeout (in seconds) for idle UDP flows that have seen traffic only in a single direction or a single request-response transaction. Min: 30 seconds. Max: 60 seconds. Default: 30 seconds.
         """
         return pulumi.get(self, "udp_timeout")
 
@@ -15791,7 +15791,7 @@ class SpotInstanceRequestEbsBlockDevice(dict):
         :param _builtins.int iops: Amount of provisioned [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html). Only valid for volume_type of `io1`, `io2` or `gp3`.
         :param _builtins.str kms_key_id: Amazon Resource Name (ARN) of the KMS Key to use when encrypting the volume. Must be configured to perform drift detection.
         :param _builtins.str snapshot_id: Snapshot ID to mount.
-        :param Mapping[str, _builtins.str] tags: Map of tags to assign to the device.
+        :param Mapping[str, _builtins.str] tags: Map of tags to assign to the device. **Note:** Tags specified here are applied after instance creation via a separate API call. This means they cannot be used with IAM policies that require tags during resource creation (e.g., ABAC policies with `ec2:CreateAction` conditions or SCPs requiring volume tags). For ABAC compliance, use `volume_tags` instead, which applies uniform tags to all volumes during instance creation.
         :param Mapping[str, _builtins.str] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param _builtins.int throughput: Throughput to provision for a volume in mebibytes per second (MiB/s). This is only valid for `volume_type` of `gp3`.
         :param _builtins.int volume_size: Size of the volume in gibibytes (GiB).
@@ -15875,7 +15875,7 @@ class SpotInstanceRequestEbsBlockDevice(dict):
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, _builtins.str]]:
         """
-        Map of tags to assign to the device.
+        Map of tags to assign to the device. **Note:** Tags specified here are applied after instance creation via a separate API call. This means they cannot be used with IAM policies that require tags during resource creation (e.g., ABAC policies with `ec2:CreateAction` conditions or SCPs requiring volume tags). For ABAC compliance, use `volume_tags` instead, which applies uniform tags to all volumes during instance creation.
         """
         return pulumi.get(self, "tags")
 
@@ -16422,7 +16422,7 @@ class SpotInstanceRequestRootBlockDevice(dict):
         :param _builtins.bool encrypted: Whether to enable volume encryption. Defaults to `false`. Must be configured to perform drift detection.
         :param _builtins.int iops: Amount of provisioned [IOPS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-io-characteristics.html). Only valid for volume_type of `io1`, `io2` or `gp3`.
         :param _builtins.str kms_key_id: Amazon Resource Name (ARN) of the KMS Key to use when encrypting the volume. Must be configured to perform drift detection.
-        :param Mapping[str, _builtins.str] tags: Map of tags to assign to the device.
+        :param Mapping[str, _builtins.str] tags: Map of tags to assign to the device. **Note:** Tags specified here are applied after instance creation via a separate API call. This means they cannot be used with IAM policies that require tags during resource creation (e.g., ABAC policies with `ec2:CreateAction` conditions or SCPs requiring volume tags). For ABAC compliance, use `volume_tags` instead, which applies uniform tags to all volumes during instance creation.
         :param Mapping[str, _builtins.str] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param _builtins.int throughput: Throughput to provision for a volume in mebibytes per second (MiB/s). This is only valid for `volume_type` of `gp3`.
         :param _builtins.int volume_size: Size of the volume in gibibytes (GiB).
@@ -16494,7 +16494,7 @@ class SpotInstanceRequestRootBlockDevice(dict):
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, _builtins.str]]:
         """
-        Map of tags to assign to the device.
+        Map of tags to assign to the device. **Note:** Tags specified here are applied after instance creation via a separate API call. This means they cannot be used with IAM policies that require tags during resource creation (e.g., ABAC policies with `ec2:CreateAction` conditions or SCPs requiring volume tags). For ABAC compliance, use `volume_tags` instead, which applies uniform tags to all volumes during instance creation.
         """
         return pulumi.get(self, "tags")
 

@@ -71,6 +71,8 @@ type BucketAccelerateConfiguration struct {
 	// Name of the bucket.
 	Bucket pulumi.StringOutput `pulumi:"bucket"`
 	// Account ID of the expected bucket owner.
+	//
+	// Deprecated: expected_bucket_owner is deprecated. It will be removed in a future verion of the provider.
 	ExpectedBucketOwner pulumi.StringPtrOutput `pulumi:"expectedBucketOwner"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
@@ -123,6 +125,8 @@ type bucketAccelerateConfigurationState struct {
 	// Name of the bucket.
 	Bucket *string `pulumi:"bucket"`
 	// Account ID of the expected bucket owner.
+	//
+	// Deprecated: expected_bucket_owner is deprecated. It will be removed in a future verion of the provider.
 	ExpectedBucketOwner *string `pulumi:"expectedBucketOwner"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
@@ -134,6 +138,8 @@ type BucketAccelerateConfigurationState struct {
 	// Name of the bucket.
 	Bucket pulumi.StringPtrInput
 	// Account ID of the expected bucket owner.
+	//
+	// Deprecated: expected_bucket_owner is deprecated. It will be removed in a future verion of the provider.
 	ExpectedBucketOwner pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
@@ -149,6 +155,8 @@ type bucketAccelerateConfigurationArgs struct {
 	// Name of the bucket.
 	Bucket string `pulumi:"bucket"`
 	// Account ID of the expected bucket owner.
+	//
+	// Deprecated: expected_bucket_owner is deprecated. It will be removed in a future verion of the provider.
 	ExpectedBucketOwner *string `pulumi:"expectedBucketOwner"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
@@ -161,6 +169,8 @@ type BucketAccelerateConfigurationArgs struct {
 	// Name of the bucket.
 	Bucket pulumi.StringInput
 	// Account ID of the expected bucket owner.
+	//
+	// Deprecated: expected_bucket_owner is deprecated. It will be removed in a future verion of the provider.
 	ExpectedBucketOwner pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
@@ -261,6 +271,8 @@ func (o BucketAccelerateConfigurationOutput) Bucket() pulumi.StringOutput {
 }
 
 // Account ID of the expected bucket owner.
+//
+// Deprecated: expected_bucket_owner is deprecated. It will be removed in a future verion of the provider.
 func (o BucketAccelerateConfigurationOutput) ExpectedBucketOwner() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BucketAccelerateConfiguration) pulumi.StringPtrOutput { return v.ExpectedBucketOwner }).(pulumi.StringPtrOutput)
 }

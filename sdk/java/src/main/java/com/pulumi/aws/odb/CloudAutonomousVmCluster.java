@@ -211,6 +211,20 @@ public class CloudAutonomousVmCluster extends com.pulumi.resources.CustomResourc
     public Output<Double> availableCpus() {
         return this.availableCpus;
     }
+    /**
+     * The unique identifier of the Exadata infrastructure for this VM cluster. Changing this will create a new resource.
+     * 
+     */
+    @Export(name="cloudExadataInfrastructureArn", refs={String.class}, tree="[0]")
+    private Output<String> cloudExadataInfrastructureArn;
+
+    /**
+     * @return The unique identifier of the Exadata infrastructure for this VM cluster. Changing this will create a new resource.
+     * 
+     */
+    public Output<String> cloudExadataInfrastructureArn() {
+        return this.cloudExadataInfrastructureArn;
+    }
     @Export(name="cloudExadataInfrastructureId", refs={String.class}, tree="[0]")
     private Output<String> cloudExadataInfrastructureId;
 
@@ -512,6 +526,20 @@ public class CloudAutonomousVmCluster extends com.pulumi.resources.CustomResourc
      */
     public Output<String> ocid() {
         return this.ocid;
+    }
+    /**
+     * The unique identifier of the ODB network for the VM cluster. This member is required. Changing this will create a new resource.
+     * 
+     */
+    @Export(name="odbNetworkArn", refs={String.class}, tree="[0]")
+    private Output<String> odbNetworkArn;
+
+    /**
+     * @return The unique identifier of the ODB network for the VM cluster. This member is required. Changing this will create a new resource.
+     * 
+     */
+    public Output<String> odbNetworkArn() {
+        return this.odbNetworkArn;
     }
     @Export(name="odbNetworkId", refs={String.class}, tree="[0]")
     private Output<String> odbNetworkId;

@@ -34,14 +34,22 @@ public final class BucketObjectLockConfigurationState extends com.pulumi.resourc
     /**
      * Account ID of the expected bucket owner.
      * 
+     * @deprecated
+     * expected_bucket_owner is deprecated. It will be removed in a future verion of the provider.
+     * 
      */
+    @Deprecated /* expected_bucket_owner is deprecated. It will be removed in a future verion of the provider. */
     @Import(name="expectedBucketOwner")
     private @Nullable Output<String> expectedBucketOwner;
 
     /**
      * @return Account ID of the expected bucket owner.
      * 
+     * @deprecated
+     * expected_bucket_owner is deprecated. It will be removed in a future verion of the provider.
+     * 
      */
+    @Deprecated /* expected_bucket_owner is deprecated. It will be removed in a future verion of the provider. */
     public Optional<Output<String>> expectedBucketOwner() {
         return Optional.ofNullable(this.expectedBucketOwner);
     }
@@ -163,7 +171,11 @@ public final class BucketObjectLockConfigurationState extends com.pulumi.resourc
          * 
          * @return builder
          * 
+         * @deprecated
+         * expected_bucket_owner is deprecated. It will be removed in a future verion of the provider.
+         * 
          */
+        @Deprecated /* expected_bucket_owner is deprecated. It will be removed in a future verion of the provider. */
         public Builder expectedBucketOwner(@Nullable Output<String> expectedBucketOwner) {
             $.expectedBucketOwner = expectedBucketOwner;
             return this;
@@ -174,7 +186,11 @@ public final class BucketObjectLockConfigurationState extends com.pulumi.resourc
          * 
          * @return builder
          * 
+         * @deprecated
+         * expected_bucket_owner is deprecated. It will be removed in a future verion of the provider.
+         * 
          */
+        @Deprecated /* expected_bucket_owner is deprecated. It will be removed in a future verion of the provider. */
         public Builder expectedBucketOwner(String expectedBucketOwner) {
             return expectedBucketOwner(Output.of(expectedBucketOwner));
         }

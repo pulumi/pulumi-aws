@@ -109,7 +109,7 @@ type Application struct {
 	ApplicationAccount pulumi.StringOutput `pulumi:"applicationAccount"`
 	// (**Deprecated** Reference `arn` instead) ARN of the application.
 	//
-	// Deprecated: Use 'arn' instead. This attribute will be removed in a future verion of the provider.
+	// Deprecated: Use 'arn' instead. This attribute will be removed in a future version of the provider.
 	ApplicationArn pulumi.StringOutput `pulumi:"applicationArn"`
 	// ARN of the application provider.
 	ApplicationProviderArn pulumi.StringOutput `pulumi:"applicationProviderArn"`
@@ -177,7 +177,7 @@ type applicationState struct {
 	ApplicationAccount *string `pulumi:"applicationAccount"`
 	// (**Deprecated** Reference `arn` instead) ARN of the application.
 	//
-	// Deprecated: Use 'arn' instead. This attribute will be removed in a future verion of the provider.
+	// Deprecated: Use 'arn' instead. This attribute will be removed in a future version of the provider.
 	ApplicationArn *string `pulumi:"applicationArn"`
 	// ARN of the application provider.
 	ApplicationProviderArn *string `pulumi:"applicationProviderArn"`
@@ -210,7 +210,7 @@ type ApplicationState struct {
 	ApplicationAccount pulumi.StringPtrInput
 	// (**Deprecated** Reference `arn` instead) ARN of the application.
 	//
-	// Deprecated: Use 'arn' instead. This attribute will be removed in a future verion of the provider.
+	// Deprecated: Use 'arn' instead. This attribute will be removed in a future version of the provider.
 	ApplicationArn pulumi.StringPtrInput
 	// ARN of the application provider.
 	ApplicationProviderArn pulumi.StringPtrInput
@@ -383,7 +383,7 @@ func (o ApplicationOutput) ApplicationAccount() pulumi.StringOutput {
 
 // (**Deprecated** Reference `arn` instead) ARN of the application.
 //
-// Deprecated: Use 'arn' instead. This attribute will be removed in a future verion of the provider.
+// Deprecated: Use 'arn' instead. This attribute will be removed in a future version of the provider.
 func (o ApplicationOutput) ApplicationArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Application) pulumi.StringOutput { return v.ApplicationArn }).(pulumi.StringOutput)
 }

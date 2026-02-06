@@ -239,14 +239,14 @@ public final class ServerlessCacheState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * The list of ARN(s) of the snapshot that the new serverless cache will be created from. Available for Redis only.
+     * The list of ARN(s) of the snapshot that the new serverless cache will be created from. Only supported for engine types `&#34;redis&#34;` or `&#34;valkey&#34;`.
      * 
      */
     @Import(name="snapshotArnsToRestores")
     private @Nullable Output<List<String>> snapshotArnsToRestores;
 
     /**
-     * @return The list of ARN(s) of the snapshot that the new serverless cache will be created from. Available for Redis only.
+     * @return The list of ARN(s) of the snapshot that the new serverless cache will be created from. Only supported for engine types `&#34;redis&#34;` or `&#34;valkey&#34;`.
      * 
      */
     public Optional<Output<List<String>>> snapshotArnsToRestores() {
@@ -254,14 +254,14 @@ public final class ServerlessCacheState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * The number of snapshots that will be retained for the serverless cache that is being created. As new snapshots beyond this limit are added, the oldest snapshots will be deleted on a rolling basis. Available for Redis only.
+     * The number of snapshots that will be retained for the serverless cache that is being created. As new snapshots beyond this limit are added, the oldest snapshots will be deleted on a rolling basis. Only supported for engine types `&#34;redis&#34;` or `&#34;valkey&#34;`.
      * 
      */
     @Import(name="snapshotRetentionLimit")
     private @Nullable Output<Integer> snapshotRetentionLimit;
 
     /**
-     * @return The number of snapshots that will be retained for the serverless cache that is being created. As new snapshots beyond this limit are added, the oldest snapshots will be deleted on a rolling basis. Available for Redis only.
+     * @return The number of snapshots that will be retained for the serverless cache that is being created. As new snapshots beyond this limit are added, the oldest snapshots will be deleted on a rolling basis. Only supported for engine types `&#34;redis&#34;` or `&#34;valkey&#34;`.
      * 
      */
     public Optional<Output<Integer>> snapshotRetentionLimit() {
@@ -718,7 +718,7 @@ public final class ServerlessCacheState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param snapshotArnsToRestores The list of ARN(s) of the snapshot that the new serverless cache will be created from. Available for Redis only.
+         * @param snapshotArnsToRestores The list of ARN(s) of the snapshot that the new serverless cache will be created from. Only supported for engine types `&#34;redis&#34;` or `&#34;valkey&#34;`.
          * 
          * @return builder
          * 
@@ -729,7 +729,7 @@ public final class ServerlessCacheState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param snapshotArnsToRestores The list of ARN(s) of the snapshot that the new serverless cache will be created from. Available for Redis only.
+         * @param snapshotArnsToRestores The list of ARN(s) of the snapshot that the new serverless cache will be created from. Only supported for engine types `&#34;redis&#34;` or `&#34;valkey&#34;`.
          * 
          * @return builder
          * 
@@ -739,7 +739,7 @@ public final class ServerlessCacheState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param snapshotArnsToRestores The list of ARN(s) of the snapshot that the new serverless cache will be created from. Available for Redis only.
+         * @param snapshotArnsToRestores The list of ARN(s) of the snapshot that the new serverless cache will be created from. Only supported for engine types `&#34;redis&#34;` or `&#34;valkey&#34;`.
          * 
          * @return builder
          * 
@@ -749,7 +749,7 @@ public final class ServerlessCacheState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param snapshotRetentionLimit The number of snapshots that will be retained for the serverless cache that is being created. As new snapshots beyond this limit are added, the oldest snapshots will be deleted on a rolling basis. Available for Redis only.
+         * @param snapshotRetentionLimit The number of snapshots that will be retained for the serverless cache that is being created. As new snapshots beyond this limit are added, the oldest snapshots will be deleted on a rolling basis. Only supported for engine types `&#34;redis&#34;` or `&#34;valkey&#34;`.
          * 
          * @return builder
          * 
@@ -760,7 +760,7 @@ public final class ServerlessCacheState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param snapshotRetentionLimit The number of snapshots that will be retained for the serverless cache that is being created. As new snapshots beyond this limit are added, the oldest snapshots will be deleted on a rolling basis. Available for Redis only.
+         * @param snapshotRetentionLimit The number of snapshots that will be retained for the serverless cache that is being created. As new snapshots beyond this limit are added, the oldest snapshots will be deleted on a rolling basis. Only supported for engine types `&#34;redis&#34;` or `&#34;valkey&#34;`.
          * 
          * @return builder
          * 

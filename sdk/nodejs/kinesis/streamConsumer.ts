@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
  *
  * > **Note:** You can register up to 20 consumers per stream. A given consumer can only be registered with one stream at a time.
  *
- * For more details, see the [Amazon Kinesis Stream Consumer Documentation](https://docs.aws.amazon.com/streams/latest/dev/amazon-kinesis-consumers.html).
+ * For more details, see the [Amazon Kinesis Stream Consumer Documentation](https://docs.aws.amazon.com/streams/latest/dev/enhanced-consumers.html).
  *
  * ## Example Usage
  *

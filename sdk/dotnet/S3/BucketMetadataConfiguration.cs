@@ -73,6 +73,9 @@ namespace Pulumi.Aws.S3
         [Output("bucket")]
         public Output<string> Bucket { get; private set; } = null!;
 
+        /// <summary>
+        /// Account ID of the expected bucket owner.
+        /// </summary>
         [Output("expectedBucketOwner")]
         public Output<string?> ExpectedBucketOwner { get; private set; } = null!;
 
@@ -145,6 +148,9 @@ namespace Pulumi.Aws.S3
         [Input("bucket", required: true)]
         public Input<string> Bucket { get; set; } = null!;
 
+        /// <summary>
+        /// Account ID of the expected bucket owner.
+        /// </summary>
         [Input("expectedBucketOwner")]
         public Input<string>? ExpectedBucketOwner { get; set; }
 
@@ -179,6 +185,9 @@ namespace Pulumi.Aws.S3
         [Input("bucket")]
         public Input<string>? Bucket { get; set; }
 
+        /// <summary>
+        /// Account ID of the expected bucket owner.
+        /// </summary>
         [Input("expectedBucketOwner")]
         public Input<string>? ExpectedBucketOwner { get; set; }
 

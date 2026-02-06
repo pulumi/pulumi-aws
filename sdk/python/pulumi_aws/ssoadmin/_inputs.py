@@ -21,6 +21,10 @@ __all__ = [
     'ApplicationPortalOptionsSignInOptionsArgsDict',
     'CustomerManagedPolicyAttachmentCustomerManagedPolicyReferenceArgs',
     'CustomerManagedPolicyAttachmentCustomerManagedPolicyReferenceArgsDict',
+    'CustomerManagedPolicyAttachmentsExclusiveCustomerManagedPolicyReferenceArgs',
+    'CustomerManagedPolicyAttachmentsExclusiveCustomerManagedPolicyReferenceArgsDict',
+    'CustomerManagedPolicyAttachmentsExclusiveTimeoutsArgs',
+    'CustomerManagedPolicyAttachmentsExclusiveTimeoutsArgsDict',
     'InstanceAccessControlAttributesAttributeArgs',
     'InstanceAccessControlAttributesAttributeArgsDict',
     'InstanceAccessControlAttributesAttributeValueArgs',
@@ -202,6 +206,109 @@ class CustomerManagedPolicyAttachmentCustomerManagedPolicyReferenceArgs:
     @path.setter
     def path(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "path", value)
+
+
+if not MYPY:
+    class CustomerManagedPolicyAttachmentsExclusiveCustomerManagedPolicyReferenceArgsDict(TypedDict):
+        name: pulumi.Input[_builtins.str]
+        """
+        Name of the customer managed IAM Policy to be attached.
+        """
+        path: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        The path to the IAM policy to be attached. The default is `/`. See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-friendly-names) for more information.
+        """
+elif False:
+    CustomerManagedPolicyAttachmentsExclusiveCustomerManagedPolicyReferenceArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class CustomerManagedPolicyAttachmentsExclusiveCustomerManagedPolicyReferenceArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[_builtins.str],
+                 path: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] name: Name of the customer managed IAM Policy to be attached.
+        :param pulumi.Input[_builtins.str] path: The path to the IAM policy to be attached. The default is `/`. See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-friendly-names) for more information.
+        """
+        pulumi.set(__self__, "name", name)
+        if path is not None:
+            pulumi.set(__self__, "path", path)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Name of the customer managed IAM Policy to be attached.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def path(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The path to the IAM policy to be attached. The default is `/`. See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-friendly-names) for more information.
+        """
+        return pulumi.get(self, "path")
+
+    @path.setter
+    def path(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "path", value)
+
+
+if not MYPY:
+    class CustomerManagedPolicyAttachmentsExclusiveTimeoutsArgsDict(TypedDict):
+        create: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        update: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+elif False:
+    CustomerManagedPolicyAttachmentsExclusiveTimeoutsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class CustomerManagedPolicyAttachmentsExclusiveTimeoutsArgs:
+    def __init__(__self__, *,
+                 create: Optional[pulumi.Input[_builtins.str]] = None,
+                 update: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] create: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        :param pulumi.Input[_builtins.str] update: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        if create is not None:
+            pulumi.set(__self__, "create", create)
+        if update is not None:
+            pulumi.set(__self__, "update", update)
+
+    @_builtins.property
+    @pulumi.getter
+    def create(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "create")
+
+    @create.setter
+    def create(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "create", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def update(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "update")
+
+    @update.setter
+    def update(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "update", value)
 
 
 if not MYPY:

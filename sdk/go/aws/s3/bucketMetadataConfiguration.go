@@ -73,7 +73,10 @@ type BucketMetadataConfiguration struct {
 	pulumi.CustomResourceState
 
 	// General purpose bucket that you want to create the metadata configuration for.
-	Bucket              pulumi.StringOutput    `pulumi:"bucket"`
+	Bucket pulumi.StringOutput `pulumi:"bucket"`
+	// Account ID of the expected bucket owner.
+	//
+	// Deprecated: This attribute will be removed in a future verion of the provider.
 	ExpectedBucketOwner pulumi.StringPtrOutput `pulumi:"expectedBucketOwner"`
 	// Metadata configuration. See `metadataConfiguration` Block for details.
 	//
@@ -121,7 +124,10 @@ func GetBucketMetadataConfiguration(ctx *pulumi.Context,
 // Input properties used for looking up and filtering BucketMetadataConfiguration resources.
 type bucketMetadataConfigurationState struct {
 	// General purpose bucket that you want to create the metadata configuration for.
-	Bucket              *string `pulumi:"bucket"`
+	Bucket *string `pulumi:"bucket"`
+	// Account ID of the expected bucket owner.
+	//
+	// Deprecated: This attribute will be removed in a future verion of the provider.
 	ExpectedBucketOwner *string `pulumi:"expectedBucketOwner"`
 	// Metadata configuration. See `metadataConfiguration` Block for details.
 	//
@@ -134,7 +140,10 @@ type bucketMetadataConfigurationState struct {
 
 type BucketMetadataConfigurationState struct {
 	// General purpose bucket that you want to create the metadata configuration for.
-	Bucket              pulumi.StringPtrInput
+	Bucket pulumi.StringPtrInput
+	// Account ID of the expected bucket owner.
+	//
+	// Deprecated: This attribute will be removed in a future verion of the provider.
 	ExpectedBucketOwner pulumi.StringPtrInput
 	// Metadata configuration. See `metadataConfiguration` Block for details.
 	//
@@ -151,7 +160,10 @@ func (BucketMetadataConfigurationState) ElementType() reflect.Type {
 
 type bucketMetadataConfigurationArgs struct {
 	// General purpose bucket that you want to create the metadata configuration for.
-	Bucket              string  `pulumi:"bucket"`
+	Bucket string `pulumi:"bucket"`
+	// Account ID of the expected bucket owner.
+	//
+	// Deprecated: This attribute will be removed in a future verion of the provider.
 	ExpectedBucketOwner *string `pulumi:"expectedBucketOwner"`
 	// Metadata configuration. See `metadataConfiguration` Block for details.
 	//
@@ -165,7 +177,10 @@ type bucketMetadataConfigurationArgs struct {
 // The set of arguments for constructing a BucketMetadataConfiguration resource.
 type BucketMetadataConfigurationArgs struct {
 	// General purpose bucket that you want to create the metadata configuration for.
-	Bucket              pulumi.StringInput
+	Bucket pulumi.StringInput
+	// Account ID of the expected bucket owner.
+	//
+	// Deprecated: This attribute will be removed in a future verion of the provider.
 	ExpectedBucketOwner pulumi.StringPtrInput
 	// Metadata configuration. See `metadataConfiguration` Block for details.
 	//
@@ -268,6 +283,9 @@ func (o BucketMetadataConfigurationOutput) Bucket() pulumi.StringOutput {
 	return o.ApplyT(func(v *BucketMetadataConfiguration) pulumi.StringOutput { return v.Bucket }).(pulumi.StringOutput)
 }
 
+// Account ID of the expected bucket owner.
+//
+// Deprecated: This attribute will be removed in a future verion of the provider.
 func (o BucketMetadataConfigurationOutput) ExpectedBucketOwner() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BucketMetadataConfiguration) pulumi.StringPtrOutput { return v.ExpectedBucketOwner }).(pulumi.StringPtrOutput)
 }

@@ -145,14 +145,22 @@ public final class PlanState extends com.pulumi.resources.ResourceArgs {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      * 
+     * @deprecated
+     * This attribute will be removed in a future version of the provider.
+     * 
      */
+    @Deprecated /* This attribute will be removed in a future version of the provider. */
     @Import(name="region")
     private @Nullable Output<String> region;
 
     /**
      * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      * 
+     * @deprecated
+     * This attribute will be removed in a future version of the provider.
+     * 
      */
+    @Deprecated /* This attribute will be removed in a future version of the provider. */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
@@ -210,14 +218,14 @@ public final class PlanState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Set of triggers that can initiate the plan execution. See Trigger below.
+     * Set of triggers that can initiate the plan execution. See Triggers below.
      * 
      */
     @Import(name="triggers")
     private @Nullable Output<List<PlanTriggerArgs>> triggers;
 
     /**
-     * @return Set of triggers that can initiate the plan execution. See Trigger below.
+     * @return Set of triggers that can initiate the plan execution. See Triggers below.
      * 
      */
     public Optional<Output<List<PlanTriggerArgs>>> triggers() {
@@ -464,7 +472,11 @@ public final class PlanState extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
+         * @deprecated
+         * This attribute will be removed in a future version of the provider.
+         * 
          */
+        @Deprecated /* This attribute will be removed in a future version of the provider. */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
@@ -475,7 +487,11 @@ public final class PlanState extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
+         * @deprecated
+         * This attribute will be removed in a future version of the provider.
+         * 
          */
+        @Deprecated /* This attribute will be removed in a future version of the provider. */
         public Builder region(String region) {
             return region(Output.of(region));
         }
@@ -563,7 +579,7 @@ public final class PlanState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param triggers Set of triggers that can initiate the plan execution. See Trigger below.
+         * @param triggers Set of triggers that can initiate the plan execution. See Triggers below.
          * 
          * @return builder
          * 
@@ -574,7 +590,7 @@ public final class PlanState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param triggers Set of triggers that can initiate the plan execution. See Trigger below.
+         * @param triggers Set of triggers that can initiate the plan execution. See Triggers below.
          * 
          * @return builder
          * 
@@ -584,7 +600,7 @@ public final class PlanState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param triggers Set of triggers that can initiate the plan execution. See Trigger below.
+         * @param triggers Set of triggers that can initiate the plan execution. See Triggers below.
          * 
          * @return builder
          * 

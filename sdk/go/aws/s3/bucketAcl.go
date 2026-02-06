@@ -202,10 +202,6 @@ import (
 //
 // * `account_id` (String) AWS Account where this resource is managed.
 //
-// * `acl` (String) Canned ACL to apply to the bucket.
-//
-// * `expected_bucket_owner` (String) Account ID of the expected bucket owner.
-//
 // * `region` (String) Region where this resource is managed.
 //
 // If the owner (account ID) of the source bucket is the _same_ account used to configure the AWS Provider, and the source bucket is **configured** with a
@@ -279,6 +275,8 @@ type BucketAcl struct {
 	// Bucket to which to apply the ACL.
 	Bucket pulumi.StringOutput `pulumi:"bucket"`
 	// Account ID of the expected bucket owner.
+	//
+	// Deprecated: expected_bucket_owner is deprecated. It will be removed in a future verion of the provider.
 	ExpectedBucketOwner pulumi.StringPtrOutput `pulumi:"expectedBucketOwner"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
@@ -330,6 +328,8 @@ type bucketAclState struct {
 	// Bucket to which to apply the ACL.
 	Bucket *string `pulumi:"bucket"`
 	// Account ID of the expected bucket owner.
+	//
+	// Deprecated: expected_bucket_owner is deprecated. It will be removed in a future verion of the provider.
 	ExpectedBucketOwner *string `pulumi:"expectedBucketOwner"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
@@ -343,6 +343,8 @@ type BucketAclState struct {
 	// Bucket to which to apply the ACL.
 	Bucket pulumi.StringPtrInput
 	// Account ID of the expected bucket owner.
+	//
+	// Deprecated: expected_bucket_owner is deprecated. It will be removed in a future verion of the provider.
 	ExpectedBucketOwner pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
@@ -360,6 +362,8 @@ type bucketAclArgs struct {
 	// Bucket to which to apply the ACL.
 	Bucket string `pulumi:"bucket"`
 	// Account ID of the expected bucket owner.
+	//
+	// Deprecated: expected_bucket_owner is deprecated. It will be removed in a future verion of the provider.
 	ExpectedBucketOwner *string `pulumi:"expectedBucketOwner"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
@@ -374,6 +378,8 @@ type BucketAclArgs struct {
 	// Bucket to which to apply the ACL.
 	Bucket pulumi.StringInput
 	// Account ID of the expected bucket owner.
+	//
+	// Deprecated: expected_bucket_owner is deprecated. It will be removed in a future verion of the provider.
 	ExpectedBucketOwner pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
@@ -482,6 +488,8 @@ func (o BucketAclOutput) Bucket() pulumi.StringOutput {
 }
 
 // Account ID of the expected bucket owner.
+//
+// Deprecated: expected_bucket_owner is deprecated. It will be removed in a future verion of the provider.
 func (o BucketAclOutput) ExpectedBucketOwner() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BucketAcl) pulumi.StringPtrOutput { return v.ExpectedBucketOwner }).(pulumi.StringPtrOutput)
 }

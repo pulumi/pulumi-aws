@@ -166,6 +166,10 @@ namespace Pulumi.Aws.Odb
         /// </summary>
         public readonly double AvailableCpus;
         /// <summary>
+        /// Cloud exadata infrastructure ARN associated with this cloud autonomous VM cluster.
+        /// </summary>
+        public readonly string CloudExadataInfrastructureArn;
+        /// <summary>
         /// Cloud exadata infrastructure id associated with this cloud autonomous VM cluster.
         /// </summary>
         public readonly string CloudExadataInfrastructureId;
@@ -267,6 +271,10 @@ namespace Pulumi.Aws.Odb
         /// </summary>
         public readonly string Ocid;
         /// <summary>
+        /// The arn of the ODB network associated with this Autonomous VM cluster.
+        /// </summary>
+        public readonly string OdbNetworkArn;
+        /// <summary>
         /// The unique identifier of the ODB network associated with this Autonomous VM cluster.
         /// </summary>
         public readonly string OdbNetworkId;
@@ -354,6 +362,8 @@ namespace Pulumi.Aws.Odb
 
             double availableCpus,
 
+            string cloudExadataInfrastructureArn,
+
             string cloudExadataInfrastructureId,
 
             string computeModel,
@@ -406,6 +416,8 @@ namespace Pulumi.Aws.Odb
 
             string ocid,
 
+            string odbNetworkArn,
+
             string odbNetworkId,
 
             int odbNodeStorageSizeInGbs,
@@ -450,6 +462,7 @@ namespace Pulumi.Aws.Odb
             AvailableAutonomousDataStorageSizeInTbs = availableAutonomousDataStorageSizeInTbs;
             AvailableContainerDatabases = availableContainerDatabases;
             AvailableCpus = availableCpus;
+            CloudExadataInfrastructureArn = cloudExadataInfrastructureArn;
             CloudExadataInfrastructureId = cloudExadataInfrastructureId;
             ComputeModel = computeModel;
             CpuCoreCount = cpuCoreCount;
@@ -476,6 +489,7 @@ namespace Pulumi.Aws.Odb
             OciResourceAnchorName = ociResourceAnchorName;
             OciUrl = ociUrl;
             Ocid = ocid;
+            OdbNetworkArn = odbNetworkArn;
             OdbNetworkId = odbNetworkId;
             OdbNodeStorageSizeInGbs = odbNodeStorageSizeInGbs;
             PercentProgress = percentProgress;

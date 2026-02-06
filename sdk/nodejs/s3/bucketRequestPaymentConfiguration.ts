@@ -74,6 +74,8 @@ export class BucketRequestPaymentConfiguration extends pulumi.CustomResource {
     declare public readonly bucket: pulumi.Output<string>;
     /**
      * Account ID of the expected bucket owner.
+     *
+     * @deprecated expected_bucket_owner is deprecated. It will be removed in a future verion of the provider.
      */
     declare public readonly expectedBucketOwner: pulumi.Output<string | undefined>;
     /**
@@ -132,6 +134,8 @@ export interface BucketRequestPaymentConfigurationState {
     bucket?: pulumi.Input<string>;
     /**
      * Account ID of the expected bucket owner.
+     *
+     * @deprecated expected_bucket_owner is deprecated. It will be removed in a future verion of the provider.
      */
     expectedBucketOwner?: pulumi.Input<string>;
     /**
@@ -154,6 +158,8 @@ export interface BucketRequestPaymentConfigurationArgs {
     bucket: pulumi.Input<string>;
     /**
      * Account ID of the expected bucket owner.
+     *
+     * @deprecated expected_bucket_owner is deprecated. It will be removed in a future verion of the provider.
      */
     expectedBucketOwner?: pulumi.Input<string>;
     /**

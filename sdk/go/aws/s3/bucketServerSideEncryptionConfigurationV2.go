@@ -130,8 +130,6 @@ import (
 //
 // * `account_id` (String) AWS Account where this resource is managed.
 //
-// * `expected_bucket_owner` (String) Account ID of the expected bucket owner.
-//
 // * `region` (String) Region where this resource is managed.
 //
 // If the owner (account ID) of the source bucket differs from the account used to configure the AWS Provider, import using the `bucket` and `expected_bucket_owner` separated by a comma (`,`):
@@ -163,6 +161,8 @@ type BucketServerSideEncryptionConfigurationV2 struct {
 	// ID (name) of the bucket.
 	Bucket pulumi.StringOutput `pulumi:"bucket"`
 	// Account ID of the expected bucket owner.
+	//
+	// Deprecated: expected_bucket_owner is deprecated. It will be removed in a future verion of the provider.
 	ExpectedBucketOwner pulumi.StringPtrOutput `pulumi:"expectedBucketOwner"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
@@ -215,6 +215,8 @@ type bucketServerSideEncryptionConfigurationV2State struct {
 	// ID (name) of the bucket.
 	Bucket *string `pulumi:"bucket"`
 	// Account ID of the expected bucket owner.
+	//
+	// Deprecated: expected_bucket_owner is deprecated. It will be removed in a future verion of the provider.
 	ExpectedBucketOwner *string `pulumi:"expectedBucketOwner"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
@@ -226,6 +228,8 @@ type BucketServerSideEncryptionConfigurationV2State struct {
 	// ID (name) of the bucket.
 	Bucket pulumi.StringPtrInput
 	// Account ID of the expected bucket owner.
+	//
+	// Deprecated: expected_bucket_owner is deprecated. It will be removed in a future verion of the provider.
 	ExpectedBucketOwner pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
@@ -241,6 +245,8 @@ type bucketServerSideEncryptionConfigurationV2Args struct {
 	// ID (name) of the bucket.
 	Bucket string `pulumi:"bucket"`
 	// Account ID of the expected bucket owner.
+	//
+	// Deprecated: expected_bucket_owner is deprecated. It will be removed in a future verion of the provider.
 	ExpectedBucketOwner *string `pulumi:"expectedBucketOwner"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
@@ -253,6 +259,8 @@ type BucketServerSideEncryptionConfigurationV2Args struct {
 	// ID (name) of the bucket.
 	Bucket pulumi.StringInput
 	// Account ID of the expected bucket owner.
+	//
+	// Deprecated: expected_bucket_owner is deprecated. It will be removed in a future verion of the provider.
 	ExpectedBucketOwner pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
@@ -353,6 +361,8 @@ func (o BucketServerSideEncryptionConfigurationV2Output) Bucket() pulumi.StringO
 }
 
 // Account ID of the expected bucket owner.
+//
+// Deprecated: expected_bucket_owner is deprecated. It will be removed in a future verion of the provider.
 func (o BucketServerSideEncryptionConfigurationV2Output) ExpectedBucketOwner() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BucketServerSideEncryptionConfigurationV2) pulumi.StringPtrOutput {
 		return v.ExpectedBucketOwner

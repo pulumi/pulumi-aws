@@ -137,8 +137,10 @@ type CloudAutonomousVmCluster struct {
 	// The number of Autonomous CDBs that you can create with the currently available storage.
 	AvailableContainerDatabases pulumi.IntOutput `pulumi:"availableContainerDatabases"`
 	// The number of CPU cores available for allocation to Autonomous Databases.
-	AvailableCpus                pulumi.Float64Output `pulumi:"availableCpus"`
-	CloudExadataInfrastructureId pulumi.StringOutput  `pulumi:"cloudExadataInfrastructureId"`
+	AvailableCpus pulumi.Float64Output `pulumi:"availableCpus"`
+	// The unique identifier of the Exadata infrastructure for this VM cluster. Changing this will create a new resource.
+	CloudExadataInfrastructureArn pulumi.StringOutput `pulumi:"cloudExadataInfrastructureArn"`
+	CloudExadataInfrastructureId  pulumi.StringOutput `pulumi:"cloudExadataInfrastructureId"`
 	// The compute model of the Autonomous VM cluster: ECPU or OCPU.
 	ComputeModel pulumi.StringOutput `pulumi:"computeModel"`
 	// The total number of CPU cores in the Autonomous VM cluster.
@@ -181,8 +183,10 @@ type CloudAutonomousVmCluster struct {
 	// The URL for accessing the OCI console page for this Autonomous VM cluster.
 	OciUrl pulumi.StringOutput `pulumi:"ociUrl"`
 	// The Oracle Cloud Identifier (OCID) of the Autonomous VM cluster.
-	Ocid         pulumi.StringOutput `pulumi:"ocid"`
-	OdbNetworkId pulumi.StringOutput `pulumi:"odbNetworkId"`
+	Ocid pulumi.StringOutput `pulumi:"ocid"`
+	// The unique identifier of the ODB network for the VM cluster. This member is required. Changing this will create a new resource.
+	OdbNetworkArn pulumi.StringOutput `pulumi:"odbNetworkArn"`
+	OdbNetworkId  pulumi.StringOutput `pulumi:"odbNetworkId"`
 	// The local node storage allocated to the Autonomous VM cluster, in gigabytes (GB).
 	OdbNodeStorageSizeInGbs pulumi.IntOutput `pulumi:"odbNodeStorageSizeInGbs"`
 	// The progress of the current operation on the Autonomous VM cluster, as a percentage.
@@ -230,9 +234,6 @@ func NewCloudAutonomousVmCluster(ctx *pulumi.Context,
 	if args.AutonomousDataStorageSizeInTbs == nil {
 		return nil, errors.New("invalid value for required argument 'AutonomousDataStorageSizeInTbs'")
 	}
-	if args.CloudExadataInfrastructureId == nil {
-		return nil, errors.New("invalid value for required argument 'CloudExadataInfrastructureId'")
-	}
 	if args.CpuCoreCountPerNode == nil {
 		return nil, errors.New("invalid value for required argument 'CpuCoreCountPerNode'")
 	}
@@ -247,9 +248,6 @@ func NewCloudAutonomousVmCluster(ctx *pulumi.Context,
 	}
 	if args.MemoryPerOracleComputeUnitInGbs == nil {
 		return nil, errors.New("invalid value for required argument 'MemoryPerOracleComputeUnitInGbs'")
-	}
-	if args.OdbNetworkId == nil {
-		return nil, errors.New("invalid value for required argument 'OdbNetworkId'")
 	}
 	if args.ScanListenerPortNonTls == nil {
 		return nil, errors.New("invalid value for required argument 'ScanListenerPortNonTls'")
@@ -293,8 +291,10 @@ type cloudAutonomousVmClusterState struct {
 	// The number of Autonomous CDBs that you can create with the currently available storage.
 	AvailableContainerDatabases *int `pulumi:"availableContainerDatabases"`
 	// The number of CPU cores available for allocation to Autonomous Databases.
-	AvailableCpus                *float64 `pulumi:"availableCpus"`
-	CloudExadataInfrastructureId *string  `pulumi:"cloudExadataInfrastructureId"`
+	AvailableCpus *float64 `pulumi:"availableCpus"`
+	// The unique identifier of the Exadata infrastructure for this VM cluster. Changing this will create a new resource.
+	CloudExadataInfrastructureArn *string `pulumi:"cloudExadataInfrastructureArn"`
+	CloudExadataInfrastructureId  *string `pulumi:"cloudExadataInfrastructureId"`
 	// The compute model of the Autonomous VM cluster: ECPU or OCPU.
 	ComputeModel *string `pulumi:"computeModel"`
 	// The total number of CPU cores in the Autonomous VM cluster.
@@ -337,8 +337,10 @@ type cloudAutonomousVmClusterState struct {
 	// The URL for accessing the OCI console page for this Autonomous VM cluster.
 	OciUrl *string `pulumi:"ociUrl"`
 	// The Oracle Cloud Identifier (OCID) of the Autonomous VM cluster.
-	Ocid         *string `pulumi:"ocid"`
-	OdbNetworkId *string `pulumi:"odbNetworkId"`
+	Ocid *string `pulumi:"ocid"`
+	// The unique identifier of the ODB network for the VM cluster. This member is required. Changing this will create a new resource.
+	OdbNetworkArn *string `pulumi:"odbNetworkArn"`
+	OdbNetworkId  *string `pulumi:"odbNetworkId"`
 	// The local node storage allocated to the Autonomous VM cluster, in gigabytes (GB).
 	OdbNodeStorageSizeInGbs *int `pulumi:"odbNodeStorageSizeInGbs"`
 	// The progress of the current operation on the Autonomous VM cluster, as a percentage.
@@ -387,8 +389,10 @@ type CloudAutonomousVmClusterState struct {
 	// The number of Autonomous CDBs that you can create with the currently available storage.
 	AvailableContainerDatabases pulumi.IntPtrInput
 	// The number of CPU cores available for allocation to Autonomous Databases.
-	AvailableCpus                pulumi.Float64PtrInput
-	CloudExadataInfrastructureId pulumi.StringPtrInput
+	AvailableCpus pulumi.Float64PtrInput
+	// The unique identifier of the Exadata infrastructure for this VM cluster. Changing this will create a new resource.
+	CloudExadataInfrastructureArn pulumi.StringPtrInput
+	CloudExadataInfrastructureId  pulumi.StringPtrInput
 	// The compute model of the Autonomous VM cluster: ECPU or OCPU.
 	ComputeModel pulumi.StringPtrInput
 	// The total number of CPU cores in the Autonomous VM cluster.
@@ -431,8 +435,10 @@ type CloudAutonomousVmClusterState struct {
 	// The URL for accessing the OCI console page for this Autonomous VM cluster.
 	OciUrl pulumi.StringPtrInput
 	// The Oracle Cloud Identifier (OCID) of the Autonomous VM cluster.
-	Ocid         pulumi.StringPtrInput
-	OdbNetworkId pulumi.StringPtrInput
+	Ocid pulumi.StringPtrInput
+	// The unique identifier of the ODB network for the VM cluster. This member is required. Changing this will create a new resource.
+	OdbNetworkArn pulumi.StringPtrInput
+	OdbNetworkId  pulumi.StringPtrInput
 	// The local node storage allocated to the Autonomous VM cluster, in gigabytes (GB).
 	OdbNodeStorageSizeInGbs pulumi.IntPtrInput
 	// The progress of the current operation on the Autonomous VM cluster, as a percentage.
@@ -476,7 +482,9 @@ func (CloudAutonomousVmClusterState) ElementType() reflect.Type {
 
 type cloudAutonomousVmClusterArgs struct {
 	AutonomousDataStorageSizeInTbs float64 `pulumi:"autonomousDataStorageSizeInTbs"`
-	CloudExadataInfrastructureId   string  `pulumi:"cloudExadataInfrastructureId"`
+	// The unique identifier of the Exadata infrastructure for this VM cluster. Changing this will create a new resource.
+	CloudExadataInfrastructureArn *string `pulumi:"cloudExadataInfrastructureArn"`
+	CloudExadataInfrastructureId  *string `pulumi:"cloudExadataInfrastructureId"`
 	// The number of CPU cores enabled per node in the Autonomous VM cluster.
 	CpuCoreCountPerNode int      `pulumi:"cpuCoreCountPerNode"`
 	DbServers           []string `pulumi:"dbServers"`
@@ -488,7 +496,9 @@ type cloudAutonomousVmClusterArgs struct {
 	// The maintenance window of the Autonomous VM cluster.
 	MaintenanceWindow               CloudAutonomousVmClusterMaintenanceWindow `pulumi:"maintenanceWindow"`
 	MemoryPerOracleComputeUnitInGbs int                                       `pulumi:"memoryPerOracleComputeUnitInGbs"`
-	OdbNetworkId                    string                                    `pulumi:"odbNetworkId"`
+	// The unique identifier of the ODB network for the VM cluster. This member is required. Changing this will create a new resource.
+	OdbNetworkArn *string `pulumi:"odbNetworkArn"`
+	OdbNetworkId  *string `pulumi:"odbNetworkId"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region                 *string `pulumi:"region"`
 	ScanListenerPortNonTls int     `pulumi:"scanListenerPortNonTls"`
@@ -503,7 +513,9 @@ type cloudAutonomousVmClusterArgs struct {
 // The set of arguments for constructing a CloudAutonomousVmCluster resource.
 type CloudAutonomousVmClusterArgs struct {
 	AutonomousDataStorageSizeInTbs pulumi.Float64Input
-	CloudExadataInfrastructureId   pulumi.StringInput
+	// The unique identifier of the Exadata infrastructure for this VM cluster. Changing this will create a new resource.
+	CloudExadataInfrastructureArn pulumi.StringPtrInput
+	CloudExadataInfrastructureId  pulumi.StringPtrInput
 	// The number of CPU cores enabled per node in the Autonomous VM cluster.
 	CpuCoreCountPerNode pulumi.IntInput
 	DbServers           pulumi.StringArrayInput
@@ -515,7 +527,9 @@ type CloudAutonomousVmClusterArgs struct {
 	// The maintenance window of the Autonomous VM cluster.
 	MaintenanceWindow               CloudAutonomousVmClusterMaintenanceWindowInput
 	MemoryPerOracleComputeUnitInGbs pulumi.IntInput
-	OdbNetworkId                    pulumi.StringInput
+	// The unique identifier of the ODB network for the VM cluster. This member is required. Changing this will create a new resource.
+	OdbNetworkArn pulumi.StringPtrInput
+	OdbNetworkId  pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region                 pulumi.StringPtrInput
 	ScanListenerPortNonTls pulumi.IntInput
@@ -645,6 +659,11 @@ func (o CloudAutonomousVmClusterOutput) AvailableCpus() pulumi.Float64Output {
 	return o.ApplyT(func(v *CloudAutonomousVmCluster) pulumi.Float64Output { return v.AvailableCpus }).(pulumi.Float64Output)
 }
 
+// The unique identifier of the Exadata infrastructure for this VM cluster. Changing this will create a new resource.
+func (o CloudAutonomousVmClusterOutput) CloudExadataInfrastructureArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *CloudAutonomousVmCluster) pulumi.StringOutput { return v.CloudExadataInfrastructureArn }).(pulumi.StringOutput)
+}
+
 func (o CloudAutonomousVmClusterOutput) CloudExadataInfrastructureId() pulumi.StringOutput {
 	return o.ApplyT(func(v *CloudAutonomousVmCluster) pulumi.StringOutput { return v.CloudExadataInfrastructureId }).(pulumi.StringOutput)
 }
@@ -766,6 +785,11 @@ func (o CloudAutonomousVmClusterOutput) OciUrl() pulumi.StringOutput {
 // The Oracle Cloud Identifier (OCID) of the Autonomous VM cluster.
 func (o CloudAutonomousVmClusterOutput) Ocid() pulumi.StringOutput {
 	return o.ApplyT(func(v *CloudAutonomousVmCluster) pulumi.StringOutput { return v.Ocid }).(pulumi.StringOutput)
+}
+
+// The unique identifier of the ODB network for the VM cluster. This member is required. Changing this will create a new resource.
+func (o CloudAutonomousVmClusterOutput) OdbNetworkArn() pulumi.StringOutput {
+	return o.ApplyT(func(v *CloudAutonomousVmCluster) pulumi.StringOutput { return v.OdbNetworkArn }).(pulumi.StringOutput)
 }
 
 func (o CloudAutonomousVmClusterOutput) OdbNetworkId() pulumi.StringOutput {

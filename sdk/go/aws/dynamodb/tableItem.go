@@ -84,7 +84,7 @@ type TableItem struct {
 	RangeKey pulumi.StringPtrOutput `pulumi:"rangeKey"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
-	// Name of the table to contain the item.
+	// Name or ARN of the table to contain the item.
 	//
 	// > **Note:** Names included in `item` are represented internally with everything but letters removed. There is the possibility of collisions if two names, once filtered, are the same. For example, the names `your-name-here` and `yournamehere` will overlap and cause an error.
 	TableName pulumi.StringOutput `pulumi:"tableName"`
@@ -137,7 +137,7 @@ type tableItemState struct {
 	RangeKey *string `pulumi:"rangeKey"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// Name of the table to contain the item.
+	// Name or ARN of the table to contain the item.
 	//
 	// > **Note:** Names included in `item` are represented internally with everything but letters removed. There is the possibility of collisions if two names, once filtered, are the same. For example, the names `your-name-here` and `yournamehere` will overlap and cause an error.
 	TableName *string `pulumi:"tableName"`
@@ -152,7 +152,7 @@ type TableItemState struct {
 	RangeKey pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// Name of the table to contain the item.
+	// Name or ARN of the table to contain the item.
 	//
 	// > **Note:** Names included in `item` are represented internally with everything but letters removed. There is the possibility of collisions if two names, once filtered, are the same. For example, the names `your-name-here` and `yournamehere` will overlap and cause an error.
 	TableName pulumi.StringPtrInput
@@ -171,7 +171,7 @@ type tableItemArgs struct {
 	RangeKey *string `pulumi:"rangeKey"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// Name of the table to contain the item.
+	// Name or ARN of the table to contain the item.
 	//
 	// > **Note:** Names included in `item` are represented internally with everything but letters removed. There is the possibility of collisions if two names, once filtered, are the same. For example, the names `your-name-here` and `yournamehere` will overlap and cause an error.
 	TableName string `pulumi:"tableName"`
@@ -187,7 +187,7 @@ type TableItemArgs struct {
 	RangeKey pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// Name of the table to contain the item.
+	// Name or ARN of the table to contain the item.
 	//
 	// > **Note:** Names included in `item` are represented internally with everything but letters removed. There is the possibility of collisions if two names, once filtered, are the same. For example, the names `your-name-here` and `yournamehere` will overlap and cause an error.
 	TableName pulumi.StringInput
@@ -300,7 +300,7 @@ func (o TableItemOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *TableItem) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Name of the table to contain the item.
+// Name or ARN of the table to contain the item.
 //
 // > **Note:** Names included in `item` are represented internally with everything but letters removed. There is the possibility of collisions if two names, once filtered, are the same. For example, the names `your-name-here` and `yournamehere` will overlap and cause an error.
 func (o TableItemOutput) TableName() pulumi.StringOutput {

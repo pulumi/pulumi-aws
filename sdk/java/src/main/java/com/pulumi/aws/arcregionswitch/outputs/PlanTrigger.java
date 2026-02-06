@@ -26,7 +26,7 @@ public final class PlanTrigger {
      */
     private @Nullable List<PlanTriggerCondition> conditions;
     /**
-     * @return Description of the plan.
+     * @return Description of the trigger.
      * 
      */
     private @Nullable String description;
@@ -57,7 +57,7 @@ public final class PlanTrigger {
         return this.conditions == null ? List.of() : this.conditions;
     }
     /**
-     * @return Description of the plan.
+     * @return Description of the trigger.
      * 
      */
     public Optional<String> description() {

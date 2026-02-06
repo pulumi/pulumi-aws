@@ -340,7 +340,7 @@ if not MYPY:
         """
         description: NotRequired[pulumi.Input[_builtins.str]]
         """
-        Description of the plan.
+        Description of the trigger.
         """
 elif False:
     PlanTriggerArgsDict: TypeAlias = Mapping[str, Any]
@@ -358,7 +358,7 @@ class PlanTriggerArgs:
         :param pulumi.Input[_builtins.int] min_delay_minutes_between_executions: Minimum delay in minutes between executions.
         :param pulumi.Input[_builtins.str] target_region: Target region for the trigger.
         :param pulumi.Input[Sequence[pulumi.Input['PlanTriggerConditionArgs']]] conditions: List of conditions that must be met. See Conditions below.
-        :param pulumi.Input[_builtins.str] description: Description of the plan.
+        :param pulumi.Input[_builtins.str] description: Description of the trigger.
         """
         pulumi.set(__self__, "action", action)
         pulumi.set(__self__, "min_delay_minutes_between_executions", min_delay_minutes_between_executions)
@@ -420,7 +420,7 @@ class PlanTriggerArgs:
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Description of the plan.
+        Description of the trigger.
         """
         return pulumi.get(self, "description")
 

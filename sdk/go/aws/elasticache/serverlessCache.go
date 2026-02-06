@@ -223,9 +223,9 @@ type ServerlessCache struct {
 	Region pulumi.StringOutput `pulumi:"region"`
 	// A list of the one or more VPC security groups to be associated with the serverless cache. The security group will authorize traffic access for the VPC end-point (private-link). If no other information is given this will be the VPC’s Default Security Group that is associated with the cluster VPC end-point.
 	SecurityGroupIds pulumi.StringArrayOutput `pulumi:"securityGroupIds"`
-	// The list of ARN(s) of the snapshot that the new serverless cache will be created from. Available for Redis only.
+	// The list of ARN(s) of the snapshot that the new serverless cache will be created from. Only supported for engine types `"redis"` or `"valkey"`.
 	SnapshotArnsToRestores pulumi.StringArrayOutput `pulumi:"snapshotArnsToRestores"`
-	// The number of snapshots that will be retained for the serverless cache that is being created. As new snapshots beyond this limit are added, the oldest snapshots will be deleted on a rolling basis. Available for Redis only.
+	// The number of snapshots that will be retained for the serverless cache that is being created. As new snapshots beyond this limit are added, the oldest snapshots will be deleted on a rolling basis. Only supported for engine types `"redis"` or `"valkey"`.
 	SnapshotRetentionLimit pulumi.IntOutput `pulumi:"snapshotRetentionLimit"`
 	// The current status of the serverless cache. The allowed values are CREATING, AVAILABLE, DELETING, CREATE-FAILED and MODIFYING.
 	Status pulumi.StringOutput `pulumi:"status"`
@@ -303,9 +303,9 @@ type serverlessCacheState struct {
 	Region *string `pulumi:"region"`
 	// A list of the one or more VPC security groups to be associated with the serverless cache. The security group will authorize traffic access for the VPC end-point (private-link). If no other information is given this will be the VPC’s Default Security Group that is associated with the cluster VPC end-point.
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
-	// The list of ARN(s) of the snapshot that the new serverless cache will be created from. Available for Redis only.
+	// The list of ARN(s) of the snapshot that the new serverless cache will be created from. Only supported for engine types `"redis"` or `"valkey"`.
 	SnapshotArnsToRestores []string `pulumi:"snapshotArnsToRestores"`
-	// The number of snapshots that will be retained for the serverless cache that is being created. As new snapshots beyond this limit are added, the oldest snapshots will be deleted on a rolling basis. Available for Redis only.
+	// The number of snapshots that will be retained for the serverless cache that is being created. As new snapshots beyond this limit are added, the oldest snapshots will be deleted on a rolling basis. Only supported for engine types `"redis"` or `"valkey"`.
 	SnapshotRetentionLimit *int `pulumi:"snapshotRetentionLimit"`
 	// The current status of the serverless cache. The allowed values are CREATING, AVAILABLE, DELETING, CREATE-FAILED and MODIFYING.
 	Status *string `pulumi:"status"`
@@ -351,9 +351,9 @@ type ServerlessCacheState struct {
 	Region pulumi.StringPtrInput
 	// A list of the one or more VPC security groups to be associated with the serverless cache. The security group will authorize traffic access for the VPC end-point (private-link). If no other information is given this will be the VPC’s Default Security Group that is associated with the cluster VPC end-point.
 	SecurityGroupIds pulumi.StringArrayInput
-	// The list of ARN(s) of the snapshot that the new serverless cache will be created from. Available for Redis only.
+	// The list of ARN(s) of the snapshot that the new serverless cache will be created from. Only supported for engine types `"redis"` or `"valkey"`.
 	SnapshotArnsToRestores pulumi.StringArrayInput
-	// The number of snapshots that will be retained for the serverless cache that is being created. As new snapshots beyond this limit are added, the oldest snapshots will be deleted on a rolling basis. Available for Redis only.
+	// The number of snapshots that will be retained for the serverless cache that is being created. As new snapshots beyond this limit are added, the oldest snapshots will be deleted on a rolling basis. Only supported for engine types `"redis"` or `"valkey"`.
 	SnapshotRetentionLimit pulumi.IntPtrInput
 	// The current status of the serverless cache. The allowed values are CREATING, AVAILABLE, DELETING, CREATE-FAILED and MODIFYING.
 	Status pulumi.StringPtrInput
@@ -393,9 +393,9 @@ type serverlessCacheArgs struct {
 	Region *string `pulumi:"region"`
 	// A list of the one or more VPC security groups to be associated with the serverless cache. The security group will authorize traffic access for the VPC end-point (private-link). If no other information is given this will be the VPC’s Default Security Group that is associated with the cluster VPC end-point.
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
-	// The list of ARN(s) of the snapshot that the new serverless cache will be created from. Available for Redis only.
+	// The list of ARN(s) of the snapshot that the new serverless cache will be created from. Only supported for engine types `"redis"` or `"valkey"`.
 	SnapshotArnsToRestores []string `pulumi:"snapshotArnsToRestores"`
-	// The number of snapshots that will be retained for the serverless cache that is being created. As new snapshots beyond this limit are added, the oldest snapshots will be deleted on a rolling basis. Available for Redis only.
+	// The number of snapshots that will be retained for the serverless cache that is being created. As new snapshots beyond this limit are added, the oldest snapshots will be deleted on a rolling basis. Only supported for engine types `"redis"` or `"valkey"`.
 	SnapshotRetentionLimit *int `pulumi:"snapshotRetentionLimit"`
 	// A list of the identifiers of the subnets where the VPC endpoint for the serverless cache will be deployed. All the subnetIds must belong to the same VPC.
 	SubnetIds []string `pulumi:"subnetIds"`
@@ -429,9 +429,9 @@ type ServerlessCacheArgs struct {
 	Region pulumi.StringPtrInput
 	// A list of the one or more VPC security groups to be associated with the serverless cache. The security group will authorize traffic access for the VPC end-point (private-link). If no other information is given this will be the VPC’s Default Security Group that is associated with the cluster VPC end-point.
 	SecurityGroupIds pulumi.StringArrayInput
-	// The list of ARN(s) of the snapshot that the new serverless cache will be created from. Available for Redis only.
+	// The list of ARN(s) of the snapshot that the new serverless cache will be created from. Only supported for engine types `"redis"` or `"valkey"`.
 	SnapshotArnsToRestores pulumi.StringArrayInput
-	// The number of snapshots that will be retained for the serverless cache that is being created. As new snapshots beyond this limit are added, the oldest snapshots will be deleted on a rolling basis. Available for Redis only.
+	// The number of snapshots that will be retained for the serverless cache that is being created. As new snapshots beyond this limit are added, the oldest snapshots will be deleted on a rolling basis. Only supported for engine types `"redis"` or `"valkey"`.
 	SnapshotRetentionLimit pulumi.IntPtrInput
 	// A list of the identifiers of the subnets where the VPC endpoint for the serverless cache will be deployed. All the subnetIds must belong to the same VPC.
 	SubnetIds pulumi.StringArrayInput
@@ -602,12 +602,12 @@ func (o ServerlessCacheOutput) SecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ServerlessCache) pulumi.StringArrayOutput { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
 }
 
-// The list of ARN(s) of the snapshot that the new serverless cache will be created from. Available for Redis only.
+// The list of ARN(s) of the snapshot that the new serverless cache will be created from. Only supported for engine types `"redis"` or `"valkey"`.
 func (o ServerlessCacheOutput) SnapshotArnsToRestores() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ServerlessCache) pulumi.StringArrayOutput { return v.SnapshotArnsToRestores }).(pulumi.StringArrayOutput)
 }
 
-// The number of snapshots that will be retained for the serverless cache that is being created. As new snapshots beyond this limit are added, the oldest snapshots will be deleted on a rolling basis. Available for Redis only.
+// The number of snapshots that will be retained for the serverless cache that is being created. As new snapshots beyond this limit are added, the oldest snapshots will be deleted on a rolling basis. Only supported for engine types `"redis"` or `"valkey"`.
 func (o ServerlessCacheOutput) SnapshotRetentionLimit() pulumi.IntOutput {
 	return o.ApplyT(func(v *ServerlessCache) pulumi.IntOutput { return v.SnapshotRetentionLimit }).(pulumi.IntOutput)
 }

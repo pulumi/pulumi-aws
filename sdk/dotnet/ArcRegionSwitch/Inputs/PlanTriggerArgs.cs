@@ -31,7 +31,7 @@ namespace Pulumi.Aws.ArcRegionSwitch.Inputs
         }
 
         /// <summary>
-        /// Description of the plan.
+        /// Description of the trigger.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }

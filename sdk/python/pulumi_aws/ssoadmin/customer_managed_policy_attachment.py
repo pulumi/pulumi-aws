@@ -173,6 +173,8 @@ class CustomerManagedPolicyAttachment(pulumi.CustomResource):
         """
         Provides a customer managed policy attachment for a Single Sign-On (SSO) Permission Set resource
 
+        !> **WARNING:** Do not use this resource together with the `ssoadmin.CustomerManagedPolicyAttachmentsExclusive` resource for the same permission set. Doing so will cause a conflict and will lead to customer managed policies being removed.
+
         > **NOTE:** Creating this resource will automatically [Provision the Permission Set](https://docs.aws.amazon.com/singlesignon/latest/APIReference/API_ProvisionPermissionSet.html) to apply the corresponding updates to all assigned accounts.
 
         ## Example Usage
@@ -229,6 +231,8 @@ class CustomerManagedPolicyAttachment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Provides a customer managed policy attachment for a Single Sign-On (SSO) Permission Set resource
+
+        !> **WARNING:** Do not use this resource together with the `ssoadmin.CustomerManagedPolicyAttachmentsExclusive` resource for the same permission set. Doing so will cause a conflict and will lead to customer managed policies being removed.
 
         > **NOTE:** Creating this resource will automatically [Provision the Permission Set](https://docs.aws.amazon.com/singlesignon/latest/APIReference/API_ProvisionPermissionSet.html) to apply the corresponding updates to all assigned accounts.
 

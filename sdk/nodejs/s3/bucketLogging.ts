@@ -95,8 +95,6 @@ import * as utilities from "../utilities";
  *
  * * `account_id` (String) AWS Account where this resource is managed.
  *
- * * `expected_bucket_owner` (String) Account ID of the expected bucket owner.
- *
  * * `region` (String) Region where this resource is managed.
  *
  * If the owner (account ID) of the source bucket differs from the account used to configure the AWS Provider, import using the `bucket` and `expected_bucket_owner` separated by a comma (`,`):
@@ -155,6 +153,8 @@ export class BucketLogging extends pulumi.CustomResource {
     declare public readonly bucket: pulumi.Output<string>;
     /**
      * Account ID of the expected bucket owner.
+     *
+     * @deprecated expected_bucket_owner is deprecated. It will be removed in a future verion of the provider.
      */
     declare public readonly expectedBucketOwner: pulumi.Output<string | undefined>;
     /**
@@ -234,6 +234,8 @@ export interface BucketLoggingState {
     bucket?: pulumi.Input<string>;
     /**
      * Account ID of the expected bucket owner.
+     *
+     * @deprecated expected_bucket_owner is deprecated. It will be removed in a future verion of the provider.
      */
     expectedBucketOwner?: pulumi.Input<string>;
     /**
@@ -268,6 +270,8 @@ export interface BucketLoggingArgs {
     bucket: pulumi.Input<string>;
     /**
      * Account ID of the expected bucket owner.
+     *
+     * @deprecated expected_bucket_owner is deprecated. It will be removed in a future verion of the provider.
      */
     expectedBucketOwner?: pulumi.Input<string>;
     /**

@@ -76,6 +76,10 @@ export interface GetCloudAutonomousVmClusterResult {
      */
     readonly availableCpus: number;
     /**
+     * Cloud exadata infrastructure ARN associated with this cloud autonomous VM cluster.
+     */
+    readonly cloudExadataInfrastructureArn: string;
+    /**
      * Cloud exadata infrastructure id associated with this cloud autonomous VM cluster.
      */
     readonly cloudExadataInfrastructureId: string;
@@ -176,6 +180,10 @@ export interface GetCloudAutonomousVmClusterResult {
      * The Oracle Cloud Identifier (OCID) of the Autonomous VM cluster.
      */
     readonly ocid: string;
+    /**
+     * The arn of the ODB network associated with this Autonomous VM cluster.
+     */
+    readonly odbNetworkArn: string;
     /**
      * The unique identifier of the ODB network associated with this Autonomous VM cluster.
      */

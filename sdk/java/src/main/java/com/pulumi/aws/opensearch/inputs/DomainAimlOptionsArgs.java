@@ -5,6 +5,7 @@ package com.pulumi.aws.opensearch.inputs;
 
 import com.pulumi.aws.opensearch.inputs.DomainAimlOptionsNaturalLanguageQueryGenerationOptionsArgs;
 import com.pulumi.aws.opensearch.inputs.DomainAimlOptionsS3VectorsEngineArgs;
+import com.pulumi.aws.opensearch.inputs.DomainAimlOptionsServerlessVectorAccelerationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.util.Objects;
@@ -46,11 +47,27 @@ public final class DomainAimlOptionsArgs extends com.pulumi.resources.ResourceAr
         return Optional.ofNullable(this.s3VectorsEngine);
     }
 
+    /**
+     * Configuration block for parameters required to enable GPU-accelerated vector search on the specified domain.
+     * 
+     */
+    @Import(name="serverlessVectorAcceleration")
+    private @Nullable Output<DomainAimlOptionsServerlessVectorAccelerationArgs> serverlessVectorAcceleration;
+
+    /**
+     * @return Configuration block for parameters required to enable GPU-accelerated vector search on the specified domain.
+     * 
+     */
+    public Optional<Output<DomainAimlOptionsServerlessVectorAccelerationArgs>> serverlessVectorAcceleration() {
+        return Optional.ofNullable(this.serverlessVectorAcceleration);
+    }
+
     private DomainAimlOptionsArgs() {}
 
     private DomainAimlOptionsArgs(DomainAimlOptionsArgs $) {
         this.naturalLanguageQueryGenerationOptions = $.naturalLanguageQueryGenerationOptions;
         this.s3VectorsEngine = $.s3VectorsEngine;
+        this.serverlessVectorAcceleration = $.serverlessVectorAcceleration;
     }
 
     public static Builder builder() {
@@ -111,6 +128,27 @@ public final class DomainAimlOptionsArgs extends com.pulumi.resources.ResourceAr
          */
         public Builder s3VectorsEngine(DomainAimlOptionsS3VectorsEngineArgs s3VectorsEngine) {
             return s3VectorsEngine(Output.of(s3VectorsEngine));
+        }
+
+        /**
+         * @param serverlessVectorAcceleration Configuration block for parameters required to enable GPU-accelerated vector search on the specified domain.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder serverlessVectorAcceleration(@Nullable Output<DomainAimlOptionsServerlessVectorAccelerationArgs> serverlessVectorAcceleration) {
+            $.serverlessVectorAcceleration = serverlessVectorAcceleration;
+            return this;
+        }
+
+        /**
+         * @param serverlessVectorAcceleration Configuration block for parameters required to enable GPU-accelerated vector search on the specified domain.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder serverlessVectorAcceleration(DomainAimlOptionsServerlessVectorAccelerationArgs serverlessVectorAcceleration) {
+            return serverlessVectorAcceleration(Output.of(serverlessVectorAcceleration));
         }
 
         public DomainAimlOptionsArgs build() {

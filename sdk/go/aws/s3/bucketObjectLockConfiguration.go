@@ -87,6 +87,8 @@ type BucketObjectLockConfiguration struct {
 	// Name of the bucket.
 	Bucket pulumi.StringOutput `pulumi:"bucket"`
 	// Account ID of the expected bucket owner.
+	//
+	// Deprecated: expected_bucket_owner is deprecated. It will be removed in a future verion of the provider.
 	ExpectedBucketOwner pulumi.StringPtrOutput `pulumi:"expectedBucketOwner"`
 	// Indicates whether this bucket has an Object Lock configuration enabled. Defaults to `Enabled`. Valid values: `Enabled`.
 	ObjectLockEnabled pulumi.StringPtrOutput `pulumi:"objectLockEnabled"`
@@ -148,6 +150,8 @@ type bucketObjectLockConfigurationState struct {
 	// Name of the bucket.
 	Bucket *string `pulumi:"bucket"`
 	// Account ID of the expected bucket owner.
+	//
+	// Deprecated: expected_bucket_owner is deprecated. It will be removed in a future verion of the provider.
 	ExpectedBucketOwner *string `pulumi:"expectedBucketOwner"`
 	// Indicates whether this bucket has an Object Lock configuration enabled. Defaults to `Enabled`. Valid values: `Enabled`.
 	ObjectLockEnabled *string `pulumi:"objectLockEnabled"`
@@ -164,6 +168,8 @@ type BucketObjectLockConfigurationState struct {
 	// Name of the bucket.
 	Bucket pulumi.StringPtrInput
 	// Account ID of the expected bucket owner.
+	//
+	// Deprecated: expected_bucket_owner is deprecated. It will be removed in a future verion of the provider.
 	ExpectedBucketOwner pulumi.StringPtrInput
 	// Indicates whether this bucket has an Object Lock configuration enabled. Defaults to `Enabled`. Valid values: `Enabled`.
 	ObjectLockEnabled pulumi.StringPtrInput
@@ -184,6 +190,8 @@ type bucketObjectLockConfigurationArgs struct {
 	// Name of the bucket.
 	Bucket string `pulumi:"bucket"`
 	// Account ID of the expected bucket owner.
+	//
+	// Deprecated: expected_bucket_owner is deprecated. It will be removed in a future verion of the provider.
 	ExpectedBucketOwner *string `pulumi:"expectedBucketOwner"`
 	// Indicates whether this bucket has an Object Lock configuration enabled. Defaults to `Enabled`. Valid values: `Enabled`.
 	ObjectLockEnabled *string `pulumi:"objectLockEnabled"`
@@ -201,6 +209,8 @@ type BucketObjectLockConfigurationArgs struct {
 	// Name of the bucket.
 	Bucket pulumi.StringInput
 	// Account ID of the expected bucket owner.
+	//
+	// Deprecated: expected_bucket_owner is deprecated. It will be removed in a future verion of the provider.
 	ExpectedBucketOwner pulumi.StringPtrInput
 	// Indicates whether this bucket has an Object Lock configuration enabled. Defaults to `Enabled`. Valid values: `Enabled`.
 	ObjectLockEnabled pulumi.StringPtrInput
@@ -306,6 +316,8 @@ func (o BucketObjectLockConfigurationOutput) Bucket() pulumi.StringOutput {
 }
 
 // Account ID of the expected bucket owner.
+//
+// Deprecated: expected_bucket_owner is deprecated. It will be removed in a future verion of the provider.
 func (o BucketObjectLockConfigurationOutput) ExpectedBucketOwner() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BucketObjectLockConfiguration) pulumi.StringPtrOutput { return v.ExpectedBucketOwner }).(pulumi.StringPtrOutput)
 }

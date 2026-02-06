@@ -243,13 +243,13 @@ namespace Pulumi.Aws.ElastiCache
         public Output<ImmutableArray<string>> SecurityGroupIds { get; private set; } = null!;
 
         /// <summary>
-        /// The list of ARN(s) of the snapshot that the new serverless cache will be created from. Available for Redis only.
+        /// The list of ARN(s) of the snapshot that the new serverless cache will be created from. Only supported for engine types `"redis"` or `"valkey"`.
         /// </summary>
         [Output("snapshotArnsToRestores")]
         public Output<ImmutableArray<string>> SnapshotArnsToRestores { get; private set; } = null!;
 
         /// <summary>
-        /// The number of snapshots that will be retained for the serverless cache that is being created. As new snapshots beyond this limit are added, the oldest snapshots will be deleted on a rolling basis. Available for Redis only.
+        /// The number of snapshots that will be retained for the serverless cache that is being created. As new snapshots beyond this limit are added, the oldest snapshots will be deleted on a rolling basis. Only supported for engine types `"redis"` or `"valkey"`.
         /// </summary>
         [Output("snapshotRetentionLimit")]
         public Output<int> SnapshotRetentionLimit { get; private set; } = null!;
@@ -397,7 +397,7 @@ namespace Pulumi.Aws.ElastiCache
         private InputList<string>? _snapshotArnsToRestores;
 
         /// <summary>
-        /// The list of ARN(s) of the snapshot that the new serverless cache will be created from. Available for Redis only.
+        /// The list of ARN(s) of the snapshot that the new serverless cache will be created from. Only supported for engine types `"redis"` or `"valkey"`.
         /// </summary>
         public InputList<string> SnapshotArnsToRestores
         {
@@ -406,7 +406,7 @@ namespace Pulumi.Aws.ElastiCache
         }
 
         /// <summary>
-        /// The number of snapshots that will be retained for the serverless cache that is being created. As new snapshots beyond this limit are added, the oldest snapshots will be deleted on a rolling basis. Available for Redis only.
+        /// The number of snapshots that will be retained for the serverless cache that is being created. As new snapshots beyond this limit are added, the oldest snapshots will be deleted on a rolling basis. Only supported for engine types `"redis"` or `"valkey"`.
         /// </summary>
         [Input("snapshotRetentionLimit")]
         public Input<int>? SnapshotRetentionLimit { get; set; }
@@ -561,7 +561,7 @@ namespace Pulumi.Aws.ElastiCache
         private InputList<string>? _snapshotArnsToRestores;
 
         /// <summary>
-        /// The list of ARN(s) of the snapshot that the new serverless cache will be created from. Available for Redis only.
+        /// The list of ARN(s) of the snapshot that the new serverless cache will be created from. Only supported for engine types `"redis"` or `"valkey"`.
         /// </summary>
         public InputList<string> SnapshotArnsToRestores
         {
@@ -570,7 +570,7 @@ namespace Pulumi.Aws.ElastiCache
         }
 
         /// <summary>
-        /// The number of snapshots that will be retained for the serverless cache that is being created. As new snapshots beyond this limit are added, the oldest snapshots will be deleted on a rolling basis. Available for Redis only.
+        /// The number of snapshots that will be retained for the serverless cache that is being created. As new snapshots beyond this limit are added, the oldest snapshots will be deleted on a rolling basis. Only supported for engine types `"redis"` or `"valkey"`.
         /// </summary>
         [Input("snapshotRetentionLimit")]
         public Input<int>? SnapshotRetentionLimit { get; set; }

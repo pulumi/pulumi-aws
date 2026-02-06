@@ -40,7 +40,7 @@ public final class InstanceRootBlockDevice {
      */
     private @Nullable String kmsKeyId;
     /**
-     * @return Map of tags to assign to the device.
+     * @return Map of tags to assign to the device. **Note:** Tags specified here are applied after instance creation via a separate API call. This means they cannot be used with IAM policies that require tags during resource creation (e.g., ABAC policies with `ec2:CreateAction` conditions or SCPs requiring volume tags). For ABAC compliance, use `volumeTags` instead, which applies uniform tags to all volumes during instance creation.
      * 
      */
     private @Nullable Map<String,String> tags;
@@ -109,7 +109,7 @@ public final class InstanceRootBlockDevice {
         return Optional.ofNullable(this.kmsKeyId);
     }
     /**
-     * @return Map of tags to assign to the device.
+     * @return Map of tags to assign to the device. **Note:** Tags specified here are applied after instance creation via a separate API call. This means they cannot be used with IAM policies that require tags during resource creation (e.g., ABAC policies with `ec2:CreateAction` conditions or SCPs requiring volume tags). For ABAC compliance, use `volumeTags` instead, which applies uniform tags to all volumes during instance creation.
      * 
      */
     public Map<String,String> tags() {

@@ -151,7 +151,7 @@ import * as utilities from "../utilities";
  *             }],
  *         },
  *     ],
- *     trigger: [{
+ *     triggers: [{
  *         action: "activate",
  *         targetRegion: "us-west-2",
  *         minDelayMinutesBetweenExecutions: 30,
@@ -236,6 +236,8 @@ export class Plan extends pulumi.CustomResource {
     declare public readonly recoveryTimeObjectiveMinutes: pulumi.Output<number | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     *
+     * @deprecated This attribute will be removed in a future version of the provider.
      */
     declare public readonly region: pulumi.Output<string>;
     /**
@@ -252,7 +254,7 @@ export class Plan extends pulumi.CustomResource {
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     declare public readonly timeouts: pulumi.Output<outputs.arcregionswitch.PlanTimeouts | undefined>;
     /**
-     * Set of triggers that can initiate the plan execution. See Trigger below.
+     * Set of triggers that can initiate the plan execution. See Triggers below.
      */
     declare public readonly triggers: pulumi.Output<outputs.arcregionswitch.PlanTrigger[] | undefined>;
     /**
@@ -360,6 +362,8 @@ export interface PlanState {
     recoveryTimeObjectiveMinutes?: pulumi.Input<number>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     *
+     * @deprecated This attribute will be removed in a future version of the provider.
      */
     region?: pulumi.Input<string>;
     /**
@@ -376,7 +380,7 @@ export interface PlanState {
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     timeouts?: pulumi.Input<inputs.arcregionswitch.PlanTimeouts>;
     /**
-     * Set of triggers that can initiate the plan execution. See Trigger below.
+     * Set of triggers that can initiate the plan execution. See Triggers below.
      */
     triggers?: pulumi.Input<pulumi.Input<inputs.arcregionswitch.PlanTrigger>[]>;
     /**
@@ -421,6 +425,8 @@ export interface PlanArgs {
     recoveryTimeObjectiveMinutes?: pulumi.Input<number>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+     *
+     * @deprecated This attribute will be removed in a future version of the provider.
      */
     region?: pulumi.Input<string>;
     /**
@@ -433,7 +439,7 @@ export interface PlanArgs {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     timeouts?: pulumi.Input<inputs.arcregionswitch.PlanTimeouts>;
     /**
-     * Set of triggers that can initiate the plan execution. See Trigger below.
+     * Set of triggers that can initiate the plan execution. See Triggers below.
      */
     triggers?: pulumi.Input<pulumi.Input<inputs.arcregionswitch.PlanTrigger>[]>;
     /**

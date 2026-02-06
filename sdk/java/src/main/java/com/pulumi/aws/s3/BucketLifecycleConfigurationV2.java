@@ -633,7 +633,11 @@ public class BucketLifecycleConfigurationV2 extends com.pulumi.resources.CustomR
     /**
      * Account ID of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
      * 
+     * @deprecated
+     * This attribute will be removed in a future verion of the provider.
+     * 
      */
+    @Deprecated /* This attribute will be removed in a future verion of the provider. */
     @Export(name="expectedBucketOwner", refs={String.class}, tree="[0]")
     private Output<String> expectedBucketOwner;
 

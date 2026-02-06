@@ -37,6 +37,9 @@ class BucketLifecycleConfigurationArgs:
         """
         pulumi.set(__self__, "bucket", bucket)
         if expected_bucket_owner is not None:
+            warnings.warn("""This attribute will be removed in a future verion of the provider.""", DeprecationWarning)
+            pulumi.log.warn("""expected_bucket_owner is deprecated: This attribute will be removed in a future verion of the provider.""")
+        if expected_bucket_owner is not None:
             pulumi.set(__self__, "expected_bucket_owner", expected_bucket_owner)
         if region is not None:
             pulumi.set(__self__, "region", region)
@@ -61,6 +64,7 @@ class BucketLifecycleConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="expectedBucketOwner")
+    @_utilities.deprecated("""This attribute will be removed in a future verion of the provider.""")
     def expected_bucket_owner(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         Account ID of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
@@ -137,6 +141,9 @@ class _BucketLifecycleConfigurationState:
         if bucket is not None:
             pulumi.set(__self__, "bucket", bucket)
         if expected_bucket_owner is not None:
+            warnings.warn("""This attribute will be removed in a future verion of the provider.""", DeprecationWarning)
+            pulumi.log.warn("""expected_bucket_owner is deprecated: This attribute will be removed in a future verion of the provider.""")
+        if expected_bucket_owner is not None:
             pulumi.set(__self__, "expected_bucket_owner", expected_bucket_owner)
         if region is not None:
             pulumi.set(__self__, "region", region)
@@ -161,6 +168,7 @@ class _BucketLifecycleConfigurationState:
 
     @_builtins.property
     @pulumi.getter(name="expectedBucketOwner")
+    @_utilities.deprecated("""This attribute will be removed in a future verion of the provider.""")
     def expected_bucket_owner(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         Account ID of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
@@ -965,6 +973,7 @@ class BucketLifecycleConfiguration(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="expectedBucketOwner")
+    @_utilities.deprecated("""This attribute will be removed in a future verion of the provider.""")
     def expected_bucket_owner(self) -> pulumi.Output[_builtins.str]:
         """
         Account ID of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.

@@ -219,15 +219,15 @@ import (
 //						},
 //					},
 //				},
-//				Trigger: []map[string]interface{}{
-//					map[string]interface{}{
-//						"action":                           "activate",
-//						"targetRegion":                     "us-west-2",
-//						"minDelayMinutesBetweenExecutions": 30,
-//						"conditions": []map[string]interface{}{
-//							map[string]interface{}{
-//								"associatedAlarmName": "application-health-alarm",
-//								"condition":           "red",
+//				Triggers: arcregionswitch.PlanTriggerArray{
+//					&arcregionswitch.PlanTriggerArgs{
+//						Action:                           pulumi.String("activate"),
+//						TargetRegion:                     pulumi.String("us-west-2"),
+//						MinDelayMinutesBetweenExecutions: pulumi.Int(30),
+//						Conditions: arcregionswitch.PlanTriggerConditionArray{
+//							&arcregionswitch.PlanTriggerConditionArgs{
+//								AssociatedAlarmName: pulumi.String("application-health-alarm"),
+//								Condition:           pulumi.String("red"),
 //							},
 //						},
 //					},
@@ -272,6 +272,8 @@ type Plan struct {
 	// Recovery time objective in minutes.
 	RecoveryTimeObjectiveMinutes pulumi.IntPtrOutput `pulumi:"recoveryTimeObjectiveMinutes"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	//
+	// Deprecated: This attribute will be removed in a future version of the provider.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// List of AWS regions involved in the plan.
 	Regions pulumi.StringArrayOutput `pulumi:"regions"`
@@ -280,7 +282,7 @@ type Plan struct {
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll  pulumi.StringMapOutput `pulumi:"tagsAll"`
 	Timeouts PlanTimeoutsPtrOutput  `pulumi:"timeouts"`
-	// Set of triggers that can initiate the plan execution. See Trigger below.
+	// Set of triggers that can initiate the plan execution. See Triggers below.
 	Triggers PlanTriggerArrayOutput `pulumi:"triggers"`
 	// List of workflows that define the steps to execute. See Workflow below.
 	//
@@ -344,6 +346,8 @@ type planState struct {
 	// Recovery time objective in minutes.
 	RecoveryTimeObjectiveMinutes *int `pulumi:"recoveryTimeObjectiveMinutes"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	//
+	// Deprecated: This attribute will be removed in a future version of the provider.
 	Region *string `pulumi:"region"`
 	// List of AWS regions involved in the plan.
 	Regions []string `pulumi:"regions"`
@@ -352,7 +356,7 @@ type planState struct {
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll  map[string]string `pulumi:"tagsAll"`
 	Timeouts *PlanTimeouts     `pulumi:"timeouts"`
-	// Set of triggers that can initiate the plan execution. See Trigger below.
+	// Set of triggers that can initiate the plan execution. See Triggers below.
 	Triggers []PlanTrigger `pulumi:"triggers"`
 	// List of workflows that define the steps to execute. See Workflow below.
 	//
@@ -378,6 +382,8 @@ type PlanState struct {
 	// Recovery time objective in minutes.
 	RecoveryTimeObjectiveMinutes pulumi.IntPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	//
+	// Deprecated: This attribute will be removed in a future version of the provider.
 	Region pulumi.StringPtrInput
 	// List of AWS regions involved in the plan.
 	Regions pulumi.StringArrayInput
@@ -386,7 +392,7 @@ type PlanState struct {
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll  pulumi.StringMapInput
 	Timeouts PlanTimeoutsPtrInput
-	// Set of triggers that can initiate the plan execution. See Trigger below.
+	// Set of triggers that can initiate the plan execution. See Triggers below.
 	Triggers PlanTriggerArrayInput
 	// List of workflows that define the steps to execute. See Workflow below.
 	//
@@ -414,13 +420,15 @@ type planArgs struct {
 	// Recovery time objective in minutes.
 	RecoveryTimeObjectiveMinutes *int `pulumi:"recoveryTimeObjectiveMinutes"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	//
+	// Deprecated: This attribute will be removed in a future version of the provider.
 	Region *string `pulumi:"region"`
 	// List of AWS regions involved in the plan.
 	Regions []string `pulumi:"regions"`
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags     map[string]string `pulumi:"tags"`
 	Timeouts *PlanTimeouts     `pulumi:"timeouts"`
-	// Set of triggers that can initiate the plan execution. See Trigger below.
+	// Set of triggers that can initiate the plan execution. See Triggers below.
 	Triggers []PlanTrigger `pulumi:"triggers"`
 	// List of workflows that define the steps to execute. See Workflow below.
 	//
@@ -445,13 +453,15 @@ type PlanArgs struct {
 	// Recovery time objective in minutes.
 	RecoveryTimeObjectiveMinutes pulumi.IntPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+	//
+	// Deprecated: This attribute will be removed in a future version of the provider.
 	Region pulumi.StringPtrInput
 	// List of AWS regions involved in the plan.
 	Regions pulumi.StringArrayInput
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags     pulumi.StringMapInput
 	Timeouts PlanTimeoutsPtrInput
-	// Set of triggers that can initiate the plan execution. See Trigger below.
+	// Set of triggers that can initiate the plan execution. See Triggers below.
 	Triggers PlanTriggerArrayInput
 	// List of workflows that define the steps to execute. See Workflow below.
 	//
@@ -587,6 +597,8 @@ func (o PlanOutput) RecoveryTimeObjectiveMinutes() pulumi.IntPtrOutput {
 }
 
 // Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+//
+// Deprecated: This attribute will be removed in a future version of the provider.
 func (o PlanOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Plan) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
@@ -610,7 +622,7 @@ func (o PlanOutput) Timeouts() PlanTimeoutsPtrOutput {
 	return o.ApplyT(func(v *Plan) PlanTimeoutsPtrOutput { return v.Timeouts }).(PlanTimeoutsPtrOutput)
 }
 
-// Set of triggers that can initiate the plan execution. See Trigger below.
+// Set of triggers that can initiate the plan execution. See Triggers below.
 func (o PlanOutput) Triggers() PlanTriggerArrayOutput {
 	return o.ApplyT(func(v *Plan) PlanTriggerArrayOutput { return v.Triggers }).(PlanTriggerArrayOutput)
 }

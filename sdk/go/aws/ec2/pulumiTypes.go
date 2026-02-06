@@ -9020,7 +9020,7 @@ type InstanceEbsBlockDevice struct {
 	KmsKeyId *string `pulumi:"kmsKeyId"`
 	// Snapshot ID to mount.
 	SnapshotId *string `pulumi:"snapshotId"`
-	// Map of tags to assign to the device.
+	// Map of tags to assign to the device. **Note:** Tags specified here are applied after instance creation via a separate API call. This means they cannot be used with IAM policies that require tags during resource creation (e.g., ABAC policies with `ec2:CreateAction` conditions or SCPs requiring volume tags). For ABAC compliance, use `volumeTags` instead, which applies uniform tags to all volumes during instance creation.
 	Tags map[string]string `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
@@ -9060,7 +9060,7 @@ type InstanceEbsBlockDeviceArgs struct {
 	KmsKeyId pulumi.StringPtrInput `pulumi:"kmsKeyId"`
 	// Snapshot ID to mount.
 	SnapshotId pulumi.StringPtrInput `pulumi:"snapshotId"`
-	// Map of tags to assign to the device.
+	// Map of tags to assign to the device. **Note:** Tags specified here are applied after instance creation via a separate API call. This means they cannot be used with IAM policies that require tags during resource creation (e.g., ABAC policies with `ec2:CreateAction` conditions or SCPs requiring volume tags). For ABAC compliance, use `volumeTags` instead, which applies uniform tags to all volumes during instance creation.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput `pulumi:"tagsAll"`
@@ -9157,7 +9157,7 @@ func (o InstanceEbsBlockDeviceOutput) SnapshotId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InstanceEbsBlockDevice) *string { return v.SnapshotId }).(pulumi.StringPtrOutput)
 }
 
-// Map of tags to assign to the device.
+// Map of tags to assign to the device. **Note:** Tags specified here are applied after instance creation via a separate API call. This means they cannot be used with IAM policies that require tags during resource creation (e.g., ABAC policies with `ec2:CreateAction` conditions or SCPs requiring volume tags). For ABAC compliance, use `volumeTags` instead, which applies uniform tags to all volumes during instance creation.
 func (o InstanceEbsBlockDeviceOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v InstanceEbsBlockDevice) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
@@ -10824,7 +10824,7 @@ type InstanceRootBlockDevice struct {
 	Iops *int `pulumi:"iops"`
 	// Amazon Resource Name (ARN) of the KMS Key to use when encrypting the volume. Must be configured to perform drift detection.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
-	// Map of tags to assign to the device.
+	// Map of tags to assign to the device. **Note:** Tags specified here are applied after instance creation via a separate API call. This means they cannot be used with IAM policies that require tags during resource creation (e.g., ABAC policies with `ec2:CreateAction` conditions or SCPs requiring volume tags). For ABAC compliance, use `volumeTags` instead, which applies uniform tags to all volumes during instance creation.
 	Tags map[string]string `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
@@ -10862,7 +10862,7 @@ type InstanceRootBlockDeviceArgs struct {
 	Iops pulumi.IntPtrInput `pulumi:"iops"`
 	// Amazon Resource Name (ARN) of the KMS Key to use when encrypting the volume. Must be configured to perform drift detection.
 	KmsKeyId pulumi.StringPtrInput `pulumi:"kmsKeyId"`
-	// Map of tags to assign to the device.
+	// Map of tags to assign to the device. **Note:** Tags specified here are applied after instance creation via a separate API call. This means they cannot be used with IAM policies that require tags during resource creation (e.g., ABAC policies with `ec2:CreateAction` conditions or SCPs requiring volume tags). For ABAC compliance, use `volumeTags` instead, which applies uniform tags to all volumes during instance creation.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput `pulumi:"tagsAll"`
@@ -10980,7 +10980,7 @@ func (o InstanceRootBlockDeviceOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InstanceRootBlockDevice) *string { return v.KmsKeyId }).(pulumi.StringPtrOutput)
 }
 
-// Map of tags to assign to the device.
+// Map of tags to assign to the device. **Note:** Tags specified here are applied after instance creation via a separate API call. This means they cannot be used with IAM policies that require tags during resource creation (e.g., ABAC policies with `ec2:CreateAction` conditions or SCPs requiring volume tags). For ABAC compliance, use `volumeTags` instead, which applies uniform tags to all volumes during instance creation.
 func (o InstanceRootBlockDeviceOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v InstanceRootBlockDevice) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
@@ -11086,7 +11086,7 @@ func (o InstanceRootBlockDevicePtrOutput) KmsKeyId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Map of tags to assign to the device.
+// Map of tags to assign to the device. **Note:** Tags specified here are applied after instance creation via a separate API call. This means they cannot be used with IAM policies that require tags during resource creation (e.g., ABAC policies with `ec2:CreateAction` conditions or SCPs requiring volume tags). For ABAC compliance, use `volumeTags` instead, which applies uniform tags to all volumes during instance creation.
 func (o InstanceRootBlockDevicePtrOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *InstanceRootBlockDevice) map[string]string {
 		if v == nil {
@@ -16612,9 +16612,9 @@ func (o LaunchTemplateNetworkInterfaceArrayOutput) Index(i pulumi.IntInput) Laun
 type LaunchTemplateNetworkInterfaceConnectionTrackingSpecification struct {
 	// Timeout (in seconds) for idle TCP connections in an established state. Min: 60 seconds. Max: 432000 seconds (5 days). Default: 432000 seconds. Recommended: Less than 432000 seconds.
 	TcpEstablishedTimeout *int `pulumi:"tcpEstablishedTimeout"`
-	// Timeout (in seconds) for idle UDP flows that have seen traffic only in a single direction or a single request-response transaction. Min: 30 seconds. Max: 60 seconds. Default: 30 seconds.
-	UdpStreamTimeout *int `pulumi:"udpStreamTimeout"`
 	// Timeout (in seconds) for idle UDP flows classified as streams which have seen more than one request-response transaction. Min: 60 seconds. Max: 180 seconds (3 minutes). Default: 180 seconds.
+	UdpStreamTimeout *int `pulumi:"udpStreamTimeout"`
+	// Timeout (in seconds) for idle UDP flows that have seen traffic only in a single direction or a single request-response transaction. Min: 30 seconds. Max: 60 seconds. Default: 30 seconds.
 	UdpTimeout *int `pulumi:"udpTimeout"`
 }
 
@@ -16632,9 +16632,9 @@ type LaunchTemplateNetworkInterfaceConnectionTrackingSpecificationInput interfac
 type LaunchTemplateNetworkInterfaceConnectionTrackingSpecificationArgs struct {
 	// Timeout (in seconds) for idle TCP connections in an established state. Min: 60 seconds. Max: 432000 seconds (5 days). Default: 432000 seconds. Recommended: Less than 432000 seconds.
 	TcpEstablishedTimeout pulumi.IntPtrInput `pulumi:"tcpEstablishedTimeout"`
-	// Timeout (in seconds) for idle UDP flows that have seen traffic only in a single direction or a single request-response transaction. Min: 30 seconds. Max: 60 seconds. Default: 30 seconds.
-	UdpStreamTimeout pulumi.IntPtrInput `pulumi:"udpStreamTimeout"`
 	// Timeout (in seconds) for idle UDP flows classified as streams which have seen more than one request-response transaction. Min: 60 seconds. Max: 180 seconds (3 minutes). Default: 180 seconds.
+	UdpStreamTimeout pulumi.IntPtrInput `pulumi:"udpStreamTimeout"`
+	// Timeout (in seconds) for idle UDP flows that have seen traffic only in a single direction or a single request-response transaction. Min: 30 seconds. Max: 60 seconds. Default: 30 seconds.
 	UdpTimeout pulumi.IntPtrInput `pulumi:"udpTimeout"`
 }
 
@@ -16722,12 +16722,12 @@ func (o LaunchTemplateNetworkInterfaceConnectionTrackingSpecificationOutput) Tcp
 	}).(pulumi.IntPtrOutput)
 }
 
-// Timeout (in seconds) for idle UDP flows that have seen traffic only in a single direction or a single request-response transaction. Min: 30 seconds. Max: 60 seconds. Default: 30 seconds.
+// Timeout (in seconds) for idle UDP flows classified as streams which have seen more than one request-response transaction. Min: 60 seconds. Max: 180 seconds (3 minutes). Default: 180 seconds.
 func (o LaunchTemplateNetworkInterfaceConnectionTrackingSpecificationOutput) UdpStreamTimeout() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateNetworkInterfaceConnectionTrackingSpecification) *int { return v.UdpStreamTimeout }).(pulumi.IntPtrOutput)
 }
 
-// Timeout (in seconds) for idle UDP flows classified as streams which have seen more than one request-response transaction. Min: 60 seconds. Max: 180 seconds (3 minutes). Default: 180 seconds.
+// Timeout (in seconds) for idle UDP flows that have seen traffic only in a single direction or a single request-response transaction. Min: 30 seconds. Max: 60 seconds. Default: 30 seconds.
 func (o LaunchTemplateNetworkInterfaceConnectionTrackingSpecificationOutput) UdpTimeout() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateNetworkInterfaceConnectionTrackingSpecification) *int { return v.UdpTimeout }).(pulumi.IntPtrOutput)
 }
@@ -16766,7 +16766,7 @@ func (o LaunchTemplateNetworkInterfaceConnectionTrackingSpecificationPtrOutput) 
 	}).(pulumi.IntPtrOutput)
 }
 
-// Timeout (in seconds) for idle UDP flows that have seen traffic only in a single direction or a single request-response transaction. Min: 30 seconds. Max: 60 seconds. Default: 30 seconds.
+// Timeout (in seconds) for idle UDP flows classified as streams which have seen more than one request-response transaction. Min: 60 seconds. Max: 180 seconds (3 minutes). Default: 180 seconds.
 func (o LaunchTemplateNetworkInterfaceConnectionTrackingSpecificationPtrOutput) UdpStreamTimeout() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *LaunchTemplateNetworkInterfaceConnectionTrackingSpecification) *int {
 		if v == nil {
@@ -16776,7 +16776,7 @@ func (o LaunchTemplateNetworkInterfaceConnectionTrackingSpecificationPtrOutput) 
 	}).(pulumi.IntPtrOutput)
 }
 
-// Timeout (in seconds) for idle UDP flows classified as streams which have seen more than one request-response transaction. Min: 60 seconds. Max: 180 seconds (3 minutes). Default: 180 seconds.
+// Timeout (in seconds) for idle UDP flows that have seen traffic only in a single direction or a single request-response transaction. Min: 30 seconds. Max: 60 seconds. Default: 30 seconds.
 func (o LaunchTemplateNetworkInterfaceConnectionTrackingSpecificationPtrOutput) UdpTimeout() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *LaunchTemplateNetworkInterfaceConnectionTrackingSpecification) *int {
 		if v == nil {
@@ -34409,7 +34409,7 @@ type SpotInstanceRequestEbsBlockDevice struct {
 	KmsKeyId *string `pulumi:"kmsKeyId"`
 	// Snapshot ID to mount.
 	SnapshotId *string `pulumi:"snapshotId"`
-	// Map of tags to assign to the device.
+	// Map of tags to assign to the device. **Note:** Tags specified here are applied after instance creation via a separate API call. This means they cannot be used with IAM policies that require tags during resource creation (e.g., ABAC policies with `ec2:CreateAction` conditions or SCPs requiring volume tags). For ABAC compliance, use `volumeTags` instead, which applies uniform tags to all volumes during instance creation.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
@@ -34448,7 +34448,7 @@ type SpotInstanceRequestEbsBlockDeviceArgs struct {
 	KmsKeyId pulumi.StringPtrInput `pulumi:"kmsKeyId"`
 	// Snapshot ID to mount.
 	SnapshotId pulumi.StringPtrInput `pulumi:"snapshotId"`
-	// Map of tags to assign to the device.
+	// Map of tags to assign to the device. **Note:** Tags specified here are applied after instance creation via a separate API call. This means they cannot be used with IAM policies that require tags during resource creation (e.g., ABAC policies with `ec2:CreateAction` conditions or SCPs requiring volume tags). For ABAC compliance, use `volumeTags` instead, which applies uniform tags to all volumes during instance creation.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput `pulumi:"tagsAll"`
@@ -34544,7 +34544,7 @@ func (o SpotInstanceRequestEbsBlockDeviceOutput) SnapshotId() pulumi.StringPtrOu
 	return o.ApplyT(func(v SpotInstanceRequestEbsBlockDevice) *string { return v.SnapshotId }).(pulumi.StringPtrOutput)
 }
 
-// Map of tags to assign to the device.
+// Map of tags to assign to the device. **Note:** Tags specified here are applied after instance creation via a separate API call. This means they cannot be used with IAM policies that require tags during resource creation (e.g., ABAC policies with `ec2:CreateAction` conditions or SCPs requiring volume tags). For ABAC compliance, use `volumeTags` instead, which applies uniform tags to all volumes during instance creation.
 func (o SpotInstanceRequestEbsBlockDeviceOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v SpotInstanceRequestEbsBlockDevice) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
@@ -35809,7 +35809,7 @@ type SpotInstanceRequestRootBlockDevice struct {
 	Iops *int `pulumi:"iops"`
 	// Amazon Resource Name (ARN) of the KMS Key to use when encrypting the volume. Must be configured to perform drift detection.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
-	// Map of tags to assign to the device.
+	// Map of tags to assign to the device. **Note:** Tags specified here are applied after instance creation via a separate API call. This means they cannot be used with IAM policies that require tags during resource creation (e.g., ABAC policies with `ec2:CreateAction` conditions or SCPs requiring volume tags). For ABAC compliance, use `volumeTags` instead, which applies uniform tags to all volumes during instance creation.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
@@ -35845,7 +35845,7 @@ type SpotInstanceRequestRootBlockDeviceArgs struct {
 	Iops pulumi.IntPtrInput `pulumi:"iops"`
 	// Amazon Resource Name (ARN) of the KMS Key to use when encrypting the volume. Must be configured to perform drift detection.
 	KmsKeyId pulumi.StringPtrInput `pulumi:"kmsKeyId"`
-	// Map of tags to assign to the device.
+	// Map of tags to assign to the device. **Note:** Tags specified here are applied after instance creation via a separate API call. This means they cannot be used with IAM policies that require tags during resource creation (e.g., ABAC policies with `ec2:CreateAction` conditions or SCPs requiring volume tags). For ABAC compliance, use `volumeTags` instead, which applies uniform tags to all volumes during instance creation.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput `pulumi:"tagsAll"`
@@ -35961,7 +35961,7 @@ func (o SpotInstanceRequestRootBlockDeviceOutput) KmsKeyId() pulumi.StringPtrOut
 	return o.ApplyT(func(v SpotInstanceRequestRootBlockDevice) *string { return v.KmsKeyId }).(pulumi.StringPtrOutput)
 }
 
-// Map of tags to assign to the device.
+// Map of tags to assign to the device. **Note:** Tags specified here are applied after instance creation via a separate API call. This means they cannot be used with IAM policies that require tags during resource creation (e.g., ABAC policies with `ec2:CreateAction` conditions or SCPs requiring volume tags). For ABAC compliance, use `volumeTags` instead, which applies uniform tags to all volumes during instance creation.
 func (o SpotInstanceRequestRootBlockDeviceOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v SpotInstanceRequestRootBlockDevice) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
@@ -36065,7 +36065,7 @@ func (o SpotInstanceRequestRootBlockDevicePtrOutput) KmsKeyId() pulumi.StringPtr
 	}).(pulumi.StringPtrOutput)
 }
 
-// Map of tags to assign to the device.
+// Map of tags to assign to the device. **Note:** Tags specified here are applied after instance creation via a separate API call. This means they cannot be used with IAM policies that require tags during resource creation (e.g., ABAC policies with `ec2:CreateAction` conditions or SCPs requiring volume tags). For ABAC compliance, use `volumeTags` instead, which applies uniform tags to all volumes during instance creation.
 func (o SpotInstanceRequestRootBlockDevicePtrOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *SpotInstanceRequestRootBlockDevice) map[string]string {
 		if v == nil {

@@ -151,7 +151,7 @@ namespace Pulumi.Aws.DynamoDB
         public string? Region { get; set; }
 
         /// <summary>
-        /// The name of the table containing the requested item.
+        /// The name or ARN of the table containing the requested item.
         /// </summary>
         [Input("tableName", required: true)]
         public string TableName { get; set; } = null!;
@@ -195,7 +195,7 @@ namespace Pulumi.Aws.DynamoDB
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// The name of the table containing the requested item.
+        /// The name or ARN of the table containing the requested item.
         /// </summary>
         [Input("tableName", required: true)]
         public Input<string> TableName { get; set; } = null!;

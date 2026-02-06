@@ -209,8 +209,8 @@ class _ApplicationState:
         if application_account is not None:
             pulumi.set(__self__, "application_account", application_account)
         if application_arn is not None:
-            warnings.warn("""Use 'arn' instead. This attribute will be removed in a future verion of the provider.""", DeprecationWarning)
-            pulumi.log.warn("""application_arn is deprecated: Use 'arn' instead. This attribute will be removed in a future verion of the provider.""")
+            warnings.warn("""Use 'arn' instead. This attribute will be removed in a future version of the provider.""", DeprecationWarning)
+            pulumi.log.warn("""application_arn is deprecated: Use 'arn' instead. This attribute will be removed in a future version of the provider.""")
         if application_arn is not None:
             pulumi.set(__self__, "application_arn", application_arn)
         if application_provider_arn is not None:
@@ -250,7 +250,7 @@ class _ApplicationState:
 
     @_builtins.property
     @pulumi.getter(name="applicationArn")
-    @_utilities.deprecated("""Use 'arn' instead. This attribute will be removed in a future verion of the provider.""")
+    @_utilities.deprecated("""Use 'arn' instead. This attribute will be removed in a future version of the provider.""")
     def application_arn(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         (**Deprecated** Reference `arn` instead) ARN of the application.
@@ -665,7 +665,7 @@ class Application(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="applicationArn")
-    @_utilities.deprecated("""Use 'arn' instead. This attribute will be removed in a future verion of the provider.""")
+    @_utilities.deprecated("""Use 'arn' instead. This attribute will be removed in a future version of the provider.""")
     def application_arn(self) -> pulumi.Output[_builtins.str]:
         """
         (**Deprecated** Reference `arn` instead) ARN of the application.

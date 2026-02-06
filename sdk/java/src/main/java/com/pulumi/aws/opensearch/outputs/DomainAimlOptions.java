@@ -5,6 +5,7 @@ package com.pulumi.aws.opensearch.outputs;
 
 import com.pulumi.aws.opensearch.outputs.DomainAimlOptionsNaturalLanguageQueryGenerationOptions;
 import com.pulumi.aws.opensearch.outputs.DomainAimlOptionsS3VectorsEngine;
+import com.pulumi.aws.opensearch.outputs.DomainAimlOptionsServerlessVectorAcceleration;
 import com.pulumi.core.annotations.CustomType;
 import java.util.Objects;
 import java.util.Optional;
@@ -22,6 +23,11 @@ public final class DomainAimlOptions {
      * 
      */
     private @Nullable DomainAimlOptionsS3VectorsEngine s3VectorsEngine;
+    /**
+     * @return Configuration block for parameters required to enable GPU-accelerated vector search on the specified domain.
+     * 
+     */
+    private @Nullable DomainAimlOptionsServerlessVectorAcceleration serverlessVectorAcceleration;
 
     private DomainAimlOptions() {}
     /**
@@ -38,6 +44,13 @@ public final class DomainAimlOptions {
     public Optional<DomainAimlOptionsS3VectorsEngine> s3VectorsEngine() {
         return Optional.ofNullable(this.s3VectorsEngine);
     }
+    /**
+     * @return Configuration block for parameters required to enable GPU-accelerated vector search on the specified domain.
+     * 
+     */
+    public Optional<DomainAimlOptionsServerlessVectorAcceleration> serverlessVectorAcceleration() {
+        return Optional.ofNullable(this.serverlessVectorAcceleration);
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -50,11 +63,13 @@ public final class DomainAimlOptions {
     public static final class Builder {
         private @Nullable DomainAimlOptionsNaturalLanguageQueryGenerationOptions naturalLanguageQueryGenerationOptions;
         private @Nullable DomainAimlOptionsS3VectorsEngine s3VectorsEngine;
+        private @Nullable DomainAimlOptionsServerlessVectorAcceleration serverlessVectorAcceleration;
         public Builder() {}
         public Builder(DomainAimlOptions defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.naturalLanguageQueryGenerationOptions = defaults.naturalLanguageQueryGenerationOptions;
     	      this.s3VectorsEngine = defaults.s3VectorsEngine;
+    	      this.serverlessVectorAcceleration = defaults.serverlessVectorAcceleration;
         }
 
         @CustomType.Setter
@@ -69,10 +84,17 @@ public final class DomainAimlOptions {
             this.s3VectorsEngine = s3VectorsEngine;
             return this;
         }
+        @CustomType.Setter
+        public Builder serverlessVectorAcceleration(@Nullable DomainAimlOptionsServerlessVectorAcceleration serverlessVectorAcceleration) {
+
+            this.serverlessVectorAcceleration = serverlessVectorAcceleration;
+            return this;
+        }
         public DomainAimlOptions build() {
             final var _resultValue = new DomainAimlOptions();
             _resultValue.naturalLanguageQueryGenerationOptions = naturalLanguageQueryGenerationOptions;
             _resultValue.s3VectorsEngine = s3VectorsEngine;
+            _resultValue.serverlessVectorAcceleration = serverlessVectorAcceleration;
             return _resultValue;
         }
     }

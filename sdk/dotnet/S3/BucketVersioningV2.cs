@@ -140,8 +140,6 @@ namespace Pulumi.Aws.S3
     /// 
     /// * `account_id` (String) AWS Account where this resource is managed.
     /// 
-    /// * `expected_bucket_owner` (String) Account ID of the expected bucket owner.
-    /// 
     /// * `region` (String) Region where this resource is managed.
     /// 
     /// If the owner (account ID) of the source bucket differs from the account used to configure the AWS Provider, import using the `bucket` and `expected_bucket_owner` separated by a comma (`,`):

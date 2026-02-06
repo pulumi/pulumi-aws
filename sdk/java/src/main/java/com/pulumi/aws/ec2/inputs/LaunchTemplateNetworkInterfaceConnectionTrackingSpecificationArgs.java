@@ -31,14 +31,14 @@ public final class LaunchTemplateNetworkInterfaceConnectionTrackingSpecification
     }
 
     /**
-     * Timeout (in seconds) for idle UDP flows that have seen traffic only in a single direction or a single request-response transaction. Min: 30 seconds. Max: 60 seconds. Default: 30 seconds.
+     * Timeout (in seconds) for idle UDP flows classified as streams which have seen more than one request-response transaction. Min: 60 seconds. Max: 180 seconds (3 minutes). Default: 180 seconds.
      * 
      */
     @Import(name="udpStreamTimeout")
     private @Nullable Output<Integer> udpStreamTimeout;
 
     /**
-     * @return Timeout (in seconds) for idle UDP flows that have seen traffic only in a single direction or a single request-response transaction. Min: 30 seconds. Max: 60 seconds. Default: 30 seconds.
+     * @return Timeout (in seconds) for idle UDP flows classified as streams which have seen more than one request-response transaction. Min: 60 seconds. Max: 180 seconds (3 minutes). Default: 180 seconds.
      * 
      */
     public Optional<Output<Integer>> udpStreamTimeout() {
@@ -46,14 +46,14 @@ public final class LaunchTemplateNetworkInterfaceConnectionTrackingSpecification
     }
 
     /**
-     * Timeout (in seconds) for idle UDP flows classified as streams which have seen more than one request-response transaction. Min: 60 seconds. Max: 180 seconds (3 minutes). Default: 180 seconds.
+     * Timeout (in seconds) for idle UDP flows that have seen traffic only in a single direction or a single request-response transaction. Min: 30 seconds. Max: 60 seconds. Default: 30 seconds.
      * 
      */
     @Import(name="udpTimeout")
     private @Nullable Output<Integer> udpTimeout;
 
     /**
-     * @return Timeout (in seconds) for idle UDP flows classified as streams which have seen more than one request-response transaction. Min: 60 seconds. Max: 180 seconds (3 minutes). Default: 180 seconds.
+     * @return Timeout (in seconds) for idle UDP flows that have seen traffic only in a single direction or a single request-response transaction. Min: 30 seconds. Max: 60 seconds. Default: 30 seconds.
      * 
      */
     public Optional<Output<Integer>> udpTimeout() {
@@ -108,7 +108,7 @@ public final class LaunchTemplateNetworkInterfaceConnectionTrackingSpecification
         }
 
         /**
-         * @param udpStreamTimeout Timeout (in seconds) for idle UDP flows that have seen traffic only in a single direction or a single request-response transaction. Min: 30 seconds. Max: 60 seconds. Default: 30 seconds.
+         * @param udpStreamTimeout Timeout (in seconds) for idle UDP flows classified as streams which have seen more than one request-response transaction. Min: 60 seconds. Max: 180 seconds (3 minutes). Default: 180 seconds.
          * 
          * @return builder
          * 
@@ -119,7 +119,7 @@ public final class LaunchTemplateNetworkInterfaceConnectionTrackingSpecification
         }
 
         /**
-         * @param udpStreamTimeout Timeout (in seconds) for idle UDP flows that have seen traffic only in a single direction or a single request-response transaction. Min: 30 seconds. Max: 60 seconds. Default: 30 seconds.
+         * @param udpStreamTimeout Timeout (in seconds) for idle UDP flows classified as streams which have seen more than one request-response transaction. Min: 60 seconds. Max: 180 seconds (3 minutes). Default: 180 seconds.
          * 
          * @return builder
          * 
@@ -129,7 +129,7 @@ public final class LaunchTemplateNetworkInterfaceConnectionTrackingSpecification
         }
 
         /**
-         * @param udpTimeout Timeout (in seconds) for idle UDP flows classified as streams which have seen more than one request-response transaction. Min: 60 seconds. Max: 180 seconds (3 minutes). Default: 180 seconds.
+         * @param udpTimeout Timeout (in seconds) for idle UDP flows that have seen traffic only in a single direction or a single request-response transaction. Min: 30 seconds. Max: 60 seconds. Default: 30 seconds.
          * 
          * @return builder
          * 
@@ -140,7 +140,7 @@ public final class LaunchTemplateNetworkInterfaceConnectionTrackingSpecification
         }
 
         /**
-         * @param udpTimeout Timeout (in seconds) for idle UDP flows classified as streams which have seen more than one request-response transaction. Min: 60 seconds. Max: 180 seconds (3 minutes). Default: 180 seconds.
+         * @param udpTimeout Timeout (in seconds) for idle UDP flows that have seen traffic only in a single direction or a single request-response transaction. Min: 30 seconds. Max: 60 seconds. Default: 30 seconds.
          * 
          * @return builder
          * 

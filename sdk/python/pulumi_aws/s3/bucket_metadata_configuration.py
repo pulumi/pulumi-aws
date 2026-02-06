@@ -32,10 +32,14 @@ class BucketMetadataConfigurationArgs:
         :param pulumi.Input['BucketMetadataConfigurationMetadataConfigurationArgs'] metadata_configuration: Metadata configuration. See `metadata_configuration` Block for details.
                
                The following arguments are optional:
+        :param pulumi.Input[_builtins.str] expected_bucket_owner: Account ID of the expected bucket owner.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "bucket", bucket)
         pulumi.set(__self__, "metadata_configuration", metadata_configuration)
+        if expected_bucket_owner is not None:
+            warnings.warn("""This attribute will be removed in a future verion of the provider.""", DeprecationWarning)
+            pulumi.log.warn("""expected_bucket_owner is deprecated: This attribute will be removed in a future verion of the provider.""")
         if expected_bucket_owner is not None:
             pulumi.set(__self__, "expected_bucket_owner", expected_bucket_owner)
         if region is not None:
@@ -71,7 +75,11 @@ class BucketMetadataConfigurationArgs:
 
     @_builtins.property
     @pulumi.getter(name="expectedBucketOwner")
+    @_utilities.deprecated("""This attribute will be removed in a future verion of the provider.""")
     def expected_bucket_owner(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Account ID of the expected bucket owner.
+        """
         return pulumi.get(self, "expected_bucket_owner")
 
     @expected_bucket_owner.setter
@@ -111,6 +119,7 @@ class _BucketMetadataConfigurationState:
         """
         Input properties used for looking up and filtering BucketMetadataConfiguration resources.
         :param pulumi.Input[_builtins.str] bucket: General purpose bucket that you want to create the metadata configuration for.
+        :param pulumi.Input[_builtins.str] expected_bucket_owner: Account ID of the expected bucket owner.
         :param pulumi.Input['BucketMetadataConfigurationMetadataConfigurationArgs'] metadata_configuration: Metadata configuration. See `metadata_configuration` Block for details.
                
                The following arguments are optional:
@@ -118,6 +127,9 @@ class _BucketMetadataConfigurationState:
         """
         if bucket is not None:
             pulumi.set(__self__, "bucket", bucket)
+        if expected_bucket_owner is not None:
+            warnings.warn("""This attribute will be removed in a future verion of the provider.""", DeprecationWarning)
+            pulumi.log.warn("""expected_bucket_owner is deprecated: This attribute will be removed in a future verion of the provider.""")
         if expected_bucket_owner is not None:
             pulumi.set(__self__, "expected_bucket_owner", expected_bucket_owner)
         if metadata_configuration is not None:
@@ -141,7 +153,11 @@ class _BucketMetadataConfigurationState:
 
     @_builtins.property
     @pulumi.getter(name="expectedBucketOwner")
+    @_utilities.deprecated("""This attribute will be removed in a future verion of the provider.""")
     def expected_bucket_owner(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Account ID of the expected bucket owner.
+        """
         return pulumi.get(self, "expected_bucket_owner")
 
     @expected_bucket_owner.setter
@@ -242,6 +258,7 @@ class BucketMetadataConfiguration(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] bucket: General purpose bucket that you want to create the metadata configuration for.
+        :param pulumi.Input[_builtins.str] expected_bucket_owner: Account ID of the expected bucket owner.
         :param pulumi.Input[Union['BucketMetadataConfigurationMetadataConfigurationArgs', 'BucketMetadataConfigurationMetadataConfigurationArgsDict']] metadata_configuration: Metadata configuration. See `metadata_configuration` Block for details.
                
                The following arguments are optional:
@@ -357,6 +374,7 @@ class BucketMetadataConfiguration(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] bucket: General purpose bucket that you want to create the metadata configuration for.
+        :param pulumi.Input[_builtins.str] expected_bucket_owner: Account ID of the expected bucket owner.
         :param pulumi.Input[Union['BucketMetadataConfigurationMetadataConfigurationArgs', 'BucketMetadataConfigurationMetadataConfigurationArgsDict']] metadata_configuration: Metadata configuration. See `metadata_configuration` Block for details.
                
                The following arguments are optional:
@@ -383,7 +401,11 @@ class BucketMetadataConfiguration(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="expectedBucketOwner")
+    @_utilities.deprecated("""This attribute will be removed in a future verion of the provider.""")
     def expected_bucket_owner(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        Account ID of the expected bucket owner.
+        """
         return pulumi.get(self, "expected_bucket_owner")
 
     @_builtins.property

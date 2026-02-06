@@ -15,16 +15,23 @@ public final class GetLifecyclePolicyDocumentRuleAction extends com.pulumi.resou
 
     public static final GetLifecyclePolicyDocumentRuleAction Empty = new GetLifecyclePolicyDocumentRuleAction();
 
+    /**
+     * The storage class you want the lifecycle policy to transition the image to. `archive` is the only supported value.
+     * 
+     */
     @Import(name="targetStorageClass")
     private @Nullable String targetStorageClass;
 
+    /**
+     * @return The storage class you want the lifecycle policy to transition the image to. `archive` is the only supported value.
+     * 
+     */
     public Optional<String> targetStorageClass() {
         return Optional.ofNullable(this.targetStorageClass);
     }
 
     /**
      * Specify an action type. The supported values are `expire` (to delete images) and `transition` (to move images to archive storage).
-     * * `targetStorageClass` (Required if `type` is `transition`) - The storage class you want the lifecycle policy to transition the image to. `archive` is the only supported value.
      * 
      */
     @Import(name="type", required=true)
@@ -32,7 +39,6 @@ public final class GetLifecyclePolicyDocumentRuleAction extends com.pulumi.resou
 
     /**
      * @return Specify an action type. The supported values are `expire` (to delete images) and `transition` (to move images to archive storage).
-     * * `targetStorageClass` (Required if `type` is `transition`) - The storage class you want the lifecycle policy to transition the image to. `archive` is the only supported value.
      * 
      */
     public String type() {
@@ -64,6 +70,12 @@ public final class GetLifecyclePolicyDocumentRuleAction extends com.pulumi.resou
             $ = new GetLifecyclePolicyDocumentRuleAction(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param targetStorageClass The storage class you want the lifecycle policy to transition the image to. `archive` is the only supported value.
+         * 
+         * @return builder
+         * 
+         */
         public Builder targetStorageClass(@Nullable String targetStorageClass) {
             $.targetStorageClass = targetStorageClass;
             return this;
@@ -71,7 +83,6 @@ public final class GetLifecyclePolicyDocumentRuleAction extends com.pulumi.resou
 
         /**
          * @param type Specify an action type. The supported values are `expire` (to delete images) and `transition` (to move images to archive storage).
-         * * `targetStorageClass` (Required if `type` is `transition`) - The storage class you want the lifecycle policy to transition the image to. `archive` is the only supported value.
          * 
          * @return builder
          * 

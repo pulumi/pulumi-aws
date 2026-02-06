@@ -12,6 +12,7 @@ from .application_access_scope import *
 from .application_assignment import *
 from .application_assignment_configuration import *
 from .customer_managed_policy_attachment import *
+from .customer_managed_policy_attachments_exclusive import *
 from .get_application import *
 from .get_application_assignments import *
 from .get_application_providers import *

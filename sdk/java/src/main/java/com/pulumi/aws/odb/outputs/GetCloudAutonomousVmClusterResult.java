@@ -47,6 +47,11 @@ public final class GetCloudAutonomousVmClusterResult {
      */
     private Double availableCpus;
     /**
+     * @return Cloud exadata infrastructure ARN associated with this cloud autonomous VM cluster.
+     * 
+     */
+    private String cloudExadataInfrastructureArn;
+    /**
      * @return Cloud exadata infrastructure id associated with this cloud autonomous VM cluster.
      * 
      */
@@ -172,6 +177,11 @@ public final class GetCloudAutonomousVmClusterResult {
      * 
      */
     private String ocid;
+    /**
+     * @return The arn of the ODB network associated with this Autonomous VM cluster.
+     * 
+     */
+    private String odbNetworkArn;
     /**
      * @return The unique identifier of the ODB network associated with this Autonomous VM cluster.
      * 
@@ -306,6 +316,13 @@ public final class GetCloudAutonomousVmClusterResult {
      */
     public Double availableCpus() {
         return this.availableCpus;
+    }
+    /**
+     * @return Cloud exadata infrastructure ARN associated with this cloud autonomous VM cluster.
+     * 
+     */
+    public String cloudExadataInfrastructureArn() {
+        return this.cloudExadataInfrastructureArn;
     }
     /**
      * @return Cloud exadata infrastructure id associated with this cloud autonomous VM cluster.
@@ -486,6 +503,13 @@ public final class GetCloudAutonomousVmClusterResult {
         return this.ocid;
     }
     /**
+     * @return The arn of the ODB network associated with this Autonomous VM cluster.
+     * 
+     */
+    public String odbNetworkArn() {
+        return this.odbNetworkArn;
+    }
+    /**
      * @return The unique identifier of the ODB network associated with this Autonomous VM cluster.
      * 
      */
@@ -630,6 +654,7 @@ public final class GetCloudAutonomousVmClusterResult {
         private Double availableAutonomousDataStorageSizeInTbs;
         private Integer availableContainerDatabases;
         private Double availableCpus;
+        private String cloudExadataInfrastructureArn;
         private String cloudExadataInfrastructureId;
         private String computeModel;
         private Integer cpuCoreCount;
@@ -656,6 +681,7 @@ public final class GetCloudAutonomousVmClusterResult {
         private String ociResourceAnchorName;
         private String ociUrl;
         private String ocid;
+        private String odbNetworkArn;
         private String odbNetworkId;
         private Integer odbNodeStorageSizeInGbs;
         private Double percentProgress;
@@ -684,6 +710,7 @@ public final class GetCloudAutonomousVmClusterResult {
     	      this.availableAutonomousDataStorageSizeInTbs = defaults.availableAutonomousDataStorageSizeInTbs;
     	      this.availableContainerDatabases = defaults.availableContainerDatabases;
     	      this.availableCpus = defaults.availableCpus;
+    	      this.cloudExadataInfrastructureArn = defaults.cloudExadataInfrastructureArn;
     	      this.cloudExadataInfrastructureId = defaults.cloudExadataInfrastructureId;
     	      this.computeModel = defaults.computeModel;
     	      this.cpuCoreCount = defaults.cpuCoreCount;
@@ -710,6 +737,7 @@ public final class GetCloudAutonomousVmClusterResult {
     	      this.ociResourceAnchorName = defaults.ociResourceAnchorName;
     	      this.ociUrl = defaults.ociUrl;
     	      this.ocid = defaults.ocid;
+    	      this.odbNetworkArn = defaults.odbNetworkArn;
     	      this.odbNetworkId = defaults.odbNetworkId;
     	      this.odbNodeStorageSizeInGbs = defaults.odbNodeStorageSizeInGbs;
     	      this.percentProgress = defaults.percentProgress;
@@ -777,6 +805,14 @@ public final class GetCloudAutonomousVmClusterResult {
               throw new MissingRequiredPropertyException("GetCloudAutonomousVmClusterResult", "availableCpus");
             }
             this.availableCpus = availableCpus;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder cloudExadataInfrastructureArn(String cloudExadataInfrastructureArn) {
+            if (cloudExadataInfrastructureArn == null) {
+              throw new MissingRequiredPropertyException("GetCloudAutonomousVmClusterResult", "cloudExadataInfrastructureArn");
+            }
+            this.cloudExadataInfrastructureArn = cloudExadataInfrastructureArn;
             return this;
         }
         @CustomType.Setter
@@ -994,6 +1030,14 @@ public final class GetCloudAutonomousVmClusterResult {
             return this;
         }
         @CustomType.Setter
+        public Builder odbNetworkArn(String odbNetworkArn) {
+            if (odbNetworkArn == null) {
+              throw new MissingRequiredPropertyException("GetCloudAutonomousVmClusterResult", "odbNetworkArn");
+            }
+            this.odbNetworkArn = odbNetworkArn;
+            return this;
+        }
+        @CustomType.Setter
         public Builder odbNetworkId(String odbNetworkId) {
             if (odbNetworkId == null) {
               throw new MissingRequiredPropertyException("GetCloudAutonomousVmClusterResult", "odbNetworkId");
@@ -1153,6 +1197,7 @@ public final class GetCloudAutonomousVmClusterResult {
             _resultValue.availableAutonomousDataStorageSizeInTbs = availableAutonomousDataStorageSizeInTbs;
             _resultValue.availableContainerDatabases = availableContainerDatabases;
             _resultValue.availableCpus = availableCpus;
+            _resultValue.cloudExadataInfrastructureArn = cloudExadataInfrastructureArn;
             _resultValue.cloudExadataInfrastructureId = cloudExadataInfrastructureId;
             _resultValue.computeModel = computeModel;
             _resultValue.cpuCoreCount = cpuCoreCount;
@@ -1179,6 +1224,7 @@ public final class GetCloudAutonomousVmClusterResult {
             _resultValue.ociResourceAnchorName = ociResourceAnchorName;
             _resultValue.ociUrl = ociUrl;
             _resultValue.ocid = ocid;
+            _resultValue.odbNetworkArn = odbNetworkArn;
             _resultValue.odbNetworkId = odbNetworkId;
             _resultValue.odbNodeStorageSizeInGbs = odbNodeStorageSizeInGbs;
             _resultValue.percentProgress = percentProgress;

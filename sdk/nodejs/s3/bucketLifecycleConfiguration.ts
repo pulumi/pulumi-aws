@@ -371,6 +371,8 @@ export class BucketLifecycleConfiguration extends pulumi.CustomResource {
     declare public readonly bucket: pulumi.Output<string>;
     /**
      * Account ID of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
+     *
+     * @deprecated This attribute will be removed in a future verion of the provider.
      */
     declare public readonly expectedBucketOwner: pulumi.Output<string>;
     /**
@@ -435,6 +437,8 @@ export interface BucketLifecycleConfigurationState {
     bucket?: pulumi.Input<string>;
     /**
      * Account ID of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
+     *
+     * @deprecated This attribute will be removed in a future verion of the provider.
      */
     expectedBucketOwner?: pulumi.Input<string>;
     /**
@@ -462,6 +466,8 @@ export interface BucketLifecycleConfigurationArgs {
     bucket: pulumi.Input<string>;
     /**
      * Account ID of the expected bucket owner. If the bucket is owned by a different account, the request will fail with an HTTP 403 (Access Denied) error.
+     *
+     * @deprecated This attribute will be removed in a future verion of the provider.
      */
     expectedBucketOwner?: pulumi.Input<string>;
     /**

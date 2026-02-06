@@ -30,11 +30,26 @@ public final class CloudAutonomousVmClusterArgs extends com.pulumi.resources.Res
         return this.autonomousDataStorageSizeInTbs;
     }
 
-    @Import(name="cloudExadataInfrastructureId", required=true)
-    private Output<String> cloudExadataInfrastructureId;
+    /**
+     * The unique identifier of the Exadata infrastructure for this VM cluster. Changing this will create a new resource.
+     * 
+     */
+    @Import(name="cloudExadataInfrastructureArn")
+    private @Nullable Output<String> cloudExadataInfrastructureArn;
 
-    public Output<String> cloudExadataInfrastructureId() {
-        return this.cloudExadataInfrastructureId;
+    /**
+     * @return The unique identifier of the Exadata infrastructure for this VM cluster. Changing this will create a new resource.
+     * 
+     */
+    public Optional<Output<String>> cloudExadataInfrastructureArn() {
+        return Optional.ofNullable(this.cloudExadataInfrastructureArn);
+    }
+
+    @Import(name="cloudExadataInfrastructureId")
+    private @Nullable Output<String> cloudExadataInfrastructureId;
+
+    public Optional<Output<String>> cloudExadataInfrastructureId() {
+        return Optional.ofNullable(this.cloudExadataInfrastructureId);
     }
 
     /**
@@ -117,11 +132,26 @@ public final class CloudAutonomousVmClusterArgs extends com.pulumi.resources.Res
         return this.memoryPerOracleComputeUnitInGbs;
     }
 
-    @Import(name="odbNetworkId", required=true)
-    private Output<String> odbNetworkId;
+    /**
+     * The unique identifier of the ODB network for the VM cluster. This member is required. Changing this will create a new resource.
+     * 
+     */
+    @Import(name="odbNetworkArn")
+    private @Nullable Output<String> odbNetworkArn;
 
-    public Output<String> odbNetworkId() {
-        return this.odbNetworkId;
+    /**
+     * @return The unique identifier of the ODB network for the VM cluster. This member is required. Changing this will create a new resource.
+     * 
+     */
+    public Optional<Output<String>> odbNetworkArn() {
+        return Optional.ofNullable(this.odbNetworkArn);
+    }
+
+    @Import(name="odbNetworkId")
+    private @Nullable Output<String> odbNetworkId;
+
+    public Optional<Output<String>> odbNetworkId() {
+        return Optional.ofNullable(this.odbNetworkId);
     }
 
     /**
@@ -193,6 +223,7 @@ public final class CloudAutonomousVmClusterArgs extends com.pulumi.resources.Res
 
     private CloudAutonomousVmClusterArgs(CloudAutonomousVmClusterArgs $) {
         this.autonomousDataStorageSizeInTbs = $.autonomousDataStorageSizeInTbs;
+        this.cloudExadataInfrastructureArn = $.cloudExadataInfrastructureArn;
         this.cloudExadataInfrastructureId = $.cloudExadataInfrastructureId;
         this.cpuCoreCountPerNode = $.cpuCoreCountPerNode;
         this.dbServers = $.dbServers;
@@ -202,6 +233,7 @@ public final class CloudAutonomousVmClusterArgs extends com.pulumi.resources.Res
         this.licenseModel = $.licenseModel;
         this.maintenanceWindow = $.maintenanceWindow;
         this.memoryPerOracleComputeUnitInGbs = $.memoryPerOracleComputeUnitInGbs;
+        this.odbNetworkArn = $.odbNetworkArn;
         this.odbNetworkId = $.odbNetworkId;
         this.region = $.region;
         this.scanListenerPortNonTls = $.scanListenerPortNonTls;
@@ -239,7 +271,28 @@ public final class CloudAutonomousVmClusterArgs extends com.pulumi.resources.Res
             return autonomousDataStorageSizeInTbs(Output.of(autonomousDataStorageSizeInTbs));
         }
 
-        public Builder cloudExadataInfrastructureId(Output<String> cloudExadataInfrastructureId) {
+        /**
+         * @param cloudExadataInfrastructureArn The unique identifier of the Exadata infrastructure for this VM cluster. Changing this will create a new resource.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder cloudExadataInfrastructureArn(@Nullable Output<String> cloudExadataInfrastructureArn) {
+            $.cloudExadataInfrastructureArn = cloudExadataInfrastructureArn;
+            return this;
+        }
+
+        /**
+         * @param cloudExadataInfrastructureArn The unique identifier of the Exadata infrastructure for this VM cluster. Changing this will create a new resource.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder cloudExadataInfrastructureArn(String cloudExadataInfrastructureArn) {
+            return cloudExadataInfrastructureArn(Output.of(cloudExadataInfrastructureArn));
+        }
+
+        public Builder cloudExadataInfrastructureId(@Nullable Output<String> cloudExadataInfrastructureId) {
             $.cloudExadataInfrastructureId = cloudExadataInfrastructureId;
             return this;
         }
@@ -360,7 +413,28 @@ public final class CloudAutonomousVmClusterArgs extends com.pulumi.resources.Res
             return memoryPerOracleComputeUnitInGbs(Output.of(memoryPerOracleComputeUnitInGbs));
         }
 
-        public Builder odbNetworkId(Output<String> odbNetworkId) {
+        /**
+         * @param odbNetworkArn The unique identifier of the ODB network for the VM cluster. This member is required. Changing this will create a new resource.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder odbNetworkArn(@Nullable Output<String> odbNetworkArn) {
+            $.odbNetworkArn = odbNetworkArn;
+            return this;
+        }
+
+        /**
+         * @param odbNetworkArn The unique identifier of the ODB network for the VM cluster. This member is required. Changing this will create a new resource.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder odbNetworkArn(String odbNetworkArn) {
+            return odbNetworkArn(Output.of(odbNetworkArn));
+        }
+
+        public Builder odbNetworkId(@Nullable Output<String> odbNetworkId) {
             $.odbNetworkId = odbNetworkId;
             return this;
         }
@@ -460,9 +534,6 @@ public final class CloudAutonomousVmClusterArgs extends com.pulumi.resources.Res
             if ($.autonomousDataStorageSizeInTbs == null) {
                 throw new MissingRequiredPropertyException("CloudAutonomousVmClusterArgs", "autonomousDataStorageSizeInTbs");
             }
-            if ($.cloudExadataInfrastructureId == null) {
-                throw new MissingRequiredPropertyException("CloudAutonomousVmClusterArgs", "cloudExadataInfrastructureId");
-            }
             if ($.cpuCoreCountPerNode == null) {
                 throw new MissingRequiredPropertyException("CloudAutonomousVmClusterArgs", "cpuCoreCountPerNode");
             }
@@ -477,9 +548,6 @@ public final class CloudAutonomousVmClusterArgs extends com.pulumi.resources.Res
             }
             if ($.memoryPerOracleComputeUnitInGbs == null) {
                 throw new MissingRequiredPropertyException("CloudAutonomousVmClusterArgs", "memoryPerOracleComputeUnitInGbs");
-            }
-            if ($.odbNetworkId == null) {
-                throw new MissingRequiredPropertyException("CloudAutonomousVmClusterArgs", "odbNetworkId");
             }
             if ($.scanListenerPortNonTls == null) {
                 throw new MissingRequiredPropertyException("CloudAutonomousVmClusterArgs", "scanListenerPortNonTls");

@@ -47,8 +47,8 @@ class InvoiceUnitArgs:
         if name is not None:
             pulumi.set(__self__, "name", name)
         if region is not None:
-            warnings.warn("""This attribute will be removed in a future verion of the provider.""", DeprecationWarning)
-            pulumi.log.warn("""region is deprecated: This attribute will be removed in a future verion of the provider.""")
+            warnings.warn("""This attribute will be removed in a future version of the provider.""", DeprecationWarning)
+            pulumi.log.warn("""region is deprecated: This attribute will be removed in a future version of the provider.""")
         if region is not None:
             pulumi.set(__self__, "region", region)
         if rules is not None:
@@ -98,7 +98,7 @@ class InvoiceUnitArgs:
 
     @_builtins.property
     @pulumi.getter
-    @_utilities.deprecated("""This attribute will be removed in a future verion of the provider.""")
+    @_utilities.deprecated("""This attribute will be removed in a future version of the provider.""")
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -197,8 +197,8 @@ class _InvoiceUnitState:
         if name is not None:
             pulumi.set(__self__, "name", name)
         if region is not None:
-            warnings.warn("""This attribute will be removed in a future verion of the provider.""", DeprecationWarning)
-            pulumi.log.warn("""region is deprecated: This attribute will be removed in a future verion of the provider.""")
+            warnings.warn("""This attribute will be removed in a future version of the provider.""", DeprecationWarning)
+            pulumi.log.warn("""region is deprecated: This attribute will be removed in a future version of the provider.""")
         if region is not None:
             pulumi.set(__self__, "region", region)
         if rules is not None:
@@ -274,7 +274,7 @@ class _InvoiceUnitState:
 
     @_builtins.property
     @pulumi.getter
-    @_utilities.deprecated("""This attribute will be removed in a future verion of the provider.""")
+    @_utilities.deprecated("""This attribute will be removed in a future version of the provider.""")
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -581,7 +581,7 @@ class InvoiceUnit(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
-    @_utilities.deprecated("""This attribute will be removed in a future verion of the provider.""")
+    @_utilities.deprecated("""This attribute will be removed in a future version of the provider.""")
     def region(self) -> pulumi.Output[_builtins.str]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.

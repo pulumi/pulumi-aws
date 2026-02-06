@@ -110,14 +110,14 @@ public final class SpotInstanceRequestEbsBlockDeviceArgs extends com.pulumi.reso
     }
 
     /**
-     * Map of tags to assign to the device.
+     * Map of tags to assign to the device. **Note:** Tags specified here are applied after instance creation via a separate API call. This means they cannot be used with IAM policies that require tags during resource creation (e.g., ABAC policies with `ec2:CreateAction` conditions or SCPs requiring volume tags). For ABAC compliance, use `volumeTags` instead, which applies uniform tags to all volumes during instance creation.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return Map of tags to assign to the device.
+     * @return Map of tags to assign to the device. **Note:** Tags specified here are applied after instance creation via a separate API call. This means they cannot be used with IAM policies that require tags during resource creation (e.g., ABAC policies with `ec2:CreateAction` conditions or SCPs requiring volume tags). For ABAC compliance, use `volumeTags` instead, which applies uniform tags to all volumes during instance creation.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -357,7 +357,7 @@ public final class SpotInstanceRequestEbsBlockDeviceArgs extends com.pulumi.reso
         }
 
         /**
-         * @param tags Map of tags to assign to the device.
+         * @param tags Map of tags to assign to the device. **Note:** Tags specified here are applied after instance creation via a separate API call. This means they cannot be used with IAM policies that require tags during resource creation (e.g., ABAC policies with `ec2:CreateAction` conditions or SCPs requiring volume tags). For ABAC compliance, use `volumeTags` instead, which applies uniform tags to all volumes during instance creation.
          * 
          * @return builder
          * 
@@ -368,7 +368,7 @@ public final class SpotInstanceRequestEbsBlockDeviceArgs extends com.pulumi.reso
         }
 
         /**
-         * @param tags Map of tags to assign to the device.
+         * @param tags Map of tags to assign to the device. **Note:** Tags specified here are applied after instance creation via a separate API call. This means they cannot be used with IAM policies that require tags during resource creation (e.g., ABAC policies with `ec2:CreateAction` conditions or SCPs requiring volume tags). For ABAC compliance, use `volumeTags` instead, which applies uniform tags to all volumes during instance creation.
          * 
          * @return builder
          * 

@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 /**
  * Provides details about a Kinesis Stream Consumer.
  *
- * For more details, see the [Amazon Kinesis Stream Consumer Documentation](https://docs.aws.amazon.com/streams/latest/dev/amazon-kinesis-consumers.html).
+ * For more details, see the [Amazon Kinesis Stream Consumer Documentation](https://docs.aws.amazon.com/streams/latest/dev/enhanced-consumers.html).
  *
  * ## Example Usage
  *
@@ -80,7 +80,7 @@ export interface GetStreamConsumerResult {
 /**
  * Provides details about a Kinesis Stream Consumer.
  *
- * For more details, see the [Amazon Kinesis Stream Consumer Documentation](https://docs.aws.amazon.com/streams/latest/dev/amazon-kinesis-consumers.html).
+ * For more details, see the [Amazon Kinesis Stream Consumer Documentation](https://docs.aws.amazon.com/streams/latest/dev/enhanced-consumers.html).
  *
  * ## Example Usage
  *

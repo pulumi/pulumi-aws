@@ -104,6 +104,21 @@ public final class CloudAutonomousVmClusterState extends com.pulumi.resources.Re
         return Optional.ofNullable(this.availableCpus);
     }
 
+    /**
+     * The unique identifier of the Exadata infrastructure for this VM cluster. Changing this will create a new resource.
+     * 
+     */
+    @Import(name="cloudExadataInfrastructureArn")
+    private @Nullable Output<String> cloudExadataInfrastructureArn;
+
+    /**
+     * @return The unique identifier of the Exadata infrastructure for this VM cluster. Changing this will create a new resource.
+     * 
+     */
+    public Optional<Output<String>> cloudExadataInfrastructureArn() {
+        return Optional.ofNullable(this.cloudExadataInfrastructureArn);
+    }
+
     @Import(name="cloudExadataInfrastructureId")
     private @Nullable Output<String> cloudExadataInfrastructureId;
 
@@ -431,6 +446,21 @@ public final class CloudAutonomousVmClusterState extends com.pulumi.resources.Re
         return Optional.ofNullable(this.ocid);
     }
 
+    /**
+     * The unique identifier of the ODB network for the VM cluster. This member is required. Changing this will create a new resource.
+     * 
+     */
+    @Import(name="odbNetworkArn")
+    private @Nullable Output<String> odbNetworkArn;
+
+    /**
+     * @return The unique identifier of the ODB network for the VM cluster. This member is required. Changing this will create a new resource.
+     * 
+     */
+    public Optional<Output<String>> odbNetworkArn() {
+        return Optional.ofNullable(this.odbNetworkArn);
+    }
+
     @Import(name="odbNetworkId")
     private @Nullable Output<String> odbNetworkId;
 
@@ -707,6 +737,7 @@ public final class CloudAutonomousVmClusterState extends com.pulumi.resources.Re
         this.availableAutonomousDataStorageSizeInTbs = $.availableAutonomousDataStorageSizeInTbs;
         this.availableContainerDatabases = $.availableContainerDatabases;
         this.availableCpus = $.availableCpus;
+        this.cloudExadataInfrastructureArn = $.cloudExadataInfrastructureArn;
         this.cloudExadataInfrastructureId = $.cloudExadataInfrastructureId;
         this.computeModel = $.computeModel;
         this.cpuCoreCount = $.cpuCoreCount;
@@ -732,6 +763,7 @@ public final class CloudAutonomousVmClusterState extends com.pulumi.resources.Re
         this.ociResourceAnchorName = $.ociResourceAnchorName;
         this.ociUrl = $.ociUrl;
         this.ocid = $.ocid;
+        this.odbNetworkArn = $.odbNetworkArn;
         this.odbNetworkId = $.odbNetworkId;
         this.odbNodeStorageSizeInGbs = $.odbNodeStorageSizeInGbs;
         this.percentProgress = $.percentProgress;
@@ -885,6 +917,27 @@ public final class CloudAutonomousVmClusterState extends com.pulumi.resources.Re
          */
         public Builder availableCpus(Double availableCpus) {
             return availableCpus(Output.of(availableCpus));
+        }
+
+        /**
+         * @param cloudExadataInfrastructureArn The unique identifier of the Exadata infrastructure for this VM cluster. Changing this will create a new resource.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder cloudExadataInfrastructureArn(@Nullable Output<String> cloudExadataInfrastructureArn) {
+            $.cloudExadataInfrastructureArn = cloudExadataInfrastructureArn;
+            return this;
+        }
+
+        /**
+         * @param cloudExadataInfrastructureArn The unique identifier of the Exadata infrastructure for this VM cluster. Changing this will create a new resource.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder cloudExadataInfrastructureArn(String cloudExadataInfrastructureArn) {
+            return cloudExadataInfrastructureArn(Output.of(cloudExadataInfrastructureArn));
         }
 
         public Builder cloudExadataInfrastructureId(@Nullable Output<String> cloudExadataInfrastructureId) {
@@ -1342,6 +1395,27 @@ public final class CloudAutonomousVmClusterState extends com.pulumi.resources.Re
          */
         public Builder ocid(String ocid) {
             return ocid(Output.of(ocid));
+        }
+
+        /**
+         * @param odbNetworkArn The unique identifier of the ODB network for the VM cluster. This member is required. Changing this will create a new resource.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder odbNetworkArn(@Nullable Output<String> odbNetworkArn) {
+            $.odbNetworkArn = odbNetworkArn;
+            return this;
+        }
+
+        /**
+         * @param odbNetworkArn The unique identifier of the ODB network for the VM cluster. This member is required. Changing this will create a new resource.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder odbNetworkArn(String odbNetworkArn) {
+            return odbNetworkArn(Output.of(odbNetworkArn));
         }
 
         public Builder odbNetworkId(@Nullable Output<String> odbNetworkId) {

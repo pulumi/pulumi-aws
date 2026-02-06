@@ -2053,9 +2053,9 @@ func (o GetLifecyclePolicyDocumentRuleArrayOutput) Index(i pulumi.IntInput) GetL
 }
 
 type GetLifecyclePolicyDocumentRuleAction struct {
+	// The storage class you want the lifecycle policy to transition the image to. `archive` is the only supported value.
 	TargetStorageClass *string `pulumi:"targetStorageClass"`
 	// Specify an action type. The supported values are `expire` (to delete images) and `transition` (to move images to archive storage).
-	// * `targetStorageClass` (Required if `type` is `transition`) - The storage class you want the lifecycle policy to transition the image to. `archive` is the only supported value.
 	Type string `pulumi:"type"`
 }
 
@@ -2071,9 +2071,9 @@ type GetLifecyclePolicyDocumentRuleActionInput interface {
 }
 
 type GetLifecyclePolicyDocumentRuleActionArgs struct {
+	// The storage class you want the lifecycle policy to transition the image to. `archive` is the only supported value.
 	TargetStorageClass pulumi.StringPtrInput `pulumi:"targetStorageClass"`
 	// Specify an action type. The supported values are `expire` (to delete images) and `transition` (to move images to archive storage).
-	// * `targetStorageClass` (Required if `type` is `transition`) - The storage class you want the lifecycle policy to transition the image to. `archive` is the only supported value.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -2154,12 +2154,12 @@ func (o GetLifecyclePolicyDocumentRuleActionOutput) ToGetLifecyclePolicyDocument
 	}).(GetLifecyclePolicyDocumentRuleActionPtrOutput)
 }
 
+// The storage class you want the lifecycle policy to transition the image to. `archive` is the only supported value.
 func (o GetLifecyclePolicyDocumentRuleActionOutput) TargetStorageClass() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetLifecyclePolicyDocumentRuleAction) *string { return v.TargetStorageClass }).(pulumi.StringPtrOutput)
 }
 
 // Specify an action type. The supported values are `expire` (to delete images) and `transition` (to move images to archive storage).
-// * `targetStorageClass` (Required if `type` is `transition`) - The storage class you want the lifecycle policy to transition the image to. `archive` is the only supported value.
 func (o GetLifecyclePolicyDocumentRuleActionOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v GetLifecyclePolicyDocumentRuleAction) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -2188,6 +2188,7 @@ func (o GetLifecyclePolicyDocumentRuleActionPtrOutput) Elem() GetLifecyclePolicy
 	}).(GetLifecyclePolicyDocumentRuleActionOutput)
 }
 
+// The storage class you want the lifecycle policy to transition the image to. `archive` is the only supported value.
 func (o GetLifecyclePolicyDocumentRuleActionPtrOutput) TargetStorageClass() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GetLifecyclePolicyDocumentRuleAction) *string {
 		if v == nil {
@@ -2198,7 +2199,6 @@ func (o GetLifecyclePolicyDocumentRuleActionPtrOutput) TargetStorageClass() pulu
 }
 
 // Specify an action type. The supported values are `expire` (to delete images) and `transition` (to move images to archive storage).
-// * `targetStorageClass` (Required if `type` is `transition`) - The storage class you want the lifecycle policy to transition the image to. `archive` is the only supported value.
 func (o GetLifecyclePolicyDocumentRuleActionPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GetLifecyclePolicyDocumentRuleAction) *string {
 		if v == nil {

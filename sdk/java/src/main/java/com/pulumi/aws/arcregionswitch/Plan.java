@@ -122,6 +122,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.arcregionswitch.PlanArgs;
  * import com.pulumi.aws.arcregionswitch.inputs.PlanAssociatedAlarmArgs;
  * import com.pulumi.aws.arcregionswitch.inputs.PlanWorkflowArgs;
+ * import com.pulumi.aws.arcregionswitch.inputs.PlanTriggerArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -207,15 +208,15 @@ import javax.annotation.Nullable;
  *                             .build())
  *                         .build())
  *                     .build())
- *             .trigger(List.of(Map.ofEntries(
- *                 Map.entry("action", "activate"),
- *                 Map.entry("targetRegion", "us-west-2"),
- *                 Map.entry("minDelayMinutesBetweenExecutions", 30),
- *                 Map.entry("conditions", List.of(Map.ofEntries(
- *                     Map.entry("associatedAlarmName", "application-health-alarm"),
- *                     Map.entry("condition", "red")
- *                 )))
- *             )))
+ *             .triggers(PlanTriggerArgs.builder()
+ *                 .action("activate")
+ *                 .targetRegion("us-west-2")
+ *                 .minDelayMinutesBetweenExecutions(30)
+ *                 .conditions(PlanTriggerConditionArgs.builder()
+ *                     .associatedAlarmName("application-health-alarm")
+ *                     .condition("red")
+ *                     .build())
+ *                 .build())
  *             .tags(Map.of("Environment", "production"))
  *             .build());
  * 
@@ -350,7 +351,11 @@ public class Plan extends com.pulumi.resources.CustomResource {
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      * 
+     * @deprecated
+     * This attribute will be removed in a future version of the provider.
+     * 
      */
+    @Deprecated /* This attribute will be removed in a future version of the provider. */
     @Export(name="region", refs={String.class}, tree="[0]")
     private Output<String> region;
 
@@ -410,14 +415,14 @@ public class Plan extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.timeouts);
     }
     /**
-     * Set of triggers that can initiate the plan execution. See Trigger below.
+     * Set of triggers that can initiate the plan execution. See Triggers below.
      * 
      */
     @Export(name="triggers", refs={List.class,PlanTrigger.class}, tree="[0,1]")
     private Output</* @Nullable */ List<PlanTrigger>> triggers;
 
     /**
-     * @return Set of triggers that can initiate the plan execution. See Trigger below.
+     * @return Set of triggers that can initiate the plan execution. See Triggers below.
      * 
      */
     public Output<Optional<List<PlanTrigger>>> triggers() {

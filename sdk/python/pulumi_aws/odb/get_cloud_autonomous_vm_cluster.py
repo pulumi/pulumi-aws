@@ -27,7 +27,7 @@ class GetCloudAutonomousVmClusterResult:
     """
     A collection of values returned by getCloudAutonomousVmCluster.
     """
-    def __init__(__self__, arn=None, autonomous_data_storage_percentage=None, autonomous_data_storage_size_in_tbs=None, available_autonomous_data_storage_size_in_tbs=None, available_container_databases=None, available_cpus=None, cloud_exadata_infrastructure_id=None, compute_model=None, cpu_core_count=None, cpu_core_count_per_node=None, cpu_percentage=None, created_at=None, data_storage_size_in_gbs=None, data_storage_size_in_tbs=None, db_servers=None, description=None, display_name=None, domain=None, exadata_storage_in_tbs_lowest_scaled_value=None, hostname=None, id=None, is_mtls_enabled_vm_cluster=None, license_model=None, maintenance_windows=None, max_acds_lowest_scaled_value=None, memory_per_oracle_compute_unit_in_gbs=None, memory_size_in_gbs=None, node_count=None, non_provisionable_autonomous_container_databases=None, oci_resource_anchor_name=None, oci_url=None, ocid=None, odb_network_id=None, odb_node_storage_size_in_gbs=None, percent_progress=None, provisionable_autonomous_container_databases=None, provisioned_autonomous_container_databases=None, provisioned_cpus=None, reclaimable_cpus=None, region=None, reserved_cpus=None, scan_listener_port_non_tls=None, scan_listener_port_tls=None, shape=None, status=None, status_reason=None, tags=None, time_database_ssl_certificate_expires=None, time_ords_certificate_expires=None, time_zone=None, total_container_databases=None):
+    def __init__(__self__, arn=None, autonomous_data_storage_percentage=None, autonomous_data_storage_size_in_tbs=None, available_autonomous_data_storage_size_in_tbs=None, available_container_databases=None, available_cpus=None, cloud_exadata_infrastructure_arn=None, cloud_exadata_infrastructure_id=None, compute_model=None, cpu_core_count=None, cpu_core_count_per_node=None, cpu_percentage=None, created_at=None, data_storage_size_in_gbs=None, data_storage_size_in_tbs=None, db_servers=None, description=None, display_name=None, domain=None, exadata_storage_in_tbs_lowest_scaled_value=None, hostname=None, id=None, is_mtls_enabled_vm_cluster=None, license_model=None, maintenance_windows=None, max_acds_lowest_scaled_value=None, memory_per_oracle_compute_unit_in_gbs=None, memory_size_in_gbs=None, node_count=None, non_provisionable_autonomous_container_databases=None, oci_resource_anchor_name=None, oci_url=None, ocid=None, odb_network_arn=None, odb_network_id=None, odb_node_storage_size_in_gbs=None, percent_progress=None, provisionable_autonomous_container_databases=None, provisioned_autonomous_container_databases=None, provisioned_cpus=None, reclaimable_cpus=None, region=None, reserved_cpus=None, scan_listener_port_non_tls=None, scan_listener_port_tls=None, shape=None, status=None, status_reason=None, tags=None, time_database_ssl_certificate_expires=None, time_ords_certificate_expires=None, time_zone=None, total_container_databases=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -46,6 +46,9 @@ class GetCloudAutonomousVmClusterResult:
         if available_cpus and not isinstance(available_cpus, float):
             raise TypeError("Expected argument 'available_cpus' to be a float")
         pulumi.set(__self__, "available_cpus", available_cpus)
+        if cloud_exadata_infrastructure_arn and not isinstance(cloud_exadata_infrastructure_arn, str):
+            raise TypeError("Expected argument 'cloud_exadata_infrastructure_arn' to be a str")
+        pulumi.set(__self__, "cloud_exadata_infrastructure_arn", cloud_exadata_infrastructure_arn)
         if cloud_exadata_infrastructure_id and not isinstance(cloud_exadata_infrastructure_id, str):
             raise TypeError("Expected argument 'cloud_exadata_infrastructure_id' to be a str")
         pulumi.set(__self__, "cloud_exadata_infrastructure_id", cloud_exadata_infrastructure_id)
@@ -124,6 +127,9 @@ class GetCloudAutonomousVmClusterResult:
         if ocid and not isinstance(ocid, str):
             raise TypeError("Expected argument 'ocid' to be a str")
         pulumi.set(__self__, "ocid", ocid)
+        if odb_network_arn and not isinstance(odb_network_arn, str):
+            raise TypeError("Expected argument 'odb_network_arn' to be a str")
+        pulumi.set(__self__, "odb_network_arn", odb_network_arn)
         if odb_network_id and not isinstance(odb_network_id, str):
             raise TypeError("Expected argument 'odb_network_id' to be a str")
         pulumi.set(__self__, "odb_network_id", odb_network_id)
@@ -229,6 +235,14 @@ class GetCloudAutonomousVmClusterResult:
         The number of CPU cores available for allocation to Autonomous Databases.
         """
         return pulumi.get(self, "available_cpus")
+
+    @_builtins.property
+    @pulumi.getter(name="cloudExadataInfrastructureArn")
+    def cloud_exadata_infrastructure_arn(self) -> _builtins.str:
+        """
+        Cloud exadata infrastructure ARN associated with this cloud autonomous VM cluster.
+        """
+        return pulumi.get(self, "cloud_exadata_infrastructure_arn")
 
     @_builtins.property
     @pulumi.getter(name="cloudExadataInfrastructureId")
@@ -436,6 +450,14 @@ class GetCloudAutonomousVmClusterResult:
         return pulumi.get(self, "ocid")
 
     @_builtins.property
+    @pulumi.getter(name="odbNetworkArn")
+    def odb_network_arn(self) -> _builtins.str:
+        """
+        The arn of the ODB network associated with this Autonomous VM cluster.
+        """
+        return pulumi.get(self, "odb_network_arn")
+
+    @_builtins.property
     @pulumi.getter(name="odbNetworkId")
     def odb_network_id(self) -> _builtins.str:
         """
@@ -597,6 +619,7 @@ class AwaitableGetCloudAutonomousVmClusterResult(GetCloudAutonomousVmClusterResu
             available_autonomous_data_storage_size_in_tbs=self.available_autonomous_data_storage_size_in_tbs,
             available_container_databases=self.available_container_databases,
             available_cpus=self.available_cpus,
+            cloud_exadata_infrastructure_arn=self.cloud_exadata_infrastructure_arn,
             cloud_exadata_infrastructure_id=self.cloud_exadata_infrastructure_id,
             compute_model=self.compute_model,
             cpu_core_count=self.cpu_core_count,
@@ -623,6 +646,7 @@ class AwaitableGetCloudAutonomousVmClusterResult(GetCloudAutonomousVmClusterResu
             oci_resource_anchor_name=self.oci_resource_anchor_name,
             oci_url=self.oci_url,
             ocid=self.ocid,
+            odb_network_arn=self.odb_network_arn,
             odb_network_id=self.odb_network_id,
             odb_node_storage_size_in_gbs=self.odb_node_storage_size_in_gbs,
             percent_progress=self.percent_progress,
@@ -680,6 +704,7 @@ def get_cloud_autonomous_vm_cluster(id: Optional[_builtins.str] = None,
         available_autonomous_data_storage_size_in_tbs=pulumi.get(__ret__, 'available_autonomous_data_storage_size_in_tbs'),
         available_container_databases=pulumi.get(__ret__, 'available_container_databases'),
         available_cpus=pulumi.get(__ret__, 'available_cpus'),
+        cloud_exadata_infrastructure_arn=pulumi.get(__ret__, 'cloud_exadata_infrastructure_arn'),
         cloud_exadata_infrastructure_id=pulumi.get(__ret__, 'cloud_exadata_infrastructure_id'),
         compute_model=pulumi.get(__ret__, 'compute_model'),
         cpu_core_count=pulumi.get(__ret__, 'cpu_core_count'),
@@ -706,6 +731,7 @@ def get_cloud_autonomous_vm_cluster(id: Optional[_builtins.str] = None,
         oci_resource_anchor_name=pulumi.get(__ret__, 'oci_resource_anchor_name'),
         oci_url=pulumi.get(__ret__, 'oci_url'),
         ocid=pulumi.get(__ret__, 'ocid'),
+        odb_network_arn=pulumi.get(__ret__, 'odb_network_arn'),
         odb_network_id=pulumi.get(__ret__, 'odb_network_id'),
         odb_node_storage_size_in_gbs=pulumi.get(__ret__, 'odb_node_storage_size_in_gbs'),
         percent_progress=pulumi.get(__ret__, 'percent_progress'),
@@ -760,6 +786,7 @@ def get_cloud_autonomous_vm_cluster_output(id: Optional[pulumi.Input[_builtins.s
         available_autonomous_data_storage_size_in_tbs=pulumi.get(__response__, 'available_autonomous_data_storage_size_in_tbs'),
         available_container_databases=pulumi.get(__response__, 'available_container_databases'),
         available_cpus=pulumi.get(__response__, 'available_cpus'),
+        cloud_exadata_infrastructure_arn=pulumi.get(__response__, 'cloud_exadata_infrastructure_arn'),
         cloud_exadata_infrastructure_id=pulumi.get(__response__, 'cloud_exadata_infrastructure_id'),
         compute_model=pulumi.get(__response__, 'compute_model'),
         cpu_core_count=pulumi.get(__response__, 'cpu_core_count'),
@@ -786,6 +813,7 @@ def get_cloud_autonomous_vm_cluster_output(id: Optional[pulumi.Input[_builtins.s
         oci_resource_anchor_name=pulumi.get(__response__, 'oci_resource_anchor_name'),
         oci_url=pulumi.get(__response__, 'oci_url'),
         ocid=pulumi.get(__response__, 'ocid'),
+        odb_network_arn=pulumi.get(__response__, 'odb_network_arn'),
         odb_network_id=pulumi.get(__response__, 'odb_network_id'),
         odb_node_storage_size_in_gbs=pulumi.get(__response__, 'odb_node_storage_size_in_gbs'),
         percent_progress=pulumi.get(__response__, 'percent_progress'),

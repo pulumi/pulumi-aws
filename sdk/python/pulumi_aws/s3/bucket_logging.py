@@ -42,6 +42,9 @@ class BucketLoggingInitArgs:
         pulumi.set(__self__, "target_bucket", target_bucket)
         pulumi.set(__self__, "target_prefix", target_prefix)
         if expected_bucket_owner is not None:
+            warnings.warn("""expected_bucket_owner is deprecated. It will be removed in a future verion of the provider.""", DeprecationWarning)
+            pulumi.log.warn("""expected_bucket_owner is deprecated: expected_bucket_owner is deprecated. It will be removed in a future verion of the provider.""")
+        if expected_bucket_owner is not None:
             pulumi.set(__self__, "expected_bucket_owner", expected_bucket_owner)
         if region is not None:
             pulumi.set(__self__, "region", region)
@@ -88,6 +91,7 @@ class BucketLoggingInitArgs:
 
     @_builtins.property
     @pulumi.getter(name="expectedBucketOwner")
+    @_utilities.deprecated("""expected_bucket_owner is deprecated. It will be removed in a future verion of the provider.""")
     def expected_bucket_owner(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         Account ID of the expected bucket owner.
@@ -158,6 +162,9 @@ class _BucketLoggingState:
         if bucket is not None:
             pulumi.set(__self__, "bucket", bucket)
         if expected_bucket_owner is not None:
+            warnings.warn("""expected_bucket_owner is deprecated. It will be removed in a future verion of the provider.""", DeprecationWarning)
+            pulumi.log.warn("""expected_bucket_owner is deprecated: expected_bucket_owner is deprecated. It will be removed in a future verion of the provider.""")
+        if expected_bucket_owner is not None:
             pulumi.set(__self__, "expected_bucket_owner", expected_bucket_owner)
         if region is not None:
             pulumi.set(__self__, "region", region)
@@ -184,6 +191,7 @@ class _BucketLoggingState:
 
     @_builtins.property
     @pulumi.getter(name="expectedBucketOwner")
+    @_utilities.deprecated("""expected_bucket_owner is deprecated. It will be removed in a future verion of the provider.""")
     def expected_bucket_owner(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         Account ID of the expected bucket owner.
@@ -350,8 +358,6 @@ class BucketLogging(pulumi.CustomResource):
 
         * `account_id` (String) AWS Account where this resource is managed.
 
-        * `expected_bucket_owner` (String) Account ID of the expected bucket owner.
-
         * `region` (String) Region where this resource is managed.
 
         If the owner (account ID) of the source bucket differs from the account used to configure the AWS Provider, import using the `bucket` and `expected_bucket_owner` separated by a comma (`,`):
@@ -472,8 +478,6 @@ class BucketLogging(pulumi.CustomResource):
         #### Optional
 
         * `account_id` (String) AWS Account where this resource is managed.
-
-        * `expected_bucket_owner` (String) Account ID of the expected bucket owner.
 
         * `region` (String) Region where this resource is managed.
 
@@ -600,6 +604,7 @@ class BucketLogging(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="expectedBucketOwner")
+    @_utilities.deprecated("""expected_bucket_owner is deprecated. It will be removed in a future verion of the provider.""")
     def expected_bucket_owner(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
         Account ID of the expected bucket owner.

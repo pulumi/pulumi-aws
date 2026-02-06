@@ -83,6 +83,11 @@ export class BucketMetadataConfiguration extends pulumi.CustomResource {
      * General purpose bucket that you want to create the metadata configuration for.
      */
     declare public readonly bucket: pulumi.Output<string>;
+    /**
+     * Account ID of the expected bucket owner.
+     *
+     * @deprecated This attribute will be removed in a future verion of the provider.
+     */
     declare public readonly expectedBucketOwner: pulumi.Output<string | undefined>;
     /**
      * Metadata configuration. See `metadataConfiguration` Block for details.
@@ -141,6 +146,11 @@ export interface BucketMetadataConfigurationState {
      * General purpose bucket that you want to create the metadata configuration for.
      */
     bucket?: pulumi.Input<string>;
+    /**
+     * Account ID of the expected bucket owner.
+     *
+     * @deprecated This attribute will be removed in a future verion of the provider.
+     */
     expectedBucketOwner?: pulumi.Input<string>;
     /**
      * Metadata configuration. See `metadataConfiguration` Block for details.
@@ -163,6 +173,11 @@ export interface BucketMetadataConfigurationArgs {
      * General purpose bucket that you want to create the metadata configuration for.
      */
     bucket: pulumi.Input<string>;
+    /**
+     * Account ID of the expected bucket owner.
+     *
+     * @deprecated This attribute will be removed in a future verion of the provider.
+     */
     expectedBucketOwner?: pulumi.Input<string>;
     /**
      * Metadata configuration. See `metadataConfiguration` Block for details.

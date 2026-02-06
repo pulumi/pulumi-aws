@@ -54,14 +54,22 @@ public final class BucketAbacArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * Account ID of the expected bucket owner.
      * 
+     * @deprecated
+     * This attribute will be removed in a future verion of the provider.
+     * 
      */
+    @Deprecated /* This attribute will be removed in a future verion of the provider. */
     @Import(name="expectedBucketOwner")
     private @Nullable Output<String> expectedBucketOwner;
 
     /**
      * @return Account ID of the expected bucket owner.
      * 
+     * @deprecated
+     * This attribute will be removed in a future verion of the provider.
+     * 
      */
+    @Deprecated /* This attribute will be removed in a future verion of the provider. */
     public Optional<Output<String>> expectedBucketOwner() {
         return Optional.ofNullable(this.expectedBucketOwner);
     }
@@ -159,7 +167,11 @@ public final class BucketAbacArgs extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
+         * @deprecated
+         * This attribute will be removed in a future verion of the provider.
+         * 
          */
+        @Deprecated /* This attribute will be removed in a future verion of the provider. */
         public Builder expectedBucketOwner(@Nullable Output<String> expectedBucketOwner) {
             $.expectedBucketOwner = expectedBucketOwner;
             return this;
@@ -170,7 +182,11 @@ public final class BucketAbacArgs extends com.pulumi.resources.ResourceArgs {
          * 
          * @return builder
          * 
+         * @deprecated
+         * This attribute will be removed in a future verion of the provider.
+         * 
          */
+        @Deprecated /* This attribute will be removed in a future verion of the provider. */
         public Builder expectedBucketOwner(String expectedBucketOwner) {
             return expectedBucketOwner(Output.of(expectedBucketOwner));
         }

@@ -46,7 +46,7 @@ class PlanArgs:
         :param pulumi.Input[_builtins.int] recovery_time_objective_minutes: Recovery time objective in minutes.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Sequence[pulumi.Input['PlanTriggerArgs']]] triggers: Set of triggers that can initiate the plan execution. See Trigger below.
+        :param pulumi.Input[Sequence[pulumi.Input['PlanTriggerArgs']]] triggers: Set of triggers that can initiate the plan execution. See Triggers below.
         :param pulumi.Input[Sequence[pulumi.Input['PlanWorkflowArgs']]] workflows: List of workflows that define the steps to execute. See Workflow below.
                
                The following arguments are optional:
@@ -64,6 +64,9 @@ class PlanArgs:
             pulumi.set(__self__, "primary_region", primary_region)
         if recovery_time_objective_minutes is not None:
             pulumi.set(__self__, "recovery_time_objective_minutes", recovery_time_objective_minutes)
+        if region is not None:
+            warnings.warn("""This attribute will be removed in a future version of the provider.""", DeprecationWarning)
+            pulumi.log.warn("""region is deprecated: This attribute will be removed in a future version of the provider.""")
         if region is not None:
             pulumi.set(__self__, "region", region)
         if tags is not None:
@@ -173,6 +176,7 @@ class PlanArgs:
 
     @_builtins.property
     @pulumi.getter
+    @_utilities.deprecated("""This attribute will be removed in a future version of the provider.""")
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -208,7 +212,7 @@ class PlanArgs:
     @pulumi.getter
     def triggers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PlanTriggerArgs']]]]:
         """
-        Set of triggers that can initiate the plan execution. See Trigger below.
+        Set of triggers that can initiate the plan execution. See Triggers below.
         """
         return pulumi.get(self, "triggers")
 
@@ -263,7 +267,7 @@ class _PlanState:
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] regions: List of AWS regions involved in the plan.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[Sequence[pulumi.Input['PlanTriggerArgs']]] triggers: Set of triggers that can initiate the plan execution. See Trigger below.
+        :param pulumi.Input[Sequence[pulumi.Input['PlanTriggerArgs']]] triggers: Set of triggers that can initiate the plan execution. See Triggers below.
         :param pulumi.Input[Sequence[pulumi.Input['PlanWorkflowArgs']]] workflows: List of workflows that define the steps to execute. See Workflow below.
                
                The following arguments are optional:
@@ -284,6 +288,9 @@ class _PlanState:
             pulumi.set(__self__, "recovery_approach", recovery_approach)
         if recovery_time_objective_minutes is not None:
             pulumi.set(__self__, "recovery_time_objective_minutes", recovery_time_objective_minutes)
+        if region is not None:
+            warnings.warn("""This attribute will be removed in a future version of the provider.""", DeprecationWarning)
+            pulumi.log.warn("""region is deprecated: This attribute will be removed in a future version of the provider.""")
         if region is not None:
             pulumi.set(__self__, "region", region)
         if regions is not None:
@@ -397,6 +404,7 @@ class _PlanState:
 
     @_builtins.property
     @pulumi.getter
+    @_utilities.deprecated("""This attribute will be removed in a future version of the provider.""")
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -456,7 +464,7 @@ class _PlanState:
     @pulumi.getter
     def triggers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PlanTriggerArgs']]]]:
         """
-        Set of triggers that can initiate the plan execution. See Trigger below.
+        Set of triggers that can initiate the plan execution. See Triggers below.
         """
         return pulumi.get(self, "triggers")
 
@@ -642,12 +650,12 @@ class Plan(pulumi.CustomResource):
                     }],
                 },
             ],
-            trigger=[{
+            triggers=[{
                 "action": "activate",
-                "targetRegion": "us-west-2",
-                "minDelayMinutesBetweenExecutions": 30,
+                "target_region": "us-west-2",
+                "min_delay_minutes_between_executions": 30,
                 "conditions": [{
-                    "associatedAlarmName": "application-health-alarm",
+                    "associated_alarm_name": "application-health-alarm",
                     "condition": "red",
                 }],
             }],
@@ -676,7 +684,7 @@ class Plan(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] regions: List of AWS regions involved in the plan.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['PlanTriggerArgs', 'PlanTriggerArgsDict']]]] triggers: Set of triggers that can initiate the plan execution. See Trigger below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['PlanTriggerArgs', 'PlanTriggerArgsDict']]]] triggers: Set of triggers that can initiate the plan execution. See Triggers below.
         :param pulumi.Input[Sequence[pulumi.Input[Union['PlanWorkflowArgs', 'PlanWorkflowArgsDict']]]] workflows: List of workflows that define the steps to execute. See Workflow below.
                
                The following arguments are optional:
@@ -830,12 +838,12 @@ class Plan(pulumi.CustomResource):
                     }],
                 },
             ],
-            trigger=[{
+            triggers=[{
                 "action": "activate",
-                "targetRegion": "us-west-2",
-                "minDelayMinutesBetweenExecutions": 30,
+                "target_region": "us-west-2",
+                "min_delay_minutes_between_executions": 30,
                 "conditions": [{
-                    "associatedAlarmName": "application-health-alarm",
+                    "associated_alarm_name": "application-health-alarm",
                     "condition": "red",
                 }],
             }],
@@ -954,7 +962,7 @@ class Plan(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] regions: List of AWS regions involved in the plan.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['PlanTriggerArgs', 'PlanTriggerArgsDict']]]] triggers: Set of triggers that can initiate the plan execution. See Trigger below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['PlanTriggerArgs', 'PlanTriggerArgsDict']]]] triggers: Set of triggers that can initiate the plan execution. See Triggers below.
         :param pulumi.Input[Sequence[pulumi.Input[Union['PlanWorkflowArgs', 'PlanWorkflowArgsDict']]]] workflows: List of workflows that define the steps to execute. See Workflow below.
                
                The following arguments are optional:
@@ -1046,6 +1054,7 @@ class Plan(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
+    @_utilities.deprecated("""This attribute will be removed in a future version of the provider.""")
     def region(self) -> pulumi.Output[_builtins.str]:
         """
         Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -1085,7 +1094,7 @@ class Plan(pulumi.CustomResource):
     @pulumi.getter
     def triggers(self) -> pulumi.Output[Optional[Sequence['outputs.PlanTrigger']]]:
         """
-        Set of triggers that can initiate the plan execution. See Trigger below.
+        Set of triggers that can initiate the plan execution. See Triggers below.
         """
         return pulumi.get(self, "triggers")
 

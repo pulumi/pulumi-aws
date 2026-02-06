@@ -204,9 +204,9 @@ import * as utilities from "../utilities";
  *
  * }
  *
- * **Using `pulumi import` to import** Route53 Records using the ID of the record, record name, record type, and set identifier. For example:
+ * **Using `pulumi import` to import** Route53 Records using the hosted zone ID, record name, record type, and set identifier. For example:
  *
- * Using the ID of the record, which is the zone identifier, record name, and record type, separated by underscores (`_`):
+ * Using the hosted zone ID, record name, and record type, separated by underscores (`_`):
  *
  * % pulumi import aws_route53_record.example Z4KAPRWWNC7JR_dev_NS
  *
