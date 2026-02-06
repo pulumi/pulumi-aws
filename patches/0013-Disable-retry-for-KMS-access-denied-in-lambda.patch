@@ -45,10 +45,10 @@ index 00000000000..79867519db5
 +	}
 +}
 diff --git a/internal/service/lambda/service_package_gen.go b/internal/service/lambda/service_package_gen.go
-index f8d500a365d..b872f8281a7 100644
+index fef748672c5..e1c5fba4178 100644
 --- a/internal/service/lambda/service_package_gen.go
 +++ b/internal/service/lambda/service_package_gen.go
-@@ -260,6 +260,7 @@ func (p *servicePackage) NewClient(ctx context.Context, config map[string]any) (
+@@ -275,6 +275,7 @@ func (p *servicePackage) NewClient(ctx context.Context, config map[string]any) (
  			}
  		},
  		withExtraOptions(ctx, p, config),
