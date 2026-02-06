@@ -1,3 +1,0 @@
-name: secretmanager-py
-runtime: python
-description: A simple example of using the Secret Manager APIs using Python.
