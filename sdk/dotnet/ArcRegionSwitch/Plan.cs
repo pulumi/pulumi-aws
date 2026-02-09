@@ -272,7 +272,7 @@ namespace Pulumi.Aws.ArcRegionSwitch
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import Application Recovery Controller Region Switch Plan using the `arn`. For example:
+    /// Using `pulumi import`, import Application Recovery Controller Region Switch Plan using the `Arn`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:arcregionswitch/plan:Plan example arn:aws:arcregionswitch:us-east-1:123456789012:plan/example-plan

@@ -545,7 +545,7 @@ namespace Pulumi.Aws.NetworkFirewall
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import Network Firewall Rule Groups using their `arn`. For example:
+    /// Using `pulumi import`, import Network Firewall Rule Groups using their `Arn`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:networkfirewall/ruleGroup:RuleGroup example arn:aws:network-firewall:us-west-1:123456789012:stateful-rulegroup/example

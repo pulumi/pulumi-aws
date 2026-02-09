@@ -51,11 +51,13 @@ namespace Pulumi.Aws.SecretsManager
     /// 
     /// #### Required
     /// 
-    /// - `arn` (String) Amazon Resource Name (ARN) of the Secrets Manager secret.
+    /// - `Arn` (String) Amazon Resource Name (ARN) of the Secrets Manager secret.
     /// 
-    /// Using `pulumi import`, import `aws_secretsmanager_secret_rotation` using the secret Amazon Resource Name (ARN). For example:
+    /// Using `pulumi import`, import `aws.secretsmanager.SecretRotation` using the secret Amazon Resource Name (ARN). For example:
     /// 
-    /// % pulumi import aws_secretsmanager_secret_rotation.example arn:aws:secretsmanager:us-east-1:123456789012:secret:example-123456
+    /// ```sh
+    /// $ pulumi import aws:secretsmanager/secretRotation:SecretRotation example arn:aws:secretsmanager:us-east-1:123456789012:secret:example-123456
+    /// ```
     /// </summary>
     [AwsResourceType("aws:secretsmanager/secretRotation:SecretRotation")]
     public partial class SecretRotation : global::Pulumi.CustomResource

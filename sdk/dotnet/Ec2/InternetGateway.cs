@@ -36,7 +36,7 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import Internet Gateways using the `id`. For example:
+    /// Using `pulumi import`, import Internet Gateways using the `Id`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:ec2/internetGateway:InternetGateway gw igw-c0a643a9

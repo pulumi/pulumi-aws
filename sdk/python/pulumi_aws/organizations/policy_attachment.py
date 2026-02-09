@@ -181,18 +181,19 @@ class PolicyAttachment(pulumi.CustomResource):
         #### Required
 
         * `policy_id` (String) Organizations policy ID.
-
         * `target_id` (String) Organizations target ID (account, OU, or root).
 
         #### Optional
 
         * `account_id` (String) AWS Account where this resource is managed.
 
-        Using `pulumi import`, import `aws_organizations_policy_attachment` using the target ID and policy ID. For example:
+        Using `pulumi import`, import `organizations.PolicyAttachment` using the target ID and policy ID. For example:
 
         With an account target:
 
-        % pulumi import aws_organizations_policy_attachment.example 123456789012:p-12345678
+        ```sh
+        $ pulumi import aws:organizations/policyAttachment:PolicyAttachment example 123456789012:p-12345678
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -251,18 +252,19 @@ class PolicyAttachment(pulumi.CustomResource):
         #### Required
 
         * `policy_id` (String) Organizations policy ID.
-
         * `target_id` (String) Organizations target ID (account, OU, or root).
 
         #### Optional
 
         * `account_id` (String) AWS Account where this resource is managed.
 
-        Using `pulumi import`, import `aws_organizations_policy_attachment` using the target ID and policy ID. For example:
+        Using `pulumi import`, import `organizations.PolicyAttachment` using the target ID and policy ID. For example:
 
         With an account target:
 
-        % pulumi import aws_organizations_policy_attachment.example 123456789012:p-12345678
+        ```sh
+        $ pulumi import aws:organizations/policyAttachment:PolicyAttachment example 123456789012:p-12345678
+        ```
 
         :param str resource_name: The name of the resource.
         :param PolicyAttachmentArgs args: The arguments to use to populate this resource's properties.

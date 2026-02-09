@@ -83,7 +83,7 @@ namespace Pulumi.Aws.Eks
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import EKS Fargate Profiles using the `cluster_name` and `fargate_profile_name` separated by a colon (`:`). For example:
+    /// Using `pulumi import`, import EKS Fargate Profiles using the `ClusterName` and `FargateProfileName` separated by a colon (`:`). For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:eks/fargateProfile:FargateProfile my_fargate_profile my_cluster:my_fargate_profile

@@ -64,7 +64,7 @@ namespace Pulumi.Aws.CloudWatch
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import EventBridge Global Endpoints using the `name`. For example:
+    /// Using `pulumi import`, import EventBridge Global Endpoints using the `Name`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:cloudwatch/eventEndpoint:EventEndpoint imported_endpoint example-endpoint

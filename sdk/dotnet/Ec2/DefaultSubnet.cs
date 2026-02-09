@@ -43,7 +43,7 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import subnets using the subnet `id`. For example:
+    /// Using `pulumi import`, import subnets using the subnet `Id`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:ec2/defaultSubnet:DefaultSubnet public_subnet subnet-9d4a7b6c

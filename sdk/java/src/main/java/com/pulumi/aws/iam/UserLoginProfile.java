@@ -72,7 +72,36 @@ import javax.annotation.Nullable;
  * ```sh
  * $ pulumi import aws:iam/userLoginProfile:UserLoginProfile example myusername
  * ```
- * Since Pulumi has no method to read the PGP or password information during import, use the resource options `ignore_changes` argument to ignore them (unless you want to recreate a password). For example:
+ * 
+ * Since Pulumi has no method to read the PGP or password information during import, use the resource options `ignoreChanges` argument to ignore them (unless you want to recreate a password). For example:
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.iam.UserLoginProfile;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new UserLoginProfile("example");
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
  * 
  */
 @ResourceType(type="aws:iam/userLoginProfile:UserLoginProfile")

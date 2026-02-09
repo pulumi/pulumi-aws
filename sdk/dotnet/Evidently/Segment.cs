@@ -91,7 +91,7 @@ namespace Pulumi.Aws.Evidently
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import CloudWatch Evidently Segment using the `arn`. For example:
+    /// Using `pulumi import`, import CloudWatch Evidently Segment using the `Arn`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:evidently/segment:Segment example arn:aws:evidently:us-west-2:123456789012:segment/example

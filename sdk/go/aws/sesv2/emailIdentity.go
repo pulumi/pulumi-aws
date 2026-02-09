@@ -135,7 +135,7 @@ import (
 //
 // ## Import
 //
-// Using `pulumi import`, import SESv2 (Simple Email V2) Email Identity using the `email_identity`. For example:
+// Using `pulumi import`, import SESv2 (Simple Email V2) Email Identity using the `emailIdentity`. For example:
 //
 // ```sh
 // $ pulumi import aws:sesv2/emailIdentity:EmailIdentity example example.com

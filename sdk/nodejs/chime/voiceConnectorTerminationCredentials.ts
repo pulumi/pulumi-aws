@@ -45,7 +45,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Using `pulumi import`, import Chime Voice Connector Termination Credentials using the `voice_connector_id`. For example:
+ * Using `pulumi import`, import Chime Voice Connector Termination Credentials using the `voiceConnectorId`. For example:
  *
  * ```sh
  * $ pulumi import aws:chime/voiceConnectorTerminationCredentials:VoiceConnectorTerminationCredentials default abcdef1ghij2klmno3pqr4

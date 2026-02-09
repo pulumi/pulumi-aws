@@ -53,13 +53,14 @@ import (
 //
 // #### Optional
 //
-// * `account_id` (String) AWS Account where this resource is managed.
-//
+// * `accountId` (String) AWS Account where this resource is managed.
 // * `region` (String) Region where this resource is managed.
 //
 // Using `pulumi import`, import Cloudwatch Log Groups using the `name`. For example:
 //
-// % pulumi import aws_cloudwatch_log_group.example yada
+// ```sh
+// $ pulumi import aws:cloudwatch/logGroup:LogGroup example yada
+// ```
 type LogGroup struct {
 	pulumi.CustomResourceState
 

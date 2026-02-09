@@ -33,7 +33,7 @@ namespace Pulumi.Aws.Msk
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import an MSK SCRAM Secret Association using the `cluster_arn` and `secret_arn`. For example:
+    /// Using `pulumi import`, import an MSK SCRAM Secret Association using the `ClusterArn` and `SecretArn`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:msk/singleScramSecretAssociation:SingleScramSecretAssociation example arn:aws:kafka:us-west-2:123456789012:cluster/example/279c0212-d057-4dba-9aa9-1c4e5a25bfc7-3,arn:aws:secretsmanager:us-east-1:123456789012:secret:example-123456

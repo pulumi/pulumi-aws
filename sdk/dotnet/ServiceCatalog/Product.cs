@@ -48,7 +48,7 @@ namespace Pulumi.Aws.ServiceCatalog
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import `aws_servicecatalog_product` using the product ID. For example:
+    /// Using `pulumi import`, import `aws.servicecatalog.Product` using the product ID. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:servicecatalog/product:Product example prod-dnigbtea24ste

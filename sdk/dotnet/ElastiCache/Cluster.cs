@@ -198,7 +198,7 @@ namespace Pulumi.Aws.ElastiCache
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import ElastiCache Clusters using the `cluster_id`. For example:
+    /// Using `pulumi import`, import ElastiCache Clusters using the `ClusterId`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:elasticache/cluster:Cluster my_cluster my_cluster

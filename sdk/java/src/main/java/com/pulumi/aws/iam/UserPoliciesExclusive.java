@@ -17,7 +17,7 @@ import javax.annotation.Nullable;
 /**
  * ## Import
  * 
- * Using `pulumi import`, import exclusive management of inline policy assignments using the `user_name`. For example:
+ * Using `pulumi import`, import exclusive management of inline policy assignments using the `userName`. For example:
  * 
  * ```sh
  * $ pulumi import aws:iam/userPoliciesExclusive:UserPoliciesExclusive example MyUser

@@ -93,7 +93,7 @@ import (
 //
 // ## Import
 //
-// Using `pulumi import`, import `aws_rolesanywhere_trust_anchor` using its `id`. For example:
+// Using `pulumi import`, import `rolesanywhere.TrustAnchor` using its `id`. For example:
 //
 // ```sh
 // $ pulumi import aws:rolesanywhere/trustAnchor:TrustAnchor example 92b2fbbb-984d-41a3-a765-e3cbdb69ebb1

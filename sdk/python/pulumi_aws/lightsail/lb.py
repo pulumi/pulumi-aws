@@ -378,7 +378,7 @@ class Lb(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import `aws_lightsail_lb` using the name attribute. For example:
+        Using `pulumi import`, import `lightsail.Lb` using the name attribute. For example:
 
         ```sh
         $ pulumi import aws:lightsail/lb:Lb example example-load-balancer
@@ -423,7 +423,7 @@ class Lb(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import `aws_lightsail_lb` using the name attribute. For example:
+        Using `pulumi import`, import `lightsail.Lb` using the name attribute. For example:
 
         ```sh
         $ pulumi import aws:lightsail/lb:Lb example example-load-balancer

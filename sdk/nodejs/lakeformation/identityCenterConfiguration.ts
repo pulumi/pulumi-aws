@@ -22,7 +22,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Using `pulumi import`, import Lake Formation Identity Center Configuration using the `catalog_id`. For example:
+ * Using `pulumi import`, import Lake Formation Identity Center Configuration using the `catalogId`. For example:
  *
  * ```sh
  * $ pulumi import aws:lakeformation/identityCenterConfiguration:IdentityCenterConfiguration example 123456789012

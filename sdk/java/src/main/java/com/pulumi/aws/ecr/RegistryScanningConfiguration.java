@@ -113,7 +113,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Using `pulumi import`, import ECR Scanning Configurations using the `registry_id`. For example:
+ * Using `pulumi import`, import ECR Scanning Configurations using the `registryId`. For example:
  * 
  * ```sh
  * $ pulumi import aws:ecr/registryScanningConfiguration:RegistryScanningConfiguration example 123456789012

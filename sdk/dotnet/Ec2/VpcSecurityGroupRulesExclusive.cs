@@ -12,7 +12,7 @@ namespace Pulumi.Aws.Ec2
     /// <summary>
     /// ## Import
     /// 
-    /// Using `pulumi import`, import exclusive management of security group rules using the `security_group_id`. For example:
+    /// Using `pulumi import`, import exclusive management of security group rules using the `SecurityGroupId`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:ec2/vpcSecurityGroupRulesExclusive:VpcSecurityGroupRulesExclusive example sg-1234567890abcdef0

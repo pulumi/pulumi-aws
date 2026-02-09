@@ -32,7 +32,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import EC2 Instance Connect Endpoints using the `id`. For example:
+    /// Using `pulumi import`, import EC2 Instance Connect Endpoints using the `Id`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:ec2transitgateway/instanceConnectEndpoint:InstanceConnectEndpoint example eice-012345678

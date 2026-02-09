@@ -67,7 +67,7 @@ namespace Pulumi.Aws.Schemas
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import EventBridge Schema Registry Policy using the `registry_name`. For example:
+    /// Using `pulumi import`, import EventBridge Schema Registry Policy using the `RegistryName`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:schemas/registryPolicy:RegistryPolicy example example

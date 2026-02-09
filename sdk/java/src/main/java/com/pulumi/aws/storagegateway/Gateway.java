@@ -267,12 +267,44 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Using `pulumi import`, import `aws_storagegateway_gateway` using the gateway Amazon Resource Name (ARN). For example:
+ * Using `pulumi import`, import `aws.storagegateway.Gateway` using the gateway Amazon Resource Name (ARN). For example:
  * 
  * ```sh
  * $ pulumi import aws:storagegateway/gateway:Gateway example arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678
  * ```
- * Certain resource arguments, like `gateway_ip_address` do not have a Storage Gateway API method for reading the information after creation, either omit the argument from the Pulumi program or use `ignore_changes` to hide the difference. For example:
+ * 
+ * Certain resource arguments, like `gatewayIpAddress` do not have a Storage Gateway API method for reading the information after creation, either omit the argument from the Pulumi program or use `ignoreChanges` to hide the difference. For example:
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.storagegateway.Gateway;
+ * import com.pulumi.aws.storagegateway.GatewayArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new Gateway("example", GatewayArgs.builder()
+ *             .gatewayIpAddress(sgw.privateIp())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
  * 
  */
 @ResourceType(type="aws:storagegateway/gateway:Gateway")

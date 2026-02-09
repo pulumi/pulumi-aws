@@ -54,7 +54,9 @@ import (
 //
 // Using `pulumi import`, import CodeStar Host using the ARN. For example:
 //
-// % pulumi import aws_codestarconnections_host.example-host arn:aws:codestar-connections:us-west-1:0123456789:host/79d4d357-a2ee-41e4-b350-2fe39ae59448
+// ```sh
+// $ pulumi import aws:codestarconnections/host:Host example-host arn:aws:codestar-connections:us-west-1:0123456789:host/79d4d357-a2ee-41e4-b350-2fe39ae59448
+// ```
 type Host struct {
 	pulumi.CustomResourceState
 

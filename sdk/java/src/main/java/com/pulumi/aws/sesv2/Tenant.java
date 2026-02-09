@@ -56,7 +56,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Using `pulumi import`, import an SESv2 Tenant using the `tenant_name`. For example:
+ * Using `pulumi import`, import an SESv2 Tenant using the `tenantName`. For example:
  * 
  * ```sh
  * $ pulumi import aws:sesv2/tenant:Tenant example example-tenant

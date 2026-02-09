@@ -141,7 +141,7 @@ namespace Pulumi.Aws.DataZone
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import DataZone Form Type using a comma separated value of `domain_identifier`,`name`,`revision`. For example:
+    /// Using `pulumi import`, import DataZone Form Type using a comma separated value of `DomainIdentifier`,`Name`,`Revision`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:datazone/formType:FormType example domain_identifier,name,revision

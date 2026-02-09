@@ -33,37 +33,32 @@ import * as utilities from "../utilities";
  *
  * #### Optional
  *
- * * `account_id` (String) AWS Account where this resource is managed.
+ * * `accountId` (String) AWS Account where this resource is managed.
  *
- * Using `pulumi import`, import the AWS member account using the `account_id`. For example:
+ * Using `pulumi import`, import the AWS member account using the `accountId`. For example:
  *
- * % pulumi import aws_organizations_account.example 111111111111
+ * ```sh
+ * $ pulumi import aws:organizations/account:Account example 111111111111
+ * ```
  *
  * To import accounts that have set iam_user_access_to_billing, use the following:
  *
- * % pulumi import aws_organizations_account.example 111111111111_ALLOW
+ * ```sh
+ * $ pulumi import aws:organizations/account:Account example 111111111111_ALLOW
+ * ```
  *
- * Certain resource arguments, like `role_name`, do not have an Organizations API method for reading the information after account creation. If the argument is set in the Pulumi program on an imported resource, Pulumi will always show a difference. To workaround this behavior, either omit the argument from the Pulumi program or use `ignore_changes` to hide the difference. For example:
+ * Certain resource arguments, like `roleName`, do not have an Organizations API method for reading the information after account creation. If the argument is set in the Pulumi program on an imported resource, Pulumi will always show a difference. To workaround this behavior, either omit the argument from the Pulumi program or use `ignoreChanges` to hide the difference. For example:
  *
- * terraform
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
  *
- * resource "aws_organizations_account" "account" {
- *
- *   name      = "my_new_account"
- *
- *   email     = "john@doe.org"
- *
- *   role_name = "myOrganizationRole"
- *
- * # There is no AWS Organizations API for reading role_name
- *
- *   lifecycle {
- *
- *     ignore_changes = [role_name]
- *
- *   }
- *
- * }
+ * const account = new aws.organizations.Account("account", {
+ *     name: "my_new_account",
+ *     email: "john@doe.org",
+ *     roleName: "myOrganizationRole",
+ * });
+ * ```
  */
 export class Account extends pulumi.CustomResource {
     /**

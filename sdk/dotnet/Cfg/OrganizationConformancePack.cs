@@ -132,7 +132,7 @@ namespace Pulumi.Aws.Cfg
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import Config Organization Conformance Packs using the `name`. For example:
+    /// Using `pulumi import`, import Config Organization Conformance Packs using the `Name`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:cfg/organizationConformancePack:OrganizationConformancePack example example

@@ -12,7 +12,7 @@ namespace Pulumi.Aws.Iam
     /// <summary>
     /// ## Import
     /// 
-    /// Using `pulumi import`, import exclusive management of inline policy assignments using the `group_name`. For example:
+    /// Using `pulumi import`, import exclusive management of inline policy assignments using the `GroupName`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:iam/groupPoliciesExclusive:GroupPoliciesExclusive example MyGroup

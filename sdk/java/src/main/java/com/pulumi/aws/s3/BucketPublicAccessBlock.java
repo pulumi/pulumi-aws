@@ -61,7 +61,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Using `pulumi import`, import `aws_s3_bucket_public_access_block` using the bucket name. For example:
+ * Using `pulumi import`, import `aws.s3.BucketPublicAccessBlock` using the bucket name. For example:
  * 
  * ```sh
  * $ pulumi import aws:s3/bucketPublicAccessBlock:BucketPublicAccessBlock example my-bucket

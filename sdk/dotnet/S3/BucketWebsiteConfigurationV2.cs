@@ -97,35 +97,28 @@ namespace Pulumi.Aws.S3
     /// 
     /// #### Required
     /// 
-    /// * `bucket` (String) S3 bucket name.
+    /// * `Bucket` (String) S3 bucket name.
     /// 
     /// #### Optional
     /// 
-    /// * `account_id` (String) AWS Account where this resource is managed.
+    /// * `AccountId` (String) AWS Account where this resource is managed.
+    /// * `Region` (String) Region where this resource is managed.
     /// 
-    /// * `region` (String) Region where this resource is managed.
+    /// If the owner (account ID) of the source bucket differs from the account used to configure the AWS Provider, import using the `Bucket` and `ExpectedBucketOwner` separated by a comma (`,`):
     /// 
-    /// If the owner (account ID) of the source bucket differs from the account used to configure the AWS Provider, import using the `bucket` and `expected_bucket_owner` separated by a comma (`,`):
+    /// **Using `pulumi import` to import** S3 bucket website configuration using the `Bucket` or using the `Bucket` and `ExpectedBucketOwner` separated by a comma (`,`). For example:
     /// 
-    /// terraform
+    /// If the owner (account ID) of the source bucket is the same account used to configure the AWS Provider, import using the `Bucket`:
     /// 
-    /// import {
+    /// ```sh
+    /// $ pulumi import aws:s3/bucketWebsiteConfigurationV2:BucketWebsiteConfigurationV2 example bucket-name
+    /// ```
     /// 
-    ///   to = aws_s3_bucket_website_configuration.example
+    /// If the owner (account ID) of the source bucket differs from the account used to configure the AWS Provider, import using the `Bucket` and `ExpectedBucketOwner` separated by a comma (`,`):
     /// 
-    ///   id = "bucket-name,123456789012"
-    /// 
-    /// }
-    /// 
-    /// **Using `pulumi import` to import** S3 bucket website configuration using the `bucket` or using the `bucket` and `expected_bucket_owner` separated by a comma (`,`). For example:
-    /// 
-    /// If the owner (account ID) of the source bucket is the same account used to configure the AWS Provider, import using the `bucket`:
-    /// 
-    /// % pulumi import aws_s3_bucket_website_configuration.example bucket-name
-    /// 
-    /// If the owner (account ID) of the source bucket differs from the account used to configure the AWS Provider, import using the `bucket` and `expected_bucket_owner` separated by a comma (`,`):
-    /// 
-    /// % pulumi import aws_s3_bucket_website_configuration.example bucket-name,123456789012
+    /// ```sh
+    /// $ pulumi import aws:s3/bucketWebsiteConfigurationV2:BucketWebsiteConfigurationV2 example bucket-name,123456789012
+    /// ```
     /// </summary>
     [Obsolete(@"aws.s3/bucketwebsiteconfigurationv2.BucketWebsiteConfigurationV2 has been deprecated in favor of aws.s3/bucketwebsiteconfiguration.BucketWebsiteConfiguration")]
     [AwsResourceType("aws:s3/bucketWebsiteConfigurationV2:BucketWebsiteConfigurationV2")]

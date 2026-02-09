@@ -42,7 +42,7 @@ namespace Pulumi.Aws.DocDB
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import DocumentDB Cluster Parameter Groups using the `name`. For example:
+    /// Using `pulumi import`, import DocumentDB Cluster Parameter Groups using the `Name`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:docdb/clusterParameterGroup:ClusterParameterGroup cluster_pg production-pg-1

@@ -71,11 +71,13 @@ namespace Pulumi.Aws.CodeBuild
     /// 
     /// #### Required
     /// 
-    /// - `arn` (String) Amazon Resource Name (ARN) of the CodeBuild fleet.
+    /// - `Arn` (String) Amazon Resource Name (ARN) of the CodeBuild fleet.
     /// 
-    /// Using `pulumi import`, import CodeBuild Fleet using the `name`. For example:
+    /// Using `pulumi import`, import CodeBuild Fleet using the `Name`. For example:
     /// 
-    /// % pulumi import aws_codebuild_fleet.name fleet-name
+    /// ```sh
+    /// $ pulumi import aws:codebuild/fleet:Fleet name fleet-name
+    /// ```
     /// </summary>
     [AwsResourceType("aws:codebuild/fleet:Fleet")]
     public partial class Fleet : global::Pulumi.CustomResource

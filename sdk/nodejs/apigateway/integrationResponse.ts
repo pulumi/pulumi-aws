@@ -63,7 +63,7 @@ import {RestApi} from "./index";
  *
  * ## Import
  *
- * Using `pulumi import`, import `aws_api_gateway_integration_response` using `REST-API-ID/RESOURCE-ID/HTTP-METHOD/STATUS-CODE`. For example:
+ * Using `pulumi import`, import `aws.apigateway.IntegrationResponse` using `REST-API-ID/RESOURCE-ID/HTTP-METHOD/STATUS-CODE`. For example:
  *
  * ```sh
  * $ pulumi import aws:apigateway/integrationResponse:IntegrationResponse example 12345abcde/67890fghij/GET/200

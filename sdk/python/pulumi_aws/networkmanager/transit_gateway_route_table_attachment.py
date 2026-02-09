@@ -369,7 +369,7 @@ class TransitGatewayRouteTableAttachment(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import `aws_networkmanager_transit_gateway_route_table_attachment` using the attachment ID. For example:
+        Using `pulumi import`, import `networkmanager.TransitGatewayRouteTableAttachment` using the attachment ID. For example:
 
         ```sh
         $ pulumi import aws:networkmanager/transitGatewayRouteTableAttachment:TransitGatewayRouteTableAttachment example attachment-0f8fa60d2238d1bd8
@@ -406,7 +406,7 @@ class TransitGatewayRouteTableAttachment(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import `aws_networkmanager_transit_gateway_route_table_attachment` using the attachment ID. For example:
+        Using `pulumi import`, import `networkmanager.TransitGatewayRouteTableAttachment` using the attachment ID. For example:
 
         ```sh
         $ pulumi import aws:networkmanager/transitGatewayRouteTableAttachment:TransitGatewayRouteTableAttachment example attachment-0f8fa60d2238d1bd8

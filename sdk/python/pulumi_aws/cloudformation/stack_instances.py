@@ -458,6 +458,7 @@ class StackInstances(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:cloudformation/stackInstances:StackInstances example example,SELF
         ```
+
         Using `pulumi import`, Import CloudFormation stack instances that target OUs, using the stack set name, `call_as`, and "OU" separated by commas (`,`). For example:
 
         ```sh
@@ -565,6 +566,7 @@ class StackInstances(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:cloudformation/stackInstances:StackInstances example example,SELF
         ```
+
         Using `pulumi import`, Import CloudFormation stack instances that target OUs, using the stack set name, `call_as`, and "OU" separated by commas (`,`). For example:
 
         ```sh

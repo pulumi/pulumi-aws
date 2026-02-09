@@ -504,21 +504,20 @@ import * as utilities from "../utilities";
  *
  * #### Required
  *
- * * `event_bus_name` (String) Event bus name for the target.
- *
+ * * `eventBusName` (String) Event bus name for the target.
  * * `rule` (String) Rule name for the target.
- *
- * * `target_id` (String) Target ID.
+ * * `targetId` (String) Target ID.
  *
  * #### Optional
  *
- * * `account_id` (String) AWS Account where this resource is managed.
- *
+ * * `accountId` (String) AWS Account where this resource is managed.
  * * `region` (String) Region where this resource is managed.
  *
- * Using `pulumi import`, import EventBridge Targets using `event_bus_name/rule-name/target-id` (if you omit `event_bus_name`, the `default` event bus will be used). For example:
+ * Using `pulumi import`, import EventBridge Targets using `event_bus_name/rule-name/target-id` (if you omit `eventBusName`, the `default` event bus will be used). For example:
  *
- * % pulumi import aws_cloudwatch_event_target.example rule-name/target-id
+ * ```sh
+ * $ pulumi import aws:cloudwatch/eventTarget:EventTarget example rule-name/target-id
+ * ```
  */
 export class EventTarget extends pulumi.CustomResource {
     /**

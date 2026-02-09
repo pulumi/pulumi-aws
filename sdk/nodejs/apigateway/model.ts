@@ -32,7 +32,7 @@ import {RestApi} from "./index";
  *
  * ## Import
  *
- * Using `pulumi import`, import `aws_api_gateway_model` using `REST-API-ID/NAME`. For example:
+ * Using `pulumi import`, import `aws.apigateway.Model` using `REST-API-ID/NAME`. For example:
  *
  * ```sh
  * $ pulumi import aws:apigateway/model:Model example 12345abcde/example

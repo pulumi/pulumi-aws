@@ -55,17 +55,18 @@ namespace Pulumi.Aws.CleanRooms
     /// 
     /// #### Required
     /// 
-    /// * `id` - (String) ID of the cleanrooms configured table.
+    /// * `Id` - (String) ID of the cleanrooms configured table.
     /// 
     /// #### Optional
     /// 
-    /// * `account_id` (String) AWS Account where this resource is managed.
+    /// * `AccountId` (String) AWS Account where this resource is managed.
+    /// * `Region` (String) Region where this resource is managed.
     /// 
-    /// * `region` (String) Region where this resource is managed.
+    /// Using `pulumi import`, import `aws.cleanrooms.ConfiguredTable` using the `Id`. For example:
     /// 
-    /// Using `pulumi import`, import `aws_cleanrooms_configured_table` using the `id`. For example:
-    /// 
-    /// % pulumi import aws_cleanrooms_configured_table.table 1234abcd-12ab-34cd-56ef-1234567890ab
+    /// ```sh
+    /// $ pulumi import aws:cleanrooms/configuredTable:ConfiguredTable table 1234abcd-12ab-34cd-56ef-1234567890ab
+    /// ```
     /// </summary>
     [AwsResourceType("aws:cleanrooms/configuredTable:ConfiguredTable")]
     public partial class ConfiguredTable : global::Pulumi.CustomResource

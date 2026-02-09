@@ -39,7 +39,7 @@ namespace Pulumi.Aws.ServiceQuotas
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import Service Quotas Template using the `id`. For example:
+    /// Using `pulumi import`, import Service Quotas Template using the `Id`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:servicequotas/template:Template example us-east-1,L-2ACBD22F,lambda

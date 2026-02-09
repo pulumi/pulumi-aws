@@ -244,16 +244,19 @@ namespace Pulumi.Aws.Lambda
     /// ```sh
     /// $ pulumi import aws:lambda/functionEventInvokeConfig:FunctionEventInvokeConfig example arn:aws:lambda:us-east-1:123456789012:function:example
     /// ```
+    /// 
     /// Using ARN with qualifier:
     /// 
     /// ```sh
     /// $ pulumi import aws:lambda/functionEventInvokeConfig:FunctionEventInvokeConfig example arn:aws:lambda:us-east-1:123456789012:function:example:production
     /// ```
+    /// 
     /// Name without qualifier (all versions and aliases):
     /// 
     /// ```sh
     /// $ pulumi import aws:lambda/functionEventInvokeConfig:FunctionEventInvokeConfig example example
     /// ```
+    /// 
     /// Name with qualifier:
     /// 
     /// ```sh

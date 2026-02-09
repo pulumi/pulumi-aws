@@ -635,7 +635,7 @@ namespace Pulumi.Aws.AutoScaling
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import Auto Scaling Groups using the `name`. For example:
+    /// Using `pulumi import`, import Auto Scaling Groups using the `Name`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:autoscaling/group:Group web web-asg

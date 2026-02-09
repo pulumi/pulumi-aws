@@ -21,7 +21,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Using `pulumi import`, import Transfer Family Web App Customization using the `web_app_id`. For example:
+ * Using `pulumi import`, import Transfer Family Web App Customization using the `webAppId`. For example:
  * 
  * ```sh
  * $ pulumi import aws:transfer/webAppCustomization:WebAppCustomization example webapp-12345678901234567890

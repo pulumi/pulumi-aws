@@ -71,7 +71,7 @@ import (
 //
 // ## Import
 //
-// Using `pulumi import`, import SESv2 (Simple Email V2) Dedicated IP Pool using the `pool_name`. For example:
+// Using `pulumi import`, import SESv2 (Simple Email V2) Dedicated IP Pool using the `poolName`. For example:
 //
 // ```sh
 // $ pulumi import aws:sesv2/dedicatedIpPool:DedicatedIpPool example my-pool

@@ -131,7 +131,7 @@ namespace Pulumi.Aws.Waf
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import WAF Web ACL using the `id`. For example:
+    /// Using `pulumi import`, import WAF Web ACL using the `Id`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:waf/webAcl:WebAcl main 0c8e583e-18f3-4c13-9e2a-67c4805d2f94

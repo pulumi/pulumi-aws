@@ -63,7 +63,7 @@ namespace Pulumi.Aws.Lex
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import Lex V2 Models Bot Locale using the `id`. For example:
+    /// Using `pulumi import`, import Lex V2 Models Bot Locale using the `Id`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:lex/v2modelsBotLocale:V2modelsBotLocale example en_US,abcd-12345678,1

@@ -62,13 +62,14 @@ import javax.annotation.Nullable;
  * 
  * #### Optional
  * 
- * * `account_id` (String) AWS Account where this resource is managed.
- * 
+ * * `accountId` (String) AWS Account where this resource is managed.
  * * `region` (String) Region where this resource is managed.
  * 
  * Using `pulumi import`, import Direct Connect Gateways using the gateway `id`. For example:
  * 
- * % pulumi import aws_dx_gateway.example abcd1234-dcba-5678-be23-cdef9876ab45
+ * ```sh
+ * $ pulumi import aws:directconnect/gateway:Gateway example abcd1234-dcba-5678-be23-cdef9876ab45
+ * ```
  * 
  */
 @ResourceType(type="aws:directconnect/gateway:Gateway")

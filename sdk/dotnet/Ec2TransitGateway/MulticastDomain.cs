@@ -190,7 +190,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import `aws_ec2_transit_gateway_multicast_domain` using the EC2 Transit Gateway Multicast Domain identifier. For example:
+    /// Using `pulumi import`, import `aws.ec2transitgateway.MulticastDomain` using the EC2 Transit Gateway Multicast Domain identifier. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:ec2transitgateway/multicastDomain:MulticastDomain example tgw-mcast-domain-12345

@@ -61,9 +61,9 @@ namespace Pulumi.Aws.SavingsPlans
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import Savings Plans using the `id`. For example:
+    /// Using `pulumi import`, import Savings Plans using the `Id`. For example:
     /// 
-    /// Using `terraform state mv`, import Savings Plans using the `id`. For example:
+    /// Using `terraform state mv`, import Savings Plans using the `Id`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:savingsplans/savingsPlan:SavingsPlan example sp-12345678901234567

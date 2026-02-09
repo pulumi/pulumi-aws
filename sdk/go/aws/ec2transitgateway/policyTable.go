@@ -45,7 +45,7 @@ import (
 //
 // ## Import
 //
-// Using `pulumi import`, import `aws_ec2_transit_gateway_policy_table` using the EC2 Transit Gateway Policy Table identifier. For example:
+// Using `pulumi import`, import `ec2transitgateway.PolicyTable` using the EC2 Transit Gateway Policy Table identifier. For example:
 //
 // ```sh
 // $ pulumi import aws:ec2transitgateway/policyTable:PolicyTable example tgw-rtb-12345678

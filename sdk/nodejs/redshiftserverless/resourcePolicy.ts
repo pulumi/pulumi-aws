@@ -31,7 +31,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Using `pulumi import`, import Redshift Serverless Resource Policies using the `resource_arn`. For example:
+ * Using `pulumi import`, import Redshift Serverless Resource Policies using the `resourceArn`. For example:
  *
  * ```sh
  * $ pulumi import aws:redshiftserverless/resourcePolicy:ResourcePolicy example example

@@ -36,9 +36,9 @@ namespace Pulumi.Aws.ServiceQuotas
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import `aws_servicequotas_service_quota` using the service code and quota code, separated by a front slash (`/`). For example:
+    /// Using `pulumi import`, import `aws.servicequotas.ServiceQuota` using the service code and quota code, separated by a front slash (`/`). For example:
     /// 
-    /// ~&gt; __NOTE:__ This resource does not require explicit import and will assume management of an existing service quota on Pulumi resource creation.
+    /// &gt; **NOTE:** This resource does not require explicit import and will assume management of an existing service quota on Pulumi resource creation.
     /// 
     /// ```sh
     /// $ pulumi import aws:servicequotas/serviceQuota:ServiceQuota example vpc/L-F678F1CE

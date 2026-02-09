@@ -41,7 +41,7 @@ namespace Pulumi.Aws.NetworkFirewall
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import Network Firewall Firewall Transit Gateway Attachment Accepter using the `transit_gateway_attachment_id`. For example:
+    /// Using `pulumi import`, import Network Firewall Firewall Transit Gateway Attachment Accepter using the `TransitGatewayAttachmentId`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:networkfirewall/firewallTransitGatewayAttachmentAccepter:FirewallTransitGatewayAttachmentAccepter example tgw-attach-0c3b7e9570eee089c

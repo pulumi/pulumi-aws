@@ -218,7 +218,9 @@ class Index(pulumi.CustomResource):
 
         Using `pulumi import`, import Resource Explorer indexes using the `arn`. For example:
 
-        % pulumi import aws_resourceexplorer2_index.example arn:aws:resource-explorer-2:us-east-1:123456789012:index/6047ac4e-207e-4487-9bcf-cb53bb0ff5cc
+        ```sh
+        $ pulumi import aws:resourceexplorer/index:Index example arn:aws:resource-explorer-2:us-east-1:123456789012:index/6047ac4e-207e-4487-9bcf-cb53bb0ff5cc
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -254,7 +256,9 @@ class Index(pulumi.CustomResource):
 
         Using `pulumi import`, import Resource Explorer indexes using the `arn`. For example:
 
-        % pulumi import aws_resourceexplorer2_index.example arn:aws:resource-explorer-2:us-east-1:123456789012:index/6047ac4e-207e-4487-9bcf-cb53bb0ff5cc
+        ```sh
+        $ pulumi import aws:resourceexplorer/index:Index example arn:aws:resource-explorer-2:us-east-1:123456789012:index/6047ac4e-207e-4487-9bcf-cb53bb0ff5cc
+        ```
 
         :param str resource_name: The name of the resource.
         :param IndexArgs args: The arguments to use to populate this resource's properties.

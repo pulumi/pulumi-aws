@@ -38,7 +38,7 @@ namespace Pulumi.Aws.Odb
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import odb network peering using the `id`. For example:
+    /// Using `pulumi import`, import odb network peering using the `Id`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:odb/networkPeeringConnection:NetworkPeeringConnection example example

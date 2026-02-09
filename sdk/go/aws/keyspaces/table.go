@@ -58,7 +58,7 @@ import (
 //
 // ## Import
 //
-// Using `pulumi import`, import a table using the `keyspace_name` and `table_name` separated by `/`. For example:
+// Using `pulumi import`, import a table using the `keyspaceName` and `tableName` separated by `/`. For example:
 //
 // ```sh
 // $ pulumi import aws:keyspaces/table:Table example my_keyspace/my_table

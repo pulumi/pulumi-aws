@@ -35,7 +35,7 @@ namespace Pulumi.Aws.Qldb
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import QLDB Ledgers using the `name`. For example:
+    /// Using `pulumi import`, import QLDB Ledgers using the `Name`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:qldb/ledger:Ledger sample-ledger sample-ledger

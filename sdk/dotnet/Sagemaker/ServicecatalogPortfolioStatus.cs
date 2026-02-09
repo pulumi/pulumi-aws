@@ -34,7 +34,7 @@ namespace Pulumi.Aws.Sagemaker
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import models using the `id`. For example:
+    /// Using `pulumi import`, import models using the `Id`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:sagemaker/servicecatalogPortfolioStatus:ServicecatalogPortfolioStatus example us-east-1

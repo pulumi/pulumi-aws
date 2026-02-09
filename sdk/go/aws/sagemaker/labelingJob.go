@@ -74,7 +74,7 @@ import (
 //
 // ## Import
 //
-// Using `pulumi import`, import labeling jobs using the `labeling_job_name`. For example:
+// Using `pulumi import`, import labeling jobs using the `labelingJobName`. For example:
 //
 // ```sh
 // $ pulumi import aws:sagemaker/labelingJob:LabelingJob example my-labeling-job

@@ -16,7 +16,7 @@ namespace Pulumi.Aws.Odb
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import Exadata Infrastructure using the `id`. For example:
+    /// Using `pulumi import`, import Exadata Infrastructure using the `Id`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:odb/cloudExadataInfrastructure:CloudExadataInfrastructure example example

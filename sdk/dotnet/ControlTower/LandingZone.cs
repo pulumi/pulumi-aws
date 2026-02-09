@@ -15,7 +15,7 @@ namespace Pulumi.Aws.ControlTower
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import a Control Tower Landing Zone using the `id`. For example:
+    /// Using `pulumi import`, import a Control Tower Landing Zone using the `Id`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:controltower/landingZone:LandingZone example 1A2B3C4D5E6F7G8H

@@ -297,7 +297,7 @@ namespace Pulumi.Aws.OpenSearch
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import OpenSearchServerless Security Policy using the `name` and `type` arguments separated by a slash (`/`). For example:
+    /// Using `pulumi import`, import OpenSearchServerless Security Policy using the `Name` and `Type` arguments separated by a slash (`/`). For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:opensearch/serverlessSecurityPolicy:ServerlessSecurityPolicy example example/encryption

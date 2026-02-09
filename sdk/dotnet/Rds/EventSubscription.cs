@@ -69,7 +69,7 @@ namespace Pulumi.Aws.Rds
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import DB Event Subscriptions using the `name`. For example:
+    /// Using `pulumi import`, import DB Event Subscriptions using the `Name`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:rds/eventSubscription:EventSubscription default rds-event-sub

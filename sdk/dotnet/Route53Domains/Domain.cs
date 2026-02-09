@@ -80,7 +80,7 @@ namespace Pulumi.Aws.Route53Domains
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import domains using the `domain_name`. For example:
+    /// Using `pulumi import`, import domains using the `DomainName`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:route53domains/domain:Domain example example.com

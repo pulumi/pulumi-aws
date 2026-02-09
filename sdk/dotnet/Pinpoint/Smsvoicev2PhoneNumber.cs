@@ -38,7 +38,7 @@ namespace Pulumi.Aws.Pinpoint
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import phone numbers using the `id`. For example:
+    /// Using `pulumi import`, import phone numbers using the `Id`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:pinpoint/smsvoicev2PhoneNumber:Smsvoicev2PhoneNumber example phone-abcdef0123456789abcdef0123456789

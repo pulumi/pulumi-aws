@@ -42,7 +42,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Using `pulumi import`, import App Mesh virtual routers using `mesh_name` together with the virtual router's `name`. For example:
+ * Using `pulumi import`, import App Mesh virtual routers using `meshName` together with the virtual router's `name`. For example:
  *
  * ```sh
  * $ pulumi import aws:appmesh/virtualRouter:VirtualRouter serviceb simpleapp/serviceB

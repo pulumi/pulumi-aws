@@ -66,7 +66,7 @@ namespace Pulumi.Aws.DirectConnect
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import Direct Connect hosted transit virtual interfaces using the VIF `id`. For example:
+    /// Using `pulumi import`, import Direct Connect hosted transit virtual interfaces using the VIF `Id`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:directconnect/hostedTransitVirtualInterfaceAcceptor:HostedTransitVirtualInterfaceAcceptor test dxvif-33cc44dd

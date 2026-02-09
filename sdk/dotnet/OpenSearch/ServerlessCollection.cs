@@ -66,7 +66,7 @@ namespace Pulumi.Aws.OpenSearch
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import OpenSearchServerless Collection using the `id`. For example:
+    /// Using `pulumi import`, import OpenSearchServerless Collection using the `Id`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:opensearch/serverlessCollection:ServerlessCollection example example

@@ -33,7 +33,7 @@ namespace Pulumi.Aws.Quicksight
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import QuickSight role custom permissions using a comma-delimited string combining the `aws_account_id`, `namespace`, and `role`. For example:
+    /// Using `pulumi import`, import QuickSight role custom permissions using a comma-delimited string combining the `AwsAccountId`, `Namespace`, and `Role`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:quicksight/roleCustomPermission:RoleCustomPermission example 012345678901,default,READER

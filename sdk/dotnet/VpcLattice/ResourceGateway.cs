@@ -98,7 +98,7 @@ namespace Pulumi.Aws.VpcLattice
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import VPC Lattice Resource Gateway using the `id`. For example:
+    /// Using `pulumi import`, import VPC Lattice Resource Gateway using the `Id`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:vpclattice/resourceGateway:ResourceGateway example rgw-0a1b2c3d4e5f

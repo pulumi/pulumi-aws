@@ -354,21 +354,21 @@ class ClusterEndpoint(pulumi.CustomResource):
             cluster_identifier=default.id,
             identifier="test1",
             instance_class=aws.rds.InstanceType.T2_SMALL,
-            engine=default.engine,
+            engine=default.engine.apply(lambda x: aws.rds.EngineType(x)),
             engine_version=default.engine_version)
         test2 = aws.rds.ClusterInstance("test2",
             apply_immediately=True,
             cluster_identifier=default.id,
             identifier="test2",
             instance_class=aws.rds.InstanceType.T2_SMALL,
-            engine=default.engine,
+            engine=default.engine.apply(lambda x: aws.rds.EngineType(x)),
             engine_version=default.engine_version)
         test3 = aws.rds.ClusterInstance("test3",
             apply_immediately=True,
             cluster_identifier=default.id,
             identifier="test3",
             instance_class=aws.rds.InstanceType.T2_SMALL,
-            engine=default.engine,
+            engine=default.engine.apply(lambda x: aws.rds.EngineType(x)),
             engine_version=default.engine_version)
         eligible = aws.rds.ClusterEndpoint("eligible",
             cluster_identifier=default.id,
@@ -395,6 +395,8 @@ class ClusterEndpoint(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:rds/clusterEndpoint:ClusterEndpoint custom_reader aurora-prod-cluster-custom-reader
         ```
+
+        [1]: https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Overview.Endpoints.html#Aurora.Endpoints.Cluster
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -442,21 +444,21 @@ class ClusterEndpoint(pulumi.CustomResource):
             cluster_identifier=default.id,
             identifier="test1",
             instance_class=aws.rds.InstanceType.T2_SMALL,
-            engine=default.engine,
+            engine=default.engine.apply(lambda x: aws.rds.EngineType(x)),
             engine_version=default.engine_version)
         test2 = aws.rds.ClusterInstance("test2",
             apply_immediately=True,
             cluster_identifier=default.id,
             identifier="test2",
             instance_class=aws.rds.InstanceType.T2_SMALL,
-            engine=default.engine,
+            engine=default.engine.apply(lambda x: aws.rds.EngineType(x)),
             engine_version=default.engine_version)
         test3 = aws.rds.ClusterInstance("test3",
             apply_immediately=True,
             cluster_identifier=default.id,
             identifier="test3",
             instance_class=aws.rds.InstanceType.T2_SMALL,
-            engine=default.engine,
+            engine=default.engine.apply(lambda x: aws.rds.EngineType(x)),
             engine_version=default.engine_version)
         eligible = aws.rds.ClusterEndpoint("eligible",
             cluster_identifier=default.id,
@@ -483,6 +485,8 @@ class ClusterEndpoint(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:rds/clusterEndpoint:ClusterEndpoint custom_reader aurora-prod-cluster-custom-reader
         ```
+
+        [1]: https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Overview.Endpoints.html#Aurora.Endpoints.Cluster
 
         :param str resource_name: The name of the resource.
         :param ClusterEndpointArgs args: The arguments to use to populate this resource's properties.

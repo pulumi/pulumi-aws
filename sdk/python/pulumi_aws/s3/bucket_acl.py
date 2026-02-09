@@ -320,68 +320,42 @@ class BucketAcl(pulumi.CustomResource):
         #### Optional
 
         * `account_id` (String) AWS Account where this resource is managed.
-
         * `region` (String) Region where this resource is managed.
 
         If the owner (account ID) of the source bucket is the _same_ account used to configure the AWS Provider, and the source bucket is **configured** with a
+        [canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html#canned-acl) (i.e. predefined grant), import using the `bucket` and `acl` separated by a comma (`,`):
 
-        [canned ACL][1] (i.e. predefined grant), import using the `bucket` and `acl` separated by a comma (`,`):
-
-        terraform
-
-        import {
-
-          to = aws_s3_bucket_acl.example
-
-          id = "bucket-name,private"
-
-        }
-
-        If the owner (account ID) of the source bucket _differs_ from the account used to configure the AWS Provider, and the source bucket is **not configured** with a [canned ACL][1] (i.e. predefined grant), imported using the `bucket` and `expected_bucket_owner` separated by a comma (`,`):
-
-        terraform
-
-        import {
-
-          to = aws_s3_bucket_acl.example
-
-          id = "bucket-name,123456789012"
-
-        }
+        If the owner (account ID) of the source bucket _differs_ from the account used to configure the AWS Provider, and the source bucket is **not configured** with a [canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html#canned-acl) (i.e. predefined grant), imported using the `bucket` and `expected_bucket_owner` separated by a comma (`,`):
 
         If the owner (account ID) of the source bucket _differs_ from the account used to configure the AWS Provider, and the source bucket is **configured** with a
-
-        [canned ACL][1] (i.e. predefined grant), imported using the `bucket`, `expected_bucket_owner`, and `acl` separated by commas (`,`):
-
-        terraform
-
-        import {
-
-          to = aws_s3_bucket_acl.example
-
-          id = "bucket-name,123456789012,private"
-
-        }
+        [canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html#canned-acl) (i.e. predefined grant), imported using the `bucket`, `expected_bucket_owner`, and `acl` separated by commas (`,`):
 
         **Using `pulumi import` to import** using `bucket`, `expected_bucket_owner`, and/or `acl`, depending on your situation. For example:
 
         If the owner (account ID) of the source bucket is the _same_ account used to configure the AWS Provider, and the source bucket is **not configured** with a
+        [canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html#canned-acl) (i.e. predefined grant), import using the `bucket`:
 
-        [canned ACL][1] (i.e. predefined grant), import using the `bucket`:
+        ```sh
+        $ pulumi import aws:s3/bucketAcl:BucketAcl example bucket-name
+        ```
 
-        % pulumi import aws_s3_bucket_acl.example bucket-name
+        If the owner (account ID) of the source bucket is the _same_ account used to configure the AWS Provider, and the source bucket is **configured** with a [canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html#canned-acl) (i.e. predefined grant), import using the `bucket` and `acl` separated by a comma (`,`):
 
-        If the owner (account ID) of the source bucket is the _same_ account used to configure the AWS Provider, and the source bucket is **configured** with a [canned ACL][1] (i.e. predefined grant), import using the `bucket` and `acl` separated by a comma (`,`):
+        ```sh
+        $ pulumi import aws:s3/bucketAcl:BucketAcl example bucket-name,private
+        ```
 
-        % pulumi import aws_s3_bucket_acl.example bucket-name,private
+        If the owner (account ID) of the source bucket _differs_ from the account used to configure the AWS Provider, and the source bucket is **not configured** with a [canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html#canned-acl) (i.e. predefined grant), imported using the `bucket` and `expected_bucket_owner` separated by a comma (`,`):
 
-        If the owner (account ID) of the source bucket _differs_ from the account used to configure the AWS Provider, and the source bucket is **not configured** with a [canned ACL][1] (i.e. predefined grant), imported using the `bucket` and `expected_bucket_owner` separated by a comma (`,`):
+        ```sh
+        $ pulumi import aws:s3/bucketAcl:BucketAcl example bucket-name,123456789012
+        ```
 
-        % pulumi import aws_s3_bucket_acl.example bucket-name,123456789012
+        If the owner (account ID) of the source bucket _differs_ from the account used to configure the AWS Provider, and the source bucket is **configured** with a [canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html#canned-acl) (i.e. predefined grant), imported using the `bucket`, `expected_bucket_owner`, and `acl` separated by commas (`,`):
 
-        If the owner (account ID) of the source bucket _differs_ from the account used to configure the AWS Provider, and the source bucket is **configured** with a [canned ACL][1] (i.e. predefined grant), imported using the `bucket`, `expected_bucket_owner`, and `acl` separated by commas (`,`):
-
-        % pulumi import aws_s3_bucket_acl.example bucket-name,123456789012,private
+        ```sh
+        $ pulumi import aws:s3/bucketAcl:BucketAcl example bucket-name,123456789012,private
+        ```
 
         [1]: https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html#canned-acl
 
@@ -506,68 +480,42 @@ class BucketAcl(pulumi.CustomResource):
         #### Optional
 
         * `account_id` (String) AWS Account where this resource is managed.
-
         * `region` (String) Region where this resource is managed.
 
         If the owner (account ID) of the source bucket is the _same_ account used to configure the AWS Provider, and the source bucket is **configured** with a
+        [canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html#canned-acl) (i.e. predefined grant), import using the `bucket` and `acl` separated by a comma (`,`):
 
-        [canned ACL][1] (i.e. predefined grant), import using the `bucket` and `acl` separated by a comma (`,`):
-
-        terraform
-
-        import {
-
-          to = aws_s3_bucket_acl.example
-
-          id = "bucket-name,private"
-
-        }
-
-        If the owner (account ID) of the source bucket _differs_ from the account used to configure the AWS Provider, and the source bucket is **not configured** with a [canned ACL][1] (i.e. predefined grant), imported using the `bucket` and `expected_bucket_owner` separated by a comma (`,`):
-
-        terraform
-
-        import {
-
-          to = aws_s3_bucket_acl.example
-
-          id = "bucket-name,123456789012"
-
-        }
+        If the owner (account ID) of the source bucket _differs_ from the account used to configure the AWS Provider, and the source bucket is **not configured** with a [canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html#canned-acl) (i.e. predefined grant), imported using the `bucket` and `expected_bucket_owner` separated by a comma (`,`):
 
         If the owner (account ID) of the source bucket _differs_ from the account used to configure the AWS Provider, and the source bucket is **configured** with a
-
-        [canned ACL][1] (i.e. predefined grant), imported using the `bucket`, `expected_bucket_owner`, and `acl` separated by commas (`,`):
-
-        terraform
-
-        import {
-
-          to = aws_s3_bucket_acl.example
-
-          id = "bucket-name,123456789012,private"
-
-        }
+        [canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html#canned-acl) (i.e. predefined grant), imported using the `bucket`, `expected_bucket_owner`, and `acl` separated by commas (`,`):
 
         **Using `pulumi import` to import** using `bucket`, `expected_bucket_owner`, and/or `acl`, depending on your situation. For example:
 
         If the owner (account ID) of the source bucket is the _same_ account used to configure the AWS Provider, and the source bucket is **not configured** with a
+        [canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html#canned-acl) (i.e. predefined grant), import using the `bucket`:
 
-        [canned ACL][1] (i.e. predefined grant), import using the `bucket`:
+        ```sh
+        $ pulumi import aws:s3/bucketAcl:BucketAcl example bucket-name
+        ```
 
-        % pulumi import aws_s3_bucket_acl.example bucket-name
+        If the owner (account ID) of the source bucket is the _same_ account used to configure the AWS Provider, and the source bucket is **configured** with a [canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html#canned-acl) (i.e. predefined grant), import using the `bucket` and `acl` separated by a comma (`,`):
 
-        If the owner (account ID) of the source bucket is the _same_ account used to configure the AWS Provider, and the source bucket is **configured** with a [canned ACL][1] (i.e. predefined grant), import using the `bucket` and `acl` separated by a comma (`,`):
+        ```sh
+        $ pulumi import aws:s3/bucketAcl:BucketAcl example bucket-name,private
+        ```
 
-        % pulumi import aws_s3_bucket_acl.example bucket-name,private
+        If the owner (account ID) of the source bucket _differs_ from the account used to configure the AWS Provider, and the source bucket is **not configured** with a [canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html#canned-acl) (i.e. predefined grant), imported using the `bucket` and `expected_bucket_owner` separated by a comma (`,`):
 
-        If the owner (account ID) of the source bucket _differs_ from the account used to configure the AWS Provider, and the source bucket is **not configured** with a [canned ACL][1] (i.e. predefined grant), imported using the `bucket` and `expected_bucket_owner` separated by a comma (`,`):
+        ```sh
+        $ pulumi import aws:s3/bucketAcl:BucketAcl example bucket-name,123456789012
+        ```
 
-        % pulumi import aws_s3_bucket_acl.example bucket-name,123456789012
+        If the owner (account ID) of the source bucket _differs_ from the account used to configure the AWS Provider, and the source bucket is **configured** with a [canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html#canned-acl) (i.e. predefined grant), imported using the `bucket`, `expected_bucket_owner`, and `acl` separated by commas (`,`):
 
-        If the owner (account ID) of the source bucket _differs_ from the account used to configure the AWS Provider, and the source bucket is **configured** with a [canned ACL][1] (i.e. predefined grant), imported using the `bucket`, `expected_bucket_owner`, and `acl` separated by commas (`,`):
-
-        % pulumi import aws_s3_bucket_acl.example bucket-name,123456789012,private
+        ```sh
+        $ pulumi import aws:s3/bucketAcl:BucketAcl example bucket-name,123456789012,private
+        ```
 
         [1]: https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html#canned-acl
 

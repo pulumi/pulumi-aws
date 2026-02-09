@@ -67,37 +67,54 @@ import javax.annotation.Nullable;
  * 
  * #### Optional
  * 
- * * `account_id` (String) AWS Account where this resource is managed.
+ * * `accountId` (String) AWS Account where this resource is managed.
  * 
- * Using `pulumi import`, import the AWS member account using the `account_id`. For example:
+ * Using `pulumi import`, import the AWS member account using the `accountId`. For example:
  * 
- * % pulumi import aws_organizations_account.example 111111111111
+ * ```sh
+ * $ pulumi import aws:organizations/account:Account example 111111111111
+ * ```
  * 
  * To import accounts that have set iam_user_access_to_billing, use the following:
  * 
- * % pulumi import aws_organizations_account.example 111111111111_ALLOW
+ * ```sh
+ * $ pulumi import aws:organizations/account:Account example 111111111111_ALLOW
+ * ```
  * 
- * Certain resource arguments, like `role_name`, do not have an Organizations API method for reading the information after account creation. If the argument is set in the Pulumi program on an imported resource, Pulumi will always show a difference. To workaround this behavior, either omit the argument from the Pulumi program or use `ignore_changes` to hide the difference. For example:
+ * Certain resource arguments, like `roleName`, do not have an Organizations API method for reading the information after account creation. If the argument is set in the Pulumi program on an imported resource, Pulumi will always show a difference. To workaround this behavior, either omit the argument from the Pulumi program or use `ignoreChanges` to hide the difference. For example:
  * 
- * terraform
+ * <pre>
+ * {@code
+ * package generated_program;
  * 
- * resource &#34;aws_organizations_account&#34; &#34;account&#34; {
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.organizations.Account;
+ * import com.pulumi.aws.organizations.AccountArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
- *   name      = &#34;my_new_account&#34;
+ * public class App }{{@code
+ *     public static void main(String[] args) }{{@code
+ *         Pulumi.run(App::stack);
+ *     }}{@code
  * 
- *   email     = &#34;john{@literal @}doe.org&#34;
+ *     public static void stack(Context ctx) }{{@code
+ *         var account = new Account("account", AccountArgs.builder()
+ *             .name("my_new_account")
+ *             .email("john}{@literal @}{@code doe.org")
+ *             .roleName("myOrganizationRole")
+ *             .build());
  * 
- *   role_name = &#34;myOrganizationRole&#34;
- * 
- * # There is no AWS Organizations API for reading role_name
- * 
- *   lifecycle {
- * 
- *     ignore_changes = [role_name]
- * 
- *   }
- * 
+ *     }}{@code
+ * }}{@code
  * }
+ * </pre>
  * 
  */
 @ResourceType(type="aws:organizations/account:Account")

@@ -260,7 +260,6 @@ class CustomerManagedPolicyAttachmentsExclusive(pulumi.CustomResource):
         #### Required
 
         * `instance_arn` (String) ARN of the SSO Instance.
-
         * `permission_set_arn` (String) ARN of the Permission Set.
 
         #### Optional
@@ -269,7 +268,9 @@ class CustomerManagedPolicyAttachmentsExclusive(pulumi.CustomResource):
 
         Using `pulumi import`, import SSO Admin Customer Managed Policy Attachments Exclusive using the `instance_arn` and `permission_set_arn` arguments, separated by a comma (`,`). For example:
 
-        % pulumi import aws_ssoadmin_customer_managed_policy_attachments_exclusive.example arn:aws:sso:::instance/ssoins-1234567890abcdef,arn:aws:sso:::permissionSet/ssoins-1234567890abcdef/ps-1234567890abcdef
+        ```sh
+        $ pulumi import aws:ssoadmin/customerManagedPolicyAttachmentsExclusive:CustomerManagedPolicyAttachmentsExclusive example arn:aws:sso:::instance/ssoins-1234567890abcdef,arn:aws:sso:::permissionSet/ssoins-1234567890abcdef/ps-1234567890abcdef
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -342,7 +343,6 @@ class CustomerManagedPolicyAttachmentsExclusive(pulumi.CustomResource):
         #### Required
 
         * `instance_arn` (String) ARN of the SSO Instance.
-
         * `permission_set_arn` (String) ARN of the Permission Set.
 
         #### Optional
@@ -351,7 +351,9 @@ class CustomerManagedPolicyAttachmentsExclusive(pulumi.CustomResource):
 
         Using `pulumi import`, import SSO Admin Customer Managed Policy Attachments Exclusive using the `instance_arn` and `permission_set_arn` arguments, separated by a comma (`,`). For example:
 
-        % pulumi import aws_ssoadmin_customer_managed_policy_attachments_exclusive.example arn:aws:sso:::instance/ssoins-1234567890abcdef,arn:aws:sso:::permissionSet/ssoins-1234567890abcdef/ps-1234567890abcdef
+        ```sh
+        $ pulumi import aws:ssoadmin/customerManagedPolicyAttachmentsExclusive:CustomerManagedPolicyAttachmentsExclusive example arn:aws:sso:::instance/ssoins-1234567890abcdef,arn:aws:sso:::permissionSet/ssoins-1234567890abcdef/ps-1234567890abcdef
+        ```
 
         :param str resource_name: The name of the resource.
         :param CustomerManagedPolicyAttachmentsExclusiveArgs args: The arguments to use to populate this resource's properties.

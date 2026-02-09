@@ -164,7 +164,7 @@ import (
 //
 // ## Import
 //
-// Using `pulumi import`, import SageMaker AI Flow Definitions using the `flow_definition_name`. For example:
+// Using `pulumi import`, import SageMaker AI Flow Definitions using the `flowDefinitionName`. For example:
 //
 // ```sh
 // $ pulumi import aws:sagemaker/flowDefinition:FlowDefinition example example

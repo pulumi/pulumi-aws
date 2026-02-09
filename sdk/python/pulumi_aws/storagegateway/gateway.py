@@ -851,12 +851,20 @@ class Gateway(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import `aws_storagegateway_gateway` using the gateway Amazon Resource Name (ARN). For example:
+        Using `pulumi import`, import `storagegateway.Gateway` using the gateway Amazon Resource Name (ARN). For example:
 
         ```sh
         $ pulumi import aws:storagegateway/gateway:Gateway example arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678
         ```
+
         Certain resource arguments, like `gateway_ip_address` do not have a Storage Gateway API method for reading the information after creation, either omit the argument from the Pulumi program or use `ignore_changes` to hide the difference. For example:
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.storagegateway.Gateway("example", gateway_ip_address=sgw["privateIp"])
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -985,12 +993,20 @@ class Gateway(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import `aws_storagegateway_gateway` using the gateway Amazon Resource Name (ARN). For example:
+        Using `pulumi import`, import `storagegateway.Gateway` using the gateway Amazon Resource Name (ARN). For example:
 
         ```sh
         $ pulumi import aws:storagegateway/gateway:Gateway example arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678
         ```
+
         Certain resource arguments, like `gateway_ip_address` do not have a Storage Gateway API method for reading the information after creation, either omit the argument from the Pulumi program or use `ignore_changes` to hide the difference. For example:
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.storagegateway.Gateway("example", gateway_ip_address=sgw["privateIp"])
+        ```
 
         :param str resource_name: The name of the resource.
         :param GatewayArgs args: The arguments to use to populate this resource's properties.

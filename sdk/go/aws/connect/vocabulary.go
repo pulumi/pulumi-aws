@@ -49,7 +49,7 @@ import (
 //
 // ## Import
 //
-// Using `pulumi import`, import Amazon Connect Vocabularies using the `instance_id` and `vocabulary_id` separated by a colon (`:`). For example:
+// Using `pulumi import`, import Amazon Connect Vocabularies using the `instanceId` and `vocabularyId` separated by a colon (`:`). For example:
 //
 // ```sh
 // $ pulumi import aws:connect/vocabulary:Vocabulary example f1288a1f-6193-445a-b47e-af739b2:c1d4e5f6-1b3c-1b3c-1b3c-c1d4e5f6c1d4e5

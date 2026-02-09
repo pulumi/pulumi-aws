@@ -34,7 +34,7 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import Network Insights Paths using the `id`. For example:
+    /// Using `pulumi import`, import Network Insights Paths using the `Id`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:ec2/networkInsightsPath:NetworkInsightsPath test nip-00edfba169923aefd

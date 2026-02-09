@@ -34,7 +34,7 @@ namespace Pulumi.Aws.Pinpoint
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import configuration sets using the `name`. For example:
+    /// Using `pulumi import`, import configuration sets using the `Name`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:pinpoint/smsvoicev2ConfigurationSet:Smsvoicev2ConfigurationSet example example-configuration-set

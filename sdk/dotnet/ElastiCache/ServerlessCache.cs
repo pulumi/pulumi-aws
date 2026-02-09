@@ -146,7 +146,7 @@ namespace Pulumi.Aws.ElastiCache
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import ElastiCache Serverless Cache using the `name`. For example:
+    /// Using `pulumi import`, import ElastiCache Serverless Cache using the `Name`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:elasticache/serverlessCache:ServerlessCache my_cluster my_cluster

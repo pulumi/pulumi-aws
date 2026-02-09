@@ -58,7 +58,7 @@ import (
 //
 // ## Import
 //
-// Using `pulumi import`, import `aws_neptune_cluster` using the cluster identifier. For example:
+// Using `pulumi import`, import `neptune.Cluster` using the cluster identifier. For example:
 //
 // ```sh
 // $ pulumi import aws:neptune/cluster:Cluster example my-cluster

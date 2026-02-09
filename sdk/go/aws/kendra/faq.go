@@ -119,7 +119,7 @@ import (
 //
 // ## Import
 //
-// Using `pulumi import`, import `aws_kendra_faq` using the unique identifiers of the FAQ and index separated by a slash (`/`). For example:
+// Using `pulumi import`, import `kendra.Faq` using the unique identifiers of the FAQ and index separated by a slash (`/`). For example:
 //
 // ```sh
 // $ pulumi import aws:kendra/faq:Faq example faq-123456780/idx-8012925589

@@ -74,12 +74,20 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Using `pulumi import`, import `aws_neptune_global_cluster` using the Global Cluster identifier. For example:
+ * Using `pulumi import`, import `aws.neptune.GlobalCluster` using the Global Cluster identifier. For example:
  *
  * ```sh
  * $ pulumi import aws:neptune/globalCluster:GlobalCluster example example
  * ```
- * Certain resource arguments, like `source_db_cluster_identifier`, do not have an API method for reading the information after creation. If the argument is set in the Pulumi program on an imported resource, Pulumi will always show a difference. To workaround this behavior, either omit the argument from the Pulumi program or use `ignore_changes` to hide the difference. For example:
+ *
+ * Certain resource arguments, like `sourceDbClusterIdentifier`, do not have an API method for reading the information after creation. If the argument is set in the Pulumi program on an imported resource, Pulumi will always show a difference. To workaround this behavior, either omit the argument from the Pulumi program or use `ignoreChanges` to hide the difference. For example:
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.neptune.GlobalCluster("example", {});
+ * ```
  */
 export class GlobalCluster extends pulumi.CustomResource {
     /**

@@ -104,7 +104,7 @@ import (
 //
 // ## Import
 //
-// Using `pulumi import`, import `aws_datapipeline_pipeline_definition` using the id. For example:
+// Using `pulumi import`, import `datapipeline.PipelineDefinition` using the id. For example:
 //
 // ```sh
 // $ pulumi import aws:datapipeline/pipelineDefinition:PipelineDefinition example df-1234567890

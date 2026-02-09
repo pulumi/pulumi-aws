@@ -666,55 +666,37 @@ class Route(pulumi.CustomResource):
 
         #### Optional
 
-        ~> Exactly one of of `destination_cidr_block`, `destination_ipv6_cidr_block`, or `destination_prefix_list_id` is required.
+        > Exactly one of of `destination_cidr_block`, `destination_ipv6_cidr_block`, or `destination_prefix_list_id` is required.
 
         * `account_id` (String) AWS Account where this resource is managed.
-
         * `destination_cidr_block` - (String) Destination IPv4 CIDR block.
-
         * `destination_ipv6_cidr_block` - (String) Destination IPv6 CIDR block.
-
         * `destination_prefix_list_id` - (String) Destination IPv6 CIDR block.
-
         * `region` (String) Region where this resource is managed.
 
         Import a route in route table `rtb-656C65616E6F72` with an IPv6 destination CIDR of `2620:0:2d0:200::8/125`:
 
-        terraform
-
-        import {
-
-          to = aws_route.my_route
-
-          id = "rtb-656C65616E6F72_2620:0:2d0:200::8/125"
-
-        }
-
         Import a route in route table `rtb-656C65616E6F72` with a managed prefix list destination of `pl-0570a1d2d725c16be`:
-
-        terraform
-
-        import {
-
-          to = aws_route.my_route
-
-          id = "rtb-656C65616E6F72_pl-0570a1d2d725c16be"
-
-        }
 
         **Using `pulumi import` to import** individual routes using `ROUTETABLEID_DESTINATION`. Import [local routes](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html#RouteTables) using the VPC's IPv4 or IPv6 CIDR blocks. For example:
 
         Import a route in route table `rtb-656C65616E6F72` with an IPv4 destination CIDR of `10.42.0.0/16`:
 
-        % pulumi import aws_route.my_route rtb-656C65616E6F72_10.42.0.0/16
+        ```sh
+        $ pulumi import aws:ec2/route:Route my_route rtb-656C65616E6F72_10.42.0.0/16
+        ```
 
         Import a route in route table `rtb-656C65616E6F72` with an IPv6 destination CIDR of `2620:0:2d0:200::8/125`:
 
-        % pulumi import aws_route.my_route rtb-656C65616E6F72_2620:0:2d0:200::8/125
+        ```sh
+        $ pulumi import aws:ec2/route:Route my_route rtb-656C65616E6F72_2620:0:2d0:200::8/125
+        ```
 
         Import a route in route table `rtb-656C65616E6F72` with a managed prefix list destination of `pl-0570a1d2d725c16be`:
 
-        % pulumi import aws_route.my_route rtb-656C65616E6F72_pl-0570a1d2d725c16be
+        ```sh
+        $ pulumi import aws:ec2/route:Route my_route rtb-656C65616E6F72_pl-0570a1d2d725c16be
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -791,55 +773,37 @@ class Route(pulumi.CustomResource):
 
         #### Optional
 
-        ~> Exactly one of of `destination_cidr_block`, `destination_ipv6_cidr_block`, or `destination_prefix_list_id` is required.
+        > Exactly one of of `destination_cidr_block`, `destination_ipv6_cidr_block`, or `destination_prefix_list_id` is required.
 
         * `account_id` (String) AWS Account where this resource is managed.
-
         * `destination_cidr_block` - (String) Destination IPv4 CIDR block.
-
         * `destination_ipv6_cidr_block` - (String) Destination IPv6 CIDR block.
-
         * `destination_prefix_list_id` - (String) Destination IPv6 CIDR block.
-
         * `region` (String) Region where this resource is managed.
 
         Import a route in route table `rtb-656C65616E6F72` with an IPv6 destination CIDR of `2620:0:2d0:200::8/125`:
 
-        terraform
-
-        import {
-
-          to = aws_route.my_route
-
-          id = "rtb-656C65616E6F72_2620:0:2d0:200::8/125"
-
-        }
-
         Import a route in route table `rtb-656C65616E6F72` with a managed prefix list destination of `pl-0570a1d2d725c16be`:
-
-        terraform
-
-        import {
-
-          to = aws_route.my_route
-
-          id = "rtb-656C65616E6F72_pl-0570a1d2d725c16be"
-
-        }
 
         **Using `pulumi import` to import** individual routes using `ROUTETABLEID_DESTINATION`. Import [local routes](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html#RouteTables) using the VPC's IPv4 or IPv6 CIDR blocks. For example:
 
         Import a route in route table `rtb-656C65616E6F72` with an IPv4 destination CIDR of `10.42.0.0/16`:
 
-        % pulumi import aws_route.my_route rtb-656C65616E6F72_10.42.0.0/16
+        ```sh
+        $ pulumi import aws:ec2/route:Route my_route rtb-656C65616E6F72_10.42.0.0/16
+        ```
 
         Import a route in route table `rtb-656C65616E6F72` with an IPv6 destination CIDR of `2620:0:2d0:200::8/125`:
 
-        % pulumi import aws_route.my_route rtb-656C65616E6F72_2620:0:2d0:200::8/125
+        ```sh
+        $ pulumi import aws:ec2/route:Route my_route rtb-656C65616E6F72_2620:0:2d0:200::8/125
+        ```
 
         Import a route in route table `rtb-656C65616E6F72` with a managed prefix list destination of `pl-0570a1d2d725c16be`:
 
-        % pulumi import aws_route.my_route rtb-656C65616E6F72_pl-0570a1d2d725c16be
+        ```sh
+        $ pulumi import aws:ec2/route:Route my_route rtb-656C65616E6F72_pl-0570a1d2d725c16be
+        ```
 
         :param str resource_name: The name of the resource.
         :param RouteArgs args: The arguments to use to populate this resource's properties.

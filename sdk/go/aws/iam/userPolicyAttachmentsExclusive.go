@@ -14,7 +14,7 @@ import (
 
 // ## Import
 //
-// Using `pulumi import`, import exclusive management of managed IAM policy assignments using the `user_name`. For example:
+// Using `pulumi import`, import exclusive management of managed IAM policy assignments using the `userName`. For example:
 //
 // ```sh
 // $ pulumi import aws:iam/userPolicyAttachmentsExclusive:UserPolicyAttachmentsExclusive example MyUser

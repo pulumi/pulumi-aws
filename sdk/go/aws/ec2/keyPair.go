@@ -51,12 +51,13 @@ import (
 //
 // ## Import
 //
-// Using `pulumi import`, import Key Pairs using the `key_name`. For example:
+// Using `pulumi import`, import Key Pairs using the `keyName`. For example:
 //
 // ```sh
 // $ pulumi import aws:ec2/keyPair:KeyPair deployer deployer-key
 // ```
-// ~> __NOTE:__ The AWS API does not include the public key in the response, so `pulumi up` will attempt to replace the key pair. There is currently no supported workaround for this limitation.
+//
+// > **NOTE:** The AWS API does not include the public key in the response, so `pulumi up` will attempt to replace the key pair. There is currently no supported workaround for this limitation.
 type KeyPair struct {
 	pulumi.CustomResourceState
 

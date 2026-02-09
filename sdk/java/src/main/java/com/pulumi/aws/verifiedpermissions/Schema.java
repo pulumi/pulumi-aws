@@ -68,9 +68,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Using `pulumi import`, import Verified Permissions Policy Store Schema using the `policy_store_id`. For example:
+ * Using `pulumi import`, import Verified Permissions Policy Store Schema using the `policyStoreId`. For example:
  * 
- *  % pulumi import aws_verifiedpermissions_schema.example DxQg2j8xvXJQ1tQCYNWj9T
+ * ```sh
+ *  $ pulumi import aws:verifiedpermissions/schema:Schema example DxQg2j8xvXJQ1tQCYNWj9T
+ * ```
  * 
  */
 @ResourceType(type="aws:verifiedpermissions/schema:Schema")

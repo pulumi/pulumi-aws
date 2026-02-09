@@ -96,7 +96,7 @@ namespace Pulumi.Aws.Odb
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import cloud vm cluster using the `id`. For example:
+    /// Using `pulumi import`, import cloud vm cluster using the `Id`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:odb/cloudVmCluster:CloudVmCluster example example

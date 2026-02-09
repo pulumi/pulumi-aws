@@ -76,7 +76,7 @@ namespace Pulumi.Aws.ApiGateway
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import API Gateway REST API Put using the `rest_api_id`. For example:
+    /// Using `pulumi import`, import API Gateway REST API Put using the `RestApiId`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:apigateway/restApiPut:RestApiPut example import-id-12345678

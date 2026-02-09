@@ -58,7 +58,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Using `pulumi import`, import a QuickSight Account Subscription using `aws_account_id`. For example:
+ * Using `pulumi import`, import a QuickSight Account Subscription using `awsAccountId`. For example:
  * 
  * ```sh
  * $ pulumi import aws:quicksight/accountSubscription:AccountSubscription example &#34;012345678901&#34;

@@ -45,7 +45,7 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import Egress-only Internet gateways using the `id`. For example:
+    /// Using `pulumi import`, import Egress-only Internet gateways using the `Id`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:ec2/egressOnlyInternetGateway:EgressOnlyInternetGateway example eigw-015e0e244e24dfe8a

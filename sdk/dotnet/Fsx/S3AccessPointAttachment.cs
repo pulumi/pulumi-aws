@@ -46,7 +46,7 @@ namespace Pulumi.Aws.Fsx
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import FSx S3 Access Point attachments using the `name`. For example:
+    /// Using `pulumi import`, import FSx S3 Access Point attachments using the `Name`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:fsx/s3AccessPointAttachment:S3AccessPointAttachment example example-attachment

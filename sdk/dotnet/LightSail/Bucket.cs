@@ -33,7 +33,7 @@ namespace Pulumi.Aws.LightSail
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import `aws_lightsail_bucket` using the `name` attribute. For example:
+    /// Using `pulumi import`, import `aws.lightsail.Bucket` using the `Name` attribute. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:lightsail/bucket:Bucket example example-bucket

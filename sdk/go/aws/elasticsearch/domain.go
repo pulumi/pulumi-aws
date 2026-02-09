@@ -312,7 +312,7 @@ import (
 //
 // ## Import
 //
-// Using `pulumi import`, import Elasticsearch domains using the `domain_name`. For example:
+// Using `pulumi import`, import Elasticsearch domains using the `domainName`. For example:
 //
 // ```sh
 // $ pulumi import aws:elasticsearch/domain:Domain example domain_name

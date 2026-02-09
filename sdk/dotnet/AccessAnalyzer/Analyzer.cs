@@ -203,7 +203,7 @@ namespace Pulumi.Aws.AccessAnalyzer
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import Access Analyzer Analyzers using the `analyzer_name`. For example:
+    /// Using `pulumi import`, import Access Analyzer Analyzers using the `AnalyzerName`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:accessanalyzer/analyzer:Analyzer example example

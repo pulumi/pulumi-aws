@@ -18,7 +18,7 @@ import javax.annotation.Nullable;
 /**
  * ## Import
  * 
- * Using `pulumi import`, import RAM Resource Share Association Exclusive using the `resource_share_arn`. For example:
+ * Using `pulumi import`, import RAM Resource Share Association Exclusive using the `resourceShareArn`. For example:
  * 
  * ```sh
  * $ pulumi import aws:ram/resourceShareAssociationsExclusive:ResourceShareAssociationsExclusive example arn:aws:ram:eu-west-1:123456789012:resource-share/73da1ab9-b94a-4ba3-8eb4-45917f7f4b12

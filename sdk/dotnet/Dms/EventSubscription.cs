@@ -48,7 +48,7 @@ namespace Pulumi.Aws.Dms
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import event subscriptions using the `name`. For example:
+    /// Using `pulumi import`, import event subscriptions using the `Name`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:dms/eventSubscription:EventSubscription test my-awesome-event-subscription

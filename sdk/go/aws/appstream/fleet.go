@@ -61,7 +61,7 @@ import (
 //
 // ## Import
 //
-// Using `pulumi import`, import `aws_appstream_fleet` using the id. For example:
+// Using `pulumi import`, import `appstream.Fleet` using the id. For example:
 //
 // ```sh
 // $ pulumi import aws:appstream/fleet:Fleet example fleetNameExample

@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 /**
  * ## Import
  *
- * Using `pulumi import`, import exclusive management of managed IAM policy assignments using the `group_name`. For example:
+ * Using `pulumi import`, import exclusive management of managed IAM policy assignments using the `groupName`. For example:
  *
  * ```sh
  * $ pulumi import aws:iam/groupPolicyAttachmentsExclusive:GroupPolicyAttachmentsExclusive example MyGroup

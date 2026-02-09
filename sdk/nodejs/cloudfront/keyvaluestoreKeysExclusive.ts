@@ -10,7 +10,7 @@ import * as utilities from "../utilities";
 /**
  * ## Import
  *
- * Using `pulumi import`, import AWS CloudFront KeyValueStore Key Value Pairs using the `key_value_store_arn`. For example:
+ * Using `pulumi import`, import AWS CloudFront KeyValueStore Key Value Pairs using the `keyValueStoreArn`. For example:
  *
  * ```sh
  * $ pulumi import aws:cloudfront/keyvaluestoreKeysExclusive:KeyvaluestoreKeysExclusive example arn:aws:cloudfront::111111111111:key-value-store/8562g61f-caba-2845-9d99-b97diwae5d3c

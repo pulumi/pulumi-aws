@@ -229,18 +229,20 @@ class DefaultPatchBaseline(pulumi.CustomResource):
 
         Using the operating system value:
 
-        __Using `pulumi import` to import__ the Systems Manager Default Patch Baseline using the patch baseline ID, patch baseline ARN, or the operating system value. For example:
+        **Using `pulumi import` to import** the Systems Manager Default Patch Baseline using the patch baseline ID, patch baseline ARN, or the operating system value. For example:
 
         Using the patch baseline ID:
 
         ```sh
         $ pulumi import aws:ssm/defaultPatchBaseline:DefaultPatchBaseline example pb-1234567890abcdef1
         ```
+
         Using the patch baseline ARN:
 
         ```sh
         $ pulumi import aws:ssm/defaultPatchBaseline:DefaultPatchBaseline example arn:aws:ssm:us-west-2:123456789012:patchbaseline/pb-1234567890abcdef1
         ```
+
         Using the operating system value:
 
         ```sh
@@ -301,18 +303,20 @@ class DefaultPatchBaseline(pulumi.CustomResource):
 
         Using the operating system value:
 
-        __Using `pulumi import` to import__ the Systems Manager Default Patch Baseline using the patch baseline ID, patch baseline ARN, or the operating system value. For example:
+        **Using `pulumi import` to import** the Systems Manager Default Patch Baseline using the patch baseline ID, patch baseline ARN, or the operating system value. For example:
 
         Using the patch baseline ID:
 
         ```sh
         $ pulumi import aws:ssm/defaultPatchBaseline:DefaultPatchBaseline example pb-1234567890abcdef1
         ```
+
         Using the patch baseline ARN:
 
         ```sh
         $ pulumi import aws:ssm/defaultPatchBaseline:DefaultPatchBaseline example arn:aws:ssm:us-west-2:123456789012:patchbaseline/pb-1234567890abcdef1
         ```
+
         Using the operating system value:
 
         ```sh

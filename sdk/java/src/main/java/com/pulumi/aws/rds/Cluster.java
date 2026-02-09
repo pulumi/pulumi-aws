@@ -420,7 +420,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Using `pulumi import`, import RDS Clusters using the `cluster_identifier`. For example:
+ * Using `pulumi import`, import RDS Clusters using the `clusterIdentifier`. For example:
  * 
  * ```sh
  * $ pulumi import aws:rds/cluster:Cluster aurora_cluster aurora-prod-cluster

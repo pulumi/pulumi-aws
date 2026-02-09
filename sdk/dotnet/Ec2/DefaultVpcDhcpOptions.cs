@@ -46,7 +46,7 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import VPC DHCP Options using the DHCP Options `id`. For example:
+    /// Using `pulumi import`, import VPC DHCP Options using the DHCP Options `Id`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:ec2/defaultVpcDhcpOptions:DefaultVpcDhcpOptions default_options dopt-d9070ebb

@@ -114,12 +114,20 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Using `pulumi import`, import `aws_storagegateway_gateway` using the gateway Amazon Resource Name (ARN). For example:
+ * Using `pulumi import`, import `aws.storagegateway.Gateway` using the gateway Amazon Resource Name (ARN). For example:
  *
  * ```sh
  * $ pulumi import aws:storagegateway/gateway:Gateway example arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678
  * ```
- * Certain resource arguments, like `gateway_ip_address` do not have a Storage Gateway API method for reading the information after creation, either omit the argument from the Pulumi program or use `ignore_changes` to hide the difference. For example:
+ *
+ * Certain resource arguments, like `gatewayIpAddress` do not have a Storage Gateway API method for reading the information after creation, either omit the argument from the Pulumi program or use `ignoreChanges` to hide the difference. For example:
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.storagegateway.Gateway("example", {gatewayIpAddress: sgw.privateIp});
+ * ```
  */
 export class Gateway extends pulumi.CustomResource {
     /**

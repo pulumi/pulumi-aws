@@ -258,7 +258,7 @@ namespace Pulumi.Aws.Msk
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import MSK clusters using the cluster `arn`. For example:
+    /// Using `pulumi import`, import MSK clusters using the cluster `Arn`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:msk/cluster:Cluster example arn:aws:kafka:us-west-2:123456789012:cluster/example/279c0212-d057-4dba-9aa9-1c4e5a25bfc7-3

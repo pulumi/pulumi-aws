@@ -59,7 +59,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Using `pulumi import`, import EKS access entry using the `cluster_name` and `principal_arn` separated by a colon (`:`). For example:
+ * Using `pulumi import`, import EKS access entry using the `clusterName` and `principalArn` separated by a colon (`:`). For example:
  * 
  * ```sh
  * $ pulumi import aws:eks/accessEntry:AccessEntry my_eks_access_entry my_cluster_name:my_principal_arn

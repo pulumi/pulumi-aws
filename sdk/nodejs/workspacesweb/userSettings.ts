@@ -99,7 +99,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Using `pulumi import`, import WorkSpaces Web User Settings using the `user_settings_arn`. For example:
+ * Using `pulumi import`, import WorkSpaces Web User Settings using the `userSettingsArn`. For example:
  *
  * ```sh
  * $ pulumi import aws:workspacesweb/userSettings:UserSettings example arn:aws:workspacesweb:us-west-2:123456789012:usersettings/abcdef12345

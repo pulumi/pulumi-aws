@@ -153,7 +153,7 @@ namespace Pulumi.Aws.AppSync
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import `aws_appsync_resolver` using the `api_id`, a hyphen, `type`, a hypen and `field`. For example:
+    /// Using `pulumi import`, import `aws.appsync.Resolver` using the `ApiId`, a hyphen, `Type`, a hypen and `Field`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:appsync/resolver:Resolver example abcdef123456-exampleType-exampleField

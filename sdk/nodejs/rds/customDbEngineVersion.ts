@@ -94,7 +94,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Using `pulumi import`, import custom engine versions for Amazon RDS custom using the `engine` and `engine_version` separated by a colon (`:`). For example:
+ * Using `pulumi import`, import custom engine versions for Amazon RDS custom using the `engine` and `engineVersion` separated by a colon (`:`). For example:
  *
  * ```sh
  * $ pulumi import aws:rds/customDbEngineVersion:CustomDbEngineVersion example custom-oracle-ee-cdb:19.cdb_cev1

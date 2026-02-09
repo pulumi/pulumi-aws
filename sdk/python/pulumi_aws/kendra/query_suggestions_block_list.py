@@ -331,7 +331,7 @@ class QuerySuggestionsBlockList(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import the `aws_kendra_query_suggestions_block_list` resource using the unique identifiers of the block list and index separated by a slash (`/`). For example:
+        Using `pulumi import`, import the `kendra.QuerySuggestionsBlockList` resource using the unique identifiers of the block list and index separated by a slash (`/`). For example:
 
         ```sh
         $ pulumi import aws:kendra/querySuggestionsBlockList:QuerySuggestionsBlockList example blocklist-123456780/idx-8012925589
@@ -376,7 +376,7 @@ class QuerySuggestionsBlockList(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import the `aws_kendra_query_suggestions_block_list` resource using the unique identifiers of the block list and index separated by a slash (`/`). For example:
+        Using `pulumi import`, import the `kendra.QuerySuggestionsBlockList` resource using the unique identifiers of the block list and index separated by a slash (`/`). For example:
 
         ```sh
         $ pulumi import aws:kendra/querySuggestionsBlockList:QuerySuggestionsBlockList example blocklist-123456780/idx-8012925589

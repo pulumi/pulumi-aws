@@ -38,7 +38,7 @@ namespace Pulumi.Aws.Dsql
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import DSQL Cluster using the `identifier`. For example:
+    /// Using `pulumi import`, import DSQL Cluster using the `Identifier`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:dsql/cluster:Cluster example abcde1f234ghijklmnop5qr6st

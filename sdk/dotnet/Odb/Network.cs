@@ -16,7 +16,7 @@ namespace Pulumi.Aws.Odb
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import Odb Network using the `id`. For example:
+    /// Using `pulumi import`, import Odb Network using the `Id`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:odb/network:Network example example

@@ -88,7 +88,7 @@ namespace Pulumi.Aws.Rbin
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import RBin Rule using the `id`. For example:
+    /// Using `pulumi import`, import RBin Rule using the `Id`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:rbin/rule:Rule example examplerule

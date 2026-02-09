@@ -19,12 +19,13 @@ namespace Pulumi.Aws.ApiGatewayV2
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import `aws_apigatewayv2_deployment` using the API identifier and deployment identifier. For example:
+    /// Using `pulumi import`, import `aws.apigatewayv2.Deployment` using the API identifier and deployment identifier. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:apigatewayv2/deployment:Deployment example aabbccddee/1122334
     /// ```
-    /// The `triggers` argument cannot be imported.
+    /// 
+    /// The `Triggers` argument cannot be imported.
     /// </summary>
     [AwsResourceType("aws:apigatewayv2/deployment:Deployment")]
     public partial class Deployment : global::Pulumi.CustomResource

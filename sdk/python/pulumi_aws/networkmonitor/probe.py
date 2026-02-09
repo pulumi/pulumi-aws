@@ -392,7 +392,7 @@ class Probe(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import `aws_networkmonitor_probe` using the monitor name and probe id. For example:
+        Using `pulumi import`, import `networkmonitor.Probe` using the monitor name and probe id. For example:
 
         ```sh
         $ pulumi import aws:networkmonitor/probe:Probe example monitor-7786087912324693644,probe-3qm8p693i4fi1h8lqylzkbp42e
@@ -440,7 +440,7 @@ class Probe(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import `aws_networkmonitor_probe` using the monitor name and probe id. For example:
+        Using `pulumi import`, import `networkmonitor.Probe` using the monitor name and probe id. For example:
 
         ```sh
         $ pulumi import aws:networkmonitor/probe:Probe example monitor-7786087912324693644,probe-3qm8p693i4fi1h8lqylzkbp42e

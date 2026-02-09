@@ -65,7 +65,7 @@ namespace Pulumi.Aws.Auditmanager
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import Audit Manager Assessments using the assessment `id`. For example:
+    /// Using `pulumi import`, import Audit Manager Assessments using the assessment `Id`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:auditmanager/assessment:Assessment example abc123-de45

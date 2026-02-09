@@ -73,7 +73,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Using `pulumi import`, import S3 Access Grants instance resource policies using the `account_id`. For example:
+ * Using `pulumi import`, import S3 Access Grants instance resource policies using the `accountId`. For example:
  * 
  * ```sh
  * $ pulumi import aws:s3control/accessGrantsInstanceResourcePolicy:AccessGrantsInstanceResourcePolicy example 123456789012

@@ -39,7 +39,7 @@ namespace Pulumi.Aws.Transfer
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import Transfer AS2 Profile using the `profile_id`. For example:
+    /// Using `pulumi import`, import Transfer AS2 Profile using the `ProfileId`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:transfer/profile:Profile example p-4221a88afd5f4362a

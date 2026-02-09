@@ -56,7 +56,7 @@ namespace Pulumi.Aws.SsoAdmin
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import SSO Admin Application Assignment using the `id`. For example:
+    /// Using `pulumi import`, import SSO Admin Application Assignment using the `Id`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:ssoadmin/applicationAssignment:ApplicationAssignment example arn:aws:sso::123456789012:application/id-12345678,abcd1234,USER

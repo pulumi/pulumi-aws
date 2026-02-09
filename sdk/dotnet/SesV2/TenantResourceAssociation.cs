@@ -35,7 +35,7 @@ namespace Pulumi.Aws.SesV2
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import SESv2 (Simple Email V2) Tenant Resource Association using the `tenant_name` and `resource_arn` separated by `|`. For example:
+    /// Using `pulumi import`, import SESv2 (Simple Email V2) Tenant Resource Association using the `TenantName` and `ResourceArn` separated by `|`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:sesv2/tenantResourceAssociation:TenantResourceAssociation example "example-tenant|arn:aws:ses:us-east-1:123456789012:configuration-set/example"

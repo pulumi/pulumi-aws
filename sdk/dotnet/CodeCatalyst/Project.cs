@@ -36,7 +36,7 @@ namespace Pulumi.Aws.CodeCatalyst
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import CodeCatalyst Project using the `id`. For example:
+    /// Using `pulumi import`, import CodeCatalyst Project using the `Id`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:codecatalyst/project:Project example project-id-12345678

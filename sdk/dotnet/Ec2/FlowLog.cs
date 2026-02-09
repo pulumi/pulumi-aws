@@ -367,7 +367,7 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import Flow Logs using the `id`. For example:
+    /// Using `pulumi import`, import Flow Logs using the `Id`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:ec2/flowLog:FlowLog test_flow_log fl-1a2b3c4d

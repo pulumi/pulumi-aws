@@ -60,7 +60,7 @@ namespace Pulumi.Aws.Sfn
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import SFN (Step Functions) Alias using the `arn`. For example:
+    /// Using `pulumi import`, import SFN (Step Functions) Alias using the `Arn`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:sfn/alias:Alias foo arn:aws:states:us-east-1:123456789098:stateMachine:myStateMachine:foo

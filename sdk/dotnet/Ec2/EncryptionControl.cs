@@ -40,7 +40,7 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import VPC Encryption Control using the `id`. For example:
+    /// Using `pulumi import`, import VPC Encryption Control using the `Id`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:ec2/encryptionControl:EncryptionControl example vpcec-12345678901234567

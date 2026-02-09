@@ -99,17 +99,18 @@ namespace Pulumi.Aws.SsoAdmin
     /// 
     /// #### Required
     /// 
-    /// * `instance_arn` (String) ARN of the SSO Instance.
-    /// 
-    /// * `permission_set_arn` (String) ARN of the Permission Set.
+    /// * `InstanceArn` (String) ARN of the SSO Instance.
+    /// * `PermissionSetArn` (String) ARN of the Permission Set.
     /// 
     /// #### Optional
     /// 
-    /// * `region` (String) Region where this resource is managed.
+    /// * `Region` (String) Region where this resource is managed.
     /// 
-    /// Using `pulumi import`, import SSO Admin Customer Managed Policy Attachments Exclusive using the `instance_arn` and `permission_set_arn` arguments, separated by a comma (`,`). For example:
+    /// Using `pulumi import`, import SSO Admin Customer Managed Policy Attachments Exclusive using the `InstanceArn` and `PermissionSetArn` arguments, separated by a comma (`,`). For example:
     /// 
-    /// % pulumi import aws_ssoadmin_customer_managed_policy_attachments_exclusive.example arn:aws:sso:::instance/ssoins-1234567890abcdef,arn:aws:sso:::permissionSet/ssoins-1234567890abcdef/ps-1234567890abcdef
+    /// ```sh
+    /// $ pulumi import aws:ssoadmin/customerManagedPolicyAttachmentsExclusive:CustomerManagedPolicyAttachmentsExclusive example arn:aws:sso:::instance/ssoins-1234567890abcdef,arn:aws:sso:::permissionSet/ssoins-1234567890abcdef/ps-1234567890abcdef
+    /// ```
     /// </summary>
     [AwsResourceType("aws:ssoadmin/customerManagedPolicyAttachmentsExclusive:CustomerManagedPolicyAttachmentsExclusive")]
     public partial class CustomerManagedPolicyAttachmentsExclusive : global::Pulumi.CustomResource

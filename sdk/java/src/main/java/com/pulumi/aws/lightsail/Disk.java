@@ -66,7 +66,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Using `pulumi import`, import `aws_lightsail_disk` using the name attribute. For example:
+ * Using `pulumi import`, import `aws.lightsail.Disk` using the name attribute. For example:
  * 
  * ```sh
  * $ pulumi import aws:lightsail/disk:Disk example example-disk

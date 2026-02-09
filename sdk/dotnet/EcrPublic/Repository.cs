@@ -57,7 +57,7 @@ namespace Pulumi.Aws.EcrPublic
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import ECR Public Repositories using the `repository_name`. For example:
+    /// Using `pulumi import`, import ECR Public Repositories using the `RepositoryName`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:ecrpublic/repository:Repository example example

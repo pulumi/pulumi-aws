@@ -41,7 +41,7 @@ namespace Pulumi.Aws.AppFabric
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import AppFabric Ingestion using the `app_bundle_identifier` and `arn` separated by `,`. For example:
+    /// Using `pulumi import`, import AppFabric Ingestion using the `AppBundleIdentifier` and `Arn` separated by `,`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:appfabric/ingestion:Ingestion example arn:aws:appfabric:[region]:[account]:appbundle/a9b91477-8831-43c0-970c-xxxxxxxxxx,arn:aws:appfabric:[region]:[account]:appbundle/a9b91477-8831-43c0-970c-xxxxxxxxxx/ingestion/32251416-710b-4425-96ca-xxxxxxxxxx

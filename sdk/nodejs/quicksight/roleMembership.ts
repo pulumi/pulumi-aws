@@ -25,7 +25,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Using `pulumi import`, import QuickSight Role Membership using a comma-delimited string combining the `aws_account_id`, `namespace`, `role`, and `member_name`. For example:
+ * Using `pulumi import`, import QuickSight Role Membership using a comma-delimited string combining the `awsAccountId`, `namespace`, `role`, and `memberName`. For example:
  *
  * ```sh
  * $ pulumi import aws:quicksight/roleMembership:RoleMembership example 012345678901,default,READER,example-group

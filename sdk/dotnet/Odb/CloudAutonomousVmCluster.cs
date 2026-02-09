@@ -123,7 +123,7 @@ namespace Pulumi.Aws.Odb
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import cloud autonomous vm cluster `id`. For example:
+    /// Using `pulumi import`, import cloud autonomous vm cluster `Id`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:odb/cloudAutonomousVmCluster:CloudAutonomousVmCluster example example

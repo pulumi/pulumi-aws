@@ -274,12 +274,13 @@ class LogDeliveryConfiguration(pulumi.CustomResource):
         #### Optional
 
         * `account_id` (String) AWS Account where this resource is managed.
-
         * `region` (String) Region where this resource is managed.
 
         Using `pulumi import`, import Cognito IDP (Identity Provider) Log Delivery Configuration using the `user_pool_id`. For example:
 
-        % pulumi import aws_cognito_log_delivery_configuration.example us-west-2_example123
+        ```sh
+        $ pulumi import aws:cognito/logDeliveryConfiguration:LogDeliveryConfiguration example us-west-2_example123
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -423,12 +424,13 @@ class LogDeliveryConfiguration(pulumi.CustomResource):
         #### Optional
 
         * `account_id` (String) AWS Account where this resource is managed.
-
         * `region` (String) Region where this resource is managed.
 
         Using `pulumi import`, import Cognito IDP (Identity Provider) Log Delivery Configuration using the `user_pool_id`. For example:
 
-        % pulumi import aws_cognito_log_delivery_configuration.example us-west-2_example123
+        ```sh
+        $ pulumi import aws:cognito/logDeliveryConfiguration:LogDeliveryConfiguration example us-west-2_example123
+        ```
 
         :param str resource_name: The name of the resource.
         :param LogDeliveryConfigurationArgs args: The arguments to use to populate this resource's properties.

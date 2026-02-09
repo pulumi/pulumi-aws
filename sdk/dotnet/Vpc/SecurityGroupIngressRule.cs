@@ -57,17 +57,18 @@ namespace Pulumi.Aws.Vpc
     /// 
     /// #### Required
     /// 
-    /// * `id` - (String) ID of the security group rule.
+    /// * `Id` - (String) ID of the security group rule.
     /// 
     /// #### Optional
     /// 
-    /// * `account_id` (String) AWS Account where this resource is managed.
+    /// * `AccountId` (String) AWS Account where this resource is managed.
+    /// * `Region` (String) Region where this resource is managed.
     /// 
-    /// * `region` (String) Region where this resource is managed.
+    /// Using `pulumi import`, import security group ingress rules using the `SecurityGroupRuleId`. For example:
     /// 
-    /// Using `pulumi import`, import security group ingress rules using the `security_group_rule_id`. For example:
-    /// 
-    /// % pulumi import aws_vpc_security_group_ingress_rule.example sgr-02108b27edd666983
+    /// ```sh
+    /// $ pulumi import aws:vpc/securityGroupIngressRule:SecurityGroupIngressRule example sgr-02108b27edd666983
+    /// ```
     /// </summary>
     [AwsResourceType("aws:vpc/securityGroupIngressRule:SecurityGroupIngressRule")]
     public partial class SecurityGroupIngressRule : global::Pulumi.CustomResource

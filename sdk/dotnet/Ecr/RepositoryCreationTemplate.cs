@@ -109,7 +109,7 @@ namespace Pulumi.Aws.Ecr
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import the ECR Repository Creating Templates using the `prefix`. For example:
+    /// Using `pulumi import`, import the ECR Repository Creating Templates using the `Prefix`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:ecr/repositoryCreationTemplate:RepositoryCreationTemplate example example

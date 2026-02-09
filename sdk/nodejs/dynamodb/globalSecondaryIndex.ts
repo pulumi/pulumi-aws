@@ -14,19 +14,19 @@ import * as utilities from "../utilities";
  *
  * #### Required
  *
- * * `index_name` (String) Name of the index.
- *
- * * `table_name` (String) Name of the table this index belongs to.
+ * * `indexName` (String) Name of the index.
+ * * `tableName` (String) Name of the table this index belongs to.
  *
  * #### Optional
  *
- * * `account_id` (String) AWS Account where this resource is managed.
- *
+ * * `accountId` (String) AWS Account where this resource is managed.
  * * `region` (String) Region where this resource is managed.
  *
- * Using `pulumi import`, import DynamoDB tables using the `table_name` and `index_name`, separated by a comma. For example:
+ * Using `pulumi import`, import DynamoDB tables using the `tableName` and `indexName`, separated by a comma. For example:
  *
- * % pulumi import aws_dynamodb_global_secondary_index.example 'example-table,example-index'
+ * ```sh
+ * $ pulumi import aws:dynamodb/globalSecondaryIndex:GlobalSecondaryIndex example 'example-table,example-index'
+ * ```
  */
 export class GlobalSecondaryIndex extends pulumi.CustomResource {
     /**

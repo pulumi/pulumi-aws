@@ -51,7 +51,7 @@ namespace Pulumi.Aws.NeptuneGraph
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import `aws_neptunegraph_graph` using the graph identifier. For example:
+    /// Using `pulumi import`, import `aws.neptunegraph.Graph` using the graph identifier. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:neptunegraph/graph:Graph example "graph_id"

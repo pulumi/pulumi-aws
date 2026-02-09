@@ -46,7 +46,7 @@ namespace Pulumi.Aws.EmrContainers
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import EKS job templates using the `id`. For example:
+    /// Using `pulumi import`, import EKS job templates using the `Id`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:emrcontainers/jobTemplate:JobTemplate example a1b2c3d4e5f6g7h8i9j10k11l

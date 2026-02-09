@@ -73,7 +73,7 @@ import (
 //
 // ## Import
 //
-// Using `pulumi import`, import Amazon Connect Routing Profiles using the `instance_id` and `routing_profile_id` separated by a colon (`:`). For example:
+// Using `pulumi import`, import Amazon Connect Routing Profiles using the `instanceId` and `routingProfileId` separated by a colon (`:`). For example:
 //
 // ```sh
 // $ pulumi import aws:connect/routingProfile:RoutingProfile example f1288a1f-6193-445a-b47e-af739b2:c1d4e5f6-1b3c-1b3c-1b3c-c1d4e5f6c1d4e5

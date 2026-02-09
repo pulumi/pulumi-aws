@@ -57,11 +57,13 @@ namespace Pulumi.Aws.Iam
     /// 
     /// #### Required
     /// 
-    /// - `arn` (String) Amazon Resource Name (ARN) of the IAM policy.
+    /// - `Arn` (String) Amazon Resource Name (ARN) of the IAM policy.
     /// 
-    /// Using `pulumi import`, import IAM Policies using the `arn`. For example:
+    /// Using `pulumi import`, import IAM Policies using the `Arn`. For example:
     /// 
-    /// % pulumi import aws_iam_policy.administrator arn:aws:iam::123456789012:policy/UsersManageOwnCredentials
+    /// ```sh
+    /// $ pulumi import aws:iam/policy:Policy administrator arn:aws:iam::123456789012:policy/UsersManageOwnCredentials
+    /// ```
     /// </summary>
     [AwsResourceType("aws:iam/policy:Policy")]
     public partial class Policy : global::Pulumi.CustomResource

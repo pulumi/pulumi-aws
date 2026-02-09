@@ -228,7 +228,7 @@ class Monitor(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import `aws_networkmonitor_monitor` using the monitor name. For example:
+        Using `pulumi import`, import `networkmonitor.Monitor` using the monitor name. For example:
 
         ```sh
         $ pulumi import aws:networkmonitor/monitor:Monitor example monitor-7786087912324693644
@@ -267,7 +267,7 @@ class Monitor(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import `aws_networkmonitor_monitor` using the monitor name. For example:
+        Using `pulumi import`, import `networkmonitor.Monitor` using the monitor name. For example:
 
         ```sh
         $ pulumi import aws:networkmonitor/monitor:Monitor example monitor-7786087912324693644

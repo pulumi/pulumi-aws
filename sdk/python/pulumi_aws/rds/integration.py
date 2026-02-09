@@ -487,7 +487,9 @@ class Integration(pulumi.CustomResource):
 
         Using `pulumi import`, import RDS (Relational Database) Integration using the `arn`. For example:
 
-        % pulumi import aws_rds_integration.example arn:aws:rds:us-west-2:123456789012:integration:abcdefgh-0000-1111-2222-123456789012
+        ```sh
+        $ pulumi import aws:rds/integration:Integration example arn:aws:rds:us-west-2:123456789012:integration:abcdefgh-0000-1111-2222-123456789012
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -598,7 +600,9 @@ class Integration(pulumi.CustomResource):
 
         Using `pulumi import`, import RDS (Relational Database) Integration using the `arn`. For example:
 
-        % pulumi import aws_rds_integration.example arn:aws:rds:us-west-2:123456789012:integration:abcdefgh-0000-1111-2222-123456789012
+        ```sh
+        $ pulumi import aws:rds/integration:Integration example arn:aws:rds:us-west-2:123456789012:integration:abcdefgh-0000-1111-2222-123456789012
+        ```
 
         :param str resource_name: The name of the resource.
         :param IntegrationArgs args: The arguments to use to populate this resource's properties.

@@ -45,7 +45,7 @@ import (
 //
 // ## Import
 //
-// Using `pulumi import`, import AppSync Channel Namespace using the `api_id` and `name` separated by a comma (`,`). For example:
+// Using `pulumi import`, import AppSync Channel Namespace using the `apiId` and `name` separated by a comma (`,`). For example:
 //
 // ```sh
 // $ pulumi import aws:appsync/channelNamespace:ChannelNamespace example example-api-id,example-channel-namespace

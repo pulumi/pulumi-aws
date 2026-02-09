@@ -180,7 +180,7 @@ namespace Pulumi.Aws.Rds
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import a RDS (Relational Database) Export Task using the `export_task_identifier`. For example:
+    /// Using `pulumi import`, import a RDS (Relational Database) Export Task using the `ExportTaskIdentifier`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:rds/exportTask:ExportTask example example

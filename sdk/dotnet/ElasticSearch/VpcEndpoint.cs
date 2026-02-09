@@ -47,7 +47,7 @@ namespace Pulumi.Aws.ElasticSearch
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import elasticsearch VPC endpoint connections using the `id`. For example:
+    /// Using `pulumi import`, import elasticsearch VPC endpoint connections using the `Id`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:elasticsearch/vpcEndpoint:VpcEndpoint example endpoint-id

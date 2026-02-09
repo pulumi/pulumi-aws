@@ -138,7 +138,7 @@ import (
 //
 // ## Import
 //
-// Using `pulumi import`, import WorkSpaces Web IP Access Settings using the `ip_access_settings_arn`. For example:
+// Using `pulumi import`, import WorkSpaces Web IP Access Settings using the `ipAccessSettingsArn`. For example:
 //
 // ```sh
 // $ pulumi import aws:workspacesweb/ipAccessSettings:IpAccessSettings example arn:aws:workspaces-web:us-west-2:123456789012:ipAccessSettings/abcdef12345

@@ -268,7 +268,9 @@ class TestGridProject(pulumi.CustomResource):
 
         Using `pulumi import`, import DeviceFarm Test Grid Projects using their ARN. For example:
 
-        % pulumi import aws_devicefarm_test_grid_project.example arn:aws:devicefarm:us-west-2:123456789012:testgrid-project:4fa784c7-ccb4-4dbf-ba4f-02198320daa1
+        ```sh
+        $ pulumi import aws:devicefarm/testGridProject:TestGridProject example arn:aws:devicefarm:us-west-2:123456789012:testgrid-project:4fa784c7-ccb4-4dbf-ba4f-02198320daa1
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -314,7 +316,9 @@ class TestGridProject(pulumi.CustomResource):
 
         Using `pulumi import`, import DeviceFarm Test Grid Projects using their ARN. For example:
 
-        % pulumi import aws_devicefarm_test_grid_project.example arn:aws:devicefarm:us-west-2:123456789012:testgrid-project:4fa784c7-ccb4-4dbf-ba4f-02198320daa1
+        ```sh
+        $ pulumi import aws:devicefarm/testGridProject:TestGridProject example arn:aws:devicefarm:us-west-2:123456789012:testgrid-project:4fa784c7-ccb4-4dbf-ba4f-02198320daa1
+        ```
 
         :param str resource_name: The name of the resource.
         :param TestGridProjectArgs args: The arguments to use to populate this resource's properties.

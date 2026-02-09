@@ -30,7 +30,7 @@ namespace Pulumi.Aws.RedshiftServerless
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import Redshift Serverless Namespaces using the `namespace_name`. For example:
+    /// Using `pulumi import`, import Redshift Serverless Namespaces using the `NamespaceName`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:redshiftserverless/namespace:Namespace example example

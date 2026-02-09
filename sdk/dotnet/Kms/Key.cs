@@ -414,17 +414,18 @@ namespace Pulumi.Aws.Kms
     /// 
     /// #### Required
     /// 
-    /// * `id` - (String) ID of the KMS key.
+    /// * `Id` - (String) ID of the KMS key.
     /// 
     /// #### Optional
     /// 
-    /// * `account_id` (String) AWS Account where this resource is managed.
+    /// * `AccountId` (String) AWS Account where this resource is managed.
+    /// * `Region` (String) Region where this resource is managed.
     /// 
-    /// * `region` (String) Region where this resource is managed.
+    /// Using `pulumi import`, import KMS Keys using the `Id`. For example:
     /// 
-    /// Using `pulumi import`, import KMS Keys using the `id`. For example:
-    /// 
-    /// % pulumi import aws_kms_key.a 1234abcd-12ab-34cd-56ef-1234567890ab
+    /// ```sh
+    /// $ pulumi import aws:kms/key:Key a 1234abcd-12ab-34cd-56ef-1234567890ab
+    /// ```
     /// </summary>
     [AwsResourceType("aws:kms/key:Key")]
     public partial class Key : global::Pulumi.CustomResource

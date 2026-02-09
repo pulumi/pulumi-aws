@@ -12,7 +12,7 @@ namespace Pulumi.Aws.Route53
     /// <summary>
     /// ## Import
     /// 
-    /// Using `pulumi import`, import Route 53 Records Exclusive using the `zone_id`. For example:
+    /// Using `pulumi import`, import Route 53 Records Exclusive using the `ZoneId`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:route53/recordsExclusive:RecordsExclusive example ABCD1234

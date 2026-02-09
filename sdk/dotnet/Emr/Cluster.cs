@@ -379,12 +379,26 @@ namespace Pulumi.Aws.Emr
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import EMR clusters using the `id`. For example:
+    /// Using `pulumi import`, import EMR clusters using the `Id`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:emr/cluster:Cluster cluster j-123456ABCDEF
     /// ```
-    /// Since the API does not return the actual values for Kerberos configurations, environments with those options set will need to use the `lifecycle` configuration block `ignore_changes` argument available to all Pulumi resources to prevent perpetual differences. For example:
+    /// 
+    /// Since the API does not return the actual values for Kerberos configurations, environments with those options set will need to use the `Lifecycle` configuration block `IgnoreChanges` argument available to all Pulumi resources to prevent perpetual differences. For example:
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.Emr.Cluster("example");
+    /// 
+    /// });
+    /// ```
     /// </summary>
     [AwsResourceType("aws:emr/cluster:Cluster")]
     public partial class Cluster : global::Pulumi.CustomResource

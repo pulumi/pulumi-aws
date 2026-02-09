@@ -78,7 +78,7 @@ import (
 //
 // ## Import
 //
-// Using `pulumi import`, import Redshift Clusters using the `cluster_identifier`. For example:
+// Using `pulumi import`, import Redshift Clusters using the `clusterIdentifier`. For example:
 //
 // ```sh
 // $ pulumi import aws:redshift/cluster:Cluster myprodcluster tf-redshift-cluster-12345

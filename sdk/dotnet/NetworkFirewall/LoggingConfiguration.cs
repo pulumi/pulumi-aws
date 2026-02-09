@@ -116,7 +116,7 @@ namespace Pulumi.Aws.NetworkFirewall
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import Network Firewall Logging Configurations using the `firewall_arn`. For example:
+    /// Using `pulumi import`, import Network Firewall Logging Configurations using the `FirewallArn`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:networkfirewall/loggingConfiguration:LoggingConfiguration example arn:aws:network-firewall:us-west-1:123456789012:firewall/example

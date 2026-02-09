@@ -70,7 +70,7 @@ import (
 //
 // Using `pulumi import`, import DynamoDB table replicas using the `table-name:main-region`. For example:
 //
-// ~> __Note:__ When importing, use the region where the initial or _main_ global table resides, _not_ the region of the replica.
+// > **Note:** When importing, use the region where the initial or _main_ global table resides, _not_ the region of the replica.
 //
 // ```sh
 // $ pulumi import aws:dynamodb/tableReplica:TableReplica example TestTable:us-west-2

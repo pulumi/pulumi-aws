@@ -90,7 +90,7 @@ namespace Pulumi.Aws.Ssm
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import SSM Quick Setup Configuration Manager using the `manager_arn`. For example:
+    /// Using `pulumi import`, import SSM Quick Setup Configuration Manager using the `ManagerArn`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:ssm/quicksetupConfigurationManager:QuicksetupConfigurationManager example arn:aws:ssm-quicksetup:us-east-1:012345678901:configuration-manager/abcd-1234

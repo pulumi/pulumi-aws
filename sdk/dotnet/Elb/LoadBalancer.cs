@@ -100,7 +100,7 @@ namespace Pulumi.Aws.Elb
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import ELBs using the `name`. For example:
+    /// Using `pulumi import`, import ELBs using the `Name`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:elb/loadBalancer:LoadBalancer bar elb-production-12345

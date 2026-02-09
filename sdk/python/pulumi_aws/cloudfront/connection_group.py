@@ -393,6 +393,8 @@ class ConnectionGroup(pulumi.CustomResource):
         $ pulumi import aws:cloudfront/connectionGroup:ConnectionGroup example CGROUP123EXAMPLE
         ```
 
+        [1]: https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-cloudfront-connectiongroup.html
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] anycast_ip_list_id: ID of the associated Anycast IP List. `ipv6_enabled` must not be set to `true` in order to set this argument
@@ -431,6 +433,8 @@ class ConnectionGroup(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:cloudfront/connectionGroup:ConnectionGroup example CGROUP123EXAMPLE
         ```
+
+        [1]: https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-cloudfront-connectiongroup.html
 
         :param str resource_name: The name of the resource.
         :param ConnectionGroupArgs args: The arguments to use to populate this resource's properties.

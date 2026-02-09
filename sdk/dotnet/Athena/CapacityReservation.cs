@@ -37,7 +37,7 @@ namespace Pulumi.Aws.Athena
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import Athena Capacity Reservation using the `name`. For example:
+    /// Using `pulumi import`, import Athena Capacity Reservation using the `Name`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:athena/capacityReservation:CapacityReservation example example-reservation

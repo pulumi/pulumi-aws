@@ -50,12 +50,13 @@ namespace Pulumi.Aws.MemoryDb
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import a user using the `user_name`. For example:
+    /// Using `pulumi import`, import a user using the `UserName`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:memorydb/user:User example my-user
     /// ```
-    /// The `passwords` are not available for imported resources, as this information cannot be read back from the MemoryDB API.
+    /// 
+    /// The `Passwords` are not available for imported resources, as this information cannot be read back from the MemoryDB API.
     /// </summary>
     [AwsResourceType("aws:memorydb/user:User")]
     public partial class User : global::Pulumi.CustomResource

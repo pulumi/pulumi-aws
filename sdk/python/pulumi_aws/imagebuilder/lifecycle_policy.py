@@ -434,9 +434,11 @@ class LifecyclePolicy(pulumi.CustomResource):
 
         - `arn` (String) Amazon Resource Name (ARN) of the Image Builder lifecycle policy.
 
-        Using `pulumi import`, import `aws_imagebuilder_lifecycle_policy` using the Amazon Resource Name (ARN). For example:
+        Using `pulumi import`, import `imagebuilder.LifecyclePolicy` using the Amazon Resource Name (ARN). For example:
 
-        % pulumi import aws_imagebuilder_lifecycle_policy.example arn:aws:imagebuilder:us-east-1:123456789012:lifecycle-policy/example
+        ```sh
+        $ pulumi import aws:imagebuilder/lifecyclePolicy:LifecyclePolicy example arn:aws:imagebuilder:us-east-1:123456789012:lifecycle-policy/example
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -518,9 +520,11 @@ class LifecyclePolicy(pulumi.CustomResource):
 
         - `arn` (String) Amazon Resource Name (ARN) of the Image Builder lifecycle policy.
 
-        Using `pulumi import`, import `aws_imagebuilder_lifecycle_policy` using the Amazon Resource Name (ARN). For example:
+        Using `pulumi import`, import `imagebuilder.LifecyclePolicy` using the Amazon Resource Name (ARN). For example:
 
-        % pulumi import aws_imagebuilder_lifecycle_policy.example arn:aws:imagebuilder:us-east-1:123456789012:lifecycle-policy/example
+        ```sh
+        $ pulumi import aws:imagebuilder/lifecyclePolicy:LifecyclePolicy example arn:aws:imagebuilder:us-east-1:123456789012:lifecycle-policy/example
+        ```
 
         :param str resource_name: The name of the resource.
         :param LifecyclePolicyArgs args: The arguments to use to populate this resource's properties.

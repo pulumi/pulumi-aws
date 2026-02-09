@@ -74,7 +74,7 @@ namespace Pulumi.Aws.VerifiedAccess
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import Verified Access Instances using the  `id`. For example:
+    /// Using `pulumi import`, import Verified Access Instances using the  `Id`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:verifiedaccess/instance:Instance example vai-1234567890abcdef0

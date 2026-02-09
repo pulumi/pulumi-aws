@@ -45,7 +45,7 @@ namespace Pulumi.Aws.Chime
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import a ChimeSDKVoice SIP Rule using the `id`. For example:
+    /// Using `pulumi import`, import a ChimeSDKVoice SIP Rule using the `Id`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:chime/sdkvoiceSipRule:SdkvoiceSipRule example abcdef123456

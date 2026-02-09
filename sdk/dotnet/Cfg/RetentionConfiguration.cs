@@ -33,7 +33,7 @@ namespace Pulumi.Aws.Cfg
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import the AWS Config retention configuration using the `name`. For example:
+    /// Using `pulumi import`, import the AWS Config retention configuration using the `Name`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:cfg/retentionConfiguration:RetentionConfiguration example default

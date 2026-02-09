@@ -39,7 +39,7 @@ namespace Pulumi.Aws.Notifications
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import User Notifications Contacts Email Contact using the `arn`. For example:
+    /// Using `pulumi import`, import User Notifications Contacts Email Contact using the `Arn`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:notifications/contactsEmailContact:ContactsEmailContact example arn:aws:notificationscontacts:us-west-2:123456789012:emailcontact:example-contact

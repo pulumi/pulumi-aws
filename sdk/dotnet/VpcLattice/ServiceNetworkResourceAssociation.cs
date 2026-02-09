@@ -39,7 +39,7 @@ namespace Pulumi.Aws.VpcLattice
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import VPC Lattice Service Network Resource Association using the `id`. For example:
+    /// Using `pulumi import`, import VPC Lattice Service Network Resource Association using the `Id`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:vpclattice/serviceNetworkResourceAssociation:ServiceNetworkResourceAssociation example snra-1234567890abcef12

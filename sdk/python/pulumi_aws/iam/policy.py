@@ -371,7 +371,9 @@ class Policy(pulumi.CustomResource):
 
         Using `pulumi import`, import IAM Policies using the `arn`. For example:
 
-        % pulumi import aws_iam_policy.administrator arn:aws:iam::123456789012:policy/UsersManageOwnCredentials
+        ```sh
+        $ pulumi import aws:iam/policy:Policy administrator arn:aws:iam::123456789012:policy/UsersManageOwnCredentials
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -425,7 +427,9 @@ class Policy(pulumi.CustomResource):
 
         Using `pulumi import`, import IAM Policies using the `arn`. For example:
 
-        % pulumi import aws_iam_policy.administrator arn:aws:iam::123456789012:policy/UsersManageOwnCredentials
+        ```sh
+        $ pulumi import aws:iam/policy:Policy administrator arn:aws:iam::123456789012:policy/UsersManageOwnCredentials
+        ```
 
         :param str resource_name: The name of the resource.
         :param PolicyArgs args: The arguments to use to populate this resource's properties.

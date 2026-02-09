@@ -458,33 +458,27 @@ class Account(pulumi.CustomResource):
 
         Using `pulumi import`, import the AWS member account using the `account_id`. For example:
 
-        % pulumi import aws_organizations_account.example 111111111111
+        ```sh
+        $ pulumi import aws:organizations/account:Account example 111111111111
+        ```
 
         To import accounts that have set iam_user_access_to_billing, use the following:
 
-        % pulumi import aws_organizations_account.example 111111111111_ALLOW
+        ```sh
+        $ pulumi import aws:organizations/account:Account example 111111111111_ALLOW
+        ```
 
         Certain resource arguments, like `role_name`, do not have an Organizations API method for reading the information after account creation. If the argument is set in the Pulumi program on an imported resource, Pulumi will always show a difference. To workaround this behavior, either omit the argument from the Pulumi program or use `ignore_changes` to hide the difference. For example:
 
-        terraform
+        ```python
+        import pulumi
+        import pulumi_aws as aws
 
-        resource "aws_organizations_account" "account" {
-
-          name      = "my_new_account"
-
-          email     = "john@doe.org"
-
-          role_name = "myOrganizationRole"
-
-        # There is no AWS Organizations API for reading role_name
-
-          lifecycle {
-
-            ignore_changes = [role_name]
-
-          }
-
-        }
+        account = aws.organizations.Account("account",
+            name="my_new_account",
+            email="john@doe.org",
+            role_name="myOrganizationRole")
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -537,33 +531,27 @@ class Account(pulumi.CustomResource):
 
         Using `pulumi import`, import the AWS member account using the `account_id`. For example:
 
-        % pulumi import aws_organizations_account.example 111111111111
+        ```sh
+        $ pulumi import aws:organizations/account:Account example 111111111111
+        ```
 
         To import accounts that have set iam_user_access_to_billing, use the following:
 
-        % pulumi import aws_organizations_account.example 111111111111_ALLOW
+        ```sh
+        $ pulumi import aws:organizations/account:Account example 111111111111_ALLOW
+        ```
 
         Certain resource arguments, like `role_name`, do not have an Organizations API method for reading the information after account creation. If the argument is set in the Pulumi program on an imported resource, Pulumi will always show a difference. To workaround this behavior, either omit the argument from the Pulumi program or use `ignore_changes` to hide the difference. For example:
 
-        terraform
+        ```python
+        import pulumi
+        import pulumi_aws as aws
 
-        resource "aws_organizations_account" "account" {
-
-          name      = "my_new_account"
-
-          email     = "john@doe.org"
-
-          role_name = "myOrganizationRole"
-
-        # There is no AWS Organizations API for reading role_name
-
-          lifecycle {
-
-            ignore_changes = [role_name]
-
-          }
-
-        }
+        account = aws.organizations.Account("account",
+            name="my_new_account",
+            email="john@doe.org",
+            role_name="myOrganizationRole")
+        ```
 
         :param str resource_name: The name of the resource.
         :param AccountArgs args: The arguments to use to populate this resource's properties.

@@ -12,7 +12,7 @@ namespace Pulumi.Aws.Rds
     /// <summary>
     /// ## Import
     /// 
-    /// Using `pulumi import`, import DB proxies using the `name`. For example:
+    /// Using `pulumi import`, import DB proxies using the `Name`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:rds/proxy:Proxy example example

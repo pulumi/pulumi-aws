@@ -131,13 +131,14 @@ import * as utilities from "../utilities";
  *
  * #### Optional
  *
- * * `account_id` (String) AWS Account where this resource is managed.
- *
+ * * `accountId` (String) AWS Account where this resource is managed.
  * * `region` (String) Region where this resource is managed.
  *
  * Using `pulumi import`, import ECR Lifecycle Policy using the name of the repository. For example:
  *
- * % pulumi import aws_ecr_lifecycle_policy.example tf-example
+ * ```sh
+ * $ pulumi import aws:ecr/lifecyclePolicy:LifecyclePolicy example tf-example
+ * ```
  */
 export class LifecyclePolicy extends pulumi.CustomResource {
     /**

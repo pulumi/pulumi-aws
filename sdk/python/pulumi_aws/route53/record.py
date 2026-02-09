@@ -748,50 +748,31 @@ class Record(pulumi.CustomResource):
         #### Required
 
         * `zone_id` (String) Hosted zone ID for the record.
-
         * `name` (String) Name of the record.
-
         * `type` (String) Record type.
 
         #### Optional
 
         * `account_id` (String) AWS Account where this resource is managed.
-
         * `set_identifier` (String) Set identifier for the record.
 
         If the record also contains a set identifier, append it:
 
-        terraform
-
-        import {
-
-          to = aws_route53_record.example
-
-          id = "Z4KAPRWWNC7JR_dev.example.com_NS_dev"
-
-        }
-
         If the record name is the empty string, it can be omitted:
-
-        terraform
-
-        import {
-
-          to = aws_route53_record.example
-
-          id = "Z4KAPRWWNC7JR__NS"
-
-        }
 
         **Using `pulumi import` to import** Route53 Records using the hosted zone ID, record name, record type, and set identifier. For example:
 
         Using the hosted zone ID, record name, and record type, separated by underscores (`_`):
 
-        % pulumi import aws_route53_record.example Z4KAPRWWNC7JR_dev_NS
+        ```sh
+        $ pulumi import aws:route53/record:Record example Z4KAPRWWNC7JR_dev_NS
+        ```
 
         If the record also contains a set identifier, append it:
 
-        % pulumi import aws_route53_record.example Z4KAPRWWNC7JR_dev_NS_dev
+        ```sh
+        $ pulumi import aws:route53/record:Record example Z4KAPRWWNC7JR_dev_NS_dev
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -974,50 +955,31 @@ class Record(pulumi.CustomResource):
         #### Required
 
         * `zone_id` (String) Hosted zone ID for the record.
-
         * `name` (String) Name of the record.
-
         * `type` (String) Record type.
 
         #### Optional
 
         * `account_id` (String) AWS Account where this resource is managed.
-
         * `set_identifier` (String) Set identifier for the record.
 
         If the record also contains a set identifier, append it:
 
-        terraform
-
-        import {
-
-          to = aws_route53_record.example
-
-          id = "Z4KAPRWWNC7JR_dev.example.com_NS_dev"
-
-        }
-
         If the record name is the empty string, it can be omitted:
-
-        terraform
-
-        import {
-
-          to = aws_route53_record.example
-
-          id = "Z4KAPRWWNC7JR__NS"
-
-        }
 
         **Using `pulumi import` to import** Route53 Records using the hosted zone ID, record name, record type, and set identifier. For example:
 
         Using the hosted zone ID, record name, and record type, separated by underscores (`_`):
 
-        % pulumi import aws_route53_record.example Z4KAPRWWNC7JR_dev_NS
+        ```sh
+        $ pulumi import aws:route53/record:Record example Z4KAPRWWNC7JR_dev_NS
+        ```
 
         If the record also contains a set identifier, append it:
 
-        % pulumi import aws_route53_record.example Z4KAPRWWNC7JR_dev_NS_dev
+        ```sh
+        $ pulumi import aws:route53/record:Record example Z4KAPRWWNC7JR_dev_NS_dev
+        ```
 
         :param str resource_name: The name of the resource.
         :param RecordArgs args: The arguments to use to populate this resource's properties.

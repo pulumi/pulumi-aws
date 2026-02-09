@@ -53,7 +53,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Using `pulumi import`, import `aws_detective_graph` using the ARN. For example:
+ * Using `pulumi import`, import `aws.detective.Graph` using the ARN. For example:
  * 
  * ```sh
  * $ pulumi import aws:detective/graph:Graph example arn:aws:detective:us-east-1:123456789101:graph:231684d34gh74g4bae1dbc7bd807d02d

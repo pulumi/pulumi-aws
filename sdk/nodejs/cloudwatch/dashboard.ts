@@ -53,7 +53,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Using `pulumi import`, import CloudWatch dashboards using the `dashboard_name`. For example:
+ * Using `pulumi import`, import CloudWatch dashboards using the `dashboardName`. For example:
  *
  * ```sh
  * $ pulumi import aws:cloudwatch/dashboard:Dashboard sample dashboard_name

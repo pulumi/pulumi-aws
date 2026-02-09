@@ -116,13 +116,14 @@ import (
 //
 // #### Optional
 //
-// - `account_id` (String) AWS Account where this resource is managed.
-//
+// - `accountId` (String) AWS Account where this resource is managed.
 // - `region` (String) Region where this resource is managed.
 //
 // Using `pulumi import`, import Amazon Connect Phone Numbers using its `id`. For example:
 //
-// % pulumi import aws_connect_phone_number.example 12345678-abcd-1234-efgh-9876543210ab
+// ```sh
+// $ pulumi import aws:connect/phoneNumber:PhoneNumber example 12345678-abcd-1234-efgh-9876543210ab
+// ```
 type PhoneNumber struct {
 	pulumi.CustomResourceState
 

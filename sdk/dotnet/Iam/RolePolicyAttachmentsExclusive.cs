@@ -67,7 +67,7 @@ namespace Pulumi.Aws.Iam
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import exclusive management of managed IAM policy assignments using the `role_name`. For example:
+    /// Using `pulumi import`, import exclusive management of managed IAM policy assignments using the `RoleName`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:iam/rolePolicyAttachmentsExclusive:RolePolicyAttachmentsExclusive example MyRole

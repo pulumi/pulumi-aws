@@ -23,7 +23,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Using `pulumi import`, import User Notifications Notification Hub using the `notification_hub_region`. For example:
+ * Using `pulumi import`, import User Notifications Notification Hub using the ` notificationHubRegion  `. For example:
  *
  * ```sh
  * $ pulumi import aws:notifications/notificationHub:NotificationHub example us-west-2

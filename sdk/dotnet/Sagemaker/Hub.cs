@@ -35,7 +35,7 @@ namespace Pulumi.Aws.Sagemaker
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import SageMaker AI Hubs using the `name`. For example:
+    /// Using `pulumi import`, import SageMaker AI Hubs using the `Name`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:sagemaker/hub:Hub test_hub my-code-repo

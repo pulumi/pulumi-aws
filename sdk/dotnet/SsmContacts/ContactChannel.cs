@@ -76,11 +76,13 @@ namespace Pulumi.Aws.SsmContacts
     /// 
     /// #### Required
     /// 
-    /// - `arn` (String) Amazon Resource Name (ARN) of the contact channel.
+    /// - `Arn` (String) Amazon Resource Name (ARN) of the contact channel.
     /// 
-    /// Using `pulumi import`, import SSM Contact Channel using the `arn`. For example:
+    /// Using `pulumi import`, import SSM Contact Channel using the `Arn`. For example:
     /// 
-    /// % pulumi import aws_ssmcontacts_contact_channel.example arn:aws:ssm-contacts:us-west-2:123456789012:contact-channel/example
+    /// ```sh
+    /// $ pulumi import aws:ssmcontacts/contactChannel:ContactChannel example arn:aws:ssm-contacts:us-west-2:123456789012:contact-channel/example
+    /// ```
     /// </summary>
     [AwsResourceType("aws:ssmcontacts/contactChannel:ContactChannel")]
     public partial class ContactChannel : global::Pulumi.CustomResource

@@ -241,7 +241,7 @@ namespace Pulumi.Aws.CodePipeline
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import CodePipelines using the `name`. For example:
+    /// Using `pulumi import`, import CodePipelines using the `Name`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:codepipeline/pipeline:Pipeline example example-pipeline

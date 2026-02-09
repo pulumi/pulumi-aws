@@ -107,11 +107,13 @@ namespace Pulumi.Aws.DynamoDB
     /// 
     /// #### Required
     /// 
-    /// - `arn` (String) Amazon Resource Name (ARN) of the DynamoDB table export.
+    /// - `Arn` (String) Amazon Resource Name (ARN) of the DynamoDB table export.
     /// 
-    /// Using `pulumi import`, import DynamoDB table exports using the `arn`. For example:
+    /// Using `pulumi import`, import DynamoDB table exports using the `Arn`. For example:
     /// 
-    /// % pulumi import aws_dynamodb_table_export.example arn:aws:dynamodb:us-west-2:12345678911:table/my-table-1/export/01580735656614-2c2f422e
+    /// ```sh
+    /// $ pulumi import aws:dynamodb/tableExport:TableExport example arn:aws:dynamodb:us-west-2:12345678911:table/my-table-1/export/01580735656614-2c2f422e
+    /// ```
     /// </summary>
     [AwsResourceType("aws:dynamodb/tableExport:TableExport")]
     public partial class TableExport : global::Pulumi.CustomResource

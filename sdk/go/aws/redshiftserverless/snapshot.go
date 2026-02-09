@@ -43,7 +43,7 @@ import (
 //
 // ## Import
 //
-// Using `pulumi import`, import Redshift Serverless Snapshots using the `snapshot_name`. For example:
+// Using `pulumi import`, import Redshift Serverless Snapshots using the `snapshotName`. For example:
 //
 // ```sh
 // $ pulumi import aws:redshiftserverless/snapshot:Snapshot example example

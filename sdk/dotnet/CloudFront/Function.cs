@@ -20,7 +20,7 @@ namespace Pulumi.Aws.CloudFront
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import CloudFront Functions using the `name`. For example:
+    /// Using `pulumi import`, import CloudFront Functions using the `Name`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:cloudfront/function:Function test my_test_function

@@ -257,7 +257,7 @@ class VpcLink(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import `aws_apigatewayv2_vpc_link` using the VPC Link identifier. For example:
+        Using `pulumi import`, import `apigatewayv2.VpcLink` using the VPC Link identifier. For example:
 
         ```sh
         $ pulumi import aws:apigatewayv2/vpcLink:VpcLink example aabbccddee
@@ -300,7 +300,7 @@ class VpcLink(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import `aws_apigatewayv2_vpc_link` using the VPC Link identifier. For example:
+        Using `pulumi import`, import `apigatewayv2.VpcLink` using the VPC Link identifier. For example:
 
         ```sh
         $ pulumi import aws:apigatewayv2/vpcLink:VpcLink example aabbccddee

@@ -32,7 +32,9 @@ import * as utilities from "../utilities";
  *
  * Using `pulumi import`, import IAM SAML Providers using the `arn`. For example:
  *
- * % pulumi import aws_iam_saml_provider.default arn:aws:iam::123456789012:saml-provider/SAMLADFS
+ * ```sh
+ * $ pulumi import aws:iam/samlProvider:SamlProvider default arn:aws:iam::123456789012:saml-provider/SAMLADFS
+ * ```
  */
 export class SamlProvider extends pulumi.CustomResource {
     /**

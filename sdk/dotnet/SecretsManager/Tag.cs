@@ -37,7 +37,7 @@ namespace Pulumi.Aws.SecretsManager
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import `aws_secretsmanager_tag` using the AWS Secrets Manager secret identifier and key, separated by a comma (`,`). For example:
+    /// Using `pulumi import`, import `aws.secretsmanager.Tag` using the AWS Secrets Manager secret identifier and key, separated by a comma (`,`). For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:secretsmanager/tag:Tag example arn:aws:secretsmanager:us-east-1:123456789012:example-secret,ExampleKey

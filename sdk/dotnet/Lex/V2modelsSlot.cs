@@ -12,7 +12,7 @@ namespace Pulumi.Aws.Lex
     /// <summary>
     /// ## Import
     /// 
-    /// Using `pulumi import`, import Lex V2 Models Slot using the `id`. For example:
+    /// Using `pulumi import`, import Lex V2 Models Slot using the `Id`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:lex/v2modelsSlot:V2modelsSlot example bot-1234,1,intent-5678,en-US,slot-9012

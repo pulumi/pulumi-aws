@@ -403,7 +403,7 @@ class Profile(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import `aws_rolesanywhere_profile` using its `id`. For example:
+        Using `pulumi import`, import `rolesanywhere.Profile` using its `id`. For example:
 
         ```sh
         $ pulumi import aws:rolesanywhere/profile:Profile example db138a85-8925-4f9f-a409-08231233cacf
@@ -462,7 +462,7 @@ class Profile(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import `aws_rolesanywhere_profile` using its `id`. For example:
+        Using `pulumi import`, import `rolesanywhere.Profile` using its `id`. For example:
 
         ```sh
         $ pulumi import aws:rolesanywhere/profile:Profile example db138a85-8925-4f9f-a409-08231233cacf

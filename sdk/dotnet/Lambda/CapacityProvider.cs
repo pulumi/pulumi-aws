@@ -46,7 +46,7 @@ namespace Pulumi.Aws.Lambda
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import Lambda Capacity Provider using the `name`. For example:
+    /// Using `pulumi import`, import Lambda Capacity Provider using the `Name`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:lambda/capacityProvider:CapacityProvider example example

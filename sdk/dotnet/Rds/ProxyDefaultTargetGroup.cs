@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Rds
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import DB proxy default target groups using the `db_proxy_name`. For example:
+    /// Using `pulumi import`, import DB proxy default target groups using the `DbProxyName`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:rds/proxyDefaultTargetGroup:ProxyDefaultTargetGroup example example

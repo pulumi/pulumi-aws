@@ -415,30 +415,23 @@ class BucketWebsiteConfiguration(pulumi.CustomResource):
         #### Optional
 
         * `account_id` (String) AWS Account where this resource is managed.
-
         * `region` (String) Region where this resource is managed.
 
         If the owner (account ID) of the source bucket differs from the account used to configure the AWS Provider, import using the `bucket` and `expected_bucket_owner` separated by a comma (`,`):
-
-        terraform
-
-        import {
-
-          to = aws_s3_bucket_website_configuration.example
-
-          id = "bucket-name,123456789012"
-
-        }
 
         **Using `pulumi import` to import** S3 bucket website configuration using the `bucket` or using the `bucket` and `expected_bucket_owner` separated by a comma (`,`). For example:
 
         If the owner (account ID) of the source bucket is the same account used to configure the AWS Provider, import using the `bucket`:
 
-        % pulumi import aws_s3_bucket_website_configuration.example bucket-name
+        ```sh
+        $ pulumi import aws:s3/bucketWebsiteConfiguration:BucketWebsiteConfiguration example bucket-name
+        ```
 
         If the owner (account ID) of the source bucket differs from the account used to configure the AWS Provider, import using the `bucket` and `expected_bucket_owner` separated by a comma (`,`):
 
-        % pulumi import aws_s3_bucket_website_configuration.example bucket-name,123456789012
+        ```sh
+        $ pulumi import aws:s3/bucketWebsiteConfiguration:BucketWebsiteConfiguration example bucket-name,123456789012
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -525,30 +518,23 @@ class BucketWebsiteConfiguration(pulumi.CustomResource):
         #### Optional
 
         * `account_id` (String) AWS Account where this resource is managed.
-
         * `region` (String) Region where this resource is managed.
 
         If the owner (account ID) of the source bucket differs from the account used to configure the AWS Provider, import using the `bucket` and `expected_bucket_owner` separated by a comma (`,`):
-
-        terraform
-
-        import {
-
-          to = aws_s3_bucket_website_configuration.example
-
-          id = "bucket-name,123456789012"
-
-        }
 
         **Using `pulumi import` to import** S3 bucket website configuration using the `bucket` or using the `bucket` and `expected_bucket_owner` separated by a comma (`,`). For example:
 
         If the owner (account ID) of the source bucket is the same account used to configure the AWS Provider, import using the `bucket`:
 
-        % pulumi import aws_s3_bucket_website_configuration.example bucket-name
+        ```sh
+        $ pulumi import aws:s3/bucketWebsiteConfiguration:BucketWebsiteConfiguration example bucket-name
+        ```
 
         If the owner (account ID) of the source bucket differs from the account used to configure the AWS Provider, import using the `bucket` and `expected_bucket_owner` separated by a comma (`,`):
 
-        % pulumi import aws_s3_bucket_website_configuration.example bucket-name,123456789012
+        ```sh
+        $ pulumi import aws:s3/bucketWebsiteConfiguration:BucketWebsiteConfiguration example bucket-name,123456789012
+        ```
 
         :param str resource_name: The name of the resource.
         :param BucketWebsiteConfigurationArgs args: The arguments to use to populate this resource's properties.

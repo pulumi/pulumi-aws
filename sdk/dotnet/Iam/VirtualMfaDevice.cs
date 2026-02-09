@@ -39,7 +39,7 @@ namespace Pulumi.Aws.Iam
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import IAM Virtual MFA Devices using the `arn`. For example:
+    /// Using `pulumi import`, import IAM Virtual MFA Devices using the `Arn`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:iam/virtualMfaDevice:VirtualMfaDevice example arn:aws:iam::123456789012:mfa/example

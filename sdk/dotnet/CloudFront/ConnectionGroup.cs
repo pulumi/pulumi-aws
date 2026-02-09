@@ -36,11 +36,13 @@ namespace Pulumi.Aws.CloudFront
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import CloudFront Connection Groups using the `id`. For example:
+    /// Using `pulumi import`, import CloudFront Connection Groups using the `Id`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:cloudfront/connectionGroup:ConnectionGroup example CGROUP123EXAMPLE
     /// ```
+    /// 
+    /// [1]: https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-cloudfront-connectiongroup.html
     /// </summary>
     [AwsResourceType("aws:cloudfront/connectionGroup:ConnectionGroup")]
     public partial class ConnectionGroup : global::Pulumi.CustomResource

@@ -234,7 +234,7 @@ class ServiceAction(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import `aws_servicecatalog_service_action` using the service action ID. For example:
+        Using `pulumi import`, import `servicecatalog.ServiceAction` using the service action ID. For example:
 
         ```sh
         $ pulumi import aws:servicecatalog/serviceAction:ServiceAction example act-f1w12eperfslh
@@ -277,7 +277,7 @@ class ServiceAction(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import `aws_servicecatalog_service_action` using the service action ID. For example:
+        Using `pulumi import`, import `servicecatalog.ServiceAction` using the service action ID. For example:
 
         ```sh
         $ pulumi import aws:servicecatalog/serviceAction:ServiceAction example act-f1w12eperfslh

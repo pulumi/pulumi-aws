@@ -37,7 +37,7 @@ namespace Pulumi.Aws.LightSail
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import `aws_lightsail_certificate` using the certificate name. For example:
+    /// Using `pulumi import`, import `aws.lightsail.Certificate` using the certificate name. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:lightsail/certificate:Certificate example example-certificate

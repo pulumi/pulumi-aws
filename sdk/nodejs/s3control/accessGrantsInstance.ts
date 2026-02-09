@@ -30,7 +30,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Using `pulumi import`, import S3 Access Grants instances using the `account_id`. For example:
+ * Using `pulumi import`, import S3 Access Grants instances using the `accountId`. For example:
  *
  * ```sh
  * $ pulumi import aws:s3control/accessGrantsInstance:AccessGrantsInstance example 123456789012

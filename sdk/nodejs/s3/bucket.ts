@@ -43,13 +43,14 @@ import * as utilities from "../utilities";
  *
  * #### Optional
  *
- * * `account_id` (String) AWS Account where this resource is managed.
- *
+ * * `accountId` (String) AWS Account where this resource is managed.
  * * `region` (String) Region where this resource is managed.
  *
  * Using `pulumi import`, import S3 bucket using the `bucket`. For example:
  *
- * % pulumi import aws_s3_bucket.example bucket-name
+ * ```sh
+ * $ pulumi import aws:s3/bucket:Bucket example bucket-name
+ * ```
  */
 export class Bucket extends pulumi.CustomResource {
     /**

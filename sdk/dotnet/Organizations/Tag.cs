@@ -40,7 +40,7 @@ namespace Pulumi.Aws.Organizations
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import `aws_organizations_tag` using the Organizations resource identifier and key, separated by a comma (`,`). For example:
+    /// Using `pulumi import`, import `aws.organizations.Tag` using the Organizations resource identifier and key, separated by a comma (`,`). For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:organizations/tag:Tag example ou-1234567,ExampleKey

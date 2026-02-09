@@ -16,23 +16,25 @@ namespace Pulumi.Aws.ApiGateway
     /// 
     /// ## Import
     /// 
-    /// For a non-root `base_path`:
+    /// For a non-root `BasePath`:
     /// 
-    /// For a non-root `base_path` and a private custom domain name:
+    /// For a non-root `BasePath` and a private custom domain name:
     /// 
-    /// Using `pulumi import`, import `aws_api_gateway_base_path_mapping` using the domain name and base path or domain name, base path and domain name ID (for private custom domain names). For example:
+    /// Using `pulumi import`, import `aws.apigateway.BasePathMapping` using the domain name and base path or domain name, base path and domain name ID (for private custom domain names). For example:
     /// 
-    /// For an empty `base_path` or, in other words, a root path (`/`):
+    /// For an empty `BasePath` or, in other words, a root path (`/`):
     /// 
     /// ```sh
     /// $ pulumi import aws:apigateway/basePathMapping:BasePathMapping example example.com/
     /// ```
-    /// For a non-root `base_path`:
+    /// 
+    /// For a non-root `BasePath`:
     /// 
     /// ```sh
     /// $ pulumi import aws:apigateway/basePathMapping:BasePathMapping example example.com/base-path
     /// ```
-    /// For a non-root `base_path` and a private custom domain name:
+    /// 
+    /// For a non-root `BasePath` and a private custom domain name:
     /// 
     /// ```sh
     /// $ pulumi import aws:apigateway/basePathMapping:BasePathMapping example api.internal.example.com/base-path/abcde12345

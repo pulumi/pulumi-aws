@@ -81,7 +81,7 @@ namespace Pulumi.Aws.Backup
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import Backup vault notifications using the `name`. For example:
+    /// Using `pulumi import`, import Backup vault notifications using the `Name`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:backup/vaultNotifications:VaultNotifications test TestVault

@@ -80,7 +80,7 @@ namespace Pulumi.Aws.Fsx
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import Amazon File Cache cache using the resource `id`. For example:
+    /// Using `pulumi import`, import Amazon File Cache cache using the resource `Id`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:fsx/fileCache:FileCache example fc-8012925589

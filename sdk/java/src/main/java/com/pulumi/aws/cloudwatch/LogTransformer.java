@@ -66,7 +66,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Using `pulumi import`, import CloudWatch Logs Transformer using the `log_group_arn`. For example:
+ * Using `pulumi import`, import CloudWatch Logs Transformer using the `logGroupArn`. For example:
  * 
  * ```sh
  * $ pulumi import aws:cloudwatch/logTransformer:LogTransformer example arn:aws:logs:us-west-2:123456789012:log-group:example

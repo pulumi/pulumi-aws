@@ -277,7 +277,15 @@ import * as utilities from "../utilities";
  * ```sh
  * $ pulumi import aws:emr/cluster:Cluster cluster j-123456ABCDEF
  * ```
- * Since the API does not return the actual values for Kerberos configurations, environments with those options set will need to use the `lifecycle` configuration block `ignore_changes` argument available to all Pulumi resources to prevent perpetual differences. For example:
+ *
+ * Since the API does not return the actual values for Kerberos configurations, environments with those options set will need to use the `lifecycle` configuration block `ignoreChanges` argument available to all Pulumi resources to prevent perpetual differences. For example:
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.emr.Cluster("example", {});
+ * ```
  */
 export class Cluster extends pulumi.CustomResource {
     /**

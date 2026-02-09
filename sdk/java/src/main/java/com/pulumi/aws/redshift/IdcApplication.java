@@ -59,7 +59,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Using `pulumi import`, import Redshift endpoint access using the `redshift_idc_application_arn`. For example:
+ * Using `pulumi import`, import Redshift endpoint access using the `redshiftIdcApplicationArn`. For example:
  * 
  * ```sh
  * $ pulumi import aws:redshift/idcApplication:IdcApplication example example

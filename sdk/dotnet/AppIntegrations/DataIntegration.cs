@@ -45,7 +45,7 @@ namespace Pulumi.Aws.AppIntegrations
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import Amazon AppIntegrations Data Integrations using the `id`. For example:
+    /// Using `pulumi import`, import Amazon AppIntegrations Data Integrations using the `Id`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:appintegrations/dataIntegration:DataIntegration example 12345678-1234-1234-1234-123456789123

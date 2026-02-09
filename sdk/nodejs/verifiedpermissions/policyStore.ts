@@ -23,9 +23,11 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Using `pulumi import`, import Verified Permissions Policy Store using the `policy_store_id`. For example:
+ * Using `pulumi import`, import Verified Permissions Policy Store using the `policyStoreId`. For example:
  *
- *  % pulumi import aws_verifiedpermissions_policy_store.example DxQg2j8xvXJQ1tQCYNWj9T
+ * ```sh
+ *  $ pulumi import aws:verifiedpermissions/policyStore:PolicyStore example DxQg2j8xvXJQ1tQCYNWj9T
+ * ```
  */
 export class PolicyStore extends pulumi.CustomResource {
     /**

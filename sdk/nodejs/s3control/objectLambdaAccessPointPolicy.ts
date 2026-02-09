@@ -50,7 +50,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Using `pulumi import`, import Object Lambda Access Point policies using the `account_id` and `name`, separated by a colon (`:`). For example:
+ * Using `pulumi import`, import Object Lambda Access Point policies using the `accountId` and `name`, separated by a colon (`:`). For example:
  *
  * ```sh
  * $ pulumi import aws:s3control/objectLambdaAccessPointPolicy:ObjectLambdaAccessPointPolicy example 123456789012:example

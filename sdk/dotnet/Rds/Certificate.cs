@@ -30,7 +30,7 @@ namespace Pulumi.Aws.Rds
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import the RDS certificate override using the `region`. For example:
+    /// Using `pulumi import`, import the RDS certificate override using the `Region`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:rds/certificate:Certificate example us-west-2

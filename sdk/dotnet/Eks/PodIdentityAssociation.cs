@@ -84,7 +84,7 @@ namespace Pulumi.Aws.Eks
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import EKS (Elastic Kubernetes) Pod Identity Association using the `cluster_name` and `association_id` separated by a comma (`,`). For example:
+    /// Using `pulumi import`, import EKS (Elastic Kubernetes) Pod Identity Association using the `ClusterName` and `AssociationId` separated by a comma (`,`). For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:eks/podIdentityAssociation:PodIdentityAssociation example example,a-12345678

@@ -14,7 +14,7 @@ namespace Pulumi.Aws.ApiGateway
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import AWS API Gateway Usage Plan using the `id`. For example:
+    /// Using `pulumi import`, import AWS API Gateway Usage Plan using the `Id`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:apigateway/usagePlan:UsagePlan myusageplan &lt;usage_plan_id&gt;

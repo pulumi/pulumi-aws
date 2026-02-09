@@ -131,13 +131,14 @@ import (
 //
 // #### Optional
 //
-// * `account_id` (String) AWS Account where this resource is managed.
-//
+// * `accountId` (String) AWS Account where this resource is managed.
 // * `region` (String) Region where this resource is managed.
 //
 // Using `pulumi import`, import AppFlow Connector Profile using the connector profile `name`. For example:
 //
-// % pulumi import aws_appflow_connector_profile.example example-profile
+// ```sh
+// $ pulumi import aws:appflow/connectorProfile:ConnectorProfile example example-profile
+// ```
 //
 // [1]: https://docs.aws.amazon.com/appflow/1.0/APIReference/Welcome.html
 // [2]: https://docs.aws.amazon.com/appflow/1.0/APIReference/API_CreateConnectorProfile.html

@@ -145,7 +145,7 @@ namespace Pulumi.Aws.CloudFront
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import Cloudfront Response Headers Policies using the `id`. For example:
+    /// Using `pulumi import`, import Cloudfront Response Headers Policies using the `Id`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:cloudfront/responseHeadersPolicy:ResponseHeadersPolicy policy 658327ea-f89d-4fab-a63d-7e88639e58f9

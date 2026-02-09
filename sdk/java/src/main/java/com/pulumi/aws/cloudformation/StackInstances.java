@@ -172,14 +172,15 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Import CloudFormation stack instances that target OUs, using the stack set name, `call_as`, and &#34;OU&#34; separated by commas (`,`). For example:
+ * Import CloudFormation stack instances that target OUs, using the stack set name, `callAs`, and &#34;OU&#34; separated by commas (`,`). For example:
  * 
- * Using `pulumi import`, import CloudFormation stack instances using the stack set name and `call_as` separated by commas (`,`). If you are importing a stack instance targeting OUs, see the example below. For example:
+ * Using `pulumi import`, import CloudFormation stack instances using the stack set name and `callAs` separated by commas (`,`). If you are importing a stack instance targeting OUs, see the example below. For example:
  * 
  * ```sh
  * $ pulumi import aws:cloudformation/stackInstances:StackInstances example example,SELF
  * ```
- * Using `pulumi import`, Import CloudFormation stack instances that target OUs, using the stack set name, `call_as`, and &#34;OU&#34; separated by commas (`,`). For example:
+ * 
+ * Using `pulumi import`, Import CloudFormation stack instances that target OUs, using the stack set name, `callAs`, and &#34;OU&#34; separated by commas (`,`). For example:
  * 
  * ```sh
  * $ pulumi import aws:cloudformation/stackInstances:StackInstances example example,SELF,OU

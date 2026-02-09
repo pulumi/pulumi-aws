@@ -87,17 +87,18 @@ namespace Pulumi.Aws.Connect
     /// 
     /// #### Required
     /// 
-    /// * `id` - (String) ID of the connect phone number.
+    /// * `Id` - (String) ID of the connect phone number.
     /// 
     /// #### Optional
     /// 
-    /// - `account_id` (String) AWS Account where this resource is managed.
+    /// - `AccountId` (String) AWS Account where this resource is managed.
+    /// - `Region` (String) Region where this resource is managed.
     /// 
-    /// - `region` (String) Region where this resource is managed.
+    /// Using `pulumi import`, import Amazon Connect Phone Numbers using its `Id`. For example:
     /// 
-    /// Using `pulumi import`, import Amazon Connect Phone Numbers using its `id`. For example:
-    /// 
-    /// % pulumi import aws_connect_phone_number.example 12345678-abcd-1234-efgh-9876543210ab
+    /// ```sh
+    /// $ pulumi import aws:connect/phoneNumber:PhoneNumber example 12345678-abcd-1234-efgh-9876543210ab
+    /// ```
     /// </summary>
     [AwsResourceType("aws:connect/phoneNumber:PhoneNumber")]
     public partial class PhoneNumber : global::Pulumi.CustomResource

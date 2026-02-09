@@ -458,7 +458,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Using `pulumi import`, import `aws_api_gateway_integration` using `REST-API-ID/RESOURCE-ID/HTTP-METHOD`. For example:
+ * Using `pulumi import`, import `aws.apigateway.Integration` using `REST-API-ID/RESOURCE-ID/HTTP-METHOD`. For example:
  * 
  * ```sh
  * $ pulumi import aws:apigateway/integration:Integration example 12345abcde/67890fghij/GET

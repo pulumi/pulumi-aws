@@ -77,7 +77,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Using `pulumi import`, import endpoints using the `endpoint_id`. For example:
+ * Using `pulumi import`, import endpoints using the `endpointId`. For example:
  * 
  * ```sh
  * $ pulumi import aws:dms/endpoint:Endpoint test test-dms-endpoint-tf

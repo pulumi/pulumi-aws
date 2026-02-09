@@ -109,7 +109,7 @@ namespace Pulumi.Aws.Transfer
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import Transfer Users using the `server_id` and `user_name` separated by `/`. For example:
+    /// Using `pulumi import`, import Transfer Users using the `ServerId` and `UserName` separated by `/`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:transfer/user:User bar s-12345678/test-username

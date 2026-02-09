@@ -289,6 +289,7 @@ class User(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:memorydb/user:User example my-user
         ```
+
         The `passwords` are not available for imported resources, as this information cannot be read back from the MemoryDB API.
 
         :param str resource_name: The name of the resource.
@@ -337,6 +338,7 @@ class User(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:memorydb/user:User example my-user
         ```
+
         The `passwords` are not available for imported resources, as this information cannot be read back from the MemoryDB API.
 
         :param str resource_name: The name of the resource.

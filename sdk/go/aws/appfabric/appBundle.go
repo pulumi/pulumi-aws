@@ -54,7 +54,9 @@ import (
 //
 // Using `pulumi import`, import AppFabric AppBundle using the `arn`. For example:
 //
-// % pulumi import aws_appfabric_app_bundle.example arn:aws:appfabric:[region]:[account]:appbundle/ee5587b4-5765-4288-a202-xxxxxxxxxx
+// ```sh
+// $ pulumi import aws:appfabric/appBundle:AppBundle example arn:aws:appfabric:[region]:[account]:appbundle/ee5587b4-5765-4288-a202-xxxxxxxxxx
+// ```
 type AppBundle struct {
 	pulumi.CustomResourceState
 

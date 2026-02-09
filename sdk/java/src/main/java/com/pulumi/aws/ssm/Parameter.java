@@ -122,13 +122,14 @@ import javax.annotation.Nullable;
  * 
  * #### Optional
  * 
- * * `account_id` (String) AWS Account where this resource is managed.
- * 
+ * * `accountId` (String) AWS Account where this resource is managed.
  * * `region` (String) Region where this resource is managed.
  * 
  * Using `pulumi import`, import SSM Parameters using the parameter store `name`. For example:
  * 
- * % pulumi import aws_ssm_parameter.example /my_path/my_paramname
+ * ```sh
+ * $ pulumi import aws:ssm/parameter:Parameter example /my_path/my_paramname
+ * ```
  * 
  */
 @ResourceType(type="aws:ssm/parameter:Parameter")

@@ -107,7 +107,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Using `pulumi import`, import domains using the `domain_name`. For example:
+ * Using `pulumi import`, import domains using the `domainName`. For example:
  * 
  * ```sh
  * $ pulumi import aws:route53domains/domain:Domain example example.com

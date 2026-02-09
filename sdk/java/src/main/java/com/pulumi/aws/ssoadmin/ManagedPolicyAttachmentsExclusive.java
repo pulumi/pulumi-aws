@@ -111,17 +111,18 @@ import javax.annotation.Nullable;
  * 
  * #### Required
  * 
- * * `instance_arn` (String) ARN of the SSO Instance.
- * 
- * * `permission_set_arn` (String) ARN of the Permission Set.
+ * * `instanceArn` (String) ARN of the SSO Instance.
+ * * `permissionSetArn` (String) ARN of the Permission Set.
  * 
  * #### Optional
  * 
  * * `region` (String) Region where this resource is managed.
  * 
- * Using `pulumi import`, import SSO Admin Managed Policy Attachments Exclusive using the `instance_arn` and `permission_set_arn` arguments, separated by a comma (`,`). For example:
+ * Using `pulumi import`, import SSO Admin Managed Policy Attachments Exclusive using the `instanceArn` and `permissionSetArn` arguments, separated by a comma (`,`). For example:
  * 
- * % pulumi import aws_ssoadmin_managed_policy_attachments_exclusive.example arn:aws:sso:::instance/ssoins-1234567890abcdef,arn:aws:sso:::permissionSet/ssoins-1234567890abcdef/ps-1234567890abcdef
+ * ```sh
+ * $ pulumi import aws:ssoadmin/managedPolicyAttachmentsExclusive:ManagedPolicyAttachmentsExclusive example arn:aws:sso:::instance/ssoins-1234567890abcdef,arn:aws:sso:::permissionSet/ssoins-1234567890abcdef/ps-1234567890abcdef
+ * ```
  * 
  */
 @ResourceType(type="aws:ssoadmin/managedPolicyAttachmentsExclusive:ManagedPolicyAttachmentsExclusive")

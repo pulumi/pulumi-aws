@@ -18,13 +18,14 @@ import (
 //
 // Provisioned Clusters:
 //
-// __Using `pulumi import` to import__ RDS DB Proxy Targets using the `db_proxy_name`, `target_group_name`, target type (such as `RDS_INSTANCE` or `TRACKED_CLUSTER`), and resource identifier separated by forward slashes (`/`). For example:
+// **Using `pulumi import` to import** RDS DB Proxy Targets using the `dbProxyName`, `targetGroupName`, target type (such as `RDS_INSTANCE` or `TRACKED_CLUSTER`), and resource identifier separated by forward slashes (`/`). For example:
 //
 // Instances:
 //
 // ```sh
 // $ pulumi import aws:rds/proxyTarget:ProxyTarget example example-proxy/default/RDS_INSTANCE/example-instance
 // ```
+//
 // Provisioned Clusters:
 //
 // ```sh

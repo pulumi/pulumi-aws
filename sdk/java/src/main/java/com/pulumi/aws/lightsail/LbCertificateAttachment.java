@@ -71,7 +71,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Using `pulumi import`, import `aws_lightsail_lb_certificate_attachment` using the name attribute. For example:
+ * Using `pulumi import`, import `aws.lightsail.LbCertificateAttachment` using the name attribute. For example:
  * 
  * ```sh
  * $ pulumi import aws:lightsail/lbCertificateAttachment:LbCertificateAttachment example example-load-balancer,example-certificate

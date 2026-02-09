@@ -12,7 +12,7 @@ namespace Pulumi.Aws.Rds
     /// <summary>
     /// ## Import
     /// 
-    /// Using `pulumi import`, import DB Parameter groups using the `name`. For example:
+    /// Using `pulumi import`, import DB Parameter groups using the `Name`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:rds/parameterGroup:ParameterGroup rds_pg rds-pg

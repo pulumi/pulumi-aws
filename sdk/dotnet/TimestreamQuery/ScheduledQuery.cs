@@ -399,7 +399,7 @@ namespace Pulumi.Aws.TimestreamQuery
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import Timestream Query Scheduled Query using the `arn`. For example:
+    /// Using `pulumi import`, import Timestream Query Scheduled Query using the `Arn`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:timestreamquery/scheduledQuery:ScheduledQuery example arn:aws:timestream:us-west-2:012345678901:scheduled-query/tf-acc-test-7774188528604787105-e13659544fe66c8d

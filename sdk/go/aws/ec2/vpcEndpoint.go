@@ -367,13 +367,14 @@ import (
 //
 // #### Optional
 //
-// * `account_id` (String) AWS Account where this resource is managed.
-//
+// * `accountId` (String) AWS Account where this resource is managed.
 // * `region` (String) Region where this resource is managed.
 //
 // Using `pulumi import`, import VPC Endpoints using the VPC endpoint `id`. For example:
 //
-// % pulumi import aws_vpc_endpoint.example vpce-3ecf2a57
+// ```sh
+// $ pulumi import aws:ec2/vpcEndpoint:VpcEndpoint example vpce-3ecf2a57
+// ```
 type VpcEndpoint struct {
 	pulumi.CustomResourceState
 

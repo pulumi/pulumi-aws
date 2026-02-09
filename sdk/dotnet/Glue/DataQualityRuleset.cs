@@ -102,7 +102,7 @@ namespace Pulumi.Aws.Glue
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import Glue Data Quality Ruleset using the `name`. For example:
+    /// Using `pulumi import`, import Glue Data Quality Ruleset using the `Name`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:glue/dataQualityRuleset:DataQualityRuleset example exampleName

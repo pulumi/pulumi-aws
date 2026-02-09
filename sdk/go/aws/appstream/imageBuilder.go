@@ -55,7 +55,7 @@ import (
 //
 // ## Import
 //
-// Using `pulumi import`, import `aws_appstream_image_builder` using the `name`. For example:
+// Using `pulumi import`, import `appstream.ImageBuilder` using the `name`. For example:
 //
 // ```sh
 // $ pulumi import aws:appstream/imageBuilder:ImageBuilder example imageBuilderExample

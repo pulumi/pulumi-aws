@@ -45,7 +45,7 @@ namespace Pulumi.Aws.Ecs
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import `aws_ecs_tag` using the ECS resource identifier and key, separated by a comma (`,`). For example:
+    /// Using `pulumi import`, import `aws.ecs.Tag` using the ECS resource identifier and key, separated by a comma (`,`). For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:ecs/tag:Tag example arn:aws:ecs:us-east-1:123456789012:cluster/example,Name

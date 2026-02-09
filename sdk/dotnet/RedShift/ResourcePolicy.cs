@@ -51,7 +51,7 @@ namespace Pulumi.Aws.RedShift
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import Redshift Resource Policies using the `resource_arn`. For example:
+    /// Using `pulumi import`, import Redshift Resource Policies using the `ResourceArn`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:redshift/resourcePolicy:ResourcePolicy example example

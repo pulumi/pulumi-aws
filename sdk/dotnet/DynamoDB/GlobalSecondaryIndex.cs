@@ -16,19 +16,19 @@ namespace Pulumi.Aws.DynamoDB
     /// 
     /// #### Required
     /// 
-    /// * `index_name` (String) Name of the index.
-    /// 
-    /// * `table_name` (String) Name of the table this index belongs to.
+    /// * `IndexName` (String) Name of the index.
+    /// * `TableName` (String) Name of the table this index belongs to.
     /// 
     /// #### Optional
     /// 
-    /// * `account_id` (String) AWS Account where this resource is managed.
+    /// * `AccountId` (String) AWS Account where this resource is managed.
+    /// * `Region` (String) Region where this resource is managed.
     /// 
-    /// * `region` (String) Region where this resource is managed.
+    /// Using `pulumi import`, import DynamoDB tables using the `TableName` and `IndexName`, separated by a comma. For example:
     /// 
-    /// Using `pulumi import`, import DynamoDB tables using the `table_name` and `index_name`, separated by a comma. For example:
-    /// 
-    /// % pulumi import aws_dynamodb_global_secondary_index.example 'example-table,example-index'
+    /// ```sh
+    /// $ pulumi import aws:dynamodb/globalSecondaryIndex:GlobalSecondaryIndex example 'example-table,example-index'
+    /// ```
     /// </summary>
     [AwsResourceType("aws:dynamodb/globalSecondaryIndex:GlobalSecondaryIndex")]
     public partial class GlobalSecondaryIndex : global::Pulumi.CustomResource

@@ -72,7 +72,7 @@ namespace Pulumi.Aws.VpcLattice
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import VPC Lattice Resource Policy using the `resource_arn`. For example:
+    /// Using `pulumi import`, import VPC Lattice Resource Policy using the `ResourceArn`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:vpclattice/resourcePolicy:ResourcePolicy example rft-8012925589

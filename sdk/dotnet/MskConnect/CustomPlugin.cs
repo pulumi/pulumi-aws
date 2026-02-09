@@ -55,7 +55,7 @@ namespace Pulumi.Aws.MskConnect
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import MSK Connect Custom Plugin using the plugin's `arn`. For example:
+    /// Using `pulumi import`, import MSK Connect Custom Plugin using the plugin's `Arn`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:mskconnect/customPlugin:CustomPlugin example 'arn:aws:kafkaconnect:eu-central-1:123456789012:custom-plugin/debezium-example/abcdefgh-1234-5678-9abc-defghijklmno-4'

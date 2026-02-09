@@ -162,7 +162,9 @@ import javax.annotation.Nullable;
  * 
  * Using `pulumi import`, import DynamoDB table exports using the `arn`. For example:
  * 
- * % pulumi import aws_dynamodb_table_export.example arn:aws:dynamodb:us-west-2:12345678911:table/my-table-1/export/01580735656614-2c2f422e
+ * ```sh
+ * $ pulumi import aws:dynamodb/tableExport:TableExport example arn:aws:dynamodb:us-west-2:12345678911:table/my-table-1/export/01580735656614-2c2f422e
+ * ```
  * 
  */
 @ResourceType(type="aws:dynamodb/tableExport:TableExport")

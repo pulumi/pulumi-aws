@@ -62,7 +62,7 @@ import (
 //
 // ## Import
 //
-// Using `pulumi import`, import CloudWatch Logs Index Policy using the `log_group_name`. For example:
+// Using `pulumi import`, import CloudWatch Logs Index Policy using the `logGroupName`. For example:
 //
 // ```sh
 // $ pulumi import aws:cloudwatch/logIndexPolicy:LogIndexPolicy example /aws/log/group/name

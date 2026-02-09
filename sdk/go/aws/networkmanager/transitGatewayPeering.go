@@ -46,7 +46,7 @@ import (
 //
 // ## Import
 //
-// Using `pulumi import`, import `aws_networkmanager_transit_gateway_peering` using the peering ID. For example:
+// Using `pulumi import`, import `networkmanager.TransitGatewayPeering` using the peering ID. For example:
 //
 // ```sh
 // $ pulumi import aws:networkmanager/transitGatewayPeering:TransitGatewayPeering example peering-444555aaabbb11223

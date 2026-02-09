@@ -23,7 +23,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Using `pulumi import`, import `aws_networkmonitor_monitor` using the monitor name. For example:
+ * Using `pulumi import`, import `aws.networkmonitor.Monitor` using the monitor name. For example:
  *
  * ```sh
  * $ pulumi import aws:networkmonitor/monitor:Monitor example monitor-7786087912324693644
