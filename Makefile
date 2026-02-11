@@ -78,7 +78,7 @@ help:
 	@echo "  build (default)     Build the provider and all SDKs and install for testing"
 	@echo "  generate            Generate all SDKs, documentation and schema"
 	@echo "  provider            Build the local provider binary"
-	@echo "  lint_provider<.fix> Run the linter on the provider (& optionally fix)"
+	@echo "  lint<.fix>          Run the linter on the provider (& optionally fix)"
 	@echo "  test_provider       Run the provider tests"
 	@echo "  test                Run the example tests (must run 'build' first)"
 	@echo "  clean               Clean up generated files"
@@ -214,17 +214,21 @@ install_nodejs_sdk: .make/install_nodejs_sdk
 install_python_sdk:
 .PHONY: install_dotnet_sdk install_go_sdk install_java_sdk install_nodejs_sdk install_python_sdk
 
-lint_provider: upstream
+lint: upstream
 	git grep -l 'go:embed' -- provider | xargs perl -i -pe 's/go:embed/ goembed/g'
-	cd provider && golangci-lint run --path-prefix provider -c ../.golangci.yml
-	git grep -l 'goembed' -- provider | xargs perl -i -pe 's/ goembed/go:embed/g'
-# `lint_provider.fix` is a utility target meant to be run manually
+	cd provider && golangci-lint run --path-prefix provider -c ../.golangci.yml; LINT_EXIT=$$?; \
+	git grep -l 'goembed' | xargs perl -i -pe 's/ goembed/go:embed/g'; \
+	exit $$LINT_EXIT
+
+# `lint.fix` is a utility target meant to be run manually
 # that will run the linter and fix errors when possible.
-lint_provider.fix: upstream
+lint.fix: upstream
 	git grep -l 'go:embed' -- provider | xargs perl -i -pe 's/go:embed/ goembed/g'
-	cd provider && golangci-lint run --path-prefix provider -c ../.golangci.yml --fix
-	git grep -l 'goembed' -- provider | xargs perl -i -pe 's/ goembed/go:embed/g'
-.PHONY: lint_provider lint_provider.fix
+	cd provider && golangci-lint run --path-prefix provider -c ../.golangci.yml --fix; LINT_EXIT=$$?; \
+	git grep -l 'goembed' | xargs perl -i -pe 's/ goembed/go:embed/g'; \
+	exit $$LINT_EXIT
+
+.PHONY: lint lint.fix
 build_provider_cmd = VERSION=${VERSION_GENERIC} ./scripts/minimal_schema.sh;cd provider && GOOS=$(1) GOARCH=$(2) CGO_ENABLED=0 go build $(PULUMI_PROVIDER_BUILD_PARALLELISM) -o "$(3)" -ldflags "$(LDFLAGS)" $(PROJECT)/$(PROVIDER_PATH)/cmd/$(PROVIDER)
 
 provider: bin/$(PROVIDER)

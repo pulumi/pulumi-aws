@@ -60,17 +60,11 @@ jobs:
         github_token: ${{ steps.app-auth.outputs.token }}
         plugin_install: https://github.com/pulumi/vfox-pulumi
         cache_save: false # A different job handles caching our tools.
-    - name: disarm go:embed directives to enable lint
-      continue-on-error: true # this fails if there are no go:embed directives
-      run: |
-        git grep -l 'go:embed' -- provider | xargs sed -i 's/go:embed/ goembed/g'
     - name: prepare workspace
       continue-on-error: true
       run: make prepare_local_workspace
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-    - name: golangci-lint
-      uses: golangci/golangci-lint-action@55c2c1448f86e01eaae002a5a3a9624417608d84 # v6
-      with:
-        install-mode: none # Handled by mise.
-        working-directory: provider
+
+    - name: lint
+      run: make lint
