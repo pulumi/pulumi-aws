@@ -63,7 +63,7 @@ namespace Pulumi.Aws.VpcLattice
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import VPC Lattice Auth Policy using the `id`. For example:
+    /// Using `pulumi import`, import VPC Lattice Auth Policy using the `Id`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:vpclattice/authPolicy:AuthPolicy example abcd-12345678

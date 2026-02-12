@@ -14,6 +14,10 @@ import java.lang.String;
 import javax.annotation.Nullable;
 
 /**
+ * Provides a resource to manage the state of the &#34;Block public access for snapshots&#34; setting on region level.
+ * 
+ * &gt; **NOTE:** Removing this Terraform resource disables blocking.
+ * 
  * ## Example Usage
  * 
  * <pre>

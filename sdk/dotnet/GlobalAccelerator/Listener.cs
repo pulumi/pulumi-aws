@@ -59,11 +59,13 @@ namespace Pulumi.Aws.GlobalAccelerator
     /// 
     /// #### Required
     /// 
-    /// - `arn` (String) Amazon Resource Name (ARN) of the Global Accelerator listener.
+    /// - `Arn` (String) Amazon Resource Name (ARN) of the Global Accelerator listener.
     /// 
-    /// Using `pulumi import`, import Global Accelerator listeners using the `id`. For example:
+    /// Using `pulumi import`, import Global Accelerator listeners using the `Id`. For example:
     /// 
-    /// % pulumi import aws_globalaccelerator_listener.example arn:aws:globalaccelerator::111111111111:accelerator/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/listener/xxxxxxxx
+    /// ```sh
+    /// $ pulumi import aws:globalaccelerator/listener:Listener example arn:aws:globalaccelerator::111111111111:accelerator/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/listener/xxxxxxxx
+    /// ```
     /// </summary>
     [AwsResourceType("aws:globalaccelerator/listener:Listener")]
     public partial class Listener : global::Pulumi.CustomResource

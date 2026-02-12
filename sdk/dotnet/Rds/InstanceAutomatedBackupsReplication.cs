@@ -95,7 +95,7 @@ namespace Pulumi.Aws.Rds
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import RDS instance automated backups replication using the `arn`. For example:
+    /// Using `pulumi import`, import RDS instance automated backups replication using the `Arn`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:rds/instanceAutomatedBackupsReplication:InstanceAutomatedBackupsReplication default arn:aws:rds:us-east-1:123456789012:auto-backup:ab-faaa2mgdj1vmp4xflr7yhsrmtbtob7ltrzzz2my

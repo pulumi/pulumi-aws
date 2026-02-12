@@ -52,6 +52,7 @@ func LookupDataSet(ctx *pulumi.Context, args *LookupDataSetArgs, opts ...pulumi.
 
 // A collection of arguments for invoking getDataSet.
 type LookupDataSetArgs struct {
+	// AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
 	AwsAccountId *string `pulumi:"awsAccountId"`
 	// Identifier for the data set.
 	DataSetId string `pulumi:"dataSetId"`
@@ -93,6 +94,7 @@ func LookupDataSetOutput(ctx *pulumi.Context, args LookupDataSetOutputArgs, opts
 
 // A collection of arguments for invoking getDataSet.
 type LookupDataSetOutputArgs struct {
+	// AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
 	AwsAccountId pulumi.StringPtrInput `pulumi:"awsAccountId"`
 	// Identifier for the data set.
 	DataSetId pulumi.StringInput `pulumi:"dataSetId"`

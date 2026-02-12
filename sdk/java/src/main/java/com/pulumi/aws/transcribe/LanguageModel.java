@@ -121,7 +121,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Using `pulumi import`, import Transcribe LanguageModel using the `model_name`. For example:
+ * Using `pulumi import`, import Transcribe LanguageModel using the `modelName`. For example:
  * 
  * ```sh
  * $ pulumi import aws:transcribe/languageModel:LanguageModel example example-name

@@ -1195,8 +1195,8 @@ class Distribution(pulumi.CustomResource):
                     name=range["value"],
                     type=aws.route53.RecordType.A,
                     aliases=[{
-                        "name": s3_distribution.domain_name.apply(lambda domain_name: domain_name),
-                        "zone_id": s3_distribution.hosted_zone_id.apply(lambda hosted_zone_id: hosted_zone_id),
+                        "name": s3_distribution.domain_name,
+                        "zone_id": s3_distribution.hosted_zone_id,
                         "evaluate_target_health": False,
                     }]))
 
@@ -1608,8 +1608,8 @@ class Distribution(pulumi.CustomResource):
                     name=range["value"],
                     type=aws.route53.RecordType.A,
                     aliases=[{
-                        "name": s3_distribution.domain_name.apply(lambda domain_name: domain_name),
-                        "zone_id": s3_distribution.hosted_zone_id.apply(lambda hosted_zone_id: hosted_zone_id),
+                        "name": s3_distribution.domain_name,
+                        "zone_id": s3_distribution.hosted_zone_id,
                         "evaluate_target_health": False,
                     }]))
 

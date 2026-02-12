@@ -10,9 +10,147 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Lex
 {
     /// <summary>
+    /// Resource for managing an AWS Lex V2 Models Slot.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ### Basic Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.Lex.V2modelsSlot("example", new()
+    ///     {
+    ///         BotId = exampleAwsLexv2modelsBot.Id,
+    ///         BotVersion = exampleAwsLexv2modelsBotVersion.BotVersion,
+    ///         IntentId = exampleAwsLexv2modelsIntent.Id,
+    ///         LocaleId = exampleAwsLexv2modelsBotLocale.LocaleId,
+    ///         Name = "example",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ### `ValueElicitationSetting` Example
+    /// 
+    /// &gt; When using `ValueElicitationSetting`, if you do not provide a `PromptAttemptsSpecification`, AWS Lex will configure default `PromptAttemptsSpecification`s.
+    /// As a result, Terraform will report a difference in the configuration.
+    /// To avoid this behavior, include `PromptAttemptsSpecification` blocks matching the default configuration, as shown below.
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.Lex.V2modelsSlot("example", new()
+    ///     {
+    ///         BotId = test.Id,
+    ///         BotVersion = testAwsLexv2modelsBotLocale.BotVersion,
+    ///         IntentId = testAwsLexv2modelsIntent.IntentId,
+    ///         LocaleId = testAwsLexv2modelsBotLocale.LocaleId,
+    ///         Name = "example",
+    ///         ValueElicitationSetting = new Aws.Lex.Inputs.V2modelsSlotValueElicitationSettingArgs
+    ///         {
+    ///             SlotConstraint = "Required",
+    ///             PromptSpecification = new Aws.Lex.Inputs.V2modelsSlotValueElicitationSettingPromptSpecificationArgs
+    ///             {
+    ///                 AllowInterrupt = true,
+    ///                 MaxRetries = 1,
+    ///                 MessageSelectionStrategy = "Random",
+    ///                 MessageGroups = new[]
+    ///                 {
+    ///                     new Aws.Lex.Inputs.V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupArgs
+    ///                     {
+    ///                         Message = new Aws.Lex.Inputs.V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessageArgs
+    ///                         {
+    ///                             PlainTextMessage = new Aws.Lex.Inputs.V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessagePlainTextMessageArgs
+    ///                             {
+    ///                                 Value = "What is your favorite color?",
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 PromptAttemptsSpecifications = new[]
+    ///                 {
+    ///                     new Aws.Lex.Inputs.V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationArgs
+    ///                     {
+    ///                         AllowInterrupt = true,
+    ///                         MapBlockKey = "Initial",
+    ///                         AllowedInputTypes = new Aws.Lex.Inputs.V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAllowedInputTypesArgs
+    ///                         {
+    ///                             AllowAudioInput = true,
+    ///                             AllowDtmfInput = true,
+    ///                         },
+    ///                         AudioAndDtmfInputSpecification = new Aws.Lex.Inputs.V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationArgs
+    ///                         {
+    ///                             StartTimeoutMs = 4000,
+    ///                             AudioSpecification = new Aws.Lex.Inputs.V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationAudioSpecificationArgs
+    ///                             {
+    ///                                 EndTimeoutMs = 640,
+    ///                                 MaxLengthMs = 15000,
+    ///                             },
+    ///                             DtmfSpecification = new Aws.Lex.Inputs.V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationDtmfSpecificationArgs
+    ///                             {
+    ///                                 DeletionCharacter = "*",
+    ///                                 EndCharacter = "#",
+    ///                                 EndTimeoutMs = 5000,
+    ///                                 MaxLength = 513,
+    ///                             },
+    ///                         },
+    ///                         TextInputSpecification = new Aws.Lex.Inputs.V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationTextInputSpecificationArgs
+    ///                         {
+    ///                             StartTimeoutMs = 30000,
+    ///                         },
+    ///                     },
+    ///                     new Aws.Lex.Inputs.V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationArgs
+    ///                     {
+    ///                         AllowInterrupt = true,
+    ///                         MapBlockKey = "Retry1",
+    ///                         AllowedInputTypes = new Aws.Lex.Inputs.V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAllowedInputTypesArgs
+    ///                         {
+    ///                             AllowAudioInput = true,
+    ///                             AllowDtmfInput = true,
+    ///                         },
+    ///                         AudioAndDtmfInputSpecification = new Aws.Lex.Inputs.V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationArgs
+    ///                         {
+    ///                             StartTimeoutMs = 4000,
+    ///                             AudioSpecification = new Aws.Lex.Inputs.V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationAudioSpecificationArgs
+    ///                             {
+    ///                                 EndTimeoutMs = 640,
+    ///                                 MaxLengthMs = 15000,
+    ///                             },
+    ///                             DtmfSpecification = new Aws.Lex.Inputs.V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationDtmfSpecificationArgs
+    ///                             {
+    ///                                 DeletionCharacter = "*",
+    ///                                 EndCharacter = "#",
+    ///                                 EndTimeoutMs = 5000,
+    ///                                 MaxLength = 513,
+    ///                             },
+    ///                         },
+    ///                         TextInputSpecification = new Aws.Lex.Inputs.V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationTextInputSpecificationArgs
+    ///                         {
+    ///                             StartTimeoutMs = 30000,
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import Lex V2 Models Slot using the `id`. For example:
+    /// Using `pulumi import`, import Lex V2 Models Slot using the `Id`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:lex/v2modelsSlot:V2modelsSlot example bot-1234,1,intent-5678,en-US,slot-9012
@@ -99,6 +237,15 @@ namespace Pulumi.Aws.Lex
         [Output("timeouts")]
         public Output<Outputs.V2modelsSlotTimeouts?> Timeouts { get; private set; } = null!;
 
+        /// <summary>
+        /// Prompts that Amazon Lex sends to the user to elicit a response that provides the value for the slot.
+        /// If you configure this block without `prompt_specification.*.prompt_attempts_specification`, AWS will provide default `PromptAttemptsSpecification` blocks for the initial prompt (map key `Initial`) and each retry attempt (map keys `Retry1`, `Retry2`, etc.).
+        /// This will cause Terraform to report differences.
+        /// Use the `ValueElicitationSetting` configuration above in the `ValueElicitationSetting` example to avoid differences resulting from AWS default configurations.
+        /// See the `ValueElicitationSetting` argument reference below.
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
         [Output("valueElicitationSetting")]
         public Output<Outputs.V2modelsSlotValueElicitationSetting> ValueElicitationSetting { get; private set; } = null!;
 
@@ -238,6 +385,15 @@ namespace Pulumi.Aws.Lex
         [Input("timeouts")]
         public Input<Inputs.V2modelsSlotTimeoutsArgs>? Timeouts { get; set; }
 
+        /// <summary>
+        /// Prompts that Amazon Lex sends to the user to elicit a response that provides the value for the slot.
+        /// If you configure this block without `prompt_specification.*.prompt_attempts_specification`, AWS will provide default `PromptAttemptsSpecification` blocks for the initial prompt (map key `Initial`) and each retry attempt (map keys `Retry1`, `Retry2`, etc.).
+        /// This will cause Terraform to report differences.
+        /// Use the `ValueElicitationSetting` configuration above in the `ValueElicitationSetting` example to avoid differences resulting from AWS default configurations.
+        /// See the `ValueElicitationSetting` argument reference below.
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
         [Input("valueElicitationSetting", required: true)]
         public Input<Inputs.V2modelsSlotValueElicitationSettingArgs> ValueElicitationSetting { get; set; } = null!;
 
@@ -345,6 +501,15 @@ namespace Pulumi.Aws.Lex
         [Input("timeouts")]
         public Input<Inputs.V2modelsSlotTimeoutsGetArgs>? Timeouts { get; set; }
 
+        /// <summary>
+        /// Prompts that Amazon Lex sends to the user to elicit a response that provides the value for the slot.
+        /// If you configure this block without `prompt_specification.*.prompt_attempts_specification`, AWS will provide default `PromptAttemptsSpecification` blocks for the initial prompt (map key `Initial`) and each retry attempt (map keys `Retry1`, `Retry2`, etc.).
+        /// This will cause Terraform to report differences.
+        /// Use the `ValueElicitationSetting` configuration above in the `ValueElicitationSetting` example to avoid differences resulting from AWS default configurations.
+        /// See the `ValueElicitationSetting` argument reference below.
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
         [Input("valueElicitationSetting")]
         public Input<Inputs.V2modelsSlotValueElicitationSettingGetArgs>? ValueElicitationSetting { get; set; }
 

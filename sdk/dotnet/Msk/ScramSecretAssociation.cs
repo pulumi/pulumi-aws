@@ -125,7 +125,7 @@ namespace Pulumi.Aws.Msk
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import MSK SCRAM Secret Associations using the `id`. For example:
+    /// Using `pulumi import`, import MSK SCRAM Secret Associations using the `Id`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:msk/scramSecretAssociation:ScramSecretAssociation example arn:aws:kafka:us-west-2:123456789012:cluster/example/279c0212-d057-4dba-9aa9-1c4e5a25bfc7-3

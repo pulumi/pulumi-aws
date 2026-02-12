@@ -152,6 +152,9 @@ export class RepositoryCreationTemplate extends pulumi.CustomResource {
      * The registry ID the repository creation template applies to.
      */
     declare public /*out*/ readonly registryId: pulumi.Output<string>;
+    /**
+     * The registry policy document to apply to any created repositories. This is a JSON formatted string. For more information about building IAM policy documents with Terraform, see the AWS IAM Policy Document Guide.
+     */
     declare public readonly repositoryPolicy: pulumi.Output<string | undefined>;
     /**
      * A map of tags to assign to any created repositories.
@@ -253,6 +256,9 @@ export interface RepositoryCreationTemplateState {
      * The registry ID the repository creation template applies to.
      */
     registryId?: pulumi.Input<string>;
+    /**
+     * The registry policy document to apply to any created repositories. This is a JSON formatted string. For more information about building IAM policy documents with Terraform, see the AWS IAM Policy Document Guide.
+     */
     repositoryPolicy?: pulumi.Input<string>;
     /**
      * A map of tags to assign to any created repositories.
@@ -300,6 +306,9 @@ export interface RepositoryCreationTemplateArgs {
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string>;
+    /**
+     * The registry policy document to apply to any created repositories. This is a JSON formatted string. For more information about building IAM policy documents with Terraform, see the AWS IAM Policy Document Guide.
+     */
     repositoryPolicy?: pulumi.Input<string>;
     /**
      * A map of tags to assign to any created repositories.

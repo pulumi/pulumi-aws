@@ -47,6 +47,9 @@ namespace Pulumi.Aws.Quicksight
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
+        /// </summary>
         [Output("awsAccountId")]
         public Output<string> AwsAccountId { get; private set; } = null!;
 
@@ -120,6 +123,9 @@ namespace Pulumi.Aws.Quicksight
 
     public sealed class GroupArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
+        /// </summary>
         [Input("awsAccountId")]
         public Input<string>? AwsAccountId { get; set; }
 
@@ -161,6 +167,9 @@ namespace Pulumi.Aws.Quicksight
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
+        /// <summary>
+        /// AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
+        /// </summary>
         [Input("awsAccountId")]
         public Input<string>? AwsAccountId { get; set; }
 

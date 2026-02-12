@@ -47,7 +47,7 @@ namespace Pulumi.Aws.Dms
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import endpoints using the `endpoint_id`. For example:
+    /// Using `pulumi import`, import endpoints using the `EndpointId`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:dms/endpoint:Endpoint test test-dms-endpoint-tf
@@ -148,6 +148,9 @@ namespace Pulumi.Aws.Dms
         [Output("password")]
         public Output<string?> Password { get; private set; } = null!;
 
+        /// <summary>
+        /// Whether to pause associated running replication tasks, regardless if they are managed by Terraform, prior to modifying the endpoint. Only tasks paused by the resource will be restarted after the modification completes. Default is `False`.
+        /// </summary>
         [Output("pauseReplicationTasks")]
         public Output<bool?> PauseReplicationTasks { get; private set; } = null!;
 
@@ -374,6 +377,9 @@ namespace Pulumi.Aws.Dms
             }
         }
 
+        /// <summary>
+        /// Whether to pause associated running replication tasks, regardless if they are managed by Terraform, prior to modifying the endpoint. Only tasks paused by the resource will be restarted after the modification completes. Default is `False`.
+        /// </summary>
         [Input("pauseReplicationTasks")]
         public Input<bool>? PauseReplicationTasks { get; set; }
 
@@ -564,6 +570,9 @@ namespace Pulumi.Aws.Dms
             }
         }
 
+        /// <summary>
+        /// Whether to pause associated running replication tasks, regardless if they are managed by Terraform, prior to modifying the endpoint. Only tasks paused by the resource will be restarted after the modification completes. Default is `False`.
+        /// </summary>
         [Input("pauseReplicationTasks")]
         public Input<bool>? PauseReplicationTasks { get; set; }
 

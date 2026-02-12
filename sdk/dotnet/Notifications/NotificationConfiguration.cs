@@ -65,7 +65,7 @@ namespace Pulumi.Aws.Notifications
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import User Notifications Notification Configuration using the `arn`. For example:
+    /// Using `pulumi import`, import User Notifications Notification Configuration using the `Arn`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:notifications/notificationConfiguration:NotificationConfiguration example arn:aws:notifications::123456789012:configuration/abcdef1234567890abcdef1234567890

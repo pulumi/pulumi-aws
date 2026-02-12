@@ -143,7 +143,7 @@ namespace Pulumi.Aws.Backup
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import Backup Framework using the `id` which corresponds to the name of the Backup Framework. For example:
+    /// Using `pulumi import`, import Backup Framework using the `Id` which corresponds to the name of the Backup Framework. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:backup/framework:Framework test &lt;id&gt;

@@ -87,7 +87,9 @@ import javax.annotation.Nullable;
  * 
  * Using `pulumi import`, import CodeArtifact Domain Permissions Policies using the CodeArtifact Domain ARN. For example:
  * 
- * % pulumi import aws_codeartifact_domain_permissions_policy.example arn:aws:codeartifact:us-west-2:012345678912:domain/tf-acc-test-1928056699409417367
+ * ```sh
+ * $ pulumi import aws:codeartifact/domainPermissions:DomainPermissions example arn:aws:codeartifact:us-west-2:012345678912:domain/tf-acc-test-1928056699409417367
+ * ```
  * 
  */
 @ResourceType(type="aws:codeartifact/domainPermissions:DomainPermissions")

@@ -35,7 +35,7 @@ namespace Pulumi.Aws.Schemas
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import EventBridge schema registries using the `name`. For example:
+    /// Using `pulumi import`, import EventBridge schema registries using the `Name`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:schemas/registry:Registry test my_own_registry

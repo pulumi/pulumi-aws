@@ -46,7 +46,7 @@ import (
 //
 // ## Import
 //
-// Using `pulumi import`, import X-Ray Resource Policy using the `policy_name`. For example:
+// Using `pulumi import`, import X-Ray Resource Policy using the `policyName`. For example:
 //
 // ```sh
 // $ pulumi import aws:xray/resourcePolicy:ResourcePolicy example resource_policy-name

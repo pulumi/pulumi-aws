@@ -159,7 +159,7 @@ import (
 //
 // ## Import
 //
-// Using `pulumi import`, import ECR (Elastic Container Registry) Pull Time Update Exclusion using the `principal_arn`. For example:
+// Using `pulumi import`, import ECR (Elastic Container Registry) Pull Time Update Exclusion using the `principalArn`. For example:
 //
 // ```sh
 // $ pulumi import aws:ecr/pullTimeUpdateExclusion:PullTimeUpdateExclusion example arn:aws:iam::123456789012:role/example-role

@@ -12,9 +12,86 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Resource for maintaining exclusive management of resource key value pairs defined in an AWS CloudFront KeyValueStore.
+//
+// !> This resource takes exclusive ownership over key value pairs defined in a KeyValueStore. This includes removal of key value pairs which are not explicitly configured. To prevent persistent drift, ensure any `cloudfront.KeyvaluestoreKey` resources managed alongside this resource have an equivalent `resourceKeyValuePair` argument.
+//
+// > Destruction of this resource means Terraform will no longer manage reconciliation of the configured key value pairs. It __will not__ delete the configured key value pairs from the KeyValueStore.
+//
+// ## Example Usage
+//
+// ### Basic Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/cloudfront"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := cloudfront.NewKeyValueStore(ctx, "example", &cloudfront.KeyValueStoreArgs{
+//				Name:    pulumi.String("ExampleKeyValueStore"),
+//				Comment: pulumi.String("This is an example key value store"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = cloudfront.NewKeyvaluestoreKeysExclusive(ctx, "example", &cloudfront.KeyvaluestoreKeysExclusiveArgs{
+//				KeyValueStoreArn: example.Arn,
+//				ResourceKeyValuePairs: cloudfront.KeyvaluestoreKeysExclusiveResourceKeyValuePairArray{
+//					&cloudfront.KeyvaluestoreKeysExclusiveResourceKeyValuePairArgs{
+//						Key:   pulumi.String("Test Key"),
+//						Value: pulumi.String("Test Value"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ### Disallow Key Value Pairs
+//
+// To automatically remove any configured key value pairs, omit a `resourceKeyValuePair` block.
+//
+// > This will not __prevent__ key value pairs from being defined in a KeyValueStore via Terraform (or any other interface). This resource enables bringing key value pairs into a configured state, however, this reconciliation happens only when `apply` is proactively run.
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/cloudfront"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := cloudfront.NewKeyvaluestoreKeysExclusive(ctx, "example", &cloudfront.KeyvaluestoreKeysExclusiveArgs{
+//				KeyValueStoreArn: pulumi.Any(exampleAwsCloudfrontKeyValueStore.Arn),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
-// Using `pulumi import`, import AWS CloudFront KeyValueStore Key Value Pairs using the `key_value_store_arn`. For example:
+// Using `pulumi import`, import AWS CloudFront KeyValueStore Key Value Pairs using the `keyValueStoreArn`. For example:
 //
 // ```sh
 // $ pulumi import aws:cloudfront/keyvaluestoreKeysExclusive:KeyvaluestoreKeysExclusive example arn:aws:cloudfront::111111111111:key-value-store/8562g61f-caba-2845-9d99-b97diwae5d3c

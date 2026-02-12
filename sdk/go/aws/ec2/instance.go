@@ -351,13 +351,14 @@ import (
 //
 // #### Optional
 //
-// * `account_id` (String) AWS Account where this resource is managed.
-//
+// * `accountId` (String) AWS Account where this resource is managed.
 // * `region` (String) Region where this resource is managed.
 //
 // Using `pulumi import`, import instances using the `id`. For example:
 //
-// % pulumi import aws_instance.web i-12345678
+// ```sh
+// $ pulumi import aws:ec2/instance:Instance web i-12345678
+// ```
 type Instance struct {
 	pulumi.CustomResourceState
 

@@ -57,24 +57,19 @@ __all__ = [
     'GetVpnAttachmentFilterArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class DefaultRouteTableAssociationTimeoutsArgsDict(TypedDict):
-        create: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
-        """
-        delete: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
-        """
-        update: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
-        """
-elif False:
-    DefaultRouteTableAssociationTimeoutsArgsDict: TypeAlias = Mapping[str, Any]
+class DefaultRouteTableAssociationTimeoutsArgsDict(TypedDict):
+    create: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+    """
+    delete: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+    """
+    update: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+    """
 
 @pulumi.input_type
 class DefaultRouteTableAssociationTimeoutsArgs:
@@ -131,22 +126,19 @@ class DefaultRouteTableAssociationTimeoutsArgs:
         pulumi.set(self, "update", value)
 
 
-if not MYPY:
-    class DefaultRouteTablePropagationTimeoutsArgsDict(TypedDict):
-        create: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
-        """
-        delete: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
-        """
-        update: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
-        """
-elif False:
-    DefaultRouteTablePropagationTimeoutsArgsDict: TypeAlias = Mapping[str, Any]
+class DefaultRouteTablePropagationTimeoutsArgsDict(TypedDict):
+    create: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+    """
+    delete: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+    """
+    update: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+    """
 
 @pulumi.input_type
 class DefaultRouteTablePropagationTimeoutsArgs:
@@ -203,18 +195,15 @@ class DefaultRouteTablePropagationTimeoutsArgs:
         pulumi.set(self, "update", value)
 
 
-if not MYPY:
-    class InstanceConnectEndpointTimeoutsArgsDict(TypedDict):
-        create: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
-        """
-        delete: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
-        """
-elif False:
-    InstanceConnectEndpointTimeoutsArgsDict: TypeAlias = Mapping[str, Any]
+class InstanceConnectEndpointTimeoutsArgsDict(TypedDict):
+    create: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+    """
+    delete: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+    """
 
 @pulumi.input_type
 class InstanceConnectEndpointTimeoutsArgs:
@@ -255,14 +244,11 @@ class InstanceConnectEndpointTimeoutsArgs:
         pulumi.set(self, "delete", value)
 
 
-if not MYPY:
-    class PeeringAttachmentOptionsArgsDict(TypedDict):
-        dynamic_routing: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Indicates whether dynamic routing is enabled or disabled.. Supports `enable` and `disable`.
-        """
-elif False:
-    PeeringAttachmentOptionsArgsDict: TypeAlias = Mapping[str, Any]
+class PeeringAttachmentOptionsArgsDict(TypedDict):
+    dynamic_routing: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Indicates whether dynamic routing is enabled or disabled.. Supports `enable` and `disable`.
+    """
 
 @pulumi.input_type
 class PeeringAttachmentOptionsArgs:
@@ -287,18 +273,15 @@ class PeeringAttachmentOptionsArgs:
         pulumi.set(self, "dynamic_routing", value)
 
 
-if not MYPY:
-    class GetAttachmentFilterArgsDict(TypedDict):
-        name: _builtins.str
-        """
-        Name of the field to filter by, as defined by the [underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGatewayAttachments.html).
-        """
-        values: Sequence[_builtins.str]
-        """
-        List of one or more values for the filter.
-        """
-elif False:
-    GetAttachmentFilterArgsDict: TypeAlias = Mapping[str, Any]
+class GetAttachmentFilterArgsDict(TypedDict):
+    name: _builtins.str
+    """
+    Name of the field to filter by, as defined by the [underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGatewayAttachments.html).
+    """
+    values: Sequence[_builtins.str]
+    """
+    List of one or more values for the filter.
+    """
 
 @pulumi.input_type
 class GetAttachmentFilterArgs:
@@ -337,18 +320,15 @@ class GetAttachmentFilterArgs:
         pulumi.set(self, "values", value)
 
 
-if not MYPY:
-    class GetAttachmentsFilterArgsDict(TypedDict):
-        name: _builtins.str
-        """
-        Name of the filter check available value on [official documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGatewayAttachments.html)
-        """
-        values: Sequence[_builtins.str]
-        """
-        List of one or more values for the filter.
-        """
-elif False:
-    GetAttachmentsFilterArgsDict: TypeAlias = Mapping[str, Any]
+class GetAttachmentsFilterArgsDict(TypedDict):
+    name: _builtins.str
+    """
+    Name of the filter check available value on [official documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGatewayAttachments.html)
+    """
+    values: Sequence[_builtins.str]
+    """
+    List of one or more values for the filter.
+    """
 
 @pulumi.input_type
 class GetAttachmentsFilterArgs:
@@ -387,18 +367,15 @@ class GetAttachmentsFilterArgs:
         pulumi.set(self, "values", value)
 
 
-if not MYPY:
-    class GetConnectFilterArgsDict(TypedDict):
-        name: _builtins.str
-        """
-        Name of the filter.
-        """
-        values: Sequence[_builtins.str]
-        """
-        List of one or more values for the filter.
-        """
-elif False:
-    GetConnectFilterArgsDict: TypeAlias = Mapping[str, Any]
+class GetConnectFilterArgsDict(TypedDict):
+    name: _builtins.str
+    """
+    Name of the filter.
+    """
+    values: Sequence[_builtins.str]
+    """
+    List of one or more values for the filter.
+    """
 
 @pulumi.input_type
 class GetConnectFilterArgs:
@@ -437,18 +414,15 @@ class GetConnectFilterArgs:
         pulumi.set(self, "values", value)
 
 
-if not MYPY:
-    class GetConnectPeerFilterArgsDict(TypedDict):
-        name: _builtins.str
-        """
-        Name of the filter.
-        """
-        values: Sequence[_builtins.str]
-        """
-        List of one or more values for the filter.
-        """
-elif False:
-    GetConnectPeerFilterArgsDict: TypeAlias = Mapping[str, Any]
+class GetConnectPeerFilterArgsDict(TypedDict):
+    name: _builtins.str
+    """
+    Name of the filter.
+    """
+    values: Sequence[_builtins.str]
+    """
+    List of one or more values for the filter.
+    """
 
 @pulumi.input_type
 class GetConnectPeerFilterArgs:
@@ -487,18 +461,15 @@ class GetConnectPeerFilterArgs:
         pulumi.set(self, "values", value)
 
 
-if not MYPY:
-    class GetDirectConnectGatewayAttachmentFilterArgsDict(TypedDict):
-        name: _builtins.str
-        """
-        Name of the filter field. Valid values can be found in the [EC2 DescribeTransitGatewayAttachments API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGatewayAttachments.html).
-        """
-        values: Sequence[_builtins.str]
-        """
-        Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
-        """
-elif False:
-    GetDirectConnectGatewayAttachmentFilterArgsDict: TypeAlias = Mapping[str, Any]
+class GetDirectConnectGatewayAttachmentFilterArgsDict(TypedDict):
+    name: _builtins.str
+    """
+    Name of the filter field. Valid values can be found in the [EC2 DescribeTransitGatewayAttachments API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGatewayAttachments.html).
+    """
+    values: Sequence[_builtins.str]
+    """
+    Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
+    """
 
 @pulumi.input_type
 class GetDirectConnectGatewayAttachmentFilterArgs:
@@ -537,18 +508,15 @@ class GetDirectConnectGatewayAttachmentFilterArgs:
         pulumi.set(self, "values", value)
 
 
-if not MYPY:
-    class GetMulticastDomainFilterArgsDict(TypedDict):
-        name: _builtins.str
-        """
-        Name of the field to filter by, as defined by [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGatewayMulticastDomains.html).
-        """
-        values: Sequence[_builtins.str]
-        """
-        Set of values that are accepted for the given field. A multicast domain will be selected if any one of the given values matches.
-        """
-elif False:
-    GetMulticastDomainFilterArgsDict: TypeAlias = Mapping[str, Any]
+class GetMulticastDomainFilterArgsDict(TypedDict):
+    name: _builtins.str
+    """
+    Name of the field to filter by, as defined by [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGatewayMulticastDomains.html).
+    """
+    values: Sequence[_builtins.str]
+    """
+    Set of values that are accepted for the given field. A multicast domain will be selected if any one of the given values matches.
+    """
 
 @pulumi.input_type
 class GetMulticastDomainFilterArgs:
@@ -587,20 +555,17 @@ class GetMulticastDomainFilterArgs:
         pulumi.set(self, "values", value)
 
 
-if not MYPY:
-    class GetPeeringAttachmentFilterArgsDict(TypedDict):
-        name: _builtins.str
-        """
-        Name of the field to filter by, as defined by
-        [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGatewayPeeringAttachments.html).
-        """
-        values: Sequence[_builtins.str]
-        """
-        Set of values that are accepted for the given field.
-        An EC2 Transit Gateway Peering Attachment be selected if any one of the given values matches.
-        """
-elif False:
-    GetPeeringAttachmentFilterArgsDict: TypeAlias = Mapping[str, Any]
+class GetPeeringAttachmentFilterArgsDict(TypedDict):
+    name: _builtins.str
+    """
+    Name of the field to filter by, as defined by
+    [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGatewayPeeringAttachments.html).
+    """
+    values: Sequence[_builtins.str]
+    """
+    Set of values that are accepted for the given field.
+    An EC2 Transit Gateway Peering Attachment be selected if any one of the given values matches.
+    """
 
 @pulumi.input_type
 class GetPeeringAttachmentFilterArgs:
@@ -643,18 +608,15 @@ class GetPeeringAttachmentFilterArgs:
         pulumi.set(self, "values", value)
 
 
-if not MYPY:
-    class GetPeeringAttachmentsFilterArgsDict(TypedDict):
-        name: _builtins.str
-        """
-        Name of the field to filter by, as defined by [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGatewayPeeringAttachments.html)
-        """
-        values: Sequence[_builtins.str]
-        """
-        List of one or more values for the filter.
-        """
-elif False:
-    GetPeeringAttachmentsFilterArgsDict: TypeAlias = Mapping[str, Any]
+class GetPeeringAttachmentsFilterArgsDict(TypedDict):
+    name: _builtins.str
+    """
+    Name of the field to filter by, as defined by [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGatewayPeeringAttachments.html)
+    """
+    values: Sequence[_builtins.str]
+    """
+    List of one or more values for the filter.
+    """
 
 @pulumi.input_type
 class GetPeeringAttachmentsFilterArgs:
@@ -693,20 +655,17 @@ class GetPeeringAttachmentsFilterArgs:
         pulumi.set(self, "values", value)
 
 
-if not MYPY:
-    class GetRouteTableAssociationsFilterArgsDict(TypedDict):
-        name: _builtins.str
-        """
-        Name of the field to filter by, as defined by
-        [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetTransitGatewayRouteTableAssociations.html).
-        """
-        values: Sequence[_builtins.str]
-        """
-        Set of values that are accepted for the given field.
-        A Transit Gateway Route Table will be selected if any one of the given values matches.
-        """
-elif False:
-    GetRouteTableAssociationsFilterArgsDict: TypeAlias = Mapping[str, Any]
+class GetRouteTableAssociationsFilterArgsDict(TypedDict):
+    name: _builtins.str
+    """
+    Name of the field to filter by, as defined by
+    [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetTransitGatewayRouteTableAssociations.html).
+    """
+    values: Sequence[_builtins.str]
+    """
+    Set of values that are accepted for the given field.
+    A Transit Gateway Route Table will be selected if any one of the given values matches.
+    """
 
 @pulumi.input_type
 class GetRouteTableAssociationsFilterArgs:
@@ -749,18 +708,15 @@ class GetRouteTableAssociationsFilterArgs:
         pulumi.set(self, "values", value)
 
 
-if not MYPY:
-    class GetRouteTableFilterArgsDict(TypedDict):
-        name: _builtins.str
-        """
-        Name of the filter.
-        """
-        values: Sequence[_builtins.str]
-        """
-        List of one or more values for the filter.
-        """
-elif False:
-    GetRouteTableFilterArgsDict: TypeAlias = Mapping[str, Any]
+class GetRouteTableFilterArgsDict(TypedDict):
+    name: _builtins.str
+    """
+    Name of the filter.
+    """
+    values: Sequence[_builtins.str]
+    """
+    List of one or more values for the filter.
+    """
 
 @pulumi.input_type
 class GetRouteTableFilterArgs:
@@ -799,20 +755,17 @@ class GetRouteTableFilterArgs:
         pulumi.set(self, "values", value)
 
 
-if not MYPY:
-    class GetRouteTablePropagationsFilterArgsDict(TypedDict):
-        name: _builtins.str
-        """
-        Name of the field to filter by, as defined by
-        [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetTransitGatewayRouteTablePropagations.html).
-        """
-        values: Sequence[_builtins.str]
-        """
-        Set of values that are accepted for the given field.
-        A Transit Gateway Route Table will be selected if any one of the given values matches.
-        """
-elif False:
-    GetRouteTablePropagationsFilterArgsDict: TypeAlias = Mapping[str, Any]
+class GetRouteTablePropagationsFilterArgsDict(TypedDict):
+    name: _builtins.str
+    """
+    Name of the field to filter by, as defined by
+    [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_GetTransitGatewayRouteTablePropagations.html).
+    """
+    values: Sequence[_builtins.str]
+    """
+    Set of values that are accepted for the given field.
+    A Transit Gateway Route Table will be selected if any one of the given values matches.
+    """
 
 @pulumi.input_type
 class GetRouteTablePropagationsFilterArgs:
@@ -855,19 +808,16 @@ class GetRouteTablePropagationsFilterArgs:
         pulumi.set(self, "values", value)
 
 
-if not MYPY:
-    class GetRouteTableRoutesFilterArgsDict(TypedDict):
-        name: _builtins.str
-        """
-        Name of the field to filter by, as defined by
-        [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_SearchTransitGatewayRoutes.html).
-        """
-        values: Sequence[_builtins.str]
-        """
-        Set of values that are accepted for the given field.
-        """
-elif False:
-    GetRouteTableRoutesFilterArgsDict: TypeAlias = Mapping[str, Any]
+class GetRouteTableRoutesFilterArgsDict(TypedDict):
+    name: _builtins.str
+    """
+    Name of the field to filter by, as defined by
+    [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_SearchTransitGatewayRoutes.html).
+    """
+    values: Sequence[_builtins.str]
+    """
+    Set of values that are accepted for the given field.
+    """
 
 @pulumi.input_type
 class GetRouteTableRoutesFilterArgs:
@@ -908,18 +858,15 @@ class GetRouteTableRoutesFilterArgs:
         pulumi.set(self, "values", value)
 
 
-if not MYPY:
-    class GetTransitGatewayFilterArgsDict(TypedDict):
-        name: _builtins.str
-        """
-        Name of the field to filter by, as defined by the [underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGateways.html).
-        """
-        values: Sequence[_builtins.str]
-        """
-        List of one or more values for the filter.
-        """
-elif False:
-    GetTransitGatewayFilterArgsDict: TypeAlias = Mapping[str, Any]
+class GetTransitGatewayFilterArgsDict(TypedDict):
+    name: _builtins.str
+    """
+    Name of the field to filter by, as defined by the [underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGateways.html).
+    """
+    values: Sequence[_builtins.str]
+    """
+    List of one or more values for the filter.
+    """
 
 @pulumi.input_type
 class GetTransitGatewayFilterArgs:
@@ -958,18 +905,15 @@ class GetTransitGatewayFilterArgs:
         pulumi.set(self, "values", value)
 
 
-if not MYPY:
-    class GetVpcAttachmentFilterArgsDict(TypedDict):
-        name: _builtins.str
-        """
-        Name of the filter.
-        """
-        values: Sequence[_builtins.str]
-        """
-        List of one or more values for the filter.
-        """
-elif False:
-    GetVpcAttachmentFilterArgsDict: TypeAlias = Mapping[str, Any]
+class GetVpcAttachmentFilterArgsDict(TypedDict):
+    name: _builtins.str
+    """
+    Name of the filter.
+    """
+    values: Sequence[_builtins.str]
+    """
+    List of one or more values for the filter.
+    """
 
 @pulumi.input_type
 class GetVpcAttachmentFilterArgs:
@@ -1008,18 +952,15 @@ class GetVpcAttachmentFilterArgs:
         pulumi.set(self, "values", value)
 
 
-if not MYPY:
-    class GetVpcAttachmentsFilterArgsDict(TypedDict):
-        name: _builtins.str
-        """
-        Name of the filter check available value on [official documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGatewayVpcAttachments.html)
-        """
-        values: Sequence[_builtins.str]
-        """
-        List of one or more values for the filter.
-        """
-elif False:
-    GetVpcAttachmentsFilterArgsDict: TypeAlias = Mapping[str, Any]
+class GetVpcAttachmentsFilterArgsDict(TypedDict):
+    name: _builtins.str
+    """
+    Name of the filter check available value on [official documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGatewayVpcAttachments.html)
+    """
+    values: Sequence[_builtins.str]
+    """
+    List of one or more values for the filter.
+    """
 
 @pulumi.input_type
 class GetVpcAttachmentsFilterArgs:
@@ -1058,18 +999,15 @@ class GetVpcAttachmentsFilterArgs:
         pulumi.set(self, "values", value)
 
 
-if not MYPY:
-    class GetVpnAttachmentFilterArgsDict(TypedDict):
-        name: _builtins.str
-        """
-        Name of the filter field. Valid values can be found in the [EC2 DescribeTransitGatewayAttachments API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGatewayAttachments.html).
-        """
-        values: Sequence[_builtins.str]
-        """
-        Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
-        """
-elif False:
-    GetVpnAttachmentFilterArgsDict: TypeAlias = Mapping[str, Any]
+class GetVpnAttachmentFilterArgsDict(TypedDict):
+    name: _builtins.str
+    """
+    Name of the filter field. Valid values can be found in the [EC2 DescribeTransitGatewayAttachments API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGatewayAttachments.html).
+    """
+    values: Sequence[_builtins.str]
+    """
+    Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
+    """
 
 @pulumi.input_type
 class GetVpnAttachmentFilterArgs:

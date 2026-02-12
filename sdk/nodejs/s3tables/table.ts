@@ -80,7 +80,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Using `pulumi import`, import S3 Tables Table using the `table_bucket_arn`, the value of `namespace`, and the value of `name`, separated by a semicolon (`;`). For example:
+ * Using `pulumi import`, import S3 Tables Table using the `tableBucketArn`, the value of `namespace`, and the value of `name`, separated by a semicolon (`;`). For example:
  *
  * ```sh
  * $ pulumi import aws:s3tables/table:Table example 'arn:aws:s3tables:us-west-2:123456789012:bucket/example-bucket;example-namespace;example-table'

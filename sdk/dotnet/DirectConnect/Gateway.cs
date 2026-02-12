@@ -37,17 +37,18 @@ namespace Pulumi.Aws.DirectConnect
     /// 
     /// #### Required
     /// 
-    /// * `id` (String) ID of the Direct Connect Gateway.
+    /// * `Id` (String) ID of the Direct Connect Gateway.
     /// 
     /// #### Optional
     /// 
-    /// * `account_id` (String) AWS Account where this resource is managed.
+    /// * `AccountId` (String) AWS Account where this resource is managed.
+    /// * `Region` (String) Region where this resource is managed.
     /// 
-    /// * `region` (String) Region where this resource is managed.
+    /// Using `pulumi import`, import Direct Connect Gateways using the gateway `Id`. For example:
     /// 
-    /// Using `pulumi import`, import Direct Connect Gateways using the gateway `id`. For example:
-    /// 
-    /// % pulumi import aws_dx_gateway.example abcd1234-dcba-5678-be23-cdef9876ab45
+    /// ```sh
+    /// $ pulumi import aws:directconnect/gateway:Gateway example abcd1234-dcba-5678-be23-cdef9876ab45
+    /// ```
     /// </summary>
     [AwsResourceType("aws:directconnect/gateway:Gateway")]
     public partial class Gateway : global::Pulumi.CustomResource

@@ -338,6 +338,16 @@ class Room(pulumi.CustomResource):
         example = aws.ivschat.Room("example", name="tf-room")
         ```
 
+        #### Required
+
+        - `arn` (String) Amazon Resource Name (ARN) of the IVS Chat room.
+
+        Using `pulumi import`, import IVS (Interactive Video) Chat Room using the ARN. For example:
+
+        ```sh
+        $ pulumi import aws:ivschat/room:Room example arn:aws:ivschat:us-west-2:326937407773:room/GoXEXyB4VwHb
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] logging_configuration_identifiers: List of Logging Configuration
@@ -371,6 +381,16 @@ class Room(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.ivschat.Room("example", name="tf-room")
+        ```
+
+        #### Required
+
+        - `arn` (String) Amazon Resource Name (ARN) of the IVS Chat room.
+
+        Using `pulumi import`, import IVS (Interactive Video) Chat Room using the ARN. For example:
+
+        ```sh
+        $ pulumi import aws:ivschat/room:Room example arn:aws:ivschat:us-west-2:326937407773:room/GoXEXyB4VwHb
         ```
 
         :param str resource_name: The name of the resource.

@@ -61,7 +61,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Using `pulumi import`, import Redshift Cluster Snapshots using `snapshot_identifier`. For example:
+ * Using `pulumi import`, import Redshift Cluster Snapshots using `snapshotIdentifier`. For example:
  * 
  * ```sh
  * $ pulumi import aws:redshift/clusterSnapshot:ClusterSnapshot test example

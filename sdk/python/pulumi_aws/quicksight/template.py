@@ -35,6 +35,7 @@ class TemplateArgs:
         :param pulumi.Input[_builtins.str] version_description: A description of the current template version being created/updated.
                
                The following arguments are optional:
+        :param pulumi.Input[_builtins.str] aws_account_id: AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
         :param pulumi.Input[_builtins.str] name: Display name for the template.
         :param pulumi.Input[Sequence[pulumi.Input['TemplatePermissionArgs']]] permissions: A set of resource permissions on the template. Maximum of 64 items. See permissions.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -85,6 +86,9 @@ class TemplateArgs:
     @_builtins.property
     @pulumi.getter(name="awsAccountId")
     def aws_account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
+        """
         return pulumi.get(self, "aws_account_id")
 
     @aws_account_id.setter
@@ -173,6 +177,7 @@ class _TemplateState:
         """
         Input properties used for looking up and filtering Template resources.
         :param pulumi.Input[_builtins.str] arn: ARN of the template.
+        :param pulumi.Input[_builtins.str] aws_account_id: AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
         :param pulumi.Input[_builtins.str] created_time: The time that the template was created.
         :param pulumi.Input[_builtins.str] last_updated_time: The time that the template was last updated.
         :param pulumi.Input[_builtins.str] name: Display name for the template.
@@ -235,6 +240,9 @@ class _TemplateState:
     @_builtins.property
     @pulumi.getter(name="awsAccountId")
     def aws_account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
+        """
         return pulumi.get(self, "aws_account_id")
 
     @aws_account_id.setter
@@ -512,6 +520,7 @@ class Template(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[_builtins.str] aws_account_id: AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
         :param pulumi.Input[_builtins.str] name: Display name for the template.
         :param pulumi.Input[Sequence[pulumi.Input[Union['TemplatePermissionArgs', 'TemplatePermissionArgsDict']]]] permissions: A set of resource permissions on the template. Maximum of 64 items. See permissions.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -707,6 +716,7 @@ class Template(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] arn: ARN of the template.
+        :param pulumi.Input[_builtins.str] aws_account_id: AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
         :param pulumi.Input[_builtins.str] created_time: The time that the template was created.
         :param pulumi.Input[_builtins.str] last_updated_time: The time that the template was last updated.
         :param pulumi.Input[_builtins.str] name: Display name for the template.
@@ -755,6 +765,9 @@ class Template(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="awsAccountId")
     def aws_account_id(self) -> pulumi.Output[_builtins.str]:
+        """
+        AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
+        """
         return pulumi.get(self, "aws_account_id")
 
     @_builtins.property

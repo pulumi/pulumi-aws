@@ -104,7 +104,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Using `pulumi import`, import DataZone Environment Profile using a comma-delimited string combining `id` and `domain_identifier`. For example:
+ * Using `pulumi import`, import DataZone Environment Profile using a comma-delimited string combining `id` and `domainIdentifier`. For example:
  *
  * ```sh
  * $ pulumi import aws:datazone/environmentProfile:EnvironmentProfile example environment_profile-id-12345678,domain-id-12345678

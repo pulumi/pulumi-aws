@@ -36,6 +36,9 @@ export function getQuicksightGroup(args: GetQuicksightGroupArgs, opts?: pulumi.I
  * A collection of arguments for invoking getQuicksightGroup.
  */
 export interface GetQuicksightGroupArgs {
+    /**
+     * AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
+     */
     awsAccountId?: string;
     /**
      * The name of the group that you want to match.
@@ -110,6 +113,9 @@ export function getQuicksightGroupOutput(args: GetQuicksightGroupOutputArgs, opt
  * A collection of arguments for invoking getQuicksightGroup.
  */
 export interface GetQuicksightGroupOutputArgs {
+    /**
+     * AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
+     */
     awsAccountId?: pulumi.Input<string>;
     /**
      * The name of the group that you want to match.

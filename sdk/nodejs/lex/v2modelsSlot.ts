@@ -8,6 +8,109 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
+ * Resource for managing an AWS Lex V2 Models Slot.
+ *
+ * ## Example Usage
+ *
+ * ### Basic Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.lex.V2modelsSlot("example", {
+ *     botId: exampleAwsLexv2modelsBot.id,
+ *     botVersion: exampleAwsLexv2modelsBotVersion.botVersion,
+ *     intentId: exampleAwsLexv2modelsIntent.id,
+ *     localeId: exampleAwsLexv2modelsBotLocale.localeId,
+ *     name: "example",
+ * });
+ * ```
+ *
+ * ### `valueElicitationSetting` Example
+ *
+ * > When using `valueElicitationSetting`, if you do not provide a `promptAttemptsSpecification`, AWS Lex will configure default `promptAttemptsSpecification`s.
+ * As a result, Terraform will report a difference in the configuration.
+ * To avoid this behavior, include `promptAttemptsSpecification` blocks matching the default configuration, as shown below.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.lex.V2modelsSlot("example", {
+ *     botId: test.id,
+ *     botVersion: testAwsLexv2modelsBotLocale.botVersion,
+ *     intentId: testAwsLexv2modelsIntent.intentId,
+ *     localeId: testAwsLexv2modelsBotLocale.localeId,
+ *     name: "example",
+ *     valueElicitationSetting: {
+ *         slotConstraint: "Required",
+ *         promptSpecification: {
+ *             allowInterrupt: true,
+ *             maxRetries: 1,
+ *             messageSelectionStrategy: "Random",
+ *             messageGroups: [{
+ *                 message: {
+ *                     plainTextMessage: {
+ *                         value: "What is your favorite color?",
+ *                     },
+ *                 },
+ *             }],
+ *             promptAttemptsSpecifications: [
+ *                 {
+ *                     allowInterrupt: true,
+ *                     mapBlockKey: "Initial",
+ *                     allowedInputTypes: {
+ *                         allowAudioInput: true,
+ *                         allowDtmfInput: true,
+ *                     },
+ *                     audioAndDtmfInputSpecification: {
+ *                         startTimeoutMs: 4000,
+ *                         audioSpecification: {
+ *                             endTimeoutMs: 640,
+ *                             maxLengthMs: 15000,
+ *                         },
+ *                         dtmfSpecification: {
+ *                             deletionCharacter: "*",
+ *                             endCharacter: "#",
+ *                             endTimeoutMs: 5000,
+ *                             maxLength: 513,
+ *                         },
+ *                     },
+ *                     textInputSpecification: {
+ *                         startTimeoutMs: 30000,
+ *                     },
+ *                 },
+ *                 {
+ *                     allowInterrupt: true,
+ *                     mapBlockKey: "Retry1",
+ *                     allowedInputTypes: {
+ *                         allowAudioInput: true,
+ *                         allowDtmfInput: true,
+ *                     },
+ *                     audioAndDtmfInputSpecification: {
+ *                         startTimeoutMs: 4000,
+ *                         audioSpecification: {
+ *                             endTimeoutMs: 640,
+ *                             maxLengthMs: 15000,
+ *                         },
+ *                         dtmfSpecification: {
+ *                             deletionCharacter: "*",
+ *                             endCharacter: "#",
+ *                             endTimeoutMs: 5000,
+ *                             maxLength: 513,
+ *                         },
+ *                     },
+ *                     textInputSpecification: {
+ *                         startTimeoutMs: 30000,
+ *                     },
+ *                 },
+ *             ],
+ *         },
+ *     },
+ * });
+ * ```
+ *
  * ## Import
  *
  * Using `pulumi import`, import Lex V2 Models Slot using the `id`. For example:
@@ -96,6 +199,15 @@ export class V2modelsSlot extends pulumi.CustomResource {
      */
     declare public readonly subSlotSettings: pulumi.Output<outputs.lex.V2modelsSlotSubSlotSetting[] | undefined>;
     declare public readonly timeouts: pulumi.Output<outputs.lex.V2modelsSlotTimeouts | undefined>;
+    /**
+     * Prompts that Amazon Lex sends to the user to elicit a response that provides the value for the slot.
+     * If you configure this block without `prompt_specification.*.prompt_attempts_specification`, AWS will provide default `promptAttemptsSpecification` blocks for the initial prompt (map key `Initial`) and each retry attempt (map keys `Retry1`, `Retry2`, etc.).
+     * This will cause Terraform to report differences.
+     * Use the `valueElicitationSetting` configuration above in the `valueElicitationSetting` example to avoid differences resulting from AWS default configurations.
+     * See the `valueElicitationSetting` argument reference below.
+     *
+     * The following arguments are optional:
+     */
     declare public readonly valueElicitationSetting: pulumi.Output<outputs.lex.V2modelsSlotValueElicitationSetting>;
 
     /**
@@ -218,6 +330,15 @@ export interface V2modelsSlotState {
      */
     subSlotSettings?: pulumi.Input<pulumi.Input<inputs.lex.V2modelsSlotSubSlotSetting>[]>;
     timeouts?: pulumi.Input<inputs.lex.V2modelsSlotTimeouts>;
+    /**
+     * Prompts that Amazon Lex sends to the user to elicit a response that provides the value for the slot.
+     * If you configure this block without `prompt_specification.*.prompt_attempts_specification`, AWS will provide default `promptAttemptsSpecification` blocks for the initial prompt (map key `Initial`) and each retry attempt (map keys `Retry1`, `Retry2`, etc.).
+     * This will cause Terraform to report differences.
+     * Use the `valueElicitationSetting` configuration above in the `valueElicitationSetting` example to avoid differences resulting from AWS default configurations.
+     * See the `valueElicitationSetting` argument reference below.
+     *
+     * The following arguments are optional:
+     */
     valueElicitationSetting?: pulumi.Input<inputs.lex.V2modelsSlotValueElicitationSetting>;
 }
 
@@ -273,5 +394,14 @@ export interface V2modelsSlotArgs {
      */
     subSlotSettings?: pulumi.Input<pulumi.Input<inputs.lex.V2modelsSlotSubSlotSetting>[]>;
     timeouts?: pulumi.Input<inputs.lex.V2modelsSlotTimeouts>;
+    /**
+     * Prompts that Amazon Lex sends to the user to elicit a response that provides the value for the slot.
+     * If you configure this block without `prompt_specification.*.prompt_attempts_specification`, AWS will provide default `promptAttemptsSpecification` blocks for the initial prompt (map key `Initial`) and each retry attempt (map keys `Retry1`, `Retry2`, etc.).
+     * This will cause Terraform to report differences.
+     * Use the `valueElicitationSetting` configuration above in the `valueElicitationSetting` example to avoid differences resulting from AWS default configurations.
+     * See the `valueElicitationSetting` argument reference below.
+     *
+     * The following arguments are optional:
+     */
     valueElicitationSetting: pulumi.Input<inputs.lex.V2modelsSlotValueElicitationSetting>;
 }

@@ -58,7 +58,7 @@ import (
 //
 // ## Import
 //
-// Using `pulumi import`, import RDS DB Instance Reservations using the `instance_id`. For example:
+// Using `pulumi import`, import RDS DB Instance Reservations using the `instanceId`. For example:
 //
 // ```sh
 // $ pulumi import aws:rds/reservedInstance:ReservedInstance reservation_instance CustomReservationID

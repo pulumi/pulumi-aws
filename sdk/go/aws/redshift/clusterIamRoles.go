@@ -47,7 +47,7 @@ import (
 //
 // ## Import
 //
-// Using `pulumi import`, import Redshift Cluster IAM Roless using the `cluster_identifier`. For example:
+// Using `pulumi import`, import Redshift Cluster IAM Roless using the `clusterIdentifier`. For example:
 //
 // ```sh
 // $ pulumi import aws:redshift/clusterIamRoles:ClusterIamRoles examplegroup1 example

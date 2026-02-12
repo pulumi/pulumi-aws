@@ -21,28 +21,23 @@ __all__ = [
     'ServiceQuotaUsageMetricMetricDimensionArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class ServiceQuotaUsageMetricArgsDict(TypedDict):
-        metric_dimensions: NotRequired[pulumi.Input[Sequence[pulumi.Input['ServiceQuotaUsageMetricMetricDimensionArgsDict']]]]
-        """
-        The metric dimensions.
-        """
-        metric_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the metric.
-        """
-        metric_namespace: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The namespace of the metric.
-        """
-        metric_statistic_recommendation: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The metric statistic that AWS recommend you use when determining quota usage.
-        """
-elif False:
-    ServiceQuotaUsageMetricArgsDict: TypeAlias = Mapping[str, Any]
+class ServiceQuotaUsageMetricArgsDict(TypedDict):
+    metric_dimensions: NotRequired[pulumi.Input[Sequence[pulumi.Input['ServiceQuotaUsageMetricMetricDimensionArgsDict']]]]
+    """
+    The metric dimensions.
+    """
+    metric_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the metric.
+    """
+    metric_namespace: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The namespace of the metric.
+    """
+    metric_statistic_recommendation: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The metric statistic that AWS recommend you use when determining quota usage.
+    """
 
 @pulumi.input_type
 class ServiceQuotaUsageMetricArgs:
@@ -115,14 +110,11 @@ class ServiceQuotaUsageMetricArgs:
         pulumi.set(self, "metric_statistic_recommendation", value)
 
 
-if not MYPY:
-    class ServiceQuotaUsageMetricMetricDimensionArgsDict(TypedDict):
-        class_: NotRequired[pulumi.Input[_builtins.str]]
-        resource: NotRequired[pulumi.Input[_builtins.str]]
-        service: NotRequired[pulumi.Input[_builtins.str]]
-        type: NotRequired[pulumi.Input[_builtins.str]]
-elif False:
-    ServiceQuotaUsageMetricMetricDimensionArgsDict: TypeAlias = Mapping[str, Any]
+class ServiceQuotaUsageMetricMetricDimensionArgsDict(TypedDict):
+    class_: NotRequired[pulumi.Input[_builtins.str]]
+    resource: NotRequired[pulumi.Input[_builtins.str]]
+    service: NotRequired[pulumi.Input[_builtins.str]]
+    type: NotRequired[pulumi.Input[_builtins.str]]
 
 @pulumi.input_type
 class ServiceQuotaUsageMetricMetricDimensionArgs:

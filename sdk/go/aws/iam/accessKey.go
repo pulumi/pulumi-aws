@@ -112,7 +112,8 @@ import (
 // ```sh
 // $ pulumi import aws:iam/accessKey:AccessKey example AKIA1234567890
 // ```
-// Resource attributes such as `encrypted_secret`, `key_fingerprint`, `pgp_key`, `secret`, `ses_smtp_password_v4`, and `encrypted_ses_smtp_password_v4` are not available for imported resources as this information cannot be read from the IAM API.
+//
+// Resource attributes such as `encryptedSecret`, `keyFingerprint`, `pgpKey`, `secret`, `sesSmtpPasswordV4`, and `encryptedSesSmtpPasswordV4` are not available for imported resources as this information cannot be read from the IAM API.
 type AccessKey struct {
 	pulumi.CustomResourceState
 

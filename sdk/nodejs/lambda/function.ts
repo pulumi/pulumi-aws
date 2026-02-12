@@ -469,17 +469,18 @@ import * as utilities from "../utilities";
  *
  * #### Required
  *
- * * `function_name` (String) Name of the Lambda function.
+ * * `functionName` (String) Name of the Lambda function.
  *
  * #### Optional
  *
- * * `account_id` (String) AWS Account where this resource is managed.
- *
+ * * `accountId` (String) AWS Account where this resource is managed.
  * * `region` (String) Region where this resource is managed.
  *
- * Using `pulumi import`, import Lambda Functions using the `function_name`. For example:
+ * Using `pulumi import`, import Lambda Functions using the `functionName`. For example:
  *
- * % pulumi import aws_lambda_function.example example
+ * ```sh
+ * $ pulumi import aws:lambda/function:Function example example
+ * ```
  */
 export class Function extends pulumi.CustomResource {
     /**

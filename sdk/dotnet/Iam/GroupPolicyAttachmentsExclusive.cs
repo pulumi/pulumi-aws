@@ -10,9 +10,62 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Iam
 {
     /// <summary>
+    /// Resource for maintaining exclusive management of managed IAM policies assigned to an AWS IAM (Identity &amp; Access Management) group.
+    /// 
+    /// !&gt; This resource takes exclusive ownership over managed IAM policies attached to a group. This includes removal of managed IAM policies which are not explicitly configured. To prevent persistent drift, ensure any `aws.iam.GroupPolicyAttachment` resources managed alongside this resource are included in the `PolicyArns` argument.
+    /// 
+    /// &gt; Destruction of this resource means Terraform will no longer manage reconciliation of the configured policy attachments. It **will not** detach the configured policies from the group.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ### Basic Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.Iam.GroupPolicyAttachmentsExclusive("example", new()
+    ///     {
+    ///         GroupName = exampleAwsIamGroup.Name,
+    ///         PolicyArns = new[]
+    ///         {
+    ///             exampleAwsIamPolicy.Arn,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ### Disallow Managed IAM Policies
+    /// 
+    /// To automatically remove any configured managed IAM policies, set the `PolicyArns` argument to an empty list.
+    /// 
+    /// &gt; This will not **prevent** managed IAM policies from being assigned to a group via Terraform (or any other interface). This resource enables bringing managed IAM policy assignments into a configured state, however, this reconciliation happens only when `Apply` is proactively run.
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.Iam.GroupPolicyAttachmentsExclusive("example", new()
+    ///     {
+    ///         GroupName = exampleAwsIamGroup.Name,
+    ///         PolicyArns = new[] {},
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import exclusive management of managed IAM policy assignments using the `group_name`. For example:
+    /// Using `pulumi import`, import exclusive management of managed IAM policy assignments using the `GroupName`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:iam/groupPolicyAttachmentsExclusive:GroupPolicyAttachmentsExclusive example MyGroup

@@ -61,7 +61,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Using `pulumi import`, import `aws_appsync_api_key` using the AppSync API ID and key separated by `:`. For example:
+ * Using `pulumi import`, import `aws.appsync.ApiKey` using the AppSync API ID and key separated by `:`. For example:
  * 
  * ```sh
  * $ pulumi import aws:appsync/apiKey:ApiKey example xxxxx:yyyyy

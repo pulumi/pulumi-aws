@@ -109,9 +109,17 @@ public class EnrollmentStatus extends com.pulumi.resources.CustomResource {
     public Output<Boolean> includeMemberAccounts() {
         return this.includeMemberAccounts;
     }
+    /**
+     * Status of enrollment. When the resource is present in Terraform, its status will always be `Active`.
+     * 
+     */
     @Export(name="status", refs={String.class}, tree="[0]")
     private Output<String> status;
 
+    /**
+     * @return Status of enrollment. When the resource is present in Terraform, its status will always be `Active`.
+     * 
+     */
     public Output<String> status() {
         return this.status;
     }

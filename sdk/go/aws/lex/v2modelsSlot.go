@@ -12,6 +12,141 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Resource for managing an AWS Lex V2 Models Slot.
+//
+// ## Example Usage
+//
+// ### Basic Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/lex"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := lex.NewV2modelsSlot(ctx, "example", &lex.V2modelsSlotArgs{
+//				BotId:      pulumi.Any(exampleAwsLexv2modelsBot.Id),
+//				BotVersion: pulumi.Any(exampleAwsLexv2modelsBotVersion.BotVersion),
+//				IntentId:   pulumi.Any(exampleAwsLexv2modelsIntent.Id),
+//				LocaleId:   pulumi.Any(exampleAwsLexv2modelsBotLocale.LocaleId),
+//				Name:       pulumi.String("example"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ### `valueElicitationSetting` Example
+//
+// > When using `valueElicitationSetting`, if you do not provide a `promptAttemptsSpecification`, AWS Lex will configure default `promptAttemptsSpecification`s.
+// As a result, Terraform will report a difference in the configuration.
+// To avoid this behavior, include `promptAttemptsSpecification` blocks matching the default configuration, as shown below.
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/lex"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := lex.NewV2modelsSlot(ctx, "example", &lex.V2modelsSlotArgs{
+//				BotId:      pulumi.Any(test.Id),
+//				BotVersion: pulumi.Any(testAwsLexv2modelsBotLocale.BotVersion),
+//				IntentId:   pulumi.Any(testAwsLexv2modelsIntent.IntentId),
+//				LocaleId:   pulumi.Any(testAwsLexv2modelsBotLocale.LocaleId),
+//				Name:       pulumi.String("example"),
+//				ValueElicitationSetting: &lex.V2modelsSlotValueElicitationSettingArgs{
+//					SlotConstraint: pulumi.String("Required"),
+//					PromptSpecification: &lex.V2modelsSlotValueElicitationSettingPromptSpecificationArgs{
+//						AllowInterrupt:           pulumi.Bool(true),
+//						MaxRetries:               pulumi.Int(1),
+//						MessageSelectionStrategy: pulumi.String("Random"),
+//						MessageGroups: lex.V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupArray{
+//							&lex.V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupArgs{
+//								Message: &lex.V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessageArgs{
+//									PlainTextMessage: &lex.V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessagePlainTextMessageArgs{
+//										Value: pulumi.String("What is your favorite color?"),
+//									},
+//								},
+//							},
+//						},
+//						PromptAttemptsSpecifications: lex.V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationArray{
+//							&lex.V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationArgs{
+//								AllowInterrupt: pulumi.Bool(true),
+//								MapBlockKey:    pulumi.String("Initial"),
+//								AllowedInputTypes: &lex.V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAllowedInputTypesArgs{
+//									AllowAudioInput: pulumi.Bool(true),
+//									AllowDtmfInput:  pulumi.Bool(true),
+//								},
+//								AudioAndDtmfInputSpecification: &lex.V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationArgs{
+//									StartTimeoutMs: pulumi.Int(4000),
+//									AudioSpecification: &lex.V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationAudioSpecificationArgs{
+//										EndTimeoutMs: pulumi.Int(640),
+//										MaxLengthMs:  pulumi.Int(15000),
+//									},
+//									DtmfSpecification: &lex.V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationDtmfSpecificationArgs{
+//										DeletionCharacter: pulumi.String("*"),
+//										EndCharacter:      pulumi.String("#"),
+//										EndTimeoutMs:      pulumi.Int(5000),
+//										MaxLength:         pulumi.Int(513),
+//									},
+//								},
+//								TextInputSpecification: &lex.V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationTextInputSpecificationArgs{
+//									StartTimeoutMs: pulumi.Int(30000),
+//								},
+//							},
+//							&lex.V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationArgs{
+//								AllowInterrupt: pulumi.Bool(true),
+//								MapBlockKey:    pulumi.String("Retry1"),
+//								AllowedInputTypes: &lex.V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAllowedInputTypesArgs{
+//									AllowAudioInput: pulumi.Bool(true),
+//									AllowDtmfInput:  pulumi.Bool(true),
+//								},
+//								AudioAndDtmfInputSpecification: &lex.V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationArgs{
+//									StartTimeoutMs: pulumi.Int(4000),
+//									AudioSpecification: &lex.V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationAudioSpecificationArgs{
+//										EndTimeoutMs: pulumi.Int(640),
+//										MaxLengthMs:  pulumi.Int(15000),
+//									},
+//									DtmfSpecification: &lex.V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationDtmfSpecificationArgs{
+//										DeletionCharacter: pulumi.String("*"),
+//										EndCharacter:      pulumi.String("#"),
+//										EndTimeoutMs:      pulumi.Int(5000),
+//										MaxLength:         pulumi.Int(513),
+//									},
+//								},
+//								TextInputSpecification: &lex.V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationTextInputSpecificationArgs{
+//									StartTimeoutMs: pulumi.Int(30000),
+//								},
+//							},
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Using `pulumi import`, import Lex V2 Models Slot using the `id`. For example:
@@ -48,8 +183,15 @@ type V2modelsSlot struct {
 	SlotTypeId pulumi.StringOutput `pulumi:"slotTypeId"`
 	// Specifications for the constituent sub slots and the expression for the composite slot.
 	// See the `subSlotSetting` argument reference below.
-	SubSlotSettings         V2modelsSlotSubSlotSettingArrayOutput     `pulumi:"subSlotSettings"`
-	Timeouts                V2modelsSlotTimeoutsPtrOutput             `pulumi:"timeouts"`
+	SubSlotSettings V2modelsSlotSubSlotSettingArrayOutput `pulumi:"subSlotSettings"`
+	Timeouts        V2modelsSlotTimeoutsPtrOutput         `pulumi:"timeouts"`
+	// Prompts that Amazon Lex sends to the user to elicit a response that provides the value for the slot.
+	// If you configure this block without `prompt_specification.*.prompt_attempts_specification`, AWS will provide default `promptAttemptsSpecification` blocks for the initial prompt (map key `Initial`) and each retry attempt (map keys `Retry1`, `Retry2`, etc.).
+	// This will cause Terraform to report differences.
+	// Use the `valueElicitationSetting` configuration above in the `valueElicitationSetting` example to avoid differences resulting from AWS default configurations.
+	// See the `valueElicitationSetting` argument reference below.
+	//
+	// The following arguments are optional:
 	ValueElicitationSetting V2modelsSlotValueElicitationSettingOutput `pulumi:"valueElicitationSetting"`
 }
 
@@ -124,8 +266,15 @@ type v2modelsSlotState struct {
 	SlotTypeId *string `pulumi:"slotTypeId"`
 	// Specifications for the constituent sub slots and the expression for the composite slot.
 	// See the `subSlotSetting` argument reference below.
-	SubSlotSettings         []V2modelsSlotSubSlotSetting         `pulumi:"subSlotSettings"`
-	Timeouts                *V2modelsSlotTimeouts                `pulumi:"timeouts"`
+	SubSlotSettings []V2modelsSlotSubSlotSetting `pulumi:"subSlotSettings"`
+	Timeouts        *V2modelsSlotTimeouts        `pulumi:"timeouts"`
+	// Prompts that Amazon Lex sends to the user to elicit a response that provides the value for the slot.
+	// If you configure this block without `prompt_specification.*.prompt_attempts_specification`, AWS will provide default `promptAttemptsSpecification` blocks for the initial prompt (map key `Initial`) and each retry attempt (map keys `Retry1`, `Retry2`, etc.).
+	// This will cause Terraform to report differences.
+	// Use the `valueElicitationSetting` configuration above in the `valueElicitationSetting` example to avoid differences resulting from AWS default configurations.
+	// See the `valueElicitationSetting` argument reference below.
+	//
+	// The following arguments are optional:
 	ValueElicitationSetting *V2modelsSlotValueElicitationSetting `pulumi:"valueElicitationSetting"`
 }
 
@@ -156,8 +305,15 @@ type V2modelsSlotState struct {
 	SlotTypeId pulumi.StringPtrInput
 	// Specifications for the constituent sub slots and the expression for the composite slot.
 	// See the `subSlotSetting` argument reference below.
-	SubSlotSettings         V2modelsSlotSubSlotSettingArrayInput
-	Timeouts                V2modelsSlotTimeoutsPtrInput
+	SubSlotSettings V2modelsSlotSubSlotSettingArrayInput
+	Timeouts        V2modelsSlotTimeoutsPtrInput
+	// Prompts that Amazon Lex sends to the user to elicit a response that provides the value for the slot.
+	// If you configure this block without `prompt_specification.*.prompt_attempts_specification`, AWS will provide default `promptAttemptsSpecification` blocks for the initial prompt (map key `Initial`) and each retry attempt (map keys `Retry1`, `Retry2`, etc.).
+	// This will cause Terraform to report differences.
+	// Use the `valueElicitationSetting` configuration above in the `valueElicitationSetting` example to avoid differences resulting from AWS default configurations.
+	// See the `valueElicitationSetting` argument reference below.
+	//
+	// The following arguments are optional:
 	ValueElicitationSetting V2modelsSlotValueElicitationSettingPtrInput
 }
 
@@ -190,8 +346,15 @@ type v2modelsSlotArgs struct {
 	SlotTypeId *string `pulumi:"slotTypeId"`
 	// Specifications for the constituent sub slots and the expression for the composite slot.
 	// See the `subSlotSetting` argument reference below.
-	SubSlotSettings         []V2modelsSlotSubSlotSetting        `pulumi:"subSlotSettings"`
-	Timeouts                *V2modelsSlotTimeouts               `pulumi:"timeouts"`
+	SubSlotSettings []V2modelsSlotSubSlotSetting `pulumi:"subSlotSettings"`
+	Timeouts        *V2modelsSlotTimeouts        `pulumi:"timeouts"`
+	// Prompts that Amazon Lex sends to the user to elicit a response that provides the value for the slot.
+	// If you configure this block without `prompt_specification.*.prompt_attempts_specification`, AWS will provide default `promptAttemptsSpecification` blocks for the initial prompt (map key `Initial`) and each retry attempt (map keys `Retry1`, `Retry2`, etc.).
+	// This will cause Terraform to report differences.
+	// Use the `valueElicitationSetting` configuration above in the `valueElicitationSetting` example to avoid differences resulting from AWS default configurations.
+	// See the `valueElicitationSetting` argument reference below.
+	//
+	// The following arguments are optional:
 	ValueElicitationSetting V2modelsSlotValueElicitationSetting `pulumi:"valueElicitationSetting"`
 }
 
@@ -221,8 +384,15 @@ type V2modelsSlotArgs struct {
 	SlotTypeId pulumi.StringPtrInput
 	// Specifications for the constituent sub slots and the expression for the composite slot.
 	// See the `subSlotSetting` argument reference below.
-	SubSlotSettings         V2modelsSlotSubSlotSettingArrayInput
-	Timeouts                V2modelsSlotTimeoutsPtrInput
+	SubSlotSettings V2modelsSlotSubSlotSettingArrayInput
+	Timeouts        V2modelsSlotTimeoutsPtrInput
+	// Prompts that Amazon Lex sends to the user to elicit a response that provides the value for the slot.
+	// If you configure this block without `prompt_specification.*.prompt_attempts_specification`, AWS will provide default `promptAttemptsSpecification` blocks for the initial prompt (map key `Initial`) and each retry attempt (map keys `Retry1`, `Retry2`, etc.).
+	// This will cause Terraform to report differences.
+	// Use the `valueElicitationSetting` configuration above in the `valueElicitationSetting` example to avoid differences resulting from AWS default configurations.
+	// See the `valueElicitationSetting` argument reference below.
+	//
+	// The following arguments are optional:
 	ValueElicitationSetting V2modelsSlotValueElicitationSettingInput
 }
 
@@ -380,6 +550,13 @@ func (o V2modelsSlotOutput) Timeouts() V2modelsSlotTimeoutsPtrOutput {
 	return o.ApplyT(func(v *V2modelsSlot) V2modelsSlotTimeoutsPtrOutput { return v.Timeouts }).(V2modelsSlotTimeoutsPtrOutput)
 }
 
+// Prompts that Amazon Lex sends to the user to elicit a response that provides the value for the slot.
+// If you configure this block without `prompt_specification.*.prompt_attempts_specification`, AWS will provide default `promptAttemptsSpecification` blocks for the initial prompt (map key `Initial`) and each retry attempt (map keys `Retry1`, `Retry2`, etc.).
+// This will cause Terraform to report differences.
+// Use the `valueElicitationSetting` configuration above in the `valueElicitationSetting` example to avoid differences resulting from AWS default configurations.
+// See the `valueElicitationSetting` argument reference below.
+//
+// The following arguments are optional:
 func (o V2modelsSlotOutput) ValueElicitationSetting() V2modelsSlotValueElicitationSettingOutput {
 	return o.ApplyT(func(v *V2modelsSlot) V2modelsSlotValueElicitationSettingOutput { return v.ValueElicitationSetting }).(V2modelsSlotValueElicitationSettingOutput)
 }

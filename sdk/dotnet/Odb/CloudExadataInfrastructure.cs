@@ -16,7 +16,7 @@ namespace Pulumi.Aws.Odb
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import Exadata Infrastructure using the `id`. For example:
+    /// Using `pulumi import`, import Exadata Infrastructure using the `Id`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:odb/cloudExadataInfrastructure:CloudExadataInfrastructure example example
@@ -43,9 +43,17 @@ namespace Pulumi.Aws.Odb
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the Availability Zone (AZ) where the Exadata infrastructure is located. Changing this will force terraform to create new resource.
+        /// </summary>
         [Output("availabilityZone")]
         public Output<string> AvailabilityZone { get; private set; } = null!;
 
+        /// <summary>
+        /// The AZ ID of the AZ where the Exadata infrastructure is located. Changing this will force terraform to create new resource.
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
         [Output("availabilityZoneId")]
         public Output<string> AvailabilityZoneId { get; private set; } = null!;
 
@@ -56,7 +64,7 @@ namespace Pulumi.Aws.Odb
         public Output<int> AvailableStorageSizeInGbs { get; private set; } = null!;
 
         /// <summary>
-        /// The number of compute instances that the Exadata infrastructure is located
+        /// The number of compute instances that the Exadata infrastructure is located. Changing this will force terraform to create new resource.
         /// </summary>
         [Output("computeCount")]
         public Output<int> ComputeCount { get; private set; } = null!;
@@ -79,6 +87,9 @@ namespace Pulumi.Aws.Odb
         [Output("createdAt")]
         public Output<string> CreatedAt { get; private set; } = null!;
 
+        /// <summary>
+        /// The email addresses of contacts to receive notification from Oracle about maintenance updates for the Exadata infrastructure. Changing this will force terraform to create new resource.
+        /// </summary>
         [Output("customerContactsToSendToOcis")]
         public Output<ImmutableArray<Outputs.CloudExadataInfrastructureCustomerContactsToSendToOci>> CustomerContactsToSendToOcis { get; private set; } = null!;
 
@@ -89,7 +100,7 @@ namespace Pulumi.Aws.Odb
         public Output<double> DataStorageSizeInTbs { get; private set; } = null!;
 
         /// <summary>
-        /// The database server model type of the Exadata infrastructure. For the list of valid model names, use the ListDbSystemShapes operation
+        /// The database server model type of the Exadata infrastructure. For the list of valid model names, use the ListDbSystemShapes operation. This is a mandatory parameter for Exadata.X11M system shape. Changing this will force terraform to create new resource.
         /// </summary>
         [Output("databaseServerType")]
         public Output<string?> DatabaseServerType { get; private set; } = null!;
@@ -106,6 +117,9 @@ namespace Pulumi.Aws.Odb
         [Output("dbServerVersion")]
         public Output<string> DbServerVersion { get; private set; } = null!;
 
+        /// <summary>
+        /// The user-friendly name for the Exadata infrastructure. Changing this will force terraform to create a new resource.
+        /// </summary>
         [Output("displayName")]
         public Output<string> DisplayName { get; private set; } = null!;
 
@@ -199,6 +213,9 @@ namespace Pulumi.Aws.Odb
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
+        /// <summary>
+        /// The model name of the Exadata infrastructure. Changing this will force terraform to create new resource.
+        /// </summary>
         [Output("shape")]
         public Output<string> Shape { get; private set; } = null!;
 
@@ -215,13 +232,13 @@ namespace Pulumi.Aws.Odb
         public Output<string> StatusReason { get; private set; } = null!;
 
         /// <summary>
-        /// TThe number of storage servers that are activated for the Exadata infrastructure
+        /// The number of storage servers that are activated for the Exadata infrastructure. Changing this will force terraform to create new resource.
         /// </summary>
         [Output("storageCount")]
         public Output<int> StorageCount { get; private set; } = null!;
 
         /// <summary>
-        /// The storage server model type of the Exadata infrastructure. For the list of valid model names, use the ListDbSystemShapes operation
+        /// The storage server model type of the Exadata infrastructure. For the list of valid model names, use the ListDbSystemShapes operation. This is a mandatory parameter for Exadata.X11M system shape. Changing this will force terraform to create new resource.
         /// </summary>
         [Output("storageServerType")]
         public Output<string?> StorageServerType { get; private set; } = null!;
@@ -296,20 +313,32 @@ namespace Pulumi.Aws.Odb
 
     public sealed class CloudExadataInfrastructureArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The name of the Availability Zone (AZ) where the Exadata infrastructure is located. Changing this will force terraform to create new resource.
+        /// </summary>
         [Input("availabilityZone")]
         public Input<string>? AvailabilityZone { get; set; }
 
+        /// <summary>
+        /// The AZ ID of the AZ where the Exadata infrastructure is located. Changing this will force terraform to create new resource.
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
         [Input("availabilityZoneId", required: true)]
         public Input<string> AvailabilityZoneId { get; set; } = null!;
 
         /// <summary>
-        /// The number of compute instances that the Exadata infrastructure is located
+        /// The number of compute instances that the Exadata infrastructure is located. Changing this will force terraform to create new resource.
         /// </summary>
         [Input("computeCount")]
         public Input<int>? ComputeCount { get; set; }
 
         [Input("customerContactsToSendToOcis")]
         private InputList<Inputs.CloudExadataInfrastructureCustomerContactsToSendToOciArgs>? _customerContactsToSendToOcis;
+
+        /// <summary>
+        /// The email addresses of contacts to receive notification from Oracle about maintenance updates for the Exadata infrastructure. Changing this will force terraform to create new resource.
+        /// </summary>
         public InputList<Inputs.CloudExadataInfrastructureCustomerContactsToSendToOciArgs> CustomerContactsToSendToOcis
         {
             get => _customerContactsToSendToOcis ?? (_customerContactsToSendToOcis = new InputList<Inputs.CloudExadataInfrastructureCustomerContactsToSendToOciArgs>());
@@ -317,11 +346,14 @@ namespace Pulumi.Aws.Odb
         }
 
         /// <summary>
-        /// The database server model type of the Exadata infrastructure. For the list of valid model names, use the ListDbSystemShapes operation
+        /// The database server model type of the Exadata infrastructure. For the list of valid model names, use the ListDbSystemShapes operation. This is a mandatory parameter for Exadata.X11M system shape. Changing this will force terraform to create new resource.
         /// </summary>
         [Input("databaseServerType")]
         public Input<string>? DatabaseServerType { get; set; }
 
+        /// <summary>
+        /// The user-friendly name for the Exadata infrastructure. Changing this will force terraform to create a new resource.
+        /// </summary>
         [Input("displayName", required: true)]
         public Input<string> DisplayName { get; set; } = null!;
 
@@ -337,17 +369,20 @@ namespace Pulumi.Aws.Odb
         [Input("region")]
         public Input<string>? Region { get; set; }
 
+        /// <summary>
+        /// The model name of the Exadata infrastructure. Changing this will force terraform to create new resource.
+        /// </summary>
         [Input("shape", required: true)]
         public Input<string> Shape { get; set; } = null!;
 
         /// <summary>
-        /// TThe number of storage servers that are activated for the Exadata infrastructure
+        /// The number of storage servers that are activated for the Exadata infrastructure. Changing this will force terraform to create new resource.
         /// </summary>
         [Input("storageCount")]
         public Input<int>? StorageCount { get; set; }
 
         /// <summary>
-        /// The storage server model type of the Exadata infrastructure. For the list of valid model names, use the ListDbSystemShapes operation
+        /// The storage server model type of the Exadata infrastructure. For the list of valid model names, use the ListDbSystemShapes operation. This is a mandatory parameter for Exadata.X11M system shape. Changing this will force terraform to create new resource.
         /// </summary>
         [Input("storageServerType")]
         public Input<string>? StorageServerType { get; set; }
@@ -393,9 +428,17 @@ namespace Pulumi.Aws.Odb
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
+        /// <summary>
+        /// The name of the Availability Zone (AZ) where the Exadata infrastructure is located. Changing this will force terraform to create new resource.
+        /// </summary>
         [Input("availabilityZone")]
         public Input<string>? AvailabilityZone { get; set; }
 
+        /// <summary>
+        /// The AZ ID of the AZ where the Exadata infrastructure is located. Changing this will force terraform to create new resource.
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
         [Input("availabilityZoneId")]
         public Input<string>? AvailabilityZoneId { get; set; }
 
@@ -406,7 +449,7 @@ namespace Pulumi.Aws.Odb
         public Input<int>? AvailableStorageSizeInGbs { get; set; }
 
         /// <summary>
-        /// The number of compute instances that the Exadata infrastructure is located
+        /// The number of compute instances that the Exadata infrastructure is located. Changing this will force terraform to create new resource.
         /// </summary>
         [Input("computeCount")]
         public Input<int>? ComputeCount { get; set; }
@@ -431,6 +474,10 @@ namespace Pulumi.Aws.Odb
 
         [Input("customerContactsToSendToOcis")]
         private InputList<Inputs.CloudExadataInfrastructureCustomerContactsToSendToOciGetArgs>? _customerContactsToSendToOcis;
+
+        /// <summary>
+        /// The email addresses of contacts to receive notification from Oracle about maintenance updates for the Exadata infrastructure. Changing this will force terraform to create new resource.
+        /// </summary>
         public InputList<Inputs.CloudExadataInfrastructureCustomerContactsToSendToOciGetArgs> CustomerContactsToSendToOcis
         {
             get => _customerContactsToSendToOcis ?? (_customerContactsToSendToOcis = new InputList<Inputs.CloudExadataInfrastructureCustomerContactsToSendToOciGetArgs>());
@@ -444,7 +491,7 @@ namespace Pulumi.Aws.Odb
         public Input<double>? DataStorageSizeInTbs { get; set; }
 
         /// <summary>
-        /// The database server model type of the Exadata infrastructure. For the list of valid model names, use the ListDbSystemShapes operation
+        /// The database server model type of the Exadata infrastructure. For the list of valid model names, use the ListDbSystemShapes operation. This is a mandatory parameter for Exadata.X11M system shape. Changing this will force terraform to create new resource.
         /// </summary>
         [Input("databaseServerType")]
         public Input<string>? DatabaseServerType { get; set; }
@@ -461,6 +508,9 @@ namespace Pulumi.Aws.Odb
         [Input("dbServerVersion")]
         public Input<string>? DbServerVersion { get; set; }
 
+        /// <summary>
+        /// The user-friendly name for the Exadata infrastructure. Changing this will force terraform to create a new resource.
+        /// </summary>
         [Input("displayName")]
         public Input<string>? DisplayName { get; set; }
 
@@ -554,6 +604,9 @@ namespace Pulumi.Aws.Odb
         [Input("region")]
         public Input<string>? Region { get; set; }
 
+        /// <summary>
+        /// The model name of the Exadata infrastructure. Changing this will force terraform to create new resource.
+        /// </summary>
         [Input("shape")]
         public Input<string>? Shape { get; set; }
 
@@ -570,13 +623,13 @@ namespace Pulumi.Aws.Odb
         public Input<string>? StatusReason { get; set; }
 
         /// <summary>
-        /// TThe number of storage servers that are activated for the Exadata infrastructure
+        /// The number of storage servers that are activated for the Exadata infrastructure. Changing this will force terraform to create new resource.
         /// </summary>
         [Input("storageCount")]
         public Input<int>? StorageCount { get; set; }
 
         /// <summary>
-        /// The storage server model type of the Exadata infrastructure. For the list of valid model names, use the ListDbSystemShapes operation
+        /// The storage server model type of the Exadata infrastructure. For the list of valid model names, use the ListDbSystemShapes operation. This is a mandatory parameter for Exadata.X11M system shape. Changing this will force terraform to create new resource.
         /// </summary>
         [Input("storageServerType")]
         public Input<string>? StorageServerType { get; set; }

@@ -21,36 +21,31 @@ __all__ = [
     'GetImagesImageIdArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class RepositoryCatalogDataArgsDict(TypedDict):
-        about_text: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A detailed description of the contents of the repository. It is publicly visible in the Amazon ECR Public Gallery. The text must be in markdown format.
-        """
-        architectures: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The system architecture that the images in the repository are compatible with. On the Amazon ECR Public Gallery, the following supported architectures will appear as badges on the repository and are used as search filters: `ARM`, `ARM 64`, `x86`, `x86-64`
-        """
-        description: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A short description of the contents of the repository. This text appears in both the image details and also when searching for repositories on the Amazon ECR Public Gallery.
-        """
-        logo_image_blob: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The base64-encoded repository logo payload. (Only visible for verified accounts) Note that drift detection is disabled for this attribute.
-        """
-        operating_systems: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The operating systems that the images in the repository are compatible with. On the Amazon ECR Public Gallery, the following supported operating systems will appear as badges on the repository and are used as search filters: `Linux`, `Windows`
-        """
-        usage_text: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Detailed information on how to use the contents of the repository. It is publicly visible in the Amazon ECR Public Gallery. The usage text provides context, support information, and additional usage details for users of the repository. The text must be in markdown format.
-        """
-elif False:
-    RepositoryCatalogDataArgsDict: TypeAlias = Mapping[str, Any]
+class RepositoryCatalogDataArgsDict(TypedDict):
+    about_text: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A detailed description of the contents of the repository. It is publicly visible in the Amazon ECR Public Gallery. The text must be in markdown format.
+    """
+    architectures: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The system architecture that the images in the repository are compatible with. On the Amazon ECR Public Gallery, the following supported architectures will appear as badges on the repository and are used as search filters: `ARM`, `ARM 64`, `x86`, `x86-64`
+    """
+    description: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A short description of the contents of the repository. This text appears in both the image details and also when searching for repositories on the Amazon ECR Public Gallery.
+    """
+    logo_image_blob: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The base64-encoded repository logo payload. (Only visible for verified accounts) Note that drift detection is disabled for this attribute.
+    """
+    operating_systems: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The operating systems that the images in the repository are compatible with. On the Amazon ECR Public Gallery, the following supported operating systems will appear as badges on the repository and are used as search filters: `Linux`, `Windows`
+    """
+    usage_text: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Detailed information on how to use the contents of the repository. It is publicly visible in the Amazon ECR Public Gallery. The usage text provides context, support information, and additional usage details for users of the repository. The text must be in markdown format.
+    """
 
 @pulumi.input_type
 class RepositoryCatalogDataArgs:
@@ -155,18 +150,15 @@ class RepositoryCatalogDataArgs:
         pulumi.set(self, "usage_text", value)
 
 
-if not MYPY:
-    class GetImagesImageIdArgsDict(TypedDict):
-        image_digest: NotRequired[_builtins.str]
-        """
-        Digest of the image manifest.
-        """
-        image_tag: NotRequired[_builtins.str]
-        """
-        Tag used for the image.
-        """
-elif False:
-    GetImagesImageIdArgsDict: TypeAlias = Mapping[str, Any]
+class GetImagesImageIdArgsDict(TypedDict):
+    image_digest: NotRequired[_builtins.str]
+    """
+    Digest of the image manifest.
+    """
+    image_tag: NotRequired[_builtins.str]
+    """
+    Tag used for the image.
+    """
 
 @pulumi.input_type
 class GetImagesImageIdArgs:

@@ -34,7 +34,7 @@ namespace Pulumi.Aws.Sagemaker
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import SageMaker AI Model Package Groups using the `name`. For example:
+    /// Using `pulumi import`, import SageMaker AI Model Package Groups using the `Name`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:sagemaker/modelPackageGroup:ModelPackageGroup test_model_package_group my-code-repo

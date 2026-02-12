@@ -52,7 +52,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Using `pulumi import`, import QuickSight user custom permissions using a comma-delimited string combining the `aws_account_id`, `namespace`, and `user_name`. For example:
+ * Using `pulumi import`, import QuickSight user custom permissions using a comma-delimited string combining the `awsAccountId`, `namespace`, and `userName`. For example:
  * 
  * ```sh
  * $ pulumi import aws:quicksight/userCustomPermission:UserCustomPermission example 012345678901,default,user1
@@ -61,9 +61,17 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="aws:quicksight/userCustomPermission:UserCustomPermission")
 public class UserCustomPermission extends com.pulumi.resources.CustomResource {
+    /**
+     * AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
+     * 
+     */
     @Export(name="awsAccountId", refs={String.class}, tree="[0]")
     private Output<String> awsAccountId;
 
+    /**
+     * @return AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
+     * 
+     */
     public Output<String> awsAccountId() {
         return this.awsAccountId;
     }

@@ -66,7 +66,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Using `pulumi import`, import `aws_macie2_custom_data_identifier` using the id. For example:
+ * Using `pulumi import`, import `aws.macie.CustomDataIdentifier` using the id. For example:
  * 
  * ```sh
  * $ pulumi import aws:macie/customDataIdentifier:CustomDataIdentifier example abcd1

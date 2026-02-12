@@ -135,41 +135,53 @@ import javax.annotation.Nullable;
  * 
  * #### Optional
  * 
- * * `account_id` (String) AWS Account where this resource is managed.
- * 
+ * * `accountId` (String) AWS Account where this resource is managed.
  * * `region` (String) Region where this resource is managed.
  * 
  * Using `pulumi import`, import SSM Documents using the name. For example:
  * 
- * % pulumi import aws_ssm_document.example example
+ * ```sh
+ * $ pulumi import aws:ssm/document:Document example example
+ * ```
  * 
- * The `attachments_source` argument does not have an SSM API method for reading the attachment information detail after creation. If the argument is set in the Pulumi program on an imported resource, Pulumi will always show a difference. To workaround this behavior, either omit the argument from the Pulumi program or use `ignore_changes` to hide the difference. For example:
+ * The `attachmentsSource` argument does not have an SSM API method for reading the attachment information detail after creation. If the argument is set in the Pulumi program on an imported resource, Pulumi will always show a difference. To workaround this behavior, either omit the argument from the Pulumi program or use `ignoreChanges` to hide the difference. For example:
  * 
- * terraform
+ * <pre>
+ * {@code
+ * package generated_program;
  * 
- * resource &#34;aws_ssm_document&#34; &#34;test&#34; {
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.ssm.Document;
+ * import com.pulumi.aws.ssm.DocumentArgs;
+ * import com.pulumi.aws.ssm.inputs.DocumentAttachmentsSourceArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
  * 
- *   name          = &#34;test_document&#34;
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
  * 
- *   document_type = &#34;Package&#34;
+ *     public static void stack(Context ctx) {
+ *         var test = new Document("test", DocumentArgs.builder()
+ *             .name("test_document")
+ *             .documentType("Package")
+ *             .attachmentsSources(DocumentAttachmentsSourceArgs.builder()
+ *                 .key("SourceUrl")
+ *                 .values(String.format("s3://%s/test.zip", objectBucket.bucket()))
+ *                 .build())
+ *             .build());
  * 
- *   attachments_source {
- * 
- *     key    = &#34;SourceUrl&#34;
- *     
- *     values = [&#34;s3://${aws_s3_bucket.object_bucket.bucket}/test.zip&#34;]
- * 
- *   }
- * 
- * # There is no AWS SSM API for reading attachments_source info directly
- * 
- *   lifecycle {
- * 
- *     ignore_changes = [attachments_source]
- * 
- *   }
- * 
+ *     }
  * }
+ * }
+ * </pre>
  * 
  */
 @ResourceType(type="aws:ssm/document:Document")

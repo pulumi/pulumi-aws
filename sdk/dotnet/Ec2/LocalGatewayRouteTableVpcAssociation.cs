@@ -43,7 +43,7 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import `aws_ec2_local_gateway_route_table_vpc_association` using the Local Gateway Route Table VPC Association identifier. For example:
+    /// Using `pulumi import`, import `aws.ec2.LocalGatewayRouteTableVpcAssociation` using the Local Gateway Route Table VPC Association identifier. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:ec2/localGatewayRouteTableVpcAssociation:LocalGatewayRouteTableVpcAssociation example lgw-vpc-assoc-1234567890abcdef

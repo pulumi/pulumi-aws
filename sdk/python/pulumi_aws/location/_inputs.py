@@ -21,16 +21,11 @@ __all__ = [
     'PlaceIndexDataSourceConfigurationArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class MapConfigurationArgsDict(TypedDict):
-        style: pulumi.Input[_builtins.str]
-        """
-        Specifies the map style selected from an available data provider. Valid values can be found in the [Location Service CreateMap API Reference](https://docs.aws.amazon.com/location/latest/APIReference/API_CreateMap.html).
-        """
-elif False:
-    MapConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class MapConfigurationArgsDict(TypedDict):
+    style: pulumi.Input[_builtins.str]
+    """
+    Specifies the map style selected from an available data provider. Valid values can be found in the [Location Service CreateMap API Reference](https://docs.aws.amazon.com/location/latest/APIReference/API_CreateMap.html).
+    """
 
 @pulumi.input_type
 class MapConfigurationArgs:
@@ -54,14 +49,11 @@ class MapConfigurationArgs:
         pulumi.set(self, "style", value)
 
 
-if not MYPY:
-    class PlaceIndexDataSourceConfigurationArgsDict(TypedDict):
-        intended_use: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specifies how the results of an operation will be stored by the caller. Valid values: `SingleUse`, `Storage`. Default: `SingleUse`.
-        """
-elif False:
-    PlaceIndexDataSourceConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class PlaceIndexDataSourceConfigurationArgsDict(TypedDict):
+    intended_use: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies how the results of an operation will be stored by the caller. Valid values: `SingleUse`, `Storage`. Default: `SingleUse`.
+    """
 
 @pulumi.input_type
 class PlaceIndexDataSourceConfigurationArgs:

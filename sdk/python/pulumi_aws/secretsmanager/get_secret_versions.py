@@ -115,7 +115,42 @@ def get_secret_versions(include_deprecated: Optional[_builtins.bool] = None,
                         secret_id: Optional[_builtins.str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSecretVersionsResult:
     """
-    Use this data source to access information about an existing resource.
+    Retrieve the versions of a Secrets Manager secret. To retrieve secret metadata, see the data sources `secretsmanager.Secret` and `secretsmanager.SecretVersion`.
+
+    ## Example Usage
+
+    ### Retrieve All Versions of a Secret
+
+    By default, this data sources retrieves all versions of a secret.
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    secret_versions = aws.secretsmanager.get_secret_versions(secret_id=example["id"])
+    ```
+
+    ### Retrieve Specific Secret Version
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    by_version_stage = aws.secretsmanager.get_secret_version(secret_id=example["id"],
+        version_stage="example")
+    ```
+
+    ### Handling Key-Value Secret Strings in JSON
+
+    Reading key-value pairs from JSON back into a native Terraform map can be accomplished in Terraform 0.12 and later with the `jsondecode()` function:
+
+    ```python
+    import pulumi
+    import pulumi_std as std
+
+    pulumi.export("example", std.jsondecode(input=example_aws_secretsmanager_secret_version["secretString"]).result["key1"])
+    ```
+
 
     :param _builtins.bool include_deprecated: If true, all deprecated secret versions are included in the response.
            If false, no deprecated secret versions are included in the response. If no value is specified, the default value is `false`.
@@ -142,7 +177,42 @@ def get_secret_versions_output(include_deprecated: Optional[pulumi.Input[Optiona
                                secret_id: Optional[pulumi.Input[_builtins.str]] = None,
                                opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetSecretVersionsResult]:
     """
-    Use this data source to access information about an existing resource.
+    Retrieve the versions of a Secrets Manager secret. To retrieve secret metadata, see the data sources `secretsmanager.Secret` and `secretsmanager.SecretVersion`.
+
+    ## Example Usage
+
+    ### Retrieve All Versions of a Secret
+
+    By default, this data sources retrieves all versions of a secret.
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    secret_versions = aws.secretsmanager.get_secret_versions(secret_id=example["id"])
+    ```
+
+    ### Retrieve Specific Secret Version
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    by_version_stage = aws.secretsmanager.get_secret_version(secret_id=example["id"],
+        version_stage="example")
+    ```
+
+    ### Handling Key-Value Secret Strings in JSON
+
+    Reading key-value pairs from JSON back into a native Terraform map can be accomplished in Terraform 0.12 and later with the `jsondecode()` function:
+
+    ```python
+    import pulumi
+    import pulumi_std as std
+
+    pulumi.export("example", std.jsondecode(input=example_aws_secretsmanager_secret_version["secretString"]).result["key1"])
+    ```
+
 
     :param _builtins.bool include_deprecated: If true, all deprecated secret versions are included in the response.
            If false, no deprecated secret versions are included in the response. If no value is specified, the default value is `false`.

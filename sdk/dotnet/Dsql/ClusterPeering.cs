@@ -65,7 +65,7 @@ namespace Pulumi.Aws.Dsql
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import DSQL Cluster Peering using the `identifier`. For example:
+    /// Using `pulumi import`, import DSQL Cluster Peering using the `Identifier`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:dsql/clusterPeering:ClusterPeering example cluster-id-12345678

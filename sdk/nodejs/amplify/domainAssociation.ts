@@ -46,7 +46,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Using `pulumi import`, import Amplify domain association using `app_id` and `domain_name`. For example:
+ * Using `pulumi import`, import Amplify domain association using `appId` and `domainName`. For example:
  *
  * ```sh
  * $ pulumi import aws:amplify/domainAssociation:DomainAssociation app d2ypk4k47z8u6/example.com

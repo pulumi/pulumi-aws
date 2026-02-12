@@ -212,7 +212,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Using `pulumi import`, import VPC Lattice Listener using the `listener_id` of the listener and the `id` of the VPC Lattice service combined with a `/` character. For example:
+ * Using `pulumi import`, import VPC Lattice Listener using the `listenerId` of the listener and the `id` of the VPC Lattice service combined with a `/` character. For example:
  * 
  * ```sh
  * $ pulumi import aws:vpclattice/listener:Listener example svc-1a2b3c4d/listener-987654321

@@ -58,13 +58,14 @@ import javax.annotation.Nullable;
  * 
  * Using the endpoint ID, target network CIDR, and group name:
  * 
- * __Using `pulumi import` to import__ AWS Client VPN authorization rules using the endpoint ID and target network CIDR. If there is a specific group name, include that also. All values are separated by a `,`. For example:
+ * **Using `pulumi import` to import** AWS Client VPN authorization rules using the endpoint ID and target network CIDR. If there is a specific group name, include that also. All values are separated by a `,`. For example:
  * 
  * Using the endpoint ID and target network CIDR:
  * 
  * ```sh
  * $ pulumi import aws:ec2clientvpn/authorizationRule:AuthorizationRule example cvpn-endpoint-0ac3a1abbccddd666,10.1.0.0/24
  * ```
+ * 
  * Using the endpoint ID, target network CIDR, and group name:
  * 
  * ```sh

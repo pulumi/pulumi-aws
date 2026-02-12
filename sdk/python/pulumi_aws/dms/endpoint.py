@@ -66,6 +66,7 @@ class EndpointArgs:
         :param pulumi.Input['EndpointMysqlSettingsArgs'] mysql_settings: Configuration block for MySQL settings. See below.
         :param pulumi.Input['EndpointOracleSettingsArgs'] oracle_settings: Configuration block for Oracle settings. See below.
         :param pulumi.Input[_builtins.str] password: Password to be used to login to the endpoint database.
+        :param pulumi.Input[_builtins.bool] pause_replication_tasks: Whether to pause associated running replication tasks, regardless if they are managed by Terraform, prior to modifying the endpoint. Only tasks paused by the resource will be restarted after the modification completes. Default is `false`.
         :param pulumi.Input[_builtins.int] port: Port used by the endpoint database.
         :param pulumi.Input['EndpointPostgresSettingsArgs'] postgres_settings: Configuration block for Postgres settings. See below.
         :param pulumi.Input['EndpointRedshiftSettingsArgs'] redshift_settings: Configuration block for Redshift settings. See below.
@@ -305,6 +306,9 @@ class EndpointArgs:
     @_builtins.property
     @pulumi.getter(name="pauseReplicationTasks")
     def pause_replication_tasks(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Whether to pause associated running replication tasks, regardless if they are managed by Terraform, prior to modifying the endpoint. Only tasks paused by the resource will be restarted after the modification completes. Default is `false`.
+        """
         return pulumi.get(self, "pause_replication_tasks")
 
     @pause_replication_tasks.setter
@@ -506,6 +510,7 @@ class _EndpointState:
         :param pulumi.Input['EndpointMysqlSettingsArgs'] mysql_settings: Configuration block for MySQL settings. See below.
         :param pulumi.Input['EndpointOracleSettingsArgs'] oracle_settings: Configuration block for Oracle settings. See below.
         :param pulumi.Input[_builtins.str] password: Password to be used to login to the endpoint database.
+        :param pulumi.Input[_builtins.bool] pause_replication_tasks: Whether to pause associated running replication tasks, regardless if they are managed by Terraform, prior to modifying the endpoint. Only tasks paused by the resource will be restarted after the modification completes. Default is `false`.
         :param pulumi.Input[_builtins.int] port: Port used by the endpoint database.
         :param pulumi.Input['EndpointPostgresSettingsArgs'] postgres_settings: Configuration block for Postgres settings. See below.
         :param pulumi.Input['EndpointRedshiftSettingsArgs'] redshift_settings: Configuration block for Redshift settings. See below.
@@ -765,6 +770,9 @@ class _EndpointState:
     @_builtins.property
     @pulumi.getter(name="pauseReplicationTasks")
     def pause_replication_tasks(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Whether to pause associated running replication tasks, regardless if they are managed by Terraform, prior to modifying the endpoint. Only tasks paused by the resource will be restarted after the modification completes. Default is `false`.
+        """
         return pulumi.get(self, "pause_replication_tasks")
 
     @pause_replication_tasks.setter
@@ -1014,6 +1022,7 @@ class Endpoint(pulumi.CustomResource):
         :param pulumi.Input[Union['EndpointMysqlSettingsArgs', 'EndpointMysqlSettingsArgsDict']] mysql_settings: Configuration block for MySQL settings. See below.
         :param pulumi.Input[Union['EndpointOracleSettingsArgs', 'EndpointOracleSettingsArgsDict']] oracle_settings: Configuration block for Oracle settings. See below.
         :param pulumi.Input[_builtins.str] password: Password to be used to login to the endpoint database.
+        :param pulumi.Input[_builtins.bool] pause_replication_tasks: Whether to pause associated running replication tasks, regardless if they are managed by Terraform, prior to modifying the endpoint. Only tasks paused by the resource will be restarted after the modification completes. Default is `false`.
         :param pulumi.Input[_builtins.int] port: Port used by the endpoint database.
         :param pulumi.Input[Union['EndpointPostgresSettingsArgs', 'EndpointPostgresSettingsArgsDict']] postgres_settings: Configuration block for Postgres settings. See below.
         :param pulumi.Input[Union['EndpointRedshiftSettingsArgs', 'EndpointRedshiftSettingsArgsDict']] redshift_settings: Configuration block for Redshift settings. See below.
@@ -1220,6 +1229,7 @@ class Endpoint(pulumi.CustomResource):
         :param pulumi.Input[Union['EndpointMysqlSettingsArgs', 'EndpointMysqlSettingsArgsDict']] mysql_settings: Configuration block for MySQL settings. See below.
         :param pulumi.Input[Union['EndpointOracleSettingsArgs', 'EndpointOracleSettingsArgsDict']] oracle_settings: Configuration block for Oracle settings. See below.
         :param pulumi.Input[_builtins.str] password: Password to be used to login to the endpoint database.
+        :param pulumi.Input[_builtins.bool] pause_replication_tasks: Whether to pause associated running replication tasks, regardless if they are managed by Terraform, prior to modifying the endpoint. Only tasks paused by the resource will be restarted after the modification completes. Default is `false`.
         :param pulumi.Input[_builtins.int] port: Port used by the endpoint database.
         :param pulumi.Input[Union['EndpointPostgresSettingsArgs', 'EndpointPostgresSettingsArgsDict']] postgres_settings: Configuration block for Postgres settings. See below.
         :param pulumi.Input[Union['EndpointRedshiftSettingsArgs', 'EndpointRedshiftSettingsArgsDict']] redshift_settings: Configuration block for Redshift settings. See below.
@@ -1395,6 +1405,9 @@ class Endpoint(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="pauseReplicationTasks")
     def pause_replication_tasks(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        Whether to pause associated running replication tasks, regardless if they are managed by Terraform, prior to modifying the endpoint. Only tasks paused by the resource will be restarted after the modification completes. Default is `false`.
+        """
         return pulumi.get(self, "pause_replication_tasks")
 
     @_builtins.property

@@ -63,7 +63,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Using `pulumi import`, import S3 Vectors Index using the `index_arn`. For example:
+ * Using `pulumi import`, import S3 Vectors Index using the `indexArn`. For example:
  * 
  * ```sh
  * $ pulumi import aws:s3/vectorsIndex:VectorsIndex example arn:aws:s3vectors:us-west-2:123456789012:bucket/example-bucket/index/example-index

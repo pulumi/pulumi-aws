@@ -112,7 +112,8 @@ type User struct {
 	pulumi.CustomResourceState
 
 	// Amazon Resource Name (ARN) for the user.
-	Arn          pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
 	AwsAccountId pulumi.StringOutput `pulumi:"awsAccountId"`
 	// Email address of the user that you want to register.
 	Email pulumi.StringOutput `pulumi:"email"`
@@ -176,7 +177,8 @@ func GetUser(ctx *pulumi.Context,
 // Input properties used for looking up and filtering User resources.
 type userState struct {
 	// Amazon Resource Name (ARN) for the user.
-	Arn          *string `pulumi:"arn"`
+	Arn *string `pulumi:"arn"`
+	// AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
 	AwsAccountId *string `pulumi:"awsAccountId"`
 	// Email address of the user that you want to register.
 	Email *string `pulumi:"email"`
@@ -202,7 +204,8 @@ type userState struct {
 
 type UserState struct {
 	// Amazon Resource Name (ARN) for the user.
-	Arn          pulumi.StringPtrInput
+	Arn pulumi.StringPtrInput
+	// AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
 	AwsAccountId pulumi.StringPtrInput
 	// Email address of the user that you want to register.
 	Email pulumi.StringPtrInput
@@ -231,6 +234,7 @@ func (UserState) ElementType() reflect.Type {
 }
 
 type userArgs struct {
+	// AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
 	AwsAccountId *string `pulumi:"awsAccountId"`
 	// Email address of the user that you want to register.
 	Email string `pulumi:"email"`
@@ -254,6 +258,7 @@ type userArgs struct {
 
 // The set of arguments for constructing a User resource.
 type UserArgs struct {
+	// AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
 	AwsAccountId pulumi.StringPtrInput
 	// Email address of the user that you want to register.
 	Email pulumi.StringInput
@@ -367,6 +372,7 @@ func (o UserOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *User) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
 func (o UserOutput) AwsAccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *User) pulumi.StringOutput { return v.AwsAccountId }).(pulumi.StringOutput)
 }

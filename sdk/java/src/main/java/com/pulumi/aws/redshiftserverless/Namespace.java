@@ -19,6 +19,10 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
+ * Creates a new Amazon Redshift Serverless Namespace.
+ * 
+ * &gt; **Note:** Write-Only argument `adminPasswordWo` is available to use in place of `adminPassword`. Write-Only arguments are supported in HashiCorp Terraform 1.11.0 and later. Learn more.
+ * 
  * ## Example Usage
  * 
  * <pre>
@@ -54,7 +58,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Using `pulumi import`, import Redshift Serverless Namespaces using the `namespace_name`. For example:
+ * Using `pulumi import`, import Redshift Serverless Namespaces using the `namespaceName`. For example:
  * 
  * ```sh
  * $ pulumi import aws:redshiftserverless/namespace:Namespace example example

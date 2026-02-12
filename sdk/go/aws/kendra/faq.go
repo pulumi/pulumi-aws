@@ -119,7 +119,7 @@ import (
 //
 // ## Import
 //
-// Using `pulumi import`, import `aws_kendra_faq` using the unique identifiers of the FAQ and index separated by a slash (`/`). For example:
+// Using `pulumi import`, import `kendra.Faq` using the unique identifiers of the FAQ and index separated by a slash (`/`). For example:
 //
 // ```sh
 // $ pulumi import aws:kendra/faq:Faq example faq-123456780/idx-8012925589
@@ -141,7 +141,8 @@ type Faq struct {
 	IndexId      pulumi.StringOutput `pulumi:"indexId"`
 	LanguageCode pulumi.StringOutput `pulumi:"languageCode"`
 	// The name that should be associated with the FAQ.
-	Name   pulumi.StringOutput `pulumi:"name"`
+	Name pulumi.StringOutput `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
 	Region pulumi.StringOutput `pulumi:"region"`
 	// The Amazon Resource Name (ARN) of a role with permission to access the S3 bucket that contains the FAQs. For more information, see [IAM Roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
 	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
@@ -209,7 +210,8 @@ type faqState struct {
 	IndexId      *string `pulumi:"indexId"`
 	LanguageCode *string `pulumi:"languageCode"`
 	// The name that should be associated with the FAQ.
-	Name   *string `pulumi:"name"`
+	Name *string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
 	Region *string `pulumi:"region"`
 	// The Amazon Resource Name (ARN) of a role with permission to access the S3 bucket that contains the FAQs. For more information, see [IAM Roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
 	RoleArn *string `pulumi:"roleArn"`
@@ -239,7 +241,8 @@ type FaqState struct {
 	IndexId      pulumi.StringPtrInput
 	LanguageCode pulumi.StringPtrInput
 	// The name that should be associated with the FAQ.
-	Name   pulumi.StringPtrInput
+	Name pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
 	Region pulumi.StringPtrInput
 	// The Amazon Resource Name (ARN) of a role with permission to access the S3 bucket that contains the FAQs. For more information, see [IAM Roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
 	RoleArn pulumi.StringPtrInput
@@ -265,7 +268,8 @@ type faqArgs struct {
 	IndexId      string  `pulumi:"indexId"`
 	LanguageCode *string `pulumi:"languageCode"`
 	// The name that should be associated with the FAQ.
-	Name   *string `pulumi:"name"`
+	Name *string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
 	Region *string `pulumi:"region"`
 	// The Amazon Resource Name (ARN) of a role with permission to access the S3 bucket that contains the FAQs. For more information, see [IAM Roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
 	RoleArn string `pulumi:"roleArn"`
@@ -282,7 +286,8 @@ type FaqArgs struct {
 	IndexId      pulumi.StringInput
 	LanguageCode pulumi.StringPtrInput
 	// The name that should be associated with the FAQ.
-	Name   pulumi.StringPtrInput
+	Name pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
 	Region pulumi.StringPtrInput
 	// The Amazon Resource Name (ARN) of a role with permission to access the S3 bucket that contains the FAQs. For more information, see [IAM Roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
 	RoleArn pulumi.StringInput
@@ -420,6 +425,7 @@ func (o FaqOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Faq) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
 func (o FaqOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Faq) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

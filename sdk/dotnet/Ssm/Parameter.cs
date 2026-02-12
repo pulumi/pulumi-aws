@@ -81,17 +81,18 @@ namespace Pulumi.Aws.Ssm
     /// 
     /// #### Required
     /// 
-    /// * `name` - (String) Name of the parameter.
+    /// * `Name` - (String) Name of the parameter.
     /// 
     /// #### Optional
     /// 
-    /// * `account_id` (String) AWS Account where this resource is managed.
+    /// * `AccountId` (String) AWS Account where this resource is managed.
+    /// * `Region` (String) Region where this resource is managed.
     /// 
-    /// * `region` (String) Region where this resource is managed.
+    /// Using `pulumi import`, import SSM Parameters using the parameter store `Name`. For example:
     /// 
-    /// Using `pulumi import`, import SSM Parameters using the parameter store `name`. For example:
-    /// 
-    /// % pulumi import aws_ssm_parameter.example /my_path/my_paramname
+    /// ```sh
+    /// $ pulumi import aws:ssm/parameter:Parameter example /my_path/my_paramname
+    /// ```
     /// </summary>
     [AwsResourceType("aws:ssm/parameter:Parameter")]
     public partial class Parameter : global::Pulumi.CustomResource

@@ -157,7 +157,7 @@ namespace Pulumi.Aws.VpcLattice
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import VPC Lattice Resource Configuration using the `id`. For example:
+    /// Using `pulumi import`, import VPC Lattice Resource Configuration using the `Id`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:vpclattice/resourceConfiguration:ResourceConfiguration example rcfg-1234567890abcdef1

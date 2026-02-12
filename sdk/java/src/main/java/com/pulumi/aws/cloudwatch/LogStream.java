@@ -58,7 +58,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Using `pulumi import`, import Cloudwatch Log Stream using the stream&#39;s `log_group_name` and `name`. For example:
+ * Using `pulumi import`, import Cloudwatch Log Stream using the stream&#39;s `logGroupName` and `name`. For example:
  * 
  * ```sh
  * $ pulumi import aws:cloudwatch/logStream:LogStream foo Yada:SampleLogStream1234

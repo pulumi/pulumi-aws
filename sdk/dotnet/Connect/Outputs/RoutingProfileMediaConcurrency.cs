@@ -21,6 +21,9 @@ namespace Pulumi.Aws.Connect.Outputs
         /// Specifies the number of contacts an agent can have on a channel simultaneously. Valid Range for `VOICE`: Minimum value of `1`. Maximum value of `1`. Valid Range for `CHAT`: Minimum value of `1`. Maximum value of `10`. Valid Range for `TASK`: Minimum value of `1`. Maximum value of `10`.
         /// </summary>
         public readonly int Concurrency;
+        /// <summary>
+        /// Defines the cross-channel routing behavior for each traffic type. **Out-of-band changes are only detected when this argument is explicitly configured in your Terraform configuration.** Documented below.
+        /// </summary>
         public readonly Outputs.RoutingProfileMediaConcurrencyCrossChannelBehavior? CrossChannelBehavior;
 
         [OutputConstructor]

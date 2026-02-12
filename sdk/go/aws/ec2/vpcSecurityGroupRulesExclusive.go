@@ -12,9 +12,117 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Resource for managing an exclusive set of AWS VPC (Virtual Private Cloud) Security Group Rules.
+//
+// This resource manages the complete set of ingress and egress rules assigned to a security group. It provides exclusive control by removing any rules not explicitly defined in the configuration.
+//
+// !> This resource takes exclusive ownership over ingress and egress rules assigned to a security group. This includes removal of rules which are not explicitly configured. To prevent persistent drift, ensure any `vpc.SecurityGroupIngressRule` and `vpc.SecurityGroupEgressRule` resources managed alongside this resource are included in the `ingressRuleIds` and `egressRuleIds` arguments.
+//
+// > Destruction of this resource means Terraform will no longer manage reconciliation of the configured security group rules. It **will not** revoke the configured rules from the security group.
+//
+// > When this resource detects a configured rule ID which must be created, a warning diagnostic is emitted. This is due to a limitation in the [`AuthorizeSecurityGroupEgress`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_AuthorizeSecurityGroupEgress.html) and [`AuthorizeSecurityGroupIngress`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_AuthorizeSecurityGroupIngress.html) APIs, which require the full rule definition to be provided rather than a reference to an existing rule ID.
+//
+// ## Example Usage
+//
+// ### Basic Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/vpc"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := ec2.NewVpc(ctx, "example", &ec2.VpcArgs{
+//				CidrBlock: pulumi.String("10.0.0.0/16"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleSecurityGroup, err := ec2.NewSecurityGroup(ctx, "example", &ec2.SecurityGroupArgs{
+//				Name:  pulumi.String("example"),
+//				VpcId: example.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleSecurityGroupIngressRule, err := vpc.NewSecurityGroupIngressRule(ctx, "example", &vpc.SecurityGroupIngressRuleArgs{
+//				SecurityGroupId: exampleSecurityGroup.ID(),
+//				CidrIpv4:        pulumi.String("10.0.0.0/8"),
+//				FromPort:        pulumi.Int(80),
+//				ToPort:          pulumi.Int(80),
+//				IpProtocol:      pulumi.String("tcp"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleSecurityGroupEgressRule, err := vpc.NewSecurityGroupEgressRule(ctx, "example", &vpc.SecurityGroupEgressRuleArgs{
+//				SecurityGroupId: exampleSecurityGroup.ID(),
+//				CidrIpv4:        pulumi.String("0.0.0.0/0"),
+//				IpProtocol:      pulumi.String("-1"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = ec2.NewVpcSecurityGroupRulesExclusive(ctx, "example", &ec2.VpcSecurityGroupRulesExclusiveArgs{
+//				SecurityGroupId: exampleSecurityGroup.ID(),
+//				IngressRuleIds: pulumi.StringArray{
+//					exampleSecurityGroupIngressRule.ID(),
+//				},
+//				EgressRuleIds: pulumi.StringArray{
+//					exampleSecurityGroupEgressRule.ID(),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ### Disallow All Rules
+//
+// To automatically remove any configured security group rules, set both `ingressRuleIds` and `egressRuleIds` to empty lists.
+//
+// > This will not __prevent__ rules from being assigned to a security group via Terraform (or any other interface). This resource enables bringing security group rule assignments into a configured state, however, this reconciliation happens only when `apply` is proactively run.
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := ec2.NewVpcSecurityGroupRulesExclusive(ctx, "example", &ec2.VpcSecurityGroupRulesExclusiveArgs{
+//				SecurityGroupId: pulumi.Any(exampleAwsSecurityGroup.Id),
+//				IngressRuleIds:  pulumi.StringArray{},
+//				EgressRuleIds:   pulumi.StringArray{},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
-// Using `pulumi import`, import exclusive management of security group rules using the `security_group_id`. For example:
+// Using `pulumi import`, import exclusive management of security group rules using the `securityGroupId`. For example:
 //
 // ```sh
 // $ pulumi import aws:ec2/vpcSecurityGroupRulesExclusive:VpcSecurityGroupRulesExclusive example sg-1234567890abcdef0

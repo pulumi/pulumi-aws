@@ -40,7 +40,7 @@ namespace Pulumi.Aws.Schemas
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import EventBridge discoverers using the `id`. For example:
+    /// Using `pulumi import`, import EventBridge discoverers using the `Id`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:schemas/discoverer:Discoverer test 123

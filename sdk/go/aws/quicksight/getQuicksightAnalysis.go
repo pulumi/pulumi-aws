@@ -53,7 +53,8 @@ func GetQuicksightAnalysis(ctx *pulumi.Context, args *GetQuicksightAnalysisArgs,
 // A collection of arguments for invoking getQuicksightAnalysis.
 type GetQuicksightAnalysisArgs struct {
 	// Identifier for the analysis.
-	AnalysisId   string  `pulumi:"analysisId"`
+	AnalysisId string `pulumi:"analysisId"`
+	// AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
 	AwsAccountId *string `pulumi:"awsAccountId"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string           `pulumi:"region"`
@@ -90,7 +91,8 @@ func GetQuicksightAnalysisOutput(ctx *pulumi.Context, args GetQuicksightAnalysis
 // A collection of arguments for invoking getQuicksightAnalysis.
 type GetQuicksightAnalysisOutputArgs struct {
 	// Identifier for the analysis.
-	AnalysisId   pulumi.StringInput    `pulumi:"analysisId"`
+	AnalysisId pulumi.StringInput `pulumi:"analysisId"`
+	// AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
 	AwsAccountId pulumi.StringPtrInput `pulumi:"awsAccountId"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`

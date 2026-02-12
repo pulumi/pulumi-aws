@@ -51,7 +51,7 @@ namespace Pulumi.Aws.MemoryDb
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import a cluster using the `multi_region_cluster_name`. For example:
+    /// Using `pulumi import`, import a cluster using the `MultiRegionClusterName`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:memorydb/multiRegionCluster:MultiRegionCluster example virxk-example

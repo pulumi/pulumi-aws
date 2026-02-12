@@ -164,7 +164,7 @@ namespace Pulumi.Aws.RedShift
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import Redshift Integration using the `arn`. For example:
+    /// Using `pulumi import`, import Redshift Integration using the `Arn`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:redshift/integration:Integration example arn:aws:redshift:us-west-2:123456789012:integration:abcdefgh-0000-1111-2222-123456789012

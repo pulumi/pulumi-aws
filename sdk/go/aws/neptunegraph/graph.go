@@ -59,7 +59,7 @@ import (
 //
 // ## Import
 //
-// Using `pulumi import`, import `aws_neptunegraph_graph` using the graph identifier. For example:
+// Using `pulumi import`, import `neptunegraph.Graph` using the graph identifier. For example:
 //
 // ```sh
 // $ pulumi import aws:neptunegraph/graph:Graph example "graph_id"
@@ -73,11 +73,7 @@ type Graph struct {
 	DeletionProtection pulumi.BoolOutput `pulumi:"deletionProtection"`
 	// (String) The connection endpoint for the graph. For example: `g-12a3bcdef4.us-east-1.neptune-graph.amazonaws.com`
 	Endpoint pulumi.StringOutput `pulumi:"endpoint"`
-	// The graph name. For example: my-graph-1.
-	// 								The name must contain from 1 to 63 letters, numbers, or hyphens,
-	// 								and its first character must be a letter. It cannot end with a hyphen or contain two consecutive hyphens.
-	// 								If you don't specify a graph name, a unique graph name is generated for you using the prefix graph-for,
-	// 								followed by a combination of Stack Name and a UUID.
+	// Contains a user-supplied name for the Graph. If omitted, Terraform will assign a random, unique identifier.
 	GraphName pulumi.StringOutput `pulumi:"graphName"`
 	// Allows user to specify name prefix and have remainder of name automatically generated.
 	GraphNamePrefix pulumi.StringPtrOutput `pulumi:"graphNamePrefix"`
@@ -141,11 +137,7 @@ type graphState struct {
 	DeletionProtection *bool `pulumi:"deletionProtection"`
 	// (String) The connection endpoint for the graph. For example: `g-12a3bcdef4.us-east-1.neptune-graph.amazonaws.com`
 	Endpoint *string `pulumi:"endpoint"`
-	// The graph name. For example: my-graph-1.
-	// 								The name must contain from 1 to 63 letters, numbers, or hyphens,
-	// 								and its first character must be a letter. It cannot end with a hyphen or contain two consecutive hyphens.
-	// 								If you don't specify a graph name, a unique graph name is generated for you using the prefix graph-for,
-	// 								followed by a combination of Stack Name and a UUID.
+	// Contains a user-supplied name for the Graph. If omitted, Terraform will assign a random, unique identifier.
 	GraphName *string `pulumi:"graphName"`
 	// Allows user to specify name prefix and have remainder of name automatically generated.
 	GraphNamePrefix *string `pulumi:"graphNamePrefix"`
@@ -177,11 +169,7 @@ type GraphState struct {
 	DeletionProtection pulumi.BoolPtrInput
 	// (String) The connection endpoint for the graph. For example: `g-12a3bcdef4.us-east-1.neptune-graph.amazonaws.com`
 	Endpoint pulumi.StringPtrInput
-	// The graph name. For example: my-graph-1.
-	// 								The name must contain from 1 to 63 letters, numbers, or hyphens,
-	// 								and its first character must be a letter. It cannot end with a hyphen or contain two consecutive hyphens.
-	// 								If you don't specify a graph name, a unique graph name is generated for you using the prefix graph-for,
-	// 								followed by a combination of Stack Name and a UUID.
+	// Contains a user-supplied name for the Graph. If omitted, Terraform will assign a random, unique identifier.
 	GraphName pulumi.StringPtrInput
 	// Allows user to specify name prefix and have remainder of name automatically generated.
 	GraphNamePrefix pulumi.StringPtrInput
@@ -213,11 +201,7 @@ func (GraphState) ElementType() reflect.Type {
 type graphArgs struct {
 	// Value that indicates whether the Graph has deletion protection enabled. The graph can't be deleted when deletion protection is enabled.
 	DeletionProtection *bool `pulumi:"deletionProtection"`
-	// The graph name. For example: my-graph-1.
-	// 								The name must contain from 1 to 63 letters, numbers, or hyphens,
-	// 								and its first character must be a letter. It cannot end with a hyphen or contain two consecutive hyphens.
-	// 								If you don't specify a graph name, a unique graph name is generated for you using the prefix graph-for,
-	// 								followed by a combination of Stack Name and a UUID.
+	// Contains a user-supplied name for the Graph. If omitted, Terraform will assign a random, unique identifier.
 	GraphName *string `pulumi:"graphName"`
 	// Allows user to specify name prefix and have remainder of name automatically generated.
 	GraphNamePrefix *string `pulumi:"graphNamePrefix"`
@@ -244,11 +228,7 @@ type graphArgs struct {
 type GraphArgs struct {
 	// Value that indicates whether the Graph has deletion protection enabled. The graph can't be deleted when deletion protection is enabled.
 	DeletionProtection pulumi.BoolPtrInput
-	// The graph name. For example: my-graph-1.
-	// 								The name must contain from 1 to 63 letters, numbers, or hyphens,
-	// 								and its first character must be a letter. It cannot end with a hyphen or contain two consecutive hyphens.
-	// 								If you don't specify a graph name, a unique graph name is generated for you using the prefix graph-for,
-	// 								followed by a combination of Stack Name and a UUID.
+	// Contains a user-supplied name for the Graph. If omitted, Terraform will assign a random, unique identifier.
 	GraphName pulumi.StringPtrInput
 	// Allows user to specify name prefix and have remainder of name automatically generated.
 	GraphNamePrefix pulumi.StringPtrInput
@@ -373,12 +353,7 @@ func (o GraphOutput) Endpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v *Graph) pulumi.StringOutput { return v.Endpoint }).(pulumi.StringOutput)
 }
 
-// The graph name. For example: my-graph-1.
-//
-//	The name must contain from 1 to 63 letters, numbers, or hyphens,
-//	and its first character must be a letter. It cannot end with a hyphen or contain two consecutive hyphens.
-//	If you don't specify a graph name, a unique graph name is generated for you using the prefix graph-for,
-//	followed by a combination of Stack Name and a UUID.
+// Contains a user-supplied name for the Graph. If omitted, Terraform will assign a random, unique identifier.
 func (o GraphOutput) GraphName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Graph) pulumi.StringOutput { return v.GraphName }).(pulumi.StringOutput)
 }

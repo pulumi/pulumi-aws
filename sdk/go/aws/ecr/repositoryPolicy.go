@@ -95,13 +95,14 @@ import (
 //
 // #### Optional
 //
-// * `account_id` (String) AWS Account where this resource is managed.
-//
+// * `accountId` (String) AWS Account where this resource is managed.
 // * `region` (String) Region where this resource is managed.
 //
 // Using `pulumi import`, import ECR Repository Policy using the repository name. For example:
 //
-// % pulumi import aws_ecr_repository_policy.example example
+// ```sh
+// $ pulumi import aws:ecr/repositoryPolicy:RepositoryPolicy example example
+// ```
 type RepositoryPolicy struct {
 	pulumi.CustomResourceState
 

@@ -39,7 +39,7 @@ namespace Pulumi.Aws.Sagemaker
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import monitoring schedules using the `name`. For example:
+    /// Using `pulumi import`, import monitoring schedules using the `Name`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:sagemaker/monitoringSchedule:MonitoringSchedule test_monitoring_schedule monitoring-schedule-foo

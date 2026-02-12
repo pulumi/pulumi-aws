@@ -218,6 +218,7 @@ class BucketAbac(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:s3/bucketAbac:BucketAbac example bucket-name
         ```
+
         If the owner (account ID) of the source bucket differs from the account used to configure the Terraform AWS Provider, import using the `bucket` and `expected_bucket_owner` separated by a comma (`,`):
 
         ```sh
@@ -270,6 +271,7 @@ class BucketAbac(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:s3/bucketAbac:BucketAbac example bucket-name
         ```
+
         If the owner (account ID) of the source bucket differs from the account used to configure the Terraform AWS Provider, import using the `bucket` and `expected_bucket_owner` separated by a comma (`,`):
 
         ```sh

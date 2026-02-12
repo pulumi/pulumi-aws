@@ -219,7 +219,9 @@ class ResourcePolicy(pulumi.CustomResource):
 
         Using `pulumi import`, import DynamoDB Resource Policy using the `resource_arn`. For example:
 
-        % pulumi import aws_dynamodb_resource_policy.example arn:aws:dynamodb:us-east-1:1234567890:table/my-table
+        ```sh
+        $ pulumi import aws:dynamodb/resourcePolicy:ResourcePolicy example arn:aws:dynamodb:us-east-1:1234567890:table/my-table
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -262,7 +264,9 @@ class ResourcePolicy(pulumi.CustomResource):
 
         Using `pulumi import`, import DynamoDB Resource Policy using the `resource_arn`. For example:
 
-        % pulumi import aws_dynamodb_resource_policy.example arn:aws:dynamodb:us-east-1:1234567890:table/my-table
+        ```sh
+        $ pulumi import aws:dynamodb/resourcePolicy:ResourcePolicy example arn:aws:dynamodb:us-east-1:1234567890:table/my-table
+        ```
 
         :param str resource_name: The name of the resource.
         :param ResourcePolicyArgs args: The arguments to use to populate this resource's properties.

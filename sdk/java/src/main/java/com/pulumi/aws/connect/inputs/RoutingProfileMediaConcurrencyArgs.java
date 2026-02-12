@@ -48,9 +48,17 @@ public final class RoutingProfileMediaConcurrencyArgs extends com.pulumi.resourc
         return this.concurrency;
     }
 
+    /**
+     * Defines the cross-channel routing behavior for each traffic type. **Out-of-band changes are only detected when this argument is explicitly configured in your Terraform configuration.** Documented below.
+     * 
+     */
     @Import(name="crossChannelBehavior")
     private @Nullable Output<RoutingProfileMediaConcurrencyCrossChannelBehaviorArgs> crossChannelBehavior;
 
+    /**
+     * @return Defines the cross-channel routing behavior for each traffic type. **Out-of-band changes are only detected when this argument is explicitly configured in your Terraform configuration.** Documented below.
+     * 
+     */
     public Optional<Output<RoutingProfileMediaConcurrencyCrossChannelBehaviorArgs>> crossChannelBehavior() {
         return Optional.ofNullable(this.crossChannelBehavior);
     }
@@ -123,11 +131,23 @@ public final class RoutingProfileMediaConcurrencyArgs extends com.pulumi.resourc
             return concurrency(Output.of(concurrency));
         }
 
+        /**
+         * @param crossChannelBehavior Defines the cross-channel routing behavior for each traffic type. **Out-of-band changes are only detected when this argument is explicitly configured in your Terraform configuration.** Documented below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder crossChannelBehavior(@Nullable Output<RoutingProfileMediaConcurrencyCrossChannelBehaviorArgs> crossChannelBehavior) {
             $.crossChannelBehavior = crossChannelBehavior;
             return this;
         }
 
+        /**
+         * @param crossChannelBehavior Defines the cross-channel routing behavior for each traffic type. **Out-of-band changes are only detected when this argument is explicitly configured in your Terraform configuration.** Documented below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder crossChannelBehavior(RoutingProfileMediaConcurrencyCrossChannelBehaviorArgs crossChannelBehavior) {
             return crossChannelBehavior(Output.of(crossChannelBehavior));
         }

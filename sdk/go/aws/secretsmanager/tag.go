@@ -12,6 +12,12 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Manages an individual AWS Secrets Manager secret tag. This resource should only be used in cases where AWS Secrets Manager secrets are created outside Terraform (e.g., [AWS Secrets Manager secrets managed by other AWS services](https://docs.aws.amazon.com/secretsmanager/latest/userguide/service-linked-secrets.html), such as RDS).
+//
+// > **NOTE:** This tagging resource should not be combined with the Terraform resource for managing the parent resource. For example, using `secretsmanager.Secret` and `secretsmanager.Tag` to manage tags of the same AWS Secrets Manager secret will cause a perpetual difference where the `secretsmanager.Secret` resource will try to remove the tag being added by the `secretsmanager.Tag` resource. However, if the parent resource is created in the same configuration (i.e., if you have no other choice), you should add `ignoreChanges = [tags]` in the parent resource's lifecycle block. This ensures that Terraform ignores differences in tags managed via the separate tagging resource, avoiding the perpetual difference mentioned above.
+//
+// > **NOTE:** This tagging resource does not use the provider `ignoreTags` configuration.
+//
 // ## Example Usage
 //
 // ```go
@@ -48,7 +54,7 @@ import (
 //
 // ## Import
 //
-// Using `pulumi import`, import `aws_secretsmanager_tag` using the AWS Secrets Manager secret identifier and key, separated by a comma (`,`). For example:
+// Using `pulumi import`, import `secretsmanager.Tag` using the AWS Secrets Manager secret identifier and key, separated by a comma (`,`). For example:
 //
 // ```sh
 // $ pulumi import aws:secretsmanager/tag:Tag example arn:aws:secretsmanager:us-east-1:123456789012:example-secret,ExampleKey

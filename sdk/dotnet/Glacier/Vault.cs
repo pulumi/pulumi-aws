@@ -85,7 +85,7 @@ namespace Pulumi.Aws.Glacier
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import Glacier Vaults using the `name`. For example:
+    /// Using `pulumi import`, import Glacier Vaults using the `Name`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:glacier/vault:Vault archive my_archive

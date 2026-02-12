@@ -66,17 +66,18 @@ namespace Pulumi.Aws.CleanRooms
     /// 
     /// #### Required
     /// 
-    /// * `id` - (String) ID of the cleanrooms collaboration.
+    /// * `Id` - (String) ID of the cleanrooms collaboration.
     /// 
     /// #### Optional
     /// 
-    /// * `account_id` (String) AWS Account where this resource is managed.
+    /// * `AccountId` (String) AWS Account where this resource is managed.
+    /// * `Region` (String) Region where this resource is managed.
     /// 
-    /// * `region` (String) Region where this resource is managed.
+    /// Using `pulumi import`, import `aws.cleanrooms.Collaboration` using the `Id`. For example:
     /// 
-    /// Using `pulumi import`, import `aws_cleanrooms_collaboration` using the `id`. For example:
-    /// 
-    /// % pulumi import aws_cleanrooms_collaboration.collaboration 1234abcd-12ab-34cd-56ef-1234567890ab
+    /// ```sh
+    /// $ pulumi import aws:cleanrooms/collaboration:Collaboration collaboration 1234abcd-12ab-34cd-56ef-1234567890ab
+    /// ```
     /// </summary>
     [AwsResourceType("aws:cleanrooms/collaboration:Collaboration")]
     public partial class Collaboration : global::Pulumi.CustomResource

@@ -111,44 +111,39 @@ __all__ = [
     'GetPermissionsTableWithColumnsArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class DataCellsFilterTableDataArgsDict(TypedDict):
-        database_name: pulumi.Input[_builtins.str]
-        """
-        The name of the database.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the data cells filter.
-        """
-        row_filter: pulumi.Input['DataCellsFilterTableDataRowFilterArgsDict']
-        """
-        A PartiQL predicate. See Row Filter below for details.
-        """
-        table_catalog_id: pulumi.Input[_builtins.str]
-        """
-        The ID of the Data Catalog.
-        """
-        table_name: pulumi.Input[_builtins.str]
-        """
-        The name of the table.
-        """
-        column_names: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        A list of column names and/or nested column attributes.
-        """
-        column_wildcard: NotRequired[pulumi.Input['DataCellsFilterTableDataColumnWildcardArgsDict']]
-        """
-        A wildcard with exclusions. See Column Wildcard below for details.
-        """
-        version_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        ID of the data cells filter version.
-        """
-elif False:
-    DataCellsFilterTableDataArgsDict: TypeAlias = Mapping[str, Any]
+class DataCellsFilterTableDataArgsDict(TypedDict):
+    database_name: pulumi.Input[_builtins.str]
+    """
+    The name of the database.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the data cells filter.
+    """
+    row_filter: pulumi.Input['DataCellsFilterTableDataRowFilterArgsDict']
+    """
+    A PartiQL predicate. See Row Filter below for details.
+    """
+    table_catalog_id: pulumi.Input[_builtins.str]
+    """
+    The ID of the Data Catalog.
+    """
+    table_name: pulumi.Input[_builtins.str]
+    """
+    The name of the table.
+    """
+    column_names: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    A list of column names and/or nested column attributes.
+    """
+    column_wildcard: NotRequired[pulumi.Input['DataCellsFilterTableDataColumnWildcardArgsDict']]
+    """
+    A wildcard with exclusions. See Column Wildcard below for details.
+    """
+    version_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    ID of the data cells filter version.
+    """
 
 @pulumi.input_type
 class DataCellsFilterTableDataArgs:
@@ -280,14 +275,11 @@ class DataCellsFilterTableDataArgs:
         pulumi.set(self, "version_id", value)
 
 
-if not MYPY:
-    class DataCellsFilterTableDataColumnWildcardArgsDict(TypedDict):
-        excluded_column_names: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        (Optional) Excludes column names. Any column with this name will be excluded.
-        """
-elif False:
-    DataCellsFilterTableDataColumnWildcardArgsDict: TypeAlias = Mapping[str, Any]
+class DataCellsFilterTableDataColumnWildcardArgsDict(TypedDict):
+    excluded_column_names: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    (Optional) Excludes column names. Any column with this name will be excluded.
+    """
 
 @pulumi.input_type
 class DataCellsFilterTableDataColumnWildcardArgs:
@@ -312,18 +304,15 @@ class DataCellsFilterTableDataColumnWildcardArgs:
         pulumi.set(self, "excluded_column_names", value)
 
 
-if not MYPY:
-    class DataCellsFilterTableDataRowFilterArgsDict(TypedDict):
-        all_rows_wildcard: NotRequired[pulumi.Input['DataCellsFilterTableDataRowFilterAllRowsWildcardArgsDict']]
-        """
-        (Optional) A wildcard that matches all rows.
-        """
-        filter_expression: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        (Optional) A filter expression.
-        """
-elif False:
-    DataCellsFilterTableDataRowFilterArgsDict: TypeAlias = Mapping[str, Any]
+class DataCellsFilterTableDataRowFilterArgsDict(TypedDict):
+    all_rows_wildcard: NotRequired[pulumi.Input['DataCellsFilterTableDataRowFilterAllRowsWildcardArgsDict']]
+    """
+    (Optional) A wildcard that matches all rows.
+    """
+    filter_expression: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    (Optional) A filter expression.
+    """
 
 @pulumi.input_type
 class DataCellsFilterTableDataRowFilterArgs:
@@ -364,11 +353,8 @@ class DataCellsFilterTableDataRowFilterArgs:
         pulumi.set(self, "filter_expression", value)
 
 
-if not MYPY:
-    class DataCellsFilterTableDataRowFilterAllRowsWildcardArgsDict(TypedDict):
-        pass
-elif False:
-    DataCellsFilterTableDataRowFilterAllRowsWildcardArgsDict: TypeAlias = Mapping[str, Any]
+class DataCellsFilterTableDataRowFilterAllRowsWildcardArgsDict(TypedDict):
+    pass
 
 @pulumi.input_type
 class DataCellsFilterTableDataRowFilterAllRowsWildcardArgs:
@@ -376,14 +362,11 @@ class DataCellsFilterTableDataRowFilterAllRowsWildcardArgs:
         pass
 
 
-if not MYPY:
-    class DataCellsFilterTimeoutsArgsDict(TypedDict):
-        create: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
-        """
-elif False:
-    DataCellsFilterTimeoutsArgsDict: TypeAlias = Mapping[str, Any]
+class DataCellsFilterTimeoutsArgsDict(TypedDict):
+    create: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+    """
 
 @pulumi.input_type
 class DataCellsFilterTimeoutsArgs:
@@ -408,18 +391,15 @@ class DataCellsFilterTimeoutsArgs:
         pulumi.set(self, "create", value)
 
 
-if not MYPY:
-    class DataLakeSettingsCreateDatabaseDefaultPermissionArgsDict(TypedDict):
-        permissions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        List of permissions that are granted to the principal. Valid values may include `ALL`, `SELECT`, `ALTER`, `DROP`, `DELETE`, `INSERT`, `DESCRIBE`, and `CREATE_TABLE`. For more details, see [Lake Formation Permissions Reference](https://docs.aws.amazon.com/lake-formation/latest/dg/lf-permissions-reference.html).
-        """
-        principal: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Principal who is granted permissions. To enforce metadata and underlying data access control only by IAM on new databases and tables set `principal` to `IAM_ALLOWED_PRINCIPALS` and `permissions` to `["ALL"]`.
-        """
-elif False:
-    DataLakeSettingsCreateDatabaseDefaultPermissionArgsDict: TypeAlias = Mapping[str, Any]
+class DataLakeSettingsCreateDatabaseDefaultPermissionArgsDict(TypedDict):
+    permissions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    List of permissions that are granted to the principal. Valid values may include `ALL`, `SELECT`, `ALTER`, `DROP`, `DELETE`, `INSERT`, `DESCRIBE`, and `CREATE_TABLE`. For more details, see [Lake Formation Permissions Reference](https://docs.aws.amazon.com/lake-formation/latest/dg/lf-permissions-reference.html).
+    """
+    principal: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Principal who is granted permissions. To enforce metadata and underlying data access control only by IAM on new databases and tables set `principal` to `IAM_ALLOWED_PRINCIPALS` and `permissions` to `["ALL"]`.
+    """
 
 @pulumi.input_type
 class DataLakeSettingsCreateDatabaseDefaultPermissionArgs:
@@ -460,18 +440,15 @@ class DataLakeSettingsCreateDatabaseDefaultPermissionArgs:
         pulumi.set(self, "principal", value)
 
 
-if not MYPY:
-    class DataLakeSettingsCreateTableDefaultPermissionArgsDict(TypedDict):
-        permissions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        List of permissions that are granted to the principal. Valid values may include `ALL`, `SELECT`, `ALTER`, `DROP`, `DELETE`, `INSERT`, and `DESCRIBE`. For more details, see [Lake Formation Permissions Reference](https://docs.aws.amazon.com/lake-formation/latest/dg/lf-permissions-reference.html).
-        """
-        principal: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Principal who is granted permissions. To enforce metadata and underlying data access control only by IAM on new databases and tables set `principal` to `IAM_ALLOWED_PRINCIPALS` and `permissions` to `["ALL"]`.
-        """
-elif False:
-    DataLakeSettingsCreateTableDefaultPermissionArgsDict: TypeAlias = Mapping[str, Any]
+class DataLakeSettingsCreateTableDefaultPermissionArgsDict(TypedDict):
+    permissions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    List of permissions that are granted to the principal. Valid values may include `ALL`, `SELECT`, `ALTER`, `DROP`, `DELETE`, `INSERT`, and `DESCRIBE`. For more details, see [Lake Formation Permissions Reference](https://docs.aws.amazon.com/lake-formation/latest/dg/lf-permissions-reference.html).
+    """
+    principal: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Principal who is granted permissions. To enforce metadata and underlying data access control only by IAM on new databases and tables set `principal` to `IAM_ALLOWED_PRINCIPALS` and `permissions` to `["ALL"]`.
+    """
 
 @pulumi.input_type
 class DataLakeSettingsCreateTableDefaultPermissionArgs:
@@ -512,18 +489,15 @@ class DataLakeSettingsCreateTableDefaultPermissionArgs:
         pulumi.set(self, "principal", value)
 
 
-if not MYPY:
-    class LfTagExpressionExpressionArgsDict(TypedDict):
-        tag_key: pulumi.Input[_builtins.str]
-        """
-        The key-name for the LF-Tag.
-        """
-        tag_values: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        A list of possible values for the LF-Tag
-        """
-elif False:
-    LfTagExpressionExpressionArgsDict: TypeAlias = Mapping[str, Any]
+class LfTagExpressionExpressionArgsDict(TypedDict):
+    tag_key: pulumi.Input[_builtins.str]
+    """
+    The key-name for the LF-Tag.
+    """
+    tag_values: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    A list of possible values for the LF-Tag
+    """
 
 @pulumi.input_type
 class LfTagExpressionExpressionArgs:
@@ -562,14 +536,11 @@ class LfTagExpressionExpressionArgs:
         pulumi.set(self, "tag_values", value)
 
 
-if not MYPY:
-    class OptInConditionArgsDict(TypedDict):
-        expression: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        List of LF-tag conditions or a saved expression that apply to the resource's LF-Tag policy.
-        """
-elif False:
-    OptInConditionArgsDict: TypeAlias = Mapping[str, Any]
+class OptInConditionArgsDict(TypedDict):
+    expression: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    List of LF-tag conditions or a saved expression that apply to the resource's LF-Tag policy.
+    """
 
 @pulumi.input_type
 class OptInConditionArgs:
@@ -594,11 +565,8 @@ class OptInConditionArgs:
         pulumi.set(self, "expression", value)
 
 
-if not MYPY:
-    class OptInPrincipalArgsDict(TypedDict):
-        data_lake_principal_identifier: pulumi.Input[_builtins.str]
-elif False:
-    OptInPrincipalArgsDict: TypeAlias = Mapping[str, Any]
+class OptInPrincipalArgsDict(TypedDict):
+    data_lake_principal_identifier: pulumi.Input[_builtins.str]
 
 @pulumi.input_type
 class OptInPrincipalArgs:
@@ -616,46 +584,43 @@ class OptInPrincipalArgs:
         pulumi.set(self, "data_lake_principal_identifier", value)
 
 
-if not MYPY:
-    class OptInResourceDataArgsDict(TypedDict):
-        catalogs: NotRequired[pulumi.Input[Sequence[pulumi.Input['OptInResourceDataCatalogArgsDict']]]]
-        """
-        Identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment. See Catalog for more details.
-        """
-        data_cells_filters: NotRequired[pulumi.Input[Sequence[pulumi.Input['OptInResourceDataDataCellsFilterArgsDict']]]]
-        """
-        Data cell filter. See Data Cells Filter for more details.
-        """
-        data_locations: NotRequired[pulumi.Input[Sequence[pulumi.Input['OptInResourceDataDataLocationArgsDict']]]]
-        """
-        Location of an Amazon S3 path where permissions are granted or revoked. See Data Location for more details.
-        """
-        database: NotRequired[pulumi.Input['OptInResourceDataDatabaseArgsDict']]
-        """
-        Database for the resource. Unique to the Data Catalog. A database is a set of associated table definitions organized into a logical group. You can Grant and Revoke database permissions to a principal. See Database for more details.
-        """
-        lf_tag: NotRequired[pulumi.Input['OptInResourceDataLfTagArgsDict']]
-        """
-        LF-tag key and values attached to a resource.
-        """
-        lf_tag_expressions: NotRequired[pulumi.Input[Sequence[pulumi.Input['OptInResourceDataLfTagExpressionArgsDict']]]]
-        """
-        Logical expression composed of one or more LF-Tag key:value pairs. See LF-Tag Expression for more details.
-        """
-        lf_tag_policies: NotRequired[pulumi.Input[Sequence[pulumi.Input['OptInResourceDataLfTagPolicyArgsDict']]]]
-        """
-        List of LF-Tag conditions or saved LF-Tag expressions that define a resource's LF-Tag policy. See LF-Tag Policy for more details.
-        """
-        table: NotRequired[pulumi.Input['OptInResourceDataTableArgsDict']]
-        """
-        Table for the resource. A table is a metadata definition that represents your data. You can Grant and Revoke table privileges to a principal. See Table for more details.
-        """
-        table_with_columns: NotRequired[pulumi.Input['OptInResourceDataTableWithColumnsArgsDict']]
-        """
-        Table with columns for the resource. A principal with permissions to this resource can select metadata from the columns of a table in the Data Catalog and the underlying data in Amazon S3. See Table With Columns for more details.
-        """
-elif False:
-    OptInResourceDataArgsDict: TypeAlias = Mapping[str, Any]
+class OptInResourceDataArgsDict(TypedDict):
+    catalogs: NotRequired[pulumi.Input[Sequence[pulumi.Input['OptInResourceDataCatalogArgsDict']]]]
+    """
+    Identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment. See Catalog for more details.
+    """
+    data_cells_filters: NotRequired[pulumi.Input[Sequence[pulumi.Input['OptInResourceDataDataCellsFilterArgsDict']]]]
+    """
+    Data cell filter. See Data Cells Filter for more details.
+    """
+    data_locations: NotRequired[pulumi.Input[Sequence[pulumi.Input['OptInResourceDataDataLocationArgsDict']]]]
+    """
+    Location of an Amazon S3 path where permissions are granted or revoked. See Data Location for more details.
+    """
+    database: NotRequired[pulumi.Input['OptInResourceDataDatabaseArgsDict']]
+    """
+    Database for the resource. Unique to the Data Catalog. A database is a set of associated table definitions organized into a logical group. You can Grant and Revoke database permissions to a principal. See Database for more details.
+    """
+    lf_tag: NotRequired[pulumi.Input['OptInResourceDataLfTagArgsDict']]
+    """
+    LF-tag key and values attached to a resource.
+    """
+    lf_tag_expressions: NotRequired[pulumi.Input[Sequence[pulumi.Input['OptInResourceDataLfTagExpressionArgsDict']]]]
+    """
+    Logical expression composed of one or more LF-Tag key:value pairs. See LF-Tag Expression for more details.
+    """
+    lf_tag_policies: NotRequired[pulumi.Input[Sequence[pulumi.Input['OptInResourceDataLfTagPolicyArgsDict']]]]
+    """
+    List of LF-Tag conditions or saved LF-Tag expressions that define a resource's LF-Tag policy. See LF-Tag Policy for more details.
+    """
+    table: NotRequired[pulumi.Input['OptInResourceDataTableArgsDict']]
+    """
+    Table for the resource. A table is a metadata definition that represents your data. You can Grant and Revoke table privileges to a principal. See Table for more details.
+    """
+    table_with_columns: NotRequired[pulumi.Input['OptInResourceDataTableWithColumnsArgsDict']]
+    """
+    Table with columns for the resource. A principal with permissions to this resource can select metadata from the columns of a table in the Data Catalog and the underlying data in Amazon S3. See Table With Columns for more details.
+    """
 
 @pulumi.input_type
 class OptInResourceDataArgs:
@@ -808,14 +773,11 @@ class OptInResourceDataArgs:
         pulumi.set(self, "table_with_columns", value)
 
 
-if not MYPY:
-    class OptInResourceDataCatalogArgsDict(TypedDict):
-        id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Identifier for the catalog resource.
-        """
-elif False:
-    OptInResourceDataCatalogArgsDict: TypeAlias = Mapping[str, Any]
+class OptInResourceDataCatalogArgsDict(TypedDict):
+    id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Identifier for the catalog resource.
+    """
 
 @pulumi.input_type
 class OptInResourceDataCatalogArgs:
@@ -840,26 +802,23 @@ class OptInResourceDataCatalogArgs:
         pulumi.set(self, "id", value)
 
 
-if not MYPY:
-    class OptInResourceDataDataCellsFilterArgsDict(TypedDict):
-        database_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the database for the table. Unique to a Data Catalog. A database is a set of associated table definitions organized into a logical group. You can Grant and Revoke database privileges to a principal.
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Name of the table.
-        """
-        table_catalog_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        ID of the catalog to which the table belongs.
-        """
-        table_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Name of the table.
-        """
-elif False:
-    OptInResourceDataDataCellsFilterArgsDict: TypeAlias = Mapping[str, Any]
+class OptInResourceDataDataCellsFilterArgsDict(TypedDict):
+    database_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the database for the table. Unique to a Data Catalog. A database is a set of associated table definitions organized into a logical group. You can Grant and Revoke database privileges to a principal.
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Name of the table.
+    """
+    table_catalog_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    ID of the catalog to which the table belongs.
+    """
+    table_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Name of the table.
+    """
 
 @pulumi.input_type
 class OptInResourceDataDataCellsFilterArgs:
@@ -932,18 +891,15 @@ class OptInResourceDataDataCellsFilterArgs:
         pulumi.set(self, "table_name", value)
 
 
-if not MYPY:
-    class OptInResourceDataDataLocationArgsDict(TypedDict):
-        resource_arn: pulumi.Input[_builtins.str]
-        """
-        ARN that uniquely identifies the data location resource.
-        """
-        catalog_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Identifier for the Data Catalog. By default, it is the account ID of the caller.
-        """
-elif False:
-    OptInResourceDataDataLocationArgsDict: TypeAlias = Mapping[str, Any]
+class OptInResourceDataDataLocationArgsDict(TypedDict):
+    resource_arn: pulumi.Input[_builtins.str]
+    """
+    ARN that uniquely identifies the data location resource.
+    """
+    catalog_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Identifier for the Data Catalog. By default, it is the account ID of the caller.
+    """
 
 @pulumi.input_type
 class OptInResourceDataDataLocationArgs:
@@ -983,18 +939,15 @@ class OptInResourceDataDataLocationArgs:
         pulumi.set(self, "catalog_id", value)
 
 
-if not MYPY:
-    class OptInResourceDataDatabaseArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        """
-        Name of the table.
-        """
-        catalog_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Identifier for the Data Catalog. By default, it is the account ID of the caller.
-        """
-elif False:
-    OptInResourceDataDatabaseArgsDict: TypeAlias = Mapping[str, Any]
+class OptInResourceDataDatabaseArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    Name of the table.
+    """
+    catalog_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Identifier for the Data Catalog. By default, it is the account ID of the caller.
+    """
 
 @pulumi.input_type
 class OptInResourceDataDatabaseArgs:
@@ -1034,16 +987,13 @@ class OptInResourceDataDatabaseArgs:
         pulumi.set(self, "catalog_id", value)
 
 
-if not MYPY:
-    class OptInResourceDataLfTagArgsDict(TypedDict):
-        key: pulumi.Input[_builtins.str]
-        value: pulumi.Input[_builtins.str]
-        catalog_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Identifier for the Data Catalog. By default, it is the account ID of the caller.
-        """
-elif False:
-    OptInResourceDataLfTagArgsDict: TypeAlias = Mapping[str, Any]
+class OptInResourceDataLfTagArgsDict(TypedDict):
+    key: pulumi.Input[_builtins.str]
+    value: pulumi.Input[_builtins.str]
+    catalog_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Identifier for the Data Catalog. By default, it is the account ID of the caller.
+    """
 
 @pulumi.input_type
 class OptInResourceDataLfTagArgs:
@@ -1090,18 +1040,15 @@ class OptInResourceDataLfTagArgs:
         pulumi.set(self, "catalog_id", value)
 
 
-if not MYPY:
-    class OptInResourceDataLfTagExpressionArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        """
-        Name of the table.
-        """
-        catalog_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Identifier for the Data Catalog. By default, it is the account ID of the caller.
-        """
-elif False:
-    OptInResourceDataLfTagExpressionArgsDict: TypeAlias = Mapping[str, Any]
+class OptInResourceDataLfTagExpressionArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    Name of the table.
+    """
+    catalog_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Identifier for the Data Catalog. By default, it is the account ID of the caller.
+    """
 
 @pulumi.input_type
 class OptInResourceDataLfTagExpressionArgs:
@@ -1141,26 +1088,23 @@ class OptInResourceDataLfTagExpressionArgs:
         pulumi.set(self, "catalog_id", value)
 
 
-if not MYPY:
-    class OptInResourceDataLfTagPolicyArgsDict(TypedDict):
-        resource_type: pulumi.Input[_builtins.str]
-        """
-        Resource type for which the LF-tag policy applies.
-        """
-        catalog_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Identifier for the Data Catalog. By default, it is the account ID of the caller.
-        """
-        expression_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        If provided, permissions are granted to the Data Catalog resources whose assigned LF-Tags match the expression body of the saved expression under the provided ExpressionName .
-        """
-        expressions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        List of LF-tag conditions or a saved expression that apply to the resource's LF-Tag policy.
-        """
-elif False:
-    OptInResourceDataLfTagPolicyArgsDict: TypeAlias = Mapping[str, Any]
+class OptInResourceDataLfTagPolicyArgsDict(TypedDict):
+    resource_type: pulumi.Input[_builtins.str]
+    """
+    Resource type for which the LF-tag policy applies.
+    """
+    catalog_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Identifier for the Data Catalog. By default, it is the account ID of the caller.
+    """
+    expression_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    If provided, permissions are granted to the Data Catalog resources whose assigned LF-Tags match the expression body of the saved expression under the provided ExpressionName .
+    """
+    expressions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    List of LF-tag conditions or a saved expression that apply to the resource's LF-Tag policy.
+    """
 
 @pulumi.input_type
 class OptInResourceDataLfTagPolicyArgs:
@@ -1232,26 +1176,23 @@ class OptInResourceDataLfTagPolicyArgs:
         pulumi.set(self, "expressions", value)
 
 
-if not MYPY:
-    class OptInResourceDataTableArgsDict(TypedDict):
-        database_name: pulumi.Input[_builtins.str]
-        """
-        The name of the database for the table. Unique to a Data Catalog. A database is a set of associated table definitions organized into a logical group. You can Grant and Revoke database privileges to a principal.
-        """
-        catalog_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Identifier for the Data Catalog. By default, it is the account ID of the caller.
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Name of the table.
-        """
-        wildcard: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Boolean value that indicates whether to use a wildcard representing every table under the specified database. When set to true, this represents all tables within the specified database. At least one of TableResource$Name or TableResource$Wildcard is required.
-        """
-elif False:
-    OptInResourceDataTableArgsDict: TypeAlias = Mapping[str, Any]
+class OptInResourceDataTableArgsDict(TypedDict):
+    database_name: pulumi.Input[_builtins.str]
+    """
+    The name of the database for the table. Unique to a Data Catalog. A database is a set of associated table definitions organized into a logical group. You can Grant and Revoke database privileges to a principal.
+    """
+    catalog_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Identifier for the Data Catalog. By default, it is the account ID of the caller.
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Name of the table.
+    """
+    wildcard: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Boolean value that indicates whether to use a wildcard representing every table under the specified database. When set to true, this represents all tables within the specified database. At least one of TableResource$Name or TableResource$Wildcard is required.
+    """
 
 @pulumi.input_type
 class OptInResourceDataTableArgs:
@@ -1323,30 +1264,27 @@ class OptInResourceDataTableArgs:
         pulumi.set(self, "wildcard", value)
 
 
-if not MYPY:
-    class OptInResourceDataTableWithColumnsArgsDict(TypedDict):
-        database_name: pulumi.Input[_builtins.str]
-        """
-        The name of the database for the table. Unique to a Data Catalog. A database is a set of associated table definitions organized into a logical group. You can Grant and Revoke database privileges to a principal.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        Name of the table.
-        """
-        catalog_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Identifier for the Data Catalog. By default, it is the account ID of the caller.
-        """
-        column_names: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        List of column names for the table. At least one of ColumnNames or ColumnWildcard is required.
-        """
-        column_wildcard: NotRequired[pulumi.Input['OptInResourceDataTableWithColumnsColumnWildcardArgsDict']]
-        """
-        Wildcard specified by a ColumnWildcard object. At least one of ColumnNames or ColumnWildcard is required.
-        """
-elif False:
-    OptInResourceDataTableWithColumnsArgsDict: TypeAlias = Mapping[str, Any]
+class OptInResourceDataTableWithColumnsArgsDict(TypedDict):
+    database_name: pulumi.Input[_builtins.str]
+    """
+    The name of the database for the table. Unique to a Data Catalog. A database is a set of associated table definitions organized into a logical group. You can Grant and Revoke database privileges to a principal.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    Name of the table.
+    """
+    catalog_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Identifier for the Data Catalog. By default, it is the account ID of the caller.
+    """
+    column_names: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    List of column names for the table. At least one of ColumnNames or ColumnWildcard is required.
+    """
+    column_wildcard: NotRequired[pulumi.Input['OptInResourceDataTableWithColumnsColumnWildcardArgsDict']]
+    """
+    Wildcard specified by a ColumnWildcard object. At least one of ColumnNames or ColumnWildcard is required.
+    """
 
 @pulumi.input_type
 class OptInResourceDataTableWithColumnsArgs:
@@ -1433,11 +1371,8 @@ class OptInResourceDataTableWithColumnsArgs:
         pulumi.set(self, "column_wildcard", value)
 
 
-if not MYPY:
-    class OptInResourceDataTableWithColumnsColumnWildcardArgsDict(TypedDict):
-        excluded_column_names: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-elif False:
-    OptInResourceDataTableWithColumnsColumnWildcardArgsDict: TypeAlias = Mapping[str, Any]
+class OptInResourceDataTableWithColumnsColumnWildcardArgsDict(TypedDict):
+    excluded_column_names: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
 
 @pulumi.input_type
 class OptInResourceDataTableWithColumnsColumnWildcardArgs:
@@ -1456,26 +1391,23 @@ class OptInResourceDataTableWithColumnsColumnWildcardArgs:
         pulumi.set(self, "excluded_column_names", value)
 
 
-if not MYPY:
-    class PermissionsDataCellsFilterArgsDict(TypedDict):
-        database_name: pulumi.Input[_builtins.str]
-        """
-        The name of the database.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the data cells filter.
-        """
-        table_catalog_id: pulumi.Input[_builtins.str]
-        """
-        The ID of the Data Catalog.
-        """
-        table_name: pulumi.Input[_builtins.str]
-        """
-        The name of the table.
-        """
-elif False:
-    PermissionsDataCellsFilterArgsDict: TypeAlias = Mapping[str, Any]
+class PermissionsDataCellsFilterArgsDict(TypedDict):
+    database_name: pulumi.Input[_builtins.str]
+    """
+    The name of the database.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the data cells filter.
+    """
+    table_catalog_id: pulumi.Input[_builtins.str]
+    """
+    The ID of the Data Catalog.
+    """
+    table_name: pulumi.Input[_builtins.str]
+    """
+    The name of the table.
+    """
 
 @pulumi.input_type
 class PermissionsDataCellsFilterArgs:
@@ -1544,20 +1476,17 @@ class PermissionsDataCellsFilterArgs:
         pulumi.set(self, "table_name", value)
 
 
-if not MYPY:
-    class PermissionsDataLocationArgsDict(TypedDict):
-        arn: pulumi.Input[_builtins.str]
-        """
-        Amazon Resource Name (ARN) that uniquely identifies the data location resource.
+class PermissionsDataLocationArgsDict(TypedDict):
+    arn: pulumi.Input[_builtins.str]
+    """
+    Amazon Resource Name (ARN) that uniquely identifies the data location resource.
 
-        The following argument is optional:
-        """
-        catalog_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Identifier for the Data Catalog where the location is registered with Lake Formation. By default, it is the account ID of the caller.
-        """
-elif False:
-    PermissionsDataLocationArgsDict: TypeAlias = Mapping[str, Any]
+    The following argument is optional:
+    """
+    catalog_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Identifier for the Data Catalog where the location is registered with Lake Formation. By default, it is the account ID of the caller.
+    """
 
 @pulumi.input_type
 class PermissionsDataLocationArgs:
@@ -1601,20 +1530,17 @@ class PermissionsDataLocationArgs:
         pulumi.set(self, "catalog_id", value)
 
 
-if not MYPY:
-    class PermissionsDatabaseArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        """
-        Name of the database resource. Unique to the Data Catalog.
+class PermissionsDatabaseArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    Name of the database resource. Unique to the Data Catalog.
 
-        The following argument is optional:
-        """
-        catalog_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Identifier for the Data Catalog. By default, it is the account ID of the caller.
-        """
-elif False:
-    PermissionsDatabaseArgsDict: TypeAlias = Mapping[str, Any]
+    The following argument is optional:
+    """
+    catalog_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Identifier for the Data Catalog. By default, it is the account ID of the caller.
+    """
 
 @pulumi.input_type
 class PermissionsDatabaseArgs:
@@ -1658,24 +1584,21 @@ class PermissionsDatabaseArgs:
         pulumi.set(self, "catalog_id", value)
 
 
-if not MYPY:
-    class PermissionsLfTagArgsDict(TypedDict):
-        key: pulumi.Input[_builtins.str]
-        """
-        The key-name for the tag.
-        """
-        values: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        A list of possible values an attribute can take.
+class PermissionsLfTagArgsDict(TypedDict):
+    key: pulumi.Input[_builtins.str]
+    """
+    The key-name for the tag.
+    """
+    values: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    A list of possible values an attribute can take.
 
-        The following argument is optional:
-        """
-        catalog_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Identifier for the Data Catalog. By default, it is the account ID of the caller.
-        """
-elif False:
-    PermissionsLfTagArgsDict: TypeAlias = Mapping[str, Any]
+    The following argument is optional:
+    """
+    catalog_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Identifier for the Data Catalog. By default, it is the account ID of the caller.
+    """
 
 @pulumi.input_type
 class PermissionsLfTagArgs:
@@ -1734,24 +1657,21 @@ class PermissionsLfTagArgs:
         pulumi.set(self, "catalog_id", value)
 
 
-if not MYPY:
-    class PermissionsLfTagPolicyArgsDict(TypedDict):
-        expressions: pulumi.Input[Sequence[pulumi.Input['PermissionsLfTagPolicyExpressionArgsDict']]]
-        """
-        A list of tag conditions that apply to the resource's tag policy. Configuration block for tag conditions that apply to the policy. See `expression` below.
+class PermissionsLfTagPolicyArgsDict(TypedDict):
+    expressions: pulumi.Input[Sequence[pulumi.Input['PermissionsLfTagPolicyExpressionArgsDict']]]
+    """
+    A list of tag conditions that apply to the resource's tag policy. Configuration block for tag conditions that apply to the policy. See `expression` below.
 
-        The following argument is optional:
-        """
-        resource_type: pulumi.Input[_builtins.str]
-        """
-        The resource type for which the tag policy applies. Valid values are `DATABASE` and `TABLE`.
-        """
-        catalog_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Identifier for the Data Catalog. By default, it is the account ID of the caller.
-        """
-elif False:
-    PermissionsLfTagPolicyArgsDict: TypeAlias = Mapping[str, Any]
+    The following argument is optional:
+    """
+    resource_type: pulumi.Input[_builtins.str]
+    """
+    The resource type for which the tag policy applies. Valid values are `DATABASE` and `TABLE`.
+    """
+    catalog_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Identifier for the Data Catalog. By default, it is the account ID of the caller.
+    """
 
 @pulumi.input_type
 class PermissionsLfTagPolicyArgs:
@@ -1810,18 +1730,15 @@ class PermissionsLfTagPolicyArgs:
         pulumi.set(self, "catalog_id", value)
 
 
-if not MYPY:
-    class PermissionsLfTagPolicyExpressionArgsDict(TypedDict):
-        key: pulumi.Input[_builtins.str]
-        """
-        The key-name of an LF-Tag.
-        """
-        values: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        A list of possible values of an LF-Tag.
-        """
-elif False:
-    PermissionsLfTagPolicyExpressionArgsDict: TypeAlias = Mapping[str, Any]
+class PermissionsLfTagPolicyExpressionArgsDict(TypedDict):
+    key: pulumi.Input[_builtins.str]
+    """
+    The key-name of an LF-Tag.
+    """
+    values: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    A list of possible values of an LF-Tag.
+    """
 
 @pulumi.input_type
 class PermissionsLfTagPolicyExpressionArgs:
@@ -1860,28 +1777,25 @@ class PermissionsLfTagPolicyExpressionArgs:
         pulumi.set(self, "values", value)
 
 
-if not MYPY:
-    class PermissionsTableArgsDict(TypedDict):
-        database_name: pulumi.Input[_builtins.str]
-        """
-        Name of the database for the table. Unique to a Data Catalog.
-        """
-        catalog_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Identifier for the Data Catalog. By default, it is the account ID of the caller.
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Name of the table.
-        """
-        wildcard: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether to use a wildcard representing every table under a database. Defaults to `false`.
+class PermissionsTableArgsDict(TypedDict):
+    database_name: pulumi.Input[_builtins.str]
+    """
+    Name of the database for the table. Unique to a Data Catalog.
+    """
+    catalog_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Identifier for the Data Catalog. By default, it is the account ID of the caller.
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Name of the table.
+    """
+    wildcard: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether to use a wildcard representing every table under a database. Defaults to `false`.
 
-        The following arguments are optional:
-        """
-elif False:
-    PermissionsTableArgsDict: TypeAlias = Mapping[str, Any]
+    The following arguments are optional:
+    """
 
 @pulumi.input_type
 class PermissionsTableArgs:
@@ -1957,36 +1871,33 @@ class PermissionsTableArgs:
         pulumi.set(self, "wildcard", value)
 
 
-if not MYPY:
-    class PermissionsTableWithColumnsArgsDict(TypedDict):
-        database_name: pulumi.Input[_builtins.str]
-        """
-        Name of the database for the table with columns resource. Unique to the Data Catalog.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        Name of the table resource.
-        """
-        catalog_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Identifier for the Data Catalog. By default, it is the account ID of the caller.
-        """
-        column_names: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Set of column names for the table.
-        """
-        excluded_column_names: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Set of column names for the table to exclude. If `excluded_column_names` is included, `wildcard` must be set to `true` to avoid the provider reporting a difference.
-        """
-        wildcard: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether to use a column wildcard. If `excluded_column_names` is included, `wildcard` must be set to `true` to avoid the provider reporting a difference.
+class PermissionsTableWithColumnsArgsDict(TypedDict):
+    database_name: pulumi.Input[_builtins.str]
+    """
+    Name of the database for the table with columns resource. Unique to the Data Catalog.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    Name of the table resource.
+    """
+    catalog_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Identifier for the Data Catalog. By default, it is the account ID of the caller.
+    """
+    column_names: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Set of column names for the table.
+    """
+    excluded_column_names: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Set of column names for the table to exclude. If `excluded_column_names` is included, `wildcard` must be set to `true` to avoid the provider reporting a difference.
+    """
+    wildcard: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether to use a column wildcard. If `excluded_column_names` is included, `wildcard` must be set to `true` to avoid the provider reporting a difference.
 
-        The following arguments are optional:
-        """
-elif False:
-    PermissionsTableWithColumnsArgsDict: TypeAlias = Mapping[str, Any]
+    The following arguments are optional:
+    """
 
 @pulumi.input_type
 class PermissionsTableWithColumnsArgs:
@@ -2093,20 +2004,17 @@ class PermissionsTableWithColumnsArgs:
         pulumi.set(self, "wildcard", value)
 
 
-if not MYPY:
-    class ResourceLfTagDatabaseArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        """
-        Name of the database resource. Unique to the Data Catalog.
+class ResourceLfTagDatabaseArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    Name of the database resource. Unique to the Data Catalog.
 
-        The following argument is optional:
-        """
-        catalog_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Identifier for the Data Catalog. By default, it is the account ID of the caller.
-        """
-elif False:
-    ResourceLfTagDatabaseArgsDict: TypeAlias = Mapping[str, Any]
+    The following argument is optional:
+    """
+    catalog_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Identifier for the Data Catalog. By default, it is the account ID of the caller.
+    """
 
 @pulumi.input_type
 class ResourceLfTagDatabaseArgs:
@@ -2150,24 +2058,21 @@ class ResourceLfTagDatabaseArgs:
         pulumi.set(self, "catalog_id", value)
 
 
-if not MYPY:
-    class ResourceLfTagLfTagArgsDict(TypedDict):
-        key: pulumi.Input[_builtins.str]
-        """
-        Key name for an existing LF-tag.
-        """
-        value: pulumi.Input[_builtins.str]
-        """
-        Value from the possible values for the LF-tag.
+class ResourceLfTagLfTagArgsDict(TypedDict):
+    key: pulumi.Input[_builtins.str]
+    """
+    Key name for an existing LF-tag.
+    """
+    value: pulumi.Input[_builtins.str]
+    """
+    Value from the possible values for the LF-tag.
 
-        The following argument is optional:
-        """
-        catalog_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Identifier for the Data Catalog. By default, it is the account ID of the caller.
-        """
-elif False:
-    ResourceLfTagLfTagArgsDict: TypeAlias = Mapping[str, Any]
+    The following argument is optional:
+    """
+    catalog_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Identifier for the Data Catalog. By default, it is the account ID of the caller.
+    """
 
 @pulumi.input_type
 class ResourceLfTagLfTagArgs:
@@ -2226,28 +2131,25 @@ class ResourceLfTagLfTagArgs:
         pulumi.set(self, "catalog_id", value)
 
 
-if not MYPY:
-    class ResourceLfTagTableArgsDict(TypedDict):
-        database_name: pulumi.Input[_builtins.str]
-        """
-        Name of the database for the table. Unique to a Data Catalog.
-        """
-        catalog_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Identifier for the Data Catalog. By default, it is the account ID of the caller.
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Name of the table.
-        """
-        wildcard: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether to use a wildcard representing every table under a database. Defaults to `false`.
+class ResourceLfTagTableArgsDict(TypedDict):
+    database_name: pulumi.Input[_builtins.str]
+    """
+    Name of the database for the table. Unique to a Data Catalog.
+    """
+    catalog_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Identifier for the Data Catalog. By default, it is the account ID of the caller.
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Name of the table.
+    """
+    wildcard: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether to use a wildcard representing every table under a database. Defaults to `false`.
 
-        The following arguments are optional:
-        """
-elif False:
-    ResourceLfTagTableArgsDict: TypeAlias = Mapping[str, Any]
+    The following arguments are optional:
+    """
 
 @pulumi.input_type
 class ResourceLfTagTableArgs:
@@ -2323,32 +2225,29 @@ class ResourceLfTagTableArgs:
         pulumi.set(self, "wildcard", value)
 
 
-if not MYPY:
-    class ResourceLfTagTableWithColumnsArgsDict(TypedDict):
-        database_name: pulumi.Input[_builtins.str]
-        """
-        Name of the database for the table with columns resource. Unique to the Data Catalog.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        Name of the table resource.
+class ResourceLfTagTableWithColumnsArgsDict(TypedDict):
+    database_name: pulumi.Input[_builtins.str]
+    """
+    Name of the database for the table with columns resource. Unique to the Data Catalog.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    Name of the table resource.
 
-        The following arguments are optional:
-        """
-        catalog_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Identifier for the Data Catalog. By default, it is the account ID of the caller.
-        """
-        column_names: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Set of column names for the table.
-        """
-        column_wildcard: NotRequired[pulumi.Input['ResourceLfTagTableWithColumnsColumnWildcardArgsDict']]
-        """
-        Option to add column wildcard. See Column Wildcard for more details.
-        """
-elif False:
-    ResourceLfTagTableWithColumnsArgsDict: TypeAlias = Mapping[str, Any]
+    The following arguments are optional:
+    """
+    catalog_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Identifier for the Data Catalog. By default, it is the account ID of the caller.
+    """
+    column_names: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Set of column names for the table.
+    """
+    column_wildcard: NotRequired[pulumi.Input['ResourceLfTagTableWithColumnsColumnWildcardArgsDict']]
+    """
+    Option to add column wildcard. See Column Wildcard for more details.
+    """
 
 @pulumi.input_type
 class ResourceLfTagTableWithColumnsArgs:
@@ -2439,22 +2338,28 @@ class ResourceLfTagTableWithColumnsArgs:
         pulumi.set(self, "column_wildcard", value)
 
 
-if not MYPY:
-    class ResourceLfTagTableWithColumnsColumnWildcardArgsDict(TypedDict):
-        excluded_column_names: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-elif False:
-    ResourceLfTagTableWithColumnsColumnWildcardArgsDict: TypeAlias = Mapping[str, Any]
+class ResourceLfTagTableWithColumnsColumnWildcardArgsDict(TypedDict):
+    excluded_column_names: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Set of column names for the table to exclude. If `excluded_column_names` is included, `wildcard` must be set to `true` to avoid Terraform reporting a difference.
+    """
 
 @pulumi.input_type
 class ResourceLfTagTableWithColumnsColumnWildcardArgs:
     def __init__(__self__, *,
                  excluded_column_names: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] excluded_column_names: Set of column names for the table to exclude. If `excluded_column_names` is included, `wildcard` must be set to `true` to avoid Terraform reporting a difference.
+        """
         if excluded_column_names is not None:
             pulumi.set(__self__, "excluded_column_names", excluded_column_names)
 
     @_builtins.property
     @pulumi.getter(name="excludedColumnNames")
     def excluded_column_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Set of column names for the table to exclude. If `excluded_column_names` is included, `wildcard` must be set to `true` to avoid Terraform reporting a difference.
+        """
         return pulumi.get(self, "excluded_column_names")
 
     @excluded_column_names.setter
@@ -2462,18 +2367,15 @@ class ResourceLfTagTableWithColumnsColumnWildcardArgs:
         pulumi.set(self, "excluded_column_names", value)
 
 
-if not MYPY:
-    class ResourceLfTagTimeoutsArgsDict(TypedDict):
-        create: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
-        """
-        delete: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
-        """
-elif False:
-    ResourceLfTagTimeoutsArgsDict: TypeAlias = Mapping[str, Any]
+class ResourceLfTagTimeoutsArgsDict(TypedDict):
+    create: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+    """
+    delete: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+    """
 
 @pulumi.input_type
 class ResourceLfTagTimeoutsArgs:
@@ -2514,20 +2416,17 @@ class ResourceLfTagTimeoutsArgs:
         pulumi.set(self, "delete", value)
 
 
-if not MYPY:
-    class ResourceLfTagsDatabaseArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        """
-        Name of the database resource. Unique to the Data Catalog.
+class ResourceLfTagsDatabaseArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    Name of the database resource. Unique to the Data Catalog.
 
-        The following argument is optional:
-        """
-        catalog_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Identifier for the Data Catalog. By default, it is the account ID of the caller.
-        """
-elif False:
-    ResourceLfTagsDatabaseArgsDict: TypeAlias = Mapping[str, Any]
+    The following argument is optional:
+    """
+    catalog_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Identifier for the Data Catalog. By default, it is the account ID of the caller.
+    """
 
 @pulumi.input_type
 class ResourceLfTagsDatabaseArgs:
@@ -2571,24 +2470,21 @@ class ResourceLfTagsDatabaseArgs:
         pulumi.set(self, "catalog_id", value)
 
 
-if not MYPY:
-    class ResourceLfTagsLfTagArgsDict(TypedDict):
-        key: pulumi.Input[_builtins.str]
-        """
-        Key name for an existing LF-tag.
-        """
-        value: pulumi.Input[_builtins.str]
-        """
-        Value from the possible values for the LF-tag.
+class ResourceLfTagsLfTagArgsDict(TypedDict):
+    key: pulumi.Input[_builtins.str]
+    """
+    Key name for an existing LF-tag.
+    """
+    value: pulumi.Input[_builtins.str]
+    """
+    Value from the possible values for the LF-tag.
 
-        The following argument is optional:
-        """
-        catalog_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Identifier for the Data Catalog. By default, it is the account ID of the caller.
-        """
-elif False:
-    ResourceLfTagsLfTagArgsDict: TypeAlias = Mapping[str, Any]
+    The following argument is optional:
+    """
+    catalog_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Identifier for the Data Catalog. By default, it is the account ID of the caller.
+    """
 
 @pulumi.input_type
 class ResourceLfTagsLfTagArgs:
@@ -2647,28 +2543,25 @@ class ResourceLfTagsLfTagArgs:
         pulumi.set(self, "catalog_id", value)
 
 
-if not MYPY:
-    class ResourceLfTagsTableArgsDict(TypedDict):
-        database_name: pulumi.Input[_builtins.str]
-        """
-        Name of the database for the table. Unique to a Data Catalog.
-        """
-        catalog_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Identifier for the Data Catalog. By default, it is the account ID of the caller.
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Name of the table.
-        """
-        wildcard: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether to use a wildcard representing every table under a database. Defaults to `false`.
+class ResourceLfTagsTableArgsDict(TypedDict):
+    database_name: pulumi.Input[_builtins.str]
+    """
+    Name of the database for the table. Unique to a Data Catalog.
+    """
+    catalog_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Identifier for the Data Catalog. By default, it is the account ID of the caller.
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Name of the table.
+    """
+    wildcard: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether to use a wildcard representing every table under a database. Defaults to `false`.
 
-        The following arguments are optional:
-        """
-elif False:
-    ResourceLfTagsTableArgsDict: TypeAlias = Mapping[str, Any]
+    The following arguments are optional:
+    """
 
 @pulumi.input_type
 class ResourceLfTagsTableArgs:
@@ -2744,36 +2637,33 @@ class ResourceLfTagsTableArgs:
         pulumi.set(self, "wildcard", value)
 
 
-if not MYPY:
-    class ResourceLfTagsTableWithColumnsArgsDict(TypedDict):
-        database_name: pulumi.Input[_builtins.str]
-        """
-        Name of the database for the table with columns resource. Unique to the Data Catalog.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        Name of the table resource.
-        """
-        catalog_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Identifier for the Data Catalog. By default, it is the account ID of the caller.
-        """
-        column_names: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Set of column names for the table.
-        """
-        excluded_column_names: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Set of column names for the table to exclude. If `excluded_column_names` is included, `wildcard` must be set to `true` to avoid the provider reporting a difference.
-        """
-        wildcard: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether to use a column wildcard. If `excluded_column_names` is included, `wildcard` must be set to `true` to avoid the provider reporting a difference.
+class ResourceLfTagsTableWithColumnsArgsDict(TypedDict):
+    database_name: pulumi.Input[_builtins.str]
+    """
+    Name of the database for the table with columns resource. Unique to the Data Catalog.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    Name of the table resource.
+    """
+    catalog_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Identifier for the Data Catalog. By default, it is the account ID of the caller.
+    """
+    column_names: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Set of column names for the table.
+    """
+    excluded_column_names: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Set of column names for the table to exclude. If `excluded_column_names` is included, `wildcard` must be set to `true` to avoid the provider reporting a difference.
+    """
+    wildcard: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether to use a column wildcard. If `excluded_column_names` is included, `wildcard` must be set to `true` to avoid the provider reporting a difference.
 
-        The following arguments are optional:
-        """
-elif False:
-    ResourceLfTagsTableWithColumnsArgsDict: TypeAlias = Mapping[str, Any]
+    The following arguments are optional:
+    """
 
 @pulumi.input_type
 class ResourceLfTagsTableWithColumnsArgs:
@@ -2880,26 +2770,23 @@ class ResourceLfTagsTableWithColumnsArgs:
         pulumi.set(self, "wildcard", value)
 
 
-if not MYPY:
-    class GetPermissionsDataCellsFilterArgsDict(TypedDict):
-        database_name: _builtins.str
-        """
-        The name of the database.
-        """
-        name: _builtins.str
-        """
-        The name of the data cells filter.
-        """
-        table_catalog_id: _builtins.str
-        """
-        The ID of the Data Catalog.
-        """
-        table_name: _builtins.str
-        """
-        The name of the table.
-        """
-elif False:
-    GetPermissionsDataCellsFilterArgsDict: TypeAlias = Mapping[str, Any]
+class GetPermissionsDataCellsFilterArgsDict(TypedDict):
+    database_name: _builtins.str
+    """
+    The name of the database.
+    """
+    name: _builtins.str
+    """
+    The name of the data cells filter.
+    """
+    table_catalog_id: _builtins.str
+    """
+    The ID of the Data Catalog.
+    """
+    table_name: _builtins.str
+    """
+    The name of the table.
+    """
 
 @pulumi.input_type
 class GetPermissionsDataCellsFilterArgs:
@@ -2968,20 +2855,17 @@ class GetPermissionsDataCellsFilterArgs:
         pulumi.set(self, "table_name", value)
 
 
-if not MYPY:
-    class GetPermissionsDataLocationArgsDict(TypedDict):
-        arn: _builtins.str
-        """
-        ARN that uniquely identifies the data location resource.
+class GetPermissionsDataLocationArgsDict(TypedDict):
+    arn: _builtins.str
+    """
+    ARN that uniquely identifies the data location resource.
 
-        The following argument is optional:
-        """
-        catalog_id: _builtins.str
-        """
-        Identifier for the Data Catalog where the location is registered with Lake Formation. By default, it is the account ID of the caller.
-        """
-elif False:
-    GetPermissionsDataLocationArgsDict: TypeAlias = Mapping[str, Any]
+    The following argument is optional:
+    """
+    catalog_id: _builtins.str
+    """
+    Identifier for the Data Catalog where the location is registered with Lake Formation. By default, it is the account ID of the caller.
+    """
 
 @pulumi.input_type
 class GetPermissionsDataLocationArgs:
@@ -3024,20 +2908,17 @@ class GetPermissionsDataLocationArgs:
         pulumi.set(self, "catalog_id", value)
 
 
-if not MYPY:
-    class GetPermissionsDatabaseArgsDict(TypedDict):
-        catalog_id: _builtins.str
-        """
-        Identifier for the Data Catalog. By default, it is the account ID of the caller.
-        """
-        name: _builtins.str
-        """
-        Name of the database resource. Unique to the Data Catalog.
+class GetPermissionsDatabaseArgsDict(TypedDict):
+    catalog_id: _builtins.str
+    """
+    Identifier for the Data Catalog. By default, it is the account ID of the caller.
+    """
+    name: _builtins.str
+    """
+    Name of the database resource. Unique to the Data Catalog.
 
-        The following argument is optional:
-        """
-elif False:
-    GetPermissionsDatabaseArgsDict: TypeAlias = Mapping[str, Any]
+    The following argument is optional:
+    """
 
 @pulumi.input_type
 class GetPermissionsDatabaseArgs:
@@ -3080,24 +2961,21 @@ class GetPermissionsDatabaseArgs:
         pulumi.set(self, "name", value)
 
 
-if not MYPY:
-    class GetPermissionsLfTagArgsDict(TypedDict):
-        catalog_id: _builtins.str
-        """
-        Identifier for the Data Catalog. By default, it is the account ID of the caller.
-        """
-        key: _builtins.str
-        """
-        Key-name for the tag.
-        """
-        values: Sequence[_builtins.str]
-        """
-        List of possible values an attribute can take.
+class GetPermissionsLfTagArgsDict(TypedDict):
+    catalog_id: _builtins.str
+    """
+    Identifier for the Data Catalog. By default, it is the account ID of the caller.
+    """
+    key: _builtins.str
+    """
+    Key-name for the tag.
+    """
+    values: Sequence[_builtins.str]
+    """
+    List of possible values an attribute can take.
 
-        The following argument is optional:
-        """
-elif False:
-    GetPermissionsLfTagArgsDict: TypeAlias = Mapping[str, Any]
+    The following argument is optional:
+    """
 
 @pulumi.input_type
 class GetPermissionsLfTagArgs:
@@ -3155,24 +3033,21 @@ class GetPermissionsLfTagArgs:
         pulumi.set(self, "values", value)
 
 
-if not MYPY:
-    class GetPermissionsLfTagPolicyArgsDict(TypedDict):
-        catalog_id: _builtins.str
-        """
-        Identifier for the Data Catalog. By default, it is the account ID of the caller.
-        """
-        expressions: Sequence['GetPermissionsLfTagPolicyExpressionArgsDict']
-        """
-        List of tag conditions that apply to the resource's tag policy. Configuration block for tag conditions that apply to the policy. See `expression` below.
+class GetPermissionsLfTagPolicyArgsDict(TypedDict):
+    catalog_id: _builtins.str
+    """
+    Identifier for the Data Catalog. By default, it is the account ID of the caller.
+    """
+    expressions: Sequence['GetPermissionsLfTagPolicyExpressionArgsDict']
+    """
+    List of tag conditions that apply to the resource's tag policy. Configuration block for tag conditions that apply to the policy. See `expression` below.
 
-        The following argument is optional:
-        """
-        resource_type: _builtins.str
-        """
-        Resource type for which the tag policy applies. Valid values are `DATABASE` and `TABLE`.
-        """
-elif False:
-    GetPermissionsLfTagPolicyArgsDict: TypeAlias = Mapping[str, Any]
+    The following argument is optional:
+    """
+    resource_type: _builtins.str
+    """
+    Resource type for which the tag policy applies. Valid values are `DATABASE` and `TABLE`.
+    """
 
 @pulumi.input_type
 class GetPermissionsLfTagPolicyArgs:
@@ -3230,18 +3105,15 @@ class GetPermissionsLfTagPolicyArgs:
         pulumi.set(self, "resource_type", value)
 
 
-if not MYPY:
-    class GetPermissionsLfTagPolicyExpressionArgsDict(TypedDict):
-        key: _builtins.str
-        """
-        Key-name of an LF-Tag.
-        """
-        values: Sequence[_builtins.str]
-        """
-        List of possible values of an LF-Tag.
-        """
-elif False:
-    GetPermissionsLfTagPolicyExpressionArgsDict: TypeAlias = Mapping[str, Any]
+class GetPermissionsLfTagPolicyExpressionArgsDict(TypedDict):
+    key: _builtins.str
+    """
+    Key-name of an LF-Tag.
+    """
+    values: Sequence[_builtins.str]
+    """
+    List of possible values of an LF-Tag.
+    """
 
 @pulumi.input_type
 class GetPermissionsLfTagPolicyExpressionArgs:
@@ -3280,28 +3152,25 @@ class GetPermissionsLfTagPolicyExpressionArgs:
         pulumi.set(self, "values", value)
 
 
-if not MYPY:
-    class GetPermissionsTableArgsDict(TypedDict):
-        catalog_id: _builtins.str
-        """
-        Identifier for the Data Catalog. By default, it is the account ID of the caller.
-        """
-        database_name: _builtins.str
-        """
-        Name of the database for the table. Unique to a Data Catalog.
+class GetPermissionsTableArgsDict(TypedDict):
+    catalog_id: _builtins.str
+    """
+    Identifier for the Data Catalog. By default, it is the account ID of the caller.
+    """
+    database_name: _builtins.str
+    """
+    Name of the database for the table. Unique to a Data Catalog.
 
-        The following arguments are optional:
-        """
-        name: _builtins.str
-        """
-        Name of the table. At least one of `name` or `wildcard` is required.
-        """
-        wildcard: NotRequired[_builtins.bool]
-        """
-        Whether to use a wildcard representing every table under a database. At least one of `name` or `wildcard` is required. Defaults to `false`.
-        """
-elif False:
-    GetPermissionsTableArgsDict: TypeAlias = Mapping[str, Any]
+    The following arguments are optional:
+    """
+    name: _builtins.str
+    """
+    Name of the table. At least one of `name` or `wildcard` is required.
+    """
+    wildcard: NotRequired[_builtins.bool]
+    """
+    Whether to use a wildcard representing every table under a database. At least one of `name` or `wildcard` is required. Defaults to `false`.
+    """
 
 @pulumi.input_type
 class GetPermissionsTableArgs:
@@ -3375,36 +3244,33 @@ class GetPermissionsTableArgs:
         pulumi.set(self, "wildcard", value)
 
 
-if not MYPY:
-    class GetPermissionsTableWithColumnsArgsDict(TypedDict):
-        catalog_id: _builtins.str
-        """
-        Identifier for the Data Catalog. By default, it is the account ID of the caller.
-        """
-        database_name: _builtins.str
-        """
-        Name of the database for the table with columns resource. Unique to the Data Catalog.
-        """
-        name: _builtins.str
-        """
-        Name of the table resource.
+class GetPermissionsTableWithColumnsArgsDict(TypedDict):
+    catalog_id: _builtins.str
+    """
+    Identifier for the Data Catalog. By default, it is the account ID of the caller.
+    """
+    database_name: _builtins.str
+    """
+    Name of the database for the table with columns resource. Unique to the Data Catalog.
+    """
+    name: _builtins.str
+    """
+    Name of the table resource.
 
-        The following arguments are optional:
-        """
-        column_names: NotRequired[Sequence[_builtins.str]]
-        """
-        Set of column names for the table. At least one of `column_names` or `excluded_column_names` is required.
-        """
-        excluded_column_names: NotRequired[Sequence[_builtins.str]]
-        """
-        Set of column names for the table to exclude. At least one of `column_names` or `excluded_column_names` is required.
-        """
-        wildcard: NotRequired[_builtins.bool]
-        """
-        Whether to use a wildcard representing every table under a database. At least one of `name` or `wildcard` is required. Defaults to `false`.
-        """
-elif False:
-    GetPermissionsTableWithColumnsArgsDict: TypeAlias = Mapping[str, Any]
+    The following arguments are optional:
+    """
+    column_names: NotRequired[Sequence[_builtins.str]]
+    """
+    Set of column names for the table. At least one of `column_names` or `excluded_column_names` is required.
+    """
+    excluded_column_names: NotRequired[Sequence[_builtins.str]]
+    """
+    Set of column names for the table to exclude. At least one of `column_names` or `excluded_column_names` is required.
+    """
+    wildcard: NotRequired[_builtins.bool]
+    """
+    Whether to use a wildcard representing every table under a database. At least one of `name` or `wildcard` is required. Defaults to `false`.
+    """
 
 @pulumi.input_type
 class GetPermissionsTableWithColumnsArgs:

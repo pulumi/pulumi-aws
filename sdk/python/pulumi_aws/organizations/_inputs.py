@@ -27,44 +27,39 @@ __all__ = [
     'OrganizationalUnitAccountArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class OrganizationAccountArgsDict(TypedDict):
-        arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        ARN of the root.
-        """
-        email: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Email of the account.
-        """
-        id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Identifier of the root.
-        """
-        joined_method: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Method by which the account joined the organization.
-        """
-        joined_timestamp: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Date the account became a part of the organization.
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Name of the policy type.
-        """
-        state: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        State of the account.
-        """
-        status: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Status of the policy type as it relates to the associated root.
-        """
-elif False:
-    OrganizationAccountArgsDict: TypeAlias = Mapping[str, Any]
+class OrganizationAccountArgsDict(TypedDict):
+    arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    ARN of the root.
+    """
+    email: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Email of the account.
+    """
+    id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Identifier of the root.
+    """
+    joined_method: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Method by which the account joined the organization.
+    """
+    joined_timestamp: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Date the account became a part of the organization.
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Name of the policy type.
+    """
+    state: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    State of the account.
+    """
+    status: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Status of the policy type as it relates to the associated root.
+    """
 
 @pulumi.input_type
 class OrganizationAccountArgs:
@@ -205,42 +200,39 @@ class OrganizationAccountArgs:
         pulumi.set(self, "status", value)
 
 
-if not MYPY:
-    class OrganizationNonMasterAccountArgsDict(TypedDict):
-        arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        ARN of the root.
-        """
-        email: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Email of the account.
-        """
-        id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Identifier of the root.
-        """
-        joined_method: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Method by which the account joined the organization.
-        """
-        joined_timestamp: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Date the account became a part of the organization.
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Name of the policy type.
-        """
-        state: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        State of the account.
-        """
-        status: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Status of the policy type as it relates to the associated root.
-        """
-elif False:
-    OrganizationNonMasterAccountArgsDict: TypeAlias = Mapping[str, Any]
+class OrganizationNonMasterAccountArgsDict(TypedDict):
+    arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    ARN of the root.
+    """
+    email: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Email of the account.
+    """
+    id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Identifier of the root.
+    """
+    joined_method: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Method by which the account joined the organization.
+    """
+    joined_timestamp: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Date the account became a part of the organization.
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Name of the policy type.
+    """
+    state: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    State of the account.
+    """
+    status: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Status of the policy type as it relates to the associated root.
+    """
 
 @pulumi.input_type
 class OrganizationNonMasterAccountArgs:
@@ -381,26 +373,23 @@ class OrganizationNonMasterAccountArgs:
         pulumi.set(self, "status", value)
 
 
-if not MYPY:
-    class OrganizationRootArgsDict(TypedDict):
-        arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        ARN of the root.
-        """
-        id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Identifier of the root.
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Name of the policy type.
-        """
-        policy_types: NotRequired[pulumi.Input[Sequence[pulumi.Input['OrganizationRootPolicyTypeArgsDict']]]]
-        """
-        List of policy types enabled for this root. All elements have these attributes:
-        """
-elif False:
-    OrganizationRootArgsDict: TypeAlias = Mapping[str, Any]
+class OrganizationRootArgsDict(TypedDict):
+    arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    ARN of the root.
+    """
+    id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Identifier of the root.
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Name of the policy type.
+    """
+    policy_types: NotRequired[pulumi.Input[Sequence[pulumi.Input['OrganizationRootPolicyTypeArgsDict']]]]
+    """
+    List of policy types enabled for this root. All elements have these attributes:
+    """
 
 @pulumi.input_type
 class OrganizationRootArgs:
@@ -473,15 +462,12 @@ class OrganizationRootArgs:
         pulumi.set(self, "policy_types", value)
 
 
-if not MYPY:
-    class OrganizationRootPolicyTypeArgsDict(TypedDict):
-        status: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Status of the policy type as it relates to the associated root.
-        """
-        type: NotRequired[pulumi.Input[_builtins.str]]
-elif False:
-    OrganizationRootPolicyTypeArgsDict: TypeAlias = Mapping[str, Any]
+class OrganizationRootPolicyTypeArgsDict(TypedDict):
+    status: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Status of the policy type as it relates to the associated root.
+    """
+    type: NotRequired[pulumi.Input[_builtins.str]]
 
 @pulumi.input_type
 class OrganizationRootPolicyTypeArgs:
@@ -518,26 +504,23 @@ class OrganizationRootPolicyTypeArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class OrganizationalUnitAccountArgsDict(TypedDict):
-        arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        ARN of the organizational unit
-        """
-        email: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Email of the account
-        """
-        id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Identifier of the organization unit
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name for the organizational unit
-        """
-elif False:
-    OrganizationalUnitAccountArgsDict: TypeAlias = Mapping[str, Any]
+class OrganizationalUnitAccountArgsDict(TypedDict):
+    arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    ARN of the organizational unit
+    """
+    email: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Email of the account
+    """
+    id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Identifier of the organization unit
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name for the organizational unit
+    """
 
 @pulumi.input_type
 class OrganizationalUnitAccountArgs:

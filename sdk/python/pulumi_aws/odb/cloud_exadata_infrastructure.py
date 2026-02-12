@@ -36,12 +36,19 @@ class CloudExadataInfrastructureArgs:
                  timeouts: Optional[pulumi.Input['CloudExadataInfrastructureTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a CloudExadataInfrastructure resource.
+        :param pulumi.Input[_builtins.str] availability_zone_id: The AZ ID of the AZ where the Exadata infrastructure is located. Changing this will force terraform to create new resource.
+               
+               The following arguments are optional:
+        :param pulumi.Input[_builtins.str] display_name: The user-friendly name for the Exadata infrastructure. Changing this will force terraform to create a new resource.
         :param pulumi.Input['CloudExadataInfrastructureMaintenanceWindowArgs'] maintenance_window: The scheduling details for the maintenance window. Patching and system updates take place during the maintenance window
-        :param pulumi.Input[_builtins.int] compute_count: The number of compute instances that the Exadata infrastructure is located
-        :param pulumi.Input[_builtins.str] database_server_type: The database server model type of the Exadata infrastructure. For the list of valid model names, use the ListDbSystemShapes operation
+        :param pulumi.Input[_builtins.str] shape: The model name of the Exadata infrastructure. Changing this will force terraform to create new resource.
+        :param pulumi.Input[_builtins.str] availability_zone: The name of the Availability Zone (AZ) where the Exadata infrastructure is located. Changing this will force terraform to create new resource.
+        :param pulumi.Input[_builtins.int] compute_count: The number of compute instances that the Exadata infrastructure is located. Changing this will force terraform to create new resource.
+        :param pulumi.Input[Sequence[pulumi.Input['CloudExadataInfrastructureCustomerContactsToSendToOciArgs']]] customer_contacts_to_send_to_ocis: The email addresses of contacts to receive notification from Oracle about maintenance updates for the Exadata infrastructure. Changing this will force terraform to create new resource.
+        :param pulumi.Input[_builtins.str] database_server_type: The database server model type of the Exadata infrastructure. For the list of valid model names, use the ListDbSystemShapes operation. This is a mandatory parameter for Exadata.X11M system shape. Changing this will force terraform to create new resource.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.int] storage_count: TThe number of storage servers that are activated for the Exadata infrastructure
-        :param pulumi.Input[_builtins.str] storage_server_type: The storage server model type of the Exadata infrastructure. For the list of valid model names, use the ListDbSystemShapes operation
+        :param pulumi.Input[_builtins.int] storage_count: The number of storage servers that are activated for the Exadata infrastructure. Changing this will force terraform to create new resource.
+        :param pulumi.Input[_builtins.str] storage_server_type: The storage server model type of the Exadata infrastructure. For the list of valid model names, use the ListDbSystemShapes operation. This is a mandatory parameter for Exadata.X11M system shape. Changing this will force terraform to create new resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the exadata infrastructure. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "availability_zone_id", availability_zone_id)
@@ -70,6 +77,11 @@ class CloudExadataInfrastructureArgs:
     @_builtins.property
     @pulumi.getter(name="availabilityZoneId")
     def availability_zone_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        The AZ ID of the AZ where the Exadata infrastructure is located. Changing this will force terraform to create new resource.
+
+        The following arguments are optional:
+        """
         return pulumi.get(self, "availability_zone_id")
 
     @availability_zone_id.setter
@@ -79,6 +91,9 @@ class CloudExadataInfrastructureArgs:
     @_builtins.property
     @pulumi.getter(name="displayName")
     def display_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The user-friendly name for the Exadata infrastructure. Changing this will force terraform to create a new resource.
+        """
         return pulumi.get(self, "display_name")
 
     @display_name.setter
@@ -100,6 +115,9 @@ class CloudExadataInfrastructureArgs:
     @_builtins.property
     @pulumi.getter
     def shape(self) -> pulumi.Input[_builtins.str]:
+        """
+        The model name of the Exadata infrastructure. Changing this will force terraform to create new resource.
+        """
         return pulumi.get(self, "shape")
 
     @shape.setter
@@ -109,6 +127,9 @@ class CloudExadataInfrastructureArgs:
     @_builtins.property
     @pulumi.getter(name="availabilityZone")
     def availability_zone(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The name of the Availability Zone (AZ) where the Exadata infrastructure is located. Changing this will force terraform to create new resource.
+        """
         return pulumi.get(self, "availability_zone")
 
     @availability_zone.setter
@@ -119,7 +140,7 @@ class CloudExadataInfrastructureArgs:
     @pulumi.getter(name="computeCount")
     def compute_count(self) -> Optional[pulumi.Input[_builtins.int]]:
         """
-        The number of compute instances that the Exadata infrastructure is located
+        The number of compute instances that the Exadata infrastructure is located. Changing this will force terraform to create new resource.
         """
         return pulumi.get(self, "compute_count")
 
@@ -130,6 +151,9 @@ class CloudExadataInfrastructureArgs:
     @_builtins.property
     @pulumi.getter(name="customerContactsToSendToOcis")
     def customer_contacts_to_send_to_ocis(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CloudExadataInfrastructureCustomerContactsToSendToOciArgs']]]]:
+        """
+        The email addresses of contacts to receive notification from Oracle about maintenance updates for the Exadata infrastructure. Changing this will force terraform to create new resource.
+        """
         return pulumi.get(self, "customer_contacts_to_send_to_ocis")
 
     @customer_contacts_to_send_to_ocis.setter
@@ -140,7 +164,7 @@ class CloudExadataInfrastructureArgs:
     @pulumi.getter(name="databaseServerType")
     def database_server_type(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The database server model type of the Exadata infrastructure. For the list of valid model names, use the ListDbSystemShapes operation
+        The database server model type of the Exadata infrastructure. For the list of valid model names, use the ListDbSystemShapes operation. This is a mandatory parameter for Exadata.X11M system shape. Changing this will force terraform to create new resource.
         """
         return pulumi.get(self, "database_server_type")
 
@@ -164,7 +188,7 @@ class CloudExadataInfrastructureArgs:
     @pulumi.getter(name="storageCount")
     def storage_count(self) -> Optional[pulumi.Input[_builtins.int]]:
         """
-        TThe number of storage servers that are activated for the Exadata infrastructure
+        The number of storage servers that are activated for the Exadata infrastructure. Changing this will force terraform to create new resource.
         """
         return pulumi.get(self, "storage_count")
 
@@ -176,7 +200,7 @@ class CloudExadataInfrastructureArgs:
     @pulumi.getter(name="storageServerType")
     def storage_server_type(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The storage server model type of the Exadata infrastructure. For the list of valid model names, use the ListDbSystemShapes operation
+        The storage server model type of the Exadata infrastructure. For the list of valid model names, use the ListDbSystemShapes operation. This is a mandatory parameter for Exadata.X11M system shape. Changing this will force terraform to create new resource.
         """
         return pulumi.get(self, "storage_server_type")
 
@@ -255,15 +279,21 @@ class _CloudExadataInfrastructureState:
         :param pulumi.Input[_builtins.int] activated_storage_count: The number of storage servers requested for the Exadata infrastructure.
         :param pulumi.Input[_builtins.int] additional_storage_count: The number of storage servers requested for the Exadata infrastructure.
         :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the Exadata infrastructure.
+        :param pulumi.Input[_builtins.str] availability_zone: The name of the Availability Zone (AZ) where the Exadata infrastructure is located. Changing this will force terraform to create new resource.
+        :param pulumi.Input[_builtins.str] availability_zone_id: The AZ ID of the AZ where the Exadata infrastructure is located. Changing this will force terraform to create new resource.
+               
+               The following arguments are optional:
         :param pulumi.Input[_builtins.int] available_storage_size_in_gbs: The amount of available storage, in gigabytes (GB), for the Exadata infrastructure.
-        :param pulumi.Input[_builtins.int] compute_count: The number of compute instances that the Exadata infrastructure is located
+        :param pulumi.Input[_builtins.int] compute_count: The number of compute instances that the Exadata infrastructure is located. Changing this will force terraform to create new resource.
         :param pulumi.Input[_builtins.str] compute_model: The OCI model compute model used when you create or clone an instance: ECPU or OCPU.
         :param pulumi.Input[_builtins.int] cpu_count: The total number of CPU cores that are allocated to the Exadata infrastructure.
         :param pulumi.Input[_builtins.str] created_at: The time when the Exadata infrastructure was created.
+        :param pulumi.Input[Sequence[pulumi.Input['CloudExadataInfrastructureCustomerContactsToSendToOciArgs']]] customer_contacts_to_send_to_ocis: The email addresses of contacts to receive notification from Oracle about maintenance updates for the Exadata infrastructure. Changing this will force terraform to create new resource.
         :param pulumi.Input[_builtins.float] data_storage_size_in_tbs: The size of the Exadata infrastructure's data disk group, in terabytes (TB).
-        :param pulumi.Input[_builtins.str] database_server_type: The database server model type of the Exadata infrastructure. For the list of valid model names, use the ListDbSystemShapes operation
+        :param pulumi.Input[_builtins.str] database_server_type: The database server model type of the Exadata infrastructure. For the list of valid model names, use the ListDbSystemShapes operation. This is a mandatory parameter for Exadata.X11M system shape. Changing this will force terraform to create new resource.
         :param pulumi.Input[_builtins.int] db_node_storage_size_in_gbs: The size of the Exadata infrastructure's local node storage, in gigabytes (GB).
         :param pulumi.Input[_builtins.str] db_server_version: The software version of the database servers (dom0) in the Exadata infrastructure.
+        :param pulumi.Input[_builtins.str] display_name: The user-friendly name for the Exadata infrastructure. Changing this will force terraform to create a new resource.
         :param pulumi.Input[_builtins.str] last_maintenance_run_id: The Oracle Cloud Identifier (OCID) of the last maintenance run for the Exadata infrastructure.
         :param pulumi.Input['CloudExadataInfrastructureMaintenanceWindowArgs'] maintenance_window: The scheduling details for the maintenance window. Patching and system updates take place during the maintenance window
         :param pulumi.Input[_builtins.int] max_cpu_count: The total number of CPU cores available on the Exadata infrastructure.
@@ -279,10 +309,11 @@ class _CloudExadataInfrastructureState:
         :param pulumi.Input[_builtins.str] ocid: The OCID of the Exadata infrastructure.
         :param pulumi.Input[_builtins.float] percent_progress: The amount of progress made on the current operation on the Exadata infrastructure, expressed as a percentage.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        :param pulumi.Input[_builtins.str] shape: The model name of the Exadata infrastructure. Changing this will force terraform to create new resource.
         :param pulumi.Input[_builtins.str] status: The current status of the Exadata infrastructure.
         :param pulumi.Input[_builtins.str] status_reason: Additional information about the status of the Exadata infrastructure.
-        :param pulumi.Input[_builtins.int] storage_count: TThe number of storage servers that are activated for the Exadata infrastructure
-        :param pulumi.Input[_builtins.str] storage_server_type: The storage server model type of the Exadata infrastructure. For the list of valid model names, use the ListDbSystemShapes operation
+        :param pulumi.Input[_builtins.int] storage_count: The number of storage servers that are activated for the Exadata infrastructure. Changing this will force terraform to create new resource.
+        :param pulumi.Input[_builtins.str] storage_server_type: The storage server model type of the Exadata infrastructure. For the list of valid model names, use the ListDbSystemShapes operation. This is a mandatory parameter for Exadata.X11M system shape. Changing this will force terraform to create new resource.
         :param pulumi.Input[_builtins.str] storage_server_version: The software version of the storage servers on the Exadata infrastructure.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the exadata infrastructure. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[_builtins.int] total_storage_size_in_gbs: The total amount of storage, in gigabytes (GB), on the Exadata infrastructure.
@@ -409,6 +440,9 @@ class _CloudExadataInfrastructureState:
     @_builtins.property
     @pulumi.getter(name="availabilityZone")
     def availability_zone(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The name of the Availability Zone (AZ) where the Exadata infrastructure is located. Changing this will force terraform to create new resource.
+        """
         return pulumi.get(self, "availability_zone")
 
     @availability_zone.setter
@@ -418,6 +452,11 @@ class _CloudExadataInfrastructureState:
     @_builtins.property
     @pulumi.getter(name="availabilityZoneId")
     def availability_zone_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The AZ ID of the AZ where the Exadata infrastructure is located. Changing this will force terraform to create new resource.
+
+        The following arguments are optional:
+        """
         return pulumi.get(self, "availability_zone_id")
 
     @availability_zone_id.setter
@@ -440,7 +479,7 @@ class _CloudExadataInfrastructureState:
     @pulumi.getter(name="computeCount")
     def compute_count(self) -> Optional[pulumi.Input[_builtins.int]]:
         """
-        The number of compute instances that the Exadata infrastructure is located
+        The number of compute instances that the Exadata infrastructure is located. Changing this will force terraform to create new resource.
         """
         return pulumi.get(self, "compute_count")
 
@@ -487,6 +526,9 @@ class _CloudExadataInfrastructureState:
     @_builtins.property
     @pulumi.getter(name="customerContactsToSendToOcis")
     def customer_contacts_to_send_to_ocis(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CloudExadataInfrastructureCustomerContactsToSendToOciArgs']]]]:
+        """
+        The email addresses of contacts to receive notification from Oracle about maintenance updates for the Exadata infrastructure. Changing this will force terraform to create new resource.
+        """
         return pulumi.get(self, "customer_contacts_to_send_to_ocis")
 
     @customer_contacts_to_send_to_ocis.setter
@@ -509,7 +551,7 @@ class _CloudExadataInfrastructureState:
     @pulumi.getter(name="databaseServerType")
     def database_server_type(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The database server model type of the Exadata infrastructure. For the list of valid model names, use the ListDbSystemShapes operation
+        The database server model type of the Exadata infrastructure. For the list of valid model names, use the ListDbSystemShapes operation. This is a mandatory parameter for Exadata.X11M system shape. Changing this will force terraform to create new resource.
         """
         return pulumi.get(self, "database_server_type")
 
@@ -544,6 +586,9 @@ class _CloudExadataInfrastructureState:
     @_builtins.property
     @pulumi.getter(name="displayName")
     def display_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The user-friendly name for the Exadata infrastructure. Changing this will force terraform to create a new resource.
+        """
         return pulumi.get(self, "display_name")
 
     @display_name.setter
@@ -733,6 +778,9 @@ class _CloudExadataInfrastructureState:
     @_builtins.property
     @pulumi.getter
     def shape(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The model name of the Exadata infrastructure. Changing this will force terraform to create new resource.
+        """
         return pulumi.get(self, "shape")
 
     @shape.setter
@@ -767,7 +815,7 @@ class _CloudExadataInfrastructureState:
     @pulumi.getter(name="storageCount")
     def storage_count(self) -> Optional[pulumi.Input[_builtins.int]]:
         """
-        TThe number of storage servers that are activated for the Exadata infrastructure
+        The number of storage servers that are activated for the Exadata infrastructure. Changing this will force terraform to create new resource.
         """
         return pulumi.get(self, "storage_count")
 
@@ -779,7 +827,7 @@ class _CloudExadataInfrastructureState:
     @pulumi.getter(name="storageServerType")
     def storage_server_type(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The storage server model type of the Exadata infrastructure. For the list of valid model names, use the ListDbSystemShapes operation
+        The storage server model type of the Exadata infrastructure. For the list of valid model names, use the ListDbSystemShapes operation. This is a mandatory parameter for Exadata.X11M system shape. Changing this will force terraform to create new resource.
         """
         return pulumi.get(self, "storage_server_type")
 
@@ -877,12 +925,19 @@ class CloudExadataInfrastructure(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.int] compute_count: The number of compute instances that the Exadata infrastructure is located
-        :param pulumi.Input[_builtins.str] database_server_type: The database server model type of the Exadata infrastructure. For the list of valid model names, use the ListDbSystemShapes operation
+        :param pulumi.Input[_builtins.str] availability_zone: The name of the Availability Zone (AZ) where the Exadata infrastructure is located. Changing this will force terraform to create new resource.
+        :param pulumi.Input[_builtins.str] availability_zone_id: The AZ ID of the AZ where the Exadata infrastructure is located. Changing this will force terraform to create new resource.
+               
+               The following arguments are optional:
+        :param pulumi.Input[_builtins.int] compute_count: The number of compute instances that the Exadata infrastructure is located. Changing this will force terraform to create new resource.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['CloudExadataInfrastructureCustomerContactsToSendToOciArgs', 'CloudExadataInfrastructureCustomerContactsToSendToOciArgsDict']]]] customer_contacts_to_send_to_ocis: The email addresses of contacts to receive notification from Oracle about maintenance updates for the Exadata infrastructure. Changing this will force terraform to create new resource.
+        :param pulumi.Input[_builtins.str] database_server_type: The database server model type of the Exadata infrastructure. For the list of valid model names, use the ListDbSystemShapes operation. This is a mandatory parameter for Exadata.X11M system shape. Changing this will force terraform to create new resource.
+        :param pulumi.Input[_builtins.str] display_name: The user-friendly name for the Exadata infrastructure. Changing this will force terraform to create a new resource.
         :param pulumi.Input[Union['CloudExadataInfrastructureMaintenanceWindowArgs', 'CloudExadataInfrastructureMaintenanceWindowArgsDict']] maintenance_window: The scheduling details for the maintenance window. Patching and system updates take place during the maintenance window
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.int] storage_count: TThe number of storage servers that are activated for the Exadata infrastructure
-        :param pulumi.Input[_builtins.str] storage_server_type: The storage server model type of the Exadata infrastructure. For the list of valid model names, use the ListDbSystemShapes operation
+        :param pulumi.Input[_builtins.str] shape: The model name of the Exadata infrastructure. Changing this will force terraform to create new resource.
+        :param pulumi.Input[_builtins.int] storage_count: The number of storage servers that are activated for the Exadata infrastructure. Changing this will force terraform to create new resource.
+        :param pulumi.Input[_builtins.str] storage_server_type: The storage server model type of the Exadata infrastructure. For the list of valid model names, use the ListDbSystemShapes operation. This is a mandatory parameter for Exadata.X11M system shape. Changing this will force terraform to create new resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the exadata infrastructure. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
@@ -1051,15 +1106,21 @@ class CloudExadataInfrastructure(pulumi.CustomResource):
         :param pulumi.Input[_builtins.int] activated_storage_count: The number of storage servers requested for the Exadata infrastructure.
         :param pulumi.Input[_builtins.int] additional_storage_count: The number of storage servers requested for the Exadata infrastructure.
         :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the Exadata infrastructure.
+        :param pulumi.Input[_builtins.str] availability_zone: The name of the Availability Zone (AZ) where the Exadata infrastructure is located. Changing this will force terraform to create new resource.
+        :param pulumi.Input[_builtins.str] availability_zone_id: The AZ ID of the AZ where the Exadata infrastructure is located. Changing this will force terraform to create new resource.
+               
+               The following arguments are optional:
         :param pulumi.Input[_builtins.int] available_storage_size_in_gbs: The amount of available storage, in gigabytes (GB), for the Exadata infrastructure.
-        :param pulumi.Input[_builtins.int] compute_count: The number of compute instances that the Exadata infrastructure is located
+        :param pulumi.Input[_builtins.int] compute_count: The number of compute instances that the Exadata infrastructure is located. Changing this will force terraform to create new resource.
         :param pulumi.Input[_builtins.str] compute_model: The OCI model compute model used when you create or clone an instance: ECPU or OCPU.
         :param pulumi.Input[_builtins.int] cpu_count: The total number of CPU cores that are allocated to the Exadata infrastructure.
         :param pulumi.Input[_builtins.str] created_at: The time when the Exadata infrastructure was created.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['CloudExadataInfrastructureCustomerContactsToSendToOciArgs', 'CloudExadataInfrastructureCustomerContactsToSendToOciArgsDict']]]] customer_contacts_to_send_to_ocis: The email addresses of contacts to receive notification from Oracle about maintenance updates for the Exadata infrastructure. Changing this will force terraform to create new resource.
         :param pulumi.Input[_builtins.float] data_storage_size_in_tbs: The size of the Exadata infrastructure's data disk group, in terabytes (TB).
-        :param pulumi.Input[_builtins.str] database_server_type: The database server model type of the Exadata infrastructure. For the list of valid model names, use the ListDbSystemShapes operation
+        :param pulumi.Input[_builtins.str] database_server_type: The database server model type of the Exadata infrastructure. For the list of valid model names, use the ListDbSystemShapes operation. This is a mandatory parameter for Exadata.X11M system shape. Changing this will force terraform to create new resource.
         :param pulumi.Input[_builtins.int] db_node_storage_size_in_gbs: The size of the Exadata infrastructure's local node storage, in gigabytes (GB).
         :param pulumi.Input[_builtins.str] db_server_version: The software version of the database servers (dom0) in the Exadata infrastructure.
+        :param pulumi.Input[_builtins.str] display_name: The user-friendly name for the Exadata infrastructure. Changing this will force terraform to create a new resource.
         :param pulumi.Input[_builtins.str] last_maintenance_run_id: The Oracle Cloud Identifier (OCID) of the last maintenance run for the Exadata infrastructure.
         :param pulumi.Input[Union['CloudExadataInfrastructureMaintenanceWindowArgs', 'CloudExadataInfrastructureMaintenanceWindowArgsDict']] maintenance_window: The scheduling details for the maintenance window. Patching and system updates take place during the maintenance window
         :param pulumi.Input[_builtins.int] max_cpu_count: The total number of CPU cores available on the Exadata infrastructure.
@@ -1075,10 +1136,11 @@ class CloudExadataInfrastructure(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] ocid: The OCID of the Exadata infrastructure.
         :param pulumi.Input[_builtins.float] percent_progress: The amount of progress made on the current operation on the Exadata infrastructure, expressed as a percentage.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        :param pulumi.Input[_builtins.str] shape: The model name of the Exadata infrastructure. Changing this will force terraform to create new resource.
         :param pulumi.Input[_builtins.str] status: The current status of the Exadata infrastructure.
         :param pulumi.Input[_builtins.str] status_reason: Additional information about the status of the Exadata infrastructure.
-        :param pulumi.Input[_builtins.int] storage_count: TThe number of storage servers that are activated for the Exadata infrastructure
-        :param pulumi.Input[_builtins.str] storage_server_type: The storage server model type of the Exadata infrastructure. For the list of valid model names, use the ListDbSystemShapes operation
+        :param pulumi.Input[_builtins.int] storage_count: The number of storage servers that are activated for the Exadata infrastructure. Changing this will force terraform to create new resource.
+        :param pulumi.Input[_builtins.str] storage_server_type: The storage server model type of the Exadata infrastructure. For the list of valid model names, use the ListDbSystemShapes operation. This is a mandatory parameter for Exadata.X11M system shape. Changing this will force terraform to create new resource.
         :param pulumi.Input[_builtins.str] storage_server_version: The software version of the storage servers on the Exadata infrastructure.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the exadata infrastructure. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[_builtins.int] total_storage_size_in_gbs: The total amount of storage, in gigabytes (GB), on the Exadata infrastructure.
@@ -1157,11 +1219,19 @@ class CloudExadataInfrastructure(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="availabilityZone")
     def availability_zone(self) -> pulumi.Output[_builtins.str]:
+        """
+        The name of the Availability Zone (AZ) where the Exadata infrastructure is located. Changing this will force terraform to create new resource.
+        """
         return pulumi.get(self, "availability_zone")
 
     @_builtins.property
     @pulumi.getter(name="availabilityZoneId")
     def availability_zone_id(self) -> pulumi.Output[_builtins.str]:
+        """
+        The AZ ID of the AZ where the Exadata infrastructure is located. Changing this will force terraform to create new resource.
+
+        The following arguments are optional:
+        """
         return pulumi.get(self, "availability_zone_id")
 
     @_builtins.property
@@ -1176,7 +1246,7 @@ class CloudExadataInfrastructure(pulumi.CustomResource):
     @pulumi.getter(name="computeCount")
     def compute_count(self) -> pulumi.Output[_builtins.int]:
         """
-        The number of compute instances that the Exadata infrastructure is located
+        The number of compute instances that the Exadata infrastructure is located. Changing this will force terraform to create new resource.
         """
         return pulumi.get(self, "compute_count")
 
@@ -1207,6 +1277,9 @@ class CloudExadataInfrastructure(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="customerContactsToSendToOcis")
     def customer_contacts_to_send_to_ocis(self) -> pulumi.Output[Optional[Sequence['outputs.CloudExadataInfrastructureCustomerContactsToSendToOci']]]:
+        """
+        The email addresses of contacts to receive notification from Oracle about maintenance updates for the Exadata infrastructure. Changing this will force terraform to create new resource.
+        """
         return pulumi.get(self, "customer_contacts_to_send_to_ocis")
 
     @_builtins.property
@@ -1221,7 +1294,7 @@ class CloudExadataInfrastructure(pulumi.CustomResource):
     @pulumi.getter(name="databaseServerType")
     def database_server_type(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The database server model type of the Exadata infrastructure. For the list of valid model names, use the ListDbSystemShapes operation
+        The database server model type of the Exadata infrastructure. For the list of valid model names, use the ListDbSystemShapes operation. This is a mandatory parameter for Exadata.X11M system shape. Changing this will force terraform to create new resource.
         """
         return pulumi.get(self, "database_server_type")
 
@@ -1244,6 +1317,9 @@ class CloudExadataInfrastructure(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="displayName")
     def display_name(self) -> pulumi.Output[_builtins.str]:
+        """
+        The user-friendly name for the Exadata infrastructure. Changing this will force terraform to create a new resource.
+        """
         return pulumi.get(self, "display_name")
 
     @_builtins.property
@@ -1369,6 +1445,9 @@ class CloudExadataInfrastructure(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def shape(self) -> pulumi.Output[_builtins.str]:
+        """
+        The model name of the Exadata infrastructure. Changing this will force terraform to create new resource.
+        """
         return pulumi.get(self, "shape")
 
     @_builtins.property
@@ -1391,7 +1470,7 @@ class CloudExadataInfrastructure(pulumi.CustomResource):
     @pulumi.getter(name="storageCount")
     def storage_count(self) -> pulumi.Output[_builtins.int]:
         """
-        TThe number of storage servers that are activated for the Exadata infrastructure
+        The number of storage servers that are activated for the Exadata infrastructure. Changing this will force terraform to create new resource.
         """
         return pulumi.get(self, "storage_count")
 
@@ -1399,7 +1478,7 @@ class CloudExadataInfrastructure(pulumi.CustomResource):
     @pulumi.getter(name="storageServerType")
     def storage_server_type(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The storage server model type of the Exadata infrastructure. For the list of valid model names, use the ListDbSystemShapes operation
+        The storage server model type of the Exadata infrastructure. For the list of valid model names, use the ListDbSystemShapes operation. This is a mandatory parameter for Exadata.X11M system shape. Changing this will force terraform to create new resource.
         """
         return pulumi.get(self, "storage_server_type")
 

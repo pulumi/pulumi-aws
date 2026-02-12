@@ -163,7 +163,7 @@ import (
 //
 // ## Import
 //
-// Using `pulumi import`, import ECR Replication Configuration using the `registry_id`. For example:
+// Using `pulumi import`, import ECR Replication Configuration using the `registryId`. For example:
 //
 // ```sh
 // $ pulumi import aws:ecr/replicationConfiguration:ReplicationConfiguration service 012345678912

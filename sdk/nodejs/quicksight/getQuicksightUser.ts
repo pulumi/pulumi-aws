@@ -36,6 +36,9 @@ export function getQuicksightUser(args: GetQuicksightUserArgs, opts?: pulumi.Inv
  * A collection of arguments for invoking getQuicksightUser.
  */
 export interface GetQuicksightUserArgs {
+    /**
+     * AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
+     */
     awsAccountId?: string;
     /**
      * QuickSight namespace. Defaults to `default`.
@@ -129,6 +132,9 @@ export function getQuicksightUserOutput(args: GetQuicksightUserOutputArgs, opts?
  * A collection of arguments for invoking getQuicksightUser.
  */
 export interface GetQuicksightUserOutputArgs {
+    /**
+     * AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
+     */
     awsAccountId?: pulumi.Input<string>;
     /**
      * QuickSight namespace. Defaults to `default`.

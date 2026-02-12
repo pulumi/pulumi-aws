@@ -74,7 +74,7 @@ namespace Pulumi.Aws.Sagemaker
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import SageMaker AI Notebook Instances using the `name`. For example:
+    /// Using `pulumi import`, import SageMaker AI Notebook Instances using the `Name`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:sagemaker/notebookInstance:NotebookInstance test_notebook_instance my-notebook-instance

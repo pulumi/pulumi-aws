@@ -47,7 +47,7 @@ namespace Pulumi.Aws.OpenSearch
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import OpenSearch VPC endpoint connections using the `id`. For example:
+    /// Using `pulumi import`, import OpenSearch VPC endpoint connections using the `Id`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:opensearch/vpcEndpoint:VpcEndpoint example endpoint-id

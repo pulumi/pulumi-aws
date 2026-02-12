@@ -660,6 +660,7 @@ class StackSet(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:cloudformation/stackSet:StackSet example example
         ```
+
         Using `pulumi import`, import CloudFormation StackSets when acting a delegated administrator in a member account using the `name` and `call_as` values separated by a comma (`,`). For example:
 
         ```sh
@@ -766,6 +767,7 @@ class StackSet(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:cloudformation/stackSet:StackSet example example
         ```
+
         Using `pulumi import`, import CloudFormation StackSets when acting a delegated administrator in a member account using the `name` and `call_as` values separated by a comma (`,`). For example:
 
         ```sh

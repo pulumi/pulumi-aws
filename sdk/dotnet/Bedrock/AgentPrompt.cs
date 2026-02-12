@@ -89,7 +89,7 @@ namespace Pulumi.Aws.Bedrock
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import Bedrock Agents Prompt using the `id`. For example:
+    /// Using `pulumi import`, import Bedrock Agents Prompt using the `Id`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:bedrock/agentPrompt:AgentPrompt example 1A2BC3DEFG

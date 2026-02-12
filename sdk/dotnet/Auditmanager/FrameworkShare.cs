@@ -36,7 +36,7 @@ namespace Pulumi.Aws.Auditmanager
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import Audit Manager Framework Share using the `id`. For example:
+    /// Using `pulumi import`, import Audit Manager Framework Share using the `Id`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:auditmanager/frameworkShare:FrameworkShare example abcdef-123456

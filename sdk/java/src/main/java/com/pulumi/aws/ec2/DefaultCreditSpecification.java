@@ -56,9 +56,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Using `pulumi import`, import EC2 (Elastic Compute Cloud) Default Credit Specification using the `instance_family`. For example:
- * 
- * % pulumi import aws_ec2_default_credit_specification.example t2
+ * Using `pulumi import`, import EC2 (Elastic Compute Cloud) Default Credit Specification using the `instanceFamily`. For example:
  * 
  */
 @ResourceType(type="aws:ec2/defaultCreditSpecification:DefaultCreditSpecification")

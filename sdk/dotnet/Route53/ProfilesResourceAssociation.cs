@@ -58,7 +58,7 @@ namespace Pulumi.Aws.Route53
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import Route 53 Profiles Resource Association using the `id`. For example:
+    /// Using `pulumi import`, import Route 53 Profiles Resource Association using the `Id`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:route53/profilesResourceAssociation:ProfilesResourceAssociation example rpa-id-12345678

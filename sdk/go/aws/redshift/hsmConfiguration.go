@@ -47,7 +47,7 @@ import (
 //
 // ## Import
 //
-// Using `pulumi import`, import Redshift HSM Client Certificates using `hsm_configuration_identifier`. For example:
+// Using `pulumi import`, import Redshift HSM Client Certificates using `hsmConfigurationIdentifier`. For example:
 //
 // ```sh
 // $ pulumi import aws:redshift/hsmConfiguration:HsmConfiguration example example

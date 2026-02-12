@@ -58,6 +58,9 @@ export class FolderMembership extends pulumi.CustomResource {
         return obj['__pulumiType'] === FolderMembership.__pulumiType;
     }
 
+    /**
+     * AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
+     */
     declare public readonly awsAccountId: pulumi.Output<string>;
     /**
      * Identifier for the folder.
@@ -122,6 +125,9 @@ export class FolderMembership extends pulumi.CustomResource {
  * Input properties used for looking up and filtering FolderMembership resources.
  */
 export interface FolderMembershipState {
+    /**
+     * AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
+     */
     awsAccountId?: pulumi.Input<string>;
     /**
      * Identifier for the folder.
@@ -147,6 +153,9 @@ export interface FolderMembershipState {
  * The set of arguments for constructing a FolderMembership resource.
  */
 export interface FolderMembershipArgs {
+    /**
+     * AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
+     */
     awsAccountId?: pulumi.Input<string>;
     /**
      * Identifier for the folder.

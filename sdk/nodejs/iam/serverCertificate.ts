@@ -71,6 +71,9 @@ import * as utilities from "../utilities";
  * ```sh
  * $ pulumi import aws:iam/serverCertificate:ServerCertificate certificate example.com-certificate-until-2018
  * ```
+ *
+ * [1]: https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html
+ * [2]: https://docs.aws.amazon.com/IAM/latest/UserGuide/ManagingServerCerts.html
  */
 export class ServerCertificate extends pulumi.CustomResource {
     /**

@@ -44,7 +44,7 @@ import (
 //
 // ## Import
 //
-// Using `pulumi import`, import the current Account Alias using the `account_alias`. For example:
+// Using `pulumi import`, import the current Account Alias using the `accountAlias`. For example:
 //
 // ```sh
 // $ pulumi import aws:iam/accountAlias:AccountAlias alias my-account-alias

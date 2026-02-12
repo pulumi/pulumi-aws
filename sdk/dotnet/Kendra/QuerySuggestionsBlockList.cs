@@ -45,7 +45,7 @@ namespace Pulumi.Aws.Kendra
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import the `aws_kendra_query_suggestions_block_list` resource using the unique identifiers of the block list and index separated by a slash (`/`). For example:
+    /// Using `pulumi import`, import the `aws.kendra.QuerySuggestionsBlockList` resource using the unique identifiers of the block list and index separated by a slash (`/`). For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:kendra/querySuggestionsBlockList:QuerySuggestionsBlockList example blocklist-123456780/idx-8012925589
@@ -81,6 +81,9 @@ namespace Pulumi.Aws.Kendra
         [Output("querySuggestionsBlockListId")]
         public Output<string> QuerySuggestionsBlockListId { get; private set; } = null!;
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
+        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
@@ -169,6 +172,9 @@ namespace Pulumi.Aws.Kendra
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
+        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -227,6 +233,9 @@ namespace Pulumi.Aws.Kendra
         [Input("querySuggestionsBlockListId")]
         public Input<string>? QuerySuggestionsBlockListId { get; set; }
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
+        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 

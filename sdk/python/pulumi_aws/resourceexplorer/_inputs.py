@@ -23,24 +23,19 @@ __all__ = [
     'ViewIncludedPropertyArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class IndexTimeoutsArgsDict(TypedDict):
-        create: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
-        """
-        delete: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
-        """
-        update: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
-        """
-elif False:
-    IndexTimeoutsArgsDict: TypeAlias = Mapping[str, Any]
+class IndexTimeoutsArgsDict(TypedDict):
+    create: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+    """
+    delete: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+    """
+    update: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+    """
 
 @pulumi.input_type
 class IndexTimeoutsArgs:
@@ -97,14 +92,11 @@ class IndexTimeoutsArgs:
         pulumi.set(self, "update", value)
 
 
-if not MYPY:
-    class ViewFiltersArgsDict(TypedDict):
-        filter_string: pulumi.Input[_builtins.str]
-        """
-        The string that contains the search keywords, prefixes, and operators to control the results that can be returned by a search operation. For more details, see [Search query syntax](https://docs.aws.amazon.com/resource-explorer/latest/userguide/using-search-query-syntax.html).
-        """
-elif False:
-    ViewFiltersArgsDict: TypeAlias = Mapping[str, Any]
+class ViewFiltersArgsDict(TypedDict):
+    filter_string: pulumi.Input[_builtins.str]
+    """
+    The string that contains the search keywords, prefixes, and operators to control the results that can be returned by a search operation. For more details, see [Search query syntax](https://docs.aws.amazon.com/resource-explorer/latest/userguide/using-search-query-syntax.html).
+    """
 
 @pulumi.input_type
 class ViewFiltersArgs:
@@ -128,14 +120,11 @@ class ViewFiltersArgs:
         pulumi.set(self, "filter_string", value)
 
 
-if not MYPY:
-    class ViewIncludedPropertyArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the property that is included in this view. Valid values: `tags`.
-        """
-elif False:
-    ViewIncludedPropertyArgsDict: TypeAlias = Mapping[str, Any]
+class ViewIncludedPropertyArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the property that is included in this view. Valid values: `tags`.
+    """
 
 @pulumi.input_type
 class ViewIncludedPropertyArgs:

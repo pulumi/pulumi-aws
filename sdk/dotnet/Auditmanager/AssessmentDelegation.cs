@@ -37,7 +37,7 @@ namespace Pulumi.Aws.Auditmanager
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import Audit Manager Assessment Delegation using the `id`. For example:
+    /// Using `pulumi import`, import Audit Manager Assessment Delegation using the `Id`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:auditmanager/assessmentDelegation:AssessmentDelegation example abcdef-123456,arn:aws:iam::123456789012:role/example,example

@@ -36,11 +36,13 @@ namespace Pulumi.Aws.CodeArtifact
     /// 
     /// #### Required
     /// 
-    /// - `arn` (String) Amazon Resource Name (ARN) of the CodeArtifact domain.
+    /// - `Arn` (String) Amazon Resource Name (ARN) of the CodeArtifact domain.
     /// 
     /// Using `pulumi import`, import CodeArtifact Domain using the CodeArtifact Domain arn. For example:
     /// 
-    /// % pulumi import aws_codeartifact_domain.example arn:aws:codeartifact:us-west-2:012345678912:domain/tf-acc-test-8593714120730241305
+    /// ```sh
+    /// $ pulumi import aws:codeartifact/domain:Domain example arn:aws:codeartifact:us-west-2:012345678912:domain/tf-acc-test-8593714120730241305
+    /// ```
     /// </summary>
     [AwsResourceType("aws:codeartifact/domain:Domain")]
     public partial class Domain : global::Pulumi.CustomResource

@@ -295,17 +295,18 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// #### Required
     /// 
-    /// * `id` - (String) ID of the VPC endpoint.
+    /// * `Id` - (String) ID of the VPC endpoint.
     /// 
     /// #### Optional
     /// 
-    /// * `account_id` (String) AWS Account where this resource is managed.
+    /// * `AccountId` (String) AWS Account where this resource is managed.
+    /// * `Region` (String) Region where this resource is managed.
     /// 
-    /// * `region` (String) Region where this resource is managed.
+    /// Using `pulumi import`, import VPC Endpoints using the VPC endpoint `Id`. For example:
     /// 
-    /// Using `pulumi import`, import VPC Endpoints using the VPC endpoint `id`. For example:
-    /// 
-    /// % pulumi import aws_vpc_endpoint.example vpce-3ecf2a57
+    /// ```sh
+    /// $ pulumi import aws:ec2/vpcEndpoint:VpcEndpoint example vpce-3ecf2a57
+    /// ```
     /// </summary>
     [AwsResourceType("aws:ec2/vpcEndpoint:VpcEndpoint")]
     public partial class VpcEndpoint : global::Pulumi.CustomResource

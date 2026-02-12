@@ -58,7 +58,7 @@ import (
 //
 // ## Import
 //
-// Using `pulumi import`, import `aws_neptune_cluster` using the cluster identifier. For example:
+// Using `pulumi import`, import `neptune.Cluster` using the cluster identifier. For example:
 //
 // ```sh
 // $ pulumi import aws:neptune/cluster:Cluster example my-cluster
@@ -76,7 +76,8 @@ type Cluster struct {
 	AvailabilityZones pulumi.StringArrayOutput `pulumi:"availabilityZones"`
 	// Days to retain backups for. Default `1`
 	BackupRetentionPeriod pulumi.IntPtrOutput `pulumi:"backupRetentionPeriod"`
-	ClusterIdentifier     pulumi.StringOutput `pulumi:"clusterIdentifier"`
+	// Cluster identifier. If omitted, Terraform will assign a random, unique identifier.
+	ClusterIdentifier pulumi.StringOutput `pulumi:"clusterIdentifier"`
 	// Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `clusterIdentifier`.
 	ClusterIdentifierPrefix pulumi.StringOutput `pulumi:"clusterIdentifierPrefix"`
 	// List of Neptune Instances that are a part of this cluster
@@ -182,8 +183,9 @@ type clusterState struct {
 	// List of EC2 Availability Zones that instances in the Neptune cluster can be created in.
 	AvailabilityZones []string `pulumi:"availabilityZones"`
 	// Days to retain backups for. Default `1`
-	BackupRetentionPeriod *int    `pulumi:"backupRetentionPeriod"`
-	ClusterIdentifier     *string `pulumi:"clusterIdentifier"`
+	BackupRetentionPeriod *int `pulumi:"backupRetentionPeriod"`
+	// Cluster identifier. If omitted, Terraform will assign a random, unique identifier.
+	ClusterIdentifier *string `pulumi:"clusterIdentifier"`
 	// Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `clusterIdentifier`.
 	ClusterIdentifierPrefix *string `pulumi:"clusterIdentifierPrefix"`
 	// List of Neptune Instances that are a part of this cluster
@@ -261,7 +263,8 @@ type ClusterState struct {
 	AvailabilityZones pulumi.StringArrayInput
 	// Days to retain backups for. Default `1`
 	BackupRetentionPeriod pulumi.IntPtrInput
-	ClusterIdentifier     pulumi.StringPtrInput
+	// Cluster identifier. If omitted, Terraform will assign a random, unique identifier.
+	ClusterIdentifier pulumi.StringPtrInput
 	// Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `clusterIdentifier`.
 	ClusterIdentifierPrefix pulumi.StringPtrInput
 	// List of Neptune Instances that are a part of this cluster
@@ -340,8 +343,9 @@ type clusterArgs struct {
 	// List of EC2 Availability Zones that instances in the Neptune cluster can be created in.
 	AvailabilityZones []string `pulumi:"availabilityZones"`
 	// Days to retain backups for. Default `1`
-	BackupRetentionPeriod *int    `pulumi:"backupRetentionPeriod"`
-	ClusterIdentifier     *string `pulumi:"clusterIdentifier"`
+	BackupRetentionPeriod *int `pulumi:"backupRetentionPeriod"`
+	// Cluster identifier. If omitted, Terraform will assign a random, unique identifier.
+	ClusterIdentifier *string `pulumi:"clusterIdentifier"`
 	// Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `clusterIdentifier`.
 	ClusterIdentifierPrefix *string `pulumi:"clusterIdentifierPrefix"`
 	// If set to true, tags are copied to any snapshot of the DB cluster that is created.
@@ -406,7 +410,8 @@ type ClusterArgs struct {
 	AvailabilityZones pulumi.StringArrayInput
 	// Days to retain backups for. Default `1`
 	BackupRetentionPeriod pulumi.IntPtrInput
-	ClusterIdentifier     pulumi.StringPtrInput
+	// Cluster identifier. If omitted, Terraform will assign a random, unique identifier.
+	ClusterIdentifier pulumi.StringPtrInput
 	// Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `clusterIdentifier`.
 	ClusterIdentifierPrefix pulumi.StringPtrInput
 	// If set to true, tags are copied to any snapshot of the DB cluster that is created.
@@ -573,6 +578,7 @@ func (o ClusterOutput) BackupRetentionPeriod() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.IntPtrOutput { return v.BackupRetentionPeriod }).(pulumi.IntPtrOutput)
 }
 
+// Cluster identifier. If omitted, Terraform will assign a random, unique identifier.
 func (o ClusterOutput) ClusterIdentifier() pulumi.StringOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.ClusterIdentifier }).(pulumi.StringOutput)
 }

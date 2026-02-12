@@ -47,7 +47,7 @@ import (
 //
 // ## Import
 //
-// Using `pulumi import`, import QuickSight Role Membership using a comma-delimited string combining the `aws_account_id`, `namespace`, `role`, and `member_name`. For example:
+// Using `pulumi import`, import QuickSight Role Membership using a comma-delimited string combining the `awsAccountId`, `namespace`, `role`, and `memberName`. For example:
 //
 // ```sh
 // $ pulumi import aws:quicksight/roleMembership:RoleMembership example 012345678901,default,READER,example-group
@@ -55,6 +55,7 @@ import (
 type RoleMembership struct {
 	pulumi.CustomResourceState
 
+	// AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
 	AwsAccountId pulumi.StringOutput `pulumi:"awsAccountId"`
 	// Name of the group to be added to the role.
 	MemberName pulumi.StringOutput `pulumi:"memberName"`
@@ -104,6 +105,7 @@ func GetRoleMembership(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering RoleMembership resources.
 type roleMembershipState struct {
+	// AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
 	AwsAccountId *string `pulumi:"awsAccountId"`
 	// Name of the group to be added to the role.
 	MemberName *string `pulumi:"memberName"`
@@ -118,6 +120,7 @@ type roleMembershipState struct {
 }
 
 type RoleMembershipState struct {
+	// AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
 	AwsAccountId pulumi.StringPtrInput
 	// Name of the group to be added to the role.
 	MemberName pulumi.StringPtrInput
@@ -136,6 +139,7 @@ func (RoleMembershipState) ElementType() reflect.Type {
 }
 
 type roleMembershipArgs struct {
+	// AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
 	AwsAccountId *string `pulumi:"awsAccountId"`
 	// Name of the group to be added to the role.
 	MemberName string `pulumi:"memberName"`
@@ -151,6 +155,7 @@ type roleMembershipArgs struct {
 
 // The set of arguments for constructing a RoleMembership resource.
 type RoleMembershipArgs struct {
+	// AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
 	AwsAccountId pulumi.StringPtrInput
 	// Name of the group to be added to the role.
 	MemberName pulumi.StringInput
@@ -251,6 +256,7 @@ func (o RoleMembershipOutput) ToRoleMembershipOutputWithContext(ctx context.Cont
 	return o
 }
 
+// AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
 func (o RoleMembershipOutput) AwsAccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *RoleMembership) pulumi.StringOutput { return v.AwsAccountId }).(pulumi.StringOutput)
 }

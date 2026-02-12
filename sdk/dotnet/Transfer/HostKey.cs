@@ -35,7 +35,7 @@ namespace Pulumi.Aws.Transfer
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import host keys using the `server_id` and `host_key_id` separated by `,`. For example:
+    /// Using `pulumi import`, import host keys using the `ServerId` and `HostKeyId` separated by `,`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:transfer/hostKey:HostKey example s-12345678,key-12345

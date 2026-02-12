@@ -11,6 +11,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Provides a Terraform data source for managing a Contacts Rotation in AWS Systems Manager Incident Manager
+//
 // ## Example Usage
 //
 // ### Basic Usage

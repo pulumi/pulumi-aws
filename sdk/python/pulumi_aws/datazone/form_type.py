@@ -37,6 +37,7 @@ class FormTypeArgs:
         :param pulumi.Input[_builtins.str] description: Description of form type. Must have a length of between 1 and 2048 characters.
         :param pulumi.Input[_builtins.str] name: Name of the form type. Must be the name of the structure in smithy document.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        :param pulumi.Input[_builtins.str] status: Status of form type. Must be "ENABLED" or "DISABLED" If status is set to "ENABLED" terraform cannot delete the resource until it is manually changed in the AWS console.
         """
         pulumi.set(__self__, "domain_identifier", domain_identifier)
         pulumi.set(__self__, "model", model)
@@ -127,6 +128,9 @@ class FormTypeArgs:
     @_builtins.property
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Status of form type. Must be "ENABLED" or "DISABLED" If status is set to "ENABLED" terraform cannot delete the resource until it is manually changed in the AWS console.
+        """
         return pulumi.get(self, "status")
 
     @status.setter
@@ -173,6 +177,7 @@ class _FormTypeState:
         :param pulumi.Input[_builtins.str] owning_project_identifier: Identifier of project that owns the form type. Must follow regex of ^[a-zA-Z0-9_-]{1,36}.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] revision: Revision of the Form Type.
+        :param pulumi.Input[_builtins.str] status: Status of form type. Must be "ENABLED" or "DISABLED" If status is set to "ENABLED" terraform cannot delete the resource until it is manually changed in the AWS console.
         """
         if created_at is not None:
             pulumi.set(__self__, "created_at", created_at)
@@ -347,6 +352,9 @@ class _FormTypeState:
     @_builtins.property
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Status of form type. Must be "ENABLED" or "DISABLED" If status is set to "ENABLED" terraform cannot delete the resource until it is manually changed in the AWS console.
+        """
         return pulumi.get(self, "status")
 
     @status.setter
@@ -481,6 +489,7 @@ class FormType(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] name: Name of the form type. Must be the name of the structure in smithy document.
         :param pulumi.Input[_builtins.str] owning_project_identifier: Identifier of project that owns the form type. Must follow regex of ^[a-zA-Z0-9_-]{1,36}.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        :param pulumi.Input[_builtins.str] status: Status of form type. Must be "ENABLED" or "DISABLED" If status is set to "ENABLED" terraform cannot delete the resource until it is manually changed in the AWS console.
         """
         ...
     @overload
@@ -677,6 +686,7 @@ class FormType(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] owning_project_identifier: Identifier of project that owns the form type. Must follow regex of ^[a-zA-Z0-9_-]{1,36}.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] revision: Revision of the Form Type.
+        :param pulumi.Input[_builtins.str] status: Status of form type. Must be "ENABLED" or "DISABLED" If status is set to "ENABLED" terraform cannot delete the resource until it is manually changed in the AWS console.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -794,6 +804,9 @@ class FormType(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def status(self) -> pulumi.Output[_builtins.str]:
+        """
+        Status of form type. Must be "ENABLED" or "DISABLED" If status is set to "ENABLED" terraform cannot delete the resource until it is manually changed in the AWS console.
+        """
         return pulumi.get(self, "status")
 
     @_builtins.property

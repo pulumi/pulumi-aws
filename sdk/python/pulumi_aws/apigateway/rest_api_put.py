@@ -271,6 +271,10 @@ class RestApiPut(pulumi.CustomResource):
                  triggers: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
+        Resource for updating an AWS API Gateway REST API with a new API description.
+
+        > **NOTE:** When importing an OpenAPI specification using the `body` argument, the `info.title` field updates the `name` of the `apigateway.RestApi`. If the imported `title` differs from the configured `name`, Terraform will report the difference.
+
         ## Example Usage
 
         ### Basic Usage
@@ -340,6 +344,10 @@ class RestApiPut(pulumi.CustomResource):
                  args: RestApiPutArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        Resource for updating an AWS API Gateway REST API with a new API description.
+
+        > **NOTE:** When importing an OpenAPI specification using the `body` argument, the `info.title` field updates the `name` of the `apigateway.RestApi`. If the imported `title` differs from the configured `name`, Terraform will report the difference.
+
         ## Example Usage
 
         ### Basic Usage

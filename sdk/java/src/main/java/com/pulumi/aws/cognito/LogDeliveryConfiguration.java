@@ -265,17 +265,18 @@ import javax.annotation.Nullable;
  * 
  * #### Required
  * 
- * * `user_pool_id` (String) ID of the Cognito User Pool.
+ * * `userPoolId` (String) ID of the Cognito User Pool.
  * 
  * #### Optional
  * 
- * * `account_id` (String) AWS Account where this resource is managed.
- * 
+ * * `accountId` (String) AWS Account where this resource is managed.
  * * `region` (String) Region where this resource is managed.
  * 
- * Using `pulumi import`, import Cognito IDP (Identity Provider) Log Delivery Configuration using the `user_pool_id`. For example:
+ * Using `pulumi import`, import Cognito IDP (Identity Provider) Log Delivery Configuration using the `userPoolId`. For example:
  * 
- * % pulumi import aws_cognito_log_delivery_configuration.example us-west-2_example123
+ * ```sh
+ * $ pulumi import aws:cognito/logDeliveryConfiguration:LogDeliveryConfiguration example us-west-2_example123
+ * ```
  * 
  */
 @ResourceType(type="aws:cognito/logDeliveryConfiguration:LogDeliveryConfiguration")

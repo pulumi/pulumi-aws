@@ -60,7 +60,7 @@ namespace Pulumi.Aws.ServiceCatalog
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import AWS Service Catalog AppRegistry Application using the `id`. For example:
+    /// Using `pulumi import`, import AWS Service Catalog AppRegistry Application using the `Id`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:servicecatalog/appregistryApplication:AppregistryApplication example application-id-12345678

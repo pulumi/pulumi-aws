@@ -202,7 +202,7 @@ class Account(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import `aws_macie2_account` using the id. For example:
+        Using `pulumi import`, import `macie2.Account` using the id. For example:
 
         ```sh
         $ pulumi import aws:macie2/account:Account example abcd1
@@ -236,7 +236,7 @@ class Account(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import `aws_macie2_account` using the id. For example:
+        Using `pulumi import`, import `macie2.Account` using the id. For example:
 
         ```sh
         $ pulumi import aws:macie2/account:Account example abcd1

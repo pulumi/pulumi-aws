@@ -73,7 +73,7 @@ namespace Pulumi.Aws.Cognito
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import Cognito branding settings using `user_pool_id` and `managed_login_branding_id` separated by `,`. For example:
+    /// Using `pulumi import`, import Cognito branding settings using `UserPoolId` and `ManagedLoginBrandingId` separated by `,`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:cognito/managedLoginBranding:ManagedLoginBranding example us-west-2_rSss9Zltr,06c6ae7b-1e66-46d2-87a9-1203ea3307bd

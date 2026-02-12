@@ -37,7 +37,7 @@ namespace Pulumi.Aws.Quicksight
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import QuickSight Role Membership using a comma-delimited string combining the `aws_account_id`, `namespace`, `role`, and `member_name`. For example:
+    /// Using `pulumi import`, import QuickSight Role Membership using a comma-delimited string combining the `AwsAccountId`, `Namespace`, `Role`, and `MemberName`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:quicksight/roleMembership:RoleMembership example 012345678901,default,READER,example-group
@@ -46,6 +46,9 @@ namespace Pulumi.Aws.Quicksight
     [AwsResourceType("aws:quicksight/roleMembership:RoleMembership")]
     public partial class RoleMembership : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
+        /// </summary>
         [Output("awsAccountId")]
         public Output<string> AwsAccountId { get; private set; } = null!;
 
@@ -121,6 +124,9 @@ namespace Pulumi.Aws.Quicksight
 
     public sealed class RoleMembershipArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
+        /// </summary>
         [Input("awsAccountId")]
         public Input<string>? AwsAccountId { get; set; }
 
@@ -158,6 +164,9 @@ namespace Pulumi.Aws.Quicksight
 
     public sealed class RoleMembershipState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
+        /// </summary>
         [Input("awsAccountId")]
         public Input<string>? AwsAccountId { get; set; }
 

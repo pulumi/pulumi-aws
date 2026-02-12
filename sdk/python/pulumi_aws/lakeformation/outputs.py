@@ -1972,12 +1972,18 @@ class ResourceLfTagTableWithColumnsColumnWildcard(dict):
 
     def __init__(__self__, *,
                  excluded_column_names: Optional[Sequence[_builtins.str]] = None):
+        """
+        :param Sequence[_builtins.str] excluded_column_names: Set of column names for the table to exclude. If `excluded_column_names` is included, `wildcard` must be set to `true` to avoid Terraform reporting a difference.
+        """
         if excluded_column_names is not None:
             pulumi.set(__self__, "excluded_column_names", excluded_column_names)
 
     @_builtins.property
     @pulumi.getter(name="excludedColumnNames")
     def excluded_column_names(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        Set of column names for the table to exclude. If `excluded_column_names` is included, `wildcard` must be set to `true` to avoid Terraform reporting a difference.
+        """
         return pulumi.get(self, "excluded_column_names")
 
 

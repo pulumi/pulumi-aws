@@ -18,7 +18,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Using `pulumi import`, import `aws_dynamodb_contributor_insights` using the format `name:table_name/index:index_name`, followed by the account number. For example:
+ * Using `pulumi import`, import `aws.dynamodb.ContributorInsights` using the format `name:table_name/index:index_name`, followed by the account number. For example:
  *
  * ```sh
  * $ pulumi import aws:dynamodb/contributorInsights:ContributorInsights test name:ExampleTableName/index:ExampleIndexName/123456789012

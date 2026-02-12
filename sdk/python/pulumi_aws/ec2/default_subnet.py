@@ -41,6 +41,7 @@ class DefaultSubnetArgs:
                
                This resource supports the following additional arguments:
         :param pulumi.Input[_builtins.bool] force_destroy: Whether destroying the resource deletes the default subnet. Default: `false`
+        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
         """
         pulumi.set(__self__, "availability_zone", availability_zone)
         if assign_ipv6_address_on_creation is not None:
@@ -191,6 +192,9 @@ class DefaultSubnetArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
+        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -244,6 +248,7 @@ class _DefaultSubnetState:
         :param pulumi.Input[_builtins.str] availability_zone_id: The AZ ID of the subnet
         :param pulumi.Input[_builtins.str] cidr_block: The IPv4 CIDR block assigned to the subnet
         :param pulumi.Input[_builtins.bool] force_destroy: Whether destroying the resource deletes the default subnet. Default: `false`
+        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
         :param pulumi.Input[_builtins.str] vpc_id: The ID of the VPC the subnet is in
         """
         if arn is not None:
@@ -494,6 +499,9 @@ class _DefaultSubnetState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
+        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -591,6 +599,7 @@ class DefaultSubnet(pulumi.CustomResource):
                
                This resource supports the following additional arguments:
         :param pulumi.Input[_builtins.bool] force_destroy: Whether destroying the resource deletes the default subnet. Default: `false`
+        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
         """
         ...
     @overload
@@ -742,6 +751,7 @@ class DefaultSubnet(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] availability_zone_id: The AZ ID of the subnet
         :param pulumi.Input[_builtins.str] cidr_block: The IPv4 CIDR block assigned to the subnet
         :param pulumi.Input[_builtins.bool] force_destroy: Whether destroying the resource deletes the default subnet. Default: `false`
+        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
         :param pulumi.Input[_builtins.str] vpc_id: The ID of the VPC the subnet is in
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -893,6 +903,9 @@ class DefaultSubnet(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
+        """
         return pulumi.get(self, "region")
 
     @_builtins.property

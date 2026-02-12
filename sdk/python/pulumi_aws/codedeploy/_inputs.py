@@ -69,23 +69,18 @@ __all__ = [
     'DeploymentGroupTriggerConfigurationArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class DeploymentConfigMinimumHealthyHostsArgsDict(TypedDict):
-        type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The type can either be `FLEET_PERCENT` or `HOST_COUNT`.
-        """
-        value: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The value when the type is `FLEET_PERCENT` represents the minimum number of healthy instances as
-        a percentage of the total number of instances in the deployment. If you specify FLEET_PERCENT, at the start of the
-        deployment, AWS CodeDeploy converts the percentage to the equivalent number of instance and rounds up fractional instances.
-        When the type is `HOST_COUNT`, the value represents the minimum number of healthy instances as an absolute value.
-        """
-elif False:
-    DeploymentConfigMinimumHealthyHostsArgsDict: TypeAlias = Mapping[str, Any]
+class DeploymentConfigMinimumHealthyHostsArgsDict(TypedDict):
+    type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The type can either be `FLEET_PERCENT` or `HOST_COUNT`.
+    """
+    value: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The value when the type is `FLEET_PERCENT` represents the minimum number of healthy instances as
+    a percentage of the total number of instances in the deployment. If you specify FLEET_PERCENT, at the start of the
+    deployment, AWS CodeDeploy converts the percentage to the equivalent number of instance and rounds up fractional instances.
+    When the type is `HOST_COUNT`, the value represents the minimum number of healthy instances as an absolute value.
+    """
 
 @pulumi.input_type
 class DeploymentConfigMinimumHealthyHostsArgs:
@@ -132,22 +127,19 @@ class DeploymentConfigMinimumHealthyHostsArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class DeploymentConfigTrafficRoutingConfigArgsDict(TypedDict):
-        time_based_canary: NotRequired[pulumi.Input['DeploymentConfigTrafficRoutingConfigTimeBasedCanaryArgsDict']]
-        """
-        The time based canary configuration information. If `type` is `TimeBasedLinear`, use `time_based_linear` instead.
-        """
-        time_based_linear: NotRequired[pulumi.Input['DeploymentConfigTrafficRoutingConfigTimeBasedLinearArgsDict']]
-        """
-        The time based linear configuration information. If `type` is `TimeBasedCanary`, use `time_based_canary` instead.
-        """
-        type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Type of traffic routing config. One of `TimeBasedCanary`, `TimeBasedLinear`, `AllAtOnce`.
-        """
-elif False:
-    DeploymentConfigTrafficRoutingConfigArgsDict: TypeAlias = Mapping[str, Any]
+class DeploymentConfigTrafficRoutingConfigArgsDict(TypedDict):
+    time_based_canary: NotRequired[pulumi.Input['DeploymentConfigTrafficRoutingConfigTimeBasedCanaryArgsDict']]
+    """
+    The time based canary configuration information. If `type` is `TimeBasedLinear`, use `time_based_linear` instead.
+    """
+    time_based_linear: NotRequired[pulumi.Input['DeploymentConfigTrafficRoutingConfigTimeBasedLinearArgsDict']]
+    """
+    The time based linear configuration information. If `type` is `TimeBasedCanary`, use `time_based_canary` instead.
+    """
+    type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Type of traffic routing config. One of `TimeBasedCanary`, `TimeBasedLinear`, `AllAtOnce`.
+    """
 
 @pulumi.input_type
 class DeploymentConfigTrafficRoutingConfigArgs:
@@ -204,18 +196,15 @@ class DeploymentConfigTrafficRoutingConfigArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class DeploymentConfigTrafficRoutingConfigTimeBasedCanaryArgsDict(TypedDict):
-        interval: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The number of minutes between the first and second traffic shifts of a `TimeBasedCanary` deployment.
-        """
-        percentage: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The percentage of traffic to shift in the first increment of a `TimeBasedCanary` deployment.
-        """
-elif False:
-    DeploymentConfigTrafficRoutingConfigTimeBasedCanaryArgsDict: TypeAlias = Mapping[str, Any]
+class DeploymentConfigTrafficRoutingConfigTimeBasedCanaryArgsDict(TypedDict):
+    interval: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The number of minutes between the first and second traffic shifts of a `TimeBasedCanary` deployment.
+    """
+    percentage: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The percentage of traffic to shift in the first increment of a `TimeBasedCanary` deployment.
+    """
 
 @pulumi.input_type
 class DeploymentConfigTrafficRoutingConfigTimeBasedCanaryArgs:
@@ -256,18 +245,15 @@ class DeploymentConfigTrafficRoutingConfigTimeBasedCanaryArgs:
         pulumi.set(self, "percentage", value)
 
 
-if not MYPY:
-    class DeploymentConfigTrafficRoutingConfigTimeBasedLinearArgsDict(TypedDict):
-        interval: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The number of minutes between each incremental traffic shift of a `TimeBasedLinear` deployment.
-        """
-        percentage: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The percentage of traffic that is shifted at the start of each increment of a `TimeBasedLinear` deployment.
-        """
-elif False:
-    DeploymentConfigTrafficRoutingConfigTimeBasedLinearArgsDict: TypeAlias = Mapping[str, Any]
+class DeploymentConfigTrafficRoutingConfigTimeBasedLinearArgsDict(TypedDict):
+    interval: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The number of minutes between each incremental traffic shift of a `TimeBasedLinear` deployment.
+    """
+    percentage: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The percentage of traffic that is shifted at the start of each increment of a `TimeBasedLinear` deployment.
+    """
 
 @pulumi.input_type
 class DeploymentConfigTrafficRoutingConfigTimeBasedLinearArgs:
@@ -308,22 +294,19 @@ class DeploymentConfigTrafficRoutingConfigTimeBasedLinearArgs:
         pulumi.set(self, "percentage", value)
 
 
-if not MYPY:
-    class DeploymentConfigZonalConfigArgsDict(TypedDict):
-        first_zone_monitor_duration_in_seconds: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The period of time, in seconds, that CodeDeploy must wait after completing a deployment to the first Availability Zone. CodeDeploy will wait this amount of time before starting a deployment to the second Availability Zone. If you don't specify a value for `first_zone_monitor_duration_in_seconds`, then CodeDeploy uses the `monitor_duration_in_seconds` value for the first Availability Zone.
-        """
-        minimum_healthy_hosts_per_zone: NotRequired[pulumi.Input['DeploymentConfigZonalConfigMinimumHealthyHostsPerZoneArgsDict']]
-        """
-        The number or percentage of instances that must remain available per Availability Zone during a deployment. If you don't specify a value under `minimum_healthy_hosts_per_zone`, then CodeDeploy uses a default value of 0 percent. This block is more documented below.
-        """
-        monitor_duration_in_seconds: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The period of time, in seconds, that CodeDeploy must wait after completing a deployment to an Availability Zone. CodeDeploy will wait this amount of time before starting a deployment to the next Availability Zone. If you don't specify a `monitor_duration_in_seconds`, CodeDeploy starts deploying to the next Availability Zone immediately.
-        """
-elif False:
-    DeploymentConfigZonalConfigArgsDict: TypeAlias = Mapping[str, Any]
+class DeploymentConfigZonalConfigArgsDict(TypedDict):
+    first_zone_monitor_duration_in_seconds: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The period of time, in seconds, that CodeDeploy must wait after completing a deployment to the first Availability Zone. CodeDeploy will wait this amount of time before starting a deployment to the second Availability Zone. If you don't specify a value for `first_zone_monitor_duration_in_seconds`, then CodeDeploy uses the `monitor_duration_in_seconds` value for the first Availability Zone.
+    """
+    minimum_healthy_hosts_per_zone: NotRequired[pulumi.Input['DeploymentConfigZonalConfigMinimumHealthyHostsPerZoneArgsDict']]
+    """
+    The number or percentage of instances that must remain available per Availability Zone during a deployment. If you don't specify a value under `minimum_healthy_hosts_per_zone`, then CodeDeploy uses a default value of 0 percent. This block is more documented below.
+    """
+    monitor_duration_in_seconds: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The period of time, in seconds, that CodeDeploy must wait after completing a deployment to an Availability Zone. CodeDeploy will wait this amount of time before starting a deployment to the next Availability Zone. If you don't specify a `monitor_duration_in_seconds`, CodeDeploy starts deploying to the next Availability Zone immediately.
+    """
 
 @pulumi.input_type
 class DeploymentConfigZonalConfigArgs:
@@ -380,18 +363,15 @@ class DeploymentConfigZonalConfigArgs:
         pulumi.set(self, "monitor_duration_in_seconds", value)
 
 
-if not MYPY:
-    class DeploymentConfigZonalConfigMinimumHealthyHostsPerZoneArgsDict(TypedDict):
-        type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The type can either be `FLEET_PERCENT` or `HOST_COUNT`.
-        """
-        value: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The value when the type is `FLEET_PERCENT` represents the minimum number of healthy instances as a percentage of the total number of instances in the Availability Zone during a deployment. If you specify FLEET_PERCENT, at the start of the deployment, AWS CodeDeploy converts the percentage to the equivalent number of instance and rounds up fractional instances. When the type is `HOST_COUNT`, the value represents the minimum number of healthy instances in the Availability Zone as an absolute value.
-        """
-elif False:
-    DeploymentConfigZonalConfigMinimumHealthyHostsPerZoneArgsDict: TypeAlias = Mapping[str, Any]
+class DeploymentConfigZonalConfigMinimumHealthyHostsPerZoneArgsDict(TypedDict):
+    type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The type can either be `FLEET_PERCENT` or `HOST_COUNT`.
+    """
+    value: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The value when the type is `FLEET_PERCENT` represents the minimum number of healthy instances as a percentage of the total number of instances in the Availability Zone during a deployment. If you specify FLEET_PERCENT, at the start of the deployment, AWS CodeDeploy converts the percentage to the equivalent number of instance and rounds up fractional instances. When the type is `HOST_COUNT`, the value represents the minimum number of healthy instances in the Availability Zone as an absolute value.
+    """
 
 @pulumi.input_type
 class DeploymentConfigZonalConfigMinimumHealthyHostsPerZoneArgs:
@@ -432,22 +412,19 @@ class DeploymentConfigZonalConfigMinimumHealthyHostsPerZoneArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class DeploymentGroupAlarmConfigurationArgsDict(TypedDict):
-        alarms: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        A list of alarms configured for the deployment group.
-        """
-        enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Indicates whether the alarm configuration is enabled. This option is useful when you want to temporarily deactivate alarm monitoring for a deployment group without having to add the same alarms again later.
-        """
-        ignore_poll_alarm_failure: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Indicates whether a deployment should continue if information about the current state of alarms cannot be retrieved from CloudWatch. The default value is `false`.
-        """
-elif False:
-    DeploymentGroupAlarmConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class DeploymentGroupAlarmConfigurationArgsDict(TypedDict):
+    alarms: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    A list of alarms configured for the deployment group.
+    """
+    enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Indicates whether the alarm configuration is enabled. This option is useful when you want to temporarily deactivate alarm monitoring for a deployment group without having to add the same alarms again later.
+    """
+    ignore_poll_alarm_failure: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Indicates whether a deployment should continue if information about the current state of alarms cannot be retrieved from CloudWatch. The default value is `false`.
+    """
 
 @pulumi.input_type
 class DeploymentGroupAlarmConfigurationArgs:
@@ -504,20 +481,17 @@ class DeploymentGroupAlarmConfigurationArgs:
         pulumi.set(self, "ignore_poll_alarm_failure", value)
 
 
-if not MYPY:
-    class DeploymentGroupAutoRollbackConfigurationArgsDict(TypedDict):
-        enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Indicates whether a defined automatic rollback configuration is currently enabled for this Deployment Group. If you enable automatic rollback, you must specify at least one event type.
-        """
-        events: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The event type or types that trigger a rollback. Supported types are `DEPLOYMENT_FAILURE`, `DEPLOYMENT_STOP_ON_ALARM` and `DEPLOYMENT_STOP_ON_REQUEST`.
+class DeploymentGroupAutoRollbackConfigurationArgsDict(TypedDict):
+    enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Indicates whether a defined automatic rollback configuration is currently enabled for this Deployment Group. If you enable automatic rollback, you must specify at least one event type.
+    """
+    events: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The event type or types that trigger a rollback. Supported types are `DEPLOYMENT_FAILURE`, `DEPLOYMENT_STOP_ON_ALARM` and `DEPLOYMENT_STOP_ON_REQUEST`.
 
-        _Only one `auto_rollback_configuration` is allowed_.
-        """
-elif False:
-    DeploymentGroupAutoRollbackConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+    _Only one `auto_rollback_configuration` is allowed_.
+    """
 
 @pulumi.input_type
 class DeploymentGroupAutoRollbackConfigurationArgs:
@@ -562,24 +536,21 @@ class DeploymentGroupAutoRollbackConfigurationArgs:
         pulumi.set(self, "events", value)
 
 
-if not MYPY:
-    class DeploymentGroupBlueGreenDeploymentConfigArgsDict(TypedDict):
-        deployment_ready_option: NotRequired[pulumi.Input['DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOptionArgsDict']]
-        """
-        Information about the action to take when newly provisioned instances are ready to receive traffic in a blue/green deployment (documented below).
-        """
-        green_fleet_provisioning_option: NotRequired[pulumi.Input['DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOptionArgsDict']]
-        """
-        Information about how instances are provisioned for a replacement environment in a blue/green deployment (documented below).
-        """
-        terminate_blue_instances_on_deployment_success: NotRequired[pulumi.Input['DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccessArgsDict']]
-        """
-        Information about whether to terminate instances in the original fleet during a blue/green deployment (documented below).
+class DeploymentGroupBlueGreenDeploymentConfigArgsDict(TypedDict):
+    deployment_ready_option: NotRequired[pulumi.Input['DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOptionArgsDict']]
+    """
+    Information about the action to take when newly provisioned instances are ready to receive traffic in a blue/green deployment (documented below).
+    """
+    green_fleet_provisioning_option: NotRequired[pulumi.Input['DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOptionArgsDict']]
+    """
+    Information about how instances are provisioned for a replacement environment in a blue/green deployment (documented below).
+    """
+    terminate_blue_instances_on_deployment_success: NotRequired[pulumi.Input['DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccessArgsDict']]
+    """
+    Information about whether to terminate instances in the original fleet during a blue/green deployment (documented below).
 
-        _Only one `blue_green_deployment_config` is allowed_.
-        """
-elif False:
-    DeploymentGroupBlueGreenDeploymentConfigArgsDict: TypeAlias = Mapping[str, Any]
+    _Only one `blue_green_deployment_config` is allowed_.
+    """
 
 @pulumi.input_type
 class DeploymentGroupBlueGreenDeploymentConfigArgs:
@@ -640,20 +611,17 @@ class DeploymentGroupBlueGreenDeploymentConfigArgs:
         pulumi.set(self, "terminate_blue_instances_on_deployment_success", value)
 
 
-if not MYPY:
-    class DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOptionArgsDict(TypedDict):
-        action_on_timeout: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        When to reroute traffic from an original environment to a replacement environment in a blue/green deployment.
-        * `CONTINUE_DEPLOYMENT`: Register new instances with the load balancer immediately after the new application revision is installed on the instances in the replacement environment.
-        * `STOP_DEPLOYMENT`: Do not register new instances with load balancer unless traffic is rerouted manually. If traffic is not rerouted manually before the end of the specified wait period, the deployment status is changed to Stopped.
-        """
-        wait_time_in_minutes: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The number of minutes to wait before the status of a blue/green deployment changed to Stopped if rerouting is not started manually. Applies only to the `STOP_DEPLOYMENT` option for `action_on_timeout`.
-        """
-elif False:
-    DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOptionArgsDict: TypeAlias = Mapping[str, Any]
+class DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOptionArgsDict(TypedDict):
+    action_on_timeout: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    When to reroute traffic from an original environment to a replacement environment in a blue/green deployment.
+    * `CONTINUE_DEPLOYMENT`: Register new instances with the load balancer immediately after the new application revision is installed on the instances in the replacement environment.
+    * `STOP_DEPLOYMENT`: Do not register new instances with load balancer unless traffic is rerouted manually. If traffic is not rerouted manually before the end of the specified wait period, the deployment status is changed to Stopped.
+    """
+    wait_time_in_minutes: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The number of minutes to wait before the status of a blue/green deployment changed to Stopped if rerouting is not started manually. Applies only to the `STOP_DEPLOYMENT` option for `action_on_timeout`.
+    """
 
 @pulumi.input_type
 class DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOptionArgs:
@@ -698,16 +666,13 @@ class DeploymentGroupBlueGreenDeploymentConfigDeploymentReadyOptionArgs:
         pulumi.set(self, "wait_time_in_minutes", value)
 
 
-if not MYPY:
-    class DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOptionArgsDict(TypedDict):
-        action: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The method used to add instances to a replacement environment.
-        * `DISCOVER_EXISTING`: Use instances that already exist or will be created manually.
-        * `COPY_AUTO_SCALING_GROUP`: Use settings from a specified **Auto Scaling** group to define and create instances in a new Auto Scaling group. _Exactly one Auto Scaling group must be specified_ when selecting `COPY_AUTO_SCALING_GROUP`. Use `autoscaling_groups` to specify the Auto Scaling group.
-        """
-elif False:
-    DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOptionArgsDict: TypeAlias = Mapping[str, Any]
+class DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOptionArgsDict(TypedDict):
+    action: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The method used to add instances to a replacement environment.
+    * `DISCOVER_EXISTING`: Use instances that already exist or will be created manually.
+    * `COPY_AUTO_SCALING_GROUP`: Use settings from a specified **Auto Scaling** group to define and create instances in a new Auto Scaling group. _Exactly one Auto Scaling group must be specified_ when selecting `COPY_AUTO_SCALING_GROUP`. Use `autoscaling_groups` to specify the Auto Scaling group.
+    """
 
 @pulumi.input_type
 class DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOptionArgs:
@@ -736,20 +701,17 @@ class DeploymentGroupBlueGreenDeploymentConfigGreenFleetProvisioningOptionArgs:
         pulumi.set(self, "action", value)
 
 
-if not MYPY:
-    class DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccessArgsDict(TypedDict):
-        action: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The action to take on instances in the original environment after a successful blue/green deployment.
-        * `TERMINATE`: Instances are terminated after a specified wait time.
-        * `KEEP_ALIVE`: Instances are left running after they are deregistered from the load balancer and removed from the deployment group.
-        """
-        termination_wait_time_in_minutes: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The number of minutes to wait after a successful blue/green deployment before terminating instances from the original environment.
-        """
-elif False:
-    DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccessArgsDict: TypeAlias = Mapping[str, Any]
+class DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccessArgsDict(TypedDict):
+    action: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The action to take on instances in the original environment after a successful blue/green deployment.
+    * `TERMINATE`: Instances are terminated after a specified wait time.
+    * `KEEP_ALIVE`: Instances are left running after they are deregistered from the load balancer and removed from the deployment group.
+    """
+    termination_wait_time_in_minutes: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The number of minutes to wait after a successful blue/green deployment before terminating instances from the original environment.
+    """
 
 @pulumi.input_type
 class DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeploymentSuccessArgs:
@@ -794,20 +756,17 @@ class DeploymentGroupBlueGreenDeploymentConfigTerminateBlueInstancesOnDeployment
         pulumi.set(self, "termination_wait_time_in_minutes", value)
 
 
-if not MYPY:
-    class DeploymentGroupDeploymentStyleArgsDict(TypedDict):
-        deployment_option: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Indicates whether to route deployment traffic behind a load balancer. Valid Values are `WITH_TRAFFIC_CONTROL` or `WITHOUT_TRAFFIC_CONTROL`. Default is `WITHOUT_TRAFFIC_CONTROL`.
-        """
-        deployment_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Indicates whether to run an in-place deployment or a blue/green deployment. Valid Values are `IN_PLACE` or `BLUE_GREEN`. Default is `IN_PLACE`.
+class DeploymentGroupDeploymentStyleArgsDict(TypedDict):
+    deployment_option: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Indicates whether to route deployment traffic behind a load balancer. Valid Values are `WITH_TRAFFIC_CONTROL` or `WITHOUT_TRAFFIC_CONTROL`. Default is `WITHOUT_TRAFFIC_CONTROL`.
+    """
+    deployment_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Indicates whether to run an in-place deployment or a blue/green deployment. Valid Values are `IN_PLACE` or `BLUE_GREEN`. Default is `IN_PLACE`.
 
-        _Only one `deployment_style` is allowed_.
-        """
-elif False:
-    DeploymentGroupDeploymentStyleArgsDict: TypeAlias = Mapping[str, Any]
+    _Only one `deployment_style` is allowed_.
+    """
 
 @pulumi.input_type
 class DeploymentGroupDeploymentStyleArgs:
@@ -852,24 +811,21 @@ class DeploymentGroupDeploymentStyleArgs:
         pulumi.set(self, "deployment_type", value)
 
 
-if not MYPY:
-    class DeploymentGroupEc2TagFilterArgsDict(TypedDict):
-        key: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The key of the tag filter.
-        """
-        type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The type of the tag filter, either `KEY_ONLY`, `VALUE_ONLY`, or `KEY_AND_VALUE`.
-        """
-        value: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The value of the tag filter.
+class DeploymentGroupEc2TagFilterArgsDict(TypedDict):
+    key: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The key of the tag filter.
+    """
+    type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The type of the tag filter, either `KEY_ONLY`, `VALUE_ONLY`, or `KEY_AND_VALUE`.
+    """
+    value: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The value of the tag filter.
 
-        Multiple occurrences of `ec2_tag_filter` are allowed, where any instance that matches to at least one of the tag filters is selected.
-        """
-elif False:
-    DeploymentGroupEc2TagFilterArgsDict: TypeAlias = Mapping[str, Any]
+    Multiple occurrences of `ec2_tag_filter` are allowed, where any instance that matches to at least one of the tag filters is selected.
+    """
 
 @pulumi.input_type
 class DeploymentGroupEc2TagFilterArgs:
@@ -930,14 +886,11 @@ class DeploymentGroupEc2TagFilterArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class DeploymentGroupEc2TagSetArgsDict(TypedDict):
-        ec2_tag_filters: NotRequired[pulumi.Input[Sequence[pulumi.Input['DeploymentGroupEc2TagSetEc2TagFilterArgsDict']]]]
-        """
-        Tag filters associated with the deployment group. See the AWS docs for details.
-        """
-elif False:
-    DeploymentGroupEc2TagSetArgsDict: TypeAlias = Mapping[str, Any]
+class DeploymentGroupEc2TagSetArgsDict(TypedDict):
+    ec2_tag_filters: NotRequired[pulumi.Input[Sequence[pulumi.Input['DeploymentGroupEc2TagSetEc2TagFilterArgsDict']]]]
+    """
+    Tag filters associated with the deployment group. See the AWS docs for details.
+    """
 
 @pulumi.input_type
 class DeploymentGroupEc2TagSetArgs:
@@ -962,24 +915,21 @@ class DeploymentGroupEc2TagSetArgs:
         pulumi.set(self, "ec2_tag_filters", value)
 
 
-if not MYPY:
-    class DeploymentGroupEc2TagSetEc2TagFilterArgsDict(TypedDict):
-        key: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The key of the tag filter.
-        """
-        type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The type of the tag filter, either `KEY_ONLY`, `VALUE_ONLY`, or `KEY_AND_VALUE`.
-        """
-        value: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The value of the tag filter.
+class DeploymentGroupEc2TagSetEc2TagFilterArgsDict(TypedDict):
+    key: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The key of the tag filter.
+    """
+    type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The type of the tag filter, either `KEY_ONLY`, `VALUE_ONLY`, or `KEY_AND_VALUE`.
+    """
+    value: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The value of the tag filter.
 
-        Multiple occurrences of `ec2_tag_filter` are allowed, where any instance that matches to at least one of the tag filters is selected.
-        """
-elif False:
-    DeploymentGroupEc2TagSetEc2TagFilterArgsDict: TypeAlias = Mapping[str, Any]
+    Multiple occurrences of `ec2_tag_filter` are allowed, where any instance that matches to at least one of the tag filters is selected.
+    """
 
 @pulumi.input_type
 class DeploymentGroupEc2TagSetEc2TagFilterArgs:
@@ -1040,18 +990,15 @@ class DeploymentGroupEc2TagSetEc2TagFilterArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class DeploymentGroupEcsServiceArgsDict(TypedDict):
-        cluster_name: pulumi.Input[_builtins.str]
-        """
-        The name of the ECS cluster.
-        """
-        service_name: pulumi.Input[_builtins.str]
-        """
-        The name of the ECS service.
-        """
-elif False:
-    DeploymentGroupEcsServiceArgsDict: TypeAlias = Mapping[str, Any]
+class DeploymentGroupEcsServiceArgsDict(TypedDict):
+    cluster_name: pulumi.Input[_builtins.str]
+    """
+    The name of the ECS cluster.
+    """
+    service_name: pulumi.Input[_builtins.str]
+    """
+    The name of the ECS service.
+    """
 
 @pulumi.input_type
 class DeploymentGroupEcsServiceArgs:
@@ -1090,22 +1037,19 @@ class DeploymentGroupEcsServiceArgs:
         pulumi.set(self, "service_name", value)
 
 
-if not MYPY:
-    class DeploymentGroupLoadBalancerInfoArgsDict(TypedDict):
-        elb_infos: NotRequired[pulumi.Input[Sequence[pulumi.Input['DeploymentGroupLoadBalancerInfoElbInfoArgsDict']]]]
-        """
-        The Classic Elastic Load Balancer to use in a deployment. Conflicts with `target_group_info` and `target_group_pair_info`.
-        """
-        target_group_infos: NotRequired[pulumi.Input[Sequence[pulumi.Input['DeploymentGroupLoadBalancerInfoTargetGroupInfoArgsDict']]]]
-        """
-        The (Application/Network Load Balancer) target group to use in a deployment. Conflicts with `elb_info` and `target_group_pair_info`.
-        """
-        target_group_pair_info: NotRequired[pulumi.Input['DeploymentGroupLoadBalancerInfoTargetGroupPairInfoArgsDict']]
-        """
-        The (Application/Network Load Balancer) target group pair to use in a deployment. Conflicts with `elb_info` and `target_group_info`.
-        """
-elif False:
-    DeploymentGroupLoadBalancerInfoArgsDict: TypeAlias = Mapping[str, Any]
+class DeploymentGroupLoadBalancerInfoArgsDict(TypedDict):
+    elb_infos: NotRequired[pulumi.Input[Sequence[pulumi.Input['DeploymentGroupLoadBalancerInfoElbInfoArgsDict']]]]
+    """
+    The Classic Elastic Load Balancer to use in a deployment. Conflicts with `target_group_info` and `target_group_pair_info`.
+    """
+    target_group_infos: NotRequired[pulumi.Input[Sequence[pulumi.Input['DeploymentGroupLoadBalancerInfoTargetGroupInfoArgsDict']]]]
+    """
+    The (Application/Network Load Balancer) target group to use in a deployment. Conflicts with `elb_info` and `target_group_pair_info`.
+    """
+    target_group_pair_info: NotRequired[pulumi.Input['DeploymentGroupLoadBalancerInfoTargetGroupPairInfoArgsDict']]
+    """
+    The (Application/Network Load Balancer) target group pair to use in a deployment. Conflicts with `elb_info` and `target_group_info`.
+    """
 
 @pulumi.input_type
 class DeploymentGroupLoadBalancerInfoArgs:
@@ -1162,14 +1106,11 @@ class DeploymentGroupLoadBalancerInfoArgs:
         pulumi.set(self, "target_group_pair_info", value)
 
 
-if not MYPY:
-    class DeploymentGroupLoadBalancerInfoElbInfoArgsDict(TypedDict):
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the load balancer that will be used to route traffic from original instances to replacement instances in a blue/green deployment. For in-place deployments, the name of the load balancer that instances are deregistered from so they are not serving traffic during a deployment, and then re-registered with after the deployment completes.
-        """
-elif False:
-    DeploymentGroupLoadBalancerInfoElbInfoArgsDict: TypeAlias = Mapping[str, Any]
+class DeploymentGroupLoadBalancerInfoElbInfoArgsDict(TypedDict):
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the load balancer that will be used to route traffic from original instances to replacement instances in a blue/green deployment. For in-place deployments, the name of the load balancer that instances are deregistered from so they are not serving traffic during a deployment, and then re-registered with after the deployment completes.
+    """
 
 @pulumi.input_type
 class DeploymentGroupLoadBalancerInfoElbInfoArgs:
@@ -1194,14 +1135,11 @@ class DeploymentGroupLoadBalancerInfoElbInfoArgs:
         pulumi.set(self, "name", value)
 
 
-if not MYPY:
-    class DeploymentGroupLoadBalancerInfoTargetGroupInfoArgsDict(TypedDict):
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the target group that instances in the original environment are deregistered from, and instances in the replacement environment registered with. For in-place deployments, the name of the target group that instances are deregistered from, so they are not serving traffic during a deployment, and then re-registered with after the deployment completes.
-        """
-elif False:
-    DeploymentGroupLoadBalancerInfoTargetGroupInfoArgsDict: TypeAlias = Mapping[str, Any]
+class DeploymentGroupLoadBalancerInfoTargetGroupInfoArgsDict(TypedDict):
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the target group that instances in the original environment are deregistered from, and instances in the replacement environment registered with. For in-place deployments, the name of the target group that instances are deregistered from, so they are not serving traffic during a deployment, and then re-registered with after the deployment completes.
+    """
 
 @pulumi.input_type
 class DeploymentGroupLoadBalancerInfoTargetGroupInfoArgs:
@@ -1226,22 +1164,19 @@ class DeploymentGroupLoadBalancerInfoTargetGroupInfoArgs:
         pulumi.set(self, "name", value)
 
 
-if not MYPY:
-    class DeploymentGroupLoadBalancerInfoTargetGroupPairInfoArgsDict(TypedDict):
-        prod_traffic_route: pulumi.Input['DeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTrafficRouteArgsDict']
-        """
-        Configuration block for the production traffic route (documented below).
-        """
-        target_groups: pulumi.Input[Sequence[pulumi.Input['DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroupArgsDict']]]
-        """
-        Configuration blocks for a target group within a target group pair (documented below).
-        """
-        test_traffic_route: NotRequired[pulumi.Input['DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRouteArgsDict']]
-        """
-        Configuration block for the test traffic route (documented below).
-        """
-elif False:
-    DeploymentGroupLoadBalancerInfoTargetGroupPairInfoArgsDict: TypeAlias = Mapping[str, Any]
+class DeploymentGroupLoadBalancerInfoTargetGroupPairInfoArgsDict(TypedDict):
+    prod_traffic_route: pulumi.Input['DeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTrafficRouteArgsDict']
+    """
+    Configuration block for the production traffic route (documented below).
+    """
+    target_groups: pulumi.Input[Sequence[pulumi.Input['DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroupArgsDict']]]
+    """
+    Configuration blocks for a target group within a target group pair (documented below).
+    """
+    test_traffic_route: NotRequired[pulumi.Input['DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRouteArgsDict']]
+    """
+    Configuration block for the test traffic route (documented below).
+    """
 
 @pulumi.input_type
 class DeploymentGroupLoadBalancerInfoTargetGroupPairInfoArgs:
@@ -1296,14 +1231,11 @@ class DeploymentGroupLoadBalancerInfoTargetGroupPairInfoArgs:
         pulumi.set(self, "test_traffic_route", value)
 
 
-if not MYPY:
-    class DeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTrafficRouteArgsDict(TypedDict):
-        listener_arns: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        List of Amazon Resource Names (ARNs) of the load balancer listeners. Must contain exactly one listener ARN.
-        """
-elif False:
-    DeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTrafficRouteArgsDict: TypeAlias = Mapping[str, Any]
+class DeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTrafficRouteArgsDict(TypedDict):
+    listener_arns: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    List of Amazon Resource Names (ARNs) of the load balancer listeners. Must contain exactly one listener ARN.
+    """
 
 @pulumi.input_type
 class DeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTrafficRouteArgs:
@@ -1327,14 +1259,11 @@ class DeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTrafficRouteArgs:
         pulumi.set(self, "listener_arns", value)
 
 
-if not MYPY:
-    class DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroupArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        """
-        Name of the target group.
-        """
-elif False:
-    DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroupArgsDict: TypeAlias = Mapping[str, Any]
+class DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroupArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    Name of the target group.
+    """
 
 @pulumi.input_type
 class DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroupArgs:
@@ -1358,14 +1287,11 @@ class DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTargetGroupArgs:
         pulumi.set(self, "name", value)
 
 
-if not MYPY:
-    class DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRouteArgsDict(TypedDict):
-        listener_arns: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        List of Amazon Resource Names (ARNs) of the load balancer listeners.
-        """
-elif False:
-    DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRouteArgsDict: TypeAlias = Mapping[str, Any]
+class DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRouteArgsDict(TypedDict):
+    listener_arns: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    List of Amazon Resource Names (ARNs) of the load balancer listeners.
+    """
 
 @pulumi.input_type
 class DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRouteArgs:
@@ -1389,22 +1315,19 @@ class DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRouteArgs:
         pulumi.set(self, "listener_arns", value)
 
 
-if not MYPY:
-    class DeploymentGroupOnPremisesInstanceTagFilterArgsDict(TypedDict):
-        key: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The key of the tag filter.
-        """
-        type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The type of the tag filter, either `KEY_ONLY`, `VALUE_ONLY`, or `KEY_AND_VALUE`.
-        """
-        value: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The value of the tag filter.
-        """
-elif False:
-    DeploymentGroupOnPremisesInstanceTagFilterArgsDict: TypeAlias = Mapping[str, Any]
+class DeploymentGroupOnPremisesInstanceTagFilterArgsDict(TypedDict):
+    key: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The key of the tag filter.
+    """
+    type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The type of the tag filter, either `KEY_ONLY`, `VALUE_ONLY`, or `KEY_AND_VALUE`.
+    """
+    value: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The value of the tag filter.
+    """
 
 @pulumi.input_type
 class DeploymentGroupOnPremisesInstanceTagFilterArgs:
@@ -1461,22 +1384,19 @@ class DeploymentGroupOnPremisesInstanceTagFilterArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class DeploymentGroupTriggerConfigurationArgsDict(TypedDict):
-        trigger_events: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        The event type or types for which notifications are triggered. Some values that are supported: `DeploymentStart`, `DeploymentSuccess`, `DeploymentFailure`, `DeploymentStop`, `DeploymentRollback`, `InstanceStart`, `InstanceSuccess`, `InstanceFailure`.  See [the CodeDeploy documentation](http://docs.aws.amazon.com/codedeploy/latest/userguide/monitoring-sns-event-notifications-create-trigger.html) for all possible values.
-        """
-        trigger_name: pulumi.Input[_builtins.str]
-        """
-        The name of the notification trigger.
-        """
-        trigger_target_arn: pulumi.Input[_builtins.str]
-        """
-        The ARN of the SNS topic through which notifications are sent.
-        """
-elif False:
-    DeploymentGroupTriggerConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class DeploymentGroupTriggerConfigurationArgsDict(TypedDict):
+    trigger_events: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    The event type or types for which notifications are triggered. Some values that are supported: `DeploymentStart`, `DeploymentSuccess`, `DeploymentFailure`, `DeploymentStop`, `DeploymentRollback`, `InstanceStart`, `InstanceSuccess`, `InstanceFailure`.  See [the CodeDeploy documentation](http://docs.aws.amazon.com/codedeploy/latest/userguide/monitoring-sns-event-notifications-create-trigger.html) for all possible values.
+    """
+    trigger_name: pulumi.Input[_builtins.str]
+    """
+    The name of the notification trigger.
+    """
+    trigger_target_arn: pulumi.Input[_builtins.str]
+    """
+    The ARN of the SNS topic through which notifications are sent.
+    """
 
 @pulumi.input_type
 class DeploymentGroupTriggerConfigurationArgs:

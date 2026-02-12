@@ -16,7 +16,7 @@ namespace Pulumi.Aws.Odb.Inputs
         private InputList<Inputs.CloudAutonomousVmClusterMaintenanceWindowDaysOfWeekGetArgs>? _daysOfWeeks;
 
         /// <summary>
-        /// The days of the week when maintenance can be performed.
+        /// The days of the week when maintenance can be performed. Changing this will force terraform to create new resource.
         /// </summary>
         public InputList<Inputs.CloudAutonomousVmClusterMaintenanceWindowDaysOfWeekGetArgs> DaysOfWeeks
         {
@@ -28,7 +28,7 @@ namespace Pulumi.Aws.Odb.Inputs
         private InputList<int>? _hoursOfDays;
 
         /// <summary>
-        /// The hours of the day when maintenance can be performed.
+        /// The hours of the day when maintenance can be performed. Changing this will force terraform to create new resource.
         /// </summary>
         public InputList<int> HoursOfDays
         {
@@ -37,7 +37,7 @@ namespace Pulumi.Aws.Odb.Inputs
         }
 
         /// <summary>
-        /// The lead time in weeks before the maintenance window.
+        /// The lead time in weeks before the maintenance window. Changing this will force terraform to create new resource.
         /// </summary>
         [Input("leadTimeInWeeks")]
         public Input<int>? LeadTimeInWeeks { get; set; }
@@ -46,7 +46,7 @@ namespace Pulumi.Aws.Odb.Inputs
         private InputList<Inputs.CloudAutonomousVmClusterMaintenanceWindowMonthGetArgs>? _months;
 
         /// <summary>
-        /// The months when maintenance can be performed.
+        /// The months when maintenance can be performed. Changing this will force terraform to create new resource.
         /// </summary>
         public InputList<Inputs.CloudAutonomousVmClusterMaintenanceWindowMonthGetArgs> Months
         {
@@ -55,7 +55,7 @@ namespace Pulumi.Aws.Odb.Inputs
         }
 
         /// <summary>
-        /// The preference for the maintenance window scheduling.
+        /// The preference for the maintenance window scheduling. Changing this will force terraform to create new resource.
         /// </summary>
         [Input("preference", required: true)]
         public Input<string> Preference { get; set; } = null!;
@@ -64,7 +64,7 @@ namespace Pulumi.Aws.Odb.Inputs
         private InputList<int>? _weeksOfMonths;
 
         /// <summary>
-        /// Indicates whether to skip release updates during maintenance.
+        /// Indicates whether to skip release updates during maintenance. Changing this will force terraform to create new resource.
         /// </summary>
         public InputList<int> WeeksOfMonths
         {

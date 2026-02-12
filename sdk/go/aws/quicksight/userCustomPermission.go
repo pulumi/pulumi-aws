@@ -43,7 +43,7 @@ import (
 //
 // ## Import
 //
-// Using `pulumi import`, import QuickSight user custom permissions using a comma-delimited string combining the `aws_account_id`, `namespace`, and `user_name`. For example:
+// Using `pulumi import`, import QuickSight user custom permissions using a comma-delimited string combining the `awsAccountId`, `namespace`, and `userName`. For example:
 //
 // ```sh
 // $ pulumi import aws:quicksight/userCustomPermission:UserCustomPermission example 012345678901,default,user1
@@ -51,6 +51,7 @@ import (
 type UserCustomPermission struct {
 	pulumi.CustomResourceState
 
+	// AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
 	AwsAccountId pulumi.StringOutput `pulumi:"awsAccountId"`
 	// Custom permissions profile name.
 	CustomPermissionsName pulumi.StringOutput `pulumi:"customPermissionsName"`
@@ -100,6 +101,7 @@ func GetUserCustomPermission(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering UserCustomPermission resources.
 type userCustomPermissionState struct {
+	// AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
 	AwsAccountId *string `pulumi:"awsAccountId"`
 	// Custom permissions profile name.
 	CustomPermissionsName *string `pulumi:"customPermissionsName"`
@@ -114,6 +116,7 @@ type userCustomPermissionState struct {
 }
 
 type UserCustomPermissionState struct {
+	// AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
 	AwsAccountId pulumi.StringPtrInput
 	// Custom permissions profile name.
 	CustomPermissionsName pulumi.StringPtrInput
@@ -132,6 +135,7 @@ func (UserCustomPermissionState) ElementType() reflect.Type {
 }
 
 type userCustomPermissionArgs struct {
+	// AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
 	AwsAccountId *string `pulumi:"awsAccountId"`
 	// Custom permissions profile name.
 	CustomPermissionsName string `pulumi:"customPermissionsName"`
@@ -147,6 +151,7 @@ type userCustomPermissionArgs struct {
 
 // The set of arguments for constructing a UserCustomPermission resource.
 type UserCustomPermissionArgs struct {
+	// AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
 	AwsAccountId pulumi.StringPtrInput
 	// Custom permissions profile name.
 	CustomPermissionsName pulumi.StringInput
@@ -247,6 +252,7 @@ func (o UserCustomPermissionOutput) ToUserCustomPermissionOutputWithContext(ctx 
 	return o
 }
 
+// AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
 func (o UserCustomPermissionOutput) AwsAccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *UserCustomPermission) pulumi.StringOutput { return v.AwsAccountId }).(pulumi.StringOutput)
 }

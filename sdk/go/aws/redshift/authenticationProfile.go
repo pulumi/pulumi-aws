@@ -54,7 +54,7 @@ import (
 //
 // ## Import
 //
-// Using `pulumi import`, import Redshift Authentication by `authentication_profile_name`. For example:
+// Using `pulumi import`, import Redshift Authentication by `authenticationProfileName`. For example:
 //
 // ```sh
 // $ pulumi import aws:redshift/authenticationProfile:AuthenticationProfile test example

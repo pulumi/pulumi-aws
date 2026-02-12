@@ -117,6 +117,9 @@ namespace Pulumi.Aws.Quicksight
         [Output("availabilityStatus")]
         public Output<string> AvailabilityStatus { get; private set; } = null!;
 
+        /// <summary>
+        /// AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
+        /// </summary>
         [Output("awsAccountId")]
         public Output<string> AwsAccountId { get; private set; } = null!;
 
@@ -225,6 +228,9 @@ namespace Pulumi.Aws.Quicksight
 
     public sealed class VpcConnectionArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
+        /// </summary>
         [Input("awsAccountId")]
         public Input<string>? AwsAccountId { get; set; }
 
@@ -325,6 +331,9 @@ namespace Pulumi.Aws.Quicksight
         [Input("availabilityStatus")]
         public Input<string>? AvailabilityStatus { get; set; }
 
+        /// <summary>
+        /// AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
+        /// </summary>
         [Input("awsAccountId")]
         public Input<string>? AwsAccountId { get; set; }
 

@@ -105,7 +105,9 @@ import javax.annotation.Nullable;
  * 
  * Using `pulumi import`, import ACM PCA Certificates using their ARN. For example:
  * 
- * % pulumi import aws_acmpca_certificate.cert arn:aws:acm-pca:eu-west-1:675225743824:certificate-authority/08319ede-83g9-1400-8f21-c7d12b2b6edb/certificate/a4e9c2aa4bcfab625g1b9136464cd3a
+ * ```sh
+ * $ pulumi import aws:acmpca/certificate:Certificate cert arn:aws:acm-pca:eu-west-1:675225743824:certificate-authority/08319ede-83g9-1400-8f21-c7d12b2b6edb/certificate/a4e9c2aa4bcfab625g1b9136464cd3a
+ * ```
  * 
  */
 @ResourceType(type="aws:acmpca/certificate:Certificate")

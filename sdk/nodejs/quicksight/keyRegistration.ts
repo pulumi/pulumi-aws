@@ -65,6 +65,9 @@ export class KeyRegistration extends pulumi.CustomResource {
         return obj['__pulumiType'] === KeyRegistration.__pulumiType;
     }
 
+    /**
+     * AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
+     */
     declare public readonly awsAccountId: pulumi.Output<string>;
     /**
      * Registered keys. See key_registration.
@@ -109,6 +112,9 @@ export class KeyRegistration extends pulumi.CustomResource {
  * Input properties used for looking up and filtering KeyRegistration resources.
  */
 export interface KeyRegistrationState {
+    /**
+     * AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
+     */
     awsAccountId?: pulumi.Input<string>;
     /**
      * Registered keys. See key_registration.
@@ -124,6 +130,9 @@ export interface KeyRegistrationState {
  * The set of arguments for constructing a KeyRegistration resource.
  */
 export interface KeyRegistrationArgs {
+    /**
+     * AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
+     */
     awsAccountId?: pulumi.Input<string>;
     /**
      * Registered keys. See key_registration.

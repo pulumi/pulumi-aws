@@ -149,7 +149,7 @@ namespace Pulumi.Aws.FinSpace
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import an AWS FinSpace Kx Environment using the `id`. For example:
+    /// Using `pulumi import`, import an AWS FinSpace Kx Environment using the `Id`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:finspace/kxEnvironment:KxEnvironment example n3ceo7wqxoxcti5tujqwzs

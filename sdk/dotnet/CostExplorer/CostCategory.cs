@@ -97,11 +97,13 @@ namespace Pulumi.Aws.CostExplorer
     /// 
     /// #### Required
     /// 
-    /// - `arn` (String) Amazon Resource Name (ARN) of the Cost Explorer cost category.
+    /// - `Arn` (String) Amazon Resource Name (ARN) of the Cost Explorer cost category.
     /// 
-    /// Using `pulumi import`, import `aws_ce_cost_category` using the id. For example:
+    /// Using `pulumi import`, import `aws.costexplorer.CostCategory` using the id. For example:
     /// 
-    /// % pulumi import aws_ce_cost_category.example costCategoryARN
+    /// ```sh
+    /// $ pulumi import aws:costexplorer/costCategory:CostCategory example costCategoryARN
+    /// ```
     /// </summary>
     [AwsResourceType("aws:costexplorer/costCategory:CostCategory")]
     public partial class CostCategory : global::Pulumi.CustomResource

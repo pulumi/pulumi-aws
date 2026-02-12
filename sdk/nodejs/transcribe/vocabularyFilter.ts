@@ -31,7 +31,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Using `pulumi import`, import Transcribe VocabularyFilter using the `vocabulary_filter_name`. For example:
+ * Using `pulumi import`, import Transcribe VocabularyFilter using the `vocabularyFilterName`. For example:
  *
  * ```sh
  * $ pulumi import aws:transcribe/vocabularyFilter:VocabularyFilter example example-name

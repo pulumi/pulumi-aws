@@ -60,7 +60,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Using `pulumi import`, import `aws_apigatewayv2_domain_name` using the domain name. For example:
+ * Using `pulumi import`, import `aws.apigatewayv2.DomainName` using the domain name. For example:
  *
  * ```sh
  * $ pulumi import aws:apigatewayv2/domainName:DomainName example ws-api.example.com

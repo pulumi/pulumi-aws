@@ -270,7 +270,7 @@ namespace Pulumi.Aws.Ecs
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import ECS services using the `name` together with ecs cluster `name`. For example:
+    /// Using `pulumi import`, import ECS services using the `Name` together with ecs cluster `Name`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:ecs/service:Service imported cluster-name/service-name

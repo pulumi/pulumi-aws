@@ -79,7 +79,13 @@ export class NetworkInsightsPath extends pulumi.CustomResource {
      * Destination port to analyze access to.
      */
     declare public readonly destinationPort: pulumi.Output<number | undefined>;
+    /**
+     * Scopes the analysis to network paths that match specific filters at the destination. If you specify this parameter, you can't specify `destinationIp`. See below for details. Note that Terraform performs drift detection on this argument only when the value is provided.
+     */
     declare public readonly filterAtDestination: pulumi.Output<outputs.ec2.NetworkInsightsPathFilterAtDestination>;
+    /**
+     * Scopes the analysis to network paths that match specific filters at the source. If you specify this parameter, you can't specify `sourceIp` or `destinationPort`. See below for details. Note that Terraform performs drift detection on this argument only when the value is provided.
+     */
     declare public readonly filterAtSource: pulumi.Output<outputs.ec2.NetworkInsightsPathFilterAtSource>;
     /**
      * Protocol to use for analysis. Valid options are `tcp` or `udp`.
@@ -191,7 +197,13 @@ export interface NetworkInsightsPathState {
      * Destination port to analyze access to.
      */
     destinationPort?: pulumi.Input<number>;
+    /**
+     * Scopes the analysis to network paths that match specific filters at the destination. If you specify this parameter, you can't specify `destinationIp`. See below for details. Note that Terraform performs drift detection on this argument only when the value is provided.
+     */
     filterAtDestination?: pulumi.Input<inputs.ec2.NetworkInsightsPathFilterAtDestination>;
+    /**
+     * Scopes the analysis to network paths that match specific filters at the source. If you specify this parameter, you can't specify `sourceIp` or `destinationPort`. See below for details. Note that Terraform performs drift detection on this argument only when the value is provided.
+     */
     filterAtSource?: pulumi.Input<inputs.ec2.NetworkInsightsPathFilterAtSource>;
     /**
      * Protocol to use for analysis. Valid options are `tcp` or `udp`.
@@ -241,7 +253,13 @@ export interface NetworkInsightsPathArgs {
      * Destination port to analyze access to.
      */
     destinationPort?: pulumi.Input<number>;
+    /**
+     * Scopes the analysis to network paths that match specific filters at the destination. If you specify this parameter, you can't specify `destinationIp`. See below for details. Note that Terraform performs drift detection on this argument only when the value is provided.
+     */
     filterAtDestination?: pulumi.Input<inputs.ec2.NetworkInsightsPathFilterAtDestination>;
+    /**
+     * Scopes the analysis to network paths that match specific filters at the source. If you specify this parameter, you can't specify `sourceIp` or `destinationPort`. See below for details. Note that Terraform performs drift detection on this argument only when the value is provided.
+     */
     filterAtSource?: pulumi.Input<inputs.ec2.NetworkInsightsPathFilterAtSource>;
     /**
      * Protocol to use for analysis. Valid options are `tcp` or `udp`.

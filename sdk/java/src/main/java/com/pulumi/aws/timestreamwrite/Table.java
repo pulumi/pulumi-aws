@@ -142,7 +142,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Using `pulumi import`, import Timestream tables using the `table_name` and `database_name` separate by a colon (`:`). For example:
+ * Using `pulumi import`, import Timestream tables using the `tableName` and `databaseName` separate by a colon (`:`). For example:
  * 
  * ```sh
  * $ pulumi import aws:timestreamwrite/table:Table example ExampleTable:ExampleDatabase

@@ -169,6 +169,13 @@ class PermissionSetInlinePolicy(pulumi.CustomResource):
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
+        Provides an IAM inline policy for a Single Sign-On (SSO) Permission Set resource
+
+        > **NOTE:** AWS Single Sign-On (SSO) only supports one IAM inline policy per `ssoadmin.PermissionSet` resource.
+        Creating or updating this resource will automatically [Provision the Permission Set](https://docs.aws.amazon.com/singlesignon/latest/APIReference/API_ProvisionPermissionSet.html) to apply the corresponding updates to all assigned accounts.
+
+        > **NOTE:** We suggest using `jsonencode()` or `iam_get_policy_document` when assigning a value to `inline_policy`. They seamlessly translate Terraform language into JSON, enabling you to maintain consistency within your configuration without the need for context switches. Also, you can sidestep potential complications arising from formatting discrepancies, whitespace inconsistencies, and other nuances inherent to JSON.
+
         ## Example Usage
 
         ```python
@@ -215,6 +222,13 @@ class PermissionSetInlinePolicy(pulumi.CustomResource):
                  args: PermissionSetInlinePolicyArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        Provides an IAM inline policy for a Single Sign-On (SSO) Permission Set resource
+
+        > **NOTE:** AWS Single Sign-On (SSO) only supports one IAM inline policy per `ssoadmin.PermissionSet` resource.
+        Creating or updating this resource will automatically [Provision the Permission Set](https://docs.aws.amazon.com/singlesignon/latest/APIReference/API_ProvisionPermissionSet.html) to apply the corresponding updates to all assigned accounts.
+
+        > **NOTE:** We suggest using `jsonencode()` or `iam_get_policy_document` when assigning a value to `inline_policy`. They seamlessly translate Terraform language into JSON, enabling you to maintain consistency within your configuration without the need for context switches. Also, you can sidestep potential complications arising from formatting discrepancies, whitespace inconsistencies, and other nuances inherent to JSON.
+
         ## Example Usage
 
         ```python

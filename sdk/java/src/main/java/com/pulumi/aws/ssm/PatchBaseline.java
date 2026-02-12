@@ -285,13 +285,14 @@ import javax.annotation.Nullable;
  * 
  * #### Optional
  * 
- * * `account_id` (String) AWS Account where this resource is managed.
- * 
+ * * `accountId` (String) AWS Account where this resource is managed.
  * * `region` (String) Region where this resource is managed.
  * 
  * Using `pulumi import`, import SSM Patch Baselines using their baseline ID. For example:
  * 
- * % pulumi import aws_ssm_patch_baseline.example pb-12345678
+ * ```sh
+ * $ pulumi import aws:ssm/patchBaseline:PatchBaseline example pb-12345678
+ * ```
  * 
  */
 @ResourceType(type="aws:ssm/patchBaseline:PatchBaseline")

@@ -161,9 +161,17 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="aws:sqs/queuePolicy:QueuePolicy")
 public class QueuePolicy extends com.pulumi.resources.CustomResource {
+    /**
+     * JSON policy for the SQS queue. For more information about building AWS IAM policy documents with Terraform, see the AWS IAM Policy Document Guide. Ensure that `Version = &#34;2012-10-17&#34;` is set in the policy or AWS may hang in creating the queue.
+     * 
+     */
     @Export(name="policy", refs={String.class}, tree="[0]")
     private Output<String> policy;
 
+    /**
+     * @return JSON policy for the SQS queue. For more information about building AWS IAM policy documents with Terraform, see the AWS IAM Policy Document Guide. Ensure that `Version = &#34;2012-10-17&#34;` is set in the policy or AWS may hang in creating the queue.
+     * 
+     */
     public Output<String> policy() {
         return this.policy;
     }

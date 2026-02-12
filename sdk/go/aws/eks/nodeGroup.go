@@ -167,6 +167,8 @@ import (
 //
 // import (
 //
+//	"fmt"
+//
 //	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws"
 //	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2"
 //	"github.com/pulumi/pulumi-std/sdk/go/std"
@@ -212,7 +214,7 @@ import (
 //
 // ## Import
 //
-// Using `pulumi import`, import EKS Node Groups using the `cluster_name` and `node_group_name` separated by a colon (`:`). For example:
+// Using `pulumi import`, import EKS Node Groups using the `clusterName` and `nodeGroupName` separated by a colon (`:`). For example:
 //
 // ```sh
 // $ pulumi import aws:eks/nodeGroup:NodeGroup my_node_group my_cluster:my_node_group

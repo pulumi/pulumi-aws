@@ -71,7 +71,7 @@ namespace Pulumi.Aws.CloudFormation
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import Cloudformation Stacks using the `name`. For example:
+    /// Using `pulumi import`, import Cloudformation Stacks using the `Name`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:cloudformation/stack:Stack stack networking-stack

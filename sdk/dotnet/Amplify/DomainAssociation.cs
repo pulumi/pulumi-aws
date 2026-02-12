@@ -66,7 +66,7 @@ namespace Pulumi.Aws.Amplify
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import Amplify domain association using `app_id` and `domain_name`. For example:
+    /// Using `pulumi import`, import Amplify domain association using `AppId` and `DomainName`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:amplify/domainAssociation:DomainAssociation app d2ypk4k47z8u6/example.com

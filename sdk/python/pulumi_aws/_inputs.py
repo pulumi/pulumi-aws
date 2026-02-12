@@ -34,48 +34,43 @@ __all__ = [
     'GetRegionsFilterArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class ProviderAssumeRoleArgsDict(TypedDict):
-        duration: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The duration, between 15 minutes and 12 hours, of the role session. Valid time units are ns, us (or µs), ms, s, h, or m.
-        """
-        external_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A unique identifier that might be required when you assume a role in another account.
-        """
-        policy: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        IAM Policy JSON describing further restricting permissions for the IAM Role being assumed.
-        """
-        policy_arns: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Amazon Resource Names (ARNs) of IAM Policies describing further restricting permissions for the IAM Role being assumed.
-        """
-        role_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Amazon Resource Name (ARN) of an IAM Role to assume prior to making API calls.
-        """
-        session_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        An identifier for the assumed role session.
-        """
-        source_identity: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Source identity specified by the principal assuming the role.
-        """
-        tags: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
-        """
-        Assume role session tags.
-        """
-        transitive_tag_keys: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Assume role session tag keys to pass to any subsequent sessions.
-        """
-elif False:
-    ProviderAssumeRoleArgsDict: TypeAlias = Mapping[str, Any]
+class ProviderAssumeRoleArgsDict(TypedDict):
+    duration: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The duration, between 15 minutes and 12 hours, of the role session. Valid time units are ns, us (or µs), ms, s, h, or m.
+    """
+    external_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A unique identifier that might be required when you assume a role in another account.
+    """
+    policy: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    IAM Policy JSON describing further restricting permissions for the IAM Role being assumed.
+    """
+    policy_arns: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Amazon Resource Names (ARNs) of IAM Policies describing further restricting permissions for the IAM Role being assumed.
+    """
+    role_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Amazon Resource Name (ARN) of an IAM Role to assume prior to making API calls.
+    """
+    session_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    An identifier for the assumed role session.
+    """
+    source_identity: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Source identity specified by the principal assuming the role.
+    """
+    tags: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    """
+    Assume role session tags.
+    """
+    transitive_tag_keys: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Assume role session tag keys to pass to any subsequent sessions.
+    """
 
 @pulumi.input_type
 class ProviderAssumeRoleArgs:
@@ -228,32 +223,29 @@ class ProviderAssumeRoleArgs:
         pulumi.set(self, "transitive_tag_keys", value)
 
 
-if not MYPY:
-    class ProviderAssumeRoleWithWebIdentityArgsDict(TypedDict):
-        duration: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The duration, between 15 minutes and 12 hours, of the role session. Valid time units are ns, us (or µs), ms, s, h, or m.
-        """
-        policy: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        IAM Policy JSON describing further restricting permissions for the IAM Role being assumed.
-        """
-        policy_arns: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Amazon Resource Names (ARNs) of IAM Policies describing further restricting permissions for the IAM Role being assumed.
-        """
-        role_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Amazon Resource Name (ARN) of an IAM Role to assume prior to making API calls.
-        """
-        session_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        An identifier for the assumed role session.
-        """
-        web_identity_token: NotRequired[pulumi.Input[_builtins.str]]
-        web_identity_token_file: NotRequired[pulumi.Input[_builtins.str]]
-elif False:
-    ProviderAssumeRoleWithWebIdentityArgsDict: TypeAlias = Mapping[str, Any]
+class ProviderAssumeRoleWithWebIdentityArgsDict(TypedDict):
+    duration: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The duration, between 15 minutes and 12 hours, of the role session. Valid time units are ns, us (or µs), ms, s, h, or m.
+    """
+    policy: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    IAM Policy JSON describing further restricting permissions for the IAM Role being assumed.
+    """
+    policy_arns: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Amazon Resource Names (ARNs) of IAM Policies describing further restricting permissions for the IAM Role being assumed.
+    """
+    role_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Amazon Resource Name (ARN) of an IAM Role to assume prior to making API calls.
+    """
+    session_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    An identifier for the assumed role session.
+    """
+    web_identity_token: NotRequired[pulumi.Input[_builtins.str]]
+    web_identity_token_file: NotRequired[pulumi.Input[_builtins.str]]
 
 @pulumi.input_type
 class ProviderAssumeRoleWithWebIdentityArgs:
@@ -366,14 +358,11 @@ class ProviderAssumeRoleWithWebIdentityArgs:
         pulumi.set(self, "web_identity_token_file", value)
 
 
-if not MYPY:
-    class ProviderDefaultTagsArgsDict(TypedDict):
-        tags: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
-        """
-        Resource tags to default across all resources. Can also be configured with environment variables like `TF_AWS_DEFAULT_TAGS_<tag_name>`.
-        """
-elif False:
-    ProviderDefaultTagsArgsDict: TypeAlias = Mapping[str, Any]
+class ProviderDefaultTagsArgsDict(TypedDict):
+    tags: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    """
+    Resource tags to default across all resources. Can also be configured with environment variables like `TF_AWS_DEFAULT_TAGS_<tag_name>`.
+    """
 
 @pulumi.input_type
 class ProviderDefaultTagsArgs:
@@ -398,1246 +387,1243 @@ class ProviderDefaultTagsArgs:
         pulumi.set(self, "tags", value)
 
 
-if not MYPY:
-    class ProviderEndpointArgsDict(TypedDict):
-        accessanalyzer: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        account: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        acm: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        acmpca: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        amg: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        amp: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        amplify: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        apigateway: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        apigatewayv2: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        appautoscaling: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        appconfig: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        appfabric: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        appflow: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        appintegrations: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        appintegrationsservice: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        applicationautoscaling: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        applicationinsights: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        applicationsignals: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        appmesh: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        appregistry: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        apprunner: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        appstream: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        appsync: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        arcregionswitch: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        arczonalshift: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        athena: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        auditmanager: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        autoscaling: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        autoscalingplans: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        backup: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        batch: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        bcmdataexports: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        beanstalk: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        bedrock: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        bedrockagent: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        bedrockagentcore: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        billing: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        budgets: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        ce: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        chatbot: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        chime: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        chimesdkmediapipelines: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        chimesdkvoice: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        cleanrooms: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        cloud9: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        cloudcontrol: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        cloudcontrolapi: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        cloudformation: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        cloudfront: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        cloudfrontkeyvaluestore: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        cloudhsm: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        cloudhsmv2: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        cloudsearch: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        cloudtrail: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        cloudwatch: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        cloudwatchevents: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        cloudwatchevidently: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        cloudwatchlog: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        cloudwatchlogs: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        cloudwatchobservabilityaccessmanager: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        cloudwatchrum: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        codeartifact: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        codebuild: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        codecatalyst: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        codecommit: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        codeconnections: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        codedeploy: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        codeguruprofiler: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        codegurureviewer: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        codepipeline: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        codestarconnections: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        codestarnotifications: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        cognitoidentity: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        cognitoidentityprovider: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        cognitoidp: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        comprehend: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        computeoptimizer: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        config: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        configservice: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        connect: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        connectcases: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        controltower: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        costandusagereportservice: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        costexplorer: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        costoptimizationhub: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        cur: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        customerprofiles: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        databasemigration: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        databasemigrationservice: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        databrew: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        dataexchange: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        datapipeline: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        datasync: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        datazone: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        dax: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        deploy: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        detective: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        devicefarm: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        devopsguru: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        directconnect: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        directoryservice: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        dlm: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        dms: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        docdb: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        docdbelastic: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        drs: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        ds: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        dsql: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        dynamodb: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        ec2: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        ecr: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        ecrpublic: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        ecs: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        efs: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        eks: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        elasticache: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        elasticbeanstalk: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        elasticloadbalancing: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        elasticloadbalancingv2: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        elasticsearch: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        elasticsearchservice: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        elastictranscoder: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        elb: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        elbv2: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        emr: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        emrcontainers: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        emrserverless: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        es: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        eventbridge: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        events: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        evidently: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        evs: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        finspace: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        firehose: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        fis: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        fms: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        fsx: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        gamelift: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        glacier: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        globalaccelerator: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        glue: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        gluedatabrew: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        grafana: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        greengrass: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        groundstation: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        guardduty: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        healthlake: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        iam: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        identitystore: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        imagebuilder: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        inspector: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        inspector2: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        inspectorv2: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        internetmonitor: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        invoicing: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        iot: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        ivs: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        ivschat: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        kafka: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        kafkaconnect: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        kendra: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        keyspaces: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        kinesis: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        kinesisanalytics: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        kinesisanalyticsv2: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        kinesisvideo: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        kms: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        lakeformation: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        lambda_: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        launchwizard: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        lex: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        lexmodelbuilding: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        lexmodelbuildingservice: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        lexmodels: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        lexmodelsv2: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        lexv2models: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        licensemanager: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        lightsail: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        location: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        locationservice: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        logs: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        m2: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        macie2: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        managedgrafana: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        mediaconnect: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        mediaconvert: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        medialive: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        mediapackage: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        mediapackagev2: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        mediapackagevod: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        mediastore: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        memorydb: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        mgn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        mpa: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        mq: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        msk: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        mwaa: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        mwaaserverless: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        neptune: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        neptunegraph: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        networkfirewall: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        networkflowmonitor: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        networkmanager: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        networkmonitor: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        notifications: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        notificationscontacts: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        oam: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        observabilityadmin: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        odb: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        opensearch: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        opensearchingestion: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        opensearchserverless: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        opensearchservice: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        organizations: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        osis: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        outposts: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        paymentcryptography: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        pcaconnectorad: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        pcs: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        pinpoint: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        pinpointsmsvoicev2: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        pipes: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        polly: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        pricing: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        prometheus: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        prometheusservice: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        qbusiness: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        qldb: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        quicksight: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        ram: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        rbin: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        rds: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        rdsdata: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        rdsdataservice: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        recyclebin: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        redshift: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        redshiftdata: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        redshiftdataapiservice: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        redshiftserverless: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        rekognition: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        resiliencehub: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        resourceexplorer2: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        resourcegroups: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        resourcegroupstagging: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        resourcegroupstaggingapi: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        rolesanywhere: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        route53: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        route53domains: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        route53profiles: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        route53recoverycontrolconfig: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        route53recoveryreadiness: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        route53resolver: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        rum: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        s3: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        s3api: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        s3control: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        s3outposts: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        s3tables: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        s3vectors: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        sagemaker: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        savingsplans: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        scheduler: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        schemas: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        secretsmanager: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        securityhub: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        securitylake: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        serverlessapplicationrepository: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        serverlessapprepo: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        serverlessrepo: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        servicecatalog: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        servicecatalogappregistry: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        servicediscovery: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        servicequotas: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        ses: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        sesv2: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        sfn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        shield: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        signer: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        sns: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        sqs: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        ssm: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        ssmcontacts: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        ssmincidents: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        ssmquicksetup: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        ssmsap: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        sso: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        ssoadmin: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        stepfunctions: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        storagegateway: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        sts: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        swf: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        synthetics: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        taxsettings: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        timestreaminfluxdb: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        timestreamquery: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        timestreamwrite: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        transcribe: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        transcribeservice: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        transfer: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        verifiedpermissions: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        vpclattice: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        waf: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        wafregional: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        wafv2: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        wellarchitected: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        workmail: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        workspaces: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        workspacesweb: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-        xray: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to override the default service endpoint URL
-        """
-elif False:
-    ProviderEndpointArgsDict: TypeAlias = Mapping[str, Any]
+class ProviderEndpointArgsDict(TypedDict):
+    accessanalyzer: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    account: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    acm: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    acmpca: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    amg: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    amp: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    amplify: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    apigateway: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    apigatewayv2: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    appautoscaling: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    appconfig: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    appfabric: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    appflow: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    appintegrations: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    appintegrationsservice: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    applicationautoscaling: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    applicationinsights: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    applicationsignals: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    appmesh: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    appregistry: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    apprunner: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    appstream: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    appsync: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    arcregionswitch: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    arczonalshift: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    athena: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    auditmanager: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    autoscaling: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    autoscalingplans: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    backup: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    batch: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    bcmdataexports: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    beanstalk: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    bedrock: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    bedrockagent: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    bedrockagentcore: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    billing: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    budgets: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    ce: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    chatbot: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    chime: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    chimesdkmediapipelines: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    chimesdkvoice: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    cleanrooms: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    cloud9: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    cloudcontrol: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    cloudcontrolapi: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    cloudformation: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    cloudfront: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    cloudfrontkeyvaluestore: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    cloudhsm: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    cloudhsmv2: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    cloudsearch: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    cloudtrail: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    cloudwatch: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    cloudwatchevents: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    cloudwatchevidently: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    cloudwatchlog: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    cloudwatchlogs: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    cloudwatchobservabilityaccessmanager: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    cloudwatchrum: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    codeartifact: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    codebuild: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    codecatalyst: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    codecommit: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    codeconnections: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    codedeploy: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    codeguruprofiler: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    codegurureviewer: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    codepipeline: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    codestarconnections: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    codestarnotifications: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    cognitoidentity: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    cognitoidentityprovider: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    cognitoidp: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    comprehend: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    computeoptimizer: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    config: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    configservice: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    connect: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    connectcases: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    controltower: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    costandusagereportservice: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    costexplorer: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    costoptimizationhub: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    cur: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    customerprofiles: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    databasemigration: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    databasemigrationservice: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    databrew: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    dataexchange: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    datapipeline: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    datasync: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    datazone: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    dax: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    deploy: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    detective: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    devicefarm: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    devopsguru: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    directconnect: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    directoryservice: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    dlm: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    dms: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    docdb: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    docdbelastic: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    drs: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    ds: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    dsql: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    dynamodb: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    ec2: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    ecr: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    ecrpublic: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    ecs: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    efs: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    eks: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    elasticache: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    elasticbeanstalk: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    elasticloadbalancing: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    elasticloadbalancingv2: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    elasticsearch: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    elasticsearchservice: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    elastictranscoder: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    elb: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    elbv2: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    emr: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    emrcontainers: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    emrserverless: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    es: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    eventbridge: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    events: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    evidently: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    evs: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    finspace: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    firehose: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    fis: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    fms: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    fsx: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    gamelift: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    glacier: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    globalaccelerator: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    glue: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    gluedatabrew: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    grafana: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    greengrass: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    groundstation: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    guardduty: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    healthlake: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    iam: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    identitystore: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    imagebuilder: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    inspector: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    inspector2: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    inspectorv2: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    internetmonitor: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    invoicing: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    iot: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    ivs: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    ivschat: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    kafka: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    kafkaconnect: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    kendra: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    keyspaces: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    kinesis: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    kinesisanalytics: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    kinesisanalyticsv2: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    kinesisvideo: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    kms: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    lakeformation: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    lambda_: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    launchwizard: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    lex: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    lexmodelbuilding: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    lexmodelbuildingservice: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    lexmodels: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    lexmodelsv2: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    lexv2models: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    licensemanager: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    lightsail: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    location: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    locationservice: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    logs: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    m2: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    macie2: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    managedgrafana: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    mediaconnect: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    mediaconvert: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    medialive: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    mediapackage: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    mediapackagev2: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    mediapackagevod: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    mediastore: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    memorydb: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    mgn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    mpa: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    mq: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    msk: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    mwaa: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    mwaaserverless: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    neptune: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    neptunegraph: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    networkfirewall: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    networkflowmonitor: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    networkmanager: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    networkmonitor: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    notifications: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    notificationscontacts: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    oam: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    observabilityadmin: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    odb: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    opensearch: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    opensearchingestion: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    opensearchserverless: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    opensearchservice: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    organizations: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    osis: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    outposts: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    paymentcryptography: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    pcaconnectorad: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    pcs: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    pinpoint: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    pinpointsmsvoicev2: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    pipes: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    polly: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    pricing: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    prometheus: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    prometheusservice: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    qbusiness: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    qldb: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    quicksight: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    ram: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    rbin: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    rds: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    rdsdata: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    rdsdataservice: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    recyclebin: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    redshift: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    redshiftdata: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    redshiftdataapiservice: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    redshiftserverless: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    rekognition: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    resiliencehub: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    resourceexplorer2: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    resourcegroups: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    resourcegroupstagging: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    resourcegroupstaggingapi: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    rolesanywhere: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    route53: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    route53domains: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    route53profiles: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    route53recoverycontrolconfig: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    route53recoveryreadiness: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    route53resolver: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    rum: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    s3: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    s3api: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    s3control: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    s3outposts: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    s3tables: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    s3vectors: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    sagemaker: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    savingsplans: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    scheduler: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    schemas: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    secretsmanager: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    securityhub: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    securitylake: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    serverlessapplicationrepository: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    serverlessapprepo: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    serverlessrepo: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    servicecatalog: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    servicecatalogappregistry: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    servicediscovery: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    servicequotas: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    ses: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    sesv2: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    sfn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    shield: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    signer: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    sns: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    sqs: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    ssm: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    ssmcontacts: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    ssmincidents: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    ssmquicksetup: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    ssmsap: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    sso: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    ssoadmin: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    stepfunctions: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    storagegateway: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    sts: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    swf: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    synthetics: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    taxsettings: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    timestreaminfluxdb: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    timestreamquery: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    timestreamwrite: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    transcribe: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    transcribeservice: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    transfer: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    verifiedpermissions: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    vpclattice: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    waf: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    wafregional: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    wafv2: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    wellarchitected: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    workmail: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    workspaces: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    workspacesweb: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
+    xray: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to override the default service endpoint URL
+    """
 
 @pulumi.input_type
 class ProviderEndpointArgs:
@@ -6590,18 +6576,15 @@ class ProviderEndpointArgs:
         pulumi.set(self, "xray", value)
 
 
-if not MYPY:
-    class ProviderIgnoreTagsArgsDict(TypedDict):
-        key_prefixes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Resource tag key prefixes to ignore across all resources. Can also be configured with the TF_AWS_IGNORE_TAGS_KEY_PREFIXES environment variable.
-        """
-        keys: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Resource tag keys to ignore across all resources. Can also be configured with the TF_AWS_IGNORE_TAGS_KEYS environment variable.
-        """
-elif False:
-    ProviderIgnoreTagsArgsDict: TypeAlias = Mapping[str, Any]
+class ProviderIgnoreTagsArgsDict(TypedDict):
+    key_prefixes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Resource tag key prefixes to ignore across all resources. Can also be configured with the TF_AWS_IGNORE_TAGS_KEY_PREFIXES environment variable.
+    """
+    keys: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Resource tag keys to ignore across all resources. Can also be configured with the TF_AWS_IGNORE_TAGS_KEYS environment variable.
+    """
 
 @pulumi.input_type
 class ProviderIgnoreTagsArgs:
@@ -6642,18 +6625,15 @@ class ProviderIgnoreTagsArgs:
         pulumi.set(self, "keys", value)
 
 
-if not MYPY:
-    class GetAvailabilityZoneFilterArgsDict(TypedDict):
-        name: _builtins.str
-        """
-        Name of the filter field. Valid values can be found in the [EC2 DescribeAvailabilityZones API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeAvailabilityZones.html).
-        """
-        values: Sequence[_builtins.str]
-        """
-        Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
-        """
-elif False:
-    GetAvailabilityZoneFilterArgsDict: TypeAlias = Mapping[str, Any]
+class GetAvailabilityZoneFilterArgsDict(TypedDict):
+    name: _builtins.str
+    """
+    Name of the filter field. Valid values can be found in the [EC2 DescribeAvailabilityZones API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeAvailabilityZones.html).
+    """
+    values: Sequence[_builtins.str]
+    """
+    Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
+    """
 
 @pulumi.input_type
 class GetAvailabilityZoneFilterArgs:
@@ -6692,18 +6672,15 @@ class GetAvailabilityZoneFilterArgs:
         pulumi.set(self, "values", value)
 
 
-if not MYPY:
-    class GetAvailabilityZonesFilterArgsDict(TypedDict):
-        name: _builtins.str
-        """
-        Name of the filter field. Valid values can be found in the [EC2 DescribeAvailabilityZones API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeAvailabilityZones.html).
-        """
-        values: Sequence[_builtins.str]
-        """
-        Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
-        """
-elif False:
-    GetAvailabilityZonesFilterArgsDict: TypeAlias = Mapping[str, Any]
+class GetAvailabilityZonesFilterArgsDict(TypedDict):
+    name: _builtins.str
+    """
+    Name of the filter field. Valid values can be found in the [EC2 DescribeAvailabilityZones API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeAvailabilityZones.html).
+    """
+    values: Sequence[_builtins.str]
+    """
+    Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
+    """
 
 @pulumi.input_type
 class GetAvailabilityZonesFilterArgs:
@@ -6742,18 +6719,15 @@ class GetAvailabilityZonesFilterArgs:
         pulumi.set(self, "values", value)
 
 
-if not MYPY:
-    class GetRegionsFilterArgsDict(TypedDict):
-        name: _builtins.str
-        """
-        Name of the filter field. Valid values can be found in the [describe-regions AWS CLI Reference][1].
-        """
-        values: Sequence[_builtins.str]
-        """
-        Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
-        """
-elif False:
-    GetRegionsFilterArgsDict: TypeAlias = Mapping[str, Any]
+class GetRegionsFilterArgsDict(TypedDict):
+    name: _builtins.str
+    """
+    Name of the filter field. Valid values can be found in the [describe-regions AWS CLI Reference][1].
+    """
+    values: Sequence[_builtins.str]
+    """
+    Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
+    """
 
 @pulumi.input_type
 class GetRegionsFilterArgs:

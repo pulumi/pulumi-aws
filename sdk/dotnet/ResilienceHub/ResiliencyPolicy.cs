@@ -58,7 +58,7 @@ namespace Pulumi.Aws.ResilienceHub
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import Resilience Hub Resiliency Policy using the `arn`. For example:
+    /// Using `pulumi import`, import Resilience Hub Resiliency Policy using the `Arn`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:resiliencehub/resiliencyPolicy:ResiliencyPolicy example arn:aws:resiliencehub:us-east-1:123456789012:resiliency-policy/8c1cfa29-d1dd-4421-aa68-c9f64cced4c2

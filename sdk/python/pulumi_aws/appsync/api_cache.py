@@ -287,7 +287,7 @@ class ApiCache(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import `aws_appsync_api_cache` using the AppSync API ID. For example:
+        Using `pulumi import`, import `appsync.ApiCache` using the AppSync API ID. For example:
 
         ```sh
         $ pulumi import aws:appsync/apiCache:ApiCache example xxxxx
@@ -330,7 +330,7 @@ class ApiCache(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import `aws_appsync_api_cache` using the AppSync API ID. For example:
+        Using `pulumi import`, import `appsync.ApiCache` using the AppSync API ID. For example:
 
         ```sh
         $ pulumi import aws:appsync/apiCache:ApiCache example xxxxx

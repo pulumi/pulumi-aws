@@ -77,7 +77,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Using `pulumi import`, import endpoints using the `endpoint_id`. For example:
+ * Using `pulumi import`, import endpoints using the `endpointId`. For example:
  * 
  * ```sh
  * $ pulumi import aws:dms/endpoint:Endpoint test test-dms-endpoint-tf
@@ -300,9 +300,17 @@ public class Endpoint extends com.pulumi.resources.CustomResource {
     public Output<Optional<String>> password() {
         return Codegen.optional(this.password);
     }
+    /**
+     * Whether to pause associated running replication tasks, regardless if they are managed by Terraform, prior to modifying the endpoint. Only tasks paused by the resource will be restarted after the modification completes. Default is `false`.
+     * 
+     */
     @Export(name="pauseReplicationTasks", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> pauseReplicationTasks;
 
+    /**
+     * @return Whether to pause associated running replication tasks, regardless if they are managed by Terraform, prior to modifying the endpoint. Only tasks paused by the resource will be restarted after the modification completes. Default is `false`.
+     * 
+     */
     public Output<Optional<Boolean>> pauseReplicationTasks() {
         return Codegen.optional(this.pauseReplicationTasks);
     }

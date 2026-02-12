@@ -78,7 +78,7 @@ namespace Pulumi.Aws.Ses
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import SES Configuration Sets using their `name`. For example:
+    /// Using `pulumi import`, import SES Configuration Sets using their `Name`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:ses/configurationSet:ConfigurationSet test some-configuration-set-test

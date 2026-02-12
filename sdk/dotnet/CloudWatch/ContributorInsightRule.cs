@@ -36,7 +36,7 @@ namespace Pulumi.Aws.CloudWatch
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import CloudWatch Contributor Insight Rule using the `rule_name`. For example:
+    /// Using `pulumi import`, import CloudWatch Contributor Insight Rule using the `RuleName`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:cloudwatch/contributorInsightRule:ContributorInsightRule example contributor_insight_rule-name

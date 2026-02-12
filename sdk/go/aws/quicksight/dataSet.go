@@ -294,7 +294,8 @@ type DataSet struct {
 	pulumi.CustomResourceState
 
 	// Amazon Resource Name (ARN) of the data set.
-	Arn          pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
 	AwsAccountId pulumi.StringOutput `pulumi:"awsAccountId"`
 	// Groupings of columns that work together in certain Amazon QuickSight features. Currently, only geospatial hierarchy is supported. See column_groups.
 	ColumnGroups DataSetColumnGroupArrayOutput `pulumi:"columnGroups"`
@@ -371,7 +372,8 @@ func GetDataSet(ctx *pulumi.Context,
 // Input properties used for looking up and filtering DataSet resources.
 type dataSetState struct {
 	// Amazon Resource Name (ARN) of the data set.
-	Arn          *string `pulumi:"arn"`
+	Arn *string `pulumi:"arn"`
+	// AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
 	AwsAccountId *string `pulumi:"awsAccountId"`
 	// Groupings of columns that work together in certain Amazon QuickSight features. Currently, only geospatial hierarchy is supported. See column_groups.
 	ColumnGroups []DataSetColumnGroup `pulumi:"columnGroups"`
@@ -413,7 +415,8 @@ type dataSetState struct {
 
 type DataSetState struct {
 	// Amazon Resource Name (ARN) of the data set.
-	Arn          pulumi.StringPtrInput
+	Arn pulumi.StringPtrInput
+	// AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
 	AwsAccountId pulumi.StringPtrInput
 	// Groupings of columns that work together in certain Amazon QuickSight features. Currently, only geospatial hierarchy is supported. See column_groups.
 	ColumnGroups DataSetColumnGroupArrayInput
@@ -458,6 +461,7 @@ func (DataSetState) ElementType() reflect.Type {
 }
 
 type dataSetArgs struct {
+	// AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
 	AwsAccountId *string `pulumi:"awsAccountId"`
 	// Groupings of columns that work together in certain Amazon QuickSight features. Currently, only geospatial hierarchy is supported. See column_groups.
 	ColumnGroups []DataSetColumnGroup `pulumi:"columnGroups"`
@@ -495,6 +499,7 @@ type dataSetArgs struct {
 
 // The set of arguments for constructing a DataSet resource.
 type DataSetArgs struct {
+	// AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
 	AwsAccountId pulumi.StringPtrInput
 	// Groupings of columns that work together in certain Amazon QuickSight features. Currently, only geospatial hierarchy is supported. See column_groups.
 	ColumnGroups DataSetColumnGroupArrayInput
@@ -622,6 +627,7 @@ func (o DataSetOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *DataSet) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
 func (o DataSetOutput) AwsAccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *DataSet) pulumi.StringOutput { return v.AwsAccountId }).(pulumi.StringOutput)
 }

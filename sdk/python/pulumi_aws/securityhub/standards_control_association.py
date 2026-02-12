@@ -210,6 +210,14 @@ class StandardsControlAssociation(pulumi.CustomResource):
                  updated_reason: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
+        Resource for managing an AWS Security Hub Standards Control Association.
+
+        Disable/enable Security Hub security control in the standard.
+
+        The `securityhub.StandardsControlAssociation`, similarly to `securityhub.StandardsControl`,
+        behaves differently from normal resources, in that Terraform does not _create_ this resource, but instead "adopts" it
+        into management. When you _delete_ this resource configuration, Terraform "abandons" resource as is and just removes it from the state.
+
         ## Example Usage
 
         ### Basic usage
@@ -263,6 +271,14 @@ class StandardsControlAssociation(pulumi.CustomResource):
                  args: StandardsControlAssociationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        Resource for managing an AWS Security Hub Standards Control Association.
+
+        Disable/enable Security Hub security control in the standard.
+
+        The `securityhub.StandardsControlAssociation`, similarly to `securityhub.StandardsControl`,
+        behaves differently from normal resources, in that Terraform does not _create_ this resource, but instead "adopts" it
+        into management. When you _delete_ this resource configuration, Terraform "abandons" resource as is and just removes it from the state.
+
         ## Example Usage
 
         ### Basic usage

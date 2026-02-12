@@ -87,6 +87,12 @@ namespace Pulumi.Aws.Route53.Inputs
         [Input("setIdentifier")]
         public Input<string>? SetIdentifier { get; set; }
 
+        /// <summary>
+        /// ID of the traffic policy instance that Route 53 created this resource record set for.
+        /// To delete the resource record set that is associated with a traffic policy instance, use the `DeleteTrafficPolicyInstance` API.
+        /// Route 53 will delete the resource record set automatically.
+        /// If the resource record set is deleted via `ChangeResourceRecordSets` (the API underpinning this Terraform resource), Route 53 doesn't automatically delete the traffic policy instance, and you'll continue to be charged for it.
+        /// </summary>
         [Input("trafficPolicyInstanceId")]
         public Input<string>? TrafficPolicyInstanceId { get; set; }
 

@@ -51,24 +51,19 @@ __all__ = [
     'WorkgroupConfigurationResultConfigurationEncryptionConfigurationArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class CapacityReservationTimeoutsArgsDict(TypedDict):
-        create: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
-        """
-        delete: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
-        """
-        update: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
-        """
-elif False:
-    CapacityReservationTimeoutsArgsDict: TypeAlias = Mapping[str, Any]
+class CapacityReservationTimeoutsArgsDict(TypedDict):
+    create: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+    """
+    delete: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+    """
+    update: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+    """
 
 @pulumi.input_type
 class CapacityReservationTimeoutsArgs:
@@ -125,16 +120,13 @@ class CapacityReservationTimeoutsArgs:
         pulumi.set(self, "update", value)
 
 
-if not MYPY:
-    class DatabaseAclConfigurationArgsDict(TypedDict):
-        s3_acl_option: pulumi.Input[_builtins.str]
-        """
-        Amazon S3 canned ACL that Athena should specify when storing query results. Valid value is `BUCKET_OWNER_FULL_CONTROL`.
+class DatabaseAclConfigurationArgsDict(TypedDict):
+    s3_acl_option: pulumi.Input[_builtins.str]
+    """
+    Amazon S3 canned ACL that Athena should specify when storing query results. Valid value is `BUCKET_OWNER_FULL_CONTROL`.
 
-        > **NOTE:** When Athena queries are executed, result files may be created in the specified bucket. Consider using `force_destroy` on the bucket too in order to avoid any problems when destroying the bucket.
-        """
-elif False:
-    DatabaseAclConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+    > **NOTE:** When Athena queries are executed, result files may be created in the specified bucket. Consider using `force_destroy` on the bucket too in order to avoid any problems when destroying the bucket.
+    """
 
 @pulumi.input_type
 class DatabaseAclConfigurationArgs:
@@ -162,18 +154,15 @@ class DatabaseAclConfigurationArgs:
         pulumi.set(self, "s3_acl_option", value)
 
 
-if not MYPY:
-    class DatabaseEncryptionConfigurationArgsDict(TypedDict):
-        encryption_option: pulumi.Input[_builtins.str]
-        """
-        Type of key; one of `SSE_S3`, `SSE_KMS`, `CSE_KMS`
-        """
-        kms_key: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        KMS key ARN or ID; required for key types `SSE_KMS` and `CSE_KMS`.
-        """
-elif False:
-    DatabaseEncryptionConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class DatabaseEncryptionConfigurationArgsDict(TypedDict):
+    encryption_option: pulumi.Input[_builtins.str]
+    """
+    Type of key; one of `SSE_S3`, `SSE_KMS`, `CSE_KMS`
+    """
+    kms_key: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    KMS key ARN or ID; required for key types `SSE_KMS` and `CSE_KMS`.
+    """
 
 @pulumi.input_type
 class DatabaseEncryptionConfigurationArgs:
@@ -213,58 +202,55 @@ class DatabaseEncryptionConfigurationArgs:
         pulumi.set(self, "kms_key", value)
 
 
-if not MYPY:
-    class WorkgroupConfigurationArgsDict(TypedDict):
-        bytes_scanned_cutoff_per_query: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Integer for the upper data usage limit (cutoff) for the amount of bytes a single query in a workgroup is allowed to scan. Must be at least `10485760`.
-        """
-        customer_content_encryption_configuration: NotRequired[pulumi.Input['WorkgroupConfigurationCustomerContentEncryptionConfigurationArgsDict']]
-        """
-        Configuration block to specify the KMS key that is used to encrypt the user's data stores in Athena. This setting applies to the PySpark engine for Athena notebooks. See Customer Content Encryption Configuration below.
-        """
-        enable_minimum_encryption_configuration: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Boolean indicating whether a minimum level of encryption is enforced for the workgroup for query and calculation results written to Amazon S3.
-        """
-        enforce_workgroup_configuration: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Boolean whether the settings for the workgroup override client-side settings. For more information, see [Workgroup Settings Override Client-Side Settings](https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings-override.html). Defaults to `true`.
-        """
-        engine_version: NotRequired[pulumi.Input['WorkgroupConfigurationEngineVersionArgsDict']]
-        """
-        Configuration block for the Athena Engine Versioning. For more information, see [Athena Engine Versioning](https://docs.aws.amazon.com/athena/latest/ug/engine-versions.html). See Engine Version below.
-        """
-        execution_role: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Role used to access user resources in notebook sessions and IAM Identity Center enabled workgroups. The property is required for IAM Identity Center enabled workgroups.
-        """
-        identity_center_configuration: NotRequired[pulumi.Input['WorkgroupConfigurationIdentityCenterConfigurationArgsDict']]
-        """
-        Configuration block to set up an IAM Identity Center enabled workgroup. See Identity Center Configuration below.
-        """
-        managed_query_results_configuration: NotRequired[pulumi.Input['WorkgroupConfigurationManagedQueryResultsConfigurationArgsDict']]
-        """
-        Configuration block for storing results in Athena owned storage. See Managed Query Results Configuration below.
-        """
-        monitoring_configuration: NotRequired[pulumi.Input['WorkgroupConfigurationMonitoringConfigurationArgsDict']]
-        """
-        Configuration block for managed log persistence, delivering logs to Amazon S3 buckets, Amazon CloudWatch log groups etc. Only applicable to Apache Spark engine. See Monitoring Configuration below.
-        """
-        publish_cloudwatch_metrics_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Boolean whether Amazon CloudWatch metrics are enabled for the workgroup. Defaults to `true`.
-        """
-        requester_pays_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        If set to true , allows members assigned to a workgroup to reference Amazon S3 Requester Pays buckets in queries. If set to false , workgroup members cannot query data from Requester Pays buckets, and queries that retrieve data from Requester Pays buckets cause an error. The default is false . For more information about Requester Pays buckets, see [Requester Pays Buckets](https://docs.aws.amazon.com/AmazonS3/latest/dev/RequesterPaysBuckets.html) in the Amazon Simple Storage Service Developer Guide.
-        """
-        result_configuration: NotRequired[pulumi.Input['WorkgroupConfigurationResultConfigurationArgsDict']]
-        """
-        Configuration block with result settings. See Result Configuration below.
-        """
-elif False:
-    WorkgroupConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class WorkgroupConfigurationArgsDict(TypedDict):
+    bytes_scanned_cutoff_per_query: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Integer for the upper data usage limit (cutoff) for the amount of bytes a single query in a workgroup is allowed to scan. Must be at least `10485760`.
+    """
+    customer_content_encryption_configuration: NotRequired[pulumi.Input['WorkgroupConfigurationCustomerContentEncryptionConfigurationArgsDict']]
+    """
+    Configuration block to specify the KMS key that is used to encrypt the user's data stores in Athena. This setting applies to the PySpark engine for Athena notebooks. See Customer Content Encryption Configuration below.
+    """
+    enable_minimum_encryption_configuration: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Boolean indicating whether a minimum level of encryption is enforced for the workgroup for query and calculation results written to Amazon S3.
+    """
+    enforce_workgroup_configuration: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Boolean whether the settings for the workgroup override client-side settings. For more information, see [Workgroup Settings Override Client-Side Settings](https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings-override.html). Defaults to `true`.
+    """
+    engine_version: NotRequired[pulumi.Input['WorkgroupConfigurationEngineVersionArgsDict']]
+    """
+    Configuration block for the Athena Engine Versioning. For more information, see [Athena Engine Versioning](https://docs.aws.amazon.com/athena/latest/ug/engine-versions.html). See Engine Version below.
+    """
+    execution_role: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Role used to access user resources in notebook sessions and IAM Identity Center enabled workgroups. The property is required for IAM Identity Center enabled workgroups.
+    """
+    identity_center_configuration: NotRequired[pulumi.Input['WorkgroupConfigurationIdentityCenterConfigurationArgsDict']]
+    """
+    Configuration block to set up an IAM Identity Center enabled workgroup. See Identity Center Configuration below.
+    """
+    managed_query_results_configuration: NotRequired[pulumi.Input['WorkgroupConfigurationManagedQueryResultsConfigurationArgsDict']]
+    """
+    Configuration block for storing results in Athena owned storage. See Managed Query Results Configuration below.
+    """
+    monitoring_configuration: NotRequired[pulumi.Input['WorkgroupConfigurationMonitoringConfigurationArgsDict']]
+    """
+    Configuration block for managed log persistence, delivering logs to Amazon S3 buckets, Amazon CloudWatch log groups etc. Only applicable to Apache Spark engine. See Monitoring Configuration below.
+    """
+    publish_cloudwatch_metrics_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Boolean whether Amazon CloudWatch metrics are enabled for the workgroup. Defaults to `true`.
+    """
+    requester_pays_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    If set to true , allows members assigned to a workgroup to reference Amazon S3 Requester Pays buckets in queries. If set to false , workgroup members cannot query data from Requester Pays buckets, and queries that retrieve data from Requester Pays buckets cause an error. The default is false . For more information about Requester Pays buckets, see [Requester Pays Buckets](https://docs.aws.amazon.com/AmazonS3/latest/dev/RequesterPaysBuckets.html) in the Amazon Simple Storage Service Developer Guide.
+    """
+    result_configuration: NotRequired[pulumi.Input['WorkgroupConfigurationResultConfigurationArgsDict']]
+    """
+    Configuration block with result settings. See Result Configuration below.
+    """
 
 @pulumi.input_type
 class WorkgroupConfigurationArgs:
@@ -465,11 +451,8 @@ class WorkgroupConfigurationArgs:
         pulumi.set(self, "result_configuration", value)
 
 
-if not MYPY:
-    class WorkgroupConfigurationCustomerContentEncryptionConfigurationArgsDict(TypedDict):
-        kms_key: NotRequired[pulumi.Input[_builtins.str]]
-elif False:
-    WorkgroupConfigurationCustomerContentEncryptionConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class WorkgroupConfigurationCustomerContentEncryptionConfigurationArgsDict(TypedDict):
+    kms_key: NotRequired[pulumi.Input[_builtins.str]]
 
 @pulumi.input_type
 class WorkgroupConfigurationCustomerContentEncryptionConfigurationArgs:
@@ -488,18 +471,15 @@ class WorkgroupConfigurationCustomerContentEncryptionConfigurationArgs:
         pulumi.set(self, "kms_key", value)
 
 
-if not MYPY:
-    class WorkgroupConfigurationEngineVersionArgsDict(TypedDict):
-        effective_engine_version: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The engine version on which the query runs. If `selected_engine_version` is set to `AUTO`, the effective engine version is chosen by Athena.
-        """
-        selected_engine_version: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Requested engine version. Defaults to `AUTO`.
-        """
-elif False:
-    WorkgroupConfigurationEngineVersionArgsDict: TypeAlias = Mapping[str, Any]
+class WorkgroupConfigurationEngineVersionArgsDict(TypedDict):
+    effective_engine_version: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The engine version on which the query runs. If `selected_engine_version` is set to `AUTO`, the effective engine version is chosen by Athena.
+    """
+    selected_engine_version: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Requested engine version. Defaults to `AUTO`.
+    """
 
 @pulumi.input_type
 class WorkgroupConfigurationEngineVersionArgs:
@@ -540,18 +520,15 @@ class WorkgroupConfigurationEngineVersionArgs:
         pulumi.set(self, "selected_engine_version", value)
 
 
-if not MYPY:
-    class WorkgroupConfigurationIdentityCenterConfigurationArgsDict(TypedDict):
-        enable_identity_center: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Specifies whether the workgroup is IAM Identity Center supported.
-        """
-        identity_center_instance_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The IAM Identity Center instance ARN that the workgroup associates to.
-        """
-elif False:
-    WorkgroupConfigurationIdentityCenterConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class WorkgroupConfigurationIdentityCenterConfigurationArgsDict(TypedDict):
+    enable_identity_center: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Specifies whether the workgroup is IAM Identity Center supported.
+    """
+    identity_center_instance_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The IAM Identity Center instance ARN that the workgroup associates to.
+    """
 
 @pulumi.input_type
 class WorkgroupConfigurationIdentityCenterConfigurationArgs:
@@ -592,18 +569,15 @@ class WorkgroupConfigurationIdentityCenterConfigurationArgs:
         pulumi.set(self, "identity_center_instance_arn", value)
 
 
-if not MYPY:
-    class WorkgroupConfigurationManagedQueryResultsConfigurationArgsDict(TypedDict):
-        enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        If set to `true`, allows you to store query results in Athena owned storage. If set to `false`, workgroup member stores query results in the location specified under `result_configuration.output_location`. The default is `false`. A workgroup cannot have the `result_configuration.output_location` set when this is `true`.
-        """
-        encryption_configuration: NotRequired[pulumi.Input['WorkgroupConfigurationManagedQueryResultsConfigurationEncryptionConfigurationArgsDict']]
-        """
-        Configuration block for the encryption configuration. See Managed Query Results Encryption Configuration below.
-        """
-elif False:
-    WorkgroupConfigurationManagedQueryResultsConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class WorkgroupConfigurationManagedQueryResultsConfigurationArgsDict(TypedDict):
+    enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    If set to `true`, allows you to store query results in Athena owned storage. If set to `false`, workgroup member stores query results in the location specified under `result_configuration.output_location`. The default is `false`. A workgroup cannot have the `result_configuration.output_location` set when this is `true`.
+    """
+    encryption_configuration: NotRequired[pulumi.Input['WorkgroupConfigurationManagedQueryResultsConfigurationEncryptionConfigurationArgsDict']]
+    """
+    Configuration block for the encryption configuration. See Managed Query Results Encryption Configuration below.
+    """
 
 @pulumi.input_type
 class WorkgroupConfigurationManagedQueryResultsConfigurationArgs:
@@ -644,11 +618,8 @@ class WorkgroupConfigurationManagedQueryResultsConfigurationArgs:
         pulumi.set(self, "encryption_configuration", value)
 
 
-if not MYPY:
-    class WorkgroupConfigurationManagedQueryResultsConfigurationEncryptionConfigurationArgsDict(TypedDict):
-        kms_key: NotRequired[pulumi.Input[_builtins.str]]
-elif False:
-    WorkgroupConfigurationManagedQueryResultsConfigurationEncryptionConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class WorkgroupConfigurationManagedQueryResultsConfigurationEncryptionConfigurationArgsDict(TypedDict):
+    kms_key: NotRequired[pulumi.Input[_builtins.str]]
 
 @pulumi.input_type
 class WorkgroupConfigurationManagedQueryResultsConfigurationEncryptionConfigurationArgs:
@@ -667,22 +638,19 @@ class WorkgroupConfigurationManagedQueryResultsConfigurationEncryptionConfigurat
         pulumi.set(self, "kms_key", value)
 
 
-if not MYPY:
-    class WorkgroupConfigurationMonitoringConfigurationArgsDict(TypedDict):
-        cloud_watch_logging_configuration: NotRequired[pulumi.Input['WorkgroupConfigurationMonitoringConfigurationCloudWatchLoggingConfigurationArgsDict']]
-        """
-        Configuration block for delivering logs to Amazon CloudWatch log groups. See CloudWatch Logging Configuration below.
-        """
-        managed_logging_configuration: NotRequired[pulumi.Input['WorkgroupConfigurationMonitoringConfigurationManagedLoggingConfigurationArgsDict']]
-        """
-        Configuration block for managed log persistence. See Managed Logging Configuration below.
-        """
-        s3_logging_configuration: NotRequired[pulumi.Input['WorkgroupConfigurationMonitoringConfigurationS3LoggingConfigurationArgsDict']]
-        """
-        Configuration block for delivering logs to Amazon S3 buckets. See S3 Logging Configuration below.
-        """
-elif False:
-    WorkgroupConfigurationMonitoringConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class WorkgroupConfigurationMonitoringConfigurationArgsDict(TypedDict):
+    cloud_watch_logging_configuration: NotRequired[pulumi.Input['WorkgroupConfigurationMonitoringConfigurationCloudWatchLoggingConfigurationArgsDict']]
+    """
+    Configuration block for delivering logs to Amazon CloudWatch log groups. See CloudWatch Logging Configuration below.
+    """
+    managed_logging_configuration: NotRequired[pulumi.Input['WorkgroupConfigurationMonitoringConfigurationManagedLoggingConfigurationArgsDict']]
+    """
+    Configuration block for managed log persistence. See Managed Logging Configuration below.
+    """
+    s3_logging_configuration: NotRequired[pulumi.Input['WorkgroupConfigurationMonitoringConfigurationS3LoggingConfigurationArgsDict']]
+    """
+    Configuration block for delivering logs to Amazon S3 buckets. See S3 Logging Configuration below.
+    """
 
 @pulumi.input_type
 class WorkgroupConfigurationMonitoringConfigurationArgs:
@@ -739,23 +707,20 @@ class WorkgroupConfigurationMonitoringConfigurationArgs:
         pulumi.set(self, "s3_logging_configuration", value)
 
 
-if not MYPY:
-    class WorkgroupConfigurationMonitoringConfigurationCloudWatchLoggingConfigurationArgsDict(TypedDict):
-        enabled: pulumi.Input[_builtins.bool]
-        log_group: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Name of the log group in Amazon CloudWatch Logs where you want to publish your logs.
-        """
-        log_stream_name_prefix: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Prefix for the CloudWatch log stream name.
-        """
-        log_types: NotRequired[pulumi.Input[Sequence[pulumi.Input['WorkgroupConfigurationMonitoringConfigurationCloudWatchLoggingConfigurationLogTypeArgsDict']]]]
-        """
-        Repeatable block defining log types to be delivered to CloudWatch.
-        """
-elif False:
-    WorkgroupConfigurationMonitoringConfigurationCloudWatchLoggingConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class WorkgroupConfigurationMonitoringConfigurationCloudWatchLoggingConfigurationArgsDict(TypedDict):
+    enabled: pulumi.Input[_builtins.bool]
+    log_group: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Name of the log group in Amazon CloudWatch Logs where you want to publish your logs.
+    """
+    log_stream_name_prefix: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Prefix for the CloudWatch log stream name.
+    """
+    log_types: NotRequired[pulumi.Input[Sequence[pulumi.Input['WorkgroupConfigurationMonitoringConfigurationCloudWatchLoggingConfigurationLogTypeArgsDict']]]]
+    """
+    Repeatable block defining log types to be delivered to CloudWatch.
+    """
 
 @pulumi.input_type
 class WorkgroupConfigurationMonitoringConfigurationCloudWatchLoggingConfigurationArgs:
@@ -823,18 +788,15 @@ class WorkgroupConfigurationMonitoringConfigurationCloudWatchLoggingConfiguratio
         pulumi.set(self, "log_types", value)
 
 
-if not MYPY:
-    class WorkgroupConfigurationMonitoringConfigurationCloudWatchLoggingConfigurationLogTypeArgsDict(TypedDict):
-        key: pulumi.Input[_builtins.str]
-        """
-        Type of worker to deliver logs to CloudWatch (for example, `SPARK_DRIVER` and `SPARK_EXECUTOR`).
-        """
-        values: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        List of log types to be delivered to CloudWatch (for example, `STDOUT` and `STDERR`).
-        """
-elif False:
-    WorkgroupConfigurationMonitoringConfigurationCloudWatchLoggingConfigurationLogTypeArgsDict: TypeAlias = Mapping[str, Any]
+class WorkgroupConfigurationMonitoringConfigurationCloudWatchLoggingConfigurationLogTypeArgsDict(TypedDict):
+    key: pulumi.Input[_builtins.str]
+    """
+    Type of worker to deliver logs to CloudWatch (for example, `SPARK_DRIVER` and `SPARK_EXECUTOR`).
+    """
+    values: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    List of log types to be delivered to CloudWatch (for example, `STDOUT` and `STDERR`).
+    """
 
 @pulumi.input_type
 class WorkgroupConfigurationMonitoringConfigurationCloudWatchLoggingConfigurationLogTypeArgs:
@@ -873,15 +835,12 @@ class WorkgroupConfigurationMonitoringConfigurationCloudWatchLoggingConfiguratio
         pulumi.set(self, "values", value)
 
 
-if not MYPY:
-    class WorkgroupConfigurationMonitoringConfigurationManagedLoggingConfigurationArgsDict(TypedDict):
-        enabled: pulumi.Input[_builtins.bool]
-        """
-        Boolean whether managed log persistence is enabled for the workgroup.
-        """
-        kms_key: NotRequired[pulumi.Input[_builtins.str]]
-elif False:
-    WorkgroupConfigurationMonitoringConfigurationManagedLoggingConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class WorkgroupConfigurationMonitoringConfigurationManagedLoggingConfigurationArgsDict(TypedDict):
+    enabled: pulumi.Input[_builtins.bool]
+    """
+    Boolean whether managed log persistence is enabled for the workgroup.
+    """
+    kms_key: NotRequired[pulumi.Input[_builtins.str]]
 
 @pulumi.input_type
 class WorkgroupConfigurationMonitoringConfigurationManagedLoggingConfigurationArgs:
@@ -917,22 +876,19 @@ class WorkgroupConfigurationMonitoringConfigurationManagedLoggingConfigurationAr
         pulumi.set(self, "kms_key", value)
 
 
-if not MYPY:
-    class WorkgroupConfigurationMonitoringConfigurationS3LoggingConfigurationArgsDict(TypedDict):
-        enabled: pulumi.Input[_builtins.bool]
-        """
-        Boolean whether Amazon S3 logging is enabled for the workgroup.
-        """
-        kms_key: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        KMS key ARN to encrypt the logs published to the given Amazon S3 destination.
-        """
-        log_location: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Amazon S3 destination URI (`s3://bucket/prefix`) for log publishing.
-        """
-elif False:
-    WorkgroupConfigurationMonitoringConfigurationS3LoggingConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class WorkgroupConfigurationMonitoringConfigurationS3LoggingConfigurationArgsDict(TypedDict):
+    enabled: pulumi.Input[_builtins.bool]
+    """
+    Boolean whether Amazon S3 logging is enabled for the workgroup.
+    """
+    kms_key: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    KMS key ARN to encrypt the logs published to the given Amazon S3 destination.
+    """
+    log_location: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Amazon S3 destination URI (`s3://bucket/prefix`) for log publishing.
+    """
 
 @pulumi.input_type
 class WorkgroupConfigurationMonitoringConfigurationS3LoggingConfigurationArgs:
@@ -988,26 +944,23 @@ class WorkgroupConfigurationMonitoringConfigurationS3LoggingConfigurationArgs:
         pulumi.set(self, "log_location", value)
 
 
-if not MYPY:
-    class WorkgroupConfigurationResultConfigurationArgsDict(TypedDict):
-        acl_configuration: NotRequired[pulumi.Input['WorkgroupConfigurationResultConfigurationAclConfigurationArgsDict']]
-        """
-        That an Amazon S3 canned ACL should be set to control ownership of stored query results. See ACL Configuration below.
-        """
-        encryption_configuration: NotRequired[pulumi.Input['WorkgroupConfigurationResultConfigurationEncryptionConfigurationArgsDict']]
-        """
-        Configuration block with encryption settings. See Encryption Configuration below.
-        """
-        expected_bucket_owner: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        AWS account ID that you expect to be the owner of the Amazon S3 bucket.
-        """
-        output_location: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Location in Amazon S3 where your query results are stored, such as `s3://path/to/query/bucket/`. For more information, see [Queries and Query Result Files](https://docs.aws.amazon.com/athena/latest/ug/querying.html).
-        """
-elif False:
-    WorkgroupConfigurationResultConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class WorkgroupConfigurationResultConfigurationArgsDict(TypedDict):
+    acl_configuration: NotRequired[pulumi.Input['WorkgroupConfigurationResultConfigurationAclConfigurationArgsDict']]
+    """
+    That an Amazon S3 canned ACL should be set to control ownership of stored query results. See ACL Configuration below.
+    """
+    encryption_configuration: NotRequired[pulumi.Input['WorkgroupConfigurationResultConfigurationEncryptionConfigurationArgsDict']]
+    """
+    Configuration block with encryption settings. See Encryption Configuration below.
+    """
+    expected_bucket_owner: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    AWS account ID that you expect to be the owner of the Amazon S3 bucket.
+    """
+    output_location: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Location in Amazon S3 where your query results are stored, such as `s3://path/to/query/bucket/`. For more information, see [Queries and Query Result Files](https://docs.aws.amazon.com/athena/latest/ug/querying.html).
+    """
 
 @pulumi.input_type
 class WorkgroupConfigurationResultConfigurationArgs:
@@ -1080,14 +1033,11 @@ class WorkgroupConfigurationResultConfigurationArgs:
         pulumi.set(self, "output_location", value)
 
 
-if not MYPY:
-    class WorkgroupConfigurationResultConfigurationAclConfigurationArgsDict(TypedDict):
-        s3_acl_option: pulumi.Input[_builtins.str]
-        """
-        Amazon S3 canned ACL that Athena should specify when storing query results. Valid value is `BUCKET_OWNER_FULL_CONTROL`.
-        """
-elif False:
-    WorkgroupConfigurationResultConfigurationAclConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class WorkgroupConfigurationResultConfigurationAclConfigurationArgsDict(TypedDict):
+    s3_acl_option: pulumi.Input[_builtins.str]
+    """
+    Amazon S3 canned ACL that Athena should specify when storing query results. Valid value is `BUCKET_OWNER_FULL_CONTROL`.
+    """
 
 @pulumi.input_type
 class WorkgroupConfigurationResultConfigurationAclConfigurationArgs:
@@ -1111,18 +1061,15 @@ class WorkgroupConfigurationResultConfigurationAclConfigurationArgs:
         pulumi.set(self, "s3_acl_option", value)
 
 
-if not MYPY:
-    class WorkgroupConfigurationResultConfigurationEncryptionConfigurationArgsDict(TypedDict):
-        encryption_option: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Whether Amazon S3 server-side encryption with Amazon S3-managed keys (`SSE_S3`), server-side encryption with KMS-managed keys (`SSE_KMS`), or client-side encryption with KMS-managed keys (`CSE_KMS`) is used. If a query runs in a workgroup and the workgroup overrides client-side settings, then the workgroup's setting for encryption is used. It specifies whether query results must be encrypted, for all queries that run in this workgroup.
-        """
-        kms_key_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        For `SSE_KMS` and `CSE_KMS`, this is the KMS key ARN.
-        """
-elif False:
-    WorkgroupConfigurationResultConfigurationEncryptionConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class WorkgroupConfigurationResultConfigurationEncryptionConfigurationArgsDict(TypedDict):
+    encryption_option: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Whether Amazon S3 server-side encryption with Amazon S3-managed keys (`SSE_S3`), server-side encryption with KMS-managed keys (`SSE_KMS`), or client-side encryption with KMS-managed keys (`CSE_KMS`) is used. If a query runs in a workgroup and the workgroup overrides client-side settings, then the workgroup's setting for encryption is used. It specifies whether query results must be encrypted, for all queries that run in this workgroup.
+    """
+    kms_key_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    For `SSE_KMS` and `CSE_KMS`, this is the KMS key ARN.
+    """
 
 @pulumi.input_type
 class WorkgroupConfigurationResultConfigurationEncryptionConfigurationArgs:

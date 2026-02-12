@@ -89,6 +89,9 @@ export class User extends pulumi.CustomResource {
      * Amazon Resource Name (ARN) for the user.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
+    /**
+     * AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
+     */
     declare public readonly awsAccountId: pulumi.Output<string>;
     /**
      * Email address of the user that you want to register.
@@ -189,6 +192,9 @@ export interface UserState {
      * Amazon Resource Name (ARN) for the user.
      */
     arn?: pulumi.Input<string>;
+    /**
+     * AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
+     */
     awsAccountId?: pulumi.Input<string>;
     /**
      * Email address of the user that you want to register.
@@ -234,6 +240,9 @@ export interface UserState {
  * The set of arguments for constructing a User resource.
  */
 export interface UserArgs {
+    /**
+     * AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
+     */
     awsAccountId?: pulumi.Input<string>;
     /**
      * Email address of the user that you want to register.

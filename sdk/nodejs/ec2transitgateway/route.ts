@@ -37,7 +37,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Using `pulumi import`, import `aws_ec2_transit_gateway_route` using the EC2 Transit Gateway Route Table, an underscore, and the destination. For example:
+ * Using `pulumi import`, import `aws.ec2transitgateway.Route` using the EC2 Transit Gateway Route Table, an underscore, and the destination. For example:
  *
  * ```sh
  * $ pulumi import aws:ec2transitgateway/route:Route example tgw-rtb-12345678_0.0.0.0/0

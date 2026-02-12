@@ -72,7 +72,7 @@ namespace Pulumi.Aws.CloudFront
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import CloudFront cache policies using the `id` of the cache policy. For example:
+    /// Using `pulumi import`, import CloudFront cache policies using the `Id` of the cache policy. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:cloudfront/cachePolicy:CachePolicy policy 658327ea-f89d-4fab-a63d-7e88639e58f6

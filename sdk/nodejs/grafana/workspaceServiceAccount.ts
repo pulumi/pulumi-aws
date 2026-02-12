@@ -5,6 +5,11 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
+ * > **Note:** You cannot update a service account. If you change any attribute, Terraform
+ * will delete the current and create a new one.
+ *
+ * Read about Service Accounts in the [Amazon Managed Grafana user guide](https://docs.aws.amazon.com/grafana/latest/userguide/service-accounts.html).
+ *
  * ## Example Usage
  *
  * ### Basic Usage
@@ -22,7 +27,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Using `pulumi import`, import Managed Grafana Workspace Service Account using the `workspace_id` and `service_account_id` separated by a comma (`,`). For example:
+ * Using `pulumi import`, import Managed Grafana Workspace Service Account using the `workspaceId` and `serviceAccountId` separated by a comma (`,`). For example:
  *
  * ```sh
  * $ pulumi import aws:grafana/workspaceServiceAccount:WorkspaceServiceAccount example g-abc12345,1

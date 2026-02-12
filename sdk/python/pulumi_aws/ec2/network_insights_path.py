@@ -40,6 +40,8 @@ class NetworkInsightsPathArgs:
         :param pulumi.Input[_builtins.str] destination: ID or ARN of the resource which is the destination of the path. Can be an Instance, Internet Gateway, Network Interface, Transit Gateway, VPC Endpoint, VPC Peering Connection or VPN Gateway. If the resource is in another account, you must specify an ARN. Either the `destination` argument or the `destination_address` argument in the `filter_at_source` block must be specified.
         :param pulumi.Input[_builtins.str] destination_ip: IP address of the destination resource.
         :param pulumi.Input[_builtins.int] destination_port: Destination port to analyze access to.
+        :param pulumi.Input['NetworkInsightsPathFilterAtDestinationArgs'] filter_at_destination: Scopes the analysis to network paths that match specific filters at the destination. If you specify this parameter, you can't specify `destination_ip`. See below for details. Note that Terraform performs drift detection on this argument only when the value is provided.
+        :param pulumi.Input['NetworkInsightsPathFilterAtSourceArgs'] filter_at_source: Scopes the analysis to network paths that match specific filters at the source. If you specify this parameter, you can't specify `source_ip` or `destination_port`. See below for details. Note that Terraform performs drift detection on this argument only when the value is provided.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] source_ip: IP address of the source resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -128,6 +130,9 @@ class NetworkInsightsPathArgs:
     @_builtins.property
     @pulumi.getter(name="filterAtDestination")
     def filter_at_destination(self) -> Optional[pulumi.Input['NetworkInsightsPathFilterAtDestinationArgs']]:
+        """
+        Scopes the analysis to network paths that match specific filters at the destination. If you specify this parameter, you can't specify `destination_ip`. See below for details. Note that Terraform performs drift detection on this argument only when the value is provided.
+        """
         return pulumi.get(self, "filter_at_destination")
 
     @filter_at_destination.setter
@@ -137,6 +142,9 @@ class NetworkInsightsPathArgs:
     @_builtins.property
     @pulumi.getter(name="filterAtSource")
     def filter_at_source(self) -> Optional[pulumi.Input['NetworkInsightsPathFilterAtSourceArgs']]:
+        """
+        Scopes the analysis to network paths that match specific filters at the source. If you specify this parameter, you can't specify `source_ip` or `destination_port`. See below for details. Note that Terraform performs drift detection on this argument only when the value is provided.
+        """
         return pulumi.get(self, "filter_at_source")
 
     @filter_at_source.setter
@@ -204,6 +212,8 @@ class _NetworkInsightsPathState:
         :param pulumi.Input[_builtins.str] destination_arn: ARN of the destination.
         :param pulumi.Input[_builtins.str] destination_ip: IP address of the destination resource.
         :param pulumi.Input[_builtins.int] destination_port: Destination port to analyze access to.
+        :param pulumi.Input['NetworkInsightsPathFilterAtDestinationArgs'] filter_at_destination: Scopes the analysis to network paths that match specific filters at the destination. If you specify this parameter, you can't specify `destination_ip`. See below for details. Note that Terraform performs drift detection on this argument only when the value is provided.
+        :param pulumi.Input['NetworkInsightsPathFilterAtSourceArgs'] filter_at_source: Scopes the analysis to network paths that match specific filters at the source. If you specify this parameter, you can't specify `source_ip` or `destination_port`. See below for details. Note that Terraform performs drift detection on this argument only when the value is provided.
         :param pulumi.Input[_builtins.str] protocol: Protocol to use for analysis. Valid options are `tcp` or `udp`.
                
                The following arguments are optional:
@@ -306,6 +316,9 @@ class _NetworkInsightsPathState:
     @_builtins.property
     @pulumi.getter(name="filterAtDestination")
     def filter_at_destination(self) -> Optional[pulumi.Input['NetworkInsightsPathFilterAtDestinationArgs']]:
+        """
+        Scopes the analysis to network paths that match specific filters at the destination. If you specify this parameter, you can't specify `destination_ip`. See below for details. Note that Terraform performs drift detection on this argument only when the value is provided.
+        """
         return pulumi.get(self, "filter_at_destination")
 
     @filter_at_destination.setter
@@ -315,6 +328,9 @@ class _NetworkInsightsPathState:
     @_builtins.property
     @pulumi.getter(name="filterAtSource")
     def filter_at_source(self) -> Optional[pulumi.Input['NetworkInsightsPathFilterAtSourceArgs']]:
+        """
+        Scopes the analysis to network paths that match specific filters at the source. If you specify this parameter, you can't specify `source_ip` or `destination_port`. See below for details. Note that Terraform performs drift detection on this argument only when the value is provided.
+        """
         return pulumi.get(self, "filter_at_source")
 
     @filter_at_source.setter
@@ -453,6 +469,8 @@ class NetworkInsightsPath(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] destination: ID or ARN of the resource which is the destination of the path. Can be an Instance, Internet Gateway, Network Interface, Transit Gateway, VPC Endpoint, VPC Peering Connection or VPN Gateway. If the resource is in another account, you must specify an ARN. Either the `destination` argument or the `destination_address` argument in the `filter_at_source` block must be specified.
         :param pulumi.Input[_builtins.str] destination_ip: IP address of the destination resource.
         :param pulumi.Input[_builtins.int] destination_port: Destination port to analyze access to.
+        :param pulumi.Input[Union['NetworkInsightsPathFilterAtDestinationArgs', 'NetworkInsightsPathFilterAtDestinationArgsDict']] filter_at_destination: Scopes the analysis to network paths that match specific filters at the destination. If you specify this parameter, you can't specify `destination_ip`. See below for details. Note that Terraform performs drift detection on this argument only when the value is provided.
+        :param pulumi.Input[Union['NetworkInsightsPathFilterAtSourceArgs', 'NetworkInsightsPathFilterAtSourceArgsDict']] filter_at_source: Scopes the analysis to network paths that match specific filters at the source. If you specify this parameter, you can't specify `source_ip` or `destination_port`. See below for details. Note that Terraform performs drift detection on this argument only when the value is provided.
         :param pulumi.Input[_builtins.str] protocol: Protocol to use for analysis. Valid options are `tcp` or `udp`.
                
                The following arguments are optional:
@@ -578,6 +596,8 @@ class NetworkInsightsPath(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] destination_arn: ARN of the destination.
         :param pulumi.Input[_builtins.str] destination_ip: IP address of the destination resource.
         :param pulumi.Input[_builtins.int] destination_port: Destination port to analyze access to.
+        :param pulumi.Input[Union['NetworkInsightsPathFilterAtDestinationArgs', 'NetworkInsightsPathFilterAtDestinationArgsDict']] filter_at_destination: Scopes the analysis to network paths that match specific filters at the destination. If you specify this parameter, you can't specify `destination_ip`. See below for details. Note that Terraform performs drift detection on this argument only when the value is provided.
+        :param pulumi.Input[Union['NetworkInsightsPathFilterAtSourceArgs', 'NetworkInsightsPathFilterAtSourceArgsDict']] filter_at_source: Scopes the analysis to network paths that match specific filters at the source. If you specify this parameter, you can't specify `source_ip` or `destination_port`. See below for details. Note that Terraform performs drift detection on this argument only when the value is provided.
         :param pulumi.Input[_builtins.str] protocol: Protocol to use for analysis. Valid options are `tcp` or `udp`.
                
                The following arguments are optional:
@@ -651,11 +671,17 @@ class NetworkInsightsPath(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="filterAtDestination")
     def filter_at_destination(self) -> pulumi.Output['outputs.NetworkInsightsPathFilterAtDestination']:
+        """
+        Scopes the analysis to network paths that match specific filters at the destination. If you specify this parameter, you can't specify `destination_ip`. See below for details. Note that Terraform performs drift detection on this argument only when the value is provided.
+        """
         return pulumi.get(self, "filter_at_destination")
 
     @_builtins.property
     @pulumi.getter(name="filterAtSource")
     def filter_at_source(self) -> pulumi.Output['outputs.NetworkInsightsPathFilterAtSource']:
+        """
+        Scopes the analysis to network paths that match specific filters at the source. If you specify this parameter, you can't specify `source_ip` or `destination_port`. See below for details. Note that Terraform performs drift detection on this argument only when the value is provided.
+        """
         return pulumi.get(self, "filter_at_source")
 
     @_builtins.property

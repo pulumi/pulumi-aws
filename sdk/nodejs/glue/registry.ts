@@ -26,7 +26,9 @@ import * as utilities from "../utilities";
  *
  * Using `pulumi import`, import Glue Registries using `arn`. For example:
  *
- * % pulumi import aws_glue_registry.example arn:aws:glue:us-west-2:123456789012:registry/example
+ * ```sh
+ * $ pulumi import aws:glue/registry:Registry example arn:aws:glue:us-west-2:123456789012:registry/example
+ * ```
  */
 export class Registry extends pulumi.CustomResource {
     /**

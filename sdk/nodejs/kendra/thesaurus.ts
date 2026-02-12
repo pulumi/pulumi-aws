@@ -32,7 +32,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Using `pulumi import`, import `aws_kendra_thesaurus` using the unique identifiers of the thesaurus and index separated by a slash (`/`). For example:
+ * Using `pulumi import`, import `aws.kendra.Thesaurus` using the unique identifiers of the thesaurus and index separated by a slash (`/`). For example:
  *
  * ```sh
  * $ pulumi import aws:kendra/thesaurus:Thesaurus example thesaurus-123456780/idx-8012925589
@@ -79,6 +79,9 @@ export class Thesaurus extends pulumi.CustomResource {
      * The name for the thesaurus.
      */
     declare public readonly name: pulumi.Output<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
+     */
     declare public readonly region: pulumi.Output<string>;
     /**
      * The IAM (Identity and Access Management) role used to access the thesaurus file in S3.
@@ -168,6 +171,9 @@ export interface ThesaurusState {
      * The name for the thesaurus.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
+     */
     region?: pulumi.Input<string>;
     /**
      * The IAM (Identity and Access Management) role used to access the thesaurus file in S3.
@@ -202,6 +208,9 @@ export interface ThesaurusArgs {
      * The name for the thesaurus.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
+     */
     region?: pulumi.Input<string>;
     /**
      * The IAM (Identity and Access Management) role used to access the thesaurus file in S3.

@@ -15,9 +15,126 @@ import java.util.List;
 import javax.annotation.Nullable;
 
 /**
+ * Resource for managing an exclusive set of AWS VPC (Virtual Private Cloud) Security Group Rules.
+ * 
+ * This resource manages the complete set of ingress and egress rules assigned to a security group. It provides exclusive control by removing any rules not explicitly defined in the configuration.
+ * 
+ * !&gt; This resource takes exclusive ownership over ingress and egress rules assigned to a security group. This includes removal of rules which are not explicitly configured. To prevent persistent drift, ensure any `aws.vpc.SecurityGroupIngressRule` and `aws.vpc.SecurityGroupEgressRule` resources managed alongside this resource are included in the `ingressRuleIds` and `egressRuleIds` arguments.
+ * 
+ * &gt; Destruction of this resource means Terraform will no longer manage reconciliation of the configured security group rules. It **will not** revoke the configured rules from the security group.
+ * 
+ * &gt; When this resource detects a configured rule ID which must be created, a warning diagnostic is emitted. This is due to a limitation in the [`AuthorizeSecurityGroupEgress`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_AuthorizeSecurityGroupEgress.html) and [`AuthorizeSecurityGroupIngress`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_AuthorizeSecurityGroupIngress.html) APIs, which require the full rule definition to be provided rather than a reference to an existing rule ID.
+ * 
+ * ## Example Usage
+ * 
+ * ### Basic Usage
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.ec2.Vpc;
+ * import com.pulumi.aws.ec2.VpcArgs;
+ * import com.pulumi.aws.ec2.SecurityGroup;
+ * import com.pulumi.aws.ec2.SecurityGroupArgs;
+ * import com.pulumi.aws.vpc.SecurityGroupIngressRule;
+ * import com.pulumi.aws.vpc.SecurityGroupIngressRuleArgs;
+ * import com.pulumi.aws.vpc.SecurityGroupEgressRule;
+ * import com.pulumi.aws.vpc.SecurityGroupEgressRuleArgs;
+ * import com.pulumi.aws.ec2.VpcSecurityGroupRulesExclusive;
+ * import com.pulumi.aws.ec2.VpcSecurityGroupRulesExclusiveArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new Vpc("example", VpcArgs.builder()
+ *             .cidrBlock("10.0.0.0/16")
+ *             .build());
+ * 
+ *         var exampleSecurityGroup = new SecurityGroup("exampleSecurityGroup", SecurityGroupArgs.builder()
+ *             .name("example")
+ *             .vpcId(example.id())
+ *             .build());
+ * 
+ *         var exampleSecurityGroupIngressRule = new SecurityGroupIngressRule("exampleSecurityGroupIngressRule", SecurityGroupIngressRuleArgs.builder()
+ *             .securityGroupId(exampleSecurityGroup.id())
+ *             .cidrIpv4("10.0.0.0/8")
+ *             .fromPort(80)
+ *             .toPort(80)
+ *             .ipProtocol("tcp")
+ *             .build());
+ * 
+ *         var exampleSecurityGroupEgressRule = new SecurityGroupEgressRule("exampleSecurityGroupEgressRule", SecurityGroupEgressRuleArgs.builder()
+ *             .securityGroupId(exampleSecurityGroup.id())
+ *             .cidrIpv4("0.0.0.0/0")
+ *             .ipProtocol("-1")
+ *             .build());
+ * 
+ *         var exampleVpcSecurityGroupRulesExclusive = new VpcSecurityGroupRulesExclusive("exampleVpcSecurityGroupRulesExclusive", VpcSecurityGroupRulesExclusiveArgs.builder()
+ *             .securityGroupId(exampleSecurityGroup.id())
+ *             .ingressRuleIds(exampleSecurityGroupIngressRule.id())
+ *             .egressRuleIds(exampleSecurityGroupEgressRule.id())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
+ * ### Disallow All Rules
+ * 
+ * To automatically remove any configured security group rules, set both `ingressRuleIds` and `egressRuleIds` to empty lists.
+ * 
+ * &gt; This will not __prevent__ rules from being assigned to a security group via Terraform (or any other interface). This resource enables bringing security group rule assignments into a configured state, however, this reconciliation happens only when `apply` is proactively run.
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.ec2.VpcSecurityGroupRulesExclusive;
+ * import com.pulumi.aws.ec2.VpcSecurityGroupRulesExclusiveArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new VpcSecurityGroupRulesExclusive("example", VpcSecurityGroupRulesExclusiveArgs.builder()
+ *             .securityGroupId(exampleAwsSecurityGroup.id())
+ *             .ingressRuleIds()
+ *             .egressRuleIds()
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
  * ## Import
  * 
- * Using `pulumi import`, import exclusive management of security group rules using the `security_group_id`. For example:
+ * Using `pulumi import`, import exclusive management of security group rules using the `securityGroupId`. For example:
  * 
  * ```sh
  * $ pulumi import aws:ec2/vpcSecurityGroupRulesExclusive:VpcSecurityGroupRulesExclusive example sg-1234567890abcdef0

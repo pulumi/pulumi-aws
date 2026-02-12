@@ -208,7 +208,9 @@ class TopicPolicy(pulumi.CustomResource):
 
         Using `pulumi import`, import SNS Topic Policy using the topic ARN. For example:
 
-        % pulumi import aws_sns_topic_policy.user_updates arn:aws:sns:us-west-2:123456789012:my-topic
+        ```sh
+        $ pulumi import aws:sns/topicPolicy:TopicPolicy user_updates arn:aws:sns:us-west-2:123456789012:my-topic
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -275,7 +277,9 @@ class TopicPolicy(pulumi.CustomResource):
 
         Using `pulumi import`, import SNS Topic Policy using the topic ARN. For example:
 
-        % pulumi import aws_sns_topic_policy.user_updates arn:aws:sns:us-west-2:123456789012:my-topic
+        ```sh
+        $ pulumi import aws:sns/topicPolicy:TopicPolicy user_updates arn:aws:sns:us-west-2:123456789012:my-topic
+        ```
 
         :param str resource_name: The name of the resource.
         :param TopicPolicyArgs args: The arguments to use to populate this resource's properties.

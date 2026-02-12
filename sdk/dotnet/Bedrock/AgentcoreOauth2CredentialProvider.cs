@@ -10,6 +10,10 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Bedrock
 {
     /// <summary>
+    /// Manages an AWS Bedrock AgentCore OAuth2 Credential Provider. OAuth2 credential providers enable secure authentication with external OAuth2/OpenID Connect identity providers for agent runtimes.
+    /// 
+    /// &gt; **Note:** Write-Only arguments `ClientIdWo` and `ClientSecretWo` are available to use in place of `ClientId` and `ClientSecret`. Write-Only arguments are supported in HashiCorp Terraform 1.11.0 and later. Learn more.
+    /// 
     /// ## Example Usage
     /// 
     /// ### GitHub OAuth Provider

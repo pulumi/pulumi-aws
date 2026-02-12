@@ -293,7 +293,9 @@ import javax.annotation.Nullable;
  * 
  * Using `pulumi import`, import State Machines using the `arn`. For example:
  * 
- * % pulumi import aws_sfn_state_machine.foo arn:aws:states:eu-west-1:123456789098:stateMachine:bar
+ * ```sh
+ * $ pulumi import aws:sfn/stateMachine:StateMachine foo arn:aws:states:eu-west-1:123456789098:stateMachine:bar
+ * ```
  * 
  */
 @ResourceType(type="aws:sfn/stateMachine:StateMachine")

@@ -218,19 +218,11 @@ class VpcOrigin(pulumi.CustomResource):
 
         ## Import
 
-        terraform
-
-        import {
-
-          to = aws_cloudfront_vpc_origin.origin
-
-          id = "vo_JQEa410sssUFoY6wMkx69j"
-
-        }
-
         Using `pulumi import`, import Cloudfront VPC origins using the `id`. For example:
 
+        ```sh
         % pulumi import aws_cloudfront_vpc_origin vo_JQEa410sssUFoY6wMkx69j
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -276,19 +268,11 @@ class VpcOrigin(pulumi.CustomResource):
 
         ## Import
 
-        terraform
-
-        import {
-
-          to = aws_cloudfront_vpc_origin.origin
-
-          id = "vo_JQEa410sssUFoY6wMkx69j"
-
-        }
-
         Using `pulumi import`, import Cloudfront VPC origins using the `id`. For example:
 
+        ```sh
         % pulumi import aws_cloudfront_vpc_origin vo_JQEa410sssUFoY6wMkx69j
+        ```
 
         :param str resource_name: The name of the resource.
         :param VpcOriginArgs args: The arguments to use to populate this resource's properties.

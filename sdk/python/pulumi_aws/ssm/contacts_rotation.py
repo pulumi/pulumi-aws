@@ -310,6 +310,10 @@ class ContactsRotation(pulumi.CustomResource):
                  time_zone_id: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
+        Provides a Terraform resource for managing a Contacts Rotation in AWS Systems Manager Incident Manager.
+
+        > **NOTE:** A rotation implicitly depends on a replication set. If you configured your replication set in Terraform, we recommend you add it to the `depends_on` argument for the Terraform Contact Resource.
+
         ## Example Usage
 
         ### Basic Usage
@@ -427,7 +431,9 @@ class ContactsRotation(pulumi.CustomResource):
 
         Using `pulumi import`, import CodeGuru Profiler Profiling Group using the `arn`. For example:
 
-        % pulumi import aws_ssmcontacts_rotation.example arn:aws:ssm-contacts:us-east-1:012345678910:rotation/example
+        ```sh
+        $ pulumi import aws:ssm/contactsRotation:ContactsRotation example arn:aws:ssm-contacts:us-east-1:012345678910:rotation/example
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -448,6 +454,10 @@ class ContactsRotation(pulumi.CustomResource):
                  args: ContactsRotationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        Provides a Terraform resource for managing a Contacts Rotation in AWS Systems Manager Incident Manager.
+
+        > **NOTE:** A rotation implicitly depends on a replication set. If you configured your replication set in Terraform, we recommend you add it to the `depends_on` argument for the Terraform Contact Resource.
+
         ## Example Usage
 
         ### Basic Usage
@@ -565,7 +575,9 @@ class ContactsRotation(pulumi.CustomResource):
 
         Using `pulumi import`, import CodeGuru Profiler Profiling Group using the `arn`. For example:
 
-        % pulumi import aws_ssmcontacts_rotation.example arn:aws:ssm-contacts:us-east-1:012345678910:rotation/example
+        ```sh
+        $ pulumi import aws:ssm/contactsRotation:ContactsRotation example arn:aws:ssm-contacts:us-east-1:012345678910:rotation/example
+        ```
 
         :param str resource_name: The name of the resource.
         :param ContactsRotationArgs args: The arguments to use to populate this resource's properties.

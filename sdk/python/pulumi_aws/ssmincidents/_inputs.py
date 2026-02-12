@@ -33,29 +33,24 @@ __all__ = [
     'ResponsePlanIntegrationPagerdutyArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class ReplicationSetRegionArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the Region, such as `ap-southeast-2`.
-        """
-        kms_key_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Amazon Resource name (ARN) of the customer managed key. If omitted, AWS manages the AWS KMS keys for you, using an AWS owned key, as indicated by a default value of `DefaultKey`.
-        """
-        status: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The current status of the Region.
-        * Valid Values: `ACTIVE` | `CREATING` | `UPDATING` | `DELETING` | `FAILED`
-        """
-        status_message: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        More information about the status of a Region.
-        """
-elif False:
-    ReplicationSetRegionArgsDict: TypeAlias = Mapping[str, Any]
+class ReplicationSetRegionArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the Region, such as `ap-southeast-2`.
+    """
+    kms_key_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Amazon Resource name (ARN) of the customer managed key. If omitted, AWS manages the AWS KMS keys for you, using an AWS owned key, as indicated by a default value of `DefaultKey`.
+    """
+    status: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The current status of the Region.
+    * Valid Values: `ACTIVE` | `CREATING` | `UPDATING` | `DELETING` | `FAILED`
+    """
+    status_message: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    More information about the status of a Region.
+    """
 
 @pulumi.input_type
 class ReplicationSetRegionArgs:
@@ -129,14 +124,11 @@ class ReplicationSetRegionArgs:
         pulumi.set(self, "status_message", value)
 
 
-if not MYPY:
-    class ResponsePlanActionArgsDict(TypedDict):
-        ssm_automations: NotRequired[pulumi.Input[Sequence[pulumi.Input['ResponsePlanActionSsmAutomationArgsDict']]]]
-        """
-        The Systems Manager automation document to start as the runbook at the beginning of the incident. The following values are supported:
-        """
-elif False:
-    ResponsePlanActionArgsDict: TypeAlias = Mapping[str, Any]
+class ResponsePlanActionArgsDict(TypedDict):
+    ssm_automations: NotRequired[pulumi.Input[Sequence[pulumi.Input['ResponsePlanActionSsmAutomationArgsDict']]]]
+    """
+    The Systems Manager automation document to start as the runbook at the beginning of the incident. The following values are supported:
+    """
 
 @pulumi.input_type
 class ResponsePlanActionArgs:
@@ -161,34 +153,31 @@ class ResponsePlanActionArgs:
         pulumi.set(self, "ssm_automations", value)
 
 
-if not MYPY:
-    class ResponsePlanActionSsmAutomationArgsDict(TypedDict):
-        document_name: pulumi.Input[_builtins.str]
-        """
-        The automation document's name.
-        """
-        role_arn: pulumi.Input[_builtins.str]
-        """
-        The Amazon Resource Name (ARN) of the role that the automation document assumes when it runs commands.
-        """
-        document_version: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The version of the automation document to use at runtime.
-        """
-        dynamic_parameters: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
-        """
-        The key-value pair to resolve dynamic parameter values when processing a Systems Manager Automation runbook.
-        """
-        parameters: NotRequired[pulumi.Input[Sequence[pulumi.Input['ResponsePlanActionSsmAutomationParameterArgsDict']]]]
-        """
-        The key-value pair parameters to use when the automation document runs. The following values are supported:
-        """
-        target_account: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The account that the automation document runs in. This can be in either the management account or an application account.
-        """
-elif False:
-    ResponsePlanActionSsmAutomationArgsDict: TypeAlias = Mapping[str, Any]
+class ResponsePlanActionSsmAutomationArgsDict(TypedDict):
+    document_name: pulumi.Input[_builtins.str]
+    """
+    The automation document's name.
+    """
+    role_arn: pulumi.Input[_builtins.str]
+    """
+    The Amazon Resource Name (ARN) of the role that the automation document assumes when it runs commands.
+    """
+    document_version: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The version of the automation document to use at runtime.
+    """
+    dynamic_parameters: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    """
+    The key-value pair to resolve dynamic parameter values when processing a Systems Manager Automation runbook.
+    """
+    parameters: NotRequired[pulumi.Input[Sequence[pulumi.Input['ResponsePlanActionSsmAutomationParameterArgsDict']]]]
+    """
+    The key-value pair parameters to use when the automation document runs. The following values are supported:
+    """
+    target_account: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The account that the automation document runs in. This can be in either the management account or an application account.
+    """
 
 @pulumi.input_type
 class ResponsePlanActionSsmAutomationArgs:
@@ -291,18 +280,15 @@ class ResponsePlanActionSsmAutomationArgs:
         pulumi.set(self, "target_account", value)
 
 
-if not MYPY:
-    class ResponsePlanActionSsmAutomationParameterArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of parameter.
-        """
-        values: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        The values for the associated parameter name.
-        """
-elif False:
-    ResponsePlanActionSsmAutomationParameterArgsDict: TypeAlias = Mapping[str, Any]
+class ResponsePlanActionSsmAutomationParameterArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of parameter.
+    """
+    values: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    The values for the associated parameter name.
+    """
 
 @pulumi.input_type
 class ResponsePlanActionSsmAutomationParameterArgs:
@@ -341,34 +327,31 @@ class ResponsePlanActionSsmAutomationParameterArgs:
         pulumi.set(self, "values", value)
 
 
-if not MYPY:
-    class ResponsePlanIncidentTemplateArgsDict(TypedDict):
-        impact: pulumi.Input[_builtins.int]
-        """
-        The impact value of a generated incident. The following values are supported:
-        """
-        title: pulumi.Input[_builtins.str]
-        """
-        The title of a generated incident.
-        """
-        dedupe_string: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A string used to stop Incident Manager from creating multiple incident records for the same incident.
-        """
-        incident_tags: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
-        """
-        The tags assigned to an incident template. When an incident starts, Incident Manager assigns the tags specified in the template to the incident.
-        """
-        notification_targets: NotRequired[pulumi.Input[Sequence[pulumi.Input['ResponsePlanIncidentTemplateNotificationTargetArgsDict']]]]
-        """
-        The Amazon Simple Notification Service (Amazon SNS) targets that this incident notifies when it is updated. The `notification_target` configuration block supports the following argument:
-        """
-        summary: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The summary of an incident.
-        """
-elif False:
-    ResponsePlanIncidentTemplateArgsDict: TypeAlias = Mapping[str, Any]
+class ResponsePlanIncidentTemplateArgsDict(TypedDict):
+    impact: pulumi.Input[_builtins.int]
+    """
+    The impact value of a generated incident. The following values are supported:
+    """
+    title: pulumi.Input[_builtins.str]
+    """
+    The title of a generated incident.
+    """
+    dedupe_string: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A string used to stop Incident Manager from creating multiple incident records for the same incident.
+    """
+    incident_tags: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    """
+    The tags assigned to an incident template. When an incident starts, Incident Manager assigns the tags specified in the template to the incident.
+    """
+    notification_targets: NotRequired[pulumi.Input[Sequence[pulumi.Input['ResponsePlanIncidentTemplateNotificationTargetArgsDict']]]]
+    """
+    The Amazon Simple Notification Service (Amazon SNS) targets that this incident notifies when it is updated. The `notification_target` configuration block supports the following argument:
+    """
+    summary: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The summary of an incident.
+    """
 
 @pulumi.input_type
 class ResponsePlanIncidentTemplateArgs:
@@ -471,14 +454,11 @@ class ResponsePlanIncidentTemplateArgs:
         pulumi.set(self, "summary", value)
 
 
-if not MYPY:
-    class ResponsePlanIncidentTemplateNotificationTargetArgsDict(TypedDict):
-        sns_topic_arn: pulumi.Input[_builtins.str]
-        """
-        The ARN of the Amazon SNS topic.
-        """
-elif False:
-    ResponsePlanIncidentTemplateNotificationTargetArgsDict: TypeAlias = Mapping[str, Any]
+class ResponsePlanIncidentTemplateNotificationTargetArgsDict(TypedDict):
+    sns_topic_arn: pulumi.Input[_builtins.str]
+    """
+    The ARN of the Amazon SNS topic.
+    """
 
 @pulumi.input_type
 class ResponsePlanIncidentTemplateNotificationTargetArgs:
@@ -502,14 +482,11 @@ class ResponsePlanIncidentTemplateNotificationTargetArgs:
         pulumi.set(self, "sns_topic_arn", value)
 
 
-if not MYPY:
-    class ResponsePlanIntegrationArgsDict(TypedDict):
-        pagerduties: NotRequired[pulumi.Input[Sequence[pulumi.Input['ResponsePlanIntegrationPagerdutyArgsDict']]]]
-        """
-        Details about the PagerDuty configuration for a response plan. The following values are supported:
-        """
-elif False:
-    ResponsePlanIntegrationArgsDict: TypeAlias = Mapping[str, Any]
+class ResponsePlanIntegrationArgsDict(TypedDict):
+    pagerduties: NotRequired[pulumi.Input[Sequence[pulumi.Input['ResponsePlanIntegrationPagerdutyArgsDict']]]]
+    """
+    Details about the PagerDuty configuration for a response plan. The following values are supported:
+    """
 
 @pulumi.input_type
 class ResponsePlanIntegrationArgs:
@@ -534,24 +511,21 @@ class ResponsePlanIntegrationArgs:
         pulumi.set(self, "pagerduties", value)
 
 
-if not MYPY:
-    class ResponsePlanIntegrationPagerdutyArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the PagerDuty configuration.
-        """
-        secret_id: pulumi.Input[_builtins.str]
-        """
-        The ID of the AWS Secrets Manager secret that stores your PagerDuty key &mdash; either a General Access REST API Key or User Token REST API Key &mdash; and other user credentials.
+class ResponsePlanIntegrationPagerdutyArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the PagerDuty configuration.
+    """
+    secret_id: pulumi.Input[_builtins.str]
+    """
+    The ID of the AWS Secrets Manager secret that stores your PagerDuty key &mdash; either a General Access REST API Key or User Token REST API Key &mdash; and other user credentials.
 
-        For more information about the constraints for each field, see [CreateResponsePlan](https://docs.aws.amazon.com/incident-manager/latest/APIReference/API_CreateResponsePlan.html) in the *AWS Systems Manager Incident Manager API Reference*.
-        """
-        service_id: pulumi.Input[_builtins.str]
-        """
-        The ID of the PagerDuty service that the response plan associated with the incident at launch.
-        """
-elif False:
-    ResponsePlanIntegrationPagerdutyArgsDict: TypeAlias = Mapping[str, Any]
+    For more information about the constraints for each field, see [CreateResponsePlan](https://docs.aws.amazon.com/incident-manager/latest/APIReference/API_CreateResponsePlan.html) in the *AWS Systems Manager Incident Manager API Reference*.
+    """
+    service_id: pulumi.Input[_builtins.str]
+    """
+    The ID of the PagerDuty service that the response plan associated with the incident at launch.
+    """
 
 @pulumi.input_type
 class ResponsePlanIntegrationPagerdutyArgs:

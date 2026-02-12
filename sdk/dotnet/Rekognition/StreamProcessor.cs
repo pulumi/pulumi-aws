@@ -311,7 +311,7 @@ namespace Pulumi.Aws.Rekognition
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import Rekognition Stream Processor using the `name`. For example:
+    /// Using `pulumi import`, import Rekognition Stream Processor using the `Name`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:rekognition/streamProcessor:StreamProcessor example my-stream

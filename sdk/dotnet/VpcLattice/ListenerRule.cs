@@ -122,7 +122,7 @@ namespace Pulumi.Aws.VpcLattice
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import VPC Lattice Listener Rule using the `id`. For example:
+    /// Using `pulumi import`, import VPC Lattice Listener Rule using the `Id`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:vpclattice/listenerRule:ListenerRule example service123/listener456/rule789

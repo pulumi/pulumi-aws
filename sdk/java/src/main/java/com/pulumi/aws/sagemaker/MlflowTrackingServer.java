@@ -58,7 +58,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Using `pulumi import`, import SageMaker AI MLFlow Tracking Servers using the `workteam_name`. For example:
+ * Using `pulumi import`, import SageMaker AI MLFlow Tracking Servers using the `workteamName`. For example:
  * 
  * ```sh
  * $ pulumi import aws:sagemaker/mlflowTrackingServer:MlflowTrackingServer example example

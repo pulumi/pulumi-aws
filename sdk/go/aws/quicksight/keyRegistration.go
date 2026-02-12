@@ -60,6 +60,7 @@ import (
 type KeyRegistration struct {
 	pulumi.CustomResourceState
 
+	// AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
 	AwsAccountId pulumi.StringOutput `pulumi:"awsAccountId"`
 	// Registered keys. See key_registration.
 	KeyRegistrations KeyRegistrationKeyRegistrationArrayOutput `pulumi:"keyRegistrations"`
@@ -100,6 +101,7 @@ func GetKeyRegistration(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering KeyRegistration resources.
 type keyRegistrationState struct {
+	// AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
 	AwsAccountId *string `pulumi:"awsAccountId"`
 	// Registered keys. See key_registration.
 	KeyRegistrations []KeyRegistrationKeyRegistration `pulumi:"keyRegistrations"`
@@ -108,6 +110,7 @@ type keyRegistrationState struct {
 }
 
 type KeyRegistrationState struct {
+	// AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
 	AwsAccountId pulumi.StringPtrInput
 	// Registered keys. See key_registration.
 	KeyRegistrations KeyRegistrationKeyRegistrationArrayInput
@@ -120,6 +123,7 @@ func (KeyRegistrationState) ElementType() reflect.Type {
 }
 
 type keyRegistrationArgs struct {
+	// AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
 	AwsAccountId *string `pulumi:"awsAccountId"`
 	// Registered keys. See key_registration.
 	KeyRegistrations []KeyRegistrationKeyRegistration `pulumi:"keyRegistrations"`
@@ -129,6 +133,7 @@ type keyRegistrationArgs struct {
 
 // The set of arguments for constructing a KeyRegistration resource.
 type KeyRegistrationArgs struct {
+	// AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
 	AwsAccountId pulumi.StringPtrInput
 	// Registered keys. See key_registration.
 	KeyRegistrations KeyRegistrationKeyRegistrationArrayInput
@@ -223,6 +228,7 @@ func (o KeyRegistrationOutput) ToKeyRegistrationOutputWithContext(ctx context.Co
 	return o
 }
 
+// AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
 func (o KeyRegistrationOutput) AwsAccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *KeyRegistration) pulumi.StringOutput { return v.AwsAccountId }).(pulumi.StringOutput)
 }

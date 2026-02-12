@@ -10,9 +10,151 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Rds
 {
     /// <summary>
+    /// Provides an RDS DB proxy resource. For additional information, see the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-proxy.html).
+    /// 
+    /// &gt; **Note:** Not all Availability Zones (AZs) support DB proxies. Specifying `VpcSubnetIds` for AZs that do not support proxies will not trigger an error as long as at least one `VpcSubnetId` is valid. However, this will cause Terraform to continuously detect differences between the configuration and the actual infrastructure. Refer to the Unsupported Availability Zones section below for potential workarounds.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ### Basic Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.Rds.Proxy("example", new()
+    ///     {
+    ///         Name = "example",
+    ///         DebugLogging = false,
+    ///         EngineFamily = "MYSQL",
+    ///         IdleClientTimeout = 1800,
+    ///         RequireTls = true,
+    ///         RoleArn = exampleAwsIamRole.Arn,
+    ///         VpcSecurityGroupIds = new[]
+    ///         {
+    ///             exampleAwsSecurityGroup.Id,
+    ///         },
+    ///         VpcSubnetIds = new[]
+    ///         {
+    ///             exampleAwsSubnet.Id,
+    ///         },
+    ///         Auths = new[]
+    ///         {
+    ///             new Aws.Rds.Inputs.ProxyAuthArgs
+    ///             {
+    ///                 AuthScheme = "SECRETS",
+    ///                 Description = "example",
+    ///                 IamAuth = "DISABLED",
+    ///                 SecretArn = exampleAwsSecretsmanagerSecret.Arn,
+    ///             },
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "Name", "example" },
+    ///             { "Key", "value" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ### Unsupported Availability Zones
+    /// 
+    /// Terraform may report constant differences if you use `VpcSubnetIds` that correspond to Availability Zones (AZs) that do not support a DB proxy. While this typically does not result in an error, AWS only returns `VpcSubnetIds` for AZs that support DB proxies. As a result, Terraform detects a mismatch between your configuration and the actual infrastructure, leading it to report that changes are required. Below are some ways to avoid this issue.
+    /// 
+    /// One solution is to exclude AZs that do not support DB proxies by using the `aws.getAvailabilityZones` data source. The example below demonstrates how to configure this for the `us-east-1` region, excluding the `use1-az3` AZ. (Keep in mind that AZ names can vary between accounts, while AZ IDs remain consistent.) If the `us-east-1` region has six AZs in total and you aim to configure the maximum number of subnets, you would exclude one AZ and configure five subnets:
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// using Std = Pulumi.Std;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var available = Aws.GetAvailabilityZones.Invoke(new()
+    ///     {
+    ///         ExcludeZoneIds = new[]
+    ///         {
+    ///             "use1-az3",
+    ///         },
+    ///         State = "available",
+    ///         Filters = new[]
+    ///         {
+    ///             new Aws.Inputs.GetAvailabilityZonesFilterInputArgs
+    ///             {
+    ///                 Name = "opt-in-status",
+    ///                 Values = new[]
+    ///                 {
+    ///                     "opt-in-not-required",
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var example = new Aws.Ec2.Vpc("example", new()
+    ///     {
+    ///         CidrBlock = "10.0.0.0/16",
+    ///     });
+    /// 
+    ///     var exampleSubnet = new List&lt;Aws.Ec2.Subnet&gt;();
+    ///     for (var rangeIndex = 0; rangeIndex &lt; 5; rangeIndex++)
+    ///     {
+    ///         var range = new { Value = rangeIndex };
+    ///         exampleSubnet.Add(new Aws.Ec2.Subnet($"example-{range.Value}", new()
+    ///         {
+    ///             CidrBlock = example.CidrBlock.Apply(cidrBlock =&gt; Std.Cidrsubnet.Invoke(new()
+    ///             {
+    ///                 Input = cidrBlock,
+    ///                 Newbits = 8,
+    ///                 Netnum = range.Value,
+    ///             })).Apply(invoke =&gt; invoke.Result),
+    ///             AvailabilityZone = available.Apply(getAvailabilityZonesResult =&gt; getAvailabilityZonesResult.Names)[range.Value],
+    ///             VpcId = example.Id,
+    ///         }));
+    ///     }
+    ///     var exampleProxy = new Aws.Rds.Proxy("example", new()
+    ///     {
+    ///         Name = "example",
+    ///         VpcSubnetIds = new[]
+    ///         {
+    ///             exampleSubnet.Id,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// Another approach is to use the `Lifecycle` `IgnoreChanges` meta-argument. With this method, Terraform will stop detecting differences for the `VpcSubnetIds` argument. However, note that this approach disables Terraform's ability to track and manage updates to `VpcSubnetIds`, so use it carefully to avoid unintended drift between your configuration and the actual infrastructure.
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.Rds.Proxy("example", new()
+    ///     {
+    ///         Name = "example",
+    ///         VpcSubnetIds = new[]
+    ///         {
+    ///             exampleAwsSubnet.Id,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import DB proxies using the `name`. For example:
+    /// Using `pulumi import`, import DB proxies using the `Name`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:rds/proxy:Proxy example example

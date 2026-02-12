@@ -10,6 +10,10 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Odb
 {
     /// <summary>
+    /// Terraform  resource for managing oracle database network peering resource in AWS. If underlying odb network is shared, ARN must be used while creating network peering.
+    /// 
+    /// You can find out more about Oracle Database@AWS from [User Guide](https://docs.aws.amazon.com/odb/latest/UserGuide/what-is-odb.html).
+    /// 
     /// ## Example Usage
     /// 
     /// ### Basic Usage
@@ -38,7 +42,7 @@ namespace Pulumi.Aws.Odb
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import odb network peering using the `id`. For example:
+    /// Using `pulumi import`, import odb network peering using the `Id`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:odb/networkPeeringConnection:NetworkPeeringConnection example example
@@ -56,15 +60,23 @@ namespace Pulumi.Aws.Odb
         [Output("createdAt")]
         public Output<string> CreatedAt { get; private set; } = null!;
 
+        /// <summary>
+        /// Display name of the ODB network peering connection. Changing this will force Terraform to create a new resource.
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
         [Output("displayName")]
         public Output<string> DisplayName { get; private set; } = null!;
 
         /// <summary>
-        /// ARN of the odb network peering connection.
+        /// ARN of the ODB network that initiates the peering connection. Changing this will force Terraform to create a new resource. Either OdbNetworkId or OdbNetworkArn should be used.
         /// </summary>
         [Output("odbNetworkArn")]
         public Output<string> OdbNetworkArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The unique identifier of the ODB network that initiates the peering connection. A sample ID is `odbpcx-abcdefgh12345678`. Changing this will force Terraform to create a new resource.
+        /// </summary>
         [Output("odbNetworkId")]
         public Output<string> OdbNetworkId { get; private set; } = null!;
 
@@ -80,6 +92,9 @@ namespace Pulumi.Aws.Odb
         [Output("peerNetworkArn")]
         public Output<string> PeerNetworkArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The unique identifier of the ODB peering connection. Changing this will force Terraform to create a new resource. Either OdbNetworkId or OdbNetworkArn should be used.
+        /// </summary>
         [Output("peerNetworkId")]
         public Output<string> PeerNetworkId { get; private set; } = null!;
 
@@ -168,18 +183,29 @@ namespace Pulumi.Aws.Odb
 
     public sealed class NetworkPeeringConnectionArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Display name of the ODB network peering connection. Changing this will force Terraform to create a new resource.
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
         [Input("displayName", required: true)]
         public Input<string> DisplayName { get; set; } = null!;
 
         /// <summary>
-        /// ARN of the odb network peering connection.
+        /// ARN of the ODB network that initiates the peering connection. Changing this will force Terraform to create a new resource. Either OdbNetworkId or OdbNetworkArn should be used.
         /// </summary>
         [Input("odbNetworkArn")]
         public Input<string>? OdbNetworkArn { get; set; }
 
+        /// <summary>
+        /// The unique identifier of the ODB network that initiates the peering connection. A sample ID is `odbpcx-abcdefgh12345678`. Changing this will force Terraform to create a new resource.
+        /// </summary>
         [Input("odbNetworkId")]
         public Input<string>? OdbNetworkId { get; set; }
 
+        /// <summary>
+        /// The unique identifier of the ODB peering connection. Changing this will force Terraform to create a new resource. Either OdbNetworkId or OdbNetworkArn should be used.
+        /// </summary>
         [Input("peerNetworkId", required: true)]
         public Input<string> PeerNetworkId { get; set; } = null!;
 
@@ -221,15 +247,23 @@ namespace Pulumi.Aws.Odb
         [Input("createdAt")]
         public Input<string>? CreatedAt { get; set; }
 
+        /// <summary>
+        /// Display name of the ODB network peering connection. Changing this will force Terraform to create a new resource.
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
         [Input("displayName")]
         public Input<string>? DisplayName { get; set; }
 
         /// <summary>
-        /// ARN of the odb network peering connection.
+        /// ARN of the ODB network that initiates the peering connection. Changing this will force Terraform to create a new resource. Either OdbNetworkId or OdbNetworkArn should be used.
         /// </summary>
         [Input("odbNetworkArn")]
         public Input<string>? OdbNetworkArn { get; set; }
 
+        /// <summary>
+        /// The unique identifier of the ODB network that initiates the peering connection. A sample ID is `odbpcx-abcdefgh12345678`. Changing this will force Terraform to create a new resource.
+        /// </summary>
         [Input("odbNetworkId")]
         public Input<string>? OdbNetworkId { get; set; }
 
@@ -245,6 +279,9 @@ namespace Pulumi.Aws.Odb
         [Input("peerNetworkArn")]
         public Input<string>? PeerNetworkArn { get; set; }
 
+        /// <summary>
+        /// The unique identifier of the ODB peering connection. Changing this will force Terraform to create a new resource. Either OdbNetworkId or OdbNetworkArn should be used.
+        /// </summary>
         [Input("peerNetworkId")]
         public Input<string>? PeerNetworkId { get; set; }
 

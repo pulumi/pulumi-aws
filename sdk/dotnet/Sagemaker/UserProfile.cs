@@ -39,19 +39,19 @@ namespace Pulumi.Aws.Sagemaker
     /// 
     /// #### Required
     /// 
-    /// * `domain_id` (String) SageMaker domain ID.
-    /// 
-    /// * `user_profile_name` (String) Name of the user profile.
+    /// * `DomainId` (String) SageMaker domain ID.
+    /// * `UserProfileName` (String) Name of the user profile.
     /// 
     /// #### Optional
     /// 
-    /// * `account_id` (String) AWS Account where this resource is managed.
+    /// * `AccountId` (String) AWS Account where this resource is managed.
+    /// * `Region` (String) Region where this resource is managed.
     /// 
-    /// * `region` (String) Region where this resource is managed.
+    /// Using `pulumi import`, import SageMaker AI User Profiles using the `Arn`. For example:
     /// 
-    /// Using `pulumi import`, import SageMaker AI User Profiles using the `arn`. For example:
-    /// 
-    /// % pulumi import aws_sagemaker_user_profile.example arn:aws:sagemaker:us-west-2:123456789012:user-profile/domain-id/profile-name
+    /// ```sh
+    /// $ pulumi import aws:sagemaker/userProfile:UserProfile example arn:aws:sagemaker:us-west-2:123456789012:user-profile/domain-id/profile-name
+    /// ```
     /// </summary>
     [AwsResourceType("aws:sagemaker/userProfile:UserProfile")]
     public partial class UserProfile : global::Pulumi.CustomResource

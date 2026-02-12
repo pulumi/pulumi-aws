@@ -23,20 +23,15 @@ __all__ = [
     'GroupResourceQueryArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class GroupConfigurationArgsDict(TypedDict):
-        type: pulumi.Input[_builtins.str]
-        """
-        Specifies the type of group configuration item.
-        """
-        parameters: NotRequired[pulumi.Input[Sequence[pulumi.Input['GroupConfigurationParameterArgsDict']]]]
-        """
-        A collection of parameters for this group configuration item. See below for details.
-        """
-elif False:
-    GroupConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class GroupConfigurationArgsDict(TypedDict):
+    type: pulumi.Input[_builtins.str]
+    """
+    Specifies the type of group configuration item.
+    """
+    parameters: NotRequired[pulumi.Input[Sequence[pulumi.Input['GroupConfigurationParameterArgsDict']]]]
+    """
+    A collection of parameters for this group configuration item. See below for details.
+    """
 
 @pulumi.input_type
 class GroupConfigurationArgs:
@@ -76,18 +71,15 @@ class GroupConfigurationArgs:
         pulumi.set(self, "parameters", value)
 
 
-if not MYPY:
-    class GroupConfigurationParameterArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the group configuration parameter.
-        """
-        values: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        The value or values to be used for the specified parameter.
-        """
-elif False:
-    GroupConfigurationParameterArgsDict: TypeAlias = Mapping[str, Any]
+class GroupConfigurationParameterArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the group configuration parameter.
+    """
+    values: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    The value or values to be used for the specified parameter.
+    """
 
 @pulumi.input_type
 class GroupConfigurationParameterArgs:
@@ -126,18 +118,15 @@ class GroupConfigurationParameterArgs:
         pulumi.set(self, "values", value)
 
 
-if not MYPY:
-    class GroupResourceQueryArgsDict(TypedDict):
-        query: pulumi.Input[_builtins.str]
-        """
-        The resource query as a JSON string.
-        """
-        type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The type of the resource query. Defaults to `TAG_FILTERS_1_0`.
-        """
-elif False:
-    GroupResourceQueryArgsDict: TypeAlias = Mapping[str, Any]
+class GroupResourceQueryArgsDict(TypedDict):
+    query: pulumi.Input[_builtins.str]
+    """
+    The resource query as a JSON string.
+    """
+    type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The type of the resource query. Defaults to `TAG_FILTERS_1_0`.
+    """
 
 @pulumi.input_type
 class GroupResourceQueryArgs:

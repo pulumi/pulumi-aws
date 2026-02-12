@@ -518,7 +518,7 @@ namespace Pulumi.Aws.S3
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import S3 bucket notification using the `bucket`. For example:
+    /// Using `pulumi import`, import S3 bucket notification using the `Bucket`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:s3/bucketNotification:BucketNotification bucket_notification bucket-name

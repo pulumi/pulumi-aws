@@ -40,7 +40,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Using `pulumi import`, import `aws_rolesanywhere_profile` using its `id`. For example:
+ * Using `pulumi import`, import `aws.rolesanywhere.Profile` using its `id`. For example:
  *
  * ```sh
  * $ pulumi import aws:rolesanywhere/profile:Profile example db138a85-8925-4f9f-a409-08231233cacf

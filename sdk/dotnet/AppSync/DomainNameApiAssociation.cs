@@ -33,7 +33,7 @@ namespace Pulumi.Aws.AppSync
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import `aws_appsync_domain_name_api_association` using the AppSync domain name. For example:
+    /// Using `pulumi import`, import `aws.appsync.DomainNameApiAssociation` using the AppSync domain name. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:appsync/domainNameApiAssociation:DomainNameApiAssociation example example.com

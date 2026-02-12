@@ -25,20 +25,15 @@ __all__ = [
     'GetDevEnvironmentRepositoryArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class DevEnvironmentIdesArgsDict(TypedDict):
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the IDE. Valid values include Cloud9, IntelliJ, PyCharm, GoLand, and VSCode.
-        """
-        runtime: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A link to the IDE runtime image. This parameter is not required if the name is VSCode. Values of the runtime can be for example public.ecr.aws/jetbrains/py,public.ecr.aws/jetbrains/go
-        """
-elif False:
-    DevEnvironmentIdesArgsDict: TypeAlias = Mapping[str, Any]
+class DevEnvironmentIdesArgsDict(TypedDict):
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the IDE. Valid values include Cloud9, IntelliJ, PyCharm, GoLand, and VSCode.
+    """
+    runtime: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A link to the IDE runtime image. This parameter is not required if the name is VSCode. Values of the runtime can be for example public.ecr.aws/jetbrains/py,public.ecr.aws/jetbrains/go
+    """
 
 @pulumi.input_type
 class DevEnvironmentIdesArgs:
@@ -79,14 +74,11 @@ class DevEnvironmentIdesArgs:
         pulumi.set(self, "runtime", value)
 
 
-if not MYPY:
-    class DevEnvironmentPersistentStorageArgsDict(TypedDict):
-        size: pulumi.Input[_builtins.int]
-        """
-        The size of the persistent storage in gigabytes (specifically GiB). Valid values for storage are based on memory sizes in 16GB increments. Valid values are 16, 32, and 64.
-        """
-elif False:
-    DevEnvironmentPersistentStorageArgsDict: TypeAlias = Mapping[str, Any]
+class DevEnvironmentPersistentStorageArgsDict(TypedDict):
+    size: pulumi.Input[_builtins.int]
+    """
+    The size of the persistent storage in gigabytes (specifically GiB). Valid values for storage are based on memory sizes in 16GB increments. Valid values are 16, 32, and 64.
+    """
 
 @pulumi.input_type
 class DevEnvironmentPersistentStorageArgs:
@@ -110,20 +102,17 @@ class DevEnvironmentPersistentStorageArgs:
         pulumi.set(self, "size", value)
 
 
-if not MYPY:
-    class DevEnvironmentRepositoryArgsDict(TypedDict):
-        repository_name: pulumi.Input[_builtins.str]
-        """
-        The name of the source repository.
-        """
-        branch_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the branch in a source repository.
+class DevEnvironmentRepositoryArgsDict(TypedDict):
+    repository_name: pulumi.Input[_builtins.str]
+    """
+    The name of the source repository.
+    """
+    branch_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the branch in a source repository.
 
-        persistent storage (` persistent_storage`) supports the following:
-        """
-elif False:
-    DevEnvironmentRepositoryArgsDict: TypeAlias = Mapping[str, Any]
+    persistent storage (` persistent_storage`) supports the following:
+    """
 
 @pulumi.input_type
 class DevEnvironmentRepositoryArgs:
@@ -167,12 +156,9 @@ class DevEnvironmentRepositoryArgs:
         pulumi.set(self, "branch_name", value)
 
 
-if not MYPY:
-    class GetDevEnvironmentRepositoryArgsDict(TypedDict):
-        branch_name: _builtins.str
-        repository_name: _builtins.str
-elif False:
-    GetDevEnvironmentRepositoryArgsDict: TypeAlias = Mapping[str, Any]
+class GetDevEnvironmentRepositoryArgsDict(TypedDict):
+    branch_name: _builtins.str
+    repository_name: _builtins.str
 
 @pulumi.input_type
 class GetDevEnvironmentRepositoryArgs:

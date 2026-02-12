@@ -50,7 +50,7 @@ namespace Pulumi.Aws.S3
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import S3 Vectors Vector Bucket policy using the `vector_bucket_arn`. For example:
+    /// Using `pulumi import`, import S3 Vectors Vector Bucket policy using the `VectorBucketArn`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:s3/vectorsVectorBucketPolicy:VectorsVectorBucketPolicy example arn:aws:s3vectors:us-west-2:123456789012:bucket/example-bucket

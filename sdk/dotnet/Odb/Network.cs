@@ -16,7 +16,7 @@ namespace Pulumi.Aws.Odb
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import Odb Network using the `id`. For example:
+    /// Using `pulumi import`, import Odb Network using the `Id`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:odb/network:Network example example
@@ -31,15 +31,27 @@ namespace Pulumi.Aws.Odb
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// The name of the Availability Zone (AZ) where the odb network is located. Changing this will force terraform to create new resource. Make sure AvailabilityZone maps correctly with availability_zone_id.
+        /// </summary>
         [Output("availabilityZone")]
         public Output<string> AvailabilityZone { get; private set; } = null!;
 
+        /// <summary>
+        /// The AZ ID of the AZ where the ODB network is located. Changing this will force terraform to create new resource.
+        /// </summary>
         [Output("availabilityZoneId")]
         public Output<string> AvailabilityZoneId { get; private set; } = null!;
 
+        /// <summary>
+        /// The CIDR range of the backup subnet for the ODB network. Changing this will force terraform to create new resource.
+        /// </summary>
         [Output("backupSubnetCidr")]
         public Output<string> BackupSubnetCidr { get; private set; } = null!;
 
+        /// <summary>
+        /// The CIDR notation for the network resource. Changing this will force terraform to create new resource.
+        /// </summary>
         [Output("clientSubnetCidr")]
         public Output<string> ClientSubnetCidr { get; private set; } = null!;
 
@@ -50,11 +62,14 @@ namespace Pulumi.Aws.Odb
         public Output<string> CreatedAt { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the custom domain that the network is located. CustomDomainName and DefaultDnsPrefix both can't be given.
+        /// The name of the custom domain that the network is located. Custom_domain_name and DefaultDnsPrefix both can't be given. Changing this will force terraform to create new resource.
         /// </summary>
         [Output("customDomainName")]
         public Output<string?> CustomDomainName { get; private set; } = null!;
 
+        /// <summary>
+        /// The default DNS prefix for the network resource. Changing this will force terraform to create new resource. Changing this will force terraform to create new resource.
+        /// </summary>
         [Output("defaultDnsPrefix")]
         public Output<string?> DefaultDnsPrefix { get; private set; } = null!;
 
@@ -64,6 +79,9 @@ namespace Pulumi.Aws.Odb
         [Output("deleteAssociatedResources")]
         public Output<bool> DeleteAssociatedResources { get; private set; } = null!;
 
+        /// <summary>
+        /// The user-friendly name for the odb network. Changing this will force terraform to create a new resource.
+        /// </summary>
         [Output("displayName")]
         public Output<string> DisplayName { get; private set; } = null!;
 
@@ -241,24 +259,39 @@ namespace Pulumi.Aws.Odb
 
     public sealed class NetworkArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The name of the Availability Zone (AZ) where the odb network is located. Changing this will force terraform to create new resource. Make sure AvailabilityZone maps correctly with availability_zone_id.
+        /// </summary>
         [Input("availabilityZone")]
         public Input<string>? AvailabilityZone { get; set; }
 
+        /// <summary>
+        /// The AZ ID of the AZ where the ODB network is located. Changing this will force terraform to create new resource.
+        /// </summary>
         [Input("availabilityZoneId", required: true)]
         public Input<string> AvailabilityZoneId { get; set; } = null!;
 
+        /// <summary>
+        /// The CIDR range of the backup subnet for the ODB network. Changing this will force terraform to create new resource.
+        /// </summary>
         [Input("backupSubnetCidr", required: true)]
         public Input<string> BackupSubnetCidr { get; set; } = null!;
 
+        /// <summary>
+        /// The CIDR notation for the network resource. Changing this will force terraform to create new resource.
+        /// </summary>
         [Input("clientSubnetCidr", required: true)]
         public Input<string> ClientSubnetCidr { get; set; } = null!;
 
         /// <summary>
-        /// The name of the custom domain that the network is located. CustomDomainName and DefaultDnsPrefix both can't be given.
+        /// The name of the custom domain that the network is located. Custom_domain_name and DefaultDnsPrefix both can't be given. Changing this will force terraform to create new resource.
         /// </summary>
         [Input("customDomainName")]
         public Input<string>? CustomDomainName { get; set; }
 
+        /// <summary>
+        /// The default DNS prefix for the network resource. Changing this will force terraform to create new resource. Changing this will force terraform to create new resource.
+        /// </summary>
         [Input("defaultDnsPrefix")]
         public Input<string>? DefaultDnsPrefix { get; set; }
 
@@ -268,6 +301,9 @@ namespace Pulumi.Aws.Odb
         [Input("deleteAssociatedResources")]
         public Input<bool>? DeleteAssociatedResources { get; set; }
 
+        /// <summary>
+        /// The user-friendly name for the odb network. Changing this will force terraform to create a new resource.
+        /// </summary>
         [Input("displayName", required: true)]
         public Input<string> DisplayName { get; set; } = null!;
 
@@ -350,15 +386,27 @@ namespace Pulumi.Aws.Odb
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
+        /// <summary>
+        /// The name of the Availability Zone (AZ) where the odb network is located. Changing this will force terraform to create new resource. Make sure AvailabilityZone maps correctly with availability_zone_id.
+        /// </summary>
         [Input("availabilityZone")]
         public Input<string>? AvailabilityZone { get; set; }
 
+        /// <summary>
+        /// The AZ ID of the AZ where the ODB network is located. Changing this will force terraform to create new resource.
+        /// </summary>
         [Input("availabilityZoneId")]
         public Input<string>? AvailabilityZoneId { get; set; }
 
+        /// <summary>
+        /// The CIDR range of the backup subnet for the ODB network. Changing this will force terraform to create new resource.
+        /// </summary>
         [Input("backupSubnetCidr")]
         public Input<string>? BackupSubnetCidr { get; set; }
 
+        /// <summary>
+        /// The CIDR notation for the network resource. Changing this will force terraform to create new resource.
+        /// </summary>
         [Input("clientSubnetCidr")]
         public Input<string>? ClientSubnetCidr { get; set; }
 
@@ -369,11 +417,14 @@ namespace Pulumi.Aws.Odb
         public Input<string>? CreatedAt { get; set; }
 
         /// <summary>
-        /// The name of the custom domain that the network is located. CustomDomainName and DefaultDnsPrefix both can't be given.
+        /// The name of the custom domain that the network is located. Custom_domain_name and DefaultDnsPrefix both can't be given. Changing this will force terraform to create new resource.
         /// </summary>
         [Input("customDomainName")]
         public Input<string>? CustomDomainName { get; set; }
 
+        /// <summary>
+        /// The default DNS prefix for the network resource. Changing this will force terraform to create new resource. Changing this will force terraform to create new resource.
+        /// </summary>
         [Input("defaultDnsPrefix")]
         public Input<string>? DefaultDnsPrefix { get; set; }
 
@@ -383,6 +434,9 @@ namespace Pulumi.Aws.Odb
         [Input("deleteAssociatedResources")]
         public Input<bool>? DeleteAssociatedResources { get; set; }
 
+        /// <summary>
+        /// The user-friendly name for the odb network. Changing this will force terraform to create a new resource.
+        /// </summary>
         [Input("displayName")]
         public Input<string>? DisplayName { get; set; }
 

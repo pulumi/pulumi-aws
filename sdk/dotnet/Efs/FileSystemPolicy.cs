@@ -82,7 +82,7 @@ namespace Pulumi.Aws.Efs
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import the EFS file system policies using the `id`. For example:
+    /// Using `pulumi import`, import the EFS file system policies using the `Id`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:efs/fileSystemPolicy:FileSystemPolicy foo fs-6fa144c6

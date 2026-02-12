@@ -51,7 +51,8 @@ type Group struct {
 	pulumi.CustomResourceState
 
 	// Amazon Resource Name (ARN) of group
-	Arn          pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
 	AwsAccountId pulumi.StringOutput `pulumi:"awsAccountId"`
 	// A description for the group.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
@@ -97,7 +98,8 @@ func GetGroup(ctx *pulumi.Context,
 // Input properties used for looking up and filtering Group resources.
 type groupState struct {
 	// Amazon Resource Name (ARN) of group
-	Arn          *string `pulumi:"arn"`
+	Arn *string `pulumi:"arn"`
+	// AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
 	AwsAccountId *string `pulumi:"awsAccountId"`
 	// A description for the group.
 	Description *string `pulumi:"description"`
@@ -111,7 +113,8 @@ type groupState struct {
 
 type GroupState struct {
 	// Amazon Resource Name (ARN) of group
-	Arn          pulumi.StringPtrInput
+	Arn pulumi.StringPtrInput
+	// AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
 	AwsAccountId pulumi.StringPtrInput
 	// A description for the group.
 	Description pulumi.StringPtrInput
@@ -128,6 +131,7 @@ func (GroupState) ElementType() reflect.Type {
 }
 
 type groupArgs struct {
+	// AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
 	AwsAccountId *string `pulumi:"awsAccountId"`
 	// A description for the group.
 	Description *string `pulumi:"description"`
@@ -141,6 +145,7 @@ type groupArgs struct {
 
 // The set of arguments for constructing a Group resource.
 type GroupArgs struct {
+	// AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
 	AwsAccountId pulumi.StringPtrInput
 	// A description for the group.
 	Description pulumi.StringPtrInput
@@ -244,6 +249,7 @@ func (o GroupOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Group) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
 func (o GroupOutput) AwsAccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Group) pulumi.StringOutput { return v.AwsAccountId }).(pulumi.StringOutput)
 }

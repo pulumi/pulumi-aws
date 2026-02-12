@@ -20,6 +20,306 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
+ * &gt; **Note:** If you change a Scraper&#39;s source (EKS cluster), Terraform
+ * will delete the current Scraper and create a new one.
+ * 
+ * Provides an Amazon Managed Service for Prometheus fully managed collector
+ * (scraper).
+ * 
+ * Read more in the [Amazon Managed Service for Prometheus user guide](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-collector.html).
+ * 
+ * ## Example Usage
+ * 
+ * ### Basic Usage
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.amp.Scraper;
+ * import com.pulumi.aws.amp.ScraperArgs;
+ * import com.pulumi.aws.amp.inputs.ScraperSourceArgs;
+ * import com.pulumi.aws.amp.inputs.ScraperSourceEksArgs;
+ * import com.pulumi.aws.amp.inputs.ScraperDestinationArgs;
+ * import com.pulumi.aws.amp.inputs.ScraperDestinationAmpArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new Scraper("example", ScraperArgs.builder()
+ *             .source(ScraperSourceArgs.builder()
+ *                 .eks(ScraperSourceEksArgs.builder()
+ *                     .clusterArn(exampleAwsEksCluster.arn())
+ *                     .subnetIds(exampleAwsEksCluster.vpcConfig()[0].subnetIds())
+ *                     .build())
+ *                 .build())
+ *             .destination(ScraperDestinationArgs.builder()
+ *                 .amp(ScraperDestinationAmpArgs.builder()
+ *                     .workspaceArn(exampleAwsPrometheusWorkspace.arn())
+ *                     .build())
+ *                 .build())
+ *             .scrapeConfiguration("""
+ * global:
+ *   scrape_interval: 30s
+ * scrape_configs:
+ *   # pod metrics
+ *   - job_name: pod_exporter
+ *     kubernetes_sd_configs:
+ *       - role: pod
+ *   # container metrics
+ *   - job_name: cadvisor
+ *     scheme: https
+ *     authorization:
+ *       credentials_file: /var/run/secrets/kubernetes.io/serviceaccount/token
+ *     kubernetes_sd_configs:
+ *       - role: node
+ *     relabel_configs:
+ *       - action: labelmap
+ *         regex: __meta_kubernetes_node_label_(.+)
+ *       - replacement: kubernetes.default.svc:443
+ *         target_label: __address__
+ *       - source_labels: [__meta_kubernetes_node_name]
+ *         regex: (.+)
+ *         target_label: __metrics_path__
+ *         replacement: /api/v1/nodes/$1/proxy/metrics/cadvisor
+ *   # apiserver metrics
+ *   - bearer_token_file: /var/run/secrets/kubernetes.io/serviceaccount/token
+ *     job_name: kubernetes-apiservers
+ *     kubernetes_sd_configs:
+ *     - role: endpoints
+ *     relabel_configs:
+ *     - action: keep
+ *       regex: default;kubernetes;https
+ *       source_labels:
+ *       - __meta_kubernetes_namespace
+ *       - __meta_kubernetes_service_name
+ *       - __meta_kubernetes_endpoint_port_name
+ *     scheme: https
+ *   # kube proxy metrics
+ *   - job_name: kube-proxy
+ *     honor_labels: true
+ *     kubernetes_sd_configs:
+ *     - role: pod
+ *     relabel_configs:
+ *     - action: keep
+ *       source_labels:
+ *       - __meta_kubernetes_namespace
+ *       - __meta_kubernetes_pod_name
+ *       separator: '/'
+ *       regex: 'kube-system/kube-proxy.+'
+ *     - source_labels:
+ *       - __address__
+ *       action: replace
+ *       target_label: __address__
+ *       regex: (.+?)(\\\\:\\\\d+)?
+ *       replacement: $1:10249
+ *             """)
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
+ * ### Use default EKS scraper configuration
+ * 
+ * You can use the data source `awsPrometheusScraperConfiguration` to use a
+ * service managed scrape configuration.
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.amp.AmpFunctions;
+ * import com.pulumi.aws.amp.inputs.GetDefaultScraperConfigurationArgs;
+ * import com.pulumi.aws.amp.Scraper;
+ * import com.pulumi.aws.amp.ScraperArgs;
+ * import com.pulumi.aws.amp.inputs.ScraperDestinationArgs;
+ * import com.pulumi.aws.amp.inputs.ScraperDestinationAmpArgs;
+ * import com.pulumi.aws.amp.inputs.ScraperSourceArgs;
+ * import com.pulumi.aws.amp.inputs.ScraperSourceEksArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         final var example = AmpFunctions.getDefaultScraperConfiguration(GetDefaultScraperConfigurationArgs.builder()
+ *             .build());
+ * 
+ *         var exampleScraper = new Scraper("exampleScraper", ScraperArgs.builder()
+ *             .destination(ScraperDestinationArgs.builder()
+ *                 .amp(ScraperDestinationAmpArgs.builder()
+ *                     .workspaceArn(exampleAwsPrometheusWorkspace.arn())
+ *                     .build())
+ *                 .build())
+ *             .scrapeConfiguration(exampleAwsPrometheusScraperConfiguration.configuration())
+ *             .source(ScraperSourceArgs.builder()
+ *                 .eks(ScraperSourceEksArgs.builder()
+ *                     .clusterArn(exampleAwsEksCluster.arn())
+ *                     .subnetIds(exampleAwsEksCluster.vpcConfig()[0].subnetIds())
+ *                     .build())
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
+ * ### Ignoring changes to Prometheus Workspace destination
+ * 
+ * A managed scraper will add a `AMPAgentlessScraper` tag to its Prometheus workspace
+ * destination. To avoid Terraform state forcing removing the tag from the workspace,
+ * you can add this tag to the destination workspace (preferred) or ignore tags
+ * changes with `lifecycle`. See example below.
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.eks.EksFunctions;
+ * import com.pulumi.aws.eks.inputs.GetClusterArgs;
+ * import com.pulumi.aws.amp.Workspace;
+ * import com.pulumi.aws.amp.WorkspaceArgs;
+ * import com.pulumi.aws.amp.Scraper;
+ * import com.pulumi.aws.amp.ScraperArgs;
+ * import com.pulumi.aws.amp.inputs.ScraperSourceArgs;
+ * import com.pulumi.aws.amp.inputs.ScraperSourceEksArgs;
+ * import com.pulumi.aws.amp.inputs.ScraperDestinationArgs;
+ * import com.pulumi.aws.amp.inputs.ScraperDestinationAmpArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         final var this = EksFunctions.getCluster(GetClusterArgs.builder()
+ *             .name("example")
+ *             .build());
+ * 
+ *         var example = new Workspace("example", WorkspaceArgs.builder()
+ *             .tags(Map.of("AMPAgentlessScraper", ""))
+ *             .build());
+ * 
+ *         var exampleScraper = new Scraper("exampleScraper", ScraperArgs.builder()
+ *             .source(ScraperSourceArgs.builder()
+ *                 .eks(ScraperSourceEksArgs.builder()
+ *                     .clusterArn(exampleAwsEksCluster.arn())
+ *                     .subnetIds(exampleAwsEksCluster.vpcConfig()[0].subnetIds())
+ *                     .build())
+ *                 .build())
+ *             .scrapeConfiguration("...")
+ *             .destination(ScraperDestinationArgs.builder()
+ *                 .amp(ScraperDestinationAmpArgs.builder()
+ *                     .workspaceArn(example.arn())
+ *                     .build())
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
+ * ### Configure aws-auth
+ * 
+ * Your source Amazon EKS cluster must be configured to allow the scraper to access
+ * metrics. Follow the [user guide](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-collector-how-to.html#AMP-collector-eks-setup)
+ * to setup the appropriate Kubernetes permissions.
+ * 
+ * ### Cross-Account Configuration
+ * 
+ * This setup allows the scraper, running in a source account, to remote write its collected metrics to a workspace in a target account. Note that:
+ * 
+ * - The target Role and target Workspace must be in the same account
+ * - The source Scraper and target Workspace must be in the same Region
+ * 
+ * Follow [the AWS Best Practices guide](https://aws-observability.github.io/observability-best-practices/patterns/ampxa) to learn about the IAM roles configuration and overall setup.
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.amp.Scraper;
+ * import com.pulumi.aws.amp.ScraperArgs;
+ * import com.pulumi.aws.amp.inputs.ScraperSourceArgs;
+ * import com.pulumi.aws.amp.inputs.ScraperSourceEksArgs;
+ * import com.pulumi.aws.amp.inputs.ScraperDestinationArgs;
+ * import com.pulumi.aws.amp.inputs.ScraperDestinationAmpArgs;
+ * import com.pulumi.aws.amp.inputs.ScraperRoleConfigurationArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new Scraper("example", ScraperArgs.builder()
+ *             .source(ScraperSourceArgs.builder()
+ *                 .eks(ScraperSourceEksArgs.builder()
+ *                     .clusterArn(exampleAwsEksCluster.arn())
+ *                     .subnetIds(exampleAwsEksCluster.vpcConfig()[0].subnetIds())
+ *                     .build())
+ *                 .build())
+ *             .destination(ScraperDestinationArgs.builder()
+ *                 .amp(ScraperDestinationAmpArgs.builder()
+ *                     .workspaceArn("<target_account_workspace_arn>")
+ *                     .build())
+ *                 .build())
+ *             .roleConfiguration(ScraperRoleConfigurationArgs.builder()
+ *                 .sourceRoleArn(source.arn())
+ *                 .targetRoleArn("arn:aws:iam::ACCOUNT-ID:role/target-role-name")
+ *                 .build())
+ *             .scrapeConfiguration("...")
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
  * ## Import
  * 
  * Using `pulumi import`, import the Managed Scraper using its identifier.

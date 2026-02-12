@@ -53,7 +53,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Using `pulumi import`, import Location Geofence Collection using the `collection_name`. For example:
+ * Using `pulumi import`, import Location Geofence Collection using the `collectionName`. For example:
  * 
  * ```sh
  * $ pulumi import aws:location/geofenceCollection:GeofenceCollection example example

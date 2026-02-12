@@ -37,16 +37,11 @@ __all__ = [
     'SigningProfileSigningMaterialArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class SigningJobDestinationArgsDict(TypedDict):
-        s3: pulumi.Input['SigningJobDestinationS3ArgsDict']
-        """
-        A configuration block describing the S3 Destination object: See S3 Destination below for details.
-        """
-elif False:
-    SigningJobDestinationArgsDict: TypeAlias = Mapping[str, Any]
+class SigningJobDestinationArgsDict(TypedDict):
+    s3: pulumi.Input['SigningJobDestinationS3ArgsDict']
+    """
+    A configuration block describing the S3 Destination object: See S3 Destination below for details.
+    """
 
 @pulumi.input_type
 class SigningJobDestinationArgs:
@@ -70,15 +65,12 @@ class SigningJobDestinationArgs:
         pulumi.set(self, "s3", value)
 
 
-if not MYPY:
-    class SigningJobDestinationS3ArgsDict(TypedDict):
-        bucket: pulumi.Input[_builtins.str]
-        prefix: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        An Amazon S3 object key prefix that you can use to limit signed objects keys to begin with the specified prefix.
-        """
-elif False:
-    SigningJobDestinationS3ArgsDict: TypeAlias = Mapping[str, Any]
+class SigningJobDestinationS3ArgsDict(TypedDict):
+    bucket: pulumi.Input[_builtins.str]
+    prefix: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    An Amazon S3 object key prefix that you can use to limit signed objects keys to begin with the specified prefix.
+    """
 
 @pulumi.input_type
 class SigningJobDestinationS3Args:
@@ -114,13 +106,10 @@ class SigningJobDestinationS3Args:
         pulumi.set(self, "prefix", value)
 
 
-if not MYPY:
-    class SigningJobRevocationRecordArgsDict(TypedDict):
-        reason: NotRequired[pulumi.Input[_builtins.str]]
-        revoked_at: NotRequired[pulumi.Input[_builtins.str]]
-        revoked_by: NotRequired[pulumi.Input[_builtins.str]]
-elif False:
-    SigningJobRevocationRecordArgsDict: TypeAlias = Mapping[str, Any]
+class SigningJobRevocationRecordArgsDict(TypedDict):
+    reason: NotRequired[pulumi.Input[_builtins.str]]
+    revoked_at: NotRequired[pulumi.Input[_builtins.str]]
+    revoked_by: NotRequired[pulumi.Input[_builtins.str]]
 
 @pulumi.input_type
 class SigningJobRevocationRecordArgs:
@@ -163,11 +152,8 @@ class SigningJobRevocationRecordArgs:
         pulumi.set(self, "revoked_by", value)
 
 
-if not MYPY:
-    class SigningJobSignedObjectArgsDict(TypedDict):
-        s3s: NotRequired[pulumi.Input[Sequence[pulumi.Input['SigningJobSignedObjectS3ArgsDict']]]]
-elif False:
-    SigningJobSignedObjectArgsDict: TypeAlias = Mapping[str, Any]
+class SigningJobSignedObjectArgsDict(TypedDict):
+    s3s: NotRequired[pulumi.Input[Sequence[pulumi.Input['SigningJobSignedObjectS3ArgsDict']]]]
 
 @pulumi.input_type
 class SigningJobSignedObjectArgs:
@@ -186,15 +172,12 @@ class SigningJobSignedObjectArgs:
         pulumi.set(self, "s3s", value)
 
 
-if not MYPY:
-    class SigningJobSignedObjectS3ArgsDict(TypedDict):
-        bucket: NotRequired[pulumi.Input[_builtins.str]]
-        key: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Key name of the object that contains your unsigned code.
-        """
-elif False:
-    SigningJobSignedObjectS3ArgsDict: TypeAlias = Mapping[str, Any]
+class SigningJobSignedObjectS3ArgsDict(TypedDict):
+    bucket: NotRequired[pulumi.Input[_builtins.str]]
+    key: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Key name of the object that contains your unsigned code.
+    """
 
 @pulumi.input_type
 class SigningJobSignedObjectS3Args:
@@ -231,14 +214,11 @@ class SigningJobSignedObjectS3Args:
         pulumi.set(self, "key", value)
 
 
-if not MYPY:
-    class SigningJobSourceArgsDict(TypedDict):
-        s3: pulumi.Input['SigningJobSourceS3ArgsDict']
-        """
-        A configuration block describing the S3 Source object: See S3 Source below for details.
-        """
-elif False:
-    SigningJobSourceArgsDict: TypeAlias = Mapping[str, Any]
+class SigningJobSourceArgsDict(TypedDict):
+    s3: pulumi.Input['SigningJobSourceS3ArgsDict']
+    """
+    A configuration block describing the S3 Source object: See S3 Source below for details.
+    """
 
 @pulumi.input_type
 class SigningJobSourceArgs:
@@ -262,19 +242,16 @@ class SigningJobSourceArgs:
         pulumi.set(self, "s3", value)
 
 
-if not MYPY:
-    class SigningJobSourceS3ArgsDict(TypedDict):
-        bucket: pulumi.Input[_builtins.str]
-        key: pulumi.Input[_builtins.str]
-        """
-        Key name of the object that contains your unsigned code.
-        """
-        version: pulumi.Input[_builtins.str]
-        """
-        Version of your source image in your version enabled S3 bucket.
-        """
-elif False:
-    SigningJobSourceS3ArgsDict: TypeAlias = Mapping[str, Any]
+class SigningJobSourceS3ArgsDict(TypedDict):
+    bucket: pulumi.Input[_builtins.str]
+    key: pulumi.Input[_builtins.str]
+    """
+    Key name of the object that contains your unsigned code.
+    """
+    version: pulumi.Input[_builtins.str]
+    """
+    Version of your source image in your version enabled S3 bucket.
+    """
 
 @pulumi.input_type
 class SigningJobSourceS3Args:
@@ -324,22 +301,19 @@ class SigningJobSourceS3Args:
         pulumi.set(self, "version", value)
 
 
-if not MYPY:
-    class SigningProfileRevocationRecordArgsDict(TypedDict):
-        revocation_effective_from: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The time when revocation becomes effective.
-        """
-        revoked_at: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The time when the signing profile was revoked.
-        """
-        revoked_by: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The identity of the revoker.
-        """
-elif False:
-    SigningProfileRevocationRecordArgsDict: TypeAlias = Mapping[str, Any]
+class SigningProfileRevocationRecordArgsDict(TypedDict):
+    revocation_effective_from: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The time when revocation becomes effective.
+    """
+    revoked_at: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The time when the signing profile was revoked.
+    """
+    revoked_by: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The identity of the revoker.
+    """
 
 @pulumi.input_type
 class SigningProfileRevocationRecordArgs:
@@ -396,18 +370,15 @@ class SigningProfileRevocationRecordArgs:
         pulumi.set(self, "revoked_by", value)
 
 
-if not MYPY:
-    class SigningProfileSignatureValidityPeriodArgsDict(TypedDict):
-        type: pulumi.Input[_builtins.str]
-        """
-        The time unit for signature validity. Valid values: `DAYS`, `MONTHS`, `YEARS`.
-        """
-        value: pulumi.Input[_builtins.int]
-        """
-        The numerical value of the time unit for signature validity.
-        """
-elif False:
-    SigningProfileSignatureValidityPeriodArgsDict: TypeAlias = Mapping[str, Any]
+class SigningProfileSignatureValidityPeriodArgsDict(TypedDict):
+    type: pulumi.Input[_builtins.str]
+    """
+    The time unit for signature validity. Valid values: `DAYS`, `MONTHS`, `YEARS`.
+    """
+    value: pulumi.Input[_builtins.int]
+    """
+    The numerical value of the time unit for signature validity.
+    """
 
 @pulumi.input_type
 class SigningProfileSignatureValidityPeriodArgs:
@@ -446,14 +417,11 @@ class SigningProfileSignatureValidityPeriodArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class SigningProfileSigningMaterialArgsDict(TypedDict):
-        certificate_arn: pulumi.Input[_builtins.str]
-        """
-        The Amazon Resource Name (ARN) of the certificates that is used to sign your code.
-        """
-elif False:
-    SigningProfileSigningMaterialArgsDict: TypeAlias = Mapping[str, Any]
+class SigningProfileSigningMaterialArgsDict(TypedDict):
+    certificate_arn: pulumi.Input[_builtins.str]
+    """
+    The Amazon Resource Name (ARN) of the certificates that is used to sign your code.
+    """
 
 @pulumi.input_type
 class SigningProfileSigningMaterialArgs:

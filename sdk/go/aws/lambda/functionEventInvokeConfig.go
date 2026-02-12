@@ -230,8 +230,6 @@ import (
 //
 // import (
 //
-//	"fmt"
-//
 //	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/cloudwatch"
 //	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/lambda"
 //	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/s3"
@@ -290,16 +288,19 @@ import (
 // ```sh
 // $ pulumi import aws:lambda/functionEventInvokeConfig:FunctionEventInvokeConfig example arn:aws:lambda:us-east-1:123456789012:function:example
 // ```
+//
 // Using ARN with qualifier:
 //
 // ```sh
 // $ pulumi import aws:lambda/functionEventInvokeConfig:FunctionEventInvokeConfig example arn:aws:lambda:us-east-1:123456789012:function:example:production
 // ```
+//
 // Name without qualifier (all versions and aliases):
 //
 // ```sh
 // $ pulumi import aws:lambda/functionEventInvokeConfig:FunctionEventInvokeConfig example example
 // ```
+//
 // Name with qualifier:
 //
 // ```sh

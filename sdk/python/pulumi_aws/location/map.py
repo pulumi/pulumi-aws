@@ -294,7 +294,7 @@ class Map(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import `aws_location_map` resources using the map name. For example:
+        Using `pulumi import`, import `location.Map` resources using the map name. For example:
 
         ```sh
         $ pulumi import aws:location/map:Map example example
@@ -334,7 +334,7 @@ class Map(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import `aws_location_map` resources using the map name. For example:
+        Using `pulumi import`, import `location.Map` resources using the map name. For example:
 
         ```sh
         $ pulumi import aws:location/map:Map example example

@@ -36,7 +36,7 @@ namespace Pulumi.Aws.Bedrock
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import Amazon Bedrock Guardrail Version using using a comma-delimited string of `guardrail_arn` and `version`. For example:
+    /// Using `pulumi import`, import Amazon Bedrock Guardrail Version using using a comma-delimited string of `GuardrailArn` and `Version`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:bedrock/guardrailVersion:GuardrailVersion example arn:aws:bedrock:us-west-2:123456789012:guardrail-id-12345678,1

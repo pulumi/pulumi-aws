@@ -80,7 +80,9 @@ import javax.annotation.Nullable;
  * 
  * Using `pulumi import`, import Comprehend Document Classifier using the ARN. For example:
  * 
- * % pulumi import aws_comprehend_document_classifier.example arn:aws:comprehend:us-west-2:123456789012:document_classifier/example
+ * ```sh
+ * $ pulumi import aws:comprehend/documentClassifier:DocumentClassifier example arn:aws:comprehend:us-west-2:123456789012:document_classifier/example
+ * ```
  * 
  */
 @ResourceType(type="aws:comprehend/documentClassifier:DocumentClassifier")

@@ -228,7 +228,7 @@ class PrincipalPortfolioAssociation(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import `aws_servicecatalog_principal_portfolio_association` using `accept_language`, `principal_arn`, `portfolio_id`, and `principal_type` separated by a comma. For example:
+        Using `pulumi import`, import `servicecatalog.PrincipalPortfolioAssociation` using `accept_language`, `principal_arn`, `portfolio_id`, and `principal_type` separated by a comma. For example:
 
         ```sh
         $ pulumi import aws:servicecatalog/principalPortfolioAssociation:PrincipalPortfolioAssociation example en,arn:aws:iam::123456789012:user/Eleanor,port-68656c6c6f,IAM
@@ -268,7 +268,7 @@ class PrincipalPortfolioAssociation(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import `aws_servicecatalog_principal_portfolio_association` using `accept_language`, `principal_arn`, `portfolio_id`, and `principal_type` separated by a comma. For example:
+        Using `pulumi import`, import `servicecatalog.PrincipalPortfolioAssociation` using `accept_language`, `principal_arn`, `portfolio_id`, and `principal_type` separated by a comma. For example:
 
         ```sh
         $ pulumi import aws:servicecatalog/principalPortfolioAssociation:PrincipalPortfolioAssociation example en,arn:aws:iam::123456789012:user/Eleanor,port-68656c6c6f,IAM

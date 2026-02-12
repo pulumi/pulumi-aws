@@ -19,20 +19,15 @@ __all__ = [
     'VaultNotificationArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class VaultNotificationArgsDict(TypedDict):
-        events: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        You can configure a vault to publish a notification for `ArchiveRetrievalCompleted` and `InventoryRetrievalCompleted` events.
-        """
-        sns_topic: pulumi.Input[_builtins.str]
-        """
-        The SNS Topic ARN.
-        """
-elif False:
-    VaultNotificationArgsDict: TypeAlias = Mapping[str, Any]
+class VaultNotificationArgsDict(TypedDict):
+    events: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    You can configure a vault to publish a notification for `ArchiveRetrievalCompleted` and `InventoryRetrievalCompleted` events.
+    """
+    sns_topic: pulumi.Input[_builtins.str]
+    """
+    The SNS Topic ARN.
+    """
 
 @pulumi.input_type
 class VaultNotificationArgs:

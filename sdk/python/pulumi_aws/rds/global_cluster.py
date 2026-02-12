@@ -539,7 +539,7 @@ class GlobalCluster(pulumi.CustomResource):
             global_cluster_identifier=example.id,
             db_subnet_group_name="default")
         primary_cluster_instance = aws.rds.ClusterInstance("primary",
-            engine=example.engine,
+            engine=example.engine.apply(lambda x: aws.rds.EngineType(x)),
             engine_version=example.engine_version,
             identifier="test-primary-cluster-instance",
             cluster_identifier=primary.id,
@@ -553,7 +553,7 @@ class GlobalCluster(pulumi.CustomResource):
             db_subnet_group_name="default",
             opts = pulumi.ResourceOptions(depends_on=[primary_cluster_instance]))
         secondary_cluster_instance = aws.rds.ClusterInstance("secondary",
-            engine=example.engine,
+            engine=example.engine.apply(lambda x: aws.rds.EngineType(x)),
             engine_version=example.engine_version,
             identifier="test-secondary-cluster-instance",
             cluster_identifier=secondary.id,
@@ -582,7 +582,7 @@ class GlobalCluster(pulumi.CustomResource):
             global_cluster_identifier=example.id,
             db_subnet_group_name="default")
         primary_cluster_instance = aws.rds.ClusterInstance("primary",
-            engine=example.engine,
+            engine=example.engine.apply(lambda x: aws.rds.EngineType(x)),
             engine_version=example.engine_version,
             identifier="test-primary-cluster-instance",
             cluster_identifier=primary.id,
@@ -597,7 +597,7 @@ class GlobalCluster(pulumi.CustomResource):
             db_subnet_group_name="default",
             opts = pulumi.ResourceOptions(depends_on=[primary_cluster_instance]))
         secondary_cluster_instance = aws.rds.ClusterInstance("secondary",
-            engine=example.engine,
+            engine=example.engine.apply(lambda x: aws.rds.EngineType(x)),
             engine_version=example.engine_version,
             identifier="test-secondary-cluster-instance",
             cluster_identifier=secondary.id,
@@ -644,7 +644,7 @@ class GlobalCluster(pulumi.CustomResource):
         primary_cluster_instance = aws.rds.ClusterInstance("primary",
             apply_immediately=True,
             cluster_identifier=primary.id,
-            engine=primary.engine,
+            engine=primary.engine.apply(lambda x: aws.rds.EngineType(x)),
             engine_version=primary.engine_version,
             identifier="donetsklviv",
             instance_class=aws.rds.InstanceType.R4_LARGE)
@@ -652,14 +652,22 @@ class GlobalCluster(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import `aws_rds_global_cluster` using the RDS Global Cluster identifier. For example:
+        Using `pulumi import`, import `rds.GlobalCluster` using the RDS Global Cluster identifier. For example:
 
         ```sh
         $ pulumi import aws:rds/globalCluster:GlobalCluster example example
         ```
+
         Certain resource arguments, like `force_destroy`, only exist within this provider. If the argument is set in the the provider configuration on an imported resource, This provider will show a difference on the first plan after import to update the state value. This change is safe to apply immediately so the state matches the desired configuration.
 
         Certain resource arguments, like `source_db_cluster_identifier`, do not have an API method for reading the information after creation. If the argument is set in the Pulumi program on an imported resource, Pulumi will always show a difference. To workaround this behavior, either omit the argument from the Pulumi program or use `ignore_changes` to hide the difference. For example:
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.rds.GlobalCluster("example")
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -713,7 +721,7 @@ class GlobalCluster(pulumi.CustomResource):
             global_cluster_identifier=example.id,
             db_subnet_group_name="default")
         primary_cluster_instance = aws.rds.ClusterInstance("primary",
-            engine=example.engine,
+            engine=example.engine.apply(lambda x: aws.rds.EngineType(x)),
             engine_version=example.engine_version,
             identifier="test-primary-cluster-instance",
             cluster_identifier=primary.id,
@@ -727,7 +735,7 @@ class GlobalCluster(pulumi.CustomResource):
             db_subnet_group_name="default",
             opts = pulumi.ResourceOptions(depends_on=[primary_cluster_instance]))
         secondary_cluster_instance = aws.rds.ClusterInstance("secondary",
-            engine=example.engine,
+            engine=example.engine.apply(lambda x: aws.rds.EngineType(x)),
             engine_version=example.engine_version,
             identifier="test-secondary-cluster-instance",
             cluster_identifier=secondary.id,
@@ -756,7 +764,7 @@ class GlobalCluster(pulumi.CustomResource):
             global_cluster_identifier=example.id,
             db_subnet_group_name="default")
         primary_cluster_instance = aws.rds.ClusterInstance("primary",
-            engine=example.engine,
+            engine=example.engine.apply(lambda x: aws.rds.EngineType(x)),
             engine_version=example.engine_version,
             identifier="test-primary-cluster-instance",
             cluster_identifier=primary.id,
@@ -771,7 +779,7 @@ class GlobalCluster(pulumi.CustomResource):
             db_subnet_group_name="default",
             opts = pulumi.ResourceOptions(depends_on=[primary_cluster_instance]))
         secondary_cluster_instance = aws.rds.ClusterInstance("secondary",
-            engine=example.engine,
+            engine=example.engine.apply(lambda x: aws.rds.EngineType(x)),
             engine_version=example.engine_version,
             identifier="test-secondary-cluster-instance",
             cluster_identifier=secondary.id,
@@ -818,7 +826,7 @@ class GlobalCluster(pulumi.CustomResource):
         primary_cluster_instance = aws.rds.ClusterInstance("primary",
             apply_immediately=True,
             cluster_identifier=primary.id,
-            engine=primary.engine,
+            engine=primary.engine.apply(lambda x: aws.rds.EngineType(x)),
             engine_version=primary.engine_version,
             identifier="donetsklviv",
             instance_class=aws.rds.InstanceType.R4_LARGE)
@@ -826,14 +834,22 @@ class GlobalCluster(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import `aws_rds_global_cluster` using the RDS Global Cluster identifier. For example:
+        Using `pulumi import`, import `rds.GlobalCluster` using the RDS Global Cluster identifier. For example:
 
         ```sh
         $ pulumi import aws:rds/globalCluster:GlobalCluster example example
         ```
+
         Certain resource arguments, like `force_destroy`, only exist within this provider. If the argument is set in the the provider configuration on an imported resource, This provider will show a difference on the first plan after import to update the state value. This change is safe to apply immediately so the state matches the desired configuration.
 
         Certain resource arguments, like `source_db_cluster_identifier`, do not have an API method for reading the information after creation. If the argument is set in the Pulumi program on an imported resource, Pulumi will always show a difference. To workaround this behavior, either omit the argument from the Pulumi program or use `ignore_changes` to hide the difference. For example:
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.rds.GlobalCluster("example")
+        ```
 
         :param str resource_name: The name of the resource.
         :param GlobalClusterArgs args: The arguments to use to populate this resource's properties.

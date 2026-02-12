@@ -46,7 +46,7 @@ namespace Pulumi.Aws.ElastiCache
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import ElastiCache Reserved Cache Node using the `id`. For example:
+    /// Using `pulumi import`, import ElastiCache Reserved Cache Node using the `Id`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:elasticache/reservedCacheNode:ReservedCacheNode example CustomReservationID

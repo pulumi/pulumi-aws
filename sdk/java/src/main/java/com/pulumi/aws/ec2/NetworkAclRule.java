@@ -77,13 +77,14 @@ import javax.annotation.Nullable;
  * 
  * Using the procotol&#39;s decimal value:
  * 
- * __Using `pulumi import` to import__ individual rules using `NETWORK_ACL_ID:RULE_NUMBER:PROTOCOL:EGRESS`, where `PROTOCOL` can be a decimal (such as &#34;6&#34;) or string (such as &#34;tcp&#34;) value. For example:
+ * **Using `pulumi import` to import** individual rules using `NETWORK_ACL_ID:RULE_NUMBER:PROTOCOL:EGRESS`, where `PROTOCOL` can be a decimal (such as &#34;6&#34;) or string (such as &#34;tcp&#34;) value. For example:
  * 
  * Using the procotol&#39;s string value:
  * 
  * ```sh
  * $ pulumi import aws:ec2/networkAclRule:NetworkAclRule my_rule acl-7aaabd18:100:tcp:false
  * ```
+ * 
  * Using the procotol&#39;s decimal value:
  * 
  * ```sh

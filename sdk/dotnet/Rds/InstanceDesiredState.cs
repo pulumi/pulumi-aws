@@ -37,7 +37,7 @@ namespace Pulumi.Aws.Rds
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import RDS (Relational Database) RDS Instance State using the `identifier`. For example:
+    /// Using `pulumi import`, import RDS (Relational Database) RDS Instance State using the `Identifier`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:rds/instanceDesiredState:InstanceDesiredState example rds_instance_state-id-12345678

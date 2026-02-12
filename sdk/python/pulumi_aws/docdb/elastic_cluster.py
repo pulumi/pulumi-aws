@@ -617,7 +617,9 @@ class ElasticCluster(pulumi.CustomResource):
 
         Using `pulumi import`, import DocDB (DocumentDB) Elastic Cluster using the `arn` argument. For example,
 
-        % pulumi import aws_docdbelastic_cluster.example arn:aws:docdb-elastic:us-east-1:000011112222:cluster/12345678-7abc-def0-1234-56789abcdef
+        ```sh
+        $ pulumi import aws:docdb/elasticCluster:ElasticCluster example arn:aws:docdb-elastic:us-east-1:000011112222:cluster/12345678-7abc-def0-1234-56789abcdef
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -677,7 +679,9 @@ class ElasticCluster(pulumi.CustomResource):
 
         Using `pulumi import`, import DocDB (DocumentDB) Elastic Cluster using the `arn` argument. For example,
 
-        % pulumi import aws_docdbelastic_cluster.example arn:aws:docdb-elastic:us-east-1:000011112222:cluster/12345678-7abc-def0-1234-56789abcdef
+        ```sh
+        $ pulumi import aws:docdb/elasticCluster:ElasticCluster example arn:aws:docdb-elastic:us-east-1:000011112222:cluster/12345678-7abc-def0-1234-56789abcdef
+        ```
 
         :param str resource_name: The name of the resource.
         :param ElasticClusterArgs args: The arguments to use to populate this resource's properties.

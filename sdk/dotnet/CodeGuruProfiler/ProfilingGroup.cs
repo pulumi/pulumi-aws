@@ -39,7 +39,7 @@ namespace Pulumi.Aws.CodeGuruProfiler
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import CodeGuru Profiler Profiling Group using the `id`. For example:
+    /// Using `pulumi import`, import CodeGuru Profiler Profiling Group using the `Id`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:codeguruprofiler/profilingGroup:ProfilingGroup example profiling_group-name-12345678

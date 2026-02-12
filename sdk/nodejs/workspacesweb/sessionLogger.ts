@@ -146,7 +146,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Using `pulumi import`, import WorkSpaces Web Session Logger using the `session_logger_arn`. For example:
+ * Using `pulumi import`, import WorkSpaces Web Session Logger using the `sessionLoggerArn`. For example:
  *
  * ```sh
  * $ pulumi import aws:workspacesweb/sessionLogger:SessionLogger example arn:aws:workspaces-web:us-west-2:123456789012:sessionLogger/session_logger-id-12345678

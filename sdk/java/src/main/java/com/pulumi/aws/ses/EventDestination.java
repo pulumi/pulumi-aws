@@ -155,7 +155,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Using `pulumi import`, import SES event destinations using `configuration_set_name` together with the event destination&#39;s `name`. For example:
+ * Using `pulumi import`, import SES event destinations using `configurationSetName` together with the event destination&#39;s `name`. For example:
  * 
  * ```sh
  * $ pulumi import aws:ses/eventDestination:EventDestination sns some-configuration-set-test/event-destination-sns

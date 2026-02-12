@@ -64,11 +64,13 @@ import javax.annotation.Nullable;
  * 
  * #### Optional
  * 
- * * `account_id` (String) AWS Account where this resource is managed.
+ * * `accountId` (String) AWS Account where this resource is managed.
  * 
  * Using `pulumi import`, import CloudFront Key Value Store using the `name`. For example:
  * 
- * % pulumi import aws_cloudfront_key_value_store.example example_store
+ * ```sh
+ * $ pulumi import aws:cloudfront/keyValueStore:KeyValueStore example example_store
+ * ```
  * 
  */
 @ResourceType(type="aws:cloudfront/keyValueStore:KeyValueStore")

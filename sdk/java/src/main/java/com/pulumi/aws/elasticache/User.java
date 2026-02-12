@@ -140,7 +140,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Using `pulumi import`, import ElastiCache users using the `user_id`. For example:
+ * Using `pulumi import`, import ElastiCache users using the `userId`. For example:
  * 
  * ```sh
  * $ pulumi import aws:elasticache/user:User my_user userId1

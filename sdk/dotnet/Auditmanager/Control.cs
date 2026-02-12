@@ -43,7 +43,7 @@ namespace Pulumi.Aws.Auditmanager
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import an Audit Manager Control using the `id`. For example:
+    /// Using `pulumi import`, import an Audit Manager Control using the `Id`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:auditmanager/control:Control example abc123-de45

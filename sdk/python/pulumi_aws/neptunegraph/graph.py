@@ -38,11 +38,7 @@ class GraphArgs:
                
                The following arguments are optional:
         :param pulumi.Input[_builtins.bool] deletion_protection: Value that indicates whether the Graph has deletion protection enabled. The graph can't be deleted when deletion protection is enabled.
-        :param pulumi.Input[_builtins.str] graph_name: The graph name. For example: my-graph-1.
-               								The name must contain from 1 to 63 letters, numbers, or hyphens, 
-               								and its first character must be a letter. It cannot end with a hyphen or contain two consecutive hyphens.
-               								If you don't specify a graph name, a unique graph name is generated for you using the prefix graph-for, 
-               								followed by a combination of Stack Name and a UUID.
+        :param pulumi.Input[_builtins.str] graph_name: Contains a user-supplied name for the Graph. If omitted, Terraform will assign a random, unique identifier.
         :param pulumi.Input[_builtins.str] graph_name_prefix: Allows user to specify name prefix and have remainder of name automatically generated.
         :param pulumi.Input[_builtins.str] kms_key_identifier: The ARN for the KMS encryption key. By Default, Neptune Analytics will use an AWS provided key ("AWS_OWNED_KEY"). This parameter is used if you want to encrypt the graph using a KMS Customer Managed Key (CMK).
         :param pulumi.Input[_builtins.bool] public_connectivity: Specifies whether the Graph can be reached over the internet. Access to all graphs requires IAM authentication.  When the Graph is publicly reachable, its Domain Name System (DNS) endpoint resolves to the public IP address from the internet.  When the Graph isn't publicly reachable, you need to create a PrivateGraphEndpoint in a given VPC to ensure the DNS name resolves to a private IP address that is reachable from the VPC.
@@ -103,11 +99,7 @@ class GraphArgs:
     @pulumi.getter(name="graphName")
     def graph_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The graph name. For example: my-graph-1.
-        								The name must contain from 1 to 63 letters, numbers, or hyphens, 
-        								and its first character must be a letter. It cannot end with a hyphen or contain two consecutive hyphens.
-        								If you don't specify a graph name, a unique graph name is generated for you using the prefix graph-for, 
-        								followed by a combination of Stack Name and a UUID.
+        Contains a user-supplied name for the Graph. If omitted, Terraform will assign a random, unique identifier.
         """
         return pulumi.get(self, "graph_name")
 
@@ -231,11 +223,7 @@ class _GraphState:
         :param pulumi.Input[_builtins.str] arn: (String) Graph resource ARN
         :param pulumi.Input[_builtins.bool] deletion_protection: Value that indicates whether the Graph has deletion protection enabled. The graph can't be deleted when deletion protection is enabled.
         :param pulumi.Input[_builtins.str] endpoint: (String) The connection endpoint for the graph. For example: `g-12a3bcdef4.us-east-1.neptune-graph.amazonaws.com`
-        :param pulumi.Input[_builtins.str] graph_name: The graph name. For example: my-graph-1.
-               								The name must contain from 1 to 63 letters, numbers, or hyphens, 
-               								and its first character must be a letter. It cannot end with a hyphen or contain two consecutive hyphens.
-               								If you don't specify a graph name, a unique graph name is generated for you using the prefix graph-for, 
-               								followed by a combination of Stack Name and a UUID.
+        :param pulumi.Input[_builtins.str] graph_name: Contains a user-supplied name for the Graph. If omitted, Terraform will assign a random, unique identifier.
         :param pulumi.Input[_builtins.str] graph_name_prefix: Allows user to specify name prefix and have remainder of name automatically generated.
         :param pulumi.Input[_builtins.str] kms_key_identifier: The ARN for the KMS encryption key. By Default, Neptune Analytics will use an AWS provided key ("AWS_OWNED_KEY"). This parameter is used if you want to encrypt the graph using a KMS Customer Managed Key (CMK).
         :param pulumi.Input[_builtins.int] provisioned_memory: The provisioned memory-optimized Neptune Capacity Units (m-NCUs) to use for the graph.
@@ -317,11 +305,7 @@ class _GraphState:
     @pulumi.getter(name="graphName")
     def graph_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The graph name. For example: my-graph-1.
-        								The name must contain from 1 to 63 letters, numbers, or hyphens, 
-        								and its first character must be a letter. It cannot end with a hyphen or contain two consecutive hyphens.
-        								If you don't specify a graph name, a unique graph name is generated for you using the prefix graph-for, 
-        								followed by a combination of Stack Name and a UUID.
+        Contains a user-supplied name for the Graph. If omitted, Terraform will assign a random, unique identifier.
         """
         return pulumi.get(self, "graph_name")
 
@@ -499,7 +483,7 @@ class Graph(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import `aws_neptunegraph_graph` using the graph identifier. For example:
+        Using `pulumi import`, import `neptunegraph.Graph` using the graph identifier. For example:
 
         ```sh
         $ pulumi import aws:neptunegraph/graph:Graph example "graph_id"
@@ -508,11 +492,7 @@ class Graph(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] deletion_protection: Value that indicates whether the Graph has deletion protection enabled. The graph can't be deleted when deletion protection is enabled.
-        :param pulumi.Input[_builtins.str] graph_name: The graph name. For example: my-graph-1.
-               								The name must contain from 1 to 63 letters, numbers, or hyphens, 
-               								and its first character must be a letter. It cannot end with a hyphen or contain two consecutive hyphens.
-               								If you don't specify a graph name, a unique graph name is generated for you using the prefix graph-for, 
-               								followed by a combination of Stack Name and a UUID.
+        :param pulumi.Input[_builtins.str] graph_name: Contains a user-supplied name for the Graph. If omitted, Terraform will assign a random, unique identifier.
         :param pulumi.Input[_builtins.str] graph_name_prefix: Allows user to specify name prefix and have remainder of name automatically generated.
         :param pulumi.Input[_builtins.str] kms_key_identifier: The ARN for the KMS encryption key. By Default, Neptune Analytics will use an AWS provided key ("AWS_OWNED_KEY"). This parameter is used if you want to encrypt the graph using a KMS Customer Managed Key (CMK).
         :param pulumi.Input[_builtins.int] provisioned_memory: The provisioned memory-optimized Neptune Capacity Units (m-NCUs) to use for the graph.
@@ -562,7 +542,7 @@ class Graph(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import `aws_neptunegraph_graph` using the graph identifier. For example:
+        Using `pulumi import`, import `neptunegraph.Graph` using the graph identifier. For example:
 
         ```sh
         $ pulumi import aws:neptunegraph/graph:Graph example "graph_id"
@@ -653,11 +633,7 @@ class Graph(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] arn: (String) Graph resource ARN
         :param pulumi.Input[_builtins.bool] deletion_protection: Value that indicates whether the Graph has deletion protection enabled. The graph can't be deleted when deletion protection is enabled.
         :param pulumi.Input[_builtins.str] endpoint: (String) The connection endpoint for the graph. For example: `g-12a3bcdef4.us-east-1.neptune-graph.amazonaws.com`
-        :param pulumi.Input[_builtins.str] graph_name: The graph name. For example: my-graph-1.
-               								The name must contain from 1 to 63 letters, numbers, or hyphens, 
-               								and its first character must be a letter. It cannot end with a hyphen or contain two consecutive hyphens.
-               								If you don't specify a graph name, a unique graph name is generated for you using the prefix graph-for, 
-               								followed by a combination of Stack Name and a UUID.
+        :param pulumi.Input[_builtins.str] graph_name: Contains a user-supplied name for the Graph. If omitted, Terraform will assign a random, unique identifier.
         :param pulumi.Input[_builtins.str] graph_name_prefix: Allows user to specify name prefix and have remainder of name automatically generated.
         :param pulumi.Input[_builtins.str] kms_key_identifier: The ARN for the KMS encryption key. By Default, Neptune Analytics will use an AWS provided key ("AWS_OWNED_KEY"). This parameter is used if you want to encrypt the graph using a KMS Customer Managed Key (CMK).
         :param pulumi.Input[_builtins.int] provisioned_memory: The provisioned memory-optimized Neptune Capacity Units (m-NCUs) to use for the graph.
@@ -718,11 +694,7 @@ class Graph(pulumi.CustomResource):
     @pulumi.getter(name="graphName")
     def graph_name(self) -> pulumi.Output[_builtins.str]:
         """
-        The graph name. For example: my-graph-1.
-        								The name must contain from 1 to 63 letters, numbers, or hyphens, 
-        								and its first character must be a letter. It cannot end with a hyphen or contain two consecutive hyphens.
-        								If you don't specify a graph name, a unique graph name is generated for you using the prefix graph-for, 
-        								followed by a combination of Stack Name and a UUID.
+        Contains a user-supplied name for the Graph. If omitted, Terraform will assign a random, unique identifier.
         """
         return pulumi.get(self, "graph_name")
 

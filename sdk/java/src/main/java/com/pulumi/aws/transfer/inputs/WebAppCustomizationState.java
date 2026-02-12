@@ -15,16 +15,32 @@ public final class WebAppCustomizationState extends com.pulumi.resources.Resourc
 
     public static final WebAppCustomizationState Empty = new WebAppCustomizationState();
 
+    /**
+     * Base64-encoded string representing the favicon image. Terraform will detect drift only if this argument is specified. To remove the favicon, recreate the resource.
+     * 
+     */
     @Import(name="faviconFile")
     private @Nullable Output<String> faviconFile;
 
+    /**
+     * @return Base64-encoded string representing the favicon image. Terraform will detect drift only if this argument is specified. To remove the favicon, recreate the resource.
+     * 
+     */
     public Optional<Output<String>> faviconFile() {
         return Optional.ofNullable(this.faviconFile);
     }
 
+    /**
+     * Base64-encoded string representing the logo image. Terraform will detect drift only if this argument is specified. To remove the logo, recreate the resource.
+     * 
+     */
     @Import(name="logoFile")
     private @Nullable Output<String> logoFile;
 
+    /**
+     * @return Base64-encoded string representing the logo image. Terraform will detect drift only if this argument is specified. To remove the logo, recreate the resource.
+     * 
+     */
     public Optional<Output<String>> logoFile() {
         return Optional.ofNullable(this.logoFile);
     }
@@ -106,20 +122,44 @@ public final class WebAppCustomizationState extends com.pulumi.resources.Resourc
             $ = new WebAppCustomizationState(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param faviconFile Base64-encoded string representing the favicon image. Terraform will detect drift only if this argument is specified. To remove the favicon, recreate the resource.
+         * 
+         * @return builder
+         * 
+         */
         public Builder faviconFile(@Nullable Output<String> faviconFile) {
             $.faviconFile = faviconFile;
             return this;
         }
 
+        /**
+         * @param faviconFile Base64-encoded string representing the favicon image. Terraform will detect drift only if this argument is specified. To remove the favicon, recreate the resource.
+         * 
+         * @return builder
+         * 
+         */
         public Builder faviconFile(String faviconFile) {
             return faviconFile(Output.of(faviconFile));
         }
 
+        /**
+         * @param logoFile Base64-encoded string representing the logo image. Terraform will detect drift only if this argument is specified. To remove the logo, recreate the resource.
+         * 
+         * @return builder
+         * 
+         */
         public Builder logoFile(@Nullable Output<String> logoFile) {
             $.logoFile = logoFile;
             return this;
         }
 
+        /**
+         * @param logoFile Base64-encoded string representing the logo image. Terraform will detect drift only if this argument is specified. To remove the logo, recreate the resource.
+         * 
+         * @return builder
+         * 
+         */
         public Builder logoFile(String logoFile) {
             return logoFile(Output.of(logoFile));
         }

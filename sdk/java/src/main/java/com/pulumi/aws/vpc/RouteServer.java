@@ -96,7 +96,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Using `pulumi import`, import VPC (Virtual Private Cloud) Route Server using the `route_server_id`. For example:
+ * Using `pulumi import`, import VPC (Virtual Private Cloud) Route Server using the `routeServerId`. For example:
  * 
  * ```sh
  * $ pulumi import aws:vpc/routeServer:RouteServer example rs-12345678

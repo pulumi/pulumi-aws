@@ -246,7 +246,15 @@ class UserLoginProfile(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:iam/userLoginProfile:UserLoginProfile example myusername
         ```
+
         Since Pulumi has no method to read the PGP or password information during import, use the resource options `ignore_changes` argument to ignore them (unless you want to recreate a password). For example:
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.iam.UserLoginProfile("example")
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -289,7 +297,15 @@ class UserLoginProfile(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:iam/userLoginProfile:UserLoginProfile example myusername
         ```
+
         Since Pulumi has no method to read the PGP or password information during import, use the resource options `ignore_changes` argument to ignore them (unless you want to recreate a password). For example:
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.iam.UserLoginProfile("example")
+        ```
 
         :param str resource_name: The name of the resource.
         :param UserLoginProfileArgs args: The arguments to use to populate this resource's properties.

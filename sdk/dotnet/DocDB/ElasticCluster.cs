@@ -43,11 +43,13 @@ namespace Pulumi.Aws.DocDB
     /// 
     /// #### Required
     /// 
-    /// - `arn` (String) Amazon Resource Name (ARN) of the DocDB Elastic cluster.
+    /// - `Arn` (String) Amazon Resource Name (ARN) of the DocDB Elastic cluster.
     /// 
-    /// Using `pulumi import`, import DocDB (DocumentDB) Elastic Cluster using the `arn` argument. For example,
+    /// Using `pulumi import`, import DocDB (DocumentDB) Elastic Cluster using the `Arn` argument. For example,
     /// 
-    /// % pulumi import aws_docdbelastic_cluster.example arn:aws:docdb-elastic:us-east-1:000011112222:cluster/12345678-7abc-def0-1234-56789abcdef
+    /// ```sh
+    /// $ pulumi import aws:docdb/elasticCluster:ElasticCluster example arn:aws:docdb-elastic:us-east-1:000011112222:cluster/12345678-7abc-def0-1234-56789abcdef
+    /// ```
     /// </summary>
     [AwsResourceType("aws:docdb/elasticCluster:ElasticCluster")]
     public partial class ElasticCluster : global::Pulumi.CustomResource

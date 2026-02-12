@@ -91,7 +91,7 @@ namespace Pulumi.Aws.TimestreamWrite
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import Timestream tables using the `table_name` and `database_name` separate by a colon (`:`). For example:
+    /// Using `pulumi import`, import Timestream tables using the `TableName` and `DatabaseName` separate by a colon (`:`). For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:timestreamwrite/table:Table example ExampleTable:ExampleDatabase

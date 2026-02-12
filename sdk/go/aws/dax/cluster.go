@@ -45,11 +45,13 @@ import (
 //
 // ## Import
 //
-// Using `pulumi import`, import DAX Clusters using the `cluster_name`. For example:
+// Using `pulumi import`, import DAX Clusters using the `clusterName`. For example:
 //
 // ```sh
 // $ pulumi import aws:dax/cluster:Cluster my_cluster my_cluster
 // ```
+//
+// [1]: http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DAX.concepts.cluster.html#DAX.concepts.nodes
 type Cluster struct {
 	pulumi.CustomResourceState
 

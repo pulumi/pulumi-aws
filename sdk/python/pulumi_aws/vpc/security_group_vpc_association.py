@@ -200,18 +200,18 @@ class SecurityGroupVpcAssociation(pulumi.CustomResource):
         #### Required
 
         * `vpc_id` (String) VPC ID.
-
         * `security_group_id` (String) Security Group ID.
 
         #### Optional
 
         * `account_id` (String) AWS Account where this resource is managed.
-
         * `region` (String) Region where this resource is managed.
 
         Using `pulumi import`, import a Security Group VPC Association using the `security_group_id` and `vpc_id` arguments, separated by a comma (`,`). For example:
 
-        % pulumi import aws_vpc_security_group_vpc_association.example sg-12345,vpc-67890
+        ```sh
+        $ pulumi import aws:vpc/securityGroupVpcAssociation:SecurityGroupVpcAssociation example sg-12345,vpc-67890
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -246,18 +246,18 @@ class SecurityGroupVpcAssociation(pulumi.CustomResource):
         #### Required
 
         * `vpc_id` (String) VPC ID.
-
         * `security_group_id` (String) Security Group ID.
 
         #### Optional
 
         * `account_id` (String) AWS Account where this resource is managed.
-
         * `region` (String) Region where this resource is managed.
 
         Using `pulumi import`, import a Security Group VPC Association using the `security_group_id` and `vpc_id` arguments, separated by a comma (`,`). For example:
 
-        % pulumi import aws_vpc_security_group_vpc_association.example sg-12345,vpc-67890
+        ```sh
+        $ pulumi import aws:vpc/securityGroupVpcAssociation:SecurityGroupVpcAssociation example sg-12345,vpc-67890
+        ```
 
         :param str resource_name: The name of the resource.
         :param SecurityGroupVpcAssociationArgs args: The arguments to use to populate this resource's properties.

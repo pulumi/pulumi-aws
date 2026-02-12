@@ -1137,7 +1137,9 @@ class Topic(pulumi.CustomResource):
 
         Using `pulumi import`, import SNS Topics using the topic `arn`. For example:
 
-        % pulumi import aws_sns_topic.user_updates arn:aws:sns:us-west-2:123456789012:my-topic
+        ```sh
+        $ pulumi import aws:sns/topic:Topic user_updates arn:aws:sns:us-west-2:123456789012:my-topic
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -1254,7 +1256,9 @@ class Topic(pulumi.CustomResource):
 
         Using `pulumi import`, import SNS Topics using the topic `arn`. For example:
 
-        % pulumi import aws_sns_topic.user_updates arn:aws:sns:us-west-2:123456789012:my-topic
+        ```sh
+        $ pulumi import aws:sns/topic:Topic user_updates arn:aws:sns:us-west-2:123456789012:my-topic
+        ```
 
         :param str resource_name: The name of the resource.
         :param TopicArgs args: The arguments to use to populate this resource's properties.

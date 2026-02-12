@@ -180,7 +180,7 @@ namespace Pulumi.Aws.AppSync
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import AppSync Event API using the `api_id`. For example:
+    /// Using `pulumi import`, import AppSync Event API using the `ApiId`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:appsync/api:Api example example-api-id

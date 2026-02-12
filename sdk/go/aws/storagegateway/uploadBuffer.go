@@ -88,7 +88,7 @@ import (
 //
 // ## Import
 //
-// Using `pulumi import`, import `aws_storagegateway_upload_buffer` using the gateway Amazon Resource Name (ARN) and local disk identifier separated with a colon (`:`). For example:
+// Using `pulumi import`, import `storagegateway.UploadBuffer` using the gateway Amazon Resource Name (ARN) and local disk identifier separated with a colon (`:`). For example:
 //
 // ```sh
 // $ pulumi import aws:storagegateway/uploadBuffer:UploadBuffer example arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678:pci-0000:03:00.0-scsi-0:0:0:0

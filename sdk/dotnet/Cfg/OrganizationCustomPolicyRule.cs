@@ -55,7 +55,7 @@ namespace Pulumi.Aws.Cfg
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import a Config Organization Custom Policy Rule using the `name` argument. For example:
+    /// Using `pulumi import`, import a Config Organization Custom Policy Rule using the `Name` argument. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:cfg/organizationCustomPolicyRule:OrganizationCustomPolicyRule example example_rule_name

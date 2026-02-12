@@ -74,7 +74,7 @@ import (
 //
 // ## Import
 //
-// Using `pulumi import`, import Timestream databases using the `database_name`. For example:
+// Using `pulumi import`, import Timestream databases using the `databaseName`. For example:
 //
 // ```sh
 // $ pulumi import aws:timestreamwrite/database:Database example example

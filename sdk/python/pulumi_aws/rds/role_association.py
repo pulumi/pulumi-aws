@@ -178,7 +178,7 @@ class RoleAssociation(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import `aws_db_instance_role_association` using the DB Instance Identifier and IAM Role ARN separated by a comma (`,`). For example:
+        Using `pulumi import`, import `rds.RoleAssociation` using the DB Instance Identifier and IAM Role ARN separated by a comma (`,`). For example:
 
         ```sh
         $ pulumi import aws:rds/roleAssociation:RoleAssociation example my-db-instance,arn:aws:iam::123456789012:role/my-role
@@ -207,7 +207,7 @@ class RoleAssociation(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import `aws_db_instance_role_association` using the DB Instance Identifier and IAM Role ARN separated by a comma (`,`). For example:
+        Using `pulumi import`, import `rds.RoleAssociation` using the DB Instance Identifier and IAM Role ARN separated by a comma (`,`). For example:
 
         ```sh
         $ pulumi import aws:rds/roleAssociation:RoleAssociation example my-db-instance,arn:aws:iam::123456789012:role/my-role

@@ -31,8 +31,6 @@ import (
 //
 // import (
 //
-//	"fmt"
-//
 //	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/lambda"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
@@ -178,6 +176,8 @@ import (
 // package main
 //
 // import (
+//
+//	"fmt"
 //
 //	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/efs"
 //	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/lambda"
@@ -519,7 +519,6 @@ import (
 // import (
 //
 //	"encoding/json"
-//	"fmt"
 //
 //	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/cloudwatch"
 //	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/iam"
@@ -751,17 +750,18 @@ import (
 //
 // #### Required
 //
-// * `function_name` (String) Name of the Lambda function.
+// * `functionName` (String) Name of the Lambda function.
 //
 // #### Optional
 //
-// * `account_id` (String) AWS Account where this resource is managed.
-//
+// * `accountId` (String) AWS Account where this resource is managed.
 // * `region` (String) Region where this resource is managed.
 //
-// Using `pulumi import`, import Lambda Functions using the `function_name`. For example:
+// Using `pulumi import`, import Lambda Functions using the `functionName`. For example:
 //
-// % pulumi import aws_lambda_function.example example
+// ```sh
+// $ pulumi import aws:lambda/function:Function example example
+// ```
 type Function struct {
 	pulumi.CustomResourceState
 

@@ -61,7 +61,7 @@ namespace Pulumi.Aws.RedShift
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import Redshift Logging using the `id`. For example:
+    /// Using `pulumi import`, import Redshift Logging using the `Id`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:redshift/logging:Logging example cluster-id-12345678

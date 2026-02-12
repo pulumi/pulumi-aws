@@ -28,7 +28,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Using `pulumi import`, import `aws_organizations_policy` using the policy ID. For example:
+ * Using `pulumi import`, import `aws.organizations.Policy` using the policy ID. For example:
  *
  * ```sh
  * $ pulumi import aws:organizations/policy:Policy example p-12345678

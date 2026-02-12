@@ -38,7 +38,7 @@ namespace Pulumi.Aws.CloudFront
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import CloudFront Public Key using the `id`. For example:
+    /// Using `pulumi import`, import CloudFront Public Key using the `Id`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:cloudfront/publicKey:PublicKey example K3D5EWEUDCCXON

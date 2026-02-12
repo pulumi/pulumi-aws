@@ -255,7 +255,7 @@ namespace Pulumi.Aws.CloudWatch
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import CloudWatch metric streams using the `name`. For example:
+    /// Using `pulumi import`, import CloudWatch metric streams using the `Name`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:cloudwatch/metricStream:MetricStream sample sample-stream-name

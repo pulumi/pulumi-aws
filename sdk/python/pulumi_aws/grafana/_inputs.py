@@ -21,20 +21,15 @@ __all__ = [
     'WorkspaceVpcConfigurationArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class WorkspaceNetworkAccessControlArgsDict(TypedDict):
-        prefix_list_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        An array of prefix list IDs.
-        """
-        vpce_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        An array of Amazon VPC endpoint IDs for the workspace. The only VPC endpoints that can be specified here are interface VPC endpoints for Grafana workspaces (using the com.amazonaws.[region].grafana-workspace service endpoint). Other VPC endpoints will be ignored.
-        """
-elif False:
-    WorkspaceNetworkAccessControlArgsDict: TypeAlias = Mapping[str, Any]
+class WorkspaceNetworkAccessControlArgsDict(TypedDict):
+    prefix_list_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    An array of prefix list IDs.
+    """
+    vpce_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    An array of Amazon VPC endpoint IDs for the workspace. The only VPC endpoints that can be specified here are interface VPC endpoints for Grafana workspaces (using the com.amazonaws.[region].grafana-workspace service endpoint). Other VPC endpoints will be ignored.
+    """
 
 @pulumi.input_type
 class WorkspaceNetworkAccessControlArgs:
@@ -73,18 +68,15 @@ class WorkspaceNetworkAccessControlArgs:
         pulumi.set(self, "vpce_ids", value)
 
 
-if not MYPY:
-    class WorkspaceVpcConfigurationArgsDict(TypedDict):
-        security_group_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        The list of Amazon EC2 security group IDs attached to the Amazon VPC for your Grafana workspace to connect.
-        """
-        subnet_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        The list of Amazon EC2 subnet IDs created in the Amazon VPC for your Grafana workspace to connect.
-        """
-elif False:
-    WorkspaceVpcConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class WorkspaceVpcConfigurationArgsDict(TypedDict):
+    security_group_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    The list of Amazon EC2 security group IDs attached to the Amazon VPC for your Grafana workspace to connect.
+    """
+    subnet_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    The list of Amazon EC2 subnet IDs created in the Amazon VPC for your Grafana workspace to connect.
+    """
 
 @pulumi.input_type
 class WorkspaceVpcConfigurationArgs:

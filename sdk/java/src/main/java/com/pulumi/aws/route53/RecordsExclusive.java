@@ -18,9 +18,109 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
+ * Resource for maintaining exclusive management of resource record sets defined in an AWS Route53 hosted zone.
+ * 
+ * !&gt; This resource takes exclusive ownership over resource record sets defined in a hosted zone. This includes removal of record sets which are not explicitly configured. To prevent persistent drift, ensure any `aws.route53.Record` resources managed alongside this resource have an equivalent `resourceRecordSet` argument.
+ * 
+ * &gt; Destruction of this resource means Terraform will no longer manage reconciliation of the configured resource record sets. It __will not__ delete the configured record sets from the hosted zone.
+ * 
+ * &gt; The default `NS` and `SOA` records created during provisioning of the Route53 Zone __should not be included__ in this resource definition. Adding them will cause persistent drift as the read operation is explicitly configured to ignore writing them to state.
+ * 
+ * ## Example Usage
+ * 
+ * ### Basic Usage
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.route53.Zone;
+ * import com.pulumi.aws.route53.ZoneArgs;
+ * import com.pulumi.aws.route53.RecordsExclusive;
+ * import com.pulumi.aws.route53.RecordsExclusiveArgs;
+ * import com.pulumi.aws.route53.inputs.RecordsExclusiveResourceRecordSetArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new Zone("example", ZoneArgs.builder()
+ *             .name("example.com")
+ *             .forceDestroy(true)
+ *             .build());
+ * 
+ *         var test = new RecordsExclusive("test", RecordsExclusiveArgs.builder()
+ *             .zoneId(testAwsRoute53Zone.zoneId())
+ *             .resourceRecordSets(RecordsExclusiveResourceRecordSetArgs.builder()
+ *                 .name("subdomain.example.com")
+ *                 .type("A")
+ *                 .ttl(30)
+ *                 .resourceRecords(                
+ *                     RecordsExclusiveResourceRecordSetResourceRecordArgs.builder()
+ *                         .value("127.0.0.1")
+ *                         .build(),
+ *                     RecordsExclusiveResourceRecordSetResourceRecordArgs.builder()
+ *                         .value("127.0.0.27")
+ *                         .build())
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
+ * ### Disallow Record Sets
+ * 
+ * To automatically remove any configured record sets, omit a `resourceRecordSet` block.
+ * 
+ * &gt; This will not __prevent__ record sets from being defined in a hosted zone via Terraform (or any other interface). This resource enables bringing record set definitions into a configured state, however, this reconciliation happens only when `apply` is proactively run.
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.route53.RecordsExclusive;
+ * import com.pulumi.aws.route53.RecordsExclusiveArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var test = new RecordsExclusive("test", RecordsExclusiveArgs.builder()
+ *             .zoneId(testAwsRoute53Zone.zoneId())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
  * ## Import
  * 
- * Using `pulumi import`, import Route 53 Records Exclusive using the `zone_id`. For example:
+ * Using `pulumi import`, import Route 53 Records Exclusive using the `zoneId`. For example:
  * 
  * ```sh
  * $ pulumi import aws:route53/recordsExclusive:RecordsExclusive example ABCD1234

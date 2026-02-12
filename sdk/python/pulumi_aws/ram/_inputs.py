@@ -21,16 +21,11 @@ __all__ = [
     'GetResourceShareFilterArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class PermissionTimeoutsArgsDict(TypedDict):
-        delete: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
-        """
-elif False:
-    PermissionTimeoutsArgsDict: TypeAlias = Mapping[str, Any]
+class PermissionTimeoutsArgsDict(TypedDict):
+    delete: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+    """
 
 @pulumi.input_type
 class PermissionTimeoutsArgs:
@@ -55,18 +50,15 @@ class PermissionTimeoutsArgs:
         pulumi.set(self, "delete", value)
 
 
-if not MYPY:
-    class GetResourceShareFilterArgsDict(TypedDict):
-        name: _builtins.str
-        """
-        Name of the tag key to filter on.
-        """
-        values: Sequence[_builtins.str]
-        """
-        Value of the tag key.
-        """
-elif False:
-    GetResourceShareFilterArgsDict: TypeAlias = Mapping[str, Any]
+class GetResourceShareFilterArgsDict(TypedDict):
+    name: _builtins.str
+    """
+    Name of the tag key to filter on.
+    """
+    values: Sequence[_builtins.str]
+    """
+    Value of the tag key.
+    """
 
 @pulumi.input_type
 class GetResourceShareFilterArgs:

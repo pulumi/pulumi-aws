@@ -405,7 +405,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Using `pulumi import`, import ElastiCache Replication Groups using the `replication_group_id`. For example:
+ * Using `pulumi import`, import ElastiCache Replication Groups using the `replicationGroupId`. For example:
  * 
  * ```sh
  * $ pulumi import aws:elasticache/replicationGroup:ReplicationGroup my_replication_group replication-group-1

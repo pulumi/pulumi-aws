@@ -47,7 +47,7 @@ namespace Pulumi.Aws.DocDB
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import DocumentDB Clusters using the `cluster_identifier`. For example:
+    /// Using `pulumi import`, import DocumentDB Clusters using the `ClusterIdentifier`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:docdb/cluster:Cluster docdb_cluster docdb-prod-cluster

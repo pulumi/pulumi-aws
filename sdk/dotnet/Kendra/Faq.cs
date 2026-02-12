@@ -97,7 +97,7 @@ namespace Pulumi.Aws.Kendra
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import `aws_kendra_faq` using the unique identifiers of the FAQ and index separated by a slash (`/`). For example:
+    /// Using `pulumi import`, import `aws.kendra.Faq` using the unique identifiers of the FAQ and index separated by a slash (`/`). For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:kendra/faq:Faq example faq-123456780/idx-8012925589
@@ -151,6 +151,9 @@ namespace Pulumi.Aws.Kendra
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
+        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
@@ -254,6 +257,9 @@ namespace Pulumi.Aws.Kendra
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
+        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -330,6 +336,9 @@ namespace Pulumi.Aws.Kendra
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
+        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 

@@ -53,7 +53,7 @@ namespace Pulumi.Aws.DocDB
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import DocumentDB Cluster Instances using the `identifier`. For example:
+    /// Using `pulumi import`, import DocumentDB Cluster Instances using the `Identifier`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:docdb/clusterInstance:ClusterInstance prod_instance_1 aurora-cluster-instance-1

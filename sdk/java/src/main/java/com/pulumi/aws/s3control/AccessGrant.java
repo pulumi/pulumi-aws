@@ -80,7 +80,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Using `pulumi import`, import S3 Access Grants using the `account_id` and `access_grant_id`, separated by a comma (`,`). For example:
+ * Using `pulumi import`, import S3 Access Grants using the `accountId` and `accessGrantId`, separated by a comma (`,`). For example:
  * 
  * ```sh
  * $ pulumi import aws:s3control/accessGrant:AccessGrant example 123456789012,04549c5e-2f3c-4a07-824d-2cafe720aa22
@@ -145,9 +145,17 @@ public class AccessGrant extends com.pulumi.resources.CustomResource {
     public Output<String> accessGrantsLocationId() {
         return this.accessGrantsLocationId;
     }
+    /**
+     * The AWS account ID for the S3 Access Grants location. Defaults to automatically determined account ID of the Terraform AWS provider.
+     * 
+     */
     @Export(name="accountId", refs={String.class}, tree="[0]")
     private Output<String> accountId;
 
+    /**
+     * @return The AWS account ID for the S3 Access Grants location. Defaults to automatically determined account ID of the Terraform AWS provider.
+     * 
+     */
     public Output<String> accountId() {
         return this.accountId;
     }

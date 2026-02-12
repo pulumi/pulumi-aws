@@ -214,7 +214,7 @@ namespace Pulumi.Aws.LightSail
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import Lightsail Distribution using the `name`. For example:
+    /// Using `pulumi import`, import Lightsail Distribution using the `Name`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:lightsail/distribution:Distribution example example-distribution

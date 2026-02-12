@@ -57,6 +57,10 @@ class OutboundWebIdentityFederation(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  __props__=None):
         """
+        Manages an AWS IAM (Identity & Access Management) Outbound Web Identity Federation.
+
+        > **NOTE:** Creating this Terraform resource enables IAM Outbound Web Identity Federation and deleting this Terraform resource disables IAM Outbound Web Identity Federation.
+
         ## Example Usage
 
         ```python
@@ -84,6 +88,10 @@ class OutboundWebIdentityFederation(pulumi.CustomResource):
                  args: Optional[OutboundWebIdentityFederationArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        Manages an AWS IAM (Identity & Access Management) Outbound Web Identity Federation.
+
+        > **NOTE:** Creating this Terraform resource enables IAM Outbound Web Identity Federation and deleting this Terraform resource disables IAM Outbound Web Identity Federation.
+
         ## Example Usage
 
         ```python

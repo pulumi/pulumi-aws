@@ -36,9 +36,11 @@ import * as utilities from "../utilities";
  *
  * - `arn` (String) Amazon Resource Name (ARN) of the DataSync Azure Blob location.
  *
- * Using `pulumi import`, import `aws_datasync_location_azure_blob` using the Amazon Resource Name (ARN). For example:
+ * Using `pulumi import`, import `aws.datasync.LocationAzureBlob` using the Amazon Resource Name (ARN). For example:
  *
- * % pulumi import aws_datasync_location_azure_blob.example arn:aws:datasync:us-east-1:123456789012:location/loc-12345678901234567
+ * ```sh
+ * $ pulumi import aws:datasync/locationAzureBlob:LocationAzureBlob example arn:aws:datasync:us-east-1:123456789012:location/loc-12345678901234567
+ * ```
  */
 export class LocationAzureBlob extends pulumi.CustomResource {
     /**

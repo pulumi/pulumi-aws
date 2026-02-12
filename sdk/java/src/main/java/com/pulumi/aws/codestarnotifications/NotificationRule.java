@@ -102,7 +102,9 @@ import javax.annotation.Nullable;
  * 
  * Using `pulumi import`, import CodeStar notification rule using the ARN. For example:
  * 
- * % pulumi import aws_codestarnotifications_notification_rule.foo arn:aws:codestar-notifications:us-west-1:0123456789:notificationrule/2cdc68a3-8f7c-4893-b6a5-45b362bd4f2b
+ * ```sh
+ * $ pulumi import aws:codestarnotifications/notificationRule:NotificationRule foo arn:aws:codestar-notifications:us-west-1:0123456789:notificationrule/2cdc68a3-8f7c-4893-b6a5-45b362bd4f2b
+ * ```
  * 
  */
 @ResourceType(type="aws:codestarnotifications/notificationRule:NotificationRule")

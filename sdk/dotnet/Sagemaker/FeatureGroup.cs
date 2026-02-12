@@ -49,7 +49,7 @@ namespace Pulumi.Aws.Sagemaker
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import Feature Groups using the `name`. For example:
+    /// Using `pulumi import`, import Feature Groups using the `Name`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:sagemaker/featureGroup:FeatureGroup test_feature_group feature_group-foo

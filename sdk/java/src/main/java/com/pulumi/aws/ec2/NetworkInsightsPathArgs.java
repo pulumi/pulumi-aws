@@ -65,16 +65,32 @@ public final class NetworkInsightsPathArgs extends com.pulumi.resources.Resource
         return Optional.ofNullable(this.destinationPort);
     }
 
+    /**
+     * Scopes the analysis to network paths that match specific filters at the destination. If you specify this parameter, you can&#39;t specify `destinationIp`. See below for details. Note that Terraform performs drift detection on this argument only when the value is provided.
+     * 
+     */
     @Import(name="filterAtDestination")
     private @Nullable Output<NetworkInsightsPathFilterAtDestinationArgs> filterAtDestination;
 
+    /**
+     * @return Scopes the analysis to network paths that match specific filters at the destination. If you specify this parameter, you can&#39;t specify `destinationIp`. See below for details. Note that Terraform performs drift detection on this argument only when the value is provided.
+     * 
+     */
     public Optional<Output<NetworkInsightsPathFilterAtDestinationArgs>> filterAtDestination() {
         return Optional.ofNullable(this.filterAtDestination);
     }
 
+    /**
+     * Scopes the analysis to network paths that match specific filters at the source. If you specify this parameter, you can&#39;t specify `sourceIp` or `destinationPort`. See below for details. Note that Terraform performs drift detection on this argument only when the value is provided.
+     * 
+     */
     @Import(name="filterAtSource")
     private @Nullable Output<NetworkInsightsPathFilterAtSourceArgs> filterAtSource;
 
+    /**
+     * @return Scopes the analysis to network paths that match specific filters at the source. If you specify this parameter, you can&#39;t specify `sourceIp` or `destinationPort`. See below for details. Note that Terraform performs drift detection on this argument only when the value is provided.
+     * 
+     */
     public Optional<Output<NetworkInsightsPathFilterAtSourceArgs>> filterAtSource() {
         return Optional.ofNullable(this.filterAtSource);
     }
@@ -254,20 +270,44 @@ public final class NetworkInsightsPathArgs extends com.pulumi.resources.Resource
             return destinationPort(Output.of(destinationPort));
         }
 
+        /**
+         * @param filterAtDestination Scopes the analysis to network paths that match specific filters at the destination. If you specify this parameter, you can&#39;t specify `destinationIp`. See below for details. Note that Terraform performs drift detection on this argument only when the value is provided.
+         * 
+         * @return builder
+         * 
+         */
         public Builder filterAtDestination(@Nullable Output<NetworkInsightsPathFilterAtDestinationArgs> filterAtDestination) {
             $.filterAtDestination = filterAtDestination;
             return this;
         }
 
+        /**
+         * @param filterAtDestination Scopes the analysis to network paths that match specific filters at the destination. If you specify this parameter, you can&#39;t specify `destinationIp`. See below for details. Note that Terraform performs drift detection on this argument only when the value is provided.
+         * 
+         * @return builder
+         * 
+         */
         public Builder filterAtDestination(NetworkInsightsPathFilterAtDestinationArgs filterAtDestination) {
             return filterAtDestination(Output.of(filterAtDestination));
         }
 
+        /**
+         * @param filterAtSource Scopes the analysis to network paths that match specific filters at the source. If you specify this parameter, you can&#39;t specify `sourceIp` or `destinationPort`. See below for details. Note that Terraform performs drift detection on this argument only when the value is provided.
+         * 
+         * @return builder
+         * 
+         */
         public Builder filterAtSource(@Nullable Output<NetworkInsightsPathFilterAtSourceArgs> filterAtSource) {
             $.filterAtSource = filterAtSource;
             return this;
         }
 
+        /**
+         * @param filterAtSource Scopes the analysis to network paths that match specific filters at the source. If you specify this parameter, you can&#39;t specify `sourceIp` or `destinationPort`. See below for details. Note that Terraform performs drift detection on this argument only when the value is provided.
+         * 
+         * @return builder
+         * 
+         */
         public Builder filterAtSource(NetworkInsightsPathFilterAtSourceArgs filterAtSource) {
             return filterAtSource(Output.of(filterAtSource));
         }

@@ -31,6 +31,7 @@ class IngestionArgs:
         :param pulumi.Input[_builtins.str] ingestion_type: Type of ingestion to be created. Valid values are `INCREMENTAL_REFRESH` and `FULL_REFRESH`.
                
                The following arguments are optional:
+        :param pulumi.Input[_builtins.str] aws_account_id: AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "data_set_id", data_set_id)
@@ -82,6 +83,9 @@ class IngestionArgs:
     @_builtins.property
     @pulumi.getter(name="awsAccountId")
     def aws_account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
+        """
         return pulumi.get(self, "aws_account_id")
 
     @aws_account_id.setter
@@ -114,6 +118,7 @@ class _IngestionState:
         """
         Input properties used for looking up and filtering Ingestion resources.
         :param pulumi.Input[_builtins.str] arn: ARN of the Ingestion.
+        :param pulumi.Input[_builtins.str] aws_account_id: AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
         :param pulumi.Input[_builtins.str] data_set_id: ID of the dataset used in the ingestion.
         :param pulumi.Input[_builtins.str] ingestion_id: ID for the ingestion.
         :param pulumi.Input[_builtins.str] ingestion_status: Ingestion status.
@@ -152,6 +157,9 @@ class _IngestionState:
     @_builtins.property
     @pulumi.getter(name="awsAccountId")
     def aws_account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
+        """
         return pulumi.get(self, "aws_account_id")
 
     @aws_account_id.setter
@@ -260,6 +268,7 @@ class Ingestion(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[_builtins.str] aws_account_id: AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
         :param pulumi.Input[_builtins.str] data_set_id: ID of the dataset used in the ingestion.
         :param pulumi.Input[_builtins.str] ingestion_id: ID for the ingestion.
         :param pulumi.Input[_builtins.str] ingestion_type: Type of ingestion to be created. Valid values are `INCREMENTAL_REFRESH` and `FULL_REFRESH`.
@@ -365,6 +374,7 @@ class Ingestion(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] arn: ARN of the Ingestion.
+        :param pulumi.Input[_builtins.str] aws_account_id: AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
         :param pulumi.Input[_builtins.str] data_set_id: ID of the dataset used in the ingestion.
         :param pulumi.Input[_builtins.str] ingestion_id: ID for the ingestion.
         :param pulumi.Input[_builtins.str] ingestion_status: Ingestion status.
@@ -397,6 +407,9 @@ class Ingestion(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="awsAccountId")
     def aws_account_id(self) -> pulumi.Output[_builtins.str]:
+        """
+        AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
+        """
         return pulumi.get(self, "aws_account_id")
 
     @_builtins.property

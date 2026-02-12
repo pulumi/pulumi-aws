@@ -115,11 +115,13 @@ namespace Pulumi.Aws.Sns
     /// 
     /// #### Required
     /// 
-    /// - `arn` (String) Amazon Resource Name (ARN) of the SNS topic.
+    /// - `Arn` (String) Amazon Resource Name (ARN) of the SNS topic.
     /// 
-    /// Using `pulumi import`, import SNS Topics using the topic `arn`. For example:
+    /// Using `pulumi import`, import SNS Topics using the topic `Arn`. For example:
     /// 
-    /// % pulumi import aws_sns_topic.user_updates arn:aws:sns:us-west-2:123456789012:my-topic
+    /// ```sh
+    /// $ pulumi import aws:sns/topic:Topic user_updates arn:aws:sns:us-west-2:123456789012:my-topic
+    /// ```
     /// </summary>
     [AwsResourceType("aws:sns/topic:Topic")]
     public partial class Topic : global::Pulumi.CustomResource

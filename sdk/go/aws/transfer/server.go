@@ -169,8 +169,6 @@ import (
 //
 // import (
 //
-//	"fmt"
-//
 //	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/transfer"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
@@ -288,7 +286,8 @@ import (
 // ```sh
 // $ pulumi import aws:transfer/server:Server example s-12345678
 // ```
-// Certain resource arguments, such as `host_key`, cannot be read via the API and imported into the provider. This provider will display a difference for these arguments the first run after import if declared in the provider configuration for an imported resource.
+//
+// Certain resource arguments, such as `hostKey`, cannot be read via the API and imported into the provider. This provider will display a difference for these arguments the first run after import if declared in the provider configuration for an imported resource.
 type Server struct {
 	pulumi.CustomResourceState
 

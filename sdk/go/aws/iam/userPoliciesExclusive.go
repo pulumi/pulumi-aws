@@ -12,9 +12,77 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Resource for maintaining exclusive management of inline policies assigned to an AWS IAM (Identity & Access Management) user.
+//
+// !> This resource takes exclusive ownership over inline policies assigned to a user. This includes removal of inline policies which are not explicitly configured. To prevent persistent drift, ensure any `iam.UserPolicy` resources managed alongside this resource are included in the `policyNames` argument.
+//
+// > Destruction of this resource means Terraform will no longer manage reconciliation of the configured inline policy assignments. It __will not__ delete the configured policies from the user.
+//
+// ## Example Usage
+//
+// ### Basic Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/iam"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := iam.NewUserPoliciesExclusive(ctx, "example", &iam.UserPoliciesExclusiveArgs{
+//				UserName: pulumi.Any(exampleAwsIamUser.Name),
+//				PolicyNames: pulumi.StringArray{
+//					exampleAwsIamUserPolicy.Name,
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ### Disallow Inline Policies
+//
+// To automatically remove any configured inline policies, set the `policyNames` argument to an empty list.
+//
+// > This will not __prevent__ inline policies from being assigned to a user via Terraform (or any other interface). This resource enables bringing inline policy assignments into a configured state, however, this reconciliation happens only when `apply` is proactively run.
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/iam"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := iam.NewUserPoliciesExclusive(ctx, "example", &iam.UserPoliciesExclusiveArgs{
+//				UserName:    pulumi.Any(exampleAwsIamUser.Name),
+//				PolicyNames: pulumi.StringArray{},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
-// Using `pulumi import`, import exclusive management of inline policy assignments using the `user_name`. For example:
+// Using `pulumi import`, import exclusive management of inline policy assignments using the `userName`. For example:
 //
 // ```sh
 // $ pulumi import aws:iam/userPoliciesExclusive:UserPoliciesExclusive example MyUser

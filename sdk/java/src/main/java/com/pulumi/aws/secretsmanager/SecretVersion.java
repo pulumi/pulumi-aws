@@ -139,19 +139,19 @@ import javax.annotation.Nullable;
  * 
  * #### Required
  * 
- * * `secret_id` - (String) ID of the secret.
- * 
- * * `version_id` - (String) ID of the secret version.
+ * * `secretId` - (String) ID of the secret.
+ * * `versionId` - (String) ID of the secret version.
  * 
  * #### Optional
  * 
- * * `account_id` (String) AWS Account where this resource is managed.
- * 
+ * * `accountId` (String) AWS Account where this resource is managed.
  * * `region` (String) Region where this resource is managed.
  * 
- * Using `pulumi import`, import `aws_secretsmanager_secret_version` using the secret ID and version ID. For example:
+ * Using `pulumi import`, import `aws.secretsmanager.SecretVersion` using the secret ID and version ID. For example:
  * 
- * % pulumi import aws_secretsmanager_secret_version.example &#39;arn:aws:secretsmanager:us-east-1:123456789012:secret:example-123456|xxxxx-xxxxxxx-xxxxxxx-xxxxx&#39;
+ * ```sh
+ * $ pulumi import aws:secretsmanager/secretVersion:SecretVersion example &#39;arn:aws:secretsmanager:us-east-1:123456789012:secret:example-123456|xxxxx-xxxxxxx-xxxxxxx-xxxxx&#39;
+ * ```
  * 
  */
 @ResourceType(type="aws:secretsmanager/secretVersion:SecretVersion")

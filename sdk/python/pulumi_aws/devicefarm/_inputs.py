@@ -21,24 +21,19 @@ __all__ = [
     'TestGridProjectVpcConfigArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class DevicePoolRuleArgsDict(TypedDict):
-        attribute: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The rule's stringified attribute. Valid values are: `APPIUM_VERSION`, `ARN`, `AVAILABILITY`, `FLEET_TYPE`, `FORM_FACTOR`, `INSTANCE_ARN`, `INSTANCE_LABELS`, `MANUFACTURER`, `MODEL`, `OS_VERSION`, `PLATFORM`, `REMOTE_ACCESS_ENABLED`, `REMOTE_DEBUG_ENABLED`.
-        """
-        operator: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specifies how Device Farm compares the rule's attribute to the value. For the operators that are supported by each attribute. Valid values are: `EQUALS`, `NOT_IN`, `IN`, `GREATER_THAN`, `GREATER_THAN_OR_EQUALS`, `LESS_THAN`, `LESS_THAN_OR_EQUALS`, `CONTAINS`.
-        """
-        value: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The rule's value.
-        """
-elif False:
-    DevicePoolRuleArgsDict: TypeAlias = Mapping[str, Any]
+class DevicePoolRuleArgsDict(TypedDict):
+    attribute: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The rule's stringified attribute. Valid values are: `APPIUM_VERSION`, `ARN`, `AVAILABILITY`, `FLEET_TYPE`, `FORM_FACTOR`, `INSTANCE_ARN`, `INSTANCE_LABELS`, `MANUFACTURER`, `MODEL`, `OS_VERSION`, `PLATFORM`, `REMOTE_ACCESS_ENABLED`, `REMOTE_DEBUG_ENABLED`.
+    """
+    operator: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies how Device Farm compares the rule's attribute to the value. For the operators that are supported by each attribute. Valid values are: `EQUALS`, `NOT_IN`, `IN`, `GREATER_THAN`, `GREATER_THAN_OR_EQUALS`, `LESS_THAN`, `LESS_THAN_OR_EQUALS`, `CONTAINS`.
+    """
+    value: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The rule's value.
+    """
 
 @pulumi.input_type
 class DevicePoolRuleArgs:
@@ -95,22 +90,19 @@ class DevicePoolRuleArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class TestGridProjectVpcConfigArgsDict(TypedDict):
-        security_group_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        A list of VPC security group IDs in your Amazon VPC.
-        """
-        subnet_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        A list of VPC subnet IDs in your Amazon VPC.
-        """
-        vpc_id: pulumi.Input[_builtins.str]
-        """
-        The ID of the Amazon VPC.
-        """
-elif False:
-    TestGridProjectVpcConfigArgsDict: TypeAlias = Mapping[str, Any]
+class TestGridProjectVpcConfigArgsDict(TypedDict):
+    security_group_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    A list of VPC security group IDs in your Amazon VPC.
+    """
+    subnet_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    A list of VPC subnet IDs in your Amazon VPC.
+    """
+    vpc_id: pulumi.Input[_builtins.str]
+    """
+    The ID of the Amazon VPC.
+    """
 
 @pulumi.input_type
 class TestGridProjectVpcConfigArgs:

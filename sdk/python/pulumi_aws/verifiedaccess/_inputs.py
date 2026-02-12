@@ -53,16 +53,11 @@ __all__ = [
     'TrustProviderSseSpecificationArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class EndpointCidrOptionsArgsDict(TypedDict):
-        cidr: pulumi.Input[_builtins.str]
-        port_ranges: pulumi.Input[Sequence[pulumi.Input['EndpointCidrOptionsPortRangeArgsDict']]]
-        protocol: NotRequired[pulumi.Input[_builtins.str]]
-        subnet_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-elif False:
-    EndpointCidrOptionsArgsDict: TypeAlias = Mapping[str, Any]
+class EndpointCidrOptionsArgsDict(TypedDict):
+    cidr: pulumi.Input[_builtins.str]
+    port_ranges: pulumi.Input[Sequence[pulumi.Input['EndpointCidrOptionsPortRangeArgsDict']]]
+    protocol: NotRequired[pulumi.Input[_builtins.str]]
+    subnet_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
 
 @pulumi.input_type
 class EndpointCidrOptionsArgs:
@@ -115,12 +110,9 @@ class EndpointCidrOptionsArgs:
         pulumi.set(self, "subnet_ids", value)
 
 
-if not MYPY:
-    class EndpointCidrOptionsPortRangeArgsDict(TypedDict):
-        from_port: pulumi.Input[_builtins.int]
-        to_port: pulumi.Input[_builtins.int]
-elif False:
-    EndpointCidrOptionsPortRangeArgsDict: TypeAlias = Mapping[str, Any]
+class EndpointCidrOptionsPortRangeArgsDict(TypedDict):
+    from_port: pulumi.Input[_builtins.int]
+    to_port: pulumi.Input[_builtins.int]
 
 @pulumi.input_type
 class EndpointCidrOptionsPortRangeArgs:
@@ -149,15 +141,12 @@ class EndpointCidrOptionsPortRangeArgs:
         pulumi.set(self, "to_port", value)
 
 
-if not MYPY:
-    class EndpointLoadBalancerOptionsArgsDict(TypedDict):
-        load_balancer_arn: NotRequired[pulumi.Input[_builtins.str]]
-        port: NotRequired[pulumi.Input[_builtins.int]]
-        port_ranges: NotRequired[pulumi.Input[Sequence[pulumi.Input['EndpointLoadBalancerOptionsPortRangeArgsDict']]]]
-        protocol: NotRequired[pulumi.Input[_builtins.str]]
-        subnet_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-elif False:
-    EndpointLoadBalancerOptionsArgsDict: TypeAlias = Mapping[str, Any]
+class EndpointLoadBalancerOptionsArgsDict(TypedDict):
+    load_balancer_arn: NotRequired[pulumi.Input[_builtins.str]]
+    port: NotRequired[pulumi.Input[_builtins.int]]
+    port_ranges: NotRequired[pulumi.Input[Sequence[pulumi.Input['EndpointLoadBalancerOptionsPortRangeArgsDict']]]]
+    protocol: NotRequired[pulumi.Input[_builtins.str]]
+    subnet_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
 
 @pulumi.input_type
 class EndpointLoadBalancerOptionsArgs:
@@ -224,12 +213,9 @@ class EndpointLoadBalancerOptionsArgs:
         pulumi.set(self, "subnet_ids", value)
 
 
-if not MYPY:
-    class EndpointLoadBalancerOptionsPortRangeArgsDict(TypedDict):
-        from_port: pulumi.Input[_builtins.int]
-        to_port: pulumi.Input[_builtins.int]
-elif False:
-    EndpointLoadBalancerOptionsPortRangeArgsDict: TypeAlias = Mapping[str, Any]
+class EndpointLoadBalancerOptionsPortRangeArgsDict(TypedDict):
+    from_port: pulumi.Input[_builtins.int]
+    to_port: pulumi.Input[_builtins.int]
 
 @pulumi.input_type
 class EndpointLoadBalancerOptionsPortRangeArgs:
@@ -258,14 +244,11 @@ class EndpointLoadBalancerOptionsPortRangeArgs:
         pulumi.set(self, "to_port", value)
 
 
-if not MYPY:
-    class EndpointNetworkInterfaceOptionsArgsDict(TypedDict):
-        network_interface_id: NotRequired[pulumi.Input[_builtins.str]]
-        port: NotRequired[pulumi.Input[_builtins.int]]
-        port_ranges: NotRequired[pulumi.Input[Sequence[pulumi.Input['EndpointNetworkInterfaceOptionsPortRangeArgsDict']]]]
-        protocol: NotRequired[pulumi.Input[_builtins.str]]
-elif False:
-    EndpointNetworkInterfaceOptionsArgsDict: TypeAlias = Mapping[str, Any]
+class EndpointNetworkInterfaceOptionsArgsDict(TypedDict):
+    network_interface_id: NotRequired[pulumi.Input[_builtins.str]]
+    port: NotRequired[pulumi.Input[_builtins.int]]
+    port_ranges: NotRequired[pulumi.Input[Sequence[pulumi.Input['EndpointNetworkInterfaceOptionsPortRangeArgsDict']]]]
+    protocol: NotRequired[pulumi.Input[_builtins.str]]
 
 @pulumi.input_type
 class EndpointNetworkInterfaceOptionsArgs:
@@ -320,12 +303,9 @@ class EndpointNetworkInterfaceOptionsArgs:
         pulumi.set(self, "protocol", value)
 
 
-if not MYPY:
-    class EndpointNetworkInterfaceOptionsPortRangeArgsDict(TypedDict):
-        from_port: pulumi.Input[_builtins.int]
-        to_port: pulumi.Input[_builtins.int]
-elif False:
-    EndpointNetworkInterfaceOptionsPortRangeArgsDict: TypeAlias = Mapping[str, Any]
+class EndpointNetworkInterfaceOptionsPortRangeArgsDict(TypedDict):
+    from_port: pulumi.Input[_builtins.int]
+    to_port: pulumi.Input[_builtins.int]
 
 @pulumi.input_type
 class EndpointNetworkInterfaceOptionsPortRangeArgs:
@@ -354,17 +334,14 @@ class EndpointNetworkInterfaceOptionsPortRangeArgs:
         pulumi.set(self, "to_port", value)
 
 
-if not MYPY:
-    class EndpointRdsOptionsArgsDict(TypedDict):
-        port: NotRequired[pulumi.Input[_builtins.int]]
-        protocol: NotRequired[pulumi.Input[_builtins.str]]
-        rds_db_cluster_arn: NotRequired[pulumi.Input[_builtins.str]]
-        rds_db_instance_arn: NotRequired[pulumi.Input[_builtins.str]]
-        rds_db_proxy_arn: NotRequired[pulumi.Input[_builtins.str]]
-        rds_endpoint: NotRequired[pulumi.Input[_builtins.str]]
-        subnet_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-elif False:
-    EndpointRdsOptionsArgsDict: TypeAlias = Mapping[str, Any]
+class EndpointRdsOptionsArgsDict(TypedDict):
+    port: NotRequired[pulumi.Input[_builtins.int]]
+    protocol: NotRequired[pulumi.Input[_builtins.str]]
+    rds_db_cluster_arn: NotRequired[pulumi.Input[_builtins.str]]
+    rds_db_instance_arn: NotRequired[pulumi.Input[_builtins.str]]
+    rds_db_proxy_arn: NotRequired[pulumi.Input[_builtins.str]]
+    rds_endpoint: NotRequired[pulumi.Input[_builtins.str]]
+    subnet_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
 
 @pulumi.input_type
 class EndpointRdsOptionsArgs:
@@ -455,12 +432,9 @@ class EndpointRdsOptionsArgs:
         pulumi.set(self, "subnet_ids", value)
 
 
-if not MYPY:
-    class EndpointSseSpecificationArgsDict(TypedDict):
-        customer_managed_key_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        kms_key_arn: NotRequired[pulumi.Input[_builtins.str]]
-elif False:
-    EndpointSseSpecificationArgsDict: TypeAlias = Mapping[str, Any]
+class EndpointSseSpecificationArgsDict(TypedDict):
+    customer_managed_key_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    kms_key_arn: NotRequired[pulumi.Input[_builtins.str]]
 
 @pulumi.input_type
 class EndpointSseSpecificationArgs:
@@ -491,18 +465,15 @@ class EndpointSseSpecificationArgs:
         pulumi.set(self, "kms_key_arn", value)
 
 
-if not MYPY:
-    class GroupSseConfigurationArgsDict(TypedDict):
-        customer_managed_key_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Boolean flag to indicate that the CMK should be used.
-        """
-        kms_key_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        ARN of the KMS key to use.
-        """
-elif False:
-    GroupSseConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class GroupSseConfigurationArgsDict(TypedDict):
+    customer_managed_key_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Boolean flag to indicate that the CMK should be used.
+    """
+    kms_key_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    ARN of the KMS key to use.
+    """
 
 @pulumi.input_type
 class GroupSseConfigurationArgs:
@@ -543,30 +514,27 @@ class GroupSseConfigurationArgs:
         pulumi.set(self, "kms_key_arn", value)
 
 
-if not MYPY:
-    class InstanceLoggingConfigurationAccessLogsArgsDict(TypedDict):
-        cloudwatch_logs: NotRequired[pulumi.Input['InstanceLoggingConfigurationAccessLogsCloudwatchLogsArgsDict']]
-        """
-        A block that specifies configures sending Verified Access logs to CloudWatch Logs. Detailed below.
-        """
-        include_trust_context: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Include trust data sent by trust providers into the logs.
-        """
-        kinesis_data_firehose: NotRequired[pulumi.Input['InstanceLoggingConfigurationAccessLogsKinesisDataFirehoseArgsDict']]
-        """
-        A block that specifies configures sending Verified Access logs to Kinesis. Detailed below.
-        """
-        log_version: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The logging version to use. Refer to [VerifiedAccessLogOptions](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_VerifiedAccessLogOptions.html) for the allowed values.
-        """
-        s3: NotRequired[pulumi.Input['InstanceLoggingConfigurationAccessLogsS3ArgsDict']]
-        """
-        A block that specifies configures sending Verified Access logs to S3. Detailed below.
-        """
-elif False:
-    InstanceLoggingConfigurationAccessLogsArgsDict: TypeAlias = Mapping[str, Any]
+class InstanceLoggingConfigurationAccessLogsArgsDict(TypedDict):
+    cloudwatch_logs: NotRequired[pulumi.Input['InstanceLoggingConfigurationAccessLogsCloudwatchLogsArgsDict']]
+    """
+    A block that specifies configures sending Verified Access logs to CloudWatch Logs. Detailed below.
+    """
+    include_trust_context: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Include trust data sent by trust providers into the logs.
+    """
+    kinesis_data_firehose: NotRequired[pulumi.Input['InstanceLoggingConfigurationAccessLogsKinesisDataFirehoseArgsDict']]
+    """
+    A block that specifies configures sending Verified Access logs to Kinesis. Detailed below.
+    """
+    log_version: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The logging version to use. Refer to [VerifiedAccessLogOptions](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_VerifiedAccessLogOptions.html) for the allowed values.
+    """
+    s3: NotRequired[pulumi.Input['InstanceLoggingConfigurationAccessLogsS3ArgsDict']]
+    """
+    A block that specifies configures sending Verified Access logs to S3. Detailed below.
+    """
 
 @pulumi.input_type
 class InstanceLoggingConfigurationAccessLogsArgs:
@@ -655,18 +623,15 @@ class InstanceLoggingConfigurationAccessLogsArgs:
         pulumi.set(self, "s3", value)
 
 
-if not MYPY:
-    class InstanceLoggingConfigurationAccessLogsCloudwatchLogsArgsDict(TypedDict):
-        enabled: pulumi.Input[_builtins.bool]
-        """
-        Indicates whether logging is enabled.
-        """
-        log_group: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the CloudWatch Logs Log Group.
-        """
-elif False:
-    InstanceLoggingConfigurationAccessLogsCloudwatchLogsArgsDict: TypeAlias = Mapping[str, Any]
+class InstanceLoggingConfigurationAccessLogsCloudwatchLogsArgsDict(TypedDict):
+    enabled: pulumi.Input[_builtins.bool]
+    """
+    Indicates whether logging is enabled.
+    """
+    log_group: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the CloudWatch Logs Log Group.
+    """
 
 @pulumi.input_type
 class InstanceLoggingConfigurationAccessLogsCloudwatchLogsArgs:
@@ -706,18 +671,15 @@ class InstanceLoggingConfigurationAccessLogsCloudwatchLogsArgs:
         pulumi.set(self, "log_group", value)
 
 
-if not MYPY:
-    class InstanceLoggingConfigurationAccessLogsKinesisDataFirehoseArgsDict(TypedDict):
-        enabled: pulumi.Input[_builtins.bool]
-        """
-        Indicates whether logging is enabled.
-        """
-        delivery_stream: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the delivery stream.
-        """
-elif False:
-    InstanceLoggingConfigurationAccessLogsKinesisDataFirehoseArgsDict: TypeAlias = Mapping[str, Any]
+class InstanceLoggingConfigurationAccessLogsKinesisDataFirehoseArgsDict(TypedDict):
+    enabled: pulumi.Input[_builtins.bool]
+    """
+    Indicates whether logging is enabled.
+    """
+    delivery_stream: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the delivery stream.
+    """
 
 @pulumi.input_type
 class InstanceLoggingConfigurationAccessLogsKinesisDataFirehoseArgs:
@@ -757,26 +719,23 @@ class InstanceLoggingConfigurationAccessLogsKinesisDataFirehoseArgs:
         pulumi.set(self, "delivery_stream", value)
 
 
-if not MYPY:
-    class InstanceLoggingConfigurationAccessLogsS3ArgsDict(TypedDict):
-        enabled: pulumi.Input[_builtins.bool]
-        """
-        Indicates whether logging is enabled.
-        """
-        bucket_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of S3 bucket.
-        """
-        bucket_owner: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ID of the AWS account that owns the Amazon S3 bucket.
-        """
-        prefix: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The bucket prefix.
-        """
-elif False:
-    InstanceLoggingConfigurationAccessLogsS3ArgsDict: TypeAlias = Mapping[str, Any]
+class InstanceLoggingConfigurationAccessLogsS3ArgsDict(TypedDict):
+    enabled: pulumi.Input[_builtins.bool]
+    """
+    Indicates whether logging is enabled.
+    """
+    bucket_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of S3 bucket.
+    """
+    bucket_owner: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ID of the AWS account that owns the Amazon S3 bucket.
+    """
+    prefix: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The bucket prefix.
+    """
 
 @pulumi.input_type
 class InstanceLoggingConfigurationAccessLogsS3Args:
@@ -848,30 +807,27 @@ class InstanceLoggingConfigurationAccessLogsS3Args:
         pulumi.set(self, "prefix", value)
 
 
-if not MYPY:
-    class InstanceVerifiedAccessTrustProviderArgsDict(TypedDict):
-        description: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A description for the AWS Verified Access Instance.
-        """
-        device_trust_provider_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The type of device-based trust provider.
-        """
-        trust_provider_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The type of trust provider (user- or device-based).
-        """
-        user_trust_provider_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The type of user-based trust provider.
-        """
-        verified_access_trust_provider_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ID of the trust provider.
-        """
-elif False:
-    InstanceVerifiedAccessTrustProviderArgsDict: TypeAlias = Mapping[str, Any]
+class InstanceVerifiedAccessTrustProviderArgsDict(TypedDict):
+    description: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A description for the AWS Verified Access Instance.
+    """
+    device_trust_provider_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The type of device-based trust provider.
+    """
+    trust_provider_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The type of trust provider (user- or device-based).
+    """
+    user_trust_provider_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The type of user-based trust provider.
+    """
+    verified_access_trust_provider_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ID of the trust provider.
+    """
 
 @pulumi.input_type
 class InstanceVerifiedAccessTrustProviderArgs:
@@ -960,11 +916,8 @@ class InstanceVerifiedAccessTrustProviderArgs:
         pulumi.set(self, "verified_access_trust_provider_id", value)
 
 
-if not MYPY:
-    class TrustProviderDeviceOptionsArgsDict(TypedDict):
-        tenant_id: NotRequired[pulumi.Input[_builtins.str]]
-elif False:
-    TrustProviderDeviceOptionsArgsDict: TypeAlias = Mapping[str, Any]
+class TrustProviderDeviceOptionsArgsDict(TypedDict):
+    tenant_id: NotRequired[pulumi.Input[_builtins.str]]
 
 @pulumi.input_type
 class TrustProviderDeviceOptionsArgs:
@@ -983,18 +936,15 @@ class TrustProviderDeviceOptionsArgs:
         pulumi.set(self, "tenant_id", value)
 
 
-if not MYPY:
-    class TrustProviderNativeApplicationOidcOptionsArgsDict(TypedDict):
-        client_secret: pulumi.Input[_builtins.str]
-        authorization_endpoint: NotRequired[pulumi.Input[_builtins.str]]
-        client_id: NotRequired[pulumi.Input[_builtins.str]]
-        issuer: NotRequired[pulumi.Input[_builtins.str]]
-        public_signing_key_endpoint: NotRequired[pulumi.Input[_builtins.str]]
-        scope: NotRequired[pulumi.Input[_builtins.str]]
-        token_endpoint: NotRequired[pulumi.Input[_builtins.str]]
-        user_info_endpoint: NotRequired[pulumi.Input[_builtins.str]]
-elif False:
-    TrustProviderNativeApplicationOidcOptionsArgsDict: TypeAlias = Mapping[str, Any]
+class TrustProviderNativeApplicationOidcOptionsArgsDict(TypedDict):
+    client_secret: pulumi.Input[_builtins.str]
+    authorization_endpoint: NotRequired[pulumi.Input[_builtins.str]]
+    client_id: NotRequired[pulumi.Input[_builtins.str]]
+    issuer: NotRequired[pulumi.Input[_builtins.str]]
+    public_signing_key_endpoint: NotRequired[pulumi.Input[_builtins.str]]
+    scope: NotRequired[pulumi.Input[_builtins.str]]
+    token_endpoint: NotRequired[pulumi.Input[_builtins.str]]
+    user_info_endpoint: NotRequired[pulumi.Input[_builtins.str]]
 
 @pulumi.input_type
 class TrustProviderNativeApplicationOidcOptionsArgs:
@@ -1096,17 +1046,14 @@ class TrustProviderNativeApplicationOidcOptionsArgs:
         pulumi.set(self, "user_info_endpoint", value)
 
 
-if not MYPY:
-    class TrustProviderOidcOptionsArgsDict(TypedDict):
-        client_secret: pulumi.Input[_builtins.str]
-        authorization_endpoint: NotRequired[pulumi.Input[_builtins.str]]
-        client_id: NotRequired[pulumi.Input[_builtins.str]]
-        issuer: NotRequired[pulumi.Input[_builtins.str]]
-        scope: NotRequired[pulumi.Input[_builtins.str]]
-        token_endpoint: NotRequired[pulumi.Input[_builtins.str]]
-        user_info_endpoint: NotRequired[pulumi.Input[_builtins.str]]
-elif False:
-    TrustProviderOidcOptionsArgsDict: TypeAlias = Mapping[str, Any]
+class TrustProviderOidcOptionsArgsDict(TypedDict):
+    client_secret: pulumi.Input[_builtins.str]
+    authorization_endpoint: NotRequired[pulumi.Input[_builtins.str]]
+    client_id: NotRequired[pulumi.Input[_builtins.str]]
+    issuer: NotRequired[pulumi.Input[_builtins.str]]
+    scope: NotRequired[pulumi.Input[_builtins.str]]
+    token_endpoint: NotRequired[pulumi.Input[_builtins.str]]
+    user_info_endpoint: NotRequired[pulumi.Input[_builtins.str]]
 
 @pulumi.input_type
 class TrustProviderOidcOptionsArgs:
@@ -1196,12 +1143,9 @@ class TrustProviderOidcOptionsArgs:
         pulumi.set(self, "user_info_endpoint", value)
 
 
-if not MYPY:
-    class TrustProviderSseSpecificationArgsDict(TypedDict):
-        customer_managed_key_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        kms_key_arn: NotRequired[pulumi.Input[_builtins.str]]
-elif False:
-    TrustProviderSseSpecificationArgsDict: TypeAlias = Mapping[str, Any]
+class TrustProviderSseSpecificationArgsDict(TypedDict):
+    customer_managed_key_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    kms_key_arn: NotRequired[pulumi.Input[_builtins.str]]
 
 @pulumi.input_type
 class TrustProviderSseSpecificationArgs:

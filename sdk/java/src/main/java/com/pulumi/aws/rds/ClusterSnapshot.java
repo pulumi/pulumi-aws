@@ -57,7 +57,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Using `pulumi import`, import `aws_db_cluster_snapshot` using the cluster snapshot identifier. For example:
+ * Using `pulumi import`, import `aws.rds.ClusterSnapshot` using the cluster snapshot identifier. For example:
  * 
  * ```sh
  * $ pulumi import aws:rds/clusterSnapshot:ClusterSnapshot example my-cluster-snapshot

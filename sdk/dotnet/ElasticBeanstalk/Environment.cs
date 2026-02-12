@@ -98,7 +98,7 @@ namespace Pulumi.Aws.ElasticBeanstalk
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import Elastic Beanstalk Environments using the `id`. For example:
+    /// Using `pulumi import`, import Elastic Beanstalk Environments using the `Id`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:elasticbeanstalk/environment:Environment prodenv e-rpqsewtp2j

@@ -2058,12 +2058,13 @@ class Instance(pulumi.CustomResource):
         #### Optional
 
         * `account_id` (String) AWS Account where this resource is managed.
-
         * `region` (String) Region where this resource is managed.
 
         Using `pulumi import`, import instances using the `id`. For example:
 
-        % pulumi import aws_instance.web i-12345678
+        ```sh
+        $ pulumi import aws:ec2/instance:Instance web i-12345678
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -2318,12 +2319,13 @@ class Instance(pulumi.CustomResource):
         #### Optional
 
         * `account_id` (String) AWS Account where this resource is managed.
-
         * `region` (String) Region where this resource is managed.
 
         Using `pulumi import`, import instances using the `id`. For example:
 
-        % pulumi import aws_instance.web i-12345678
+        ```sh
+        $ pulumi import aws:ec2/instance:Instance web i-12345678
+        ```
 
         :param str resource_name: The name of the resource.
         :param InstanceArgs args: The arguments to use to populate this resource's properties.

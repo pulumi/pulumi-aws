@@ -39,7 +39,7 @@ namespace Pulumi.Aws.Billing
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import Billing View using the `arn`. For example:
+    /// Using `pulumi import`, import Billing View using the `Arn`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:billing/view:View example arn:aws:billing::123456789012:billing-view/example

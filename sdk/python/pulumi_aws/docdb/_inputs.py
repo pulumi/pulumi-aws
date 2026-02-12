@@ -29,18 +29,13 @@ __all__ = [
     'GlobalClusterGlobalClusterMemberArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class ClusterMasterUserSecretArgsDict(TypedDict):
-        kms_key_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ARN for the KMS encryption key. When specifying `kms_key_id`, `storage_encrypted` needs to be set to true.
-        """
-        secret_arn: NotRequired[pulumi.Input[_builtins.str]]
-        secret_status: NotRequired[pulumi.Input[_builtins.str]]
-elif False:
-    ClusterMasterUserSecretArgsDict: TypeAlias = Mapping[str, Any]
+class ClusterMasterUserSecretArgsDict(TypedDict):
+    kms_key_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ARN for the KMS encryption key. When specifying `kms_key_id`, `storage_encrypted` needs to be set to true.
+    """
+    secret_arn: NotRequired[pulumi.Input[_builtins.str]]
+    secret_status: NotRequired[pulumi.Input[_builtins.str]]
 
 @pulumi.input_type
 class ClusterMasterUserSecretArgs:
@@ -89,22 +84,19 @@ class ClusterMasterUserSecretArgs:
         pulumi.set(self, "secret_status", value)
 
 
-if not MYPY:
-    class ClusterParameterGroupParameterArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the DocumentDB parameter.
-        """
-        value: pulumi.Input[_builtins.str]
-        """
-        The value of the DocumentDB parameter.
-        """
-        apply_method: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Valid values are `immediate` and `pending-reboot`. Defaults to `pending-reboot`.
-        """
-elif False:
-    ClusterParameterGroupParameterArgsDict: TypeAlias = Mapping[str, Any]
+class ClusterParameterGroupParameterArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the DocumentDB parameter.
+    """
+    value: pulumi.Input[_builtins.str]
+    """
+    The value of the DocumentDB parameter.
+    """
+    apply_method: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Valid values are `immediate` and `pending-reboot`. Defaults to `pending-reboot`.
+    """
 
 @pulumi.input_type
 class ClusterParameterGroupParameterArgs:
@@ -159,26 +151,23 @@ class ClusterParameterGroupParameterArgs:
         pulumi.set(self, "apply_method", value)
 
 
-if not MYPY:
-    class ClusterRestoreToPointInTimeArgsDict(TypedDict):
-        source_cluster_identifier: pulumi.Input[_builtins.str]
-        """
-        The identifier of the source DB cluster from which to restore. Must match the identifier of an existing DB cluster.
-        """
-        restore_to_time: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The date and time to restore from. Value must be a time in Universal Coordinated Time (UTC) format and must be before the latest restorable time for the DB instance. Cannot be specified with `use_latest_restorable_time`.
-        """
-        restore_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The type of restore to be performed. Valid values are `full-copy`, `copy-on-write`.
-        """
-        use_latest_restorable_time: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        A boolean value that indicates whether the DB cluster is restored from the latest backup time. Defaults to `false`. Cannot be specified with `restore_to_time`.
-        """
-elif False:
-    ClusterRestoreToPointInTimeArgsDict: TypeAlias = Mapping[str, Any]
+class ClusterRestoreToPointInTimeArgsDict(TypedDict):
+    source_cluster_identifier: pulumi.Input[_builtins.str]
+    """
+    The identifier of the source DB cluster from which to restore. Must match the identifier of an existing DB cluster.
+    """
+    restore_to_time: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The date and time to restore from. Value must be a time in Universal Coordinated Time (UTC) format and must be before the latest restorable time for the DB instance. Cannot be specified with `use_latest_restorable_time`.
+    """
+    restore_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The type of restore to be performed. Valid values are `full-copy`, `copy-on-write`.
+    """
+    use_latest_restorable_time: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    A boolean value that indicates whether the DB cluster is restored from the latest backup time. Defaults to `false`. Cannot be specified with `restore_to_time`.
+    """
 
 @pulumi.input_type
 class ClusterRestoreToPointInTimeArgs:
@@ -250,18 +239,15 @@ class ClusterRestoreToPointInTimeArgs:
         pulumi.set(self, "use_latest_restorable_time", value)
 
 
-if not MYPY:
-    class ClusterServerlessV2ScalingConfigurationArgsDict(TypedDict):
-        max_capacity: pulumi.Input[_builtins.float]
-        """
-        Maximum number of Amazon DocumentDB capacity units (DCUs) for an instance in an Amazon DocumentDB Serverless cluster. Valid values are multiples of 0.5 between 1 and 256.
-        """
-        min_capacity: pulumi.Input[_builtins.float]
-        """
-        Minimum number of Amazon DocumentDB capacity units (DCUs) for an instance in an Amazon DocumentDB Serverless cluster. Valid values are multiples of 0.5 between 0.5 and 256.
-        """
-elif False:
-    ClusterServerlessV2ScalingConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class ClusterServerlessV2ScalingConfigurationArgsDict(TypedDict):
+    max_capacity: pulumi.Input[_builtins.float]
+    """
+    Maximum number of Amazon DocumentDB capacity units (DCUs) for an instance in an Amazon DocumentDB Serverless cluster. Valid values are multiples of 0.5 between 1 and 256.
+    """
+    min_capacity: pulumi.Input[_builtins.float]
+    """
+    Minimum number of Amazon DocumentDB capacity units (DCUs) for an instance in an Amazon DocumentDB Serverless cluster. Valid values are multiples of 0.5 between 0.5 and 256.
+    """
 
 @pulumi.input_type
 class ClusterServerlessV2ScalingConfigurationArgs:
@@ -300,22 +286,19 @@ class ClusterServerlessV2ScalingConfigurationArgs:
         pulumi.set(self, "min_capacity", value)
 
 
-if not MYPY:
-    class ElasticClusterTimeoutsArgsDict(TypedDict):
-        create: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
-        """
-        delete: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
-        """
-        update: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
-        """
-elif False:
-    ElasticClusterTimeoutsArgsDict: TypeAlias = Mapping[str, Any]
+class ElasticClusterTimeoutsArgsDict(TypedDict):
+    create: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+    """
+    delete: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+    """
+    update: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+    """
 
 @pulumi.input_type
 class ElasticClusterTimeoutsArgs:
@@ -372,18 +355,15 @@ class ElasticClusterTimeoutsArgs:
         pulumi.set(self, "update", value)
 
 
-if not MYPY:
-    class GlobalClusterGlobalClusterMemberArgsDict(TypedDict):
-        db_cluster_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Amazon Resource Name (ARN) of member DB Cluster.
-        """
-        is_writer: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether the member is the primary DB Cluster.
-        """
-elif False:
-    GlobalClusterGlobalClusterMemberArgsDict: TypeAlias = Mapping[str, Any]
+class GlobalClusterGlobalClusterMemberArgsDict(TypedDict):
+    db_cluster_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Amazon Resource Name (ARN) of member DB Cluster.
+    """
+    is_writer: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether the member is the primary DB Cluster.
+    """
 
 @pulumi.input_type
 class GlobalClusterGlobalClusterMemberArgs:

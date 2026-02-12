@@ -34,6 +34,7 @@ class QuerySuggestionsBlockListArgs:
         :param pulumi.Input[_builtins.str] role_arn: IAM (Identity and Access Management) role used to access the block list text file in S3.
         :param pulumi.Input['QuerySuggestionsBlockListSourceS3PathArgs'] source_s3_path: S3 path where your block list text file is located. See details below.
         :param pulumi.Input[_builtins.str] name: Name for the block list.
+        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
         """
         pulumi.set(__self__, "index_id", index_id)
         pulumi.set(__self__, "role_arn", role_arn)
@@ -107,6 +108,9 @@ class QuerySuggestionsBlockListArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
+        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -143,6 +147,7 @@ class _QuerySuggestionsBlockListState:
         :param pulumi.Input[_builtins.str] index_id: Identifier of the index for a block list.
         :param pulumi.Input[_builtins.str] name: Name for the block list.
         :param pulumi.Input[_builtins.str] query_suggestions_block_list_id: Unique identifier of the block list.
+        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
         :param pulumi.Input[_builtins.str] role_arn: IAM (Identity and Access Management) role used to access the block list text file in S3.
         :param pulumi.Input['QuerySuggestionsBlockListSourceS3PathArgs'] source_s3_path: S3 path where your block list text file is located. See details below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider's default_tags configuration block.
@@ -230,6 +235,9 @@ class _QuerySuggestionsBlockListState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
+        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -331,7 +339,7 @@ class QuerySuggestionsBlockList(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import the `aws_kendra_query_suggestions_block_list` resource using the unique identifiers of the block list and index separated by a slash (`/`). For example:
+        Using `pulumi import`, import the `kendra.QuerySuggestionsBlockList` resource using the unique identifiers of the block list and index separated by a slash (`/`). For example:
 
         ```sh
         $ pulumi import aws:kendra/querySuggestionsBlockList:QuerySuggestionsBlockList example blocklist-123456780/idx-8012925589
@@ -341,6 +349,7 @@ class QuerySuggestionsBlockList(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] index_id: Identifier of the index for a block list.
         :param pulumi.Input[_builtins.str] name: Name for the block list.
+        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
         :param pulumi.Input[_builtins.str] role_arn: IAM (Identity and Access Management) role used to access the block list text file in S3.
         :param pulumi.Input[Union['QuerySuggestionsBlockListSourceS3PathArgs', 'QuerySuggestionsBlockListSourceS3PathArgsDict']] source_s3_path: S3 path where your block list text file is located. See details below.
         """
@@ -376,7 +385,7 @@ class QuerySuggestionsBlockList(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import the `aws_kendra_query_suggestions_block_list` resource using the unique identifiers of the block list and index separated by a slash (`/`). For example:
+        Using `pulumi import`, import the `kendra.QuerySuggestionsBlockList` resource using the unique identifiers of the block list and index separated by a slash (`/`). For example:
 
         ```sh
         $ pulumi import aws:kendra/querySuggestionsBlockList:QuerySuggestionsBlockList example blocklist-123456780/idx-8012925589
@@ -462,6 +471,7 @@ class QuerySuggestionsBlockList(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] index_id: Identifier of the index for a block list.
         :param pulumi.Input[_builtins.str] name: Name for the block list.
         :param pulumi.Input[_builtins.str] query_suggestions_block_list_id: Unique identifier of the block list.
+        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
         :param pulumi.Input[_builtins.str] role_arn: IAM (Identity and Access Management) role used to access the block list text file in S3.
         :param pulumi.Input[Union['QuerySuggestionsBlockListSourceS3PathArgs', 'QuerySuggestionsBlockListSourceS3PathArgsDict']] source_s3_path: S3 path where your block list text file is located. See details below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider's default_tags configuration block.
@@ -523,6 +533,9 @@ class QuerySuggestionsBlockList(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
+        """
         return pulumi.get(self, "region")
 
     @_builtins.property

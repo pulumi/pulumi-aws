@@ -49,7 +49,7 @@ namespace Pulumi.Aws.AppStream
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import AppStream Stack Fleet Association using the `fleet_name` and `stack_name` separated by a slash (`/`). For example:
+    /// Using `pulumi import`, import AppStream Stack Fleet Association using the `FleetName` and `StackName` separated by a slash (`/`). For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:appstream/fleetStackAssociation:FleetStackAssociation example fleetName/stackName

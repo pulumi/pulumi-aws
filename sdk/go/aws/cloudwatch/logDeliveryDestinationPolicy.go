@@ -45,7 +45,7 @@ import (
 //
 // ## Import
 //
-// Using `pulumi import`, import CloudWatch Logs Delivery Destination Policy using the `delivery_destination_name`. For example:
+// Using `pulumi import`, import CloudWatch Logs Delivery Destination Policy using the `deliveryDestinationName`. For example:
 //
 // ```sh
 // $ pulumi import aws:cloudwatch/logDeliveryDestinationPolicy:LogDeliveryDestinationPolicy example example

@@ -142,7 +142,7 @@ namespace Pulumi.Aws.Sagemaker
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import SageMaker AI Domains using the `id`. For example:
+    /// Using `pulumi import`, import SageMaker AI Domains using the `Id`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:sagemaker/domain:Domain test_domain d-8jgsjtilstu8

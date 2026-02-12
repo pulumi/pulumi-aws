@@ -37,7 +37,7 @@ namespace Pulumi.Aws.Ecr
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import a pull-through cache rule using the `ecr_repository_prefix`. For example:
+    /// Using `pulumi import`, import a pull-through cache rule using the `EcrRepositoryPrefix`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:ecr/pullThroughCacheRule:PullThroughCacheRule example ecr-public

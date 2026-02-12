@@ -493,6 +493,10 @@ class Stream(pulumi.CustomResource):
         $ pulumi import aws:kinesis/stream:Stream test_stream pulumi-kinesis-test
         ```
 
+        [1]: https://aws.amazon.com/documentation/kinesis/
+        [2]: https://docs.aws.amazon.com/kinesis/latest/dev/amazon-kinesis-streams.html
+        [3]: https://docs.aws.amazon.com/streams/latest/dev/monitoring-with-cloudwatch.html
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) specifying the Stream (same as `id`)
@@ -550,6 +554,10 @@ class Stream(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:kinesis/stream:Stream test_stream pulumi-kinesis-test
         ```
+
+        [1]: https://aws.amazon.com/documentation/kinesis/
+        [2]: https://docs.aws.amazon.com/kinesis/latest/dev/amazon-kinesis-streams.html
+        [3]: https://docs.aws.amazon.com/streams/latest/dev/monitoring-with-cloudwatch.html
 
         :param str resource_name: The name of the resource.
         :param StreamArgs args: The arguments to use to populate this resource's properties.

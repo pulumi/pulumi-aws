@@ -75,7 +75,7 @@ namespace Pulumi.Aws.CloudHsmV2
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import CloudHSM v2 Clusters using the cluster `id`. For example:
+    /// Using `pulumi import`, import CloudHSM v2 Clusters using the cluster `Id`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:cloudhsmv2/cluster:Cluster test_cluster cluster-aeb282a201

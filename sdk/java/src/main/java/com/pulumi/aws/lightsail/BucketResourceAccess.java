@@ -68,7 +68,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Using `pulumi import`, import `aws_lightsail_bucket_resource_access` using the `id` attribute. For example:
+ * Using `pulumi import`, import `aws.lightsail.BucketResourceAccess` using the `id` attribute. For example:
  * 
  * ```sh
  * $ pulumi import aws:lightsail/bucketResourceAccess:BucketResourceAccess example example-bucket,example-instance

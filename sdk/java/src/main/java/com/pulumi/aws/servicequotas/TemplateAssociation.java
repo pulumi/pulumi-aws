@@ -77,9 +77,17 @@ public class TemplateAssociation extends com.pulumi.resources.CustomResource {
     public Output<String> region() {
         return this.region;
     }
+    /**
+     * Skip disassociating the quota increase template upon destruction. This will remove the resource from Terraform state, but leave the remote association in place.
+     * 
+     */
     @Export(name="skipDestroy", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> skipDestroy;
 
+    /**
+     * @return Skip disassociating the quota increase template upon destruction. This will remove the resource from Terraform state, but leave the remote association in place.
+     * 
+     */
     public Output<Optional<Boolean>> skipDestroy() {
         return Codegen.optional(this.skipDestroy);
     }

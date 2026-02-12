@@ -365,7 +365,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Using `pulumi import`, import Kendra Data Source using the unique identifiers of the data_source and index separated by a slash (`/`). For example:
+ * Using `pulumi import`, import Kendra Data Source using the unique identifiers of the dataSource and index separated by a slash (`/`). For example:
  *
  * ```sh
  * $ pulumi import aws:kendra/dataSource:DataSource example 1045d08d-66ef-4882-b3ed-dfb7df183e90/b34dfdf7-1f2b-4704-9581-79e00296845f

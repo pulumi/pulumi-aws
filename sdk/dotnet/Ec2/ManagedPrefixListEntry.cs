@@ -51,7 +51,7 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import prefix list entries using `prefix_list_id` and `cidr` separated by a comma (`,`). For example:
+    /// Using `pulumi import`, import prefix list entries using `PrefixListId` and `Cidr` separated by a comma (`,`). For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:ec2/managedPrefixListEntry:ManagedPrefixListEntry default pl-0570a1d2d725c16be,10.0.3.0/24

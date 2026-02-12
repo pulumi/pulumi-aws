@@ -29,20 +29,15 @@ __all__ = [
     'RecommendationPreferencesUtilizationPreferenceMetricParametersArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class EnrollmentStatusTimeoutsArgsDict(TypedDict):
-        create: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
-        """
-        update: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
-        """
-elif False:
-    EnrollmentStatusTimeoutsArgsDict: TypeAlias = Mapping[str, Any]
+class EnrollmentStatusTimeoutsArgsDict(TypedDict):
+    create: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+    """
+    update: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+    """
 
 @pulumi.input_type
 class EnrollmentStatusTimeoutsArgs:
@@ -83,14 +78,11 @@ class EnrollmentStatusTimeoutsArgs:
         pulumi.set(self, "update", value)
 
 
-if not MYPY:
-    class RecommendationPreferencesExternalMetricsPreferenceArgsDict(TypedDict):
-        source: pulumi.Input[_builtins.str]
-        """
-        The source options for external metrics preferences. Valid values: `Datadog`, `Dynatrace`, `NewRelic`, `Instana`.
-        """
-elif False:
-    RecommendationPreferencesExternalMetricsPreferenceArgsDict: TypeAlias = Mapping[str, Any]
+class RecommendationPreferencesExternalMetricsPreferenceArgsDict(TypedDict):
+    source: pulumi.Input[_builtins.str]
+    """
+    The source options for external metrics preferences. Valid values: `Datadog`, `Dynatrace`, `NewRelic`, `Instana`.
+    """
 
 @pulumi.input_type
 class RecommendationPreferencesExternalMetricsPreferenceArgs:
@@ -114,19 +106,16 @@ class RecommendationPreferencesExternalMetricsPreferenceArgs:
         pulumi.set(self, "source", value)
 
 
-if not MYPY:
-    class RecommendationPreferencesPreferredResourceArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        exclude_lists: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The preferred resource type values to exclude from the recommendation candidates. If this isn’t specified, all supported resources are included by default.
-        """
-        include_lists: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The preferred resource type values to include in the recommendation candidates. You can specify the exact resource type value, such as `"m5.large"`, or use wild card expressions, such as `"m5"`. If this isn’t specified, all supported resources are included by default.
-        """
-elif False:
-    RecommendationPreferencesPreferredResourceArgsDict: TypeAlias = Mapping[str, Any]
+class RecommendationPreferencesPreferredResourceArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    exclude_lists: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The preferred resource type values to exclude from the recommendation candidates. If this isn’t specified, all supported resources are included by default.
+    """
+    include_lists: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The preferred resource type values to include in the recommendation candidates. You can specify the exact resource type value, such as `"m5.large"`, or use wild card expressions, such as `"m5"`. If this isn’t specified, all supported resources are included by default.
+    """
 
 @pulumi.input_type
 class RecommendationPreferencesPreferredResourceArgs:
@@ -178,18 +167,15 @@ class RecommendationPreferencesPreferredResourceArgs:
         pulumi.set(self, "include_lists", value)
 
 
-if not MYPY:
-    class RecommendationPreferencesScopeArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the scope. Valid values: `Organization`, `AccountId`, `ResourceArn`.
-        """
-        value: pulumi.Input[_builtins.str]
-        """
-        The value of the scope. `ALL_ACCOUNTS` for `Organization` scopes, AWS account ID for `AccountId` scopes, ARN of an EC2 instance or an Auto Scaling group for `ResourceArn` scopes.
-        """
-elif False:
-    RecommendationPreferencesScopeArgsDict: TypeAlias = Mapping[str, Any]
+class RecommendationPreferencesScopeArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the scope. Valid values: `Organization`, `AccountId`, `ResourceArn`.
+    """
+    value: pulumi.Input[_builtins.str]
+    """
+    The value of the scope. `ALL_ACCOUNTS` for `Organization` scopes, AWS account ID for `AccountId` scopes, ARN of an EC2 instance or an Auto Scaling group for `ResourceArn` scopes.
+    """
 
 @pulumi.input_type
 class RecommendationPreferencesScopeArgs:
@@ -228,18 +214,15 @@ class RecommendationPreferencesScopeArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class RecommendationPreferencesUtilizationPreferenceArgsDict(TypedDict):
-        metric_name: pulumi.Input[_builtins.str]
-        """
-        The name of the resource utilization metric name to customize. Valid values: `CpuUtilization`, `MemoryUtilization`.
-        """
-        metric_parameters: pulumi.Input['RecommendationPreferencesUtilizationPreferenceMetricParametersArgsDict']
-        """
-        The parameters to set when customizing the resource utilization thresholds.
-        """
-elif False:
-    RecommendationPreferencesUtilizationPreferenceArgsDict: TypeAlias = Mapping[str, Any]
+class RecommendationPreferencesUtilizationPreferenceArgsDict(TypedDict):
+    metric_name: pulumi.Input[_builtins.str]
+    """
+    The name of the resource utilization metric name to customize. Valid values: `CpuUtilization`, `MemoryUtilization`.
+    """
+    metric_parameters: pulumi.Input['RecommendationPreferencesUtilizationPreferenceMetricParametersArgsDict']
+    """
+    The parameters to set when customizing the resource utilization thresholds.
+    """
 
 @pulumi.input_type
 class RecommendationPreferencesUtilizationPreferenceArgs:
@@ -278,18 +261,15 @@ class RecommendationPreferencesUtilizationPreferenceArgs:
         pulumi.set(self, "metric_parameters", value)
 
 
-if not MYPY:
-    class RecommendationPreferencesUtilizationPreferenceMetricParametersArgsDict(TypedDict):
-        headroom: pulumi.Input[_builtins.str]
-        """
-        The headroom value in percentage used for the specified metric parameter. Valid values: `PERCENT_30`, `PERCENT_20`, `PERCENT_10`, `PERCENT_0`.
-        """
-        threshold: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The threshold value used for the specified metric parameter. You can only specify the threshold value for CPU utilization. Valid values: `P90`, `P95`, `P99_5`.
-        """
-elif False:
-    RecommendationPreferencesUtilizationPreferenceMetricParametersArgsDict: TypeAlias = Mapping[str, Any]
+class RecommendationPreferencesUtilizationPreferenceMetricParametersArgsDict(TypedDict):
+    headroom: pulumi.Input[_builtins.str]
+    """
+    The headroom value in percentage used for the specified metric parameter. Valid values: `PERCENT_30`, `PERCENT_20`, `PERCENT_10`, `PERCENT_0`.
+    """
+    threshold: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The threshold value used for the specified metric parameter. You can only specify the threshold value for CPU utilization. Valid values: `P90`, `P95`, `P99_5`.
+    """
 
 @pulumi.input_type
 class RecommendationPreferencesUtilizationPreferenceMetricParametersArgs:
