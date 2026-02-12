@@ -71,12 +71,11 @@ jobs:
         name: Fetch secrets from ESC
         uses: pulumi/esc-action@9eb774255b1a4afb7855678ae8d4a77359da0d9b
       - name: Setup mise
-        uses: blampe/mise-action@blampe/plugins
+        uses: jdx/mise-action@c1a019b8d2586943b4dbebc456323b516910e310
         with:
-          version: 2026.1.1
+          version: 2026.2.10
           github_token: ${{ secrets.GITHUB_TOKEN }}
           cache_save: false
-          plugin_install: https://github.com/pulumi/vfox-pulumi
       - name: Setup Go Cache
         uses: actions/setup-go@44694675825211faa026b3c33043df3e48a5fa00 # v6
         with:
