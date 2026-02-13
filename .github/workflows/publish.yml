@@ -63,13 +63,12 @@ jobs:
         private-key: ${{ steps.esc-secrets.outputs.PULUMI_PROVIDER_AUTOMATION_PRIVATE_KEY }}
         owner: ${{ github.repository_owner }}
     - name: Setup mise
-      uses: blampe/mise-action@blampe/plugins
+      uses: jdx/mise-action@c1a019b8d2586943b4dbebc456323b516910e310
       env:
         MISE_FETCH_REMOTE_VERSIONS_TIMEOUT: 30s
       with:
-        version: 2026.1.1
+        version: 2026.2.10
         github_token: ${{ steps.app-auth.outputs.token }}
-        plugin_install: https://github.com/pulumi/vfox-pulumi
         cache_save: false
     - name: Configure AWS Credentials
       uses: aws-actions/configure-aws-credentials@61815dcd50bd041e203e49132bacad1fd04d2708 # v5.1.1
@@ -161,13 +160,12 @@ jobs:
         private-key: ${{ steps.esc-secrets.outputs.PULUMI_PROVIDER_AUTOMATION_PRIVATE_KEY }}
         owner: ${{ github.repository_owner }}
     - name: Setup mise
-      uses: blampe/mise-action@blampe/plugins
+      uses: jdx/mise-action@c1a019b8d2586943b4dbebc456323b516910e310
       env:
         MISE_FETCH_REMOTE_VERSIONS_TIMEOUT: 30s
       with:
-        version: 2026.1.1
+        version: 2026.2.10
         github_token: ${{ steps.app-auth.outputs.token }}
-        plugin_install: https://github.com/pulumi/vfox-pulumi
         # only saving the cache in the prerequisites job
         cache_save: false
     - name: Setup Node
