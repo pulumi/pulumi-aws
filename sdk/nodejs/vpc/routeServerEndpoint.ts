@@ -29,7 +29,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Using `pulumi import`, import VPC (Virtual Private Cloud) Route Server Endpoint using the `route_server_endpoint_id`. For example:
+ * Using `pulumi import`, import VPC (Virtual Private Cloud) Route Server Endpoint using the `routeServerEndpointId`. For example:
  *
  * ```sh
  * $ pulumi import aws:vpc/routeServerEndpoint:RouteServerEndpoint example rse-12345678

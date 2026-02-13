@@ -204,7 +204,7 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import NAT Gateways using the `id`. For example:
+    /// Using `pulumi import`, import NAT Gateways using the `Id`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:ec2/natGateway:NatGateway private_gw nat-05dba92075d71c408

@@ -215,12 +215,37 @@ import (
 //
 // ## Import
 //
-// Using `pulumi import`, import `aws_storagegateway_gateway` using the gateway Amazon Resource Name (ARN). For example:
+// Using `pulumi import`, import `storagegateway.Gateway` using the gateway Amazon Resource Name (ARN). For example:
 //
 // ```sh
 // $ pulumi import aws:storagegateway/gateway:Gateway example arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678
 // ```
-// Certain resource arguments, like `gateway_ip_address` do not have a Storage Gateway API method for reading the information after creation, either omit the argument from the Pulumi program or use `ignore_changes` to hide the difference. For example:
+//
+// Certain resource arguments, like `gatewayIpAddress` do not have a Storage Gateway API method for reading the information after creation, either omit the argument from the Pulumi program or use `ignoreChanges` to hide the difference. For example:
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/storagegateway"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := storagegateway.NewGateway(ctx, "example", &storagegateway.GatewayArgs{
+//				GatewayIpAddress: pulumi.Any(sgw.PrivateIp),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 type Gateway struct {
 	pulumi.CustomResourceState
 

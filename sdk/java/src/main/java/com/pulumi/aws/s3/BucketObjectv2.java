@@ -353,36 +353,28 @@ import javax.annotation.Nullable;
  * #### Required
  * 
  * * `bucket` (String) S3 bucket name.
- * 
  * * `key` (String) Object key.
  * 
  * #### Optional
  * 
- * * `account_id` (String) AWS Account where this resource is managed.
- * 
+ * * `accountId` (String) AWS Account where this resource is managed.
  * * `region` (String) Region where this resource is managed.
  * 
  * Import using S3 URL syntax:
- * 
- * terraform
- * 
- * import {
- * 
- *   to = aws_s3_object.example
- * 
- *   id = &#34;s3://some-bucket-name/some/key.txt&#34;
- * 
- * }
  * 
  * **Using `pulumi import` to import** objects using the `id` or S3 URL. For example:
  * 
  * Import using the `id`, which is the bucket name and the key together:
  * 
- * % pulumi import aws_s3_object.example some-bucket-name/some/key.txt
+ * ```sh
+ * $ pulumi import aws:s3/bucketObjectv2:BucketObjectv2 example some-bucket-name/some/key.txt
+ * ```
  * 
  * Import using S3 URL syntax:
  * 
- * % pulumi import aws_s3_object.example s3://some-bucket-name/some/key.txt
+ * ```sh
+ * $ pulumi import aws:s3/bucketObjectv2:BucketObjectv2 example s3://some-bucket-name/some/key.txt
+ * ```
  * 
  */
 @ResourceType(type="aws:s3/bucketObjectv2:BucketObjectv2")

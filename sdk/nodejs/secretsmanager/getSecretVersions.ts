@@ -7,6 +7,49 @@ import * as outputs from "../types/output";
 import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
+/**
+ * Retrieve the versions of a Secrets Manager secret. To retrieve secret metadata, see the data sources `aws.secretsmanager.Secret` and `aws.secretsmanager.SecretVersion`.
+ *
+ * ## Example Usage
+ *
+ * ### Retrieve All Versions of a Secret
+ *
+ * By default, this data sources retrieves all versions of a secret.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const secret_versions = aws.secretsmanager.getSecretVersions({
+ *     secretId: example.id,
+ * });
+ * ```
+ *
+ * ### Retrieve Specific Secret Version
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const by_version_stage = aws.secretsmanager.getSecretVersion({
+ *     secretId: example.id,
+ *     versionStage: "example",
+ * });
+ * ```
+ *
+ * ### Handling Key-Value Secret Strings in JSON
+ *
+ * Reading key-value pairs from JSON back into a native Terraform map can be accomplished in Terraform 0.12 and later with the `jsondecode()` function:
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as std from "@pulumi/std";
+ *
+ * export const example = std.jsondecode({
+ *     input: exampleAwsSecretsmanagerSecretVersion.secretString,
+ * }).then(invoke => invoke.result?.key1);
+ * ```
+ */
 export function getSecretVersions(args: GetSecretVersionsArgs, opts?: pulumi.InvokeOptions): Promise<GetSecretVersionsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:secretsmanager/getSecretVersions:getSecretVersions", {
@@ -56,6 +99,49 @@ export interface GetSecretVersionsResult {
      */
     readonly versions: outputs.secretsmanager.GetSecretVersionsVersion[];
 }
+/**
+ * Retrieve the versions of a Secrets Manager secret. To retrieve secret metadata, see the data sources `aws.secretsmanager.Secret` and `aws.secretsmanager.SecretVersion`.
+ *
+ * ## Example Usage
+ *
+ * ### Retrieve All Versions of a Secret
+ *
+ * By default, this data sources retrieves all versions of a secret.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const secret_versions = aws.secretsmanager.getSecretVersions({
+ *     secretId: example.id,
+ * });
+ * ```
+ *
+ * ### Retrieve Specific Secret Version
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const by_version_stage = aws.secretsmanager.getSecretVersion({
+ *     secretId: example.id,
+ *     versionStage: "example",
+ * });
+ * ```
+ *
+ * ### Handling Key-Value Secret Strings in JSON
+ *
+ * Reading key-value pairs from JSON back into a native Terraform map can be accomplished in Terraform 0.12 and later with the `jsondecode()` function:
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as std from "@pulumi/std";
+ *
+ * export const example = std.jsondecode({
+ *     input: exampleAwsSecretsmanagerSecretVersion.secretString,
+ * }).then(invoke => invoke.result?.key1);
+ * ```
+ */
 export function getSecretVersionsOutput(args: GetSecretVersionsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSecretVersionsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:secretsmanager/getSecretVersions:getSecretVersions", {

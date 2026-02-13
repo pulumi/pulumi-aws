@@ -262,7 +262,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Using `pulumi import`, import Backup selection using the role plan_id and id separated by `|`. For example:
+ * Using `pulumi import`, import Backup selection using the role planId and id separated by `|`. For example:
  * 
  * ```sh
  * $ pulumi import aws:backup/selection:Selection example plan-id|selection-id

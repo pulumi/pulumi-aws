@@ -15,9 +15,89 @@ import java.util.List;
 import javax.annotation.Nullable;
 
 /**
+ * Resource for maintaining exclusive management of managed IAM policies assigned to an AWS IAM (Identity &amp; Access Management) group.
+ * 
+ * !&gt; This resource takes exclusive ownership over managed IAM policies attached to a group. This includes removal of managed IAM policies which are not explicitly configured. To prevent persistent drift, ensure any `aws.iam.GroupPolicyAttachment` resources managed alongside this resource are included in the `policyArns` argument.
+ * 
+ * &gt; Destruction of this resource means Terraform will no longer manage reconciliation of the configured policy attachments. It **will not** detach the configured policies from the group.
+ * 
+ * ## Example Usage
+ * 
+ * ### Basic Usage
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.iam.GroupPolicyAttachmentsExclusive;
+ * import com.pulumi.aws.iam.GroupPolicyAttachmentsExclusiveArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new GroupPolicyAttachmentsExclusive("example", GroupPolicyAttachmentsExclusiveArgs.builder()
+ *             .groupName(exampleAwsIamGroup.name())
+ *             .policyArns(exampleAwsIamPolicy.arn())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
+ * ### Disallow Managed IAM Policies
+ * 
+ * To automatically remove any configured managed IAM policies, set the `policyArns` argument to an empty list.
+ * 
+ * &gt; This will not **prevent** managed IAM policies from being assigned to a group via Terraform (or any other interface). This resource enables bringing managed IAM policy assignments into a configured state, however, this reconciliation happens only when `apply` is proactively run.
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.iam.GroupPolicyAttachmentsExclusive;
+ * import com.pulumi.aws.iam.GroupPolicyAttachmentsExclusiveArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new GroupPolicyAttachmentsExclusive("example", GroupPolicyAttachmentsExclusiveArgs.builder()
+ *             .groupName(exampleAwsIamGroup.name())
+ *             .policyArns()
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
  * ## Import
  * 
- * Using `pulumi import`, import exclusive management of managed IAM policy assignments using the `group_name`. For example:
+ * Using `pulumi import`, import exclusive management of managed IAM policy assignments using the `groupName`. For example:
  * 
  * ```sh
  * $ pulumi import aws:iam/groupPolicyAttachmentsExclusive:GroupPolicyAttachmentsExclusive example MyGroup

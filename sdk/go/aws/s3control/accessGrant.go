@@ -23,8 +23,6 @@ import (
 //
 // import (
 //
-//	"fmt"
-//
 //	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/s3control"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
@@ -67,7 +65,7 @@ import (
 //
 // ## Import
 //
-// Using `pulumi import`, import S3 Access Grants using the `account_id` and `access_grant_id`, separated by a comma (`,`). For example:
+// Using `pulumi import`, import S3 Access Grants using the `accountId` and `accessGrantId`, separated by a comma (`,`). For example:
 //
 // ```sh
 // $ pulumi import aws:s3control/accessGrant:AccessGrant example 123456789012,04549c5e-2f3c-4a07-824d-2cafe720aa22
@@ -83,7 +81,8 @@ type AccessGrant struct {
 	AccessGrantsLocationConfiguration AccessGrantAccessGrantsLocationConfigurationPtrOutput `pulumi:"accessGrantsLocationConfiguration"`
 	// The ID of the S3 Access Grants location to with the access grant is giving access.
 	AccessGrantsLocationId pulumi.StringOutput `pulumi:"accessGrantsLocationId"`
-	AccountId              pulumi.StringOutput `pulumi:"accountId"`
+	// The AWS account ID for the S3 Access Grants location. Defaults to automatically determined account ID of the Terraform AWS provider.
+	AccountId pulumi.StringOutput `pulumi:"accountId"`
 	// The access grant's scope.
 	GrantScope pulumi.StringOutput `pulumi:"grantScope"`
 	// See Grantee below for more details.
@@ -147,7 +146,8 @@ type accessGrantState struct {
 	AccessGrantsLocationConfiguration *AccessGrantAccessGrantsLocationConfiguration `pulumi:"accessGrantsLocationConfiguration"`
 	// The ID of the S3 Access Grants location to with the access grant is giving access.
 	AccessGrantsLocationId *string `pulumi:"accessGrantsLocationId"`
-	AccountId              *string `pulumi:"accountId"`
+	// The AWS account ID for the S3 Access Grants location. Defaults to automatically determined account ID of the Terraform AWS provider.
+	AccountId *string `pulumi:"accountId"`
 	// The access grant's scope.
 	GrantScope *string `pulumi:"grantScope"`
 	// See Grantee below for more details.
@@ -173,7 +173,8 @@ type AccessGrantState struct {
 	AccessGrantsLocationConfiguration AccessGrantAccessGrantsLocationConfigurationPtrInput
 	// The ID of the S3 Access Grants location to with the access grant is giving access.
 	AccessGrantsLocationId pulumi.StringPtrInput
-	AccountId              pulumi.StringPtrInput
+	// The AWS account ID for the S3 Access Grants location. Defaults to automatically determined account ID of the Terraform AWS provider.
+	AccountId pulumi.StringPtrInput
 	// The access grant's scope.
 	GrantScope pulumi.StringPtrInput
 	// See Grantee below for more details.
@@ -198,8 +199,9 @@ type accessGrantArgs struct {
 	// See Location Configuration below for more details.
 	AccessGrantsLocationConfiguration *AccessGrantAccessGrantsLocationConfiguration `pulumi:"accessGrantsLocationConfiguration"`
 	// The ID of the S3 Access Grants location to with the access grant is giving access.
-	AccessGrantsLocationId string  `pulumi:"accessGrantsLocationId"`
-	AccountId              *string `pulumi:"accountId"`
+	AccessGrantsLocationId string `pulumi:"accessGrantsLocationId"`
+	// The AWS account ID for the S3 Access Grants location. Defaults to automatically determined account ID of the Terraform AWS provider.
+	AccountId *string `pulumi:"accountId"`
 	// See Grantee below for more details.
 	Grantee AccessGrantGrantee `pulumi:"grantee"`
 	// The access grant's level of access. Valid values: `READ`, `WRITE`, `READWRITE`.
@@ -218,7 +220,8 @@ type AccessGrantArgs struct {
 	AccessGrantsLocationConfiguration AccessGrantAccessGrantsLocationConfigurationPtrInput
 	// The ID of the S3 Access Grants location to with the access grant is giving access.
 	AccessGrantsLocationId pulumi.StringInput
-	AccountId              pulumi.StringPtrInput
+	// The AWS account ID for the S3 Access Grants location. Defaults to automatically determined account ID of the Terraform AWS provider.
+	AccountId pulumi.StringPtrInput
 	// See Grantee below for more details.
 	Grantee AccessGrantGranteeInput
 	// The access grant's level of access. Valid values: `READ`, `WRITE`, `READWRITE`.
@@ -340,6 +343,7 @@ func (o AccessGrantOutput) AccessGrantsLocationId() pulumi.StringOutput {
 	return o.ApplyT(func(v *AccessGrant) pulumi.StringOutput { return v.AccessGrantsLocationId }).(pulumi.StringOutput)
 }
 
+// The AWS account ID for the S3 Access Grants location. Defaults to automatically determined account ID of the Terraform AWS provider.
 func (o AccessGrantOutput) AccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *AccessGrant) pulumi.StringOutput { return v.AccountId }).(pulumi.StringOutput)
 }

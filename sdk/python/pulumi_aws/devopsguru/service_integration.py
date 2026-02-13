@@ -171,6 +171,10 @@ class ServiceIntegration(pulumi.CustomResource):
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
+        Resource for managing an AWS DevOps Guru Service Integration.
+
+        > To prevent unintentional deletion of account wide settings, destruction of this resource will only remove it from the Terraform state. To disable any configured settings, explicitly set the opt-in value to `DISABLED` and apply again before destroying.
+
         ## Example Usage
 
         ### Basic Usage
@@ -235,6 +239,10 @@ class ServiceIntegration(pulumi.CustomResource):
                  args: ServiceIntegrationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        Resource for managing an AWS DevOps Guru Service Integration.
+
+        > To prevent unintentional deletion of account wide settings, destruction of this resource will only remove it from the Terraform state. To disable any configured settings, explicitly set the opt-in value to `DISABLED` and apply again before destroying.
+
         ## Example Usage
 
         ### Basic Usage

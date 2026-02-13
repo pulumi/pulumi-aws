@@ -51,7 +51,7 @@ import (
 //
 // ## Import
 //
-// Using `pulumi import`, import Chime Voice Connector Logging using the `voice_connector_id`. For example:
+// Using `pulumi import`, import Chime Voice Connector Logging using the `voiceConnectorId`. For example:
 //
 // ```sh
 // $ pulumi import aws:chime/voiceConnectorLogging:VoiceConnectorLogging default abcdef1ghij2klmno3pqr4

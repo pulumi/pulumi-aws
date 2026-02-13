@@ -16,9 +16,241 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
+ * Resource for maintaining exclusive management of principal and resource associations for an AWS RAM (Resource Access Manager) Resource Share.
+ * 
+ * !&gt; This resource takes exclusive ownership over principal and resource associations for a resource share. This includes removal of principals and resources which are not explicitly configured.
+ * 
+ * &gt; Destruction of this resource will disassociate all configured principals and resources from the resource share.
+ * 
+ * &gt; **NOTE:** This resource cannot be used in conjunction with `aws.ram.PrincipalAssociation` or `aws.ram.ResourceAssociation` for the same resource share. Using them together will cause persistent drift and conflicts.
+ * 
+ * ## Example Usage
+ * 
+ * ### Basic Usage with Principals
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.ram.ResourceShare;
+ * import com.pulumi.aws.ram.ResourceShareArgs;
+ * import com.pulumi.aws.ec2.Vpc;
+ * import com.pulumi.aws.ec2.VpcArgs;
+ * import com.pulumi.aws.ec2.Subnet;
+ * import com.pulumi.aws.ec2.SubnetArgs;
+ * import com.pulumi.aws.ram.ResourceShareAssociationsExclusive;
+ * import com.pulumi.aws.ram.ResourceShareAssociationsExclusiveArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new ResourceShare("example", ResourceShareArgs.builder()
+ *             .name("example")
+ *             .allowExternalPrincipals(true)
+ *             .build());
+ * 
+ *         var exampleVpc = new Vpc("exampleVpc", VpcArgs.builder()
+ *             .cidrBlock("10.0.0.0/16")
+ *             .build());
+ * 
+ *         var exampleSubnet = new Subnet("exampleSubnet", SubnetArgs.builder()
+ *             .vpcId(exampleVpc.id())
+ *             .cidrBlock("10.0.1.0/24")
+ *             .build());
+ * 
+ *         var exampleResourceShareAssociationsExclusive = new ResourceShareAssociationsExclusive("exampleResourceShareAssociationsExclusive", ResourceShareAssociationsExclusiveArgs.builder()
+ *             .resourceShareArn(example.arn())
+ *             .principals(            
+ *                 "111111111111",
+ *                 "222222222222")
+ *             .resourceArns(exampleSubnet.arn())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
+ * ### With Organization Principal
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.ram.ResourceShare;
+ * import com.pulumi.aws.ram.ResourceShareArgs;
+ * import com.pulumi.aws.ec2.Vpc;
+ * import com.pulumi.aws.ec2.VpcArgs;
+ * import com.pulumi.aws.ec2.Subnet;
+ * import com.pulumi.aws.ec2.SubnetArgs;
+ * import com.pulumi.std.StdFunctions;
+ * import com.pulumi.std.inputs.CidrsubnetArgs;
+ * import com.pulumi.aws.ram.ResourceShareAssociationsExclusive;
+ * import com.pulumi.aws.ram.ResourceShareAssociationsExclusiveArgs;
+ * import com.pulumi.codegen.internal.KeyedValue;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new ResourceShare("example", ResourceShareArgs.builder()
+ *             .name("example")
+ *             .build());
+ * 
+ *         var exampleVpc = new Vpc("exampleVpc", VpcArgs.builder()
+ *             .cidrBlock("10.0.0.0/16")
+ *             .build());
+ * 
+ *         for (var i = 0; i < 2; i++) {
+ *             new Subnet("exampleSubnet-" + i, SubnetArgs.builder()
+ *                 .vpcId(exampleVpc.id())
+ *                 .cidrBlock(exampleVpc.cidrBlock().applyValue(_cidrBlock -> StdFunctions.cidrsubnet(CidrsubnetArgs.builder()
+ *                     .input(_cidrBlock)
+ *                     .newbits(8)
+ *                     .netnum(range.value())
+ *                     .build())).applyValue(_invoke -> _invoke.result()))
+ *                 .build());
+ * 
+ *         
+ * }
+ *         var exampleResourceShareAssociationsExclusive = new ResourceShareAssociationsExclusive("exampleResourceShareAssociationsExclusive", ResourceShareAssociationsExclusiveArgs.builder()
+ *             .resourceShareArn(example.arn())
+ *             .principals(exampleAwsOrganizationsOrganization.arn())
+ *             .resourceArns(exampleSubnet.stream().map(element -> element.arn()).collect(toList()))
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
+ * ### With Service Principals
+ * 
+ * When sharing resources with AWS services, use service principals. Service principals follow the pattern `service-id.amazonaws.com` (e.g., `pca-connector-ad.amazonaws.com`, `elasticmapreduce.amazonaws.com`). The `sources` argument can be used to restrict which AWS accounts the service can access the shared resources from.
+ * 
+ * &gt; **NOTE:** Service principals cannot be mixed with other principal types (AWS account IDs, organization ARNs, OU ARNs, IAM role ARNs, or IAM user ARNs) in the same resource.
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.ram.ResourceShare;
+ * import com.pulumi.aws.ram.ResourceShareArgs;
+ * import com.pulumi.aws.acmpca.CertificateAuthority;
+ * import com.pulumi.aws.acmpca.CertificateAuthorityArgs;
+ * import com.pulumi.aws.acmpca.inputs.CertificateAuthorityCertificateAuthorityConfigurationArgs;
+ * import com.pulumi.aws.acmpca.inputs.CertificateAuthorityCertificateAuthorityConfigurationSubjectArgs;
+ * import com.pulumi.aws.ram.ResourceShareAssociationsExclusive;
+ * import com.pulumi.aws.ram.ResourceShareAssociationsExclusiveArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new ResourceShare("example", ResourceShareArgs.builder()
+ *             .name("example-service-share")
+ *             .allowExternalPrincipals(true)
+ *             .build());
+ * 
+ *         var exampleCertificateAuthority = new CertificateAuthority("exampleCertificateAuthority", CertificateAuthorityArgs.builder()
+ *             .type("ROOT")
+ *             .certificateAuthorityConfiguration(CertificateAuthorityCertificateAuthorityConfigurationArgs.builder()
+ *                 .keyAlgorithm("RSA_4096")
+ *                 .signingAlgorithm("SHA512WITHRSA")
+ *                 .subject(CertificateAuthorityCertificateAuthorityConfigurationSubjectArgs.builder()
+ *                     .commonName("example.com")
+ *                     .build())
+ *                 .build())
+ *             .build());
+ * 
+ *         var exampleResourceShareAssociationsExclusive = new ResourceShareAssociationsExclusive("exampleResourceShareAssociationsExclusive", ResourceShareAssociationsExclusiveArgs.builder()
+ *             .resourceShareArn(example.arn())
+ *             .principals("pca-connector-ad.amazonaws.com")
+ *             .resourceArns(exampleCertificateAuthority.arn())
+ *             .sources(            
+ *                 "111111111111",
+ *                 "222222222222")
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
+ * ### Disallow All Associations
+ * 
+ * To automatically remove any configured associations, omit the `principals` and `resourceArns` arguments or set them to empty lists.
+ * 
+ * &gt; This will not **prevent** associations from being created via Terraform (or any other interface). This resource enables bringing associations into a configured state, however, this reconciliation happens only when `apply` is proactively run.
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.ram.ResourceShareAssociationsExclusive;
+ * import com.pulumi.aws.ram.ResourceShareAssociationsExclusiveArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new ResourceShareAssociationsExclusive("example", ResourceShareAssociationsExclusiveArgs.builder()
+ *             .resourceShareArn(exampleAwsRamResourceShare.arn())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
  * ## Import
  * 
- * Using `pulumi import`, import RAM Resource Share Association Exclusive using the `resource_share_arn`. For example:
+ * Using `pulumi import`, import RAM Resource Share Association Exclusive using the `resourceShareArn`. For example:
  * 
  * ```sh
  * $ pulumi import aws:ram/resourceShareAssociationsExclusive:ResourceShareAssociationsExclusive example arn:aws:ram:eu-west-1:123456789012:resource-share/73da1ab9-b94a-4ba3-8eb4-45917f7f4b12

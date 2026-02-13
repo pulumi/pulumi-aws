@@ -175,7 +175,7 @@ namespace Pulumi.Aws.VerifiedAccess
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import Verified Access Logging Configuration using the Verified Access Instance `id`. For example:
+    /// Using `pulumi import`, import Verified Access Logging Configuration using the Verified Access Instance `Id`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:verifiedaccess/instanceLoggingConfiguration:InstanceLoggingConfiguration example vai-1234567890abcdef0

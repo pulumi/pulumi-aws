@@ -83,7 +83,7 @@ namespace Pulumi.Aws.Connect
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import Amazon Connect User Hierarchy Structures using the `instance_id`. For example:
+    /// Using `pulumi import`, import Amazon Connect User Hierarchy Structures using the `InstanceId`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:connect/userHierarchyStructure:UserHierarchyStructure example f1288a1f-6193-445a-b47e-af739b2

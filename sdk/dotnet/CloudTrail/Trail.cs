@@ -507,7 +507,7 @@ namespace Pulumi.Aws.CloudTrail
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import Cloudtrails using the `arn`. For example:
+    /// Using `pulumi import`, import Cloudtrails using the `Arn`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:cloudtrail/trail:Trail sample arn:aws:cloudtrail:us-east-1:123456789012:trail/my-sample-trail

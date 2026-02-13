@@ -43,7 +43,7 @@ namespace Pulumi.Aws.MemoryDb
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import a parameter group using the `name`. For example:
+    /// Using `pulumi import`, import a parameter group using the `Name`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:memorydb/parameterGroup:ParameterGroup example my-parameter-group

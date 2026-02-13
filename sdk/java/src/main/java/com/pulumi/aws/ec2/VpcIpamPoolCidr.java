@@ -146,7 +146,7 @@ import javax.annotation.Nullable;
  * 
  * Using `pulumi import`, import IPAMs using the `&lt;cidr&gt;_&lt;ipam-pool-id&gt;`. For example:
  * 
- * __NOTE:__ Do not use the IPAM Pool Cidr ID as this was introduced after the resource already existed.
+ * **NOTE:** Do not use the IPAM Pool Cidr ID as this was introduced after the resource already existed.
  * 
  * ```sh
  * $ pulumi import aws:ec2/vpcIpamPoolCidr:VpcIpamPoolCidr example 172.20.0.0/24_ipam-pool-0e634f5a1517cccdc

@@ -31,52 +31,47 @@ __all__ = [
     'DomainAssociationSubDomainArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class AppAutoBranchCreationConfigArgsDict(TypedDict):
-        basic_auth_credentials: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Basic authorization credentials for the autocreated branch.
-        """
-        build_spec: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Build specification (build spec) for the autocreated branch.
-        """
-        enable_auto_build: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Enables auto building for the autocreated branch.
-        """
-        enable_basic_auth: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Enables basic authorization for the autocreated branch.
-        """
-        enable_performance_mode: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Enables performance mode for the branch.
-        """
-        enable_pull_request_preview: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Enables pull request previews for the autocreated branch.
-        """
-        environment_variables: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
-        """
-        Environment variables for the autocreated branch.
-        """
-        framework: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Framework for the autocreated branch.
-        """
-        pull_request_environment_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Amplify environment name for the pull request.
-        """
-        stage: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Describes the current stage for the autocreated branch. Valid values: `PRODUCTION`, `BETA`, `DEVELOPMENT`, `EXPERIMENTAL`, `PULL_REQUEST`.
-        """
-elif False:
-    AppAutoBranchCreationConfigArgsDict: TypeAlias = Mapping[str, Any]
+class AppAutoBranchCreationConfigArgsDict(TypedDict):
+    basic_auth_credentials: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Basic authorization credentials for the autocreated branch.
+    """
+    build_spec: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Build specification (build spec) for the autocreated branch.
+    """
+    enable_auto_build: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Enables auto building for the autocreated branch.
+    """
+    enable_basic_auth: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Enables basic authorization for the autocreated branch.
+    """
+    enable_performance_mode: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Enables performance mode for the branch.
+    """
+    enable_pull_request_preview: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Enables pull request previews for the autocreated branch.
+    """
+    environment_variables: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    """
+    Environment variables for the autocreated branch.
+    """
+    framework: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Framework for the autocreated branch.
+    """
+    pull_request_environment_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Amplify environment name for the pull request.
+    """
+    stage: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Describes the current stage for the autocreated branch. Valid values: `PRODUCTION`, `BETA`, `DEVELOPMENT`, `EXPERIMENTAL`, `PULL_REQUEST`.
+    """
 
 @pulumi.input_type
 class AppAutoBranchCreationConfigArgs:
@@ -245,14 +240,11 @@ class AppAutoBranchCreationConfigArgs:
         pulumi.set(self, "stage", value)
 
 
-if not MYPY:
-    class AppCacheConfigArgsDict(TypedDict):
-        type: pulumi.Input[_builtins.str]
-        """
-        Type of cache configuration to use for an Amplify app. Valid values: `AMPLIFY_MANAGED`, `AMPLIFY_MANAGED_NO_COOKIES`.
-        """
-elif False:
-    AppCacheConfigArgsDict: TypeAlias = Mapping[str, Any]
+class AppCacheConfigArgsDict(TypedDict):
+    type: pulumi.Input[_builtins.str]
+    """
+    Type of cache configuration to use for an Amplify app. Valid values: `AMPLIFY_MANAGED`, `AMPLIFY_MANAGED_NO_COOKIES`.
+    """
 
 @pulumi.input_type
 class AppCacheConfigArgs:
@@ -276,26 +268,23 @@ class AppCacheConfigArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class AppCustomRuleArgsDict(TypedDict):
-        source: pulumi.Input[_builtins.str]
-        """
-        Source pattern for a URL rewrite or redirect rule.
-        """
-        target: pulumi.Input[_builtins.str]
-        """
-        Target pattern for a URL rewrite or redirect rule.
-        """
-        condition: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Condition for a URL rewrite or redirect rule, such as a country code.
-        """
-        status: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Status code for a URL rewrite or redirect rule. Valid values: `200`, `301`, `302`, `404`, `404-200`.
-        """
-elif False:
-    AppCustomRuleArgsDict: TypeAlias = Mapping[str, Any]
+class AppCustomRuleArgsDict(TypedDict):
+    source: pulumi.Input[_builtins.str]
+    """
+    Source pattern for a URL rewrite or redirect rule.
+    """
+    target: pulumi.Input[_builtins.str]
+    """
+    Target pattern for a URL rewrite or redirect rule.
+    """
+    condition: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Condition for a URL rewrite or redirect rule, such as a country code.
+    """
+    status: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Status code for a URL rewrite or redirect rule. Valid values: `200`, `301`, `302`, `404`, `404-200`.
+    """
 
 @pulumi.input_type
 class AppCustomRuleArgs:
@@ -366,14 +355,11 @@ class AppCustomRuleArgs:
         pulumi.set(self, "status", value)
 
 
-if not MYPY:
-    class AppJobConfigArgsDict(TypedDict):
-        build_compute_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Size of the build instance. Valid values: `STANDARD_8GB`, `LARGE_16GB`, and `XLARGE_72GB`. Default: `STANDARD_8GB`.
-        """
-elif False:
-    AppJobConfigArgsDict: TypeAlias = Mapping[str, Any]
+class AppJobConfigArgsDict(TypedDict):
+    build_compute_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Size of the build instance. Valid values: `STANDARD_8GB`, `LARGE_16GB`, and `XLARGE_72GB`. Default: `STANDARD_8GB`.
+    """
 
 @pulumi.input_type
 class AppJobConfigArgs:
@@ -398,26 +384,23 @@ class AppJobConfigArgs:
         pulumi.set(self, "build_compute_type", value)
 
 
-if not MYPY:
-    class AppProductionBranchArgsDict(TypedDict):
-        branch_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Branch name for the production branch.
-        """
-        last_deploy_time: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Last deploy time of the production branch.
-        """
-        status: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Status of the production branch.
-        """
-        thumbnail_url: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Thumbnail URL for the production branch.
-        """
-elif False:
-    AppProductionBranchArgsDict: TypeAlias = Mapping[str, Any]
+class AppProductionBranchArgsDict(TypedDict):
+    branch_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Branch name for the production branch.
+    """
+    last_deploy_time: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Last deploy time of the production branch.
+    """
+    status: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Status of the production branch.
+    """
+    thumbnail_url: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Thumbnail URL for the production branch.
+    """
 
 @pulumi.input_type
 class AppProductionBranchArgs:
@@ -490,24 +473,21 @@ class AppProductionBranchArgs:
         pulumi.set(self, "thumbnail_url", value)
 
 
-if not MYPY:
-    class DomainAssociationCertificateSettingsArgsDict(TypedDict):
-        type: pulumi.Input[_builtins.str]
-        """
-        The certificate type.
-        Valid values are `AMPLIFY_MANAGED` and `CUSTOM`.
-        """
-        certificate_verification_dns_record: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        DNS records for certificate verification in a space-delimited format (`<record> CNAME <target>`).
-        """
-        custom_certificate_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Amazon resource name (ARN) for the custom certificate.
-        Required when `type` is `CUSTOM`.
-        """
-elif False:
-    DomainAssociationCertificateSettingsArgsDict: TypeAlias = Mapping[str, Any]
+class DomainAssociationCertificateSettingsArgsDict(TypedDict):
+    type: pulumi.Input[_builtins.str]
+    """
+    The certificate type.
+    Valid values are `AMPLIFY_MANAGED` and `CUSTOM`.
+    """
+    certificate_verification_dns_record: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    DNS records for certificate verification in a space-delimited format (`<record> CNAME <target>`).
+    """
+    custom_certificate_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Amazon resource name (ARN) for the custom certificate.
+    Required when `type` is `CUSTOM`.
+    """
 
 @pulumi.input_type
 class DomainAssociationCertificateSettingsArgs:
@@ -567,26 +547,23 @@ class DomainAssociationCertificateSettingsArgs:
         pulumi.set(self, "custom_certificate_arn", value)
 
 
-if not MYPY:
-    class DomainAssociationSubDomainArgsDict(TypedDict):
-        branch_name: pulumi.Input[_builtins.str]
-        """
-        Branch name setting for the subdomain.
-        """
-        prefix: pulumi.Input[_builtins.str]
-        """
-        Prefix setting for the subdomain.
-        """
-        dns_record: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        DNS record for the subdomain in a space-prefixed and space-delimited format (` CNAME <target>`).
-        """
-        verified: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Verified status of the subdomain.
-        """
-elif False:
-    DomainAssociationSubDomainArgsDict: TypeAlias = Mapping[str, Any]
+class DomainAssociationSubDomainArgsDict(TypedDict):
+    branch_name: pulumi.Input[_builtins.str]
+    """
+    Branch name setting for the subdomain.
+    """
+    prefix: pulumi.Input[_builtins.str]
+    """
+    Prefix setting for the subdomain.
+    """
+    dns_record: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    DNS record for the subdomain in a space-prefixed and space-delimited format (` CNAME <target>`).
+    """
+    verified: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Verified status of the subdomain.
+    """
 
 @pulumi.input_type
 class DomainAssociationSubDomainArgs:

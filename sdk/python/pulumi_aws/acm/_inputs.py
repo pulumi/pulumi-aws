@@ -25,28 +25,23 @@ __all__ = [
     'CertificateValidationOptionArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class CertificateDomainValidationOptionArgsDict(TypedDict):
-        domain_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Fully qualified domain name (FQDN) in the certificate.
-        """
-        resource_record_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the DNS record to create to validate the certificate
-        """
-        resource_record_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The type of DNS record to create
-        """
-        resource_record_value: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The value the DNS record needs to have
-        """
-elif False:
-    CertificateDomainValidationOptionArgsDict: TypeAlias = Mapping[str, Any]
+class CertificateDomainValidationOptionArgsDict(TypedDict):
+    domain_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Fully qualified domain name (FQDN) in the certificate.
+    """
+    resource_record_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the DNS record to create to validate the certificate
+    """
+    resource_record_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The type of DNS record to create
+    """
+    resource_record_value: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The value the DNS record needs to have
+    """
 
 @pulumi.input_type
 class CertificateDomainValidationOptionArgs:
@@ -119,18 +114,15 @@ class CertificateDomainValidationOptionArgs:
         pulumi.set(self, "resource_record_value", value)
 
 
-if not MYPY:
-    class CertificateOptionsArgsDict(TypedDict):
-        certificate_transparency_logging_preference: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Whether certificate details should be added to a certificate transparency log. Valid values are `ENABLED` or `DISABLED`. See https://docs.aws.amazon.com/acm/latest/userguide/acm-concepts.html#concept-transparency for more details.
-        """
-        export: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Whether the certificate can be exported. Valid values are `ENABLED` or `DISABLED` (default). **Note** Issuing an exportable certificate is subject to additional charges. See [AWS Certificate Manager pricing](https://aws.amazon.com/certificate-manager/pricing/) for more details.
-        """
-elif False:
-    CertificateOptionsArgsDict: TypeAlias = Mapping[str, Any]
+class CertificateOptionsArgsDict(TypedDict):
+    certificate_transparency_logging_preference: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Whether certificate details should be added to a certificate transparency log. Valid values are `ENABLED` or `DISABLED`. See https://docs.aws.amazon.com/acm/latest/userguide/acm-concepts.html#concept-transparency for more details.
+    """
+    export: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Whether the certificate can be exported. Valid values are `ENABLED` or `DISABLED` (default). **Note** Issuing an exportable certificate is subject to additional charges. See [AWS Certificate Manager pricing](https://aws.amazon.com/certificate-manager/pricing/) for more details.
+    """
 
 @pulumi.input_type
 class CertificateOptionsArgs:
@@ -171,19 +163,16 @@ class CertificateOptionsArgs:
         pulumi.set(self, "export", value)
 
 
-if not MYPY:
-    class CertificateRenewalSummaryArgsDict(TypedDict):
-        renewal_status: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The status of ACM's managed renewal of the certificate
-        """
-        renewal_status_reason: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The reason that a renewal request was unsuccessful or is pending
-        """
-        updated_at: NotRequired[pulumi.Input[_builtins.str]]
-elif False:
-    CertificateRenewalSummaryArgsDict: TypeAlias = Mapping[str, Any]
+class CertificateRenewalSummaryArgsDict(TypedDict):
+    renewal_status: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The status of ACM's managed renewal of the certificate
+    """
+    renewal_status_reason: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The reason that a renewal request was unsuccessful or is pending
+    """
+    updated_at: NotRequired[pulumi.Input[_builtins.str]]
 
 @pulumi.input_type
 class CertificateRenewalSummaryArgs:
@@ -236,18 +225,15 @@ class CertificateRenewalSummaryArgs:
         pulumi.set(self, "updated_at", value)
 
 
-if not MYPY:
-    class CertificateValidationOptionArgsDict(TypedDict):
-        domain_name: pulumi.Input[_builtins.str]
-        """
-        Fully qualified domain name (FQDN) in the certificate.
-        """
-        validation_domain: pulumi.Input[_builtins.str]
-        """
-        Domain name that you want ACM to use to send you validation emails. This domain name is the suffix of the email addresses that you want ACM to use. This must be the same as the `domain_name` value or a superdomain of the `domain_name` value. For example, if you request a certificate for `"testing.example.com"`, you can specify `"example.com"` for this value.
-        """
-elif False:
-    CertificateValidationOptionArgsDict: TypeAlias = Mapping[str, Any]
+class CertificateValidationOptionArgsDict(TypedDict):
+    domain_name: pulumi.Input[_builtins.str]
+    """
+    Fully qualified domain name (FQDN) in the certificate.
+    """
+    validation_domain: pulumi.Input[_builtins.str]
+    """
+    Domain name that you want ACM to use to send you validation emails. This domain name is the suffix of the email addresses that you want ACM to use. This must be the same as the `domain_name` value or a superdomain of the `domain_name` value. For example, if you request a certificate for `"testing.example.com"`, you can specify `"example.com"` for this value.
+    """
 
 @pulumi.input_type
 class CertificateValidationOptionArgs:

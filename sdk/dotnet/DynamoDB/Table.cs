@@ -422,7 +422,7 @@ namespace Pulumi.Aws.DynamoDB
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import DynamoDB tables using the `name`. For example:
+    /// Using `pulumi import`, import DynamoDB tables using the `Name`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:dynamodb/table:Table basic-dynamodb-table GameScores

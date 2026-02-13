@@ -12,6 +12,9 @@ namespace Pulumi.Aws.ApiGateway.Inputs
 
     public sealed class DomainNameEndpointConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The IP address types that can invoke a DomainName. Valid values: `Ipv4`, `Dualstack`. Use `Ipv4` to allow only IPv4 addresses to invoke a DomainName, or use `Dualstack` to allow both IPv4 and IPv6 addresses to invoke a DomainName. For the `PRIVATE` endpoint type, only `Dualstack` is supported. Terraform performs drift detection for this argument only when the value is provided.
+        /// </summary>
         [Input("ipAddressType")]
         public Input<string>? IpAddressType { get; set; }
 

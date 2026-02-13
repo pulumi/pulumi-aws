@@ -34,7 +34,7 @@ namespace Pulumi.Aws.Synthetics
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import CloudWatch Synthetics Group using the `name`. For example:
+    /// Using `pulumi import`, import CloudWatch Synthetics Group using the `Name`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:synthetics/group:Group example example

@@ -5,6 +5,10 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
+ * Creates a new Amazon Redshift Serverless Namespace.
+ *
+ * > **Note:** Write-Only argument `adminPasswordWo` is available to use in place of `adminPassword`. Write-Only arguments are supported in HashiCorp Terraform 1.11.0 and later. Learn more.
+ *
  * ## Example Usage
  *
  * ```typescript
@@ -16,7 +20,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Using `pulumi import`, import Redshift Serverless Namespaces using the `namespace_name`. For example:
+ * Using `pulumi import`, import Redshift Serverless Namespaces using the `namespaceName`. For example:
  *
  * ```sh
  * $ pulumi import aws:redshiftserverless/namespace:Namespace example example

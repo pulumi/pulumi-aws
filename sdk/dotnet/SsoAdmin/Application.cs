@@ -77,11 +77,13 @@ namespace Pulumi.Aws.SsoAdmin
     /// 
     /// #### Required
     /// 
-    /// - `arn` (String) Amazon Resource Name (ARN) of the SSO application.
+    /// - `Arn` (String) Amazon Resource Name (ARN) of the SSO application.
     /// 
-    /// Using `pulumi import`, import SSO Admin Application using the `id`. For example:
+    /// Using `pulumi import`, import SSO Admin Application using the `Id`. For example:
     /// 
-    /// % pulumi import aws_ssoadmin_application.example arn:aws:sso::123456789012:application/id-12345678
+    /// ```sh
+    /// $ pulumi import aws:ssoadmin/application:Application example arn:aws:sso::123456789012:application/id-12345678
+    /// ```
     /// </summary>
     [AwsResourceType("aws:ssoadmin/application:Application")]
     public partial class Application : global::Pulumi.CustomResource

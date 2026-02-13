@@ -47,6 +47,7 @@ import * as utilities from "../utilities";
  * ```sh
  * $ pulumi import aws:guardduty/detector:Detector MyDetector 00b00fd5aecc0ab60a708659477e9617
  * ```
+ *
  * The ID of the detector can be retrieved via the [AWS CLI](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/guardduty/list-detectors.html) using `aws guardduty list-detectors`.
  */
 export class Detector extends pulumi.CustomResource {

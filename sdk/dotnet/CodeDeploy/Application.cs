@@ -73,7 +73,7 @@ namespace Pulumi.Aws.CodeDeploy
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import CodeDeploy Applications using the `name`. For example:
+    /// Using `pulumi import`, import CodeDeploy Applications using the `Name`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:codedeploy/application:Application example my-application

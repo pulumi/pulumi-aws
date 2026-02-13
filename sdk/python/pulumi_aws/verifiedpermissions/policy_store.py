@@ -254,6 +254,8 @@ class PolicyStore(pulumi.CustomResource):
                  validation_settings: Optional[pulumi.Input[Union['PolicyStoreValidationSettingsArgs', 'PolicyStoreValidationSettingsArgsDict']]] = None,
                  __props__=None):
         """
+        This is a Terraform resource for managing an AWS Verified Permissions Policy Store.
+
         ## Example Usage
 
         ### Basic Usage
@@ -271,7 +273,9 @@ class PolicyStore(pulumi.CustomResource):
 
         Using `pulumi import`, import Verified Permissions Policy Store using the `policy_store_id`. For example:
 
-         % pulumi import aws_verifiedpermissions_policy_store.example DxQg2j8xvXJQ1tQCYNWj9T
+        ```sh
+         $ pulumi import aws:verifiedpermissions/policyStore:PolicyStore example DxQg2j8xvXJQ1tQCYNWj9T
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -288,6 +292,8 @@ class PolicyStore(pulumi.CustomResource):
                  args: PolicyStoreArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        This is a Terraform resource for managing an AWS Verified Permissions Policy Store.
+
         ## Example Usage
 
         ### Basic Usage
@@ -305,7 +311,9 @@ class PolicyStore(pulumi.CustomResource):
 
         Using `pulumi import`, import Verified Permissions Policy Store using the `policy_store_id`. For example:
 
-         % pulumi import aws_verifiedpermissions_policy_store.example DxQg2j8xvXJQ1tQCYNWj9T
+        ```sh
+         $ pulumi import aws:verifiedpermissions/policyStore:PolicyStore example DxQg2j8xvXJQ1tQCYNWj9T
+        ```
 
         :param str resource_name: The name of the resource.
         :param PolicyStoreArgs args: The arguments to use to populate this resource's properties.

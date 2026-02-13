@@ -169,7 +169,7 @@ namespace Pulumi.Aws.Route53
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import Route53 Health Checks using the health check `id`. For example:
+    /// Using `pulumi import`, import Route53 Health Checks using the health check `Id`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:route53/healthCheck:HealthCheck http_check abcdef11-2222-3333-4444-555555fedcba

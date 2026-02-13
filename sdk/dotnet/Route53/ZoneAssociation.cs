@@ -65,13 +65,14 @@ namespace Pulumi.Aws.Route53
     /// 
     /// The VPC is _not_ in the same region where you have configured the AWS Provider:
     /// 
-    /// __Using `pulumi import` to import__ Route 53 Hosted Zone Associations using the Hosted Zone ID and VPC ID, separated by a colon (`:`). For example:
+    /// **Using `pulumi import` to import** Route 53 Hosted Zone Associations using the Hosted Zone ID and VPC ID, separated by a colon (`:`). For example:
     /// 
     /// The VPC is in the same region where you have configured the AWS Provider:
     /// 
     /// ```sh
     /// $ pulumi import aws:route53/zoneAssociation:ZoneAssociation example Z123456ABCDEFG:vpc-12345678
     /// ```
+    /// 
     /// The VPC is _not_ in the same region where you have configured the AWS Provider:
     /// 
     /// ```sh

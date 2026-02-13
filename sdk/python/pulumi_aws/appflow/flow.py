@@ -520,12 +520,13 @@ class Flow(pulumi.CustomResource):
         #### Optional
 
         * `account_id` (String) AWS Account where this resource is managed.
-
         * `region` (String) Region where this resource is managed.
 
         Using `pulumi import`, import AppFlow flows using the `name`. For example:
 
-        % pulumi import aws_appflow_flow.example example-flow
+        ```sh
+        $ pulumi import aws:appflow/flow:Flow example example-flow
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -651,12 +652,13 @@ class Flow(pulumi.CustomResource):
         #### Optional
 
         * `account_id` (String) AWS Account where this resource is managed.
-
         * `region` (String) Region where this resource is managed.
 
         Using `pulumi import`, import AppFlow flows using the `name`. For example:
 
-        % pulumi import aws_appflow_flow.example example-flow
+        ```sh
+        $ pulumi import aws:appflow/flow:Flow example example-flow
+        ```
 
         :param str resource_name: The name of the resource.
         :param FlowArgs args: The arguments to use to populate this resource's properties.

@@ -21,7 +21,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Using `pulumi import`, import QuickSight role custom permissions using a comma-delimited string combining the `aws_account_id`, `namespace`, and `role`. For example:
+ * Using `pulumi import`, import QuickSight role custom permissions using a comma-delimited string combining the `awsAccountId`, `namespace`, and `role`. For example:
  *
  * ```sh
  * $ pulumi import aws:quicksight/roleCustomPermission:RoleCustomPermission example 012345678901,default,READER
@@ -55,6 +55,9 @@ export class RoleCustomPermission extends pulumi.CustomResource {
         return obj['__pulumiType'] === RoleCustomPermission.__pulumiType;
     }
 
+    /**
+     * AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
+     */
     declare public readonly awsAccountId: pulumi.Output<string>;
     /**
      * Custom permissions profile name.
@@ -116,6 +119,9 @@ export class RoleCustomPermission extends pulumi.CustomResource {
  * Input properties used for looking up and filtering RoleCustomPermission resources.
  */
 export interface RoleCustomPermissionState {
+    /**
+     * AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
+     */
     awsAccountId?: pulumi.Input<string>;
     /**
      * Custom permissions profile name.
@@ -141,6 +147,9 @@ export interface RoleCustomPermissionState {
  * The set of arguments for constructing a RoleCustomPermission resource.
  */
 export interface RoleCustomPermissionArgs {
+    /**
+     * AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
+     */
     awsAccountId?: pulumi.Input<string>;
     /**
      * Custom permissions profile name.

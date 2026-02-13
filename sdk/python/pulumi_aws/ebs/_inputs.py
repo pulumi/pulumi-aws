@@ -33,20 +33,15 @@ __all__ = [
     'GetVolumeFilterArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class FastSnapshotRestoreTimeoutsArgsDict(TypedDict):
-        create: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
-        """
-        delete: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
-        """
-elif False:
-    FastSnapshotRestoreTimeoutsArgsDict: TypeAlias = Mapping[str, Any]
+class FastSnapshotRestoreTimeoutsArgsDict(TypedDict):
+    create: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+    """
+    delete: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+    """
 
 @pulumi.input_type
 class FastSnapshotRestoreTimeoutsArgs:
@@ -87,26 +82,23 @@ class FastSnapshotRestoreTimeoutsArgs:
         pulumi.set(self, "delete", value)
 
 
-if not MYPY:
-    class SnapshotImportClientDataArgsDict(TypedDict):
-        comment: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A user-defined comment about the disk upload.
-        """
-        upload_end: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The time that the disk upload ends.
-        """
-        upload_size: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        The size of the uploaded disk image, in GiB.
-        """
-        upload_start: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The time that the disk upload starts.
-        """
-elif False:
-    SnapshotImportClientDataArgsDict: TypeAlias = Mapping[str, Any]
+class SnapshotImportClientDataArgsDict(TypedDict):
+    comment: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A user-defined comment about the disk upload.
+    """
+    upload_end: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The time that the disk upload ends.
+    """
+    upload_size: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    The size of the uploaded disk image, in GiB.
+    """
+    upload_start: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The time that the disk upload starts.
+    """
 
 @pulumi.input_type
 class SnapshotImportClientDataArgs:
@@ -179,26 +171,23 @@ class SnapshotImportClientDataArgs:
         pulumi.set(self, "upload_start", value)
 
 
-if not MYPY:
-    class SnapshotImportDiskContainerArgsDict(TypedDict):
-        format: pulumi.Input[_builtins.str]
-        """
-        The format of the disk image being imported. One of `VHD` or `VMDK`.
-        """
-        description: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The description of the disk image being imported.
-        """
-        url: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The URL to the Amazon S3-based disk image being imported. It can either be a https URL (https://..) or an Amazon S3 URL (s3://..). One of `url` or `user_bucket` must be set.
-        """
-        user_bucket: NotRequired[pulumi.Input['SnapshotImportDiskContainerUserBucketArgsDict']]
-        """
-        The Amazon S3 bucket for the disk image. One of `url` or `user_bucket` must be set. Detailed below.
-        """
-elif False:
-    SnapshotImportDiskContainerArgsDict: TypeAlias = Mapping[str, Any]
+class SnapshotImportDiskContainerArgsDict(TypedDict):
+    format: pulumi.Input[_builtins.str]
+    """
+    The format of the disk image being imported. One of `VHD` or `VMDK`.
+    """
+    description: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The description of the disk image being imported.
+    """
+    url: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The URL to the Amazon S3-based disk image being imported. It can either be a https URL (https://..) or an Amazon S3 URL (s3://..). One of `url` or `user_bucket` must be set.
+    """
+    user_bucket: NotRequired[pulumi.Input['SnapshotImportDiskContainerUserBucketArgsDict']]
+    """
+    The Amazon S3 bucket for the disk image. One of `url` or `user_bucket` must be set. Detailed below.
+    """
 
 @pulumi.input_type
 class SnapshotImportDiskContainerArgs:
@@ -270,18 +259,15 @@ class SnapshotImportDiskContainerArgs:
         pulumi.set(self, "user_bucket", value)
 
 
-if not MYPY:
-    class SnapshotImportDiskContainerUserBucketArgsDict(TypedDict):
-        s3_bucket: pulumi.Input[_builtins.str]
-        """
-        The name of the Amazon S3 bucket where the disk image is located.
-        """
-        s3_key: pulumi.Input[_builtins.str]
-        """
-        The file name of the disk image.
-        """
-elif False:
-    SnapshotImportDiskContainerUserBucketArgsDict: TypeAlias = Mapping[str, Any]
+class SnapshotImportDiskContainerUserBucketArgsDict(TypedDict):
+    s3_bucket: pulumi.Input[_builtins.str]
+    """
+    The name of the Amazon S3 bucket where the disk image is located.
+    """
+    s3_key: pulumi.Input[_builtins.str]
+    """
+    The file name of the disk image.
+    """
 
 @pulumi.input_type
 class SnapshotImportDiskContainerUserBucketArgs:
@@ -320,34 +306,31 @@ class SnapshotImportDiskContainerUserBucketArgs:
         pulumi.set(self, "s3_key", value)
 
 
-if not MYPY:
-    class GetEbsVolumesFilterArgsDict(TypedDict):
-        name: _builtins.str
-        """
-        Name of the field to filter by, as defined by
-        [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVolumes.html).
-        For example, if matching against the `size` filter, use:
+class GetEbsVolumesFilterArgsDict(TypedDict):
+    name: _builtins.str
+    """
+    Name of the field to filter by, as defined by
+    [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVolumes.html).
+    For example, if matching against the `size` filter, use:
 
-        ```python
-        import pulumi
-        import pulumi_aws as aws
+    ```python
+    import pulumi
+    import pulumi_aws as aws
 
-        ten_or_twenty_gb_volumes = aws.ebs.get_ebs_volumes(filters=[{
-            "name": "size",
-            "values": [
-                "10",
-                "20",
-            ],
-        }])
-        ```
-        """
-        values: Sequence[_builtins.str]
-        """
-        Set of values that are accepted for the given field.
-        EBS Volume IDs will be selected if any one of the given values match.
-        """
-elif False:
-    GetEbsVolumesFilterArgsDict: TypeAlias = Mapping[str, Any]
+    ten_or_twenty_gb_volumes = aws.ebs.get_ebs_volumes(filters=[{
+        "name": "size",
+        "values": [
+            "10",
+            "20",
+        ],
+    }])
+    ```
+    """
+    values: Sequence[_builtins.str]
+    """
+    Set of values that are accepted for the given field.
+    EBS Volume IDs will be selected if any one of the given values match.
+    """
 
 @pulumi.input_type
 class GetEbsVolumesFilterArgs:
@@ -418,12 +401,9 @@ class GetEbsVolumesFilterArgs:
         pulumi.set(self, "values", value)
 
 
-if not MYPY:
-    class GetSnapshotFilterArgsDict(TypedDict):
-        name: _builtins.str
-        values: Sequence[_builtins.str]
-elif False:
-    GetSnapshotFilterArgsDict: TypeAlias = Mapping[str, Any]
+class GetSnapshotFilterArgsDict(TypedDict):
+    name: _builtins.str
+    values: Sequence[_builtins.str]
 
 @pulumi.input_type
 class GetSnapshotFilterArgs:
@@ -452,12 +432,9 @@ class GetSnapshotFilterArgs:
         pulumi.set(self, "values", value)
 
 
-if not MYPY:
-    class GetSnapshotIdsFilterArgsDict(TypedDict):
-        name: _builtins.str
-        values: Sequence[_builtins.str]
-elif False:
-    GetSnapshotIdsFilterArgsDict: TypeAlias = Mapping[str, Any]
+class GetSnapshotIdsFilterArgsDict(TypedDict):
+    name: _builtins.str
+    values: Sequence[_builtins.str]
 
 @pulumi.input_type
 class GetSnapshotIdsFilterArgs:
@@ -486,12 +463,9 @@ class GetSnapshotIdsFilterArgs:
         pulumi.set(self, "values", value)
 
 
-if not MYPY:
-    class GetVolumeFilterArgsDict(TypedDict):
-        name: _builtins.str
-        values: Sequence[_builtins.str]
-elif False:
-    GetVolumeFilterArgsDict: TypeAlias = Mapping[str, Any]
+class GetVolumeFilterArgsDict(TypedDict):
+    name: _builtins.str
+    values: Sequence[_builtins.str]
 
 @pulumi.input_type
 class GetVolumeFilterArgs:

@@ -27,7 +27,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Using `pulumi import`, import `aws_lightsail_lb` using the name attribute. For example:
+ * Using `pulumi import`, import `aws.lightsail.Lb` using the name attribute. For example:
  *
  * ```sh
  * $ pulumi import aws:lightsail/lb:Lb example example-load-balancer

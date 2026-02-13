@@ -35,7 +35,7 @@ namespace Pulumi.Aws.MemoryDb
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import a snapshot using the `name`. For example:
+    /// Using `pulumi import`, import a snapshot using the `Name`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:memorydb/snapshot:Snapshot example my-snapshot

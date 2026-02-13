@@ -35,7 +35,7 @@ namespace Pulumi.Aws.Iam
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import IAM Groups using the `name`. For example:
+    /// Using `pulumi import`, import IAM Groups using the `Name`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:iam/group:Group developers developers

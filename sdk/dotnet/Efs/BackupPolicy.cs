@@ -42,7 +42,7 @@ namespace Pulumi.Aws.Efs
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import the EFS backup policies using the `id`. For example:
+    /// Using `pulumi import`, import the EFS backup policies using the `Id`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:efs/backupPolicy:BackupPolicy example fs-6fa144c6

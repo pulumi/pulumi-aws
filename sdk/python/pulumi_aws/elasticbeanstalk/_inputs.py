@@ -25,28 +25,23 @@ __all__ = [
     'EnvironmentSettingArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class ApplicationAppversionLifecycleArgsDict(TypedDict):
-        service_role: pulumi.Input[_builtins.str]
-        """
-        The ARN of an IAM service role under which the application version is deleted.  Elastic Beanstalk must have permission to assume this role.
-        """
-        delete_source_from_s3: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Set to `true` to delete a version's source bundle from S3 when the application version is deleted.
-        """
-        max_age_in_days: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The number of days to retain an application version ('max_age_in_days' and 'max_count' cannot be enabled simultaneously.).
-        """
-        max_count: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The maximum number of application versions to retain ('max_age_in_days' and 'max_count' cannot be enabled simultaneously.).
-        """
-elif False:
-    ApplicationAppversionLifecycleArgsDict: TypeAlias = Mapping[str, Any]
+class ApplicationAppversionLifecycleArgsDict(TypedDict):
+    service_role: pulumi.Input[_builtins.str]
+    """
+    The ARN of an IAM service role under which the application version is deleted.  Elastic Beanstalk must have permission to assume this role.
+    """
+    delete_source_from_s3: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Set to `true` to delete a version's source bundle from S3 when the application version is deleted.
+    """
+    max_age_in_days: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The number of days to retain an application version ('max_age_in_days' and 'max_count' cannot be enabled simultaneously.).
+    """
+    max_count: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The maximum number of application versions to retain ('max_age_in_days' and 'max_count' cannot be enabled simultaneously.).
+    """
 
 @pulumi.input_type
 class ApplicationAppversionLifecycleArgs:
@@ -118,17 +113,14 @@ class ApplicationAppversionLifecycleArgs:
         pulumi.set(self, "max_count", value)
 
 
-if not MYPY:
-    class ConfigurationTemplateSettingArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        """
-        A unique name for this Template.
-        """
-        namespace: pulumi.Input[_builtins.str]
-        value: pulumi.Input[_builtins.str]
-        resource: NotRequired[pulumi.Input[_builtins.str]]
-elif False:
-    ConfigurationTemplateSettingArgsDict: TypeAlias = Mapping[str, Any]
+class ConfigurationTemplateSettingArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    A unique name for this Template.
+    """
+    namespace: pulumi.Input[_builtins.str]
+    value: pulumi.Input[_builtins.str]
+    resource: NotRequired[pulumi.Input[_builtins.str]]
 
 @pulumi.input_type
 class ConfigurationTemplateSettingArgs:
@@ -186,18 +178,15 @@ class ConfigurationTemplateSettingArgs:
         pulumi.set(self, "resource", value)
 
 
-if not MYPY:
-    class EnvironmentAllSettingArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        """
-        A unique name for this Environment. This name is used
-        in the application URL
-        """
-        namespace: pulumi.Input[_builtins.str]
-        value: pulumi.Input[_builtins.str]
-        resource: NotRequired[pulumi.Input[_builtins.str]]
-elif False:
-    EnvironmentAllSettingArgsDict: TypeAlias = Mapping[str, Any]
+class EnvironmentAllSettingArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    A unique name for this Environment. This name is used
+    in the application URL
+    """
+    namespace: pulumi.Input[_builtins.str]
+    value: pulumi.Input[_builtins.str]
+    resource: NotRequired[pulumi.Input[_builtins.str]]
 
 @pulumi.input_type
 class EnvironmentAllSettingArgs:
@@ -257,18 +246,15 @@ class EnvironmentAllSettingArgs:
         pulumi.set(self, "resource", value)
 
 
-if not MYPY:
-    class EnvironmentSettingArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        """
-        A unique name for this Environment. This name is used
-        in the application URL
-        """
-        namespace: pulumi.Input[_builtins.str]
-        value: pulumi.Input[_builtins.str]
-        resource: NotRequired[pulumi.Input[_builtins.str]]
-elif False:
-    EnvironmentSettingArgsDict: TypeAlias = Mapping[str, Any]
+class EnvironmentSettingArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    A unique name for this Environment. This name is used
+    in the application URL
+    """
+    namespace: pulumi.Input[_builtins.str]
+    value: pulumi.Input[_builtins.str]
+    resource: NotRequired[pulumi.Input[_builtins.str]]
 
 @pulumi.input_type
 class EnvironmentSettingArgs:

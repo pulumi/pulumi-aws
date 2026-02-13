@@ -25,24 +25,19 @@ __all__ = [
     'ServiceHealthCheckCustomConfigArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class ServiceDnsConfigArgsDict(TypedDict):
-        dns_records: pulumi.Input[Sequence[pulumi.Input['ServiceDnsConfigDnsRecordArgsDict']]]
-        """
-        An array that contains one DnsRecord object for each resource record set. See `dns_records` Block for details.
-        """
-        namespace_id: pulumi.Input[_builtins.str]
-        """
-        The ID of the namespace to use for DNS configuration.
-        """
-        routing_policy: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The routing policy that you want to apply to all records that Route 53 creates when you register an instance and specify the service. Valid Values: MULTIVALUE, WEIGHTED
-        """
-elif False:
-    ServiceDnsConfigArgsDict: TypeAlias = Mapping[str, Any]
+class ServiceDnsConfigArgsDict(TypedDict):
+    dns_records: pulumi.Input[Sequence[pulumi.Input['ServiceDnsConfigDnsRecordArgsDict']]]
+    """
+    An array that contains one DnsRecord object for each resource record set. See `dns_records` Block for details.
+    """
+    namespace_id: pulumi.Input[_builtins.str]
+    """
+    The ID of the namespace to use for DNS configuration.
+    """
+    routing_policy: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The routing policy that you want to apply to all records that Route 53 creates when you register an instance and specify the service. Valid Values: MULTIVALUE, WEIGHTED
+    """
 
 @pulumi.input_type
 class ServiceDnsConfigArgs:
@@ -97,18 +92,15 @@ class ServiceDnsConfigArgs:
         pulumi.set(self, "routing_policy", value)
 
 
-if not MYPY:
-    class ServiceDnsConfigDnsRecordArgsDict(TypedDict):
-        ttl: pulumi.Input[_builtins.int]
-        """
-        The amount of time, in seconds, that you want DNS resolvers to cache the settings for this resource record set.
-        """
-        type: pulumi.Input[_builtins.str]
-        """
-        The type of the resource, which indicates the value that Amazon Route 53 returns in response to DNS queries. Valid Values: A, AAAA, SRV, CNAME
-        """
-elif False:
-    ServiceDnsConfigDnsRecordArgsDict: TypeAlias = Mapping[str, Any]
+class ServiceDnsConfigDnsRecordArgsDict(TypedDict):
+    ttl: pulumi.Input[_builtins.int]
+    """
+    The amount of time, in seconds, that you want DNS resolvers to cache the settings for this resource record set.
+    """
+    type: pulumi.Input[_builtins.str]
+    """
+    The type of the resource, which indicates the value that Amazon Route 53 returns in response to DNS queries. Valid Values: A, AAAA, SRV, CNAME
+    """
 
 @pulumi.input_type
 class ServiceDnsConfigDnsRecordArgs:
@@ -147,22 +139,19 @@ class ServiceDnsConfigDnsRecordArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class ServiceHealthCheckConfigArgsDict(TypedDict):
-        failure_threshold: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The number of consecutive health checks. Maximum value of 10.
-        """
-        resource_path: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The path that you want Route 53 to request when performing health checks. Route 53 automatically adds the DNS name for the service. If you don't specify a value, the default value is /.
-        """
-        type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The type of health check that you want to create, which indicates how Route 53 determines whether an endpoint is healthy. Valid Values: HTTP, HTTPS, TCP
-        """
-elif False:
-    ServiceHealthCheckConfigArgsDict: TypeAlias = Mapping[str, Any]
+class ServiceHealthCheckConfigArgsDict(TypedDict):
+    failure_threshold: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The number of consecutive health checks. Maximum value of 10.
+    """
+    resource_path: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The path that you want Route 53 to request when performing health checks. Route 53 automatically adds the DNS name for the service. If you don't specify a value, the default value is /.
+    """
+    type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The type of health check that you want to create, which indicates how Route 53 determines whether an endpoint is healthy. Valid Values: HTTP, HTTPS, TCP
+    """
 
 @pulumi.input_type
 class ServiceHealthCheckConfigArgs:
@@ -219,14 +208,11 @@ class ServiceHealthCheckConfigArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class ServiceHealthCheckCustomConfigArgsDict(TypedDict):
-        failure_threshold: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The number of 30-second intervals that you want service discovery to wait before it changes the health status of a service instance.  Value is always set to 1.
-        """
-elif False:
-    ServiceHealthCheckCustomConfigArgsDict: TypeAlias = Mapping[str, Any]
+class ServiceHealthCheckCustomConfigArgsDict(TypedDict):
+    failure_threshold: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The number of 30-second intervals that you want service discovery to wait before it changes the health status of a service instance.  Value is always set to 1.
+    """
 
 @pulumi.input_type
 class ServiceHealthCheckCustomConfigArgs:

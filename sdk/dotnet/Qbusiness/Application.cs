@@ -38,7 +38,7 @@ namespace Pulumi.Aws.Qbusiness
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import a Q Business Application using the `id`. For example:
+    /// Using `pulumi import`, import a Q Business Application using the `Id`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:qbusiness/application:Application example id-12345678

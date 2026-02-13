@@ -29,7 +29,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Using `pulumi import`, import model card export jobs using the `model_card_export_job_arn`. For example:
+ * Using `pulumi import`, import model card export jobs using the `modelCardExportJobArn`. For example:
  *
  * ```sh
  * $ pulumi import aws:sagemaker/modelCardExportJob:ModelCardExportJob example arn:aws:sagemaker:us-west-2:123456789012:model-card/my-model-card/export-job/my-model-card-export-job

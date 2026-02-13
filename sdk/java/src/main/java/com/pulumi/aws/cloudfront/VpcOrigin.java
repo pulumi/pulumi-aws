@@ -74,19 +74,11 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * terraform
- * 
- * import {
- * 
- *   to = aws_cloudfront_vpc_origin.origin
- * 
- *   id = &#34;vo_JQEa410sssUFoY6wMkx69j&#34;
- * 
- * }
- * 
  * Using `pulumi import`, import Cloudfront VPC origins using the `id`. For example:
  * 
+ * ```sh
  * % pulumi import aws_cloudfront_vpc_origin vo_JQEa410sssUFoY6wMkx69j
+ * ```
  * 
  */
 @ResourceType(type="aws:cloudfront/vpcOrigin:VpcOrigin")

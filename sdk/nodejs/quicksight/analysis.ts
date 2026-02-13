@@ -134,6 +134,9 @@ export class Analysis extends pulumi.CustomResource {
      * ARN of the analysis.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
+    /**
+     * AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
+     */
     declare public readonly awsAccountId: pulumi.Output<string>;
     /**
      * The time that the analysis was created.
@@ -255,6 +258,9 @@ export interface AnalysisState {
      * ARN of the analysis.
      */
     arn?: pulumi.Input<string>;
+    /**
+     * AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
+     */
     awsAccountId?: pulumi.Input<string>;
     /**
      * The time that the analysis was created.
@@ -317,6 +323,9 @@ export interface AnalysisArgs {
      * Identifier for the analysis.
      */
     analysisId: pulumi.Input<string>;
+    /**
+     * AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
+     */
     awsAccountId?: pulumi.Input<string>;
     /**
      * Display name for the analysis.

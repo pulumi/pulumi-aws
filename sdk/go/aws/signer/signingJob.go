@@ -62,7 +62,7 @@ import (
 //
 // ## Import
 //
-// Using `pulumi import`, import Signer signing jobs using the `job_id`. For example:
+// Using `pulumi import`, import Signer signing jobs using the `jobId`. For example:
 //
 // ```sh
 // $ pulumi import aws:signer/signingJob:SigningJob test_signer_signing_job 9ed7e5c3-b8d4-4da0-8459-44e0b068f7ee

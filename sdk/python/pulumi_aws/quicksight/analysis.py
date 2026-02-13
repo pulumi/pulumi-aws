@@ -34,6 +34,7 @@ class AnalysisArgs:
         """
         The set of arguments for constructing a Analysis resource.
         :param pulumi.Input[_builtins.str] analysis_id: Identifier for the analysis.
+        :param pulumi.Input[_builtins.str] aws_account_id: AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
         :param pulumi.Input[_builtins.str] name: Display name for the analysis.
                
                The following arguments are optional:
@@ -80,6 +81,9 @@ class AnalysisArgs:
     @_builtins.property
     @pulumi.getter(name="awsAccountId")
     def aws_account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
+        """
         return pulumi.get(self, "aws_account_id")
 
     @aws_account_id.setter
@@ -208,6 +212,7 @@ class _AnalysisState:
         Input properties used for looking up and filtering Analysis resources.
         :param pulumi.Input[_builtins.str] analysis_id: Identifier for the analysis.
         :param pulumi.Input[_builtins.str] arn: ARN of the analysis.
+        :param pulumi.Input[_builtins.str] aws_account_id: AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
         :param pulumi.Input[_builtins.str] created_time: The time that the analysis was created.
         :param pulumi.Input[_builtins.str] last_updated_time: The time that the analysis was last updated.
         :param pulumi.Input[_builtins.str] name: Display name for the analysis.
@@ -283,6 +288,9 @@ class _AnalysisState:
     @_builtins.property
     @pulumi.getter(name="awsAccountId")
     def aws_account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
+        """
         return pulumi.get(self, "aws_account_id")
 
     @aws_account_id.setter
@@ -554,6 +562,7 @@ class Analysis(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] analysis_id: Identifier for the analysis.
+        :param pulumi.Input[_builtins.str] aws_account_id: AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
         :param pulumi.Input[_builtins.str] name: Display name for the analysis.
                
                The following arguments are optional:
@@ -747,6 +756,7 @@ class Analysis(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] analysis_id: Identifier for the analysis.
         :param pulumi.Input[_builtins.str] arn: ARN of the analysis.
+        :param pulumi.Input[_builtins.str] aws_account_id: AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
         :param pulumi.Input[_builtins.str] created_time: The time that the analysis was created.
         :param pulumi.Input[_builtins.str] last_updated_time: The time that the analysis was last updated.
         :param pulumi.Input[_builtins.str] name: Display name for the analysis.
@@ -803,6 +813,9 @@ class Analysis(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="awsAccountId")
     def aws_account_id(self) -> pulumi.Output[_builtins.str]:
+        """
+        AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
+        """
         return pulumi.get(self, "aws_account_id")
 
     @_builtins.property

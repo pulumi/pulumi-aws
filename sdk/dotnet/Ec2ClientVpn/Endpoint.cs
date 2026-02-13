@@ -49,7 +49,7 @@ namespace Pulumi.Aws.Ec2ClientVpn
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import AWS Client VPN endpoints using the `id` value found via `aws ec2 describe-client-vpn-endpoints`. For example:
+    /// Using `pulumi import`, import AWS Client VPN endpoints using the `Id` value found via `aws ec2 describe-client-vpn-endpoints`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:ec2clientvpn/endpoint:Endpoint example cvpn-endpoint-0ac3a1abbccddd666

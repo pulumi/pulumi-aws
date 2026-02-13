@@ -86,7 +86,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Using `pulumi import`, import replication instances using the `replication_instance_id`. For example:
+ * Using `pulumi import`, import replication instances using the `replicationInstanceId`. For example:
  *
  * ```sh
  * $ pulumi import aws:dms/replicationInstance:ReplicationInstance test test-dms-replication-instance-tf

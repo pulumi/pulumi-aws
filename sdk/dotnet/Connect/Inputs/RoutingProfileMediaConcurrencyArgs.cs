@@ -24,6 +24,9 @@ namespace Pulumi.Aws.Connect.Inputs
         [Input("concurrency", required: true)]
         public Input<int> Concurrency { get; set; } = null!;
 
+        /// <summary>
+        /// Defines the cross-channel routing behavior for each traffic type. **Out-of-band changes are only detected when this argument is explicitly configured in your Terraform configuration.** Documented below.
+        /// </summary>
         [Input("crossChannelBehavior")]
         public Input<Inputs.RoutingProfileMediaConcurrencyCrossChannelBehaviorArgs>? CrossChannelBehavior { get; set; }
 

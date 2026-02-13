@@ -37,7 +37,7 @@ namespace Pulumi.Aws.OpenSearch
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import OpenSearch Authorize Vpc Endpoint Access using the `domain_name` and `account` separated by a comma (,). For example:
+    /// Using `pulumi import`, import OpenSearch Authorize Vpc Endpoint Access using the `DomainName` and `Account` separated by a comma (,). For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:opensearch/authorizeVpcEndpointAccess:AuthorizeVpcEndpointAccess example authorize_vpc_endpoint_access-id-12345678,123456789012

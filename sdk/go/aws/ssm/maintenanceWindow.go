@@ -53,13 +53,14 @@ import (
 //
 // #### Optional
 //
-// * `account_id` (String) AWS Account where this resource is managed.
-//
+// * `accountId` (String) AWS Account where this resource is managed.
 // * `region` (String) Region where this resource is managed.
 //
 // Using `pulumi import`, import SSM  Maintenance Windows using the maintenance window `id`. For example:
 //
-// % pulumi import aws_ssm_maintenance_window.example mw-0123456789
+// ```sh
+// $ pulumi import aws:ssm/maintenanceWindow:MaintenanceWindow example mw-0123456789
+// ```
 type MaintenanceWindow struct {
 	pulumi.CustomResourceState
 

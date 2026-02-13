@@ -76,6 +76,10 @@ import javax.annotation.Nullable;
  * $ pulumi import aws:kinesis/stream:Stream test_stream pulumi-kinesis-test
  * ```
  * 
+ * [1]: https://aws.amazon.com/documentation/kinesis/
+ * [2]: https://docs.aws.amazon.com/kinesis/latest/dev/amazon-kinesis-streams.html
+ * [3]: https://docs.aws.amazon.com/streams/latest/dev/monitoring-with-cloudwatch.html
+ * 
  */
 @ResourceType(type="aws:kinesis/stream:Stream")
 public class Stream extends com.pulumi.resources.CustomResource {

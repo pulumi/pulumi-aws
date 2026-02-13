@@ -19,52 +19,92 @@ public final class NetworkArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final NetworkArgs Empty = new NetworkArgs();
 
+    /**
+     * The name of the Availability Zone (AZ) where the odb network is located. Changing this will force terraform to create new resource. Make sure availabilityZone maps correctly with availability_zone_id.
+     * 
+     */
     @Import(name="availabilityZone")
     private @Nullable Output<String> availabilityZone;
 
+    /**
+     * @return The name of the Availability Zone (AZ) where the odb network is located. Changing this will force terraform to create new resource. Make sure availabilityZone maps correctly with availability_zone_id.
+     * 
+     */
     public Optional<Output<String>> availabilityZone() {
         return Optional.ofNullable(this.availabilityZone);
     }
 
+    /**
+     * The AZ ID of the AZ where the ODB network is located. Changing this will force terraform to create new resource.
+     * 
+     */
     @Import(name="availabilityZoneId", required=true)
     private Output<String> availabilityZoneId;
 
+    /**
+     * @return The AZ ID of the AZ where the ODB network is located. Changing this will force terraform to create new resource.
+     * 
+     */
     public Output<String> availabilityZoneId() {
         return this.availabilityZoneId;
     }
 
+    /**
+     * The CIDR range of the backup subnet for the ODB network. Changing this will force terraform to create new resource.
+     * 
+     */
     @Import(name="backupSubnetCidr", required=true)
     private Output<String> backupSubnetCidr;
 
+    /**
+     * @return The CIDR range of the backup subnet for the ODB network. Changing this will force terraform to create new resource.
+     * 
+     */
     public Output<String> backupSubnetCidr() {
         return this.backupSubnetCidr;
     }
 
+    /**
+     * The CIDR notation for the network resource. Changing this will force terraform to create new resource.
+     * 
+     */
     @Import(name="clientSubnetCidr", required=true)
     private Output<String> clientSubnetCidr;
 
+    /**
+     * @return The CIDR notation for the network resource. Changing this will force terraform to create new resource.
+     * 
+     */
     public Output<String> clientSubnetCidr() {
         return this.clientSubnetCidr;
     }
 
     /**
-     * The name of the custom domain that the network is located. customDomainName and defaultDnsPrefix both can&#39;t be given.
+     * The name of the custom domain that the network is located. Custom_domain_name and defaultDnsPrefix both can&#39;t be given. Changing this will force terraform to create new resource.
      * 
      */
     @Import(name="customDomainName")
     private @Nullable Output<String> customDomainName;
 
     /**
-     * @return The name of the custom domain that the network is located. customDomainName and defaultDnsPrefix both can&#39;t be given.
+     * @return The name of the custom domain that the network is located. Custom_domain_name and defaultDnsPrefix both can&#39;t be given. Changing this will force terraform to create new resource.
      * 
      */
     public Optional<Output<String>> customDomainName() {
         return Optional.ofNullable(this.customDomainName);
     }
 
+    /**
+     * The default DNS prefix for the network resource. Changing this will force terraform to create new resource. Changing this will force terraform to create new resource.
+     * 
+     */
     @Import(name="defaultDnsPrefix")
     private @Nullable Output<String> defaultDnsPrefix;
 
+    /**
+     * @return The default DNS prefix for the network resource. Changing this will force terraform to create new resource. Changing this will force terraform to create new resource.
+     * 
+     */
     public Optional<Output<String>> defaultDnsPrefix() {
         return Optional.ofNullable(this.defaultDnsPrefix);
     }
@@ -84,9 +124,17 @@ public final class NetworkArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.deleteAssociatedResources);
     }
 
+    /**
+     * The user-friendly name for the odb network. Changing this will force terraform to create a new resource.
+     * 
+     */
     @Import(name="displayName", required=true)
     private Output<String> displayName;
 
+    /**
+     * @return The user-friendly name for the odb network. Changing this will force terraform to create a new resource.
+     * 
+     */
     public Output<String> displayName() {
         return this.displayName;
     }
@@ -278,44 +326,92 @@ public final class NetworkArgs extends com.pulumi.resources.ResourceArgs {
             $ = new NetworkArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param availabilityZone The name of the Availability Zone (AZ) where the odb network is located. Changing this will force terraform to create new resource. Make sure availabilityZone maps correctly with availability_zone_id.
+         * 
+         * @return builder
+         * 
+         */
         public Builder availabilityZone(@Nullable Output<String> availabilityZone) {
             $.availabilityZone = availabilityZone;
             return this;
         }
 
+        /**
+         * @param availabilityZone The name of the Availability Zone (AZ) where the odb network is located. Changing this will force terraform to create new resource. Make sure availabilityZone maps correctly with availability_zone_id.
+         * 
+         * @return builder
+         * 
+         */
         public Builder availabilityZone(String availabilityZone) {
             return availabilityZone(Output.of(availabilityZone));
         }
 
+        /**
+         * @param availabilityZoneId The AZ ID of the AZ where the ODB network is located. Changing this will force terraform to create new resource.
+         * 
+         * @return builder
+         * 
+         */
         public Builder availabilityZoneId(Output<String> availabilityZoneId) {
             $.availabilityZoneId = availabilityZoneId;
             return this;
         }
 
+        /**
+         * @param availabilityZoneId The AZ ID of the AZ where the ODB network is located. Changing this will force terraform to create new resource.
+         * 
+         * @return builder
+         * 
+         */
         public Builder availabilityZoneId(String availabilityZoneId) {
             return availabilityZoneId(Output.of(availabilityZoneId));
         }
 
+        /**
+         * @param backupSubnetCidr The CIDR range of the backup subnet for the ODB network. Changing this will force terraform to create new resource.
+         * 
+         * @return builder
+         * 
+         */
         public Builder backupSubnetCidr(Output<String> backupSubnetCidr) {
             $.backupSubnetCidr = backupSubnetCidr;
             return this;
         }
 
+        /**
+         * @param backupSubnetCidr The CIDR range of the backup subnet for the ODB network. Changing this will force terraform to create new resource.
+         * 
+         * @return builder
+         * 
+         */
         public Builder backupSubnetCidr(String backupSubnetCidr) {
             return backupSubnetCidr(Output.of(backupSubnetCidr));
         }
 
+        /**
+         * @param clientSubnetCidr The CIDR notation for the network resource. Changing this will force terraform to create new resource.
+         * 
+         * @return builder
+         * 
+         */
         public Builder clientSubnetCidr(Output<String> clientSubnetCidr) {
             $.clientSubnetCidr = clientSubnetCidr;
             return this;
         }
 
+        /**
+         * @param clientSubnetCidr The CIDR notation for the network resource. Changing this will force terraform to create new resource.
+         * 
+         * @return builder
+         * 
+         */
         public Builder clientSubnetCidr(String clientSubnetCidr) {
             return clientSubnetCidr(Output.of(clientSubnetCidr));
         }
 
         /**
-         * @param customDomainName The name of the custom domain that the network is located. customDomainName and defaultDnsPrefix both can&#39;t be given.
+         * @param customDomainName The name of the custom domain that the network is located. Custom_domain_name and defaultDnsPrefix both can&#39;t be given. Changing this will force terraform to create new resource.
          * 
          * @return builder
          * 
@@ -326,7 +422,7 @@ public final class NetworkArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param customDomainName The name of the custom domain that the network is located. customDomainName and defaultDnsPrefix both can&#39;t be given.
+         * @param customDomainName The name of the custom domain that the network is located. Custom_domain_name and defaultDnsPrefix both can&#39;t be given. Changing this will force terraform to create new resource.
          * 
          * @return builder
          * 
@@ -335,11 +431,23 @@ public final class NetworkArgs extends com.pulumi.resources.ResourceArgs {
             return customDomainName(Output.of(customDomainName));
         }
 
+        /**
+         * @param defaultDnsPrefix The default DNS prefix for the network resource. Changing this will force terraform to create new resource. Changing this will force terraform to create new resource.
+         * 
+         * @return builder
+         * 
+         */
         public Builder defaultDnsPrefix(@Nullable Output<String> defaultDnsPrefix) {
             $.defaultDnsPrefix = defaultDnsPrefix;
             return this;
         }
 
+        /**
+         * @param defaultDnsPrefix The default DNS prefix for the network resource. Changing this will force terraform to create new resource. Changing this will force terraform to create new resource.
+         * 
+         * @return builder
+         * 
+         */
         public Builder defaultDnsPrefix(String defaultDnsPrefix) {
             return defaultDnsPrefix(Output.of(defaultDnsPrefix));
         }
@@ -365,11 +473,23 @@ public final class NetworkArgs extends com.pulumi.resources.ResourceArgs {
             return deleteAssociatedResources(Output.of(deleteAssociatedResources));
         }
 
+        /**
+         * @param displayName The user-friendly name for the odb network. Changing this will force terraform to create a new resource.
+         * 
+         * @return builder
+         * 
+         */
         public Builder displayName(Output<String> displayName) {
             $.displayName = displayName;
             return this;
         }
 
+        /**
+         * @param displayName The user-friendly name for the odb network. Changing this will force terraform to create a new resource.
+         * 
+         * @return builder
+         * 
+         */
         public Builder displayName(String displayName) {
             return displayName(Output.of(displayName));
         }

@@ -31,6 +31,7 @@ class FolderMembershipArgs:
         :param pulumi.Input[_builtins.str] member_type: Type of the member. Valid values are `ANALYSIS`, `DASHBOARD`, and `DATASET`.
                
                The following arguments are optional:
+        :param pulumi.Input[_builtins.str] aws_account_id: AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "folder_id", folder_id)
@@ -82,6 +83,9 @@ class FolderMembershipArgs:
     @_builtins.property
     @pulumi.getter(name="awsAccountId")
     def aws_account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
+        """
         return pulumi.get(self, "aws_account_id")
 
     @aws_account_id.setter
@@ -111,6 +115,7 @@ class _FolderMembershipState:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering FolderMembership resources.
+        :param pulumi.Input[_builtins.str] aws_account_id: AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
         :param pulumi.Input[_builtins.str] folder_id: Identifier for the folder.
         :param pulumi.Input[_builtins.str] member_id: ID of the asset (the dashboard, analysis, or dataset).
         :param pulumi.Input[_builtins.str] member_type: Type of the member. Valid values are `ANALYSIS`, `DASHBOARD`, and `DATASET`.
@@ -132,6 +137,9 @@ class _FolderMembershipState:
     @_builtins.property
     @pulumi.getter(name="awsAccountId")
     def aws_account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
+        """
         return pulumi.get(self, "aws_account_id")
 
     @aws_account_id.setter
@@ -228,6 +236,7 @@ class FolderMembership(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[_builtins.str] aws_account_id: AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
         :param pulumi.Input[_builtins.str] folder_id: Identifier for the folder.
         :param pulumi.Input[_builtins.str] member_id: ID of the asset (the dashboard, analysis, or dataset).
         :param pulumi.Input[_builtins.str] member_type: Type of the member. Valid values are `ANALYSIS`, `DASHBOARD`, and `DATASET`.
@@ -328,6 +337,7 @@ class FolderMembership(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[_builtins.str] aws_account_id: AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
         :param pulumi.Input[_builtins.str] folder_id: Identifier for the folder.
         :param pulumi.Input[_builtins.str] member_id: ID of the asset (the dashboard, analysis, or dataset).
         :param pulumi.Input[_builtins.str] member_type: Type of the member. Valid values are `ANALYSIS`, `DASHBOARD`, and `DATASET`.
@@ -349,6 +359,9 @@ class FolderMembership(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="awsAccountId")
     def aws_account_id(self) -> pulumi.Output[_builtins.str]:
+        """
+        AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
+        """
         return pulumi.get(self, "aws_account_id")
 
     @_builtins.property

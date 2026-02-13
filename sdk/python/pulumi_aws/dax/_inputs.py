@@ -23,19 +23,14 @@ __all__ = [
     'ParameterGroupParameterArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class ClusterNodeArgsDict(TypedDict):
-        address: NotRequired[pulumi.Input[_builtins.str]]
-        availability_zone: NotRequired[pulumi.Input[_builtins.str]]
-        id: NotRequired[pulumi.Input[_builtins.str]]
-        port: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The port used by the configuration endpoint
-        """
-elif False:
-    ClusterNodeArgsDict: TypeAlias = Mapping[str, Any]
+class ClusterNodeArgsDict(TypedDict):
+    address: NotRequired[pulumi.Input[_builtins.str]]
+    availability_zone: NotRequired[pulumi.Input[_builtins.str]]
+    id: NotRequired[pulumi.Input[_builtins.str]]
+    port: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The port used by the configuration endpoint
+    """
 
 @pulumi.input_type
 class ClusterNodeArgs:
@@ -96,14 +91,11 @@ class ClusterNodeArgs:
         pulumi.set(self, "port", value)
 
 
-if not MYPY:
-    class ClusterServerSideEncryptionArgsDict(TypedDict):
-        enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether to enable encryption at rest. Defaults to `false`.
-        """
-elif False:
-    ClusterServerSideEncryptionArgsDict: TypeAlias = Mapping[str, Any]
+class ClusterServerSideEncryptionArgsDict(TypedDict):
+    enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether to enable encryption at rest. Defaults to `false`.
+    """
 
 @pulumi.input_type
 class ClusterServerSideEncryptionArgs:
@@ -128,18 +120,15 @@ class ClusterServerSideEncryptionArgs:
         pulumi.set(self, "enabled", value)
 
 
-if not MYPY:
-    class ParameterGroupParameterArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the parameter.
-        """
-        value: pulumi.Input[_builtins.str]
-        """
-        The value for the parameter.
-        """
-elif False:
-    ParameterGroupParameterArgsDict: TypeAlias = Mapping[str, Any]
+class ParameterGroupParameterArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the parameter.
+    """
+    value: pulumi.Input[_builtins.str]
+    """
+    The value for the parameter.
+    """
 
 @pulumi.input_type
 class ParameterGroupParameterArgs:

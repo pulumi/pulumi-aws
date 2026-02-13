@@ -41,20 +41,15 @@ __all__ = [
     'BudgetPlannedLimitArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class BudgetActionActionThresholdArgsDict(TypedDict):
-        action_threshold_type: pulumi.Input[_builtins.str]
-        """
-        The type of threshold for a notification. Valid values are `PERCENTAGE` or `ABSOLUTE_VALUE`.
-        """
-        action_threshold_value: pulumi.Input[_builtins.float]
-        """
-        The threshold of a notification.
-        """
-elif False:
-    BudgetActionActionThresholdArgsDict: TypeAlias = Mapping[str, Any]
+class BudgetActionActionThresholdArgsDict(TypedDict):
+    action_threshold_type: pulumi.Input[_builtins.str]
+    """
+    The type of threshold for a notification. Valid values are `PERCENTAGE` or `ABSOLUTE_VALUE`.
+    """
+    action_threshold_value: pulumi.Input[_builtins.float]
+    """
+    The threshold of a notification.
+    """
 
 @pulumi.input_type
 class BudgetActionActionThresholdArgs:
@@ -93,22 +88,19 @@ class BudgetActionActionThresholdArgs:
         pulumi.set(self, "action_threshold_value", value)
 
 
-if not MYPY:
-    class BudgetActionDefinitionArgsDict(TypedDict):
-        iam_action_definition: NotRequired[pulumi.Input['BudgetActionDefinitionIamActionDefinitionArgsDict']]
-        """
-        The AWS Identity and Access Management (IAM) action definition details. See IAM Action Definition.
-        """
-        scp_action_definition: NotRequired[pulumi.Input['BudgetActionDefinitionScpActionDefinitionArgsDict']]
-        """
-        The service control policies (SCPs) action definition details. See SCP Action Definition.
-        """
-        ssm_action_definition: NotRequired[pulumi.Input['BudgetActionDefinitionSsmActionDefinitionArgsDict']]
-        """
-        The AWS Systems Manager (SSM) action definition details. See SSM Action Definition.
-        """
-elif False:
-    BudgetActionDefinitionArgsDict: TypeAlias = Mapping[str, Any]
+class BudgetActionDefinitionArgsDict(TypedDict):
+    iam_action_definition: NotRequired[pulumi.Input['BudgetActionDefinitionIamActionDefinitionArgsDict']]
+    """
+    The AWS Identity and Access Management (IAM) action definition details. See IAM Action Definition.
+    """
+    scp_action_definition: NotRequired[pulumi.Input['BudgetActionDefinitionScpActionDefinitionArgsDict']]
+    """
+    The service control policies (SCPs) action definition details. See SCP Action Definition.
+    """
+    ssm_action_definition: NotRequired[pulumi.Input['BudgetActionDefinitionSsmActionDefinitionArgsDict']]
+    """
+    The AWS Systems Manager (SSM) action definition details. See SSM Action Definition.
+    """
 
 @pulumi.input_type
 class BudgetActionDefinitionArgs:
@@ -165,26 +157,23 @@ class BudgetActionDefinitionArgs:
         pulumi.set(self, "ssm_action_definition", value)
 
 
-if not MYPY:
-    class BudgetActionDefinitionIamActionDefinitionArgsDict(TypedDict):
-        policy_arn: pulumi.Input[_builtins.str]
-        """
-        The Amazon Resource Name (ARN) of the policy to be attached.
-        """
-        groups: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        A list of groups to be attached. There must be at least one group.
-        """
-        roles: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        A list of roles to be attached. There must be at least one role.
-        """
-        users: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        A list of users to be attached. There must be at least one user.
-        """
-elif False:
-    BudgetActionDefinitionIamActionDefinitionArgsDict: TypeAlias = Mapping[str, Any]
+class BudgetActionDefinitionIamActionDefinitionArgsDict(TypedDict):
+    policy_arn: pulumi.Input[_builtins.str]
+    """
+    The Amazon Resource Name (ARN) of the policy to be attached.
+    """
+    groups: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    A list of groups to be attached. There must be at least one group.
+    """
+    roles: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    A list of roles to be attached. There must be at least one role.
+    """
+    users: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    A list of users to be attached. There must be at least one user.
+    """
 
 @pulumi.input_type
 class BudgetActionDefinitionIamActionDefinitionArgs:
@@ -256,18 +245,15 @@ class BudgetActionDefinitionIamActionDefinitionArgs:
         pulumi.set(self, "users", value)
 
 
-if not MYPY:
-    class BudgetActionDefinitionScpActionDefinitionArgsDict(TypedDict):
-        policy_id: pulumi.Input[_builtins.str]
-        """
-        The policy ID attached.
-        """
-        target_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        A list of target IDs.
-        """
-elif False:
-    BudgetActionDefinitionScpActionDefinitionArgsDict: TypeAlias = Mapping[str, Any]
+class BudgetActionDefinitionScpActionDefinitionArgsDict(TypedDict):
+    policy_id: pulumi.Input[_builtins.str]
+    """
+    The policy ID attached.
+    """
+    target_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    A list of target IDs.
+    """
 
 @pulumi.input_type
 class BudgetActionDefinitionScpActionDefinitionArgs:
@@ -306,22 +292,19 @@ class BudgetActionDefinitionScpActionDefinitionArgs:
         pulumi.set(self, "target_ids", value)
 
 
-if not MYPY:
-    class BudgetActionDefinitionSsmActionDefinitionArgsDict(TypedDict):
-        action_sub_type: pulumi.Input[_builtins.str]
-        """
-        The action subType. Valid values are `STOP_EC2_INSTANCES` or `STOP_RDS_INSTANCES`.
-        """
-        instance_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        The EC2 and RDS instance IDs.
-        """
-        region: pulumi.Input[_builtins.str]
-        """
-        The Region to run the SSM document.
-        """
-elif False:
-    BudgetActionDefinitionSsmActionDefinitionArgsDict: TypeAlias = Mapping[str, Any]
+class BudgetActionDefinitionSsmActionDefinitionArgsDict(TypedDict):
+    action_sub_type: pulumi.Input[_builtins.str]
+    """
+    The action subType. Valid values are `STOP_EC2_INSTANCES` or `STOP_RDS_INSTANCES`.
+    """
+    instance_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    The EC2 and RDS instance IDs.
+    """
+    region: pulumi.Input[_builtins.str]
+    """
+    The Region to run the SSM document.
+    """
 
 @pulumi.input_type
 class BudgetActionDefinitionSsmActionDefinitionArgs:
@@ -375,18 +358,15 @@ class BudgetActionDefinitionSsmActionDefinitionArgs:
         pulumi.set(self, "region", value)
 
 
-if not MYPY:
-    class BudgetActionSubscriberArgsDict(TypedDict):
-        address: pulumi.Input[_builtins.str]
-        """
-        The address that AWS sends budget notifications to, either an SNS topic or an email.
-        """
-        subscription_type: pulumi.Input[_builtins.str]
-        """
-        The type of notification that AWS sends to a subscriber. Valid values are `SNS` or `EMAIL`.
-        """
-elif False:
-    BudgetActionSubscriberArgsDict: TypeAlias = Mapping[str, Any]
+class BudgetActionSubscriberArgsDict(TypedDict):
+    address: pulumi.Input[_builtins.str]
+    """
+    The address that AWS sends budget notifications to, either an SNS topic or an email.
+    """
+    subscription_type: pulumi.Input[_builtins.str]
+    """
+    The type of notification that AWS sends to a subscriber. Valid values are `SNS` or `EMAIL`.
+    """
 
 @pulumi.input_type
 class BudgetActionSubscriberArgs:
@@ -425,22 +405,19 @@ class BudgetActionSubscriberArgs:
         pulumi.set(self, "subscription_type", value)
 
 
-if not MYPY:
-    class BudgetAutoAdjustDataArgsDict(TypedDict):
-        auto_adjust_type: pulumi.Input[_builtins.str]
-        """
-        (Required) - The string that defines whether your budget auto-adjusts based on historical or forecasted data. Valid values: `FORECAST`,`HISTORICAL`
-        """
-        historical_options: NotRequired[pulumi.Input['BudgetAutoAdjustDataHistoricalOptionsArgsDict']]
-        """
-        (Optional) - Configuration block of Historical Options. Required for `auto_adjust_type` of `HISTORICAL` Configuration block that defines the historical data that your auto-adjusting budget is based on.
-        """
-        last_auto_adjust_time: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        (Optional) - The last time that your budget was auto-adjusted.
-        """
-elif False:
-    BudgetAutoAdjustDataArgsDict: TypeAlias = Mapping[str, Any]
+class BudgetAutoAdjustDataArgsDict(TypedDict):
+    auto_adjust_type: pulumi.Input[_builtins.str]
+    """
+    (Required) - The string that defines whether your budget auto-adjusts based on historical or forecasted data. Valid values: `FORECAST`,`HISTORICAL`
+    """
+    historical_options: NotRequired[pulumi.Input['BudgetAutoAdjustDataHistoricalOptionsArgsDict']]
+    """
+    (Optional) - Configuration block of Historical Options. Required for `auto_adjust_type` of `HISTORICAL` Configuration block that defines the historical data that your auto-adjusting budget is based on.
+    """
+    last_auto_adjust_time: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    (Optional) - The last time that your budget was auto-adjusted.
+    """
 
 @pulumi.input_type
 class BudgetAutoAdjustDataArgs:
@@ -496,18 +473,15 @@ class BudgetAutoAdjustDataArgs:
         pulumi.set(self, "last_auto_adjust_time", value)
 
 
-if not MYPY:
-    class BudgetAutoAdjustDataHistoricalOptionsArgsDict(TypedDict):
-        budget_adjustment_period: pulumi.Input[_builtins.int]
-        """
-        (Required) - The number of budget periods included in the moving-average calculation that determines your auto-adjusted budget amount.
-        """
-        lookback_available_periods: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        (Optional) - The integer that describes how many budget periods in your BudgetAdjustmentPeriod are included in the calculation of your current budget limit. If the first budget period in your BudgetAdjustmentPeriod has no cost data, then that budget period isn’t included in the average that determines your budget limit. You can’t set your own LookBackAvailablePeriods. The value is automatically calculated from the `budget_adjustment_period` and your historical cost data.
-        """
-elif False:
-    BudgetAutoAdjustDataHistoricalOptionsArgsDict: TypeAlias = Mapping[str, Any]
+class BudgetAutoAdjustDataHistoricalOptionsArgsDict(TypedDict):
+    budget_adjustment_period: pulumi.Input[_builtins.int]
+    """
+    (Required) - The number of budget periods included in the moving-average calculation that determines your auto-adjusted budget amount.
+    """
+    lookback_available_periods: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    (Optional) - The integer that describes how many budget periods in your BudgetAdjustmentPeriod are included in the calculation of your current budget limit. If the first budget period in your BudgetAdjustmentPeriod has no cost data, then that budget period isn’t included in the average that determines your budget limit. You can’t set your own LookBackAvailablePeriods. The value is automatically calculated from the `budget_adjustment_period` and your historical cost data.
+    """
 
 @pulumi.input_type
 class BudgetAutoAdjustDataHistoricalOptionsArgs:
@@ -547,15 +521,12 @@ class BudgetAutoAdjustDataHistoricalOptionsArgs:
         pulumi.set(self, "lookback_available_periods", value)
 
 
-if not MYPY:
-    class BudgetCostFilterArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of a budget. Unique within accounts.
-        """
-        values: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-elif False:
-    BudgetCostFilterArgsDict: TypeAlias = Mapping[str, Any]
+class BudgetCostFilterArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of a budget. Unique within accounts.
+    """
+    values: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
 
 @pulumi.input_type
 class BudgetCostFilterArgs:
@@ -590,54 +561,51 @@ class BudgetCostFilterArgs:
         pulumi.set(self, "values", value)
 
 
-if not MYPY:
-    class BudgetCostTypesArgsDict(TypedDict):
-        include_credit: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        A boolean value whether to include credits in the cost budget. Defaults to `true`
-        """
-        include_discount: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether a budget includes discounts. Defaults to `true`
-        """
-        include_other_subscription: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        A boolean value whether to include other subscription costs in the cost budget. Defaults to `true`
-        """
-        include_recurring: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        A boolean value whether to include recurring costs in the cost budget. Defaults to `true`
-        """
-        include_refund: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        A boolean value whether to include refunds in the cost budget. Defaults to `true`
-        """
-        include_subscription: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        A boolean value whether to include subscriptions in the cost budget. Defaults to `true`
-        """
-        include_support: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        A boolean value whether to include support costs in the cost budget. Defaults to `true`
-        """
-        include_tax: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        A boolean value whether to include tax in the cost budget. Defaults to `true`
-        """
-        include_upfront: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        A boolean value whether to include upfront costs in the cost budget. Defaults to `true`
-        """
-        use_amortized: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether a budget uses the amortized rate. Defaults to `false`
-        """
-        use_blended: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        A boolean value whether to use blended costs in the cost budget. Defaults to `false`
-        """
-elif False:
-    BudgetCostTypesArgsDict: TypeAlias = Mapping[str, Any]
+class BudgetCostTypesArgsDict(TypedDict):
+    include_credit: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    A boolean value whether to include credits in the cost budget. Defaults to `true`
+    """
+    include_discount: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether a budget includes discounts. Defaults to `true`
+    """
+    include_other_subscription: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    A boolean value whether to include other subscription costs in the cost budget. Defaults to `true`
+    """
+    include_recurring: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    A boolean value whether to include recurring costs in the cost budget. Defaults to `true`
+    """
+    include_refund: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    A boolean value whether to include refunds in the cost budget. Defaults to `true`
+    """
+    include_subscription: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    A boolean value whether to include subscriptions in the cost budget. Defaults to `true`
+    """
+    include_support: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    A boolean value whether to include support costs in the cost budget. Defaults to `true`
+    """
+    include_tax: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    A boolean value whether to include tax in the cost budget. Defaults to `true`
+    """
+    include_upfront: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    A boolean value whether to include upfront costs in the cost budget. Defaults to `true`
+    """
+    use_amortized: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether a budget uses the amortized rate. Defaults to `false`
+    """
+    use_blended: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    A boolean value whether to use blended costs in the cost budget. Defaults to `false`
+    """
 
 @pulumi.input_type
 class BudgetCostTypesArgs:
@@ -822,34 +790,31 @@ class BudgetCostTypesArgs:
         pulumi.set(self, "use_blended", value)
 
 
-if not MYPY:
-    class BudgetNotificationArgsDict(TypedDict):
-        comparison_operator: pulumi.Input[_builtins.str]
-        """
-        (Required) Comparison operator to use to evaluate the condition. Can be `LESS_THAN`, `EQUAL_TO` or `GREATER_THAN`.
-        """
-        notification_type: pulumi.Input[_builtins.str]
-        """
-        (Required) What kind of budget value to notify on. Can be `ACTUAL` or `FORECASTED`
-        """
-        threshold: pulumi.Input[_builtins.float]
-        """
-        (Required) Threshold when the notification should be sent.
-        """
-        threshold_type: pulumi.Input[_builtins.str]
-        """
-        (Required) What kind of threshold is defined. Can be `PERCENTAGE` OR `ABSOLUTE_VALUE`.
-        """
-        subscriber_email_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        (Optional) E-Mail addresses to notify. Either this or `subscriber_sns_topic_arns` is required.
-        """
-        subscriber_sns_topic_arns: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        (Optional) SNS topics to notify. Either this or `subscriber_email_addresses` is required.
-        """
-elif False:
-    BudgetNotificationArgsDict: TypeAlias = Mapping[str, Any]
+class BudgetNotificationArgsDict(TypedDict):
+    comparison_operator: pulumi.Input[_builtins.str]
+    """
+    (Required) Comparison operator to use to evaluate the condition. Can be `LESS_THAN`, `EQUAL_TO` or `GREATER_THAN`.
+    """
+    notification_type: pulumi.Input[_builtins.str]
+    """
+    (Required) What kind of budget value to notify on. Can be `ACTUAL` or `FORECASTED`
+    """
+    threshold: pulumi.Input[_builtins.float]
+    """
+    (Required) Threshold when the notification should be sent.
+    """
+    threshold_type: pulumi.Input[_builtins.str]
+    """
+    (Required) What kind of threshold is defined. Can be `PERCENTAGE` OR `ABSOLUTE_VALUE`.
+    """
+    subscriber_email_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    (Optional) E-Mail addresses to notify. Either this or `subscriber_sns_topic_arns` is required.
+    """
+    subscriber_sns_topic_arns: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    (Optional) SNS topics to notify. Either this or `subscriber_email_addresses` is required.
+    """
 
 @pulumi.input_type
 class BudgetNotificationArgs:
@@ -950,22 +915,19 @@ class BudgetNotificationArgs:
         pulumi.set(self, "subscriber_sns_topic_arns", value)
 
 
-if not MYPY:
-    class BudgetPlannedLimitArgsDict(TypedDict):
-        amount: pulumi.Input[_builtins.str]
-        """
-        (Required) The amount of cost or usage being measured for a budget.
-        """
-        start_time: pulumi.Input[_builtins.str]
-        """
-        (Required) The start time of the budget limit. Format: `2017-01-01_12:00`. See [PlannedBudgetLimits](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_budgets_Budget.html#awscostmanagement-Type-budgets_Budget-PlannedBudgetLimits) documentation.
-        """
-        unit: pulumi.Input[_builtins.str]
-        """
-        (Required) The unit of measurement used for the budget forecast, actual spend, or budget threshold, such as dollars or GB. See [Spend](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/data-type-spend.html) documentation.
-        """
-elif False:
-    BudgetPlannedLimitArgsDict: TypeAlias = Mapping[str, Any]
+class BudgetPlannedLimitArgsDict(TypedDict):
+    amount: pulumi.Input[_builtins.str]
+    """
+    (Required) The amount of cost or usage being measured for a budget.
+    """
+    start_time: pulumi.Input[_builtins.str]
+    """
+    (Required) The start time of the budget limit. Format: `2017-01-01_12:00`. See [PlannedBudgetLimits](https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_budgets_Budget.html#awscostmanagement-Type-budgets_Budget-PlannedBudgetLimits) documentation.
+    """
+    unit: pulumi.Input[_builtins.str]
+    """
+    (Required) The unit of measurement used for the budget forecast, actual spend, or budget threshold, such as dollars or GB. See [Spend](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/data-type-spend.html) documentation.
+    """
 
 @pulumi.input_type
 class BudgetPlannedLimitArgs:

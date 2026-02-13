@@ -52,7 +52,7 @@ namespace Pulumi.Aws.ServiceCatalog
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import Service Catalog AppRegistry Attribute Group Association using `application_id` and `attribute_group_id` arguments separated by a comma (`,`). For example:
+    /// Using `pulumi import`, import Service Catalog AppRegistry Attribute Group Association using `ApplicationId` and `AttributeGroupId` arguments separated by a comma (`,`). For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:servicecatalog/appregistryAttributeGroupAssociation:AppregistryAttributeGroupAssociation example 12456778723424sdffsdfsdq34,12234t3564dsfsdf34asff4ww3

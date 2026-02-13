@@ -34,7 +34,7 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import Network Insights Paths using the `id`. For example:
+    /// Using `pulumi import`, import Network Insights Paths using the `Id`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:ec2/networkInsightsPath:NetworkInsightsPath test nip-00edfba169923aefd
@@ -73,9 +73,15 @@ namespace Pulumi.Aws.Ec2
         [Output("destinationPort")]
         public Output<int?> DestinationPort { get; private set; } = null!;
 
+        /// <summary>
+        /// Scopes the analysis to network paths that match specific filters at the destination. If you specify this parameter, you can't specify `DestinationIp`. See below for details. Note that Terraform performs drift detection on this argument only when the value is provided.
+        /// </summary>
         [Output("filterAtDestination")]
         public Output<Outputs.NetworkInsightsPathFilterAtDestination> FilterAtDestination { get; private set; } = null!;
 
+        /// <summary>
+        /// Scopes the analysis to network paths that match specific filters at the source. If you specify this parameter, you can't specify `SourceIp` or `DestinationPort`. See below for details. Note that Terraform performs drift detection on this argument only when the value is provided.
+        /// </summary>
         [Output("filterAtSource")]
         public Output<Outputs.NetworkInsightsPathFilterAtSource> FilterAtSource { get; private set; } = null!;
 
@@ -187,9 +193,15 @@ namespace Pulumi.Aws.Ec2
         [Input("destinationPort")]
         public Input<int>? DestinationPort { get; set; }
 
+        /// <summary>
+        /// Scopes the analysis to network paths that match specific filters at the destination. If you specify this parameter, you can't specify `DestinationIp`. See below for details. Note that Terraform performs drift detection on this argument only when the value is provided.
+        /// </summary>
         [Input("filterAtDestination")]
         public Input<Inputs.NetworkInsightsPathFilterAtDestinationArgs>? FilterAtDestination { get; set; }
 
+        /// <summary>
+        /// Scopes the analysis to network paths that match specific filters at the source. If you specify this parameter, you can't specify `SourceIp` or `DestinationPort`. See below for details. Note that Terraform performs drift detection on this argument only when the value is provided.
+        /// </summary>
         [Input("filterAtSource")]
         public Input<Inputs.NetworkInsightsPathFilterAtSourceArgs>? FilterAtSource { get; set; }
 
@@ -269,9 +281,15 @@ namespace Pulumi.Aws.Ec2
         [Input("destinationPort")]
         public Input<int>? DestinationPort { get; set; }
 
+        /// <summary>
+        /// Scopes the analysis to network paths that match specific filters at the destination. If you specify this parameter, you can't specify `DestinationIp`. See below for details. Note that Terraform performs drift detection on this argument only when the value is provided.
+        /// </summary>
         [Input("filterAtDestination")]
         public Input<Inputs.NetworkInsightsPathFilterAtDestinationGetArgs>? FilterAtDestination { get; set; }
 
+        /// <summary>
+        /// Scopes the analysis to network paths that match specific filters at the source. If you specify this parameter, you can't specify `SourceIp` or `DestinationPort`. See below for details. Note that Terraform performs drift detection on this argument only when the value is provided.
+        /// </summary>
         [Input("filterAtSource")]
         public Input<Inputs.NetworkInsightsPathFilterAtSourceGetArgs>? FilterAtSource { get; set; }
 

@@ -34,7 +34,15 @@ import * as utilities from "../utilities";
  * ```sh
  * $ pulumi import aws:iam/userLoginProfile:UserLoginProfile example myusername
  * ```
- * Since Pulumi has no method to read the PGP or password information during import, use the resource options `ignore_changes` argument to ignore them (unless you want to recreate a password). For example:
+ *
+ * Since Pulumi has no method to read the PGP or password information during import, use the resource options `ignoreChanges` argument to ignore them (unless you want to recreate a password). For example:
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.iam.UserLoginProfile("example", {});
+ * ```
  */
 export class UserLoginProfile extends pulumi.CustomResource {
     /**

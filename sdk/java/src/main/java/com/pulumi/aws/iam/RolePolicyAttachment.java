@@ -97,16 +97,17 @@ import javax.annotation.Nullable;
  * #### Required
  * 
  * * `role` (String) Name of the IAM role.
- * 
- * * `policy_arn` (String) ARN of the IAM policy.
+ * * `policyArn` (String) ARN of the IAM policy.
  * 
  * #### Optional
  * 
- * * `account_id` (String) AWS Account where this resource is managed.
+ * * `accountId` (String) AWS Account where this resource is managed.
  * 
  * Using `pulumi import`, import IAM role policy attachments using the role name and policy arn separated by `/`. For example:
  * 
- * % pulumi import aws_iam_role_policy_attachment.example test-role/arn:aws:iam::xxxxxxxxxxxx:policy/test-policy
+ * ```sh
+ * $ pulumi import aws:iam/rolePolicyAttachment:RolePolicyAttachment example test-role/arn:aws:iam::xxxxxxxxxxxx:policy/test-policy
+ * ```
  * 
  */
 @ResourceType(type="aws:iam/rolePolicyAttachment:RolePolicyAttachment")

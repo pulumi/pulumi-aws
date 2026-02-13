@@ -10,19 +10,22 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Rds
 {
     /// <summary>
-    /// ## Example Usage
+    /// Provides an RDS DB proxy target resource.
+    /// 
+    /// &gt; **NOTE:** When the associated `aws.rds.Proxy` resource is replaced, Terraform will lose track of this resource, causing unexpected differences on the next apply. To ensure proper dependency management, add a `Lifecycle` block with `ReplaceTriggeredBy` referencing the `aws.rds.Proxy` resource's `Id` attribute.
     /// 
     /// ## Import
     /// 
     /// Provisioned Clusters:
     /// 
-    /// __Using `pulumi import` to import__ RDS DB Proxy Targets using the `db_proxy_name`, `target_group_name`, target type (such as `RDS_INSTANCE` or `TRACKED_CLUSTER`), and resource identifier separated by forward slashes (`/`). For example:
+    /// **Using `pulumi import` to import** RDS DB Proxy Targets using the `DbProxyName`, `TargetGroupName`, target type (such as `RDS_INSTANCE` or `TRACKED_CLUSTER`), and resource identifier separated by forward slashes (`/`). For example:
     /// 
     /// Instances:
     /// 
     /// ```sh
     /// $ pulumi import aws:rds/proxyTarget:ProxyTarget example example-proxy/default/RDS_INSTANCE/example-instance
     /// ```
+    /// 
     /// Provisioned Clusters:
     /// 
     /// ```sh

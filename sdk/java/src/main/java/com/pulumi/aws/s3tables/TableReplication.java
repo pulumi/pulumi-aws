@@ -62,7 +62,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Using `pulumi import`, import S3 Tables Table Replication using the `table_arn`. For example:
+ * Using `pulumi import`, import S3 Tables Table Replication using the `tableArn`. For example:
  * 
  * ```sh
  * $ pulumi import aws:s3tables/tableReplication:TableReplication example &#39;arn:aws:s3tables:us-west-2:123456789012:table/example-table&#39;

@@ -380,9 +380,11 @@ class CostCategory(pulumi.CustomResource):
 
         - `arn` (String) Amazon Resource Name (ARN) of the Cost Explorer cost category.
 
-        Using `pulumi import`, import `aws_ce_cost_category` using the id. For example:
+        Using `pulumi import`, import `costexplorer.CostCategory` using the id. For example:
 
-        % pulumi import aws_ce_cost_category.example costCategoryARN
+        ```sh
+        $ pulumi import aws:costexplorer/costCategory:CostCategory example costCategoryARN
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -456,9 +458,11 @@ class CostCategory(pulumi.CustomResource):
 
         - `arn` (String) Amazon Resource Name (ARN) of the Cost Explorer cost category.
 
-        Using `pulumi import`, import `aws_ce_cost_category` using the id. For example:
+        Using `pulumi import`, import `costexplorer.CostCategory` using the id. For example:
 
-        % pulumi import aws_ce_cost_category.example costCategoryARN
+        ```sh
+        $ pulumi import aws:costexplorer/costCategory:CostCategory example costCategoryARN
+        ```
 
         :param str resource_name: The name of the resource.
         :param CostCategoryArgs args: The arguments to use to populate this resource's properties.

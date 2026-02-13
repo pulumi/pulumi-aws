@@ -86,9 +86,10 @@ type DefaultVpc struct {
 	Ipv6NetmaskLength               pulumi.IntPtrOutput    `pulumi:"ipv6NetmaskLength"`
 	MainRouteTableId                pulumi.StringOutput    `pulumi:"mainRouteTableId"`
 	OwnerId                         pulumi.StringOutput    `pulumi:"ownerId"`
-	Region                          pulumi.StringOutput    `pulumi:"region"`
-	Tags                            pulumi.StringMapOutput `pulumi:"tags"`
-	TagsAll                         pulumi.StringMapOutput `pulumi:"tagsAll"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
+	Region  pulumi.StringOutput    `pulumi:"region"`
+	Tags    pulumi.StringMapOutput `pulumi:"tags"`
+	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
 // NewDefaultVpc registers a new resource with the given unique name, arguments, and options.
@@ -136,17 +137,18 @@ type defaultVpcState struct {
 	// Whether destroying the resource deletes the default VPC. Default: `false`
 	ForceDestroy *bool `pulumi:"forceDestroy"`
 	// The allowed tenancy of instances launched into the VPC
-	InstanceTenancy                 *string           `pulumi:"instanceTenancy"`
-	Ipv6AssociationId               *string           `pulumi:"ipv6AssociationId"`
-	Ipv6CidrBlock                   *string           `pulumi:"ipv6CidrBlock"`
-	Ipv6CidrBlockNetworkBorderGroup *string           `pulumi:"ipv6CidrBlockNetworkBorderGroup"`
-	Ipv6IpamPoolId                  *string           `pulumi:"ipv6IpamPoolId"`
-	Ipv6NetmaskLength               *int              `pulumi:"ipv6NetmaskLength"`
-	MainRouteTableId                *string           `pulumi:"mainRouteTableId"`
-	OwnerId                         *string           `pulumi:"ownerId"`
-	Region                          *string           `pulumi:"region"`
-	Tags                            map[string]string `pulumi:"tags"`
-	TagsAll                         map[string]string `pulumi:"tagsAll"`
+	InstanceTenancy                 *string `pulumi:"instanceTenancy"`
+	Ipv6AssociationId               *string `pulumi:"ipv6AssociationId"`
+	Ipv6CidrBlock                   *string `pulumi:"ipv6CidrBlock"`
+	Ipv6CidrBlockNetworkBorderGroup *string `pulumi:"ipv6CidrBlockNetworkBorderGroup"`
+	Ipv6IpamPoolId                  *string `pulumi:"ipv6IpamPoolId"`
+	Ipv6NetmaskLength               *int    `pulumi:"ipv6NetmaskLength"`
+	MainRouteTableId                *string `pulumi:"mainRouteTableId"`
+	OwnerId                         *string `pulumi:"ownerId"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
+	Region  *string           `pulumi:"region"`
+	Tags    map[string]string `pulumi:"tags"`
+	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 type DefaultVpcState struct {
@@ -173,9 +175,10 @@ type DefaultVpcState struct {
 	Ipv6NetmaskLength               pulumi.IntPtrInput
 	MainRouteTableId                pulumi.StringPtrInput
 	OwnerId                         pulumi.StringPtrInput
-	Region                          pulumi.StringPtrInput
-	Tags                            pulumi.StringMapInput
-	TagsAll                         pulumi.StringMapInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
+	Region  pulumi.StringPtrInput
+	Tags    pulumi.StringMapInput
+	TagsAll pulumi.StringMapInput
 }
 
 func (DefaultVpcState) ElementType() reflect.Type {
@@ -188,13 +191,14 @@ type defaultVpcArgs struct {
 	EnableDnsSupport                 *bool `pulumi:"enableDnsSupport"`
 	EnableNetworkAddressUsageMetrics *bool `pulumi:"enableNetworkAddressUsageMetrics"`
 	// Whether destroying the resource deletes the default VPC. Default: `false`
-	ForceDestroy                    *bool             `pulumi:"forceDestroy"`
-	Ipv6CidrBlock                   *string           `pulumi:"ipv6CidrBlock"`
-	Ipv6CidrBlockNetworkBorderGroup *string           `pulumi:"ipv6CidrBlockNetworkBorderGroup"`
-	Ipv6IpamPoolId                  *string           `pulumi:"ipv6IpamPoolId"`
-	Ipv6NetmaskLength               *int              `pulumi:"ipv6NetmaskLength"`
-	Region                          *string           `pulumi:"region"`
-	Tags                            map[string]string `pulumi:"tags"`
+	ForceDestroy                    *bool   `pulumi:"forceDestroy"`
+	Ipv6CidrBlock                   *string `pulumi:"ipv6CidrBlock"`
+	Ipv6CidrBlockNetworkBorderGroup *string `pulumi:"ipv6CidrBlockNetworkBorderGroup"`
+	Ipv6IpamPoolId                  *string `pulumi:"ipv6IpamPoolId"`
+	Ipv6NetmaskLength               *int    `pulumi:"ipv6NetmaskLength"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
+	Region *string           `pulumi:"region"`
+	Tags   map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a DefaultVpc resource.
@@ -209,8 +213,9 @@ type DefaultVpcArgs struct {
 	Ipv6CidrBlockNetworkBorderGroup pulumi.StringPtrInput
 	Ipv6IpamPoolId                  pulumi.StringPtrInput
 	Ipv6NetmaskLength               pulumi.IntPtrInput
-	Region                          pulumi.StringPtrInput
-	Tags                            pulumi.StringMapInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
+	Region pulumi.StringPtrInput
+	Tags   pulumi.StringMapInput
 }
 
 func (DefaultVpcArgs) ElementType() reflect.Type {
@@ -383,6 +388,7 @@ func (o DefaultVpcOutput) OwnerId() pulumi.StringOutput {
 	return o.ApplyT(func(v *DefaultVpc) pulumi.StringOutput { return v.OwnerId }).(pulumi.StringOutput)
 }
 
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
 func (o DefaultVpcOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *DefaultVpc) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

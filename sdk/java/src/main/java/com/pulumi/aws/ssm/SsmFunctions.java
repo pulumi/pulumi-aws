@@ -37,6 +37,8 @@ import java.util.concurrent.CompletableFuture;
 
 public final class SsmFunctions {
     /**
+     * Provides a Terraform data source for managing a Contacts Rotation in AWS Systems Manager Incident Manager
+     * 
      * ## Example Usage
      * 
      * ### Basic Usage
@@ -77,6 +79,8 @@ public final class SsmFunctions {
         return getContactsRotation(args, InvokeOptions.Empty);
     }
     /**
+     * Provides a Terraform data source for managing a Contacts Rotation in AWS Systems Manager Incident Manager
+     * 
      * ## Example Usage
      * 
      * ### Basic Usage
@@ -117,6 +121,8 @@ public final class SsmFunctions {
         return getContactsRotationPlain(args, InvokeOptions.Empty);
     }
     /**
+     * Provides a Terraform data source for managing a Contacts Rotation in AWS Systems Manager Incident Manager
+     * 
      * ## Example Usage
      * 
      * ### Basic Usage
@@ -157,6 +163,8 @@ public final class SsmFunctions {
         return Deployment.getInstance().invoke("aws:ssm/getContactsRotation:getContactsRotation", TypeShape.of(GetContactsRotationResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * Provides a Terraform data source for managing a Contacts Rotation in AWS Systems Manager Incident Manager
+     * 
      * ## Example Usage
      * 
      * ### Basic Usage
@@ -197,6 +205,8 @@ public final class SsmFunctions {
         return Deployment.getInstance().invoke("aws:ssm/getContactsRotation:getContactsRotation", TypeShape.of(GetContactsRotationResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * Provides a Terraform data source for managing a Contacts Rotation in AWS Systems Manager Incident Manager
+     * 
      * ## Example Usage
      * 
      * ### Basic Usage
@@ -1613,18 +1623,213 @@ public final class SsmFunctions {
     public static CompletableFuture<GetParameterResult> getParameterPlain(GetParameterPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:ssm/getParameter:getParameter", TypeShape.of(GetParameterResult.class), args, Utilities.withVersion(options));
     }
+    /**
+     * Use this data source to get information about one or more System Manager parameters in a specific hierarchy.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ssm.SsmFunctions;
+     * import com.pulumi.aws.ssm.inputs.GetParametersByPathArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = SsmFunctions.getParametersByPath(GetParametersByPathArgs.builder()
+     *             .path("/site/newyork/department/")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * &gt; **Note:** When the `withDecryption` argument is set to `true`, the unencrypted values of `SecureString` parameters will be stored in the raw state as plain-text as per normal Terraform behavior. &gt; **Note:** The data source follows the behavior of the [SSM API](https://docs.aws.amazon.com/sdk-for-go/api/service/ssm/#Parameter) to return a string value, regardless of parameter type. For `StringList` type where the value is returned as a comma-separated string with no spaces between comma, you may use the built-in split function to get values in a list. Example: `split(&#34;,&#34;, data.aws_ssm_parameter.subnets.value)`
+     * 
+     */
     public static Output<GetParametersByPathResult> getParametersByPath(GetParametersByPathArgs args) {
         return getParametersByPath(args, InvokeOptions.Empty);
     }
+    /**
+     * Use this data source to get information about one or more System Manager parameters in a specific hierarchy.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ssm.SsmFunctions;
+     * import com.pulumi.aws.ssm.inputs.GetParametersByPathArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = SsmFunctions.getParametersByPath(GetParametersByPathArgs.builder()
+     *             .path("/site/newyork/department/")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * &gt; **Note:** When the `withDecryption` argument is set to `true`, the unencrypted values of `SecureString` parameters will be stored in the raw state as plain-text as per normal Terraform behavior. &gt; **Note:** The data source follows the behavior of the [SSM API](https://docs.aws.amazon.com/sdk-for-go/api/service/ssm/#Parameter) to return a string value, regardless of parameter type. For `StringList` type where the value is returned as a comma-separated string with no spaces between comma, you may use the built-in split function to get values in a list. Example: `split(&#34;,&#34;, data.aws_ssm_parameter.subnets.value)`
+     * 
+     */
     public static CompletableFuture<GetParametersByPathResult> getParametersByPathPlain(GetParametersByPathPlainArgs args) {
         return getParametersByPathPlain(args, InvokeOptions.Empty);
     }
+    /**
+     * Use this data source to get information about one or more System Manager parameters in a specific hierarchy.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ssm.SsmFunctions;
+     * import com.pulumi.aws.ssm.inputs.GetParametersByPathArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = SsmFunctions.getParametersByPath(GetParametersByPathArgs.builder()
+     *             .path("/site/newyork/department/")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * &gt; **Note:** When the `withDecryption` argument is set to `true`, the unencrypted values of `SecureString` parameters will be stored in the raw state as plain-text as per normal Terraform behavior. &gt; **Note:** The data source follows the behavior of the [SSM API](https://docs.aws.amazon.com/sdk-for-go/api/service/ssm/#Parameter) to return a string value, regardless of parameter type. For `StringList` type where the value is returned as a comma-separated string with no spaces between comma, you may use the built-in split function to get values in a list. Example: `split(&#34;,&#34;, data.aws_ssm_parameter.subnets.value)`
+     * 
+     */
     public static Output<GetParametersByPathResult> getParametersByPath(GetParametersByPathArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:ssm/getParametersByPath:getParametersByPath", TypeShape.of(GetParametersByPathResult.class), args, Utilities.withVersion(options));
     }
+    /**
+     * Use this data source to get information about one or more System Manager parameters in a specific hierarchy.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ssm.SsmFunctions;
+     * import com.pulumi.aws.ssm.inputs.GetParametersByPathArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = SsmFunctions.getParametersByPath(GetParametersByPathArgs.builder()
+     *             .path("/site/newyork/department/")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * &gt; **Note:** When the `withDecryption` argument is set to `true`, the unencrypted values of `SecureString` parameters will be stored in the raw state as plain-text as per normal Terraform behavior. &gt; **Note:** The data source follows the behavior of the [SSM API](https://docs.aws.amazon.com/sdk-for-go/api/service/ssm/#Parameter) to return a string value, regardless of parameter type. For `StringList` type where the value is returned as a comma-separated string with no spaces between comma, you may use the built-in split function to get values in a list. Example: `split(&#34;,&#34;, data.aws_ssm_parameter.subnets.value)`
+     * 
+     */
     public static Output<GetParametersByPathResult> getParametersByPath(GetParametersByPathArgs args, InvokeOutputOptions options) {
         return Deployment.getInstance().invoke("aws:ssm/getParametersByPath:getParametersByPath", TypeShape.of(GetParametersByPathResult.class), args, Utilities.withVersion(options));
     }
+    /**
+     * Use this data source to get information about one or more System Manager parameters in a specific hierarchy.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.ssm.SsmFunctions;
+     * import com.pulumi.aws.ssm.inputs.GetParametersByPathArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = SsmFunctions.getParametersByPath(GetParametersByPathArgs.builder()
+     *             .path("/site/newyork/department/")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     * &gt; **Note:** When the `withDecryption` argument is set to `true`, the unencrypted values of `SecureString` parameters will be stored in the raw state as plain-text as per normal Terraform behavior. &gt; **Note:** The data source follows the behavior of the [SSM API](https://docs.aws.amazon.com/sdk-for-go/api/service/ssm/#Parameter) to return a string value, regardless of parameter type. For `StringList` type where the value is returned as a comma-separated string with no spaces between comma, you may use the built-in split function to get values in a list. Example: `split(&#34;,&#34;, data.aws_ssm_parameter.subnets.value)`
+     * 
+     */
     public static CompletableFuture<GetParametersByPathResult> getParametersByPathPlain(GetParametersByPathPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:ssm/getParametersByPath:getParametersByPath", TypeShape.of(GetParametersByPathResult.class), args, Utilities.withVersion(options));
     }

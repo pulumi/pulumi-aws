@@ -36,7 +36,7 @@ namespace Pulumi.Aws.Backup
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import Backup Logically Air Gapped Vault using the `id`. For example:
+    /// Using `pulumi import`, import Backup Logically Air Gapped Vault using the `Id`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:backup/logicallyAirGappedVault:LogicallyAirGappedVault example lag-example-vault

@@ -76,7 +76,7 @@ namespace Pulumi.Aws.Fsx
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import FSx Data Repository Associations using the `id`. For example:
+    /// Using `pulumi import`, import FSx Data Repository Associations using the `Id`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:fsx/dataRepositoryAssociation:DataRepositoryAssociation example dra-0b1cfaeca11088b10

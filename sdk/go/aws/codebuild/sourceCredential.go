@@ -114,7 +114,9 @@ import (
 //
 // Using `pulumi import`, import CodeBuild Source Credential using the CodeBuild Source Credential arn. For example:
 //
-// % pulumi import aws_codebuild_source_credential.example arn:aws:codebuild:us-west-2:123456789:token:github
+// ```sh
+// $ pulumi import aws:codebuild/sourceCredential:SourceCredential example arn:aws:codebuild:us-west-2:123456789:token:github
+// ```
 type SourceCredential struct {
 	pulumi.CustomResourceState
 

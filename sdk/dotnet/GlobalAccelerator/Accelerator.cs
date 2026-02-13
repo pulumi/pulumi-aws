@@ -48,11 +48,13 @@ namespace Pulumi.Aws.GlobalAccelerator
     /// 
     /// #### Required
     /// 
-    /// - `arn` (String) Amazon Resource Name (ARN) of the Global Accelerator accelerator.
+    /// - `Arn` (String) Amazon Resource Name (ARN) of the Global Accelerator accelerator.
     /// 
-    /// Using `pulumi import`, import Global Accelerator accelerators using the `arn`. For example:
+    /// Using `pulumi import`, import Global Accelerator accelerators using the `Arn`. For example:
     /// 
-    /// % pulumi import aws_globalaccelerator_accelerator.example arn:aws:globalaccelerator::111111111111:accelerator/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+    /// ```sh
+    /// $ pulumi import aws:globalaccelerator/accelerator:Accelerator example arn:aws:globalaccelerator::111111111111:accelerator/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+    /// ```
     /// </summary>
     [AwsResourceType("aws:globalaccelerator/accelerator:Accelerator")]
     public partial class Accelerator : global::Pulumi.CustomResource

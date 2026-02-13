@@ -27,6 +27,202 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
+ * Resource for managing an AWS Lex V2 Models Intent.
+ * 
+ * ## Example Usage
+ * 
+ * ### Basic Usage
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.AwsFunctions;
+ * import com.pulumi.aws.inputs.GetPartitionArgs;
+ * import com.pulumi.aws.iam.Role;
+ * import com.pulumi.aws.iam.RoleArgs;
+ * import com.pulumi.aws.iam.RolePolicyAttachment;
+ * import com.pulumi.aws.iam.RolePolicyAttachmentArgs;
+ * import com.pulumi.aws.lex.V2modelsBot;
+ * import com.pulumi.aws.lex.V2modelsBotArgs;
+ * import com.pulumi.aws.lex.inputs.V2modelsBotDataPrivacyArgs;
+ * import com.pulumi.aws.lex.V2modelsBotLocale;
+ * import com.pulumi.aws.lex.V2modelsBotLocaleArgs;
+ * import com.pulumi.aws.lex.V2modelsBotVersion;
+ * import com.pulumi.aws.lex.V2modelsBotVersionArgs;
+ * import com.pulumi.aws.lex.V2modelsIntent;
+ * import com.pulumi.aws.lex.V2modelsIntentArgs;
+ * import static com.pulumi.codegen.internal.Serialization.*;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         final var current = AwsFunctions.getPartition(GetPartitionArgs.builder()
+ *             .build());
+ * 
+ *         var test = new Role("test", RoleArgs.builder()
+ *             .name("botens_namn")
+ *             .assumeRolePolicy(serializeJson(
+ *                 jsonObject(
+ *                     jsonProperty("Version", "2012-10-17"),
+ *                     jsonProperty("Statement", jsonArray(jsonObject(
+ *                         jsonProperty("Action", "sts:AssumeRole"),
+ *                         jsonProperty("Effect", "Allow"),
+ *                         jsonProperty("Sid", ""),
+ *                         jsonProperty("Principal", jsonObject(
+ *                             jsonProperty("Service", "lexv2.amazonaws.com")
+ *                         ))
+ *                     )))
+ *                 )))
+ *             .build());
+ * 
+ *         var testRolePolicyAttachment = new RolePolicyAttachment("testRolePolicyAttachment", RolePolicyAttachmentArgs.builder()
+ *             .role(test.name())
+ *             .policyArn(String.format("arn:%s:iam::aws:policy/AmazonLexFullAccess", current.partition()))
+ *             .build());
+ * 
+ *         var testV2modelsBot = new V2modelsBot("testV2modelsBot", V2modelsBotArgs.builder()
+ *             .name("botens_namn")
+ *             .idleSessionTtlInSeconds(60)
+ *             .roleArn(test.arn())
+ *             .dataPrivacies(V2modelsBotDataPrivacyArgs.builder()
+ *                 .childDirected(true)
+ *                 .build())
+ *             .build());
+ * 
+ *         var testV2modelsBotLocale = new V2modelsBotLocale("testV2modelsBotLocale", V2modelsBotLocaleArgs.builder()
+ *             .localeId("en_US")
+ *             .botId(testV2modelsBot.id())
+ *             .botVersion("DRAFT")
+ *             .nLuIntentConfidenceThreshold(0.7)
+ *             .build());
+ * 
+ *         var testV2modelsBotVersion = new V2modelsBotVersion("testV2modelsBotVersion", V2modelsBotVersionArgs.builder()
+ *             .botId(testV2modelsBot.id())
+ *             .localeSpecification(testV2modelsBotLocale.localeId().applyValue(_localeId -> Map.of(_localeId, Map.of("sourceBotVersion", "DRAFT"))))
+ *             .build());
+ * 
+ *         var example = new V2modelsIntent("example", V2modelsIntentArgs.builder()
+ *             .botId(testV2modelsBot.id())
+ *             .botVersion(testV2modelsBotLocale.botVersion())
+ *             .name("botens_namn")
+ *             .localeId(testV2modelsBotLocale.localeId())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
+ * ### `confirmationSetting` Example
+ * 
+ * When using `confirmationSetting`, if you do not provide a `promptAttemptsSpecification`, AWS Lex will provide default `promptAttemptsSpecification`s. As a result, Terraform will report a difference in the configuration. To avoid this behavior, include the default `promptAttemptsSpecification` configuration shown below.
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.lex.V2modelsIntent;
+ * import com.pulumi.aws.lex.V2modelsIntentArgs;
+ * import com.pulumi.aws.lex.inputs.V2modelsIntentConfirmationSettingArgs;
+ * import com.pulumi.aws.lex.inputs.V2modelsIntentConfirmationSettingPromptSpecificationArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new V2modelsIntent("example", V2modelsIntentArgs.builder()
+ *             .botId(test.id())
+ *             .botVersion(testAwsLexv2modelsBotLocale.botVersion())
+ *             .name("botens_namn")
+ *             .localeId(testAwsLexv2modelsBotLocale.localeId())
+ *             .confirmationSetting(V2modelsIntentConfirmationSettingArgs.builder()
+ *                 .active(true)
+ *                 .promptSpecification(V2modelsIntentConfirmationSettingPromptSpecificationArgs.builder()
+ *                     .allowInterrupt(true)
+ *                     .maxRetries(1)
+ *                     .messageSelectionStrategy("Ordered")
+ *                     .promptAttemptsSpecifications(                    
+ *                         V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationArgs.builder()
+ *                             .allowInterrupt(true)
+ *                             .mapBlockKey("Initial")
+ *                             .allowedInputTypes(V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationAllowedInputTypesArgs.builder()
+ *                                 .allowAudioInput(true)
+ *                                 .allowDtmfInput(true)
+ *                                 .build())
+ *                             .audioAndDtmfInputSpecification(V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationArgs.builder()
+ *                                 .startTimeoutMs(4000)
+ *                                 .audioSpecification(V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationAudioSpecificationArgs.builder()
+ *                                     .endTimeoutMs(640)
+ *                                     .maxLengthMs(15000)
+ *                                     .build())
+ *                                 .dtmfSpecification(V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationDtmfSpecificationArgs.builder()
+ *                                     .deletionCharacter("*")
+ *                                     .endCharacter("#")
+ *                                     .endTimeoutMs(5000)
+ *                                     .maxLength(513)
+ *                                     .build())
+ *                                 .build())
+ *                             .textInputSpecification(V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationTextInputSpecificationArgs.builder()
+ *                                 .startTimeoutMs(30000)
+ *                                 .build())
+ *                             .build(),
+ *                         V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationArgs.builder()
+ *                             .allowInterrupt(true)
+ *                             .mapBlockKey("Retry1")
+ *                             .allowedInputTypes(V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationAllowedInputTypesArgs.builder()
+ *                                 .allowAudioInput(true)
+ *                                 .allowDtmfInput(true)
+ *                                 .build())
+ *                             .audioAndDtmfInputSpecification(V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationArgs.builder()
+ *                                 .startTimeoutMs(4000)
+ *                                 .audioSpecification(V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationAudioSpecificationArgs.builder()
+ *                                     .endTimeoutMs(640)
+ *                                     .maxLengthMs(15000)
+ *                                     .build())
+ *                                 .dtmfSpecification(V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationDtmfSpecificationArgs.builder()
+ *                                     .deletionCharacter("*")
+ *                                     .endCharacter("#")
+ *                                     .endTimeoutMs(5000)
+ *                                     .maxLength(513)
+ *                                     .build())
+ *                                 .build())
+ *                             .textInputSpecification(V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationTextInputSpecificationArgs.builder()
+ *                                 .startTimeoutMs(30000)
+ *                                 .build())
+ *                             .build())
+ *                     .build())
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
  * ## Import
  * 
  * Using `pulumi import`, import Lex V2 Models Intent using the `intent_id:bot_id:bot_version:locale_id`. For example:
@@ -80,9 +276,17 @@ public class V2modelsIntent extends com.pulumi.resources.CustomResource {
     public Output<Optional<V2modelsIntentClosingSetting>> closingSetting() {
         return Codegen.optional(this.closingSetting);
     }
+    /**
+     * Configuration block for prompts that Amazon Lex sends to the user to confirm the completion of an intent. If the user answers &#34;no,&#34; the settings contain a statement that is sent to the user to end the intent. If you configure this block without `prompt_specification.*.prompt_attempts_specification`, AWS will provide default configurations for `Initial` and `Retry1` `promptAttemptsSpecification`s. This will cause Terraform to report differences. Use the `confirmationSetting` configuration above in the Basic Usage example to avoid differences resulting from AWS default configuration. See `confirmationSetting`.
+     * 
+     */
     @Export(name="confirmationSetting", refs={V2modelsIntentConfirmationSetting.class}, tree="[0]")
     private Output</* @Nullable */ V2modelsIntentConfirmationSetting> confirmationSetting;
 
+    /**
+     * @return Configuration block for prompts that Amazon Lex sends to the user to confirm the completion of an intent. If the user answers &#34;no,&#34; the settings contain a statement that is sent to the user to end the intent. If you configure this block without `prompt_specification.*.prompt_attempts_specification`, AWS will provide default configurations for `Initial` and `Retry1` `promptAttemptsSpecification`s. This will cause Terraform to report differences. Use the `confirmationSetting` configuration above in the Basic Usage example to avoid differences resulting from AWS default configuration. See `confirmationSetting`.
+     * 
+     */
     public Output<Optional<V2modelsIntentConfirmationSetting>> confirmationSetting() {
         return Codegen.optional(this.confirmationSetting);
     }

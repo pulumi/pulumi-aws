@@ -52,7 +52,7 @@ namespace Pulumi.Aws.Auditmanager
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import Audit Manager Framework using the framework `id`. For example:
+    /// Using `pulumi import`, import Audit Manager Framework using the framework `Id`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:auditmanager/framework:Framework example abc123-de45

@@ -41,7 +41,7 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import VPC Endpoint Subnet Associations using `vpc_endpoint_id` together with `subnet_id`. For example:
+    /// Using `pulumi import`, import VPC Endpoint Subnet Associations using `VpcEndpointId` together with `SubnetId`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:ec2/vpcEndpointSubnetAssociation:VpcEndpointSubnetAssociation example vpce-aaaaaaaa/subnet-bbbbbbbbbbbbbbbbb

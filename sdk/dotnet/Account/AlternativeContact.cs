@@ -36,16 +36,17 @@ namespace Pulumi.Aws.Account
     /// 
     /// ## Import
     /// 
-    /// Import the Alternate Contact for another account using the `account_id` and `alternate_contact_type` separated by a forward slash (`/`):
+    /// Import the Alternate Contact for another account using the `AccountId` and `AlternateContactType` separated by a forward slash (`/`):
     /// 
-    /// __Using `pulumi import` to import__ the Alternate Contact for the current or another account using the `alternate_contact_type`. For example:
+    /// **Using `pulumi import` to import** the Alternate Contact for the current or another account using the `AlternateContactType`. For example:
     /// 
     /// Import the Alternate Contact for the current account:
     /// 
     /// ```sh
     /// $ pulumi import aws:account/alternativeContact:AlternativeContact operations OPERATIONS
     /// ```
-    /// Import the Alternate Contact for another account using the `account_id` and `alternate_contact_type` separated by a forward slash (`/`):
+    /// 
+    /// Import the Alternate Contact for another account using the `AccountId` and `AlternateContactType` separated by a forward slash (`/`):
     /// 
     /// ```sh
     /// $ pulumi import aws:account/alternativeContact:AlternativeContact operations 1234567890/OPERATIONS

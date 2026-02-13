@@ -54,6 +54,7 @@ func GetQuicksightGroup(ctx *pulumi.Context, args *GetQuicksightGroupArgs, opts 
 
 // A collection of arguments for invoking getQuicksightGroup.
 type GetQuicksightGroupArgs struct {
+	// AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
 	AwsAccountId *string `pulumi:"awsAccountId"`
 	// The name of the group that you want to match.
 	//
@@ -92,6 +93,7 @@ func GetQuicksightGroupOutput(ctx *pulumi.Context, args GetQuicksightGroupOutput
 
 // A collection of arguments for invoking getQuicksightGroup.
 type GetQuicksightGroupOutputArgs struct {
+	// AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
 	AwsAccountId pulumi.StringPtrInput `pulumi:"awsAccountId"`
 	// The name of the group that you want to match.
 	//

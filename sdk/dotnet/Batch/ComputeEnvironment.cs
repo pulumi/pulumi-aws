@@ -272,16 +272,16 @@ namespace Pulumi.Aws.Batch
     /// 
     /// #### Required
     /// 
-    /// - `arn` (String) Amazon Resource Name (ARN) of the compute environment.
+    /// - `Arn` (String) Amazon Resource Name (ARN) of the compute environment.
     /// 
-    /// Using `pulumi import`, import AWS Batch compute using the `name`. For example:
+    /// Using `pulumi import`, import AWS Batch compute using the `Name`. For example:
     /// 
-    /// % pulumi import aws_batch_compute_environment.sample sample
+    /// ```sh
+    /// $ pulumi import aws:batch/computeEnvironment:ComputeEnvironment sample sample
+    /// ```
     /// 
     /// [1]: http://docs.aws.amazon.com/batch/latest/userguide/what-is-batch.html
-    /// 
     /// [2]: http://docs.aws.amazon.com/batch/latest/userguide/compute_environments.html
-    /// 
     /// [3]: http://docs.aws.amazon.com/batch/latest/userguide/troubleshooting.html
     /// </summary>
     [AwsResourceType("aws:batch/computeEnvironment:ComputeEnvironment")]

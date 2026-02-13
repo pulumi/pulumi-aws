@@ -114,19 +114,19 @@ import (
 //
 // #### Required
 //
-// * `window_id` - (String) ID of the maintenance window.
-//
+// * `windowId` - (String) ID of the maintenance window.
 // * `id` - (String) ID of the maintenance window target.
 //
 // #### Optional
 //
-// * `account_id` (String) AWS Account where this resource is managed.
-//
+// * `accountId` (String) AWS Account where this resource is managed.
 // * `region` (String) Region where this resource is managed.
 //
 // Using `pulumi import`, import SSM Maintenance Window targets using `WINDOW_ID/WINDOW_TARGET_ID`. For example:
 //
-// % pulumi import aws_ssm_maintenance_window_target.example mw-0c50858d01EXAMPLE/23639a0b-ddbc-4bca-9e72-78d96EXAMPLE
+// ```sh
+// $ pulumi import aws:ssm/maintenanceWindowTarget:MaintenanceWindowTarget example mw-0c50858d01EXAMPLE/23639a0b-ddbc-4bca-9e72-78d96EXAMPLE
+// ```
 type MaintenanceWindowTarget struct {
 	pulumi.CustomResourceState
 

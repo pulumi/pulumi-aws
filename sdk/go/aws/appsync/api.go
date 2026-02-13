@@ -182,7 +182,7 @@ import (
 //
 // ## Import
 //
-// Using `pulumi import`, import AppSync Event API using the `api_id`. For example:
+// Using `pulumi import`, import AppSync Event API using the `apiId`. For example:
 //
 // ```sh
 // $ pulumi import aws:appsync/api:Api example example-api-id

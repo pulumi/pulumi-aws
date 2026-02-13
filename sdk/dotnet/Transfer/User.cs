@@ -10,6 +10,10 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Transfer
 {
     /// <summary>
+    /// Provides a AWS Transfer User resource. Managing SSH keys can be accomplished with the `aws.transfer.SshKey` resource.
+    /// 
+    /// &gt; **NOTE:** We suggest using `jsonencode()` or `aws.iam.getPolicyDocument` when assigning a value to `Policy`. They seamlessly translate Terraform language into JSON, enabling you to maintain consistency within your configuration without the need for context switches. Also, you can sidestep potential complications arising from formatting discrepancies, whitespace inconsistencies, and other nuances inherent to JSON.
+    /// 
     /// ## Example Usage
     /// 
     /// ```csharp
@@ -109,7 +113,7 @@ namespace Pulumi.Aws.Transfer
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import Transfer Users using the `server_id` and `user_name` separated by `/`. For example:
+    /// Using `pulumi import`, import Transfer Users using the `ServerId` and `UserName` separated by `/`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:transfer/user:User bar s-12345678/test-username

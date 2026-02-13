@@ -60,7 +60,9 @@ import (
 //
 // Using `pulumi import`, import DeviceFarm Uploads using their ARN. For example:
 //
-// % pulumi import aws_devicefarm_upload.example arn:aws:devicefarm:us-west-2:123456789012:upload:4fa784c7-ccb4-4dbf-ba4f-02198320daa1
+// ```sh
+// $ pulumi import aws:devicefarm/upload:Upload example arn:aws:devicefarm:us-west-2:123456789012:upload:4fa784c7-ccb4-4dbf-ba4f-02198320daa1
+// ```
 type Upload struct {
 	pulumi.CustomResourceState
 

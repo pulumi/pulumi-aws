@@ -41,7 +41,7 @@ namespace Pulumi.Aws.NetworkManager
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import Network Manager DX Gateway Attachment using the `id`. For example:
+    /// Using `pulumi import`, import Network Manager DX Gateway Attachment using the `Id`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:networkmanager/dxGatewayAttachment:DxGatewayAttachment example attachment-1a2b3c4d5e6f7g

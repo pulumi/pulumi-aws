@@ -119,7 +119,7 @@ namespace Pulumi.Aws.Lambda
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import Lambda Layers using `arn`. For example:
+    /// Using `pulumi import`, import Lambda Layers using `Arn`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:lambda/layerVersion:LayerVersion example arn:aws:lambda:us-west-2:123456789012:layer:example:1

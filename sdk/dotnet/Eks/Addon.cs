@@ -104,7 +104,7 @@ namespace Pulumi.Aws.Eks
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import EKS add-on using the `cluster_name` and `addon_name` separated by a colon (`:`). For example:
+    /// Using `pulumi import`, import EKS add-on using the `ClusterName` and `AddonName` separated by a colon (`:`). For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:eks/addon:Addon my_eks_addon my_cluster_name:my_addon_name

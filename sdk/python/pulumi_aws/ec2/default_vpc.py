@@ -33,6 +33,7 @@ class DefaultVpcArgs:
         """
         The set of arguments for constructing a DefaultVpc resource.
         :param pulumi.Input[_builtins.bool] force_destroy: Whether destroying the resource deletes the default VPC. Default: `false`
+        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
         """
         if assign_generated_ipv6_cidr_block is not None:
             pulumi.set(__self__, "assign_generated_ipv6_cidr_block", assign_generated_ipv6_cidr_block)
@@ -144,6 +145,9 @@ class DefaultVpcArgs:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
+        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -191,6 +195,7 @@ class _DefaultVpcState:
         :param pulumi.Input[_builtins.str] cidr_block: The primary IPv4 CIDR block for the VPC
         :param pulumi.Input[_builtins.bool] force_destroy: Whether destroying the resource deletes the default VPC. Default: `false`
         :param pulumi.Input[_builtins.str] instance_tenancy: The allowed tenancy of instances launched into the VPC
+        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -431,6 +436,9 @@ class _DefaultVpcState:
     @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
+        """
         return pulumi.get(self, "region")
 
     @region.setter
@@ -511,6 +519,7 @@ class DefaultVpc(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] force_destroy: Whether destroying the resource deletes the default VPC. Default: `false`
+        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
         """
         ...
     @overload
@@ -653,6 +662,7 @@ class DefaultVpc(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] cidr_block: The primary IPv4 CIDR block for the VPC
         :param pulumi.Input[_builtins.bool] force_destroy: Whether destroying the resource deletes the default VPC. Default: `false`
         :param pulumi.Input[_builtins.str] instance_tenancy: The allowed tenancy of instances launched into the VPC
+        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -795,6 +805,9 @@ class DefaultVpc(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
+        """
         return pulumi.get(self, "region")
 
     @_builtins.property

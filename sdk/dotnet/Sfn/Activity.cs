@@ -60,7 +60,7 @@ namespace Pulumi.Aws.Sfn
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import activities using the `arn`. For example:
+    /// Using `pulumi import`, import activities using the `Arn`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:sfn/activity:Activity example arn:aws:states:eu-west-1:123456789098:activity:bar

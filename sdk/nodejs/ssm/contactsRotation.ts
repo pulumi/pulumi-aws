@@ -8,6 +8,10 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
+ * Provides a Terraform resource for managing a Contacts Rotation in AWS Systems Manager Incident Manager.
+ *
+ * > **NOTE:** A rotation implicitly depends on a replication set. If you configured your replication set in Terraform, we recommend you add it to the `dependsOn` argument for the Terraform Contact Resource.
+ *
  * ## Example Usage
  *
  * ### Basic Usage
@@ -131,7 +135,9 @@ import * as utilities from "../utilities";
  *
  * Using `pulumi import`, import CodeGuru Profiler Profiling Group using the `arn`. For example:
  *
- * % pulumi import aws_ssmcontacts_rotation.example arn:aws:ssm-contacts:us-east-1:012345678910:rotation/example
+ * ```sh
+ * $ pulumi import aws:ssm/contactsRotation:ContactsRotation example arn:aws:ssm-contacts:us-east-1:012345678910:rotation/example
+ * ```
  */
 export class ContactsRotation extends pulumi.CustomResource {
     /**

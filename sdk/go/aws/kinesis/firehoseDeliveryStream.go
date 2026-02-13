@@ -351,8 +351,6 @@ import (
 //
 // import (
 //
-//	"fmt"
-//
 //	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/elasticsearch"
 //	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/kinesis"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
@@ -532,8 +530,6 @@ import (
 // package main
 //
 // import (
-//
-//	"fmt"
 //
 //	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/kinesis"
 //	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/opensearch"
@@ -715,8 +711,6 @@ import (
 // package main
 //
 // import (
-//
-//	"fmt"
 //
 //	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/kinesis"
 //	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/opensearch"
@@ -1035,7 +1029,8 @@ import (
 // ```sh
 // $ pulumi import aws:kinesis/firehoseDeliveryStream:FirehoseDeliveryStream foo arn:aws:firehose:us-east-1:XXX:deliverystream/example
 // ```
-// Note: Import does not work for stream destination `s3`. Consider using `extended_s3` since `s3` destination is deprecated.
+//
+// Note: Import does not work for stream destination `s3`. Consider using `extendedS3` since `s3` destination is deprecated.
 type FirehoseDeliveryStream struct {
 	pulumi.CustomResourceState
 

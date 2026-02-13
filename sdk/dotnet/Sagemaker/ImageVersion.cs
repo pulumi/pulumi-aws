@@ -59,7 +59,7 @@ namespace Pulumi.Aws.Sagemaker
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import SageMaker AI Image Versions using a comma-delimited string concatenating `image_name` and `version`. For example:
+    /// Using `pulumi import`, import SageMaker AI Image Versions using a comma-delimited string concatenating `ImageName` and `Version`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:sagemaker/imageVersion:ImageVersion example example-name,1

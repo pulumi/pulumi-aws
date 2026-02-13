@@ -61,7 +61,7 @@ namespace Pulumi.Aws.Notifications
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import User Notifications Event Rule using the `arn`. For example:
+    /// Using `pulumi import`, import User Notifications Event Rule using the `Arn`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:notifications/eventRule:EventRule example arn:aws:notifications::123456789012:configuration/abc123def456ghi789jkl012mno345/rule/abc123def456ghi789jkl012mno345

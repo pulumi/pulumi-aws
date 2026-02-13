@@ -31,20 +31,15 @@ __all__ = [
     'ScopeTimeoutsArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class MonitorLocalResourceArgsDict(TypedDict):
-        identifier: pulumi.Input[_builtins.str]
-        """
-        The identifier of the resource. For VPC resources, this is the VPC ARN.
-        """
-        type: pulumi.Input[_builtins.str]
-        """
-        The type of the resource. Valid values are `AWS::EC2::VPC`, `AWS::EC2::Subnet`, `AWS::EC2::AvailabilityZone`, `AWS::EC2::Region`, and `AWS::EKS::Cluster`.
-        """
-elif False:
-    MonitorLocalResourceArgsDict: TypeAlias = Mapping[str, Any]
+class MonitorLocalResourceArgsDict(TypedDict):
+    identifier: pulumi.Input[_builtins.str]
+    """
+    The identifier of the resource. For VPC resources, this is the VPC ARN.
+    """
+    type: pulumi.Input[_builtins.str]
+    """
+    The type of the resource. Valid values are `AWS::EC2::VPC`, `AWS::EC2::Subnet`, `AWS::EC2::AvailabilityZone`, `AWS::EC2::Region`, and `AWS::EKS::Cluster`.
+    """
 
 @pulumi.input_type
 class MonitorLocalResourceArgs:
@@ -83,18 +78,15 @@ class MonitorLocalResourceArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class MonitorRemoteResourceArgsDict(TypedDict):
-        identifier: pulumi.Input[_builtins.str]
-        """
-        The identifier of the resource. For VPC resources, this is the VPC ARN.
-        """
-        type: pulumi.Input[_builtins.str]
-        """
-        The type of the resource. Valid values are `AWS::EC2::VPC`, `AWS::EC2::Subnet`, `AWS::EC2::AvailabilityZone`, `AWS::EC2::Region`, and `AWS::EKS::Cluster`.
-        """
-elif False:
-    MonitorRemoteResourceArgsDict: TypeAlias = Mapping[str, Any]
+class MonitorRemoteResourceArgsDict(TypedDict):
+    identifier: pulumi.Input[_builtins.str]
+    """
+    The identifier of the resource. For VPC resources, this is the VPC ARN.
+    """
+    type: pulumi.Input[_builtins.str]
+    """
+    The type of the resource. Valid values are `AWS::EC2::VPC`, `AWS::EC2::Subnet`, `AWS::EC2::AvailabilityZone`, `AWS::EC2::Region`, and `AWS::EKS::Cluster`.
+    """
 
 @pulumi.input_type
 class MonitorRemoteResourceArgs:
@@ -133,22 +125,19 @@ class MonitorRemoteResourceArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class MonitorTimeoutsArgsDict(TypedDict):
-        create: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
-        """
-        delete: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
-        """
-        update: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
-        """
-elif False:
-    MonitorTimeoutsArgsDict: TypeAlias = Mapping[str, Any]
+class MonitorTimeoutsArgsDict(TypedDict):
+    create: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+    """
+    delete: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+    """
+    update: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+    """
 
 @pulumi.input_type
 class MonitorTimeoutsArgs:
@@ -205,18 +194,15 @@ class MonitorTimeoutsArgs:
         pulumi.set(self, "update", value)
 
 
-if not MYPY:
-    class ScopeTargetArgsDict(TypedDict):
-        region: pulumi.Input[_builtins.str]
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
-        target_identifier: pulumi.Input['ScopeTargetTargetIdentifierArgsDict']
-        """
-        A target identifier is a pair of identifying information for a scope.
-        """
-elif False:
-    ScopeTargetArgsDict: TypeAlias = Mapping[str, Any]
+class ScopeTargetArgsDict(TypedDict):
+    region: pulumi.Input[_builtins.str]
+    """
+    Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    """
+    target_identifier: pulumi.Input['ScopeTargetTargetIdentifierArgsDict']
+    """
+    A target identifier is a pair of identifying information for a scope.
+    """
 
 @pulumi.input_type
 class ScopeTargetArgs:
@@ -255,18 +241,15 @@ class ScopeTargetArgs:
         pulumi.set(self, "target_identifier", value)
 
 
-if not MYPY:
-    class ScopeTargetTargetIdentifierArgsDict(TypedDict):
-        target_id: pulumi.Input['ScopeTargetTargetIdentifierTargetIdArgsDict']
-        """
-        The identifier for a target, which is currently always an account ID.
-        """
-        target_type: pulumi.Input[_builtins.str]
-        """
-        The type of a target. A target type is currently always `ACCOUNT`.
-        """
-elif False:
-    ScopeTargetTargetIdentifierArgsDict: TypeAlias = Mapping[str, Any]
+class ScopeTargetTargetIdentifierArgsDict(TypedDict):
+    target_id: pulumi.Input['ScopeTargetTargetIdentifierTargetIdArgsDict']
+    """
+    The identifier for a target, which is currently always an account ID.
+    """
+    target_type: pulumi.Input[_builtins.str]
+    """
+    The type of a target. A target type is currently always `ACCOUNT`.
+    """
 
 @pulumi.input_type
 class ScopeTargetTargetIdentifierArgs:
@@ -305,14 +288,11 @@ class ScopeTargetTargetIdentifierArgs:
         pulumi.set(self, "target_type", value)
 
 
-if not MYPY:
-    class ScopeTargetTargetIdentifierTargetIdArgsDict(TypedDict):
-        account_id: pulumi.Input[_builtins.str]
-        """
-        AWS account ID.
-        """
-elif False:
-    ScopeTargetTargetIdentifierTargetIdArgsDict: TypeAlias = Mapping[str, Any]
+class ScopeTargetTargetIdentifierTargetIdArgsDict(TypedDict):
+    account_id: pulumi.Input[_builtins.str]
+    """
+    AWS account ID.
+    """
 
 @pulumi.input_type
 class ScopeTargetTargetIdentifierTargetIdArgs:
@@ -336,22 +316,19 @@ class ScopeTargetTargetIdentifierTargetIdArgs:
         pulumi.set(self, "account_id", value)
 
 
-if not MYPY:
-    class ScopeTimeoutsArgsDict(TypedDict):
-        create: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
-        """
-        delete: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
-        """
-        update: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
-        """
-elif False:
-    ScopeTimeoutsArgsDict: TypeAlias = Mapping[str, Any]
+class ScopeTimeoutsArgsDict(TypedDict):
+    create: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+    """
+    delete: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+    """
+    update: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+    """
 
 @pulumi.input_type
 class ScopeTimeoutsArgs:

@@ -22,8 +22,6 @@ import (
 //
 // import (
 //
-//	"fmt"
-//
 //	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/kinesis"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
@@ -72,9 +70,11 @@ import (
 //
 // - `arn` (String) Amazon Resource Name (ARN) of the Kinesis stream.
 //
-// Using `pulumi import`, import Kinesis resource policies using the `resource_arn`. For example:
+// Using `pulumi import`, import Kinesis resource policies using the `resourceArn`. For example:
 //
-// % pulumi import aws_kinesis_resource_policy.example arn:aws:kinesis:us-west-2:123456789012:stream/example
+// ```sh
+// $ pulumi import aws:kinesis/resourcePolicy:ResourcePolicy example arn:aws:kinesis:us-west-2:123456789012:stream/example
+// ```
 type ResourcePolicy struct {
 	pulumi.CustomResourceState
 

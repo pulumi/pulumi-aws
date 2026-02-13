@@ -334,9 +334,11 @@ class AssessmentTemplate(pulumi.CustomResource):
 
         - `arn` (String) Amazon Resource Name (ARN) of the Inspector assessment template.
 
-        Using `pulumi import`, import `aws_inspector_assessment_template` using the template assessment ARN. For example:
+        Using `pulumi import`, import `inspector.AssessmentTemplate` using the template assessment ARN. For example:
 
-        % pulumi import aws_inspector_assessment_template.example arn:aws:inspector:us-west-2:123456789012:target/0-9IaAzhGR/template/0-WEcjR8CH
+        ```sh
+        $ pulumi import aws:inspector/assessmentTemplate:AssessmentTemplate example arn:aws:inspector:us-west-2:123456789012:target/0-9IaAzhGR/template/0-WEcjR8CH
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -387,9 +389,11 @@ class AssessmentTemplate(pulumi.CustomResource):
 
         - `arn` (String) Amazon Resource Name (ARN) of the Inspector assessment template.
 
-        Using `pulumi import`, import `aws_inspector_assessment_template` using the template assessment ARN. For example:
+        Using `pulumi import`, import `inspector.AssessmentTemplate` using the template assessment ARN. For example:
 
-        % pulumi import aws_inspector_assessment_template.example arn:aws:inspector:us-west-2:123456789012:target/0-9IaAzhGR/template/0-WEcjR8CH
+        ```sh
+        $ pulumi import aws:inspector/assessmentTemplate:AssessmentTemplate example arn:aws:inspector:us-west-2:123456789012:target/0-9IaAzhGR/template/0-WEcjR8CH
+        ```
 
         :param str resource_name: The name of the resource.
         :param AssessmentTemplateArgs args: The arguments to use to populate this resource's properties.

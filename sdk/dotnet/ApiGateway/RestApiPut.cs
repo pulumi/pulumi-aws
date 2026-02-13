@@ -10,6 +10,10 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.ApiGateway
 {
     /// <summary>
+    /// Resource for updating an AWS API Gateway REST API with a new API description.
+    /// 
+    /// &gt; **NOTE:** When importing an OpenAPI specification using the `Body` argument, the `info.title` field updates the `Name` of the `aws.apigateway.RestApi`. If the imported `Title` differs from the configured `Name`, Terraform will report the difference.
+    /// 
     /// ## Example Usage
     /// 
     /// ### Basic Usage
@@ -76,7 +80,7 @@ namespace Pulumi.Aws.ApiGateway
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import API Gateway REST API Put using the `rest_api_id`. For example:
+    /// Using `pulumi import`, import API Gateway REST API Put using the `RestApiId`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:apigateway/restApiPut:RestApiPut example import-id-12345678

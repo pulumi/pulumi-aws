@@ -1983,12 +1983,13 @@ class Function(pulumi.CustomResource):
         #### Optional
 
         * `account_id` (String) AWS Account where this resource is managed.
-
         * `region` (String) Region where this resource is managed.
 
         Using `pulumi import`, import Lambda Functions using the `function_name`. For example:
 
-        % pulumi import aws_lambda_function.example example
+        ```sh
+        $ pulumi import aws:lambda/function:Function example example
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -2479,12 +2480,13 @@ class Function(pulumi.CustomResource):
         #### Optional
 
         * `account_id` (String) AWS Account where this resource is managed.
-
         * `region` (String) Region where this resource is managed.
 
         Using `pulumi import`, import Lambda Functions using the `function_name`. For example:
 
-        % pulumi import aws_lambda_function.example example
+        ```sh
+        $ pulumi import aws:lambda/function:Function example example
+        ```
 
         :param str resource_name: The name of the resource.
         :param FunctionArgs args: The arguments to use to populate this resource's properties.

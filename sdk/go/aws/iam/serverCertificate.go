@@ -110,6 +110,10 @@ import (
 // ```sh
 // $ pulumi import aws:iam/serverCertificate:ServerCertificate certificate example.com-certificate-until-2018
 // ```
+//
+// [2]: https://docs.aws.amazon.com/IAM/latest/UserGuide/ManagingServerCerts.html
+//
+// [1]: https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html
 type ServerCertificate struct {
 	pulumi.CustomResourceState
 

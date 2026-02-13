@@ -54,7 +54,7 @@ namespace Pulumi.Aws.RedShift
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import Redshift Data Share Consumer Association using the `id`. For example:
+    /// Using `pulumi import`, import Redshift Data Share Consumer Association using the `Id`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:redshift/dataShareConsumerAssociation:DataShareConsumerAssociation example arn:aws:redshift:us-west-2:123456789012:datashare:b3bfde75-73fd-408b-9086-d6fccfd6d588/example,,,us-west-2

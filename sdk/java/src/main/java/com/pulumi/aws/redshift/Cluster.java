@@ -20,6 +20,12 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
+ * Provides a Redshift Cluster Resource.
+ * 
+ * &gt; **NOTE:** A Redshift cluster&#39;s default IAM role can be managed both by this resource&#39;s `defaultIamRoleArn` argument and the `aws.redshift.ClusterIamRoles` resource&#39;s `defaultIamRoleArn` argument. Do not configure different values for both arguments. Doing so will cause a conflict of default IAM roles.
+ * 
+ * &gt; **Note:** Write-Only argument `masterPasswordWo` is available to use in place of `masterPassword`. Write-Only arguments are supported in HashiCorp Terraform 1.11.0 and later. Learn more.
+ * 
  * ## Example Usage
  * 
  * ### Basic Usage
@@ -100,7 +106,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Using `pulumi import`, import Redshift Clusters using the `cluster_identifier`. For example:
+ * Using `pulumi import`, import Redshift Clusters using the `clusterIdentifier`. For example:
  * 
  * ```sh
  * $ pulumi import aws:redshift/cluster:Cluster myprodcluster tf-redshift-cluster-12345

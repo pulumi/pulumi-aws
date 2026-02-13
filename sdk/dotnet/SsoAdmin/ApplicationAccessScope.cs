@@ -48,7 +48,7 @@ namespace Pulumi.Aws.SsoAdmin
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import SSO Admin Application Access Scope using the `id`. For example:
+    /// Using `pulumi import`, import SSO Admin Application Access Scope using the `Id`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:ssoadmin/applicationAccessScope:ApplicationAccessScope example arn:aws:sso::123456789012:application/ssoins-123456789012/apl-123456789012,sso:account:access

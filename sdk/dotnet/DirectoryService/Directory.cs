@@ -175,7 +175,7 @@ namespace Pulumi.Aws.DirectoryService
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import DirectoryService directories using the directory `id`. For example:
+    /// Using `pulumi import`, import DirectoryService directories using the directory `Id`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:directoryservice/directory:Directory sample d-926724cf57

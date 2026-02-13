@@ -12,6 +12,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// This is a Terraform resource for managing an AWS Verified Permissions Policy Store Schema.
+//
 // ## Example Usage
 //
 // ### Basic Usage
@@ -57,9 +59,13 @@ import (
 //
 // ## Import
 //
-// Using `pulumi import`, import Verified Permissions Policy Store Schema using the `policy_store_id`. For example:
+// Using `pulumi import`, import Verified Permissions Policy Store Schema using the `policyStoreId`. For example:
 //
-//	% pulumi import aws_verifiedpermissions_schema.example DxQg2j8xvXJQ1tQCYNWj9T
+// ```sh
+//
+//	$ pulumi import aws:verifiedpermissions/schema:Schema example DxQg2j8xvXJQ1tQCYNWj9T
+//
+// ```
 type Schema struct {
 	pulumi.CustomResourceState
 

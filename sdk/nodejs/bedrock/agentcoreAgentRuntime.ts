@@ -137,7 +137,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Using `pulumi import`, import Bedrock AgentCore Agent Runtime using `agent_runtime_id`. For example:
+ * Using `pulumi import`, import Bedrock AgentCore Agent Runtime using `agentRuntimeId`. For example:
  *
  * ```sh
  * $ pulumi import aws:bedrock/agentcoreAgentRuntime:AgentcoreAgentRuntime example agent-runtime-12345

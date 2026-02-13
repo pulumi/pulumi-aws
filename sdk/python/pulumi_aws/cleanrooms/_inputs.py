@@ -33,28 +33,23 @@ __all__ = [
     'MembershipPaymentConfigurationQueryComputeArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class CollaborationDataEncryptionMetadataArgsDict(TypedDict):
-        allow_clear_text: pulumi.Input[_builtins.bool]
-        """
-        Whether encrypted tables can contain cleartext data. This is a boolean field.
-        """
-        allow_duplicates: pulumi.Input[_builtins.bool]
-        """
-        Whether Fingerprint columns can contain duplicate entries. This is a boolean field.
-        """
-        allow_joins_on_columns_with_different_names: pulumi.Input[_builtins.bool]
-        """
-        Whether Fingerprint columns can be joined on any other Fingerprint column with a different name. This is a boolean field.
-        """
-        preserve_nulls: pulumi.Input[_builtins.bool]
-        """
-        Whether NULL values are to be copied as NULL to encrypted tables (true) or cryptographically processed (false).
-        """
-elif False:
-    CollaborationDataEncryptionMetadataArgsDict: TypeAlias = Mapping[str, Any]
+class CollaborationDataEncryptionMetadataArgsDict(TypedDict):
+    allow_clear_text: pulumi.Input[_builtins.bool]
+    """
+    Whether encrypted tables can contain cleartext data. This is a boolean field.
+    """
+    allow_duplicates: pulumi.Input[_builtins.bool]
+    """
+    Whether Fingerprint columns can contain duplicate entries. This is a boolean field.
+    """
+    allow_joins_on_columns_with_different_names: pulumi.Input[_builtins.bool]
+    """
+    Whether Fingerprint columns can be joined on any other Fingerprint column with a different name. This is a boolean field.
+    """
+    preserve_nulls: pulumi.Input[_builtins.bool]
+    """
+    Whether NULL values are to be copied as NULL to encrypted tables (true) or cryptographically processed (false).
+    """
 
 @pulumi.input_type
 class CollaborationDataEncryptionMetadataArgs:
@@ -123,26 +118,23 @@ class CollaborationDataEncryptionMetadataArgs:
         pulumi.set(self, "preserve_nulls", value)
 
 
-if not MYPY:
-    class CollaborationMemberArgsDict(TypedDict):
-        account_id: pulumi.Input[_builtins.str]
-        """
-        Account ID for the invited member.
-        """
-        display_name: pulumi.Input[_builtins.str]
-        """
-        Display name for the invited member.
-        """
-        member_abilities: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        List of abilities for the invited member. Valid values [may be found here](https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_CreateCollaboration.html#API-CreateCollaboration-request-creatorMemberAbilities).
-        """
-        status: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        For each member included in the collaboration an additional computed attribute of status is added. These values [may be found here](https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_MemberSummary.html#API-Type-MemberSummary-status).
-        """
-elif False:
-    CollaborationMemberArgsDict: TypeAlias = Mapping[str, Any]
+class CollaborationMemberArgsDict(TypedDict):
+    account_id: pulumi.Input[_builtins.str]
+    """
+    Account ID for the invited member.
+    """
+    display_name: pulumi.Input[_builtins.str]
+    """
+    Display name for the invited member.
+    """
+    member_abilities: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    List of abilities for the invited member. Valid values [may be found here](https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_CreateCollaboration.html#API-CreateCollaboration-request-creatorMemberAbilities).
+    """
+    status: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    For each member included in the collaboration an additional computed attribute of status is added. These values [may be found here](https://docs.aws.amazon.com/clean-rooms/latest/apireference/API_MemberSummary.html#API-Type-MemberSummary-status).
+    """
 
 @pulumi.input_type
 class CollaborationMemberArgs:
@@ -212,12 +204,9 @@ class CollaborationMemberArgs:
         pulumi.set(self, "status", value)
 
 
-if not MYPY:
-    class ConfiguredTableTableReferenceArgsDict(TypedDict):
-        database_name: pulumi.Input[_builtins.str]
-        table_name: pulumi.Input[_builtins.str]
-elif False:
-    ConfiguredTableTableReferenceArgsDict: TypeAlias = Mapping[str, Any]
+class ConfiguredTableTableReferenceArgsDict(TypedDict):
+    database_name: pulumi.Input[_builtins.str]
+    table_name: pulumi.Input[_builtins.str]
 
 @pulumi.input_type
 class ConfiguredTableTableReferenceArgs:
@@ -246,18 +235,15 @@ class ConfiguredTableTableReferenceArgs:
         pulumi.set(self, "table_name", value)
 
 
-if not MYPY:
-    class MembershipDefaultResultConfigurationArgsDict(TypedDict):
-        output_configuration: pulumi.Input['MembershipDefaultResultConfigurationOutputConfigurationArgsDict']
-        role_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ARN of the IAM role which will be used to create the membership.
-        - `output_configuration.s3.bucket` - (Required) - The name of the S3 bucket where the query results will be stored.
-        - `output_configuration.s3.result_format` - (Required) - The format of the query results. Valid values are `PARQUET` and `CSV`.
-        - `output_configuration.s3.key_prefix` - (Optional) - The prefix used for the query results.
-        """
-elif False:
-    MembershipDefaultResultConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class MembershipDefaultResultConfigurationArgsDict(TypedDict):
+    output_configuration: pulumi.Input['MembershipDefaultResultConfigurationOutputConfigurationArgsDict']
+    role_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ARN of the IAM role which will be used to create the membership.
+    - `output_configuration.s3.bucket` - (Required) - The name of the S3 bucket where the query results will be stored.
+    - `output_configuration.s3.result_format` - (Required) - The format of the query results. Valid values are `PARQUET` and `CSV`.
+    - `output_configuration.s3.key_prefix` - (Optional) - The prefix used for the query results.
+    """
 
 @pulumi.input_type
 class MembershipDefaultResultConfigurationArgs:
@@ -299,11 +285,8 @@ class MembershipDefaultResultConfigurationArgs:
         pulumi.set(self, "role_arn", value)
 
 
-if not MYPY:
-    class MembershipDefaultResultConfigurationOutputConfigurationArgsDict(TypedDict):
-        s3: pulumi.Input['MembershipDefaultResultConfigurationOutputConfigurationS3ArgsDict']
-elif False:
-    MembershipDefaultResultConfigurationOutputConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class MembershipDefaultResultConfigurationOutputConfigurationArgsDict(TypedDict):
+    s3: pulumi.Input['MembershipDefaultResultConfigurationOutputConfigurationS3ArgsDict']
 
 @pulumi.input_type
 class MembershipDefaultResultConfigurationOutputConfigurationArgs:
@@ -321,13 +304,10 @@ class MembershipDefaultResultConfigurationOutputConfigurationArgs:
         pulumi.set(self, "s3", value)
 
 
-if not MYPY:
-    class MembershipDefaultResultConfigurationOutputConfigurationS3ArgsDict(TypedDict):
-        bucket: pulumi.Input[_builtins.str]
-        result_format: pulumi.Input[_builtins.str]
-        key_prefix: NotRequired[pulumi.Input[_builtins.str]]
-elif False:
-    MembershipDefaultResultConfigurationOutputConfigurationS3ArgsDict: TypeAlias = Mapping[str, Any]
+class MembershipDefaultResultConfigurationOutputConfigurationS3ArgsDict(TypedDict):
+    bucket: pulumi.Input[_builtins.str]
+    result_format: pulumi.Input[_builtins.str]
+    key_prefix: NotRequired[pulumi.Input[_builtins.str]]
 
 @pulumi.input_type
 class MembershipDefaultResultConfigurationOutputConfigurationS3Args:
@@ -368,11 +348,8 @@ class MembershipDefaultResultConfigurationOutputConfigurationS3Args:
         pulumi.set(self, "key_prefix", value)
 
 
-if not MYPY:
-    class MembershipPaymentConfigurationArgsDict(TypedDict):
-        query_compute: pulumi.Input['MembershipPaymentConfigurationQueryComputeArgsDict']
-elif False:
-    MembershipPaymentConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class MembershipPaymentConfigurationArgsDict(TypedDict):
+    query_compute: pulumi.Input['MembershipPaymentConfigurationQueryComputeArgsDict']
 
 @pulumi.input_type
 class MembershipPaymentConfigurationArgs:
@@ -390,14 +367,11 @@ class MembershipPaymentConfigurationArgs:
         pulumi.set(self, "query_compute", value)
 
 
-if not MYPY:
-    class MembershipPaymentConfigurationQueryComputeArgsDict(TypedDict):
-        is_responsible: pulumi.Input[_builtins.bool]
-        """
-        Indicates whether the collaboration member has accepted to pay for query compute costs.
-        """
-elif False:
-    MembershipPaymentConfigurationQueryComputeArgsDict: TypeAlias = Mapping[str, Any]
+class MembershipPaymentConfigurationQueryComputeArgsDict(TypedDict):
+    is_responsible: pulumi.Input[_builtins.bool]
+    """
+    Indicates whether the collaboration member has accepted to pay for query compute costs.
+    """
 
 @pulumi.input_type
 class MembershipPaymentConfigurationQueryComputeArgs:

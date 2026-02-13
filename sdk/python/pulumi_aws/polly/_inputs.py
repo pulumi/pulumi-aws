@@ -19,40 +19,35 @@ __all__ = [
     'GetVoicesVoiceArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class GetVoicesVoiceArgsDict(TypedDict):
-        additional_language_codes: Sequence[_builtins.str]
-        """
-        Additional codes for languages available for the specified voice in addition to its default language.
-        """
-        gender: _builtins.str
-        """
-        Gender of the voice.
-        """
-        id: _builtins.str
-        """
-        Amazon Polly assigned voice ID.
-        """
-        language_code: _builtins.str
-        """
-        Language identification tag for filtering the list of voices returned. If not specified, all available voices are returned.
-        """
-        language_name: _builtins.str
-        """
-        Human readable name of the language in English.
-        """
-        name: _builtins.str
-        """
-        Name of the voice.
-        """
-        supported_engines: Sequence[_builtins.str]
-        """
-        Specifies which engines are supported by a given voice.
-        """
-elif False:
-    GetVoicesVoiceArgsDict: TypeAlias = Mapping[str, Any]
+class GetVoicesVoiceArgsDict(TypedDict):
+    additional_language_codes: Sequence[_builtins.str]
+    """
+    Additional codes for languages available for the specified voice in addition to its default language.
+    """
+    gender: _builtins.str
+    """
+    Gender of the voice.
+    """
+    id: _builtins.str
+    """
+    Amazon Polly assigned voice ID.
+    """
+    language_code: _builtins.str
+    """
+    Language identification tag for filtering the list of voices returned. If not specified, all available voices are returned.
+    """
+    language_name: _builtins.str
+    """
+    Human readable name of the language in English.
+    """
+    name: _builtins.str
+    """
+    Name of the voice.
+    """
+    supported_engines: Sequence[_builtins.str]
+    """
+    Specifies which engines are supported by a given voice.
+    """
 
 @pulumi.input_type
 class GetVoicesVoiceArgs:

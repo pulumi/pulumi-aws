@@ -57,7 +57,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Using `pulumi import`, import `aws_macie2_organization_admin_account` using the id. For example:
+ * Using `pulumi import`, import `aws.macie2.OrganizationAdminAccount` using the id. For example:
  * 
  * ```sh
  * $ pulumi import aws:macie2/organizationAdminAccount:OrganizationAdminAccount example abcd1

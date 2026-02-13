@@ -62,9 +62,11 @@ import (
 //
 // - `arn` (String) Amazon Resource Name (ARN) of the Inspector assessment template.
 //
-// Using `pulumi import`, import `aws_inspector_assessment_template` using the template assessment ARN. For example:
+// Using `pulumi import`, import `inspector.AssessmentTemplate` using the template assessment ARN. For example:
 //
-// % pulumi import aws_inspector_assessment_template.example arn:aws:inspector:us-west-2:123456789012:target/0-9IaAzhGR/template/0-WEcjR8CH
+// ```sh
+// $ pulumi import aws:inspector/assessmentTemplate:AssessmentTemplate example arn:aws:inspector:us-west-2:123456789012:target/0-9IaAzhGR/template/0-WEcjR8CH
+// ```
 type AssessmentTemplate struct {
 	pulumi.CustomResourceState
 

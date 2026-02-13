@@ -584,12 +584,12 @@ class ComputeEnvironment(pulumi.CustomResource):
 
         Using `pulumi import`, import AWS Batch compute using the `name`. For example:
 
-        % pulumi import aws_batch_compute_environment.sample sample
+        ```sh
+        $ pulumi import aws:batch/computeEnvironment:ComputeEnvironment sample sample
+        ```
 
         [1]: http://docs.aws.amazon.com/batch/latest/userguide/what-is-batch.html
-
         [2]: http://docs.aws.amazon.com/batch/latest/userguide/compute_environments.html
-
         [3]: http://docs.aws.amazon.com/batch/latest/userguide/troubleshooting.html
 
         :param str resource_name: The name of the resource.
@@ -745,12 +745,12 @@ class ComputeEnvironment(pulumi.CustomResource):
 
         Using `pulumi import`, import AWS Batch compute using the `name`. For example:
 
-        % pulumi import aws_batch_compute_environment.sample sample
+        ```sh
+        $ pulumi import aws:batch/computeEnvironment:ComputeEnvironment sample sample
+        ```
 
         [1]: http://docs.aws.amazon.com/batch/latest/userguide/what-is-batch.html
-
         [2]: http://docs.aws.amazon.com/batch/latest/userguide/compute_environments.html
-
         [3]: http://docs.aws.amazon.com/batch/latest/userguide/troubleshooting.html
 
         :param str resource_name: The name of the resource.

@@ -191,17 +191,18 @@ namespace Pulumi.Aws.AppFlow
     /// 
     /// #### Required
     /// 
-    /// * `name` (String) Name of the AppFlow flow.
+    /// * `Name` (String) Name of the AppFlow flow.
     /// 
     /// #### Optional
     /// 
-    /// * `account_id` (String) AWS Account where this resource is managed.
+    /// * `AccountId` (String) AWS Account where this resource is managed.
+    /// * `Region` (String) Region where this resource is managed.
     /// 
-    /// * `region` (String) Region where this resource is managed.
+    /// Using `pulumi import`, import AppFlow flows using the `Name`. For example:
     /// 
-    /// Using `pulumi import`, import AppFlow flows using the `name`. For example:
-    /// 
-    /// % pulumi import aws_appflow_flow.example example-flow
+    /// ```sh
+    /// $ pulumi import aws:appflow/flow:Flow example example-flow
+    /// ```
     /// </summary>
     [AwsResourceType("aws:appflow/flow:Flow")]
     public partial class Flow : global::Pulumi.CustomResource

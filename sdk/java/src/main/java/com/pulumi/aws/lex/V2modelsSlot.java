@@ -21,6 +21,154 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
+ * Resource for managing an AWS Lex V2 Models Slot.
+ * 
+ * ## Example Usage
+ * 
+ * ### Basic Usage
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.lex.V2modelsSlot;
+ * import com.pulumi.aws.lex.V2modelsSlotArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new V2modelsSlot("example", V2modelsSlotArgs.builder()
+ *             .botId(exampleAwsLexv2modelsBot.id())
+ *             .botVersion(exampleAwsLexv2modelsBotVersion.botVersion())
+ *             .intentId(exampleAwsLexv2modelsIntent.id())
+ *             .localeId(exampleAwsLexv2modelsBotLocale.localeId())
+ *             .name("example")
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
+ * ### `valueElicitationSetting` Example
+ * 
+ * &gt; When using `valueElicitationSetting`, if you do not provide a `promptAttemptsSpecification`, AWS Lex will configure default `promptAttemptsSpecification`s.
+ * As a result, Terraform will report a difference in the configuration.
+ * To avoid this behavior, include `promptAttemptsSpecification` blocks matching the default configuration, as shown below.
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.lex.V2modelsSlot;
+ * import com.pulumi.aws.lex.V2modelsSlotArgs;
+ * import com.pulumi.aws.lex.inputs.V2modelsSlotValueElicitationSettingArgs;
+ * import com.pulumi.aws.lex.inputs.V2modelsSlotValueElicitationSettingPromptSpecificationArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new V2modelsSlot("example", V2modelsSlotArgs.builder()
+ *             .botId(test.id())
+ *             .botVersion(testAwsLexv2modelsBotLocale.botVersion())
+ *             .intentId(testAwsLexv2modelsIntent.intentId())
+ *             .localeId(testAwsLexv2modelsBotLocale.localeId())
+ *             .name("example")
+ *             .valueElicitationSetting(V2modelsSlotValueElicitationSettingArgs.builder()
+ *                 .slotConstraint("Required")
+ *                 .promptSpecification(V2modelsSlotValueElicitationSettingPromptSpecificationArgs.builder()
+ *                     .allowInterrupt(true)
+ *                     .maxRetries(1)
+ *                     .messageSelectionStrategy("Random")
+ *                     .messageGroups(V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupArgs.builder()
+ *                         .message(V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessageArgs.builder()
+ *                             .plainTextMessage(V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessagePlainTextMessageArgs.builder()
+ *                                 .value("What is your favorite color?")
+ *                                 .build())
+ *                             .build())
+ *                         .build())
+ *                     .promptAttemptsSpecifications(                    
+ *                         V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationArgs.builder()
+ *                             .allowInterrupt(true)
+ *                             .mapBlockKey("Initial")
+ *                             .allowedInputTypes(V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAllowedInputTypesArgs.builder()
+ *                                 .allowAudioInput(true)
+ *                                 .allowDtmfInput(true)
+ *                                 .build())
+ *                             .audioAndDtmfInputSpecification(V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationArgs.builder()
+ *                                 .startTimeoutMs(4000)
+ *                                 .audioSpecification(V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationAudioSpecificationArgs.builder()
+ *                                     .endTimeoutMs(640)
+ *                                     .maxLengthMs(15000)
+ *                                     .build())
+ *                                 .dtmfSpecification(V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationDtmfSpecificationArgs.builder()
+ *                                     .deletionCharacter("*")
+ *                                     .endCharacter("#")
+ *                                     .endTimeoutMs(5000)
+ *                                     .maxLength(513)
+ *                                     .build())
+ *                                 .build())
+ *                             .textInputSpecification(V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationTextInputSpecificationArgs.builder()
+ *                                 .startTimeoutMs(30000)
+ *                                 .build())
+ *                             .build(),
+ *                         V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationArgs.builder()
+ *                             .allowInterrupt(true)
+ *                             .mapBlockKey("Retry1")
+ *                             .allowedInputTypes(V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAllowedInputTypesArgs.builder()
+ *                                 .allowAudioInput(true)
+ *                                 .allowDtmfInput(true)
+ *                                 .build())
+ *                             .audioAndDtmfInputSpecification(V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationArgs.builder()
+ *                                 .startTimeoutMs(4000)
+ *                                 .audioSpecification(V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationAudioSpecificationArgs.builder()
+ *                                     .endTimeoutMs(640)
+ *                                     .maxLengthMs(15000)
+ *                                     .build())
+ *                                 .dtmfSpecification(V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationDtmfSpecificationArgs.builder()
+ *                                     .deletionCharacter("*")
+ *                                     .endCharacter("#")
+ *                                     .endTimeoutMs(5000)
+ *                                     .maxLength(513)
+ *                                     .build())
+ *                                 .build())
+ *                             .textInputSpecification(V2modelsSlotValueElicitationSettingPromptSpecificationPromptAttemptsSpecificationTextInputSpecificationArgs.builder()
+ *                                 .startTimeoutMs(30000)
+ *                                 .build())
+ *                             .build())
+ *                     .build())
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
  * ## Import
  * 
  * Using `pulumi import`, import Lex V2 Models Slot using the `id`. For example:
@@ -212,9 +360,29 @@ public class V2modelsSlot extends com.pulumi.resources.CustomResource {
     public Output<Optional<V2modelsSlotTimeouts>> timeouts() {
         return Codegen.optional(this.timeouts);
     }
+    /**
+     * Prompts that Amazon Lex sends to the user to elicit a response that provides the value for the slot.
+     * If you configure this block without `prompt_specification.*.prompt_attempts_specification`, AWS will provide default `promptAttemptsSpecification` blocks for the initial prompt (map key `Initial`) and each retry attempt (map keys `Retry1`, `Retry2`, etc.).
+     * This will cause Terraform to report differences.
+     * Use the `valueElicitationSetting` configuration above in the `valueElicitationSetting` example to avoid differences resulting from AWS default configurations.
+     * See the `valueElicitationSetting` argument reference below.
+     * 
+     * The following arguments are optional:
+     * 
+     */
     @Export(name="valueElicitationSetting", refs={V2modelsSlotValueElicitationSetting.class}, tree="[0]")
     private Output<V2modelsSlotValueElicitationSetting> valueElicitationSetting;
 
+    /**
+     * @return Prompts that Amazon Lex sends to the user to elicit a response that provides the value for the slot.
+     * If you configure this block without `prompt_specification.*.prompt_attempts_specification`, AWS will provide default `promptAttemptsSpecification` blocks for the initial prompt (map key `Initial`) and each retry attempt (map keys `Retry1`, `Retry2`, etc.).
+     * This will cause Terraform to report differences.
+     * Use the `valueElicitationSetting` configuration above in the `valueElicitationSetting` example to avoid differences resulting from AWS default configurations.
+     * See the `valueElicitationSetting` argument reference below.
+     * 
+     * The following arguments are optional:
+     * 
+     */
     public Output<V2modelsSlotValueElicitationSetting> valueElicitationSetting() {
         return this.valueElicitationSetting;
     }

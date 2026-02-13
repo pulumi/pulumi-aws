@@ -10,6 +10,12 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.RedShift
 {
     /// <summary>
+    /// Provides a Redshift Cluster Resource.
+    /// 
+    /// &gt; **NOTE:** A Redshift cluster's default IAM role can be managed both by this resource's `DefaultIamRoleArn` argument and the `aws.redshift.ClusterIamRoles` resource's `DefaultIamRoleArn` argument. Do not configure different values for both arguments. Doing so will cause a conflict of default IAM roles.
+    /// 
+    /// &gt; **Note:** Write-Only argument `MasterPasswordWo` is available to use in place of `MasterPassword`. Write-Only arguments are supported in HashiCorp Terraform 1.11.0 and later. Learn more.
+    /// 
     /// ## Example Usage
     /// 
     /// ### Basic Usage
@@ -60,7 +66,7 @@ namespace Pulumi.Aws.RedShift
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import Redshift Clusters using the `cluster_identifier`. For example:
+    /// Using `pulumi import`, import Redshift Clusters using the `ClusterIdentifier`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:redshift/cluster:Cluster myprodcluster tf-redshift-cluster-12345

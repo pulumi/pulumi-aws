@@ -71,7 +71,7 @@ namespace Pulumi.Aws.WorkSpacesWeb
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import WorkSpaces Web Portal using the `portal_arn`. For example:
+    /// Using `pulumi import`, import WorkSpaces Web Portal using the `PortalArn`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:workspacesweb/portal:Portal example arn:aws:workspaces-web:us-west-2:123456789012:portal/abcdef12345678

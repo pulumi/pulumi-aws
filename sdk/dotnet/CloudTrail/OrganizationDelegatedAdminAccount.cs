@@ -36,7 +36,7 @@ namespace Pulumi.Aws.CloudTrail
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import delegated administrators using the delegate account `id`. For example:
+    /// Using `pulumi import`, import delegated administrators using the delegate account `Id`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:cloudtrail/organizationDelegatedAdminAccount:OrganizationDelegatedAdminAccount example 12345678901

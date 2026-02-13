@@ -169,7 +169,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Using `pulumi import`, import Amazon Connect Contact Flow Modules using the `instance_id` and `contact_flow_module_id` separated by a colon (`:`). For example:
+ * Using `pulumi import`, import Amazon Connect Contact Flow Modules using the `instanceId` and `contactFlowModuleId` separated by a colon (`:`). For example:
  * 
  * ```sh
  * $ pulumi import aws:connect/contactFlowModule:ContactFlowModule example f1288a1f-6193-445a-b47e-af739b2:c1d4e5f6-1b3c-1b3c-1b3c-c1d4e5f6c1d4e5

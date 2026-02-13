@@ -52,23 +52,41 @@ export class Network extends pulumi.CustomResource {
      * Amazon Resource Name (ARN) of the odb network resource.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
+    /**
+     * The name of the Availability Zone (AZ) where the odb network is located. Changing this will force terraform to create new resource. Make sure availabilityZone maps correctly with availability_zone_id.
+     */
     declare public readonly availabilityZone: pulumi.Output<string>;
+    /**
+     * The AZ ID of the AZ where the ODB network is located. Changing this will force terraform to create new resource.
+     */
     declare public readonly availabilityZoneId: pulumi.Output<string>;
+    /**
+     * The CIDR range of the backup subnet for the ODB network. Changing this will force terraform to create new resource.
+     */
     declare public readonly backupSubnetCidr: pulumi.Output<string>;
+    /**
+     * The CIDR notation for the network resource. Changing this will force terraform to create new resource.
+     */
     declare public readonly clientSubnetCidr: pulumi.Output<string>;
     /**
      * The date and time when the ODB network was created.
      */
     declare public /*out*/ readonly createdAt: pulumi.Output<string>;
     /**
-     * The name of the custom domain that the network is located. customDomainName and defaultDnsPrefix both can't be given.
+     * The name of the custom domain that the network is located. Custom_domain_name and defaultDnsPrefix both can't be given. Changing this will force terraform to create new resource.
      */
     declare public readonly customDomainName: pulumi.Output<string | undefined>;
+    /**
+     * The default DNS prefix for the network resource. Changing this will force terraform to create new resource. Changing this will force terraform to create new resource.
+     */
     declare public readonly defaultDnsPrefix: pulumi.Output<string | undefined>;
     /**
      * If set to true deletes associated OCI resources. Default false.
      */
     declare public readonly deleteAssociatedResources: pulumi.Output<boolean>;
+    /**
+     * The user-friendly name for the odb network. Changing this will force terraform to create a new resource.
+     */
     declare public readonly displayName: pulumi.Output<string>;
     /**
      * Specifies the configuration for KMS access from the ODB network.
@@ -266,23 +284,41 @@ export interface NetworkState {
      * Amazon Resource Name (ARN) of the odb network resource.
      */
     arn?: pulumi.Input<string>;
+    /**
+     * The name of the Availability Zone (AZ) where the odb network is located. Changing this will force terraform to create new resource. Make sure availabilityZone maps correctly with availability_zone_id.
+     */
     availabilityZone?: pulumi.Input<string>;
+    /**
+     * The AZ ID of the AZ where the ODB network is located. Changing this will force terraform to create new resource.
+     */
     availabilityZoneId?: pulumi.Input<string>;
+    /**
+     * The CIDR range of the backup subnet for the ODB network. Changing this will force terraform to create new resource.
+     */
     backupSubnetCidr?: pulumi.Input<string>;
+    /**
+     * The CIDR notation for the network resource. Changing this will force terraform to create new resource.
+     */
     clientSubnetCidr?: pulumi.Input<string>;
     /**
      * The date and time when the ODB network was created.
      */
     createdAt?: pulumi.Input<string>;
     /**
-     * The name of the custom domain that the network is located. customDomainName and defaultDnsPrefix both can't be given.
+     * The name of the custom domain that the network is located. Custom_domain_name and defaultDnsPrefix both can't be given. Changing this will force terraform to create new resource.
      */
     customDomainName?: pulumi.Input<string>;
+    /**
+     * The default DNS prefix for the network resource. Changing this will force terraform to create new resource. Changing this will force terraform to create new resource.
+     */
     defaultDnsPrefix?: pulumi.Input<string>;
     /**
      * If set to true deletes associated OCI resources. Default false.
      */
     deleteAssociatedResources?: pulumi.Input<boolean>;
+    /**
+     * The user-friendly name for the odb network. Changing this will force terraform to create a new resource.
+     */
     displayName?: pulumi.Input<string>;
     /**
      * Specifies the configuration for KMS access from the ODB network.
@@ -374,19 +410,37 @@ export interface NetworkState {
  * The set of arguments for constructing a Network resource.
  */
 export interface NetworkArgs {
+    /**
+     * The name of the Availability Zone (AZ) where the odb network is located. Changing this will force terraform to create new resource. Make sure availabilityZone maps correctly with availability_zone_id.
+     */
     availabilityZone?: pulumi.Input<string>;
+    /**
+     * The AZ ID of the AZ where the ODB network is located. Changing this will force terraform to create new resource.
+     */
     availabilityZoneId: pulumi.Input<string>;
+    /**
+     * The CIDR range of the backup subnet for the ODB network. Changing this will force terraform to create new resource.
+     */
     backupSubnetCidr: pulumi.Input<string>;
+    /**
+     * The CIDR notation for the network resource. Changing this will force terraform to create new resource.
+     */
     clientSubnetCidr: pulumi.Input<string>;
     /**
-     * The name of the custom domain that the network is located. customDomainName and defaultDnsPrefix both can't be given.
+     * The name of the custom domain that the network is located. Custom_domain_name and defaultDnsPrefix both can't be given. Changing this will force terraform to create new resource.
      */
     customDomainName?: pulumi.Input<string>;
+    /**
+     * The default DNS prefix for the network resource. Changing this will force terraform to create new resource. Changing this will force terraform to create new resource.
+     */
     defaultDnsPrefix?: pulumi.Input<string>;
     /**
      * If set to true deletes associated OCI resources. Default false.
      */
     deleteAssociatedResources?: pulumi.Input<boolean>;
+    /**
+     * The user-friendly name for the odb network. Changing this will force terraform to create a new resource.
+     */
     displayName: pulumi.Input<string>;
     /**
      * Specifies the configuration for KMS access from the ODB network.

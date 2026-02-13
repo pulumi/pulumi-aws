@@ -36,7 +36,7 @@ namespace Pulumi.Aws.Swf
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import SWF Domains using the `name`. For example:
+    /// Using `pulumi import`, import SWF Domains using the `Name`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:swf/domain:Domain foo test-domain

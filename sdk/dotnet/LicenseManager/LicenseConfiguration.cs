@@ -58,7 +58,7 @@ namespace Pulumi.Aws.LicenseManager
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import license configurations using the `id`. For example:
+    /// Using `pulumi import`, import license configurations using the `Id`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:licensemanager/licenseConfiguration:LicenseConfiguration example arn:aws:license-manager:eu-west-1:123456789012:license-configuration:lic-0123456789abcdef0123456789abcdef

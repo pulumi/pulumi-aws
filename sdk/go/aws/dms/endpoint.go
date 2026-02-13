@@ -56,7 +56,7 @@ import (
 //
 // ## Import
 //
-// Using `pulumi import`, import endpoints using the `endpoint_id`. For example:
+// Using `pulumi import`, import endpoints using the `endpointId`. For example:
 //
 // ```sh
 // $ pulumi import aws:dms/endpoint:Endpoint test test-dms-endpoint-tf
@@ -95,8 +95,9 @@ type Endpoint struct {
 	// Configuration block for Oracle settings. See below.
 	OracleSettings EndpointOracleSettingsPtrOutput `pulumi:"oracleSettings"`
 	// Password to be used to login to the endpoint database.
-	Password              pulumi.StringPtrOutput `pulumi:"password"`
-	PauseReplicationTasks pulumi.BoolPtrOutput   `pulumi:"pauseReplicationTasks"`
+	Password pulumi.StringPtrOutput `pulumi:"password"`
+	// Whether to pause associated running replication tasks, regardless if they are managed by Terraform, prior to modifying the endpoint. Only tasks paused by the resource will be restarted after the modification completes. Default is `false`.
+	PauseReplicationTasks pulumi.BoolPtrOutput `pulumi:"pauseReplicationTasks"`
 	// Port used by the endpoint database.
 	Port pulumi.IntPtrOutput `pulumi:"port"`
 	// Configuration block for Postgres settings. See below.
@@ -203,8 +204,9 @@ type endpointState struct {
 	// Configuration block for Oracle settings. See below.
 	OracleSettings *EndpointOracleSettings `pulumi:"oracleSettings"`
 	// Password to be used to login to the endpoint database.
-	Password              *string `pulumi:"password"`
-	PauseReplicationTasks *bool   `pulumi:"pauseReplicationTasks"`
+	Password *string `pulumi:"password"`
+	// Whether to pause associated running replication tasks, regardless if they are managed by Terraform, prior to modifying the endpoint. Only tasks paused by the resource will be restarted after the modification completes. Default is `false`.
+	PauseReplicationTasks *bool `pulumi:"pauseReplicationTasks"`
 	// Port used by the endpoint database.
 	Port *int `pulumi:"port"`
 	// Configuration block for Postgres settings. See below.
@@ -266,7 +268,8 @@ type EndpointState struct {
 	// Configuration block for Oracle settings. See below.
 	OracleSettings EndpointOracleSettingsPtrInput
 	// Password to be used to login to the endpoint database.
-	Password              pulumi.StringPtrInput
+	Password pulumi.StringPtrInput
+	// Whether to pause associated running replication tasks, regardless if they are managed by Terraform, prior to modifying the endpoint. Only tasks paused by the resource will be restarted after the modification completes. Default is `false`.
 	PauseReplicationTasks pulumi.BoolPtrInput
 	// Port used by the endpoint database.
 	Port pulumi.IntPtrInput
@@ -331,8 +334,9 @@ type endpointArgs struct {
 	// Configuration block for Oracle settings. See below.
 	OracleSettings *EndpointOracleSettings `pulumi:"oracleSettings"`
 	// Password to be used to login to the endpoint database.
-	Password              *string `pulumi:"password"`
-	PauseReplicationTasks *bool   `pulumi:"pauseReplicationTasks"`
+	Password *string `pulumi:"password"`
+	// Whether to pause associated running replication tasks, regardless if they are managed by Terraform, prior to modifying the endpoint. Only tasks paused by the resource will be restarted after the modification completes. Default is `false`.
+	PauseReplicationTasks *bool `pulumi:"pauseReplicationTasks"`
 	// Port used by the endpoint database.
 	Port *int `pulumi:"port"`
 	// Configuration block for Postgres settings. See below.
@@ -391,7 +395,8 @@ type EndpointArgs struct {
 	// Configuration block for Oracle settings. See below.
 	OracleSettings EndpointOracleSettingsPtrInput
 	// Password to be used to login to the endpoint database.
-	Password              pulumi.StringPtrInput
+	Password pulumi.StringPtrInput
+	// Whether to pause associated running replication tasks, regardless if they are managed by Terraform, prior to modifying the endpoint. Only tasks paused by the resource will be restarted after the modification completes. Default is `false`.
 	PauseReplicationTasks pulumi.BoolPtrInput
 	// Port used by the endpoint database.
 	Port pulumi.IntPtrInput
@@ -584,6 +589,7 @@ func (o EndpointOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Endpoint) pulumi.StringPtrOutput { return v.Password }).(pulumi.StringPtrOutput)
 }
 
+// Whether to pause associated running replication tasks, regardless if they are managed by Terraform, prior to modifying the endpoint. Only tasks paused by the resource will be restarted after the modification completes. Default is `false`.
 func (o EndpointOutput) PauseReplicationTasks() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Endpoint) pulumi.BoolPtrOutput { return v.PauseReplicationTasks }).(pulumi.BoolPtrOutput)
 }

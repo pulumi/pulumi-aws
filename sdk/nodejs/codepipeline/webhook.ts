@@ -99,7 +99,9 @@ import * as utilities from "../utilities";
  *
  * Using `pulumi import`, import CodePipeline Webhooks using their ARN. For example:
  *
- * % pulumi import aws_codepipeline_webhook.example arn:aws:codepipeline:us-west-2:123456789012:webhook:example
+ * ```sh
+ * $ pulumi import aws:codepipeline/webhook:Webhook example arn:aws:codepipeline:us-west-2:123456789012:webhook:example
+ * ```
  */
 export class Webhook extends pulumi.CustomResource {
     /**

@@ -34,7 +34,7 @@ namespace Pulumi.Aws.Notifications
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import User Notifications Notification Hub using the `notification_hub_region`. For example:
+    /// Using `pulumi import`, import User Notifications Notification Hub using the ` NotificationHubRegion  `. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:notifications/notificationHub:NotificationHub example us-west-2

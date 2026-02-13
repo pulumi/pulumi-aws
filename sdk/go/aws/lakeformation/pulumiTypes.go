@@ -5142,6 +5142,7 @@ func (o ResourceLfTagTableWithColumnsPtrOutput) Name() pulumi.StringPtrOutput {
 }
 
 type ResourceLfTagTableWithColumnsColumnWildcard struct {
+	// Set of column names for the table to exclude. If `excludedColumnNames` is included, `wildcard` must be set to `true` to avoid Terraform reporting a difference.
 	ExcludedColumnNames []string `pulumi:"excludedColumnNames"`
 }
 
@@ -5157,6 +5158,7 @@ type ResourceLfTagTableWithColumnsColumnWildcardInput interface {
 }
 
 type ResourceLfTagTableWithColumnsColumnWildcardArgs struct {
+	// Set of column names for the table to exclude. If `excludedColumnNames` is included, `wildcard` must be set to `true` to avoid Terraform reporting a difference.
 	ExcludedColumnNames pulumi.StringArrayInput `pulumi:"excludedColumnNames"`
 }
 
@@ -5237,6 +5239,7 @@ func (o ResourceLfTagTableWithColumnsColumnWildcardOutput) ToResourceLfTagTableW
 	}).(ResourceLfTagTableWithColumnsColumnWildcardPtrOutput)
 }
 
+// Set of column names for the table to exclude. If `excludedColumnNames` is included, `wildcard` must be set to `true` to avoid Terraform reporting a difference.
 func (o ResourceLfTagTableWithColumnsColumnWildcardOutput) ExcludedColumnNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ResourceLfTagTableWithColumnsColumnWildcard) []string { return v.ExcludedColumnNames }).(pulumi.StringArrayOutput)
 }
@@ -5265,6 +5268,7 @@ func (o ResourceLfTagTableWithColumnsColumnWildcardPtrOutput) Elem() ResourceLfT
 	}).(ResourceLfTagTableWithColumnsColumnWildcardOutput)
 }
 
+// Set of column names for the table to exclude. If `excludedColumnNames` is included, `wildcard` must be set to `true` to avoid Terraform reporting a difference.
 func (o ResourceLfTagTableWithColumnsColumnWildcardPtrOutput) ExcludedColumnNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ResourceLfTagTableWithColumnsColumnWildcard) []string {
 		if v == nil {

@@ -34,7 +34,7 @@ namespace Pulumi.Aws.Ses
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import SES Receipt Filter using their `name`. For example:
+    /// Using `pulumi import`, import SES Receipt Filter using their `Name`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:ses/receiptFilter:ReceiptFilter test some-filter

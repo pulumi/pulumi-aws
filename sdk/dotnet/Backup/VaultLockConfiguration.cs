@@ -35,7 +35,7 @@ namespace Pulumi.Aws.Backup
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import Backup vault lock configuration using the `name`. For example:
+    /// Using `pulumi import`, import Backup vault lock configuration using the `Name`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:backup/vaultLockConfiguration:VaultLockConfiguration test TestVault

@@ -37,6 +37,9 @@ export function getDataSet(args: GetDataSetArgs, opts?: pulumi.InvokeOptions): P
  * A collection of arguments for invoking getDataSet.
  */
 export interface GetDataSetArgs {
+    /**
+     * AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
+     */
     awsAccountId?: string;
     /**
      * Identifier for the data set.
@@ -104,6 +107,9 @@ export function getDataSetOutput(args: GetDataSetOutputArgs, opts?: pulumi.Invok
  * A collection of arguments for invoking getDataSet.
  */
 export interface GetDataSetOutputArgs {
+    /**
+     * AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
+     */
     awsAccountId?: pulumi.Input<string>;
     /**
      * Identifier for the data set.

@@ -184,7 +184,7 @@ namespace Pulumi.Aws.Glue
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import Glue Triggers using `name`. For example:
+    /// Using `pulumi import`, import Glue Triggers using `Name`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:glue/trigger:Trigger MyTrigger MyTrigger

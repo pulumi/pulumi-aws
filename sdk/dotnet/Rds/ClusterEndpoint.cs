@@ -98,11 +98,13 @@ namespace Pulumi.Aws.Rds
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import RDS Clusters Endpoint using the `cluster_endpoint_identifier`. For example:
+    /// Using `pulumi import`, import RDS Clusters Endpoint using the `ClusterEndpointIdentifier`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:rds/clusterEndpoint:ClusterEndpoint custom_reader aurora-prod-cluster-custom-reader
     /// ```
+    /// 
+    /// [1]: https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/Aurora.Overview.Endpoints.html#Aurora.Endpoints.Cluster
     /// </summary>
     [AwsResourceType("aws:rds/clusterEndpoint:ClusterEndpoint")]
     public partial class ClusterEndpoint : global::Pulumi.CustomResource

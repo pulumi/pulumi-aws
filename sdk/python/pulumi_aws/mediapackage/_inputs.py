@@ -21,16 +21,11 @@ __all__ = [
     'ChannelHlsIngestIngestEndpointArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class ChannelHlsIngestArgsDict(TypedDict):
-        ingest_endpoints: NotRequired[pulumi.Input[Sequence[pulumi.Input['ChannelHlsIngestIngestEndpointArgsDict']]]]
-        """
-        A list of the ingest endpoints
-        """
-elif False:
-    ChannelHlsIngestArgsDict: TypeAlias = Mapping[str, Any]
+class ChannelHlsIngestArgsDict(TypedDict):
+    ingest_endpoints: NotRequired[pulumi.Input[Sequence[pulumi.Input['ChannelHlsIngestIngestEndpointArgsDict']]]]
+    """
+    A list of the ingest endpoints
+    """
 
 @pulumi.input_type
 class ChannelHlsIngestArgs:
@@ -55,22 +50,19 @@ class ChannelHlsIngestArgs:
         pulumi.set(self, "ingest_endpoints", value)
 
 
-if not MYPY:
-    class ChannelHlsIngestIngestEndpointArgsDict(TypedDict):
-        password: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The password
-        """
-        url: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The URL
-        """
-        username: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The username
-        """
-elif False:
-    ChannelHlsIngestIngestEndpointArgsDict: TypeAlias = Mapping[str, Any]
+class ChannelHlsIngestIngestEndpointArgsDict(TypedDict):
+    password: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The password
+    """
+    url: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The URL
+    """
+    username: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The username
+    """
 
 @pulumi.input_type
 class ChannelHlsIngestIngestEndpointArgs:

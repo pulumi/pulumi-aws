@@ -33,7 +33,7 @@ namespace Pulumi.Aws.CostExplorer
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import `aws_ce_cost_allocation_tag` using the `id`. For example:
+    /// Using `pulumi import`, import `aws.costexplorer.CostAllocationTag` using the `Id`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:costexplorer/costAllocationTag:CostAllocationTag example key

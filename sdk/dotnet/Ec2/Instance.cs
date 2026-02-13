@@ -321,17 +321,18 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// #### Required
     /// 
-    /// * `id` - (String) ID of the instance.
+    /// * `Id` - (String) ID of the instance.
     /// 
     /// #### Optional
     /// 
-    /// * `account_id` (String) AWS Account where this resource is managed.
+    /// * `AccountId` (String) AWS Account where this resource is managed.
+    /// * `Region` (String) Region where this resource is managed.
     /// 
-    /// * `region` (String) Region where this resource is managed.
+    /// Using `pulumi import`, import instances using the `Id`. For example:
     /// 
-    /// Using `pulumi import`, import instances using the `id`. For example:
-    /// 
-    /// % pulumi import aws_instance.web i-12345678
+    /// ```sh
+    /// $ pulumi import aws:ec2/instance:Instance web i-12345678
+    /// ```
     /// </summary>
     [AwsResourceType("aws:ec2/instance:Instance")]
     public partial class Instance : global::Pulumi.CustomResource

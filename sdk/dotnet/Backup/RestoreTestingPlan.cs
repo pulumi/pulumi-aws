@@ -47,7 +47,7 @@ namespace Pulumi.Aws.Backup
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import Backup Restore Testing Plan using the `name`. For example:
+    /// Using `pulumi import`, import Backup Restore Testing Plan using the `Name`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:backup/restoreTestingPlan:RestoreTestingPlan example my_testing_plan

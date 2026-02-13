@@ -29,7 +29,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Using `pulumi import`, import `aws_ec2_transit_gateway_vpc_attachment_accepter` using the EC2 Transit Gateway Attachment identifier. For example:
+ * Using `pulumi import`, import `aws.ec2transitgateway.VpcAttachmentAccepter` using the EC2 Transit Gateway Attachment identifier. For example:
  *
  * ```sh
  * $ pulumi import aws:ec2transitgateway/vpcAttachmentAccepter:VpcAttachmentAccepter example tgw-attach-12345678

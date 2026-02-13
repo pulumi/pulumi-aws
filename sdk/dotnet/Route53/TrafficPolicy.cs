@@ -45,7 +45,7 @@ namespace Pulumi.Aws.Route53
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import Route53 Traffic Policy using the `id` and `version`. For example:
+    /// Using `pulumi import`, import Route53 Traffic Policy using the `Id` and `Version`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:route53/trafficPolicy:TrafficPolicy example 01a52019-d16f-422a-ae72-c306d2b6df7e/1

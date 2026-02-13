@@ -48,7 +48,7 @@ namespace Pulumi.Aws.Emr
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import EMR Security Configurations using the `name`. For example:
+    /// Using `pulumi import`, import EMR Security Configurations using the `Name`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:emr/securityConfiguration:SecurityConfiguration sc example-sc-name

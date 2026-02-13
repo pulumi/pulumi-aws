@@ -12,6 +12,12 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Manages an individual Organizations resource tag. This resource should only be used in cases where Organizations resources are created outside Terraform (e.g., Organizations Accounts implicitly created by AWS Control Tower).
+//
+// > **NOTE:** This tagging resource should not be combined with the Terraform resource for managing the parent resource. For example, using `organizations.Account` and `organizations.Tag` to manage tags of the same Organizations account will cause a perpetual difference where the `organizations.Account` resource will try to remove the tag being added by the `organizations.Tag` resource. However, if the parent resource is created in the same configuration (i.e., if you have no other choice), you should add `ignoreChanges = [tags]` in the parent resource's lifecycle block. This ensures that Terraform ignores differences in tags managed via the separate tagging resource, avoiding the perpetual difference mentioned above.
+//
+// > **NOTE:** This tagging resource does not use the provider `ignoreTags` configuration.
+//
 // ## Example Usage
 //
 // ```go
@@ -53,7 +59,7 @@ import (
 //
 // ## Import
 //
-// Using `pulumi import`, import `aws_organizations_tag` using the Organizations resource identifier and key, separated by a comma (`,`). For example:
+// Using `pulumi import`, import `organizations.Tag` using the Organizations resource identifier and key, separated by a comma (`,`). For example:
 //
 // ```sh
 // $ pulumi import aws:organizations/tag:Tag example ou-1234567,ExampleKey

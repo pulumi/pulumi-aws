@@ -413,11 +413,13 @@ namespace Pulumi.Aws.ChimeSDKMediaPipelines
     /// 
     /// #### Required
     /// 
-    /// - `arn` (String) Amazon Resource Name (ARN) of the Chime SDK media insights pipeline configuration.
+    /// - `Arn` (String) Amazon Resource Name (ARN) of the Chime SDK media insights pipeline configuration.
     /// 
-    /// Using `pulumi import`, import Chime SDK Media Pipelines Media Insights Pipeline Configuration using the `id`. For example:
+    /// Using `pulumi import`, import Chime SDK Media Pipelines Media Insights Pipeline Configuration using the `Id`. For example:
     /// 
-    /// % pulumi import aws_chimesdkmediapipelines_media_insights_pipeline_configuration.example abcdef123456
+    /// ```sh
+    /// $ pulumi import aws:chimesdkmediapipelines/mediaInsightsPipelineConfiguration:MediaInsightsPipelineConfiguration example abcdef123456
+    /// ```
     /// </summary>
     [AwsResourceType("aws:chimesdkmediapipelines/mediaInsightsPipelineConfiguration:MediaInsightsPipelineConfiguration")]
     public partial class MediaInsightsPipelineConfiguration : global::Pulumi.CustomResource

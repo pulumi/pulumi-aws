@@ -74,7 +74,7 @@ import (
 //
 // ## Import
 //
-// Using `pulumi import`, import Transcribe Vocabulary using the `vocabulary_name`. For example:
+// Using `pulumi import`, import Transcribe Vocabulary using the `vocabularyName`. For example:
 //
 // ```sh
 // $ pulumi import aws:transcribe/vocabulary:Vocabulary example example-name

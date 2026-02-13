@@ -552,6 +552,7 @@ class BucketLifecycleConfigurationV2(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:s3/bucketLifecycleConfigurationV2:BucketLifecycleConfigurationV2 example bucket-name
         ```
+
         If the owner (account ID) of the source bucket differs from the account used to configure the AWS Provider, import using the `bucket` and `expected_bucket_owner` separated by a comma (`,`):
 
         ```sh
@@ -881,6 +882,7 @@ class BucketLifecycleConfigurationV2(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:s3/bucketLifecycleConfigurationV2:BucketLifecycleConfigurationV2 example bucket-name
         ```
+
         If the owner (account ID) of the source bucket differs from the account used to configure the AWS Provider, import using the `bucket` and `expected_bucket_owner` separated by a comma (`,`):
 
         ```sh

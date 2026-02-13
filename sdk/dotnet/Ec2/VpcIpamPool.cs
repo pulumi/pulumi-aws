@@ -168,7 +168,7 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import IPAMs using the IPAM pool `id`. For example:
+    /// Using `pulumi import`, import IPAMs using the IPAM pool `Id`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:ec2/vpcIpamPool:VpcIpamPool example ipam-pool-0958f95207d978e1e

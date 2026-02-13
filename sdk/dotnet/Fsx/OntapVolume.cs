@@ -68,7 +68,7 @@ namespace Pulumi.Aws.Fsx
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import FSx ONTAP volume using the `id`. For example:
+    /// Using `pulumi import`, import FSx ONTAP volume using the `Id`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:fsx/ontapVolume:OntapVolume example fsvol-12345678abcdef123

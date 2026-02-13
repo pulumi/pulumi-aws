@@ -94,7 +94,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Using `pulumi import`, import Cognito User Groups using the `user_pool_id`/`name` attributes concatenated. For example:
+ * Using `pulumi import`, import Cognito User Groups using the `userPoolId`/`name` attributes concatenated. For example:
  * 
  * ```sh
  * $ pulumi import aws:cognito/userGroup:UserGroup group us-east-1_vG78M4goG/user-group

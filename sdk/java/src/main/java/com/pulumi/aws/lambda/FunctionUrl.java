@@ -109,7 +109,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Using `pulumi import`, import Lambda function URLs using the `function_name` or `function_name/qualifier`. For example:
+ * Using `pulumi import`, import Lambda function URLs using the `functionName` or `function_name/qualifier`. For example:
  * 
  * ```sh
  * $ pulumi import aws:lambda/functionUrl:FunctionUrl example example

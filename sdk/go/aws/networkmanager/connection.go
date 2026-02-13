@@ -46,7 +46,7 @@ import (
 //
 // ## Import
 //
-// Using `pulumi import`, import `aws_networkmanager_connection` using the connection ARN. For example:
+// Using `pulumi import`, import `networkmanager.Connection` using the connection ARN. For example:
 //
 // ```sh
 // $ pulumi import aws:networkmanager/connection:Connection example arn:aws:networkmanager::123456789012:device/global-network-0d47f6t230mz46dy4/connection-07f6fd08867abc123

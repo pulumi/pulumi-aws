@@ -409,12 +409,13 @@ class ResolverRule(pulumi.CustomResource):
         #### Optional
 
         * `account_id` (String) AWS Account where this resource is managed.
-
         * `region` (String) Region where this resource is managed.
 
         Using `pulumi import`, import Route53 Resolver rules using the `id`. For example:
 
-        % pulumi import aws_route53_resolver_rule.example rslvr-rr-0123456789abcdef0
+        ```sh
+        $ pulumi import aws:route53/resolverRule:ResolverRule example rslvr-rr-0123456789abcdef0
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -499,12 +500,13 @@ class ResolverRule(pulumi.CustomResource):
         #### Optional
 
         * `account_id` (String) AWS Account where this resource is managed.
-
         * `region` (String) Region where this resource is managed.
 
         Using `pulumi import`, import Route53 Resolver rules using the `id`. For example:
 
-        % pulumi import aws_route53_resolver_rule.example rslvr-rr-0123456789abcdef0
+        ```sh
+        $ pulumi import aws:route53/resolverRule:ResolverRule example rslvr-rr-0123456789abcdef0
+        ```
 
         :param str resource_name: The name of the resource.
         :param ResolverRuleArgs args: The arguments to use to populate this resource's properties.

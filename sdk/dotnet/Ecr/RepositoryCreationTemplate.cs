@@ -109,7 +109,7 @@ namespace Pulumi.Aws.Ecr
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import the ECR Repository Creating Templates using the `prefix`. For example:
+    /// Using `pulumi import`, import the ECR Repository Creating Templates using the `Prefix`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:ecr/repositoryCreationTemplate:RepositoryCreationTemplate example example
@@ -178,6 +178,9 @@ namespace Pulumi.Aws.Ecr
         [Output("registryId")]
         public Output<string> RegistryId { get; private set; } = null!;
 
+        /// <summary>
+        /// The registry policy document to apply to any created repositories. This is a JSON formatted string. For more information about building IAM policy documents with Terraform, see the AWS IAM Policy Document Guide.
+        /// </summary>
         [Output("repositoryPolicy")]
         public Output<string?> RepositoryPolicy { get; private set; } = null!;
 
@@ -305,6 +308,9 @@ namespace Pulumi.Aws.Ecr
         [Input("region")]
         public Input<string>? Region { get; set; }
 
+        /// <summary>
+        /// The registry policy document to apply to any created repositories. This is a JSON formatted string. For more information about building IAM policy documents with Terraform, see the AWS IAM Policy Document Guide.
+        /// </summary>
         [Input("repositoryPolicy")]
         public Input<string>? RepositoryPolicy { get; set; }
 
@@ -406,6 +412,9 @@ namespace Pulumi.Aws.Ecr
         [Input("registryId")]
         public Input<string>? RegistryId { get; set; }
 
+        /// <summary>
+        /// The registry policy document to apply to any created repositories. This is a JSON formatted string. For more information about building IAM policy documents with Terraform, see the AWS IAM Policy Document Guide.
+        /// </summary>
         [Input("repositoryPolicy")]
         public Input<string>? RepositoryPolicy { get; set; }
 

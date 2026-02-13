@@ -66,6 +66,9 @@ namespace Pulumi.Aws.CostOptimizationHub
         [Output("includeMemberAccounts")]
         public Output<bool> IncludeMemberAccounts { get; private set; } = null!;
 
+        /// <summary>
+        /// Status of enrollment. When the resource is present in Terraform, its status will always be `Active`.
+        /// </summary>
         [Output("status")]
         public Output<string> Status { get; private set; } = null!;
 
@@ -135,6 +138,9 @@ namespace Pulumi.Aws.CostOptimizationHub
         [Input("includeMemberAccounts")]
         public Input<bool>? IncludeMemberAccounts { get; set; }
 
+        /// <summary>
+        /// Status of enrollment. When the resource is present in Terraform, its status will always be `Active`.
+        /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
 

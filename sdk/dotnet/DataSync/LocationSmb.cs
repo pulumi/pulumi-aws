@@ -45,11 +45,13 @@ namespace Pulumi.Aws.DataSync
     /// 
     /// #### Required
     /// 
-    /// - `arn` (String) Amazon Resource Name (ARN) of the DataSync SMB location.
+    /// - `Arn` (String) Amazon Resource Name (ARN) of the DataSync SMB location.
     /// 
-    /// Using `pulumi import`, import `aws_datasync_location_smb` using the Amazon Resource Name (ARN). For example:
+    /// Using `pulumi import`, import `aws.datasync.LocationSmb` using the Amazon Resource Name (ARN). For example:
     /// 
-    /// % pulumi import aws_datasync_location_smb.example arn:aws:datasync:us-east-1:123456789012:location/loc-12345678901234567
+    /// ```sh
+    /// $ pulumi import aws:datasync/locationSmb:LocationSmb example arn:aws:datasync:us-east-1:123456789012:location/loc-12345678901234567
+    /// ```
     /// </summary>
     [AwsResourceType("aws:datasync/locationSmb:LocationSmb")]
     public partial class LocationSmb : global::Pulumi.CustomResource

@@ -279,7 +279,7 @@ class MethodSettings(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import `aws_api_gateway_method_settings` using `REST-API-ID/STAGE-NAME/METHOD-PATH`. For example:
+        Using `pulumi import`, import `apigateway.MethodSettings` using `REST-API-ID/STAGE-NAME/METHOD-PATH`. For example:
 
         ```sh
         $ pulumi import aws:apigateway/methodSettings:MethodSettings example 12345abcde/example/test/GET
@@ -376,7 +376,7 @@ class MethodSettings(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import `aws_api_gateway_method_settings` using `REST-API-ID/STAGE-NAME/METHOD-PATH`. For example:
+        Using `pulumi import`, import `apigateway.MethodSettings` using `REST-API-ID/STAGE-NAME/METHOD-PATH`. For example:
 
         ```sh
         $ pulumi import aws:apigateway/methodSettings:MethodSettings example 12345abcde/example/test/GET

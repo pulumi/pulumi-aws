@@ -41,20 +41,15 @@ __all__ = [
     'GetUserAlternateIdentifierUniqueAttributeArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class GroupExternalIdArgsDict(TypedDict):
-        id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The identifier issued to this resource by an external identity provider.
-        """
-        issuer: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The issuer for an external identifier.
-        """
-elif False:
-    GroupExternalIdArgsDict: TypeAlias = Mapping[str, Any]
+class GroupExternalIdArgsDict(TypedDict):
+    id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The identifier issued to this resource by an external identity provider.
+    """
+    issuer: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The issuer for an external identifier.
+    """
 
 @pulumi.input_type
 class GroupExternalIdArgs:
@@ -95,42 +90,39 @@ class GroupExternalIdArgs:
         pulumi.set(self, "issuer", value)
 
 
-if not MYPY:
-    class UserAddressesArgsDict(TypedDict):
-        country: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The country that this address is in.
-        """
-        formatted: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name that is typically displayed when the address is shown for display.
-        """
-        locality: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The address locality.
-        """
-        postal_code: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The postal code of the address.
-        """
-        primary: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        When `true`, this is the primary address associated with the user.
-        """
-        region: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The region of the address.
-        """
-        street_address: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The street of the address.
-        """
-        type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The type of address.
-        """
-elif False:
-    UserAddressesArgsDict: TypeAlias = Mapping[str, Any]
+class UserAddressesArgsDict(TypedDict):
+    country: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The country that this address is in.
+    """
+    formatted: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name that is typically displayed when the address is shown for display.
+    """
+    locality: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The address locality.
+    """
+    postal_code: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The postal code of the address.
+    """
+    primary: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    When `true`, this is the primary address associated with the user.
+    """
+    region: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The region of the address.
+    """
+    street_address: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The street of the address.
+    """
+    type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The type of address.
+    """
 
 @pulumi.input_type
 class UserAddressesArgs:
@@ -267,22 +259,19 @@ class UserAddressesArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class UserEmailsArgsDict(TypedDict):
-        primary: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        When `true`, this is the primary email associated with the user.
-        """
-        type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The type of email.
-        """
-        value: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The email address. This value must be unique across the identity store.
-        """
-elif False:
-    UserEmailsArgsDict: TypeAlias = Mapping[str, Any]
+class UserEmailsArgsDict(TypedDict):
+    primary: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    When `true`, this is the primary email associated with the user.
+    """
+    type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The type of email.
+    """
+    value: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The email address. This value must be unique across the identity store.
+    """
 
 @pulumi.input_type
 class UserEmailsArgs:
@@ -339,18 +328,15 @@ class UserEmailsArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class UserExternalIdArgsDict(TypedDict):
-        id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The identifier issued to this resource by an external identity provider.
-        """
-        issuer: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The issuer for an external identifier.
-        """
-elif False:
-    UserExternalIdArgsDict: TypeAlias = Mapping[str, Any]
+class UserExternalIdArgsDict(TypedDict):
+    id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The identifier issued to this resource by an external identity provider.
+    """
+    issuer: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The issuer for an external identifier.
+    """
 
 @pulumi.input_type
 class UserExternalIdArgs:
@@ -391,36 +377,33 @@ class UserExternalIdArgs:
         pulumi.set(self, "issuer", value)
 
 
-if not MYPY:
-    class UserNameArgsDict(TypedDict):
-        family_name: pulumi.Input[_builtins.str]
-        """
-        The family name of the user.
-        """
-        given_name: pulumi.Input[_builtins.str]
-        """
-        The given name of the user.
+class UserNameArgsDict(TypedDict):
+    family_name: pulumi.Input[_builtins.str]
+    """
+    The family name of the user.
+    """
+    given_name: pulumi.Input[_builtins.str]
+    """
+    The given name of the user.
 
-        The following arguments are optional:
-        """
-        formatted: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name that is typically displayed when the name is shown for display.
-        """
-        honorific_prefix: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The honorific prefix of the user.
-        """
-        honorific_suffix: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The honorific suffix of the user.
-        """
-        middle_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The middle name of the user.
-        """
-elif False:
-    UserNameArgsDict: TypeAlias = Mapping[str, Any]
+    The following arguments are optional:
+    """
+    formatted: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name that is typically displayed when the name is shown for display.
+    """
+    honorific_prefix: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The honorific prefix of the user.
+    """
+    honorific_suffix: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The honorific suffix of the user.
+    """
+    middle_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The middle name of the user.
+    """
 
 @pulumi.input_type
 class UserNameArgs:
@@ -527,22 +510,19 @@ class UserNameArgs:
         pulumi.set(self, "middle_name", value)
 
 
-if not MYPY:
-    class UserPhoneNumbersArgsDict(TypedDict):
-        primary: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        When `true`, this is the primary phone number associated with the user.
-        """
-        type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The type of phone number.
-        """
-        value: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The user's phone number.
-        """
-elif False:
-    UserPhoneNumbersArgsDict: TypeAlias = Mapping[str, Any]
+class UserPhoneNumbersArgsDict(TypedDict):
+    primary: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    When `true`, this is the primary phone number associated with the user.
+    """
+    type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The type of phone number.
+    """
+    value: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The user's phone number.
+    """
 
 @pulumi.input_type
 class UserPhoneNumbersArgs:
@@ -599,20 +579,17 @@ class UserPhoneNumbersArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class GetGroupAlternateIdentifierArgsDict(TypedDict):
-        external_id: NotRequired['GetGroupAlternateIdentifierExternalIdArgsDict']
-        """
-        Configuration block for filtering by the identifier issued by an external identity provider. Detailed below.
-        """
-        unique_attribute: NotRequired['GetGroupAlternateIdentifierUniqueAttributeArgsDict']
-        """
-        An entity attribute that's unique to a specific entity. Detailed below.
+class GetGroupAlternateIdentifierArgsDict(TypedDict):
+    external_id: NotRequired['GetGroupAlternateIdentifierExternalIdArgsDict']
+    """
+    Configuration block for filtering by the identifier issued by an external identity provider. Detailed below.
+    """
+    unique_attribute: NotRequired['GetGroupAlternateIdentifierUniqueAttributeArgsDict']
+    """
+    An entity attribute that's unique to a specific entity. Detailed below.
 
-        > Exactly one of the above arguments must be provided.
-        """
-elif False:
-    GetGroupAlternateIdentifierArgsDict: TypeAlias = Mapping[str, Any]
+    > Exactly one of the above arguments must be provided.
+    """
 
 @pulumi.input_type
 class GetGroupAlternateIdentifierArgs:
@@ -657,18 +634,15 @@ class GetGroupAlternateIdentifierArgs:
         pulumi.set(self, "unique_attribute", value)
 
 
-if not MYPY:
-    class GetGroupAlternateIdentifierExternalIdArgsDict(TypedDict):
-        id: _builtins.str
-        """
-        The identifier issued to this resource by an external identity provider.
-        """
-        issuer: _builtins.str
-        """
-        The issuer for an external identifier.
-        """
-elif False:
-    GetGroupAlternateIdentifierExternalIdArgsDict: TypeAlias = Mapping[str, Any]
+class GetGroupAlternateIdentifierExternalIdArgsDict(TypedDict):
+    id: _builtins.str
+    """
+    The identifier issued to this resource by an external identity provider.
+    """
+    issuer: _builtins.str
+    """
+    The issuer for an external identifier.
+    """
 
 @pulumi.input_type
 class GetGroupAlternateIdentifierExternalIdArgs:
@@ -707,18 +681,15 @@ class GetGroupAlternateIdentifierExternalIdArgs:
         pulumi.set(self, "issuer", value)
 
 
-if not MYPY:
-    class GetGroupAlternateIdentifierUniqueAttributeArgsDict(TypedDict):
-        attribute_path: _builtins.str
-        """
-        Attribute path that is used to specify which attribute name to search. For example: `DisplayName`. Refer to the [Group data type](https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html).
-        """
-        attribute_value: _builtins.str
-        """
-        Value for an attribute.
-        """
-elif False:
-    GetGroupAlternateIdentifierUniqueAttributeArgsDict: TypeAlias = Mapping[str, Any]
+class GetGroupAlternateIdentifierUniqueAttributeArgsDict(TypedDict):
+    attribute_path: _builtins.str
+    """
+    Attribute path that is used to specify which attribute name to search. For example: `DisplayName`. Refer to the [Group data type](https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_Group.html).
+    """
+    attribute_value: _builtins.str
+    """
+    Value for an attribute.
+    """
 
 @pulumi.input_type
 class GetGroupAlternateIdentifierUniqueAttributeArgs:
@@ -757,20 +728,17 @@ class GetGroupAlternateIdentifierUniqueAttributeArgs:
         pulumi.set(self, "attribute_value", value)
 
 
-if not MYPY:
-    class GetUserAlternateIdentifierArgsDict(TypedDict):
-        external_id: NotRequired['GetUserAlternateIdentifierExternalIdArgsDict']
-        """
-        Configuration block for filtering by the identifier issued by an external identity provider. Detailed below.
-        """
-        unique_attribute: NotRequired['GetUserAlternateIdentifierUniqueAttributeArgsDict']
-        """
-        An entity attribute that's unique to a specific entity. Detailed below.
+class GetUserAlternateIdentifierArgsDict(TypedDict):
+    external_id: NotRequired['GetUserAlternateIdentifierExternalIdArgsDict']
+    """
+    Configuration block for filtering by the identifier issued by an external identity provider. Detailed below.
+    """
+    unique_attribute: NotRequired['GetUserAlternateIdentifierUniqueAttributeArgsDict']
+    """
+    An entity attribute that's unique to a specific entity. Detailed below.
 
-        > Exactly one of the above arguments must be provided.
-        """
-elif False:
-    GetUserAlternateIdentifierArgsDict: TypeAlias = Mapping[str, Any]
+    > Exactly one of the above arguments must be provided.
+    """
 
 @pulumi.input_type
 class GetUserAlternateIdentifierArgs:
@@ -815,18 +783,15 @@ class GetUserAlternateIdentifierArgs:
         pulumi.set(self, "unique_attribute", value)
 
 
-if not MYPY:
-    class GetUserAlternateIdentifierExternalIdArgsDict(TypedDict):
-        id: _builtins.str
-        """
-        The identifier issued to this resource by an external identity provider.
-        """
-        issuer: _builtins.str
-        """
-        The issuer for an external identifier.
-        """
-elif False:
-    GetUserAlternateIdentifierExternalIdArgsDict: TypeAlias = Mapping[str, Any]
+class GetUserAlternateIdentifierExternalIdArgsDict(TypedDict):
+    id: _builtins.str
+    """
+    The identifier issued to this resource by an external identity provider.
+    """
+    issuer: _builtins.str
+    """
+    The issuer for an external identifier.
+    """
 
 @pulumi.input_type
 class GetUserAlternateIdentifierExternalIdArgs:
@@ -865,18 +830,15 @@ class GetUserAlternateIdentifierExternalIdArgs:
         pulumi.set(self, "issuer", value)
 
 
-if not MYPY:
-    class GetUserAlternateIdentifierUniqueAttributeArgsDict(TypedDict):
-        attribute_path: _builtins.str
-        """
-        Attribute path that is used to specify which attribute name to search. For example: `UserName`. Refer to the [User data type](https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html).
-        """
-        attribute_value: _builtins.str
-        """
-        Value for an attribute.
-        """
-elif False:
-    GetUserAlternateIdentifierUniqueAttributeArgsDict: TypeAlias = Mapping[str, Any]
+class GetUserAlternateIdentifierUniqueAttributeArgsDict(TypedDict):
+    attribute_path: _builtins.str
+    """
+    Attribute path that is used to specify which attribute name to search. For example: `UserName`. Refer to the [User data type](https://docs.aws.amazon.com/singlesignon/latest/IdentityStoreAPIReference/API_User.html).
+    """
+    attribute_value: _builtins.str
+    """
+    Value for an attribute.
+    """
 
 @pulumi.input_type
 class GetUserAlternateIdentifierUniqueAttributeArgs:

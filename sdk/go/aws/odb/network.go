@@ -27,19 +27,25 @@ type Network struct {
 	pulumi.CustomResourceState
 
 	// Amazon Resource Name (ARN) of the odb network resource.
-	Arn                pulumi.StringOutput `pulumi:"arn"`
-	AvailabilityZone   pulumi.StringOutput `pulumi:"availabilityZone"`
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// The name of the Availability Zone (AZ) where the odb network is located. Changing this will force terraform to create new resource. Make sure availabilityZone maps correctly with availability_zone_id.
+	AvailabilityZone pulumi.StringOutput `pulumi:"availabilityZone"`
+	// The AZ ID of the AZ where the ODB network is located. Changing this will force terraform to create new resource.
 	AvailabilityZoneId pulumi.StringOutput `pulumi:"availabilityZoneId"`
-	BackupSubnetCidr   pulumi.StringOutput `pulumi:"backupSubnetCidr"`
-	ClientSubnetCidr   pulumi.StringOutput `pulumi:"clientSubnetCidr"`
+	// The CIDR range of the backup subnet for the ODB network. Changing this will force terraform to create new resource.
+	BackupSubnetCidr pulumi.StringOutput `pulumi:"backupSubnetCidr"`
+	// The CIDR notation for the network resource. Changing this will force terraform to create new resource.
+	ClientSubnetCidr pulumi.StringOutput `pulumi:"clientSubnetCidr"`
 	// The date and time when the ODB network was created.
 	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
-	// The name of the custom domain that the network is located. customDomainName and defaultDnsPrefix both can't be given.
+	// The name of the custom domain that the network is located. Custom_domain_name and defaultDnsPrefix both can't be given. Changing this will force terraform to create new resource.
 	CustomDomainName pulumi.StringPtrOutput `pulumi:"customDomainName"`
+	// The default DNS prefix for the network resource. Changing this will force terraform to create new resource. Changing this will force terraform to create new resource.
 	DefaultDnsPrefix pulumi.StringPtrOutput `pulumi:"defaultDnsPrefix"`
 	// If set to true deletes associated OCI resources. Default false.
-	DeleteAssociatedResources pulumi.BoolOutput   `pulumi:"deleteAssociatedResources"`
-	DisplayName               pulumi.StringOutput `pulumi:"displayName"`
+	DeleteAssociatedResources pulumi.BoolOutput `pulumi:"deleteAssociatedResources"`
+	// The user-friendly name for the odb network. Changing this will force terraform to create a new resource.
+	DisplayName pulumi.StringOutput `pulumi:"displayName"`
 	// Specifies the configuration for KMS access from the ODB network.
 	KmsAccess pulumi.StringOutput `pulumi:"kmsAccess"`
 	// Specifies the endpoint policy for KMS access from the ODB network.
@@ -135,19 +141,25 @@ func GetNetwork(ctx *pulumi.Context,
 // Input properties used for looking up and filtering Network resources.
 type networkState struct {
 	// Amazon Resource Name (ARN) of the odb network resource.
-	Arn                *string `pulumi:"arn"`
-	AvailabilityZone   *string `pulumi:"availabilityZone"`
+	Arn *string `pulumi:"arn"`
+	// The name of the Availability Zone (AZ) where the odb network is located. Changing this will force terraform to create new resource. Make sure availabilityZone maps correctly with availability_zone_id.
+	AvailabilityZone *string `pulumi:"availabilityZone"`
+	// The AZ ID of the AZ where the ODB network is located. Changing this will force terraform to create new resource.
 	AvailabilityZoneId *string `pulumi:"availabilityZoneId"`
-	BackupSubnetCidr   *string `pulumi:"backupSubnetCidr"`
-	ClientSubnetCidr   *string `pulumi:"clientSubnetCidr"`
+	// The CIDR range of the backup subnet for the ODB network. Changing this will force terraform to create new resource.
+	BackupSubnetCidr *string `pulumi:"backupSubnetCidr"`
+	// The CIDR notation for the network resource. Changing this will force terraform to create new resource.
+	ClientSubnetCidr *string `pulumi:"clientSubnetCidr"`
 	// The date and time when the ODB network was created.
 	CreatedAt *string `pulumi:"createdAt"`
-	// The name of the custom domain that the network is located. customDomainName and defaultDnsPrefix both can't be given.
+	// The name of the custom domain that the network is located. Custom_domain_name and defaultDnsPrefix both can't be given. Changing this will force terraform to create new resource.
 	CustomDomainName *string `pulumi:"customDomainName"`
+	// The default DNS prefix for the network resource. Changing this will force terraform to create new resource. Changing this will force terraform to create new resource.
 	DefaultDnsPrefix *string `pulumi:"defaultDnsPrefix"`
 	// If set to true deletes associated OCI resources. Default false.
-	DeleteAssociatedResources *bool   `pulumi:"deleteAssociatedResources"`
-	DisplayName               *string `pulumi:"displayName"`
+	DeleteAssociatedResources *bool `pulumi:"deleteAssociatedResources"`
+	// The user-friendly name for the odb network. Changing this will force terraform to create a new resource.
+	DisplayName *string `pulumi:"displayName"`
 	// Specifies the configuration for KMS access from the ODB network.
 	KmsAccess *string `pulumi:"kmsAccess"`
 	// Specifies the endpoint policy for KMS access from the ODB network.
@@ -196,19 +208,25 @@ type networkState struct {
 
 type NetworkState struct {
 	// Amazon Resource Name (ARN) of the odb network resource.
-	Arn                pulumi.StringPtrInput
-	AvailabilityZone   pulumi.StringPtrInput
+	Arn pulumi.StringPtrInput
+	// The name of the Availability Zone (AZ) where the odb network is located. Changing this will force terraform to create new resource. Make sure availabilityZone maps correctly with availability_zone_id.
+	AvailabilityZone pulumi.StringPtrInput
+	// The AZ ID of the AZ where the ODB network is located. Changing this will force terraform to create new resource.
 	AvailabilityZoneId pulumi.StringPtrInput
-	BackupSubnetCidr   pulumi.StringPtrInput
-	ClientSubnetCidr   pulumi.StringPtrInput
+	// The CIDR range of the backup subnet for the ODB network. Changing this will force terraform to create new resource.
+	BackupSubnetCidr pulumi.StringPtrInput
+	// The CIDR notation for the network resource. Changing this will force terraform to create new resource.
+	ClientSubnetCidr pulumi.StringPtrInput
 	// The date and time when the ODB network was created.
 	CreatedAt pulumi.StringPtrInput
-	// The name of the custom domain that the network is located. customDomainName and defaultDnsPrefix both can't be given.
+	// The name of the custom domain that the network is located. Custom_domain_name and defaultDnsPrefix both can't be given. Changing this will force terraform to create new resource.
 	CustomDomainName pulumi.StringPtrInput
+	// The default DNS prefix for the network resource. Changing this will force terraform to create new resource. Changing this will force terraform to create new resource.
 	DefaultDnsPrefix pulumi.StringPtrInput
 	// If set to true deletes associated OCI resources. Default false.
 	DeleteAssociatedResources pulumi.BoolPtrInput
-	DisplayName               pulumi.StringPtrInput
+	// The user-friendly name for the odb network. Changing this will force terraform to create a new resource.
+	DisplayName pulumi.StringPtrInput
 	// Specifies the configuration for KMS access from the ODB network.
 	KmsAccess pulumi.StringPtrInput
 	// Specifies the endpoint policy for KMS access from the ODB network.
@@ -260,16 +278,22 @@ func (NetworkState) ElementType() reflect.Type {
 }
 
 type networkArgs struct {
-	AvailabilityZone   *string `pulumi:"availabilityZone"`
-	AvailabilityZoneId string  `pulumi:"availabilityZoneId"`
-	BackupSubnetCidr   string  `pulumi:"backupSubnetCidr"`
-	ClientSubnetCidr   string  `pulumi:"clientSubnetCidr"`
-	// The name of the custom domain that the network is located. customDomainName and defaultDnsPrefix both can't be given.
+	// The name of the Availability Zone (AZ) where the odb network is located. Changing this will force terraform to create new resource. Make sure availabilityZone maps correctly with availability_zone_id.
+	AvailabilityZone *string `pulumi:"availabilityZone"`
+	// The AZ ID of the AZ where the ODB network is located. Changing this will force terraform to create new resource.
+	AvailabilityZoneId string `pulumi:"availabilityZoneId"`
+	// The CIDR range of the backup subnet for the ODB network. Changing this will force terraform to create new resource.
+	BackupSubnetCidr string `pulumi:"backupSubnetCidr"`
+	// The CIDR notation for the network resource. Changing this will force terraform to create new resource.
+	ClientSubnetCidr string `pulumi:"clientSubnetCidr"`
+	// The name of the custom domain that the network is located. Custom_domain_name and defaultDnsPrefix both can't be given. Changing this will force terraform to create new resource.
 	CustomDomainName *string `pulumi:"customDomainName"`
+	// The default DNS prefix for the network resource. Changing this will force terraform to create new resource. Changing this will force terraform to create new resource.
 	DefaultDnsPrefix *string `pulumi:"defaultDnsPrefix"`
 	// If set to true deletes associated OCI resources. Default false.
-	DeleteAssociatedResources *bool  `pulumi:"deleteAssociatedResources"`
-	DisplayName               string `pulumi:"displayName"`
+	DeleteAssociatedResources *bool `pulumi:"deleteAssociatedResources"`
+	// The user-friendly name for the odb network. Changing this will force terraform to create a new resource.
+	DisplayName string `pulumi:"displayName"`
 	// Specifies the configuration for KMS access from the ODB network.
 	KmsAccess *string `pulumi:"kmsAccess"`
 	// Specifies the endpoint policy for KMS access from the ODB network.
@@ -295,16 +319,22 @@ type networkArgs struct {
 
 // The set of arguments for constructing a Network resource.
 type NetworkArgs struct {
-	AvailabilityZone   pulumi.StringPtrInput
+	// The name of the Availability Zone (AZ) where the odb network is located. Changing this will force terraform to create new resource. Make sure availabilityZone maps correctly with availability_zone_id.
+	AvailabilityZone pulumi.StringPtrInput
+	// The AZ ID of the AZ where the ODB network is located. Changing this will force terraform to create new resource.
 	AvailabilityZoneId pulumi.StringInput
-	BackupSubnetCidr   pulumi.StringInput
-	ClientSubnetCidr   pulumi.StringInput
-	// The name of the custom domain that the network is located. customDomainName and defaultDnsPrefix both can't be given.
+	// The CIDR range of the backup subnet for the ODB network. Changing this will force terraform to create new resource.
+	BackupSubnetCidr pulumi.StringInput
+	// The CIDR notation for the network resource. Changing this will force terraform to create new resource.
+	ClientSubnetCidr pulumi.StringInput
+	// The name of the custom domain that the network is located. Custom_domain_name and defaultDnsPrefix both can't be given. Changing this will force terraform to create new resource.
 	CustomDomainName pulumi.StringPtrInput
+	// The default DNS prefix for the network resource. Changing this will force terraform to create new resource. Changing this will force terraform to create new resource.
 	DefaultDnsPrefix pulumi.StringPtrInput
 	// If set to true deletes associated OCI resources. Default false.
 	DeleteAssociatedResources pulumi.BoolPtrInput
-	DisplayName               pulumi.StringInput
+	// The user-friendly name for the odb network. Changing this will force terraform to create a new resource.
+	DisplayName pulumi.StringInput
 	// Specifies the configuration for KMS access from the ODB network.
 	KmsAccess pulumi.StringPtrInput
 	// Specifies the endpoint policy for KMS access from the ODB network.
@@ -420,18 +450,22 @@ func (o NetworkOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Network) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// The name of the Availability Zone (AZ) where the odb network is located. Changing this will force terraform to create new resource. Make sure availabilityZone maps correctly with availability_zone_id.
 func (o NetworkOutput) AvailabilityZone() pulumi.StringOutput {
 	return o.ApplyT(func(v *Network) pulumi.StringOutput { return v.AvailabilityZone }).(pulumi.StringOutput)
 }
 
+// The AZ ID of the AZ where the ODB network is located. Changing this will force terraform to create new resource.
 func (o NetworkOutput) AvailabilityZoneId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Network) pulumi.StringOutput { return v.AvailabilityZoneId }).(pulumi.StringOutput)
 }
 
+// The CIDR range of the backup subnet for the ODB network. Changing this will force terraform to create new resource.
 func (o NetworkOutput) BackupSubnetCidr() pulumi.StringOutput {
 	return o.ApplyT(func(v *Network) pulumi.StringOutput { return v.BackupSubnetCidr }).(pulumi.StringOutput)
 }
 
+// The CIDR notation for the network resource. Changing this will force terraform to create new resource.
 func (o NetworkOutput) ClientSubnetCidr() pulumi.StringOutput {
 	return o.ApplyT(func(v *Network) pulumi.StringOutput { return v.ClientSubnetCidr }).(pulumi.StringOutput)
 }
@@ -441,11 +475,12 @@ func (o NetworkOutput) CreatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v *Network) pulumi.StringOutput { return v.CreatedAt }).(pulumi.StringOutput)
 }
 
-// The name of the custom domain that the network is located. customDomainName and defaultDnsPrefix both can't be given.
+// The name of the custom domain that the network is located. Custom_domain_name and defaultDnsPrefix both can't be given. Changing this will force terraform to create new resource.
 func (o NetworkOutput) CustomDomainName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Network) pulumi.StringPtrOutput { return v.CustomDomainName }).(pulumi.StringPtrOutput)
 }
 
+// The default DNS prefix for the network resource. Changing this will force terraform to create new resource. Changing this will force terraform to create new resource.
 func (o NetworkOutput) DefaultDnsPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Network) pulumi.StringPtrOutput { return v.DefaultDnsPrefix }).(pulumi.StringPtrOutput)
 }
@@ -455,6 +490,7 @@ func (o NetworkOutput) DeleteAssociatedResources() pulumi.BoolOutput {
 	return o.ApplyT(func(v *Network) pulumi.BoolOutput { return v.DeleteAssociatedResources }).(pulumi.BoolOutput)
 }
 
+// The user-friendly name for the odb network. Changing this will force terraform to create a new resource.
 func (o NetworkOutput) DisplayName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Network) pulumi.StringOutput { return v.DisplayName }).(pulumi.StringOutput)
 }

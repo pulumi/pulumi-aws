@@ -49,8 +49,6 @@ import (
 //
 // import (
 //
-//	"fmt"
-//
 //	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws"
 //	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/datasync"
 //	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2"
@@ -114,9 +112,11 @@ import (
 //
 // - `arn` (String) Amazon Resource Name (ARN) of the DataSync agent.
 //
-// Using `pulumi import`, import `aws_datasync_agent` using the DataSync Agent Amazon Resource Name (ARN). For example:
+// Using `pulumi import`, import `datasync.Agent` using the DataSync Agent Amazon Resource Name (ARN). For example:
 //
-// % pulumi import aws_datasync_agent.example arn:aws:datasync:us-east-1:123456789012:agent/agent-12345678901234567
+// ```sh
+// $ pulumi import aws:datasync/agent:Agent example arn:aws:datasync:us-east-1:123456789012:agent/agent-12345678901234567
+// ```
 type Agent struct {
 	pulumi.CustomResourceState
 

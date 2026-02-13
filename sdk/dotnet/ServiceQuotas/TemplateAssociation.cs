@@ -33,7 +33,7 @@ namespace Pulumi.Aws.ServiceQuotas
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import Service Quotas Template Association using the `id`. For example:
+    /// Using `pulumi import`, import Service Quotas Template Association using the `Id`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:servicequotas/templateAssociation:TemplateAssociation example 123456789012
@@ -48,6 +48,9 @@ namespace Pulumi.Aws.ServiceQuotas
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
+        /// <summary>
+        /// Skip disassociating the quota increase template upon destruction. This will remove the resource from Terraform state, but leave the remote association in place.
+        /// </summary>
         [Output("skipDestroy")]
         public Output<bool?> SkipDestroy { get; private set; } = null!;
 
@@ -109,6 +112,9 @@ namespace Pulumi.Aws.ServiceQuotas
         [Input("region")]
         public Input<string>? Region { get; set; }
 
+        /// <summary>
+        /// Skip disassociating the quota increase template upon destruction. This will remove the resource from Terraform state, but leave the remote association in place.
+        /// </summary>
         [Input("skipDestroy")]
         public Input<bool>? SkipDestroy { get; set; }
 
@@ -126,6 +132,9 @@ namespace Pulumi.Aws.ServiceQuotas
         [Input("region")]
         public Input<string>? Region { get; set; }
 
+        /// <summary>
+        /// Skip disassociating the quota increase template upon destruction. This will remove the resource from Terraform state, but leave the remote association in place.
+        /// </summary>
         [Input("skipDestroy")]
         public Input<bool>? SkipDestroy { get; set; }
 

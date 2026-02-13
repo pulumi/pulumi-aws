@@ -137,15 +137,31 @@ public class NetworkInsightsPath extends com.pulumi.resources.CustomResource {
     public Output<Optional<Integer>> destinationPort() {
         return Codegen.optional(this.destinationPort);
     }
+    /**
+     * Scopes the analysis to network paths that match specific filters at the destination. If you specify this parameter, you can&#39;t specify `destinationIp`. See below for details. Note that Terraform performs drift detection on this argument only when the value is provided.
+     * 
+     */
     @Export(name="filterAtDestination", refs={NetworkInsightsPathFilterAtDestination.class}, tree="[0]")
     private Output<NetworkInsightsPathFilterAtDestination> filterAtDestination;
 
+    /**
+     * @return Scopes the analysis to network paths that match specific filters at the destination. If you specify this parameter, you can&#39;t specify `destinationIp`. See below for details. Note that Terraform performs drift detection on this argument only when the value is provided.
+     * 
+     */
     public Output<NetworkInsightsPathFilterAtDestination> filterAtDestination() {
         return this.filterAtDestination;
     }
+    /**
+     * Scopes the analysis to network paths that match specific filters at the source. If you specify this parameter, you can&#39;t specify `sourceIp` or `destinationPort`. See below for details. Note that Terraform performs drift detection on this argument only when the value is provided.
+     * 
+     */
     @Export(name="filterAtSource", refs={NetworkInsightsPathFilterAtSource.class}, tree="[0]")
     private Output<NetworkInsightsPathFilterAtSource> filterAtSource;
 
+    /**
+     * @return Scopes the analysis to network paths that match specific filters at the source. If you specify this parameter, you can&#39;t specify `sourceIp` or `destinationPort`. See below for details. Note that Terraform performs drift detection on this argument only when the value is provided.
+     * 
+     */
     public Output<NetworkInsightsPathFilterAtSource> filterAtSource() {
         return this.filterAtSource;
     }

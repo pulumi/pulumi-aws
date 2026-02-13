@@ -299,6 +299,9 @@ namespace Pulumi.Aws.Rds
         [Input("region")]
         public string? Region { get; set; }
 
+        /// <summary>
+        /// Engine version. For example, `5.7.22`, `10.1.34`, or `12.3`. `Version` can be a partial version identifier which can result in `multiple RDS engine versions` errors unless the `Latest` parameter is set to `True`. The engine version will be the default version if you don't include any criteria, such as `Version`. **NOTE:** In a future Terraform AWS provider version, `Version` will only contain the version information you configure and not the complete version information that the data source gets from AWS. Instead, that version information will be available in the `VersionActual` attribute.
+        /// </summary>
         [Input("version")]
         public string? Version { get; set; }
 
@@ -408,6 +411,9 @@ namespace Pulumi.Aws.Rds
         [Input("region")]
         public Input<string>? Region { get; set; }
 
+        /// <summary>
+        /// Engine version. For example, `5.7.22`, `10.1.34`, or `12.3`. `Version` can be a partial version identifier which can result in `multiple RDS engine versions` errors unless the `Latest` parameter is set to `True`. The engine version will be the default version if you don't include any criteria, such as `Version`. **NOTE:** In a future Terraform AWS provider version, `Version` will only contain the version information you configure and not the complete version information that the data source gets from AWS. Instead, that version information will be available in the `VersionActual` attribute.
+        /// </summary>
         [Input("version")]
         public Input<string>? Version { get; set; }
 

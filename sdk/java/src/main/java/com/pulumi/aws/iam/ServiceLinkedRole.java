@@ -61,7 +61,9 @@ import javax.annotation.Nullable;
  * 
  * Using `pulumi import`, import IAM service-linked roles using role ARN. For example:
  * 
- * % pulumi import aws_iam_service_linked_role.elasticbeanstalk arn:aws:iam::123456789012:role/aws-service-role/elasticbeanstalk.amazonaws.com/AWSServiceRoleForElasticBeanstalk
+ * ```sh
+ * $ pulumi import aws:iam/serviceLinkedRole:ServiceLinkedRole elasticbeanstalk arn:aws:iam::123456789012:role/aws-service-role/elasticbeanstalk.amazonaws.com/AWSServiceRoleForElasticBeanstalk
+ * ```
  * 
  */
 @ResourceType(type="aws:iam/serviceLinkedRole:ServiceLinkedRole")

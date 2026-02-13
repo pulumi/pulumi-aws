@@ -82,7 +82,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Using `pulumi import`, import this resource using the `policy_name` and `policy_type` separated by `:`. For example:
+ * Using `pulumi import`, import this resource using the `policyName` and `policyType` separated by `:`. For example:
  *
  * ```sh
  * $ pulumi import aws:cloudwatch/logAccountPolicy:LogAccountPolicy example "my-account-policy:SUBSCRIPTION_FILTER_POLICY"

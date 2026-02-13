@@ -24,7 +24,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Using `pulumi import`, import `aws_location_place_index` resources using the place index name. For example:
+ * Using `pulumi import`, import `aws.location.PlaceIndex` resources using the place index name. For example:
  *
  * ```sh
  * $ pulumi import aws:location/placeIndex:PlaceIndex example example

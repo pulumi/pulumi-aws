@@ -159,17 +159,18 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// #### Required
     /// 
-    /// * `id` (String) ID of the subnet.
+    /// * `Id` (String) ID of the subnet.
     /// 
     /// #### Optional
     /// 
-    /// * `account_id` (String) AWS Account where this resource is managed.
+    /// * `AccountId` (String) AWS Account where this resource is managed.
+    /// * `Region` (String) Region where this resource is managed.
     /// 
-    /// * `region` (String) Region where this resource is managed.
+    /// Using `pulumi import`, import subnets using the subnet `Id`. For example:
     /// 
-    /// Using `pulumi import`, import subnets using the subnet `id`. For example:
-    /// 
-    /// % pulumi import aws_subnet.example subnet-9d4a7b6c
+    /// ```sh
+    /// $ pulumi import aws:ec2/subnet:Subnet example subnet-9d4a7b6c
+    /// ```
     /// </summary>
     [AwsResourceType("aws:ec2/subnet:Subnet")]
     public partial class Subnet : global::Pulumi.CustomResource

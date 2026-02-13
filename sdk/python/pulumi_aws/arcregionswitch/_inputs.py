@@ -137,32 +137,27 @@ __all__ = [
     'PlanWorkflowStepRoute53HealthCheckConfigRecordSetArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class PlanAssociatedAlarmArgsDict(TypedDict):
-        alarm_type: pulumi.Input[_builtins.str]
-        """
-        Type of alarm. Valid values: `applicationHealth`, `trigger`.
-        """
-        map_block_key: pulumi.Input[_builtins.str]
-        """
-        Name of the alarm.
-        """
-        resource_identifier: pulumi.Input[_builtins.str]
-        """
-        Resource identifier (ARN) of the CloudWatch alarm.
-        """
-        cross_account_role: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        ARN of the cross-account role to assume.
-        """
-        external_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        External ID for cross-account role assumption.
-        """
-elif False:
-    PlanAssociatedAlarmArgsDict: TypeAlias = Mapping[str, Any]
+class PlanAssociatedAlarmArgsDict(TypedDict):
+    alarm_type: pulumi.Input[_builtins.str]
+    """
+    Type of alarm. Valid values: `applicationHealth`, `trigger`.
+    """
+    map_block_key: pulumi.Input[_builtins.str]
+    """
+    Name of the alarm.
+    """
+    resource_identifier: pulumi.Input[_builtins.str]
+    """
+    Resource identifier (ARN) of the CloudWatch alarm.
+    """
+    cross_account_role: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    ARN of the cross-account role to assume.
+    """
+    external_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    External ID for cross-account role assumption.
+    """
 
 @pulumi.input_type
 class PlanAssociatedAlarmArgs:
@@ -248,22 +243,19 @@ class PlanAssociatedAlarmArgs:
         pulumi.set(self, "external_id", value)
 
 
-if not MYPY:
-    class PlanTimeoutsArgsDict(TypedDict):
-        create: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
-        """
-        delete: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
-        """
-        update: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
-        """
-elif False:
-    PlanTimeoutsArgsDict: TypeAlias = Mapping[str, Any]
+class PlanTimeoutsArgsDict(TypedDict):
+    create: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+    """
+    delete: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+    """
+    update: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+    """
 
 @pulumi.input_type
 class PlanTimeoutsArgs:
@@ -320,30 +312,27 @@ class PlanTimeoutsArgs:
         pulumi.set(self, "update", value)
 
 
-if not MYPY:
-    class PlanTriggerArgsDict(TypedDict):
-        action: pulumi.Input[_builtins.str]
-        """
-        Action to trigger. Valid values: `activate`, `deactivate`.
-        """
-        min_delay_minutes_between_executions: pulumi.Input[_builtins.int]
-        """
-        Minimum delay in minutes between executions.
-        """
-        target_region: pulumi.Input[_builtins.str]
-        """
-        Target region for the trigger.
-        """
-        conditions: NotRequired[pulumi.Input[Sequence[pulumi.Input['PlanTriggerConditionArgsDict']]]]
-        """
-        List of conditions that must be met. See Conditions below.
-        """
-        description: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Description of the trigger.
-        """
-elif False:
-    PlanTriggerArgsDict: TypeAlias = Mapping[str, Any]
+class PlanTriggerArgsDict(TypedDict):
+    action: pulumi.Input[_builtins.str]
+    """
+    Action to trigger. Valid values: `activate`, `deactivate`.
+    """
+    min_delay_minutes_between_executions: pulumi.Input[_builtins.int]
+    """
+    Minimum delay in minutes between executions.
+    """
+    target_region: pulumi.Input[_builtins.str]
+    """
+    Target region for the trigger.
+    """
+    conditions: NotRequired[pulumi.Input[Sequence[pulumi.Input['PlanTriggerConditionArgsDict']]]]
+    """
+    List of conditions that must be met. See Conditions below.
+    """
+    description: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Description of the trigger.
+    """
 
 @pulumi.input_type
 class PlanTriggerArgs:
@@ -429,18 +418,15 @@ class PlanTriggerArgs:
         pulumi.set(self, "description", value)
 
 
-if not MYPY:
-    class PlanTriggerConditionArgsDict(TypedDict):
-        associated_alarm_name: pulumi.Input[_builtins.str]
-        """
-        Name of the associated alarm.
-        """
-        condition: pulumi.Input[_builtins.str]
-        """
-        Condition to check. Valid values: `red`, `green`.
-        """
-elif False:
-    PlanTriggerConditionArgsDict: TypeAlias = Mapping[str, Any]
+class PlanTriggerConditionArgsDict(TypedDict):
+    associated_alarm_name: pulumi.Input[_builtins.str]
+    """
+    Name of the associated alarm.
+    """
+    condition: pulumi.Input[_builtins.str]
+    """
+    Condition to check. Valid values: `red`, `green`.
+    """
 
 @pulumi.input_type
 class PlanTriggerConditionArgs:
@@ -479,26 +465,23 @@ class PlanTriggerConditionArgs:
         pulumi.set(self, "condition", value)
 
 
-if not MYPY:
-    class PlanWorkflowArgsDict(TypedDict):
-        workflow_target_action: pulumi.Input[_builtins.str]
-        """
-        Action to perform. Valid values: `activate`, `deactivate`.
-        """
-        steps: NotRequired[pulumi.Input[Sequence[pulumi.Input['PlanWorkflowStepArgsDict']]]]
-        """
-        List of steps in the workflow. See Step below.
-        """
-        workflow_description: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Description of the workflow.
-        """
-        workflow_target_region: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Target region for the workflow.
-        """
-elif False:
-    PlanWorkflowArgsDict: TypeAlias = Mapping[str, Any]
+class PlanWorkflowArgsDict(TypedDict):
+    workflow_target_action: pulumi.Input[_builtins.str]
+    """
+    Action to perform. Valid values: `activate`, `deactivate`.
+    """
+    steps: NotRequired[pulumi.Input[Sequence[pulumi.Input['PlanWorkflowStepArgsDict']]]]
+    """
+    List of steps in the workflow. See Step below.
+    """
+    workflow_description: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Description of the workflow.
+    """
+    workflow_target_region: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Target region for the workflow.
+    """
 
 @pulumi.input_type
 class PlanWorkflowArgs:
@@ -570,63 +553,60 @@ class PlanWorkflowArgs:
         pulumi.set(self, "workflow_target_region", value)
 
 
-if not MYPY:
-    class PlanWorkflowStepArgsDict(TypedDict):
-        execution_block_type: pulumi.Input[_builtins.str]
-        """
-        Type of execution block. Valid values: `ARCRegionSwitchPlan`, `ARCRoutingControl`, `AuroraGlobalDatabase`, `CustomActionLambda`, `DocumentDb`, `EC2AutoScaling`, `ECSServiceScaling`, `EKSResourceScaling`, `ManualApproval`, `Parallel`, `Route53HealthCheck`.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        Name of the step.
-        """
-        arc_routing_control_configs: NotRequired[pulumi.Input[Sequence[pulumi.Input['PlanWorkflowStepArcRoutingControlConfigArgsDict']]]]
-        """
-        Configuration for ARC routing control. See ARC Routing Control Config below.
-        """
-        custom_action_lambda_configs: NotRequired[pulumi.Input[Sequence[pulumi.Input['PlanWorkflowStepCustomActionLambdaConfigArgsDict']]]]
-        """
-        Configuration for Lambda function execution. See Custom Action Lambda Config below.
-        """
-        description: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Description of the step.
-        """
-        document_db_configs: NotRequired[pulumi.Input[Sequence[pulumi.Input['PlanWorkflowStepDocumentDbConfigArgsDict']]]]
-        """
-        Configuration for DocumentDB global cluster operations. See DocumentDB Config below.
-        """
-        ec2_asg_capacity_increase_configs: NotRequired[pulumi.Input[Sequence[pulumi.Input['PlanWorkflowStepEc2AsgCapacityIncreaseConfigArgsDict']]]]
-        """
-        Configuration for EC2 Auto Scaling group capacity increase. See EC2 ASG Capacity Increase Config below.
-        """
-        ecs_capacity_increase_configs: NotRequired[pulumi.Input[Sequence[pulumi.Input['PlanWorkflowStepEcsCapacityIncreaseConfigArgsDict']]]]
-        """
-        Configuration for ECS service capacity increase. See ECS Capacity Increase Config below.
-        """
-        eks_resource_scaling_configs: NotRequired[pulumi.Input[Sequence[pulumi.Input['PlanWorkflowStepEksResourceScalingConfigArgsDict']]]]
-        """
-        Configuration for EKS resource scaling. See EKS Resource Scaling Config below.
-        """
-        execution_approval_configs: NotRequired[pulumi.Input[Sequence[pulumi.Input['PlanWorkflowStepExecutionApprovalConfigArgsDict']]]]
-        """
-        Configuration for manual approval steps. See Execution Approval Config below.
-        """
-        global_aurora_configs: NotRequired[pulumi.Input[Sequence[pulumi.Input['PlanWorkflowStepGlobalAuroraConfigArgsDict']]]]
-        """
-        Configuration for Aurora Global Database operations. See Global Aurora Config below.
-        """
-        parallel_configs: NotRequired[pulumi.Input[Sequence[pulumi.Input['PlanWorkflowStepParallelConfigArgsDict']]]]
-        """
-        Configuration for parallel execution of multiple steps. See Parallel Config below.
-        """
-        region_switch_plan_configs: NotRequired[pulumi.Input[Sequence[pulumi.Input['PlanWorkflowStepRegionSwitchPlanConfigArgsDict']]]]
-        route53_health_check_configs: NotRequired[pulumi.Input[Sequence[pulumi.Input['PlanWorkflowStepRoute53HealthCheckConfigArgsDict']]]]
-        """
-        Configuration for Route53 health check operations. See Route53 Health Check Config below.
-        """
-elif False:
-    PlanWorkflowStepArgsDict: TypeAlias = Mapping[str, Any]
+class PlanWorkflowStepArgsDict(TypedDict):
+    execution_block_type: pulumi.Input[_builtins.str]
+    """
+    Type of execution block. Valid values: `ARCRegionSwitchPlan`, `ARCRoutingControl`, `AuroraGlobalDatabase`, `CustomActionLambda`, `DocumentDb`, `EC2AutoScaling`, `ECSServiceScaling`, `EKSResourceScaling`, `ManualApproval`, `Parallel`, `Route53HealthCheck`.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    Name of the step.
+    """
+    arc_routing_control_configs: NotRequired[pulumi.Input[Sequence[pulumi.Input['PlanWorkflowStepArcRoutingControlConfigArgsDict']]]]
+    """
+    Configuration for ARC routing control. See ARC Routing Control Config below.
+    """
+    custom_action_lambda_configs: NotRequired[pulumi.Input[Sequence[pulumi.Input['PlanWorkflowStepCustomActionLambdaConfigArgsDict']]]]
+    """
+    Configuration for Lambda function execution. See Custom Action Lambda Config below.
+    """
+    description: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Description of the step.
+    """
+    document_db_configs: NotRequired[pulumi.Input[Sequence[pulumi.Input['PlanWorkflowStepDocumentDbConfigArgsDict']]]]
+    """
+    Configuration for DocumentDB global cluster operations. See DocumentDB Config below.
+    """
+    ec2_asg_capacity_increase_configs: NotRequired[pulumi.Input[Sequence[pulumi.Input['PlanWorkflowStepEc2AsgCapacityIncreaseConfigArgsDict']]]]
+    """
+    Configuration for EC2 Auto Scaling group capacity increase. See EC2 ASG Capacity Increase Config below.
+    """
+    ecs_capacity_increase_configs: NotRequired[pulumi.Input[Sequence[pulumi.Input['PlanWorkflowStepEcsCapacityIncreaseConfigArgsDict']]]]
+    """
+    Configuration for ECS service capacity increase. See ECS Capacity Increase Config below.
+    """
+    eks_resource_scaling_configs: NotRequired[pulumi.Input[Sequence[pulumi.Input['PlanWorkflowStepEksResourceScalingConfigArgsDict']]]]
+    """
+    Configuration for EKS resource scaling. See EKS Resource Scaling Config below.
+    """
+    execution_approval_configs: NotRequired[pulumi.Input[Sequence[pulumi.Input['PlanWorkflowStepExecutionApprovalConfigArgsDict']]]]
+    """
+    Configuration for manual approval steps. See Execution Approval Config below.
+    """
+    global_aurora_configs: NotRequired[pulumi.Input[Sequence[pulumi.Input['PlanWorkflowStepGlobalAuroraConfigArgsDict']]]]
+    """
+    Configuration for Aurora Global Database operations. See Global Aurora Config below.
+    """
+    parallel_configs: NotRequired[pulumi.Input[Sequence[pulumi.Input['PlanWorkflowStepParallelConfigArgsDict']]]]
+    """
+    Configuration for parallel execution of multiple steps. See Parallel Config below.
+    """
+    region_switch_plan_configs: NotRequired[pulumi.Input[Sequence[pulumi.Input['PlanWorkflowStepRegionSwitchPlanConfigArgsDict']]]]
+    route53_health_check_configs: NotRequired[pulumi.Input[Sequence[pulumi.Input['PlanWorkflowStepRoute53HealthCheckConfigArgsDict']]]]
+    """
+    Configuration for Route53 health check operations. See Route53 Health Check Config below.
+    """
 
 @pulumi.input_type
 class PlanWorkflowStepArgs:
@@ -853,26 +833,23 @@ class PlanWorkflowStepArgs:
         pulumi.set(self, "route53_health_check_configs", value)
 
 
-if not MYPY:
-    class PlanWorkflowStepArcRoutingControlConfigArgsDict(TypedDict):
-        cross_account_role: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        ARN of the cross-account role to assume.
-        """
-        external_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        External ID for cross-account role assumption.
-        """
-        region_and_routing_controls: NotRequired[pulumi.Input[Sequence[pulumi.Input['PlanWorkflowStepArcRoutingControlConfigRegionAndRoutingControlArgsDict']]]]
-        """
-        List of regions and their routing controls. See Region and Routing Controls below.
-        """
-        timeout_minutes: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Timeout in minutes.
-        """
-elif False:
-    PlanWorkflowStepArcRoutingControlConfigArgsDict: TypeAlias = Mapping[str, Any]
+class PlanWorkflowStepArcRoutingControlConfigArgsDict(TypedDict):
+    cross_account_role: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    ARN of the cross-account role to assume.
+    """
+    external_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    External ID for cross-account role assumption.
+    """
+    region_and_routing_controls: NotRequired[pulumi.Input[Sequence[pulumi.Input['PlanWorkflowStepArcRoutingControlConfigRegionAndRoutingControlArgsDict']]]]
+    """
+    List of regions and their routing controls. See Region and Routing Controls below.
+    """
+    timeout_minutes: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Timeout in minutes.
+    """
 
 @pulumi.input_type
 class PlanWorkflowStepArcRoutingControlConfigArgs:
@@ -945,18 +922,15 @@ class PlanWorkflowStepArcRoutingControlConfigArgs:
         pulumi.set(self, "timeout_minutes", value)
 
 
-if not MYPY:
-    class PlanWorkflowStepArcRoutingControlConfigRegionAndRoutingControlArgsDict(TypedDict):
-        region: pulumi.Input[_builtins.str]
-        """
-        AWS region.
-        """
-        routing_controls: NotRequired[pulumi.Input[Sequence[pulumi.Input['PlanWorkflowStepArcRoutingControlConfigRegionAndRoutingControlRoutingControlArgsDict']]]]
-        """
-        List of routing controls. See Routing Control below.
-        """
-elif False:
-    PlanWorkflowStepArcRoutingControlConfigRegionAndRoutingControlArgsDict: TypeAlias = Mapping[str, Any]
+class PlanWorkflowStepArcRoutingControlConfigRegionAndRoutingControlArgsDict(TypedDict):
+    region: pulumi.Input[_builtins.str]
+    """
+    AWS region.
+    """
+    routing_controls: NotRequired[pulumi.Input[Sequence[pulumi.Input['PlanWorkflowStepArcRoutingControlConfigRegionAndRoutingControlRoutingControlArgsDict']]]]
+    """
+    List of routing controls. See Routing Control below.
+    """
 
 @pulumi.input_type
 class PlanWorkflowStepArcRoutingControlConfigRegionAndRoutingControlArgs:
@@ -996,18 +970,15 @@ class PlanWorkflowStepArcRoutingControlConfigRegionAndRoutingControlArgs:
         pulumi.set(self, "routing_controls", value)
 
 
-if not MYPY:
-    class PlanWorkflowStepArcRoutingControlConfigRegionAndRoutingControlRoutingControlArgsDict(TypedDict):
-        routing_control_arn: pulumi.Input[_builtins.str]
-        """
-        ARN of the routing control.
-        """
-        state: pulumi.Input[_builtins.str]
-        """
-        State of the routing control. Valid values: `On`, `Off`.
-        """
-elif False:
-    PlanWorkflowStepArcRoutingControlConfigRegionAndRoutingControlRoutingControlArgsDict: TypeAlias = Mapping[str, Any]
+class PlanWorkflowStepArcRoutingControlConfigRegionAndRoutingControlRoutingControlArgsDict(TypedDict):
+    routing_control_arn: pulumi.Input[_builtins.str]
+    """
+    ARN of the routing control.
+    """
+    state: pulumi.Input[_builtins.str]
+    """
+    State of the routing control. Valid values: `On`, `Off`.
+    """
 
 @pulumi.input_type
 class PlanWorkflowStepArcRoutingControlConfigRegionAndRoutingControlRoutingControlArgs:
@@ -1046,30 +1017,27 @@ class PlanWorkflowStepArcRoutingControlConfigRegionAndRoutingControlRoutingContr
         pulumi.set(self, "state", value)
 
 
-if not MYPY:
-    class PlanWorkflowStepCustomActionLambdaConfigArgsDict(TypedDict):
-        region_to_run: pulumi.Input[_builtins.str]
-        """
-        Region where the Lambda function should run. Valid values: `activatingRegion`, `deactivatingRegion`.
-        """
-        retry_interval_minutes: pulumi.Input[_builtins.float]
-        """
-        Retry interval in minutes.
-        """
-        lambdas: NotRequired[pulumi.Input[Sequence[pulumi.Input['PlanWorkflowStepCustomActionLambdaConfigLambdaArgsDict']]]]
-        """
-        Lambda function configuration. See Lambda below.
-        """
-        timeout_minutes: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Timeout in minutes.
-        """
-        ungracefuls: NotRequired[pulumi.Input[Sequence[pulumi.Input['PlanWorkflowStepCustomActionLambdaConfigUngracefulArgsDict']]]]
-        """
-        Ungraceful behavior configuration. See Ungraceful below.
-        """
-elif False:
-    PlanWorkflowStepCustomActionLambdaConfigArgsDict: TypeAlias = Mapping[str, Any]
+class PlanWorkflowStepCustomActionLambdaConfigArgsDict(TypedDict):
+    region_to_run: pulumi.Input[_builtins.str]
+    """
+    Region where the Lambda function should run. Valid values: `activatingRegion`, `deactivatingRegion`.
+    """
+    retry_interval_minutes: pulumi.Input[_builtins.float]
+    """
+    Retry interval in minutes.
+    """
+    lambdas: NotRequired[pulumi.Input[Sequence[pulumi.Input['PlanWorkflowStepCustomActionLambdaConfigLambdaArgsDict']]]]
+    """
+    Lambda function configuration. See Lambda below.
+    """
+    timeout_minutes: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Timeout in minutes.
+    """
+    ungracefuls: NotRequired[pulumi.Input[Sequence[pulumi.Input['PlanWorkflowStepCustomActionLambdaConfigUngracefulArgsDict']]]]
+    """
+    Ungraceful behavior configuration. See Ungraceful below.
+    """
 
 @pulumi.input_type
 class PlanWorkflowStepCustomActionLambdaConfigArgs:
@@ -1156,22 +1124,19 @@ class PlanWorkflowStepCustomActionLambdaConfigArgs:
         pulumi.set(self, "ungracefuls", value)
 
 
-if not MYPY:
-    class PlanWorkflowStepCustomActionLambdaConfigLambdaArgsDict(TypedDict):
-        arn: pulumi.Input[_builtins.str]
-        """
-        ARN of the Lambda function.
-        """
-        cross_account_role: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        ARN of the cross-account role to assume.
-        """
-        external_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        External ID for cross-account role assumption.
-        """
-elif False:
-    PlanWorkflowStepCustomActionLambdaConfigLambdaArgsDict: TypeAlias = Mapping[str, Any]
+class PlanWorkflowStepCustomActionLambdaConfigLambdaArgsDict(TypedDict):
+    arn: pulumi.Input[_builtins.str]
+    """
+    ARN of the Lambda function.
+    """
+    cross_account_role: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    ARN of the cross-account role to assume.
+    """
+    external_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    External ID for cross-account role assumption.
+    """
 
 @pulumi.input_type
 class PlanWorkflowStepCustomActionLambdaConfigLambdaArgs:
@@ -1227,14 +1192,11 @@ class PlanWorkflowStepCustomActionLambdaConfigLambdaArgs:
         pulumi.set(self, "external_id", value)
 
 
-if not MYPY:
-    class PlanWorkflowStepCustomActionLambdaConfigUngracefulArgsDict(TypedDict):
-        behavior: pulumi.Input[_builtins.str]
-        """
-        Behavior when ungraceful. Valid values: `skip`.
-        """
-elif False:
-    PlanWorkflowStepCustomActionLambdaConfigUngracefulArgsDict: TypeAlias = Mapping[str, Any]
+class PlanWorkflowStepCustomActionLambdaConfigUngracefulArgsDict(TypedDict):
+    behavior: pulumi.Input[_builtins.str]
+    """
+    Behavior when ungraceful. Valid values: `skip`.
+    """
 
 @pulumi.input_type
 class PlanWorkflowStepCustomActionLambdaConfigUngracefulArgs:
@@ -1258,17 +1220,14 @@ class PlanWorkflowStepCustomActionLambdaConfigUngracefulArgs:
         pulumi.set(self, "behavior", value)
 
 
-if not MYPY:
-    class PlanWorkflowStepDocumentDbConfigArgsDict(TypedDict):
-        behavior: pulumi.Input[_builtins.str]
-        database_cluster_arns: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        global_cluster_identifier: pulumi.Input[_builtins.str]
-        cross_account_role: NotRequired[pulumi.Input[_builtins.str]]
-        external_id: NotRequired[pulumi.Input[_builtins.str]]
-        timeout_minutes: NotRequired[pulumi.Input[_builtins.int]]
-        ungracefuls: NotRequired[pulumi.Input[Sequence[pulumi.Input['PlanWorkflowStepDocumentDbConfigUngracefulArgsDict']]]]
-elif False:
-    PlanWorkflowStepDocumentDbConfigArgsDict: TypeAlias = Mapping[str, Any]
+class PlanWorkflowStepDocumentDbConfigArgsDict(TypedDict):
+    behavior: pulumi.Input[_builtins.str]
+    database_cluster_arns: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    global_cluster_identifier: pulumi.Input[_builtins.str]
+    cross_account_role: NotRequired[pulumi.Input[_builtins.str]]
+    external_id: NotRequired[pulumi.Input[_builtins.str]]
+    timeout_minutes: NotRequired[pulumi.Input[_builtins.int]]
+    ungracefuls: NotRequired[pulumi.Input[Sequence[pulumi.Input['PlanWorkflowStepDocumentDbConfigUngracefulArgsDict']]]]
 
 @pulumi.input_type
 class PlanWorkflowStepDocumentDbConfigArgs:
@@ -1356,11 +1315,8 @@ class PlanWorkflowStepDocumentDbConfigArgs:
         pulumi.set(self, "ungracefuls", value)
 
 
-if not MYPY:
-    class PlanWorkflowStepDocumentDbConfigUngracefulArgsDict(TypedDict):
-        ungraceful: pulumi.Input[_builtins.str]
-elif False:
-    PlanWorkflowStepDocumentDbConfigUngracefulArgsDict: TypeAlias = Mapping[str, Any]
+class PlanWorkflowStepDocumentDbConfigUngracefulArgsDict(TypedDict):
+    ungraceful: pulumi.Input[_builtins.str]
 
 @pulumi.input_type
 class PlanWorkflowStepDocumentDbConfigUngracefulArgs:
@@ -1378,30 +1334,27 @@ class PlanWorkflowStepDocumentDbConfigUngracefulArgs:
         pulumi.set(self, "ungraceful", value)
 
 
-if not MYPY:
-    class PlanWorkflowStepEc2AsgCapacityIncreaseConfigArgsDict(TypedDict):
-        capacity_monitoring_approach: pulumi.Input[_builtins.str]
-        """
-        Capacity monitoring approach. Valid values: `sampledMaxInLast24Hours`, `autoscalingMaxInLast24Hours`.
-        """
-        asgs: NotRequired[pulumi.Input[Sequence[pulumi.Input['PlanWorkflowStepEc2AsgCapacityIncreaseConfigAsgArgsDict']]]]
-        """
-        Auto Scaling group configuration. See ASG below.
-        """
-        target_percent: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Target capacity percentage.
-        """
-        timeout_minutes: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Timeout in minutes.
-        """
-        ungraceful: NotRequired[pulumi.Input['PlanWorkflowStepEc2AsgCapacityIncreaseConfigUngracefulArgsDict']]
-        """
-        Ungraceful behavior configuration. See Ungraceful below.
-        """
-elif False:
-    PlanWorkflowStepEc2AsgCapacityIncreaseConfigArgsDict: TypeAlias = Mapping[str, Any]
+class PlanWorkflowStepEc2AsgCapacityIncreaseConfigArgsDict(TypedDict):
+    capacity_monitoring_approach: pulumi.Input[_builtins.str]
+    """
+    Capacity monitoring approach. Valid values: `sampledMaxInLast24Hours`, `autoscalingMaxInLast24Hours`.
+    """
+    asgs: NotRequired[pulumi.Input[Sequence[pulumi.Input['PlanWorkflowStepEc2AsgCapacityIncreaseConfigAsgArgsDict']]]]
+    """
+    Auto Scaling group configuration. See ASG below.
+    """
+    target_percent: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Target capacity percentage.
+    """
+    timeout_minutes: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Timeout in minutes.
+    """
+    ungraceful: NotRequired[pulumi.Input['PlanWorkflowStepEc2AsgCapacityIncreaseConfigUngracefulArgsDict']]
+    """
+    Ungraceful behavior configuration. See Ungraceful below.
+    """
 
 @pulumi.input_type
 class PlanWorkflowStepEc2AsgCapacityIncreaseConfigArgs:
@@ -1489,22 +1442,19 @@ class PlanWorkflowStepEc2AsgCapacityIncreaseConfigArgs:
         pulumi.set(self, "ungraceful", value)
 
 
-if not MYPY:
-    class PlanWorkflowStepEc2AsgCapacityIncreaseConfigAsgArgsDict(TypedDict):
-        arn: pulumi.Input[_builtins.str]
-        """
-        ARN of the Auto Scaling group.
-        """
-        cross_account_role: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        ARN of the cross-account role to assume.
-        """
-        external_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        External ID for cross-account role assumption.
-        """
-elif False:
-    PlanWorkflowStepEc2AsgCapacityIncreaseConfigAsgArgsDict: TypeAlias = Mapping[str, Any]
+class PlanWorkflowStepEc2AsgCapacityIncreaseConfigAsgArgsDict(TypedDict):
+    arn: pulumi.Input[_builtins.str]
+    """
+    ARN of the Auto Scaling group.
+    """
+    cross_account_role: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    ARN of the cross-account role to assume.
+    """
+    external_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    External ID for cross-account role assumption.
+    """
 
 @pulumi.input_type
 class PlanWorkflowStepEc2AsgCapacityIncreaseConfigAsgArgs:
@@ -1560,14 +1510,11 @@ class PlanWorkflowStepEc2AsgCapacityIncreaseConfigAsgArgs:
         pulumi.set(self, "external_id", value)
 
 
-if not MYPY:
-    class PlanWorkflowStepEc2AsgCapacityIncreaseConfigUngracefulArgsDict(TypedDict):
-        minimum_success_percentage: pulumi.Input[_builtins.int]
-        """
-        Minimum success percentage required.
-        """
-elif False:
-    PlanWorkflowStepEc2AsgCapacityIncreaseConfigUngracefulArgsDict: TypeAlias = Mapping[str, Any]
+class PlanWorkflowStepEc2AsgCapacityIncreaseConfigUngracefulArgsDict(TypedDict):
+    minimum_success_percentage: pulumi.Input[_builtins.int]
+    """
+    Minimum success percentage required.
+    """
 
 @pulumi.input_type
 class PlanWorkflowStepEc2AsgCapacityIncreaseConfigUngracefulArgs:
@@ -1591,30 +1538,27 @@ class PlanWorkflowStepEc2AsgCapacityIncreaseConfigUngracefulArgs:
         pulumi.set(self, "minimum_success_percentage", value)
 
 
-if not MYPY:
-    class PlanWorkflowStepEcsCapacityIncreaseConfigArgsDict(TypedDict):
-        capacity_monitoring_approach: pulumi.Input[_builtins.str]
-        """
-        Capacity monitoring approach. Valid values: `sampledMaxInLast24Hours`, `containerInsightsMaxInLast24Hours`.
-        """
-        services: NotRequired[pulumi.Input[Sequence[pulumi.Input['PlanWorkflowStepEcsCapacityIncreaseConfigServiceArgsDict']]]]
-        """
-        ECS service configuration. See ECS Service below.
-        """
-        target_percent: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Target capacity percentage.
-        """
-        timeout_minutes: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Timeout in minutes.
-        """
-        ungraceful: NotRequired[pulumi.Input['PlanWorkflowStepEcsCapacityIncreaseConfigUngracefulArgsDict']]
-        """
-        Ungraceful behavior configuration. See Ungraceful Capacity below.
-        """
-elif False:
-    PlanWorkflowStepEcsCapacityIncreaseConfigArgsDict: TypeAlias = Mapping[str, Any]
+class PlanWorkflowStepEcsCapacityIncreaseConfigArgsDict(TypedDict):
+    capacity_monitoring_approach: pulumi.Input[_builtins.str]
+    """
+    Capacity monitoring approach. Valid values: `sampledMaxInLast24Hours`, `containerInsightsMaxInLast24Hours`.
+    """
+    services: NotRequired[pulumi.Input[Sequence[pulumi.Input['PlanWorkflowStepEcsCapacityIncreaseConfigServiceArgsDict']]]]
+    """
+    ECS service configuration. See ECS Service below.
+    """
+    target_percent: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Target capacity percentage.
+    """
+    timeout_minutes: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Timeout in minutes.
+    """
+    ungraceful: NotRequired[pulumi.Input['PlanWorkflowStepEcsCapacityIncreaseConfigUngracefulArgsDict']]
+    """
+    Ungraceful behavior configuration. See Ungraceful Capacity below.
+    """
 
 @pulumi.input_type
 class PlanWorkflowStepEcsCapacityIncreaseConfigArgs:
@@ -1702,17 +1646,14 @@ class PlanWorkflowStepEcsCapacityIncreaseConfigArgs:
         pulumi.set(self, "ungraceful", value)
 
 
-if not MYPY:
-    class PlanWorkflowStepEcsCapacityIncreaseConfigServiceArgsDict(TypedDict):
-        cluster_arn: pulumi.Input[_builtins.str]
-        service_arn: pulumi.Input[_builtins.str]
-        """
-        ARN of the ECS service.
-        """
-        cross_account_role: NotRequired[pulumi.Input[_builtins.str]]
-        external_id: NotRequired[pulumi.Input[_builtins.str]]
-elif False:
-    PlanWorkflowStepEcsCapacityIncreaseConfigServiceArgsDict: TypeAlias = Mapping[str, Any]
+class PlanWorkflowStepEcsCapacityIncreaseConfigServiceArgsDict(TypedDict):
+    cluster_arn: pulumi.Input[_builtins.str]
+    service_arn: pulumi.Input[_builtins.str]
+    """
+    ARN of the ECS service.
+    """
+    cross_account_role: NotRequired[pulumi.Input[_builtins.str]]
+    external_id: NotRequired[pulumi.Input[_builtins.str]]
 
 @pulumi.input_type
 class PlanWorkflowStepEcsCapacityIncreaseConfigServiceArgs:
@@ -1771,14 +1712,11 @@ class PlanWorkflowStepEcsCapacityIncreaseConfigServiceArgs:
         pulumi.set(self, "external_id", value)
 
 
-if not MYPY:
-    class PlanWorkflowStepEcsCapacityIncreaseConfigUngracefulArgsDict(TypedDict):
-        minimum_success_percentage: pulumi.Input[_builtins.int]
-        """
-        Minimum success percentage required.
-        """
-elif False:
-    PlanWorkflowStepEcsCapacityIncreaseConfigUngracefulArgsDict: TypeAlias = Mapping[str, Any]
+class PlanWorkflowStepEcsCapacityIncreaseConfigUngracefulArgsDict(TypedDict):
+    minimum_success_percentage: pulumi.Input[_builtins.int]
+    """
+    Minimum success percentage required.
+    """
 
 @pulumi.input_type
 class PlanWorkflowStepEcsCapacityIncreaseConfigUngracefulArgs:
@@ -1802,38 +1740,35 @@ class PlanWorkflowStepEcsCapacityIncreaseConfigUngracefulArgs:
         pulumi.set(self, "minimum_success_percentage", value)
 
 
-if not MYPY:
-    class PlanWorkflowStepEksResourceScalingConfigArgsDict(TypedDict):
-        capacity_monitoring_approach: pulumi.Input[_builtins.str]
-        """
-        Capacity monitoring approach. Valid values: `sampledMaxInLast24Hours`, `autoscalingMaxInLast24Hours`.
-        """
-        target_percent: pulumi.Input[_builtins.int]
-        """
-        Target capacity percentage.
-        """
-        eks_clusters: NotRequired[pulumi.Input[Sequence[pulumi.Input['PlanWorkflowStepEksResourceScalingConfigEksClusterArgsDict']]]]
-        """
-        List of EKS clusters. See EKS Clusters below.
-        """
-        kubernetes_resource_types: NotRequired[pulumi.Input[Sequence[pulumi.Input['PlanWorkflowStepEksResourceScalingConfigKubernetesResourceTypeArgsDict']]]]
-        """
-        Kubernetes resource type. See Kubernetes Resource Type below.
-        """
-        scaling_resources: NotRequired[pulumi.Input[Sequence[pulumi.Input['PlanWorkflowStepEksResourceScalingConfigScalingResourceArgsDict']]]]
-        """
-        List of scaling resources. See Scaling Resources below.
-        """
-        timeout_minutes: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Timeout in minutes.
-        """
-        ungracefuls: NotRequired[pulumi.Input[Sequence[pulumi.Input['PlanWorkflowStepEksResourceScalingConfigUngracefulArgsDict']]]]
-        """
-        Ungraceful behavior configuration. See Ungraceful Capacity below.
-        """
-elif False:
-    PlanWorkflowStepEksResourceScalingConfigArgsDict: TypeAlias = Mapping[str, Any]
+class PlanWorkflowStepEksResourceScalingConfigArgsDict(TypedDict):
+    capacity_monitoring_approach: pulumi.Input[_builtins.str]
+    """
+    Capacity monitoring approach. Valid values: `sampledMaxInLast24Hours`, `autoscalingMaxInLast24Hours`.
+    """
+    target_percent: pulumi.Input[_builtins.int]
+    """
+    Target capacity percentage.
+    """
+    eks_clusters: NotRequired[pulumi.Input[Sequence[pulumi.Input['PlanWorkflowStepEksResourceScalingConfigEksClusterArgsDict']]]]
+    """
+    List of EKS clusters. See EKS Clusters below.
+    """
+    kubernetes_resource_types: NotRequired[pulumi.Input[Sequence[pulumi.Input['PlanWorkflowStepEksResourceScalingConfigKubernetesResourceTypeArgsDict']]]]
+    """
+    Kubernetes resource type. See Kubernetes Resource Type below.
+    """
+    scaling_resources: NotRequired[pulumi.Input[Sequence[pulumi.Input['PlanWorkflowStepEksResourceScalingConfigScalingResourceArgsDict']]]]
+    """
+    List of scaling resources. See Scaling Resources below.
+    """
+    timeout_minutes: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Timeout in minutes.
+    """
+    ungracefuls: NotRequired[pulumi.Input[Sequence[pulumi.Input['PlanWorkflowStepEksResourceScalingConfigUngracefulArgsDict']]]]
+    """
+    Ungraceful behavior configuration. See Ungraceful Capacity below.
+    """
 
 @pulumi.input_type
 class PlanWorkflowStepEksResourceScalingConfigArgs:
@@ -1952,22 +1887,19 @@ class PlanWorkflowStepEksResourceScalingConfigArgs:
         pulumi.set(self, "ungracefuls", value)
 
 
-if not MYPY:
-    class PlanWorkflowStepEksResourceScalingConfigEksClusterArgsDict(TypedDict):
-        cluster_arn: pulumi.Input[_builtins.str]
-        """
-        ARN of the EKS cluster.
-        """
-        cross_account_role: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        ARN of the cross-account role to assume.
-        """
-        external_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        External ID for cross-account role assumption.
-        """
-elif False:
-    PlanWorkflowStepEksResourceScalingConfigEksClusterArgsDict: TypeAlias = Mapping[str, Any]
+class PlanWorkflowStepEksResourceScalingConfigEksClusterArgsDict(TypedDict):
+    cluster_arn: pulumi.Input[_builtins.str]
+    """
+    ARN of the EKS cluster.
+    """
+    cross_account_role: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    ARN of the cross-account role to assume.
+    """
+    external_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    External ID for cross-account role assumption.
+    """
 
 @pulumi.input_type
 class PlanWorkflowStepEksResourceScalingConfigEksClusterArgs:
@@ -2023,18 +1955,15 @@ class PlanWorkflowStepEksResourceScalingConfigEksClusterArgs:
         pulumi.set(self, "external_id", value)
 
 
-if not MYPY:
-    class PlanWorkflowStepEksResourceScalingConfigKubernetesResourceTypeArgsDict(TypedDict):
-        api_version: pulumi.Input[_builtins.str]
-        """
-        Kubernetes API version.
-        """
-        kind: pulumi.Input[_builtins.str]
-        """
-        Kubernetes resource kind.
-        """
-elif False:
-    PlanWorkflowStepEksResourceScalingConfigKubernetesResourceTypeArgsDict: TypeAlias = Mapping[str, Any]
+class PlanWorkflowStepEksResourceScalingConfigKubernetesResourceTypeArgsDict(TypedDict):
+    api_version: pulumi.Input[_builtins.str]
+    """
+    Kubernetes API version.
+    """
+    kind: pulumi.Input[_builtins.str]
+    """
+    Kubernetes resource kind.
+    """
 
 @pulumi.input_type
 class PlanWorkflowStepEksResourceScalingConfigKubernetesResourceTypeArgs:
@@ -2073,18 +2002,15 @@ class PlanWorkflowStepEksResourceScalingConfigKubernetesResourceTypeArgs:
         pulumi.set(self, "kind", value)
 
 
-if not MYPY:
-    class PlanWorkflowStepEksResourceScalingConfigScalingResourceArgsDict(TypedDict):
-        namespace: pulumi.Input[_builtins.str]
-        """
-        Kubernetes namespace.
-        """
-        resources: NotRequired[pulumi.Input[Sequence[pulumi.Input['PlanWorkflowStepEksResourceScalingConfigScalingResourceResourceArgsDict']]]]
-        """
-        Set of resources to scale. See Resources below.
-        """
-elif False:
-    PlanWorkflowStepEksResourceScalingConfigScalingResourceArgsDict: TypeAlias = Mapping[str, Any]
+class PlanWorkflowStepEksResourceScalingConfigScalingResourceArgsDict(TypedDict):
+    namespace: pulumi.Input[_builtins.str]
+    """
+    Kubernetes namespace.
+    """
+    resources: NotRequired[pulumi.Input[Sequence[pulumi.Input['PlanWorkflowStepEksResourceScalingConfigScalingResourceResourceArgsDict']]]]
+    """
+    Set of resources to scale. See Resources below.
+    """
 
 @pulumi.input_type
 class PlanWorkflowStepEksResourceScalingConfigScalingResourceArgs:
@@ -2124,26 +2050,23 @@ class PlanWorkflowStepEksResourceScalingConfigScalingResourceArgs:
         pulumi.set(self, "resources", value)
 
 
-if not MYPY:
-    class PlanWorkflowStepEksResourceScalingConfigScalingResourceResourceArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        """
-        Name of the Kubernetes object.
-        """
-        namespace: pulumi.Input[_builtins.str]
-        """
-        Kubernetes namespace.
-        """
-        resource_name: pulumi.Input[_builtins.str]
-        """
-        Name of the resource.
-        """
-        hpa_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Name of the Horizontal Pod Autoscaler.
-        """
-elif False:
-    PlanWorkflowStepEksResourceScalingConfigScalingResourceResourceArgsDict: TypeAlias = Mapping[str, Any]
+class PlanWorkflowStepEksResourceScalingConfigScalingResourceResourceArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    Name of the Kubernetes object.
+    """
+    namespace: pulumi.Input[_builtins.str]
+    """
+    Kubernetes namespace.
+    """
+    resource_name: pulumi.Input[_builtins.str]
+    """
+    Name of the resource.
+    """
+    hpa_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Name of the Horizontal Pod Autoscaler.
+    """
 
 @pulumi.input_type
 class PlanWorkflowStepEksResourceScalingConfigScalingResourceResourceArgs:
@@ -2213,14 +2136,11 @@ class PlanWorkflowStepEksResourceScalingConfigScalingResourceResourceArgs:
         pulumi.set(self, "hpa_name", value)
 
 
-if not MYPY:
-    class PlanWorkflowStepEksResourceScalingConfigUngracefulArgsDict(TypedDict):
-        minimum_success_percentage: pulumi.Input[_builtins.int]
-        """
-        Minimum success percentage required.
-        """
-elif False:
-    PlanWorkflowStepEksResourceScalingConfigUngracefulArgsDict: TypeAlias = Mapping[str, Any]
+class PlanWorkflowStepEksResourceScalingConfigUngracefulArgsDict(TypedDict):
+    minimum_success_percentage: pulumi.Input[_builtins.int]
+    """
+    Minimum success percentage required.
+    """
 
 @pulumi.input_type
 class PlanWorkflowStepEksResourceScalingConfigUngracefulArgs:
@@ -2244,18 +2164,15 @@ class PlanWorkflowStepEksResourceScalingConfigUngracefulArgs:
         pulumi.set(self, "minimum_success_percentage", value)
 
 
-if not MYPY:
-    class PlanWorkflowStepExecutionApprovalConfigArgsDict(TypedDict):
-        approval_role: pulumi.Input[_builtins.str]
-        """
-        ARN of the IAM role for approval.
-        """
-        timeout_minutes: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Timeout in minutes for the approval.
-        """
-elif False:
-    PlanWorkflowStepExecutionApprovalConfigArgsDict: TypeAlias = Mapping[str, Any]
+class PlanWorkflowStepExecutionApprovalConfigArgsDict(TypedDict):
+    approval_role: pulumi.Input[_builtins.str]
+    """
+    ARN of the IAM role for approval.
+    """
+    timeout_minutes: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Timeout in minutes for the approval.
+    """
 
 @pulumi.input_type
 class PlanWorkflowStepExecutionApprovalConfigArgs:
@@ -2295,38 +2212,35 @@ class PlanWorkflowStepExecutionApprovalConfigArgs:
         pulumi.set(self, "timeout_minutes", value)
 
 
-if not MYPY:
-    class PlanWorkflowStepGlobalAuroraConfigArgsDict(TypedDict):
-        behavior: pulumi.Input[_builtins.str]
-        """
-        Behavior for Aurora operations. Valid values: `switchoverOnly`, `failover`.
-        """
-        database_cluster_arns: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        List of database cluster ARNs.
-        """
-        global_cluster_identifier: pulumi.Input[_builtins.str]
-        """
-        Global cluster identifier.
-        """
-        cross_account_role: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        ARN of the cross-account role to assume.
-        """
-        external_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        External ID for cross-account role assumption.
-        """
-        timeout_minutes: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Timeout in minutes.
-        """
-        ungracefuls: NotRequired[pulumi.Input[Sequence[pulumi.Input['PlanWorkflowStepGlobalAuroraConfigUngracefulArgsDict']]]]
-        """
-        Ungraceful behavior configuration. See Ungraceful Aurora below.
-        """
-elif False:
-    PlanWorkflowStepGlobalAuroraConfigArgsDict: TypeAlias = Mapping[str, Any]
+class PlanWorkflowStepGlobalAuroraConfigArgsDict(TypedDict):
+    behavior: pulumi.Input[_builtins.str]
+    """
+    Behavior for Aurora operations. Valid values: `switchoverOnly`, `failover`.
+    """
+    database_cluster_arns: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    List of database cluster ARNs.
+    """
+    global_cluster_identifier: pulumi.Input[_builtins.str]
+    """
+    Global cluster identifier.
+    """
+    cross_account_role: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    ARN of the cross-account role to assume.
+    """
+    external_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    External ID for cross-account role assumption.
+    """
+    timeout_minutes: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Timeout in minutes.
+    """
+    ungracefuls: NotRequired[pulumi.Input[Sequence[pulumi.Input['PlanWorkflowStepGlobalAuroraConfigUngracefulArgsDict']]]]
+    """
+    Ungraceful behavior configuration. See Ungraceful Aurora below.
+    """
 
 @pulumi.input_type
 class PlanWorkflowStepGlobalAuroraConfigArgs:
@@ -2444,11 +2358,8 @@ class PlanWorkflowStepGlobalAuroraConfigArgs:
         pulumi.set(self, "ungracefuls", value)
 
 
-if not MYPY:
-    class PlanWorkflowStepGlobalAuroraConfigUngracefulArgsDict(TypedDict):
-        ungraceful: pulumi.Input[_builtins.str]
-elif False:
-    PlanWorkflowStepGlobalAuroraConfigUngracefulArgsDict: TypeAlias = Mapping[str, Any]
+class PlanWorkflowStepGlobalAuroraConfigUngracefulArgsDict(TypedDict):
+    ungraceful: pulumi.Input[_builtins.str]
 
 @pulumi.input_type
 class PlanWorkflowStepGlobalAuroraConfigUngracefulArgs:
@@ -2466,14 +2377,11 @@ class PlanWorkflowStepGlobalAuroraConfigUngracefulArgs:
         pulumi.set(self, "ungraceful", value)
 
 
-if not MYPY:
-    class PlanWorkflowStepParallelConfigArgsDict(TypedDict):
-        steps: NotRequired[pulumi.Input[Sequence[pulumi.Input['PlanWorkflowStepParallelConfigStepArgsDict']]]]
-        """
-        List of steps to execute in parallel. Uses the same schema as Step but without `parallel_config` to prevent infinite nesting.
-        """
-elif False:
-    PlanWorkflowStepParallelConfigArgsDict: TypeAlias = Mapping[str, Any]
+class PlanWorkflowStepParallelConfigArgsDict(TypedDict):
+    steps: NotRequired[pulumi.Input[Sequence[pulumi.Input['PlanWorkflowStepParallelConfigStepArgsDict']]]]
+    """
+    List of steps to execute in parallel. Uses the same schema as Step but without `parallel_config` to prevent infinite nesting.
+    """
 
 @pulumi.input_type
 class PlanWorkflowStepParallelConfigArgs:
@@ -2498,59 +2406,56 @@ class PlanWorkflowStepParallelConfigArgs:
         pulumi.set(self, "steps", value)
 
 
-if not MYPY:
-    class PlanWorkflowStepParallelConfigStepArgsDict(TypedDict):
-        execution_block_type: pulumi.Input[_builtins.str]
-        """
-        Type of execution block. Valid values: `ARCRegionSwitchPlan`, `ARCRoutingControl`, `AuroraGlobalDatabase`, `CustomActionLambda`, `DocumentDb`, `EC2AutoScaling`, `ECSServiceScaling`, `EKSResourceScaling`, `ManualApproval`, `Parallel`, `Route53HealthCheck`.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        Name of the step.
-        """
-        arc_routing_control_configs: NotRequired[pulumi.Input[Sequence[pulumi.Input['PlanWorkflowStepParallelConfigStepArcRoutingControlConfigArgsDict']]]]
-        """
-        Configuration for ARC routing control. See ARC Routing Control Config below.
-        """
-        custom_action_lambda_configs: NotRequired[pulumi.Input[Sequence[pulumi.Input['PlanWorkflowStepParallelConfigStepCustomActionLambdaConfigArgsDict']]]]
-        """
-        Configuration for Lambda function execution. See Custom Action Lambda Config below.
-        """
-        description: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Description of the step.
-        """
-        document_db_configs: NotRequired[pulumi.Input[Sequence[pulumi.Input['PlanWorkflowStepParallelConfigStepDocumentDbConfigArgsDict']]]]
-        """
-        Configuration for DocumentDB global cluster operations. See DocumentDB Config below.
-        """
-        ec2_asg_capacity_increase_configs: NotRequired[pulumi.Input[Sequence[pulumi.Input['PlanWorkflowStepParallelConfigStepEc2AsgCapacityIncreaseConfigArgsDict']]]]
-        """
-        Configuration for EC2 Auto Scaling group capacity increase. See EC2 ASG Capacity Increase Config below.
-        """
-        ecs_capacity_increase_configs: NotRequired[pulumi.Input[Sequence[pulumi.Input['PlanWorkflowStepParallelConfigStepEcsCapacityIncreaseConfigArgsDict']]]]
-        """
-        Configuration for ECS service capacity increase. See ECS Capacity Increase Config below.
-        """
-        eks_resource_scaling_configs: NotRequired[pulumi.Input[Sequence[pulumi.Input['PlanWorkflowStepParallelConfigStepEksResourceScalingConfigArgsDict']]]]
-        """
-        Configuration for EKS resource scaling. See EKS Resource Scaling Config below.
-        """
-        execution_approval_configs: NotRequired[pulumi.Input[Sequence[pulumi.Input['PlanWorkflowStepParallelConfigStepExecutionApprovalConfigArgsDict']]]]
-        """
-        Configuration for manual approval steps. See Execution Approval Config below.
-        """
-        global_aurora_configs: NotRequired[pulumi.Input[Sequence[pulumi.Input['PlanWorkflowStepParallelConfigStepGlobalAuroraConfigArgsDict']]]]
-        """
-        Configuration for Aurora Global Database operations. See Global Aurora Config below.
-        """
-        region_switch_plan_configs: NotRequired[pulumi.Input[Sequence[pulumi.Input['PlanWorkflowStepParallelConfigStepRegionSwitchPlanConfigArgsDict']]]]
-        route53_health_check_configs: NotRequired[pulumi.Input[Sequence[pulumi.Input['PlanWorkflowStepParallelConfigStepRoute53HealthCheckConfigArgsDict']]]]
-        """
-        Configuration for Route53 health check operations. See Route53 Health Check Config below.
-        """
-elif False:
-    PlanWorkflowStepParallelConfigStepArgsDict: TypeAlias = Mapping[str, Any]
+class PlanWorkflowStepParallelConfigStepArgsDict(TypedDict):
+    execution_block_type: pulumi.Input[_builtins.str]
+    """
+    Type of execution block. Valid values: `ARCRegionSwitchPlan`, `ARCRoutingControl`, `AuroraGlobalDatabase`, `CustomActionLambda`, `DocumentDb`, `EC2AutoScaling`, `ECSServiceScaling`, `EKSResourceScaling`, `ManualApproval`, `Parallel`, `Route53HealthCheck`.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    Name of the step.
+    """
+    arc_routing_control_configs: NotRequired[pulumi.Input[Sequence[pulumi.Input['PlanWorkflowStepParallelConfigStepArcRoutingControlConfigArgsDict']]]]
+    """
+    Configuration for ARC routing control. See ARC Routing Control Config below.
+    """
+    custom_action_lambda_configs: NotRequired[pulumi.Input[Sequence[pulumi.Input['PlanWorkflowStepParallelConfigStepCustomActionLambdaConfigArgsDict']]]]
+    """
+    Configuration for Lambda function execution. See Custom Action Lambda Config below.
+    """
+    description: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Description of the step.
+    """
+    document_db_configs: NotRequired[pulumi.Input[Sequence[pulumi.Input['PlanWorkflowStepParallelConfigStepDocumentDbConfigArgsDict']]]]
+    """
+    Configuration for DocumentDB global cluster operations. See DocumentDB Config below.
+    """
+    ec2_asg_capacity_increase_configs: NotRequired[pulumi.Input[Sequence[pulumi.Input['PlanWorkflowStepParallelConfigStepEc2AsgCapacityIncreaseConfigArgsDict']]]]
+    """
+    Configuration for EC2 Auto Scaling group capacity increase. See EC2 ASG Capacity Increase Config below.
+    """
+    ecs_capacity_increase_configs: NotRequired[pulumi.Input[Sequence[pulumi.Input['PlanWorkflowStepParallelConfigStepEcsCapacityIncreaseConfigArgsDict']]]]
+    """
+    Configuration for ECS service capacity increase. See ECS Capacity Increase Config below.
+    """
+    eks_resource_scaling_configs: NotRequired[pulumi.Input[Sequence[pulumi.Input['PlanWorkflowStepParallelConfigStepEksResourceScalingConfigArgsDict']]]]
+    """
+    Configuration for EKS resource scaling. See EKS Resource Scaling Config below.
+    """
+    execution_approval_configs: NotRequired[pulumi.Input[Sequence[pulumi.Input['PlanWorkflowStepParallelConfigStepExecutionApprovalConfigArgsDict']]]]
+    """
+    Configuration for manual approval steps. See Execution Approval Config below.
+    """
+    global_aurora_configs: NotRequired[pulumi.Input[Sequence[pulumi.Input['PlanWorkflowStepParallelConfigStepGlobalAuroraConfigArgsDict']]]]
+    """
+    Configuration for Aurora Global Database operations. See Global Aurora Config below.
+    """
+    region_switch_plan_configs: NotRequired[pulumi.Input[Sequence[pulumi.Input['PlanWorkflowStepParallelConfigStepRegionSwitchPlanConfigArgsDict']]]]
+    route53_health_check_configs: NotRequired[pulumi.Input[Sequence[pulumi.Input['PlanWorkflowStepParallelConfigStepRoute53HealthCheckConfigArgsDict']]]]
+    """
+    Configuration for Route53 health check operations. See Route53 Health Check Config below.
+    """
 
 @pulumi.input_type
 class PlanWorkflowStepParallelConfigStepArgs:
@@ -2761,26 +2666,23 @@ class PlanWorkflowStepParallelConfigStepArgs:
         pulumi.set(self, "route53_health_check_configs", value)
 
 
-if not MYPY:
-    class PlanWorkflowStepParallelConfigStepArcRoutingControlConfigArgsDict(TypedDict):
-        cross_account_role: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        ARN of the cross-account role to assume.
-        """
-        external_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        External ID for cross-account role assumption.
-        """
-        region_and_routing_controls: NotRequired[pulumi.Input[Sequence[pulumi.Input['PlanWorkflowStepParallelConfigStepArcRoutingControlConfigRegionAndRoutingControlArgsDict']]]]
-        """
-        List of regions and their routing controls. See Region and Routing Controls below.
-        """
-        timeout_minutes: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Timeout in minutes.
-        """
-elif False:
-    PlanWorkflowStepParallelConfigStepArcRoutingControlConfigArgsDict: TypeAlias = Mapping[str, Any]
+class PlanWorkflowStepParallelConfigStepArcRoutingControlConfigArgsDict(TypedDict):
+    cross_account_role: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    ARN of the cross-account role to assume.
+    """
+    external_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    External ID for cross-account role assumption.
+    """
+    region_and_routing_controls: NotRequired[pulumi.Input[Sequence[pulumi.Input['PlanWorkflowStepParallelConfigStepArcRoutingControlConfigRegionAndRoutingControlArgsDict']]]]
+    """
+    List of regions and their routing controls. See Region and Routing Controls below.
+    """
+    timeout_minutes: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Timeout in minutes.
+    """
 
 @pulumi.input_type
 class PlanWorkflowStepParallelConfigStepArcRoutingControlConfigArgs:
@@ -2853,18 +2755,15 @@ class PlanWorkflowStepParallelConfigStepArcRoutingControlConfigArgs:
         pulumi.set(self, "timeout_minutes", value)
 
 
-if not MYPY:
-    class PlanWorkflowStepParallelConfigStepArcRoutingControlConfigRegionAndRoutingControlArgsDict(TypedDict):
-        region: pulumi.Input[_builtins.str]
-        """
-        AWS region.
-        """
-        routing_controls: NotRequired[pulumi.Input[Sequence[pulumi.Input['PlanWorkflowStepParallelConfigStepArcRoutingControlConfigRegionAndRoutingControlRoutingControlArgsDict']]]]
-        """
-        List of routing controls. See Routing Control below.
-        """
-elif False:
-    PlanWorkflowStepParallelConfigStepArcRoutingControlConfigRegionAndRoutingControlArgsDict: TypeAlias = Mapping[str, Any]
+class PlanWorkflowStepParallelConfigStepArcRoutingControlConfigRegionAndRoutingControlArgsDict(TypedDict):
+    region: pulumi.Input[_builtins.str]
+    """
+    AWS region.
+    """
+    routing_controls: NotRequired[pulumi.Input[Sequence[pulumi.Input['PlanWorkflowStepParallelConfigStepArcRoutingControlConfigRegionAndRoutingControlRoutingControlArgsDict']]]]
+    """
+    List of routing controls. See Routing Control below.
+    """
 
 @pulumi.input_type
 class PlanWorkflowStepParallelConfigStepArcRoutingControlConfigRegionAndRoutingControlArgs:
@@ -2904,18 +2803,15 @@ class PlanWorkflowStepParallelConfigStepArcRoutingControlConfigRegionAndRoutingC
         pulumi.set(self, "routing_controls", value)
 
 
-if not MYPY:
-    class PlanWorkflowStepParallelConfigStepArcRoutingControlConfigRegionAndRoutingControlRoutingControlArgsDict(TypedDict):
-        routing_control_arn: pulumi.Input[_builtins.str]
-        """
-        ARN of the routing control.
-        """
-        state: pulumi.Input[_builtins.str]
-        """
-        State of the routing control. Valid values: `On`, `Off`.
-        """
-elif False:
-    PlanWorkflowStepParallelConfigStepArcRoutingControlConfigRegionAndRoutingControlRoutingControlArgsDict: TypeAlias = Mapping[str, Any]
+class PlanWorkflowStepParallelConfigStepArcRoutingControlConfigRegionAndRoutingControlRoutingControlArgsDict(TypedDict):
+    routing_control_arn: pulumi.Input[_builtins.str]
+    """
+    ARN of the routing control.
+    """
+    state: pulumi.Input[_builtins.str]
+    """
+    State of the routing control. Valid values: `On`, `Off`.
+    """
 
 @pulumi.input_type
 class PlanWorkflowStepParallelConfigStepArcRoutingControlConfigRegionAndRoutingControlRoutingControlArgs:
@@ -2954,30 +2850,27 @@ class PlanWorkflowStepParallelConfigStepArcRoutingControlConfigRegionAndRoutingC
         pulumi.set(self, "state", value)
 
 
-if not MYPY:
-    class PlanWorkflowStepParallelConfigStepCustomActionLambdaConfigArgsDict(TypedDict):
-        region_to_run: pulumi.Input[_builtins.str]
-        """
-        Region where the Lambda function should run. Valid values: `activatingRegion`, `deactivatingRegion`.
-        """
-        retry_interval_minutes: pulumi.Input[_builtins.float]
-        """
-        Retry interval in minutes.
-        """
-        lambdas: NotRequired[pulumi.Input[Sequence[pulumi.Input['PlanWorkflowStepParallelConfigStepCustomActionLambdaConfigLambdaArgsDict']]]]
-        """
-        Lambda function configuration. See Lambda below.
-        """
-        timeout_minutes: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Timeout in minutes.
-        """
-        ungracefuls: NotRequired[pulumi.Input[Sequence[pulumi.Input['PlanWorkflowStepParallelConfigStepCustomActionLambdaConfigUngracefulArgsDict']]]]
-        """
-        Ungraceful behavior configuration. See Ungraceful below.
-        """
-elif False:
-    PlanWorkflowStepParallelConfigStepCustomActionLambdaConfigArgsDict: TypeAlias = Mapping[str, Any]
+class PlanWorkflowStepParallelConfigStepCustomActionLambdaConfigArgsDict(TypedDict):
+    region_to_run: pulumi.Input[_builtins.str]
+    """
+    Region where the Lambda function should run. Valid values: `activatingRegion`, `deactivatingRegion`.
+    """
+    retry_interval_minutes: pulumi.Input[_builtins.float]
+    """
+    Retry interval in minutes.
+    """
+    lambdas: NotRequired[pulumi.Input[Sequence[pulumi.Input['PlanWorkflowStepParallelConfigStepCustomActionLambdaConfigLambdaArgsDict']]]]
+    """
+    Lambda function configuration. See Lambda below.
+    """
+    timeout_minutes: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Timeout in minutes.
+    """
+    ungracefuls: NotRequired[pulumi.Input[Sequence[pulumi.Input['PlanWorkflowStepParallelConfigStepCustomActionLambdaConfigUngracefulArgsDict']]]]
+    """
+    Ungraceful behavior configuration. See Ungraceful below.
+    """
 
 @pulumi.input_type
 class PlanWorkflowStepParallelConfigStepCustomActionLambdaConfigArgs:
@@ -3064,22 +2957,19 @@ class PlanWorkflowStepParallelConfigStepCustomActionLambdaConfigArgs:
         pulumi.set(self, "ungracefuls", value)
 
 
-if not MYPY:
-    class PlanWorkflowStepParallelConfigStepCustomActionLambdaConfigLambdaArgsDict(TypedDict):
-        arn: pulumi.Input[_builtins.str]
-        """
-        ARN of the Lambda function.
-        """
-        cross_account_role: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        ARN of the cross-account role to assume.
-        """
-        external_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        External ID for cross-account role assumption.
-        """
-elif False:
-    PlanWorkflowStepParallelConfigStepCustomActionLambdaConfigLambdaArgsDict: TypeAlias = Mapping[str, Any]
+class PlanWorkflowStepParallelConfigStepCustomActionLambdaConfigLambdaArgsDict(TypedDict):
+    arn: pulumi.Input[_builtins.str]
+    """
+    ARN of the Lambda function.
+    """
+    cross_account_role: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    ARN of the cross-account role to assume.
+    """
+    external_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    External ID for cross-account role assumption.
+    """
 
 @pulumi.input_type
 class PlanWorkflowStepParallelConfigStepCustomActionLambdaConfigLambdaArgs:
@@ -3135,14 +3025,11 @@ class PlanWorkflowStepParallelConfigStepCustomActionLambdaConfigLambdaArgs:
         pulumi.set(self, "external_id", value)
 
 
-if not MYPY:
-    class PlanWorkflowStepParallelConfigStepCustomActionLambdaConfigUngracefulArgsDict(TypedDict):
-        behavior: pulumi.Input[_builtins.str]
-        """
-        Behavior when ungraceful. Valid values: `skip`.
-        """
-elif False:
-    PlanWorkflowStepParallelConfigStepCustomActionLambdaConfigUngracefulArgsDict: TypeAlias = Mapping[str, Any]
+class PlanWorkflowStepParallelConfigStepCustomActionLambdaConfigUngracefulArgsDict(TypedDict):
+    behavior: pulumi.Input[_builtins.str]
+    """
+    Behavior when ungraceful. Valid values: `skip`.
+    """
 
 @pulumi.input_type
 class PlanWorkflowStepParallelConfigStepCustomActionLambdaConfigUngracefulArgs:
@@ -3166,17 +3053,14 @@ class PlanWorkflowStepParallelConfigStepCustomActionLambdaConfigUngracefulArgs:
         pulumi.set(self, "behavior", value)
 
 
-if not MYPY:
-    class PlanWorkflowStepParallelConfigStepDocumentDbConfigArgsDict(TypedDict):
-        behavior: pulumi.Input[_builtins.str]
-        database_cluster_arns: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        global_cluster_identifier: pulumi.Input[_builtins.str]
-        cross_account_role: NotRequired[pulumi.Input[_builtins.str]]
-        external_id: NotRequired[pulumi.Input[_builtins.str]]
-        timeout_minutes: NotRequired[pulumi.Input[_builtins.int]]
-        ungracefuls: NotRequired[pulumi.Input[Sequence[pulumi.Input['PlanWorkflowStepParallelConfigStepDocumentDbConfigUngracefulArgsDict']]]]
-elif False:
-    PlanWorkflowStepParallelConfigStepDocumentDbConfigArgsDict: TypeAlias = Mapping[str, Any]
+class PlanWorkflowStepParallelConfigStepDocumentDbConfigArgsDict(TypedDict):
+    behavior: pulumi.Input[_builtins.str]
+    database_cluster_arns: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    global_cluster_identifier: pulumi.Input[_builtins.str]
+    cross_account_role: NotRequired[pulumi.Input[_builtins.str]]
+    external_id: NotRequired[pulumi.Input[_builtins.str]]
+    timeout_minutes: NotRequired[pulumi.Input[_builtins.int]]
+    ungracefuls: NotRequired[pulumi.Input[Sequence[pulumi.Input['PlanWorkflowStepParallelConfigStepDocumentDbConfigUngracefulArgsDict']]]]
 
 @pulumi.input_type
 class PlanWorkflowStepParallelConfigStepDocumentDbConfigArgs:
@@ -3264,11 +3148,8 @@ class PlanWorkflowStepParallelConfigStepDocumentDbConfigArgs:
         pulumi.set(self, "ungracefuls", value)
 
 
-if not MYPY:
-    class PlanWorkflowStepParallelConfigStepDocumentDbConfigUngracefulArgsDict(TypedDict):
-        ungraceful: pulumi.Input[_builtins.str]
-elif False:
-    PlanWorkflowStepParallelConfigStepDocumentDbConfigUngracefulArgsDict: TypeAlias = Mapping[str, Any]
+class PlanWorkflowStepParallelConfigStepDocumentDbConfigUngracefulArgsDict(TypedDict):
+    ungraceful: pulumi.Input[_builtins.str]
 
 @pulumi.input_type
 class PlanWorkflowStepParallelConfigStepDocumentDbConfigUngracefulArgs:
@@ -3286,30 +3167,27 @@ class PlanWorkflowStepParallelConfigStepDocumentDbConfigUngracefulArgs:
         pulumi.set(self, "ungraceful", value)
 
 
-if not MYPY:
-    class PlanWorkflowStepParallelConfigStepEc2AsgCapacityIncreaseConfigArgsDict(TypedDict):
-        capacity_monitoring_approach: pulumi.Input[_builtins.str]
-        """
-        Capacity monitoring approach. Valid values: `sampledMaxInLast24Hours`, `autoscalingMaxInLast24Hours`.
-        """
-        asgs: NotRequired[pulumi.Input[Sequence[pulumi.Input['PlanWorkflowStepParallelConfigStepEc2AsgCapacityIncreaseConfigAsgArgsDict']]]]
-        """
-        Auto Scaling group configuration. See ASG below.
-        """
-        target_percent: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Target capacity percentage.
-        """
-        timeout_minutes: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Timeout in minutes.
-        """
-        ungraceful: NotRequired[pulumi.Input['PlanWorkflowStepParallelConfigStepEc2AsgCapacityIncreaseConfigUngracefulArgsDict']]
-        """
-        Ungraceful behavior configuration. See Ungraceful below.
-        """
-elif False:
-    PlanWorkflowStepParallelConfigStepEc2AsgCapacityIncreaseConfigArgsDict: TypeAlias = Mapping[str, Any]
+class PlanWorkflowStepParallelConfigStepEc2AsgCapacityIncreaseConfigArgsDict(TypedDict):
+    capacity_monitoring_approach: pulumi.Input[_builtins.str]
+    """
+    Capacity monitoring approach. Valid values: `sampledMaxInLast24Hours`, `autoscalingMaxInLast24Hours`.
+    """
+    asgs: NotRequired[pulumi.Input[Sequence[pulumi.Input['PlanWorkflowStepParallelConfigStepEc2AsgCapacityIncreaseConfigAsgArgsDict']]]]
+    """
+    Auto Scaling group configuration. See ASG below.
+    """
+    target_percent: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Target capacity percentage.
+    """
+    timeout_minutes: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Timeout in minutes.
+    """
+    ungraceful: NotRequired[pulumi.Input['PlanWorkflowStepParallelConfigStepEc2AsgCapacityIncreaseConfigUngracefulArgsDict']]
+    """
+    Ungraceful behavior configuration. See Ungraceful below.
+    """
 
 @pulumi.input_type
 class PlanWorkflowStepParallelConfigStepEc2AsgCapacityIncreaseConfigArgs:
@@ -3397,22 +3275,19 @@ class PlanWorkflowStepParallelConfigStepEc2AsgCapacityIncreaseConfigArgs:
         pulumi.set(self, "ungraceful", value)
 
 
-if not MYPY:
-    class PlanWorkflowStepParallelConfigStepEc2AsgCapacityIncreaseConfigAsgArgsDict(TypedDict):
-        arn: pulumi.Input[_builtins.str]
-        """
-        ARN of the Auto Scaling group.
-        """
-        cross_account_role: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        ARN of the cross-account role to assume.
-        """
-        external_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        External ID for cross-account role assumption.
-        """
-elif False:
-    PlanWorkflowStepParallelConfigStepEc2AsgCapacityIncreaseConfigAsgArgsDict: TypeAlias = Mapping[str, Any]
+class PlanWorkflowStepParallelConfigStepEc2AsgCapacityIncreaseConfigAsgArgsDict(TypedDict):
+    arn: pulumi.Input[_builtins.str]
+    """
+    ARN of the Auto Scaling group.
+    """
+    cross_account_role: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    ARN of the cross-account role to assume.
+    """
+    external_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    External ID for cross-account role assumption.
+    """
 
 @pulumi.input_type
 class PlanWorkflowStepParallelConfigStepEc2AsgCapacityIncreaseConfigAsgArgs:
@@ -3468,14 +3343,11 @@ class PlanWorkflowStepParallelConfigStepEc2AsgCapacityIncreaseConfigAsgArgs:
         pulumi.set(self, "external_id", value)
 
 
-if not MYPY:
-    class PlanWorkflowStepParallelConfigStepEc2AsgCapacityIncreaseConfigUngracefulArgsDict(TypedDict):
-        minimum_success_percentage: pulumi.Input[_builtins.int]
-        """
-        Minimum success percentage required.
-        """
-elif False:
-    PlanWorkflowStepParallelConfigStepEc2AsgCapacityIncreaseConfigUngracefulArgsDict: TypeAlias = Mapping[str, Any]
+class PlanWorkflowStepParallelConfigStepEc2AsgCapacityIncreaseConfigUngracefulArgsDict(TypedDict):
+    minimum_success_percentage: pulumi.Input[_builtins.int]
+    """
+    Minimum success percentage required.
+    """
 
 @pulumi.input_type
 class PlanWorkflowStepParallelConfigStepEc2AsgCapacityIncreaseConfigUngracefulArgs:
@@ -3499,30 +3371,27 @@ class PlanWorkflowStepParallelConfigStepEc2AsgCapacityIncreaseConfigUngracefulAr
         pulumi.set(self, "minimum_success_percentage", value)
 
 
-if not MYPY:
-    class PlanWorkflowStepParallelConfigStepEcsCapacityIncreaseConfigArgsDict(TypedDict):
-        capacity_monitoring_approach: pulumi.Input[_builtins.str]
-        """
-        Capacity monitoring approach. Valid values: `sampledMaxInLast24Hours`, `containerInsightsMaxInLast24Hours`.
-        """
-        services: NotRequired[pulumi.Input[Sequence[pulumi.Input['PlanWorkflowStepParallelConfigStepEcsCapacityIncreaseConfigServiceArgsDict']]]]
-        """
-        ECS service configuration. See ECS Service below.
-        """
-        target_percent: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Target capacity percentage.
-        """
-        timeout_minutes: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Timeout in minutes.
-        """
-        ungraceful: NotRequired[pulumi.Input['PlanWorkflowStepParallelConfigStepEcsCapacityIncreaseConfigUngracefulArgsDict']]
-        """
-        Ungraceful behavior configuration. See Ungraceful Capacity below.
-        """
-elif False:
-    PlanWorkflowStepParallelConfigStepEcsCapacityIncreaseConfigArgsDict: TypeAlias = Mapping[str, Any]
+class PlanWorkflowStepParallelConfigStepEcsCapacityIncreaseConfigArgsDict(TypedDict):
+    capacity_monitoring_approach: pulumi.Input[_builtins.str]
+    """
+    Capacity monitoring approach. Valid values: `sampledMaxInLast24Hours`, `containerInsightsMaxInLast24Hours`.
+    """
+    services: NotRequired[pulumi.Input[Sequence[pulumi.Input['PlanWorkflowStepParallelConfigStepEcsCapacityIncreaseConfigServiceArgsDict']]]]
+    """
+    ECS service configuration. See ECS Service below.
+    """
+    target_percent: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Target capacity percentage.
+    """
+    timeout_minutes: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Timeout in minutes.
+    """
+    ungraceful: NotRequired[pulumi.Input['PlanWorkflowStepParallelConfigStepEcsCapacityIncreaseConfigUngracefulArgsDict']]
+    """
+    Ungraceful behavior configuration. See Ungraceful Capacity below.
+    """
 
 @pulumi.input_type
 class PlanWorkflowStepParallelConfigStepEcsCapacityIncreaseConfigArgs:
@@ -3610,17 +3479,14 @@ class PlanWorkflowStepParallelConfigStepEcsCapacityIncreaseConfigArgs:
         pulumi.set(self, "ungraceful", value)
 
 
-if not MYPY:
-    class PlanWorkflowStepParallelConfigStepEcsCapacityIncreaseConfigServiceArgsDict(TypedDict):
-        cluster_arn: pulumi.Input[_builtins.str]
-        service_arn: pulumi.Input[_builtins.str]
-        """
-        ARN of the ECS service.
-        """
-        cross_account_role: NotRequired[pulumi.Input[_builtins.str]]
-        external_id: NotRequired[pulumi.Input[_builtins.str]]
-elif False:
-    PlanWorkflowStepParallelConfigStepEcsCapacityIncreaseConfigServiceArgsDict: TypeAlias = Mapping[str, Any]
+class PlanWorkflowStepParallelConfigStepEcsCapacityIncreaseConfigServiceArgsDict(TypedDict):
+    cluster_arn: pulumi.Input[_builtins.str]
+    service_arn: pulumi.Input[_builtins.str]
+    """
+    ARN of the ECS service.
+    """
+    cross_account_role: NotRequired[pulumi.Input[_builtins.str]]
+    external_id: NotRequired[pulumi.Input[_builtins.str]]
 
 @pulumi.input_type
 class PlanWorkflowStepParallelConfigStepEcsCapacityIncreaseConfigServiceArgs:
@@ -3679,14 +3545,11 @@ class PlanWorkflowStepParallelConfigStepEcsCapacityIncreaseConfigServiceArgs:
         pulumi.set(self, "external_id", value)
 
 
-if not MYPY:
-    class PlanWorkflowStepParallelConfigStepEcsCapacityIncreaseConfigUngracefulArgsDict(TypedDict):
-        minimum_success_percentage: pulumi.Input[_builtins.int]
-        """
-        Minimum success percentage required.
-        """
-elif False:
-    PlanWorkflowStepParallelConfigStepEcsCapacityIncreaseConfigUngracefulArgsDict: TypeAlias = Mapping[str, Any]
+class PlanWorkflowStepParallelConfigStepEcsCapacityIncreaseConfigUngracefulArgsDict(TypedDict):
+    minimum_success_percentage: pulumi.Input[_builtins.int]
+    """
+    Minimum success percentage required.
+    """
 
 @pulumi.input_type
 class PlanWorkflowStepParallelConfigStepEcsCapacityIncreaseConfigUngracefulArgs:
@@ -3710,38 +3573,35 @@ class PlanWorkflowStepParallelConfigStepEcsCapacityIncreaseConfigUngracefulArgs:
         pulumi.set(self, "minimum_success_percentage", value)
 
 
-if not MYPY:
-    class PlanWorkflowStepParallelConfigStepEksResourceScalingConfigArgsDict(TypedDict):
-        capacity_monitoring_approach: pulumi.Input[_builtins.str]
-        """
-        Capacity monitoring approach. Valid values: `sampledMaxInLast24Hours`, `autoscalingMaxInLast24Hours`.
-        """
-        target_percent: pulumi.Input[_builtins.int]
-        """
-        Target capacity percentage.
-        """
-        eks_clusters: NotRequired[pulumi.Input[Sequence[pulumi.Input['PlanWorkflowStepParallelConfigStepEksResourceScalingConfigEksClusterArgsDict']]]]
-        """
-        List of EKS clusters. See EKS Clusters below.
-        """
-        kubernetes_resource_types: NotRequired[pulumi.Input[Sequence[pulumi.Input['PlanWorkflowStepParallelConfigStepEksResourceScalingConfigKubernetesResourceTypeArgsDict']]]]
-        """
-        Kubernetes resource type. See Kubernetes Resource Type below.
-        """
-        scaling_resources: NotRequired[pulumi.Input[Sequence[pulumi.Input['PlanWorkflowStepParallelConfigStepEksResourceScalingConfigScalingResourceArgsDict']]]]
-        """
-        List of scaling resources. See Scaling Resources below.
-        """
-        timeout_minutes: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Timeout in minutes.
-        """
-        ungracefuls: NotRequired[pulumi.Input[Sequence[pulumi.Input['PlanWorkflowStepParallelConfigStepEksResourceScalingConfigUngracefulArgsDict']]]]
-        """
-        Ungraceful behavior configuration. See Ungraceful Capacity below.
-        """
-elif False:
-    PlanWorkflowStepParallelConfigStepEksResourceScalingConfigArgsDict: TypeAlias = Mapping[str, Any]
+class PlanWorkflowStepParallelConfigStepEksResourceScalingConfigArgsDict(TypedDict):
+    capacity_monitoring_approach: pulumi.Input[_builtins.str]
+    """
+    Capacity monitoring approach. Valid values: `sampledMaxInLast24Hours`, `autoscalingMaxInLast24Hours`.
+    """
+    target_percent: pulumi.Input[_builtins.int]
+    """
+    Target capacity percentage.
+    """
+    eks_clusters: NotRequired[pulumi.Input[Sequence[pulumi.Input['PlanWorkflowStepParallelConfigStepEksResourceScalingConfigEksClusterArgsDict']]]]
+    """
+    List of EKS clusters. See EKS Clusters below.
+    """
+    kubernetes_resource_types: NotRequired[pulumi.Input[Sequence[pulumi.Input['PlanWorkflowStepParallelConfigStepEksResourceScalingConfigKubernetesResourceTypeArgsDict']]]]
+    """
+    Kubernetes resource type. See Kubernetes Resource Type below.
+    """
+    scaling_resources: NotRequired[pulumi.Input[Sequence[pulumi.Input['PlanWorkflowStepParallelConfigStepEksResourceScalingConfigScalingResourceArgsDict']]]]
+    """
+    List of scaling resources. See Scaling Resources below.
+    """
+    timeout_minutes: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Timeout in minutes.
+    """
+    ungracefuls: NotRequired[pulumi.Input[Sequence[pulumi.Input['PlanWorkflowStepParallelConfigStepEksResourceScalingConfigUngracefulArgsDict']]]]
+    """
+    Ungraceful behavior configuration. See Ungraceful Capacity below.
+    """
 
 @pulumi.input_type
 class PlanWorkflowStepParallelConfigStepEksResourceScalingConfigArgs:
@@ -3860,22 +3720,19 @@ class PlanWorkflowStepParallelConfigStepEksResourceScalingConfigArgs:
         pulumi.set(self, "ungracefuls", value)
 
 
-if not MYPY:
-    class PlanWorkflowStepParallelConfigStepEksResourceScalingConfigEksClusterArgsDict(TypedDict):
-        cluster_arn: pulumi.Input[_builtins.str]
-        """
-        ARN of the EKS cluster.
-        """
-        cross_account_role: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        ARN of the cross-account role to assume.
-        """
-        external_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        External ID for cross-account role assumption.
-        """
-elif False:
-    PlanWorkflowStepParallelConfigStepEksResourceScalingConfigEksClusterArgsDict: TypeAlias = Mapping[str, Any]
+class PlanWorkflowStepParallelConfigStepEksResourceScalingConfigEksClusterArgsDict(TypedDict):
+    cluster_arn: pulumi.Input[_builtins.str]
+    """
+    ARN of the EKS cluster.
+    """
+    cross_account_role: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    ARN of the cross-account role to assume.
+    """
+    external_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    External ID for cross-account role assumption.
+    """
 
 @pulumi.input_type
 class PlanWorkflowStepParallelConfigStepEksResourceScalingConfigEksClusterArgs:
@@ -3931,18 +3788,15 @@ class PlanWorkflowStepParallelConfigStepEksResourceScalingConfigEksClusterArgs:
         pulumi.set(self, "external_id", value)
 
 
-if not MYPY:
-    class PlanWorkflowStepParallelConfigStepEksResourceScalingConfigKubernetesResourceTypeArgsDict(TypedDict):
-        api_version: pulumi.Input[_builtins.str]
-        """
-        Kubernetes API version.
-        """
-        kind: pulumi.Input[_builtins.str]
-        """
-        Kubernetes resource kind.
-        """
-elif False:
-    PlanWorkflowStepParallelConfigStepEksResourceScalingConfigKubernetesResourceTypeArgsDict: TypeAlias = Mapping[str, Any]
+class PlanWorkflowStepParallelConfigStepEksResourceScalingConfigKubernetesResourceTypeArgsDict(TypedDict):
+    api_version: pulumi.Input[_builtins.str]
+    """
+    Kubernetes API version.
+    """
+    kind: pulumi.Input[_builtins.str]
+    """
+    Kubernetes resource kind.
+    """
 
 @pulumi.input_type
 class PlanWorkflowStepParallelConfigStepEksResourceScalingConfigKubernetesResourceTypeArgs:
@@ -3981,18 +3835,15 @@ class PlanWorkflowStepParallelConfigStepEksResourceScalingConfigKubernetesResour
         pulumi.set(self, "kind", value)
 
 
-if not MYPY:
-    class PlanWorkflowStepParallelConfigStepEksResourceScalingConfigScalingResourceArgsDict(TypedDict):
-        namespace: pulumi.Input[_builtins.str]
-        """
-        Kubernetes namespace.
-        """
-        resources: NotRequired[pulumi.Input[Sequence[pulumi.Input['PlanWorkflowStepParallelConfigStepEksResourceScalingConfigScalingResourceResourceArgsDict']]]]
-        """
-        Set of resources to scale. See Resources below.
-        """
-elif False:
-    PlanWorkflowStepParallelConfigStepEksResourceScalingConfigScalingResourceArgsDict: TypeAlias = Mapping[str, Any]
+class PlanWorkflowStepParallelConfigStepEksResourceScalingConfigScalingResourceArgsDict(TypedDict):
+    namespace: pulumi.Input[_builtins.str]
+    """
+    Kubernetes namespace.
+    """
+    resources: NotRequired[pulumi.Input[Sequence[pulumi.Input['PlanWorkflowStepParallelConfigStepEksResourceScalingConfigScalingResourceResourceArgsDict']]]]
+    """
+    Set of resources to scale. See Resources below.
+    """
 
 @pulumi.input_type
 class PlanWorkflowStepParallelConfigStepEksResourceScalingConfigScalingResourceArgs:
@@ -4032,26 +3883,23 @@ class PlanWorkflowStepParallelConfigStepEksResourceScalingConfigScalingResourceA
         pulumi.set(self, "resources", value)
 
 
-if not MYPY:
-    class PlanWorkflowStepParallelConfigStepEksResourceScalingConfigScalingResourceResourceArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        """
-        Name of the Kubernetes object.
-        """
-        namespace: pulumi.Input[_builtins.str]
-        """
-        Kubernetes namespace.
-        """
-        resource_name: pulumi.Input[_builtins.str]
-        """
-        Name of the resource.
-        """
-        hpa_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Name of the Horizontal Pod Autoscaler.
-        """
-elif False:
-    PlanWorkflowStepParallelConfigStepEksResourceScalingConfigScalingResourceResourceArgsDict: TypeAlias = Mapping[str, Any]
+class PlanWorkflowStepParallelConfigStepEksResourceScalingConfigScalingResourceResourceArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    Name of the Kubernetes object.
+    """
+    namespace: pulumi.Input[_builtins.str]
+    """
+    Kubernetes namespace.
+    """
+    resource_name: pulumi.Input[_builtins.str]
+    """
+    Name of the resource.
+    """
+    hpa_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Name of the Horizontal Pod Autoscaler.
+    """
 
 @pulumi.input_type
 class PlanWorkflowStepParallelConfigStepEksResourceScalingConfigScalingResourceResourceArgs:
@@ -4121,14 +3969,11 @@ class PlanWorkflowStepParallelConfigStepEksResourceScalingConfigScalingResourceR
         pulumi.set(self, "hpa_name", value)
 
 
-if not MYPY:
-    class PlanWorkflowStepParallelConfigStepEksResourceScalingConfigUngracefulArgsDict(TypedDict):
-        minimum_success_percentage: pulumi.Input[_builtins.int]
-        """
-        Minimum success percentage required.
-        """
-elif False:
-    PlanWorkflowStepParallelConfigStepEksResourceScalingConfigUngracefulArgsDict: TypeAlias = Mapping[str, Any]
+class PlanWorkflowStepParallelConfigStepEksResourceScalingConfigUngracefulArgsDict(TypedDict):
+    minimum_success_percentage: pulumi.Input[_builtins.int]
+    """
+    Minimum success percentage required.
+    """
 
 @pulumi.input_type
 class PlanWorkflowStepParallelConfigStepEksResourceScalingConfigUngracefulArgs:
@@ -4152,18 +3997,15 @@ class PlanWorkflowStepParallelConfigStepEksResourceScalingConfigUngracefulArgs:
         pulumi.set(self, "minimum_success_percentage", value)
 
 
-if not MYPY:
-    class PlanWorkflowStepParallelConfigStepExecutionApprovalConfigArgsDict(TypedDict):
-        approval_role: pulumi.Input[_builtins.str]
-        """
-        ARN of the IAM role for approval.
-        """
-        timeout_minutes: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Timeout in minutes for the approval.
-        """
-elif False:
-    PlanWorkflowStepParallelConfigStepExecutionApprovalConfigArgsDict: TypeAlias = Mapping[str, Any]
+class PlanWorkflowStepParallelConfigStepExecutionApprovalConfigArgsDict(TypedDict):
+    approval_role: pulumi.Input[_builtins.str]
+    """
+    ARN of the IAM role for approval.
+    """
+    timeout_minutes: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Timeout in minutes for the approval.
+    """
 
 @pulumi.input_type
 class PlanWorkflowStepParallelConfigStepExecutionApprovalConfigArgs:
@@ -4203,38 +4045,35 @@ class PlanWorkflowStepParallelConfigStepExecutionApprovalConfigArgs:
         pulumi.set(self, "timeout_minutes", value)
 
 
-if not MYPY:
-    class PlanWorkflowStepParallelConfigStepGlobalAuroraConfigArgsDict(TypedDict):
-        behavior: pulumi.Input[_builtins.str]
-        """
-        Behavior for Aurora operations. Valid values: `switchoverOnly`, `failover`.
-        """
-        database_cluster_arns: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        List of database cluster ARNs.
-        """
-        global_cluster_identifier: pulumi.Input[_builtins.str]
-        """
-        Global cluster identifier.
-        """
-        cross_account_role: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        ARN of the cross-account role to assume.
-        """
-        external_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        External ID for cross-account role assumption.
-        """
-        timeout_minutes: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Timeout in minutes.
-        """
-        ungracefuls: NotRequired[pulumi.Input[Sequence[pulumi.Input['PlanWorkflowStepParallelConfigStepGlobalAuroraConfigUngracefulArgsDict']]]]
-        """
-        Ungraceful behavior configuration. See Ungraceful Aurora below.
-        """
-elif False:
-    PlanWorkflowStepParallelConfigStepGlobalAuroraConfigArgsDict: TypeAlias = Mapping[str, Any]
+class PlanWorkflowStepParallelConfigStepGlobalAuroraConfigArgsDict(TypedDict):
+    behavior: pulumi.Input[_builtins.str]
+    """
+    Behavior for Aurora operations. Valid values: `switchoverOnly`, `failover`.
+    """
+    database_cluster_arns: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    List of database cluster ARNs.
+    """
+    global_cluster_identifier: pulumi.Input[_builtins.str]
+    """
+    Global cluster identifier.
+    """
+    cross_account_role: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    ARN of the cross-account role to assume.
+    """
+    external_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    External ID for cross-account role assumption.
+    """
+    timeout_minutes: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Timeout in minutes.
+    """
+    ungracefuls: NotRequired[pulumi.Input[Sequence[pulumi.Input['PlanWorkflowStepParallelConfigStepGlobalAuroraConfigUngracefulArgsDict']]]]
+    """
+    Ungraceful behavior configuration. See Ungraceful Aurora below.
+    """
 
 @pulumi.input_type
 class PlanWorkflowStepParallelConfigStepGlobalAuroraConfigArgs:
@@ -4352,11 +4191,8 @@ class PlanWorkflowStepParallelConfigStepGlobalAuroraConfigArgs:
         pulumi.set(self, "ungracefuls", value)
 
 
-if not MYPY:
-    class PlanWorkflowStepParallelConfigStepGlobalAuroraConfigUngracefulArgsDict(TypedDict):
-        ungraceful: pulumi.Input[_builtins.str]
-elif False:
-    PlanWorkflowStepParallelConfigStepGlobalAuroraConfigUngracefulArgsDict: TypeAlias = Mapping[str, Any]
+class PlanWorkflowStepParallelConfigStepGlobalAuroraConfigUngracefulArgsDict(TypedDict):
+    ungraceful: pulumi.Input[_builtins.str]
 
 @pulumi.input_type
 class PlanWorkflowStepParallelConfigStepGlobalAuroraConfigUngracefulArgs:
@@ -4374,22 +4210,19 @@ class PlanWorkflowStepParallelConfigStepGlobalAuroraConfigUngracefulArgs:
         pulumi.set(self, "ungraceful", value)
 
 
-if not MYPY:
-    class PlanWorkflowStepParallelConfigStepRegionSwitchPlanConfigArgsDict(TypedDict):
-        arn: pulumi.Input[_builtins.str]
-        """
-        ARN of the nested region switch plan.
-        """
-        cross_account_role: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        ARN of the cross-account role to assume.
-        """
-        external_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        External ID for cross-account role assumption.
-        """
-elif False:
-    PlanWorkflowStepParallelConfigStepRegionSwitchPlanConfigArgsDict: TypeAlias = Mapping[str, Any]
+class PlanWorkflowStepParallelConfigStepRegionSwitchPlanConfigArgsDict(TypedDict):
+    arn: pulumi.Input[_builtins.str]
+    """
+    ARN of the nested region switch plan.
+    """
+    cross_account_role: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    ARN of the cross-account role to assume.
+    """
+    external_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    External ID for cross-account role assumption.
+    """
 
 @pulumi.input_type
 class PlanWorkflowStepParallelConfigStepRegionSwitchPlanConfigArgs:
@@ -4445,34 +4278,31 @@ class PlanWorkflowStepParallelConfigStepRegionSwitchPlanConfigArgs:
         pulumi.set(self, "external_id", value)
 
 
-if not MYPY:
-    class PlanWorkflowStepParallelConfigStepRoute53HealthCheckConfigArgsDict(TypedDict):
-        hosted_zone_id: pulumi.Input[_builtins.str]
-        """
-        Route53 hosted zone ID.
-        """
-        record_name: pulumi.Input[_builtins.str]
-        """
-        DNS record name.
-        """
-        cross_account_role: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        ARN of the cross-account role to assume.
-        """
-        external_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        External ID for cross-account role assumption.
-        """
-        record_sets: NotRequired[pulumi.Input[Sequence[pulumi.Input['PlanWorkflowStepParallelConfigStepRoute53HealthCheckConfigRecordSetArgsDict']]]]
-        """
-        Configuration block for record sets. See Record Set below.
-        """
-        timeout_minutes: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Timeout in minutes.
-        """
-elif False:
-    PlanWorkflowStepParallelConfigStepRoute53HealthCheckConfigArgsDict: TypeAlias = Mapping[str, Any]
+class PlanWorkflowStepParallelConfigStepRoute53HealthCheckConfigArgsDict(TypedDict):
+    hosted_zone_id: pulumi.Input[_builtins.str]
+    """
+    Route53 hosted zone ID.
+    """
+    record_name: pulumi.Input[_builtins.str]
+    """
+    DNS record name.
+    """
+    cross_account_role: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    ARN of the cross-account role to assume.
+    """
+    external_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    External ID for cross-account role assumption.
+    """
+    record_sets: NotRequired[pulumi.Input[Sequence[pulumi.Input['PlanWorkflowStepParallelConfigStepRoute53HealthCheckConfigRecordSetArgsDict']]]]
+    """
+    Configuration block for record sets. See Record Set below.
+    """
+    timeout_minutes: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Timeout in minutes.
+    """
 
 @pulumi.input_type
 class PlanWorkflowStepParallelConfigStepRoute53HealthCheckConfigArgs:
@@ -4575,18 +4405,15 @@ class PlanWorkflowStepParallelConfigStepRoute53HealthCheckConfigArgs:
         pulumi.set(self, "timeout_minutes", value)
 
 
-if not MYPY:
-    class PlanWorkflowStepParallelConfigStepRoute53HealthCheckConfigRecordSetArgsDict(TypedDict):
-        record_set_identifier: pulumi.Input[_builtins.str]
-        """
-        Record set identifier.
-        """
-        region: pulumi.Input[_builtins.str]
-        """
-        AWS region.
-        """
-elif False:
-    PlanWorkflowStepParallelConfigStepRoute53HealthCheckConfigRecordSetArgsDict: TypeAlias = Mapping[str, Any]
+class PlanWorkflowStepParallelConfigStepRoute53HealthCheckConfigRecordSetArgsDict(TypedDict):
+    record_set_identifier: pulumi.Input[_builtins.str]
+    """
+    Record set identifier.
+    """
+    region: pulumi.Input[_builtins.str]
+    """
+    AWS region.
+    """
 
 @pulumi.input_type
 class PlanWorkflowStepParallelConfigStepRoute53HealthCheckConfigRecordSetArgs:
@@ -4625,22 +4452,19 @@ class PlanWorkflowStepParallelConfigStepRoute53HealthCheckConfigRecordSetArgs:
         pulumi.set(self, "region", value)
 
 
-if not MYPY:
-    class PlanWorkflowStepRegionSwitchPlanConfigArgsDict(TypedDict):
-        arn: pulumi.Input[_builtins.str]
-        """
-        ARN of the nested region switch plan.
-        """
-        cross_account_role: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        ARN of the cross-account role to assume.
-        """
-        external_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        External ID for cross-account role assumption.
-        """
-elif False:
-    PlanWorkflowStepRegionSwitchPlanConfigArgsDict: TypeAlias = Mapping[str, Any]
+class PlanWorkflowStepRegionSwitchPlanConfigArgsDict(TypedDict):
+    arn: pulumi.Input[_builtins.str]
+    """
+    ARN of the nested region switch plan.
+    """
+    cross_account_role: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    ARN of the cross-account role to assume.
+    """
+    external_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    External ID for cross-account role assumption.
+    """
 
 @pulumi.input_type
 class PlanWorkflowStepRegionSwitchPlanConfigArgs:
@@ -4696,34 +4520,31 @@ class PlanWorkflowStepRegionSwitchPlanConfigArgs:
         pulumi.set(self, "external_id", value)
 
 
-if not MYPY:
-    class PlanWorkflowStepRoute53HealthCheckConfigArgsDict(TypedDict):
-        hosted_zone_id: pulumi.Input[_builtins.str]
-        """
-        Route53 hosted zone ID.
-        """
-        record_name: pulumi.Input[_builtins.str]
-        """
-        DNS record name.
-        """
-        cross_account_role: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        ARN of the cross-account role to assume.
-        """
-        external_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        External ID for cross-account role assumption.
-        """
-        record_sets: NotRequired[pulumi.Input[Sequence[pulumi.Input['PlanWorkflowStepRoute53HealthCheckConfigRecordSetArgsDict']]]]
-        """
-        Configuration block for record sets. See Record Set below.
-        """
-        timeout_minutes: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Timeout in minutes.
-        """
-elif False:
-    PlanWorkflowStepRoute53HealthCheckConfigArgsDict: TypeAlias = Mapping[str, Any]
+class PlanWorkflowStepRoute53HealthCheckConfigArgsDict(TypedDict):
+    hosted_zone_id: pulumi.Input[_builtins.str]
+    """
+    Route53 hosted zone ID.
+    """
+    record_name: pulumi.Input[_builtins.str]
+    """
+    DNS record name.
+    """
+    cross_account_role: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    ARN of the cross-account role to assume.
+    """
+    external_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    External ID for cross-account role assumption.
+    """
+    record_sets: NotRequired[pulumi.Input[Sequence[pulumi.Input['PlanWorkflowStepRoute53HealthCheckConfigRecordSetArgsDict']]]]
+    """
+    Configuration block for record sets. See Record Set below.
+    """
+    timeout_minutes: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Timeout in minutes.
+    """
 
 @pulumi.input_type
 class PlanWorkflowStepRoute53HealthCheckConfigArgs:
@@ -4826,18 +4647,15 @@ class PlanWorkflowStepRoute53HealthCheckConfigArgs:
         pulumi.set(self, "timeout_minutes", value)
 
 
-if not MYPY:
-    class PlanWorkflowStepRoute53HealthCheckConfigRecordSetArgsDict(TypedDict):
-        record_set_identifier: pulumi.Input[_builtins.str]
-        """
-        Record set identifier.
-        """
-        region: pulumi.Input[_builtins.str]
-        """
-        AWS region.
-        """
-elif False:
-    PlanWorkflowStepRoute53HealthCheckConfigRecordSetArgsDict: TypeAlias = Mapping[str, Any]
+class PlanWorkflowStepRoute53HealthCheckConfigRecordSetArgsDict(TypedDict):
+    record_set_identifier: pulumi.Input[_builtins.str]
+    """
+    Record set identifier.
+    """
+    region: pulumi.Input[_builtins.str]
+    """
+    AWS region.
+    """
 
 @pulumi.input_type
 class PlanWorkflowStepRoute53HealthCheckConfigRecordSetArgs:

@@ -39,15 +39,17 @@ namespace Pulumi.Aws.CloudFront
     /// 
     /// #### Required
     /// 
-    /// * `name` (String) Name of the CloudFront Key Value Store.
+    /// * `Name` (String) Name of the CloudFront Key Value Store.
     /// 
     /// #### Optional
     /// 
-    /// * `account_id` (String) AWS Account where this resource is managed.
+    /// * `AccountId` (String) AWS Account where this resource is managed.
     /// 
-    /// Using `pulumi import`, import CloudFront Key Value Store using the `name`. For example:
+    /// Using `pulumi import`, import CloudFront Key Value Store using the `Name`. For example:
     /// 
-    /// % pulumi import aws_cloudfront_key_value_store.example example_store
+    /// ```sh
+    /// $ pulumi import aws:cloudfront/keyValueStore:KeyValueStore example example_store
+    /// ```
     /// </summary>
     [AwsResourceType("aws:cloudfront/keyValueStore:KeyValueStore")]
     public partial class KeyValueStore : global::Pulumi.CustomResource

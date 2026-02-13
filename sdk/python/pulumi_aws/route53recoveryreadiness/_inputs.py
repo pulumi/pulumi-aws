@@ -27,25 +27,20 @@ __all__ = [
     'ResourceSetResourceDnsTargetResourceTargetResourceR53ResourceArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class ResourceSetResourceArgsDict(TypedDict):
-        component_id: NotRequired[pulumi.Input[_builtins.str]]
-        dns_target_resource: NotRequired[pulumi.Input['ResourceSetResourceDnsTargetResourceArgsDict']]
-        """
-        Component for DNS/Routing Control Readiness Checks.
-        """
-        readiness_scopes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Recovery group ARN or cell ARN that contains this resource set.
-        """
-        resource_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        ARN of the resource.
-        """
-elif False:
-    ResourceSetResourceArgsDict: TypeAlias = Mapping[str, Any]
+class ResourceSetResourceArgsDict(TypedDict):
+    component_id: NotRequired[pulumi.Input[_builtins.str]]
+    dns_target_resource: NotRequired[pulumi.Input['ResourceSetResourceDnsTargetResourceArgsDict']]
+    """
+    Component for DNS/Routing Control Readiness Checks.
+    """
+    readiness_scopes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Recovery group ARN or cell ARN that contains this resource set.
+    """
+    resource_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    ARN of the resource.
+    """
 
 @pulumi.input_type
 class ResourceSetResourceArgs:
@@ -114,30 +109,27 @@ class ResourceSetResourceArgs:
         pulumi.set(self, "resource_arn", value)
 
 
-if not MYPY:
-    class ResourceSetResourceDnsTargetResourceArgsDict(TypedDict):
-        domain_name: pulumi.Input[_builtins.str]
-        """
-        DNS Name that acts as the ingress point to a portion of application.
-        """
-        hosted_zone_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Hosted Zone ARN that contains the DNS record with the provided name of target resource.
-        """
-        record_set_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Route53 record set id to uniquely identify a record given a `domain_name` and a `record_type`.
-        """
-        record_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Type of DNS Record of target resource.
-        """
-        target_resource: NotRequired[pulumi.Input['ResourceSetResourceDnsTargetResourceTargetResourceArgsDict']]
-        """
-        Target resource the R53 record specified with the above params points to.
-        """
-elif False:
-    ResourceSetResourceDnsTargetResourceArgsDict: TypeAlias = Mapping[str, Any]
+class ResourceSetResourceDnsTargetResourceArgsDict(TypedDict):
+    domain_name: pulumi.Input[_builtins.str]
+    """
+    DNS Name that acts as the ingress point to a portion of application.
+    """
+    hosted_zone_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Hosted Zone ARN that contains the DNS record with the provided name of target resource.
+    """
+    record_set_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Route53 record set id to uniquely identify a record given a `domain_name` and a `record_type`.
+    """
+    record_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Type of DNS Record of target resource.
+    """
+    target_resource: NotRequired[pulumi.Input['ResourceSetResourceDnsTargetResourceTargetResourceArgsDict']]
+    """
+    Target resource the R53 record specified with the above params points to.
+    """
 
 @pulumi.input_type
 class ResourceSetResourceDnsTargetResourceArgs:
@@ -225,18 +217,15 @@ class ResourceSetResourceDnsTargetResourceArgs:
         pulumi.set(self, "target_resource", value)
 
 
-if not MYPY:
-    class ResourceSetResourceDnsTargetResourceTargetResourceArgsDict(TypedDict):
-        nlb_resource: NotRequired[pulumi.Input['ResourceSetResourceDnsTargetResourceTargetResourceNlbResourceArgsDict']]
-        """
-        NLB resource a DNS Target Resource points to. Required if `r53_resource` is not set.
-        """
-        r53_resource: NotRequired[pulumi.Input['ResourceSetResourceDnsTargetResourceTargetResourceR53ResourceArgsDict']]
-        """
-        Route53 resource a DNS Target Resource record points to.
-        """
-elif False:
-    ResourceSetResourceDnsTargetResourceTargetResourceArgsDict: TypeAlias = Mapping[str, Any]
+class ResourceSetResourceDnsTargetResourceTargetResourceArgsDict(TypedDict):
+    nlb_resource: NotRequired[pulumi.Input['ResourceSetResourceDnsTargetResourceTargetResourceNlbResourceArgsDict']]
+    """
+    NLB resource a DNS Target Resource points to. Required if `r53_resource` is not set.
+    """
+    r53_resource: NotRequired[pulumi.Input['ResourceSetResourceDnsTargetResourceTargetResourceR53ResourceArgsDict']]
+    """
+    Route53 resource a DNS Target Resource record points to.
+    """
 
 @pulumi.input_type
 class ResourceSetResourceDnsTargetResourceTargetResourceArgs:
@@ -277,14 +266,11 @@ class ResourceSetResourceDnsTargetResourceTargetResourceArgs:
         pulumi.set(self, "r53_resource", value)
 
 
-if not MYPY:
-    class ResourceSetResourceDnsTargetResourceTargetResourceNlbResourceArgsDict(TypedDict):
-        arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        NLB resource ARN.
-        """
-elif False:
-    ResourceSetResourceDnsTargetResourceTargetResourceNlbResourceArgsDict: TypeAlias = Mapping[str, Any]
+class ResourceSetResourceDnsTargetResourceTargetResourceNlbResourceArgsDict(TypedDict):
+    arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    NLB resource ARN.
+    """
 
 @pulumi.input_type
 class ResourceSetResourceDnsTargetResourceTargetResourceNlbResourceArgs:
@@ -309,18 +295,15 @@ class ResourceSetResourceDnsTargetResourceTargetResourceNlbResourceArgs:
         pulumi.set(self, "arn", value)
 
 
-if not MYPY:
-    class ResourceSetResourceDnsTargetResourceTargetResourceR53ResourceArgsDict(TypedDict):
-        domain_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Domain name that is targeted.
-        """
-        record_set_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Resource record set ID that is targeted.
-        """
-elif False:
-    ResourceSetResourceDnsTargetResourceTargetResourceR53ResourceArgsDict: TypeAlias = Mapping[str, Any]
+class ResourceSetResourceDnsTargetResourceTargetResourceR53ResourceArgsDict(TypedDict):
+    domain_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Domain name that is targeted.
+    """
+    record_set_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Resource record set ID that is targeted.
+    """
 
 @pulumi.input_type
 class ResourceSetResourceDnsTargetResourceTargetResourceR53ResourceArgs:

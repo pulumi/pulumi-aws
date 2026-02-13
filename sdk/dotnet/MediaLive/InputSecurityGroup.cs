@@ -44,7 +44,7 @@ namespace Pulumi.Aws.MediaLive
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import MediaLive InputSecurityGroup using the `id`. For example:
+    /// Using `pulumi import`, import MediaLive InputSecurityGroup using the `Id`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:medialive/inputSecurityGroup:InputSecurityGroup example 123456

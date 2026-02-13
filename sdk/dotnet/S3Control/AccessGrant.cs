@@ -58,7 +58,7 @@ namespace Pulumi.Aws.S3Control
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import S3 Access Grants using the `account_id` and `access_grant_id`, separated by a comma (`,`). For example:
+    /// Using `pulumi import`, import S3 Access Grants using the `AccountId` and `AccessGrantId`, separated by a comma (`,`). For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:s3control/accessGrant:AccessGrant example 123456789012,04549c5e-2f3c-4a07-824d-2cafe720aa22
@@ -91,6 +91,9 @@ namespace Pulumi.Aws.S3Control
         [Output("accessGrantsLocationId")]
         public Output<string> AccessGrantsLocationId { get; private set; } = null!;
 
+        /// <summary>
+        /// The AWS account ID for the S3 Access Grants location. Defaults to automatically determined account ID of the Terraform AWS provider.
+        /// </summary>
         [Output("accountId")]
         public Output<string> AccountId { get; private set; } = null!;
 
@@ -194,6 +197,9 @@ namespace Pulumi.Aws.S3Control
         [Input("accessGrantsLocationId", required: true)]
         public Input<string> AccessGrantsLocationId { get; set; } = null!;
 
+        /// <summary>
+        /// The AWS account ID for the S3 Access Grants location. Defaults to automatically determined account ID of the Terraform AWS provider.
+        /// </summary>
         [Input("accountId")]
         public Input<string>? AccountId { get; set; }
 
@@ -265,6 +271,9 @@ namespace Pulumi.Aws.S3Control
         [Input("accessGrantsLocationId")]
         public Input<string>? AccessGrantsLocationId { get; set; }
 
+        /// <summary>
+        /// The AWS account ID for the S3 Access Grants location. Defaults to automatically determined account ID of the Terraform AWS provider.
+        /// </summary>
         [Input("accountId")]
         public Input<string>? AccountId { get; set; }
 

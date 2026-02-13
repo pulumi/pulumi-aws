@@ -88,7 +88,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Using `pulumi import`, import EventBridge schema using the `name` and `registry_name`. For example:
+ * Using `pulumi import`, import EventBridge schema using the `name` and `registryName`. For example:
  * 
  * ```sh
  * $ pulumi import aws:schemas/schema:Schema test name/registry

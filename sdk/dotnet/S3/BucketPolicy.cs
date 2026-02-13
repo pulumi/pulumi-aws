@@ -79,17 +79,18 @@ namespace Pulumi.Aws.S3
     /// 
     /// #### Required
     /// 
-    /// * `bucket` (String) Name of the S3 bucket.
+    /// * `Bucket` (String) Name of the S3 bucket.
     /// 
     /// #### Optional
     /// 
-    /// * `account_id` (String) AWS Account where this resource is managed.
-    /// 
-    /// * `region` (String) Region where this resource is managed.
+    /// * `AccountId` (String) AWS Account where this resource is managed.
+    /// * `Region` (String) Region where this resource is managed.
     /// 
     /// Using `pulumi import`, import S3 bucket policies using the bucket name. For example:
     /// 
-    /// % pulumi import aws_s3_bucket_policy.example my-tf-test-bucket
+    /// ```sh
+    /// $ pulumi import aws:s3/bucketPolicy:BucketPolicy example my-tf-test-bucket
+    /// ```
     /// </summary>
     [AwsResourceType("aws:s3/bucketPolicy:BucketPolicy")]
     public partial class BucketPolicy : global::Pulumi.CustomResource

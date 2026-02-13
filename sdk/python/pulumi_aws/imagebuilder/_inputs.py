@@ -131,20 +131,15 @@ __all__ = [
     'GetInfrastructureConfigurationsFilterArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class ContainerRecipeComponentArgsDict(TypedDict):
-        component_arn: pulumi.Input[_builtins.str]
-        """
-        Amazon Resource Name (ARN) of the Image Builder Component to associate.
-        """
-        parameters: NotRequired[pulumi.Input[Sequence[pulumi.Input['ContainerRecipeComponentParameterArgsDict']]]]
-        """
-        Configuration block(s) for parameters to configure the component. Detailed below.
-        """
-elif False:
-    ContainerRecipeComponentArgsDict: TypeAlias = Mapping[str, Any]
+class ContainerRecipeComponentArgsDict(TypedDict):
+    component_arn: pulumi.Input[_builtins.str]
+    """
+    Amazon Resource Name (ARN) of the Image Builder Component to associate.
+    """
+    parameters: NotRequired[pulumi.Input[Sequence[pulumi.Input['ContainerRecipeComponentParameterArgsDict']]]]
+    """
+    Configuration block(s) for parameters to configure the component. Detailed below.
+    """
 
 @pulumi.input_type
 class ContainerRecipeComponentArgs:
@@ -184,18 +179,15 @@ class ContainerRecipeComponentArgs:
         pulumi.set(self, "parameters", value)
 
 
-if not MYPY:
-    class ContainerRecipeComponentParameterArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the component parameter.
-        """
-        value: pulumi.Input[_builtins.str]
-        """
-        The value for the named component parameter.
-        """
-elif False:
-    ContainerRecipeComponentParameterArgsDict: TypeAlias = Mapping[str, Any]
+class ContainerRecipeComponentParameterArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the component parameter.
+    """
+    value: pulumi.Input[_builtins.str]
+    """
+    The value for the named component parameter.
+    """
 
 @pulumi.input_type
 class ContainerRecipeComponentParameterArgs:
@@ -234,18 +226,15 @@ class ContainerRecipeComponentParameterArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class ContainerRecipeInstanceConfigurationArgsDict(TypedDict):
-        block_device_mappings: NotRequired[pulumi.Input[Sequence[pulumi.Input['ContainerRecipeInstanceConfigurationBlockDeviceMappingArgsDict']]]]
-        """
-        Configuration block(s) with block device mappings for the container recipe. Detailed below.
-        """
-        image: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The AMI ID to use as the base image for a container build and test instance. If not specified, Image Builder will use the appropriate ECS-optimized AMI as a base image.
-        """
-elif False:
-    ContainerRecipeInstanceConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class ContainerRecipeInstanceConfigurationArgsDict(TypedDict):
+    block_device_mappings: NotRequired[pulumi.Input[Sequence[pulumi.Input['ContainerRecipeInstanceConfigurationBlockDeviceMappingArgsDict']]]]
+    """
+    Configuration block(s) with block device mappings for the container recipe. Detailed below.
+    """
+    image: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The AMI ID to use as the base image for a container build and test instance. If not specified, Image Builder will use the appropriate ECS-optimized AMI as a base image.
+    """
 
 @pulumi.input_type
 class ContainerRecipeInstanceConfigurationArgs:
@@ -286,26 +275,23 @@ class ContainerRecipeInstanceConfigurationArgs:
         pulumi.set(self, "image", value)
 
 
-if not MYPY:
-    class ContainerRecipeInstanceConfigurationBlockDeviceMappingArgsDict(TypedDict):
-        device_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Name of the device. For example, `/dev/sda` or `/dev/xvdb`.
-        """
-        ebs: NotRequired[pulumi.Input['ContainerRecipeInstanceConfigurationBlockDeviceMappingEbsArgsDict']]
-        """
-        Configuration block with Elastic Block Storage (EBS) block device mapping settings. Detailed below.
-        """
-        no_device: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Set to `true` to remove a mapping from the parent image.
-        """
-        virtual_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Virtual device name. For example, `ephemeral0`. Instance store volumes are numbered starting from 0.
-        """
-elif False:
-    ContainerRecipeInstanceConfigurationBlockDeviceMappingArgsDict: TypeAlias = Mapping[str, Any]
+class ContainerRecipeInstanceConfigurationBlockDeviceMappingArgsDict(TypedDict):
+    device_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Name of the device. For example, `/dev/sda` or `/dev/xvdb`.
+    """
+    ebs: NotRequired[pulumi.Input['ContainerRecipeInstanceConfigurationBlockDeviceMappingEbsArgsDict']]
+    """
+    Configuration block with Elastic Block Storage (EBS) block device mapping settings. Detailed below.
+    """
+    no_device: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Set to `true` to remove a mapping from the parent image.
+    """
+    virtual_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Virtual device name. For example, `ephemeral0`. Instance store volumes are numbered starting from 0.
+    """
 
 @pulumi.input_type
 class ContainerRecipeInstanceConfigurationBlockDeviceMappingArgs:
@@ -378,42 +364,39 @@ class ContainerRecipeInstanceConfigurationBlockDeviceMappingArgs:
         pulumi.set(self, "virtual_name", value)
 
 
-if not MYPY:
-    class ContainerRecipeInstanceConfigurationBlockDeviceMappingEbsArgsDict(TypedDict):
-        delete_on_termination: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Whether to delete the volume on termination. Defaults to unset, which is the value inherited from the parent image.
-        """
-        encrypted: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Whether to encrypt the volume. Defaults to unset, which is the value inherited from the parent image.
-        """
-        iops: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Number of Input/Output (I/O) operations per second to provision for an `io1` or `io2` volume.
-        """
-        kms_key_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Amazon Resource Name (ARN) of the Key Management Service (KMS) Key for encryption.
-        """
-        snapshot_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Identifier of the EC2 Volume Snapshot.
-        """
-        throughput: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        For GP3 volumes only. The throughput in MiB/s that the volume supports.
-        """
-        volume_size: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Size of the volume, in GiB.
-        """
-        volume_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Type of the volume. For example, `gp2` or `io2`.
-        """
-elif False:
-    ContainerRecipeInstanceConfigurationBlockDeviceMappingEbsArgsDict: TypeAlias = Mapping[str, Any]
+class ContainerRecipeInstanceConfigurationBlockDeviceMappingEbsArgsDict(TypedDict):
+    delete_on_termination: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Whether to delete the volume on termination. Defaults to unset, which is the value inherited from the parent image.
+    """
+    encrypted: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Whether to encrypt the volume. Defaults to unset, which is the value inherited from the parent image.
+    """
+    iops: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Number of Input/Output (I/O) operations per second to provision for an `io1` or `io2` volume.
+    """
+    kms_key_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Amazon Resource Name (ARN) of the Key Management Service (KMS) Key for encryption.
+    """
+    snapshot_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Identifier of the EC2 Volume Snapshot.
+    """
+    throughput: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    For GP3 volumes only. The throughput in MiB/s that the volume supports.
+    """
+    volume_size: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Size of the volume, in GiB.
+    """
+    volume_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Type of the volume. For example, `gp2` or `io2`.
+    """
 
 @pulumi.input_type
 class ContainerRecipeInstanceConfigurationBlockDeviceMappingEbsArgs:
@@ -550,18 +533,15 @@ class ContainerRecipeInstanceConfigurationBlockDeviceMappingEbsArgs:
         pulumi.set(self, "volume_type", value)
 
 
-if not MYPY:
-    class ContainerRecipeTargetRepositoryArgsDict(TypedDict):
-        repository_name: pulumi.Input[_builtins.str]
-        """
-        The name of the container repository where the output container image is stored. This name is prefixed by the repository location.
-        """
-        service: pulumi.Input[_builtins.str]
-        """
-        The service in which this image is registered. Valid values: `ECR`.
-        """
-elif False:
-    ContainerRecipeTargetRepositoryArgsDict: TypeAlias = Mapping[str, Any]
+class ContainerRecipeTargetRepositoryArgsDict(TypedDict):
+    repository_name: pulumi.Input[_builtins.str]
+    """
+    The name of the container repository where the output container image is stored. This name is prefixed by the repository location.
+    """
+    service: pulumi.Input[_builtins.str]
+    """
+    The service in which this image is registered. Valid values: `ECR`.
+    """
 
 @pulumi.input_type
 class ContainerRecipeTargetRepositoryArgs:
@@ -600,42 +580,39 @@ class ContainerRecipeTargetRepositoryArgs:
         pulumi.set(self, "service", value)
 
 
-if not MYPY:
-    class DistributionConfigurationDistributionArgsDict(TypedDict):
-        region: pulumi.Input[_builtins.str]
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
-        ami_distribution_configuration: NotRequired[pulumi.Input['DistributionConfigurationDistributionAmiDistributionConfigurationArgsDict']]
-        """
-        Configuration block with Amazon Machine Image (AMI) distribution settings. Detailed below.
-        """
-        container_distribution_configuration: NotRequired[pulumi.Input['DistributionConfigurationDistributionContainerDistributionConfigurationArgsDict']]
-        """
-        Configuration block with container distribution settings. Detailed below.
-        """
-        fast_launch_configurations: NotRequired[pulumi.Input[Sequence[pulumi.Input['DistributionConfigurationDistributionFastLaunchConfigurationArgsDict']]]]
-        """
-        Set of Windows faster-launching configurations to use for AMI distribution. Detailed below.
-        """
-        launch_template_configurations: NotRequired[pulumi.Input[Sequence[pulumi.Input['DistributionConfigurationDistributionLaunchTemplateConfigurationArgsDict']]]]
-        """
-        Set of launch template configuration settings that apply to image distribution. Detailed below.
-        """
-        license_configuration_arns: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Set of Amazon Resource Names (ARNs) of License Manager License Configurations.
-        """
-        s3_export_configuration: NotRequired[pulumi.Input['DistributionConfigurationDistributionS3ExportConfigurationArgsDict']]
-        """
-        Configuration block with S3 export settings. Detailed below.
-        """
-        ssm_parameter_configurations: NotRequired[pulumi.Input[Sequence[pulumi.Input['DistributionConfigurationDistributionSsmParameterConfigurationArgsDict']]]]
-        """
-        Configuration block with SSM parameter configuration to use as AMI id output. Detailed below.
-        """
-elif False:
-    DistributionConfigurationDistributionArgsDict: TypeAlias = Mapping[str, Any]
+class DistributionConfigurationDistributionArgsDict(TypedDict):
+    region: pulumi.Input[_builtins.str]
+    """
+    Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    """
+    ami_distribution_configuration: NotRequired[pulumi.Input['DistributionConfigurationDistributionAmiDistributionConfigurationArgsDict']]
+    """
+    Configuration block with Amazon Machine Image (AMI) distribution settings. Detailed below.
+    """
+    container_distribution_configuration: NotRequired[pulumi.Input['DistributionConfigurationDistributionContainerDistributionConfigurationArgsDict']]
+    """
+    Configuration block with container distribution settings. Detailed below.
+    """
+    fast_launch_configurations: NotRequired[pulumi.Input[Sequence[pulumi.Input['DistributionConfigurationDistributionFastLaunchConfigurationArgsDict']]]]
+    """
+    Set of Windows faster-launching configurations to use for AMI distribution. Detailed below.
+    """
+    launch_template_configurations: NotRequired[pulumi.Input[Sequence[pulumi.Input['DistributionConfigurationDistributionLaunchTemplateConfigurationArgsDict']]]]
+    """
+    Set of launch template configuration settings that apply to image distribution. Detailed below.
+    """
+    license_configuration_arns: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Set of Amazon Resource Names (ARNs) of License Manager License Configurations.
+    """
+    s3_export_configuration: NotRequired[pulumi.Input['DistributionConfigurationDistributionS3ExportConfigurationArgsDict']]
+    """
+    Configuration block with S3 export settings. Detailed below.
+    """
+    ssm_parameter_configurations: NotRequired[pulumi.Input[Sequence[pulumi.Input['DistributionConfigurationDistributionSsmParameterConfigurationArgsDict']]]]
+    """
+    Configuration block with SSM parameter configuration to use as AMI id output. Detailed below.
+    """
 
 @pulumi.input_type
 class DistributionConfigurationDistributionArgs:
@@ -771,34 +748,31 @@ class DistributionConfigurationDistributionArgs:
         pulumi.set(self, "ssm_parameter_configurations", value)
 
 
-if not MYPY:
-    class DistributionConfigurationDistributionAmiDistributionConfigurationArgsDict(TypedDict):
-        ami_tags: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
-        """
-        Key-value map of tags to apply to the distributed AMI.
-        """
-        description: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Description to apply to the distributed AMI.
-        """
-        kms_key_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Amazon Resource Name (ARN) of the Key Management Service (KMS) Key to encrypt the distributed AMI.
-        """
-        launch_permission: NotRequired[pulumi.Input['DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionArgsDict']]
-        """
-        Configuration block of EC2 launch permissions to apply to the distributed AMI. Detailed below.
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Name to apply to the distributed AMI.
-        """
-        target_account_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Set of AWS Account identifiers to distribute the AMI.
-        """
-elif False:
-    DistributionConfigurationDistributionAmiDistributionConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class DistributionConfigurationDistributionAmiDistributionConfigurationArgsDict(TypedDict):
+    ami_tags: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    """
+    Key-value map of tags to apply to the distributed AMI.
+    """
+    description: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Description to apply to the distributed AMI.
+    """
+    kms_key_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Amazon Resource Name (ARN) of the Key Management Service (KMS) Key to encrypt the distributed AMI.
+    """
+    launch_permission: NotRequired[pulumi.Input['DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionArgsDict']]
+    """
+    Configuration block of EC2 launch permissions to apply to the distributed AMI. Detailed below.
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Name to apply to the distributed AMI.
+    """
+    target_account_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Set of AWS Account identifiers to distribute the AMI.
+    """
 
 @pulumi.input_type
 class DistributionConfigurationDistributionAmiDistributionConfigurationArgs:
@@ -903,26 +877,23 @@ class DistributionConfigurationDistributionAmiDistributionConfigurationArgs:
         pulumi.set(self, "target_account_ids", value)
 
 
-if not MYPY:
-    class DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionArgsDict(TypedDict):
-        organization_arns: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Set of AWS Organization ARNs to assign.
-        """
-        organizational_unit_arns: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Set of AWS Organizational Unit ARNs to assign.
-        """
-        user_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Set of EC2 launch permission user groups to assign. Use `all` to distribute a public AMI.
-        """
-        user_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Set of AWS Account identifiers to assign.
-        """
-elif False:
-    DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionArgsDict: TypeAlias = Mapping[str, Any]
+class DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionArgsDict(TypedDict):
+    organization_arns: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Set of AWS Organization ARNs to assign.
+    """
+    organizational_unit_arns: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Set of AWS Organizational Unit ARNs to assign.
+    """
+    user_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Set of EC2 launch permission user groups to assign. Use `all` to distribute a public AMI.
+    """
+    user_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Set of AWS Account identifiers to assign.
+    """
 
 @pulumi.input_type
 class DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionArgs:
@@ -995,22 +966,19 @@ class DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPer
         pulumi.set(self, "user_ids", value)
 
 
-if not MYPY:
-    class DistributionConfigurationDistributionContainerDistributionConfigurationArgsDict(TypedDict):
-        target_repository: pulumi.Input['DistributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryArgsDict']
-        """
-        Configuration block with the destination repository for the container distribution configuration.
-        """
-        container_tags: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Set of tags that are attached to the container distribution configuration.
-        """
-        description: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Description of the container distribution configuration.
-        """
-elif False:
-    DistributionConfigurationDistributionContainerDistributionConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class DistributionConfigurationDistributionContainerDistributionConfigurationArgsDict(TypedDict):
+    target_repository: pulumi.Input['DistributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryArgsDict']
+    """
+    Configuration block with the destination repository for the container distribution configuration.
+    """
+    container_tags: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Set of tags that are attached to the container distribution configuration.
+    """
+    description: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Description of the container distribution configuration.
+    """
 
 @pulumi.input_type
 class DistributionConfigurationDistributionContainerDistributionConfigurationArgs:
@@ -1066,18 +1034,15 @@ class DistributionConfigurationDistributionContainerDistributionConfigurationArg
         pulumi.set(self, "description", value)
 
 
-if not MYPY:
-    class DistributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryArgsDict(TypedDict):
-        repository_name: pulumi.Input[_builtins.str]
-        """
-        The name of the container repository where the output container image is stored. This name is prefixed by the repository location.
-        """
-        service: pulumi.Input[_builtins.str]
-        """
-        The service in which this image is registered. Valid values: `ECR`.
-        """
-elif False:
-    DistributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryArgsDict: TypeAlias = Mapping[str, Any]
+class DistributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryArgsDict(TypedDict):
+    repository_name: pulumi.Input[_builtins.str]
+    """
+    The name of the container repository where the output container image is stored. This name is prefixed by the repository location.
+    """
+    service: pulumi.Input[_builtins.str]
+    """
+    The service in which this image is registered. Valid values: `ECR`.
+    """
 
 @pulumi.input_type
 class DistributionConfigurationDistributionContainerDistributionConfigurationTargetRepositoryArgs:
@@ -1116,30 +1081,27 @@ class DistributionConfigurationDistributionContainerDistributionConfigurationTar
         pulumi.set(self, "service", value)
 
 
-if not MYPY:
-    class DistributionConfigurationDistributionFastLaunchConfigurationArgsDict(TypedDict):
-        account_id: pulumi.Input[_builtins.str]
-        """
-        The owner account ID for the fast-launch enabled Windows AMI.
-        """
-        enabled: pulumi.Input[_builtins.bool]
-        """
-        A Boolean that represents the current state of faster launching for the Windows AMI. Set to `true` to start using Windows faster launching, or `false` to stop using it.
-        """
-        launch_template: NotRequired[pulumi.Input['DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplateArgsDict']]
-        """
-        Configuration block for the launch template that the fast-launch enabled Windows AMI uses when it launches Windows instances to create pre-provisioned snapshots. Detailed below.
-        """
-        max_parallel_launches: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The maximum number of parallel instances that are launched for creating resources.
-        """
-        snapshot_configuration: NotRequired[pulumi.Input['DistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationArgsDict']]
-        """
-        Configuration block for managing the number of snapshots that are created from pre-provisioned instances for the Windows AMI when faster launching is enabled. Detailed below.
-        """
-elif False:
-    DistributionConfigurationDistributionFastLaunchConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class DistributionConfigurationDistributionFastLaunchConfigurationArgsDict(TypedDict):
+    account_id: pulumi.Input[_builtins.str]
+    """
+    The owner account ID for the fast-launch enabled Windows AMI.
+    """
+    enabled: pulumi.Input[_builtins.bool]
+    """
+    A Boolean that represents the current state of faster launching for the Windows AMI. Set to `true` to start using Windows faster launching, or `false` to stop using it.
+    """
+    launch_template: NotRequired[pulumi.Input['DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplateArgsDict']]
+    """
+    Configuration block for the launch template that the fast-launch enabled Windows AMI uses when it launches Windows instances to create pre-provisioned snapshots. Detailed below.
+    """
+    max_parallel_launches: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The maximum number of parallel instances that are launched for creating resources.
+    """
+    snapshot_configuration: NotRequired[pulumi.Input['DistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationArgsDict']]
+    """
+    Configuration block for managing the number of snapshots that are created from pre-provisioned instances for the Windows AMI when faster launching is enabled. Detailed below.
+    """
 
 @pulumi.input_type
 class DistributionConfigurationDistributionFastLaunchConfigurationArgs:
@@ -1226,22 +1188,19 @@ class DistributionConfigurationDistributionFastLaunchConfigurationArgs:
         pulumi.set(self, "snapshot_configuration", value)
 
 
-if not MYPY:
-    class DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplateArgsDict(TypedDict):
-        launch_template_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ID of the launch template to use for faster launching for a Windows AMI.
-        """
-        launch_template_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the launch template to use for faster launching for a Windows AMI.
-        """
-        launch_template_version: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The version of the launch template to use for faster launching for a Windows AMI.
-        """
-elif False:
-    DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplateArgsDict: TypeAlias = Mapping[str, Any]
+class DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplateArgsDict(TypedDict):
+    launch_template_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ID of the launch template to use for faster launching for a Windows AMI.
+    """
+    launch_template_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the launch template to use for faster launching for a Windows AMI.
+    """
+    launch_template_version: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The version of the launch template to use for faster launching for a Windows AMI.
+    """
 
 @pulumi.input_type
 class DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplateArgs:
@@ -1298,14 +1257,11 @@ class DistributionConfigurationDistributionFastLaunchConfigurationLaunchTemplate
         pulumi.set(self, "launch_template_version", value)
 
 
-if not MYPY:
-    class DistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationArgsDict(TypedDict):
-        target_resource_count: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The number of pre-provisioned snapshots to keep on hand for a fast-launch enabled Windows AMI.
-        """
-elif False:
-    DistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class DistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationArgsDict(TypedDict):
+    target_resource_count: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The number of pre-provisioned snapshots to keep on hand for a fast-launch enabled Windows AMI.
+    """
 
 @pulumi.input_type
 class DistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfigurationArgs:
@@ -1330,22 +1286,19 @@ class DistributionConfigurationDistributionFastLaunchConfigurationSnapshotConfig
         pulumi.set(self, "target_resource_count", value)
 
 
-if not MYPY:
-    class DistributionConfigurationDistributionLaunchTemplateConfigurationArgsDict(TypedDict):
-        launch_template_id: pulumi.Input[_builtins.str]
-        """
-        The ID of the Amazon EC2 launch template to use.
-        """
-        account_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The account ID that this configuration applies to.
-        """
-        default: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Indicates whether to set the specified Amazon EC2 launch template as the default launch template. Defaults to `true`.
-        """
-elif False:
-    DistributionConfigurationDistributionLaunchTemplateConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class DistributionConfigurationDistributionLaunchTemplateConfigurationArgsDict(TypedDict):
+    launch_template_id: pulumi.Input[_builtins.str]
+    """
+    The ID of the Amazon EC2 launch template to use.
+    """
+    account_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The account ID that this configuration applies to.
+    """
+    default: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Indicates whether to set the specified Amazon EC2 launch template as the default launch template. Defaults to `true`.
+    """
 
 @pulumi.input_type
 class DistributionConfigurationDistributionLaunchTemplateConfigurationArgs:
@@ -1401,26 +1354,23 @@ class DistributionConfigurationDistributionLaunchTemplateConfigurationArgs:
         pulumi.set(self, "default", value)
 
 
-if not MYPY:
-    class DistributionConfigurationDistributionS3ExportConfigurationArgsDict(TypedDict):
-        disk_image_format: pulumi.Input[_builtins.str]
-        """
-        The disk image format of the exported image (`RAW`, `VHD`, or `VMDK`)
-        """
-        role_name: pulumi.Input[_builtins.str]
-        """
-        The name of the IAM role to use for exporting.
-        """
-        s3_bucket: pulumi.Input[_builtins.str]
-        """
-        The name of the S3 bucket to store the exported image in. The bucket needs to exist before the export configuration is created.
-        """
-        s3_prefix: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The prefix for the exported image.
-        """
-elif False:
-    DistributionConfigurationDistributionS3ExportConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class DistributionConfigurationDistributionS3ExportConfigurationArgsDict(TypedDict):
+    disk_image_format: pulumi.Input[_builtins.str]
+    """
+    The disk image format of the exported image (`RAW`, `VHD`, or `VMDK`)
+    """
+    role_name: pulumi.Input[_builtins.str]
+    """
+    The name of the IAM role to use for exporting.
+    """
+    s3_bucket: pulumi.Input[_builtins.str]
+    """
+    The name of the S3 bucket to store the exported image in. The bucket needs to exist before the export configuration is created.
+    """
+    s3_prefix: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The prefix for the exported image.
+    """
 
 @pulumi.input_type
 class DistributionConfigurationDistributionS3ExportConfigurationArgs:
@@ -1490,22 +1440,19 @@ class DistributionConfigurationDistributionS3ExportConfigurationArgs:
         pulumi.set(self, "s3_prefix", value)
 
 
-if not MYPY:
-    class DistributionConfigurationDistributionSsmParameterConfigurationArgsDict(TypedDict):
-        parameter_name: pulumi.Input[_builtins.str]
-        """
-        Name of the SSM parameter that will store the AMI ID after distribution.
-        """
-        ami_account_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        AWS account ID that will own the parameter in the given region. This account must be specified as a target account in the distribution settings.
-        """
-        data_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Data type of the SSM parameter. Valid values are `text` and `aws:ec2:image`. AWS recommends using `aws:ec2:image`.
-        """
-elif False:
-    DistributionConfigurationDistributionSsmParameterConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class DistributionConfigurationDistributionSsmParameterConfigurationArgsDict(TypedDict):
+    parameter_name: pulumi.Input[_builtins.str]
+    """
+    Name of the SSM parameter that will store the AMI ID after distribution.
+    """
+    ami_account_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    AWS account ID that will own the parameter in the given region. This account must be specified as a target account in the distribution settings.
+    """
+    data_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Data type of the SSM parameter. Valid values are `text` and `aws:ec2:image`. AWS recommends using `aws:ec2:image`.
+    """
 
 @pulumi.input_type
 class DistributionConfigurationDistributionSsmParameterConfigurationArgs:
@@ -1561,18 +1508,15 @@ class DistributionConfigurationDistributionSsmParameterConfigurationArgs:
         pulumi.set(self, "data_type", value)
 
 
-if not MYPY:
-    class ImageImageScanningConfigurationArgsDict(TypedDict):
-        ecr_configuration: NotRequired[pulumi.Input['ImageImageScanningConfigurationEcrConfigurationArgsDict']]
-        """
-        Configuration block with ECR configuration. Detailed below.
-        """
-        image_scanning_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Indicates whether Image Builder keeps a snapshot of the vulnerability scans that Amazon Inspector runs against the build instance when you create a new image. Defaults to `false`.
-        """
-elif False:
-    ImageImageScanningConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class ImageImageScanningConfigurationArgsDict(TypedDict):
+    ecr_configuration: NotRequired[pulumi.Input['ImageImageScanningConfigurationEcrConfigurationArgsDict']]
+    """
+    Configuration block with ECR configuration. Detailed below.
+    """
+    image_scanning_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Indicates whether Image Builder keeps a snapshot of the vulnerability scans that Amazon Inspector runs against the build instance when you create a new image. Defaults to `false`.
+    """
 
 @pulumi.input_type
 class ImageImageScanningConfigurationArgs:
@@ -1613,18 +1557,15 @@ class ImageImageScanningConfigurationArgs:
         pulumi.set(self, "image_scanning_enabled", value)
 
 
-if not MYPY:
-    class ImageImageScanningConfigurationEcrConfigurationArgsDict(TypedDict):
-        container_tags: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Set of tags for Image Builder to apply to the output container image that that Amazon Inspector scans.
-        """
-        repository_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the container repository that Amazon Inspector scans to identify findings for your container images.
-        """
-elif False:
-    ImageImageScanningConfigurationEcrConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class ImageImageScanningConfigurationEcrConfigurationArgsDict(TypedDict):
+    container_tags: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Set of tags for Image Builder to apply to the output container image that that Amazon Inspector scans.
+    """
+    repository_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the container repository that Amazon Inspector scans to identify findings for your container images.
+    """
 
 @pulumi.input_type
 class ImageImageScanningConfigurationEcrConfigurationArgs:
@@ -1665,18 +1606,15 @@ class ImageImageScanningConfigurationEcrConfigurationArgs:
         pulumi.set(self, "repository_name", value)
 
 
-if not MYPY:
-    class ImageImageTestsConfigurationArgsDict(TypedDict):
-        image_tests_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether image tests are enabled. Defaults to `true`.
-        """
-        timeout_minutes: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Number of minutes before image tests time out. Valid values are between `60` and `1440`. Defaults to `720`.
-        """
-elif False:
-    ImageImageTestsConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class ImageImageTestsConfigurationArgsDict(TypedDict):
+    image_tests_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether image tests are enabled. Defaults to `true`.
+    """
+    timeout_minutes: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Number of minutes before image tests time out. Valid values are between `60` and `1440`. Defaults to `720`.
+    """
 
 @pulumi.input_type
 class ImageImageTestsConfigurationArgs:
@@ -1717,14 +1655,11 @@ class ImageImageTestsConfigurationArgs:
         pulumi.set(self, "timeout_minutes", value)
 
 
-if not MYPY:
-    class ImageLoggingConfigurationArgsDict(TypedDict):
-        log_group_name: pulumi.Input[_builtins.str]
-        """
-        Name of the CloudWatch Log Group to send logs to.
-        """
-elif False:
-    ImageLoggingConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class ImageLoggingConfigurationArgsDict(TypedDict):
+    log_group_name: pulumi.Input[_builtins.str]
+    """
+    Name of the CloudWatch Log Group to send logs to.
+    """
 
 @pulumi.input_type
 class ImageLoggingConfigurationArgs:
@@ -1748,18 +1683,15 @@ class ImageLoggingConfigurationArgs:
         pulumi.set(self, "log_group_name", value)
 
 
-if not MYPY:
-    class ImageOutputResourceArgsDict(TypedDict):
-        amis: NotRequired[pulumi.Input[Sequence[pulumi.Input['ImageOutputResourceAmiArgsDict']]]]
-        """
-        Set of objects with each Amazon Machine Image (AMI) created.
-        """
-        containers: NotRequired[pulumi.Input[Sequence[pulumi.Input['ImageOutputResourceContainerArgsDict']]]]
-        """
-        Set of objects with each container image created and stored in the output repository.
-        """
-elif False:
-    ImageOutputResourceArgsDict: TypeAlias = Mapping[str, Any]
+class ImageOutputResourceArgsDict(TypedDict):
+    amis: NotRequired[pulumi.Input[Sequence[pulumi.Input['ImageOutputResourceAmiArgsDict']]]]
+    """
+    Set of objects with each Amazon Machine Image (AMI) created.
+    """
+    containers: NotRequired[pulumi.Input[Sequence[pulumi.Input['ImageOutputResourceContainerArgsDict']]]]
+    """
+    Set of objects with each container image created and stored in the output repository.
+    """
 
 @pulumi.input_type
 class ImageOutputResourceArgs:
@@ -1800,30 +1732,27 @@ class ImageOutputResourceArgs:
         pulumi.set(self, "containers", value)
 
 
-if not MYPY:
-    class ImageOutputResourceAmiArgsDict(TypedDict):
-        account_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Account identifier of the AMI.
-        """
-        description: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Description of the AMI.
-        """
-        image: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Identifier of the AMI.
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Name of the AMI.
-        """
-        region: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
-elif False:
-    ImageOutputResourceAmiArgsDict: TypeAlias = Mapping[str, Any]
+class ImageOutputResourceAmiArgsDict(TypedDict):
+    account_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Account identifier of the AMI.
+    """
+    description: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Description of the AMI.
+    """
+    image: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Identifier of the AMI.
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Name of the AMI.
+    """
+    region: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    """
 
 @pulumi.input_type
 class ImageOutputResourceAmiArgs:
@@ -1912,18 +1841,15 @@ class ImageOutputResourceAmiArgs:
         pulumi.set(self, "region", value)
 
 
-if not MYPY:
-    class ImageOutputResourceContainerArgsDict(TypedDict):
-        image_uris: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Set of URIs for created containers.
-        """
-        region: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
-elif False:
-    ImageOutputResourceContainerArgsDict: TypeAlias = Mapping[str, Any]
+class ImageOutputResourceContainerArgsDict(TypedDict):
+    image_uris: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Set of URIs for created containers.
+    """
+    region: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    """
 
 @pulumi.input_type
 class ImageOutputResourceContainerArgs:
@@ -1964,18 +1890,15 @@ class ImageOutputResourceContainerArgs:
         pulumi.set(self, "region", value)
 
 
-if not MYPY:
-    class ImagePipelineImageScanningConfigurationArgsDict(TypedDict):
-        ecr_configuration: NotRequired[pulumi.Input['ImagePipelineImageScanningConfigurationEcrConfigurationArgsDict']]
-        """
-        Configuration block with ECR configuration for image scanning. Detailed below.
-        """
-        image_scanning_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether image scans are enabled. Defaults to `false`.
-        """
-elif False:
-    ImagePipelineImageScanningConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class ImagePipelineImageScanningConfigurationArgsDict(TypedDict):
+    ecr_configuration: NotRequired[pulumi.Input['ImagePipelineImageScanningConfigurationEcrConfigurationArgsDict']]
+    """
+    Configuration block with ECR configuration for image scanning. Detailed below.
+    """
+    image_scanning_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether image scans are enabled. Defaults to `false`.
+    """
 
 @pulumi.input_type
 class ImagePipelineImageScanningConfigurationArgs:
@@ -2016,15 +1939,12 @@ class ImagePipelineImageScanningConfigurationArgs:
         pulumi.set(self, "image_scanning_enabled", value)
 
 
-if not MYPY:
-    class ImagePipelineImageScanningConfigurationEcrConfigurationArgsDict(TypedDict):
-        container_tags: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        repository_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the repository to scan
-        """
-elif False:
-    ImagePipelineImageScanningConfigurationEcrConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class ImagePipelineImageScanningConfigurationEcrConfigurationArgsDict(TypedDict):
+    container_tags: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    repository_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the repository to scan
+    """
 
 @pulumi.input_type
 class ImagePipelineImageScanningConfigurationEcrConfigurationArgs:
@@ -2061,18 +1981,15 @@ class ImagePipelineImageScanningConfigurationEcrConfigurationArgs:
         pulumi.set(self, "repository_name", value)
 
 
-if not MYPY:
-    class ImagePipelineImageTestsConfigurationArgsDict(TypedDict):
-        image_tests_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether image tests are enabled. Defaults to `true`.
-        """
-        timeout_minutes: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Number of minutes before image tests time out. Valid values are between `60` and `1440`. Defaults to `720`.
-        """
-elif False:
-    ImagePipelineImageTestsConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class ImagePipelineImageTestsConfigurationArgsDict(TypedDict):
+    image_tests_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether image tests are enabled. Defaults to `true`.
+    """
+    timeout_minutes: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Number of minutes before image tests time out. Valid values are between `60` and `1440`. Defaults to `720`.
+    """
 
 @pulumi.input_type
 class ImagePipelineImageTestsConfigurationArgs:
@@ -2113,18 +2030,15 @@ class ImagePipelineImageTestsConfigurationArgs:
         pulumi.set(self, "timeout_minutes", value)
 
 
-if not MYPY:
-    class ImagePipelineLoggingConfigurationArgsDict(TypedDict):
-        image_log_group_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Name of the CloudWatch Log Group to send image logs to.
-        """
-        pipeline_log_group_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Name of the CloudWatch Log Group to send pipeline logs to.
-        """
-elif False:
-    ImagePipelineLoggingConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class ImagePipelineLoggingConfigurationArgsDict(TypedDict):
+    image_log_group_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Name of the CloudWatch Log Group to send image logs to.
+    """
+    pipeline_log_group_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Name of the CloudWatch Log Group to send pipeline logs to.
+    """
 
 @pulumi.input_type
 class ImagePipelineLoggingConfigurationArgs:
@@ -2165,24 +2079,21 @@ class ImagePipelineLoggingConfigurationArgs:
         pulumi.set(self, "pipeline_log_group_name", value)
 
 
-if not MYPY:
-    class ImagePipelineScheduleArgsDict(TypedDict):
-        schedule_expression: pulumi.Input[_builtins.str]
-        """
-        Cron expression of how often the pipeline start condition is evaluated. For example, `cron(0 0 * * ? *)` is evaluated every day at midnight UTC. Configurations using the five field syntax that was previously accepted by the API, such as `cron(0 0 * * *)`, must be updated to the six field syntax. For more information, see the [Image Builder User Guide](https://docs.aws.amazon.com/imagebuilder/latest/userguide/cron-expressions.html).
+class ImagePipelineScheduleArgsDict(TypedDict):
+    schedule_expression: pulumi.Input[_builtins.str]
+    """
+    Cron expression of how often the pipeline start condition is evaluated. For example, `cron(0 0 * * ? *)` is evaluated every day at midnight UTC. Configurations using the five field syntax that was previously accepted by the API, such as `cron(0 0 * * *)`, must be updated to the six field syntax. For more information, see the [Image Builder User Guide](https://docs.aws.amazon.com/imagebuilder/latest/userguide/cron-expressions.html).
 
-        The following arguments are optional:
-        """
-        pipeline_execution_start_condition: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Condition when the pipeline should trigger a new image build. Valid values are `EXPRESSION_MATCH_AND_DEPENDENCY_UPDATES_AVAILABLE` and `EXPRESSION_MATCH_ONLY`. Defaults to `EXPRESSION_MATCH_AND_DEPENDENCY_UPDATES_AVAILABLE`.
-        """
-        timezone: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The timezone that applies to the scheduling expression. For example, "Etc/UTC", "America/Los_Angeles" in the [IANA timezone format](https://www.joda.org/joda-time/timezones.html). If not specified this defaults to UTC.
-        """
-elif False:
-    ImagePipelineScheduleArgsDict: TypeAlias = Mapping[str, Any]
+    The following arguments are optional:
+    """
+    pipeline_execution_start_condition: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Condition when the pipeline should trigger a new image build. Valid values are `EXPRESSION_MATCH_AND_DEPENDENCY_UPDATES_AVAILABLE` and `EXPRESSION_MATCH_ONLY`. Defaults to `EXPRESSION_MATCH_AND_DEPENDENCY_UPDATES_AVAILABLE`.
+    """
+    timezone: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The timezone that applies to the scheduling expression. For example, "Etc/UTC", "America/Los_Angeles" in the [IANA timezone format](https://www.joda.org/joda-time/timezones.html). If not specified this defaults to UTC.
+    """
 
 @pulumi.input_type
 class ImagePipelineScheduleArgs:
@@ -2242,28 +2153,25 @@ class ImagePipelineScheduleArgs:
         pulumi.set(self, "timezone", value)
 
 
-if not MYPY:
-    class ImagePipelineWorkflowArgsDict(TypedDict):
-        workflow_arn: pulumi.Input[_builtins.str]
-        """
-        Amazon Resource Name (ARN) of the Image Builder Workflow.
+class ImagePipelineWorkflowArgsDict(TypedDict):
+    workflow_arn: pulumi.Input[_builtins.str]
+    """
+    Amazon Resource Name (ARN) of the Image Builder Workflow.
 
-        The following arguments are optional:
-        """
-        on_failure: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The action to take if the workflow fails. Must be one of `CONTINUE` or `ABORT`.
-        """
-        parallel_group: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The parallel group in which to run a test Workflow.
-        """
-        parameters: NotRequired[pulumi.Input[Sequence[pulumi.Input['ImagePipelineWorkflowParameterArgsDict']]]]
-        """
-        Configuration block for the workflow parameters. Detailed below.
-        """
-elif False:
-    ImagePipelineWorkflowArgsDict: TypeAlias = Mapping[str, Any]
+    The following arguments are optional:
+    """
+    on_failure: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The action to take if the workflow fails. Must be one of `CONTINUE` or `ABORT`.
+    """
+    parallel_group: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The parallel group in which to run a test Workflow.
+    """
+    parameters: NotRequired[pulumi.Input[Sequence[pulumi.Input['ImagePipelineWorkflowParameterArgsDict']]]]
+    """
+    Configuration block for the workflow parameters. Detailed below.
+    """
 
 @pulumi.input_type
 class ImagePipelineWorkflowArgs:
@@ -2339,18 +2247,15 @@ class ImagePipelineWorkflowArgs:
         pulumi.set(self, "parameters", value)
 
 
-if not MYPY:
-    class ImagePipelineWorkflowParameterArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the Workflow parameter.
-        """
-        value: pulumi.Input[_builtins.str]
-        """
-        The value of the Workflow parameter.
-        """
-elif False:
-    ImagePipelineWorkflowParameterArgsDict: TypeAlias = Mapping[str, Any]
+class ImagePipelineWorkflowParameterArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the Workflow parameter.
+    """
+    value: pulumi.Input[_builtins.str]
+    """
+    The value of the Workflow parameter.
+    """
 
 @pulumi.input_type
 class ImagePipelineWorkflowParameterArgs:
@@ -2389,26 +2294,23 @@ class ImagePipelineWorkflowParameterArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class ImageRecipeBlockDeviceMappingArgsDict(TypedDict):
-        device_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Name of the device. For example, `/dev/sda` or `/dev/xvdb`.
-        """
-        ebs: NotRequired[pulumi.Input['ImageRecipeBlockDeviceMappingEbsArgsDict']]
-        """
-        Configuration block with Elastic Block Storage (EBS) block device mapping settings. Detailed below.
-        """
-        no_device: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Set to `true` to remove a mapping from the parent image.
-        """
-        virtual_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Virtual device name. For example, `ephemeral0`. Instance store volumes are numbered starting from 0.
-        """
-elif False:
-    ImageRecipeBlockDeviceMappingArgsDict: TypeAlias = Mapping[str, Any]
+class ImageRecipeBlockDeviceMappingArgsDict(TypedDict):
+    device_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Name of the device. For example, `/dev/sda` or `/dev/xvdb`.
+    """
+    ebs: NotRequired[pulumi.Input['ImageRecipeBlockDeviceMappingEbsArgsDict']]
+    """
+    Configuration block with Elastic Block Storage (EBS) block device mapping settings. Detailed below.
+    """
+    no_device: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Set to `true` to remove a mapping from the parent image.
+    """
+    virtual_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Virtual device name. For example, `ephemeral0`. Instance store volumes are numbered starting from 0.
+    """
 
 @pulumi.input_type
 class ImageRecipeBlockDeviceMappingArgs:
@@ -2481,42 +2383,39 @@ class ImageRecipeBlockDeviceMappingArgs:
         pulumi.set(self, "virtual_name", value)
 
 
-if not MYPY:
-    class ImageRecipeBlockDeviceMappingEbsArgsDict(TypedDict):
-        delete_on_termination: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Whether to delete the volume on termination. Defaults to unset, which is the value inherited from the parent image.
-        """
-        encrypted: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Whether to encrypt the volume. Defaults to unset, which is the value inherited from the parent image.
-        """
-        iops: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Number of Input/Output (I/O) operations per second to provision for an `io1` or `io2` volume.
-        """
-        kms_key_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Amazon Resource Name (ARN) of the Key Management Service (KMS) Key for encryption.
-        """
-        snapshot_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Identifier of the EC2 Volume Snapshot.
-        """
-        throughput: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        For GP3 volumes only. The throughput in MiB/s that the volume supports.
-        """
-        volume_size: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Size of the volume, in GiB.
-        """
-        volume_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Type of the volume. For example, `gp2` or `io2`.
-        """
-elif False:
-    ImageRecipeBlockDeviceMappingEbsArgsDict: TypeAlias = Mapping[str, Any]
+class ImageRecipeBlockDeviceMappingEbsArgsDict(TypedDict):
+    delete_on_termination: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Whether to delete the volume on termination. Defaults to unset, which is the value inherited from the parent image.
+    """
+    encrypted: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Whether to encrypt the volume. Defaults to unset, which is the value inherited from the parent image.
+    """
+    iops: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Number of Input/Output (I/O) operations per second to provision for an `io1` or `io2` volume.
+    """
+    kms_key_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Amazon Resource Name (ARN) of the Key Management Service (KMS) Key for encryption.
+    """
+    snapshot_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Identifier of the EC2 Volume Snapshot.
+    """
+    throughput: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    For GP3 volumes only. The throughput in MiB/s that the volume supports.
+    """
+    volume_size: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Size of the volume, in GiB.
+    """
+    volume_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Type of the volume. For example, `gp2` or `io2`.
+    """
 
 @pulumi.input_type
 class ImageRecipeBlockDeviceMappingEbsArgs:
@@ -2653,18 +2552,15 @@ class ImageRecipeBlockDeviceMappingEbsArgs:
         pulumi.set(self, "volume_type", value)
 
 
-if not MYPY:
-    class ImageRecipeComponentArgsDict(TypedDict):
-        component_arn: pulumi.Input[_builtins.str]
-        """
-        Amazon Resource Name (ARN) of the Image Builder Component to associate.
-        """
-        parameters: NotRequired[pulumi.Input[Sequence[pulumi.Input['ImageRecipeComponentParameterArgsDict']]]]
-        """
-        Configuration block(s) for parameters to configure the component. Detailed below.
-        """
-elif False:
-    ImageRecipeComponentArgsDict: TypeAlias = Mapping[str, Any]
+class ImageRecipeComponentArgsDict(TypedDict):
+    component_arn: pulumi.Input[_builtins.str]
+    """
+    Amazon Resource Name (ARN) of the Image Builder Component to associate.
+    """
+    parameters: NotRequired[pulumi.Input[Sequence[pulumi.Input['ImageRecipeComponentParameterArgsDict']]]]
+    """
+    Configuration block(s) for parameters to configure the component. Detailed below.
+    """
 
 @pulumi.input_type
 class ImageRecipeComponentArgs:
@@ -2704,18 +2600,15 @@ class ImageRecipeComponentArgs:
         pulumi.set(self, "parameters", value)
 
 
-if not MYPY:
-    class ImageRecipeComponentParameterArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the component parameter.
-        """
-        value: pulumi.Input[_builtins.str]
-        """
-        The value for the named component parameter.
-        """
-elif False:
-    ImageRecipeComponentParameterArgsDict: TypeAlias = Mapping[str, Any]
+class ImageRecipeComponentParameterArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the component parameter.
+    """
+    value: pulumi.Input[_builtins.str]
+    """
+    The value for the named component parameter.
+    """
 
 @pulumi.input_type
 class ImageRecipeComponentParameterArgs:
@@ -2754,14 +2647,11 @@ class ImageRecipeComponentParameterArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class ImageRecipeSystemsManagerAgentArgsDict(TypedDict):
-        uninstall_after_build: pulumi.Input[_builtins.bool]
-        """
-        Whether to remove the Systems Manager Agent after the image has been built.
-        """
-elif False:
-    ImageRecipeSystemsManagerAgentArgsDict: TypeAlias = Mapping[str, Any]
+class ImageRecipeSystemsManagerAgentArgsDict(TypedDict):
+    uninstall_after_build: pulumi.Input[_builtins.bool]
+    """
+    Whether to remove the Systems Manager Agent after the image has been built.
+    """
 
 @pulumi.input_type
 class ImageRecipeSystemsManagerAgentArgs:
@@ -2785,28 +2675,25 @@ class ImageRecipeSystemsManagerAgentArgs:
         pulumi.set(self, "uninstall_after_build", value)
 
 
-if not MYPY:
-    class ImageWorkflowArgsDict(TypedDict):
-        workflow_arn: pulumi.Input[_builtins.str]
-        """
-        Amazon Resource Name (ARN) of the Image Builder Workflow.
+class ImageWorkflowArgsDict(TypedDict):
+    workflow_arn: pulumi.Input[_builtins.str]
+    """
+    Amazon Resource Name (ARN) of the Image Builder Workflow.
 
-        The following arguments are optional:
-        """
-        on_failure: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The action to take if the workflow fails. Must be one of `CONTINUE` or `ABORT`.
-        """
-        parallel_group: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The parallel group in which to run a test Workflow.
-        """
-        parameters: NotRequired[pulumi.Input[Sequence[pulumi.Input['ImageWorkflowParameterArgsDict']]]]
-        """
-        Configuration block for the workflow parameters. Detailed below.
-        """
-elif False:
-    ImageWorkflowArgsDict: TypeAlias = Mapping[str, Any]
+    The following arguments are optional:
+    """
+    on_failure: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The action to take if the workflow fails. Must be one of `CONTINUE` or `ABORT`.
+    """
+    parallel_group: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The parallel group in which to run a test Workflow.
+    """
+    parameters: NotRequired[pulumi.Input[Sequence[pulumi.Input['ImageWorkflowParameterArgsDict']]]]
+    """
+    Configuration block for the workflow parameters. Detailed below.
+    """
 
 @pulumi.input_type
 class ImageWorkflowArgs:
@@ -2882,18 +2769,15 @@ class ImageWorkflowArgs:
         pulumi.set(self, "parameters", value)
 
 
-if not MYPY:
-    class ImageWorkflowParameterArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the Workflow parameter.
-        """
-        value: pulumi.Input[_builtins.str]
-        """
-        The value of the Workflow parameter.
-        """
-elif False:
-    ImageWorkflowParameterArgsDict: TypeAlias = Mapping[str, Any]
+class ImageWorkflowParameterArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the Workflow parameter.
+    """
+    value: pulumi.Input[_builtins.str]
+    """
+    The value of the Workflow parameter.
+    """
 
 @pulumi.input_type
 class ImageWorkflowParameterArgs:
@@ -2932,18 +2816,15 @@ class ImageWorkflowParameterArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class InfrastructureConfigurationInstanceMetadataOptionsArgsDict(TypedDict):
-        http_put_response_hop_limit: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The number of hops that an instance can traverse to reach its destonation.
-        """
-        http_tokens: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Whether a signed token is required for instance metadata retrieval requests. Valid values: `required`, `optional`.
-        """
-elif False:
-    InfrastructureConfigurationInstanceMetadataOptionsArgsDict: TypeAlias = Mapping[str, Any]
+class InfrastructureConfigurationInstanceMetadataOptionsArgsDict(TypedDict):
+    http_put_response_hop_limit: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The number of hops that an instance can traverse to reach its destonation.
+    """
+    http_tokens: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Whether a signed token is required for instance metadata retrieval requests. Valid values: `required`, `optional`.
+    """
 
 @pulumi.input_type
 class InfrastructureConfigurationInstanceMetadataOptionsArgs:
@@ -2984,14 +2865,11 @@ class InfrastructureConfigurationInstanceMetadataOptionsArgs:
         pulumi.set(self, "http_tokens", value)
 
 
-if not MYPY:
-    class InfrastructureConfigurationLoggingArgsDict(TypedDict):
-        s3_logs: pulumi.Input['InfrastructureConfigurationLoggingS3LogsArgsDict']
-        """
-        Configuration block with S3 logging settings. Detailed below.
-        """
-elif False:
-    InfrastructureConfigurationLoggingArgsDict: TypeAlias = Mapping[str, Any]
+class InfrastructureConfigurationLoggingArgsDict(TypedDict):
+    s3_logs: pulumi.Input['InfrastructureConfigurationLoggingS3LogsArgsDict']
+    """
+    Configuration block with S3 logging settings. Detailed below.
+    """
 
 @pulumi.input_type
 class InfrastructureConfigurationLoggingArgs:
@@ -3015,20 +2893,17 @@ class InfrastructureConfigurationLoggingArgs:
         pulumi.set(self, "s3_logs", value)
 
 
-if not MYPY:
-    class InfrastructureConfigurationLoggingS3LogsArgsDict(TypedDict):
-        s3_bucket_name: pulumi.Input[_builtins.str]
-        """
-        Name of the S3 Bucket.
+class InfrastructureConfigurationLoggingS3LogsArgsDict(TypedDict):
+    s3_bucket_name: pulumi.Input[_builtins.str]
+    """
+    Name of the S3 Bucket.
 
-        The following arguments are optional:
-        """
-        s3_key_prefix: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Prefix to use for S3 logs. Defaults to `/`.
-        """
-elif False:
-    InfrastructureConfigurationLoggingS3LogsArgsDict: TypeAlias = Mapping[str, Any]
+    The following arguments are optional:
+    """
+    s3_key_prefix: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Prefix to use for S3 logs. Defaults to `/`.
+    """
 
 @pulumi.input_type
 class InfrastructureConfigurationLoggingS3LogsArgs:
@@ -3072,26 +2947,23 @@ class InfrastructureConfigurationLoggingS3LogsArgs:
         pulumi.set(self, "s3_key_prefix", value)
 
 
-if not MYPY:
-    class InfrastructureConfigurationPlacementArgsDict(TypedDict):
-        availability_zone: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Availability Zone where your build and test instances will launch.
-        """
-        host_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        ID of the Dedicated Host on which build and test instances run. Conflicts with `host_resource_group_arn`.
-        """
-        host_resource_group_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        ARN of the host resource group in which to launch build and test instances. Conflicts with `host_id`.
-        """
-        tenancy: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Placement tenancy of the instance. Valid values: `default`, `dedicated` and `host`.
-        """
-elif False:
-    InfrastructureConfigurationPlacementArgsDict: TypeAlias = Mapping[str, Any]
+class InfrastructureConfigurationPlacementArgsDict(TypedDict):
+    availability_zone: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Availability Zone where your build and test instances will launch.
+    """
+    host_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    ID of the Dedicated Host on which build and test instances run. Conflicts with `host_resource_group_arn`.
+    """
+    host_resource_group_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    ARN of the host resource group in which to launch build and test instances. Conflicts with `host_id`.
+    """
+    tenancy: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Placement tenancy of the instance. Valid values: `default`, `dedicated` and `host`.
+    """
 
 @pulumi.input_type
 class InfrastructureConfigurationPlacementArgs:
@@ -3164,24 +3036,21 @@ class InfrastructureConfigurationPlacementArgs:
         pulumi.set(self, "tenancy", value)
 
 
-if not MYPY:
-    class LifecyclePolicyPolicyDetailArgsDict(TypedDict):
-        action: pulumi.Input['LifecyclePolicyPolicyDetailActionArgsDict']
-        """
-        Configuration details for the policy action.
-        """
-        filter: pulumi.Input['LifecyclePolicyPolicyDetailFilterArgsDict']
-        """
-        Specifies the resources that the lifecycle policy applies to.
+class LifecyclePolicyPolicyDetailArgsDict(TypedDict):
+    action: pulumi.Input['LifecyclePolicyPolicyDetailActionArgsDict']
+    """
+    Configuration details for the policy action.
+    """
+    filter: pulumi.Input['LifecyclePolicyPolicyDetailFilterArgsDict']
+    """
+    Specifies the resources that the lifecycle policy applies to.
 
-        The following arguments are optional:
-        """
-        exclusion_rules: NotRequired[pulumi.Input['LifecyclePolicyPolicyDetailExclusionRulesArgsDict']]
-        """
-        Additional rules to specify resources that should be exempt from policy actions.
-        """
-elif False:
-    LifecyclePolicyPolicyDetailArgsDict: TypeAlias = Mapping[str, Any]
+    The following arguments are optional:
+    """
+    exclusion_rules: NotRequired[pulumi.Input['LifecyclePolicyPolicyDetailExclusionRulesArgsDict']]
+    """
+    Additional rules to specify resources that should be exempt from policy actions.
+    """
 
 @pulumi.input_type
 class LifecyclePolicyPolicyDetailArgs:
@@ -3240,20 +3109,17 @@ class LifecyclePolicyPolicyDetailArgs:
         pulumi.set(self, "exclusion_rules", value)
 
 
-if not MYPY:
-    class LifecyclePolicyPolicyDetailActionArgsDict(TypedDict):
-        type: pulumi.Input[_builtins.str]
-        """
-        Specifies the lifecycle action to take. Valid values: `DELETE`, `DEPRECATE` or `DISABLE`.
+class LifecyclePolicyPolicyDetailActionArgsDict(TypedDict):
+    type: pulumi.Input[_builtins.str]
+    """
+    Specifies the lifecycle action to take. Valid values: `DELETE`, `DEPRECATE` or `DISABLE`.
 
-        The following arguments are optional:
-        """
-        include_resources: NotRequired[pulumi.Input['LifecyclePolicyPolicyDetailActionIncludeResourcesArgsDict']]
-        """
-        Specifies the resources that the lifecycle policy applies to. Detailed below.
-        """
-elif False:
-    LifecyclePolicyPolicyDetailActionArgsDict: TypeAlias = Mapping[str, Any]
+    The following arguments are optional:
+    """
+    include_resources: NotRequired[pulumi.Input['LifecyclePolicyPolicyDetailActionIncludeResourcesArgsDict']]
+    """
+    Specifies the resources that the lifecycle policy applies to. Detailed below.
+    """
 
 @pulumi.input_type
 class LifecyclePolicyPolicyDetailActionArgs:
@@ -3297,22 +3163,19 @@ class LifecyclePolicyPolicyDetailActionArgs:
         pulumi.set(self, "include_resources", value)
 
 
-if not MYPY:
-    class LifecyclePolicyPolicyDetailActionIncludeResourcesArgsDict(TypedDict):
-        amis: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Specifies whether the lifecycle action should apply to distributed AMIs.
-        """
-        containers: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Specifies whether the lifecycle action should apply to distributed containers.
-        """
-        snapshots: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Specifies whether the lifecycle action should apply to snapshots associated with distributed AMIs.
-        """
-elif False:
-    LifecyclePolicyPolicyDetailActionIncludeResourcesArgsDict: TypeAlias = Mapping[str, Any]
+class LifecyclePolicyPolicyDetailActionIncludeResourcesArgsDict(TypedDict):
+    amis: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Specifies whether the lifecycle action should apply to distributed AMIs.
+    """
+    containers: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Specifies whether the lifecycle action should apply to distributed containers.
+    """
+    snapshots: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Specifies whether the lifecycle action should apply to snapshots associated with distributed AMIs.
+    """
 
 @pulumi.input_type
 class LifecyclePolicyPolicyDetailActionIncludeResourcesArgs:
@@ -3369,18 +3232,15 @@ class LifecyclePolicyPolicyDetailActionIncludeResourcesArgs:
         pulumi.set(self, "snapshots", value)
 
 
-if not MYPY:
-    class LifecyclePolicyPolicyDetailExclusionRulesArgsDict(TypedDict):
-        amis: NotRequired[pulumi.Input['LifecyclePolicyPolicyDetailExclusionRulesAmisArgsDict']]
-        """
-        Lists configuration values that apply to AMIs that Image Builder should exclude from the lifecycle action. Detailed below.
-        """
-        tag_map: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
-        """
-        Contains a list of tags that Image Builder uses to skip lifecycle actions for Image Builder image resources that have them.
-        """
-elif False:
-    LifecyclePolicyPolicyDetailExclusionRulesArgsDict: TypeAlias = Mapping[str, Any]
+class LifecyclePolicyPolicyDetailExclusionRulesArgsDict(TypedDict):
+    amis: NotRequired[pulumi.Input['LifecyclePolicyPolicyDetailExclusionRulesAmisArgsDict']]
+    """
+    Lists configuration values that apply to AMIs that Image Builder should exclude from the lifecycle action. Detailed below.
+    """
+    tag_map: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    """
+    Contains a list of tags that Image Builder uses to skip lifecycle actions for Image Builder image resources that have them.
+    """
 
 @pulumi.input_type
 class LifecyclePolicyPolicyDetailExclusionRulesArgs:
@@ -3421,30 +3281,27 @@ class LifecyclePolicyPolicyDetailExclusionRulesArgs:
         pulumi.set(self, "tag_map", value)
 
 
-if not MYPY:
-    class LifecyclePolicyPolicyDetailExclusionRulesAmisArgsDict(TypedDict):
-        is_public: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Configures whether public AMIs are excluded from the lifecycle action.
-        """
-        last_launched: NotRequired[pulumi.Input['LifecyclePolicyPolicyDetailExclusionRulesAmisLastLaunchedArgsDict']]
-        """
-        Specifies configuration details for Image Builder to exclude the most recent resources from lifecycle actions. Detailed below.
-        """
-        regions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Configures AWS Regions that are excluded from the lifecycle action.
-        """
-        shared_accounts: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Specifies AWS accounts whose resources are excluded from the lifecycle action.
-        """
-        tag_map: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
-        """
-        Lists tags that should be excluded from lifecycle actions for the AMIs that have them.
-        """
-elif False:
-    LifecyclePolicyPolicyDetailExclusionRulesAmisArgsDict: TypeAlias = Mapping[str, Any]
+class LifecyclePolicyPolicyDetailExclusionRulesAmisArgsDict(TypedDict):
+    is_public: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Configures whether public AMIs are excluded from the lifecycle action.
+    """
+    last_launched: NotRequired[pulumi.Input['LifecyclePolicyPolicyDetailExclusionRulesAmisLastLaunchedArgsDict']]
+    """
+    Specifies configuration details for Image Builder to exclude the most recent resources from lifecycle actions. Detailed below.
+    """
+    regions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Configures AWS Regions that are excluded from the lifecycle action.
+    """
+    shared_accounts: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Specifies AWS accounts whose resources are excluded from the lifecycle action.
+    """
+    tag_map: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    """
+    Lists tags that should be excluded from lifecycle actions for the AMIs that have them.
+    """
 
 @pulumi.input_type
 class LifecyclePolicyPolicyDetailExclusionRulesAmisArgs:
@@ -3533,18 +3390,15 @@ class LifecyclePolicyPolicyDetailExclusionRulesAmisArgs:
         pulumi.set(self, "tag_map", value)
 
 
-if not MYPY:
-    class LifecyclePolicyPolicyDetailExclusionRulesAmisLastLaunchedArgsDict(TypedDict):
-        unit: pulumi.Input[_builtins.str]
-        """
-        Defines the unit of time that the lifecycle policy uses to calculate elapsed time since the last instance launched from the AMI. For example: days, weeks, months, or years. Valid values: `DAYS`, `WEEKS`, `MONTHS` or `YEARS`.
-        """
-        value: pulumi.Input[_builtins.int]
-        """
-        The integer number of units for the time period. For example 6 (months).
-        """
-elif False:
-    LifecyclePolicyPolicyDetailExclusionRulesAmisLastLaunchedArgsDict: TypeAlias = Mapping[str, Any]
+class LifecyclePolicyPolicyDetailExclusionRulesAmisLastLaunchedArgsDict(TypedDict):
+    unit: pulumi.Input[_builtins.str]
+    """
+    Defines the unit of time that the lifecycle policy uses to calculate elapsed time since the last instance launched from the AMI. For example: days, weeks, months, or years. Valid values: `DAYS`, `WEEKS`, `MONTHS` or `YEARS`.
+    """
+    value: pulumi.Input[_builtins.int]
+    """
+    The integer number of units for the time period. For example 6 (months).
+    """
 
 @pulumi.input_type
 class LifecyclePolicyPolicyDetailExclusionRulesAmisLastLaunchedArgs:
@@ -3583,28 +3437,25 @@ class LifecyclePolicyPolicyDetailExclusionRulesAmisLastLaunchedArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class LifecyclePolicyPolicyDetailFilterArgsDict(TypedDict):
-        type: pulumi.Input[_builtins.str]
-        """
-        Filter resources based on either age or count. Valid values: `AGE` or `COUNT`.
-        """
-        value: pulumi.Input[_builtins.int]
-        """
-        The number of units for the time period or for the count. For example, a value of 6 might refer to six months or six AMIs.
+class LifecyclePolicyPolicyDetailFilterArgsDict(TypedDict):
+    type: pulumi.Input[_builtins.str]
+    """
+    Filter resources based on either age or count. Valid values: `AGE` or `COUNT`.
+    """
+    value: pulumi.Input[_builtins.int]
+    """
+    The number of units for the time period or for the count. For example, a value of 6 might refer to six months or six AMIs.
 
-        The following arguments are optional:
-        """
-        retain_at_least: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        For age-based filters, this is the number of resources to keep on hand after the lifecycle DELETE action is applied. Impacted resources are only deleted if you have more than this number of resources. If you have fewer resources than this number, the impacted resource is not deleted.
-        """
-        unit: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Defines the unit of time that the lifecycle policy uses to determine impacted resources. This is required for age-based rules. Valid values: `DAYS`, `WEEKS`, `MONTHS` or `YEARS`.
-        """
-elif False:
-    LifecyclePolicyPolicyDetailFilterArgsDict: TypeAlias = Mapping[str, Any]
+    The following arguments are optional:
+    """
+    retain_at_least: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    For age-based filters, this is the number of resources to keep on hand after the lifecycle DELETE action is applied. Impacted resources are only deleted if you have more than this number of resources. If you have fewer resources than this number, the impacted resource is not deleted.
+    """
+    unit: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Defines the unit of time that the lifecycle policy uses to determine impacted resources. This is required for age-based rules. Valid values: `DAYS`, `WEEKS`, `MONTHS` or `YEARS`.
+    """
 
 @pulumi.input_type
 class LifecyclePolicyPolicyDetailFilterArgs:
@@ -3679,18 +3530,15 @@ class LifecyclePolicyPolicyDetailFilterArgs:
         pulumi.set(self, "unit", value)
 
 
-if not MYPY:
-    class LifecyclePolicyResourceSelectionArgsDict(TypedDict):
-        recipes: NotRequired[pulumi.Input[Sequence[pulumi.Input['LifecyclePolicyResourceSelectionRecipeArgsDict']]]]
-        """
-        A list of recipe that are used as selection criteria for the output images that the lifecycle policy applies to. Detailed below.
-        """
-        tag_map: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
-        """
-        A list of tags that are used as selection criteria for the Image Builder image resources that the lifecycle policy applies to.
-        """
-elif False:
-    LifecyclePolicyResourceSelectionArgsDict: TypeAlias = Mapping[str, Any]
+class LifecyclePolicyResourceSelectionArgsDict(TypedDict):
+    recipes: NotRequired[pulumi.Input[Sequence[pulumi.Input['LifecyclePolicyResourceSelectionRecipeArgsDict']]]]
+    """
+    A list of recipe that are used as selection criteria for the output images that the lifecycle policy applies to. Detailed below.
+    """
+    tag_map: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    """
+    A list of tags that are used as selection criteria for the Image Builder image resources that the lifecycle policy applies to.
+    """
 
 @pulumi.input_type
 class LifecyclePolicyResourceSelectionArgs:
@@ -3731,18 +3579,15 @@ class LifecyclePolicyResourceSelectionArgs:
         pulumi.set(self, "tag_map", value)
 
 
-if not MYPY:
-    class LifecyclePolicyResourceSelectionRecipeArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of an Image Builder recipe that the lifecycle policy uses for resource selection.
-        """
-        semantic_version: pulumi.Input[_builtins.str]
-        """
-        The version of the Image Builder recipe specified by the name field.
-        """
-elif False:
-    LifecyclePolicyResourceSelectionRecipeArgsDict: TypeAlias = Mapping[str, Any]
+class LifecyclePolicyResourceSelectionRecipeArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of an Image Builder recipe that the lifecycle policy uses for resource selection.
+    """
+    semantic_version: pulumi.Input[_builtins.str]
+    """
+    The version of the Image Builder recipe specified by the name field.
+    """
 
 @pulumi.input_type
 class LifecyclePolicyResourceSelectionRecipeArgs:
@@ -3781,18 +3626,15 @@ class LifecyclePolicyResourceSelectionRecipeArgs:
         pulumi.set(self, "semantic_version", value)
 
 
-if not MYPY:
-    class GetComponentsFilterArgsDict(TypedDict):
-        name: _builtins.str
-        """
-        Name of the filter field. Valid values can be found in the [Image Builder ListComponents API Reference](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListComponents.html).
-        """
-        values: Sequence[_builtins.str]
-        """
-        Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
-        """
-elif False:
-    GetComponentsFilterArgsDict: TypeAlias = Mapping[str, Any]
+class GetComponentsFilterArgsDict(TypedDict):
+    name: _builtins.str
+    """
+    Name of the filter field. Valid values can be found in the [Image Builder ListComponents API Reference](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListComponents.html).
+    """
+    values: Sequence[_builtins.str]
+    """
+    Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
+    """
 
 @pulumi.input_type
 class GetComponentsFilterArgs:
@@ -3831,18 +3673,15 @@ class GetComponentsFilterArgs:
         pulumi.set(self, "values", value)
 
 
-if not MYPY:
-    class GetContainerRecipesFilterArgsDict(TypedDict):
-        name: _builtins.str
-        """
-        Name of the filter field. Valid values can be found in the [Image Builder ListContainerRecipes API Reference](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListContainerRecipes.html).
-        """
-        values: Sequence[_builtins.str]
-        """
-        Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
-        """
-elif False:
-    GetContainerRecipesFilterArgsDict: TypeAlias = Mapping[str, Any]
+class GetContainerRecipesFilterArgsDict(TypedDict):
+    name: _builtins.str
+    """
+    Name of the filter field. Valid values can be found in the [Image Builder ListContainerRecipes API Reference](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListContainerRecipes.html).
+    """
+    values: Sequence[_builtins.str]
+    """
+    Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
+    """
 
 @pulumi.input_type
 class GetContainerRecipesFilterArgs:
@@ -3881,18 +3720,15 @@ class GetContainerRecipesFilterArgs:
         pulumi.set(self, "values", value)
 
 
-if not MYPY:
-    class GetDistributionConfigurationsFilterArgsDict(TypedDict):
-        name: _builtins.str
-        """
-        Name of the filter field. Valid values can be found in the [Image Builder ListDistributionConfigurations API Reference](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListDistributionConfigurations.html).
-        """
-        values: Sequence[_builtins.str]
-        """
-        Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
-        """
-elif False:
-    GetDistributionConfigurationsFilterArgsDict: TypeAlias = Mapping[str, Any]
+class GetDistributionConfigurationsFilterArgsDict(TypedDict):
+    name: _builtins.str
+    """
+    Name of the filter field. Valid values can be found in the [Image Builder ListDistributionConfigurations API Reference](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListDistributionConfigurations.html).
+    """
+    values: Sequence[_builtins.str]
+    """
+    Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
+    """
 
 @pulumi.input_type
 class GetDistributionConfigurationsFilterArgs:
@@ -3931,18 +3767,15 @@ class GetDistributionConfigurationsFilterArgs:
         pulumi.set(self, "values", value)
 
 
-if not MYPY:
-    class GetImagePipelinesFilterArgsDict(TypedDict):
-        name: _builtins.str
-        """
-        Name of the filter field. Valid values can be found in the [Image Builder ListImagePipelines API Reference](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListImagePipelines.html).
-        """
-        values: Sequence[_builtins.str]
-        """
-        Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
-        """
-elif False:
-    GetImagePipelinesFilterArgsDict: TypeAlias = Mapping[str, Any]
+class GetImagePipelinesFilterArgsDict(TypedDict):
+    name: _builtins.str
+    """
+    Name of the filter field. Valid values can be found in the [Image Builder ListImagePipelines API Reference](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListImagePipelines.html).
+    """
+    values: Sequence[_builtins.str]
+    """
+    Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
+    """
 
 @pulumi.input_type
 class GetImagePipelinesFilterArgs:
@@ -3981,18 +3814,15 @@ class GetImagePipelinesFilterArgs:
         pulumi.set(self, "values", value)
 
 
-if not MYPY:
-    class GetImageRecipesFilterArgsDict(TypedDict):
-        name: _builtins.str
-        """
-        Name of the filter field. Valid values can be found in the [Image Builder ListImageRecipes API Reference](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListImageRecipes.html).
-        """
-        values: Sequence[_builtins.str]
-        """
-        Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
-        """
-elif False:
-    GetImageRecipesFilterArgsDict: TypeAlias = Mapping[str, Any]
+class GetImageRecipesFilterArgsDict(TypedDict):
+    name: _builtins.str
+    """
+    Name of the filter field. Valid values can be found in the [Image Builder ListImageRecipes API Reference](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListImageRecipes.html).
+    """
+    values: Sequence[_builtins.str]
+    """
+    Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
+    """
 
 @pulumi.input_type
 class GetImageRecipesFilterArgs:
@@ -4031,18 +3861,15 @@ class GetImageRecipesFilterArgs:
         pulumi.set(self, "values", value)
 
 
-if not MYPY:
-    class GetInfrastructureConfigurationsFilterArgsDict(TypedDict):
-        name: _builtins.str
-        """
-        Name of the filter field. Valid values can be found in the [Image Builder ListInfrastructureConfigurations API Reference](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListInfrastructureConfigurations.html).
-        """
-        values: Sequence[_builtins.str]
-        """
-        Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
-        """
-elif False:
-    GetInfrastructureConfigurationsFilterArgsDict: TypeAlias = Mapping[str, Any]
+class GetInfrastructureConfigurationsFilterArgsDict(TypedDict):
+    name: _builtins.str
+    """
+    Name of the filter field. Valid values can be found in the [Image Builder ListInfrastructureConfigurations API Reference](https://docs.aws.amazon.com/imagebuilder/latest/APIReference/API_ListInfrastructureConfigurations.html).
+    """
+    values: Sequence[_builtins.str]
+    """
+    Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
+    """
 
 @pulumi.input_type
 class GetInfrastructureConfigurationsFilterArgs:

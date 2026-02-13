@@ -54,7 +54,7 @@ namespace Pulumi.Aws.DynamoDB
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import DynamoDB Kinesis Streaming Destinations using the `table_name` and `stream_arn` separated by `,`. For example:
+    /// Using `pulumi import`, import DynamoDB Kinesis Streaming Destinations using the `TableName` and `StreamArn` separated by `,`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:dynamodb/kinesisStreamingDestination:KinesisStreamingDestination example example,arn:aws:kinesis:us-east-1:111122223333:exampleStreamName

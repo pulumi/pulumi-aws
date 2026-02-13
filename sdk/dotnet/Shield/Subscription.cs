@@ -38,7 +38,7 @@ namespace Pulumi.Aws.Shield
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import Shield Subscription using the `id`. For example:
+    /// Using `pulumi import`, import Shield Subscription using the `Id`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:shield/subscription:Subscription example 123456789012

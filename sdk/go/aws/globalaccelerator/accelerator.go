@@ -59,7 +59,9 @@ import (
 //
 // Using `pulumi import`, import Global Accelerator accelerators using the `arn`. For example:
 //
-// % pulumi import aws_globalaccelerator_accelerator.example arn:aws:globalaccelerator::111111111111:accelerator/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+// ```sh
+// $ pulumi import aws:globalaccelerator/accelerator:Accelerator example arn:aws:globalaccelerator::111111111111:accelerator/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+// ```
 type Accelerator struct {
 	pulumi.CustomResourceState
 

@@ -36,7 +36,7 @@ namespace Pulumi.Aws.DirectConnect
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import Direct Connect private virtual interfaces using the VIF `id`. For example:
+    /// Using `pulumi import`, import Direct Connect private virtual interfaces using the VIF `Id`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:directconnect/privateVirtualInterface:PrivateVirtualInterface test dxvif-33cc44dd

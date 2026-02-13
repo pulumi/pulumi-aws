@@ -33,7 +33,7 @@ namespace Pulumi.Aws.MediaPackageV2
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import Elemental MediaPackage Version 2 Channel Group using the channel group's `name`. For example:
+    /// Using `pulumi import`, import Elemental MediaPackage Version 2 Channel Group using the channel group's `Name`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:mediapackagev2/channelGroup:ChannelGroup example example

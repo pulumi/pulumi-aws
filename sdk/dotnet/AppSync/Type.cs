@@ -46,7 +46,7 @@ namespace Pulumi.Aws.AppSync
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import Appsync Types using the `id`. For example:
+    /// Using `pulumi import`, import Appsync Types using the `Id`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:appsync/type:Type example api-id:format:name

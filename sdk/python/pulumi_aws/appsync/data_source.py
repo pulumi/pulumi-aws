@@ -537,7 +537,7 @@ class DataSource(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import `aws_appsync_datasource` using the `api_id`, a hyphen, and `name`. For example:
+        Using `pulumi import`, import `appsync.DataSource` using the `api_id`, a hyphen, and `name`. For example:
 
         ```sh
         $ pulumi import aws:appsync/dataSource:DataSource example abcdef123456-example
@@ -618,7 +618,7 @@ class DataSource(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import `aws_appsync_datasource` using the `api_id`, a hyphen, and `name`. For example:
+        Using `pulumi import`, import `appsync.DataSource` using the `api_id`, a hyphen, and `name`. For example:
 
         ```sh
         $ pulumi import aws:appsync/dataSource:DataSource example abcdef123456-example

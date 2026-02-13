@@ -31,24 +31,19 @@ __all__ = [
     'WorkgroupPricePerformanceTargetArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class EndpointAccessVpcEndpointArgsDict(TypedDict):
-        network_interfaces: NotRequired[pulumi.Input[Sequence[pulumi.Input['EndpointAccessVpcEndpointNetworkInterfaceArgsDict']]]]
-        """
-        The network interfaces of the endpoint.. See `Network Interface` below.
-        """
-        vpc_endpoint_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The DNS address of the VPC endpoint.
-        """
-        vpc_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The port that Amazon Redshift Serverless listens on.
-        """
-elif False:
-    EndpointAccessVpcEndpointArgsDict: TypeAlias = Mapping[str, Any]
+class EndpointAccessVpcEndpointArgsDict(TypedDict):
+    network_interfaces: NotRequired[pulumi.Input[Sequence[pulumi.Input['EndpointAccessVpcEndpointNetworkInterfaceArgsDict']]]]
+    """
+    The network interfaces of the endpoint.. See `Network Interface` below.
+    """
+    vpc_endpoint_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The DNS address of the VPC endpoint.
+    """
+    vpc_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The port that Amazon Redshift Serverless listens on.
+    """
 
 @pulumi.input_type
 class EndpointAccessVpcEndpointArgs:
@@ -105,26 +100,23 @@ class EndpointAccessVpcEndpointArgs:
         pulumi.set(self, "vpc_id", value)
 
 
-if not MYPY:
-    class EndpointAccessVpcEndpointNetworkInterfaceArgsDict(TypedDict):
-        availability_zone: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The availability Zone.
-        """
-        network_interface_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The unique identifier of the network interface.
-        """
-        private_ip_address: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The IPv4 address of the network interface within the subnet.
-        """
-        subnet_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The unique identifier of the subnet.
-        """
-elif False:
-    EndpointAccessVpcEndpointNetworkInterfaceArgsDict: TypeAlias = Mapping[str, Any]
+class EndpointAccessVpcEndpointNetworkInterfaceArgsDict(TypedDict):
+    availability_zone: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The availability Zone.
+    """
+    network_interface_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The unique identifier of the network interface.
+    """
+    private_ip_address: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The IPv4 address of the network interface within the subnet.
+    """
+    subnet_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The unique identifier of the subnet.
+    """
 
 @pulumi.input_type
 class EndpointAccessVpcEndpointNetworkInterfaceArgs:
@@ -197,18 +189,15 @@ class EndpointAccessVpcEndpointNetworkInterfaceArgs:
         pulumi.set(self, "subnet_id", value)
 
 
-if not MYPY:
-    class WorkgroupConfigParameterArgsDict(TypedDict):
-        parameter_key: pulumi.Input[_builtins.str]
-        """
-        The key of the parameter. The options are `auto_mv`, `datestyle`, `enable_case_sensitive_identifier`, `enable_user_activity_logging`, `query_group`, `search_path`, `require_ssl`, `use_fips_ssl`, and [query monitoring metrics](https://docs.aws.amazon.com/redshift/latest/dg/cm-c-wlm-query-monitoring-rules.html#cm-c-wlm-query-monitoring-metrics-serverless) that let you define performance boundaries: `max_query_cpu_time`, `max_query_blocks_read`, `max_scan_row_count`, `max_query_execution_time`, `max_query_queue_time`, `max_query_cpu_usage_percent`, `max_query_temp_blocks_to_disk`, `max_join_row_count` and `max_nested_loop_join_row_count`.
-        """
-        parameter_value: pulumi.Input[_builtins.str]
-        """
-        The value of the parameter to set.
-        """
-elif False:
-    WorkgroupConfigParameterArgsDict: TypeAlias = Mapping[str, Any]
+class WorkgroupConfigParameterArgsDict(TypedDict):
+    parameter_key: pulumi.Input[_builtins.str]
+    """
+    The key of the parameter. The options are `auto_mv`, `datestyle`, `enable_case_sensitive_identifier`, `enable_user_activity_logging`, `query_group`, `search_path`, `require_ssl`, `use_fips_ssl`, and [query monitoring metrics](https://docs.aws.amazon.com/redshift/latest/dg/cm-c-wlm-query-monitoring-rules.html#cm-c-wlm-query-monitoring-metrics-serverless) that let you define performance boundaries: `max_query_cpu_time`, `max_query_blocks_read`, `max_scan_row_count`, `max_query_execution_time`, `max_query_queue_time`, `max_query_cpu_usage_percent`, `max_query_temp_blocks_to_disk`, `max_join_row_count` and `max_nested_loop_join_row_count`.
+    """
+    parameter_value: pulumi.Input[_builtins.str]
+    """
+    The value of the parameter to set.
+    """
 
 @pulumi.input_type
 class WorkgroupConfigParameterArgs:
@@ -247,22 +236,19 @@ class WorkgroupConfigParameterArgs:
         pulumi.set(self, "parameter_value", value)
 
 
-if not MYPY:
-    class WorkgroupEndpointArgsDict(TypedDict):
-        address: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The DNS address of the VPC endpoint.
-        """
-        port: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The port number on which the cluster accepts incoming connections.
-        """
-        vpc_endpoints: NotRequired[pulumi.Input[Sequence[pulumi.Input['WorkgroupEndpointVpcEndpointArgsDict']]]]
-        """
-        The VPC endpoint or the Redshift Serverless workgroup. See `VPC Endpoint` below.
-        """
-elif False:
-    WorkgroupEndpointArgsDict: TypeAlias = Mapping[str, Any]
+class WorkgroupEndpointArgsDict(TypedDict):
+    address: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The DNS address of the VPC endpoint.
+    """
+    port: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The port number on which the cluster accepts incoming connections.
+    """
+    vpc_endpoints: NotRequired[pulumi.Input[Sequence[pulumi.Input['WorkgroupEndpointVpcEndpointArgsDict']]]]
+    """
+    The VPC endpoint or the Redshift Serverless workgroup. See `VPC Endpoint` below.
+    """
 
 @pulumi.input_type
 class WorkgroupEndpointArgs:
@@ -319,22 +305,19 @@ class WorkgroupEndpointArgs:
         pulumi.set(self, "vpc_endpoints", value)
 
 
-if not MYPY:
-    class WorkgroupEndpointVpcEndpointArgsDict(TypedDict):
-        network_interfaces: NotRequired[pulumi.Input[Sequence[pulumi.Input['WorkgroupEndpointVpcEndpointNetworkInterfaceArgsDict']]]]
-        """
-        The network interfaces of the endpoint.. See `Network Interface` below.
-        """
-        vpc_endpoint_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The DNS address of the VPC endpoint.
-        """
-        vpc_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The port that Amazon Redshift Serverless listens on.
-        """
-elif False:
-    WorkgroupEndpointVpcEndpointArgsDict: TypeAlias = Mapping[str, Any]
+class WorkgroupEndpointVpcEndpointArgsDict(TypedDict):
+    network_interfaces: NotRequired[pulumi.Input[Sequence[pulumi.Input['WorkgroupEndpointVpcEndpointNetworkInterfaceArgsDict']]]]
+    """
+    The network interfaces of the endpoint.. See `Network Interface` below.
+    """
+    vpc_endpoint_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The DNS address of the VPC endpoint.
+    """
+    vpc_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The port that Amazon Redshift Serverless listens on.
+    """
 
 @pulumi.input_type
 class WorkgroupEndpointVpcEndpointArgs:
@@ -391,26 +374,23 @@ class WorkgroupEndpointVpcEndpointArgs:
         pulumi.set(self, "vpc_id", value)
 
 
-if not MYPY:
-    class WorkgroupEndpointVpcEndpointNetworkInterfaceArgsDict(TypedDict):
-        availability_zone: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The availability Zone.
-        """
-        network_interface_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The unique identifier of the network interface.
-        """
-        private_ip_address: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The IPv4 address of the network interface within the subnet.
-        """
-        subnet_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The unique identifier of the subnet.
-        """
-elif False:
-    WorkgroupEndpointVpcEndpointNetworkInterfaceArgsDict: TypeAlias = Mapping[str, Any]
+class WorkgroupEndpointVpcEndpointNetworkInterfaceArgsDict(TypedDict):
+    availability_zone: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The availability Zone.
+    """
+    network_interface_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The unique identifier of the network interface.
+    """
+    private_ip_address: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The IPv4 address of the network interface within the subnet.
+    """
+    subnet_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The unique identifier of the subnet.
+    """
 
 @pulumi.input_type
 class WorkgroupEndpointVpcEndpointNetworkInterfaceArgs:
@@ -483,18 +463,15 @@ class WorkgroupEndpointVpcEndpointNetworkInterfaceArgs:
         pulumi.set(self, "subnet_id", value)
 
 
-if not MYPY:
-    class WorkgroupPricePerformanceTargetArgsDict(TypedDict):
-        enabled: pulumi.Input[_builtins.bool]
-        """
-        Whether to enable price-performance scaling.
-        """
-        level: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The price-performance scaling level. Valid values are `1` (LOW_COST), `25` (ECONOMICAL), `50` (BALANCED), `75` (RESOURCEFUL), and `100` (HIGH_PERFORMANCE).
-        """
-elif False:
-    WorkgroupPricePerformanceTargetArgsDict: TypeAlias = Mapping[str, Any]
+class WorkgroupPricePerformanceTargetArgsDict(TypedDict):
+    enabled: pulumi.Input[_builtins.bool]
+    """
+    Whether to enable price-performance scaling.
+    """
+    level: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The price-performance scaling level. Valid values are `1` (LOW_COST), `25` (ECONOMICAL), `50` (BALANCED), `75` (RESOURCEFUL), and `100` (HIGH_PERFORMANCE).
+    """
 
 @pulumi.input_type
 class WorkgroupPricePerformanceTargetArgs:

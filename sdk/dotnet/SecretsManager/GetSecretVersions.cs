@@ -11,12 +11,210 @@ namespace Pulumi.Aws.SecretsManager
 {
     public static class GetSecretVersions
     {
+        /// <summary>
+        /// Retrieve the versions of a Secrets Manager secret. To retrieve secret metadata, see the data sources `aws.secretsmanager.Secret` and `aws.secretsmanager.SecretVersion`.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ### Retrieve All Versions of a Secret
+        /// 
+        /// By default, this data sources retrieves all versions of a secret.
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var secret_versions = Aws.SecretsManager.GetSecretVersions.Invoke(new()
+        ///     {
+        ///         SecretId = example.Id,
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// 
+        /// ### Retrieve Specific Secret Version
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var by_version_stage = Aws.SecretsManager.GetSecretVersion.Invoke(new()
+        ///     {
+        ///         SecretId = example.Id,
+        ///         VersionStage = "example",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// 
+        /// ### Handling Key-Value Secret Strings in JSON
+        /// 
+        /// Reading key-value pairs from JSON back into a native Terraform map can be accomplished in Terraform 0.12 and later with the `jsondecode()` function:
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Std = Pulumi.Std;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["example"] = Std.Jsondecode.Invoke(new()
+        ///         {
+        ///             Input = exampleAwsSecretsmanagerSecretVersion.SecretString,
+        ///         }).Apply(invoke =&gt; invoke.Result?.Key1),
+        ///     };
+        /// });
+        /// ```
+        /// </summary>
         public static Task<GetSecretVersionsResult> InvokeAsync(GetSecretVersionsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSecretVersionsResult>("aws:secretsmanager/getSecretVersions:getSecretVersions", args ?? new GetSecretVersionsArgs(), options.WithDefaults());
 
+        /// <summary>
+        /// Retrieve the versions of a Secrets Manager secret. To retrieve secret metadata, see the data sources `aws.secretsmanager.Secret` and `aws.secretsmanager.SecretVersion`.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ### Retrieve All Versions of a Secret
+        /// 
+        /// By default, this data sources retrieves all versions of a secret.
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var secret_versions = Aws.SecretsManager.GetSecretVersions.Invoke(new()
+        ///     {
+        ///         SecretId = example.Id,
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// 
+        /// ### Retrieve Specific Secret Version
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var by_version_stage = Aws.SecretsManager.GetSecretVersion.Invoke(new()
+        ///     {
+        ///         SecretId = example.Id,
+        ///         VersionStage = "example",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// 
+        /// ### Handling Key-Value Secret Strings in JSON
+        /// 
+        /// Reading key-value pairs from JSON back into a native Terraform map can be accomplished in Terraform 0.12 and later with the `jsondecode()` function:
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Std = Pulumi.Std;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["example"] = Std.Jsondecode.Invoke(new()
+        ///         {
+        ///             Input = exampleAwsSecretsmanagerSecretVersion.SecretString,
+        ///         }).Apply(invoke =&gt; invoke.Result?.Key1),
+        ///     };
+        /// });
+        /// ```
+        /// </summary>
         public static Output<GetSecretVersionsResult> Invoke(GetSecretVersionsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSecretVersionsResult>("aws:secretsmanager/getSecretVersions:getSecretVersions", args ?? new GetSecretVersionsInvokeArgs(), options.WithDefaults());
 
+        /// <summary>
+        /// Retrieve the versions of a Secrets Manager secret. To retrieve secret metadata, see the data sources `aws.secretsmanager.Secret` and `aws.secretsmanager.SecretVersion`.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ### Retrieve All Versions of a Secret
+        /// 
+        /// By default, this data sources retrieves all versions of a secret.
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var secret_versions = Aws.SecretsManager.GetSecretVersions.Invoke(new()
+        ///     {
+        ///         SecretId = example.Id,
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// 
+        /// ### Retrieve Specific Secret Version
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var by_version_stage = Aws.SecretsManager.GetSecretVersion.Invoke(new()
+        ///     {
+        ///         SecretId = example.Id,
+        ///         VersionStage = "example",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// 
+        /// ### Handling Key-Value Secret Strings in JSON
+        /// 
+        /// Reading key-value pairs from JSON back into a native Terraform map can be accomplished in Terraform 0.12 and later with the `jsondecode()` function:
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Std = Pulumi.Std;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["example"] = Std.Jsondecode.Invoke(new()
+        ///         {
+        ///             Input = exampleAwsSecretsmanagerSecretVersion.SecretString,
+        ///         }).Apply(invoke =&gt; invoke.Result?.Key1),
+        ///     };
+        /// });
+        /// ```
+        /// </summary>
         public static Output<GetSecretVersionsResult> Invoke(GetSecretVersionsInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetSecretVersionsResult>("aws:secretsmanager/getSecretVersions:getSecretVersions", args ?? new GetSecretVersionsInvokeArgs(), options.WithDefaults());
     }

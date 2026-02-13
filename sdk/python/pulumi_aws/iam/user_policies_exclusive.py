@@ -104,6 +104,40 @@ class UserPoliciesExclusive(pulumi.CustomResource):
                  user_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
+        Resource for maintaining exclusive management of inline policies assigned to an AWS IAM (Identity & Access Management) user.
+
+        !> This resource takes exclusive ownership over inline policies assigned to a user. This includes removal of inline policies which are not explicitly configured. To prevent persistent drift, ensure any `iam.UserPolicy` resources managed alongside this resource are included in the `policy_names` argument.
+
+        > Destruction of this resource means Terraform will no longer manage reconciliation of the configured inline policy assignments. It __will not__ delete the configured policies from the user.
+
+        ## Example Usage
+
+        ### Basic Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.iam.UserPoliciesExclusive("example",
+            user_name=example_aws_iam_user["name"],
+            policy_names=[example_aws_iam_user_policy["name"]])
+        ```
+
+        ### Disallow Inline Policies
+
+        To automatically remove any configured inline policies, set the `policy_names` argument to an empty list.
+
+        > This will not __prevent__ inline policies from being assigned to a user via Terraform (or any other interface). This resource enables bringing inline policy assignments into a configured state, however, this reconciliation happens only when `apply` is proactively run.
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.iam.UserPoliciesExclusive("example",
+            user_name=example_aws_iam_user["name"],
+            policy_names=[])
+        ```
+
         ## Import
 
         Using `pulumi import`, import exclusive management of inline policy assignments using the `user_name`. For example:
@@ -124,6 +158,40 @@ class UserPoliciesExclusive(pulumi.CustomResource):
                  args: UserPoliciesExclusiveArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        Resource for maintaining exclusive management of inline policies assigned to an AWS IAM (Identity & Access Management) user.
+
+        !> This resource takes exclusive ownership over inline policies assigned to a user. This includes removal of inline policies which are not explicitly configured. To prevent persistent drift, ensure any `iam.UserPolicy` resources managed alongside this resource are included in the `policy_names` argument.
+
+        > Destruction of this resource means Terraform will no longer manage reconciliation of the configured inline policy assignments. It __will not__ delete the configured policies from the user.
+
+        ## Example Usage
+
+        ### Basic Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.iam.UserPoliciesExclusive("example",
+            user_name=example_aws_iam_user["name"],
+            policy_names=[example_aws_iam_user_policy["name"]])
+        ```
+
+        ### Disallow Inline Policies
+
+        To automatically remove any configured inline policies, set the `policy_names` argument to an empty list.
+
+        > This will not __prevent__ inline policies from being assigned to a user via Terraform (or any other interface). This resource enables bringing inline policy assignments into a configured state, however, this reconciliation happens only when `apply` is proactively run.
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.iam.UserPoliciesExclusive("example",
+            user_name=example_aws_iam_user["name"],
+            policy_names=[])
+        ```
+
         ## Import
 
         Using `pulumi import`, import exclusive management of inline policy assignments using the `user_name`. For example:

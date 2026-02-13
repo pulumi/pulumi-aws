@@ -21,7 +21,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Using `pulumi import`, import `aws_neptune_cluster_snapshot` using the cluster snapshot identifier. For example:
+ * Using `pulumi import`, import `aws.neptune.ClusterSnapshot` using the cluster snapshot identifier. For example:
  *
  * ```sh
  * $ pulumi import aws:neptune/clusterSnapshot:ClusterSnapshot example my-cluster-snapshot

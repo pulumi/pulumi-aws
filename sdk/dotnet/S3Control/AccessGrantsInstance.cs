@@ -50,7 +50,7 @@ namespace Pulumi.Aws.S3Control
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import S3 Access Grants instances using the `account_id`. For example:
+    /// Using `pulumi import`, import S3 Access Grants instances using the `AccountId`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:s3control/accessGrantsInstance:AccessGrantsInstance example 123456789012
@@ -71,6 +71,9 @@ namespace Pulumi.Aws.S3Control
         [Output("accessGrantsInstanceId")]
         public Output<string> AccessGrantsInstanceId { get; private set; } = null!;
 
+        /// <summary>
+        /// The AWS account ID for the S3 Access Grants instance. Defaults to automatically determined account ID of the Terraform AWS provider.
+        /// </summary>
         [Output("accountId")]
         public Output<string> AccountId { get; private set; } = null!;
 
@@ -150,6 +153,9 @@ namespace Pulumi.Aws.S3Control
 
     public sealed class AccessGrantsInstanceArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The AWS account ID for the S3 Access Grants instance. Defaults to automatically determined account ID of the Terraform AWS provider.
+        /// </summary>
         [Input("accountId")]
         public Input<string>? AccountId { get; set; }
 
@@ -197,6 +203,9 @@ namespace Pulumi.Aws.S3Control
         [Input("accessGrantsInstanceId")]
         public Input<string>? AccessGrantsInstanceId { get; set; }
 
+        /// <summary>
+        /// The AWS account ID for the S3 Access Grants instance. Defaults to automatically determined account ID of the Terraform AWS provider.
+        /// </summary>
         [Input("accountId")]
         public Input<string>? AccountId { get; set; }
 

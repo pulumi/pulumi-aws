@@ -61,7 +61,7 @@ import (
 //
 // ## Import
 //
-// Using `pulumi import`, import `aws_rds_cluster_snapshot_copy` using the `id`. For example:
+// Using `pulumi import`, import `rds.ClusterSnapshotCopy` using the `id`. For example:
 //
 // ```sh
 // $ pulumi import aws:rds/clusterSnapshotCopy:ClusterSnapshotCopy example my-snapshot

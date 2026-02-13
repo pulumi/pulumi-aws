@@ -45,20 +45,15 @@ __all__ = [
     'UsagePlanThrottleSettingsArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class AccountThrottleSettingArgsDict(TypedDict):
-        burst_limit: pulumi.Input[_builtins.int]
-        """
-        Absolute maximum number of times API Gateway allows the API to be called per second (RPS).
-        """
-        rate_limit: pulumi.Input[_builtins.float]
-        """
-        Number of times API Gateway allows the API to be called per second on average (RPS).
-        """
-elif False:
-    AccountThrottleSettingArgsDict: TypeAlias = Mapping[str, Any]
+class AccountThrottleSettingArgsDict(TypedDict):
+    burst_limit: pulumi.Input[_builtins.int]
+    """
+    Absolute maximum number of times API Gateway allows the API to be called per second (RPS).
+    """
+    rate_limit: pulumi.Input[_builtins.float]
+    """
+    Number of times API Gateway allows the API to be called per second on average (RPS).
+    """
 
 @pulumi.input_type
 class AccountThrottleSettingArgs:
@@ -97,30 +92,27 @@ class AccountThrottleSettingArgs:
         pulumi.set(self, "rate_limit", value)
 
 
-if not MYPY:
-    class DocumentationPartLocationArgsDict(TypedDict):
-        type: pulumi.Input[_builtins.str]
-        """
-        Type of API entity to which the documentation content appliesE.g., `API`, `METHOD` or `REQUEST_BODY`
-        """
-        method: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        HTTP verb of a method. The default value is `*` for any method.
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Name of the targeted API entity.
-        """
-        path: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        URL path of the target. The default value is `/` for the root resource.
-        """
-        status_code: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        HTTP status code of a response. The default value is `*` for any status code.
-        """
-elif False:
-    DocumentationPartLocationArgsDict: TypeAlias = Mapping[str, Any]
+class DocumentationPartLocationArgsDict(TypedDict):
+    type: pulumi.Input[_builtins.str]
+    """
+    Type of API entity to which the documentation content appliesE.g., `API`, `METHOD` or `REQUEST_BODY`
+    """
+    method: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    HTTP verb of a method. The default value is `*` for any method.
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Name of the targeted API entity.
+    """
+    path: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    URL path of the target. The default value is `/` for the root resource.
+    """
+    status_code: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    HTTP status code of a response. The default value is `*` for any status code.
+    """
 
 @pulumi.input_type
 class DocumentationPartLocationArgs:
@@ -208,15 +200,15 @@ class DocumentationPartLocationArgs:
         pulumi.set(self, "status_code", value)
 
 
-if not MYPY:
-    class DomainNameEndpointConfigurationArgsDict(TypedDict):
-        types: pulumi.Input[_builtins.str]
-        """
-        A list of endpoint types of an API or its custom domain name. For an edge-optimized API and its custom domain name, the endpoint type is `EDGE`. For a regional API and its custom domain name, the endpoint type is `REGIONAL`. For a private API, the endpoint type is `PRIVATE`.
-        """
-        ip_address_type: NotRequired[pulumi.Input[_builtins.str]]
-elif False:
-    DomainNameEndpointConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class DomainNameEndpointConfigurationArgsDict(TypedDict):
+    types: pulumi.Input[_builtins.str]
+    """
+    A list of endpoint types of an API or its custom domain name. For an edge-optimized API and its custom domain name, the endpoint type is `EDGE`. For a regional API and its custom domain name, the endpoint type is `REGIONAL`. For a private API, the endpoint type is `PRIVATE`.
+    """
+    ip_address_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The IP address types that can invoke a DomainName. Valid values: `ipv4`, `dualstack`. Use `ipv4` to allow only IPv4 addresses to invoke a DomainName, or use `dualstack` to allow both IPv4 and IPv6 addresses to invoke a DomainName. For the `PRIVATE` endpoint type, only `dualstack` is supported. Terraform performs drift detection for this argument only when the value is provided.
+    """
 
 @pulumi.input_type
 class DomainNameEndpointConfigurationArgs:
@@ -225,6 +217,7 @@ class DomainNameEndpointConfigurationArgs:
                  ip_address_type: Optional[pulumi.Input[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] types: A list of endpoint types of an API or its custom domain name. For an edge-optimized API and its custom domain name, the endpoint type is `EDGE`. For a regional API and its custom domain name, the endpoint type is `REGIONAL`. For a private API, the endpoint type is `PRIVATE`.
+        :param pulumi.Input[_builtins.str] ip_address_type: The IP address types that can invoke a DomainName. Valid values: `ipv4`, `dualstack`. Use `ipv4` to allow only IPv4 addresses to invoke a DomainName, or use `dualstack` to allow both IPv4 and IPv6 addresses to invoke a DomainName. For the `PRIVATE` endpoint type, only `dualstack` is supported. Terraform performs drift detection for this argument only when the value is provided.
         """
         pulumi.set(__self__, "types", types)
         if ip_address_type is not None:
@@ -245,6 +238,9 @@ class DomainNameEndpointConfigurationArgs:
     @_builtins.property
     @pulumi.getter(name="ipAddressType")
     def ip_address_type(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The IP address types that can invoke a DomainName. Valid values: `ipv4`, `dualstack`. Use `ipv4` to allow only IPv4 addresses to invoke a DomainName, or use `dualstack` to allow both IPv4 and IPv6 addresses to invoke a DomainName. For the `PRIVATE` endpoint type, only `dualstack` is supported. Terraform performs drift detection for this argument only when the value is provided.
+        """
         return pulumi.get(self, "ip_address_type")
 
     @ip_address_type.setter
@@ -252,18 +248,15 @@ class DomainNameEndpointConfigurationArgs:
         pulumi.set(self, "ip_address_type", value)
 
 
-if not MYPY:
-    class DomainNameMutualTlsAuthenticationArgsDict(TypedDict):
-        truststore_uri: pulumi.Input[_builtins.str]
-        """
-        Amazon S3 URL that specifies the truststore for mutual TLS authentication, for example, `s3://bucket-name/key-name`. The truststore can contain certificates from public or private certificate authorities. To update the truststore, upload a new version to S3, and then update your custom domain name to use the new version.
-        """
-        truststore_version: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Version of the S3 object that contains the truststore. To specify a version, you must have versioning enabled for the S3 bucket.
-        """
-elif False:
-    DomainNameMutualTlsAuthenticationArgsDict: TypeAlias = Mapping[str, Any]
+class DomainNameMutualTlsAuthenticationArgsDict(TypedDict):
+    truststore_uri: pulumi.Input[_builtins.str]
+    """
+    Amazon S3 URL that specifies the truststore for mutual TLS authentication, for example, `s3://bucket-name/key-name`. The truststore can contain certificates from public or private certificate authorities. To update the truststore, upload a new version to S3, and then update your custom domain name to use the new version.
+    """
+    truststore_version: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Version of the S3 object that contains the truststore. To specify a version, you must have versioning enabled for the S3 bucket.
+    """
 
 @pulumi.input_type
 class DomainNameMutualTlsAuthenticationArgs:
@@ -303,14 +296,11 @@ class DomainNameMutualTlsAuthenticationArgs:
         pulumi.set(self, "truststore_version", value)
 
 
-if not MYPY:
-    class IntegrationTlsConfigArgsDict(TypedDict):
-        insecure_skip_verification: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether or not API Gateway skips verification that the certificate for an integration endpoint is issued by a [supported certificate authority](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-supported-certificate-authorities-for-http-endpoints.html). This isn’t recommended, but it enables you to use certificates that are signed by private certificate authorities, or certificates that are self-signed. If enabled, API Gateway still performs basic certificate validation, which includes checking the certificate's expiration date, hostname, and presence of a root certificate authority. Supported only for `HTTP` and `HTTP_PROXY` integrations.
-        """
-elif False:
-    IntegrationTlsConfigArgsDict: TypeAlias = Mapping[str, Any]
+class IntegrationTlsConfigArgsDict(TypedDict):
+    insecure_skip_verification: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether or not API Gateway skips verification that the certificate for an integration endpoint is issued by a [supported certificate authority](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-supported-certificate-authorities-for-http-endpoints.html). This isn’t recommended, but it enables you to use certificates that are signed by private certificate authorities, or certificates that are self-signed. If enabled, API Gateway still performs basic certificate validation, which includes checking the certificate's expiration date, hostname, and presence of a root certificate authority. Supported only for `HTTP` and `HTTP_PROXY` integrations.
+    """
 
 @pulumi.input_type
 class IntegrationTlsConfigArgs:
@@ -335,50 +325,47 @@ class IntegrationTlsConfigArgs:
         pulumi.set(self, "insecure_skip_verification", value)
 
 
-if not MYPY:
-    class MethodSettingsSettingsArgsDict(TypedDict):
-        cache_data_encrypted: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether the cached responses are encrypted.
-        """
-        cache_ttl_in_seconds: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Time to live (TTL), in seconds, for cached responses. The higher the TTL, the longer the response will be cached.
-        """
-        caching_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether responses should be cached and returned for requests. A cache cluster must be enabled on the stage for responses to be cached.
-        """
-        data_trace_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether data trace logging is enabled for this method, which effects the log entries pushed to Amazon CloudWatch Logs.
-        """
-        logging_level: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Logging level for this method, which effects the log entries pushed to Amazon CloudWatch Logs. The available levels are `OFF`, `ERROR`, and `INFO`.
-        """
-        metrics_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether Amazon CloudWatch metrics are enabled for this method.
-        """
-        require_authorization_for_cache_control: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether authorization is required for a cache invalidation request.
-        """
-        throttling_burst_limit: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Throttling burst limit. Default: `-1` (throttling disabled).
-        """
-        throttling_rate_limit: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        Throttling rate limit. Default: `-1` (throttling disabled).
-        """
-        unauthorized_cache_control_header_strategy: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        How to handle unauthorized requests for cache invalidation. The available values are `FAIL_WITH_403`, `SUCCEED_WITH_RESPONSE_HEADER`, `SUCCEED_WITHOUT_RESPONSE_HEADER`.
-        """
-elif False:
-    MethodSettingsSettingsArgsDict: TypeAlias = Mapping[str, Any]
+class MethodSettingsSettingsArgsDict(TypedDict):
+    cache_data_encrypted: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether the cached responses are encrypted.
+    """
+    cache_ttl_in_seconds: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Time to live (TTL), in seconds, for cached responses. The higher the TTL, the longer the response will be cached.
+    """
+    caching_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether responses should be cached and returned for requests. A cache cluster must be enabled on the stage for responses to be cached.
+    """
+    data_trace_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether data trace logging is enabled for this method, which effects the log entries pushed to Amazon CloudWatch Logs.
+    """
+    logging_level: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Logging level for this method, which effects the log entries pushed to Amazon CloudWatch Logs. The available levels are `OFF`, `ERROR`, and `INFO`.
+    """
+    metrics_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether Amazon CloudWatch metrics are enabled for this method.
+    """
+    require_authorization_for_cache_control: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether authorization is required for a cache invalidation request.
+    """
+    throttling_burst_limit: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Throttling burst limit. Default: `-1` (throttling disabled).
+    """
+    throttling_rate_limit: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    Throttling rate limit. Default: `-1` (throttling disabled).
+    """
+    unauthorized_cache_control_header_strategy: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    How to handle unauthorized requests for cache invalidation. The available values are `FAIL_WITH_403`, `SUCCEED_WITH_RESPONSE_HEADER`, `SUCCEED_WITHOUT_RESPONSE_HEADER`.
+    """
 
 @pulumi.input_type
 class MethodSettingsSettingsArgs:
@@ -547,22 +534,19 @@ class MethodSettingsSettingsArgs:
         pulumi.set(self, "unauthorized_cache_control_header_strategy", value)
 
 
-if not MYPY:
-    class RestApiEndpointConfigurationArgsDict(TypedDict):
-        types: pulumi.Input[_builtins.str]
-        """
-        List of endpoint types. This resource currently only supports managing a single value. Valid values: `EDGE`, `REGIONAL` or `PRIVATE`. If unspecified, defaults to `EDGE`. If set to `PRIVATE` recommend to set `put_rest_api_mode` = `merge` to not cause the endpoints and associated Route53 records to be deleted. Refer to the [documentation](https://docs.aws.amazon.com/apigateway/latest/developerguide/create-regional-api.html) for more information on the difference between edge-optimized and regional APIs.
-        """
-        ip_address_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The IP address types that can invoke an API (RestApi). Valid values: `ipv4`, `dualstack`. Use `ipv4` to allow only IPv4 addresses to invoke an API, or use `dualstack` to allow both IPv4 and IPv6 addresses to invoke an API. For the `PRIVATE` endpoint type, only `dualstack` is supported. The provider performs drift detection for this argument only when the value is provided.
-        """
-        vpc_endpoint_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Set of VPC Endpoint identifiers. It is only supported for `PRIVATE` endpoint type. If importing an OpenAPI specification via the `body` argument, this corresponds to the [`x-amazon-apigateway-endpoint-configuration` extension `vpcEndpointIds` property](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-swagger-extensions-endpoint-configuration.html). If the argument value is provided and is different than the OpenAPI value, **the argument value will override the OpenAPI value**.
-        """
-elif False:
-    RestApiEndpointConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class RestApiEndpointConfigurationArgsDict(TypedDict):
+    types: pulumi.Input[_builtins.str]
+    """
+    List of endpoint types. This resource currently only supports managing a single value. Valid values: `EDGE`, `REGIONAL` or `PRIVATE`. If unspecified, defaults to `EDGE`. If set to `PRIVATE` recommend to set `put_rest_api_mode` = `merge` to not cause the endpoints and associated Route53 records to be deleted. Refer to the [documentation](https://docs.aws.amazon.com/apigateway/latest/developerguide/create-regional-api.html) for more information on the difference between edge-optimized and regional APIs.
+    """
+    ip_address_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The IP address types that can invoke an API (RestApi). Valid values: `ipv4`, `dualstack`. Use `ipv4` to allow only IPv4 addresses to invoke an API, or use `dualstack` to allow both IPv4 and IPv6 addresses to invoke an API. For the `PRIVATE` endpoint type, only `dualstack` is supported. The provider performs drift detection for this argument only when the value is provided.
+    """
+    vpc_endpoint_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Set of VPC Endpoint identifiers. It is only supported for `PRIVATE` endpoint type. If importing an OpenAPI specification via the `body` argument, this corresponds to the [`x-amazon-apigateway-endpoint-configuration` extension `vpcEndpointIds` property](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-swagger-extensions-endpoint-configuration.html). If the argument value is provided and is different than the OpenAPI value, **the argument value will override the OpenAPI value**.
+    """
 
 @pulumi.input_type
 class RestApiEndpointConfigurationArgs:
@@ -618,14 +602,11 @@ class RestApiEndpointConfigurationArgs:
         pulumi.set(self, "vpc_endpoint_ids", value)
 
 
-if not MYPY:
-    class RestApiPutTimeoutsArgsDict(TypedDict):
-        create: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
-        """
-elif False:
-    RestApiPutTimeoutsArgsDict: TypeAlias = Mapping[str, Any]
+class RestApiPutTimeoutsArgsDict(TypedDict):
+    create: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+    """
 
 @pulumi.input_type
 class RestApiPutTimeoutsArgs:
@@ -650,19 +631,16 @@ class RestApiPutTimeoutsArgs:
         pulumi.set(self, "create", value)
 
 
-if not MYPY:
-    class StageAccessLogSettingsArgsDict(TypedDict):
-        destination_arn: pulumi.Input[_builtins.str]
-        """
-        ARN of the CloudWatch Logs log group or Kinesis Data Firehose delivery stream to receive access logs. If you specify a Kinesis Data Firehose delivery stream, the stream name must begin with `amazon-apigateway-`. Automatically removes trailing `:*` if present.
-        """
-        format: pulumi.Input[_builtins.str]
-        """
-        Formatting and values recorded in the logs.
-        For more information on configuring the log format rules visit the AWS [documentation](https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-logging.html)
-        """
-elif False:
-    StageAccessLogSettingsArgsDict: TypeAlias = Mapping[str, Any]
+class StageAccessLogSettingsArgsDict(TypedDict):
+    destination_arn: pulumi.Input[_builtins.str]
+    """
+    ARN of the CloudWatch Logs log group or Kinesis Data Firehose delivery stream to receive access logs. If you specify a Kinesis Data Firehose delivery stream, the stream name must begin with `amazon-apigateway-`. Automatically removes trailing `:*` if present.
+    """
+    format: pulumi.Input[_builtins.str]
+    """
+    Formatting and values recorded in the logs.
+    For more information on configuring the log format rules visit the AWS [documentation](https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-logging.html)
+    """
 
 @pulumi.input_type
 class StageAccessLogSettingsArgs:
@@ -703,26 +681,23 @@ class StageAccessLogSettingsArgs:
         pulumi.set(self, "format", value)
 
 
-if not MYPY:
-    class StageCanarySettingsArgsDict(TypedDict):
-        deployment_id: pulumi.Input[_builtins.str]
-        """
-        ID of the deployment that the canary points to.
-        """
-        percent_traffic: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        Percent `0.0` - `100.0` of traffic to divert to the canary deployment.
-        """
-        stage_variable_overrides: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
-        """
-        Map of overridden stage `variables` (including new variables) for the canary deployment.
-        """
-        use_stage_cache: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether the canary deployment uses the stage cache. Defaults to false.
-        """
-elif False:
-    StageCanarySettingsArgsDict: TypeAlias = Mapping[str, Any]
+class StageCanarySettingsArgsDict(TypedDict):
+    deployment_id: pulumi.Input[_builtins.str]
+    """
+    ID of the deployment that the canary points to.
+    """
+    percent_traffic: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    Percent `0.0` - `100.0` of traffic to divert to the canary deployment.
+    """
+    stage_variable_overrides: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    """
+    Map of overridden stage `variables` (including new variables) for the canary deployment.
+    """
+    use_stage_cache: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether the canary deployment uses the stage cache. Defaults to false.
+    """
 
 @pulumi.input_type
 class StageCanarySettingsArgs:
@@ -794,22 +769,19 @@ class StageCanarySettingsArgs:
         pulumi.set(self, "use_stage_cache", value)
 
 
-if not MYPY:
-    class UsagePlanApiStageArgsDict(TypedDict):
-        api_id: pulumi.Input[_builtins.str]
-        """
-        API Id of the associated API stage in a usage plan.
-        """
-        stage: pulumi.Input[_builtins.str]
-        """
-        API stage name of the associated API stage in a usage plan.
-        """
-        throttles: NotRequired[pulumi.Input[Sequence[pulumi.Input['UsagePlanApiStageThrottleArgsDict']]]]
-        """
-        The throttling limits of the usage plan.
-        """
-elif False:
-    UsagePlanApiStageArgsDict: TypeAlias = Mapping[str, Any]
+class UsagePlanApiStageArgsDict(TypedDict):
+    api_id: pulumi.Input[_builtins.str]
+    """
+    API Id of the associated API stage in a usage plan.
+    """
+    stage: pulumi.Input[_builtins.str]
+    """
+    API stage name of the associated API stage in a usage plan.
+    """
+    throttles: NotRequired[pulumi.Input[Sequence[pulumi.Input['UsagePlanApiStageThrottleArgsDict']]]]
+    """
+    The throttling limits of the usage plan.
+    """
 
 @pulumi.input_type
 class UsagePlanApiStageArgs:
@@ -864,22 +836,19 @@ class UsagePlanApiStageArgs:
         pulumi.set(self, "throttles", value)
 
 
-if not MYPY:
-    class UsagePlanApiStageThrottleArgsDict(TypedDict):
-        path: pulumi.Input[_builtins.str]
-        """
-        Method to apply the throttle settings for. Specfiy the path and method, for example `/test/GET`.
-        """
-        burst_limit: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The API request burst limit, the maximum rate limit over a time ranging from one to a few seconds, depending upon whether the underlying token bucket is at its full capacity.
-        """
-        rate_limit: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        The API request steady-state rate limit.
-        """
-elif False:
-    UsagePlanApiStageThrottleArgsDict: TypeAlias = Mapping[str, Any]
+class UsagePlanApiStageThrottleArgsDict(TypedDict):
+    path: pulumi.Input[_builtins.str]
+    """
+    Method to apply the throttle settings for. Specfiy the path and method, for example `/test/GET`.
+    """
+    burst_limit: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The API request burst limit, the maximum rate limit over a time ranging from one to a few seconds, depending upon whether the underlying token bucket is at its full capacity.
+    """
+    rate_limit: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    The API request steady-state rate limit.
+    """
 
 @pulumi.input_type
 class UsagePlanApiStageThrottleArgs:
@@ -935,22 +904,19 @@ class UsagePlanApiStageThrottleArgs:
         pulumi.set(self, "rate_limit", value)
 
 
-if not MYPY:
-    class UsagePlanQuotaSettingsArgsDict(TypedDict):
-        limit: pulumi.Input[_builtins.int]
-        """
-        Maximum number of requests that can be made in a given time period.
-        """
-        period: pulumi.Input[_builtins.str]
-        """
-        Time period in which the limit applies. Valid values are "DAY", "WEEK" or "MONTH".
-        """
-        offset: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Number of requests subtracted from the given limit in the initial time period.
-        """
-elif False:
-    UsagePlanQuotaSettingsArgsDict: TypeAlias = Mapping[str, Any]
+class UsagePlanQuotaSettingsArgsDict(TypedDict):
+    limit: pulumi.Input[_builtins.int]
+    """
+    Maximum number of requests that can be made in a given time period.
+    """
+    period: pulumi.Input[_builtins.str]
+    """
+    Time period in which the limit applies. Valid values are "DAY", "WEEK" or "MONTH".
+    """
+    offset: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Number of requests subtracted from the given limit in the initial time period.
+    """
 
 @pulumi.input_type
 class UsagePlanQuotaSettingsArgs:
@@ -1005,12 +971,9 @@ class UsagePlanQuotaSettingsArgs:
         pulumi.set(self, "offset", value)
 
 
-if not MYPY:
-    class UsagePlanThrottleSettingsArgsDict(TypedDict):
-        burst_limit: NotRequired[pulumi.Input[_builtins.int]]
-        rate_limit: NotRequired[pulumi.Input[_builtins.float]]
-elif False:
-    UsagePlanThrottleSettingsArgsDict: TypeAlias = Mapping[str, Any]
+class UsagePlanThrottleSettingsArgsDict(TypedDict):
+    burst_limit: NotRequired[pulumi.Input[_builtins.int]]
+    rate_limit: NotRequired[pulumi.Input[_builtins.float]]
 
 @pulumi.input_type
 class UsagePlanThrottleSettingsArgs:

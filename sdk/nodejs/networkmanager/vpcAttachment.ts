@@ -46,7 +46,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Using `pulumi import`, import `aws_networkmanager_vpc_attachment` using the attachment ID. For example:
+ * Using `pulumi import`, import `aws.networkmanager.VpcAttachment` using the attachment ID. For example:
  *
  * ```sh
  * $ pulumi import aws:networkmanager/vpcAttachment:VpcAttachment example attachment-0f8fa60d2238d1bd8

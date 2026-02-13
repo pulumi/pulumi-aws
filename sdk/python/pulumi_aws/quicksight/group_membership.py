@@ -28,6 +28,7 @@ class GroupMembershipArgs:
         The set of arguments for constructing a GroupMembership resource.
         :param pulumi.Input[_builtins.str] group_name: The name of the group in which the member will be added.
         :param pulumi.Input[_builtins.str] member_name: The name of the member to add to the group.
+        :param pulumi.Input[_builtins.str] aws_account_id: AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
         :param pulumi.Input[_builtins.str] namespace: The namespace that you want the user to be a part of. Defaults to `default`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
@@ -67,6 +68,9 @@ class GroupMembershipArgs:
     @_builtins.property
     @pulumi.getter(name="awsAccountId")
     def aws_account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
+        """
         return pulumi.get(self, "aws_account_id")
 
     @aws_account_id.setter
@@ -109,6 +113,7 @@ class _GroupMembershipState:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering GroupMembership resources.
+        :param pulumi.Input[_builtins.str] aws_account_id: AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
         :param pulumi.Input[_builtins.str] group_name: The name of the group in which the member will be added.
         :param pulumi.Input[_builtins.str] member_name: The name of the member to add to the group.
         :param pulumi.Input[_builtins.str] namespace: The namespace that you want the user to be a part of. Defaults to `default`.
@@ -139,6 +144,9 @@ class _GroupMembershipState:
     @_builtins.property
     @pulumi.getter(name="awsAccountId")
     def aws_account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
+        """
         return pulumi.get(self, "aws_account_id")
 
     @aws_account_id.setter
@@ -230,6 +238,7 @@ class GroupMembership(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[_builtins.str] aws_account_id: AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
         :param pulumi.Input[_builtins.str] group_name: The name of the group in which the member will be added.
         :param pulumi.Input[_builtins.str] member_name: The name of the member to add to the group.
         :param pulumi.Input[_builtins.str] namespace: The namespace that you want the user to be a part of. Defaults to `default`.
@@ -325,6 +334,7 @@ class GroupMembership(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[_builtins.str] aws_account_id: AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
         :param pulumi.Input[_builtins.str] group_name: The name of the group in which the member will be added.
         :param pulumi.Input[_builtins.str] member_name: The name of the member to add to the group.
         :param pulumi.Input[_builtins.str] namespace: The namespace that you want the user to be a part of. Defaults to `default`.
@@ -350,6 +360,9 @@ class GroupMembership(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="awsAccountId")
     def aws_account_id(self) -> pulumi.Output[_builtins.str]:
+        """
+        AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
+        """
         return pulumi.get(self, "aws_account_id")
 
     @_builtins.property

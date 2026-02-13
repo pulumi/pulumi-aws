@@ -61,19 +61,19 @@ import javax.annotation.Nullable;
  * 
  * #### Required
  * 
- * * `domain_id` (String) SageMaker domain ID.
- * 
- * * `user_profile_name` (String) Name of the user profile.
+ * * `domainId` (String) SageMaker domain ID.
+ * * `userProfileName` (String) Name of the user profile.
  * 
  * #### Optional
  * 
- * * `account_id` (String) AWS Account where this resource is managed.
- * 
+ * * `accountId` (String) AWS Account where this resource is managed.
  * * `region` (String) Region where this resource is managed.
  * 
  * Using `pulumi import`, import SageMaker AI User Profiles using the `arn`. For example:
  * 
- * % pulumi import aws_sagemaker_user_profile.example arn:aws:sagemaker:us-west-2:123456789012:user-profile/domain-id/profile-name
+ * ```sh
+ * $ pulumi import aws:sagemaker/userProfile:UserProfile example arn:aws:sagemaker:us-west-2:123456789012:user-profile/domain-id/profile-name
+ * ```
  * 
  */
 @ResourceType(type="aws:sagemaker/userProfile:UserProfile")

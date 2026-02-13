@@ -83,7 +83,9 @@ import javax.annotation.Nullable;
  * 
  * Using `pulumi import`, import Global Accelerator listeners using the `id`. For example:
  * 
- * % pulumi import aws_globalaccelerator_listener.example arn:aws:globalaccelerator::111111111111:accelerator/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/listener/xxxxxxxx
+ * ```sh
+ * $ pulumi import aws:globalaccelerator/listener:Listener example arn:aws:globalaccelerator::111111111111:accelerator/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/listener/xxxxxxxx
+ * ```
  * 
  */
 @ResourceType(type="aws:globalaccelerator/listener:Listener")

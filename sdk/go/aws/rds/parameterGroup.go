@@ -12,6 +12,197 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Provides an RDS DB parameter group resource. Documentation of the available parameters for various RDS engines can be found at:
+//
+// * [Aurora MySQL Parameters](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AuroraMySQL.Reference.html)
+// * [Aurora PostgreSQL Parameters](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AuroraPostgreSQL.Reference.html)
+// * [MariaDB Parameters](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.MariaDB.Parameters.html)
+// * [Oracle Parameters](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ModifyInstance.Oracle.html#USER_ModifyInstance.Oracle.sqlnet)
+// * [PostgreSQL Parameters](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.PostgreSQL.CommonDBATasks.html#Appendix.PostgreSQL.CommonDBATasks.Parameters)
+//
+// > **Hands-on:** For an example of the `rds.ParameterGroup` in use, follow the Manage AWS RDS Instances tutorial on HashiCorp Learn.
+//
+// > **NOTE:** If you encounter a pulumi preview showing parameter changes after an apply (_i.e._, _perpetual diffs_), see the Problematic Plan Changes example below for additional guidance.
+//
+// ## Example Usage
+//
+// ### Basic Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/rds"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := rds.NewParameterGroup(ctx, "default", &rds.ParameterGroupArgs{
+//				Name:   pulumi.String("rds-pg"),
+//				Family: pulumi.String("mysql5.6"),
+//				Parameters: rds.ParameterGroupParameterArray{
+//					&rds.ParameterGroupParameterArgs{
+//						Name:  pulumi.String("character_set_server"),
+//						Value: pulumi.String("utf8"),
+//					},
+//					&rds.ParameterGroupParameterArgs{
+//						Name:  pulumi.String("character_set_client"),
+//						Value: pulumi.String("utf8"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ### Example of Problematic Configuration
+//
+// The following Terraform configuration includes a parameter that overlaps with an AWS default parameter, using the same `name` (`defaultPasswordLifetime`) and `value` (`0`). However:
+//
+// - AWS sets the default `applyMethod` for this parameter to `pending-reboot`.
+// - The AWS Provider defaults all parameters' `applyMethod` to `immediate`.
+//
+// This configuration attempts to change _only_ the `applyMethod` from `pending-reboot` to `immediate`, which is not allowed by AWS.
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/rds"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := rds.NewParameterGroup(ctx, "test", &rds.ParameterGroupArgs{
+//				Name:   pulumi.String("random-test-parameter"),
+//				Family: pulumi.String("mysql5.7"),
+//				Parameters: rds.ParameterGroupParameterArray{
+//					&rds.ParameterGroupParameterArgs{
+//						Name:  pulumi.String("default_password_lifetime"),
+//						Value: pulumi.String("0"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ### Solution 1: Remove the Default Parameter
+//
+// Exclude the default parameter, such as `defaultPasswordLifetime` in this example, from your configuration entirely. This ensures Terraform does not attempt to modify the parameter, leaving it with AWS's default settings.
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/rds"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := rds.NewParameterGroup(ctx, "test", &rds.ParameterGroupArgs{
+//				Name:   pulumi.String("random-test-parameter"),
+//				Family: pulumi.String("mysql5.7"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ### Solution 2: Modify the Parameter's Value Also
+//
+// Change the `value` of the parameter along with its `applyMethod`. Since the AWS default `value` is `0`, selecting any other valid value (_e.g._, `1`) will resolve the issue.
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/rds"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := rds.NewParameterGroup(ctx, "test", &rds.ParameterGroupArgs{
+//				Name:   pulumi.String("random-test-parameter"),
+//				Family: pulumi.String("mysql5.7"),
+//				Parameters: rds.ParameterGroupParameterArray{
+//					&rds.ParameterGroupParameterArgs{
+//						Name:  pulumi.String("default_password_lifetime"),
+//						Value: pulumi.String("1"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ### Solution 3: Align `applyMethod` with AWS Defaults
+//
+// Explicitly set the `applyMethod` to match AWS's default value for this parameter (`pending-reboot`). This prevents conflicts between Terraform's default (`immediate`) and AWS's default where the `value` is not changing.
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/rds"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := rds.NewParameterGroup(ctx, "test", &rds.ParameterGroupArgs{
+//				Name:   pulumi.String("random-test-parameter"),
+//				Family: pulumi.String("mysql5.7"),
+//				Parameters: rds.ParameterGroupParameterArray{
+//					&rds.ParameterGroupParameterArgs{
+//						ApplyMethod: pulumi.String("pending-reboot"),
+//						Name:        pulumi.String("default_password_lifetime"),
+//						Value:       pulumi.String("0"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Using `pulumi import`, import DB Parameter groups using the `name`. For example:
@@ -35,7 +226,8 @@ type ParameterGroup struct {
 	// The DB parameters to apply. See `parameter` Block below for more details. Note that parameters may differ from a family to an other. Full list of all parameters can be discovered via [`aws rds describe-db-parameters`](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-parameters.html) after initial creation of the group.
 	Parameters ParameterGroupParameterArrayOutput `pulumi:"parameters"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region      pulumi.StringOutput  `pulumi:"region"`
+	Region pulumi.StringOutput `pulumi:"region"`
+	// Set to true if you do not wish the parameter group to be deleted at destroy time, and instead just remove the parameter group from the Terraform state.
 	SkipDestroy pulumi.BoolPtrOutput `pulumi:"skipDestroy"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -92,8 +284,9 @@ type parameterGroupState struct {
 	// The DB parameters to apply. See `parameter` Block below for more details. Note that parameters may differ from a family to an other. Full list of all parameters can be discovered via [`aws rds describe-db-parameters`](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-parameters.html) after initial creation of the group.
 	Parameters []ParameterGroupParameter `pulumi:"parameters"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region      *string `pulumi:"region"`
-	SkipDestroy *bool   `pulumi:"skipDestroy"`
+	Region *string `pulumi:"region"`
+	// Set to true if you do not wish the parameter group to be deleted at destroy time, and instead just remove the parameter group from the Terraform state.
+	SkipDestroy *bool `pulumi:"skipDestroy"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -114,7 +307,8 @@ type ParameterGroupState struct {
 	// The DB parameters to apply. See `parameter` Block below for more details. Note that parameters may differ from a family to an other. Full list of all parameters can be discovered via [`aws rds describe-db-parameters`](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-parameters.html) after initial creation of the group.
 	Parameters ParameterGroupParameterArrayInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region      pulumi.StringPtrInput
+	Region pulumi.StringPtrInput
+	// Set to true if you do not wish the parameter group to be deleted at destroy time, and instead just remove the parameter group from the Terraform state.
 	SkipDestroy pulumi.BoolPtrInput
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -138,8 +332,9 @@ type parameterGroupArgs struct {
 	// The DB parameters to apply. See `parameter` Block below for more details. Note that parameters may differ from a family to an other. Full list of all parameters can be discovered via [`aws rds describe-db-parameters`](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-parameters.html) after initial creation of the group.
 	Parameters []ParameterGroupParameter `pulumi:"parameters"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region      *string `pulumi:"region"`
-	SkipDestroy *bool   `pulumi:"skipDestroy"`
+	Region *string `pulumi:"region"`
+	// Set to true if you do not wish the parameter group to be deleted at destroy time, and instead just remove the parameter group from the Terraform state.
+	SkipDestroy *bool `pulumi:"skipDestroy"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 }
@@ -157,7 +352,8 @@ type ParameterGroupArgs struct {
 	// The DB parameters to apply. See `parameter` Block below for more details. Note that parameters may differ from a family to an other. Full list of all parameters can be discovered via [`aws rds describe-db-parameters`](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-parameters.html) after initial creation of the group.
 	Parameters ParameterGroupParameterArrayInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region      pulumi.StringPtrInput
+	Region pulumi.StringPtrInput
+	// Set to true if you do not wish the parameter group to be deleted at destroy time, and instead just remove the parameter group from the Terraform state.
 	SkipDestroy pulumi.BoolPtrInput
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -285,6 +481,7 @@ func (o ParameterGroupOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *ParameterGroup) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
+// Set to true if you do not wish the parameter group to be deleted at destroy time, and instead just remove the parameter group from the Terraform state.
 func (o ParameterGroupOutput) SkipDestroy() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ParameterGroup) pulumi.BoolPtrOutput { return v.SkipDestroy }).(pulumi.BoolPtrOutput)
 }

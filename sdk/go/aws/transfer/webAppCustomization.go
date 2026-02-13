@@ -18,7 +18,7 @@ import (
 //
 // ## Import
 //
-// Using `pulumi import`, import Transfer Family Web App Customization using the `web_app_id`. For example:
+// Using `pulumi import`, import Transfer Family Web App Customization using the `webAppId`. For example:
 //
 // ```sh
 // $ pulumi import aws:transfer/webAppCustomization:WebAppCustomization example webapp-12345678901234567890
@@ -26,8 +26,10 @@ import (
 type WebAppCustomization struct {
 	pulumi.CustomResourceState
 
+	// Base64-encoded string representing the favicon image. Terraform will detect drift only if this argument is specified. To remove the favicon, recreate the resource.
 	FaviconFile pulumi.StringOutput `pulumi:"faviconFile"`
-	LogoFile    pulumi.StringOutput `pulumi:"logoFile"`
+	// Base64-encoded string representing the logo image. Terraform will detect drift only if this argument is specified. To remove the logo, recreate the resource.
+	LogoFile pulumi.StringOutput `pulumi:"logoFile"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Title of the web app. Must be between 1 and 100 characters in length (an empty string is not allowed). To remove the title, omit this argument from your configuration.
@@ -71,8 +73,10 @@ func GetWebAppCustomization(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering WebAppCustomization resources.
 type webAppCustomizationState struct {
+	// Base64-encoded string representing the favicon image. Terraform will detect drift only if this argument is specified. To remove the favicon, recreate the resource.
 	FaviconFile *string `pulumi:"faviconFile"`
-	LogoFile    *string `pulumi:"logoFile"`
+	// Base64-encoded string representing the logo image. Terraform will detect drift only if this argument is specified. To remove the logo, recreate the resource.
+	LogoFile *string `pulumi:"logoFile"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Title of the web app. Must be between 1 and 100 characters in length (an empty string is not allowed). To remove the title, omit this argument from your configuration.
@@ -84,8 +88,10 @@ type webAppCustomizationState struct {
 }
 
 type WebAppCustomizationState struct {
+	// Base64-encoded string representing the favicon image. Terraform will detect drift only if this argument is specified. To remove the favicon, recreate the resource.
 	FaviconFile pulumi.StringPtrInput
-	LogoFile    pulumi.StringPtrInput
+	// Base64-encoded string representing the logo image. Terraform will detect drift only if this argument is specified. To remove the logo, recreate the resource.
+	LogoFile pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Title of the web app. Must be between 1 and 100 characters in length (an empty string is not allowed). To remove the title, omit this argument from your configuration.
@@ -101,8 +107,10 @@ func (WebAppCustomizationState) ElementType() reflect.Type {
 }
 
 type webAppCustomizationArgs struct {
+	// Base64-encoded string representing the favicon image. Terraform will detect drift only if this argument is specified. To remove the favicon, recreate the resource.
 	FaviconFile *string `pulumi:"faviconFile"`
-	LogoFile    *string `pulumi:"logoFile"`
+	// Base64-encoded string representing the logo image. Terraform will detect drift only if this argument is specified. To remove the logo, recreate the resource.
+	LogoFile *string `pulumi:"logoFile"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Title of the web app. Must be between 1 and 100 characters in length (an empty string is not allowed). To remove the title, omit this argument from your configuration.
@@ -115,8 +123,10 @@ type webAppCustomizationArgs struct {
 
 // The set of arguments for constructing a WebAppCustomization resource.
 type WebAppCustomizationArgs struct {
+	// Base64-encoded string representing the favicon image. Terraform will detect drift only if this argument is specified. To remove the favicon, recreate the resource.
 	FaviconFile pulumi.StringPtrInput
-	LogoFile    pulumi.StringPtrInput
+	// Base64-encoded string representing the logo image. Terraform will detect drift only if this argument is specified. To remove the logo, recreate the resource.
+	LogoFile pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Title of the web app. Must be between 1 and 100 characters in length (an empty string is not allowed). To remove the title, omit this argument from your configuration.
@@ -214,10 +224,12 @@ func (o WebAppCustomizationOutput) ToWebAppCustomizationOutputWithContext(ctx co
 	return o
 }
 
+// Base64-encoded string representing the favicon image. Terraform will detect drift only if this argument is specified. To remove the favicon, recreate the resource.
 func (o WebAppCustomizationOutput) FaviconFile() pulumi.StringOutput {
 	return o.ApplyT(func(v *WebAppCustomization) pulumi.StringOutput { return v.FaviconFile }).(pulumi.StringOutput)
 }
 
+// Base64-encoded string representing the logo image. Terraform will detect drift only if this argument is specified. To remove the logo, recreate the resource.
 func (o WebAppCustomizationOutput) LogoFile() pulumi.StringOutput {
 	return o.ApplyT(func(v *WebAppCustomization) pulumi.StringOutput { return v.LogoFile }).(pulumi.StringOutput)
 }

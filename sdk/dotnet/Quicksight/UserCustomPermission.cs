@@ -33,7 +33,7 @@ namespace Pulumi.Aws.Quicksight
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import QuickSight user custom permissions using a comma-delimited string combining the `aws_account_id`, `namespace`, and `user_name`. For example:
+    /// Using `pulumi import`, import QuickSight user custom permissions using a comma-delimited string combining the `AwsAccountId`, `Namespace`, and `UserName`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:quicksight/userCustomPermission:UserCustomPermission example 012345678901,default,user1
@@ -42,6 +42,9 @@ namespace Pulumi.Aws.Quicksight
     [AwsResourceType("aws:quicksight/userCustomPermission:UserCustomPermission")]
     public partial class UserCustomPermission : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
+        /// </summary>
         [Output("awsAccountId")]
         public Output<string> AwsAccountId { get; private set; } = null!;
 
@@ -117,6 +120,9 @@ namespace Pulumi.Aws.Quicksight
 
     public sealed class UserCustomPermissionArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
+        /// </summary>
         [Input("awsAccountId")]
         public Input<string>? AwsAccountId { get; set; }
 
@@ -154,6 +160,9 @@ namespace Pulumi.Aws.Quicksight
 
     public sealed class UserCustomPermissionState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
+        /// </summary>
         [Input("awsAccountId")]
         public Input<string>? AwsAccountId { get; set; }
 

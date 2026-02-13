@@ -134,7 +134,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Using `pulumi import`, import `aws_route53_key_signing_key` resources using the Route 53 Hosted Zone identifier and KMS Key identifier, separated by a comma (`,`). For example:
+ * Using `pulumi import`, import `aws.route53.KeySigningKey` resources using the Route 53 Hosted Zone identifier and KMS Key identifier, separated by a comma (`,`). For example:
  * 
  * ```sh
  * $ pulumi import aws:route53/keySigningKey:KeySigningKey example Z1D633PJN98FT9,example

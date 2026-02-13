@@ -60,7 +60,7 @@ namespace Pulumi.Aws.OpenSearch
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import OpenSearch Serverless Lifecycle Policy using the `name` and `type` arguments separated by a slash (`/`). For example:
+    /// Using `pulumi import`, import OpenSearch Serverless Lifecycle Policy using the `Name` and `Type` arguments separated by a slash (`/`). For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:opensearch/serverlessLifecyclePolicy:ServerlessLifecyclePolicy example example/retention

@@ -167,7 +167,7 @@ namespace Pulumi.Aws.Transfer
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import Transfer Family Web App using the `web_app_id`. For example:
+    /// Using `pulumi import`, import Transfer Family Web App using the `WebAppId`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:transfer/webApp:WebApp example web_app-id-12345678

@@ -51,24 +51,19 @@ __all__ = [
     'ScheduledActionTargetActionResumeClusterArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class ClusterClusterNodeArgsDict(TypedDict):
-        node_role: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Whether the node is a leader node or a compute node
-        """
-        private_ip_address: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The private IP address of a node within a cluster
-        """
-        public_ip_address: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The public IP address of a node within a cluster
-        """
-elif False:
-    ClusterClusterNodeArgsDict: TypeAlias = Mapping[str, Any]
+class ClusterClusterNodeArgsDict(TypedDict):
+    node_role: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Whether the node is a leader node or a compute node
+    """
+    private_ip_address: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The private IP address of a node within a cluster
+    """
+    public_ip_address: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The public IP address of a node within a cluster
+    """
 
 @pulumi.input_type
 class ClusterClusterNodeArgs:
@@ -125,22 +120,19 @@ class ClusterClusterNodeArgs:
         pulumi.set(self, "public_ip_address", value)
 
 
-if not MYPY:
-    class EndpointAccessVpcEndpointArgsDict(TypedDict):
-        network_interfaces: NotRequired[pulumi.Input[Sequence[pulumi.Input['EndpointAccessVpcEndpointNetworkInterfaceArgsDict']]]]
-        """
-        One or more network interfaces of the endpoint. Also known as an interface endpoint. See details below.
-        """
-        vpc_endpoint_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The connection endpoint ID for connecting an Amazon Redshift cluster through the proxy.
-        """
-        vpc_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The VPC identifier that the endpoint is associated.
-        """
-elif False:
-    EndpointAccessVpcEndpointArgsDict: TypeAlias = Mapping[str, Any]
+class EndpointAccessVpcEndpointArgsDict(TypedDict):
+    network_interfaces: NotRequired[pulumi.Input[Sequence[pulumi.Input['EndpointAccessVpcEndpointNetworkInterfaceArgsDict']]]]
+    """
+    One or more network interfaces of the endpoint. Also known as an interface endpoint. See details below.
+    """
+    vpc_endpoint_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The connection endpoint ID for connecting an Amazon Redshift cluster through the proxy.
+    """
+    vpc_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The VPC identifier that the endpoint is associated.
+    """
 
 @pulumi.input_type
 class EndpointAccessVpcEndpointArgs:
@@ -197,26 +189,23 @@ class EndpointAccessVpcEndpointArgs:
         pulumi.set(self, "vpc_id", value)
 
 
-if not MYPY:
-    class EndpointAccessVpcEndpointNetworkInterfaceArgsDict(TypedDict):
-        availability_zone: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Availability Zone.
-        """
-        network_interface_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The network interface identifier.
-        """
-        private_ip_address: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The IPv4 address of the network interface within the subnet.
-        """
-        subnet_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The subnet identifier.
-        """
-elif False:
-    EndpointAccessVpcEndpointNetworkInterfaceArgsDict: TypeAlias = Mapping[str, Any]
+class EndpointAccessVpcEndpointNetworkInterfaceArgsDict(TypedDict):
+    availability_zone: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Availability Zone.
+    """
+    network_interface_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The network interface identifier.
+    """
+    private_ip_address: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The IPv4 address of the network interface within the subnet.
+    """
+    subnet_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The subnet identifier.
+    """
 
 @pulumi.input_type
 class EndpointAccessVpcEndpointNetworkInterfaceArgs:
@@ -289,18 +278,15 @@ class EndpointAccessVpcEndpointNetworkInterfaceArgs:
         pulumi.set(self, "subnet_id", value)
 
 
-if not MYPY:
-    class IdcApplicationAuthorizedTokenIssuerArgsDict(TypedDict):
-        authorized_audiences_lists: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        List of audiences for the authorized token issuer for integrating Amazon Redshift with IDC Identity Center.
-        """
-        trusted_token_issuer_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        ARN for the authorized token issuer for integrating Amazon Redshift with IDC Identity Center.
-        """
-elif False:
-    IdcApplicationAuthorizedTokenIssuerArgsDict: TypeAlias = Mapping[str, Any]
+class IdcApplicationAuthorizedTokenIssuerArgsDict(TypedDict):
+    authorized_audiences_lists: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    List of audiences for the authorized token issuer for integrating Amazon Redshift with IDC Identity Center.
+    """
+    trusted_token_issuer_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    ARN for the authorized token issuer for integrating Amazon Redshift with IDC Identity Center.
+    """
 
 @pulumi.input_type
 class IdcApplicationAuthorizedTokenIssuerArgs:
@@ -341,22 +327,19 @@ class IdcApplicationAuthorizedTokenIssuerArgs:
         pulumi.set(self, "trusted_token_issuer_arn", value)
 
 
-if not MYPY:
-    class IdcApplicationServiceIntegrationArgsDict(TypedDict):
-        lake_formation: NotRequired[pulumi.Input['IdcApplicationServiceIntegrationLakeFormationArgsDict']]
-        """
-        List of scopes set up for Lake Formation integration. Refer to the lake_formation documentation for more details.
-        """
-        redshift: NotRequired[pulumi.Input['IdcApplicationServiceIntegrationRedshiftArgsDict']]
-        """
-        List of scopes set up for Redshift integration. Refer to the redshift documentation for more details.
-        """
-        s3_access_grants: NotRequired[pulumi.Input['IdcApplicationServiceIntegrationS3AccessGrantsArgsDict']]
-        """
-        List of scopes set up for S3 Access Grants integration. Refer to the s3_access_grants documentation for more details.
-        """
-elif False:
-    IdcApplicationServiceIntegrationArgsDict: TypeAlias = Mapping[str, Any]
+class IdcApplicationServiceIntegrationArgsDict(TypedDict):
+    lake_formation: NotRequired[pulumi.Input['IdcApplicationServiceIntegrationLakeFormationArgsDict']]
+    """
+    List of scopes set up for Lake Formation integration. Refer to the lake_formation documentation for more details.
+    """
+    redshift: NotRequired[pulumi.Input['IdcApplicationServiceIntegrationRedshiftArgsDict']]
+    """
+    List of scopes set up for Redshift integration. Refer to the redshift documentation for more details.
+    """
+    s3_access_grants: NotRequired[pulumi.Input['IdcApplicationServiceIntegrationS3AccessGrantsArgsDict']]
+    """
+    List of scopes set up for S3 Access Grants integration. Refer to the s3_access_grants documentation for more details.
+    """
 
 @pulumi.input_type
 class IdcApplicationServiceIntegrationArgs:
@@ -413,14 +396,11 @@ class IdcApplicationServiceIntegrationArgs:
         pulumi.set(self, "s3_access_grants", value)
 
 
-if not MYPY:
-    class IdcApplicationServiceIntegrationLakeFormationArgsDict(TypedDict):
-        lake_formation_query: NotRequired[pulumi.Input['IdcApplicationServiceIntegrationLakeFormationLakeFormationQueryArgsDict']]
-        """
-        Lake formation scope.
-        """
-elif False:
-    IdcApplicationServiceIntegrationLakeFormationArgsDict: TypeAlias = Mapping[str, Any]
+class IdcApplicationServiceIntegrationLakeFormationArgsDict(TypedDict):
+    lake_formation_query: NotRequired[pulumi.Input['IdcApplicationServiceIntegrationLakeFormationLakeFormationQueryArgsDict']]
+    """
+    Lake formation scope.
+    """
 
 @pulumi.input_type
 class IdcApplicationServiceIntegrationLakeFormationArgs:
@@ -445,14 +425,11 @@ class IdcApplicationServiceIntegrationLakeFormationArgs:
         pulumi.set(self, "lake_formation_query", value)
 
 
-if not MYPY:
-    class IdcApplicationServiceIntegrationLakeFormationLakeFormationQueryArgsDict(TypedDict):
-        authorization: pulumi.Input[_builtins.str]
-        """
-        Determines whether the query scope is enabled or disabled.
-        """
-elif False:
-    IdcApplicationServiceIntegrationLakeFormationLakeFormationQueryArgsDict: TypeAlias = Mapping[str, Any]
+class IdcApplicationServiceIntegrationLakeFormationLakeFormationQueryArgsDict(TypedDict):
+    authorization: pulumi.Input[_builtins.str]
+    """
+    Determines whether the query scope is enabled or disabled.
+    """
 
 @pulumi.input_type
 class IdcApplicationServiceIntegrationLakeFormationLakeFormationQueryArgs:
@@ -476,14 +453,11 @@ class IdcApplicationServiceIntegrationLakeFormationLakeFormationQueryArgs:
         pulumi.set(self, "authorization", value)
 
 
-if not MYPY:
-    class IdcApplicationServiceIntegrationRedshiftArgsDict(TypedDict):
-        connect: NotRequired[pulumi.Input['IdcApplicationServiceIntegrationRedshiftConnectArgsDict']]
-        """
-        Amazon Redshift connect service integration scope.
-        """
-elif False:
-    IdcApplicationServiceIntegrationRedshiftArgsDict: TypeAlias = Mapping[str, Any]
+class IdcApplicationServiceIntegrationRedshiftArgsDict(TypedDict):
+    connect: NotRequired[pulumi.Input['IdcApplicationServiceIntegrationRedshiftConnectArgsDict']]
+    """
+    Amazon Redshift connect service integration scope.
+    """
 
 @pulumi.input_type
 class IdcApplicationServiceIntegrationRedshiftArgs:
@@ -508,14 +482,11 @@ class IdcApplicationServiceIntegrationRedshiftArgs:
         pulumi.set(self, "connect", value)
 
 
-if not MYPY:
-    class IdcApplicationServiceIntegrationRedshiftConnectArgsDict(TypedDict):
-        authorization: pulumi.Input[_builtins.str]
-        """
-        Determines whether the connect integration is enabled or disabled.
-        """
-elif False:
-    IdcApplicationServiceIntegrationRedshiftConnectArgsDict: TypeAlias = Mapping[str, Any]
+class IdcApplicationServiceIntegrationRedshiftConnectArgsDict(TypedDict):
+    authorization: pulumi.Input[_builtins.str]
+    """
+    Determines whether the connect integration is enabled or disabled.
+    """
 
 @pulumi.input_type
 class IdcApplicationServiceIntegrationRedshiftConnectArgs:
@@ -539,14 +510,11 @@ class IdcApplicationServiceIntegrationRedshiftConnectArgs:
         pulumi.set(self, "authorization", value)
 
 
-if not MYPY:
-    class IdcApplicationServiceIntegrationS3AccessGrantsArgsDict(TypedDict):
-        read_write_access: NotRequired[pulumi.Input['IdcApplicationServiceIntegrationS3AccessGrantsReadWriteAccessArgsDict']]
-        """
-        S3 Access grants integration scope.
-        """
-elif False:
-    IdcApplicationServiceIntegrationS3AccessGrantsArgsDict: TypeAlias = Mapping[str, Any]
+class IdcApplicationServiceIntegrationS3AccessGrantsArgsDict(TypedDict):
+    read_write_access: NotRequired[pulumi.Input['IdcApplicationServiceIntegrationS3AccessGrantsReadWriteAccessArgsDict']]
+    """
+    S3 Access grants integration scope.
+    """
 
 @pulumi.input_type
 class IdcApplicationServiceIntegrationS3AccessGrantsArgs:
@@ -571,14 +539,11 @@ class IdcApplicationServiceIntegrationS3AccessGrantsArgs:
         pulumi.set(self, "read_write_access", value)
 
 
-if not MYPY:
-    class IdcApplicationServiceIntegrationS3AccessGrantsReadWriteAccessArgsDict(TypedDict):
-        authorization: pulumi.Input[_builtins.str]
-        """
-        Determines whether read/write scope is enabled or disabled.
-        """
-elif False:
-    IdcApplicationServiceIntegrationS3AccessGrantsReadWriteAccessArgsDict: TypeAlias = Mapping[str, Any]
+class IdcApplicationServiceIntegrationS3AccessGrantsReadWriteAccessArgsDict(TypedDict):
+    authorization: pulumi.Input[_builtins.str]
+    """
+    Determines whether read/write scope is enabled or disabled.
+    """
 
 @pulumi.input_type
 class IdcApplicationServiceIntegrationS3AccessGrantsReadWriteAccessArgs:
@@ -602,22 +567,19 @@ class IdcApplicationServiceIntegrationS3AccessGrantsReadWriteAccessArgs:
         pulumi.set(self, "authorization", value)
 
 
-if not MYPY:
-    class IntegrationTimeoutsArgsDict(TypedDict):
-        create: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
-        """
-        delete: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
-        """
-        update: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
-        """
-elif False:
-    IntegrationTimeoutsArgsDict: TypeAlias = Mapping[str, Any]
+class IntegrationTimeoutsArgsDict(TypedDict):
+    create: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+    """
+    delete: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+    """
+    update: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+    """
 
 @pulumi.input_type
 class IntegrationTimeoutsArgs:
@@ -674,18 +636,15 @@ class IntegrationTimeoutsArgs:
         pulumi.set(self, "update", value)
 
 
-if not MYPY:
-    class ParameterGroupParameterArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the Redshift parameter.
-        """
-        value: pulumi.Input[_builtins.str]
-        """
-        The value of the Redshift parameter.
-        """
-elif False:
-    ParameterGroupParameterArgsDict: TypeAlias = Mapping[str, Any]
+class ParameterGroupParameterArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the Redshift parameter.
+    """
+    value: pulumi.Input[_builtins.str]
+    """
+    The value of the Redshift parameter.
+    """
 
 @pulumi.input_type
 class ParameterGroupParameterArgs:
@@ -724,22 +683,19 @@ class ParameterGroupParameterArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class ScheduledActionTargetActionArgsDict(TypedDict):
-        pause_cluster: NotRequired[pulumi.Input['ScheduledActionTargetActionPauseClusterArgsDict']]
-        """
-        An action that runs a `PauseCluster` API operation. Documented below.
-        """
-        resize_cluster: NotRequired[pulumi.Input['ScheduledActionTargetActionResizeClusterArgsDict']]
-        """
-        An action that runs a `ResizeCluster` API operation. Documented below.
-        """
-        resume_cluster: NotRequired[pulumi.Input['ScheduledActionTargetActionResumeClusterArgsDict']]
-        """
-        An action that runs a `ResumeCluster` API operation. Documented below.
-        """
-elif False:
-    ScheduledActionTargetActionArgsDict: TypeAlias = Mapping[str, Any]
+class ScheduledActionTargetActionArgsDict(TypedDict):
+    pause_cluster: NotRequired[pulumi.Input['ScheduledActionTargetActionPauseClusterArgsDict']]
+    """
+    An action that runs a `PauseCluster` API operation. Documented below.
+    """
+    resize_cluster: NotRequired[pulumi.Input['ScheduledActionTargetActionResizeClusterArgsDict']]
+    """
+    An action that runs a `ResizeCluster` API operation. Documented below.
+    """
+    resume_cluster: NotRequired[pulumi.Input['ScheduledActionTargetActionResumeClusterArgsDict']]
+    """
+    An action that runs a `ResumeCluster` API operation. Documented below.
+    """
 
 @pulumi.input_type
 class ScheduledActionTargetActionArgs:
@@ -796,14 +752,11 @@ class ScheduledActionTargetActionArgs:
         pulumi.set(self, "resume_cluster", value)
 
 
-if not MYPY:
-    class ScheduledActionTargetActionPauseClusterArgsDict(TypedDict):
-        cluster_identifier: pulumi.Input[_builtins.str]
-        """
-        The identifier of the cluster to be paused.
-        """
-elif False:
-    ScheduledActionTargetActionPauseClusterArgsDict: TypeAlias = Mapping[str, Any]
+class ScheduledActionTargetActionPauseClusterArgsDict(TypedDict):
+    cluster_identifier: pulumi.Input[_builtins.str]
+    """
+    The identifier of the cluster to be paused.
+    """
 
 @pulumi.input_type
 class ScheduledActionTargetActionPauseClusterArgs:
@@ -827,30 +780,27 @@ class ScheduledActionTargetActionPauseClusterArgs:
         pulumi.set(self, "cluster_identifier", value)
 
 
-if not MYPY:
-    class ScheduledActionTargetActionResizeClusterArgsDict(TypedDict):
-        cluster_identifier: pulumi.Input[_builtins.str]
-        """
-        The unique identifier for the cluster to resize.
-        """
-        classic: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        A boolean value indicating whether the resize operation is using the classic resize process. Default: `false`.
-        """
-        cluster_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The new cluster type for the specified cluster.
-        """
-        node_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The new node type for the nodes you are adding.
-        """
-        number_of_nodes: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The new number of nodes for the cluster.
-        """
-elif False:
-    ScheduledActionTargetActionResizeClusterArgsDict: TypeAlias = Mapping[str, Any]
+class ScheduledActionTargetActionResizeClusterArgsDict(TypedDict):
+    cluster_identifier: pulumi.Input[_builtins.str]
+    """
+    The unique identifier for the cluster to resize.
+    """
+    classic: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    A boolean value indicating whether the resize operation is using the classic resize process. Default: `false`.
+    """
+    cluster_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The new cluster type for the specified cluster.
+    """
+    node_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The new node type for the nodes you are adding.
+    """
+    number_of_nodes: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The new number of nodes for the cluster.
+    """
 
 @pulumi.input_type
 class ScheduledActionTargetActionResizeClusterArgs:
@@ -938,14 +888,11 @@ class ScheduledActionTargetActionResizeClusterArgs:
         pulumi.set(self, "number_of_nodes", value)
 
 
-if not MYPY:
-    class ScheduledActionTargetActionResumeClusterArgsDict(TypedDict):
-        cluster_identifier: pulumi.Input[_builtins.str]
-        """
-        The identifier of the cluster to be resumed.
-        """
-elif False:
-    ScheduledActionTargetActionResumeClusterArgsDict: TypeAlias = Mapping[str, Any]
+class ScheduledActionTargetActionResumeClusterArgsDict(TypedDict):
+    cluster_identifier: pulumi.Input[_builtins.str]
+    """
+    The identifier of the cluster to be resumed.
+    """
 
 @pulumi.input_type
 class ScheduledActionTargetActionResumeClusterArgs:

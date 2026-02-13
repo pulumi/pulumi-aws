@@ -168,6 +168,44 @@ class KeyvaluestoreKeysExclusive(pulumi.CustomResource):
                  resource_key_value_pairs: Optional[pulumi.Input[Sequence[pulumi.Input[Union['KeyvaluestoreKeysExclusiveResourceKeyValuePairArgs', 'KeyvaluestoreKeysExclusiveResourceKeyValuePairArgsDict']]]]] = None,
                  __props__=None):
         """
+        Resource for maintaining exclusive management of resource key value pairs defined in an AWS CloudFront KeyValueStore.
+
+        !> This resource takes exclusive ownership over key value pairs defined in a KeyValueStore. This includes removal of key value pairs which are not explicitly configured. To prevent persistent drift, ensure any `cloudfront.KeyvaluestoreKey` resources managed alongside this resource have an equivalent `resource_key_value_pair` argument.
+
+        > Destruction of this resource means Terraform will no longer manage reconciliation of the configured key value pairs. It __will not__ delete the configured key value pairs from the KeyValueStore.
+
+        ## Example Usage
+
+        ### Basic Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.cloudfront.KeyValueStore("example",
+            name="ExampleKeyValueStore",
+            comment="This is an example key value store")
+        example_keyvaluestore_keys_exclusive = aws.cloudfront.KeyvaluestoreKeysExclusive("example",
+            key_value_store_arn=example.arn,
+            resource_key_value_pairs=[{
+                "key": "Test Key",
+                "value": "Test Value",
+            }])
+        ```
+
+        ### Disallow Key Value Pairs
+
+        To automatically remove any configured key value pairs, omit a `resource_key_value_pair` block.
+
+        > This will not __prevent__ key value pairs from being defined in a KeyValueStore via Terraform (or any other interface). This resource enables bringing key value pairs into a configured state, however, this reconciliation happens only when `apply` is proactively run.
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.cloudfront.KeyvaluestoreKeysExclusive("example", key_value_store_arn=example_aws_cloudfront_key_value_store["arn"])
+        ```
+
         ## Import
 
         Using `pulumi import`, import AWS CloudFront KeyValueStore Key Value Pairs using the `key_value_store_arn`. For example:
@@ -192,6 +230,44 @@ class KeyvaluestoreKeysExclusive(pulumi.CustomResource):
                  args: KeyvaluestoreKeysExclusiveArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        Resource for maintaining exclusive management of resource key value pairs defined in an AWS CloudFront KeyValueStore.
+
+        !> This resource takes exclusive ownership over key value pairs defined in a KeyValueStore. This includes removal of key value pairs which are not explicitly configured. To prevent persistent drift, ensure any `cloudfront.KeyvaluestoreKey` resources managed alongside this resource have an equivalent `resource_key_value_pair` argument.
+
+        > Destruction of this resource means Terraform will no longer manage reconciliation of the configured key value pairs. It __will not__ delete the configured key value pairs from the KeyValueStore.
+
+        ## Example Usage
+
+        ### Basic Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.cloudfront.KeyValueStore("example",
+            name="ExampleKeyValueStore",
+            comment="This is an example key value store")
+        example_keyvaluestore_keys_exclusive = aws.cloudfront.KeyvaluestoreKeysExclusive("example",
+            key_value_store_arn=example.arn,
+            resource_key_value_pairs=[{
+                "key": "Test Key",
+                "value": "Test Value",
+            }])
+        ```
+
+        ### Disallow Key Value Pairs
+
+        To automatically remove any configured key value pairs, omit a `resource_key_value_pair` block.
+
+        > This will not __prevent__ key value pairs from being defined in a KeyValueStore via Terraform (or any other interface). This resource enables bringing key value pairs into a configured state, however, this reconciliation happens only when `apply` is proactively run.
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.cloudfront.KeyvaluestoreKeysExclusive("example", key_value_store_arn=example_aws_cloudfront_key_value_store["arn"])
+        ```
+
         ## Import
 
         Using `pulumi import`, import AWS CloudFront KeyValueStore Key Value Pairs using the `key_value_store_arn`. For example:

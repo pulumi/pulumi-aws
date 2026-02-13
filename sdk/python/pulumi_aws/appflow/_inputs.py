@@ -247,20 +247,15 @@ __all__ = [
     'FlowTriggerConfigTriggerPropertiesScheduledArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class ConnectorProfileConnectorProfileConfigArgsDict(TypedDict):
-        connector_profile_credentials: pulumi.Input['ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsArgsDict']
-        """
-        The connector-specific credentials required by each connector. See Connector Profile Credentials for more details.
-        """
-        connector_profile_properties: pulumi.Input['ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesArgsDict']
-        """
-        The connector-specific properties of the profile configuration. See Connector Profile Properties for more details.
-        """
-elif False:
-    ConnectorProfileConnectorProfileConfigArgsDict: TypeAlias = Mapping[str, Any]
+class ConnectorProfileConnectorProfileConfigArgsDict(TypedDict):
+    connector_profile_credentials: pulumi.Input['ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsArgsDict']
+    """
+    The connector-specific credentials required by each connector. See Connector Profile Credentials for more details.
+    """
+    connector_profile_properties: pulumi.Input['ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesArgsDict']
+    """
+    The connector-specific properties of the profile configuration. See Connector Profile Properties for more details.
+    """
 
 @pulumi.input_type
 class ConnectorProfileConnectorProfileConfigArgs:
@@ -299,82 +294,79 @@ class ConnectorProfileConnectorProfileConfigArgs:
         pulumi.set(self, "connector_profile_properties", value)
 
 
-if not MYPY:
-    class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsArgsDict(TypedDict):
-        amplitude: NotRequired[pulumi.Input['ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsAmplitudeArgsDict']]
-        """
-        The connector-specific credentials required when using Amplitude. See Amplitude Connector Profile Credentials for more details.
-        """
-        custom_connector: NotRequired[pulumi.Input['ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorArgsDict']]
-        """
-        The connector-specific profile credentials required when using the custom connector. See Custom Connector Profile Credentials for more details.
-        """
-        datadog: NotRequired[pulumi.Input['ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDatadogArgsDict']]
-        """
-        Connector-specific credentials required when using Datadog. See Datadog Connector Profile Credentials for more details.
-        """
-        dynatrace: NotRequired[pulumi.Input['ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDynatraceArgsDict']]
-        """
-        The connector-specific credentials required when using Dynatrace. See Dynatrace Connector Profile Credentials for more details.
-        """
-        google_analytics: NotRequired[pulumi.Input['ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleAnalyticsArgsDict']]
-        """
-        The connector-specific credentials required when using Google Analytics. See Google Analytics Connector Profile Credentials for more details.
-        """
-        honeycode: NotRequired[pulumi.Input['ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycodeArgsDict']]
-        """
-        The connector-specific credentials required when using Amazon Honeycode. See Honeycode Connector Profile Credentials for more details.
-        """
-        infor_nexus: NotRequired[pulumi.Input['ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsInforNexusArgsDict']]
-        """
-        The connector-specific credentials required when using Infor Nexus. See Infor Nexus Connector Profile Credentials for more details.
-        """
-        marketo: NotRequired[pulumi.Input['ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketoArgsDict']]
-        """
-        Connector-specific credentials required when using Marketo. See Marketo Connector Profile Credentials for more details.
-        """
-        redshift: NotRequired[pulumi.Input['ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsRedshiftArgsDict']]
-        """
-        Connector-specific credentials required when using Amazon Redshift. See Redshift Connector Profile Credentials for more details.
-        """
-        salesforce: NotRequired[pulumi.Input['ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforceArgsDict']]
-        """
-        The connector-specific credentials required when using Salesforce. See Salesforce Connector Profile Credentials for more details.
-        """
-        sapo_data: NotRequired[pulumi.Input['ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataArgsDict']]
-        """
-        The connector-specific credentials required when using SAPOData. See SAPOData Connector Profile Credentials for more details.
-        """
-        service_now: NotRequired[pulumi.Input['ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsServiceNowArgsDict']]
-        """
-        The connector-specific credentials required when using ServiceNow. See ServiceNow Connector Profile Credentials for more details.
-        """
-        singular: NotRequired[pulumi.Input['ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSingularArgsDict']]
-        """
-        Connector-specific credentials required when using Singular. See Singular Connector Profile Credentials for more details.
-        """
-        slack: NotRequired[pulumi.Input['ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSlackArgsDict']]
-        """
-        Connector-specific credentials required when using Slack. See Slack Connector Profile Credentials for more details.
-        """
-        snowflake: NotRequired[pulumi.Input['ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSnowflakeArgsDict']]
-        """
-        The connector-specific credentials required when using Snowflake. See Snowflake Connector Profile Credentials for more details.
-        """
-        trendmicro: NotRequired[pulumi.Input['ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsTrendmicroArgsDict']]
-        """
-        The connector-specific credentials required when using Trend Micro. See Trend Micro Connector Profile Credentials for more details.
-        """
-        veeva: NotRequired[pulumi.Input['ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsVeevaArgsDict']]
-        """
-        Connector-specific credentials required when using Veeva. See Veeva Connector Profile Credentials for more details.
-        """
-        zendesk: NotRequired[pulumi.Input['ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsZendeskArgsDict']]
-        """
-        Connector-specific credentials required when using Zendesk. See Zendesk Connector Profile Credentials for more details.
-        """
-elif False:
-    ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsArgsDict: TypeAlias = Mapping[str, Any]
+class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsArgsDict(TypedDict):
+    amplitude: NotRequired[pulumi.Input['ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsAmplitudeArgsDict']]
+    """
+    The connector-specific credentials required when using Amplitude. See Amplitude Connector Profile Credentials for more details.
+    """
+    custom_connector: NotRequired[pulumi.Input['ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorArgsDict']]
+    """
+    The connector-specific profile credentials required when using the custom connector. See Custom Connector Profile Credentials for more details.
+    """
+    datadog: NotRequired[pulumi.Input['ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDatadogArgsDict']]
+    """
+    Connector-specific credentials required when using Datadog. See Datadog Connector Profile Credentials for more details.
+    """
+    dynatrace: NotRequired[pulumi.Input['ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDynatraceArgsDict']]
+    """
+    The connector-specific credentials required when using Dynatrace. See Dynatrace Connector Profile Credentials for more details.
+    """
+    google_analytics: NotRequired[pulumi.Input['ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleAnalyticsArgsDict']]
+    """
+    The connector-specific credentials required when using Google Analytics. See Google Analytics Connector Profile Credentials for more details.
+    """
+    honeycode: NotRequired[pulumi.Input['ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycodeArgsDict']]
+    """
+    The connector-specific credentials required when using Amazon Honeycode. See Honeycode Connector Profile Credentials for more details.
+    """
+    infor_nexus: NotRequired[pulumi.Input['ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsInforNexusArgsDict']]
+    """
+    The connector-specific credentials required when using Infor Nexus. See Infor Nexus Connector Profile Credentials for more details.
+    """
+    marketo: NotRequired[pulumi.Input['ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketoArgsDict']]
+    """
+    Connector-specific credentials required when using Marketo. See Marketo Connector Profile Credentials for more details.
+    """
+    redshift: NotRequired[pulumi.Input['ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsRedshiftArgsDict']]
+    """
+    Connector-specific credentials required when using Amazon Redshift. See Redshift Connector Profile Credentials for more details.
+    """
+    salesforce: NotRequired[pulumi.Input['ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforceArgsDict']]
+    """
+    The connector-specific credentials required when using Salesforce. See Salesforce Connector Profile Credentials for more details.
+    """
+    sapo_data: NotRequired[pulumi.Input['ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataArgsDict']]
+    """
+    The connector-specific credentials required when using SAPOData. See SAPOData Connector Profile Credentials for more details.
+    """
+    service_now: NotRequired[pulumi.Input['ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsServiceNowArgsDict']]
+    """
+    The connector-specific credentials required when using ServiceNow. See ServiceNow Connector Profile Credentials for more details.
+    """
+    singular: NotRequired[pulumi.Input['ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSingularArgsDict']]
+    """
+    Connector-specific credentials required when using Singular. See Singular Connector Profile Credentials for more details.
+    """
+    slack: NotRequired[pulumi.Input['ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSlackArgsDict']]
+    """
+    Connector-specific credentials required when using Slack. See Slack Connector Profile Credentials for more details.
+    """
+    snowflake: NotRequired[pulumi.Input['ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSnowflakeArgsDict']]
+    """
+    The connector-specific credentials required when using Snowflake. See Snowflake Connector Profile Credentials for more details.
+    """
+    trendmicro: NotRequired[pulumi.Input['ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsTrendmicroArgsDict']]
+    """
+    The connector-specific credentials required when using Trend Micro. See Trend Micro Connector Profile Credentials for more details.
+    """
+    veeva: NotRequired[pulumi.Input['ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsVeevaArgsDict']]
+    """
+    Connector-specific credentials required when using Veeva. See Veeva Connector Profile Credentials for more details.
+    """
+    zendesk: NotRequired[pulumi.Input['ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsZendeskArgsDict']]
+    """
+    Connector-specific credentials required when using Zendesk. See Zendesk Connector Profile Credentials for more details.
+    """
 
 @pulumi.input_type
 class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsArgs:
@@ -671,15 +663,12 @@ class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsArgs:
         pulumi.set(self, "zendesk", value)
 
 
-if not MYPY:
-    class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsAmplitudeArgsDict(TypedDict):
-        api_key: pulumi.Input[_builtins.str]
-        secret_key: pulumi.Input[_builtins.str]
-        """
-        The Secret Access Key portion of the credentials.
-        """
-elif False:
-    ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsAmplitudeArgsDict: TypeAlias = Mapping[str, Any]
+class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsAmplitudeArgsDict(TypedDict):
+    api_key: pulumi.Input[_builtins.str]
+    secret_key: pulumi.Input[_builtins.str]
+    """
+    The Secret Access Key portion of the credentials.
+    """
 
 @pulumi.input_type
 class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsAmplitudeArgs:
@@ -714,27 +703,24 @@ class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsAmplitude
         pulumi.set(self, "secret_key", value)
 
 
-if not MYPY:
-    class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorArgsDict(TypedDict):
-        authentication_type: pulumi.Input[_builtins.str]
-        """
-        The authentication type that the custom connector uses for authenticating while creating a connector profile. One of: `APIKEY`, `BASIC`, `CUSTOM`, `OAUTH2`.
-        """
-        api_key: NotRequired[pulumi.Input['ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorApiKeyArgsDict']]
-        basic: NotRequired[pulumi.Input['ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorBasicArgsDict']]
-        """
-        Basic credentials that are required for the authentication of the user.
-        """
-        custom: NotRequired[pulumi.Input['ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorCustomArgsDict']]
-        """
-        If the connector uses the custom authentication mechanism, this holds the required credentials.
-        """
-        oauth2: NotRequired[pulumi.Input['ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOauth2ArgsDict']]
-        """
-        OAuth 2.0 credentials required for the authentication of the user.
-        """
-elif False:
-    ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorArgsDict: TypeAlias = Mapping[str, Any]
+class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorArgsDict(TypedDict):
+    authentication_type: pulumi.Input[_builtins.str]
+    """
+    The authentication type that the custom connector uses for authenticating while creating a connector profile. One of: `APIKEY`, `BASIC`, `CUSTOM`, `OAUTH2`.
+    """
+    api_key: NotRequired[pulumi.Input['ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorApiKeyArgsDict']]
+    basic: NotRequired[pulumi.Input['ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorBasicArgsDict']]
+    """
+    Basic credentials that are required for the authentication of the user.
+    """
+    custom: NotRequired[pulumi.Input['ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorCustomArgsDict']]
+    """
+    If the connector uses the custom authentication mechanism, this holds the required credentials.
+    """
+    oauth2: NotRequired[pulumi.Input['ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOauth2ArgsDict']]
+    """
+    OAuth 2.0 credentials required for the authentication of the user.
+    """
 
 @pulumi.input_type
 class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorArgs:
@@ -818,12 +804,9 @@ class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomCon
         pulumi.set(self, "oauth2", value)
 
 
-if not MYPY:
-    class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorApiKeyArgsDict(TypedDict):
-        api_key: pulumi.Input[_builtins.str]
-        api_secret_key: NotRequired[pulumi.Input[_builtins.str]]
-elif False:
-    ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorApiKeyArgsDict: TypeAlias = Mapping[str, Any]
+class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorApiKeyArgsDict(TypedDict):
+    api_key: pulumi.Input[_builtins.str]
+    api_secret_key: NotRequired[pulumi.Input[_builtins.str]]
 
 @pulumi.input_type
 class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorApiKeyArgs:
@@ -853,12 +836,9 @@ class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomCon
         pulumi.set(self, "api_secret_key", value)
 
 
-if not MYPY:
-    class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorBasicArgsDict(TypedDict):
-        password: pulumi.Input[_builtins.str]
-        username: pulumi.Input[_builtins.str]
-elif False:
-    ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorBasicArgsDict: TypeAlias = Mapping[str, Any]
+class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorBasicArgsDict(TypedDict):
+    password: pulumi.Input[_builtins.str]
+    username: pulumi.Input[_builtins.str]
 
 @pulumi.input_type
 class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorBasicArgs:
@@ -887,18 +867,15 @@ class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomCon
         pulumi.set(self, "username", value)
 
 
-if not MYPY:
-    class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorCustomArgsDict(TypedDict):
-        custom_authentication_type: pulumi.Input[_builtins.str]
-        """
-        The custom authentication type that the connector uses.
-        """
-        credentials_map: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
-        """
-        A map that holds custom authentication credentials.
-        """
-elif False:
-    ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorCustomArgsDict: TypeAlias = Mapping[str, Any]
+class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorCustomArgsDict(TypedDict):
+    custom_authentication_type: pulumi.Input[_builtins.str]
+    """
+    The custom authentication type that the connector uses.
+    """
+    credentials_map: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    """
+    A map that holds custom authentication credentials.
+    """
 
 @pulumi.input_type
 class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorCustomArgs:
@@ -938,15 +915,12 @@ class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomCon
         pulumi.set(self, "credentials_map", value)
 
 
-if not MYPY:
-    class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOauth2ArgsDict(TypedDict):
-        access_token: NotRequired[pulumi.Input[_builtins.str]]
-        client_id: NotRequired[pulumi.Input[_builtins.str]]
-        client_secret: NotRequired[pulumi.Input[_builtins.str]]
-        oauth_request: NotRequired[pulumi.Input['ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOauth2OauthRequestArgsDict']]
-        refresh_token: NotRequired[pulumi.Input[_builtins.str]]
-elif False:
-    ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOauth2ArgsDict: TypeAlias = Mapping[str, Any]
+class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOauth2ArgsDict(TypedDict):
+    access_token: NotRequired[pulumi.Input[_builtins.str]]
+    client_id: NotRequired[pulumi.Input[_builtins.str]]
+    client_secret: NotRequired[pulumi.Input[_builtins.str]]
+    oauth_request: NotRequired[pulumi.Input['ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOauth2OauthRequestArgsDict']]
+    refresh_token: NotRequired[pulumi.Input[_builtins.str]]
 
 @pulumi.input_type
 class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOauth2Args:
@@ -1013,18 +987,15 @@ class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomCon
         pulumi.set(self, "refresh_token", value)
 
 
-if not MYPY:
-    class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOauth2OauthRequestArgsDict(TypedDict):
-        auth_code: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The code provided by the connector when it has been authenticated via the connected app.
-        """
-        redirect_uri: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The URL to which the authentication server redirects the browser after authorization has been granted.
-        """
-elif False:
-    ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOauth2OauthRequestArgsDict: TypeAlias = Mapping[str, Any]
+class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOauth2OauthRequestArgsDict(TypedDict):
+    auth_code: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The code provided by the connector when it has been authenticated via the connected app.
+    """
+    redirect_uri: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The URL to which the authentication server redirects the browser after authorization has been granted.
+    """
 
 @pulumi.input_type
 class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomConnectorOauth2OauthRequestArgs:
@@ -1065,15 +1036,12 @@ class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsCustomCon
         pulumi.set(self, "redirect_uri", value)
 
 
-if not MYPY:
-    class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDatadogArgsDict(TypedDict):
-        api_key: pulumi.Input[_builtins.str]
-        application_key: pulumi.Input[_builtins.str]
-        """
-        Application keys, in conjunction with your API key, give you full access to Datadog’s programmatic API. Application keys are associated with the user account that created them. The application key is used to log all requests made to the API.
-        """
-elif False:
-    ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDatadogArgsDict: TypeAlias = Mapping[str, Any]
+class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDatadogArgsDict(TypedDict):
+    api_key: pulumi.Input[_builtins.str]
+    application_key: pulumi.Input[_builtins.str]
+    """
+    Application keys, in conjunction with your API key, give you full access to Datadog’s programmatic API. Application keys are associated with the user account that created them. The application key is used to log all requests made to the API.
+    """
 
 @pulumi.input_type
 class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDatadogArgs:
@@ -1108,14 +1076,11 @@ class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDatadogAr
         pulumi.set(self, "application_key", value)
 
 
-if not MYPY:
-    class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDynatraceArgsDict(TypedDict):
-        api_token: pulumi.Input[_builtins.str]
-        """
-        The API tokens used by Dynatrace API to authenticate various API calls.
-        """
-elif False:
-    ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDynatraceArgsDict: TypeAlias = Mapping[str, Any]
+class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDynatraceArgsDict(TypedDict):
+    api_token: pulumi.Input[_builtins.str]
+    """
+    The API tokens used by Dynatrace API to authenticate various API calls.
+    """
 
 @pulumi.input_type
 class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDynatraceArgs:
@@ -1139,15 +1104,12 @@ class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsDynatrace
         pulumi.set(self, "api_token", value)
 
 
-if not MYPY:
-    class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleAnalyticsArgsDict(TypedDict):
-        client_id: pulumi.Input[_builtins.str]
-        client_secret: pulumi.Input[_builtins.str]
-        access_token: NotRequired[pulumi.Input[_builtins.str]]
-        oauth_request: NotRequired[pulumi.Input['ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleAnalyticsOauthRequestArgsDict']]
-        refresh_token: NotRequired[pulumi.Input[_builtins.str]]
-elif False:
-    ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleAnalyticsArgsDict: TypeAlias = Mapping[str, Any]
+class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleAnalyticsArgsDict(TypedDict):
+    client_id: pulumi.Input[_builtins.str]
+    client_secret: pulumi.Input[_builtins.str]
+    access_token: NotRequired[pulumi.Input[_builtins.str]]
+    oauth_request: NotRequired[pulumi.Input['ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleAnalyticsOauthRequestArgsDict']]
+    refresh_token: NotRequired[pulumi.Input[_builtins.str]]
 
 @pulumi.input_type
 class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleAnalyticsArgs:
@@ -1212,18 +1174,15 @@ class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleAna
         pulumi.set(self, "refresh_token", value)
 
 
-if not MYPY:
-    class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleAnalyticsOauthRequestArgsDict(TypedDict):
-        auth_code: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The code provided by the connector when it has been authenticated via the connected app.
-        """
-        redirect_uri: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The URL to which the authentication server redirects the browser after authorization has been granted.
-        """
-elif False:
-    ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleAnalyticsOauthRequestArgsDict: TypeAlias = Mapping[str, Any]
+class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleAnalyticsOauthRequestArgsDict(TypedDict):
+    auth_code: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The code provided by the connector when it has been authenticated via the connected app.
+    """
+    redirect_uri: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The URL to which the authentication server redirects the browser after authorization has been granted.
+    """
 
 @pulumi.input_type
 class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleAnalyticsOauthRequestArgs:
@@ -1264,13 +1223,10 @@ class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsGoogleAna
         pulumi.set(self, "redirect_uri", value)
 
 
-if not MYPY:
-    class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycodeArgsDict(TypedDict):
-        access_token: NotRequired[pulumi.Input[_builtins.str]]
-        oauth_request: NotRequired[pulumi.Input['ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycodeOauthRequestArgsDict']]
-        refresh_token: NotRequired[pulumi.Input[_builtins.str]]
-elif False:
-    ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycodeArgsDict: TypeAlias = Mapping[str, Any]
+class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycodeArgsDict(TypedDict):
+    access_token: NotRequired[pulumi.Input[_builtins.str]]
+    oauth_request: NotRequired[pulumi.Input['ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycodeOauthRequestArgsDict']]
+    refresh_token: NotRequired[pulumi.Input[_builtins.str]]
 
 @pulumi.input_type
 class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycodeArgs:
@@ -1313,18 +1269,15 @@ class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycode
         pulumi.set(self, "refresh_token", value)
 
 
-if not MYPY:
-    class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycodeOauthRequestArgsDict(TypedDict):
-        auth_code: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The code provided by the connector when it has been authenticated via the connected app.
-        """
-        redirect_uri: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The URL to which the authentication server redirects the browser after authorization has been granted.
-        """
-elif False:
-    ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycodeOauthRequestArgsDict: TypeAlias = Mapping[str, Any]
+class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycodeOauthRequestArgsDict(TypedDict):
+    auth_code: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The code provided by the connector when it has been authenticated via the connected app.
+    """
+    redirect_uri: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The URL to which the authentication server redirects the browser after authorization has been granted.
+    """
 
 @pulumi.input_type
 class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycodeOauthRequestArgs:
@@ -1365,26 +1318,23 @@ class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsHoneycode
         pulumi.set(self, "redirect_uri", value)
 
 
-if not MYPY:
-    class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsInforNexusArgsDict(TypedDict):
-        access_key_id: pulumi.Input[_builtins.str]
-        """
-        The Access Key portion of the credentials.
-        """
-        datakey: pulumi.Input[_builtins.str]
-        """
-        Encryption keys used to encrypt data.
-        """
-        secret_access_key: pulumi.Input[_builtins.str]
-        """
-        The secret key used to sign requests.
-        """
-        user_id: pulumi.Input[_builtins.str]
-        """
-        Identifier for the user.
-        """
-elif False:
-    ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsInforNexusArgsDict: TypeAlias = Mapping[str, Any]
+class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsInforNexusArgsDict(TypedDict):
+    access_key_id: pulumi.Input[_builtins.str]
+    """
+    The Access Key portion of the credentials.
+    """
+    datakey: pulumi.Input[_builtins.str]
+    """
+    Encryption keys used to encrypt data.
+    """
+    secret_access_key: pulumi.Input[_builtins.str]
+    """
+    The secret key used to sign requests.
+    """
+    user_id: pulumi.Input[_builtins.str]
+    """
+    Identifier for the user.
+    """
 
 @pulumi.input_type
 class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsInforNexusArgs:
@@ -1453,14 +1403,11 @@ class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsInforNexu
         pulumi.set(self, "user_id", value)
 
 
-if not MYPY:
-    class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketoArgsDict(TypedDict):
-        client_id: pulumi.Input[_builtins.str]
-        client_secret: pulumi.Input[_builtins.str]
-        access_token: NotRequired[pulumi.Input[_builtins.str]]
-        oauth_request: NotRequired[pulumi.Input['ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketoOauthRequestArgsDict']]
-elif False:
-    ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketoArgsDict: TypeAlias = Mapping[str, Any]
+class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketoArgsDict(TypedDict):
+    client_id: pulumi.Input[_builtins.str]
+    client_secret: pulumi.Input[_builtins.str]
+    access_token: NotRequired[pulumi.Input[_builtins.str]]
+    oauth_request: NotRequired[pulumi.Input['ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketoOauthRequestArgsDict']]
 
 @pulumi.input_type
 class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketoArgs:
@@ -1513,18 +1460,15 @@ class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketoAr
         pulumi.set(self, "oauth_request", value)
 
 
-if not MYPY:
-    class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketoOauthRequestArgsDict(TypedDict):
-        auth_code: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The code provided by the connector when it has been authenticated via the connected app.
-        """
-        redirect_uri: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The URL to which the authentication server redirects the browser after authorization has been granted.
-        """
-elif False:
-    ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketoOauthRequestArgsDict: TypeAlias = Mapping[str, Any]
+class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketoOauthRequestArgsDict(TypedDict):
+    auth_code: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The code provided by the connector when it has been authenticated via the connected app.
+    """
+    redirect_uri: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The URL to which the authentication server redirects the browser after authorization has been granted.
+    """
 
 @pulumi.input_type
 class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketoOauthRequestArgs:
@@ -1565,12 +1509,9 @@ class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsMarketoOa
         pulumi.set(self, "redirect_uri", value)
 
 
-if not MYPY:
-    class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsRedshiftArgsDict(TypedDict):
-        password: pulumi.Input[_builtins.str]
-        username: pulumi.Input[_builtins.str]
-elif False:
-    ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsRedshiftArgsDict: TypeAlias = Mapping[str, Any]
+class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsRedshiftArgsDict(TypedDict):
+    password: pulumi.Input[_builtins.str]
+    username: pulumi.Input[_builtins.str]
 
 @pulumi.input_type
 class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsRedshiftArgs:
@@ -1599,22 +1540,19 @@ class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsRedshiftA
         pulumi.set(self, "username", value)
 
 
-if not MYPY:
-    class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforceArgsDict(TypedDict):
-        access_token: NotRequired[pulumi.Input[_builtins.str]]
-        client_credentials_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The secret manager ARN, which contains the client ID and client secret of the connected app.
-        """
-        jwt_token: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A JSON web token (JWT) that authorizes access to Salesforce records.
-        """
-        oauth2_grant_type: NotRequired[pulumi.Input[_builtins.str]]
-        oauth_request: NotRequired[pulumi.Input['ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforceOauthRequestArgsDict']]
-        refresh_token: NotRequired[pulumi.Input[_builtins.str]]
-elif False:
-    ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforceArgsDict: TypeAlias = Mapping[str, Any]
+class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforceArgsDict(TypedDict):
+    access_token: NotRequired[pulumi.Input[_builtins.str]]
+    client_credentials_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The secret manager ARN, which contains the client ID and client secret of the connected app.
+    """
+    jwt_token: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A JSON web token (JWT) that authorizes access to Salesforce records.
+    """
+    oauth2_grant_type: NotRequired[pulumi.Input[_builtins.str]]
+    oauth_request: NotRequired[pulumi.Input['ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforceOauthRequestArgsDict']]
+    refresh_token: NotRequired[pulumi.Input[_builtins.str]]
 
 @pulumi.input_type
 class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforceArgs:
@@ -1703,18 +1641,15 @@ class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforc
         pulumi.set(self, "refresh_token", value)
 
 
-if not MYPY:
-    class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforceOauthRequestArgsDict(TypedDict):
-        auth_code: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The code provided by the connector when it has been authenticated via the connected app.
-        """
-        redirect_uri: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The URL to which the authentication server redirects the browser after authorization has been granted.
-        """
-elif False:
-    ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforceOauthRequestArgsDict: TypeAlias = Mapping[str, Any]
+class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforceOauthRequestArgsDict(TypedDict):
+    auth_code: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The code provided by the connector when it has been authenticated via the connected app.
+    """
+    redirect_uri: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The URL to which the authentication server redirects the browser after authorization has been granted.
+    """
 
 @pulumi.input_type
 class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforceOauthRequestArgs:
@@ -1755,18 +1690,15 @@ class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSalesforc
         pulumi.set(self, "redirect_uri", value)
 
 
-if not MYPY:
-    class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataArgsDict(TypedDict):
-        basic_auth_credentials: NotRequired[pulumi.Input['ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataBasicAuthCredentialsArgsDict']]
-        """
-        The SAPOData basic authentication credentials.
-        """
-        oauth_credentials: NotRequired[pulumi.Input['ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataOauthCredentialsArgsDict']]
-        """
-        The SAPOData OAuth type authentication credentials.
-        """
-elif False:
-    ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataArgsDict: TypeAlias = Mapping[str, Any]
+class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataArgsDict(TypedDict):
+    basic_auth_credentials: NotRequired[pulumi.Input['ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataBasicAuthCredentialsArgsDict']]
+    """
+    The SAPOData basic authentication credentials.
+    """
+    oauth_credentials: NotRequired[pulumi.Input['ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataOauthCredentialsArgsDict']]
+    """
+    The SAPOData OAuth type authentication credentials.
+    """
 
 @pulumi.input_type
 class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataArgs:
@@ -1807,12 +1739,9 @@ class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataA
         pulumi.set(self, "oauth_credentials", value)
 
 
-if not MYPY:
-    class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataBasicAuthCredentialsArgsDict(TypedDict):
-        password: pulumi.Input[_builtins.str]
-        username: pulumi.Input[_builtins.str]
-elif False:
-    ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataBasicAuthCredentialsArgsDict: TypeAlias = Mapping[str, Any]
+class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataBasicAuthCredentialsArgsDict(TypedDict):
+    password: pulumi.Input[_builtins.str]
+    username: pulumi.Input[_builtins.str]
 
 @pulumi.input_type
 class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataBasicAuthCredentialsArgs:
@@ -1841,15 +1770,12 @@ class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataB
         pulumi.set(self, "username", value)
 
 
-if not MYPY:
-    class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataOauthCredentialsArgsDict(TypedDict):
-        client_id: pulumi.Input[_builtins.str]
-        client_secret: pulumi.Input[_builtins.str]
-        access_token: NotRequired[pulumi.Input[_builtins.str]]
-        oauth_request: NotRequired[pulumi.Input['ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataOauthCredentialsOauthRequestArgsDict']]
-        refresh_token: NotRequired[pulumi.Input[_builtins.str]]
-elif False:
-    ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataOauthCredentialsArgsDict: TypeAlias = Mapping[str, Any]
+class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataOauthCredentialsArgsDict(TypedDict):
+    client_id: pulumi.Input[_builtins.str]
+    client_secret: pulumi.Input[_builtins.str]
+    access_token: NotRequired[pulumi.Input[_builtins.str]]
+    oauth_request: NotRequired[pulumi.Input['ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataOauthCredentialsOauthRequestArgsDict']]
+    refresh_token: NotRequired[pulumi.Input[_builtins.str]]
 
 @pulumi.input_type
 class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataOauthCredentialsArgs:
@@ -1914,18 +1840,15 @@ class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataO
         pulumi.set(self, "refresh_token", value)
 
 
-if not MYPY:
-    class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataOauthCredentialsOauthRequestArgsDict(TypedDict):
-        auth_code: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The code provided by the connector when it has been authenticated via the connected app.
-        """
-        redirect_uri: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The URL to which the authentication server redirects the browser after authorization has been granted.
-        """
-elif False:
-    ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataOauthCredentialsOauthRequestArgsDict: TypeAlias = Mapping[str, Any]
+class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataOauthCredentialsOauthRequestArgsDict(TypedDict):
+    auth_code: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The code provided by the connector when it has been authenticated via the connected app.
+    """
+    redirect_uri: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The URL to which the authentication server redirects the browser after authorization has been granted.
+    """
 
 @pulumi.input_type
 class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataOauthCredentialsOauthRequestArgs:
@@ -1966,12 +1889,9 @@ class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSapoDataO
         pulumi.set(self, "redirect_uri", value)
 
 
-if not MYPY:
-    class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsServiceNowArgsDict(TypedDict):
-        password: pulumi.Input[_builtins.str]
-        username: pulumi.Input[_builtins.str]
-elif False:
-    ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsServiceNowArgsDict: TypeAlias = Mapping[str, Any]
+class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsServiceNowArgsDict(TypedDict):
+    password: pulumi.Input[_builtins.str]
+    username: pulumi.Input[_builtins.str]
 
 @pulumi.input_type
 class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsServiceNowArgs:
@@ -2000,11 +1920,8 @@ class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsServiceNo
         pulumi.set(self, "username", value)
 
 
-if not MYPY:
-    class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSingularArgsDict(TypedDict):
-        api_key: pulumi.Input[_builtins.str]
-elif False:
-    ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSingularArgsDict: TypeAlias = Mapping[str, Any]
+class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSingularArgsDict(TypedDict):
+    api_key: pulumi.Input[_builtins.str]
 
 @pulumi.input_type
 class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSingularArgs:
@@ -2022,14 +1939,11 @@ class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSingularA
         pulumi.set(self, "api_key", value)
 
 
-if not MYPY:
-    class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSlackArgsDict(TypedDict):
-        client_id: pulumi.Input[_builtins.str]
-        client_secret: pulumi.Input[_builtins.str]
-        access_token: NotRequired[pulumi.Input[_builtins.str]]
-        oauth_request: NotRequired[pulumi.Input['ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSlackOauthRequestArgsDict']]
-elif False:
-    ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSlackArgsDict: TypeAlias = Mapping[str, Any]
+class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSlackArgsDict(TypedDict):
+    client_id: pulumi.Input[_builtins.str]
+    client_secret: pulumi.Input[_builtins.str]
+    access_token: NotRequired[pulumi.Input[_builtins.str]]
+    oauth_request: NotRequired[pulumi.Input['ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSlackOauthRequestArgsDict']]
 
 @pulumi.input_type
 class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSlackArgs:
@@ -2082,18 +1996,15 @@ class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSlackArgs
         pulumi.set(self, "oauth_request", value)
 
 
-if not MYPY:
-    class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSlackOauthRequestArgsDict(TypedDict):
-        auth_code: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The code provided by the connector when it has been authenticated via the connected app.
-        """
-        redirect_uri: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The URL to which the authentication server redirects the browser after authorization has been granted.
-        """
-elif False:
-    ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSlackOauthRequestArgsDict: TypeAlias = Mapping[str, Any]
+class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSlackOauthRequestArgsDict(TypedDict):
+    auth_code: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The code provided by the connector when it has been authenticated via the connected app.
+    """
+    redirect_uri: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The URL to which the authentication server redirects the browser after authorization has been granted.
+    """
 
 @pulumi.input_type
 class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSlackOauthRequestArgs:
@@ -2134,12 +2045,9 @@ class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSlackOaut
         pulumi.set(self, "redirect_uri", value)
 
 
-if not MYPY:
-    class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSnowflakeArgsDict(TypedDict):
-        password: pulumi.Input[_builtins.str]
-        username: pulumi.Input[_builtins.str]
-elif False:
-    ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSnowflakeArgsDict: TypeAlias = Mapping[str, Any]
+class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSnowflakeArgsDict(TypedDict):
+    password: pulumi.Input[_builtins.str]
+    username: pulumi.Input[_builtins.str]
 
 @pulumi.input_type
 class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSnowflakeArgs:
@@ -2168,11 +2076,8 @@ class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsSnowflake
         pulumi.set(self, "username", value)
 
 
-if not MYPY:
-    class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsTrendmicroArgsDict(TypedDict):
-        api_secret_key: pulumi.Input[_builtins.str]
-elif False:
-    ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsTrendmicroArgsDict: TypeAlias = Mapping[str, Any]
+class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsTrendmicroArgsDict(TypedDict):
+    api_secret_key: pulumi.Input[_builtins.str]
 
 @pulumi.input_type
 class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsTrendmicroArgs:
@@ -2190,12 +2095,9 @@ class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsTrendmicr
         pulumi.set(self, "api_secret_key", value)
 
 
-if not MYPY:
-    class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsVeevaArgsDict(TypedDict):
-        password: pulumi.Input[_builtins.str]
-        username: pulumi.Input[_builtins.str]
-elif False:
-    ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsVeevaArgsDict: TypeAlias = Mapping[str, Any]
+class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsVeevaArgsDict(TypedDict):
+    password: pulumi.Input[_builtins.str]
+    username: pulumi.Input[_builtins.str]
 
 @pulumi.input_type
 class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsVeevaArgs:
@@ -2224,14 +2126,11 @@ class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsVeevaArgs
         pulumi.set(self, "username", value)
 
 
-if not MYPY:
-    class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsZendeskArgsDict(TypedDict):
-        client_id: pulumi.Input[_builtins.str]
-        client_secret: pulumi.Input[_builtins.str]
-        access_token: NotRequired[pulumi.Input[_builtins.str]]
-        oauth_request: NotRequired[pulumi.Input['ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsZendeskOauthRequestArgsDict']]
-elif False:
-    ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsZendeskArgsDict: TypeAlias = Mapping[str, Any]
+class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsZendeskArgsDict(TypedDict):
+    client_id: pulumi.Input[_builtins.str]
+    client_secret: pulumi.Input[_builtins.str]
+    access_token: NotRequired[pulumi.Input[_builtins.str]]
+    oauth_request: NotRequired[pulumi.Input['ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsZendeskOauthRequestArgsDict']]
 
 @pulumi.input_type
 class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsZendeskArgs:
@@ -2284,18 +2183,15 @@ class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsZendeskAr
         pulumi.set(self, "oauth_request", value)
 
 
-if not MYPY:
-    class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsZendeskOauthRequestArgsDict(TypedDict):
-        auth_code: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The code provided by the connector when it has been authenticated via the connected app.
-        """
-        redirect_uri: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The URL to which the authentication server redirects the browser after authorization has been granted.
-        """
-elif False:
-    ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsZendeskOauthRequestArgsDict: TypeAlias = Mapping[str, Any]
+class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsZendeskOauthRequestArgsDict(TypedDict):
+    auth_code: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The code provided by the connector when it has been authenticated via the connected app.
+    """
+    redirect_uri: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The URL to which the authentication server redirects the browser after authorization has been granted.
+    """
 
 @pulumi.input_type
 class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsZendeskOauthRequestArgs:
@@ -2336,82 +2232,79 @@ class ConnectorProfileConnectorProfileConfigConnectorProfileCredentialsZendeskOa
         pulumi.set(self, "redirect_uri", value)
 
 
-if not MYPY:
-    class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesArgsDict(TypedDict):
-        amplitude: NotRequired[pulumi.Input['ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesAmplitudeArgsDict']]
-        """
-        The connector-specific credentials required when using Amplitude. See Amplitude Connector Profile Credentials for more details.
-        """
-        custom_connector: NotRequired[pulumi.Input['ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnectorArgsDict']]
-        """
-        The connector-specific profile properties required when using the custom connector. See Custom Connector Profile Properties for more details.
-        """
-        datadog: NotRequired[pulumi.Input['ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesDatadogArgsDict']]
-        """
-        Connector-specific properties required when using Datadog. See Generic Connector Profile Properties for more details.
-        """
-        dynatrace: NotRequired[pulumi.Input['ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesDynatraceArgsDict']]
-        """
-        The connector-specific properties required when using Dynatrace. See Generic Connector Profile Properties for more details.
-        """
-        google_analytics: NotRequired[pulumi.Input['ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesGoogleAnalyticsArgsDict']]
-        """
-        The connector-specific credentials required when using Google Analytics. See Google Analytics Connector Profile Credentials for more details.
-        """
-        honeycode: NotRequired[pulumi.Input['ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesHoneycodeArgsDict']]
-        """
-        The connector-specific credentials required when using Amazon Honeycode. See Honeycode Connector Profile Credentials for more details.
-        """
-        infor_nexus: NotRequired[pulumi.Input['ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesInforNexusArgsDict']]
-        """
-        The connector-specific properties required when using Infor Nexus. See Generic Connector Profile Properties for more details.
-        """
-        marketo: NotRequired[pulumi.Input['ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesMarketoArgsDict']]
-        """
-        Connector-specific properties required when using Marketo. See Generic Connector Profile Properties for more details.
-        """
-        redshift: NotRequired[pulumi.Input['ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesRedshiftArgsDict']]
-        """
-        Connector-specific properties required when using Amazon Redshift. See Redshift Connector Profile Properties for more details.
-        """
-        salesforce: NotRequired[pulumi.Input['ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSalesforceArgsDict']]
-        """
-        The connector-specific properties required when using Salesforce. See Salesforce Connector Profile Properties for more details.
-        """
-        sapo_data: NotRequired[pulumi.Input['ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataArgsDict']]
-        """
-        The connector-specific properties required when using SAPOData. See SAPOData Connector Profile Properties for more details.
-        """
-        service_now: NotRequired[pulumi.Input['ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesServiceNowArgsDict']]
-        """
-        The connector-specific properties required when using ServiceNow. See Generic Connector Profile Properties for more details.
-        """
-        singular: NotRequired[pulumi.Input['ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSingularArgsDict']]
-        """
-        Connector-specific credentials required when using Singular. See Singular Connector Profile Credentials for more details.
-        """
-        slack: NotRequired[pulumi.Input['ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSlackArgsDict']]
-        """
-        Connector-specific properties required when using Slack. See Generic Connector Profile Properties for more details.
-        """
-        snowflake: NotRequired[pulumi.Input['ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSnowflakeArgsDict']]
-        """
-        The connector-specific properties required when using Snowflake. See Snowflake Connector Profile Properties for more details.
-        """
-        trendmicro: NotRequired[pulumi.Input['ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesTrendmicroArgsDict']]
-        """
-        The connector-specific credentials required when using Trend Micro. See Trend Micro Connector Profile Credentials for more details.
-        """
-        veeva: NotRequired[pulumi.Input['ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesVeevaArgsDict']]
-        """
-        Connector-specific properties required when using Veeva. See Generic Connector Profile Properties for more details.
-        """
-        zendesk: NotRequired[pulumi.Input['ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesZendeskArgsDict']]
-        """
-        Connector-specific properties required when using Zendesk. See Generic Connector Profile Properties for more details.
-        """
-elif False:
-    ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesArgsDict(TypedDict):
+    amplitude: NotRequired[pulumi.Input['ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesAmplitudeArgsDict']]
+    """
+    The connector-specific credentials required when using Amplitude. See Amplitude Connector Profile Credentials for more details.
+    """
+    custom_connector: NotRequired[pulumi.Input['ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnectorArgsDict']]
+    """
+    The connector-specific profile properties required when using the custom connector. See Custom Connector Profile Properties for more details.
+    """
+    datadog: NotRequired[pulumi.Input['ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesDatadogArgsDict']]
+    """
+    Connector-specific properties required when using Datadog. See Generic Connector Profile Properties for more details.
+    """
+    dynatrace: NotRequired[pulumi.Input['ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesDynatraceArgsDict']]
+    """
+    The connector-specific properties required when using Dynatrace. See Generic Connector Profile Properties for more details.
+    """
+    google_analytics: NotRequired[pulumi.Input['ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesGoogleAnalyticsArgsDict']]
+    """
+    The connector-specific credentials required when using Google Analytics. See Google Analytics Connector Profile Credentials for more details.
+    """
+    honeycode: NotRequired[pulumi.Input['ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesHoneycodeArgsDict']]
+    """
+    The connector-specific credentials required when using Amazon Honeycode. See Honeycode Connector Profile Credentials for more details.
+    """
+    infor_nexus: NotRequired[pulumi.Input['ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesInforNexusArgsDict']]
+    """
+    The connector-specific properties required when using Infor Nexus. See Generic Connector Profile Properties for more details.
+    """
+    marketo: NotRequired[pulumi.Input['ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesMarketoArgsDict']]
+    """
+    Connector-specific properties required when using Marketo. See Generic Connector Profile Properties for more details.
+    """
+    redshift: NotRequired[pulumi.Input['ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesRedshiftArgsDict']]
+    """
+    Connector-specific properties required when using Amazon Redshift. See Redshift Connector Profile Properties for more details.
+    """
+    salesforce: NotRequired[pulumi.Input['ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSalesforceArgsDict']]
+    """
+    The connector-specific properties required when using Salesforce. See Salesforce Connector Profile Properties for more details.
+    """
+    sapo_data: NotRequired[pulumi.Input['ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataArgsDict']]
+    """
+    The connector-specific properties required when using SAPOData. See SAPOData Connector Profile Properties for more details.
+    """
+    service_now: NotRequired[pulumi.Input['ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesServiceNowArgsDict']]
+    """
+    The connector-specific properties required when using ServiceNow. See Generic Connector Profile Properties for more details.
+    """
+    singular: NotRequired[pulumi.Input['ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSingularArgsDict']]
+    """
+    Connector-specific credentials required when using Singular. See Singular Connector Profile Credentials for more details.
+    """
+    slack: NotRequired[pulumi.Input['ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSlackArgsDict']]
+    """
+    Connector-specific properties required when using Slack. See Generic Connector Profile Properties for more details.
+    """
+    snowflake: NotRequired[pulumi.Input['ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSnowflakeArgsDict']]
+    """
+    The connector-specific properties required when using Snowflake. See Snowflake Connector Profile Properties for more details.
+    """
+    trendmicro: NotRequired[pulumi.Input['ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesTrendmicroArgsDict']]
+    """
+    The connector-specific credentials required when using Trend Micro. See Trend Micro Connector Profile Credentials for more details.
+    """
+    veeva: NotRequired[pulumi.Input['ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesVeevaArgsDict']]
+    """
+    Connector-specific properties required when using Veeva. See Generic Connector Profile Properties for more details.
+    """
+    zendesk: NotRequired[pulumi.Input['ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesZendeskArgsDict']]
+    """
+    Connector-specific properties required when using Zendesk. See Generic Connector Profile Properties for more details.
+    """
 
 @pulumi.input_type
 class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesArgs:
@@ -2708,11 +2601,8 @@ class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesArgs:
         pulumi.set(self, "zendesk", value)
 
 
-if not MYPY:
-    class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesAmplitudeArgsDict(TypedDict):
-        pass
-elif False:
-    ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesAmplitudeArgsDict: TypeAlias = Mapping[str, Any]
+class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesAmplitudeArgsDict(TypedDict):
+    pass
 
 @pulumi.input_type
 class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesAmplitudeArgs:
@@ -2720,18 +2610,15 @@ class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesAmplitudeA
         pass
 
 
-if not MYPY:
-    class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnectorArgsDict(TypedDict):
-        oauth2_properties: NotRequired[pulumi.Input['ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnectorOauth2PropertiesArgsDict']]
-        """
-        The OAuth 2.0 properties required for OAuth 2.0 authentication.
-        """
-        profile_properties: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
-        """
-        A map of properties that are required to create a profile for the custom connector.
-        """
-elif False:
-    ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnectorArgsDict: TypeAlias = Mapping[str, Any]
+class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnectorArgsDict(TypedDict):
+    oauth2_properties: NotRequired[pulumi.Input['ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnectorOauth2PropertiesArgsDict']]
+    """
+    The OAuth 2.0 properties required for OAuth 2.0 authentication.
+    """
+    profile_properties: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    """
+    A map of properties that are required to create a profile for the custom connector.
+    """
 
 @pulumi.input_type
 class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnectorArgs:
@@ -2772,16 +2659,13 @@ class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConn
         pulumi.set(self, "profile_properties", value)
 
 
-if not MYPY:
-    class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnectorOauth2PropertiesArgsDict(TypedDict):
-        oauth2_grant_type: pulumi.Input[_builtins.str]
-        token_url: pulumi.Input[_builtins.str]
-        token_url_custom_properties: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
-        """
-        Associates your token URL with a map of properties that you define. Use this parameter to provide any additional details that the connector requires to authenticate your request.
-        """
-elif False:
-    ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnectorOauth2PropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnectorOauth2PropertiesArgsDict(TypedDict):
+    oauth2_grant_type: pulumi.Input[_builtins.str]
+    token_url: pulumi.Input[_builtins.str]
+    token_url_custom_properties: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    """
+    Associates your token URL with a map of properties that you define. Use this parameter to provide any additional details that the connector requires to authenticate your request.
+    """
 
 @pulumi.input_type
 class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConnectorOauth2PropertiesArgs:
@@ -2828,11 +2712,8 @@ class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesCustomConn
         pulumi.set(self, "token_url_custom_properties", value)
 
 
-if not MYPY:
-    class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesDatadogArgsDict(TypedDict):
-        instance_url: pulumi.Input[_builtins.str]
-elif False:
-    ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesDatadogArgsDict: TypeAlias = Mapping[str, Any]
+class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesDatadogArgsDict(TypedDict):
+    instance_url: pulumi.Input[_builtins.str]
 
 @pulumi.input_type
 class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesDatadogArgs:
@@ -2850,11 +2731,8 @@ class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesDatadogArg
         pulumi.set(self, "instance_url", value)
 
 
-if not MYPY:
-    class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesDynatraceArgsDict(TypedDict):
-        instance_url: pulumi.Input[_builtins.str]
-elif False:
-    ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesDynatraceArgsDict: TypeAlias = Mapping[str, Any]
+class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesDynatraceArgsDict(TypedDict):
+    instance_url: pulumi.Input[_builtins.str]
 
 @pulumi.input_type
 class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesDynatraceArgs:
@@ -2872,11 +2750,8 @@ class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesDynatraceA
         pulumi.set(self, "instance_url", value)
 
 
-if not MYPY:
-    class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesGoogleAnalyticsArgsDict(TypedDict):
-        pass
-elif False:
-    ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesGoogleAnalyticsArgsDict: TypeAlias = Mapping[str, Any]
+class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesGoogleAnalyticsArgsDict(TypedDict):
+    pass
 
 @pulumi.input_type
 class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesGoogleAnalyticsArgs:
@@ -2884,11 +2759,8 @@ class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesGoogleAnal
         pass
 
 
-if not MYPY:
-    class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesHoneycodeArgsDict(TypedDict):
-        pass
-elif False:
-    ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesHoneycodeArgsDict: TypeAlias = Mapping[str, Any]
+class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesHoneycodeArgsDict(TypedDict):
+    pass
 
 @pulumi.input_type
 class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesHoneycodeArgs:
@@ -2896,11 +2768,8 @@ class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesHoneycodeA
         pass
 
 
-if not MYPY:
-    class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesInforNexusArgsDict(TypedDict):
-        instance_url: pulumi.Input[_builtins.str]
-elif False:
-    ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesInforNexusArgsDict: TypeAlias = Mapping[str, Any]
+class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesInforNexusArgsDict(TypedDict):
+    instance_url: pulumi.Input[_builtins.str]
 
 @pulumi.input_type
 class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesInforNexusArgs:
@@ -2918,11 +2787,8 @@ class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesInforNexus
         pulumi.set(self, "instance_url", value)
 
 
-if not MYPY:
-    class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesMarketoArgsDict(TypedDict):
-        instance_url: pulumi.Input[_builtins.str]
-elif False:
-    ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesMarketoArgsDict: TypeAlias = Mapping[str, Any]
+class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesMarketoArgsDict(TypedDict):
+    instance_url: pulumi.Input[_builtins.str]
 
 @pulumi.input_type
 class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesMarketoArgs:
@@ -2940,32 +2806,29 @@ class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesMarketoArg
         pulumi.set(self, "instance_url", value)
 
 
-if not MYPY:
-    class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesRedshiftArgsDict(TypedDict):
-        bucket_name: pulumi.Input[_builtins.str]
-        role_arn: pulumi.Input[_builtins.str]
-        """
-        ARN of the IAM role.
-        """
-        bucket_prefix: NotRequired[pulumi.Input[_builtins.str]]
-        cluster_identifier: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The unique ID that's assigned to an Amazon Redshift cluster.
-        """
-        data_api_role_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        ARN of the IAM role that permits AppFlow to access the database through Data API.
-        """
-        database_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of an Amazon Redshift database.
-        """
-        database_url: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The JDBC URL of the Amazon Redshift cluster.
-        """
-elif False:
-    ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesRedshiftArgsDict: TypeAlias = Mapping[str, Any]
+class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesRedshiftArgsDict(TypedDict):
+    bucket_name: pulumi.Input[_builtins.str]
+    role_arn: pulumi.Input[_builtins.str]
+    """
+    ARN of the IAM role.
+    """
+    bucket_prefix: NotRequired[pulumi.Input[_builtins.str]]
+    cluster_identifier: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The unique ID that's assigned to an Amazon Redshift cluster.
+    """
+    data_api_role_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    ARN of the IAM role that permits AppFlow to access the database through Data API.
+    """
+    database_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of an Amazon Redshift database.
+    """
+    database_url: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The JDBC URL of the Amazon Redshift cluster.
+    """
 
 @pulumi.input_type
 class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesRedshiftArgs:
@@ -3076,19 +2939,16 @@ class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesRedshiftAr
         pulumi.set(self, "database_url", value)
 
 
-if not MYPY:
-    class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSalesforceArgsDict(TypedDict):
-        instance_url: NotRequired[pulumi.Input[_builtins.str]]
-        is_sandbox_environment: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Indicates whether the connector profile applies to a sandbox or production environment.
-        """
-        use_privatelink_for_metadata_and_authorization: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Indicates whether Amazon AppFlow uses the private network to send metadata and authorization calls to Salesforce. Amazon AppFlow sends private calls through AWS PrivateLink. These calls travel through AWS infrastructure without being exposed to the public internet.
-        """
-elif False:
-    ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSalesforceArgsDict: TypeAlias = Mapping[str, Any]
+class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSalesforceArgsDict(TypedDict):
+    instance_url: NotRequired[pulumi.Input[_builtins.str]]
+    is_sandbox_environment: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Indicates whether the connector profile applies to a sandbox or production environment.
+    """
+    use_privatelink_for_metadata_and_authorization: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Indicates whether Amazon AppFlow uses the private network to send metadata and authorization calls to Salesforce. Amazon AppFlow sends private calls through AWS PrivateLink. These calls travel through AWS infrastructure without being exposed to the public internet.
+    """
 
 @pulumi.input_type
 class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSalesforceArgs:
@@ -3141,35 +3001,32 @@ class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSalesforce
         pulumi.set(self, "use_privatelink_for_metadata_and_authorization", value)
 
 
-if not MYPY:
-    class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataArgsDict(TypedDict):
-        application_host_url: pulumi.Input[_builtins.str]
-        """
-        The location of the SAPOData resource.
-        """
-        application_service_path: pulumi.Input[_builtins.str]
-        """
-        The application path to catalog service.
-        """
-        client_number: pulumi.Input[_builtins.str]
-        """
-        The client number for the client creating the connection.
-        """
-        port_number: pulumi.Input[_builtins.int]
-        """
-        The port number of the SAPOData instance.
-        """
-        logon_language: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The logon language of SAPOData instance.
-        """
-        oauth_properties: NotRequired[pulumi.Input['ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataOauthPropertiesArgsDict']]
-        """
-        The SAPOData OAuth properties required for OAuth type authentication.
-        """
-        private_link_service_name: NotRequired[pulumi.Input[_builtins.str]]
-elif False:
-    ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataArgsDict: TypeAlias = Mapping[str, Any]
+class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataArgsDict(TypedDict):
+    application_host_url: pulumi.Input[_builtins.str]
+    """
+    The location of the SAPOData resource.
+    """
+    application_service_path: pulumi.Input[_builtins.str]
+    """
+    The application path to catalog service.
+    """
+    client_number: pulumi.Input[_builtins.str]
+    """
+    The client number for the client creating the connection.
+    """
+    port_number: pulumi.Input[_builtins.int]
+    """
+    The port number of the SAPOData instance.
+    """
+    logon_language: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The logon language of SAPOData instance.
+    """
+    oauth_properties: NotRequired[pulumi.Input['ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataOauthPropertiesArgsDict']]
+    """
+    The SAPOData OAuth properties required for OAuth type authentication.
+    """
+    private_link_service_name: NotRequired[pulumi.Input[_builtins.str]]
 
 @pulumi.input_type
 class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataArgs:
@@ -3282,19 +3139,16 @@ class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataAr
         pulumi.set(self, "private_link_service_name", value)
 
 
-if not MYPY:
-    class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataOauthPropertiesArgsDict(TypedDict):
-        auth_code_url: pulumi.Input[_builtins.str]
-        """
-        The authorization code url required to redirect to SAP Login Page to fetch authorization code for OAuth type authentication.
-        """
-        oauth_scopes: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        The OAuth scopes required for OAuth type authentication.
-        """
-        token_url: pulumi.Input[_builtins.str]
-elif False:
-    ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataOauthPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataOauthPropertiesArgsDict(TypedDict):
+    auth_code_url: pulumi.Input[_builtins.str]
+    """
+    The authorization code url required to redirect to SAP Login Page to fetch authorization code for OAuth type authentication.
+    """
+    oauth_scopes: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    The OAuth scopes required for OAuth type authentication.
+    """
+    token_url: pulumi.Input[_builtins.str]
 
 @pulumi.input_type
 class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataOauthPropertiesArgs:
@@ -3344,11 +3198,8 @@ class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSapoDataOa
         pulumi.set(self, "token_url", value)
 
 
-if not MYPY:
-    class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesServiceNowArgsDict(TypedDict):
-        instance_url: pulumi.Input[_builtins.str]
-elif False:
-    ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesServiceNowArgsDict: TypeAlias = Mapping[str, Any]
+class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesServiceNowArgsDict(TypedDict):
+    instance_url: pulumi.Input[_builtins.str]
 
 @pulumi.input_type
 class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesServiceNowArgs:
@@ -3366,11 +3217,8 @@ class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesServiceNow
         pulumi.set(self, "instance_url", value)
 
 
-if not MYPY:
-    class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSingularArgsDict(TypedDict):
-        pass
-elif False:
-    ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSingularArgsDict: TypeAlias = Mapping[str, Any]
+class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSingularArgsDict(TypedDict):
+    pass
 
 @pulumi.input_type
 class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSingularArgs:
@@ -3378,11 +3226,8 @@ class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSingularAr
         pass
 
 
-if not MYPY:
-    class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSlackArgsDict(TypedDict):
-        instance_url: pulumi.Input[_builtins.str]
-elif False:
-    ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSlackArgsDict: TypeAlias = Mapping[str, Any]
+class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSlackArgsDict(TypedDict):
+    instance_url: pulumi.Input[_builtins.str]
 
 @pulumi.input_type
 class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSlackArgs:
@@ -3400,30 +3245,27 @@ class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSlackArgs:
         pulumi.set(self, "instance_url", value)
 
 
-if not MYPY:
-    class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSnowflakeArgsDict(TypedDict):
-        bucket_name: pulumi.Input[_builtins.str]
-        stage: pulumi.Input[_builtins.str]
-        """
-        Name of the Amazon S3 stage that was created while setting up an Amazon S3 stage in the Snowflake account. This is written in the following format: `<Database>.<Schema>.<Stage Name>`.
-        """
-        warehouse: pulumi.Input[_builtins.str]
-        """
-        The name of the Snowflake warehouse.
-        """
-        account_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the account.
-        """
-        bucket_prefix: NotRequired[pulumi.Input[_builtins.str]]
-        private_link_service_name: NotRequired[pulumi.Input[_builtins.str]]
-        region: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        * `name ` (Required) - Name of the connector profile. The name is unique for each `ConnectorProfile` in your AWS account.
-        """
-elif False:
-    ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSnowflakeArgsDict: TypeAlias = Mapping[str, Any]
+class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSnowflakeArgsDict(TypedDict):
+    bucket_name: pulumi.Input[_builtins.str]
+    stage: pulumi.Input[_builtins.str]
+    """
+    Name of the Amazon S3 stage that was created while setting up an Amazon S3 stage in the Snowflake account. This is written in the following format: `<Database>.<Schema>.<Stage Name>`.
+    """
+    warehouse: pulumi.Input[_builtins.str]
+    """
+    The name of the Snowflake warehouse.
+    """
+    account_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the account.
+    """
+    bucket_prefix: NotRequired[pulumi.Input[_builtins.str]]
+    private_link_service_name: NotRequired[pulumi.Input[_builtins.str]]
+    region: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    * `name ` (Required) - Name of the connector profile. The name is unique for each `ConnectorProfile` in your AWS account.
+    """
 
 @pulumi.input_type
 class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSnowflakeArgs:
@@ -3531,11 +3373,8 @@ class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesSnowflakeA
         pulumi.set(self, "region", value)
 
 
-if not MYPY:
-    class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesTrendmicroArgsDict(TypedDict):
-        pass
-elif False:
-    ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesTrendmicroArgsDict: TypeAlias = Mapping[str, Any]
+class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesTrendmicroArgsDict(TypedDict):
+    pass
 
 @pulumi.input_type
 class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesTrendmicroArgs:
@@ -3543,11 +3382,8 @@ class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesTrendmicro
         pass
 
 
-if not MYPY:
-    class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesVeevaArgsDict(TypedDict):
-        instance_url: pulumi.Input[_builtins.str]
-elif False:
-    ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesVeevaArgsDict: TypeAlias = Mapping[str, Any]
+class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesVeevaArgsDict(TypedDict):
+    instance_url: pulumi.Input[_builtins.str]
 
 @pulumi.input_type
 class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesVeevaArgs:
@@ -3565,11 +3401,8 @@ class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesVeevaArgs:
         pulumi.set(self, "instance_url", value)
 
 
-if not MYPY:
-    class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesZendeskArgsDict(TypedDict):
-        instance_url: pulumi.Input[_builtins.str]
-elif False:
-    ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesZendeskArgsDict: TypeAlias = Mapping[str, Any]
+class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesZendeskArgsDict(TypedDict):
+    instance_url: pulumi.Input[_builtins.str]
 
 @pulumi.input_type
 class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesZendeskArgs:
@@ -3587,26 +3420,23 @@ class ConnectorProfileConnectorProfileConfigConnectorProfilePropertiesZendeskArg
         pulumi.set(self, "instance_url", value)
 
 
-if not MYPY:
-    class FlowDestinationFlowConfigArgsDict(TypedDict):
-        connector_type: pulumi.Input[_builtins.str]
-        """
-        Type of connector, such as Salesforce, Amplitude, and so on. Valid values are `Salesforce`, `Singular`, `Slack`, `Redshift`, `S3`, `Marketo`, `Googleanalytics`, `Zendesk`, `Servicenow`, `Datadog`, `Trendmicro`, `Snowflake`, `Dynatrace`, `Infornexus`, `Amplitude`, `Veeva`, `EventBridge`, `LookoutMetrics`, `Upsolver`, `Honeycode`, `CustomerProfiles`, `SAPOData`, and `CustomConnector`.
-        """
-        destination_connector_properties: pulumi.Input['FlowDestinationFlowConfigDestinationConnectorPropertiesArgsDict']
-        """
-        This stores the information that is required to query a particular connector. See Destination Connector Properties for more information.
-        """
-        api_version: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        API version that the destination connector uses.
-        """
-        connector_profile_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Name of the connector profile. This name must be unique for each connector profile in the AWS account.
-        """
-elif False:
-    FlowDestinationFlowConfigArgsDict: TypeAlias = Mapping[str, Any]
+class FlowDestinationFlowConfigArgsDict(TypedDict):
+    connector_type: pulumi.Input[_builtins.str]
+    """
+    Type of connector, such as Salesforce, Amplitude, and so on. Valid values are `Salesforce`, `Singular`, `Slack`, `Redshift`, `S3`, `Marketo`, `Googleanalytics`, `Zendesk`, `Servicenow`, `Datadog`, `Trendmicro`, `Snowflake`, `Dynatrace`, `Infornexus`, `Amplitude`, `Veeva`, `EventBridge`, `LookoutMetrics`, `Upsolver`, `Honeycode`, `CustomerProfiles`, `SAPOData`, and `CustomConnector`.
+    """
+    destination_connector_properties: pulumi.Input['FlowDestinationFlowConfigDestinationConnectorPropertiesArgsDict']
+    """
+    This stores the information that is required to query a particular connector. See Destination Connector Properties for more information.
+    """
+    api_version: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    API version that the destination connector uses.
+    """
+    connector_profile_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Name of the connector profile. This name must be unique for each connector profile in the AWS account.
+    """
 
 @pulumi.input_type
 class FlowDestinationFlowConfigArgs:
@@ -3677,59 +3507,56 @@ class FlowDestinationFlowConfigArgs:
         pulumi.set(self, "connector_profile_name", value)
 
 
-if not MYPY:
-    class FlowDestinationFlowConfigDestinationConnectorPropertiesArgsDict(TypedDict):
-        custom_connector: NotRequired[pulumi.Input['FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorArgsDict']]
-        """
-        Properties that are required to query the custom Connector. See Custom Connector Destination Properties for more details.
-        """
-        customer_profiles: NotRequired[pulumi.Input['FlowDestinationFlowConfigDestinationConnectorPropertiesCustomerProfilesArgsDict']]
-        """
-        Properties that are required to query Amazon Connect Customer Profiles. See Customer Profiles Destination Properties for more details.
-        """
-        event_bridge: NotRequired[pulumi.Input['FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridgeArgsDict']]
-        """
-        Properties that are required to query Amazon EventBridge. See Generic Destination Properties for more details.
-        """
-        honeycode: NotRequired[pulumi.Input['FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodeArgsDict']]
-        """
-        Properties that are required to query Amazon Honeycode. See Generic Destination Properties for more details.
-        """
-        lookout_metrics: NotRequired[pulumi.Input['FlowDestinationFlowConfigDestinationConnectorPropertiesLookoutMetricsArgsDict']]
-        marketo: NotRequired[pulumi.Input['FlowDestinationFlowConfigDestinationConnectorPropertiesMarketoArgsDict']]
-        """
-        Properties that are required to query Marketo. See Generic Destination Properties for more details.
-        """
-        redshift: NotRequired[pulumi.Input['FlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftArgsDict']]
-        """
-        Properties that are required to query Amazon Redshift. See Redshift Destination Properties for more details.
-        """
-        s3: NotRequired[pulumi.Input['FlowDestinationFlowConfigDestinationConnectorPropertiesS3ArgsDict']]
-        """
-        Properties that are required to query Amazon S3. See S3 Destination Properties for more details.
-        """
-        salesforce: NotRequired[pulumi.Input['FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceArgsDict']]
-        """
-        Properties that are required to query Salesforce. See Salesforce Destination Properties for more details.
-        """
-        sapo_data: NotRequired[pulumi.Input['FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataArgsDict']]
-        """
-        Properties that are required to query SAPOData. See SAPOData Destination Properties for more details.
-        """
-        snowflake: NotRequired[pulumi.Input['FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakeArgsDict']]
-        """
-        Properties that are required to query Snowflake. See Snowflake Destination Properties for more details.
-        """
-        upsolver: NotRequired[pulumi.Input['FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverArgsDict']]
-        """
-        Properties that are required to query Upsolver. See Upsolver Destination Properties for more details.
-        """
-        zendesk: NotRequired[pulumi.Input['FlowDestinationFlowConfigDestinationConnectorPropertiesZendeskArgsDict']]
-        """
-        Properties that are required to query Zendesk. See Zendesk Destination Properties for more details.
-        """
-elif False:
-    FlowDestinationFlowConfigDestinationConnectorPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class FlowDestinationFlowConfigDestinationConnectorPropertiesArgsDict(TypedDict):
+    custom_connector: NotRequired[pulumi.Input['FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorArgsDict']]
+    """
+    Properties that are required to query the custom Connector. See Custom Connector Destination Properties for more details.
+    """
+    customer_profiles: NotRequired[pulumi.Input['FlowDestinationFlowConfigDestinationConnectorPropertiesCustomerProfilesArgsDict']]
+    """
+    Properties that are required to query Amazon Connect Customer Profiles. See Customer Profiles Destination Properties for more details.
+    """
+    event_bridge: NotRequired[pulumi.Input['FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridgeArgsDict']]
+    """
+    Properties that are required to query Amazon EventBridge. See Generic Destination Properties for more details.
+    """
+    honeycode: NotRequired[pulumi.Input['FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodeArgsDict']]
+    """
+    Properties that are required to query Amazon Honeycode. See Generic Destination Properties for more details.
+    """
+    lookout_metrics: NotRequired[pulumi.Input['FlowDestinationFlowConfigDestinationConnectorPropertiesLookoutMetricsArgsDict']]
+    marketo: NotRequired[pulumi.Input['FlowDestinationFlowConfigDestinationConnectorPropertiesMarketoArgsDict']]
+    """
+    Properties that are required to query Marketo. See Generic Destination Properties for more details.
+    """
+    redshift: NotRequired[pulumi.Input['FlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftArgsDict']]
+    """
+    Properties that are required to query Amazon Redshift. See Redshift Destination Properties for more details.
+    """
+    s3: NotRequired[pulumi.Input['FlowDestinationFlowConfigDestinationConnectorPropertiesS3ArgsDict']]
+    """
+    Properties that are required to query Amazon S3. See S3 Destination Properties for more details.
+    """
+    salesforce: NotRequired[pulumi.Input['FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceArgsDict']]
+    """
+    Properties that are required to query Salesforce. See Salesforce Destination Properties for more details.
+    """
+    sapo_data: NotRequired[pulumi.Input['FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataArgsDict']]
+    """
+    Properties that are required to query SAPOData. See SAPOData Destination Properties for more details.
+    """
+    snowflake: NotRequired[pulumi.Input['FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakeArgsDict']]
+    """
+    Properties that are required to query Snowflake. See Snowflake Destination Properties for more details.
+    """
+    upsolver: NotRequired[pulumi.Input['FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverArgsDict']]
+    """
+    Properties that are required to query Upsolver. See Upsolver Destination Properties for more details.
+    """
+    zendesk: NotRequired[pulumi.Input['FlowDestinationFlowConfigDestinationConnectorPropertiesZendeskArgsDict']]
+    """
+    Properties that are required to query Zendesk. See Zendesk Destination Properties for more details.
+    """
 
 @pulumi.input_type
 class FlowDestinationFlowConfigDestinationConnectorPropertiesArgs:
@@ -3942,15 +3769,12 @@ class FlowDestinationFlowConfigDestinationConnectorPropertiesArgs:
         pulumi.set(self, "zendesk", value)
 
 
-if not MYPY:
-    class FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorArgsDict(TypedDict):
-        entity_name: pulumi.Input[_builtins.str]
-        custom_properties: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
-        error_handling_config: NotRequired[pulumi.Input['FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorErrorHandlingConfigArgsDict']]
-        id_field_names: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        write_operation_type: NotRequired[pulumi.Input[_builtins.str]]
-elif False:
-    FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorArgsDict: TypeAlias = Mapping[str, Any]
+class FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorArgsDict(TypedDict):
+    entity_name: pulumi.Input[_builtins.str]
+    custom_properties: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    error_handling_config: NotRequired[pulumi.Input['FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorErrorHandlingConfigArgsDict']]
+    id_field_names: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    write_operation_type: NotRequired[pulumi.Input[_builtins.str]]
 
 @pulumi.input_type
 class FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorArgs:
@@ -4016,22 +3840,19 @@ class FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorArgs
         pulumi.set(self, "write_operation_type", value)
 
 
-if not MYPY:
-    class FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorErrorHandlingConfigArgsDict(TypedDict):
-        bucket_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Name of the Amazon S3 bucket.
-        """
-        bucket_prefix: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Amazon S3 bucket prefix.
-        """
-        fail_on_first_destination_error: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        If the flow should fail after the first instance of a failure when attempting to place data in the destination.
-        """
-elif False:
-    FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorErrorHandlingConfigArgsDict: TypeAlias = Mapping[str, Any]
+class FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorErrorHandlingConfigArgsDict(TypedDict):
+    bucket_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Name of the Amazon S3 bucket.
+    """
+    bucket_prefix: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Amazon S3 bucket prefix.
+    """
+    fail_on_first_destination_error: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    If the flow should fail after the first instance of a failure when attempting to place data in the destination.
+    """
 
 @pulumi.input_type
 class FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorErrorHandlingConfigArgs:
@@ -4088,18 +3909,15 @@ class FlowDestinationFlowConfigDestinationConnectorPropertiesCustomConnectorErro
         pulumi.set(self, "fail_on_first_destination_error", value)
 
 
-if not MYPY:
-    class FlowDestinationFlowConfigDestinationConnectorPropertiesCustomerProfilesArgsDict(TypedDict):
-        domain_name: pulumi.Input[_builtins.str]
-        """
-        Unique name of the Amazon Connect Customer Profiles domain.
-        """
-        object_type_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Object specified in the Amazon Connect Customer Profiles flow destination.
-        """
-elif False:
-    FlowDestinationFlowConfigDestinationConnectorPropertiesCustomerProfilesArgsDict: TypeAlias = Mapping[str, Any]
+class FlowDestinationFlowConfigDestinationConnectorPropertiesCustomerProfilesArgsDict(TypedDict):
+    domain_name: pulumi.Input[_builtins.str]
+    """
+    Unique name of the Amazon Connect Customer Profiles domain.
+    """
+    object_type_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Object specified in the Amazon Connect Customer Profiles flow destination.
+    """
 
 @pulumi.input_type
 class FlowDestinationFlowConfigDestinationConnectorPropertiesCustomerProfilesArgs:
@@ -4139,12 +3957,9 @@ class FlowDestinationFlowConfigDestinationConnectorPropertiesCustomerProfilesArg
         pulumi.set(self, "object_type_name", value)
 
 
-if not MYPY:
-    class FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridgeArgsDict(TypedDict):
-        object: pulumi.Input[_builtins.str]
-        error_handling_config: NotRequired[pulumi.Input['FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridgeErrorHandlingConfigArgsDict']]
-elif False:
-    FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridgeArgsDict: TypeAlias = Mapping[str, Any]
+class FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridgeArgsDict(TypedDict):
+    object: pulumi.Input[_builtins.str]
+    error_handling_config: NotRequired[pulumi.Input['FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridgeErrorHandlingConfigArgsDict']]
 
 @pulumi.input_type
 class FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridgeArgs:
@@ -4174,22 +3989,19 @@ class FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridgeArgs:
         pulumi.set(self, "error_handling_config", value)
 
 
-if not MYPY:
-    class FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridgeErrorHandlingConfigArgsDict(TypedDict):
-        bucket_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Name of the Amazon S3 bucket.
-        """
-        bucket_prefix: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Amazon S3 bucket prefix.
-        """
-        fail_on_first_destination_error: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        If the flow should fail after the first instance of a failure when attempting to place data in the destination.
-        """
-elif False:
-    FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridgeErrorHandlingConfigArgsDict: TypeAlias = Mapping[str, Any]
+class FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridgeErrorHandlingConfigArgsDict(TypedDict):
+    bucket_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Name of the Amazon S3 bucket.
+    """
+    bucket_prefix: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Amazon S3 bucket prefix.
+    """
+    fail_on_first_destination_error: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    If the flow should fail after the first instance of a failure when attempting to place data in the destination.
+    """
 
 @pulumi.input_type
 class FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridgeErrorHandlingConfigArgs:
@@ -4246,12 +4058,9 @@ class FlowDestinationFlowConfigDestinationConnectorPropertiesEventBridgeErrorHan
         pulumi.set(self, "fail_on_first_destination_error", value)
 
 
-if not MYPY:
-    class FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodeArgsDict(TypedDict):
-        object: pulumi.Input[_builtins.str]
-        error_handling_config: NotRequired[pulumi.Input['FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodeErrorHandlingConfigArgsDict']]
-elif False:
-    FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodeArgsDict: TypeAlias = Mapping[str, Any]
+class FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodeArgsDict(TypedDict):
+    object: pulumi.Input[_builtins.str]
+    error_handling_config: NotRequired[pulumi.Input['FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodeErrorHandlingConfigArgsDict']]
 
 @pulumi.input_type
 class FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodeArgs:
@@ -4281,22 +4090,19 @@ class FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodeArgs:
         pulumi.set(self, "error_handling_config", value)
 
 
-if not MYPY:
-    class FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodeErrorHandlingConfigArgsDict(TypedDict):
-        bucket_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Name of the Amazon S3 bucket.
-        """
-        bucket_prefix: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Amazon S3 bucket prefix.
-        """
-        fail_on_first_destination_error: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        If the flow should fail after the first instance of a failure when attempting to place data in the destination.
-        """
-elif False:
-    FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodeErrorHandlingConfigArgsDict: TypeAlias = Mapping[str, Any]
+class FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodeErrorHandlingConfigArgsDict(TypedDict):
+    bucket_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Name of the Amazon S3 bucket.
+    """
+    bucket_prefix: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Amazon S3 bucket prefix.
+    """
+    fail_on_first_destination_error: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    If the flow should fail after the first instance of a failure when attempting to place data in the destination.
+    """
 
 @pulumi.input_type
 class FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodeErrorHandlingConfigArgs:
@@ -4353,11 +4159,8 @@ class FlowDestinationFlowConfigDestinationConnectorPropertiesHoneycodeErrorHandl
         pulumi.set(self, "fail_on_first_destination_error", value)
 
 
-if not MYPY:
-    class FlowDestinationFlowConfigDestinationConnectorPropertiesLookoutMetricsArgsDict(TypedDict):
-        pass
-elif False:
-    FlowDestinationFlowConfigDestinationConnectorPropertiesLookoutMetricsArgsDict: TypeAlias = Mapping[str, Any]
+class FlowDestinationFlowConfigDestinationConnectorPropertiesLookoutMetricsArgsDict(TypedDict):
+    pass
 
 @pulumi.input_type
 class FlowDestinationFlowConfigDestinationConnectorPropertiesLookoutMetricsArgs:
@@ -4365,12 +4168,9 @@ class FlowDestinationFlowConfigDestinationConnectorPropertiesLookoutMetricsArgs:
         pass
 
 
-if not MYPY:
-    class FlowDestinationFlowConfigDestinationConnectorPropertiesMarketoArgsDict(TypedDict):
-        object: pulumi.Input[_builtins.str]
-        error_handling_config: NotRequired[pulumi.Input['FlowDestinationFlowConfigDestinationConnectorPropertiesMarketoErrorHandlingConfigArgsDict']]
-elif False:
-    FlowDestinationFlowConfigDestinationConnectorPropertiesMarketoArgsDict: TypeAlias = Mapping[str, Any]
+class FlowDestinationFlowConfigDestinationConnectorPropertiesMarketoArgsDict(TypedDict):
+    object: pulumi.Input[_builtins.str]
+    error_handling_config: NotRequired[pulumi.Input['FlowDestinationFlowConfigDestinationConnectorPropertiesMarketoErrorHandlingConfigArgsDict']]
 
 @pulumi.input_type
 class FlowDestinationFlowConfigDestinationConnectorPropertiesMarketoArgs:
@@ -4400,22 +4200,19 @@ class FlowDestinationFlowConfigDestinationConnectorPropertiesMarketoArgs:
         pulumi.set(self, "error_handling_config", value)
 
 
-if not MYPY:
-    class FlowDestinationFlowConfigDestinationConnectorPropertiesMarketoErrorHandlingConfigArgsDict(TypedDict):
-        bucket_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Name of the Amazon S3 bucket.
-        """
-        bucket_prefix: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Amazon S3 bucket prefix.
-        """
-        fail_on_first_destination_error: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        If the flow should fail after the first instance of a failure when attempting to place data in the destination.
-        """
-elif False:
-    FlowDestinationFlowConfigDestinationConnectorPropertiesMarketoErrorHandlingConfigArgsDict: TypeAlias = Mapping[str, Any]
+class FlowDestinationFlowConfigDestinationConnectorPropertiesMarketoErrorHandlingConfigArgsDict(TypedDict):
+    bucket_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Name of the Amazon S3 bucket.
+    """
+    bucket_prefix: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Amazon S3 bucket prefix.
+    """
+    fail_on_first_destination_error: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    If the flow should fail after the first instance of a failure when attempting to place data in the destination.
+    """
 
 @pulumi.input_type
 class FlowDestinationFlowConfigDestinationConnectorPropertiesMarketoErrorHandlingConfigArgs:
@@ -4472,14 +4269,11 @@ class FlowDestinationFlowConfigDestinationConnectorPropertiesMarketoErrorHandlin
         pulumi.set(self, "fail_on_first_destination_error", value)
 
 
-if not MYPY:
-    class FlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftArgsDict(TypedDict):
-        intermediate_bucket_name: pulumi.Input[_builtins.str]
-        object: pulumi.Input[_builtins.str]
-        bucket_prefix: NotRequired[pulumi.Input[_builtins.str]]
-        error_handling_config: NotRequired[pulumi.Input['FlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftErrorHandlingConfigArgsDict']]
-elif False:
-    FlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftArgsDict: TypeAlias = Mapping[str, Any]
+class FlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftArgsDict(TypedDict):
+    intermediate_bucket_name: pulumi.Input[_builtins.str]
+    object: pulumi.Input[_builtins.str]
+    bucket_prefix: NotRequired[pulumi.Input[_builtins.str]]
+    error_handling_config: NotRequired[pulumi.Input['FlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftErrorHandlingConfigArgsDict']]
 
 @pulumi.input_type
 class FlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftArgs:
@@ -4532,22 +4326,19 @@ class FlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftArgs:
         pulumi.set(self, "error_handling_config", value)
 
 
-if not MYPY:
-    class FlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftErrorHandlingConfigArgsDict(TypedDict):
-        bucket_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Name of the Amazon S3 bucket.
-        """
-        bucket_prefix: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Amazon S3 bucket prefix.
-        """
-        fail_on_first_destination_error: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        If the flow should fail after the first instance of a failure when attempting to place data in the destination.
-        """
-elif False:
-    FlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftErrorHandlingConfigArgsDict: TypeAlias = Mapping[str, Any]
+class FlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftErrorHandlingConfigArgsDict(TypedDict):
+    bucket_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Name of the Amazon S3 bucket.
+    """
+    bucket_prefix: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Amazon S3 bucket prefix.
+    """
+    fail_on_first_destination_error: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    If the flow should fail after the first instance of a failure when attempting to place data in the destination.
+    """
 
 @pulumi.input_type
 class FlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftErrorHandlingConfigArgs:
@@ -4604,13 +4395,10 @@ class FlowDestinationFlowConfigDestinationConnectorPropertiesRedshiftErrorHandli
         pulumi.set(self, "fail_on_first_destination_error", value)
 
 
-if not MYPY:
-    class FlowDestinationFlowConfigDestinationConnectorPropertiesS3ArgsDict(TypedDict):
-        bucket_name: pulumi.Input[_builtins.str]
-        bucket_prefix: NotRequired[pulumi.Input[_builtins.str]]
-        s3_output_format_config: NotRequired[pulumi.Input['FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigArgsDict']]
-elif False:
-    FlowDestinationFlowConfigDestinationConnectorPropertiesS3ArgsDict: TypeAlias = Mapping[str, Any]
+class FlowDestinationFlowConfigDestinationConnectorPropertiesS3ArgsDict(TypedDict):
+    bucket_name: pulumi.Input[_builtins.str]
+    bucket_prefix: NotRequired[pulumi.Input[_builtins.str]]
+    s3_output_format_config: NotRequired[pulumi.Input['FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigArgsDict']]
 
 @pulumi.input_type
 class FlowDestinationFlowConfigDestinationConnectorPropertiesS3Args:
@@ -4652,26 +4440,23 @@ class FlowDestinationFlowConfigDestinationConnectorPropertiesS3Args:
         pulumi.set(self, "s3_output_format_config", value)
 
 
-if not MYPY:
-    class FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigArgsDict(TypedDict):
-        aggregation_config: NotRequired[pulumi.Input['FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigAggregationConfigArgsDict']]
-        """
-        Aggregation settings that you can use to customize the output format of your flow data. See Aggregation Config for more details.
-        """
-        file_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        File type that Amazon AppFlow places in the Amazon S3 bucket. Valid values are `CSV`, `JSON`, and `PARQUET`.
-        """
-        prefix_config: NotRequired[pulumi.Input['FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigPrefixConfigArgsDict']]
-        """
-        Determines the prefix that Amazon AppFlow applies to the folder name in the Amazon S3 bucket. You can name folders according to the flow frequency and date. See Prefix Config for more details.
-        """
-        preserve_source_data_typing: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether the data types from the source system need to be preserved (Only valid for `Parquet` file type)
-        """
-elif False:
-    FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigArgsDict: TypeAlias = Mapping[str, Any]
+class FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigArgsDict(TypedDict):
+    aggregation_config: NotRequired[pulumi.Input['FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigAggregationConfigArgsDict']]
+    """
+    Aggregation settings that you can use to customize the output format of your flow data. See Aggregation Config for more details.
+    """
+    file_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    File type that Amazon AppFlow places in the Amazon S3 bucket. Valid values are `CSV`, `JSON`, and `PARQUET`.
+    """
+    prefix_config: NotRequired[pulumi.Input['FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigPrefixConfigArgsDict']]
+    """
+    Determines the prefix that Amazon AppFlow applies to the folder name in the Amazon S3 bucket. You can name folders according to the flow frequency and date. See Prefix Config for more details.
+    """
+    preserve_source_data_typing: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether the data types from the source system need to be preserved (Only valid for `Parquet` file type)
+    """
 
 @pulumi.input_type
 class FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigArgs:
@@ -4744,18 +4529,15 @@ class FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatCon
         pulumi.set(self, "preserve_source_data_typing", value)
 
 
-if not MYPY:
-    class FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigAggregationConfigArgsDict(TypedDict):
-        aggregation_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Whether Amazon AppFlow aggregates the flow records into a single file, or leave them unaggregated. Valid values are `None` and `SingleFile`.
-        """
-        target_file_size: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The desired file size, in MB, for each output file that Amazon AppFlow writes to the flow destination. Integer value.
-        """
-elif False:
-    FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigAggregationConfigArgsDict: TypeAlias = Mapping[str, Any]
+class FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigAggregationConfigArgsDict(TypedDict):
+    aggregation_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Whether Amazon AppFlow aggregates the flow records into a single file, or leave them unaggregated. Valid values are `None` and `SingleFile`.
+    """
+    target_file_size: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The desired file size, in MB, for each output file that Amazon AppFlow writes to the flow destination. Integer value.
+    """
 
 @pulumi.input_type
 class FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigAggregationConfigArgs:
@@ -4796,22 +4578,19 @@ class FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatCon
         pulumi.set(self, "target_file_size", value)
 
 
-if not MYPY:
-    class FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigPrefixConfigArgsDict(TypedDict):
-        prefix_format: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Determines the level of granularity that's included in the prefix. Valid values are `YEAR`, `MONTH`, `DAY`, `HOUR`, and `MINUTE`.
-        """
-        prefix_hierarchies: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Determines whether the destination file path includes either or both of the selected elements. Valid values are `EXECUTION_ID` and `SCHEMA_VERSION`
-        """
-        prefix_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Determines the format of the prefix, and whether it applies to the file name, file path, or both. Valid values are `FILENAME`, `PATH`, and `PATH_AND_FILENAME`.
-        """
-elif False:
-    FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigPrefixConfigArgsDict: TypeAlias = Mapping[str, Any]
+class FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigPrefixConfigArgsDict(TypedDict):
+    prefix_format: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Determines the level of granularity that's included in the prefix. Valid values are `YEAR`, `MONTH`, `DAY`, `HOUR`, and `MINUTE`.
+    """
+    prefix_hierarchies: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Determines whether the destination file path includes either or both of the selected elements. Valid values are `EXECUTION_ID` and `SCHEMA_VERSION`
+    """
+    prefix_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Determines the format of the prefix, and whether it applies to the file name, file path, or both. Valid values are `FILENAME`, `PATH`, and `PATH_AND_FILENAME`.
+    """
 
 @pulumi.input_type
 class FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigPrefixConfigArgs:
@@ -4868,15 +4647,12 @@ class FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatCon
         pulumi.set(self, "prefix_type", value)
 
 
-if not MYPY:
-    class FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceArgsDict(TypedDict):
-        object: pulumi.Input[_builtins.str]
-        data_transfer_api: NotRequired[pulumi.Input[_builtins.str]]
-        error_handling_config: NotRequired[pulumi.Input['FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceErrorHandlingConfigArgsDict']]
-        id_field_names: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        write_operation_type: NotRequired[pulumi.Input[_builtins.str]]
-elif False:
-    FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceArgsDict: TypeAlias = Mapping[str, Any]
+class FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceArgsDict(TypedDict):
+    object: pulumi.Input[_builtins.str]
+    data_transfer_api: NotRequired[pulumi.Input[_builtins.str]]
+    error_handling_config: NotRequired[pulumi.Input['FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceErrorHandlingConfigArgsDict']]
+    id_field_names: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    write_operation_type: NotRequired[pulumi.Input[_builtins.str]]
 
 @pulumi.input_type
 class FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceArgs:
@@ -4942,22 +4718,19 @@ class FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceArgs:
         pulumi.set(self, "write_operation_type", value)
 
 
-if not MYPY:
-    class FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceErrorHandlingConfigArgsDict(TypedDict):
-        bucket_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Name of the Amazon S3 bucket.
-        """
-        bucket_prefix: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Amazon S3 bucket prefix.
-        """
-        fail_on_first_destination_error: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        If the flow should fail after the first instance of a failure when attempting to place data in the destination.
-        """
-elif False:
-    FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceErrorHandlingConfigArgsDict: TypeAlias = Mapping[str, Any]
+class FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceErrorHandlingConfigArgsDict(TypedDict):
+    bucket_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Name of the Amazon S3 bucket.
+    """
+    bucket_prefix: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Amazon S3 bucket prefix.
+    """
+    fail_on_first_destination_error: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    If the flow should fail after the first instance of a failure when attempting to place data in the destination.
+    """
 
 @pulumi.input_type
 class FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceErrorHandlingConfigArgs:
@@ -5014,18 +4787,15 @@ class FlowDestinationFlowConfigDestinationConnectorPropertiesSalesforceErrorHand
         pulumi.set(self, "fail_on_first_destination_error", value)
 
 
-if not MYPY:
-    class FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataArgsDict(TypedDict):
-        object_path: pulumi.Input[_builtins.str]
-        error_handling_config: NotRequired[pulumi.Input['FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataErrorHandlingConfigArgsDict']]
-        id_field_names: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        success_response_handling_config: NotRequired[pulumi.Input['FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataSuccessResponseHandlingConfigArgsDict']]
-        """
-        Determines how Amazon AppFlow handles the success response that it gets from the connector after placing data. See Success Response Handling Config for more details.
-        """
-        write_operation_type: NotRequired[pulumi.Input[_builtins.str]]
-elif False:
-    FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataArgsDict: TypeAlias = Mapping[str, Any]
+class FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataArgsDict(TypedDict):
+    object_path: pulumi.Input[_builtins.str]
+    error_handling_config: NotRequired[pulumi.Input['FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataErrorHandlingConfigArgsDict']]
+    id_field_names: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    success_response_handling_config: NotRequired[pulumi.Input['FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataSuccessResponseHandlingConfigArgsDict']]
+    """
+    Determines how Amazon AppFlow handles the success response that it gets from the connector after placing data. See Success Response Handling Config for more details.
+    """
+    write_operation_type: NotRequired[pulumi.Input[_builtins.str]]
 
 @pulumi.input_type
 class FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataArgs:
@@ -5097,22 +4867,19 @@ class FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataArgs:
         pulumi.set(self, "write_operation_type", value)
 
 
-if not MYPY:
-    class FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataErrorHandlingConfigArgsDict(TypedDict):
-        bucket_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Name of the Amazon S3 bucket.
-        """
-        bucket_prefix: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Amazon S3 bucket prefix.
-        """
-        fail_on_first_destination_error: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        If the flow should fail after the first instance of a failure when attempting to place data in the destination.
-        """
-elif False:
-    FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataErrorHandlingConfigArgsDict: TypeAlias = Mapping[str, Any]
+class FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataErrorHandlingConfigArgsDict(TypedDict):
+    bucket_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Name of the Amazon S3 bucket.
+    """
+    bucket_prefix: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Amazon S3 bucket prefix.
+    """
+    fail_on_first_destination_error: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    If the flow should fail after the first instance of a failure when attempting to place data in the destination.
+    """
 
 @pulumi.input_type
 class FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataErrorHandlingConfigArgs:
@@ -5169,18 +4936,15 @@ class FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataErrorHandli
         pulumi.set(self, "fail_on_first_destination_error", value)
 
 
-if not MYPY:
-    class FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataSuccessResponseHandlingConfigArgsDict(TypedDict):
-        bucket_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Name of the Amazon S3 bucket.
-        """
-        bucket_prefix: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Amazon S3 bucket prefix.
-        """
-elif False:
-    FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataSuccessResponseHandlingConfigArgsDict: TypeAlias = Mapping[str, Any]
+class FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataSuccessResponseHandlingConfigArgsDict(TypedDict):
+    bucket_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Name of the Amazon S3 bucket.
+    """
+    bucket_prefix: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Amazon S3 bucket prefix.
+    """
 
 @pulumi.input_type
 class FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataSuccessResponseHandlingConfigArgs:
@@ -5221,14 +4985,11 @@ class FlowDestinationFlowConfigDestinationConnectorPropertiesSapoDataSuccessResp
         pulumi.set(self, "bucket_prefix", value)
 
 
-if not MYPY:
-    class FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakeArgsDict(TypedDict):
-        intermediate_bucket_name: pulumi.Input[_builtins.str]
-        object: pulumi.Input[_builtins.str]
-        bucket_prefix: NotRequired[pulumi.Input[_builtins.str]]
-        error_handling_config: NotRequired[pulumi.Input['FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakeErrorHandlingConfigArgsDict']]
-elif False:
-    FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakeArgsDict: TypeAlias = Mapping[str, Any]
+class FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakeArgsDict(TypedDict):
+    intermediate_bucket_name: pulumi.Input[_builtins.str]
+    object: pulumi.Input[_builtins.str]
+    bucket_prefix: NotRequired[pulumi.Input[_builtins.str]]
+    error_handling_config: NotRequired[pulumi.Input['FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakeErrorHandlingConfigArgsDict']]
 
 @pulumi.input_type
 class FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakeArgs:
@@ -5281,22 +5042,19 @@ class FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakeArgs:
         pulumi.set(self, "error_handling_config", value)
 
 
-if not MYPY:
-    class FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakeErrorHandlingConfigArgsDict(TypedDict):
-        bucket_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Name of the Amazon S3 bucket.
-        """
-        bucket_prefix: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Amazon S3 bucket prefix.
-        """
-        fail_on_first_destination_error: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        If the flow should fail after the first instance of a failure when attempting to place data in the destination.
-        """
-elif False:
-    FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakeErrorHandlingConfigArgsDict: TypeAlias = Mapping[str, Any]
+class FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakeErrorHandlingConfigArgsDict(TypedDict):
+    bucket_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Name of the Amazon S3 bucket.
+    """
+    bucket_prefix: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Amazon S3 bucket prefix.
+    """
+    fail_on_first_destination_error: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    If the flow should fail after the first instance of a failure when attempting to place data in the destination.
+    """
 
 @pulumi.input_type
 class FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakeErrorHandlingConfigArgs:
@@ -5353,13 +5111,10 @@ class FlowDestinationFlowConfigDestinationConnectorPropertiesSnowflakeErrorHandl
         pulumi.set(self, "fail_on_first_destination_error", value)
 
 
-if not MYPY:
-    class FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverArgsDict(TypedDict):
-        bucket_name: pulumi.Input[_builtins.str]
-        s3_output_format_config: pulumi.Input['FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigArgsDict']
-        bucket_prefix: NotRequired[pulumi.Input[_builtins.str]]
-elif False:
-    FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverArgsDict: TypeAlias = Mapping[str, Any]
+class FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverArgsDict(TypedDict):
+    bucket_name: pulumi.Input[_builtins.str]
+    s3_output_format_config: pulumi.Input['FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigArgsDict']
+    bucket_prefix: NotRequired[pulumi.Input[_builtins.str]]
 
 @pulumi.input_type
 class FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverArgs:
@@ -5400,22 +5155,19 @@ class FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverArgs:
         pulumi.set(self, "bucket_prefix", value)
 
 
-if not MYPY:
-    class FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigArgsDict(TypedDict):
-        prefix_config: pulumi.Input['FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigPrefixConfigArgsDict']
-        """
-        Determines the prefix that Amazon AppFlow applies to the folder name in the Amazon S3 bucket. You can name folders according to the flow frequency and date. See Prefix Config for more details.
-        """
-        aggregation_config: NotRequired[pulumi.Input['FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigAggregationConfigArgsDict']]
-        """
-        Aggregation settings that you can use to customize the output format of your flow data. See Aggregation Config for more details.
-        """
-        file_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        File type that Amazon AppFlow places in the Amazon S3 bucket. Valid values are `CSV`, `JSON`, and `PARQUET`.
-        """
-elif False:
-    FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigArgsDict: TypeAlias = Mapping[str, Any]
+class FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigArgsDict(TypedDict):
+    prefix_config: pulumi.Input['FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigPrefixConfigArgsDict']
+    """
+    Determines the prefix that Amazon AppFlow applies to the folder name in the Amazon S3 bucket. You can name folders according to the flow frequency and date. See Prefix Config for more details.
+    """
+    aggregation_config: NotRequired[pulumi.Input['FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigAggregationConfigArgsDict']]
+    """
+    Aggregation settings that you can use to customize the output format of your flow data. See Aggregation Config for more details.
+    """
+    file_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    File type that Amazon AppFlow places in the Amazon S3 bucket. Valid values are `CSV`, `JSON`, and `PARQUET`.
+    """
 
 @pulumi.input_type
 class FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigArgs:
@@ -5471,14 +5223,11 @@ class FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFor
         pulumi.set(self, "file_type", value)
 
 
-if not MYPY:
-    class FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigAggregationConfigArgsDict(TypedDict):
-        aggregation_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Whether Amazon AppFlow aggregates the flow records into a single file, or leave them unaggregated. Valid values are `None` and `SingleFile`.
-        """
-elif False:
-    FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigAggregationConfigArgsDict: TypeAlias = Mapping[str, Any]
+class FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigAggregationConfigArgsDict(TypedDict):
+    aggregation_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Whether Amazon AppFlow aggregates the flow records into a single file, or leave them unaggregated. Valid values are `None` and `SingleFile`.
+    """
 
 @pulumi.input_type
 class FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigAggregationConfigArgs:
@@ -5503,22 +5252,19 @@ class FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFor
         pulumi.set(self, "aggregation_type", value)
 
 
-if not MYPY:
-    class FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigPrefixConfigArgsDict(TypedDict):
-        prefix_type: pulumi.Input[_builtins.str]
-        """
-        Determines the format of the prefix, and whether it applies to the file name, file path, or both. Valid values are `FILENAME`, `PATH`, and `PATH_AND_FILENAME`.
-        """
-        prefix_format: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Determines the level of granularity that's included in the prefix. Valid values are `YEAR`, `MONTH`, `DAY`, `HOUR`, and `MINUTE`.
-        """
-        prefix_hierarchies: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Determines whether the destination file path includes either or both of the selected elements. Valid values are `EXECUTION_ID` and `SCHEMA_VERSION`
-        """
-elif False:
-    FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigPrefixConfigArgsDict: TypeAlias = Mapping[str, Any]
+class FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigPrefixConfigArgsDict(TypedDict):
+    prefix_type: pulumi.Input[_builtins.str]
+    """
+    Determines the format of the prefix, and whether it applies to the file name, file path, or both. Valid values are `FILENAME`, `PATH`, and `PATH_AND_FILENAME`.
+    """
+    prefix_format: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Determines the level of granularity that's included in the prefix. Valid values are `YEAR`, `MONTH`, `DAY`, `HOUR`, and `MINUTE`.
+    """
+    prefix_hierarchies: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Determines whether the destination file path includes either or both of the selected elements. Valid values are `EXECUTION_ID` and `SCHEMA_VERSION`
+    """
 
 @pulumi.input_type
 class FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFormatConfigPrefixConfigArgs:
@@ -5574,14 +5320,11 @@ class FlowDestinationFlowConfigDestinationConnectorPropertiesUpsolverS3OutputFor
         pulumi.set(self, "prefix_hierarchies", value)
 
 
-if not MYPY:
-    class FlowDestinationFlowConfigDestinationConnectorPropertiesZendeskArgsDict(TypedDict):
-        object: pulumi.Input[_builtins.str]
-        error_handling_config: NotRequired[pulumi.Input['FlowDestinationFlowConfigDestinationConnectorPropertiesZendeskErrorHandlingConfigArgsDict']]
-        id_field_names: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        write_operation_type: NotRequired[pulumi.Input[_builtins.str]]
-elif False:
-    FlowDestinationFlowConfigDestinationConnectorPropertiesZendeskArgsDict: TypeAlias = Mapping[str, Any]
+class FlowDestinationFlowConfigDestinationConnectorPropertiesZendeskArgsDict(TypedDict):
+    object: pulumi.Input[_builtins.str]
+    error_handling_config: NotRequired[pulumi.Input['FlowDestinationFlowConfigDestinationConnectorPropertiesZendeskErrorHandlingConfigArgsDict']]
+    id_field_names: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    write_operation_type: NotRequired[pulumi.Input[_builtins.str]]
 
 @pulumi.input_type
 class FlowDestinationFlowConfigDestinationConnectorPropertiesZendeskArgs:
@@ -5635,22 +5378,19 @@ class FlowDestinationFlowConfigDestinationConnectorPropertiesZendeskArgs:
         pulumi.set(self, "write_operation_type", value)
 
 
-if not MYPY:
-    class FlowDestinationFlowConfigDestinationConnectorPropertiesZendeskErrorHandlingConfigArgsDict(TypedDict):
-        bucket_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Name of the Amazon S3 bucket.
-        """
-        bucket_prefix: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Amazon S3 bucket prefix.
-        """
-        fail_on_first_destination_error: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        If the flow should fail after the first instance of a failure when attempting to place data in the destination.
-        """
-elif False:
-    FlowDestinationFlowConfigDestinationConnectorPropertiesZendeskErrorHandlingConfigArgsDict: TypeAlias = Mapping[str, Any]
+class FlowDestinationFlowConfigDestinationConnectorPropertiesZendeskErrorHandlingConfigArgsDict(TypedDict):
+    bucket_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Name of the Amazon S3 bucket.
+    """
+    bucket_prefix: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Amazon S3 bucket prefix.
+    """
+    fail_on_first_destination_error: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    If the flow should fail after the first instance of a failure when attempting to place data in the destination.
+    """
 
 @pulumi.input_type
 class FlowDestinationFlowConfigDestinationConnectorPropertiesZendeskErrorHandlingConfigArgs:
@@ -5707,11 +5447,8 @@ class FlowDestinationFlowConfigDestinationConnectorPropertiesZendeskErrorHandlin
         pulumi.set(self, "fail_on_first_destination_error", value)
 
 
-if not MYPY:
-    class FlowMetadataCatalogConfigArgsDict(TypedDict):
-        glue_data_catalog: NotRequired[pulumi.Input['FlowMetadataCatalogConfigGlueDataCatalogArgsDict']]
-elif False:
-    FlowMetadataCatalogConfigArgsDict: TypeAlias = Mapping[str, Any]
+class FlowMetadataCatalogConfigArgsDict(TypedDict):
+    glue_data_catalog: NotRequired[pulumi.Input['FlowMetadataCatalogConfigGlueDataCatalogArgsDict']]
 
 @pulumi.input_type
 class FlowMetadataCatalogConfigArgs:
@@ -5730,22 +5467,19 @@ class FlowMetadataCatalogConfigArgs:
         pulumi.set(self, "glue_data_catalog", value)
 
 
-if not MYPY:
-    class FlowMetadataCatalogConfigGlueDataCatalogArgsDict(TypedDict):
-        database_name: pulumi.Input[_builtins.str]
-        """
-        The name of an existing Glue database to store the metadata tables that Amazon AppFlow creates.
-        """
-        role_arn: pulumi.Input[_builtins.str]
-        """
-        The ARN of an IAM role that grants AppFlow the permissions it needs to create Data Catalog tables, databases, and partitions.
-        """
-        table_prefix: pulumi.Input[_builtins.str]
-        """
-        A naming prefix for each Data Catalog table that Amazon AppFlow creates
-        """
-elif False:
-    FlowMetadataCatalogConfigGlueDataCatalogArgsDict: TypeAlias = Mapping[str, Any]
+class FlowMetadataCatalogConfigGlueDataCatalogArgsDict(TypedDict):
+    database_name: pulumi.Input[_builtins.str]
+    """
+    The name of an existing Glue database to store the metadata tables that Amazon AppFlow creates.
+    """
+    role_arn: pulumi.Input[_builtins.str]
+    """
+    The ARN of an IAM role that grants AppFlow the permissions it needs to create Data Catalog tables, databases, and partitions.
+    """
+    table_prefix: pulumi.Input[_builtins.str]
+    """
+    A naming prefix for each Data Catalog table that Amazon AppFlow creates
+    """
 
 @pulumi.input_type
 class FlowMetadataCatalogConfigGlueDataCatalogArgs:
@@ -5799,30 +5533,27 @@ class FlowMetadataCatalogConfigGlueDataCatalogArgs:
         pulumi.set(self, "table_prefix", value)
 
 
-if not MYPY:
-    class FlowSourceFlowConfigArgsDict(TypedDict):
-        connector_type: pulumi.Input[_builtins.str]
-        """
-        Type of connector, such as Salesforce, Amplitude, and so on. Valid values are `Salesforce`, `Singular`, `Slack`, `Redshift`, `S3`, `Marketo`, `Googleanalytics`, `Zendesk`, `Servicenow`, `Datadog`, `Trendmicro`, `Snowflake`, `Dynatrace`, `Infornexus`, `Amplitude`, `Veeva`, `EventBridge`, `LookoutMetrics`, `Upsolver`, `Honeycode`, `CustomerProfiles`, `SAPOData`, and `CustomConnector`.
-        """
-        source_connector_properties: pulumi.Input['FlowSourceFlowConfigSourceConnectorPropertiesArgsDict']
-        """
-        Information that is required to query a particular source connector. See Source Connector Properties for details.
-        """
-        api_version: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        API version that the destination connector uses.
-        """
-        connector_profile_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Name of the connector profile. This name must be unique for each connector profile in the AWS account.
-        """
-        incremental_pull_config: NotRequired[pulumi.Input['FlowSourceFlowConfigIncrementalPullConfigArgsDict']]
-        """
-        Defines the configuration for a scheduled incremental data pull. If a valid configuration is provided, the fields specified in the configuration are used when querying for the incremental data pull. See Incremental Pull Config for more details.
-        """
-elif False:
-    FlowSourceFlowConfigArgsDict: TypeAlias = Mapping[str, Any]
+class FlowSourceFlowConfigArgsDict(TypedDict):
+    connector_type: pulumi.Input[_builtins.str]
+    """
+    Type of connector, such as Salesforce, Amplitude, and so on. Valid values are `Salesforce`, `Singular`, `Slack`, `Redshift`, `S3`, `Marketo`, `Googleanalytics`, `Zendesk`, `Servicenow`, `Datadog`, `Trendmicro`, `Snowflake`, `Dynatrace`, `Infornexus`, `Amplitude`, `Veeva`, `EventBridge`, `LookoutMetrics`, `Upsolver`, `Honeycode`, `CustomerProfiles`, `SAPOData`, and `CustomConnector`.
+    """
+    source_connector_properties: pulumi.Input['FlowSourceFlowConfigSourceConnectorPropertiesArgsDict']
+    """
+    Information that is required to query a particular source connector. See Source Connector Properties for details.
+    """
+    api_version: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    API version that the destination connector uses.
+    """
+    connector_profile_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Name of the connector profile. This name must be unique for each connector profile in the AWS account.
+    """
+    incremental_pull_config: NotRequired[pulumi.Input['FlowSourceFlowConfigIncrementalPullConfigArgsDict']]
+    """
+    Defines the configuration for a scheduled incremental data pull. If a valid configuration is provided, the fields specified in the configuration are used when querying for the incremental data pull. See Incremental Pull Config for more details.
+    """
 
 @pulumi.input_type
 class FlowSourceFlowConfigArgs:
@@ -5909,14 +5640,11 @@ class FlowSourceFlowConfigArgs:
         pulumi.set(self, "incremental_pull_config", value)
 
 
-if not MYPY:
-    class FlowSourceFlowConfigIncrementalPullConfigArgsDict(TypedDict):
-        datetime_type_field_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Field that specifies the date time or timestamp field as the criteria to use when importing incremental records from the source.
-        """
-elif False:
-    FlowSourceFlowConfigIncrementalPullConfigArgsDict: TypeAlias = Mapping[str, Any]
+class FlowSourceFlowConfigIncrementalPullConfigArgsDict(TypedDict):
+    datetime_type_field_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Field that specifies the date time or timestamp field as the criteria to use when importing incremental records from the source.
+    """
 
 @pulumi.input_type
 class FlowSourceFlowConfigIncrementalPullConfigArgs:
@@ -5941,74 +5669,71 @@ class FlowSourceFlowConfigIncrementalPullConfigArgs:
         pulumi.set(self, "datetime_type_field_name", value)
 
 
-if not MYPY:
-    class FlowSourceFlowConfigSourceConnectorPropertiesArgsDict(TypedDict):
-        amplitude: NotRequired[pulumi.Input['FlowSourceFlowConfigSourceConnectorPropertiesAmplitudeArgsDict']]
-        """
-        Information that is required for querying Amplitude. See Generic Source Properties for more details.
-        """
-        custom_connector: NotRequired[pulumi.Input['FlowSourceFlowConfigSourceConnectorPropertiesCustomConnectorArgsDict']]
-        """
-        Properties that are applied when the custom connector is being used as a source. See Custom Connector Source Properties.
-        """
-        datadog: NotRequired[pulumi.Input['FlowSourceFlowConfigSourceConnectorPropertiesDatadogArgsDict']]
-        """
-        Information that is required for querying Datadog. See Generic Source Properties for more details.
-        """
-        dynatrace: NotRequired[pulumi.Input['FlowSourceFlowConfigSourceConnectorPropertiesDynatraceArgsDict']]
-        """
-        Operation to be performed on the provided Dynatrace source fields. Valid values are `PROJECTION`, `BETWEEN`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
-        """
-        google_analytics: NotRequired[pulumi.Input['FlowSourceFlowConfigSourceConnectorPropertiesGoogleAnalyticsArgsDict']]
-        """
-        Operation to be performed on the provided Google Analytics source fields. Valid values are `PROJECTION` and `BETWEEN`.
-        """
-        infor_nexus: NotRequired[pulumi.Input['FlowSourceFlowConfigSourceConnectorPropertiesInforNexusArgsDict']]
-        """
-        Information that is required for querying Infor Nexus. See Generic Source Properties for more details.
-        """
-        marketo: NotRequired[pulumi.Input['FlowSourceFlowConfigSourceConnectorPropertiesMarketoArgsDict']]
-        """
-        Information that is required for querying Marketo. See Generic Source Properties for more details.
-        """
-        s3: NotRequired[pulumi.Input['FlowSourceFlowConfigSourceConnectorPropertiesS3ArgsDict']]
-        """
-        Information that is required for querying Amazon S3. See S3 Source Properties for more details.
-        """
-        salesforce: NotRequired[pulumi.Input['FlowSourceFlowConfigSourceConnectorPropertiesSalesforceArgsDict']]
-        """
-        Information that is required for querying Salesforce. See Salesforce Source Properties for more details.
-        """
-        sapo_data: NotRequired[pulumi.Input['FlowSourceFlowConfigSourceConnectorPropertiesSapoDataArgsDict']]
-        """
-        Information that is required for querying SAPOData as a flow source. See SAPO Source Properties for more details.
-        """
-        service_now: NotRequired[pulumi.Input['FlowSourceFlowConfigSourceConnectorPropertiesServiceNowArgsDict']]
-        """
-        Information that is required for querying ServiceNow. See Generic Source Properties for more details.
-        """
-        singular: NotRequired[pulumi.Input['FlowSourceFlowConfigSourceConnectorPropertiesSingularArgsDict']]
-        """
-        Information that is required for querying Singular. See Generic Source Properties for more details.
-        """
-        slack: NotRequired[pulumi.Input['FlowSourceFlowConfigSourceConnectorPropertiesSlackArgsDict']]
-        """
-        Information that is required for querying Slack. See Generic Source Properties for more details.
-        """
-        trendmicro: NotRequired[pulumi.Input['FlowSourceFlowConfigSourceConnectorPropertiesTrendmicroArgsDict']]
-        """
-        Operation to be performed on the provided Trend Micro source fields. Valid values are `PROJECTION`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
-        """
-        veeva: NotRequired[pulumi.Input['FlowSourceFlowConfigSourceConnectorPropertiesVeevaArgsDict']]
-        """
-        Information that is required for querying Veeva. See Veeva Source Properties for more details.
-        """
-        zendesk: NotRequired[pulumi.Input['FlowSourceFlowConfigSourceConnectorPropertiesZendeskArgsDict']]
-        """
-        Information that is required for querying Zendesk. See Generic Source Properties for more details.
-        """
-elif False:
-    FlowSourceFlowConfigSourceConnectorPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class FlowSourceFlowConfigSourceConnectorPropertiesArgsDict(TypedDict):
+    amplitude: NotRequired[pulumi.Input['FlowSourceFlowConfigSourceConnectorPropertiesAmplitudeArgsDict']]
+    """
+    Information that is required for querying Amplitude. See Generic Source Properties for more details.
+    """
+    custom_connector: NotRequired[pulumi.Input['FlowSourceFlowConfigSourceConnectorPropertiesCustomConnectorArgsDict']]
+    """
+    Properties that are applied when the custom connector is being used as a source. See Custom Connector Source Properties.
+    """
+    datadog: NotRequired[pulumi.Input['FlowSourceFlowConfigSourceConnectorPropertiesDatadogArgsDict']]
+    """
+    Information that is required for querying Datadog. See Generic Source Properties for more details.
+    """
+    dynatrace: NotRequired[pulumi.Input['FlowSourceFlowConfigSourceConnectorPropertiesDynatraceArgsDict']]
+    """
+    Operation to be performed on the provided Dynatrace source fields. Valid values are `PROJECTION`, `BETWEEN`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+    """
+    google_analytics: NotRequired[pulumi.Input['FlowSourceFlowConfigSourceConnectorPropertiesGoogleAnalyticsArgsDict']]
+    """
+    Operation to be performed on the provided Google Analytics source fields. Valid values are `PROJECTION` and `BETWEEN`.
+    """
+    infor_nexus: NotRequired[pulumi.Input['FlowSourceFlowConfigSourceConnectorPropertiesInforNexusArgsDict']]
+    """
+    Information that is required for querying Infor Nexus. See Generic Source Properties for more details.
+    """
+    marketo: NotRequired[pulumi.Input['FlowSourceFlowConfigSourceConnectorPropertiesMarketoArgsDict']]
+    """
+    Information that is required for querying Marketo. See Generic Source Properties for more details.
+    """
+    s3: NotRequired[pulumi.Input['FlowSourceFlowConfigSourceConnectorPropertiesS3ArgsDict']]
+    """
+    Information that is required for querying Amazon S3. See S3 Source Properties for more details.
+    """
+    salesforce: NotRequired[pulumi.Input['FlowSourceFlowConfigSourceConnectorPropertiesSalesforceArgsDict']]
+    """
+    Information that is required for querying Salesforce. See Salesforce Source Properties for more details.
+    """
+    sapo_data: NotRequired[pulumi.Input['FlowSourceFlowConfigSourceConnectorPropertiesSapoDataArgsDict']]
+    """
+    Information that is required for querying SAPOData as a flow source. See SAPO Source Properties for more details.
+    """
+    service_now: NotRequired[pulumi.Input['FlowSourceFlowConfigSourceConnectorPropertiesServiceNowArgsDict']]
+    """
+    Information that is required for querying ServiceNow. See Generic Source Properties for more details.
+    """
+    singular: NotRequired[pulumi.Input['FlowSourceFlowConfigSourceConnectorPropertiesSingularArgsDict']]
+    """
+    Information that is required for querying Singular. See Generic Source Properties for more details.
+    """
+    slack: NotRequired[pulumi.Input['FlowSourceFlowConfigSourceConnectorPropertiesSlackArgsDict']]
+    """
+    Information that is required for querying Slack. See Generic Source Properties for more details.
+    """
+    trendmicro: NotRequired[pulumi.Input['FlowSourceFlowConfigSourceConnectorPropertiesTrendmicroArgsDict']]
+    """
+    Operation to be performed on the provided Trend Micro source fields. Valid values are `PROJECTION`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+    """
+    veeva: NotRequired[pulumi.Input['FlowSourceFlowConfigSourceConnectorPropertiesVeevaArgsDict']]
+    """
+    Information that is required for querying Veeva. See Veeva Source Properties for more details.
+    """
+    zendesk: NotRequired[pulumi.Input['FlowSourceFlowConfigSourceConnectorPropertiesZendeskArgsDict']]
+    """
+    Information that is required for querying Zendesk. See Generic Source Properties for more details.
+    """
 
 @pulumi.input_type
 class FlowSourceFlowConfigSourceConnectorPropertiesArgs:
@@ -6273,11 +5998,8 @@ class FlowSourceFlowConfigSourceConnectorPropertiesArgs:
         pulumi.set(self, "zendesk", value)
 
 
-if not MYPY:
-    class FlowSourceFlowConfigSourceConnectorPropertiesAmplitudeArgsDict(TypedDict):
-        object: pulumi.Input[_builtins.str]
-elif False:
-    FlowSourceFlowConfigSourceConnectorPropertiesAmplitudeArgsDict: TypeAlias = Mapping[str, Any]
+class FlowSourceFlowConfigSourceConnectorPropertiesAmplitudeArgsDict(TypedDict):
+    object: pulumi.Input[_builtins.str]
 
 @pulumi.input_type
 class FlowSourceFlowConfigSourceConnectorPropertiesAmplitudeArgs:
@@ -6295,12 +6017,9 @@ class FlowSourceFlowConfigSourceConnectorPropertiesAmplitudeArgs:
         pulumi.set(self, "object", value)
 
 
-if not MYPY:
-    class FlowSourceFlowConfigSourceConnectorPropertiesCustomConnectorArgsDict(TypedDict):
-        entity_name: pulumi.Input[_builtins.str]
-        custom_properties: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
-elif False:
-    FlowSourceFlowConfigSourceConnectorPropertiesCustomConnectorArgsDict: TypeAlias = Mapping[str, Any]
+class FlowSourceFlowConfigSourceConnectorPropertiesCustomConnectorArgsDict(TypedDict):
+    entity_name: pulumi.Input[_builtins.str]
+    custom_properties: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
 
 @pulumi.input_type
 class FlowSourceFlowConfigSourceConnectorPropertiesCustomConnectorArgs:
@@ -6330,11 +6049,8 @@ class FlowSourceFlowConfigSourceConnectorPropertiesCustomConnectorArgs:
         pulumi.set(self, "custom_properties", value)
 
 
-if not MYPY:
-    class FlowSourceFlowConfigSourceConnectorPropertiesDatadogArgsDict(TypedDict):
-        object: pulumi.Input[_builtins.str]
-elif False:
-    FlowSourceFlowConfigSourceConnectorPropertiesDatadogArgsDict: TypeAlias = Mapping[str, Any]
+class FlowSourceFlowConfigSourceConnectorPropertiesDatadogArgsDict(TypedDict):
+    object: pulumi.Input[_builtins.str]
 
 @pulumi.input_type
 class FlowSourceFlowConfigSourceConnectorPropertiesDatadogArgs:
@@ -6352,11 +6068,8 @@ class FlowSourceFlowConfigSourceConnectorPropertiesDatadogArgs:
         pulumi.set(self, "object", value)
 
 
-if not MYPY:
-    class FlowSourceFlowConfigSourceConnectorPropertiesDynatraceArgsDict(TypedDict):
-        object: pulumi.Input[_builtins.str]
-elif False:
-    FlowSourceFlowConfigSourceConnectorPropertiesDynatraceArgsDict: TypeAlias = Mapping[str, Any]
+class FlowSourceFlowConfigSourceConnectorPropertiesDynatraceArgsDict(TypedDict):
+    object: pulumi.Input[_builtins.str]
 
 @pulumi.input_type
 class FlowSourceFlowConfigSourceConnectorPropertiesDynatraceArgs:
@@ -6374,11 +6087,8 @@ class FlowSourceFlowConfigSourceConnectorPropertiesDynatraceArgs:
         pulumi.set(self, "object", value)
 
 
-if not MYPY:
-    class FlowSourceFlowConfigSourceConnectorPropertiesGoogleAnalyticsArgsDict(TypedDict):
-        object: pulumi.Input[_builtins.str]
-elif False:
-    FlowSourceFlowConfigSourceConnectorPropertiesGoogleAnalyticsArgsDict: TypeAlias = Mapping[str, Any]
+class FlowSourceFlowConfigSourceConnectorPropertiesGoogleAnalyticsArgsDict(TypedDict):
+    object: pulumi.Input[_builtins.str]
 
 @pulumi.input_type
 class FlowSourceFlowConfigSourceConnectorPropertiesGoogleAnalyticsArgs:
@@ -6396,11 +6106,8 @@ class FlowSourceFlowConfigSourceConnectorPropertiesGoogleAnalyticsArgs:
         pulumi.set(self, "object", value)
 
 
-if not MYPY:
-    class FlowSourceFlowConfigSourceConnectorPropertiesInforNexusArgsDict(TypedDict):
-        object: pulumi.Input[_builtins.str]
-elif False:
-    FlowSourceFlowConfigSourceConnectorPropertiesInforNexusArgsDict: TypeAlias = Mapping[str, Any]
+class FlowSourceFlowConfigSourceConnectorPropertiesInforNexusArgsDict(TypedDict):
+    object: pulumi.Input[_builtins.str]
 
 @pulumi.input_type
 class FlowSourceFlowConfigSourceConnectorPropertiesInforNexusArgs:
@@ -6418,11 +6125,8 @@ class FlowSourceFlowConfigSourceConnectorPropertiesInforNexusArgs:
         pulumi.set(self, "object", value)
 
 
-if not MYPY:
-    class FlowSourceFlowConfigSourceConnectorPropertiesMarketoArgsDict(TypedDict):
-        object: pulumi.Input[_builtins.str]
-elif False:
-    FlowSourceFlowConfigSourceConnectorPropertiesMarketoArgsDict: TypeAlias = Mapping[str, Any]
+class FlowSourceFlowConfigSourceConnectorPropertiesMarketoArgsDict(TypedDict):
+    object: pulumi.Input[_builtins.str]
 
 @pulumi.input_type
 class FlowSourceFlowConfigSourceConnectorPropertiesMarketoArgs:
@@ -6440,16 +6144,13 @@ class FlowSourceFlowConfigSourceConnectorPropertiesMarketoArgs:
         pulumi.set(self, "object", value)
 
 
-if not MYPY:
-    class FlowSourceFlowConfigSourceConnectorPropertiesS3ArgsDict(TypedDict):
-        bucket_name: pulumi.Input[_builtins.str]
-        bucket_prefix: pulumi.Input[_builtins.str]
-        s3_input_format_config: NotRequired[pulumi.Input['FlowSourceFlowConfigSourceConnectorPropertiesS3S3InputFormatConfigArgsDict']]
-        """
-        When you use Amazon S3 as the source, the configuration format that you provide the flow input data. See S3 Input Format Config for details.
-        """
-elif False:
-    FlowSourceFlowConfigSourceConnectorPropertiesS3ArgsDict: TypeAlias = Mapping[str, Any]
+class FlowSourceFlowConfigSourceConnectorPropertiesS3ArgsDict(TypedDict):
+    bucket_name: pulumi.Input[_builtins.str]
+    bucket_prefix: pulumi.Input[_builtins.str]
+    s3_input_format_config: NotRequired[pulumi.Input['FlowSourceFlowConfigSourceConnectorPropertiesS3S3InputFormatConfigArgsDict']]
+    """
+    When you use Amazon S3 as the source, the configuration format that you provide the flow input data. See S3 Input Format Config for details.
+    """
 
 @pulumi.input_type
 class FlowSourceFlowConfigSourceConnectorPropertiesS3Args:
@@ -6496,14 +6197,11 @@ class FlowSourceFlowConfigSourceConnectorPropertiesS3Args:
         pulumi.set(self, "s3_input_format_config", value)
 
 
-if not MYPY:
-    class FlowSourceFlowConfigSourceConnectorPropertiesS3S3InputFormatConfigArgsDict(TypedDict):
-        s3_input_file_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        File type that Amazon AppFlow gets from your Amazon S3 bucket. Valid values are `CSV` and `JSON`.
-        """
-elif False:
-    FlowSourceFlowConfigSourceConnectorPropertiesS3S3InputFormatConfigArgsDict: TypeAlias = Mapping[str, Any]
+class FlowSourceFlowConfigSourceConnectorPropertiesS3S3InputFormatConfigArgsDict(TypedDict):
+    s3_input_file_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    File type that Amazon AppFlow gets from your Amazon S3 bucket. Valid values are `CSV` and `JSON`.
+    """
 
 @pulumi.input_type
 class FlowSourceFlowConfigSourceConnectorPropertiesS3S3InputFormatConfigArgs:
@@ -6528,20 +6226,17 @@ class FlowSourceFlowConfigSourceConnectorPropertiesS3S3InputFormatConfigArgs:
         pulumi.set(self, "s3_input_file_type", value)
 
 
-if not MYPY:
-    class FlowSourceFlowConfigSourceConnectorPropertiesSalesforceArgsDict(TypedDict):
-        object: pulumi.Input[_builtins.str]
-        data_transfer_api: NotRequired[pulumi.Input[_builtins.str]]
-        enable_dynamic_field_update: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Flag that enables dynamic fetching of new (recently added) fields in the Salesforce objects while running a flow.
-        """
-        include_deleted_records: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether Amazon AppFlow includes deleted files in the flow run.
-        """
-elif False:
-    FlowSourceFlowConfigSourceConnectorPropertiesSalesforceArgsDict: TypeAlias = Mapping[str, Any]
+class FlowSourceFlowConfigSourceConnectorPropertiesSalesforceArgsDict(TypedDict):
+    object: pulumi.Input[_builtins.str]
+    data_transfer_api: NotRequired[pulumi.Input[_builtins.str]]
+    enable_dynamic_field_update: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Flag that enables dynamic fetching of new (recently added) fields in the Salesforce objects while running a flow.
+    """
+    include_deleted_records: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether Amazon AppFlow includes deleted files in the flow run.
+    """
 
 @pulumi.input_type
 class FlowSourceFlowConfigSourceConnectorPropertiesSalesforceArgs:
@@ -6605,19 +6300,16 @@ class FlowSourceFlowConfigSourceConnectorPropertiesSalesforceArgs:
         pulumi.set(self, "include_deleted_records", value)
 
 
-if not MYPY:
-    class FlowSourceFlowConfigSourceConnectorPropertiesSapoDataArgsDict(TypedDict):
-        object_path: pulumi.Input[_builtins.str]
-        pagination_config: NotRequired[pulumi.Input['FlowSourceFlowConfigSourceConnectorPropertiesSapoDataPaginationConfigArgsDict']]
-        """
-        Sets the page size for each concurrent process that transfers OData records from your SAP instance.
-        """
-        parallelism_config: NotRequired[pulumi.Input['FlowSourceFlowConfigSourceConnectorPropertiesSapoDataParallelismConfigArgsDict']]
-        """
-        Sets the number of concurrent processes that transfers OData records from your SAP instance.
-        """
-elif False:
-    FlowSourceFlowConfigSourceConnectorPropertiesSapoDataArgsDict: TypeAlias = Mapping[str, Any]
+class FlowSourceFlowConfigSourceConnectorPropertiesSapoDataArgsDict(TypedDict):
+    object_path: pulumi.Input[_builtins.str]
+    pagination_config: NotRequired[pulumi.Input['FlowSourceFlowConfigSourceConnectorPropertiesSapoDataPaginationConfigArgsDict']]
+    """
+    Sets the page size for each concurrent process that transfers OData records from your SAP instance.
+    """
+    parallelism_config: NotRequired[pulumi.Input['FlowSourceFlowConfigSourceConnectorPropertiesSapoDataParallelismConfigArgsDict']]
+    """
+    Sets the number of concurrent processes that transfers OData records from your SAP instance.
+    """
 
 @pulumi.input_type
 class FlowSourceFlowConfigSourceConnectorPropertiesSapoDataArgs:
@@ -6669,14 +6361,11 @@ class FlowSourceFlowConfigSourceConnectorPropertiesSapoDataArgs:
         pulumi.set(self, "parallelism_config", value)
 
 
-if not MYPY:
-    class FlowSourceFlowConfigSourceConnectorPropertiesSapoDataPaginationConfigArgsDict(TypedDict):
-        max_page_size: pulumi.Input[_builtins.int]
-        """
-        he maximum number of records that Amazon AppFlow receives in each page of the response from your SAP application.
-        """
-elif False:
-    FlowSourceFlowConfigSourceConnectorPropertiesSapoDataPaginationConfigArgsDict: TypeAlias = Mapping[str, Any]
+class FlowSourceFlowConfigSourceConnectorPropertiesSapoDataPaginationConfigArgsDict(TypedDict):
+    max_page_size: pulumi.Input[_builtins.int]
+    """
+    he maximum number of records that Amazon AppFlow receives in each page of the response from your SAP application.
+    """
 
 @pulumi.input_type
 class FlowSourceFlowConfigSourceConnectorPropertiesSapoDataPaginationConfigArgs:
@@ -6700,14 +6389,11 @@ class FlowSourceFlowConfigSourceConnectorPropertiesSapoDataPaginationConfigArgs:
         pulumi.set(self, "max_page_size", value)
 
 
-if not MYPY:
-    class FlowSourceFlowConfigSourceConnectorPropertiesSapoDataParallelismConfigArgsDict(TypedDict):
-        max_page_size: pulumi.Input[_builtins.int]
-        """
-        he maximum number of records that Amazon AppFlow receives in each page of the response from your SAP application.
-        """
-elif False:
-    FlowSourceFlowConfigSourceConnectorPropertiesSapoDataParallelismConfigArgsDict: TypeAlias = Mapping[str, Any]
+class FlowSourceFlowConfigSourceConnectorPropertiesSapoDataParallelismConfigArgsDict(TypedDict):
+    max_page_size: pulumi.Input[_builtins.int]
+    """
+    he maximum number of records that Amazon AppFlow receives in each page of the response from your SAP application.
+    """
 
 @pulumi.input_type
 class FlowSourceFlowConfigSourceConnectorPropertiesSapoDataParallelismConfigArgs:
@@ -6731,11 +6417,8 @@ class FlowSourceFlowConfigSourceConnectorPropertiesSapoDataParallelismConfigArgs
         pulumi.set(self, "max_page_size", value)
 
 
-if not MYPY:
-    class FlowSourceFlowConfigSourceConnectorPropertiesServiceNowArgsDict(TypedDict):
-        object: pulumi.Input[_builtins.str]
-elif False:
-    FlowSourceFlowConfigSourceConnectorPropertiesServiceNowArgsDict: TypeAlias = Mapping[str, Any]
+class FlowSourceFlowConfigSourceConnectorPropertiesServiceNowArgsDict(TypedDict):
+    object: pulumi.Input[_builtins.str]
 
 @pulumi.input_type
 class FlowSourceFlowConfigSourceConnectorPropertiesServiceNowArgs:
@@ -6753,11 +6436,8 @@ class FlowSourceFlowConfigSourceConnectorPropertiesServiceNowArgs:
         pulumi.set(self, "object", value)
 
 
-if not MYPY:
-    class FlowSourceFlowConfigSourceConnectorPropertiesSingularArgsDict(TypedDict):
-        object: pulumi.Input[_builtins.str]
-elif False:
-    FlowSourceFlowConfigSourceConnectorPropertiesSingularArgsDict: TypeAlias = Mapping[str, Any]
+class FlowSourceFlowConfigSourceConnectorPropertiesSingularArgsDict(TypedDict):
+    object: pulumi.Input[_builtins.str]
 
 @pulumi.input_type
 class FlowSourceFlowConfigSourceConnectorPropertiesSingularArgs:
@@ -6775,11 +6455,8 @@ class FlowSourceFlowConfigSourceConnectorPropertiesSingularArgs:
         pulumi.set(self, "object", value)
 
 
-if not MYPY:
-    class FlowSourceFlowConfigSourceConnectorPropertiesSlackArgsDict(TypedDict):
-        object: pulumi.Input[_builtins.str]
-elif False:
-    FlowSourceFlowConfigSourceConnectorPropertiesSlackArgsDict: TypeAlias = Mapping[str, Any]
+class FlowSourceFlowConfigSourceConnectorPropertiesSlackArgsDict(TypedDict):
+    object: pulumi.Input[_builtins.str]
 
 @pulumi.input_type
 class FlowSourceFlowConfigSourceConnectorPropertiesSlackArgs:
@@ -6797,11 +6474,8 @@ class FlowSourceFlowConfigSourceConnectorPropertiesSlackArgs:
         pulumi.set(self, "object", value)
 
 
-if not MYPY:
-    class FlowSourceFlowConfigSourceConnectorPropertiesTrendmicroArgsDict(TypedDict):
-        object: pulumi.Input[_builtins.str]
-elif False:
-    FlowSourceFlowConfigSourceConnectorPropertiesTrendmicroArgsDict: TypeAlias = Mapping[str, Any]
+class FlowSourceFlowConfigSourceConnectorPropertiesTrendmicroArgsDict(TypedDict):
+    object: pulumi.Input[_builtins.str]
 
 @pulumi.input_type
 class FlowSourceFlowConfigSourceConnectorPropertiesTrendmicroArgs:
@@ -6819,27 +6493,24 @@ class FlowSourceFlowConfigSourceConnectorPropertiesTrendmicroArgs:
         pulumi.set(self, "object", value)
 
 
-if not MYPY:
-    class FlowSourceFlowConfigSourceConnectorPropertiesVeevaArgsDict(TypedDict):
-        object: pulumi.Input[_builtins.str]
-        document_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Document type specified in the Veeva document extract flow.
-        """
-        include_all_versions: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Boolean value to include All Versions of files in Veeva document extract flow.
-        """
-        include_renditions: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Boolean value to include file renditions in Veeva document extract flow.
-        """
-        include_source_files: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Boolean value to include source files in Veeva document extract flow.
-        """
-elif False:
-    FlowSourceFlowConfigSourceConnectorPropertiesVeevaArgsDict: TypeAlias = Mapping[str, Any]
+class FlowSourceFlowConfigSourceConnectorPropertiesVeevaArgsDict(TypedDict):
+    object: pulumi.Input[_builtins.str]
+    document_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Document type specified in the Veeva document extract flow.
+    """
+    include_all_versions: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Boolean value to include All Versions of files in Veeva document extract flow.
+    """
+    include_renditions: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Boolean value to include file renditions in Veeva document extract flow.
+    """
+    include_source_files: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Boolean value to include source files in Veeva document extract flow.
+    """
 
 @pulumi.input_type
 class FlowSourceFlowConfigSourceConnectorPropertiesVeevaArgs:
@@ -6923,11 +6594,8 @@ class FlowSourceFlowConfigSourceConnectorPropertiesVeevaArgs:
         pulumi.set(self, "include_source_files", value)
 
 
-if not MYPY:
-    class FlowSourceFlowConfigSourceConnectorPropertiesZendeskArgsDict(TypedDict):
-        object: pulumi.Input[_builtins.str]
-elif False:
-    FlowSourceFlowConfigSourceConnectorPropertiesZendeskArgsDict: TypeAlias = Mapping[str, Any]
+class FlowSourceFlowConfigSourceConnectorPropertiesZendeskArgsDict(TypedDict):
+    object: pulumi.Input[_builtins.str]
 
 @pulumi.input_type
 class FlowSourceFlowConfigSourceConnectorPropertiesZendeskArgs:
@@ -6945,30 +6613,27 @@ class FlowSourceFlowConfigSourceConnectorPropertiesZendeskArgs:
         pulumi.set(self, "object", value)
 
 
-if not MYPY:
-    class FlowTaskArgsDict(TypedDict):
-        task_type: pulumi.Input[_builtins.str]
-        """
-        Particular task implementation that Amazon AppFlow performs. Valid values are `Arithmetic`, `Filter`, `Map`, `Map_all`, `Mask`, `Merge`, `Passthrough`, `Truncate`, and `Validate`.
-        """
-        connector_operators: NotRequired[pulumi.Input[Sequence[pulumi.Input['FlowTaskConnectorOperatorArgsDict']]]]
-        """
-        Operation to be performed on the provided source fields. See Connector Operator for details.
-        """
-        destination_field: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Field in a destination connector, or a field value against which Amazon AppFlow validates a source field.
-        """
-        source_fields: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Source fields to which a particular task is applied.
-        """
-        task_properties: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
-        """
-        Map used to store task-related information. The execution service looks for particular information based on the `TaskType`. Valid keys are `VALUE`, `VALUES`, `DATA_TYPE`, `UPPER_BOUND`, `LOWER_BOUND`, `SOURCE_DATA_TYPE`, `DESTINATION_DATA_TYPE`, `VALIDATION_ACTION`, `MASK_VALUE`, `MASK_LENGTH`, `TRUNCATE_LENGTH`, `MATH_OPERATION_FIELDS_ORDER`, `CONCAT_FORMAT`, `SUBFIELD_CATEGORY_MAP`, and `EXCLUDE_SOURCE_FIELDS_LIST`.
-        """
-elif False:
-    FlowTaskArgsDict: TypeAlias = Mapping[str, Any]
+class FlowTaskArgsDict(TypedDict):
+    task_type: pulumi.Input[_builtins.str]
+    """
+    Particular task implementation that Amazon AppFlow performs. Valid values are `Arithmetic`, `Filter`, `Map`, `Map_all`, `Mask`, `Merge`, `Passthrough`, `Truncate`, and `Validate`.
+    """
+    connector_operators: NotRequired[pulumi.Input[Sequence[pulumi.Input['FlowTaskConnectorOperatorArgsDict']]]]
+    """
+    Operation to be performed on the provided source fields. See Connector Operator for details.
+    """
+    destination_field: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Field in a destination connector, or a field value against which Amazon AppFlow validates a source field.
+    """
+    source_fields: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Source fields to which a particular task is applied.
+    """
+    task_properties: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    """
+    Map used to store task-related information. The execution service looks for particular information based on the `TaskType`. Valid keys are `VALUE`, `VALUES`, `DATA_TYPE`, `UPPER_BOUND`, `LOWER_BOUND`, `SOURCE_DATA_TYPE`, `DESTINATION_DATA_TYPE`, `VALIDATION_ACTION`, `MASK_VALUE`, `MASK_LENGTH`, `TRUNCATE_LENGTH`, `MATH_OPERATION_FIELDS_ORDER`, `CONCAT_FORMAT`, `SUBFIELD_CATEGORY_MAP`, and `EXCLUDE_SOURCE_FIELDS_LIST`.
+    """
 
 @pulumi.input_type
 class FlowTaskArgs:
@@ -7056,74 +6721,71 @@ class FlowTaskArgs:
         pulumi.set(self, "task_properties", value)
 
 
-if not MYPY:
-    class FlowTaskConnectorOperatorArgsDict(TypedDict):
-        amplitude: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Operation to be performed on the provided Amplitude source fields. The only valid value is `BETWEEN`.
-        """
-        custom_connector: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Operators supported by the custom connector. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `CONTAINS`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `NOT_EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
-        """
-        datadog: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Operation to be performed on the provided Datadog source fields. Valid values are `PROJECTION`, `BETWEEN`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
-        """
-        dynatrace: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Operation to be performed on the provided Dynatrace source fields. Valid values are `PROJECTION`, `BETWEEN`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
-        """
-        google_analytics: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Operation to be performed on the provided Google Analytics source fields. Valid values are `PROJECTION` and `BETWEEN`.
-        """
-        infor_nexus: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Operation to be performed on the provided Infor Nexus source fields. Valid values are `PROJECTION`, `BETWEEN`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
-        """
-        marketo: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Operation to be performed on the provided Marketo source fields. Valid values are `PROJECTION`, `BETWEEN`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
-        """
-        s3: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Operation to be performed on the provided Amazon S3 source fields. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `NOT_EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
-        """
-        salesforce: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Operation to be performed on the provided Salesforce source fields. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `CONTAINS`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `NOT_EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
-        """
-        sapo_data: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Operation to be performed on the provided SAPOData source fields. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `CONTAINS`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `NOT_EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
-        """
-        service_now: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Operation to be performed on the provided ServiceNow source fields. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `CONTAINS`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `NOT_EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
-        """
-        singular: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Operation to be performed on the provided Singular source fields. Valid values are `PROJECTION`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
-        """
-        slack: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Operation to be performed on the provided Slack source fields. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
-        """
-        trendmicro: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Operation to be performed on the provided Trend Micro source fields. Valid values are `PROJECTION`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
-        """
-        veeva: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Operation to be performed on the provided Veeva source fields. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `CONTAINS`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `NOT_EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
-        """
-        zendesk: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Operation to be performed on the provided Zendesk source fields. Valid values are `PROJECTION`, `GREATER_THAN`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
-        """
-elif False:
-    FlowTaskConnectorOperatorArgsDict: TypeAlias = Mapping[str, Any]
+class FlowTaskConnectorOperatorArgsDict(TypedDict):
+    amplitude: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Operation to be performed on the provided Amplitude source fields. The only valid value is `BETWEEN`.
+    """
+    custom_connector: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Operators supported by the custom connector. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `CONTAINS`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `NOT_EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+    """
+    datadog: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Operation to be performed on the provided Datadog source fields. Valid values are `PROJECTION`, `BETWEEN`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+    """
+    dynatrace: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Operation to be performed on the provided Dynatrace source fields. Valid values are `PROJECTION`, `BETWEEN`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+    """
+    google_analytics: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Operation to be performed on the provided Google Analytics source fields. Valid values are `PROJECTION` and `BETWEEN`.
+    """
+    infor_nexus: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Operation to be performed on the provided Infor Nexus source fields. Valid values are `PROJECTION`, `BETWEEN`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+    """
+    marketo: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Operation to be performed on the provided Marketo source fields. Valid values are `PROJECTION`, `BETWEEN`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+    """
+    s3: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Operation to be performed on the provided Amazon S3 source fields. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `NOT_EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+    """
+    salesforce: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Operation to be performed on the provided Salesforce source fields. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `CONTAINS`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `NOT_EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+    """
+    sapo_data: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Operation to be performed on the provided SAPOData source fields. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `CONTAINS`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `NOT_EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+    """
+    service_now: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Operation to be performed on the provided ServiceNow source fields. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `CONTAINS`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `NOT_EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+    """
+    singular: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Operation to be performed on the provided Singular source fields. Valid values are `PROJECTION`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+    """
+    slack: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Operation to be performed on the provided Slack source fields. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+    """
+    trendmicro: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Operation to be performed on the provided Trend Micro source fields. Valid values are `PROJECTION`, `EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+    """
+    veeva: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Operation to be performed on the provided Veeva source fields. Valid values are `PROJECTION`, `LESS_THAN`, `GREATER_THAN`, `CONTAINS`, `BETWEEN`, `LESS_THAN_OR_EQUAL_TO`, `GREATER_THAN_OR_EQUAL_TO`, `EQUAL_TO`, `NOT_EQUAL_TO`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+    """
+    zendesk: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Operation to be performed on the provided Zendesk source fields. Valid values are `PROJECTION`, `GREATER_THAN`, `ADDITION`, `MULTIPLICATION`, `DIVISION`, `SUBTRACTION`, `MASK_ALL`, `MASK_FIRST_N`, `MASK_LAST_N`, `VALIDATE_NON_NULL`, `VALIDATE_NON_ZERO`, `VALIDATE_NON_NEGATIVE`, `VALIDATE_NUMERIC`, and `NO_OP`.
+    """
 
 @pulumi.input_type
 class FlowTaskConnectorOperatorArgs:
@@ -7388,18 +7050,15 @@ class FlowTaskConnectorOperatorArgs:
         pulumi.set(self, "zendesk", value)
 
 
-if not MYPY:
-    class FlowTriggerConfigArgsDict(TypedDict):
-        trigger_type: pulumi.Input[_builtins.str]
-        """
-        Type of flow trigger. Valid values are `Scheduled`, `Event`, and `OnDemand`.
-        """
-        trigger_properties: NotRequired[pulumi.Input['FlowTriggerConfigTriggerPropertiesArgsDict']]
-        """
-        Configuration details of a schedule-triggered flow as defined by the user. Currently, these settings only apply to the `Scheduled` trigger type. See Scheduled Trigger Properties for details.
-        """
-elif False:
-    FlowTriggerConfigArgsDict: TypeAlias = Mapping[str, Any]
+class FlowTriggerConfigArgsDict(TypedDict):
+    trigger_type: pulumi.Input[_builtins.str]
+    """
+    Type of flow trigger. Valid values are `Scheduled`, `Event`, and `OnDemand`.
+    """
+    trigger_properties: NotRequired[pulumi.Input['FlowTriggerConfigTriggerPropertiesArgsDict']]
+    """
+    Configuration details of a schedule-triggered flow as defined by the user. Currently, these settings only apply to the `Scheduled` trigger type. See Scheduled Trigger Properties for details.
+    """
 
 @pulumi.input_type
 class FlowTriggerConfigArgs:
@@ -7439,11 +7098,8 @@ class FlowTriggerConfigArgs:
         pulumi.set(self, "trigger_properties", value)
 
 
-if not MYPY:
-    class FlowTriggerConfigTriggerPropertiesArgsDict(TypedDict):
-        scheduled: NotRequired[pulumi.Input['FlowTriggerConfigTriggerPropertiesScheduledArgsDict']]
-elif False:
-    FlowTriggerConfigTriggerPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class FlowTriggerConfigTriggerPropertiesArgsDict(TypedDict):
+    scheduled: NotRequired[pulumi.Input['FlowTriggerConfigTriggerPropertiesScheduledArgsDict']]
 
 @pulumi.input_type
 class FlowTriggerConfigTriggerPropertiesArgs:
@@ -7462,49 +7118,46 @@ class FlowTriggerConfigTriggerPropertiesArgs:
         pulumi.set(self, "scheduled", value)
 
 
-if not MYPY:
-    class FlowTriggerConfigTriggerPropertiesScheduledArgsDict(TypedDict):
-        schedule_expression: pulumi.Input[_builtins.str]
-        """
-        Scheduling expression that determines the rate at which the schedule will run, for example `rate(5minutes)`.
-        """
-        data_pull_mode: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Whether a scheduled flow has an incremental data transfer or a complete data transfer for each flow run. Valid values are `Incremental` and `Complete`.
-        """
-        first_execution_from: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Date range for the records to import from the connector in the first flow run. Must be a valid RFC3339 timestamp.
-        """
-        schedule_end_time: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Scheduled end time for a schedule-triggered flow. Must be a valid RFC3339 timestamp.
-        """
-        schedule_offset: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Optional offset that is added to the time interval for a schedule-triggered flow. Maximum value of 36000.
-        """
-        schedule_start_time: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Scheduled start time for a schedule-triggered flow. Must be a valid RFC3339 timestamp.
-        """
-        timezone: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Time zone used when referring to the date and time of a scheduled-triggered flow, such as `America/New_York`.
+class FlowTriggerConfigTriggerPropertiesScheduledArgsDict(TypedDict):
+    schedule_expression: pulumi.Input[_builtins.str]
+    """
+    Scheduling expression that determines the rate at which the schedule will run, for example `rate(5minutes)`.
+    """
+    data_pull_mode: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Whether a scheduled flow has an incremental data transfer or a complete data transfer for each flow run. Valid values are `Incremental` and `Complete`.
+    """
+    first_execution_from: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Date range for the records to import from the connector in the first flow run. Must be a valid RFC3339 timestamp.
+    """
+    schedule_end_time: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Scheduled end time for a schedule-triggered flow. Must be a valid RFC3339 timestamp.
+    """
+    schedule_offset: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Optional offset that is added to the time interval for a schedule-triggered flow. Maximum value of 36000.
+    """
+    schedule_start_time: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Scheduled start time for a schedule-triggered flow. Must be a valid RFC3339 timestamp.
+    """
+    timezone: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Time zone used when referring to the date and time of a scheduled-triggered flow, such as `America/New_York`.
 
-        ```python
-        import pulumi
-        import pulumi_aws as aws
+    ```python
+    import pulumi
+    import pulumi_aws as aws
 
-        example = aws.appflow.Flow("example", trigger_config={
-            "scheduled": [{
-                "scheduleExpression": "rate(1minutes)",
-            }],
-        })
-        ```
-        """
-elif False:
-    FlowTriggerConfigTriggerPropertiesScheduledArgsDict: TypeAlias = Mapping[str, Any]
+    example = aws.appflow.Flow("example", trigger_config={
+        "scheduled": [{
+            "scheduleExpression": "rate(1minutes)",
+        }],
+    })
+    ```
+    """
 
 @pulumi.input_type
 class FlowTriggerConfigTriggerPropertiesScheduledArgs:

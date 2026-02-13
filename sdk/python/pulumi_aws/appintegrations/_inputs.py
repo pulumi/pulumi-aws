@@ -19,24 +19,19 @@ __all__ = [
     'DataIntegrationScheduleConfigArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class DataIntegrationScheduleConfigArgsDict(TypedDict):
-        first_execution_from: pulumi.Input[_builtins.str]
-        """
-        The start date for objects to import in the first flow run as an Unix/epoch timestamp in milliseconds or in ISO-8601 format. This needs to be a time in the past, meaning that the data created or updated before this given date will not be downloaded.
-        """
-        object: pulumi.Input[_builtins.str]
-        """
-        The name of the object to pull from the data source. Examples of objects in Salesforce include `Case`, `Account`, or `Lead`.
-        """
-        schedule_expression: pulumi.Input[_builtins.str]
-        """
-        How often the data should be pulled from data source. Examples include `rate(1 hour)`, `rate(3 hours)`, `rate(1 day)`.
-        """
-elif False:
-    DataIntegrationScheduleConfigArgsDict: TypeAlias = Mapping[str, Any]
+class DataIntegrationScheduleConfigArgsDict(TypedDict):
+    first_execution_from: pulumi.Input[_builtins.str]
+    """
+    The start date for objects to import in the first flow run as an Unix/epoch timestamp in milliseconds or in ISO-8601 format. This needs to be a time in the past, meaning that the data created or updated before this given date will not be downloaded.
+    """
+    object: pulumi.Input[_builtins.str]
+    """
+    The name of the object to pull from the data source. Examples of objects in Salesforce include `Case`, `Account`, or `Lead`.
+    """
+    schedule_expression: pulumi.Input[_builtins.str]
+    """
+    How often the data should be pulled from data source. Examples include `rate(1 hour)`, `rate(3 hours)`, `rate(1 day)`.
+    """
 
 @pulumi.input_type
 class DataIntegrationScheduleConfigArgs:

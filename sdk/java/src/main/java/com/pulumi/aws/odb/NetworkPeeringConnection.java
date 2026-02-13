@@ -18,6 +18,10 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
+ * Terraform  resource for managing oracle database network peering resource in AWS. If underlying odb network is shared, ARN must be used while creating network peering.
+ * 
+ * You can find out more about Oracle Database{@literal @}AWS from [User Guide](https://docs.aws.amazon.com/odb/latest/UserGuide/what-is-odb.html).
+ * 
  * ## Example Usage
  * 
  * ### Basic Usage
@@ -87,29 +91,49 @@ public class NetworkPeeringConnection extends com.pulumi.resources.CustomResourc
     public Output<String> createdAt() {
         return this.createdAt;
     }
+    /**
+     * Display name of the ODB network peering connection. Changing this will force Terraform to create a new resource.
+     * 
+     * The following arguments are optional:
+     * 
+     */
     @Export(name="displayName", refs={String.class}, tree="[0]")
     private Output<String> displayName;
 
+    /**
+     * @return Display name of the ODB network peering connection. Changing this will force Terraform to create a new resource.
+     * 
+     * The following arguments are optional:
+     * 
+     */
     public Output<String> displayName() {
         return this.displayName;
     }
     /**
-     * ARN of the odb network peering connection.
+     * ARN of the ODB network that initiates the peering connection. Changing this will force Terraform to create a new resource. Either odbNetworkId or odbNetworkArn should be used.
      * 
      */
     @Export(name="odbNetworkArn", refs={String.class}, tree="[0]")
     private Output<String> odbNetworkArn;
 
     /**
-     * @return ARN of the odb network peering connection.
+     * @return ARN of the ODB network that initiates the peering connection. Changing this will force Terraform to create a new resource. Either odbNetworkId or odbNetworkArn should be used.
      * 
      */
     public Output<String> odbNetworkArn() {
         return this.odbNetworkArn;
     }
+    /**
+     * The unique identifier of the ODB network that initiates the peering connection. A sample ID is `odbpcx-abcdefgh12345678`. Changing this will force Terraform to create a new resource.
+     * 
+     */
     @Export(name="odbNetworkId", refs={String.class}, tree="[0]")
     private Output<String> odbNetworkId;
 
+    /**
+     * @return The unique identifier of the ODB network that initiates the peering connection. A sample ID is `odbpcx-abcdefgh12345678`. Changing this will force Terraform to create a new resource.
+     * 
+     */
     public Output<String> odbNetworkId() {
         return this.odbNetworkId;
     }
@@ -141,9 +165,17 @@ public class NetworkPeeringConnection extends com.pulumi.resources.CustomResourc
     public Output<String> peerNetworkArn() {
         return this.peerNetworkArn;
     }
+    /**
+     * The unique identifier of the ODB peering connection. Changing this will force Terraform to create a new resource. Either odbNetworkId or odbNetworkArn should be used.
+     * 
+     */
     @Export(name="peerNetworkId", refs={String.class}, tree="[0]")
     private Output<String> peerNetworkId;
 
+    /**
+     * @return The unique identifier of the ODB peering connection. Changing this will force Terraform to create a new resource. Either odbNetworkId or odbNetworkArn should be used.
+     * 
+     */
     public Output<String> peerNetworkId() {
         return this.peerNetworkId;
     }

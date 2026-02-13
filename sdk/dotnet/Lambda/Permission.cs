@@ -279,6 +279,21 @@ namespace Pulumi.Aws.Lambda
     /// 
     /// });
     /// ```
+    /// 
+    /// #### Optional
+    /// 
+    /// * `AccountId` (String) AWS Account where this resource is managed.
+    /// * `Qualifier` (String) Qualifier for the function version or alias.
+    /// * `Region` (String) Region where this resource is managed.
+    /// 
+    /// Using `Qualifier`:
+    /// 
+    /// For backwards compatibility, the following legacy `pulumi import` commands are also supported:
+    /// 
+    /// ```sh
+    /// $ pulumi import aws:lambda/permission:Permission example my_test_lambda_function/AllowExecutionFromCloudWatch
+    /// $ pulumi import aws:lambda/permission:Permission example my_test_lambda_function:qualifier_name/AllowExecutionFromCloudWatch
+    /// ```
     /// </summary>
     [AwsResourceType("aws:lambda/permission:Permission")]
     public partial class Permission : global::Pulumi.CustomResource

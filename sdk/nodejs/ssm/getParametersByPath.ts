@@ -4,6 +4,22 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * Use this data source to get information about one or more System Manager parameters in a specific hierarchy.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.ssm.getParametersByPath({
+ *     path: "/site/newyork/department/",
+ * });
+ * ```
+ *
+ * > **Note:** When the `withDecryption` argument is set to `true`, the unencrypted values of `SecureString` parameters will be stored in the raw state as plain-text as per normal Terraform behavior. > **Note:** The data source follows the behavior of the [SSM API](https://docs.aws.amazon.com/sdk-for-go/api/service/ssm/#Parameter) to return a string value, regardless of parameter type. For `StringList` type where the value is returned as a comma-separated string with no spaces between comma, you may use the built-in split function to get values in a list. Example: `split(",", data.aws_ssm_parameter.subnets.value)`
+ */
 export function getParametersByPath(args: GetParametersByPathArgs, opts?: pulumi.InvokeOptions): Promise<GetParametersByPathResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:ssm/getParametersByPath:getParametersByPath", {
@@ -65,6 +81,22 @@ export interface GetParametersByPathResult {
     readonly values: string[];
     readonly withDecryption?: boolean;
 }
+/**
+ * Use this data source to get information about one or more System Manager parameters in a specific hierarchy.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.ssm.getParametersByPath({
+ *     path: "/site/newyork/department/",
+ * });
+ * ```
+ *
+ * > **Note:** When the `withDecryption` argument is set to `true`, the unencrypted values of `SecureString` parameters will be stored in the raw state as plain-text as per normal Terraform behavior. > **Note:** The data source follows the behavior of the [SSM API](https://docs.aws.amazon.com/sdk-for-go/api/service/ssm/#Parameter) to return a string value, regardless of parameter type. For `StringList` type where the value is returned as a comma-separated string with no spaces between comma, you may use the built-in split function to get values in a list. Example: `split(",", data.aws_ssm_parameter.subnets.value)`
+ */
 export function getParametersByPathOutput(args: GetParametersByPathOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetParametersByPathResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:ssm/getParametersByPath:getParametersByPath", {

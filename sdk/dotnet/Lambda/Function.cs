@@ -694,17 +694,18 @@ namespace Pulumi.Aws.Lambda
     /// 
     /// #### Required
     /// 
-    /// * `function_name` (String) Name of the Lambda function.
+    /// * `FunctionName` (String) Name of the Lambda function.
     /// 
     /// #### Optional
     /// 
-    /// * `account_id` (String) AWS Account where this resource is managed.
+    /// * `AccountId` (String) AWS Account where this resource is managed.
+    /// * `Region` (String) Region where this resource is managed.
     /// 
-    /// * `region` (String) Region where this resource is managed.
+    /// Using `pulumi import`, import Lambda Functions using the `FunctionName`. For example:
     /// 
-    /// Using `pulumi import`, import Lambda Functions using the `function_name`. For example:
-    /// 
-    /// % pulumi import aws_lambda_function.example example
+    /// ```sh
+    /// $ pulumi import aws:lambda/function:Function example example
+    /// ```
     /// </summary>
     [AwsResourceType("aws:lambda/function:Function")]
     public partial class Function : global::Pulumi.CustomResource

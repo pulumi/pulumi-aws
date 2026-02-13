@@ -213,6 +213,10 @@ class AgentcoreOauth2CredentialProvider(pulumi.CustomResource):
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
+        Manages an AWS Bedrock AgentCore OAuth2 Credential Provider. OAuth2 credential providers enable secure authentication with external OAuth2/OpenID Connect identity providers for agent runtimes.
+
+        > **Note:** Write-Only arguments `client_id_wo` and `client_secret_wo` are available to use in place of `client_id` and `client_secret`. Write-Only arguments are supported in HashiCorp Terraform 1.11.0 and later. Learn more.
+
         ## Example Usage
 
         ### GitHub OAuth Provider
@@ -306,6 +310,10 @@ class AgentcoreOauth2CredentialProvider(pulumi.CustomResource):
                  args: AgentcoreOauth2CredentialProviderArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        Manages an AWS Bedrock AgentCore OAuth2 Credential Provider. OAuth2 credential providers enable secure authentication with external OAuth2/OpenID Connect identity providers for agent runtimes.
+
+        > **Note:** Write-Only arguments `client_id_wo` and `client_secret_wo` are available to use in place of `client_id` and `client_secret`. Write-Only arguments are supported in HashiCorp Terraform 1.11.0 and later. Learn more.
+
         ## Example Usage
 
         ### GitHub OAuth Provider

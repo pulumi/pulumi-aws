@@ -51,7 +51,7 @@ namespace Pulumi.Aws.ApiGateway
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import API Gateway VPC Link using the `id`. For example:
+    /// Using `pulumi import`, import API Gateway VPC Link using the `Id`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:apigateway/vpcLink:VpcLink example 12345abcde

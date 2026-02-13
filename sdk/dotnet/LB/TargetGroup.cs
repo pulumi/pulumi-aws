@@ -178,11 +178,13 @@ namespace Pulumi.Aws.LB
     /// 
     /// #### Required
     /// 
-    /// - `arn` (String) Amazon Resource Name (ARN) of the target group.
+    /// - `Arn` (String) Amazon Resource Name (ARN) of the target group.
     /// 
     /// Using `pulumi import`, import Target Groups using their ARN. For example:
     /// 
-    /// % pulumi import aws_lb_target_group.app_front_end arn:aws:elasticloadbalancing:us-west-2:187416307283:targetgroup/app-front-end/20cfe21448b66314
+    /// ```sh
+    /// $ pulumi import aws:lb/targetGroup:TargetGroup app_front_end arn:aws:elasticloadbalancing:us-west-2:187416307283:targetgroup/app-front-end/20cfe21448b66314
+    /// ```
     /// </summary>
     [AwsResourceType("aws:lb/targetGroup:TargetGroup")]
     public partial class TargetGroup : global::Pulumi.CustomResource

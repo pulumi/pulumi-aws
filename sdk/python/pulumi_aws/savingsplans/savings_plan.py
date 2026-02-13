@@ -510,6 +510,12 @@ class SavingsPlan(pulumi.CustomResource):
                  upfront_payment_amount: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
+        Provides an AWS Savings Plan resource.
+
+        > **WARNING:** Savings Plans represent a financial commitment. Once a Savings Plan becomes active, it **cannot be cancelled or deleted**. Only Savings Plans in the `queued` state (scheduled for future purchase) can be deleted. Use this resource with caution.
+
+        > **Note:** Importing an active Savings Plan will add it to your Terraform state, but destroying it will only remove it from state - the actual Savings Plan will continue until its term ends.
+
         ## Example Usage
 
         ### Basic Usage
@@ -568,6 +574,12 @@ class SavingsPlan(pulumi.CustomResource):
                  args: SavingsPlanArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        Provides an AWS Savings Plan resource.
+
+        > **WARNING:** Savings Plans represent a financial commitment. Once a Savings Plan becomes active, it **cannot be cancelled or deleted**. Only Savings Plans in the `queued` state (scheduled for future purchase) can be deleted. Use this resource with caution.
+
+        > **Note:** Importing an active Savings Plan will add it to your Terraform state, but destroying it will only remove it from state - the actual Savings Plan will continue until its term ends.
+
         ## Example Usage
 
         ### Basic Usage

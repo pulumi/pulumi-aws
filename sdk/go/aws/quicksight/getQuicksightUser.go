@@ -54,6 +54,7 @@ func GetQuicksightUser(ctx *pulumi.Context, args *GetQuicksightUserArgs, opts ..
 
 // A collection of arguments for invoking getQuicksightUser.
 type GetQuicksightUserArgs struct {
+	// AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
 	AwsAccountId *string `pulumi:"awsAccountId"`
 	// QuickSight namespace. Defaults to `default`.
 	Namespace *string `pulumi:"namespace"`
@@ -103,6 +104,7 @@ func GetQuicksightUserOutput(ctx *pulumi.Context, args GetQuicksightUserOutputAr
 
 // A collection of arguments for invoking getQuicksightUser.
 type GetQuicksightUserOutputArgs struct {
+	// AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
 	AwsAccountId pulumi.StringPtrInput `pulumi:"awsAccountId"`
 	// QuickSight namespace. Defaults to `default`.
 	Namespace pulumi.StringPtrInput `pulumi:"namespace"`

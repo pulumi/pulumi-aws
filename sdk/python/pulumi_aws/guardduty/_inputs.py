@@ -63,27 +63,22 @@ __all__ = [
     'OrganizationConfigurationFeatureAdditionalConfigurationArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class DetectorDatasourcesArgsDict(TypedDict):
-        kubernetes: NotRequired[pulumi.Input['DetectorDatasourcesKubernetesArgsDict']]
-        """
-        Configures [Kubernetes protection](https://docs.aws.amazon.com/guardduty/latest/ug/kubernetes-protection.html).
-        See Kubernetes and Kubernetes Audit Logs below for more details.
-        """
-        malware_protection: NotRequired[pulumi.Input['DetectorDatasourcesMalwareProtectionArgsDict']]
-        """
-        Configures [Malware Protection](https://docs.aws.amazon.com/guardduty/latest/ug/malware-protection.html).
-        See Malware Protection, Scan EC2 instance with findings and EBS volumes below for more details.
-        """
-        s3_logs: NotRequired[pulumi.Input['DetectorDatasourcesS3LogsArgsDict']]
-        """
-        Configures [S3 protection](https://docs.aws.amazon.com/guardduty/latest/ug/s3-protection.html).
-        See S3 Logs below for more details.
-        """
-elif False:
-    DetectorDatasourcesArgsDict: TypeAlias = Mapping[str, Any]
+class DetectorDatasourcesArgsDict(TypedDict):
+    kubernetes: NotRequired[pulumi.Input['DetectorDatasourcesKubernetesArgsDict']]
+    """
+    Configures [Kubernetes protection](https://docs.aws.amazon.com/guardduty/latest/ug/kubernetes-protection.html).
+    See Kubernetes and Kubernetes Audit Logs below for more details.
+    """
+    malware_protection: NotRequired[pulumi.Input['DetectorDatasourcesMalwareProtectionArgsDict']]
+    """
+    Configures [Malware Protection](https://docs.aws.amazon.com/guardduty/latest/ug/malware-protection.html).
+    See Malware Protection, Scan EC2 instance with findings and EBS volumes below for more details.
+    """
+    s3_logs: NotRequired[pulumi.Input['DetectorDatasourcesS3LogsArgsDict']]
+    """
+    Configures [S3 protection](https://docs.aws.amazon.com/guardduty/latest/ug/s3-protection.html).
+    See S3 Logs below for more details.
+    """
 
 @pulumi.input_type
 class DetectorDatasourcesArgs:
@@ -146,15 +141,12 @@ class DetectorDatasourcesArgs:
         pulumi.set(self, "s3_logs", value)
 
 
-if not MYPY:
-    class DetectorDatasourcesKubernetesArgsDict(TypedDict):
-        audit_logs: pulumi.Input['DetectorDatasourcesKubernetesAuditLogsArgsDict']
-        """
-        Configures Kubernetes audit logs as a data source for [Kubernetes protection](https://docs.aws.amazon.com/guardduty/latest/ug/kubernetes-protection.html).
-        See Kubernetes Audit Logs below for more details.
-        """
-elif False:
-    DetectorDatasourcesKubernetesArgsDict: TypeAlias = Mapping[str, Any]
+class DetectorDatasourcesKubernetesArgsDict(TypedDict):
+    audit_logs: pulumi.Input['DetectorDatasourcesKubernetesAuditLogsArgsDict']
+    """
+    Configures Kubernetes audit logs as a data source for [Kubernetes protection](https://docs.aws.amazon.com/guardduty/latest/ug/kubernetes-protection.html).
+    See Kubernetes Audit Logs below for more details.
+    """
 
 @pulumi.input_type
 class DetectorDatasourcesKubernetesArgs:
@@ -180,15 +172,12 @@ class DetectorDatasourcesKubernetesArgs:
         pulumi.set(self, "audit_logs", value)
 
 
-if not MYPY:
-    class DetectorDatasourcesKubernetesAuditLogsArgsDict(TypedDict):
-        enable: pulumi.Input[_builtins.bool]
-        """
-        If true, enables Kubernetes audit logs as a data source for [Kubernetes protection](https://docs.aws.amazon.com/guardduty/latest/ug/kubernetes-protection.html).
-        Defaults to `true`.
-        """
-elif False:
-    DetectorDatasourcesKubernetesAuditLogsArgsDict: TypeAlias = Mapping[str, Any]
+class DetectorDatasourcesKubernetesAuditLogsArgsDict(TypedDict):
+    enable: pulumi.Input[_builtins.bool]
+    """
+    If true, enables Kubernetes audit logs as a data source for [Kubernetes protection](https://docs.aws.amazon.com/guardduty/latest/ug/kubernetes-protection.html).
+    Defaults to `true`.
+    """
 
 @pulumi.input_type
 class DetectorDatasourcesKubernetesAuditLogsArgs:
@@ -214,15 +203,12 @@ class DetectorDatasourcesKubernetesAuditLogsArgs:
         pulumi.set(self, "enable", value)
 
 
-if not MYPY:
-    class DetectorDatasourcesMalwareProtectionArgsDict(TypedDict):
-        scan_ec2_instance_with_findings: pulumi.Input['DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsArgsDict']
-        """
-        Configure whether [Malware Protection](https://docs.aws.amazon.com/guardduty/latest/ug/malware-protection.html) is enabled as data source for EC2 instances with findings for the detector.
-        See Scan EC2 instance with findings below for more details.
-        """
-elif False:
-    DetectorDatasourcesMalwareProtectionArgsDict: TypeAlias = Mapping[str, Any]
+class DetectorDatasourcesMalwareProtectionArgsDict(TypedDict):
+    scan_ec2_instance_with_findings: pulumi.Input['DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsArgsDict']
+    """
+    Configure whether [Malware Protection](https://docs.aws.amazon.com/guardduty/latest/ug/malware-protection.html) is enabled as data source for EC2 instances with findings for the detector.
+    See Scan EC2 instance with findings below for more details.
+    """
 
 @pulumi.input_type
 class DetectorDatasourcesMalwareProtectionArgs:
@@ -248,15 +234,12 @@ class DetectorDatasourcesMalwareProtectionArgs:
         pulumi.set(self, "scan_ec2_instance_with_findings", value)
 
 
-if not MYPY:
-    class DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsArgsDict(TypedDict):
-        ebs_volumes: pulumi.Input['DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesArgsDict']
-        """
-        Configure whether scanning EBS volumes is enabled as data source for the detector for instances with findings.
-        See EBS volumes below for more details.
-        """
-elif False:
-    DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsArgsDict: TypeAlias = Mapping[str, Any]
+class DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsArgsDict(TypedDict):
+    ebs_volumes: pulumi.Input['DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesArgsDict']
+    """
+    Configure whether scanning EBS volumes is enabled as data source for the detector for instances with findings.
+    See EBS volumes below for more details.
+    """
 
 @pulumi.input_type
 class DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsArgs:
@@ -282,15 +265,12 @@ class DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsArgs:
         pulumi.set(self, "ebs_volumes", value)
 
 
-if not MYPY:
-    class DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesArgsDict(TypedDict):
-        enable: pulumi.Input[_builtins.bool]
-        """
-        If true, enables [Malware Protection](https://docs.aws.amazon.com/guardduty/latest/ug/malware-protection.html) as data source for the detector.
-        Defaults to `true`.
-        """
-elif False:
-    DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesArgsDict: TypeAlias = Mapping[str, Any]
+class DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesArgsDict(TypedDict):
+    enable: pulumi.Input[_builtins.bool]
+    """
+    If true, enables [Malware Protection](https://docs.aws.amazon.com/guardduty/latest/ug/malware-protection.html) as data source for the detector.
+    Defaults to `true`.
+    """
 
 @pulumi.input_type
 class DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesArgs:
@@ -316,15 +296,12 @@ class DetectorDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesA
         pulumi.set(self, "enable", value)
 
 
-if not MYPY:
-    class DetectorDatasourcesS3LogsArgsDict(TypedDict):
-        enable: pulumi.Input[_builtins.bool]
-        """
-        If true, enables [S3 protection](https://docs.aws.amazon.com/guardduty/latest/ug/s3-protection.html).
-        Defaults to `true`.
-        """
-elif False:
-    DetectorDatasourcesS3LogsArgsDict: TypeAlias = Mapping[str, Any]
+class DetectorDatasourcesS3LogsArgsDict(TypedDict):
+    enable: pulumi.Input[_builtins.bool]
+    """
+    If true, enables [S3 protection](https://docs.aws.amazon.com/guardduty/latest/ug/s3-protection.html).
+    Defaults to `true`.
+    """
 
 @pulumi.input_type
 class DetectorDatasourcesS3LogsArgs:
@@ -350,18 +327,15 @@ class DetectorDatasourcesS3LogsArgs:
         pulumi.set(self, "enable", value)
 
 
-if not MYPY:
-    class DetectorFeatureAdditionalConfigurationArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the additional configuration for a feature. Valid values: `EKS_ADDON_MANAGEMENT`, `ECS_FARGATE_AGENT_MANAGEMENT`, `EC2_AGENT_MANAGEMENT`. Refer to the [AWS Documentation](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DetectorAdditionalConfiguration.html) for the current list of supported values.
-        """
-        status: pulumi.Input[_builtins.str]
-        """
-        The status of the additional configuration. Valid values: `ENABLED`, `DISABLED`.
-        """
-elif False:
-    DetectorFeatureAdditionalConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class DetectorFeatureAdditionalConfigurationArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the additional configuration for a feature. Valid values: `EKS_ADDON_MANAGEMENT`, `ECS_FARGATE_AGENT_MANAGEMENT`, `EC2_AGENT_MANAGEMENT`. Refer to the [AWS Documentation](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DetectorAdditionalConfiguration.html) for the current list of supported values.
+    """
+    status: pulumi.Input[_builtins.str]
+    """
+    The status of the additional configuration. Valid values: `ENABLED`, `DISABLED`.
+    """
 
 @pulumi.input_type
 class DetectorFeatureAdditionalConfigurationArgs:
@@ -400,11 +374,8 @@ class DetectorFeatureAdditionalConfigurationArgs:
         pulumi.set(self, "status", value)
 
 
-if not MYPY:
-    class FilterFindingCriteriaArgsDict(TypedDict):
-        criterions: pulumi.Input[Sequence[pulumi.Input['FilterFindingCriteriaCriterionArgsDict']]]
-elif False:
-    FilterFindingCriteriaArgsDict: TypeAlias = Mapping[str, Any]
+class FilterFindingCriteriaArgsDict(TypedDict):
+    criterions: pulumi.Input[Sequence[pulumi.Input['FilterFindingCriteriaCriterionArgsDict']]]
 
 @pulumi.input_type
 class FilterFindingCriteriaArgs:
@@ -422,46 +393,43 @@ class FilterFindingCriteriaArgs:
         pulumi.set(self, "criterions", value)
 
 
-if not MYPY:
-    class FilterFindingCriteriaCriterionArgsDict(TypedDict):
-        field: pulumi.Input[_builtins.str]
-        """
-        The name of the field to be evaluated. The full list of field names can be found in [AWS documentation](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_filter-findings.html#filter_criteria).
-        """
-        equals: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        List of string values to be evaluated.
-        """
-        greater_than: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A value to be evaluated. Accepts either an integer or a date in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
-        """
-        greater_than_or_equal: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A value to be evaluated. Accepts either an integer or a date in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
-        """
-        less_than: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A value to be evaluated. Accepts either an integer or a date in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
-        """
-        less_than_or_equal: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A value to be evaluated. Accepts either an integer or a date in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
-        """
-        matches: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        List of string values to be evaluated as matching conditions.
-        """
-        not_equals: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        List of string values to be evaluated.
-        """
-        not_matches: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        List of string values to be evaluated as non-matching conditions.
-        """
-elif False:
-    FilterFindingCriteriaCriterionArgsDict: TypeAlias = Mapping[str, Any]
+class FilterFindingCriteriaCriterionArgsDict(TypedDict):
+    field: pulumi.Input[_builtins.str]
+    """
+    The name of the field to be evaluated. The full list of field names can be found in [AWS documentation](https://docs.aws.amazon.com/guardduty/latest/ug/guardduty_filter-findings.html#filter_criteria).
+    """
+    equals: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    List of string values to be evaluated.
+    """
+    greater_than: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A value to be evaluated. Accepts either an integer or a date in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
+    """
+    greater_than_or_equal: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A value to be evaluated. Accepts either an integer or a date in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
+    """
+    less_than: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A value to be evaluated. Accepts either an integer or a date in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
+    """
+    less_than_or_equal: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A value to be evaluated. Accepts either an integer or a date in [RFC 3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
+    """
+    matches: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    List of string values to be evaluated as matching conditions.
+    """
+    not_equals: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    List of string values to be evaluated.
+    """
+    not_matches: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    List of string values to be evaluated as non-matching conditions.
+    """
 
 @pulumi.input_type
 class FilterFindingCriteriaCriterionArgs:
@@ -613,14 +581,11 @@ class FilterFindingCriteriaCriterionArgs:
         pulumi.set(self, "not_matches", value)
 
 
-if not MYPY:
-    class MalwareProtectionPlanActionArgsDict(TypedDict):
-        taggings: pulumi.Input[Sequence[pulumi.Input['MalwareProtectionPlanActionTaggingArgsDict']]]
-        """
-        Indicates whether the scanned S3 object will have tags about the scan result. See `tagging` below.
-        """
-elif False:
-    MalwareProtectionPlanActionArgsDict: TypeAlias = Mapping[str, Any]
+class MalwareProtectionPlanActionArgsDict(TypedDict):
+    taggings: pulumi.Input[Sequence[pulumi.Input['MalwareProtectionPlanActionTaggingArgsDict']]]
+    """
+    Indicates whether the scanned S3 object will have tags about the scan result. See `tagging` below.
+    """
 
 @pulumi.input_type
 class MalwareProtectionPlanActionArgs:
@@ -644,14 +609,11 @@ class MalwareProtectionPlanActionArgs:
         pulumi.set(self, "taggings", value)
 
 
-if not MYPY:
-    class MalwareProtectionPlanActionTaggingArgsDict(TypedDict):
-        status: pulumi.Input[_builtins.str]
-        """
-        Indicates whether or not the tags will added. Valid values are `DISABLED` and `ENABLED`. Defaults to `DISABLED`
-        """
-elif False:
-    MalwareProtectionPlanActionTaggingArgsDict: TypeAlias = Mapping[str, Any]
+class MalwareProtectionPlanActionTaggingArgsDict(TypedDict):
+    status: pulumi.Input[_builtins.str]
+    """
+    Indicates whether or not the tags will added. Valid values are `DISABLED` and `ENABLED`. Defaults to `DISABLED`
+    """
 
 @pulumi.input_type
 class MalwareProtectionPlanActionTaggingArgs:
@@ -675,14 +637,11 @@ class MalwareProtectionPlanActionTaggingArgs:
         pulumi.set(self, "status", value)
 
 
-if not MYPY:
-    class MalwareProtectionPlanProtectedResourceArgsDict(TypedDict):
-        s3_bucket: pulumi.Input['MalwareProtectionPlanProtectedResourceS3BucketArgsDict']
-        """
-        Information about the protected S3 bucket resource. See `s3_bucket` below.
-        """
-elif False:
-    MalwareProtectionPlanProtectedResourceArgsDict: TypeAlias = Mapping[str, Any]
+class MalwareProtectionPlanProtectedResourceArgsDict(TypedDict):
+    s3_bucket: pulumi.Input['MalwareProtectionPlanProtectedResourceS3BucketArgsDict']
+    """
+    Information about the protected S3 bucket resource. See `s3_bucket` below.
+    """
 
 @pulumi.input_type
 class MalwareProtectionPlanProtectedResourceArgs:
@@ -706,18 +665,15 @@ class MalwareProtectionPlanProtectedResourceArgs:
         pulumi.set(self, "s3_bucket", value)
 
 
-if not MYPY:
-    class MalwareProtectionPlanProtectedResourceS3BucketArgsDict(TypedDict):
-        bucket_name: pulumi.Input[_builtins.str]
-        """
-        Name of the S3 bucket.
-        """
-        object_prefixes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The list of object prefixes that specify the S3 objects that will be scanned.
-        """
-elif False:
-    MalwareProtectionPlanProtectedResourceS3BucketArgsDict: TypeAlias = Mapping[str, Any]
+class MalwareProtectionPlanProtectedResourceS3BucketArgsDict(TypedDict):
+    bucket_name: pulumi.Input[_builtins.str]
+    """
+    Name of the S3 bucket.
+    """
+    object_prefixes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The list of object prefixes that specify the S3 objects that will be scanned.
+    """
 
 @pulumi.input_type
 class MalwareProtectionPlanProtectedResourceS3BucketArgs:
@@ -757,18 +713,15 @@ class MalwareProtectionPlanProtectedResourceS3BucketArgs:
         pulumi.set(self, "object_prefixes", value)
 
 
-if not MYPY:
-    class MemberDetectorFeatureAdditionalConfigurationArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the additional configuration. Valid values: `EKS_ADDON_MANAGEMENT`, `ECS_FARGATE_AGENT_MANAGEMENT`.
-        """
-        status: pulumi.Input[_builtins.str]
-        """
-        The status of the additional configuration. Valid values: `ENABLED`, `DISABLED`.
-        """
-elif False:
-    MemberDetectorFeatureAdditionalConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class MemberDetectorFeatureAdditionalConfigurationArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the additional configuration. Valid values: `EKS_ADDON_MANAGEMENT`, `ECS_FARGATE_AGENT_MANAGEMENT`.
+    """
+    status: pulumi.Input[_builtins.str]
+    """
+    The status of the additional configuration. Valid values: `ENABLED`, `DISABLED`.
+    """
 
 @pulumi.input_type
 class MemberDetectorFeatureAdditionalConfigurationArgs:
@@ -807,22 +760,19 @@ class MemberDetectorFeatureAdditionalConfigurationArgs:
         pulumi.set(self, "status", value)
 
 
-if not MYPY:
-    class OrganizationConfigurationDatasourcesArgsDict(TypedDict):
-        kubernetes: NotRequired[pulumi.Input['OrganizationConfigurationDatasourcesKubernetesArgsDict']]
-        """
-        Enable Kubernetes Audit Logs Monitoring automatically for new member accounts.
-        """
-        malware_protection: NotRequired[pulumi.Input['OrganizationConfigurationDatasourcesMalwareProtectionArgsDict']]
-        """
-        Enable Malware Protection automatically for new member accounts.
-        """
-        s3_logs: NotRequired[pulumi.Input['OrganizationConfigurationDatasourcesS3LogsArgsDict']]
-        """
-        Enable S3 Protection automatically for new member accounts.
-        """
-elif False:
-    OrganizationConfigurationDatasourcesArgsDict: TypeAlias = Mapping[str, Any]
+class OrganizationConfigurationDatasourcesArgsDict(TypedDict):
+    kubernetes: NotRequired[pulumi.Input['OrganizationConfigurationDatasourcesKubernetesArgsDict']]
+    """
+    Enable Kubernetes Audit Logs Monitoring automatically for new member accounts.
+    """
+    malware_protection: NotRequired[pulumi.Input['OrganizationConfigurationDatasourcesMalwareProtectionArgsDict']]
+    """
+    Enable Malware Protection automatically for new member accounts.
+    """
+    s3_logs: NotRequired[pulumi.Input['OrganizationConfigurationDatasourcesS3LogsArgsDict']]
+    """
+    Enable S3 Protection automatically for new member accounts.
+    """
 
 @pulumi.input_type
 class OrganizationConfigurationDatasourcesArgs:
@@ -879,15 +829,12 @@ class OrganizationConfigurationDatasourcesArgs:
         pulumi.set(self, "s3_logs", value)
 
 
-if not MYPY:
-    class OrganizationConfigurationDatasourcesKubernetesArgsDict(TypedDict):
-        audit_logs: pulumi.Input['OrganizationConfigurationDatasourcesKubernetesAuditLogsArgsDict']
-        """
-        Enable Kubernetes Audit Logs Monitoring automatically for new member accounts. [Kubernetes protection](https://docs.aws.amazon.com/guardduty/latest/ug/kubernetes-protection.html).
-        See Kubernetes Audit Logs below for more details.
-        """
-elif False:
-    OrganizationConfigurationDatasourcesKubernetesArgsDict: TypeAlias = Mapping[str, Any]
+class OrganizationConfigurationDatasourcesKubernetesArgsDict(TypedDict):
+    audit_logs: pulumi.Input['OrganizationConfigurationDatasourcesKubernetesAuditLogsArgsDict']
+    """
+    Enable Kubernetes Audit Logs Monitoring automatically for new member accounts. [Kubernetes protection](https://docs.aws.amazon.com/guardduty/latest/ug/kubernetes-protection.html).
+    See Kubernetes Audit Logs below for more details.
+    """
 
 @pulumi.input_type
 class OrganizationConfigurationDatasourcesKubernetesArgs:
@@ -913,15 +860,12 @@ class OrganizationConfigurationDatasourcesKubernetesArgs:
         pulumi.set(self, "audit_logs", value)
 
 
-if not MYPY:
-    class OrganizationConfigurationDatasourcesKubernetesAuditLogsArgsDict(TypedDict):
-        enable: pulumi.Input[_builtins.bool]
-        """
-        If true, enables Kubernetes audit logs as a data source for [Kubernetes protection](https://docs.aws.amazon.com/guardduty/latest/ug/kubernetes-protection.html).
-        Defaults to `true`.
-        """
-elif False:
-    OrganizationConfigurationDatasourcesKubernetesAuditLogsArgsDict: TypeAlias = Mapping[str, Any]
+class OrganizationConfigurationDatasourcesKubernetesAuditLogsArgsDict(TypedDict):
+    enable: pulumi.Input[_builtins.bool]
+    """
+    If true, enables Kubernetes audit logs as a data source for [Kubernetes protection](https://docs.aws.amazon.com/guardduty/latest/ug/kubernetes-protection.html).
+    Defaults to `true`.
+    """
 
 @pulumi.input_type
 class OrganizationConfigurationDatasourcesKubernetesAuditLogsArgs:
@@ -947,15 +891,12 @@ class OrganizationConfigurationDatasourcesKubernetesAuditLogsArgs:
         pulumi.set(self, "enable", value)
 
 
-if not MYPY:
-    class OrganizationConfigurationDatasourcesMalwareProtectionArgsDict(TypedDict):
-        scan_ec2_instance_with_findings: pulumi.Input['OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsArgsDict']
-        """
-        Configure whether [Malware Protection](https://docs.aws.amazon.com/guardduty/latest/ug/malware-protection.html) for EC2 instances with findings should be auto-enabled for new members joining the organization.
-        See Scan EC2 instance with findings below for more details.
-        """
-elif False:
-    OrganizationConfigurationDatasourcesMalwareProtectionArgsDict: TypeAlias = Mapping[str, Any]
+class OrganizationConfigurationDatasourcesMalwareProtectionArgsDict(TypedDict):
+    scan_ec2_instance_with_findings: pulumi.Input['OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsArgsDict']
+    """
+    Configure whether [Malware Protection](https://docs.aws.amazon.com/guardduty/latest/ug/malware-protection.html) for EC2 instances with findings should be auto-enabled for new members joining the organization.
+    See Scan EC2 instance with findings below for more details.
+    """
 
 @pulumi.input_type
 class OrganizationConfigurationDatasourcesMalwareProtectionArgs:
@@ -981,15 +922,12 @@ class OrganizationConfigurationDatasourcesMalwareProtectionArgs:
         pulumi.set(self, "scan_ec2_instance_with_findings", value)
 
 
-if not MYPY:
-    class OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsArgsDict(TypedDict):
-        ebs_volumes: pulumi.Input['OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesArgsDict']
-        """
-        Configure whether scanning EBS volumes should be auto-enabled for new members joining the organization
-        See EBS volumes below for more details.
-        """
-elif False:
-    OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsArgsDict: TypeAlias = Mapping[str, Any]
+class OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsArgsDict(TypedDict):
+    ebs_volumes: pulumi.Input['OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesArgsDict']
+    """
+    Configure whether scanning EBS volumes should be auto-enabled for new members joining the organization
+    See EBS volumes below for more details.
+    """
 
 @pulumi.input_type
 class OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsArgs:
@@ -1015,15 +953,12 @@ class OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFi
         pulumi.set(self, "ebs_volumes", value)
 
 
-if not MYPY:
-    class OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesArgsDict(TypedDict):
-        auto_enable: pulumi.Input[_builtins.bool]
-        """
-        If true, enables [Malware Protection](https://docs.aws.amazon.com/guardduty/latest/ug/malware-protection.html) for all new accounts joining the organization.
-        Defaults to `true`.
-        """
-elif False:
-    OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesArgsDict: TypeAlias = Mapping[str, Any]
+class OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesArgsDict(TypedDict):
+    auto_enable: pulumi.Input[_builtins.bool]
+    """
+    If true, enables [Malware Protection](https://docs.aws.amazon.com/guardduty/latest/ug/malware-protection.html) for all new accounts joining the organization.
+    Defaults to `true`.
+    """
 
 @pulumi.input_type
 class OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFindingsEbsVolumesArgs:
@@ -1049,14 +984,11 @@ class OrganizationConfigurationDatasourcesMalwareProtectionScanEc2InstanceWithFi
         pulumi.set(self, "auto_enable", value)
 
 
-if not MYPY:
-    class OrganizationConfigurationDatasourcesS3LogsArgsDict(TypedDict):
-        auto_enable: pulumi.Input[_builtins.bool]
-        """
-        Set to `true` if you want S3 data event logs to be automatically enabled for new members of the organization. Default: `false`
-        """
-elif False:
-    OrganizationConfigurationDatasourcesS3LogsArgsDict: TypeAlias = Mapping[str, Any]
+class OrganizationConfigurationDatasourcesS3LogsArgsDict(TypedDict):
+    auto_enable: pulumi.Input[_builtins.bool]
+    """
+    Set to `true` if you want S3 data event logs to be automatically enabled for new members of the organization. Default: `false`
+    """
 
 @pulumi.input_type
 class OrganizationConfigurationDatasourcesS3LogsArgs:
@@ -1080,18 +1012,15 @@ class OrganizationConfigurationDatasourcesS3LogsArgs:
         pulumi.set(self, "auto_enable", value)
 
 
-if not MYPY:
-    class OrganizationConfigurationFeatureAdditionalConfigurationArgsDict(TypedDict):
-        auto_enable: pulumi.Input[_builtins.str]
-        """
-        The status of the additional configuration that will be configured for the organization. Valid values: `NEW`, `ALL`, `NONE`.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the additional configuration for a feature that will be configured for the organization. Valid values: `EKS_ADDON_MANAGEMENT`, `ECS_FARGATE_AGENT_MANAGEMENT`, `EC2_AGENT_MANAGEMENT`. Refer to the [AWS Documentation](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DetectorAdditionalConfiguration.html) for the current list of supported values.
-        """
-elif False:
-    OrganizationConfigurationFeatureAdditionalConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class OrganizationConfigurationFeatureAdditionalConfigurationArgsDict(TypedDict):
+    auto_enable: pulumi.Input[_builtins.str]
+    """
+    The status of the additional configuration that will be configured for the organization. Valid values: `NEW`, `ALL`, `NONE`.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the additional configuration for a feature that will be configured for the organization. Valid values: `EKS_ADDON_MANAGEMENT`, `ECS_FARGATE_AGENT_MANAGEMENT`, `EC2_AGENT_MANAGEMENT`. Refer to the [AWS Documentation](https://docs.aws.amazon.com/guardduty/latest/APIReference/API_DetectorAdditionalConfiguration.html) for the current list of supported values.
+    """
 
 @pulumi.input_type
 class OrganizationConfigurationFeatureAdditionalConfigurationArgs:

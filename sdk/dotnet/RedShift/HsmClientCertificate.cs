@@ -32,7 +32,7 @@ namespace Pulumi.Aws.RedShift
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import Redshift HSM Client Certificates using `hsm_client_certificate_identifier`. For example:
+    /// Using `pulumi import`, import Redshift HSM Client Certificates using `HsmClientCertificateIdentifier`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:redshift/hsmClientCertificate:HsmClientCertificate test example

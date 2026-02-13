@@ -628,6 +628,21 @@ class Permission(pulumi.CustomResource):
             function_url_auth_type="AWS_IAM")
         ```
 
+        #### Optional
+
+        * `account_id` (String) AWS Account where this resource is managed.
+        * `qualifier` (String) Qualifier for the function version or alias.
+        * `region` (String) Region where this resource is managed.
+
+        Using `qualifier`:
+
+        For backwards compatibility, the following legacy `pulumi import` commands are also supported:
+
+        ```sh
+        $ pulumi import aws:lambda/permission:Permission example my_test_lambda_function/AllowExecutionFromCloudWatch
+        $ pulumi import aws:lambda/permission:Permission example my_test_lambda_function:qualifier_name/AllowExecutionFromCloudWatch
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] action: Lambda action to allow in this statement (e.g., `lambda:InvokeFunction`)
@@ -805,6 +820,21 @@ class Permission(pulumi.CustomResource):
             principal="arn:aws:iam::444455556666:role/example",
             source_account="444455556666",
             function_url_auth_type="AWS_IAM")
+        ```
+
+        #### Optional
+
+        * `account_id` (String) AWS Account where this resource is managed.
+        * `qualifier` (String) Qualifier for the function version or alias.
+        * `region` (String) Region where this resource is managed.
+
+        Using `qualifier`:
+
+        For backwards compatibility, the following legacy `pulumi import` commands are also supported:
+
+        ```sh
+        $ pulumi import aws:lambda/permission:Permission example my_test_lambda_function/AllowExecutionFromCloudWatch
+        $ pulumi import aws:lambda/permission:Permission example my_test_lambda_function:qualifier_name/AllowExecutionFromCloudWatch
         ```
 
         :param str resource_name: The name of the resource.

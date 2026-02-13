@@ -103,12 +103,12 @@ class CloudAutonomousVmClusterMaintenanceWindow(dict):
                  months: Optional[Sequence['outputs.CloudAutonomousVmClusterMaintenanceWindowMonth']] = None,
                  weeks_of_months: Optional[Sequence[_builtins.int]] = None):
         """
-        :param _builtins.str preference: The preference for the maintenance window scheduling.
-        :param Sequence['CloudAutonomousVmClusterMaintenanceWindowDaysOfWeekArgs'] days_of_weeks: The days of the week when maintenance can be performed.
-        :param Sequence[_builtins.int] hours_of_days: The hours of the day when maintenance can be performed.
-        :param _builtins.int lead_time_in_weeks: The lead time in weeks before the maintenance window.
-        :param Sequence['CloudAutonomousVmClusterMaintenanceWindowMonthArgs'] months: The months when maintenance can be performed.
-        :param Sequence[_builtins.int] weeks_of_months: Indicates whether to skip release updates during maintenance.
+        :param _builtins.str preference: The preference for the maintenance window scheduling. Changing this will force terraform to create new resource.
+        :param Sequence['CloudAutonomousVmClusterMaintenanceWindowDaysOfWeekArgs'] days_of_weeks: The days of the week when maintenance can be performed. Changing this will force terraform to create new resource.
+        :param Sequence[_builtins.int] hours_of_days: The hours of the day when maintenance can be performed. Changing this will force terraform to create new resource.
+        :param _builtins.int lead_time_in_weeks: The lead time in weeks before the maintenance window. Changing this will force terraform to create new resource.
+        :param Sequence['CloudAutonomousVmClusterMaintenanceWindowMonthArgs'] months: The months when maintenance can be performed. Changing this will force terraform to create new resource.
+        :param Sequence[_builtins.int] weeks_of_months: Indicates whether to skip release updates during maintenance. Changing this will force terraform to create new resource.
         """
         pulumi.set(__self__, "preference", preference)
         if days_of_weeks is not None:
@@ -126,7 +126,7 @@ class CloudAutonomousVmClusterMaintenanceWindow(dict):
     @pulumi.getter
     def preference(self) -> _builtins.str:
         """
-        The preference for the maintenance window scheduling.
+        The preference for the maintenance window scheduling. Changing this will force terraform to create new resource.
         """
         return pulumi.get(self, "preference")
 
@@ -134,7 +134,7 @@ class CloudAutonomousVmClusterMaintenanceWindow(dict):
     @pulumi.getter(name="daysOfWeeks")
     def days_of_weeks(self) -> Optional[Sequence['outputs.CloudAutonomousVmClusterMaintenanceWindowDaysOfWeek']]:
         """
-        The days of the week when maintenance can be performed.
+        The days of the week when maintenance can be performed. Changing this will force terraform to create new resource.
         """
         return pulumi.get(self, "days_of_weeks")
 
@@ -142,7 +142,7 @@ class CloudAutonomousVmClusterMaintenanceWindow(dict):
     @pulumi.getter(name="hoursOfDays")
     def hours_of_days(self) -> Optional[Sequence[_builtins.int]]:
         """
-        The hours of the day when maintenance can be performed.
+        The hours of the day when maintenance can be performed. Changing this will force terraform to create new resource.
         """
         return pulumi.get(self, "hours_of_days")
 
@@ -150,7 +150,7 @@ class CloudAutonomousVmClusterMaintenanceWindow(dict):
     @pulumi.getter(name="leadTimeInWeeks")
     def lead_time_in_weeks(self) -> Optional[_builtins.int]:
         """
-        The lead time in weeks before the maintenance window.
+        The lead time in weeks before the maintenance window. Changing this will force terraform to create new resource.
         """
         return pulumi.get(self, "lead_time_in_weeks")
 
@@ -158,7 +158,7 @@ class CloudAutonomousVmClusterMaintenanceWindow(dict):
     @pulumi.getter
     def months(self) -> Optional[Sequence['outputs.CloudAutonomousVmClusterMaintenanceWindowMonth']]:
         """
-        The months when maintenance can be performed.
+        The months when maintenance can be performed. Changing this will force terraform to create new resource.
         """
         return pulumi.get(self, "months")
 
@@ -166,7 +166,7 @@ class CloudAutonomousVmClusterMaintenanceWindow(dict):
     @pulumi.getter(name="weeksOfMonths")
     def weeks_of_months(self) -> Optional[Sequence[_builtins.int]]:
         """
-        Indicates whether to skip release updates during maintenance.
+        Indicates whether to skip release updates during maintenance. Changing this will force terraform to create new resource.
         """
         return pulumi.get(self, "weeks_of_months")
 

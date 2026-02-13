@@ -10,25 +10,156 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.DynamoDB
 {
     /// <summary>
-    /// ## Import
+    /// !&gt; The resource type `aws.dynamodb.GlobalSecondaryIndex` is an experimental feature. The schema or behavior may change without notice, and it is not subject to the backwards compatibility guarantee of the provider.
     /// 
-    /// ### Identity Schema
+    /// &gt; The resource type `aws.dynamodb.GlobalSecondaryIndex` can be enabled by setting the environment variable `TF_AWS_EXPERIMENT_dynamodb_global_secondary_index` to any value. If not enabled, use of `aws.dynamodb.GlobalSecondaryIndex` will result in an error when running Terraform.
     /// 
-    /// #### Required
+    /// &gt; Please provide feedback, positive or negative, at https://github.com/hashicorp/terraform-provider-aws/issues/45640. User feedback will determine if this experiment is a success.
     /// 
-    /// * `index_name` (String) Name of the index.
+    /// !&gt; **WARNING:** Do not combine `aws.dynamodb.GlobalSecondaryIndex` resources in conjunction with `GlobalSecondaryIndex` on `aws.dynamodb.Table`. Doing so may cause conflicts, perpertual differences, and Global Secondary Indexes being overwritten.
     /// 
-    /// * `table_name` (String) Name of the table this index belongs to.
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleTable = new Aws.DynamoDB.Table("example", new()
+    ///     {
+    ///         Name = "example",
+    ///         BillingMode = "PROVISIONED",
+    ///         ReadCapacity = 20,
+    ///         WriteCapacity = 20,
+    ///         HashKey = "UserId",
+    ///         RangeKey = "GameTitle",
+    ///         Attributes = new[]
+    ///         {
+    ///             new Aws.DynamoDB.Inputs.TableAttributeArgs
+    ///             {
+    ///                 Name = "UserId",
+    ///                 Type = "S",
+    ///             },
+    ///             new Aws.DynamoDB.Inputs.TableAttributeArgs
+    ///             {
+    ///                 Name = "GameTitle",
+    ///                 Type = "S",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var example = new Aws.DynamoDB.GlobalSecondaryIndex("example", new()
+    ///     {
+    ///         TableName = exampleTable.Name,
+    ///         IndexName = "GameTitleIndex",
+    ///         Projection = new Aws.DynamoDB.Inputs.GlobalSecondaryIndexProjectionArgs
+    ///         {
+    ///             ProjectionType = "INCLUDE",
+    ///             NonKeyAttributes = new[]
+    ///             {
+    ///                 "UserId",
+    ///             },
+    ///         },
+    ///         ProvisionedThroughput = new Aws.DynamoDB.Inputs.GlobalSecondaryIndexProvisionedThroughputArgs
+    ///         {
+    ///             WriteCapacityUnits = 10,
+    ///             ReadCapacityUnits = 10,
+    ///         },
+    ///         KeySchemas = new[]
+    ///         {
+    ///             new Aws.DynamoDB.Inputs.GlobalSecondaryIndexKeySchemaArgs
+    ///             {
+    ///                 AttributeName = "GameTitle",
+    ///                 AttributeType = "S",
+    ///                 KeyType = "HASH",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## Migrating
+    /// 
+    /// Use the following steps to migrate existing Global Secondary Indexes defined inline in `GlobalSecondaryIndex` on an `aws.dynamodb.Table`.
+    /// 
+    /// For each block `GlobalSecondaryIndex` create a new `aws.dynamodb.GlobalSecondaryIndex` resource with configuration corresponding to the existing block.
+    /// 
+    /// For example, starting with the following configuration:
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.DynamoDB.Table("example", new()
+    ///     {
+    ///         Name = "example-table",
+    ///         HashKey = "example-key",
+    ///         ReadCapacity = 1,
+    ///         WriteCapacity = 1,
+    ///         GlobalSecondaryIndexes = new[]
+    ///         {
+    ///             new Aws.DynamoDB.Inputs.TableGlobalSecondaryIndexArgs
+    ///             {
+    ///                 Name = "example-index-1",
+    ///                 ProjectionType = "ALL",
+    ///                 HashKey = "example-gsi-key-1",
+    ///                 ReadCapacity = 1,
+    ///                 WriteCapacity = 1,
+    ///             },
+    ///             new Aws.DynamoDB.Inputs.TableGlobalSecondaryIndexArgs
+    ///             {
+    ///                 Name = "example-index-2",
+    ///                 ProjectionType = "ALL",
+    ///                 HashKey = "example-gsi-key-2",
+    ///                 ReadCapacity = 1,
+    ///                 WriteCapacity = 1,
+    ///             },
+    ///         },
+    ///         Attributes = new[]
+    ///         {
+    ///             new Aws.DynamoDB.Inputs.TableAttributeArgs
+    ///             {
+    ///                 Name = "example-key",
+    ///                 Type = "S",
+    ///             },
+    ///             new Aws.DynamoDB.Inputs.TableAttributeArgs
+    ///             {
+    ///                 Name = "example-gsi-key-1",
+    ///                 Type = "S",
+    ///             },
+    ///             new Aws.DynamoDB.Inputs.TableAttributeArgs
+    ///             {
+    ///                 Name = "example-gsi-key-2",
+    ///                 Type = "S",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// Update the configuration to the following. Note that the schema of `aws.dynamodb.GlobalSecondaryIndex` has some differences with `GlobalSecondaryIndex` on `aws.dynamodb.Table`.
+    /// 
+    /// If using Terraform versions prior to v1.5.0, remove the `Import` blocks and use the `pulumi import` command.
     /// 
     /// #### Optional
     /// 
-    /// * `account_id` (String) AWS Account where this resource is managed.
+    /// * `AccountId` (String) AWS Account where this resource is managed.
+    /// * `Region` (String) Region where this resource is managed.
     /// 
-    /// * `region` (String) Region where this resource is managed.
+    /// Using `pulumi import`, import DynamoDB tables using the `TableName` and `IndexName`, separated by a comma. For example:
     /// 
-    /// Using `pulumi import`, import DynamoDB tables using the `table_name` and `index_name`, separated by a comma. For example:
-    /// 
-    /// % pulumi import aws_dynamodb_global_secondary_index.example 'example-table,example-index'
+    /// ```sh
+    /// $ pulumi import aws:dynamodb/globalSecondaryIndex:GlobalSecondaryIndex example 'example-table,example-index'
+    /// ```
     /// </summary>
     [AwsResourceType("aws:dynamodb/globalSecondaryIndex:GlobalSecondaryIndex")]
     public partial class GlobalSecondaryIndex : global::Pulumi.CustomResource

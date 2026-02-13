@@ -194,6 +194,7 @@ def get_quicksight_user(aws_account_id: Optional[_builtins.str] = None,
     ```
 
 
+    :param _builtins.str aws_account_id: AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
     :param _builtins.str namespace: QuickSight namespace. Defaults to `default`.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param _builtins.str user_name: The name of the user that you want to match.
@@ -243,6 +244,7 @@ def get_quicksight_user_output(aws_account_id: Optional[pulumi.Input[Optional[_b
     ```
 
 
+    :param _builtins.str aws_account_id: AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
     :param _builtins.str namespace: QuickSight namespace. Defaults to `default`.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param _builtins.str user_name: The name of the user that you want to match.

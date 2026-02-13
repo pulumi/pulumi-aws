@@ -42,7 +42,7 @@ namespace Pulumi.Aws.AppConfig
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import Amazon AppIntegrations Event Integrations using the `name`. For example:
+    /// Using `pulumi import`, import Amazon AppIntegrations Event Integrations using the `Name`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:appconfig/eventIntegration:EventIntegration example example-name

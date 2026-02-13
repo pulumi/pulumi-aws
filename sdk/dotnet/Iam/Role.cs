@@ -305,15 +305,17 @@ namespace Pulumi.Aws.Iam
     /// 
     /// #### Required
     /// 
-    /// * `name` (String) Name of the IAM role.
+    /// * `Name` (String) Name of the IAM role.
     /// 
     /// #### Optional
     /// 
-    /// * `account_id` (String) AWS Account where this resource is managed.
+    /// * `AccountId` (String) AWS Account where this resource is managed.
     /// 
-    /// Using `pulumi import`, import IAM Roles using the `name`. For example:
+    /// Using `pulumi import`, import IAM Roles using the `Name`. For example:
     /// 
-    /// % pulumi import aws_iam_role.example developer_name
+    /// ```sh
+    /// $ pulumi import aws:iam/role:Role example developer_name
+    /// ```
     /// </summary>
     [AwsResourceType("aws:iam/role:Role")]
     public partial class Role : global::Pulumi.CustomResource

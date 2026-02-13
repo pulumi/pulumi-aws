@@ -47,7 +47,7 @@ namespace Pulumi.Aws.Rds
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import `aws_db_snapshot` using the snapshot identifier. For example:
+    /// Using `pulumi import`, import `aws.rds.Snapshot` using the snapshot identifier. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:rds/snapshot:Snapshot example my-snapshot

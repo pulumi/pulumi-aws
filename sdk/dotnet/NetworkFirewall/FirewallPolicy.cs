@@ -276,7 +276,7 @@ namespace Pulumi.Aws.NetworkFirewall
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import Network Firewall Policies using their `arn`. For example:
+    /// Using `pulumi import`, import Network Firewall Policies using their `Arn`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:networkfirewall/firewallPolicy:FirewallPolicy example arn:aws:network-firewall:us-west-1:123456789012:firewall-policy/example

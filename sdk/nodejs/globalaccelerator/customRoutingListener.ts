@@ -45,7 +45,9 @@ import * as utilities from "../utilities";
  *
  * Using `pulumi import`, import Global Accelerator custom routing listeners using the `id`. For example:
  *
- * % pulumi import aws_globalaccelerator_custom_routing_listener.example arn:aws:globalaccelerator::111111111111:accelerator/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/listener/xxxxxxxx
+ * ```sh
+ * $ pulumi import aws:globalaccelerator/customRoutingListener:CustomRoutingListener example arn:aws:globalaccelerator::111111111111:accelerator/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/listener/xxxxxxxx
+ * ```
  */
 export class CustomRoutingListener extends pulumi.CustomResource {
     /**

@@ -96,7 +96,7 @@ namespace Pulumi.Aws.Kms
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import KMS (Key Management) Custom Key Store using the `id`. For example:
+    /// Using `pulumi import`, import KMS (Key Management) Custom Key Store using the `Id`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:kms/customKeyStore:CustomKeyStore example cks-5ebd4ef395a96288e

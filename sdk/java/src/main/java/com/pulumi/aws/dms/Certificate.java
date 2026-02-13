@@ -57,7 +57,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Using `pulumi import`, import certificates using the `certificate_id`. For example:
+ * Using `pulumi import`, import certificates using the `certificateId`. For example:
  * 
  * ```sh
  * $ pulumi import aws:dms/certificate:Certificate test test-dms-certificate-tf

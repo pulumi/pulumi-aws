@@ -50,7 +50,7 @@ namespace Pulumi.Aws.RedshiftServerless
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import Redshift Serverless Custom Domain Association using the `workgroup_name` and `custom_domain_name`, separated by the coma. For example:
+    /// Using `pulumi import`, import Redshift Serverless Custom Domain Association using the `WorkgroupName` and `CustomDomainName`, separated by the coma. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:redshiftserverless/customDomainAssociation:CustomDomainAssociation example example-workgroup,example.com

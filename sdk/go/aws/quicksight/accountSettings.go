@@ -62,6 +62,7 @@ import (
 type AccountSettings struct {
 	pulumi.CustomResourceState
 
+	// AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
 	AwsAccountId pulumi.StringOutput `pulumi:"awsAccountId"`
 	// The default namespace for this Amazon Web Services account. Currently, the default is `default`.
 	DefaultNamespace pulumi.StringOutput `pulumi:"defaultNamespace"`
@@ -102,6 +103,7 @@ func GetAccountSettings(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering AccountSettings resources.
 type accountSettingsState struct {
+	// AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
 	AwsAccountId *string `pulumi:"awsAccountId"`
 	// The default namespace for this Amazon Web Services account. Currently, the default is `default`.
 	DefaultNamespace *string `pulumi:"defaultNamespace"`
@@ -113,6 +115,7 @@ type accountSettingsState struct {
 }
 
 type AccountSettingsState struct {
+	// AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
 	AwsAccountId pulumi.StringPtrInput
 	// The default namespace for this Amazon Web Services account. Currently, the default is `default`.
 	DefaultNamespace pulumi.StringPtrInput
@@ -128,6 +131,7 @@ func (AccountSettingsState) ElementType() reflect.Type {
 }
 
 type accountSettingsArgs struct {
+	// AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
 	AwsAccountId *string `pulumi:"awsAccountId"`
 	// The default namespace for this Amazon Web Services account. Currently, the default is `default`.
 	DefaultNamespace *string `pulumi:"defaultNamespace"`
@@ -140,6 +144,7 @@ type accountSettingsArgs struct {
 
 // The set of arguments for constructing a AccountSettings resource.
 type AccountSettingsArgs struct {
+	// AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
 	AwsAccountId pulumi.StringPtrInput
 	// The default namespace for this Amazon Web Services account. Currently, the default is `default`.
 	DefaultNamespace pulumi.StringPtrInput
@@ -237,6 +242,7 @@ func (o AccountSettingsOutput) ToAccountSettingsOutputWithContext(ctx context.Co
 	return o
 }
 
+// AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
 func (o AccountSettingsOutput) AwsAccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *AccountSettings) pulumi.StringOutput { return v.AwsAccountId }).(pulumi.StringOutput)
 }

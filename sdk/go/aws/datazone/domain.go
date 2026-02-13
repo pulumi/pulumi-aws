@@ -254,7 +254,7 @@ import (
 //
 // ## Import
 //
-// Using `pulumi import`, import DataZone Domain using the `domain_id`. For example:
+// Using `pulumi import`, import DataZone Domain using the `domainId`. For example:
 //
 // ```sh
 // $ pulumi import aws:datazone/domain:Domain example domain-id-12345678

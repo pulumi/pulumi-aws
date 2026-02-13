@@ -40,7 +40,7 @@ namespace Pulumi.Aws.RedshiftServerless
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import Redshift Serverless Usage Limits using the `id`. For example:
+    /// Using `pulumi import`, import Redshift Serverless Usage Limits using the `Id`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:redshiftserverless/usageLimit:UsageLimit example example-id

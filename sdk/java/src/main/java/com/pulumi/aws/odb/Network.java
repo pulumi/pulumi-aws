@@ -51,27 +51,59 @@ public class Network extends com.pulumi.resources.CustomResource {
     public Output<String> arn() {
         return this.arn;
     }
+    /**
+     * The name of the Availability Zone (AZ) where the odb network is located. Changing this will force terraform to create new resource. Make sure availabilityZone maps correctly with availability_zone_id.
+     * 
+     */
     @Export(name="availabilityZone", refs={String.class}, tree="[0]")
     private Output<String> availabilityZone;
 
+    /**
+     * @return The name of the Availability Zone (AZ) where the odb network is located. Changing this will force terraform to create new resource. Make sure availabilityZone maps correctly with availability_zone_id.
+     * 
+     */
     public Output<String> availabilityZone() {
         return this.availabilityZone;
     }
+    /**
+     * The AZ ID of the AZ where the ODB network is located. Changing this will force terraform to create new resource.
+     * 
+     */
     @Export(name="availabilityZoneId", refs={String.class}, tree="[0]")
     private Output<String> availabilityZoneId;
 
+    /**
+     * @return The AZ ID of the AZ where the ODB network is located. Changing this will force terraform to create new resource.
+     * 
+     */
     public Output<String> availabilityZoneId() {
         return this.availabilityZoneId;
     }
+    /**
+     * The CIDR range of the backup subnet for the ODB network. Changing this will force terraform to create new resource.
+     * 
+     */
     @Export(name="backupSubnetCidr", refs={String.class}, tree="[0]")
     private Output<String> backupSubnetCidr;
 
+    /**
+     * @return The CIDR range of the backup subnet for the ODB network. Changing this will force terraform to create new resource.
+     * 
+     */
     public Output<String> backupSubnetCidr() {
         return this.backupSubnetCidr;
     }
+    /**
+     * The CIDR notation for the network resource. Changing this will force terraform to create new resource.
+     * 
+     */
     @Export(name="clientSubnetCidr", refs={String.class}, tree="[0]")
     private Output<String> clientSubnetCidr;
 
+    /**
+     * @return The CIDR notation for the network resource. Changing this will force terraform to create new resource.
+     * 
+     */
     public Output<String> clientSubnetCidr() {
         return this.clientSubnetCidr;
     }
@@ -90,22 +122,30 @@ public class Network extends com.pulumi.resources.CustomResource {
         return this.createdAt;
     }
     /**
-     * The name of the custom domain that the network is located. customDomainName and defaultDnsPrefix both can&#39;t be given.
+     * The name of the custom domain that the network is located. Custom_domain_name and defaultDnsPrefix both can&#39;t be given. Changing this will force terraform to create new resource.
      * 
      */
     @Export(name="customDomainName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> customDomainName;
 
     /**
-     * @return The name of the custom domain that the network is located. customDomainName and defaultDnsPrefix both can&#39;t be given.
+     * @return The name of the custom domain that the network is located. Custom_domain_name and defaultDnsPrefix both can&#39;t be given. Changing this will force terraform to create new resource.
      * 
      */
     public Output<Optional<String>> customDomainName() {
         return Codegen.optional(this.customDomainName);
     }
+    /**
+     * The default DNS prefix for the network resource. Changing this will force terraform to create new resource. Changing this will force terraform to create new resource.
+     * 
+     */
     @Export(name="defaultDnsPrefix", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> defaultDnsPrefix;
 
+    /**
+     * @return The default DNS prefix for the network resource. Changing this will force terraform to create new resource. Changing this will force terraform to create new resource.
+     * 
+     */
     public Output<Optional<String>> defaultDnsPrefix() {
         return Codegen.optional(this.defaultDnsPrefix);
     }
@@ -123,9 +163,17 @@ public class Network extends com.pulumi.resources.CustomResource {
     public Output<Boolean> deleteAssociatedResources() {
         return this.deleteAssociatedResources;
     }
+    /**
+     * The user-friendly name for the odb network. Changing this will force terraform to create a new resource.
+     * 
+     */
     @Export(name="displayName", refs={String.class}, tree="[0]")
     private Output<String> displayName;
 
+    /**
+     * @return The user-friendly name for the odb network. Changing this will force terraform to create a new resource.
+     * 
+     */
     public Output<String> displayName() {
         return this.displayName;
     }

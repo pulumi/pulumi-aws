@@ -66,7 +66,7 @@ import (
 //
 // ## Import
 //
-// Using `pulumi import`, import ECR Public Repositories using the `repository_name`. For example:
+// Using `pulumi import`, import ECR Public Repositories using the `repositoryName`. For example:
 //
 // ```sh
 // $ pulumi import aws:ecrpublic/repository:Repository example example

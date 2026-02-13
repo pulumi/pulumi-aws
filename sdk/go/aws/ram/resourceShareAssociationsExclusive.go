@@ -12,9 +12,238 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Resource for maintaining exclusive management of principal and resource associations for an AWS RAM (Resource Access Manager) Resource Share.
+//
+// !> This resource takes exclusive ownership over principal and resource associations for a resource share. This includes removal of principals and resources which are not explicitly configured.
+//
+// > Destruction of this resource will disassociate all configured principals and resources from the resource share.
+//
+// > **NOTE:** This resource cannot be used in conjunction with `ram.PrincipalAssociation` or `ram.ResourceAssociation` for the same resource share. Using them together will cause persistent drift and conflicts.
+//
+// ## Example Usage
+//
+// ### Basic Usage with Principals
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ram"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := ram.NewResourceShare(ctx, "example", &ram.ResourceShareArgs{
+//				Name:                    pulumi.String("example"),
+//				AllowExternalPrincipals: pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleVpc, err := ec2.NewVpc(ctx, "example", &ec2.VpcArgs{
+//				CidrBlock: pulumi.String("10.0.0.0/16"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleSubnet, err := ec2.NewSubnet(ctx, "example", &ec2.SubnetArgs{
+//				VpcId:     exampleVpc.ID(),
+//				CidrBlock: pulumi.String("10.0.1.0/24"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = ram.NewResourceShareAssociationsExclusive(ctx, "example", &ram.ResourceShareAssociationsExclusiveArgs{
+//				ResourceShareArn: example.Arn,
+//				Principals: pulumi.StringArray{
+//					pulumi.String("111111111111"),
+//					pulumi.String("222222222222"),
+//				},
+//				ResourceArns: pulumi.StringArray{
+//					exampleSubnet.Arn,
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ### With Organization Principal
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ram"
+//	"github.com/pulumi/pulumi-std/sdk/go/std"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// example, err := ram.NewResourceShare(ctx, "example", &ram.ResourceShareArgs{
+// Name: pulumi.String("example"),
+// })
+// if err != nil {
+// return err
+// }
+// exampleVpc, err := ec2.NewVpc(ctx, "example", &ec2.VpcArgs{
+// CidrBlock: pulumi.String("10.0.0.0/16"),
+// })
+// if err != nil {
+// return err
+// }
+// invokeCidrsubnet, err := std.Cidrsubnet(ctx, &std.CidrsubnetArgs{
+// Input: cidrBlock,
+// Newbits: 8,
+// Netnum: val0,
+// }, nil)
+// if err != nil {
+// return err
+// }
+// var exampleSubnet []*ec2.Subnet
+//
+//	for index := 0; index < 2; index++ {
+//	    key0 := index
+//	    _ := index
+//
+// __res, err := ec2.NewSubnet(ctx, fmt.Sprintf("example-%v", key0), &ec2.SubnetArgs{
+// VpcId: exampleVpc.ID(),
+// CidrBlock: pulumi.String(exampleVpc.CidrBlock.ApplyT(func(cidrBlock string) (std.CidrsubnetResult, error) {
+// %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference)).(std.CidrsubnetResultOutput).ApplyT(func(invoke std.CidrsubnetResult) (*string, error) {
+// return invoke.Result, nil
+// }).(pulumi.StringPtrOutput)),
+// })
+// if err != nil {
+// return err
+// }
+// exampleSubnet = append(exampleSubnet, __res)
+// }
+// var splat0 pulumi.StringArray
+// for _, val0 := range exampleSubnet {
+// splat0 = append(splat0, val0.Arn)
+// }
+// _, err = ram.NewResourceShareAssociationsExclusive(ctx, "example", &ram.ResourceShareAssociationsExclusiveArgs{
+// ResourceShareArn: example.Arn,
+// Principals: pulumi.StringArray{
+// exampleAwsOrganizationsOrganization.Arn,
+// },
+// ResourceArns: splat0,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
+// ```
+//
+// ### With Service Principals
+//
+// When sharing resources with AWS services, use service principals. Service principals follow the pattern `service-id.amazonaws.com` (e.g., `pca-connector-ad.amazonaws.com`, `elasticmapreduce.amazonaws.com`). The `sources` argument can be used to restrict which AWS accounts the service can access the shared resources from.
+//
+// > **NOTE:** Service principals cannot be mixed with other principal types (AWS account IDs, organization ARNs, OU ARNs, IAM role ARNs, or IAM user ARNs) in the same resource.
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/acmpca"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ram"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := ram.NewResourceShare(ctx, "example", &ram.ResourceShareArgs{
+//				Name:                    pulumi.String("example-service-share"),
+//				AllowExternalPrincipals: pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleCertificateAuthority, err := acmpca.NewCertificateAuthority(ctx, "example", &acmpca.CertificateAuthorityArgs{
+//				Type: pulumi.String("ROOT"),
+//				CertificateAuthorityConfiguration: &acmpca.CertificateAuthorityCertificateAuthorityConfigurationArgs{
+//					KeyAlgorithm:     pulumi.String("RSA_4096"),
+//					SigningAlgorithm: pulumi.String("SHA512WITHRSA"),
+//					Subject: &acmpca.CertificateAuthorityCertificateAuthorityConfigurationSubjectArgs{
+//						CommonName: pulumi.String("example.com"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = ram.NewResourceShareAssociationsExclusive(ctx, "example", &ram.ResourceShareAssociationsExclusiveArgs{
+//				ResourceShareArn: example.Arn,
+//				Principals: pulumi.StringArray{
+//					pulumi.String("pca-connector-ad.amazonaws.com"),
+//				},
+//				ResourceArns: pulumi.StringArray{
+//					exampleCertificateAuthority.Arn,
+//				},
+//				Sources: pulumi.StringArray{
+//					pulumi.String("111111111111"),
+//					pulumi.String("222222222222"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ### Disallow All Associations
+//
+// To automatically remove any configured associations, omit the `principals` and `resourceArns` arguments or set them to empty lists.
+//
+// > This will not **prevent** associations from being created via Terraform (or any other interface). This resource enables bringing associations into a configured state, however, this reconciliation happens only when `apply` is proactively run.
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ram"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := ram.NewResourceShareAssociationsExclusive(ctx, "example", &ram.ResourceShareAssociationsExclusiveArgs{
+//				ResourceShareArn: pulumi.Any(exampleAwsRamResourceShare.Arn),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
-// Using `pulumi import`, import RAM Resource Share Association Exclusive using the `resource_share_arn`. For example:
+// Using `pulumi import`, import RAM Resource Share Association Exclusive using the `resourceShareArn`. For example:
 //
 // ```sh
 // $ pulumi import aws:ram/resourceShareAssociationsExclusive:ResourceShareAssociationsExclusive example arn:aws:ram:eu-west-1:123456789012:resource-share/73da1ab9-b94a-4ba3-8eb4-45917f7f4b12

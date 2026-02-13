@@ -17,6 +17,10 @@ import java.lang.String;
 import javax.annotation.Nullable;
 
 /**
+ * Resource for managing an AWS DevOps Guru Service Integration.
+ * 
+ * &gt; To prevent unintentional deletion of account wide settings, destruction of this resource will only remove it from the Terraform state. To disable any configured settings, explicitly set the opt-in value to `DISABLED` and apply again before destroying.
+ * 
  * ## Example Usage
  * 
  * ### Basic Usage

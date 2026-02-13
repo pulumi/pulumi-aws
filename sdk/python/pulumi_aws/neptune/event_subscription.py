@@ -430,7 +430,7 @@ class EventSubscription(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import `aws_neptune_event_subscription` using the event subscription name. For example:
+        Using `pulumi import`, import `neptune.EventSubscription` using the event subscription name. For example:
 
         ```sh
         $ pulumi import aws:neptune/eventSubscription:EventSubscription example my-event-subscription
@@ -501,7 +501,7 @@ class EventSubscription(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import `aws_neptune_event_subscription` using the event subscription name. For example:
+        Using `pulumi import`, import `neptune.EventSubscription` using the event subscription name. For example:
 
         ```sh
         $ pulumi import aws:neptune/eventSubscription:EventSubscription example my-event-subscription

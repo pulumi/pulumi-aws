@@ -284,7 +284,9 @@ class CrossAccountAttachment(pulumi.CustomResource):
 
         Using `pulumi import`, import Global Accelerator Cross Account Attachment using the `arn`. For example:
 
-        % pulumi import aws_globalaccelerator_cross_account_attachment.example arn:aws:globalaccelerator::012345678910:attachment/01234567-abcd-8910-efgh-123456789012
+        ```sh
+        $ pulumi import aws:globalaccelerator/crossAccountAttachment:CrossAccountAttachment example arn:aws:globalaccelerator::012345678910:attachment/01234567-abcd-8910-efgh-123456789012
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -340,7 +342,9 @@ class CrossAccountAttachment(pulumi.CustomResource):
 
         Using `pulumi import`, import Global Accelerator Cross Account Attachment using the `arn`. For example:
 
-        % pulumi import aws_globalaccelerator_cross_account_attachment.example arn:aws:globalaccelerator::012345678910:attachment/01234567-abcd-8910-efgh-123456789012
+        ```sh
+        $ pulumi import aws:globalaccelerator/crossAccountAttachment:CrossAccountAttachment example arn:aws:globalaccelerator::012345678910:attachment/01234567-abcd-8910-efgh-123456789012
+        ```
 
         :param str resource_name: The name of the resource.
         :param CrossAccountAttachmentArgs args: The arguments to use to populate this resource's properties.

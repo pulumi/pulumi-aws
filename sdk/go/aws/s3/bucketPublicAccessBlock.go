@@ -12,6 +12,12 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Manages S3 bucket-level Public Access Block configuration. For more information about these settings, see the [AWS S3 Block Public Access documentation](https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html).
+//
+// > This resource cannot be used with S3 directory buckets.
+//
+// > Setting `skipDestroy` to `true` means that the AWS Provider will not destroy a public access block, even when running `terraform destroy`. The configuration is thus an intentional dangling resource that is not managed by Terraform and will remain in-place in your AWS account.
+//
 // ## Example Usage
 //
 // ```go
@@ -50,7 +56,7 @@ import (
 //
 // ## Import
 //
-// Using `pulumi import`, import `aws_s3_bucket_public_access_block` using the bucket name. For example:
+// Using `pulumi import`, import `s3.BucketPublicAccessBlock` using the bucket name. For example:
 //
 // ```sh
 // $ pulumi import aws:s3/bucketPublicAccessBlock:BucketPublicAccessBlock example my-bucket

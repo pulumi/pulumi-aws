@@ -10,9 +10,71 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.CloudFront
 {
     /// <summary>
+    /// Resource for maintaining exclusive management of resource key value pairs defined in an AWS CloudFront KeyValueStore.
+    /// 
+    /// !&gt; This resource takes exclusive ownership over key value pairs defined in a KeyValueStore. This includes removal of key value pairs which are not explicitly configured. To prevent persistent drift, ensure any `aws.cloudfront.KeyvaluestoreKey` resources managed alongside this resource have an equivalent `ResourceKeyValuePair` argument.
+    /// 
+    /// &gt; Destruction of this resource means Terraform will no longer manage reconciliation of the configured key value pairs. It __will not__ delete the configured key value pairs from the KeyValueStore.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ### Basic Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.CloudFront.KeyValueStore("example", new()
+    ///     {
+    ///         Name = "ExampleKeyValueStore",
+    ///         Comment = "This is an example key value store",
+    ///     });
+    /// 
+    ///     var exampleKeyvaluestoreKeysExclusive = new Aws.CloudFront.KeyvaluestoreKeysExclusive("example", new()
+    ///     {
+    ///         KeyValueStoreArn = example.Arn,
+    ///         ResourceKeyValuePairs = new[]
+    ///         {
+    ///             new Aws.CloudFront.Inputs.KeyvaluestoreKeysExclusiveResourceKeyValuePairArgs
+    ///             {
+    ///                 Key = "Test Key",
+    ///                 Value = "Test Value",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ### Disallow Key Value Pairs
+    /// 
+    /// To automatically remove any configured key value pairs, omit a `ResourceKeyValuePair` block.
+    /// 
+    /// &gt; This will not __prevent__ key value pairs from being defined in a KeyValueStore via Terraform (or any other interface). This resource enables bringing key value pairs into a configured state, however, this reconciliation happens only when `Apply` is proactively run.
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.CloudFront.KeyvaluestoreKeysExclusive("example", new()
+    ///     {
+    ///         KeyValueStoreArn = exampleAwsCloudfrontKeyValueStore.Arn,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import AWS CloudFront KeyValueStore Key Value Pairs using the `key_value_store_arn`. For example:
+    /// Using `pulumi import`, import AWS CloudFront KeyValueStore Key Value Pairs using the `KeyValueStoreArn`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:cloudfront/keyvaluestoreKeysExclusive:KeyvaluestoreKeysExclusive example arn:aws:cloudfront::111111111111:key-value-store/8562g61f-caba-2845-9d99-b97diwae5d3c

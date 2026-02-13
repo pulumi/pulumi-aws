@@ -227,16 +227,18 @@ class VpcIpv4CidrBlockAssociation(pulumi.CustomResource):
 
         or
 
-        Using `pulumi import`, import `aws_vpc_ipv4_cidr_block_association` using the VPC CIDR association ID and optionally the IPv4 IPAM pool ID and netmask length. For example:
+        Using `pulumi import`, import `ec2.VpcIpv4CidrBlockAssociation` using the VPC CIDR association ID and optionally the IPv4 IPAM pool ID and netmask length. For example:
 
         ```sh
         $ pulumi import aws:ec2/vpcIpv4CidrBlockAssociation:VpcIpv4CidrBlockAssociation example vpc-cidr-assoc-021e8461d70ed08be
         ```
+
         or
 
         ```sh
         $ pulumi import aws:ec2/vpcIpv4CidrBlockAssociation:VpcIpv4CidrBlockAssociation example vpc-cidr-assoc-021e8461d70ed08be,ipam-pool-0a07c432810393463
         ```
+
         or
 
         ```sh
@@ -281,16 +283,18 @@ class VpcIpv4CidrBlockAssociation(pulumi.CustomResource):
 
         or
 
-        Using `pulumi import`, import `aws_vpc_ipv4_cidr_block_association` using the VPC CIDR association ID and optionally the IPv4 IPAM pool ID and netmask length. For example:
+        Using `pulumi import`, import `ec2.VpcIpv4CidrBlockAssociation` using the VPC CIDR association ID and optionally the IPv4 IPAM pool ID and netmask length. For example:
 
         ```sh
         $ pulumi import aws:ec2/vpcIpv4CidrBlockAssociation:VpcIpv4CidrBlockAssociation example vpc-cidr-assoc-021e8461d70ed08be
         ```
+
         or
 
         ```sh
         $ pulumi import aws:ec2/vpcIpv4CidrBlockAssociation:VpcIpv4CidrBlockAssociation example vpc-cidr-assoc-021e8461d70ed08be,ipam-pool-0a07c432810393463
         ```
+
         or
 
         ```sh

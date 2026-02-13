@@ -24,7 +24,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Using `pulumi import`, import Redshift Serverless Workgroups using the `workgroup_name`. For example:
+ * Using `pulumi import`, import Redshift Serverless Workgroups using the `workgroupName`. For example:
  *
  * ```sh
  * $ pulumi import aws:redshiftserverless/workgroup:Workgroup example example

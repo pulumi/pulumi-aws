@@ -37,20 +37,15 @@ __all__ = [
     'StackSetOperationPreferencesArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class CloudFormationTypeLoggingConfigArgsDict(TypedDict):
-        log_group_name: pulumi.Input[_builtins.str]
-        """
-        Name of the CloudWatch Log Group where CloudFormation sends error logging information when invoking the type's handlers.
-        """
-        log_role_arn: pulumi.Input[_builtins.str]
-        """
-        Amazon Resource Name (ARN) of the IAM Role CloudFormation assumes when sending error logging information to CloudWatch Logs.
-        """
-elif False:
-    CloudFormationTypeLoggingConfigArgsDict: TypeAlias = Mapping[str, Any]
+class CloudFormationTypeLoggingConfigArgsDict(TypedDict):
+    log_group_name: pulumi.Input[_builtins.str]
+    """
+    Name of the CloudWatch Log Group where CloudFormation sends error logging information when invoking the type's handlers.
+    """
+    log_role_arn: pulumi.Input[_builtins.str]
+    """
+    Amazon Resource Name (ARN) of the IAM Role CloudFormation assumes when sending error logging information to CloudWatch Logs.
+    """
 
 @pulumi.input_type
 class CloudFormationTypeLoggingConfigArgs:
@@ -89,26 +84,23 @@ class CloudFormationTypeLoggingConfigArgs:
         pulumi.set(self, "log_role_arn", value)
 
 
-if not MYPY:
-    class StackInstancesDeploymentTargetsArgsDict(TypedDict):
-        account_filter_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Limit deployment targets to individual accounts or include additional accounts with provided OUs. Valid values: `INTERSECTION`, `DIFFERENCE`, `UNION`, `NONE`.
-        """
-        accounts: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        List of accounts to deploy stack set updates.
-        """
-        accounts_url: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        S3 URL of the file containing the list of accounts.
-        """
-        organizational_unit_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Organization root ID or organizational unit (OU) IDs to which stack sets deploy.
-        """
-elif False:
-    StackInstancesDeploymentTargetsArgsDict: TypeAlias = Mapping[str, Any]
+class StackInstancesDeploymentTargetsArgsDict(TypedDict):
+    account_filter_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Limit deployment targets to individual accounts or include additional accounts with provided OUs. Valid values: `INTERSECTION`, `DIFFERENCE`, `UNION`, `NONE`.
+    """
+    accounts: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    List of accounts to deploy stack set updates.
+    """
+    accounts_url: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    S3 URL of the file containing the list of accounts.
+    """
+    organizational_unit_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Organization root ID or organizational unit (OU) IDs to which stack sets deploy.
+    """
 
 @pulumi.input_type
 class StackInstancesDeploymentTargetsArgs:
@@ -181,38 +173,35 @@ class StackInstancesDeploymentTargetsArgs:
         pulumi.set(self, "organizational_unit_ids", value)
 
 
-if not MYPY:
-    class StackInstancesOperationPreferencesArgsDict(TypedDict):
-        concurrency_mode: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        How the concurrency level behaves during the operation execution. Valid values are `STRICT_FAILURE_TOLERANCE` and `SOFT_FAILURE_TOLERANCE`.
-        """
-        failure_tolerance_count: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Number of accounts, per region, for which this operation can fail before CloudFormation stops the operation in that region.
-        """
-        failure_tolerance_percentage: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Percentage of accounts, per region, for which this stack operation can fail before CloudFormation stops the operation in that region.
-        """
-        max_concurrent_count: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Maximum number of accounts in which to perform this operation at one time.
-        """
-        max_concurrent_percentage: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Maximum percentage of accounts in which to perform this operation at one time.
-        """
-        region_concurrency_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Concurrency type of deploying stack sets operations in regions, could be in parallel or one region at a time. Valid values are `SEQUENTIAL` and `PARALLEL`.
-        """
-        region_orders: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Order of the regions where you want to perform the stack operation.
-        """
-elif False:
-    StackInstancesOperationPreferencesArgsDict: TypeAlias = Mapping[str, Any]
+class StackInstancesOperationPreferencesArgsDict(TypedDict):
+    concurrency_mode: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    How the concurrency level behaves during the operation execution. Valid values are `STRICT_FAILURE_TOLERANCE` and `SOFT_FAILURE_TOLERANCE`.
+    """
+    failure_tolerance_count: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Number of accounts, per region, for which this operation can fail before CloudFormation stops the operation in that region.
+    """
+    failure_tolerance_percentage: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Percentage of accounts, per region, for which this stack operation can fail before CloudFormation stops the operation in that region.
+    """
+    max_concurrent_count: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Maximum number of accounts in which to perform this operation at one time.
+    """
+    max_concurrent_percentage: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Maximum percentage of accounts in which to perform this operation at one time.
+    """
+    region_concurrency_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Concurrency type of deploying stack sets operations in regions, could be in parallel or one region at a time. Valid values are `SEQUENTIAL` and `PARALLEL`.
+    """
+    region_orders: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Order of the regions where you want to perform the stack operation.
+    """
 
 @pulumi.input_type
 class StackInstancesOperationPreferencesArgs:
@@ -333,46 +322,43 @@ class StackInstancesOperationPreferencesArgs:
         pulumi.set(self, "region_orders", value)
 
 
-if not MYPY:
-    class StackInstancesStackInstanceSummaryArgsDict(TypedDict):
-        account_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Account ID in which the instance is deployed.
-        """
-        detailed_status: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Detailed status of the stack instance. Values include `PENDING`, `RUNNING`, `SUCCEEDED`, `FAILED`, `CANCELLED`, `INOPERABLE`, `SKIPPED_SUSPENDED_ACCOUNT`, `FAILED_IMPORT`.
-        """
-        drift_status: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Status of the stack instance's actual configuration compared to the expected template and parameter configuration of the stack set to which it belongs. Values include `DRIFTED`, `IN_SYNC`, `UNKNOWN`, `NOT_CHECKED`.
-        """
-        organizational_unit_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Organization root ID or organizational unit (OU) IDs that you specified for `deployment_targets`.
-        """
-        region: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
-        stack_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        ID of the stack instance.
-        """
-        stack_set_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Name or unique ID of the stack set that the stack instance is associated with.
-        """
-        status: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Status of the stack instance, in terms of its synchronization with its associated stack set. Values include `CURRENT`, `OUTDATED`, `INOPERABLE`.
-        """
-        status_reason: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Explanation for the specific status code assigned to this stack instance.
-        """
-elif False:
-    StackInstancesStackInstanceSummaryArgsDict: TypeAlias = Mapping[str, Any]
+class StackInstancesStackInstanceSummaryArgsDict(TypedDict):
+    account_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Account ID in which the instance is deployed.
+    """
+    detailed_status: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Detailed status of the stack instance. Values include `PENDING`, `RUNNING`, `SUCCEEDED`, `FAILED`, `CANCELLED`, `INOPERABLE`, `SKIPPED_SUSPENDED_ACCOUNT`, `FAILED_IMPORT`.
+    """
+    drift_status: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Status of the stack instance's actual configuration compared to the expected template and parameter configuration of the stack set to which it belongs. Values include `DRIFTED`, `IN_SYNC`, `UNKNOWN`, `NOT_CHECKED`.
+    """
+    organizational_unit_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Organization root ID or organizational unit (OU) IDs that you specified for `deployment_targets`.
+    """
+    region: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    """
+    stack_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    ID of the stack instance.
+    """
+    stack_set_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Name or unique ID of the stack set that the stack instance is associated with.
+    """
+    status: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Status of the stack instance, in terms of its synchronization with its associated stack set. Values include `CURRENT`, `OUTDATED`, `INOPERABLE`.
+    """
+    status_reason: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Explanation for the specific status code assigned to this stack instance.
+    """
 
 @pulumi.input_type
 class StackInstancesStackInstanceSummaryArgs:
@@ -525,18 +511,15 @@ class StackInstancesStackInstanceSummaryArgs:
         pulumi.set(self, "status_reason", value)
 
 
-if not MYPY:
-    class StackSetAutoDeploymentArgsDict(TypedDict):
-        enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether or not auto-deployment is enabled.
-        """
-        retain_stacks_on_account_removal: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether or not to retain stacks when the account is removed.
-        """
-elif False:
-    StackSetAutoDeploymentArgsDict: TypeAlias = Mapping[str, Any]
+class StackSetAutoDeploymentArgsDict(TypedDict):
+    enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether or not auto-deployment is enabled.
+    """
+    retain_stacks_on_account_removal: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether or not to retain stacks when the account is removed.
+    """
 
 @pulumi.input_type
 class StackSetAutoDeploymentArgs:
@@ -577,26 +560,23 @@ class StackSetAutoDeploymentArgs:
         pulumi.set(self, "retain_stacks_on_account_removal", value)
 
 
-if not MYPY:
-    class StackSetInstanceDeploymentTargetsArgsDict(TypedDict):
-        account_filter_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Limit deployment targets to individual accounts or include additional accounts with provided OUs. Valid values: `INTERSECTION`, `DIFFERENCE`, `UNION`, `NONE`.
-        """
-        accounts: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        List of accounts to deploy stack set updates.
-        """
-        accounts_url: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        S3 URL of the file containing the list of accounts.
-        """
-        organizational_unit_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Organization root ID or organizational unit (OU) IDs to which StackSets deploys.
-        """
-elif False:
-    StackSetInstanceDeploymentTargetsArgsDict: TypeAlias = Mapping[str, Any]
+class StackSetInstanceDeploymentTargetsArgsDict(TypedDict):
+    account_filter_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Limit deployment targets to individual accounts or include additional accounts with provided OUs. Valid values: `INTERSECTION`, `DIFFERENCE`, `UNION`, `NONE`.
+    """
+    accounts: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    List of accounts to deploy stack set updates.
+    """
+    accounts_url: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    S3 URL of the file containing the list of accounts.
+    """
+    organizational_unit_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Organization root ID or organizational unit (OU) IDs to which StackSets deploys.
+    """
 
 @pulumi.input_type
 class StackSetInstanceDeploymentTargetsArgs:
@@ -669,38 +649,35 @@ class StackSetInstanceDeploymentTargetsArgs:
         pulumi.set(self, "organizational_unit_ids", value)
 
 
-if not MYPY:
-    class StackSetInstanceOperationPreferencesArgsDict(TypedDict):
-        concurrency_mode: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specifies how the concurrency level behaves during the operation execution. Valid values are `STRICT_FAILURE_TOLERANCE` and `SOFT_FAILURE_TOLERANCE`.
-        """
-        failure_tolerance_count: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Number of accounts, per Region, for which this operation can fail before AWS CloudFormation stops the operation in that Region.
-        """
-        failure_tolerance_percentage: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Percentage of accounts, per Region, for which this stack operation can fail before AWS CloudFormation stops the operation in that Region.
-        """
-        max_concurrent_count: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Maximum number of accounts in which to perform this operation at one time.
-        """
-        max_concurrent_percentage: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Maximum percentage of accounts in which to perform this operation at one time.
-        """
-        region_concurrency_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Concurrency type of deploying StackSets operations in Regions, could be in parallel or one Region at a time. Valid values are `SEQUENTIAL` and `PARALLEL`.
-        """
-        region_orders: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Order of the Regions in where you want to perform the stack operation.
-        """
-elif False:
-    StackSetInstanceOperationPreferencesArgsDict: TypeAlias = Mapping[str, Any]
+class StackSetInstanceOperationPreferencesArgsDict(TypedDict):
+    concurrency_mode: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies how the concurrency level behaves during the operation execution. Valid values are `STRICT_FAILURE_TOLERANCE` and `SOFT_FAILURE_TOLERANCE`.
+    """
+    failure_tolerance_count: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Number of accounts, per Region, for which this operation can fail before AWS CloudFormation stops the operation in that Region.
+    """
+    failure_tolerance_percentage: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Percentage of accounts, per Region, for which this stack operation can fail before AWS CloudFormation stops the operation in that Region.
+    """
+    max_concurrent_count: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Maximum number of accounts in which to perform this operation at one time.
+    """
+    max_concurrent_percentage: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Maximum percentage of accounts in which to perform this operation at one time.
+    """
+    region_concurrency_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Concurrency type of deploying StackSets operations in Regions, could be in parallel or one Region at a time. Valid values are `SEQUENTIAL` and `PARALLEL`.
+    """
+    region_orders: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Order of the Regions in where you want to perform the stack operation.
+    """
 
 @pulumi.input_type
 class StackSetInstanceOperationPreferencesArgs:
@@ -821,22 +798,19 @@ class StackSetInstanceOperationPreferencesArgs:
         pulumi.set(self, "region_orders", value)
 
 
-if not MYPY:
-    class StackSetInstanceStackInstanceSummaryArgsDict(TypedDict):
-        account_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Target AWS Account ID to create a Stack based on the StackSet. Defaults to current account.
-        """
-        organizational_unit_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Organizational unit ID in which the stack is deployed.
-        """
-        stack_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Stack identifier.
-        """
-elif False:
-    StackSetInstanceStackInstanceSummaryArgsDict: TypeAlias = Mapping[str, Any]
+class StackSetInstanceStackInstanceSummaryArgsDict(TypedDict):
+    account_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Target AWS Account ID to create a Stack based on the StackSet. Defaults to current account.
+    """
+    organizational_unit_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Organizational unit ID in which the stack is deployed.
+    """
+    stack_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Stack identifier.
+    """
 
 @pulumi.input_type
 class StackSetInstanceStackInstanceSummaryArgs:
@@ -893,14 +867,11 @@ class StackSetInstanceStackInstanceSummaryArgs:
         pulumi.set(self, "stack_id", value)
 
 
-if not MYPY:
-    class StackSetManagedExecutionArgsDict(TypedDict):
-        active: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        When set to true, StackSets performs non-conflicting operations concurrently and queues conflicting operations. After conflicting operations finish, StackSets starts queued operations in request order. Default is false.
-        """
-elif False:
-    StackSetManagedExecutionArgsDict: TypeAlias = Mapping[str, Any]
+class StackSetManagedExecutionArgsDict(TypedDict):
+    active: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    When set to true, StackSets performs non-conflicting operations concurrently and queues conflicting operations. After conflicting operations finish, StackSets starts queued operations in request order. Default is false.
+    """
 
 @pulumi.input_type
 class StackSetManagedExecutionArgs:
@@ -925,34 +896,31 @@ class StackSetManagedExecutionArgs:
         pulumi.set(self, "active", value)
 
 
-if not MYPY:
-    class StackSetOperationPreferencesArgsDict(TypedDict):
-        failure_tolerance_count: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The number of accounts, per Region, for which this operation can fail before AWS CloudFormation stops the operation in that Region.
-        """
-        failure_tolerance_percentage: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The percentage of accounts, per Region, for which this stack operation can fail before AWS CloudFormation stops the operation in that Region.
-        """
-        max_concurrent_count: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The maximum number of accounts in which to perform this operation at one time.
-        """
-        max_concurrent_percentage: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The maximum percentage of accounts in which to perform this operation at one time.
-        """
-        region_concurrency_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The concurrency type of deploying StackSets operations in Regions, could be in parallel or one Region at a time.
-        """
-        region_orders: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The order of the Regions in where you want to perform the stack operation.
-        """
-elif False:
-    StackSetOperationPreferencesArgsDict: TypeAlias = Mapping[str, Any]
+class StackSetOperationPreferencesArgsDict(TypedDict):
+    failure_tolerance_count: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The number of accounts, per Region, for which this operation can fail before AWS CloudFormation stops the operation in that Region.
+    """
+    failure_tolerance_percentage: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The percentage of accounts, per Region, for which this stack operation can fail before AWS CloudFormation stops the operation in that Region.
+    """
+    max_concurrent_count: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The maximum number of accounts in which to perform this operation at one time.
+    """
+    max_concurrent_percentage: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The maximum percentage of accounts in which to perform this operation at one time.
+    """
+    region_concurrency_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The concurrency type of deploying StackSets operations in Regions, could be in parallel or one Region at a time.
+    """
+    region_orders: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The order of the Regions in where you want to perform the stack operation.
+    """
 
 @pulumi.input_type
 class StackSetOperationPreferencesArgs:

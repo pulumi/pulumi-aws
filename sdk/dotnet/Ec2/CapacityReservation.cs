@@ -35,7 +35,7 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import Capacity Reservations using the `id`. For example:
+    /// Using `pulumi import`, import Capacity Reservations using the `Id`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:ec2/capacityReservation:CapacityReservation web cr-0123456789abcdef0

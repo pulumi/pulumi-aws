@@ -51,24 +51,19 @@ __all__ = [
     'RegisteredDomainTechContactArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class DelegationSignerRecordSigningAttributesArgsDict(TypedDict):
-        algorithm: pulumi.Input[_builtins.int]
-        """
-        Algorithm which was used to generate the digest from the public key.
-        """
-        flags: pulumi.Input[_builtins.int]
-        """
-        Defines the type of key. It can be either a KSK (key-signing-key, value `257`) or ZSK (zone-signing-key, value `256`).
-        """
-        public_key: pulumi.Input[_builtins.str]
-        """
-        The base64-encoded public key part of the key pair that is passed to the registry.
-        """
-elif False:
-    DelegationSignerRecordSigningAttributesArgsDict: TypeAlias = Mapping[str, Any]
+class DelegationSignerRecordSigningAttributesArgsDict(TypedDict):
+    algorithm: pulumi.Input[_builtins.int]
+    """
+    Algorithm which was used to generate the digest from the public key.
+    """
+    flags: pulumi.Input[_builtins.int]
+    """
+    Defines the type of key. It can be either a KSK (key-signing-key, value `257`) or ZSK (zone-signing-key, value `256`).
+    """
+    public_key: pulumi.Input[_builtins.str]
+    """
+    The base64-encoded public key part of the key pair that is passed to the registry.
+    """
 
 @pulumi.input_type
 class DelegationSignerRecordSigningAttributesArgs:
@@ -122,18 +117,15 @@ class DelegationSignerRecordSigningAttributesArgs:
         pulumi.set(self, "public_key", value)
 
 
-if not MYPY:
-    class DelegationSignerRecordTimeoutsArgsDict(TypedDict):
-        create: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
-        """
-        delete: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
-        """
-elif False:
-    DelegationSignerRecordTimeoutsArgsDict: TypeAlias = Mapping[str, Any]
+class DelegationSignerRecordTimeoutsArgsDict(TypedDict):
+    create: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+    """
+    delete: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+    """
 
 @pulumi.input_type
 class DelegationSignerRecordTimeoutsArgs:
@@ -174,66 +166,63 @@ class DelegationSignerRecordTimeoutsArgs:
         pulumi.set(self, "delete", value)
 
 
-if not MYPY:
-    class DomainAdminContactArgsDict(TypedDict):
-        address_line1: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        First line of the contact's address.
-        """
-        address_line2: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Second line of contact's address, if any.
-        """
-        city: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The city of the contact's address.
-        """
-        contact_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Indicates whether the contact is a person, company, association, or public organization. See the [AWS API documentation](https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_ContactDetail.html#Route53Domains-Type-domains_ContactDetail-ContactType) for valid values.
-        """
-        country_code: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Code for the country of the contact's address. See the [AWS API documentation](https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_ContactDetail.html#Route53Domains-Type-domains_ContactDetail-CountryCode) for valid values.
-        """
-        email: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Email address of the contact.
-        """
-        extra_params: NotRequired[pulumi.Input[Sequence[pulumi.Input['DomainAdminContactExtraParamArgsDict']]]]
-        """
-        A list of name-value pairs for parameters required by certain top-level domains.
-        """
-        fax: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Fax number of the contact. Phone number must be specified in the format "+[country dialing code].[number including any area code]".
-        """
-        first_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        First name of contact.
-        """
-        last_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Last name of contact.
-        """
-        organization_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Name of the organization for contact types other than `PERSON`.
-        """
-        phone_number: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The phone number of the contact. Phone number must be specified in the format "+[country dialing code].[number including any area code]".
-        """
-        state: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The state or province of the contact's city.
-        """
-        zip_code: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The zip or postal code of the contact's address.
-        """
-elif False:
-    DomainAdminContactArgsDict: TypeAlias = Mapping[str, Any]
+class DomainAdminContactArgsDict(TypedDict):
+    address_line1: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    First line of the contact's address.
+    """
+    address_line2: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Second line of contact's address, if any.
+    """
+    city: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The city of the contact's address.
+    """
+    contact_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Indicates whether the contact is a person, company, association, or public organization. See the [AWS API documentation](https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_ContactDetail.html#Route53Domains-Type-domains_ContactDetail-ContactType) for valid values.
+    """
+    country_code: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Code for the country of the contact's address. See the [AWS API documentation](https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_ContactDetail.html#Route53Domains-Type-domains_ContactDetail-CountryCode) for valid values.
+    """
+    email: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Email address of the contact.
+    """
+    extra_params: NotRequired[pulumi.Input[Sequence[pulumi.Input['DomainAdminContactExtraParamArgsDict']]]]
+    """
+    A list of name-value pairs for parameters required by certain top-level domains.
+    """
+    fax: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Fax number of the contact. Phone number must be specified in the format "+[country dialing code].[number including any area code]".
+    """
+    first_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    First name of contact.
+    """
+    last_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Last name of contact.
+    """
+    organization_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Name of the organization for contact types other than `PERSON`.
+    """
+    phone_number: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The phone number of the contact. Phone number must be specified in the format "+[country dialing code].[number including any area code]".
+    """
+    state: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The state or province of the contact's city.
+    """
+    zip_code: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The zip or postal code of the contact's address.
+    """
 
 @pulumi.input_type
 class DomainAdminContactArgs:
@@ -466,18 +455,15 @@ class DomainAdminContactArgs:
         pulumi.set(self, "zip_code", value)
 
 
-if not MYPY:
-    class DomainAdminContactExtraParamArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of an additional parameter that is required by a top-level domain.
-        """
-        value: pulumi.Input[_builtins.str]
-        """
-        The value that corresponds with the name of an extra parameter.
-        """
-elif False:
-    DomainAdminContactExtraParamArgsDict: TypeAlias = Mapping[str, Any]
+class DomainAdminContactExtraParamArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of an additional parameter that is required by a top-level domain.
+    """
+    value: pulumi.Input[_builtins.str]
+    """
+    The value that corresponds with the name of an extra parameter.
+    """
 
 @pulumi.input_type
 class DomainAdminContactExtraParamArgs:
@@ -516,66 +502,63 @@ class DomainAdminContactExtraParamArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class DomainBillingContactArgsDict(TypedDict):
-        address_line1: pulumi.Input[_builtins.str]
-        """
-        First line of the contact's address.
-        """
-        address_line2: pulumi.Input[_builtins.str]
-        """
-        Second line of contact's address, if any.
-        """
-        city: pulumi.Input[_builtins.str]
-        """
-        The city of the contact's address.
-        """
-        contact_type: pulumi.Input[_builtins.str]
-        """
-        Indicates whether the contact is a person, company, association, or public organization. See the [AWS API documentation](https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_ContactDetail.html#Route53Domains-Type-domains_ContactDetail-ContactType) for valid values.
-        """
-        country_code: pulumi.Input[_builtins.str]
-        """
-        Code for the country of the contact's address. See the [AWS API documentation](https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_ContactDetail.html#Route53Domains-Type-domains_ContactDetail-CountryCode) for valid values.
-        """
-        email: pulumi.Input[_builtins.str]
-        """
-        Email address of the contact.
-        """
-        extra_params: pulumi.Input[Sequence[pulumi.Input['DomainBillingContactExtraParamArgsDict']]]
-        """
-        A list of name-value pairs for parameters required by certain top-level domains.
-        """
-        fax: pulumi.Input[_builtins.str]
-        """
-        Fax number of the contact. Phone number must be specified in the format "+[country dialing code].[number including any area code]".
-        """
-        first_name: pulumi.Input[_builtins.str]
-        """
-        First name of contact.
-        """
-        last_name: pulumi.Input[_builtins.str]
-        """
-        Last name of contact.
-        """
-        organization_name: pulumi.Input[_builtins.str]
-        """
-        Name of the organization for contact types other than `PERSON`.
-        """
-        phone_number: pulumi.Input[_builtins.str]
-        """
-        The phone number of the contact. Phone number must be specified in the format "+[country dialing code].[number including any area code]".
-        """
-        state: pulumi.Input[_builtins.str]
-        """
-        The state or province of the contact's city.
-        """
-        zip_code: pulumi.Input[_builtins.str]
-        """
-        The zip or postal code of the contact's address.
-        """
-elif False:
-    DomainBillingContactArgsDict: TypeAlias = Mapping[str, Any]
+class DomainBillingContactArgsDict(TypedDict):
+    address_line1: pulumi.Input[_builtins.str]
+    """
+    First line of the contact's address.
+    """
+    address_line2: pulumi.Input[_builtins.str]
+    """
+    Second line of contact's address, if any.
+    """
+    city: pulumi.Input[_builtins.str]
+    """
+    The city of the contact's address.
+    """
+    contact_type: pulumi.Input[_builtins.str]
+    """
+    Indicates whether the contact is a person, company, association, or public organization. See the [AWS API documentation](https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_ContactDetail.html#Route53Domains-Type-domains_ContactDetail-ContactType) for valid values.
+    """
+    country_code: pulumi.Input[_builtins.str]
+    """
+    Code for the country of the contact's address. See the [AWS API documentation](https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_ContactDetail.html#Route53Domains-Type-domains_ContactDetail-CountryCode) for valid values.
+    """
+    email: pulumi.Input[_builtins.str]
+    """
+    Email address of the contact.
+    """
+    extra_params: pulumi.Input[Sequence[pulumi.Input['DomainBillingContactExtraParamArgsDict']]]
+    """
+    A list of name-value pairs for parameters required by certain top-level domains.
+    """
+    fax: pulumi.Input[_builtins.str]
+    """
+    Fax number of the contact. Phone number must be specified in the format "+[country dialing code].[number including any area code]".
+    """
+    first_name: pulumi.Input[_builtins.str]
+    """
+    First name of contact.
+    """
+    last_name: pulumi.Input[_builtins.str]
+    """
+    Last name of contact.
+    """
+    organization_name: pulumi.Input[_builtins.str]
+    """
+    Name of the organization for contact types other than `PERSON`.
+    """
+    phone_number: pulumi.Input[_builtins.str]
+    """
+    The phone number of the contact. Phone number must be specified in the format "+[country dialing code].[number including any area code]".
+    """
+    state: pulumi.Input[_builtins.str]
+    """
+    The state or province of the contact's city.
+    """
+    zip_code: pulumi.Input[_builtins.str]
+    """
+    The zip or postal code of the contact's address.
+    """
 
 @pulumi.input_type
 class DomainBillingContactArgs:
@@ -794,18 +777,15 @@ class DomainBillingContactArgs:
         pulumi.set(self, "zip_code", value)
 
 
-if not MYPY:
-    class DomainBillingContactExtraParamArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of an additional parameter that is required by a top-level domain.
-        """
-        value: pulumi.Input[_builtins.str]
-        """
-        The value that corresponds with the name of an extra parameter.
-        """
-elif False:
-    DomainBillingContactExtraParamArgsDict: TypeAlias = Mapping[str, Any]
+class DomainBillingContactExtraParamArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of an additional parameter that is required by a top-level domain.
+    """
+    value: pulumi.Input[_builtins.str]
+    """
+    The value that corresponds with the name of an extra parameter.
+    """
 
 @pulumi.input_type
 class DomainBillingContactExtraParamArgs:
@@ -844,18 +824,15 @@ class DomainBillingContactExtraParamArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class DomainNameServerArgsDict(TypedDict):
-        glue_ips: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        Glue IP addresses of a name server. The list can contain only one IPv4 and one IPv6 address.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        The fully qualified host name of the name server.
-        """
-elif False:
-    DomainNameServerArgsDict: TypeAlias = Mapping[str, Any]
+class DomainNameServerArgsDict(TypedDict):
+    glue_ips: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    Glue IP addresses of a name server. The list can contain only one IPv4 and one IPv6 address.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The fully qualified host name of the name server.
+    """
 
 @pulumi.input_type
 class DomainNameServerArgs:
@@ -894,66 +871,63 @@ class DomainNameServerArgs:
         pulumi.set(self, "name", value)
 
 
-if not MYPY:
-    class DomainRegistrantContactArgsDict(TypedDict):
-        address_line1: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        First line of the contact's address.
-        """
-        address_line2: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Second line of contact's address, if any.
-        """
-        city: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The city of the contact's address.
-        """
-        contact_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Indicates whether the contact is a person, company, association, or public organization. See the [AWS API documentation](https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_ContactDetail.html#Route53Domains-Type-domains_ContactDetail-ContactType) for valid values.
-        """
-        country_code: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Code for the country of the contact's address. See the [AWS API documentation](https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_ContactDetail.html#Route53Domains-Type-domains_ContactDetail-CountryCode) for valid values.
-        """
-        email: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Email address of the contact.
-        """
-        extra_params: NotRequired[pulumi.Input[Sequence[pulumi.Input['DomainRegistrantContactExtraParamArgsDict']]]]
-        """
-        A list of name-value pairs for parameters required by certain top-level domains.
-        """
-        fax: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Fax number of the contact. Phone number must be specified in the format "+[country dialing code].[number including any area code]".
-        """
-        first_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        First name of contact.
-        """
-        last_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Last name of contact.
-        """
-        organization_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Name of the organization for contact types other than `PERSON`.
-        """
-        phone_number: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The phone number of the contact. Phone number must be specified in the format "+[country dialing code].[number including any area code]".
-        """
-        state: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The state or province of the contact's city.
-        """
-        zip_code: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The zip or postal code of the contact's address.
-        """
-elif False:
-    DomainRegistrantContactArgsDict: TypeAlias = Mapping[str, Any]
+class DomainRegistrantContactArgsDict(TypedDict):
+    address_line1: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    First line of the contact's address.
+    """
+    address_line2: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Second line of contact's address, if any.
+    """
+    city: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The city of the contact's address.
+    """
+    contact_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Indicates whether the contact is a person, company, association, or public organization. See the [AWS API documentation](https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_ContactDetail.html#Route53Domains-Type-domains_ContactDetail-ContactType) for valid values.
+    """
+    country_code: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Code for the country of the contact's address. See the [AWS API documentation](https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_ContactDetail.html#Route53Domains-Type-domains_ContactDetail-CountryCode) for valid values.
+    """
+    email: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Email address of the contact.
+    """
+    extra_params: NotRequired[pulumi.Input[Sequence[pulumi.Input['DomainRegistrantContactExtraParamArgsDict']]]]
+    """
+    A list of name-value pairs for parameters required by certain top-level domains.
+    """
+    fax: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Fax number of the contact. Phone number must be specified in the format "+[country dialing code].[number including any area code]".
+    """
+    first_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    First name of contact.
+    """
+    last_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Last name of contact.
+    """
+    organization_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Name of the organization for contact types other than `PERSON`.
+    """
+    phone_number: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The phone number of the contact. Phone number must be specified in the format "+[country dialing code].[number including any area code]".
+    """
+    state: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The state or province of the contact's city.
+    """
+    zip_code: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The zip or postal code of the contact's address.
+    """
 
 @pulumi.input_type
 class DomainRegistrantContactArgs:
@@ -1186,18 +1160,15 @@ class DomainRegistrantContactArgs:
         pulumi.set(self, "zip_code", value)
 
 
-if not MYPY:
-    class DomainRegistrantContactExtraParamArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of an additional parameter that is required by a top-level domain.
-        """
-        value: pulumi.Input[_builtins.str]
-        """
-        The value that corresponds with the name of an extra parameter.
-        """
-elif False:
-    DomainRegistrantContactExtraParamArgsDict: TypeAlias = Mapping[str, Any]
+class DomainRegistrantContactExtraParamArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of an additional parameter that is required by a top-level domain.
+    """
+    value: pulumi.Input[_builtins.str]
+    """
+    The value that corresponds with the name of an extra parameter.
+    """
 
 @pulumi.input_type
 class DomainRegistrantContactExtraParamArgs:
@@ -1236,66 +1207,63 @@ class DomainRegistrantContactExtraParamArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class DomainTechContactArgsDict(TypedDict):
-        address_line1: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        First line of the contact's address.
-        """
-        address_line2: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Second line of contact's address, if any.
-        """
-        city: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The city of the contact's address.
-        """
-        contact_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Indicates whether the contact is a person, company, association, or public organization. See the [AWS API documentation](https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_ContactDetail.html#Route53Domains-Type-domains_ContactDetail-ContactType) for valid values.
-        """
-        country_code: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Code for the country of the contact's address. See the [AWS API documentation](https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_ContactDetail.html#Route53Domains-Type-domains_ContactDetail-CountryCode) for valid values.
-        """
-        email: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Email address of the contact.
-        """
-        extra_params: NotRequired[pulumi.Input[Sequence[pulumi.Input['DomainTechContactExtraParamArgsDict']]]]
-        """
-        A list of name-value pairs for parameters required by certain top-level domains.
-        """
-        fax: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Fax number of the contact. Phone number must be specified in the format "+[country dialing code].[number including any area code]".
-        """
-        first_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        First name of contact.
-        """
-        last_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Last name of contact.
-        """
-        organization_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Name of the organization for contact types other than `PERSON`.
-        """
-        phone_number: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The phone number of the contact. Phone number must be specified in the format "+[country dialing code].[number including any area code]".
-        """
-        state: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The state or province of the contact's city.
-        """
-        zip_code: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The zip or postal code of the contact's address.
-        """
-elif False:
-    DomainTechContactArgsDict: TypeAlias = Mapping[str, Any]
+class DomainTechContactArgsDict(TypedDict):
+    address_line1: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    First line of the contact's address.
+    """
+    address_line2: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Second line of contact's address, if any.
+    """
+    city: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The city of the contact's address.
+    """
+    contact_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Indicates whether the contact is a person, company, association, or public organization. See the [AWS API documentation](https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_ContactDetail.html#Route53Domains-Type-domains_ContactDetail-ContactType) for valid values.
+    """
+    country_code: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Code for the country of the contact's address. See the [AWS API documentation](https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_ContactDetail.html#Route53Domains-Type-domains_ContactDetail-CountryCode) for valid values.
+    """
+    email: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Email address of the contact.
+    """
+    extra_params: NotRequired[pulumi.Input[Sequence[pulumi.Input['DomainTechContactExtraParamArgsDict']]]]
+    """
+    A list of name-value pairs for parameters required by certain top-level domains.
+    """
+    fax: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Fax number of the contact. Phone number must be specified in the format "+[country dialing code].[number including any area code]".
+    """
+    first_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    First name of contact.
+    """
+    last_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Last name of contact.
+    """
+    organization_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Name of the organization for contact types other than `PERSON`.
+    """
+    phone_number: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The phone number of the contact. Phone number must be specified in the format "+[country dialing code].[number including any area code]".
+    """
+    state: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The state or province of the contact's city.
+    """
+    zip_code: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The zip or postal code of the contact's address.
+    """
 
 @pulumi.input_type
 class DomainTechContactArgs:
@@ -1528,18 +1496,15 @@ class DomainTechContactArgs:
         pulumi.set(self, "zip_code", value)
 
 
-if not MYPY:
-    class DomainTechContactExtraParamArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of an additional parameter that is required by a top-level domain.
-        """
-        value: pulumi.Input[_builtins.str]
-        """
-        The value that corresponds with the name of an extra parameter.
-        """
-elif False:
-    DomainTechContactExtraParamArgsDict: TypeAlias = Mapping[str, Any]
+class DomainTechContactExtraParamArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of an additional parameter that is required by a top-level domain.
+    """
+    value: pulumi.Input[_builtins.str]
+    """
+    The value that corresponds with the name of an extra parameter.
+    """
 
 @pulumi.input_type
 class DomainTechContactExtraParamArgs:
@@ -1578,22 +1543,19 @@ class DomainTechContactExtraParamArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class DomainTimeoutsArgsDict(TypedDict):
-        create: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
-        """
-        delete: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
-        """
-        update: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
-        """
-elif False:
-    DomainTimeoutsArgsDict: TypeAlias = Mapping[str, Any]
+class DomainTimeoutsArgsDict(TypedDict):
+    create: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+    """
+    delete: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+    """
+    update: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+    """
 
 @pulumi.input_type
 class DomainTimeoutsArgs:
@@ -1650,66 +1612,63 @@ class DomainTimeoutsArgs:
         pulumi.set(self, "update", value)
 
 
-if not MYPY:
-    class RegisteredDomainAdminContactArgsDict(TypedDict):
-        address_line1: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        First line of the contact's address.
-        """
-        address_line2: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Second line of contact's address, if any.
-        """
-        city: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The city of the contact's address.
-        """
-        contact_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Indicates whether the contact is a person, company, association, or public organization. See the [AWS API documentation](https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_ContactDetail.html#Route53Domains-Type-domains_ContactDetail-ContactType) for valid values.
-        """
-        country_code: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Code for the country of the contact's address. See the [AWS API documentation](https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_ContactDetail.html#Route53Domains-Type-domains_ContactDetail-CountryCode) for valid values.
-        """
-        email: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Email address of the contact.
-        """
-        extra_params: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
-        """
-        A key-value map of parameters required by certain top-level domains.
-        """
-        fax: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Fax number of the contact. Phone number must be specified in the format "+[country dialing code].[number including any area code]".
-        """
-        first_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        First name of contact.
-        """
-        last_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Last name of contact.
-        """
-        organization_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Name of the organization for contact types other than `PERSON`.
-        """
-        phone_number: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The phone number of the contact. Phone number must be specified in the format "+[country dialing code].[number including any area code]".
-        """
-        state: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The state or province of the contact's city.
-        """
-        zip_code: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The zip or postal code of the contact's address.
-        """
-elif False:
-    RegisteredDomainAdminContactArgsDict: TypeAlias = Mapping[str, Any]
+class RegisteredDomainAdminContactArgsDict(TypedDict):
+    address_line1: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    First line of the contact's address.
+    """
+    address_line2: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Second line of contact's address, if any.
+    """
+    city: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The city of the contact's address.
+    """
+    contact_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Indicates whether the contact is a person, company, association, or public organization. See the [AWS API documentation](https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_ContactDetail.html#Route53Domains-Type-domains_ContactDetail-ContactType) for valid values.
+    """
+    country_code: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Code for the country of the contact's address. See the [AWS API documentation](https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_ContactDetail.html#Route53Domains-Type-domains_ContactDetail-CountryCode) for valid values.
+    """
+    email: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Email address of the contact.
+    """
+    extra_params: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    """
+    A key-value map of parameters required by certain top-level domains.
+    """
+    fax: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Fax number of the contact. Phone number must be specified in the format "+[country dialing code].[number including any area code]".
+    """
+    first_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    First name of contact.
+    """
+    last_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Last name of contact.
+    """
+    organization_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Name of the organization for contact types other than `PERSON`.
+    """
+    phone_number: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The phone number of the contact. Phone number must be specified in the format "+[country dialing code].[number including any area code]".
+    """
+    state: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The state or province of the contact's city.
+    """
+    zip_code: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The zip or postal code of the contact's address.
+    """
 
 @pulumi.input_type
 class RegisteredDomainAdminContactArgs:
@@ -1942,66 +1901,63 @@ class RegisteredDomainAdminContactArgs:
         pulumi.set(self, "zip_code", value)
 
 
-if not MYPY:
-    class RegisteredDomainBillingContactArgsDict(TypedDict):
-        address_line1: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        First line of the contact's address.
-        """
-        address_line2: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Second line of contact's address, if any.
-        """
-        city: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The city of the contact's address.
-        """
-        contact_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Indicates whether the contact is a person, company, association, or public organization. See the [AWS API documentation](https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_ContactDetail.html#Route53Domains-Type-domains_ContactDetail-ContactType) for valid values.
-        """
-        country_code: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Code for the country of the contact's address. See the [AWS API documentation](https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_ContactDetail.html#Route53Domains-Type-domains_ContactDetail-CountryCode) for valid values.
-        """
-        email: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Email address of the contact.
-        """
-        extra_params: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
-        """
-        A key-value map of parameters required by certain top-level domains.
-        """
-        fax: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Fax number of the contact. Phone number must be specified in the format "+[country dialing code].[number including any area code]".
-        """
-        first_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        First name of contact.
-        """
-        last_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Last name of contact.
-        """
-        organization_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Name of the organization for contact types other than `PERSON`.
-        """
-        phone_number: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The phone number of the contact. Phone number must be specified in the format "+[country dialing code].[number including any area code]".
-        """
-        state: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The state or province of the contact's city.
-        """
-        zip_code: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The zip or postal code of the contact's address.
-        """
-elif False:
-    RegisteredDomainBillingContactArgsDict: TypeAlias = Mapping[str, Any]
+class RegisteredDomainBillingContactArgsDict(TypedDict):
+    address_line1: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    First line of the contact's address.
+    """
+    address_line2: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Second line of contact's address, if any.
+    """
+    city: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The city of the contact's address.
+    """
+    contact_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Indicates whether the contact is a person, company, association, or public organization. See the [AWS API documentation](https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_ContactDetail.html#Route53Domains-Type-domains_ContactDetail-ContactType) for valid values.
+    """
+    country_code: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Code for the country of the contact's address. See the [AWS API documentation](https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_ContactDetail.html#Route53Domains-Type-domains_ContactDetail-CountryCode) for valid values.
+    """
+    email: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Email address of the contact.
+    """
+    extra_params: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    """
+    A key-value map of parameters required by certain top-level domains.
+    """
+    fax: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Fax number of the contact. Phone number must be specified in the format "+[country dialing code].[number including any area code]".
+    """
+    first_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    First name of contact.
+    """
+    last_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Last name of contact.
+    """
+    organization_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Name of the organization for contact types other than `PERSON`.
+    """
+    phone_number: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The phone number of the contact. Phone number must be specified in the format "+[country dialing code].[number including any area code]".
+    """
+    state: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The state or province of the contact's city.
+    """
+    zip_code: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The zip or postal code of the contact's address.
+    """
 
 @pulumi.input_type
 class RegisteredDomainBillingContactArgs:
@@ -2234,18 +2190,15 @@ class RegisteredDomainBillingContactArgs:
         pulumi.set(self, "zip_code", value)
 
 
-if not MYPY:
-    class RegisteredDomainNameServerArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        """
-        The fully qualified host name of the name server.
-        """
-        glue_ips: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Glue IP addresses of a name server. The list can contain only one IPv4 and one IPv6 address.
-        """
-elif False:
-    RegisteredDomainNameServerArgsDict: TypeAlias = Mapping[str, Any]
+class RegisteredDomainNameServerArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    The fully qualified host name of the name server.
+    """
+    glue_ips: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Glue IP addresses of a name server. The list can contain only one IPv4 and one IPv6 address.
+    """
 
 @pulumi.input_type
 class RegisteredDomainNameServerArgs:
@@ -2285,66 +2238,63 @@ class RegisteredDomainNameServerArgs:
         pulumi.set(self, "glue_ips", value)
 
 
-if not MYPY:
-    class RegisteredDomainRegistrantContactArgsDict(TypedDict):
-        address_line1: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        First line of the contact's address.
-        """
-        address_line2: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Second line of contact's address, if any.
-        """
-        city: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The city of the contact's address.
-        """
-        contact_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Indicates whether the contact is a person, company, association, or public organization. See the [AWS API documentation](https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_ContactDetail.html#Route53Domains-Type-domains_ContactDetail-ContactType) for valid values.
-        """
-        country_code: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Code for the country of the contact's address. See the [AWS API documentation](https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_ContactDetail.html#Route53Domains-Type-domains_ContactDetail-CountryCode) for valid values.
-        """
-        email: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Email address of the contact.
-        """
-        extra_params: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
-        """
-        A key-value map of parameters required by certain top-level domains.
-        """
-        fax: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Fax number of the contact. Phone number must be specified in the format "+[country dialing code].[number including any area code]".
-        """
-        first_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        First name of contact.
-        """
-        last_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Last name of contact.
-        """
-        organization_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Name of the organization for contact types other than `PERSON`.
-        """
-        phone_number: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The phone number of the contact. Phone number must be specified in the format "+[country dialing code].[number including any area code]".
-        """
-        state: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The state or province of the contact's city.
-        """
-        zip_code: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The zip or postal code of the contact's address.
-        """
-elif False:
-    RegisteredDomainRegistrantContactArgsDict: TypeAlias = Mapping[str, Any]
+class RegisteredDomainRegistrantContactArgsDict(TypedDict):
+    address_line1: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    First line of the contact's address.
+    """
+    address_line2: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Second line of contact's address, if any.
+    """
+    city: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The city of the contact's address.
+    """
+    contact_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Indicates whether the contact is a person, company, association, or public organization. See the [AWS API documentation](https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_ContactDetail.html#Route53Domains-Type-domains_ContactDetail-ContactType) for valid values.
+    """
+    country_code: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Code for the country of the contact's address. See the [AWS API documentation](https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_ContactDetail.html#Route53Domains-Type-domains_ContactDetail-CountryCode) for valid values.
+    """
+    email: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Email address of the contact.
+    """
+    extra_params: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    """
+    A key-value map of parameters required by certain top-level domains.
+    """
+    fax: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Fax number of the contact. Phone number must be specified in the format "+[country dialing code].[number including any area code]".
+    """
+    first_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    First name of contact.
+    """
+    last_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Last name of contact.
+    """
+    organization_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Name of the organization for contact types other than `PERSON`.
+    """
+    phone_number: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The phone number of the contact. Phone number must be specified in the format "+[country dialing code].[number including any area code]".
+    """
+    state: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The state or province of the contact's city.
+    """
+    zip_code: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The zip or postal code of the contact's address.
+    """
 
 @pulumi.input_type
 class RegisteredDomainRegistrantContactArgs:
@@ -2577,66 +2527,63 @@ class RegisteredDomainRegistrantContactArgs:
         pulumi.set(self, "zip_code", value)
 
 
-if not MYPY:
-    class RegisteredDomainTechContactArgsDict(TypedDict):
-        address_line1: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        First line of the contact's address.
-        """
-        address_line2: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Second line of contact's address, if any.
-        """
-        city: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The city of the contact's address.
-        """
-        contact_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Indicates whether the contact is a person, company, association, or public organization. See the [AWS API documentation](https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_ContactDetail.html#Route53Domains-Type-domains_ContactDetail-ContactType) for valid values.
-        """
-        country_code: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Code for the country of the contact's address. See the [AWS API documentation](https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_ContactDetail.html#Route53Domains-Type-domains_ContactDetail-CountryCode) for valid values.
-        """
-        email: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Email address of the contact.
-        """
-        extra_params: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
-        """
-        A key-value map of parameters required by certain top-level domains.
-        """
-        fax: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Fax number of the contact. Phone number must be specified in the format "+[country dialing code].[number including any area code]".
-        """
-        first_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        First name of contact.
-        """
-        last_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Last name of contact.
-        """
-        organization_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Name of the organization for contact types other than `PERSON`.
-        """
-        phone_number: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The phone number of the contact. Phone number must be specified in the format "+[country dialing code].[number including any area code]".
-        """
-        state: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The state or province of the contact's city.
-        """
-        zip_code: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The zip or postal code of the contact's address.
-        """
-elif False:
-    RegisteredDomainTechContactArgsDict: TypeAlias = Mapping[str, Any]
+class RegisteredDomainTechContactArgsDict(TypedDict):
+    address_line1: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    First line of the contact's address.
+    """
+    address_line2: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Second line of contact's address, if any.
+    """
+    city: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The city of the contact's address.
+    """
+    contact_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Indicates whether the contact is a person, company, association, or public organization. See the [AWS API documentation](https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_ContactDetail.html#Route53Domains-Type-domains_ContactDetail-ContactType) for valid values.
+    """
+    country_code: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Code for the country of the contact's address. See the [AWS API documentation](https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_ContactDetail.html#Route53Domains-Type-domains_ContactDetail-CountryCode) for valid values.
+    """
+    email: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Email address of the contact.
+    """
+    extra_params: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    """
+    A key-value map of parameters required by certain top-level domains.
+    """
+    fax: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Fax number of the contact. Phone number must be specified in the format "+[country dialing code].[number including any area code]".
+    """
+    first_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    First name of contact.
+    """
+    last_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Last name of contact.
+    """
+    organization_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Name of the organization for contact types other than `PERSON`.
+    """
+    phone_number: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The phone number of the contact. Phone number must be specified in the format "+[country dialing code].[number including any area code]".
+    """
+    state: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The state or province of the contact's city.
+    """
+    zip_code: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The zip or postal code of the contact's address.
+    """
 
 @pulumi.input_type
 class RegisteredDomainTechContactArgs:

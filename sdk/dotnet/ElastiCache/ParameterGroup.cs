@@ -48,7 +48,7 @@ namespace Pulumi.Aws.ElastiCache
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import ElastiCache Parameter Groups using the `name`. For example:
+    /// Using `pulumi import`, import ElastiCache Parameter Groups using the `Name`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:elasticache/parameterGroup:ParameterGroup default redis-params

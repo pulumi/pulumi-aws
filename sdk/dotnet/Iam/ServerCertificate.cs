@@ -87,11 +87,14 @@ namespace Pulumi.Aws.Iam
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import IAM Server Certificates using the `name`. For example:
+    /// Using `pulumi import`, import IAM Server Certificates using the `Name`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:iam/serverCertificate:ServerCertificate certificate example.com-certificate-until-2018
     /// ```
+    /// 
+    /// [1]: https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html
+    /// [2]: https://docs.aws.amazon.com/IAM/latest/UserGuide/ManagingServerCerts.html
     /// </summary>
     [AwsResourceType("aws:iam/serverCertificate:ServerCertificate")]
     public partial class ServerCertificate : global::Pulumi.CustomResource

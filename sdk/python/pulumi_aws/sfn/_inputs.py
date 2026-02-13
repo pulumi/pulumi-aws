@@ -27,24 +27,19 @@ __all__ = [
     'StateMachineTracingConfigurationArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class ActivityEncryptionConfigurationArgsDict(TypedDict):
-        kms_data_key_reuse_period_seconds: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Maximum duration for which Activities will reuse data keys. When the period expires, Activities will call GenerateDataKey. This setting only applies to customer managed KMS key and does not apply to AWS owned KMS key.
-        """
-        kms_key_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The alias, alias ARN, key ID, or key ARN of the symmetric encryption KMS key that encrypts the data key. To specify a KMS key in a different AWS account, the customer must use the key ARN or alias ARN. For more information regarding kms_key_id, see [KeyId](https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html#API_DescribeKey_RequestParameters) in the KMS documentation.
-        """
-        type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The encryption option specified for the activity. Valid values: `AWS_KMS_KEY`, `CUSTOMER_MANAGED_KMS_KEY`
-        """
-elif False:
-    ActivityEncryptionConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class ActivityEncryptionConfigurationArgsDict(TypedDict):
+    kms_data_key_reuse_period_seconds: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Maximum duration for which Activities will reuse data keys. When the period expires, Activities will call GenerateDataKey. This setting only applies to customer managed KMS key and does not apply to AWS owned KMS key.
+    """
+    kms_key_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The alias, alias ARN, key ID, or key ARN of the symmetric encryption KMS key that encrypts the data key. To specify a KMS key in a different AWS account, the customer must use the key ARN or alias ARN. For more information regarding kms_key_id, see [KeyId](https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html#API_DescribeKey_RequestParameters) in the KMS documentation.
+    """
+    type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The encryption option specified for the activity. Valid values: `AWS_KMS_KEY`, `CUSTOMER_MANAGED_KMS_KEY`
+    """
 
 @pulumi.input_type
 class ActivityEncryptionConfigurationArgs:
@@ -101,18 +96,15 @@ class ActivityEncryptionConfigurationArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class AliasRoutingConfigurationArgsDict(TypedDict):
-        state_machine_version_arn: pulumi.Input[_builtins.str]
-        """
-        The Amazon Resource Name (ARN) of the state machine version.
-        """
-        weight: pulumi.Input[_builtins.int]
-        """
-        Percentage of traffic routed to the state machine version.
-        """
-elif False:
-    AliasRoutingConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class AliasRoutingConfigurationArgsDict(TypedDict):
+    state_machine_version_arn: pulumi.Input[_builtins.str]
+    """
+    The Amazon Resource Name (ARN) of the state machine version.
+    """
+    weight: pulumi.Input[_builtins.int]
+    """
+    Percentage of traffic routed to the state machine version.
+    """
 
 @pulumi.input_type
 class AliasRoutingConfigurationArgs:
@@ -151,22 +143,19 @@ class AliasRoutingConfigurationArgs:
         pulumi.set(self, "weight", value)
 
 
-if not MYPY:
-    class StateMachineEncryptionConfigurationArgsDict(TypedDict):
-        kms_data_key_reuse_period_seconds: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Maximum duration for which Step Functions will reuse data keys. When the period expires, Step Functions will call GenerateDataKey. This setting only applies to customer managed KMS key and does not apply when `type` is `AWS_OWNED_KEY`.
-        """
-        kms_key_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The alias, alias ARN, key ID, or key ARN of the symmetric encryption KMS key that encrypts the data key. To specify a KMS key in a different AWS account, the customer must use the key ARN or alias ARN. For more information regarding kms_key_id, see [KeyId](https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html#API_DescribeKey_RequestParameters) in the KMS documentation.
-        """
-        type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The encryption option specified for the state machine. Valid values: `AWS_OWNED_KEY`, `CUSTOMER_MANAGED_KMS_KEY`
-        """
-elif False:
-    StateMachineEncryptionConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class StateMachineEncryptionConfigurationArgsDict(TypedDict):
+    kms_data_key_reuse_period_seconds: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Maximum duration for which Step Functions will reuse data keys. When the period expires, Step Functions will call GenerateDataKey. This setting only applies to customer managed KMS key and does not apply when `type` is `AWS_OWNED_KEY`.
+    """
+    kms_key_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The alias, alias ARN, key ID, or key ARN of the symmetric encryption KMS key that encrypts the data key. To specify a KMS key in a different AWS account, the customer must use the key ARN or alias ARN. For more information regarding kms_key_id, see [KeyId](https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html#API_DescribeKey_RequestParameters) in the KMS documentation.
+    """
+    type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The encryption option specified for the state machine. Valid values: `AWS_OWNED_KEY`, `CUSTOMER_MANAGED_KMS_KEY`
+    """
 
 @pulumi.input_type
 class StateMachineEncryptionConfigurationArgs:
@@ -223,22 +212,19 @@ class StateMachineEncryptionConfigurationArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class StateMachineLoggingConfigurationArgsDict(TypedDict):
-        include_execution_data: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Determines whether execution data is included in your log. When set to `false`, data is excluded.
-        """
-        level: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Defines which category of execution history events are logged. Valid values: `ALL`, `ERROR`, `FATAL`, `OFF`
-        """
-        log_destination: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Amazon Resource Name (ARN) of a CloudWatch log group. Make sure the State Machine has the correct IAM policies for logging. The ARN must end with `:*`
-        """
-elif False:
-    StateMachineLoggingConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class StateMachineLoggingConfigurationArgsDict(TypedDict):
+    include_execution_data: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Determines whether execution data is included in your log. When set to `false`, data is excluded.
+    """
+    level: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Defines which category of execution history events are logged. Valid values: `ALL`, `ERROR`, `FATAL`, `OFF`
+    """
+    log_destination: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Amazon Resource Name (ARN) of a CloudWatch log group. Make sure the State Machine has the correct IAM policies for logging. The ARN must end with `:*`
+    """
 
 @pulumi.input_type
 class StateMachineLoggingConfigurationArgs:
@@ -295,14 +281,11 @@ class StateMachineLoggingConfigurationArgs:
         pulumi.set(self, "log_destination", value)
 
 
-if not MYPY:
-    class StateMachineTracingConfigurationArgsDict(TypedDict):
-        enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        When set to `true`, AWS X-Ray tracing is enabled. Make sure the State Machine has the correct IAM policies for logging. See the [AWS Step Functions Developer Guide](https://docs.aws.amazon.com/step-functions/latest/dg/xray-iam.html) for details.
-        """
-elif False:
-    StateMachineTracingConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class StateMachineTracingConfigurationArgsDict(TypedDict):
+    enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    When set to `true`, AWS X-Ray tracing is enabled. Make sure the State Machine has the correct IAM policies for logging. See the [AWS Step Functions Developer Guide](https://docs.aws.amazon.com/step-functions/latest/dg/xray-iam.html) for details.
+    """
 
 @pulumi.input_type
 class StateMachineTracingConfigurationArgs:

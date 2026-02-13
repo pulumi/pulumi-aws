@@ -155,13 +155,8 @@ __all__ = [
     'TopicRuleTimestreamTimestampArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class BillingGroupMetadataArgsDict(TypedDict):
-        creation_date: pulumi.Input[_builtins.str]
-elif False:
-    BillingGroupMetadataArgsDict: TypeAlias = Mapping[str, Any]
+class BillingGroupMetadataArgsDict(TypedDict):
+    creation_date: pulumi.Input[_builtins.str]
 
 @pulumi.input_type
 class BillingGroupMetadataArgs:
@@ -179,14 +174,11 @@ class BillingGroupMetadataArgs:
         pulumi.set(self, "creation_date", value)
 
 
-if not MYPY:
-    class BillingGroupPropertiesArgsDict(TypedDict):
-        description: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A description of the Billing Group.
-        """
-elif False:
-    BillingGroupPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class BillingGroupPropertiesArgsDict(TypedDict):
+    description: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A description of the Billing Group.
+    """
 
 @pulumi.input_type
 class BillingGroupPropertiesArgs:
@@ -211,22 +203,19 @@ class BillingGroupPropertiesArgs:
         pulumi.set(self, "description", value)
 
 
-if not MYPY:
-    class CaCertificateRegistrationConfigArgsDict(TypedDict):
-        role_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ARN of the role.
-        """
-        template_body: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The template body.
-        """
-        template_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the provisioning template.
-        """
-elif False:
-    CaCertificateRegistrationConfigArgsDict: TypeAlias = Mapping[str, Any]
+class CaCertificateRegistrationConfigArgsDict(TypedDict):
+    role_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ARN of the role.
+    """
+    template_body: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The template body.
+    """
+    template_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the provisioning template.
+    """
 
 @pulumi.input_type
 class CaCertificateRegistrationConfigArgs:
@@ -283,18 +272,15 @@ class CaCertificateRegistrationConfigArgs:
         pulumi.set(self, "template_name", value)
 
 
-if not MYPY:
-    class CaCertificateValidityArgsDict(TypedDict):
-        not_after: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The certificate is not valid after this date.
-        """
-        not_before: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The certificate is not valid before this date.
-        """
-elif False:
-    CaCertificateValidityArgsDict: TypeAlias = Mapping[str, Any]
+class CaCertificateValidityArgsDict(TypedDict):
+    not_after: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The certificate is not valid after this date.
+    """
+    not_before: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The certificate is not valid before this date.
+    """
 
 @pulumi.input_type
 class CaCertificateValidityArgs:
@@ -335,18 +321,15 @@ class CaCertificateValidityArgs:
         pulumi.set(self, "not_before", value)
 
 
-if not MYPY:
-    class DomainConfigurationAuthorizerConfigArgsDict(TypedDict):
-        allow_authorizer_override: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        A Boolean that specifies whether the domain configuration's authorization service can be overridden.
-        """
-        default_authorizer_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the authorization service for a domain configuration.
-        """
-elif False:
-    DomainConfigurationAuthorizerConfigArgsDict: TypeAlias = Mapping[str, Any]
+class DomainConfigurationAuthorizerConfigArgsDict(TypedDict):
+    allow_authorizer_override: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    A Boolean that specifies whether the domain configuration's authorization service can be overridden.
+    """
+    default_authorizer_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the authorization service for a domain configuration.
+    """
 
 @pulumi.input_type
 class DomainConfigurationAuthorizerConfigArgs:
@@ -387,14 +370,11 @@ class DomainConfigurationAuthorizerConfigArgs:
         pulumi.set(self, "default_authorizer_name", value)
 
 
-if not MYPY:
-    class DomainConfigurationTlsConfigArgsDict(TypedDict):
-        security_policy: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The security policy for a domain configuration.
-        """
-elif False:
-    DomainConfigurationTlsConfigArgsDict: TypeAlias = Mapping[str, Any]
+class DomainConfigurationTlsConfigArgsDict(TypedDict):
+    security_policy: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The security policy for a domain configuration.
+    """
 
 @pulumi.input_type
 class DomainConfigurationTlsConfigArgs:
@@ -419,22 +399,19 @@ class DomainConfigurationTlsConfigArgs:
         pulumi.set(self, "security_policy", value)
 
 
-if not MYPY:
-    class IndexingConfigurationThingGroupIndexingConfigurationArgsDict(TypedDict):
-        thing_group_indexing_mode: pulumi.Input[_builtins.str]
-        """
-        Thing group indexing mode. Valid values: `OFF`, `ON`.
-        """
-        custom_fields: NotRequired[pulumi.Input[Sequence[pulumi.Input['IndexingConfigurationThingGroupIndexingConfigurationCustomFieldArgsDict']]]]
-        """
-        A list of thing group fields to index. This list cannot contain any managed fields. See below.
-        """
-        managed_fields: NotRequired[pulumi.Input[Sequence[pulumi.Input['IndexingConfigurationThingGroupIndexingConfigurationManagedFieldArgsDict']]]]
-        """
-        Contains fields that are indexed and whose types are already known by the Fleet Indexing service. See below.
-        """
-elif False:
-    IndexingConfigurationThingGroupIndexingConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class IndexingConfigurationThingGroupIndexingConfigurationArgsDict(TypedDict):
+    thing_group_indexing_mode: pulumi.Input[_builtins.str]
+    """
+    Thing group indexing mode. Valid values: `OFF`, `ON`.
+    """
+    custom_fields: NotRequired[pulumi.Input[Sequence[pulumi.Input['IndexingConfigurationThingGroupIndexingConfigurationCustomFieldArgsDict']]]]
+    """
+    A list of thing group fields to index. This list cannot contain any managed fields. See below.
+    """
+    managed_fields: NotRequired[pulumi.Input[Sequence[pulumi.Input['IndexingConfigurationThingGroupIndexingConfigurationManagedFieldArgsDict']]]]
+    """
+    Contains fields that are indexed and whose types are already known by the Fleet Indexing service. See below.
+    """
 
 @pulumi.input_type
 class IndexingConfigurationThingGroupIndexingConfigurationArgs:
@@ -490,18 +467,15 @@ class IndexingConfigurationThingGroupIndexingConfigurationArgs:
         pulumi.set(self, "managed_fields", value)
 
 
-if not MYPY:
-    class IndexingConfigurationThingGroupIndexingConfigurationCustomFieldArgsDict(TypedDict):
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the field.
-        """
-        type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The data type of the field. Valid values: `Number`, `String`, `Boolean`.
-        """
-elif False:
-    IndexingConfigurationThingGroupIndexingConfigurationCustomFieldArgsDict: TypeAlias = Mapping[str, Any]
+class IndexingConfigurationThingGroupIndexingConfigurationCustomFieldArgsDict(TypedDict):
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the field.
+    """
+    type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The data type of the field. Valid values: `Number`, `String`, `Boolean`.
+    """
 
 @pulumi.input_type
 class IndexingConfigurationThingGroupIndexingConfigurationCustomFieldArgs:
@@ -542,18 +516,15 @@ class IndexingConfigurationThingGroupIndexingConfigurationCustomFieldArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class IndexingConfigurationThingGroupIndexingConfigurationManagedFieldArgsDict(TypedDict):
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the field.
-        """
-        type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The data type of the field. Valid values: `Number`, `String`, `Boolean`.
-        """
-elif False:
-    IndexingConfigurationThingGroupIndexingConfigurationManagedFieldArgsDict: TypeAlias = Mapping[str, Any]
+class IndexingConfigurationThingGroupIndexingConfigurationManagedFieldArgsDict(TypedDict):
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the field.
+    """
+    type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The data type of the field. Valid values: `Number`, `String`, `Boolean`.
+    """
 
 @pulumi.input_type
 class IndexingConfigurationThingGroupIndexingConfigurationManagedFieldArgs:
@@ -594,38 +565,35 @@ class IndexingConfigurationThingGroupIndexingConfigurationManagedFieldArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class IndexingConfigurationThingIndexingConfigurationArgsDict(TypedDict):
-        thing_indexing_mode: pulumi.Input[_builtins.str]
-        """
-        Thing indexing mode. Valid values: `REGISTRY`, `REGISTRY_AND_SHADOW`, `OFF`.
-        """
-        custom_fields: NotRequired[pulumi.Input[Sequence[pulumi.Input['IndexingConfigurationThingIndexingConfigurationCustomFieldArgsDict']]]]
-        """
-        Contains custom field names and their data type. See below.
-        """
-        device_defender_indexing_mode: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Device Defender indexing mode. Valid values: `VIOLATIONS`, `OFF`. Default: `OFF`.
-        """
-        filter: NotRequired[pulumi.Input['IndexingConfigurationThingIndexingConfigurationFilterArgsDict']]
-        """
-        Required if `named_shadow_indexing_mode` is `ON`. Enables to add named shadows filtered by `filter` to fleet indexing configuration.
-        """
-        managed_fields: NotRequired[pulumi.Input[Sequence[pulumi.Input['IndexingConfigurationThingIndexingConfigurationManagedFieldArgsDict']]]]
-        """
-        Contains fields that are indexed and whose types are already known by the Fleet Indexing service. See below.
-        """
-        named_shadow_indexing_mode: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        [Named shadow](https://docs.aws.amazon.com/iot/latest/developerguide/iot-device-shadows.html) indexing mode. Valid values: `ON`, `OFF`. Default: `OFF`.
-        """
-        thing_connectivity_indexing_mode: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Thing connectivity indexing mode. Valid values: `STATUS`, `OFF`. Default: `OFF`.
-        """
-elif False:
-    IndexingConfigurationThingIndexingConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class IndexingConfigurationThingIndexingConfigurationArgsDict(TypedDict):
+    thing_indexing_mode: pulumi.Input[_builtins.str]
+    """
+    Thing indexing mode. Valid values: `REGISTRY`, `REGISTRY_AND_SHADOW`, `OFF`.
+    """
+    custom_fields: NotRequired[pulumi.Input[Sequence[pulumi.Input['IndexingConfigurationThingIndexingConfigurationCustomFieldArgsDict']]]]
+    """
+    Contains custom field names and their data type. See below.
+    """
+    device_defender_indexing_mode: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Device Defender indexing mode. Valid values: `VIOLATIONS`, `OFF`. Default: `OFF`.
+    """
+    filter: NotRequired[pulumi.Input['IndexingConfigurationThingIndexingConfigurationFilterArgsDict']]
+    """
+    Required if `named_shadow_indexing_mode` is `ON`. Enables to add named shadows filtered by `filter` to fleet indexing configuration.
+    """
+    managed_fields: NotRequired[pulumi.Input[Sequence[pulumi.Input['IndexingConfigurationThingIndexingConfigurationManagedFieldArgsDict']]]]
+    """
+    Contains fields that are indexed and whose types are already known by the Fleet Indexing service. See below.
+    """
+    named_shadow_indexing_mode: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    [Named shadow](https://docs.aws.amazon.com/iot/latest/developerguide/iot-device-shadows.html) indexing mode. Valid values: `ON`, `OFF`. Default: `OFF`.
+    """
+    thing_connectivity_indexing_mode: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Thing connectivity indexing mode. Valid values: `STATUS`, `OFF`. Default: `OFF`.
+    """
 
 @pulumi.input_type
 class IndexingConfigurationThingIndexingConfigurationArgs:
@@ -745,18 +713,15 @@ class IndexingConfigurationThingIndexingConfigurationArgs:
         pulumi.set(self, "thing_connectivity_indexing_mode", value)
 
 
-if not MYPY:
-    class IndexingConfigurationThingIndexingConfigurationCustomFieldArgsDict(TypedDict):
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the field.
-        """
-        type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The data type of the field. Valid values: `Number`, `String`, `Boolean`.
-        """
-elif False:
-    IndexingConfigurationThingIndexingConfigurationCustomFieldArgsDict: TypeAlias = Mapping[str, Any]
+class IndexingConfigurationThingIndexingConfigurationCustomFieldArgsDict(TypedDict):
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the field.
+    """
+    type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The data type of the field. Valid values: `Number`, `String`, `Boolean`.
+    """
 
 @pulumi.input_type
 class IndexingConfigurationThingIndexingConfigurationCustomFieldArgs:
@@ -797,14 +762,11 @@ class IndexingConfigurationThingIndexingConfigurationCustomFieldArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class IndexingConfigurationThingIndexingConfigurationFilterArgsDict(TypedDict):
-        named_shadow_names: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        List of shadow names that you select to index.
-        """
-elif False:
-    IndexingConfigurationThingIndexingConfigurationFilterArgsDict: TypeAlias = Mapping[str, Any]
+class IndexingConfigurationThingIndexingConfigurationFilterArgsDict(TypedDict):
+    named_shadow_names: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    List of shadow names that you select to index.
+    """
 
 @pulumi.input_type
 class IndexingConfigurationThingIndexingConfigurationFilterArgs:
@@ -829,18 +791,15 @@ class IndexingConfigurationThingIndexingConfigurationFilterArgs:
         pulumi.set(self, "named_shadow_names", value)
 
 
-if not MYPY:
-    class IndexingConfigurationThingIndexingConfigurationManagedFieldArgsDict(TypedDict):
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the field.
-        """
-        type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The data type of the field. Valid values: `Number`, `String`, `Boolean`.
-        """
-elif False:
-    IndexingConfigurationThingIndexingConfigurationManagedFieldArgsDict: TypeAlias = Mapping[str, Any]
+class IndexingConfigurationThingIndexingConfigurationManagedFieldArgsDict(TypedDict):
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the field.
+    """
+    type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The data type of the field. Valid values: `Number`, `String`, `Boolean`.
+    """
 
 @pulumi.input_type
 class IndexingConfigurationThingIndexingConfigurationManagedFieldArgs:
@@ -881,18 +840,15 @@ class IndexingConfigurationThingIndexingConfigurationManagedFieldArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class ProvisioningTemplatePreProvisioningHookArgsDict(TypedDict):
-        target_arn: pulumi.Input[_builtins.str]
-        """
-        The ARN of the target function.
-        """
-        payload_version: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The version of the payload that was sent to the target function. The only valid (and the default) payload version is `"2020-04-01"`.
-        """
-elif False:
-    ProvisioningTemplatePreProvisioningHookArgsDict: TypeAlias = Mapping[str, Any]
+class ProvisioningTemplatePreProvisioningHookArgsDict(TypedDict):
+    target_arn: pulumi.Input[_builtins.str]
+    """
+    The ARN of the target function.
+    """
+    payload_version: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The version of the payload that was sent to the target function. The only valid (and the default) payload version is `"2020-04-01"`.
+    """
 
 @pulumi.input_type
 class ProvisioningTemplatePreProvisioningHookArgs:
@@ -932,16 +888,13 @@ class ProvisioningTemplatePreProvisioningHookArgs:
         pulumi.set(self, "payload_version", value)
 
 
-if not MYPY:
-    class ThingGroupMetadataArgsDict(TypedDict):
-        creation_date: NotRequired[pulumi.Input[_builtins.str]]
-        parent_group_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the parent Thing Group.
-        """
-        root_to_parent_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input['ThingGroupMetadataRootToParentGroupArgsDict']]]]
-elif False:
-    ThingGroupMetadataArgsDict: TypeAlias = Mapping[str, Any]
+class ThingGroupMetadataArgsDict(TypedDict):
+    creation_date: NotRequired[pulumi.Input[_builtins.str]]
+    parent_group_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the parent Thing Group.
+    """
+    root_to_parent_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input['ThingGroupMetadataRootToParentGroupArgsDict']]]]
 
 @pulumi.input_type
 class ThingGroupMetadataArgs:
@@ -990,12 +943,9 @@ class ThingGroupMetadataArgs:
         pulumi.set(self, "root_to_parent_groups", value)
 
 
-if not MYPY:
-    class ThingGroupMetadataRootToParentGroupArgsDict(TypedDict):
-        group_arn: NotRequired[pulumi.Input[_builtins.str]]
-        group_name: NotRequired[pulumi.Input[_builtins.str]]
-elif False:
-    ThingGroupMetadataRootToParentGroupArgsDict: TypeAlias = Mapping[str, Any]
+class ThingGroupMetadataRootToParentGroupArgsDict(TypedDict):
+    group_arn: NotRequired[pulumi.Input[_builtins.str]]
+    group_name: NotRequired[pulumi.Input[_builtins.str]]
 
 @pulumi.input_type
 class ThingGroupMetadataRootToParentGroupArgs:
@@ -1026,18 +976,15 @@ class ThingGroupMetadataRootToParentGroupArgs:
         pulumi.set(self, "group_name", value)
 
 
-if not MYPY:
-    class ThingGroupPropertiesArgsDict(TypedDict):
-        attribute_payload: NotRequired[pulumi.Input['ThingGroupPropertiesAttributePayloadArgsDict']]
-        """
-        The Thing Group attributes. Defined below.
-        """
-        description: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A description of the Thing Group.
-        """
-elif False:
-    ThingGroupPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class ThingGroupPropertiesArgsDict(TypedDict):
+    attribute_payload: NotRequired[pulumi.Input['ThingGroupPropertiesAttributePayloadArgsDict']]
+    """
+    The Thing Group attributes. Defined below.
+    """
+    description: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A description of the Thing Group.
+    """
 
 @pulumi.input_type
 class ThingGroupPropertiesArgs:
@@ -1078,14 +1025,11 @@ class ThingGroupPropertiesArgs:
         pulumi.set(self, "description", value)
 
 
-if not MYPY:
-    class ThingGroupPropertiesAttributePayloadArgsDict(TypedDict):
-        attributes: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
-        """
-        Key-value map.
-        """
-elif False:
-    ThingGroupPropertiesAttributePayloadArgsDict: TypeAlias = Mapping[str, Any]
+class ThingGroupPropertiesAttributePayloadArgsDict(TypedDict):
+    attributes: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    """
+    Key-value map.
+    """
 
 @pulumi.input_type
 class ThingGroupPropertiesAttributePayloadArgs:
@@ -1110,18 +1054,15 @@ class ThingGroupPropertiesAttributePayloadArgs:
         pulumi.set(self, "attributes", value)
 
 
-if not MYPY:
-    class ThingTypePropertiesArgsDict(TypedDict):
-        description: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The description of the thing type.
-        """
-        searchable_attributes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        A list of searchable thing attribute names.
-        """
-elif False:
-    ThingTypePropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class ThingTypePropertiesArgsDict(TypedDict):
+    description: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The description of the thing type.
+    """
+    searchable_attributes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    A list of searchable thing attribute names.
+    """
 
 @pulumi.input_type
 class ThingTypePropertiesArgs:
@@ -1162,26 +1103,23 @@ class ThingTypePropertiesArgs:
         pulumi.set(self, "searchable_attributes", value)
 
 
-if not MYPY:
-    class TopicRuleCloudwatchAlarmArgsDict(TypedDict):
-        alarm_name: pulumi.Input[_builtins.str]
-        """
-        The CloudWatch alarm name.
-        """
-        role_arn: pulumi.Input[_builtins.str]
-        """
-        The IAM role ARN that allows access to the CloudWatch alarm.
-        """
-        state_reason: pulumi.Input[_builtins.str]
-        """
-        The reason for the alarm change.
-        """
-        state_value: pulumi.Input[_builtins.str]
-        """
-        The value of the alarm state. Acceptable values are: OK, ALARM, INSUFFICIENT_DATA.
-        """
-elif False:
-    TopicRuleCloudwatchAlarmArgsDict: TypeAlias = Mapping[str, Any]
+class TopicRuleCloudwatchAlarmArgsDict(TypedDict):
+    alarm_name: pulumi.Input[_builtins.str]
+    """
+    The CloudWatch alarm name.
+    """
+    role_arn: pulumi.Input[_builtins.str]
+    """
+    The IAM role ARN that allows access to the CloudWatch alarm.
+    """
+    state_reason: pulumi.Input[_builtins.str]
+    """
+    The reason for the alarm change.
+    """
+    state_value: pulumi.Input[_builtins.str]
+    """
+    The value of the alarm state. Acceptable values are: OK, ALARM, INSUFFICIENT_DATA.
+    """
 
 @pulumi.input_type
 class TopicRuleCloudwatchAlarmArgs:
@@ -1250,22 +1188,19 @@ class TopicRuleCloudwatchAlarmArgs:
         pulumi.set(self, "state_value", value)
 
 
-if not MYPY:
-    class TopicRuleCloudwatchLogArgsDict(TypedDict):
-        log_group_name: pulumi.Input[_builtins.str]
-        """
-        The CloudWatch log group name.
-        """
-        role_arn: pulumi.Input[_builtins.str]
-        """
-        The IAM role ARN that allows access to the CloudWatch alarm.
-        """
-        batch_mode: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        The payload that contains a JSON array of records will be sent to CloudWatch via a batch call.
-        """
-elif False:
-    TopicRuleCloudwatchLogArgsDict: TypeAlias = Mapping[str, Any]
+class TopicRuleCloudwatchLogArgsDict(TypedDict):
+    log_group_name: pulumi.Input[_builtins.str]
+    """
+    The CloudWatch log group name.
+    """
+    role_arn: pulumi.Input[_builtins.str]
+    """
+    The IAM role ARN that allows access to the CloudWatch alarm.
+    """
+    batch_mode: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    The payload that contains a JSON array of records will be sent to CloudWatch via a batch call.
+    """
 
 @pulumi.input_type
 class TopicRuleCloudwatchLogArgs:
@@ -1320,34 +1255,31 @@ class TopicRuleCloudwatchLogArgs:
         pulumi.set(self, "batch_mode", value)
 
 
-if not MYPY:
-    class TopicRuleCloudwatchMetricArgsDict(TypedDict):
-        metric_name: pulumi.Input[_builtins.str]
-        """
-        The CloudWatch metric name.
-        """
-        metric_namespace: pulumi.Input[_builtins.str]
-        """
-        The CloudWatch metric namespace name.
-        """
-        metric_unit: pulumi.Input[_builtins.str]
-        """
-        The metric unit (supported units can be found here: http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/cloudwatch_concepts.html#Unit)
-        """
-        metric_value: pulumi.Input[_builtins.str]
-        """
-        The CloudWatch metric value.
-        """
-        role_arn: pulumi.Input[_builtins.str]
-        """
-        The IAM role ARN that allows access to the CloudWatch metric.
-        """
-        metric_timestamp: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        An optional Unix timestamp (http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/cloudwatch_concepts.html#about_timestamp).
-        """
-elif False:
-    TopicRuleCloudwatchMetricArgsDict: TypeAlias = Mapping[str, Any]
+class TopicRuleCloudwatchMetricArgsDict(TypedDict):
+    metric_name: pulumi.Input[_builtins.str]
+    """
+    The CloudWatch metric name.
+    """
+    metric_namespace: pulumi.Input[_builtins.str]
+    """
+    The CloudWatch metric namespace name.
+    """
+    metric_unit: pulumi.Input[_builtins.str]
+    """
+    The metric unit (supported units can be found here: http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/cloudwatch_concepts.html#Unit)
+    """
+    metric_value: pulumi.Input[_builtins.str]
+    """
+    The CloudWatch metric value.
+    """
+    role_arn: pulumi.Input[_builtins.str]
+    """
+    The IAM role ARN that allows access to the CloudWatch metric.
+    """
+    metric_timestamp: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    An optional Unix timestamp (http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/cloudwatch_concepts.html#about_timestamp).
+    """
 
 @pulumi.input_type
 class TopicRuleCloudwatchMetricArgs:
@@ -1447,26 +1379,23 @@ class TopicRuleCloudwatchMetricArgs:
         pulumi.set(self, "metric_timestamp", value)
 
 
-if not MYPY:
-    class TopicRuleDestinationVpcConfigurationArgsDict(TypedDict):
-        role_arn: pulumi.Input[_builtins.str]
-        """
-        The ARN of a role that has permission to create and attach to elastic network interfaces (ENIs).
-        """
-        subnet_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        The subnet IDs of the VPC destination.
-        """
-        vpc_id: pulumi.Input[_builtins.str]
-        """
-        The ID of the VPC.
-        """
-        security_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The security groups of the VPC destination.
-        """
-elif False:
-    TopicRuleDestinationVpcConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class TopicRuleDestinationVpcConfigurationArgsDict(TypedDict):
+    role_arn: pulumi.Input[_builtins.str]
+    """
+    The ARN of a role that has permission to create and attach to elastic network interfaces (ENIs).
+    """
+    subnet_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    The subnet IDs of the VPC destination.
+    """
+    vpc_id: pulumi.Input[_builtins.str]
+    """
+    The ID of the VPC.
+    """
+    security_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The security groups of the VPC destination.
+    """
 
 @pulumi.input_type
 class TopicRuleDestinationVpcConfigurationArgs:
@@ -1536,50 +1465,47 @@ class TopicRuleDestinationVpcConfigurationArgs:
         pulumi.set(self, "security_groups", value)
 
 
-if not MYPY:
-    class TopicRuleDynamodbArgsDict(TypedDict):
-        hash_key_field: pulumi.Input[_builtins.str]
-        """
-        The hash key name.
-        """
-        hash_key_value: pulumi.Input[_builtins.str]
-        """
-        The hash key value.
-        """
-        role_arn: pulumi.Input[_builtins.str]
-        """
-        The ARN of the IAM role that grants access to the DynamoDB table.
-        """
-        table_name: pulumi.Input[_builtins.str]
-        """
-        The name of the DynamoDB table.
-        """
-        hash_key_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The hash key type. Valid values are "STRING" or "NUMBER".
-        """
-        operation: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The operation. Valid values are "INSERT", "UPDATE", or "DELETE".
-        """
-        payload_field: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The action payload.
-        """
-        range_key_field: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The range key name.
-        """
-        range_key_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The range key type. Valid values are "STRING" or "NUMBER".
-        """
-        range_key_value: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The range key value.
-        """
-elif False:
-    TopicRuleDynamodbArgsDict: TypeAlias = Mapping[str, Any]
+class TopicRuleDynamodbArgsDict(TypedDict):
+    hash_key_field: pulumi.Input[_builtins.str]
+    """
+    The hash key name.
+    """
+    hash_key_value: pulumi.Input[_builtins.str]
+    """
+    The hash key value.
+    """
+    role_arn: pulumi.Input[_builtins.str]
+    """
+    The ARN of the IAM role that grants access to the DynamoDB table.
+    """
+    table_name: pulumi.Input[_builtins.str]
+    """
+    The name of the DynamoDB table.
+    """
+    hash_key_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The hash key type. Valid values are "STRING" or "NUMBER".
+    """
+    operation: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The operation. Valid values are "INSERT", "UPDATE", or "DELETE".
+    """
+    payload_field: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The action payload.
+    """
+    range_key_field: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The range key name.
+    """
+    range_key_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The range key type. Valid values are "STRING" or "NUMBER".
+    """
+    range_key_value: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The range key value.
+    """
 
 @pulumi.input_type
 class TopicRuleDynamodbArgs:
@@ -1744,18 +1670,15 @@ class TopicRuleDynamodbArgs:
         pulumi.set(self, "range_key_value", value)
 
 
-if not MYPY:
-    class TopicRuleDynamodbv2ArgsDict(TypedDict):
-        role_arn: pulumi.Input[_builtins.str]
-        """
-        The ARN of the IAM role that grants access to the DynamoDB table.
-        """
-        put_item: NotRequired[pulumi.Input['TopicRuleDynamodbv2PutItemArgsDict']]
-        """
-        Configuration block with DynamoDB Table to which the message will be written. Nested arguments below.
-        """
-elif False:
-    TopicRuleDynamodbv2ArgsDict: TypeAlias = Mapping[str, Any]
+class TopicRuleDynamodbv2ArgsDict(TypedDict):
+    role_arn: pulumi.Input[_builtins.str]
+    """
+    The ARN of the IAM role that grants access to the DynamoDB table.
+    """
+    put_item: NotRequired[pulumi.Input['TopicRuleDynamodbv2PutItemArgsDict']]
+    """
+    Configuration block with DynamoDB Table to which the message will be written. Nested arguments below.
+    """
 
 @pulumi.input_type
 class TopicRuleDynamodbv2Args:
@@ -1795,14 +1718,11 @@ class TopicRuleDynamodbv2Args:
         pulumi.set(self, "put_item", value)
 
 
-if not MYPY:
-    class TopicRuleDynamodbv2PutItemArgsDict(TypedDict):
-        table_name: pulumi.Input[_builtins.str]
-        """
-        The name of the DynamoDB table.
-        """
-elif False:
-    TopicRuleDynamodbv2PutItemArgsDict: TypeAlias = Mapping[str, Any]
+class TopicRuleDynamodbv2PutItemArgsDict(TypedDict):
+    table_name: pulumi.Input[_builtins.str]
+    """
+    The name of the DynamoDB table.
+    """
 
 @pulumi.input_type
 class TopicRuleDynamodbv2PutItemArgs:
@@ -1826,30 +1746,27 @@ class TopicRuleDynamodbv2PutItemArgs:
         pulumi.set(self, "table_name", value)
 
 
-if not MYPY:
-    class TopicRuleElasticsearchArgsDict(TypedDict):
-        endpoint: pulumi.Input[_builtins.str]
-        """
-        The endpoint of your Elasticsearch domain.
-        """
-        id: pulumi.Input[_builtins.str]
-        """
-        The unique identifier for the document you are storing.
-        """
-        index: pulumi.Input[_builtins.str]
-        """
-        The Elasticsearch index where you want to store your data.
-        """
-        role_arn: pulumi.Input[_builtins.str]
-        """
-        The IAM role ARN that has access to Elasticsearch.
-        """
-        type: pulumi.Input[_builtins.str]
-        """
-        The type of document you are storing.
-        """
-elif False:
-    TopicRuleElasticsearchArgsDict: TypeAlias = Mapping[str, Any]
+class TopicRuleElasticsearchArgsDict(TypedDict):
+    endpoint: pulumi.Input[_builtins.str]
+    """
+    The endpoint of your Elasticsearch domain.
+    """
+    id: pulumi.Input[_builtins.str]
+    """
+    The unique identifier for the document you are storing.
+    """
+    index: pulumi.Input[_builtins.str]
+    """
+    The Elasticsearch index where you want to store your data.
+    """
+    role_arn: pulumi.Input[_builtins.str]
+    """
+    The IAM role ARN that has access to Elasticsearch.
+    """
+    type: pulumi.Input[_builtins.str]
+    """
+    The type of document you are storing.
+    """
 
 @pulumi.input_type
 class TopicRuleElasticsearchArgs:
@@ -1933,29 +1850,26 @@ class TopicRuleElasticsearchArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class TopicRuleErrorActionArgsDict(TypedDict):
-        cloudwatch_alarm: NotRequired[pulumi.Input['TopicRuleErrorActionCloudwatchAlarmArgsDict']]
-        cloudwatch_logs: NotRequired[pulumi.Input['TopicRuleErrorActionCloudwatchLogsArgsDict']]
-        cloudwatch_metric: NotRequired[pulumi.Input['TopicRuleErrorActionCloudwatchMetricArgsDict']]
-        dynamodb: NotRequired[pulumi.Input['TopicRuleErrorActionDynamodbArgsDict']]
-        dynamodbv2: NotRequired[pulumi.Input['TopicRuleErrorActionDynamodbv2ArgsDict']]
-        elasticsearch: NotRequired[pulumi.Input['TopicRuleErrorActionElasticsearchArgsDict']]
-        firehose: NotRequired[pulumi.Input['TopicRuleErrorActionFirehoseArgsDict']]
-        http: NotRequired[pulumi.Input['TopicRuleErrorActionHttpArgsDict']]
-        iot_analytics: NotRequired[pulumi.Input['TopicRuleErrorActionIotAnalyticsArgsDict']]
-        iot_events: NotRequired[pulumi.Input['TopicRuleErrorActionIotEventsArgsDict']]
-        kafka: NotRequired[pulumi.Input['TopicRuleErrorActionKafkaArgsDict']]
-        kinesis: NotRequired[pulumi.Input['TopicRuleErrorActionKinesisArgsDict']]
-        lambda_: NotRequired[pulumi.Input['TopicRuleErrorActionLambdaArgsDict']]
-        republish: NotRequired[pulumi.Input['TopicRuleErrorActionRepublishArgsDict']]
-        s3: NotRequired[pulumi.Input['TopicRuleErrorActionS3ArgsDict']]
-        sns: NotRequired[pulumi.Input['TopicRuleErrorActionSnsArgsDict']]
-        sqs: NotRequired[pulumi.Input['TopicRuleErrorActionSqsArgsDict']]
-        step_functions: NotRequired[pulumi.Input['TopicRuleErrorActionStepFunctionsArgsDict']]
-        timestream: NotRequired[pulumi.Input['TopicRuleErrorActionTimestreamArgsDict']]
-elif False:
-    TopicRuleErrorActionArgsDict: TypeAlias = Mapping[str, Any]
+class TopicRuleErrorActionArgsDict(TypedDict):
+    cloudwatch_alarm: NotRequired[pulumi.Input['TopicRuleErrorActionCloudwatchAlarmArgsDict']]
+    cloudwatch_logs: NotRequired[pulumi.Input['TopicRuleErrorActionCloudwatchLogsArgsDict']]
+    cloudwatch_metric: NotRequired[pulumi.Input['TopicRuleErrorActionCloudwatchMetricArgsDict']]
+    dynamodb: NotRequired[pulumi.Input['TopicRuleErrorActionDynamodbArgsDict']]
+    dynamodbv2: NotRequired[pulumi.Input['TopicRuleErrorActionDynamodbv2ArgsDict']]
+    elasticsearch: NotRequired[pulumi.Input['TopicRuleErrorActionElasticsearchArgsDict']]
+    firehose: NotRequired[pulumi.Input['TopicRuleErrorActionFirehoseArgsDict']]
+    http: NotRequired[pulumi.Input['TopicRuleErrorActionHttpArgsDict']]
+    iot_analytics: NotRequired[pulumi.Input['TopicRuleErrorActionIotAnalyticsArgsDict']]
+    iot_events: NotRequired[pulumi.Input['TopicRuleErrorActionIotEventsArgsDict']]
+    kafka: NotRequired[pulumi.Input['TopicRuleErrorActionKafkaArgsDict']]
+    kinesis: NotRequired[pulumi.Input['TopicRuleErrorActionKinesisArgsDict']]
+    lambda_: NotRequired[pulumi.Input['TopicRuleErrorActionLambdaArgsDict']]
+    republish: NotRequired[pulumi.Input['TopicRuleErrorActionRepublishArgsDict']]
+    s3: NotRequired[pulumi.Input['TopicRuleErrorActionS3ArgsDict']]
+    sns: NotRequired[pulumi.Input['TopicRuleErrorActionSnsArgsDict']]
+    sqs: NotRequired[pulumi.Input['TopicRuleErrorActionSqsArgsDict']]
+    step_functions: NotRequired[pulumi.Input['TopicRuleErrorActionStepFunctionsArgsDict']]
+    timestream: NotRequired[pulumi.Input['TopicRuleErrorActionTimestreamArgsDict']]
 
 @pulumi.input_type
 class TopicRuleErrorActionArgs:
@@ -2190,26 +2104,23 @@ class TopicRuleErrorActionArgs:
         pulumi.set(self, "timestream", value)
 
 
-if not MYPY:
-    class TopicRuleErrorActionCloudwatchAlarmArgsDict(TypedDict):
-        alarm_name: pulumi.Input[_builtins.str]
-        """
-        The CloudWatch alarm name.
-        """
-        role_arn: pulumi.Input[_builtins.str]
-        """
-        The IAM role ARN that allows access to the CloudWatch alarm.
-        """
-        state_reason: pulumi.Input[_builtins.str]
-        """
-        The reason for the alarm change.
-        """
-        state_value: pulumi.Input[_builtins.str]
-        """
-        The value of the alarm state. Acceptable values are: OK, ALARM, INSUFFICIENT_DATA.
-        """
-elif False:
-    TopicRuleErrorActionCloudwatchAlarmArgsDict: TypeAlias = Mapping[str, Any]
+class TopicRuleErrorActionCloudwatchAlarmArgsDict(TypedDict):
+    alarm_name: pulumi.Input[_builtins.str]
+    """
+    The CloudWatch alarm name.
+    """
+    role_arn: pulumi.Input[_builtins.str]
+    """
+    The IAM role ARN that allows access to the CloudWatch alarm.
+    """
+    state_reason: pulumi.Input[_builtins.str]
+    """
+    The reason for the alarm change.
+    """
+    state_value: pulumi.Input[_builtins.str]
+    """
+    The value of the alarm state. Acceptable values are: OK, ALARM, INSUFFICIENT_DATA.
+    """
 
 @pulumi.input_type
 class TopicRuleErrorActionCloudwatchAlarmArgs:
@@ -2278,22 +2189,19 @@ class TopicRuleErrorActionCloudwatchAlarmArgs:
         pulumi.set(self, "state_value", value)
 
 
-if not MYPY:
-    class TopicRuleErrorActionCloudwatchLogsArgsDict(TypedDict):
-        log_group_name: pulumi.Input[_builtins.str]
-        """
-        The CloudWatch log group name.
-        """
-        role_arn: pulumi.Input[_builtins.str]
-        """
-        The IAM role ARN that allows access to the CloudWatch alarm.
-        """
-        batch_mode: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        The payload that contains a JSON array of records will be sent to CloudWatch via a batch call.
-        """
-elif False:
-    TopicRuleErrorActionCloudwatchLogsArgsDict: TypeAlias = Mapping[str, Any]
+class TopicRuleErrorActionCloudwatchLogsArgsDict(TypedDict):
+    log_group_name: pulumi.Input[_builtins.str]
+    """
+    The CloudWatch log group name.
+    """
+    role_arn: pulumi.Input[_builtins.str]
+    """
+    The IAM role ARN that allows access to the CloudWatch alarm.
+    """
+    batch_mode: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    The payload that contains a JSON array of records will be sent to CloudWatch via a batch call.
+    """
 
 @pulumi.input_type
 class TopicRuleErrorActionCloudwatchLogsArgs:
@@ -2348,34 +2256,31 @@ class TopicRuleErrorActionCloudwatchLogsArgs:
         pulumi.set(self, "batch_mode", value)
 
 
-if not MYPY:
-    class TopicRuleErrorActionCloudwatchMetricArgsDict(TypedDict):
-        metric_name: pulumi.Input[_builtins.str]
-        """
-        The CloudWatch metric name.
-        """
-        metric_namespace: pulumi.Input[_builtins.str]
-        """
-        The CloudWatch metric namespace name.
-        """
-        metric_unit: pulumi.Input[_builtins.str]
-        """
-        The metric unit (supported units can be found here: http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/cloudwatch_concepts.html#Unit)
-        """
-        metric_value: pulumi.Input[_builtins.str]
-        """
-        The CloudWatch metric value.
-        """
-        role_arn: pulumi.Input[_builtins.str]
-        """
-        The IAM role ARN that allows access to the CloudWatch metric.
-        """
-        metric_timestamp: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        An optional Unix timestamp (http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/cloudwatch_concepts.html#about_timestamp).
-        """
-elif False:
-    TopicRuleErrorActionCloudwatchMetricArgsDict: TypeAlias = Mapping[str, Any]
+class TopicRuleErrorActionCloudwatchMetricArgsDict(TypedDict):
+    metric_name: pulumi.Input[_builtins.str]
+    """
+    The CloudWatch metric name.
+    """
+    metric_namespace: pulumi.Input[_builtins.str]
+    """
+    The CloudWatch metric namespace name.
+    """
+    metric_unit: pulumi.Input[_builtins.str]
+    """
+    The metric unit (supported units can be found here: http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/cloudwatch_concepts.html#Unit)
+    """
+    metric_value: pulumi.Input[_builtins.str]
+    """
+    The CloudWatch metric value.
+    """
+    role_arn: pulumi.Input[_builtins.str]
+    """
+    The IAM role ARN that allows access to the CloudWatch metric.
+    """
+    metric_timestamp: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    An optional Unix timestamp (http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/cloudwatch_concepts.html#about_timestamp).
+    """
 
 @pulumi.input_type
 class TopicRuleErrorActionCloudwatchMetricArgs:
@@ -2475,50 +2380,47 @@ class TopicRuleErrorActionCloudwatchMetricArgs:
         pulumi.set(self, "metric_timestamp", value)
 
 
-if not MYPY:
-    class TopicRuleErrorActionDynamodbArgsDict(TypedDict):
-        hash_key_field: pulumi.Input[_builtins.str]
-        """
-        The hash key name.
-        """
-        hash_key_value: pulumi.Input[_builtins.str]
-        """
-        The hash key value.
-        """
-        role_arn: pulumi.Input[_builtins.str]
-        """
-        The ARN of the IAM role that grants access to the DynamoDB table.
-        """
-        table_name: pulumi.Input[_builtins.str]
-        """
-        The name of the DynamoDB table.
-        """
-        hash_key_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The hash key type. Valid values are "STRING" or "NUMBER".
-        """
-        operation: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The operation. Valid values are "INSERT", "UPDATE", or "DELETE".
-        """
-        payload_field: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The action payload.
-        """
-        range_key_field: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The range key name.
-        """
-        range_key_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The range key type. Valid values are "STRING" or "NUMBER".
-        """
-        range_key_value: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The range key value.
-        """
-elif False:
-    TopicRuleErrorActionDynamodbArgsDict: TypeAlias = Mapping[str, Any]
+class TopicRuleErrorActionDynamodbArgsDict(TypedDict):
+    hash_key_field: pulumi.Input[_builtins.str]
+    """
+    The hash key name.
+    """
+    hash_key_value: pulumi.Input[_builtins.str]
+    """
+    The hash key value.
+    """
+    role_arn: pulumi.Input[_builtins.str]
+    """
+    The ARN of the IAM role that grants access to the DynamoDB table.
+    """
+    table_name: pulumi.Input[_builtins.str]
+    """
+    The name of the DynamoDB table.
+    """
+    hash_key_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The hash key type. Valid values are "STRING" or "NUMBER".
+    """
+    operation: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The operation. Valid values are "INSERT", "UPDATE", or "DELETE".
+    """
+    payload_field: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The action payload.
+    """
+    range_key_field: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The range key name.
+    """
+    range_key_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The range key type. Valid values are "STRING" or "NUMBER".
+    """
+    range_key_value: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The range key value.
+    """
 
 @pulumi.input_type
 class TopicRuleErrorActionDynamodbArgs:
@@ -2683,18 +2585,15 @@ class TopicRuleErrorActionDynamodbArgs:
         pulumi.set(self, "range_key_value", value)
 
 
-if not MYPY:
-    class TopicRuleErrorActionDynamodbv2ArgsDict(TypedDict):
-        role_arn: pulumi.Input[_builtins.str]
-        """
-        The ARN of the IAM role that grants access to the DynamoDB table.
-        """
-        put_item: NotRequired[pulumi.Input['TopicRuleErrorActionDynamodbv2PutItemArgsDict']]
-        """
-        Configuration block with DynamoDB Table to which the message will be written. Nested arguments below.
-        """
-elif False:
-    TopicRuleErrorActionDynamodbv2ArgsDict: TypeAlias = Mapping[str, Any]
+class TopicRuleErrorActionDynamodbv2ArgsDict(TypedDict):
+    role_arn: pulumi.Input[_builtins.str]
+    """
+    The ARN of the IAM role that grants access to the DynamoDB table.
+    """
+    put_item: NotRequired[pulumi.Input['TopicRuleErrorActionDynamodbv2PutItemArgsDict']]
+    """
+    Configuration block with DynamoDB Table to which the message will be written. Nested arguments below.
+    """
 
 @pulumi.input_type
 class TopicRuleErrorActionDynamodbv2Args:
@@ -2734,14 +2633,11 @@ class TopicRuleErrorActionDynamodbv2Args:
         pulumi.set(self, "put_item", value)
 
 
-if not MYPY:
-    class TopicRuleErrorActionDynamodbv2PutItemArgsDict(TypedDict):
-        table_name: pulumi.Input[_builtins.str]
-        """
-        The name of the DynamoDB table.
-        """
-elif False:
-    TopicRuleErrorActionDynamodbv2PutItemArgsDict: TypeAlias = Mapping[str, Any]
+class TopicRuleErrorActionDynamodbv2PutItemArgsDict(TypedDict):
+    table_name: pulumi.Input[_builtins.str]
+    """
+    The name of the DynamoDB table.
+    """
 
 @pulumi.input_type
 class TopicRuleErrorActionDynamodbv2PutItemArgs:
@@ -2765,30 +2661,27 @@ class TopicRuleErrorActionDynamodbv2PutItemArgs:
         pulumi.set(self, "table_name", value)
 
 
-if not MYPY:
-    class TopicRuleErrorActionElasticsearchArgsDict(TypedDict):
-        endpoint: pulumi.Input[_builtins.str]
-        """
-        The endpoint of your Elasticsearch domain.
-        """
-        id: pulumi.Input[_builtins.str]
-        """
-        The unique identifier for the document you are storing.
-        """
-        index: pulumi.Input[_builtins.str]
-        """
-        The Elasticsearch index where you want to store your data.
-        """
-        role_arn: pulumi.Input[_builtins.str]
-        """
-        The IAM role ARN that has access to Elasticsearch.
-        """
-        type: pulumi.Input[_builtins.str]
-        """
-        The type of document you are storing.
-        """
-elif False:
-    TopicRuleErrorActionElasticsearchArgsDict: TypeAlias = Mapping[str, Any]
+class TopicRuleErrorActionElasticsearchArgsDict(TypedDict):
+    endpoint: pulumi.Input[_builtins.str]
+    """
+    The endpoint of your Elasticsearch domain.
+    """
+    id: pulumi.Input[_builtins.str]
+    """
+    The unique identifier for the document you are storing.
+    """
+    index: pulumi.Input[_builtins.str]
+    """
+    The Elasticsearch index where you want to store your data.
+    """
+    role_arn: pulumi.Input[_builtins.str]
+    """
+    The IAM role ARN that has access to Elasticsearch.
+    """
+    type: pulumi.Input[_builtins.str]
+    """
+    The type of document you are storing.
+    """
 
 @pulumi.input_type
 class TopicRuleErrorActionElasticsearchArgs:
@@ -2872,26 +2765,23 @@ class TopicRuleErrorActionElasticsearchArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class TopicRuleErrorActionFirehoseArgsDict(TypedDict):
-        delivery_stream_name: pulumi.Input[_builtins.str]
-        """
-        The delivery stream name.
-        """
-        role_arn: pulumi.Input[_builtins.str]
-        """
-        The IAM role ARN that grants access to the Amazon Kinesis Firehose stream.
-        """
-        batch_mode: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        The payload that contains a JSON array of records will be sent to Kinesis Firehose via a batch call.
-        """
-        separator: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A character separator that is used to separate records written to the Firehose stream. Valid values are: '\\n' (newline), '\\t' (tab), '\\r\\n' (Windows newline), ',' (comma).
-        """
-elif False:
-    TopicRuleErrorActionFirehoseArgsDict: TypeAlias = Mapping[str, Any]
+class TopicRuleErrorActionFirehoseArgsDict(TypedDict):
+    delivery_stream_name: pulumi.Input[_builtins.str]
+    """
+    The delivery stream name.
+    """
+    role_arn: pulumi.Input[_builtins.str]
+    """
+    The IAM role ARN that grants access to the Amazon Kinesis Firehose stream.
+    """
+    batch_mode: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    The payload that contains a JSON array of records will be sent to Kinesis Firehose via a batch call.
+    """
+    separator: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A character separator that is used to separate records written to the Firehose stream. Valid values are: '\\n' (newline), '\\t' (tab), '\\r\\n' (Windows newline), ',' (comma).
+    """
 
 @pulumi.input_type
 class TopicRuleErrorActionFirehoseArgs:
@@ -2962,22 +2852,19 @@ class TopicRuleErrorActionFirehoseArgs:
         pulumi.set(self, "separator", value)
 
 
-if not MYPY:
-    class TopicRuleErrorActionHttpArgsDict(TypedDict):
-        url: pulumi.Input[_builtins.str]
-        """
-        The HTTPS URL.
-        """
-        confirmation_url: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The HTTPS URL used to verify ownership of `url`.
-        """
-        http_headers: NotRequired[pulumi.Input[Sequence[pulumi.Input['TopicRuleErrorActionHttpHttpHeaderArgsDict']]]]
-        """
-        Custom HTTP header IoT Core should send. It is possible to define more than one custom header.
-        """
-elif False:
-    TopicRuleErrorActionHttpArgsDict: TypeAlias = Mapping[str, Any]
+class TopicRuleErrorActionHttpArgsDict(TypedDict):
+    url: pulumi.Input[_builtins.str]
+    """
+    The HTTPS URL.
+    """
+    confirmation_url: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The HTTPS URL used to verify ownership of `url`.
+    """
+    http_headers: NotRequired[pulumi.Input[Sequence[pulumi.Input['TopicRuleErrorActionHttpHttpHeaderArgsDict']]]]
+    """
+    Custom HTTP header IoT Core should send. It is possible to define more than one custom header.
+    """
 
 @pulumi.input_type
 class TopicRuleErrorActionHttpArgs:
@@ -3033,18 +2920,15 @@ class TopicRuleErrorActionHttpArgs:
         pulumi.set(self, "http_headers", value)
 
 
-if not MYPY:
-    class TopicRuleErrorActionHttpHttpHeaderArgsDict(TypedDict):
-        key: pulumi.Input[_builtins.str]
-        """
-        The name of the HTTP header.
-        """
-        value: pulumi.Input[_builtins.str]
-        """
-        The value of the HTTP header.
-        """
-elif False:
-    TopicRuleErrorActionHttpHttpHeaderArgsDict: TypeAlias = Mapping[str, Any]
+class TopicRuleErrorActionHttpHttpHeaderArgsDict(TypedDict):
+    key: pulumi.Input[_builtins.str]
+    """
+    The name of the HTTP header.
+    """
+    value: pulumi.Input[_builtins.str]
+    """
+    The value of the HTTP header.
+    """
 
 @pulumi.input_type
 class TopicRuleErrorActionHttpHttpHeaderArgs:
@@ -3083,22 +2967,19 @@ class TopicRuleErrorActionHttpHttpHeaderArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class TopicRuleErrorActionIotAnalyticsArgsDict(TypedDict):
-        channel_name: pulumi.Input[_builtins.str]
-        """
-        Name of AWS IOT Analytics channel.
-        """
-        role_arn: pulumi.Input[_builtins.str]
-        """
-        The ARN of the IAM role that grants access.
-        """
-        batch_mode: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        The payload that contains a JSON array of records will be sent to IoT Analytics via a batch call.
-        """
-elif False:
-    TopicRuleErrorActionIotAnalyticsArgsDict: TypeAlias = Mapping[str, Any]
+class TopicRuleErrorActionIotAnalyticsArgsDict(TypedDict):
+    channel_name: pulumi.Input[_builtins.str]
+    """
+    Name of AWS IOT Analytics channel.
+    """
+    role_arn: pulumi.Input[_builtins.str]
+    """
+    The ARN of the IAM role that grants access.
+    """
+    batch_mode: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    The payload that contains a JSON array of records will be sent to IoT Analytics via a batch call.
+    """
 
 @pulumi.input_type
 class TopicRuleErrorActionIotAnalyticsArgs:
@@ -3153,26 +3034,23 @@ class TopicRuleErrorActionIotAnalyticsArgs:
         pulumi.set(self, "batch_mode", value)
 
 
-if not MYPY:
-    class TopicRuleErrorActionIotEventsArgsDict(TypedDict):
-        input_name: pulumi.Input[_builtins.str]
-        """
-        The name of the AWS IoT Events input.
-        """
-        role_arn: pulumi.Input[_builtins.str]
-        """
-        The ARN of the IAM role that grants access.
-        """
-        batch_mode: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        The payload that contains a JSON array of records will be sent to IoT Events via a batch call.
-        """
-        message_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to ensure that only one input (message) with a given messageId is processed by an AWS IoT Events detector.
-        """
-elif False:
-    TopicRuleErrorActionIotEventsArgsDict: TypeAlias = Mapping[str, Any]
+class TopicRuleErrorActionIotEventsArgsDict(TypedDict):
+    input_name: pulumi.Input[_builtins.str]
+    """
+    The name of the AWS IoT Events input.
+    """
+    role_arn: pulumi.Input[_builtins.str]
+    """
+    The ARN of the IAM role that grants access.
+    """
+    batch_mode: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    The payload that contains a JSON array of records will be sent to IoT Events via a batch call.
+    """
+    message_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to ensure that only one input (message) with a given messageId is processed by an AWS IoT Events detector.
+    """
 
 @pulumi.input_type
 class TopicRuleErrorActionIotEventsArgs:
@@ -3243,34 +3121,31 @@ class TopicRuleErrorActionIotEventsArgs:
         pulumi.set(self, "message_id", value)
 
 
-if not MYPY:
-    class TopicRuleErrorActionKafkaArgsDict(TypedDict):
-        client_properties: pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]
-        """
-        Properties of the Apache Kafka producer client. For more info, see the [AWS documentation](https://docs.aws.amazon.com/iot/latest/developerguide/apache-kafka-rule-action.html).
-        """
-        destination_arn: pulumi.Input[_builtins.str]
-        """
-        The ARN of Kafka action's VPC `iot.TopicRuleDestination`.
-        """
-        topic: pulumi.Input[_builtins.str]
-        """
-        The Kafka topic for messages to be sent to the Kafka broker.
-        """
-        headers: NotRequired[pulumi.Input[Sequence[pulumi.Input['TopicRuleErrorActionKafkaHeaderArgsDict']]]]
-        """
-        The list of Kafka headers that you specify. Nested arguments below.
-        """
-        key: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Kafka message key.
-        """
-        partition: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Kafka message partition.
-        """
-elif False:
-    TopicRuleErrorActionKafkaArgsDict: TypeAlias = Mapping[str, Any]
+class TopicRuleErrorActionKafkaArgsDict(TypedDict):
+    client_properties: pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]
+    """
+    Properties of the Apache Kafka producer client. For more info, see the [AWS documentation](https://docs.aws.amazon.com/iot/latest/developerguide/apache-kafka-rule-action.html).
+    """
+    destination_arn: pulumi.Input[_builtins.str]
+    """
+    The ARN of Kafka action's VPC `iot.TopicRuleDestination`.
+    """
+    topic: pulumi.Input[_builtins.str]
+    """
+    The Kafka topic for messages to be sent to the Kafka broker.
+    """
+    headers: NotRequired[pulumi.Input[Sequence[pulumi.Input['TopicRuleErrorActionKafkaHeaderArgsDict']]]]
+    """
+    The list of Kafka headers that you specify. Nested arguments below.
+    """
+    key: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Kafka message key.
+    """
+    partition: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Kafka message partition.
+    """
 
 @pulumi.input_type
 class TopicRuleErrorActionKafkaArgs:
@@ -3372,18 +3247,15 @@ class TopicRuleErrorActionKafkaArgs:
         pulumi.set(self, "partition", value)
 
 
-if not MYPY:
-    class TopicRuleErrorActionKafkaHeaderArgsDict(TypedDict):
-        key: pulumi.Input[_builtins.str]
-        """
-        The key of the Kafka header.
-        """
-        value: pulumi.Input[_builtins.str]
-        """
-        The value of the Kafka header.
-        """
-elif False:
-    TopicRuleErrorActionKafkaHeaderArgsDict: TypeAlias = Mapping[str, Any]
+class TopicRuleErrorActionKafkaHeaderArgsDict(TypedDict):
+    key: pulumi.Input[_builtins.str]
+    """
+    The key of the Kafka header.
+    """
+    value: pulumi.Input[_builtins.str]
+    """
+    The value of the Kafka header.
+    """
 
 @pulumi.input_type
 class TopicRuleErrorActionKafkaHeaderArgs:
@@ -3422,22 +3294,19 @@ class TopicRuleErrorActionKafkaHeaderArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class TopicRuleErrorActionKinesisArgsDict(TypedDict):
-        role_arn: pulumi.Input[_builtins.str]
-        """
-        The ARN of the IAM role that grants access to the Amazon Kinesis stream.
-        """
-        stream_name: pulumi.Input[_builtins.str]
-        """
-        The name of the Amazon Kinesis stream.
-        """
-        partition_key: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The partition key.
-        """
-elif False:
-    TopicRuleErrorActionKinesisArgsDict: TypeAlias = Mapping[str, Any]
+class TopicRuleErrorActionKinesisArgsDict(TypedDict):
+    role_arn: pulumi.Input[_builtins.str]
+    """
+    The ARN of the IAM role that grants access to the Amazon Kinesis stream.
+    """
+    stream_name: pulumi.Input[_builtins.str]
+    """
+    The name of the Amazon Kinesis stream.
+    """
+    partition_key: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The partition key.
+    """
 
 @pulumi.input_type
 class TopicRuleErrorActionKinesisArgs:
@@ -3492,14 +3361,11 @@ class TopicRuleErrorActionKinesisArgs:
         pulumi.set(self, "partition_key", value)
 
 
-if not MYPY:
-    class TopicRuleErrorActionLambdaArgsDict(TypedDict):
-        function_arn: pulumi.Input[_builtins.str]
-        """
-        The ARN of the Lambda function.
-        """
-elif False:
-    TopicRuleErrorActionLambdaArgsDict: TypeAlias = Mapping[str, Any]
+class TopicRuleErrorActionLambdaArgsDict(TypedDict):
+    function_arn: pulumi.Input[_builtins.str]
+    """
+    The ARN of the Lambda function.
+    """
 
 @pulumi.input_type
 class TopicRuleErrorActionLambdaArgs:
@@ -3523,22 +3389,19 @@ class TopicRuleErrorActionLambdaArgs:
         pulumi.set(self, "function_arn", value)
 
 
-if not MYPY:
-    class TopicRuleErrorActionRepublishArgsDict(TypedDict):
-        role_arn: pulumi.Input[_builtins.str]
-        """
-        The ARN of the IAM role that grants access.
-        """
-        topic: pulumi.Input[_builtins.str]
-        """
-        The name of the MQTT topic the message should be republished to.
-        """
-        qos: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The Quality of Service (QoS) level to use when republishing messages. Valid values are 0 or 1. The default value is 0.
-        """
-elif False:
-    TopicRuleErrorActionRepublishArgsDict: TypeAlias = Mapping[str, Any]
+class TopicRuleErrorActionRepublishArgsDict(TypedDict):
+    role_arn: pulumi.Input[_builtins.str]
+    """
+    The ARN of the IAM role that grants access.
+    """
+    topic: pulumi.Input[_builtins.str]
+    """
+    The name of the MQTT topic the message should be republished to.
+    """
+    qos: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The Quality of Service (QoS) level to use when republishing messages. Valid values are 0 or 1. The default value is 0.
+    """
 
 @pulumi.input_type
 class TopicRuleErrorActionRepublishArgs:
@@ -3593,26 +3456,23 @@ class TopicRuleErrorActionRepublishArgs:
         pulumi.set(self, "qos", value)
 
 
-if not MYPY:
-    class TopicRuleErrorActionS3ArgsDict(TypedDict):
-        bucket_name: pulumi.Input[_builtins.str]
-        """
-        The Amazon S3 bucket name.
-        """
-        key: pulumi.Input[_builtins.str]
-        """
-        The object key.
-        """
-        role_arn: pulumi.Input[_builtins.str]
-        """
-        The ARN of the IAM role that grants access.
-        """
-        canned_acl: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Amazon S3 canned ACL that controls access to the object identified by the object key. [Valid values](https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html#canned-acl).
-        """
-elif False:
-    TopicRuleErrorActionS3ArgsDict: TypeAlias = Mapping[str, Any]
+class TopicRuleErrorActionS3ArgsDict(TypedDict):
+    bucket_name: pulumi.Input[_builtins.str]
+    """
+    The Amazon S3 bucket name.
+    """
+    key: pulumi.Input[_builtins.str]
+    """
+    The object key.
+    """
+    role_arn: pulumi.Input[_builtins.str]
+    """
+    The ARN of the IAM role that grants access.
+    """
+    canned_acl: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Amazon S3 canned ACL that controls access to the object identified by the object key. [Valid values](https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html#canned-acl).
+    """
 
 @pulumi.input_type
 class TopicRuleErrorActionS3Args:
@@ -3682,22 +3542,19 @@ class TopicRuleErrorActionS3Args:
         pulumi.set(self, "canned_acl", value)
 
 
-if not MYPY:
-    class TopicRuleErrorActionSnsArgsDict(TypedDict):
-        role_arn: pulumi.Input[_builtins.str]
-        """
-        The ARN of the IAM role that grants access.
-        """
-        target_arn: pulumi.Input[_builtins.str]
-        """
-        The ARN of the SNS topic.
-        """
-        message_format: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The message format of the message to publish. Accepted values are "JSON" and "RAW".
-        """
-elif False:
-    TopicRuleErrorActionSnsArgsDict: TypeAlias = Mapping[str, Any]
+class TopicRuleErrorActionSnsArgsDict(TypedDict):
+    role_arn: pulumi.Input[_builtins.str]
+    """
+    The ARN of the IAM role that grants access.
+    """
+    target_arn: pulumi.Input[_builtins.str]
+    """
+    The ARN of the SNS topic.
+    """
+    message_format: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The message format of the message to publish. Accepted values are "JSON" and "RAW".
+    """
 
 @pulumi.input_type
 class TopicRuleErrorActionSnsArgs:
@@ -3752,22 +3609,19 @@ class TopicRuleErrorActionSnsArgs:
         pulumi.set(self, "message_format", value)
 
 
-if not MYPY:
-    class TopicRuleErrorActionSqsArgsDict(TypedDict):
-        queue_url: pulumi.Input[_builtins.str]
-        """
-        The URL of the Amazon SQS queue.
-        """
-        role_arn: pulumi.Input[_builtins.str]
-        """
-        The ARN of the IAM role that grants access.
-        """
-        use_base64: pulumi.Input[_builtins.bool]
-        """
-        Specifies whether to use Base64 encoding.
-        """
-elif False:
-    TopicRuleErrorActionSqsArgsDict: TypeAlias = Mapping[str, Any]
+class TopicRuleErrorActionSqsArgsDict(TypedDict):
+    queue_url: pulumi.Input[_builtins.str]
+    """
+    The URL of the Amazon SQS queue.
+    """
+    role_arn: pulumi.Input[_builtins.str]
+    """
+    The ARN of the IAM role that grants access.
+    """
+    use_base64: pulumi.Input[_builtins.bool]
+    """
+    Specifies whether to use Base64 encoding.
+    """
 
 @pulumi.input_type
 class TopicRuleErrorActionSqsArgs:
@@ -3821,22 +3675,19 @@ class TopicRuleErrorActionSqsArgs:
         pulumi.set(self, "use_base64", value)
 
 
-if not MYPY:
-    class TopicRuleErrorActionStepFunctionsArgsDict(TypedDict):
-        role_arn: pulumi.Input[_builtins.str]
-        """
-        The ARN of the IAM role that grants access to start execution of the state machine.
-        """
-        state_machine_name: pulumi.Input[_builtins.str]
-        """
-        The name of the Step Functions state machine whose execution will be started.
-        """
-        execution_name_prefix: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The prefix used to generate, along with a UUID, the unique state machine execution name.
-        """
-elif False:
-    TopicRuleErrorActionStepFunctionsArgsDict: TypeAlias = Mapping[str, Any]
+class TopicRuleErrorActionStepFunctionsArgsDict(TypedDict):
+    role_arn: pulumi.Input[_builtins.str]
+    """
+    The ARN of the IAM role that grants access to start execution of the state machine.
+    """
+    state_machine_name: pulumi.Input[_builtins.str]
+    """
+    The name of the Step Functions state machine whose execution will be started.
+    """
+    execution_name_prefix: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The prefix used to generate, along with a UUID, the unique state machine execution name.
+    """
 
 @pulumi.input_type
 class TopicRuleErrorActionStepFunctionsArgs:
@@ -3891,30 +3742,27 @@ class TopicRuleErrorActionStepFunctionsArgs:
         pulumi.set(self, "execution_name_prefix", value)
 
 
-if not MYPY:
-    class TopicRuleErrorActionTimestreamArgsDict(TypedDict):
-        database_name: pulumi.Input[_builtins.str]
-        """
-        The name of an Amazon Timestream database.
-        """
-        dimensions: pulumi.Input[Sequence[pulumi.Input['TopicRuleErrorActionTimestreamDimensionArgsDict']]]
-        """
-        Configuration blocks with metadata attributes of the time series that are written in each measure record. Nested arguments below.
-        """
-        role_arn: pulumi.Input[_builtins.str]
-        """
-        The ARN of the role that grants permission to write to the Amazon Timestream database table.
-        """
-        table_name: pulumi.Input[_builtins.str]
-        """
-        The name of the database table into which to write the measure records.
-        """
-        timestamp: NotRequired[pulumi.Input['TopicRuleErrorActionTimestreamTimestampArgsDict']]
-        """
-        Configuration block specifying an application-defined value to replace the default value assigned to the Timestream record's timestamp in the time column. Nested arguments below.
-        """
-elif False:
-    TopicRuleErrorActionTimestreamArgsDict: TypeAlias = Mapping[str, Any]
+class TopicRuleErrorActionTimestreamArgsDict(TypedDict):
+    database_name: pulumi.Input[_builtins.str]
+    """
+    The name of an Amazon Timestream database.
+    """
+    dimensions: pulumi.Input[Sequence[pulumi.Input['TopicRuleErrorActionTimestreamDimensionArgsDict']]]
+    """
+    Configuration blocks with metadata attributes of the time series that are written in each measure record. Nested arguments below.
+    """
+    role_arn: pulumi.Input[_builtins.str]
+    """
+    The ARN of the role that grants permission to write to the Amazon Timestream database table.
+    """
+    table_name: pulumi.Input[_builtins.str]
+    """
+    The name of the database table into which to write the measure records.
+    """
+    timestamp: NotRequired[pulumi.Input['TopicRuleErrorActionTimestreamTimestampArgsDict']]
+    """
+    Configuration block specifying an application-defined value to replace the default value assigned to the Timestream record's timestamp in the time column. Nested arguments below.
+    """
 
 @pulumi.input_type
 class TopicRuleErrorActionTimestreamArgs:
@@ -3999,18 +3847,15 @@ class TopicRuleErrorActionTimestreamArgs:
         pulumi.set(self, "timestamp", value)
 
 
-if not MYPY:
-    class TopicRuleErrorActionTimestreamDimensionArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        """
-        The metadata dimension name. This is the name of the column in the Amazon Timestream database table record.
-        """
-        value: pulumi.Input[_builtins.str]
-        """
-        The value to write in this column of the database record.
-        """
-elif False:
-    TopicRuleErrorActionTimestreamDimensionArgsDict: TypeAlias = Mapping[str, Any]
+class TopicRuleErrorActionTimestreamDimensionArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    The metadata dimension name. This is the name of the column in the Amazon Timestream database table record.
+    """
+    value: pulumi.Input[_builtins.str]
+    """
+    The value to write in this column of the database record.
+    """
 
 @pulumi.input_type
 class TopicRuleErrorActionTimestreamDimensionArgs:
@@ -4049,18 +3894,15 @@ class TopicRuleErrorActionTimestreamDimensionArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class TopicRuleErrorActionTimestreamTimestampArgsDict(TypedDict):
-        unit: pulumi.Input[_builtins.str]
-        """
-        The precision of the timestamp value that results from the expression described in value. Valid values: `SECONDS`, `MILLISECONDS`, `MICROSECONDS`, `NANOSECONDS`.
-        """
-        value: pulumi.Input[_builtins.str]
-        """
-        An expression that returns a long epoch time value.
-        """
-elif False:
-    TopicRuleErrorActionTimestreamTimestampArgsDict: TypeAlias = Mapping[str, Any]
+class TopicRuleErrorActionTimestreamTimestampArgsDict(TypedDict):
+    unit: pulumi.Input[_builtins.str]
+    """
+    The precision of the timestamp value that results from the expression described in value. Valid values: `SECONDS`, `MILLISECONDS`, `MICROSECONDS`, `NANOSECONDS`.
+    """
+    value: pulumi.Input[_builtins.str]
+    """
+    An expression that returns a long epoch time value.
+    """
 
 @pulumi.input_type
 class TopicRuleErrorActionTimestreamTimestampArgs:
@@ -4099,26 +3941,23 @@ class TopicRuleErrorActionTimestreamTimestampArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class TopicRuleFirehoseArgsDict(TypedDict):
-        delivery_stream_name: pulumi.Input[_builtins.str]
-        """
-        The delivery stream name.
-        """
-        role_arn: pulumi.Input[_builtins.str]
-        """
-        The IAM role ARN that grants access to the Amazon Kinesis Firehose stream.
-        """
-        batch_mode: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        The payload that contains a JSON array of records will be sent to Kinesis Firehose via a batch call.
-        """
-        separator: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A character separator that is used to separate records written to the Firehose stream. Valid values are: '\\n' (newline), '\\t' (tab), '\\r\\n' (Windows newline), ',' (comma).
-        """
-elif False:
-    TopicRuleFirehoseArgsDict: TypeAlias = Mapping[str, Any]
+class TopicRuleFirehoseArgsDict(TypedDict):
+    delivery_stream_name: pulumi.Input[_builtins.str]
+    """
+    The delivery stream name.
+    """
+    role_arn: pulumi.Input[_builtins.str]
+    """
+    The IAM role ARN that grants access to the Amazon Kinesis Firehose stream.
+    """
+    batch_mode: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    The payload that contains a JSON array of records will be sent to Kinesis Firehose via a batch call.
+    """
+    separator: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A character separator that is used to separate records written to the Firehose stream. Valid values are: '\\n' (newline), '\\t' (tab), '\\r\\n' (Windows newline), ',' (comma).
+    """
 
 @pulumi.input_type
 class TopicRuleFirehoseArgs:
@@ -4189,22 +4028,19 @@ class TopicRuleFirehoseArgs:
         pulumi.set(self, "separator", value)
 
 
-if not MYPY:
-    class TopicRuleHttpArgsDict(TypedDict):
-        url: pulumi.Input[_builtins.str]
-        """
-        The HTTPS URL.
-        """
-        confirmation_url: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The HTTPS URL used to verify ownership of `url`.
-        """
-        http_headers: NotRequired[pulumi.Input[Sequence[pulumi.Input['TopicRuleHttpHttpHeaderArgsDict']]]]
-        """
-        Custom HTTP header IoT Core should send. It is possible to define more than one custom header.
-        """
-elif False:
-    TopicRuleHttpArgsDict: TypeAlias = Mapping[str, Any]
+class TopicRuleHttpArgsDict(TypedDict):
+    url: pulumi.Input[_builtins.str]
+    """
+    The HTTPS URL.
+    """
+    confirmation_url: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The HTTPS URL used to verify ownership of `url`.
+    """
+    http_headers: NotRequired[pulumi.Input[Sequence[pulumi.Input['TopicRuleHttpHttpHeaderArgsDict']]]]
+    """
+    Custom HTTP header IoT Core should send. It is possible to define more than one custom header.
+    """
 
 @pulumi.input_type
 class TopicRuleHttpArgs:
@@ -4260,18 +4096,15 @@ class TopicRuleHttpArgs:
         pulumi.set(self, "http_headers", value)
 
 
-if not MYPY:
-    class TopicRuleHttpHttpHeaderArgsDict(TypedDict):
-        key: pulumi.Input[_builtins.str]
-        """
-        The name of the HTTP header.
-        """
-        value: pulumi.Input[_builtins.str]
-        """
-        The value of the HTTP header.
-        """
-elif False:
-    TopicRuleHttpHttpHeaderArgsDict: TypeAlias = Mapping[str, Any]
+class TopicRuleHttpHttpHeaderArgsDict(TypedDict):
+    key: pulumi.Input[_builtins.str]
+    """
+    The name of the HTTP header.
+    """
+    value: pulumi.Input[_builtins.str]
+    """
+    The value of the HTTP header.
+    """
 
 @pulumi.input_type
 class TopicRuleHttpHttpHeaderArgs:
@@ -4310,22 +4143,19 @@ class TopicRuleHttpHttpHeaderArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class TopicRuleIotAnalyticArgsDict(TypedDict):
-        channel_name: pulumi.Input[_builtins.str]
-        """
-        Name of AWS IOT Analytics channel.
-        """
-        role_arn: pulumi.Input[_builtins.str]
-        """
-        The ARN of the IAM role that grants access.
-        """
-        batch_mode: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        The payload that contains a JSON array of records will be sent to IoT Analytics via a batch call.
-        """
-elif False:
-    TopicRuleIotAnalyticArgsDict: TypeAlias = Mapping[str, Any]
+class TopicRuleIotAnalyticArgsDict(TypedDict):
+    channel_name: pulumi.Input[_builtins.str]
+    """
+    Name of AWS IOT Analytics channel.
+    """
+    role_arn: pulumi.Input[_builtins.str]
+    """
+    The ARN of the IAM role that grants access.
+    """
+    batch_mode: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    The payload that contains a JSON array of records will be sent to IoT Analytics via a batch call.
+    """
 
 @pulumi.input_type
 class TopicRuleIotAnalyticArgs:
@@ -4380,26 +4210,23 @@ class TopicRuleIotAnalyticArgs:
         pulumi.set(self, "batch_mode", value)
 
 
-if not MYPY:
-    class TopicRuleIotEventArgsDict(TypedDict):
-        input_name: pulumi.Input[_builtins.str]
-        """
-        The name of the AWS IoT Events input.
-        """
-        role_arn: pulumi.Input[_builtins.str]
-        """
-        The ARN of the IAM role that grants access.
-        """
-        batch_mode: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        The payload that contains a JSON array of records will be sent to IoT Events via a batch call.
-        """
-        message_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Use this to ensure that only one input (message) with a given messageId is processed by an AWS IoT Events detector.
-        """
-elif False:
-    TopicRuleIotEventArgsDict: TypeAlias = Mapping[str, Any]
+class TopicRuleIotEventArgsDict(TypedDict):
+    input_name: pulumi.Input[_builtins.str]
+    """
+    The name of the AWS IoT Events input.
+    """
+    role_arn: pulumi.Input[_builtins.str]
+    """
+    The ARN of the IAM role that grants access.
+    """
+    batch_mode: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    The payload that contains a JSON array of records will be sent to IoT Events via a batch call.
+    """
+    message_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Use this to ensure that only one input (message) with a given messageId is processed by an AWS IoT Events detector.
+    """
 
 @pulumi.input_type
 class TopicRuleIotEventArgs:
@@ -4470,34 +4297,31 @@ class TopicRuleIotEventArgs:
         pulumi.set(self, "message_id", value)
 
 
-if not MYPY:
-    class TopicRuleKafkaArgsDict(TypedDict):
-        client_properties: pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]
-        """
-        Properties of the Apache Kafka producer client. For more info, see the [AWS documentation](https://docs.aws.amazon.com/iot/latest/developerguide/apache-kafka-rule-action.html).
-        """
-        destination_arn: pulumi.Input[_builtins.str]
-        """
-        The ARN of Kafka action's VPC `iot.TopicRuleDestination`.
-        """
-        topic: pulumi.Input[_builtins.str]
-        """
-        The Kafka topic for messages to be sent to the Kafka broker.
-        """
-        headers: NotRequired[pulumi.Input[Sequence[pulumi.Input['TopicRuleKafkaHeaderArgsDict']]]]
-        """
-        The list of Kafka headers that you specify. Nested arguments below.
-        """
-        key: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Kafka message key.
-        """
-        partition: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Kafka message partition.
-        """
-elif False:
-    TopicRuleKafkaArgsDict: TypeAlias = Mapping[str, Any]
+class TopicRuleKafkaArgsDict(TypedDict):
+    client_properties: pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]
+    """
+    Properties of the Apache Kafka producer client. For more info, see the [AWS documentation](https://docs.aws.amazon.com/iot/latest/developerguide/apache-kafka-rule-action.html).
+    """
+    destination_arn: pulumi.Input[_builtins.str]
+    """
+    The ARN of Kafka action's VPC `iot.TopicRuleDestination`.
+    """
+    topic: pulumi.Input[_builtins.str]
+    """
+    The Kafka topic for messages to be sent to the Kafka broker.
+    """
+    headers: NotRequired[pulumi.Input[Sequence[pulumi.Input['TopicRuleKafkaHeaderArgsDict']]]]
+    """
+    The list of Kafka headers that you specify. Nested arguments below.
+    """
+    key: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Kafka message key.
+    """
+    partition: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Kafka message partition.
+    """
 
 @pulumi.input_type
 class TopicRuleKafkaArgs:
@@ -4599,18 +4423,15 @@ class TopicRuleKafkaArgs:
         pulumi.set(self, "partition", value)
 
 
-if not MYPY:
-    class TopicRuleKafkaHeaderArgsDict(TypedDict):
-        key: pulumi.Input[_builtins.str]
-        """
-        The key of the Kafka header.
-        """
-        value: pulumi.Input[_builtins.str]
-        """
-        The value of the Kafka header.
-        """
-elif False:
-    TopicRuleKafkaHeaderArgsDict: TypeAlias = Mapping[str, Any]
+class TopicRuleKafkaHeaderArgsDict(TypedDict):
+    key: pulumi.Input[_builtins.str]
+    """
+    The key of the Kafka header.
+    """
+    value: pulumi.Input[_builtins.str]
+    """
+    The value of the Kafka header.
+    """
 
 @pulumi.input_type
 class TopicRuleKafkaHeaderArgs:
@@ -4649,22 +4470,19 @@ class TopicRuleKafkaHeaderArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class TopicRuleKinesisArgsDict(TypedDict):
-        role_arn: pulumi.Input[_builtins.str]
-        """
-        The ARN of the IAM role that grants access to the Amazon Kinesis stream.
-        """
-        stream_name: pulumi.Input[_builtins.str]
-        """
-        The name of the Amazon Kinesis stream.
-        """
-        partition_key: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The partition key.
-        """
-elif False:
-    TopicRuleKinesisArgsDict: TypeAlias = Mapping[str, Any]
+class TopicRuleKinesisArgsDict(TypedDict):
+    role_arn: pulumi.Input[_builtins.str]
+    """
+    The ARN of the IAM role that grants access to the Amazon Kinesis stream.
+    """
+    stream_name: pulumi.Input[_builtins.str]
+    """
+    The name of the Amazon Kinesis stream.
+    """
+    partition_key: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The partition key.
+    """
 
 @pulumi.input_type
 class TopicRuleKinesisArgs:
@@ -4719,14 +4537,11 @@ class TopicRuleKinesisArgs:
         pulumi.set(self, "partition_key", value)
 
 
-if not MYPY:
-    class TopicRuleLambdaArgsDict(TypedDict):
-        function_arn: pulumi.Input[_builtins.str]
-        """
-        The ARN of the Lambda function.
-        """
-elif False:
-    TopicRuleLambdaArgsDict: TypeAlias = Mapping[str, Any]
+class TopicRuleLambdaArgsDict(TypedDict):
+    function_arn: pulumi.Input[_builtins.str]
+    """
+    The ARN of the Lambda function.
+    """
 
 @pulumi.input_type
 class TopicRuleLambdaArgs:
@@ -4750,22 +4565,19 @@ class TopicRuleLambdaArgs:
         pulumi.set(self, "function_arn", value)
 
 
-if not MYPY:
-    class TopicRuleRepublishArgsDict(TypedDict):
-        role_arn: pulumi.Input[_builtins.str]
-        """
-        The ARN of the IAM role that grants access.
-        """
-        topic: pulumi.Input[_builtins.str]
-        """
-        The name of the MQTT topic the message should be republished to.
-        """
-        qos: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The Quality of Service (QoS) level to use when republishing messages. Valid values are 0 or 1. The default value is 0.
-        """
-elif False:
-    TopicRuleRepublishArgsDict: TypeAlias = Mapping[str, Any]
+class TopicRuleRepublishArgsDict(TypedDict):
+    role_arn: pulumi.Input[_builtins.str]
+    """
+    The ARN of the IAM role that grants access.
+    """
+    topic: pulumi.Input[_builtins.str]
+    """
+    The name of the MQTT topic the message should be republished to.
+    """
+    qos: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The Quality of Service (QoS) level to use when republishing messages. Valid values are 0 or 1. The default value is 0.
+    """
 
 @pulumi.input_type
 class TopicRuleRepublishArgs:
@@ -4820,26 +4632,23 @@ class TopicRuleRepublishArgs:
         pulumi.set(self, "qos", value)
 
 
-if not MYPY:
-    class TopicRuleS3ArgsDict(TypedDict):
-        bucket_name: pulumi.Input[_builtins.str]
-        """
-        The Amazon S3 bucket name.
-        """
-        key: pulumi.Input[_builtins.str]
-        """
-        The object key.
-        """
-        role_arn: pulumi.Input[_builtins.str]
-        """
-        The ARN of the IAM role that grants access.
-        """
-        canned_acl: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Amazon S3 canned ACL that controls access to the object identified by the object key. [Valid values](https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html#canned-acl).
-        """
-elif False:
-    TopicRuleS3ArgsDict: TypeAlias = Mapping[str, Any]
+class TopicRuleS3ArgsDict(TypedDict):
+    bucket_name: pulumi.Input[_builtins.str]
+    """
+    The Amazon S3 bucket name.
+    """
+    key: pulumi.Input[_builtins.str]
+    """
+    The object key.
+    """
+    role_arn: pulumi.Input[_builtins.str]
+    """
+    The ARN of the IAM role that grants access.
+    """
+    canned_acl: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Amazon S3 canned ACL that controls access to the object identified by the object key. [Valid values](https://docs.aws.amazon.com/AmazonS3/latest/userguide/acl-overview.html#canned-acl).
+    """
 
 @pulumi.input_type
 class TopicRuleS3Args:
@@ -4909,22 +4718,19 @@ class TopicRuleS3Args:
         pulumi.set(self, "canned_acl", value)
 
 
-if not MYPY:
-    class TopicRuleSnsArgsDict(TypedDict):
-        role_arn: pulumi.Input[_builtins.str]
-        """
-        The ARN of the IAM role that grants access.
-        """
-        target_arn: pulumi.Input[_builtins.str]
-        """
-        The ARN of the SNS topic.
-        """
-        message_format: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The message format of the message to publish. Accepted values are "JSON" and "RAW".
-        """
-elif False:
-    TopicRuleSnsArgsDict: TypeAlias = Mapping[str, Any]
+class TopicRuleSnsArgsDict(TypedDict):
+    role_arn: pulumi.Input[_builtins.str]
+    """
+    The ARN of the IAM role that grants access.
+    """
+    target_arn: pulumi.Input[_builtins.str]
+    """
+    The ARN of the SNS topic.
+    """
+    message_format: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The message format of the message to publish. Accepted values are "JSON" and "RAW".
+    """
 
 @pulumi.input_type
 class TopicRuleSnsArgs:
@@ -4979,22 +4785,19 @@ class TopicRuleSnsArgs:
         pulumi.set(self, "message_format", value)
 
 
-if not MYPY:
-    class TopicRuleSqsArgsDict(TypedDict):
-        queue_url: pulumi.Input[_builtins.str]
-        """
-        The URL of the Amazon SQS queue.
-        """
-        role_arn: pulumi.Input[_builtins.str]
-        """
-        The ARN of the IAM role that grants access.
-        """
-        use_base64: pulumi.Input[_builtins.bool]
-        """
-        Specifies whether to use Base64 encoding.
-        """
-elif False:
-    TopicRuleSqsArgsDict: TypeAlias = Mapping[str, Any]
+class TopicRuleSqsArgsDict(TypedDict):
+    queue_url: pulumi.Input[_builtins.str]
+    """
+    The URL of the Amazon SQS queue.
+    """
+    role_arn: pulumi.Input[_builtins.str]
+    """
+    The ARN of the IAM role that grants access.
+    """
+    use_base64: pulumi.Input[_builtins.bool]
+    """
+    Specifies whether to use Base64 encoding.
+    """
 
 @pulumi.input_type
 class TopicRuleSqsArgs:
@@ -5048,22 +4851,19 @@ class TopicRuleSqsArgs:
         pulumi.set(self, "use_base64", value)
 
 
-if not MYPY:
-    class TopicRuleStepFunctionArgsDict(TypedDict):
-        role_arn: pulumi.Input[_builtins.str]
-        """
-        The ARN of the IAM role that grants access to start execution of the state machine.
-        """
-        state_machine_name: pulumi.Input[_builtins.str]
-        """
-        The name of the Step Functions state machine whose execution will be started.
-        """
-        execution_name_prefix: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The prefix used to generate, along with a UUID, the unique state machine execution name.
-        """
-elif False:
-    TopicRuleStepFunctionArgsDict: TypeAlias = Mapping[str, Any]
+class TopicRuleStepFunctionArgsDict(TypedDict):
+    role_arn: pulumi.Input[_builtins.str]
+    """
+    The ARN of the IAM role that grants access to start execution of the state machine.
+    """
+    state_machine_name: pulumi.Input[_builtins.str]
+    """
+    The name of the Step Functions state machine whose execution will be started.
+    """
+    execution_name_prefix: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The prefix used to generate, along with a UUID, the unique state machine execution name.
+    """
 
 @pulumi.input_type
 class TopicRuleStepFunctionArgs:
@@ -5118,30 +4918,27 @@ class TopicRuleStepFunctionArgs:
         pulumi.set(self, "execution_name_prefix", value)
 
 
-if not MYPY:
-    class TopicRuleTimestreamArgsDict(TypedDict):
-        database_name: pulumi.Input[_builtins.str]
-        """
-        The name of an Amazon Timestream database.
-        """
-        dimensions: pulumi.Input[Sequence[pulumi.Input['TopicRuleTimestreamDimensionArgsDict']]]
-        """
-        Configuration blocks with metadata attributes of the time series that are written in each measure record. Nested arguments below.
-        """
-        role_arn: pulumi.Input[_builtins.str]
-        """
-        The ARN of the role that grants permission to write to the Amazon Timestream database table.
-        """
-        table_name: pulumi.Input[_builtins.str]
-        """
-        The name of the database table into which to write the measure records.
-        """
-        timestamp: NotRequired[pulumi.Input['TopicRuleTimestreamTimestampArgsDict']]
-        """
-        Configuration block specifying an application-defined value to replace the default value assigned to the Timestream record's timestamp in the time column. Nested arguments below.
-        """
-elif False:
-    TopicRuleTimestreamArgsDict: TypeAlias = Mapping[str, Any]
+class TopicRuleTimestreamArgsDict(TypedDict):
+    database_name: pulumi.Input[_builtins.str]
+    """
+    The name of an Amazon Timestream database.
+    """
+    dimensions: pulumi.Input[Sequence[pulumi.Input['TopicRuleTimestreamDimensionArgsDict']]]
+    """
+    Configuration blocks with metadata attributes of the time series that are written in each measure record. Nested arguments below.
+    """
+    role_arn: pulumi.Input[_builtins.str]
+    """
+    The ARN of the role that grants permission to write to the Amazon Timestream database table.
+    """
+    table_name: pulumi.Input[_builtins.str]
+    """
+    The name of the database table into which to write the measure records.
+    """
+    timestamp: NotRequired[pulumi.Input['TopicRuleTimestreamTimestampArgsDict']]
+    """
+    Configuration block specifying an application-defined value to replace the default value assigned to the Timestream record's timestamp in the time column. Nested arguments below.
+    """
 
 @pulumi.input_type
 class TopicRuleTimestreamArgs:
@@ -5226,18 +5023,15 @@ class TopicRuleTimestreamArgs:
         pulumi.set(self, "timestamp", value)
 
 
-if not MYPY:
-    class TopicRuleTimestreamDimensionArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        """
-        The metadata dimension name. This is the name of the column in the Amazon Timestream database table record.
-        """
-        value: pulumi.Input[_builtins.str]
-        """
-        The value to write in this column of the database record.
-        """
-elif False:
-    TopicRuleTimestreamDimensionArgsDict: TypeAlias = Mapping[str, Any]
+class TopicRuleTimestreamDimensionArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    The metadata dimension name. This is the name of the column in the Amazon Timestream database table record.
+    """
+    value: pulumi.Input[_builtins.str]
+    """
+    The value to write in this column of the database record.
+    """
 
 @pulumi.input_type
 class TopicRuleTimestreamDimensionArgs:
@@ -5276,18 +5070,15 @@ class TopicRuleTimestreamDimensionArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class TopicRuleTimestreamTimestampArgsDict(TypedDict):
-        unit: pulumi.Input[_builtins.str]
-        """
-        The precision of the timestamp value that results from the expression described in value. Valid values: `SECONDS`, `MILLISECONDS`, `MICROSECONDS`, `NANOSECONDS`.
-        """
-        value: pulumi.Input[_builtins.str]
-        """
-        An expression that returns a long epoch time value.
-        """
-elif False:
-    TopicRuleTimestreamTimestampArgsDict: TypeAlias = Mapping[str, Any]
+class TopicRuleTimestreamTimestampArgsDict(TypedDict):
+    unit: pulumi.Input[_builtins.str]
+    """
+    The precision of the timestamp value that results from the expression described in value. Valid values: `SECONDS`, `MILLISECONDS`, `MICROSECONDS`, `NANOSECONDS`.
+    """
+    value: pulumi.Input[_builtins.str]
+    """
+    An expression that returns a long epoch time value.
+    """
 
 @pulumi.input_type
 class TopicRuleTimestreamTimestampArgs:

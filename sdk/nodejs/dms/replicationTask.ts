@@ -33,7 +33,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Using `pulumi import`, import replication tasks using the `replication_task_id`. For example:
+ * Using `pulumi import`, import replication tasks using the `replicationTaskId`. For example:
  *
  * ```sh
  * $ pulumi import aws:dms/replicationTask:ReplicationTask test test-dms-replication-task-tf

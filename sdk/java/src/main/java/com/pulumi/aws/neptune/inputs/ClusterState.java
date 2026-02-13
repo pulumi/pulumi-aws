@@ -95,9 +95,17 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.backupRetentionPeriod);
     }
 
+    /**
+     * Cluster identifier. If omitted, Terraform will assign a random, unique identifier.
+     * 
+     */
     @Import(name="clusterIdentifier")
     private @Nullable Output<String> clusterIdentifier;
 
+    /**
+     * @return Cluster identifier. If omitted, Terraform will assign a random, unique identifier.
+     * 
+     */
     public Optional<Output<String>> clusterIdentifier() {
         return Optional.ofNullable(this.clusterIdentifier);
     }
@@ -758,11 +766,23 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
             return backupRetentionPeriod(Output.of(backupRetentionPeriod));
         }
 
+        /**
+         * @param clusterIdentifier Cluster identifier. If omitted, Terraform will assign a random, unique identifier.
+         * 
+         * @return builder
+         * 
+         */
         public Builder clusterIdentifier(@Nullable Output<String> clusterIdentifier) {
             $.clusterIdentifier = clusterIdentifier;
             return this;
         }
 
+        /**
+         * @param clusterIdentifier Cluster identifier. If omitted, Terraform will assign a random, unique identifier.
+         * 
+         * @return builder
+         * 
+         */
         public Builder clusterIdentifier(String clusterIdentifier) {
             return clusterIdentifier(Output.of(clusterIdentifier));
         }

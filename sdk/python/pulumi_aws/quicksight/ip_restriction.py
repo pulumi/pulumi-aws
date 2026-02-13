@@ -28,6 +28,7 @@ class IpRestrictionArgs:
         """
         The set of arguments for constructing a IpRestriction resource.
         :param pulumi.Input[_builtins.bool] enabled: Whether IP rules are turned on.
+        :param pulumi.Input[_builtins.str] aws_account_id: AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] ip_restriction_rule_map: Map of allowed IPv4 CIDR ranges and descriptions.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] vpc_endpoint_id_restriction_rule_map: Map of allowed VPC endpoint IDs and descriptions.
@@ -60,6 +61,9 @@ class IpRestrictionArgs:
     @_builtins.property
     @pulumi.getter(name="awsAccountId")
     def aws_account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
+        """
         return pulumi.get(self, "aws_account_id")
 
     @aws_account_id.setter
@@ -126,6 +130,7 @@ class _IpRestrictionState:
                  vpc_id_restriction_rule_map: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering IpRestriction resources.
+        :param pulumi.Input[_builtins.str] aws_account_id: AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
         :param pulumi.Input[_builtins.bool] enabled: Whether IP rules are turned on.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] ip_restriction_rule_map: Map of allowed IPv4 CIDR ranges and descriptions.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -148,6 +153,9 @@ class _IpRestrictionState:
     @_builtins.property
     @pulumi.getter(name="awsAccountId")
     def aws_account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
+        """
         return pulumi.get(self, "aws_account_id")
 
     @aws_account_id.setter
@@ -259,6 +267,7 @@ class IpRestriction(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[_builtins.str] aws_account_id: AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
         :param pulumi.Input[_builtins.bool] enabled: Whether IP rules are turned on.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] ip_restriction_rule_map: Map of allowed IPv4 CIDR ranges and descriptions.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -361,6 +370,7 @@ class IpRestriction(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[_builtins.str] aws_account_id: AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
         :param pulumi.Input[_builtins.bool] enabled: Whether IP rules are turned on.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] ip_restriction_rule_map: Map of allowed IPv4 CIDR ranges and descriptions.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -382,6 +392,9 @@ class IpRestriction(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="awsAccountId")
     def aws_account_id(self) -> pulumi.Output[_builtins.str]:
+        """
+        AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
+        """
         return pulumi.get(self, "aws_account_id")
 
     @_builtins.property

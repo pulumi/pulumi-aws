@@ -585,7 +585,7 @@ import (
 //
 // ## Import
 //
-// Using `pulumi import`, import `aws_networkmanager_core_network` using the core network ID. For example:
+// Using `pulumi import`, import `networkmanager.CoreNetwork` using the core network ID. For example:
 //
 // ```sh
 // $ pulumi import aws:networkmanager/coreNetwork:CoreNetwork example core-network-0d47f6t230mz46dy4

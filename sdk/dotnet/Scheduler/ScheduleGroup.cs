@@ -36,7 +36,7 @@ namespace Pulumi.Aws.Scheduler
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import schedule groups using the `name`. For example:
+    /// Using `pulumi import`, import schedule groups using the `Name`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:scheduler/scheduleGroup:ScheduleGroup example my-schedule-group

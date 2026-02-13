@@ -65,7 +65,7 @@ namespace Pulumi.Aws.Sagemaker
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import data quality job definitions using the `name`. For example:
+    /// Using `pulumi import`, import data quality job definitions using the `Name`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:sagemaker/dataQualityJobDefinition:DataQualityJobDefinition test_data_quality_job_definition data-quality-job-definition-foo

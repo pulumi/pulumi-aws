@@ -162,17 +162,18 @@ namespace Pulumi.Aws.Ecr
     /// 
     /// #### Required
     /// 
-    /// * `repository` - (String) Name of the ECR repository.
+    /// * `Repository` - (String) Name of the ECR repository.
     /// 
     /// #### Optional
     /// 
-    /// * `account_id` (String) AWS Account where this resource is managed.
-    /// 
-    /// * `region` (String) Region where this resource is managed.
+    /// * `AccountId` (String) AWS Account where this resource is managed.
+    /// * `Region` (String) Region where this resource is managed.
     /// 
     /// Using `pulumi import`, import ECR Lifecycle Policy using the name of the repository. For example:
     /// 
-    /// % pulumi import aws_ecr_lifecycle_policy.example tf-example
+    /// ```sh
+    /// $ pulumi import aws:ecr/lifecyclePolicy:LifecyclePolicy example tf-example
+    /// ```
     /// </summary>
     [AwsResourceType("aws:ecr/lifecyclePolicy:LifecyclePolicy")]
     public partial class LifecyclePolicy : global::Pulumi.CustomResource

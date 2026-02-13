@@ -29,20 +29,15 @@ __all__ = [
     'ExtensionParameterArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class ConfigurationProfileValidatorArgsDict(TypedDict):
-        type: pulumi.Input[_builtins.str]
-        """
-        Type of validator. Valid values: `JSON_SCHEMA` and `LAMBDA`.
-        """
-        content: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Either the JSON Schema content or the ARN of an AWS Lambda function.
-        """
-elif False:
-    ConfigurationProfileValidatorArgsDict: TypeAlias = Mapping[str, Any]
+class ConfigurationProfileValidatorArgsDict(TypedDict):
+    type: pulumi.Input[_builtins.str]
+    """
+    Type of validator. Valid values: `JSON_SCHEMA` and `LAMBDA`.
+    """
+    content: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Either the JSON Schema content or the ARN of an AWS Lambda function.
+    """
 
 @pulumi.input_type
 class ConfigurationProfileValidatorArgs:
@@ -82,18 +77,15 @@ class ConfigurationProfileValidatorArgs:
         pulumi.set(self, "content", value)
 
 
-if not MYPY:
-    class EnvironmentMonitorArgsDict(TypedDict):
-        alarm_arn: pulumi.Input[_builtins.str]
-        """
-        ARN of the Amazon CloudWatch alarm.
-        """
-        alarm_role_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        ARN of an IAM role for AWS AppConfig to monitor `alarm_arn`.
-        """
-elif False:
-    EnvironmentMonitorArgsDict: TypeAlias = Mapping[str, Any]
+class EnvironmentMonitorArgsDict(TypedDict):
+    alarm_arn: pulumi.Input[_builtins.str]
+    """
+    ARN of the Amazon CloudWatch alarm.
+    """
+    alarm_role_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    ARN of an IAM role for AWS AppConfig to monitor `alarm_arn`.
+    """
 
 @pulumi.input_type
 class EnvironmentMonitorArgs:
@@ -133,14 +125,11 @@ class EnvironmentMonitorArgs:
         pulumi.set(self, "alarm_role_arn", value)
 
 
-if not MYPY:
-    class EventIntegrationEventFilterArgsDict(TypedDict):
-        source: pulumi.Input[_builtins.str]
-        """
-        Source of the events.
-        """
-elif False:
-    EventIntegrationEventFilterArgsDict: TypeAlias = Mapping[str, Any]
+class EventIntegrationEventFilterArgsDict(TypedDict):
+    source: pulumi.Input[_builtins.str]
+    """
+    Source of the events.
+    """
 
 @pulumi.input_type
 class EventIntegrationEventFilterArgs:
@@ -164,18 +153,15 @@ class EventIntegrationEventFilterArgs:
         pulumi.set(self, "source", value)
 
 
-if not MYPY:
-    class ExtensionActionPointArgsDict(TypedDict):
-        actions: pulumi.Input[Sequence[pulumi.Input['ExtensionActionPointActionArgsDict']]]
-        """
-        An action defines the tasks the extension performs during the AppConfig workflow. Detailed below.
-        """
-        point: pulumi.Input[_builtins.str]
-        """
-        The point at which to perform the defined actions. Valid points are `PRE_CREATE_HOSTED_CONFIGURATION_VERSION`, `PRE_START_DEPLOYMENT`, `ON_DEPLOYMENT_START`, `ON_DEPLOYMENT_STEP`, `ON_DEPLOYMENT_BAKING`, `ON_DEPLOYMENT_COMPLETE`, `ON_DEPLOYMENT_ROLLED_BACK`.
-        """
-elif False:
-    ExtensionActionPointArgsDict: TypeAlias = Mapping[str, Any]
+class ExtensionActionPointArgsDict(TypedDict):
+    actions: pulumi.Input[Sequence[pulumi.Input['ExtensionActionPointActionArgsDict']]]
+    """
+    An action defines the tasks the extension performs during the AppConfig workflow. Detailed below.
+    """
+    point: pulumi.Input[_builtins.str]
+    """
+    The point at which to perform the defined actions. Valid points are `PRE_CREATE_HOSTED_CONFIGURATION_VERSION`, `PRE_START_DEPLOYMENT`, `ON_DEPLOYMENT_START`, `ON_DEPLOYMENT_STEP`, `ON_DEPLOYMENT_BAKING`, `ON_DEPLOYMENT_COMPLETE`, `ON_DEPLOYMENT_ROLLED_BACK`.
+    """
 
 @pulumi.input_type
 class ExtensionActionPointArgs:
@@ -214,26 +200,23 @@ class ExtensionActionPointArgs:
         pulumi.set(self, "point", value)
 
 
-if not MYPY:
-    class ExtensionActionPointActionArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        """
-        The action name.
-        """
-        uri: pulumi.Input[_builtins.str]
-        """
-        The extension URI associated to the action point in the extension definition. The URI can be an Amazon Resource Name (ARN) for one of the following: an Lambda function, an Amazon Simple Queue Service queue, an Amazon Simple Notification Service topic, or the Amazon EventBridge default event bus.
-        """
-        description: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Information about the action.
-        """
-        role_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        An Amazon Resource Name (ARN) for an Identity and Access Management assume role.
-        """
-elif False:
-    ExtensionActionPointActionArgsDict: TypeAlias = Mapping[str, Any]
+class ExtensionActionPointActionArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    The action name.
+    """
+    uri: pulumi.Input[_builtins.str]
+    """
+    The extension URI associated to the action point in the extension definition. The URI can be an Amazon Resource Name (ARN) for one of the following: an Lambda function, an Amazon Simple Queue Service queue, an Amazon Simple Notification Service topic, or the Amazon EventBridge default event bus.
+    """
+    description: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Information about the action.
+    """
+    role_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    An Amazon Resource Name (ARN) for an Identity and Access Management assume role.
+    """
 
 @pulumi.input_type
 class ExtensionActionPointActionArgs:
@@ -304,22 +287,19 @@ class ExtensionActionPointActionArgs:
         pulumi.set(self, "role_arn", value)
 
 
-if not MYPY:
-    class ExtensionParameterArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        """
-        The parameter name.
-        """
-        description: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Information about the parameter.
-        """
-        required: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Determines if a parameter value must be specified in the extension association.
-        """
-elif False:
-    ExtensionParameterArgsDict: TypeAlias = Mapping[str, Any]
+class ExtensionParameterArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    The parameter name.
+    """
+    description: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Information about the parameter.
+    """
+    required: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Determines if a parameter value must be specified in the extension association.
+    """
 
 @pulumi.input_type
 class ExtensionParameterArgs:

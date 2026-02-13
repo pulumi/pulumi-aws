@@ -61,7 +61,7 @@ namespace Pulumi.Aws.S3
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import S3 bucket using `bucket`. For example:
+    /// Using `pulumi import`, import S3 bucket using `Bucket`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:s3/directoryBucket:DirectoryBucket example example--usw2-az1--x-s3

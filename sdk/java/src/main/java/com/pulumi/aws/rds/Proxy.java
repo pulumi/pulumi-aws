@@ -20,6 +20,170 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
+ * Provides an RDS DB proxy resource. For additional information, see the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-proxy.html).
+ * 
+ * &gt; **Note:** Not all Availability Zones (AZs) support DB proxies. Specifying `vpcSubnetIds` for AZs that do not support proxies will not trigger an error as long as at least one `vpcSubnetId` is valid. However, this will cause Terraform to continuously detect differences between the configuration and the actual infrastructure. Refer to the Unsupported Availability Zones section below for potential workarounds.
+ * 
+ * ## Example Usage
+ * 
+ * ### Basic Usage
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.rds.Proxy;
+ * import com.pulumi.aws.rds.ProxyArgs;
+ * import com.pulumi.aws.rds.inputs.ProxyAuthArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new Proxy("example", ProxyArgs.builder()
+ *             .name("example")
+ *             .debugLogging(false)
+ *             .engineFamily("MYSQL")
+ *             .idleClientTimeout(1800)
+ *             .requireTls(true)
+ *             .roleArn(exampleAwsIamRole.arn())
+ *             .vpcSecurityGroupIds(exampleAwsSecurityGroup.id())
+ *             .vpcSubnetIds(exampleAwsSubnet.id())
+ *             .auths(ProxyAuthArgs.builder()
+ *                 .authScheme("SECRETS")
+ *                 .description("example")
+ *                 .iamAuth("DISABLED")
+ *                 .secretArn(exampleAwsSecretsmanagerSecret.arn())
+ *                 .build())
+ *             .tags(Map.ofEntries(
+ *                 Map.entry("Name", "example"),
+ *                 Map.entry("Key", "value")
+ *             ))
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
+ * ### Unsupported Availability Zones
+ * 
+ * Terraform may report constant differences if you use `vpcSubnetIds` that correspond to Availability Zones (AZs) that do not support a DB proxy. While this typically does not result in an error, AWS only returns `vpcSubnetIds` for AZs that support DB proxies. As a result, Terraform detects a mismatch between your configuration and the actual infrastructure, leading it to report that changes are required. Below are some ways to avoid this issue.
+ * 
+ * One solution is to exclude AZs that do not support DB proxies by using the `aws.getAvailabilityZones` data source. The example below demonstrates how to configure this for the `us-east-1` region, excluding the `use1-az3` AZ. (Keep in mind that AZ names can vary between accounts, while AZ IDs remain consistent.) If the `us-east-1` region has six AZs in total and you aim to configure the maximum number of subnets, you would exclude one AZ and configure five subnets:
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.AwsFunctions;
+ * import com.pulumi.aws.inputs.GetAvailabilityZonesArgs;
+ * import com.pulumi.aws.ec2.Vpc;
+ * import com.pulumi.aws.ec2.VpcArgs;
+ * import com.pulumi.aws.ec2.Subnet;
+ * import com.pulumi.aws.ec2.SubnetArgs;
+ * import com.pulumi.std.StdFunctions;
+ * import com.pulumi.std.inputs.CidrsubnetArgs;
+ * import com.pulumi.aws.rds.Proxy;
+ * import com.pulumi.aws.rds.ProxyArgs;
+ * import com.pulumi.codegen.internal.KeyedValue;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         final var available = AwsFunctions.getAvailabilityZones(GetAvailabilityZonesArgs.builder()
+ *             .excludeZoneIds("use1-az3")
+ *             .state("available")
+ *             .filters(GetAvailabilityZonesFilterArgs.builder()
+ *                 .name("opt-in-status")
+ *                 .values("opt-in-not-required")
+ *                 .build())
+ *             .build());
+ * 
+ *         var example = new Vpc("example", VpcArgs.builder()
+ *             .cidrBlock("10.0.0.0/16")
+ *             .build());
+ * 
+ *         for (var i = 0; i < 5; i++) {
+ *             new Subnet("exampleSubnet-" + i, SubnetArgs.builder()
+ *                 .cidrBlock(example.cidrBlock().applyValue(_cidrBlock -> StdFunctions.cidrsubnet(CidrsubnetArgs.builder()
+ *                     .input(_cidrBlock)
+ *                     .newbits(8)
+ *                     .netnum(range.value())
+ *                     .build())).applyValue(_invoke -> _invoke.result()))
+ *                 .availabilityZone(available.names()[range.value()])
+ *                 .vpcId(example.id())
+ *                 .build());
+ * 
+ *         
+ * }
+ *         var exampleProxy = new Proxy("exampleProxy", ProxyArgs.builder()
+ *             .name("example")
+ *             .vpcSubnetIds(exampleSubnet.id())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
+ * Another approach is to use the `lifecycle` `ignoreChanges` meta-argument. With this method, Terraform will stop detecting differences for the `vpcSubnetIds` argument. However, note that this approach disables Terraform&#39;s ability to track and manage updates to `vpcSubnetIds`, so use it carefully to avoid unintended drift between your configuration and the actual infrastructure.
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.rds.Proxy;
+ * import com.pulumi.aws.rds.ProxyArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new Proxy("example", ProxyArgs.builder()
+ *             .name("example")
+ *             .vpcSubnetIds(exampleAwsSubnet.id())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
  * ## Import
  * 
  * Using `pulumi import`, import DB proxies using the `name`. For example:

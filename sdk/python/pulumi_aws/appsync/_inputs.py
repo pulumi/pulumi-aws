@@ -113,32 +113,27 @@ __all__ = [
     'SourceApiAssociationTimeoutsArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class ApiEventConfigArgsDict(TypedDict):
-        auth_providers: pulumi.Input[Sequence[pulumi.Input['ApiEventConfigAuthProviderArgsDict']]]
-        """
-        List of authentication providers. See Auth Providers below.
-        """
-        connection_auth_modes: pulumi.Input[Sequence[pulumi.Input['ApiEventConfigConnectionAuthModeArgsDict']]]
-        """
-        List of authentication modes for connections. See Auth Modes below.
-        """
-        default_publish_auth_modes: pulumi.Input[Sequence[pulumi.Input['ApiEventConfigDefaultPublishAuthModeArgsDict']]]
-        """
-        List of default authentication modes for publishing. See Auth Modes below.
-        """
-        default_subscribe_auth_modes: pulumi.Input[Sequence[pulumi.Input['ApiEventConfigDefaultSubscribeAuthModeArgsDict']]]
-        """
-        List of default authentication modes for subscribing. See Auth Modes below.
-        """
-        log_config: NotRequired[pulumi.Input['ApiEventConfigLogConfigArgsDict']]
-        """
-        Logging configuration. See Log Config below.
-        """
-elif False:
-    ApiEventConfigArgsDict: TypeAlias = Mapping[str, Any]
+class ApiEventConfigArgsDict(TypedDict):
+    auth_providers: pulumi.Input[Sequence[pulumi.Input['ApiEventConfigAuthProviderArgsDict']]]
+    """
+    List of authentication providers. See Auth Providers below.
+    """
+    connection_auth_modes: pulumi.Input[Sequence[pulumi.Input['ApiEventConfigConnectionAuthModeArgsDict']]]
+    """
+    List of authentication modes for connections. See Auth Modes below.
+    """
+    default_publish_auth_modes: pulumi.Input[Sequence[pulumi.Input['ApiEventConfigDefaultPublishAuthModeArgsDict']]]
+    """
+    List of default authentication modes for publishing. See Auth Modes below.
+    """
+    default_subscribe_auth_modes: pulumi.Input[Sequence[pulumi.Input['ApiEventConfigDefaultSubscribeAuthModeArgsDict']]]
+    """
+    List of default authentication modes for subscribing. See Auth Modes below.
+    """
+    log_config: NotRequired[pulumi.Input['ApiEventConfigLogConfigArgsDict']]
+    """
+    Logging configuration. See Log Config below.
+    """
 
 @pulumi.input_type
 class ApiEventConfigArgs:
@@ -223,26 +218,23 @@ class ApiEventConfigArgs:
         pulumi.set(self, "log_config", value)
 
 
-if not MYPY:
-    class ApiEventConfigAuthProviderArgsDict(TypedDict):
-        auth_type: pulumi.Input[_builtins.str]
-        """
-        Type of authentication provider. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`.
-        """
-        cognito_config: NotRequired[pulumi.Input['ApiEventConfigAuthProviderCognitoConfigArgsDict']]
-        """
-        Configuration for Cognito user pool authentication. Required when `auth_type` is `AMAZON_COGNITO_USER_POOLS`. See Cognito Config below.
-        """
-        lambda_authorizer_config: NotRequired[pulumi.Input['ApiEventConfigAuthProviderLambdaAuthorizerConfigArgsDict']]
-        """
-        Configuration for Lambda authorization. Required when `auth_type` is `AWS_LAMBDA`. See Lambda Authorizer Config below.
-        """
-        openid_connect_config: NotRequired[pulumi.Input['ApiEventConfigAuthProviderOpenidConnectConfigArgsDict']]
-        """
-        Configuration for OpenID Connect. Required when `auth_type` is `OPENID_CONNECT`. See OpenID Connect Config below.
-        """
-elif False:
-    ApiEventConfigAuthProviderArgsDict: TypeAlias = Mapping[str, Any]
+class ApiEventConfigAuthProviderArgsDict(TypedDict):
+    auth_type: pulumi.Input[_builtins.str]
+    """
+    Type of authentication provider. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`.
+    """
+    cognito_config: NotRequired[pulumi.Input['ApiEventConfigAuthProviderCognitoConfigArgsDict']]
+    """
+    Configuration for Cognito user pool authentication. Required when `auth_type` is `AMAZON_COGNITO_USER_POOLS`. See Cognito Config below.
+    """
+    lambda_authorizer_config: NotRequired[pulumi.Input['ApiEventConfigAuthProviderLambdaAuthorizerConfigArgsDict']]
+    """
+    Configuration for Lambda authorization. Required when `auth_type` is `AWS_LAMBDA`. See Lambda Authorizer Config below.
+    """
+    openid_connect_config: NotRequired[pulumi.Input['ApiEventConfigAuthProviderOpenidConnectConfigArgsDict']]
+    """
+    Configuration for OpenID Connect. Required when `auth_type` is `OPENID_CONNECT`. See OpenID Connect Config below.
+    """
 
 @pulumi.input_type
 class ApiEventConfigAuthProviderArgs:
@@ -314,22 +306,19 @@ class ApiEventConfigAuthProviderArgs:
         pulumi.set(self, "openid_connect_config", value)
 
 
-if not MYPY:
-    class ApiEventConfigAuthProviderCognitoConfigArgsDict(TypedDict):
-        aws_region: pulumi.Input[_builtins.str]
-        """
-        AWS region where the user pool is located.
-        """
-        user_pool_id: pulumi.Input[_builtins.str]
-        """
-        ID of the Cognito user pool.
-        """
-        app_id_client_regex: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Regular expression for matching the client ID.
-        """
-elif False:
-    ApiEventConfigAuthProviderCognitoConfigArgsDict: TypeAlias = Mapping[str, Any]
+class ApiEventConfigAuthProviderCognitoConfigArgsDict(TypedDict):
+    aws_region: pulumi.Input[_builtins.str]
+    """
+    AWS region where the user pool is located.
+    """
+    user_pool_id: pulumi.Input[_builtins.str]
+    """
+    ID of the Cognito user pool.
+    """
+    app_id_client_regex: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Regular expression for matching the client ID.
+    """
 
 @pulumi.input_type
 class ApiEventConfigAuthProviderCognitoConfigArgs:
@@ -384,22 +373,19 @@ class ApiEventConfigAuthProviderCognitoConfigArgs:
         pulumi.set(self, "app_id_client_regex", value)
 
 
-if not MYPY:
-    class ApiEventConfigAuthProviderLambdaAuthorizerConfigArgsDict(TypedDict):
-        authorizer_uri: pulumi.Input[_builtins.str]
-        """
-        URI of the Lambda function for authorization.
-        """
-        authorizer_result_ttl_in_seconds: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        TTL in seconds for the authorization result cache.
-        """
-        identity_validation_expression: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Regular expression for identity validation.
-        """
-elif False:
-    ApiEventConfigAuthProviderLambdaAuthorizerConfigArgsDict: TypeAlias = Mapping[str, Any]
+class ApiEventConfigAuthProviderLambdaAuthorizerConfigArgsDict(TypedDict):
+    authorizer_uri: pulumi.Input[_builtins.str]
+    """
+    URI of the Lambda function for authorization.
+    """
+    authorizer_result_ttl_in_seconds: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    TTL in seconds for the authorization result cache.
+    """
+    identity_validation_expression: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Regular expression for identity validation.
+    """
 
 @pulumi.input_type
 class ApiEventConfigAuthProviderLambdaAuthorizerConfigArgs:
@@ -455,26 +441,23 @@ class ApiEventConfigAuthProviderLambdaAuthorizerConfigArgs:
         pulumi.set(self, "identity_validation_expression", value)
 
 
-if not MYPY:
-    class ApiEventConfigAuthProviderOpenidConnectConfigArgsDict(TypedDict):
-        issuer: pulumi.Input[_builtins.str]
-        """
-        Issuer URL for the OpenID Connect provider.
-        """
-        auth_ttl: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        TTL in seconds for the authentication token.
-        """
-        client_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Client ID for the OpenID Connect provider.
-        """
-        iat_ttl: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        TTL in seconds for the issued at time.
-        """
-elif False:
-    ApiEventConfigAuthProviderOpenidConnectConfigArgsDict: TypeAlias = Mapping[str, Any]
+class ApiEventConfigAuthProviderOpenidConnectConfigArgsDict(TypedDict):
+    issuer: pulumi.Input[_builtins.str]
+    """
+    Issuer URL for the OpenID Connect provider.
+    """
+    auth_ttl: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    TTL in seconds for the authentication token.
+    """
+    client_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Client ID for the OpenID Connect provider.
+    """
+    iat_ttl: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    TTL in seconds for the issued at time.
+    """
 
 @pulumi.input_type
 class ApiEventConfigAuthProviderOpenidConnectConfigArgs:
@@ -546,14 +529,11 @@ class ApiEventConfigAuthProviderOpenidConnectConfigArgs:
         pulumi.set(self, "iat_ttl", value)
 
 
-if not MYPY:
-    class ApiEventConfigConnectionAuthModeArgsDict(TypedDict):
-        auth_type: pulumi.Input[_builtins.str]
-        """
-        Type of authentication. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`.
-        """
-elif False:
-    ApiEventConfigConnectionAuthModeArgsDict: TypeAlias = Mapping[str, Any]
+class ApiEventConfigConnectionAuthModeArgsDict(TypedDict):
+    auth_type: pulumi.Input[_builtins.str]
+    """
+    Type of authentication. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`.
+    """
 
 @pulumi.input_type
 class ApiEventConfigConnectionAuthModeArgs:
@@ -577,14 +557,11 @@ class ApiEventConfigConnectionAuthModeArgs:
         pulumi.set(self, "auth_type", value)
 
 
-if not MYPY:
-    class ApiEventConfigDefaultPublishAuthModeArgsDict(TypedDict):
-        auth_type: pulumi.Input[_builtins.str]
-        """
-        Type of authentication. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`.
-        """
-elif False:
-    ApiEventConfigDefaultPublishAuthModeArgsDict: TypeAlias = Mapping[str, Any]
+class ApiEventConfigDefaultPublishAuthModeArgsDict(TypedDict):
+    auth_type: pulumi.Input[_builtins.str]
+    """
+    Type of authentication. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`.
+    """
 
 @pulumi.input_type
 class ApiEventConfigDefaultPublishAuthModeArgs:
@@ -608,14 +585,11 @@ class ApiEventConfigDefaultPublishAuthModeArgs:
         pulumi.set(self, "auth_type", value)
 
 
-if not MYPY:
-    class ApiEventConfigDefaultSubscribeAuthModeArgsDict(TypedDict):
-        auth_type: pulumi.Input[_builtins.str]
-        """
-        Type of authentication. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`.
-        """
-elif False:
-    ApiEventConfigDefaultSubscribeAuthModeArgsDict: TypeAlias = Mapping[str, Any]
+class ApiEventConfigDefaultSubscribeAuthModeArgsDict(TypedDict):
+    auth_type: pulumi.Input[_builtins.str]
+    """
+    Type of authentication. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`.
+    """
 
 @pulumi.input_type
 class ApiEventConfigDefaultSubscribeAuthModeArgs:
@@ -639,18 +613,15 @@ class ApiEventConfigDefaultSubscribeAuthModeArgs:
         pulumi.set(self, "auth_type", value)
 
 
-if not MYPY:
-    class ApiEventConfigLogConfigArgsDict(TypedDict):
-        cloudwatch_logs_role_arn: pulumi.Input[_builtins.str]
-        """
-        ARN of the IAM role for CloudWatch logs.
-        """
-        log_level: pulumi.Input[_builtins.str]
-        """
-        Log level. Valid values: `NONE`, `ERROR`, `ALL`, `INFO`, `DEBUG`.
-        """
-elif False:
-    ApiEventConfigLogConfigArgsDict: TypeAlias = Mapping[str, Any]
+class ApiEventConfigLogConfigArgsDict(TypedDict):
+    cloudwatch_logs_role_arn: pulumi.Input[_builtins.str]
+    """
+    ARN of the IAM role for CloudWatch logs.
+    """
+    log_level: pulumi.Input[_builtins.str]
+    """
+    Log level. Valid values: `NONE`, `ERROR`, `ALL`, `INFO`, `DEBUG`.
+    """
 
 @pulumi.input_type
 class ApiEventConfigLogConfigArgs:
@@ -689,18 +660,15 @@ class ApiEventConfigLogConfigArgs:
         pulumi.set(self, "log_level", value)
 
 
-if not MYPY:
-    class ChannelNamespaceHandlerConfigsArgsDict(TypedDict):
-        on_publish: NotRequired[pulumi.Input['ChannelNamespaceHandlerConfigsOnPublishArgsDict']]
-        """
-        Handler configuration. See Handler Config below.
-        """
-        on_subscribe: NotRequired[pulumi.Input['ChannelNamespaceHandlerConfigsOnSubscribeArgsDict']]
-        """
-        Handler configuration. See Handler Config below.
-        """
-elif False:
-    ChannelNamespaceHandlerConfigsArgsDict: TypeAlias = Mapping[str, Any]
+class ChannelNamespaceHandlerConfigsArgsDict(TypedDict):
+    on_publish: NotRequired[pulumi.Input['ChannelNamespaceHandlerConfigsOnPublishArgsDict']]
+    """
+    Handler configuration. See Handler Config below.
+    """
+    on_subscribe: NotRequired[pulumi.Input['ChannelNamespaceHandlerConfigsOnSubscribeArgsDict']]
+    """
+    Handler configuration. See Handler Config below.
+    """
 
 @pulumi.input_type
 class ChannelNamespaceHandlerConfigsArgs:
@@ -741,18 +709,15 @@ class ChannelNamespaceHandlerConfigsArgs:
         pulumi.set(self, "on_subscribe", value)
 
 
-if not MYPY:
-    class ChannelNamespaceHandlerConfigsOnPublishArgsDict(TypedDict):
-        behavior: pulumi.Input[_builtins.str]
-        """
-        Behavior for the handler. Valid values: `CODE`, `DIRECT`.
-        """
-        integration: pulumi.Input['ChannelNamespaceHandlerConfigsOnPublishIntegrationArgsDict']
-        """
-        Integration data source configuration for the handler. See Integration below.
-        """
-elif False:
-    ChannelNamespaceHandlerConfigsOnPublishArgsDict: TypeAlias = Mapping[str, Any]
+class ChannelNamespaceHandlerConfigsOnPublishArgsDict(TypedDict):
+    behavior: pulumi.Input[_builtins.str]
+    """
+    Behavior for the handler. Valid values: `CODE`, `DIRECT`.
+    """
+    integration: pulumi.Input['ChannelNamespaceHandlerConfigsOnPublishIntegrationArgsDict']
+    """
+    Integration data source configuration for the handler. See Integration below.
+    """
 
 @pulumi.input_type
 class ChannelNamespaceHandlerConfigsOnPublishArgs:
@@ -791,18 +756,15 @@ class ChannelNamespaceHandlerConfigsOnPublishArgs:
         pulumi.set(self, "integration", value)
 
 
-if not MYPY:
-    class ChannelNamespaceHandlerConfigsOnPublishIntegrationArgsDict(TypedDict):
-        data_source_name: pulumi.Input[_builtins.str]
-        """
-        Unique name of the data source that has been configured on the API.
-        """
-        lambda_config: NotRequired[pulumi.Input['ChannelNamespaceHandlerConfigsOnPublishIntegrationLambdaConfigArgsDict']]
-        """
-        Configuration for a Lambda data source. See Lambda Config below.
-        """
-elif False:
-    ChannelNamespaceHandlerConfigsOnPublishIntegrationArgsDict: TypeAlias = Mapping[str, Any]
+class ChannelNamespaceHandlerConfigsOnPublishIntegrationArgsDict(TypedDict):
+    data_source_name: pulumi.Input[_builtins.str]
+    """
+    Unique name of the data source that has been configured on the API.
+    """
+    lambda_config: NotRequired[pulumi.Input['ChannelNamespaceHandlerConfigsOnPublishIntegrationLambdaConfigArgsDict']]
+    """
+    Configuration for a Lambda data source. See Lambda Config below.
+    """
 
 @pulumi.input_type
 class ChannelNamespaceHandlerConfigsOnPublishIntegrationArgs:
@@ -842,14 +804,11 @@ class ChannelNamespaceHandlerConfigsOnPublishIntegrationArgs:
         pulumi.set(self, "lambda_config", value)
 
 
-if not MYPY:
-    class ChannelNamespaceHandlerConfigsOnPublishIntegrationLambdaConfigArgsDict(TypedDict):
-        invoke_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Invocation type for a Lambda data source. Valid values: `REQUEST_RESPONSE`, `EVENT`.
-        """
-elif False:
-    ChannelNamespaceHandlerConfigsOnPublishIntegrationLambdaConfigArgsDict: TypeAlias = Mapping[str, Any]
+class ChannelNamespaceHandlerConfigsOnPublishIntegrationLambdaConfigArgsDict(TypedDict):
+    invoke_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Invocation type for a Lambda data source. Valid values: `REQUEST_RESPONSE`, `EVENT`.
+    """
 
 @pulumi.input_type
 class ChannelNamespaceHandlerConfigsOnPublishIntegrationLambdaConfigArgs:
@@ -874,18 +833,15 @@ class ChannelNamespaceHandlerConfigsOnPublishIntegrationLambdaConfigArgs:
         pulumi.set(self, "invoke_type", value)
 
 
-if not MYPY:
-    class ChannelNamespaceHandlerConfigsOnSubscribeArgsDict(TypedDict):
-        behavior: pulumi.Input[_builtins.str]
-        """
-        Behavior for the handler. Valid values: `CODE`, `DIRECT`.
-        """
-        integration: pulumi.Input['ChannelNamespaceHandlerConfigsOnSubscribeIntegrationArgsDict']
-        """
-        Integration data source configuration for the handler. See Integration below.
-        """
-elif False:
-    ChannelNamespaceHandlerConfigsOnSubscribeArgsDict: TypeAlias = Mapping[str, Any]
+class ChannelNamespaceHandlerConfigsOnSubscribeArgsDict(TypedDict):
+    behavior: pulumi.Input[_builtins.str]
+    """
+    Behavior for the handler. Valid values: `CODE`, `DIRECT`.
+    """
+    integration: pulumi.Input['ChannelNamespaceHandlerConfigsOnSubscribeIntegrationArgsDict']
+    """
+    Integration data source configuration for the handler. See Integration below.
+    """
 
 @pulumi.input_type
 class ChannelNamespaceHandlerConfigsOnSubscribeArgs:
@@ -924,18 +880,15 @@ class ChannelNamespaceHandlerConfigsOnSubscribeArgs:
         pulumi.set(self, "integration", value)
 
 
-if not MYPY:
-    class ChannelNamespaceHandlerConfigsOnSubscribeIntegrationArgsDict(TypedDict):
-        data_source_name: pulumi.Input[_builtins.str]
-        """
-        Unique name of the data source that has been configured on the API.
-        """
-        lambda_config: NotRequired[pulumi.Input['ChannelNamespaceHandlerConfigsOnSubscribeIntegrationLambdaConfigArgsDict']]
-        """
-        Configuration for a Lambda data source. See Lambda Config below.
-        """
-elif False:
-    ChannelNamespaceHandlerConfigsOnSubscribeIntegrationArgsDict: TypeAlias = Mapping[str, Any]
+class ChannelNamespaceHandlerConfigsOnSubscribeIntegrationArgsDict(TypedDict):
+    data_source_name: pulumi.Input[_builtins.str]
+    """
+    Unique name of the data source that has been configured on the API.
+    """
+    lambda_config: NotRequired[pulumi.Input['ChannelNamespaceHandlerConfigsOnSubscribeIntegrationLambdaConfigArgsDict']]
+    """
+    Configuration for a Lambda data source. See Lambda Config below.
+    """
 
 @pulumi.input_type
 class ChannelNamespaceHandlerConfigsOnSubscribeIntegrationArgs:
@@ -975,14 +928,11 @@ class ChannelNamespaceHandlerConfigsOnSubscribeIntegrationArgs:
         pulumi.set(self, "lambda_config", value)
 
 
-if not MYPY:
-    class ChannelNamespaceHandlerConfigsOnSubscribeIntegrationLambdaConfigArgsDict(TypedDict):
-        invoke_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Invocation type for a Lambda data source. Valid values: `REQUEST_RESPONSE`, `EVENT`.
-        """
-elif False:
-    ChannelNamespaceHandlerConfigsOnSubscribeIntegrationLambdaConfigArgsDict: TypeAlias = Mapping[str, Any]
+class ChannelNamespaceHandlerConfigsOnSubscribeIntegrationLambdaConfigArgsDict(TypedDict):
+    invoke_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Invocation type for a Lambda data source. Valid values: `REQUEST_RESPONSE`, `EVENT`.
+    """
 
 @pulumi.input_type
 class ChannelNamespaceHandlerConfigsOnSubscribeIntegrationLambdaConfigArgs:
@@ -1007,14 +957,11 @@ class ChannelNamespaceHandlerConfigsOnSubscribeIntegrationLambdaConfigArgs:
         pulumi.set(self, "invoke_type", value)
 
 
-if not MYPY:
-    class ChannelNamespacePublishAuthModeArgsDict(TypedDict):
-        auth_type: pulumi.Input[_builtins.str]
-        """
-        Type of authentication. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`.
-        """
-elif False:
-    ChannelNamespacePublishAuthModeArgsDict: TypeAlias = Mapping[str, Any]
+class ChannelNamespacePublishAuthModeArgsDict(TypedDict):
+    auth_type: pulumi.Input[_builtins.str]
+    """
+    Type of authentication. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`.
+    """
 
 @pulumi.input_type
 class ChannelNamespacePublishAuthModeArgs:
@@ -1038,14 +985,11 @@ class ChannelNamespacePublishAuthModeArgs:
         pulumi.set(self, "auth_type", value)
 
 
-if not MYPY:
-    class ChannelNamespaceSubscribeAuthModeArgsDict(TypedDict):
-        auth_type: pulumi.Input[_builtins.str]
-        """
-        Type of authentication. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`.
-        """
-elif False:
-    ChannelNamespaceSubscribeAuthModeArgsDict: TypeAlias = Mapping[str, Any]
+class ChannelNamespaceSubscribeAuthModeArgsDict(TypedDict):
+    auth_type: pulumi.Input[_builtins.str]
+    """
+    Type of authentication. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`.
+    """
 
 @pulumi.input_type
 class ChannelNamespaceSubscribeAuthModeArgs:
@@ -1069,30 +1013,27 @@ class ChannelNamespaceSubscribeAuthModeArgs:
         pulumi.set(self, "auth_type", value)
 
 
-if not MYPY:
-    class DataSourceDynamodbConfigArgsDict(TypedDict):
-        table_name: pulumi.Input[_builtins.str]
-        """
-        Name of the DynamoDB table.
-        """
-        delta_sync_config: NotRequired[pulumi.Input['DataSourceDynamodbConfigDeltaSyncConfigArgsDict']]
-        """
-        The DeltaSyncConfig for a versioned data source. See `delta_sync_config` Block for details.
-        """
-        region: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        AWS region of the DynamoDB table. Defaults to current region.
-        """
-        use_caller_credentials: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Set to `true` to use Amazon Cognito credentials with this data source.
-        """
-        versioned: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Detects Conflict Detection and Resolution with this data source.
-        """
-elif False:
-    DataSourceDynamodbConfigArgsDict: TypeAlias = Mapping[str, Any]
+class DataSourceDynamodbConfigArgsDict(TypedDict):
+    table_name: pulumi.Input[_builtins.str]
+    """
+    Name of the DynamoDB table.
+    """
+    delta_sync_config: NotRequired[pulumi.Input['DataSourceDynamodbConfigDeltaSyncConfigArgsDict']]
+    """
+    The DeltaSyncConfig for a versioned data source. See `delta_sync_config` Block for details.
+    """
+    region: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    AWS region of the DynamoDB table. Defaults to current region.
+    """
+    use_caller_credentials: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Set to `true` to use Amazon Cognito credentials with this data source.
+    """
+    versioned: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Detects Conflict Detection and Resolution with this data source.
+    """
 
 @pulumi.input_type
 class DataSourceDynamodbConfigArgs:
@@ -1180,22 +1121,19 @@ class DataSourceDynamodbConfigArgs:
         pulumi.set(self, "versioned", value)
 
 
-if not MYPY:
-    class DataSourceDynamodbConfigDeltaSyncConfigArgsDict(TypedDict):
-        delta_sync_table_name: pulumi.Input[_builtins.str]
-        """
-        The table name.
-        """
-        base_table_ttl: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The number of minutes that an Item is stored in the data source.
-        """
-        delta_sync_table_ttl: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The number of minutes that a Delta Sync log entry is stored in the Delta Sync table.
-        """
-elif False:
-    DataSourceDynamodbConfigDeltaSyncConfigArgsDict: TypeAlias = Mapping[str, Any]
+class DataSourceDynamodbConfigDeltaSyncConfigArgsDict(TypedDict):
+    delta_sync_table_name: pulumi.Input[_builtins.str]
+    """
+    The table name.
+    """
+    base_table_ttl: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The number of minutes that an Item is stored in the data source.
+    """
+    delta_sync_table_ttl: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The number of minutes that a Delta Sync log entry is stored in the Delta Sync table.
+    """
 
 @pulumi.input_type
 class DataSourceDynamodbConfigDeltaSyncConfigArgs:
@@ -1251,18 +1189,15 @@ class DataSourceDynamodbConfigDeltaSyncConfigArgs:
         pulumi.set(self, "delta_sync_table_ttl", value)
 
 
-if not MYPY:
-    class DataSourceElasticsearchConfigArgsDict(TypedDict):
-        endpoint: pulumi.Input[_builtins.str]
-        """
-        HTTP endpoint of the Elasticsearch domain.
-        """
-        region: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        AWS region of Elasticsearch domain. Defaults to current region.
-        """
-elif False:
-    DataSourceElasticsearchConfigArgsDict: TypeAlias = Mapping[str, Any]
+class DataSourceElasticsearchConfigArgsDict(TypedDict):
+    endpoint: pulumi.Input[_builtins.str]
+    """
+    HTTP endpoint of the Elasticsearch domain.
+    """
+    region: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    AWS region of Elasticsearch domain. Defaults to current region.
+    """
 
 @pulumi.input_type
 class DataSourceElasticsearchConfigArgs:
@@ -1302,14 +1237,11 @@ class DataSourceElasticsearchConfigArgs:
         pulumi.set(self, "region", value)
 
 
-if not MYPY:
-    class DataSourceEventBridgeConfigArgsDict(TypedDict):
-        event_bus_arn: pulumi.Input[_builtins.str]
-        """
-        ARN for the EventBridge bus.
-        """
-elif False:
-    DataSourceEventBridgeConfigArgsDict: TypeAlias = Mapping[str, Any]
+class DataSourceEventBridgeConfigArgsDict(TypedDict):
+    event_bus_arn: pulumi.Input[_builtins.str]
+    """
+    ARN for the EventBridge bus.
+    """
 
 @pulumi.input_type
 class DataSourceEventBridgeConfigArgs:
@@ -1333,18 +1265,15 @@ class DataSourceEventBridgeConfigArgs:
         pulumi.set(self, "event_bus_arn", value)
 
 
-if not MYPY:
-    class DataSourceHttpConfigArgsDict(TypedDict):
-        endpoint: pulumi.Input[_builtins.str]
-        """
-        HTTP URL.
-        """
-        authorization_config: NotRequired[pulumi.Input['DataSourceHttpConfigAuthorizationConfigArgsDict']]
-        """
-        Authorization configuration in case the HTTP endpoint requires authorization. See `authorization_config` Block for details.
-        """
-elif False:
-    DataSourceHttpConfigArgsDict: TypeAlias = Mapping[str, Any]
+class DataSourceHttpConfigArgsDict(TypedDict):
+    endpoint: pulumi.Input[_builtins.str]
+    """
+    HTTP URL.
+    """
+    authorization_config: NotRequired[pulumi.Input['DataSourceHttpConfigAuthorizationConfigArgsDict']]
+    """
+    Authorization configuration in case the HTTP endpoint requires authorization. See `authorization_config` Block for details.
+    """
 
 @pulumi.input_type
 class DataSourceHttpConfigArgs:
@@ -1384,18 +1313,15 @@ class DataSourceHttpConfigArgs:
         pulumi.set(self, "authorization_config", value)
 
 
-if not MYPY:
-    class DataSourceHttpConfigAuthorizationConfigArgsDict(TypedDict):
-        authorization_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Authorization type that the HTTP endpoint requires. Default values is `AWS_IAM`.
-        """
-        aws_iam_config: NotRequired[pulumi.Input['DataSourceHttpConfigAuthorizationConfigAwsIamConfigArgsDict']]
-        """
-        Identity and Access Management (IAM) settings. See `aws_iam_config` Block for details.
-        """
-elif False:
-    DataSourceHttpConfigAuthorizationConfigArgsDict: TypeAlias = Mapping[str, Any]
+class DataSourceHttpConfigAuthorizationConfigArgsDict(TypedDict):
+    authorization_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Authorization type that the HTTP endpoint requires. Default values is `AWS_IAM`.
+    """
+    aws_iam_config: NotRequired[pulumi.Input['DataSourceHttpConfigAuthorizationConfigAwsIamConfigArgsDict']]
+    """
+    Identity and Access Management (IAM) settings. See `aws_iam_config` Block for details.
+    """
 
 @pulumi.input_type
 class DataSourceHttpConfigAuthorizationConfigArgs:
@@ -1436,18 +1362,15 @@ class DataSourceHttpConfigAuthorizationConfigArgs:
         pulumi.set(self, "aws_iam_config", value)
 
 
-if not MYPY:
-    class DataSourceHttpConfigAuthorizationConfigAwsIamConfigArgsDict(TypedDict):
-        signing_region: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Signing Amazon Web Services Region for IAM authorization.
-        """
-        signing_service_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Signing service name for IAM authorization.
-        """
-elif False:
-    DataSourceHttpConfigAuthorizationConfigAwsIamConfigArgsDict: TypeAlias = Mapping[str, Any]
+class DataSourceHttpConfigAuthorizationConfigAwsIamConfigArgsDict(TypedDict):
+    signing_region: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Signing Amazon Web Services Region for IAM authorization.
+    """
+    signing_service_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Signing service name for IAM authorization.
+    """
 
 @pulumi.input_type
 class DataSourceHttpConfigAuthorizationConfigAwsIamConfigArgs:
@@ -1488,14 +1411,11 @@ class DataSourceHttpConfigAuthorizationConfigAwsIamConfigArgs:
         pulumi.set(self, "signing_service_name", value)
 
 
-if not MYPY:
-    class DataSourceLambdaConfigArgsDict(TypedDict):
-        function_arn: pulumi.Input[_builtins.str]
-        """
-        ARN for the Lambda function.
-        """
-elif False:
-    DataSourceLambdaConfigArgsDict: TypeAlias = Mapping[str, Any]
+class DataSourceLambdaConfigArgsDict(TypedDict):
+    function_arn: pulumi.Input[_builtins.str]
+    """
+    ARN for the Lambda function.
+    """
 
 @pulumi.input_type
 class DataSourceLambdaConfigArgs:
@@ -1519,18 +1439,15 @@ class DataSourceLambdaConfigArgs:
         pulumi.set(self, "function_arn", value)
 
 
-if not MYPY:
-    class DataSourceOpensearchserviceConfigArgsDict(TypedDict):
-        endpoint: pulumi.Input[_builtins.str]
-        """
-        HTTP endpoint of the OpenSearch domain.
-        """
-        region: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        AWS region of the OpenSearch domain. Defaults to current region.
-        """
-elif False:
-    DataSourceOpensearchserviceConfigArgsDict: TypeAlias = Mapping[str, Any]
+class DataSourceOpensearchserviceConfigArgsDict(TypedDict):
+    endpoint: pulumi.Input[_builtins.str]
+    """
+    HTTP endpoint of the OpenSearch domain.
+    """
+    region: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    AWS region of the OpenSearch domain. Defaults to current region.
+    """
 
 @pulumi.input_type
 class DataSourceOpensearchserviceConfigArgs:
@@ -1570,18 +1487,15 @@ class DataSourceOpensearchserviceConfigArgs:
         pulumi.set(self, "region", value)
 
 
-if not MYPY:
-    class DataSourceRelationalDatabaseConfigArgsDict(TypedDict):
-        http_endpoint_config: NotRequired[pulumi.Input['DataSourceRelationalDatabaseConfigHttpEndpointConfigArgsDict']]
-        """
-        Amazon RDS HTTP endpoint configuration. See `http_endpoint_config` Block for details.
-        """
-        source_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Source type for the relational database. Valid values: `RDS_HTTP_ENDPOINT`.
-        """
-elif False:
-    DataSourceRelationalDatabaseConfigArgsDict: TypeAlias = Mapping[str, Any]
+class DataSourceRelationalDatabaseConfigArgsDict(TypedDict):
+    http_endpoint_config: NotRequired[pulumi.Input['DataSourceRelationalDatabaseConfigHttpEndpointConfigArgsDict']]
+    """
+    Amazon RDS HTTP endpoint configuration. See `http_endpoint_config` Block for details.
+    """
+    source_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Source type for the relational database. Valid values: `RDS_HTTP_ENDPOINT`.
+    """
 
 @pulumi.input_type
 class DataSourceRelationalDatabaseConfigArgs:
@@ -1622,30 +1536,27 @@ class DataSourceRelationalDatabaseConfigArgs:
         pulumi.set(self, "source_type", value)
 
 
-if not MYPY:
-    class DataSourceRelationalDatabaseConfigHttpEndpointConfigArgsDict(TypedDict):
-        aws_secret_store_arn: pulumi.Input[_builtins.str]
-        """
-        AWS secret store ARN for database credentials.
-        """
-        db_cluster_identifier: pulumi.Input[_builtins.str]
-        """
-        Amazon RDS cluster identifier.
-        """
-        database_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Logical database name.
-        """
-        region: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        AWS Region for RDS HTTP endpoint. Defaults to current region.
-        """
-        schema: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Logical schema name.
-        """
-elif False:
-    DataSourceRelationalDatabaseConfigHttpEndpointConfigArgsDict: TypeAlias = Mapping[str, Any]
+class DataSourceRelationalDatabaseConfigHttpEndpointConfigArgsDict(TypedDict):
+    aws_secret_store_arn: pulumi.Input[_builtins.str]
+    """
+    AWS secret store ARN for database credentials.
+    """
+    db_cluster_identifier: pulumi.Input[_builtins.str]
+    """
+    Amazon RDS cluster identifier.
+    """
+    database_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Logical database name.
+    """
+    region: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    AWS Region for RDS HTTP endpoint. Defaults to current region.
+    """
+    schema: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Logical schema name.
+    """
 
 @pulumi.input_type
 class DataSourceRelationalDatabaseConfigHttpEndpointConfigArgs:
@@ -1732,18 +1643,15 @@ class DataSourceRelationalDatabaseConfigHttpEndpointConfigArgs:
         pulumi.set(self, "schema", value)
 
 
-if not MYPY:
-    class FunctionRuntimeArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the runtime to use. Currently, the only allowed value is `APPSYNC_JS`.
-        """
-        runtime_version: pulumi.Input[_builtins.str]
-        """
-        The version of the runtime to use. Currently, the only allowed version is `1.0.0`.
-        """
-elif False:
-    FunctionRuntimeArgsDict: TypeAlias = Mapping[str, Any]
+class FunctionRuntimeArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the runtime to use. Currently, the only allowed value is `APPSYNC_JS`.
+    """
+    runtime_version: pulumi.Input[_builtins.str]
+    """
+    The version of the runtime to use. Currently, the only allowed version is `1.0.0`.
+    """
 
 @pulumi.input_type
 class FunctionRuntimeArgs:
@@ -1782,22 +1690,19 @@ class FunctionRuntimeArgs:
         pulumi.set(self, "runtime_version", value)
 
 
-if not MYPY:
-    class FunctionSyncConfigArgsDict(TypedDict):
-        conflict_detection: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Conflict Detection strategy to use. Valid values are `NONE` and `VERSION`.
-        """
-        conflict_handler: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Conflict Resolution strategy to perform in the event of a conflict. Valid values are `NONE`, `OPTIMISTIC_CONCURRENCY`, `AUTOMERGE`, and `LAMBDA`.
-        """
-        lambda_conflict_handler_config: NotRequired[pulumi.Input['FunctionSyncConfigLambdaConflictHandlerConfigArgsDict']]
-        """
-        Lambda Conflict Handler Config when configuring `LAMBDA` as the Conflict Handler. See `lambda_conflict_handler_config` Block for details.
-        """
-elif False:
-    FunctionSyncConfigArgsDict: TypeAlias = Mapping[str, Any]
+class FunctionSyncConfigArgsDict(TypedDict):
+    conflict_detection: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Conflict Detection strategy to use. Valid values are `NONE` and `VERSION`.
+    """
+    conflict_handler: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Conflict Resolution strategy to perform in the event of a conflict. Valid values are `NONE`, `OPTIMISTIC_CONCURRENCY`, `AUTOMERGE`, and `LAMBDA`.
+    """
+    lambda_conflict_handler_config: NotRequired[pulumi.Input['FunctionSyncConfigLambdaConflictHandlerConfigArgsDict']]
+    """
+    Lambda Conflict Handler Config when configuring `LAMBDA` as the Conflict Handler. See `lambda_conflict_handler_config` Block for details.
+    """
 
 @pulumi.input_type
 class FunctionSyncConfigArgs:
@@ -1854,14 +1759,11 @@ class FunctionSyncConfigArgs:
         pulumi.set(self, "lambda_conflict_handler_config", value)
 
 
-if not MYPY:
-    class FunctionSyncConfigLambdaConflictHandlerConfigArgsDict(TypedDict):
-        lambda_conflict_handler_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        ARN for the Lambda function to use as the Conflict Handler.
-        """
-elif False:
-    FunctionSyncConfigLambdaConflictHandlerConfigArgsDict: TypeAlias = Mapping[str, Any]
+class FunctionSyncConfigLambdaConflictHandlerConfigArgsDict(TypedDict):
+    lambda_conflict_handler_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    ARN for the Lambda function to use as the Conflict Handler.
+    """
 
 @pulumi.input_type
 class FunctionSyncConfigLambdaConflictHandlerConfigArgs:
@@ -1886,26 +1788,23 @@ class FunctionSyncConfigLambdaConflictHandlerConfigArgs:
         pulumi.set(self, "lambda_conflict_handler_arn", value)
 
 
-if not MYPY:
-    class GraphQLApiAdditionalAuthenticationProviderArgsDict(TypedDict):
-        authentication_type: pulumi.Input[_builtins.str]
-        """
-        Authentication type. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`
-        """
-        lambda_authorizer_config: NotRequired[pulumi.Input['GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfigArgsDict']]
-        """
-        Nested argument containing Lambda authorizer configuration. See `lambda_authorizer_config` Block for details.
-        """
-        openid_connect_config: NotRequired[pulumi.Input['GraphQLApiAdditionalAuthenticationProviderOpenidConnectConfigArgsDict']]
-        """
-        Nested argument containing OpenID Connect configuration. See `openid_connect_config` Block for details.
-        """
-        user_pool_config: NotRequired[pulumi.Input['GraphQLApiAdditionalAuthenticationProviderUserPoolConfigArgsDict']]
-        """
-        Amazon Cognito User Pool configuration. See `user_pool_config` Block for details.
-        """
-elif False:
-    GraphQLApiAdditionalAuthenticationProviderArgsDict: TypeAlias = Mapping[str, Any]
+class GraphQLApiAdditionalAuthenticationProviderArgsDict(TypedDict):
+    authentication_type: pulumi.Input[_builtins.str]
+    """
+    Authentication type. Valid values: `API_KEY`, `AWS_IAM`, `AMAZON_COGNITO_USER_POOLS`, `OPENID_CONNECT`, `AWS_LAMBDA`
+    """
+    lambda_authorizer_config: NotRequired[pulumi.Input['GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfigArgsDict']]
+    """
+    Nested argument containing Lambda authorizer configuration. See `lambda_authorizer_config` Block for details.
+    """
+    openid_connect_config: NotRequired[pulumi.Input['GraphQLApiAdditionalAuthenticationProviderOpenidConnectConfigArgsDict']]
+    """
+    Nested argument containing OpenID Connect configuration. See `openid_connect_config` Block for details.
+    """
+    user_pool_config: NotRequired[pulumi.Input['GraphQLApiAdditionalAuthenticationProviderUserPoolConfigArgsDict']]
+    """
+    Amazon Cognito User Pool configuration. See `user_pool_config` Block for details.
+    """
 
 @pulumi.input_type
 class GraphQLApiAdditionalAuthenticationProviderArgs:
@@ -1977,22 +1876,19 @@ class GraphQLApiAdditionalAuthenticationProviderArgs:
         pulumi.set(self, "user_pool_config", value)
 
 
-if not MYPY:
-    class GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfigArgsDict(TypedDict):
-        authorizer_uri: pulumi.Input[_builtins.str]
-        """
-        ARN of the Lambda function to be called for authorization. Note: This Lambda function must have a resource-based policy assigned to it, to allow `lambda:InvokeFunction` from service principal `appsync.amazonaws.com`.
-        """
-        authorizer_result_ttl_in_seconds: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Number of seconds a response should be cached for. The default is 5 minutes (300 seconds). The Lambda function can override this by returning a `ttlOverride` key in its response. A value of 0 disables caching of responses. Minimum value of 0. Maximum value of 3600.
-        """
-        identity_validation_expression: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Regular expression for validation of tokens before the Lambda function is called.
-        """
-elif False:
-    GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfigArgsDict: TypeAlias = Mapping[str, Any]
+class GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfigArgsDict(TypedDict):
+    authorizer_uri: pulumi.Input[_builtins.str]
+    """
+    ARN of the Lambda function to be called for authorization. Note: This Lambda function must have a resource-based policy assigned to it, to allow `lambda:InvokeFunction` from service principal `appsync.amazonaws.com`.
+    """
+    authorizer_result_ttl_in_seconds: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Number of seconds a response should be cached for. The default is 5 minutes (300 seconds). The Lambda function can override this by returning a `ttlOverride` key in its response. A value of 0 disables caching of responses. Minimum value of 0. Maximum value of 3600.
+    """
+    identity_validation_expression: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Regular expression for validation of tokens before the Lambda function is called.
+    """
 
 @pulumi.input_type
 class GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfigArgs:
@@ -2048,26 +1944,23 @@ class GraphQLApiAdditionalAuthenticationProviderLambdaAuthorizerConfigArgs:
         pulumi.set(self, "identity_validation_expression", value)
 
 
-if not MYPY:
-    class GraphQLApiAdditionalAuthenticationProviderOpenidConnectConfigArgsDict(TypedDict):
-        issuer: pulumi.Input[_builtins.str]
-        """
-        Issuer for the OpenID Connect configuration. The issuer returned by discovery MUST exactly match the value of iss in the ID Token.
-        """
-        auth_ttl: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Number of milliseconds a token is valid after being authenticated.
-        """
-        client_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Client identifier of the Relying party at the OpenID identity provider. This identifier is typically obtained when the Relying party is registered with the OpenID identity provider. You can specify a regular expression so the AWS AppSync can validate against multiple client identifiers at a time.
-        """
-        iat_ttl: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Number of milliseconds a token is valid after being issued to a user.
-        """
-elif False:
-    GraphQLApiAdditionalAuthenticationProviderOpenidConnectConfigArgsDict: TypeAlias = Mapping[str, Any]
+class GraphQLApiAdditionalAuthenticationProviderOpenidConnectConfigArgsDict(TypedDict):
+    issuer: pulumi.Input[_builtins.str]
+    """
+    Issuer for the OpenID Connect configuration. The issuer returned by discovery MUST exactly match the value of iss in the ID Token.
+    """
+    auth_ttl: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Number of milliseconds a token is valid after being authenticated.
+    """
+    client_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Client identifier of the Relying party at the OpenID identity provider. This identifier is typically obtained when the Relying party is registered with the OpenID identity provider. You can specify a regular expression so the AWS AppSync can validate against multiple client identifiers at a time.
+    """
+    iat_ttl: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Number of milliseconds a token is valid after being issued to a user.
+    """
 
 @pulumi.input_type
 class GraphQLApiAdditionalAuthenticationProviderOpenidConnectConfigArgs:
@@ -2139,22 +2032,19 @@ class GraphQLApiAdditionalAuthenticationProviderOpenidConnectConfigArgs:
         pulumi.set(self, "iat_ttl", value)
 
 
-if not MYPY:
-    class GraphQLApiAdditionalAuthenticationProviderUserPoolConfigArgsDict(TypedDict):
-        user_pool_id: pulumi.Input[_builtins.str]
-        """
-        User pool ID.
-        """
-        app_id_client_regex: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Regular expression for validating the incoming Amazon Cognito User Pool app client ID.
-        """
-        aws_region: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        AWS region in which the user pool was created.
-        """
-elif False:
-    GraphQLApiAdditionalAuthenticationProviderUserPoolConfigArgsDict: TypeAlias = Mapping[str, Any]
+class GraphQLApiAdditionalAuthenticationProviderUserPoolConfigArgsDict(TypedDict):
+    user_pool_id: pulumi.Input[_builtins.str]
+    """
+    User pool ID.
+    """
+    app_id_client_regex: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Regular expression for validating the incoming Amazon Cognito User Pool app client ID.
+    """
+    aws_region: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    AWS region in which the user pool was created.
+    """
 
 @pulumi.input_type
 class GraphQLApiAdditionalAuthenticationProviderUserPoolConfigArgs:
@@ -2210,22 +2100,19 @@ class GraphQLApiAdditionalAuthenticationProviderUserPoolConfigArgs:
         pulumi.set(self, "aws_region", value)
 
 
-if not MYPY:
-    class GraphQLApiEnhancedMetricsConfigArgsDict(TypedDict):
-        data_source_level_metrics_behavior: pulumi.Input[_builtins.str]
-        """
-        How data source metrics will be emitted to CloudWatch. Valid values: `FULL_REQUEST_DATA_SOURCE_METRICS`, `PER_DATA_SOURCE_METRICS`
-        """
-        operation_level_metrics_config: pulumi.Input[_builtins.str]
-        """
-        How operation metrics will be emitted to CloudWatch. Valid values: `ENABLED`, `DISABLED`
-        """
-        resolver_level_metrics_behavior: pulumi.Input[_builtins.str]
-        """
-        How resolver metrics will be emitted to CloudWatch. Valid values: `FULL_REQUEST_RESOLVER_METRICS`, `PER_RESOLVER_METRICS`
-        """
-elif False:
-    GraphQLApiEnhancedMetricsConfigArgsDict: TypeAlias = Mapping[str, Any]
+class GraphQLApiEnhancedMetricsConfigArgsDict(TypedDict):
+    data_source_level_metrics_behavior: pulumi.Input[_builtins.str]
+    """
+    How data source metrics will be emitted to CloudWatch. Valid values: `FULL_REQUEST_DATA_SOURCE_METRICS`, `PER_DATA_SOURCE_METRICS`
+    """
+    operation_level_metrics_config: pulumi.Input[_builtins.str]
+    """
+    How operation metrics will be emitted to CloudWatch. Valid values: `ENABLED`, `DISABLED`
+    """
+    resolver_level_metrics_behavior: pulumi.Input[_builtins.str]
+    """
+    How resolver metrics will be emitted to CloudWatch. Valid values: `FULL_REQUEST_RESOLVER_METRICS`, `PER_RESOLVER_METRICS`
+    """
 
 @pulumi.input_type
 class GraphQLApiEnhancedMetricsConfigArgs:
@@ -2279,22 +2166,19 @@ class GraphQLApiEnhancedMetricsConfigArgs:
         pulumi.set(self, "resolver_level_metrics_behavior", value)
 
 
-if not MYPY:
-    class GraphQLApiLambdaAuthorizerConfigArgsDict(TypedDict):
-        authorizer_uri: pulumi.Input[_builtins.str]
-        """
-        ARN of the Lambda function to be called for authorization. Note: This Lambda function must have a resource-based policy assigned to it, to allow `lambda:InvokeFunction` from service principal `appsync.amazonaws.com`.
-        """
-        authorizer_result_ttl_in_seconds: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Number of seconds a response should be cached for. The default is 5 minutes (300 seconds). The Lambda function can override this by returning a `ttlOverride` key in its response. A value of 0 disables caching of responses. Minimum value of 0. Maximum value of 3600.
-        """
-        identity_validation_expression: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Regular expression for validation of tokens before the Lambda function is called.
-        """
-elif False:
-    GraphQLApiLambdaAuthorizerConfigArgsDict: TypeAlias = Mapping[str, Any]
+class GraphQLApiLambdaAuthorizerConfigArgsDict(TypedDict):
+    authorizer_uri: pulumi.Input[_builtins.str]
+    """
+    ARN of the Lambda function to be called for authorization. Note: This Lambda function must have a resource-based policy assigned to it, to allow `lambda:InvokeFunction` from service principal `appsync.amazonaws.com`.
+    """
+    authorizer_result_ttl_in_seconds: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Number of seconds a response should be cached for. The default is 5 minutes (300 seconds). The Lambda function can override this by returning a `ttlOverride` key in its response. A value of 0 disables caching of responses. Minimum value of 0. Maximum value of 3600.
+    """
+    identity_validation_expression: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Regular expression for validation of tokens before the Lambda function is called.
+    """
 
 @pulumi.input_type
 class GraphQLApiLambdaAuthorizerConfigArgs:
@@ -2350,22 +2234,19 @@ class GraphQLApiLambdaAuthorizerConfigArgs:
         pulumi.set(self, "identity_validation_expression", value)
 
 
-if not MYPY:
-    class GraphQLApiLogConfigArgsDict(TypedDict):
-        cloudwatch_logs_role_arn: pulumi.Input[_builtins.str]
-        """
-        Amazon Resource Name of the service role that AWS AppSync will assume to publish to Amazon CloudWatch logs in your account.
-        """
-        field_log_level: pulumi.Input[_builtins.str]
-        """
-        Field logging level. Valid values: `ALL`, `ERROR`, `NONE`.
-        """
-        exclude_verbose_content: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Set to TRUE to exclude sections that contain information such as headers, context, and evaluated mapping templates, regardless of logging  level. Valid values: `true`, `false`. Default value: `false`
-        """
-elif False:
-    GraphQLApiLogConfigArgsDict: TypeAlias = Mapping[str, Any]
+class GraphQLApiLogConfigArgsDict(TypedDict):
+    cloudwatch_logs_role_arn: pulumi.Input[_builtins.str]
+    """
+    Amazon Resource Name of the service role that AWS AppSync will assume to publish to Amazon CloudWatch logs in your account.
+    """
+    field_log_level: pulumi.Input[_builtins.str]
+    """
+    Field logging level. Valid values: `ALL`, `ERROR`, `NONE`.
+    """
+    exclude_verbose_content: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Set to TRUE to exclude sections that contain information such as headers, context, and evaluated mapping templates, regardless of logging  level. Valid values: `true`, `false`. Default value: `false`
+    """
 
 @pulumi.input_type
 class GraphQLApiLogConfigArgs:
@@ -2420,26 +2301,23 @@ class GraphQLApiLogConfigArgs:
         pulumi.set(self, "exclude_verbose_content", value)
 
 
-if not MYPY:
-    class GraphQLApiOpenidConnectConfigArgsDict(TypedDict):
-        issuer: pulumi.Input[_builtins.str]
-        """
-        Issuer for the OpenID Connect configuration. The issuer returned by discovery MUST exactly match the value of iss in the ID Token.
-        """
-        auth_ttl: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Number of milliseconds a token is valid after being authenticated.
-        """
-        client_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Client identifier of the Relying party at the OpenID identity provider. This identifier is typically obtained when the Relying party is registered with the OpenID identity provider. You can specify a regular expression so the AWS AppSync can validate against multiple client identifiers at a time.
-        """
-        iat_ttl: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Number of milliseconds a token is valid after being issued to a user.
-        """
-elif False:
-    GraphQLApiOpenidConnectConfigArgsDict: TypeAlias = Mapping[str, Any]
+class GraphQLApiOpenidConnectConfigArgsDict(TypedDict):
+    issuer: pulumi.Input[_builtins.str]
+    """
+    Issuer for the OpenID Connect configuration. The issuer returned by discovery MUST exactly match the value of iss in the ID Token.
+    """
+    auth_ttl: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Number of milliseconds a token is valid after being authenticated.
+    """
+    client_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Client identifier of the Relying party at the OpenID identity provider. This identifier is typically obtained when the Relying party is registered with the OpenID identity provider. You can specify a regular expression so the AWS AppSync can validate against multiple client identifiers at a time.
+    """
+    iat_ttl: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Number of milliseconds a token is valid after being issued to a user.
+    """
 
 @pulumi.input_type
 class GraphQLApiOpenidConnectConfigArgs:
@@ -2511,26 +2389,23 @@ class GraphQLApiOpenidConnectConfigArgs:
         pulumi.set(self, "iat_ttl", value)
 
 
-if not MYPY:
-    class GraphQLApiUserPoolConfigArgsDict(TypedDict):
-        default_action: pulumi.Input[_builtins.str]
-        """
-        Action that you want your GraphQL API to take when a request that uses Amazon Cognito User Pool authentication doesn't match the Amazon Cognito User Pool configuration. Valid: `ALLOW` and `DENY`
-        """
-        user_pool_id: pulumi.Input[_builtins.str]
-        """
-        User pool ID.
-        """
-        app_id_client_regex: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Regular expression for validating the incoming Amazon Cognito User Pool app client ID.
-        """
-        aws_region: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        AWS region in which the user pool was created.
-        """
-elif False:
-    GraphQLApiUserPoolConfigArgsDict: TypeAlias = Mapping[str, Any]
+class GraphQLApiUserPoolConfigArgsDict(TypedDict):
+    default_action: pulumi.Input[_builtins.str]
+    """
+    Action that you want your GraphQL API to take when a request that uses Amazon Cognito User Pool authentication doesn't match the Amazon Cognito User Pool configuration. Valid: `ALLOW` and `DENY`
+    """
+    user_pool_id: pulumi.Input[_builtins.str]
+    """
+    User pool ID.
+    """
+    app_id_client_regex: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Regular expression for validating the incoming Amazon Cognito User Pool app client ID.
+    """
+    aws_region: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    AWS region in which the user pool was created.
+    """
 
 @pulumi.input_type
 class GraphQLApiUserPoolConfigArgs:
@@ -2601,18 +2476,15 @@ class GraphQLApiUserPoolConfigArgs:
         pulumi.set(self, "aws_region", value)
 
 
-if not MYPY:
-    class ResolverCachingConfigArgsDict(TypedDict):
-        caching_keys: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The caching keys for a resolver that has caching activated. Valid values are entries from the $context.arguments, $context.source, and $context.identity maps.
-        """
-        ttl: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The TTL in seconds for a resolver that has caching activated. Valid values are between `1` and `3600` seconds.
-        """
-elif False:
-    ResolverCachingConfigArgsDict: TypeAlias = Mapping[str, Any]
+class ResolverCachingConfigArgsDict(TypedDict):
+    caching_keys: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The caching keys for a resolver that has caching activated. Valid values are entries from the $context.arguments, $context.source, and $context.identity maps.
+    """
+    ttl: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The TTL in seconds for a resolver that has caching activated. Valid values are between `1` and `3600` seconds.
+    """
 
 @pulumi.input_type
 class ResolverCachingConfigArgs:
@@ -2653,14 +2525,11 @@ class ResolverCachingConfigArgs:
         pulumi.set(self, "ttl", value)
 
 
-if not MYPY:
-    class ResolverPipelineConfigArgsDict(TypedDict):
-        functions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        A list of Function objects.
-        """
-elif False:
-    ResolverPipelineConfigArgsDict: TypeAlias = Mapping[str, Any]
+class ResolverPipelineConfigArgsDict(TypedDict):
+    functions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    A list of Function objects.
+    """
 
 @pulumi.input_type
 class ResolverPipelineConfigArgs:
@@ -2685,18 +2554,15 @@ class ResolverPipelineConfigArgs:
         pulumi.set(self, "functions", value)
 
 
-if not MYPY:
-    class ResolverRuntimeArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the runtime to use. Currently, the only allowed value is `APPSYNC_JS`.
-        """
-        runtime_version: pulumi.Input[_builtins.str]
-        """
-        The version of the runtime to use. Currently, the only allowed version is `1.0.0`.
-        """
-elif False:
-    ResolverRuntimeArgsDict: TypeAlias = Mapping[str, Any]
+class ResolverRuntimeArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the runtime to use. Currently, the only allowed value is `APPSYNC_JS`.
+    """
+    runtime_version: pulumi.Input[_builtins.str]
+    """
+    The version of the runtime to use. Currently, the only allowed version is `1.0.0`.
+    """
 
 @pulumi.input_type
 class ResolverRuntimeArgs:
@@ -2735,22 +2601,19 @@ class ResolverRuntimeArgs:
         pulumi.set(self, "runtime_version", value)
 
 
-if not MYPY:
-    class ResolverSyncConfigArgsDict(TypedDict):
-        conflict_detection: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Conflict Detection strategy to use. Valid values are `NONE` and `VERSION`.
-        """
-        conflict_handler: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Conflict Resolution strategy to perform in the event of a conflict. Valid values are `NONE`, `OPTIMISTIC_CONCURRENCY`, `AUTOMERGE`, and `LAMBDA`.
-        """
-        lambda_conflict_handler_config: NotRequired[pulumi.Input['ResolverSyncConfigLambdaConflictHandlerConfigArgsDict']]
-        """
-        Lambda Conflict Handler Config when configuring `LAMBDA` as the Conflict Handler. See Lambda Conflict Handler Config.
-        """
-elif False:
-    ResolverSyncConfigArgsDict: TypeAlias = Mapping[str, Any]
+class ResolverSyncConfigArgsDict(TypedDict):
+    conflict_detection: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Conflict Detection strategy to use. Valid values are `NONE` and `VERSION`.
+    """
+    conflict_handler: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Conflict Resolution strategy to perform in the event of a conflict. Valid values are `NONE`, `OPTIMISTIC_CONCURRENCY`, `AUTOMERGE`, and `LAMBDA`.
+    """
+    lambda_conflict_handler_config: NotRequired[pulumi.Input['ResolverSyncConfigLambdaConflictHandlerConfigArgsDict']]
+    """
+    Lambda Conflict Handler Config when configuring `LAMBDA` as the Conflict Handler. See Lambda Conflict Handler Config.
+    """
 
 @pulumi.input_type
 class ResolverSyncConfigArgs:
@@ -2807,14 +2670,11 @@ class ResolverSyncConfigArgs:
         pulumi.set(self, "lambda_conflict_handler_config", value)
 
 
-if not MYPY:
-    class ResolverSyncConfigLambdaConflictHandlerConfigArgsDict(TypedDict):
-        lambda_conflict_handler_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        ARN for the Lambda function to use as the Conflict Handler.
-        """
-elif False:
-    ResolverSyncConfigLambdaConflictHandlerConfigArgsDict: TypeAlias = Mapping[str, Any]
+class ResolverSyncConfigLambdaConflictHandlerConfigArgsDict(TypedDict):
+    lambda_conflict_handler_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    ARN for the Lambda function to use as the Conflict Handler.
+    """
 
 @pulumi.input_type
 class ResolverSyncConfigLambdaConflictHandlerConfigArgs:
@@ -2839,14 +2699,11 @@ class ResolverSyncConfigLambdaConflictHandlerConfigArgs:
         pulumi.set(self, "lambda_conflict_handler_arn", value)
 
 
-if not MYPY:
-    class SourceApiAssociationSourceApiAssociationConfigArgsDict(TypedDict):
-        merge_type: pulumi.Input[_builtins.str]
-        """
-        Merge type. Valid values: `MANUAL_MERGE`, `AUTO_MERGE`
-        """
-elif False:
-    SourceApiAssociationSourceApiAssociationConfigArgsDict: TypeAlias = Mapping[str, Any]
+class SourceApiAssociationSourceApiAssociationConfigArgsDict(TypedDict):
+    merge_type: pulumi.Input[_builtins.str]
+    """
+    Merge type. Valid values: `MANUAL_MERGE`, `AUTO_MERGE`
+    """
 
 @pulumi.input_type
 class SourceApiAssociationSourceApiAssociationConfigArgs:
@@ -2870,22 +2727,19 @@ class SourceApiAssociationSourceApiAssociationConfigArgs:
         pulumi.set(self, "merge_type", value)
 
 
-if not MYPY:
-    class SourceApiAssociationTimeoutsArgsDict(TypedDict):
-        create: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
-        """
-        delete: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
-        """
-        update: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
-        """
-elif False:
-    SourceApiAssociationTimeoutsArgsDict: TypeAlias = Mapping[str, Any]
+class SourceApiAssociationTimeoutsArgsDict(TypedDict):
+    create: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+    """
+    delete: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+    """
+    update: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+    """
 
 @pulumi.input_type
 class SourceApiAssociationTimeoutsArgs:

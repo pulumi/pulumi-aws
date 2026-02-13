@@ -64,7 +64,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Using `pulumi import`, import `aws_apigatewayv2_route_response` using the API identifier, route identifier and route response identifier. For example:
+ * Using `pulumi import`, import `aws.apigatewayv2.RouteResponse` using the API identifier, route identifier and route response identifier. For example:
  * 
  * ```sh
  * $ pulumi import aws:apigatewayv2/routeResponse:RouteResponse example aabbccddee/1122334/998877

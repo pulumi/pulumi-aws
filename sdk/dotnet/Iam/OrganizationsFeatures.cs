@@ -47,7 +47,7 @@ namespace Pulumi.Aws.Iam
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import root access features using the `id`. For example:
+    /// Using `pulumi import`, import root access features using the `Id`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:iam/organizationsFeatures:OrganizationsFeatures example o-1234567

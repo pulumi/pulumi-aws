@@ -51,9 +51,11 @@ import (
 //
 // - `arn` (String) Amazon Resource Name (ARN) of the DynamoDB table.
 //
-// Using `pulumi import`, import DynamoDB Resource Policy using the `resource_arn`. For example:
+// Using `pulumi import`, import DynamoDB Resource Policy using the `resourceArn`. For example:
 //
-// % pulumi import aws_dynamodb_resource_policy.example arn:aws:dynamodb:us-east-1:1234567890:table/my-table
+// ```sh
+// $ pulumi import aws:dynamodb/resourcePolicy:ResourcePolicy example arn:aws:dynamodb:us-east-1:1234567890:table/my-table
+// ```
 type ResourcePolicy struct {
 	pulumi.CustomResourceState
 

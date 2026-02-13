@@ -47,20 +47,15 @@ __all__ = [
     'WorkspaceLoggingConfigurationArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class QueryLoggingConfigurationDestinationArgsDict(TypedDict):
-        cloudwatch_logs: pulumi.Input['QueryLoggingConfigurationDestinationCloudwatchLogsArgsDict']
-        """
-        Configuration block for CloudWatch Logs destination. See `cloudwatch_logs`.
-        """
-        filters: pulumi.Input['QueryLoggingConfigurationDestinationFiltersArgsDict']
-        """
-        A list of filter configurations that specify which logs should be sent to the destination. See `filters`.
-        """
-elif False:
-    QueryLoggingConfigurationDestinationArgsDict: TypeAlias = Mapping[str, Any]
+class QueryLoggingConfigurationDestinationArgsDict(TypedDict):
+    cloudwatch_logs: pulumi.Input['QueryLoggingConfigurationDestinationCloudwatchLogsArgsDict']
+    """
+    Configuration block for CloudWatch Logs destination. See `cloudwatch_logs`.
+    """
+    filters: pulumi.Input['QueryLoggingConfigurationDestinationFiltersArgsDict']
+    """
+    A list of filter configurations that specify which logs should be sent to the destination. See `filters`.
+    """
 
 @pulumi.input_type
 class QueryLoggingConfigurationDestinationArgs:
@@ -99,14 +94,11 @@ class QueryLoggingConfigurationDestinationArgs:
         pulumi.set(self, "filters", value)
 
 
-if not MYPY:
-    class QueryLoggingConfigurationDestinationCloudwatchLogsArgsDict(TypedDict):
-        log_group_arn: pulumi.Input[_builtins.str]
-        """
-        The ARN of the CloudWatch log group to which query logs will be sent. The ARN must end with `:*`
-        """
-elif False:
-    QueryLoggingConfigurationDestinationCloudwatchLogsArgsDict: TypeAlias = Mapping[str, Any]
+class QueryLoggingConfigurationDestinationCloudwatchLogsArgsDict(TypedDict):
+    log_group_arn: pulumi.Input[_builtins.str]
+    """
+    The ARN of the CloudWatch log group to which query logs will be sent. The ARN must end with `:*`
+    """
 
 @pulumi.input_type
 class QueryLoggingConfigurationDestinationCloudwatchLogsArgs:
@@ -130,14 +122,11 @@ class QueryLoggingConfigurationDestinationCloudwatchLogsArgs:
         pulumi.set(self, "log_group_arn", value)
 
 
-if not MYPY:
-    class QueryLoggingConfigurationDestinationFiltersArgsDict(TypedDict):
-        qsp_threshold: pulumi.Input[_builtins.int]
-        """
-        The Query Samples Processed (QSP) threshold above which queries will be logged. Queries processing more samples than this threshold will be captured in logs.
-        """
-elif False:
-    QueryLoggingConfigurationDestinationFiltersArgsDict: TypeAlias = Mapping[str, Any]
+class QueryLoggingConfigurationDestinationFiltersArgsDict(TypedDict):
+    qsp_threshold: pulumi.Input[_builtins.int]
+    """
+    The Query Samples Processed (QSP) threshold above which queries will be logged. Queries processing more samples than this threshold will be captured in logs.
+    """
 
 @pulumi.input_type
 class QueryLoggingConfigurationDestinationFiltersArgs:
@@ -161,22 +150,19 @@ class QueryLoggingConfigurationDestinationFiltersArgs:
         pulumi.set(self, "qsp_threshold", value)
 
 
-if not MYPY:
-    class QueryLoggingConfigurationTimeoutsArgsDict(TypedDict):
-        create: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
-        """
-        delete: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
-        """
-        update: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
-        """
-elif False:
-    QueryLoggingConfigurationTimeoutsArgsDict: TypeAlias = Mapping[str, Any]
+class QueryLoggingConfigurationTimeoutsArgsDict(TypedDict):
+    create: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+    """
+    delete: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+    """
+    update: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+    """
 
 @pulumi.input_type
 class QueryLoggingConfigurationTimeoutsArgs:
@@ -233,22 +219,19 @@ class QueryLoggingConfigurationTimeoutsArgs:
         pulumi.set(self, "update", value)
 
 
-if not MYPY:
-    class ResourcePolicyTimeoutsArgsDict(TypedDict):
-        create: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
-        """
-        delete: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
-        """
-        update: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
-        """
-elif False:
-    ResourcePolicyTimeoutsArgsDict: TypeAlias = Mapping[str, Any]
+class ResourcePolicyTimeoutsArgsDict(TypedDict):
+    create: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+    """
+    delete: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+    """
+    update: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+    """
 
 @pulumi.input_type
 class ResourcePolicyTimeoutsArgs:
@@ -305,14 +288,11 @@ class ResourcePolicyTimeoutsArgs:
         pulumi.set(self, "update", value)
 
 
-if not MYPY:
-    class ScraperDestinationArgsDict(TypedDict):
-        amp: NotRequired[pulumi.Input['ScraperDestinationAmpArgsDict']]
-        """
-        Configuration block for an Amazon Managed Prometheus workspace destination. See `amp`.
-        """
-elif False:
-    ScraperDestinationArgsDict: TypeAlias = Mapping[str, Any]
+class ScraperDestinationArgsDict(TypedDict):
+    amp: NotRequired[pulumi.Input['ScraperDestinationAmpArgsDict']]
+    """
+    Configuration block for an Amazon Managed Prometheus workspace destination. See `amp`.
+    """
 
 @pulumi.input_type
 class ScraperDestinationArgs:
@@ -337,14 +317,11 @@ class ScraperDestinationArgs:
         pulumi.set(self, "amp", value)
 
 
-if not MYPY:
-    class ScraperDestinationAmpArgsDict(TypedDict):
-        workspace_arn: pulumi.Input[_builtins.str]
-        """
-        The Amazon Resource Name (ARN) of the prometheus workspace.
-        """
-elif False:
-    ScraperDestinationAmpArgsDict: TypeAlias = Mapping[str, Any]
+class ScraperDestinationAmpArgsDict(TypedDict):
+    workspace_arn: pulumi.Input[_builtins.str]
+    """
+    The Amazon Resource Name (ARN) of the prometheus workspace.
+    """
 
 @pulumi.input_type
 class ScraperDestinationAmpArgs:
@@ -368,18 +345,15 @@ class ScraperDestinationAmpArgs:
         pulumi.set(self, "workspace_arn", value)
 
 
-if not MYPY:
-    class ScraperRoleConfigurationArgsDict(TypedDict):
-        source_role_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Amazon Resource Name (ARN) of the source role configuration. Must be an IAM role ARN.
-        """
-        target_role_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Amazon Resource Name (ARN) of the target role configuration. Must be an IAM role ARN.
-        """
-elif False:
-    ScraperRoleConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class ScraperRoleConfigurationArgsDict(TypedDict):
+    source_role_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Amazon Resource Name (ARN) of the source role configuration. Must be an IAM role ARN.
+    """
+    target_role_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Amazon Resource Name (ARN) of the target role configuration. Must be an IAM role ARN.
+    """
 
 @pulumi.input_type
 class ScraperRoleConfigurationArgs:
@@ -420,14 +394,11 @@ class ScraperRoleConfigurationArgs:
         pulumi.set(self, "target_role_arn", value)
 
 
-if not MYPY:
-    class ScraperSourceArgsDict(TypedDict):
-        eks: pulumi.Input['ScraperSourceEksArgsDict']
-        """
-        Configuration block for an EKS cluster source. See `eks`.
-        """
-elif False:
-    ScraperSourceArgsDict: TypeAlias = Mapping[str, Any]
+class ScraperSourceArgsDict(TypedDict):
+    eks: pulumi.Input['ScraperSourceEksArgsDict']
+    """
+    Configuration block for an EKS cluster source. See `eks`.
+    """
 
 @pulumi.input_type
 class ScraperSourceArgs:
@@ -451,19 +422,16 @@ class ScraperSourceArgs:
         pulumi.set(self, "eks", value)
 
 
-if not MYPY:
-    class ScraperSourceEksArgsDict(TypedDict):
-        cluster_arn: pulumi.Input[_builtins.str]
-        subnet_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        List of subnet IDs. Must be in at least two different availability zones.
-        """
-        security_group_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        List of the security group IDs for the Amazon EKS cluster VPC configuration.
-        """
-elif False:
-    ScraperSourceEksArgsDict: TypeAlias = Mapping[str, Any]
+class ScraperSourceEksArgsDict(TypedDict):
+    cluster_arn: pulumi.Input[_builtins.str]
+    subnet_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    List of subnet IDs. Must be in at least two different availability zones.
+    """
+    security_group_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    List of the security group IDs for the Amazon EKS cluster VPC configuration.
+    """
 
 @pulumi.input_type
 class ScraperSourceEksArgs:
@@ -514,22 +482,19 @@ class ScraperSourceEksArgs:
         pulumi.set(self, "security_group_ids", value)
 
 
-if not MYPY:
-    class ScraperTimeoutsArgsDict(TypedDict):
-        create: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
-        """
-        delete: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
-        """
-        update: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
-        """
-elif False:
-    ScraperTimeoutsArgsDict: TypeAlias = Mapping[str, Any]
+class ScraperTimeoutsArgsDict(TypedDict):
+    create: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+    """
+    delete: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+    """
+    update: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+    """
 
 @pulumi.input_type
 class ScraperTimeoutsArgs:
@@ -586,18 +551,15 @@ class ScraperTimeoutsArgs:
         pulumi.set(self, "update", value)
 
 
-if not MYPY:
-    class WorkspaceConfigurationLimitsPerLabelSetArgsDict(TypedDict):
-        label_set: pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]
-        """
-        Map of label key-value pairs that identify the metrics to which the limits apply. An empty map represents the default bucket for metrics that don't match any other label set.
-        """
-        limits: pulumi.Input['WorkspaceConfigurationLimitsPerLabelSetLimitsArgsDict']
-        """
-        Configuration block for the limits to apply to the specified label set. Detailed below.
-        """
-elif False:
-    WorkspaceConfigurationLimitsPerLabelSetArgsDict: TypeAlias = Mapping[str, Any]
+class WorkspaceConfigurationLimitsPerLabelSetArgsDict(TypedDict):
+    label_set: pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]
+    """
+    Map of label key-value pairs that identify the metrics to which the limits apply. An empty map represents the default bucket for metrics that don't match any other label set.
+    """
+    limits: pulumi.Input['WorkspaceConfigurationLimitsPerLabelSetLimitsArgsDict']
+    """
+    Configuration block for the limits to apply to the specified label set. Detailed below.
+    """
 
 @pulumi.input_type
 class WorkspaceConfigurationLimitsPerLabelSetArgs:
@@ -636,14 +598,11 @@ class WorkspaceConfigurationLimitsPerLabelSetArgs:
         pulumi.set(self, "limits", value)
 
 
-if not MYPY:
-    class WorkspaceConfigurationLimitsPerLabelSetLimitsArgsDict(TypedDict):
-        max_series: pulumi.Input[_builtins.int]
-        """
-        Maximum number of active time series that can be ingested for metrics matching the label set.
-        """
-elif False:
-    WorkspaceConfigurationLimitsPerLabelSetLimitsArgsDict: TypeAlias = Mapping[str, Any]
+class WorkspaceConfigurationLimitsPerLabelSetLimitsArgsDict(TypedDict):
+    max_series: pulumi.Input[_builtins.int]
+    """
+    Maximum number of active time series that can be ingested for metrics matching the label set.
+    """
 
 @pulumi.input_type
 class WorkspaceConfigurationLimitsPerLabelSetLimitsArgs:
@@ -667,18 +626,15 @@ class WorkspaceConfigurationLimitsPerLabelSetLimitsArgs:
         pulumi.set(self, "max_series", value)
 
 
-if not MYPY:
-    class WorkspaceConfigurationTimeoutsArgsDict(TypedDict):
-        create: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
-        """
-        update: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
-        """
-elif False:
-    WorkspaceConfigurationTimeoutsArgsDict: TypeAlias = Mapping[str, Any]
+class WorkspaceConfigurationTimeoutsArgsDict(TypedDict):
+    create: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+    """
+    update: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+    """
 
 @pulumi.input_type
 class WorkspaceConfigurationTimeoutsArgs:
@@ -719,14 +675,11 @@ class WorkspaceConfigurationTimeoutsArgs:
         pulumi.set(self, "update", value)
 
 
-if not MYPY:
-    class WorkspaceLoggingConfigurationArgsDict(TypedDict):
-        log_group_arn: pulumi.Input[_builtins.str]
-        """
-        The ARN of the CloudWatch log group to which the vended log data will be published. This log group must exist. The ARN must end with `:*`
-        """
-elif False:
-    WorkspaceLoggingConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class WorkspaceLoggingConfigurationArgsDict(TypedDict):
+    log_group_arn: pulumi.Input[_builtins.str]
+    """
+    The ARN of the CloudWatch log group to which the vended log data will be published. This log group must exist. The ARN must end with `:*`
+    """
 
 @pulumi.input_type
 class WorkspaceLoggingConfigurationArgs:

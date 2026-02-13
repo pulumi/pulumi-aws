@@ -36,7 +36,7 @@ namespace Pulumi.Aws.AppSync
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import AppSync Source API Association using the `association_id` and `merged_api_id` separated by `,`. For example:
+    /// Using `pulumi import`, import AppSync Source API Association using the `AssociationId` and `MergedApiId` separated by `,`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:appsync/sourceApiAssociation:SourceApiAssociation example gzos6bteufdunffzzifiowisoe,243685a0-9347-4a1a-89c1-9b57dea01e31

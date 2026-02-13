@@ -194,13 +194,14 @@ import * as utilities from "../utilities";
  *
  * #### Optional
  *
- * * `account_id` (String) AWS Account where this resource is managed.
- *
+ * * `accountId` (String) AWS Account where this resource is managed.
  * * `region` (String) Region where this resource is managed.
  *
  * Using `pulumi import`, import Security Groups using the security group `id`. For example:
  *
- * % pulumi import aws_security_group.example sg-903004f8
+ * ```sh
+ * $ pulumi import aws:ec2/securityGroup:SecurityGroup example sg-903004f8
+ * ```
  */
 export class SecurityGroup extends pulumi.CustomResource {
     /**

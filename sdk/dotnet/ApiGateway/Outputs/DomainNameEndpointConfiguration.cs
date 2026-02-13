@@ -13,6 +13,9 @@ namespace Pulumi.Aws.ApiGateway.Outputs
     [OutputType]
     public sealed class DomainNameEndpointConfiguration
     {
+        /// <summary>
+        /// The IP address types that can invoke a DomainName. Valid values: `Ipv4`, `Dualstack`. Use `Ipv4` to allow only IPv4 addresses to invoke a DomainName, or use `Dualstack` to allow both IPv4 and IPv6 addresses to invoke a DomainName. For the `PRIVATE` endpoint type, only `Dualstack` is supported. Terraform performs drift detection for this argument only when the value is provided.
+        /// </summary>
         public readonly string? IpAddressType;
         /// <summary>
         /// A list of endpoint types of an API or its custom domain name. For an edge-optimized API and its custom domain name, the endpoint type is `EDGE`. For a regional API and its custom domain name, the endpoint type is `REGIONAL`. For a private API, the endpoint type is `PRIVATE`.

@@ -10,6 +10,12 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.SavingsPlans
 {
     /// <summary>
+    /// Provides an AWS Savings Plan resource.
+    /// 
+    /// &gt; **WARNING:** Savings Plans represent a financial commitment. Once a Savings Plan becomes active, it **cannot be cancelled or deleted**. Only Savings Plans in the `Queued` state (scheduled for future purchase) can be deleted. Use this resource with caution.
+    /// 
+    /// &gt; **Note:** Importing an active Savings Plan will add it to your Terraform state, but destroying it will only remove it from state - the actual Savings Plan will continue until its term ends.
+    /// 
     /// ## Example Usage
     /// 
     /// ### Basic Usage
@@ -61,9 +67,9 @@ namespace Pulumi.Aws.SavingsPlans
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import Savings Plans using the `id`. For example:
+    /// Using `pulumi import`, import Savings Plans using the `Id`. For example:
     /// 
-    /// Using `terraform state mv`, import Savings Plans using the `id`. For example:
+    /// Using `terraform state mv`, import Savings Plans using the `Id`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:savingsplans/savingsPlan:SavingsPlan example sp-12345678901234567

@@ -296,7 +296,7 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import Spot Fleet Requests using `id`. For example:
+    /// Using `pulumi import`, import Spot Fleet Requests using `Id`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:ec2/spotFleetRequest:SpotFleetRequest fleet sfr-005e9ec8-5546-4c31-b317-31a62325411e

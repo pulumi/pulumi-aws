@@ -50,6 +50,8 @@ import (
 // ```sh
 // $ pulumi import aws:cloudfront/connectionGroup:ConnectionGroup example CGROUP123EXAMPLE
 // ```
+//
+// [1]: https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-cloudfront-connectiongroup.html
 type ConnectionGroup struct {
 	pulumi.CustomResourceState
 

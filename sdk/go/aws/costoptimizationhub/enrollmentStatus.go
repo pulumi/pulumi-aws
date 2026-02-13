@@ -78,8 +78,9 @@ type EnrollmentStatus struct {
 	pulumi.CustomResourceState
 
 	// Flag to enroll member accounts of the organization if the account is the management account. No drift detection is currently supported for this argument. Default value is `false`.
-	IncludeMemberAccounts pulumi.BoolOutput   `pulumi:"includeMemberAccounts"`
-	Status                pulumi.StringOutput `pulumi:"status"`
+	IncludeMemberAccounts pulumi.BoolOutput `pulumi:"includeMemberAccounts"`
+	// Status of enrollment. When the resource is present in Terraform, its status will always be `Active`.
+	Status pulumi.StringOutput `pulumi:"status"`
 }
 
 // NewEnrollmentStatus registers a new resource with the given unique name, arguments, and options.
@@ -113,14 +114,16 @@ func GetEnrollmentStatus(ctx *pulumi.Context,
 // Input properties used for looking up and filtering EnrollmentStatus resources.
 type enrollmentStatusState struct {
 	// Flag to enroll member accounts of the organization if the account is the management account. No drift detection is currently supported for this argument. Default value is `false`.
-	IncludeMemberAccounts *bool   `pulumi:"includeMemberAccounts"`
-	Status                *string `pulumi:"status"`
+	IncludeMemberAccounts *bool `pulumi:"includeMemberAccounts"`
+	// Status of enrollment. When the resource is present in Terraform, its status will always be `Active`.
+	Status *string `pulumi:"status"`
 }
 
 type EnrollmentStatusState struct {
 	// Flag to enroll member accounts of the organization if the account is the management account. No drift detection is currently supported for this argument. Default value is `false`.
 	IncludeMemberAccounts pulumi.BoolPtrInput
-	Status                pulumi.StringPtrInput
+	// Status of enrollment. When the resource is present in Terraform, its status will always be `Active`.
+	Status pulumi.StringPtrInput
 }
 
 func (EnrollmentStatusState) ElementType() reflect.Type {
@@ -230,6 +233,7 @@ func (o EnrollmentStatusOutput) IncludeMemberAccounts() pulumi.BoolOutput {
 	return o.ApplyT(func(v *EnrollmentStatus) pulumi.BoolOutput { return v.IncludeMemberAccounts }).(pulumi.BoolOutput)
 }
 
+// Status of enrollment. When the resource is present in Terraform, its status will always be `Active`.
 func (o EnrollmentStatusOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v *EnrollmentStatus) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
 }

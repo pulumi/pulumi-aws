@@ -39,32 +39,27 @@ __all__ = [
     'ReplicationInstanceKerberosAuthenticationSettingsArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class EndpointElasticsearchSettingsArgsDict(TypedDict):
-        endpoint_uri: pulumi.Input[_builtins.str]
-        """
-        Endpoint for the OpenSearch cluster.
-        """
-        service_access_role_arn: pulumi.Input[_builtins.str]
-        """
-        ARN of the IAM Role with permissions to write to the OpenSearch cluster.
-        """
-        error_retry_duration: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Maximum number of seconds for which DMS retries failed API requests to the OpenSearch cluster. Default is `300`.
-        """
-        full_load_error_percentage: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Maximum percentage of records that can fail to be written before a full load operation stops. Default is `10`.
-        """
-        use_new_mapping_type: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Enable to migrate documentation using the documentation type `_doc`. OpenSearch and an Elasticsearch clusters only support the _doc documentation type in versions 7.x and later. The default value is `false`.
-        """
-elif False:
-    EndpointElasticsearchSettingsArgsDict: TypeAlias = Mapping[str, Any]
+class EndpointElasticsearchSettingsArgsDict(TypedDict):
+    endpoint_uri: pulumi.Input[_builtins.str]
+    """
+    Endpoint for the OpenSearch cluster.
+    """
+    service_access_role_arn: pulumi.Input[_builtins.str]
+    """
+    ARN of the IAM Role with permissions to write to the OpenSearch cluster.
+    """
+    error_retry_duration: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Maximum number of seconds for which DMS retries failed API requests to the OpenSearch cluster. Default is `300`.
+    """
+    full_load_error_percentage: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Maximum percentage of records that can fail to be written before a full load operation stops. Default is `10`.
+    """
+    use_new_mapping_type: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Enable to migrate documentation using the documentation type `_doc`. OpenSearch and an Elasticsearch clusters only support the _doc documentation type in versions 7.x and later. The default value is `false`.
+    """
 
 @pulumi.input_type
 class EndpointElasticsearchSettingsArgs:
@@ -151,86 +146,83 @@ class EndpointElasticsearchSettingsArgs:
         pulumi.set(self, "use_new_mapping_type", value)
 
 
-if not MYPY:
-    class EndpointKafkaSettingsArgsDict(TypedDict):
-        broker: pulumi.Input[_builtins.str]
-        """
-        Kafka broker location. Specify in the form broker-hostname-or-ip:port.
-        """
-        include_control_details: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Shows detailed control information for table definition, column definition, and table and column changes in the Kafka message output. Default is `false`.
-        """
-        include_null_and_empty: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Include NULL and empty columns for records migrated to the endpoint. Default is `false`.
-        """
-        include_partition_value: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Shows the partition value within the Kafka message output unless the partition type is `schema-table-type`. Default is `false`.
-        """
-        include_table_alter_operations: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Includes any data definition language (DDL) operations that change the table in the control data, such as `rename-table`, `drop-table`, `add-column`, `drop-column`, and `rename-column`. Default is `false`.
-        """
-        include_transaction_details: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Provides detailed transaction information from the source database. This information includes a commit timestamp, a log position, and values for `transaction_id`, previous `transaction_id`, and `transaction_record_id` (the record offset within a transaction). Default is `false`.
-        """
-        message_format: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Output format for the records created on the endpoint. Message format is `JSON` (default) or `JSON_UNFORMATTED` (a single line with no tab).
-        """
-        message_max_bytes: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Maximum size in bytes for records created on the endpoint Default is `1,000,000`.
-        """
-        no_hex_prefix: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Set this optional parameter to true to avoid adding a '0x' prefix to raw data in hexadecimal format. For example, by default, AWS DMS adds a '0x' prefix to the LOB column type in hexadecimal format moving from an Oracle source to a Kafka target. Use the `no_hex_prefix` endpoint setting to enable migration of RAW data type columns without adding the `'0x'` prefix.
-        """
-        partition_include_schema_table: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Prefixes schema and table names to partition values, when the partition type is `primary-key-type`. Doing this increases data distribution among Kafka partitions. For example, suppose that a SysBench schema has thousands of tables and each table has only limited range for a primary key. In this case, the same primary key is sent from thousands of tables to the same partition, which causes throttling. Default is `false`.
-        """
-        sasl_mechanism: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        For SASL/SSL authentication, AWS DMS supports the `scram-sha-512` mechanism by default. AWS DMS versions 3.5.0 and later also support the PLAIN mechanism. To use the PLAIN mechanism, set this parameter to `plain`.
-        """
-        sasl_password: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Secure password you created when you first set up your MSK cluster to validate a client identity and make an encrypted connection between server and client using SASL-SSL authentication.
-        """
-        sasl_username: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Secure user name you created when you first set up your MSK cluster to validate a client identity and make an encrypted connection between server and client using SASL-SSL authentication.
-        """
-        security_protocol: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Set secure connection to a Kafka target endpoint using Transport Layer Security (TLS). Options include `ssl-encryption`, `ssl-authentication`, and `sasl-ssl`. `sasl-ssl` requires `sasl_username` and `sasl_password`.
-        """
-        ssl_ca_certificate_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        ARN for the private certificate authority (CA) cert that AWS DMS uses to securely connect to your Kafka target endpoint.
-        """
-        ssl_client_certificate_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        ARN of the client certificate used to securely connect to a Kafka target endpoint.
-        """
-        ssl_client_key_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        ARN for the client private key used to securely connect to a Kafka target endpoint.
-        """
-        ssl_client_key_password: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Password for the client private key used to securely connect to a Kafka target endpoint.
-        """
-        topic: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Kafka topic for migration. Default is `kafka-default-topic`.
-        """
-elif False:
-    EndpointKafkaSettingsArgsDict: TypeAlias = Mapping[str, Any]
+class EndpointKafkaSettingsArgsDict(TypedDict):
+    broker: pulumi.Input[_builtins.str]
+    """
+    Kafka broker location. Specify in the form broker-hostname-or-ip:port.
+    """
+    include_control_details: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Shows detailed control information for table definition, column definition, and table and column changes in the Kafka message output. Default is `false`.
+    """
+    include_null_and_empty: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Include NULL and empty columns for records migrated to the endpoint. Default is `false`.
+    """
+    include_partition_value: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Shows the partition value within the Kafka message output unless the partition type is `schema-table-type`. Default is `false`.
+    """
+    include_table_alter_operations: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Includes any data definition language (DDL) operations that change the table in the control data, such as `rename-table`, `drop-table`, `add-column`, `drop-column`, and `rename-column`. Default is `false`.
+    """
+    include_transaction_details: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Provides detailed transaction information from the source database. This information includes a commit timestamp, a log position, and values for `transaction_id`, previous `transaction_id`, and `transaction_record_id` (the record offset within a transaction). Default is `false`.
+    """
+    message_format: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Output format for the records created on the endpoint. Message format is `JSON` (default) or `JSON_UNFORMATTED` (a single line with no tab).
+    """
+    message_max_bytes: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Maximum size in bytes for records created on the endpoint Default is `1,000,000`.
+    """
+    no_hex_prefix: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Set this optional parameter to true to avoid adding a '0x' prefix to raw data in hexadecimal format. For example, by default, AWS DMS adds a '0x' prefix to the LOB column type in hexadecimal format moving from an Oracle source to a Kafka target. Use the `no_hex_prefix` endpoint setting to enable migration of RAW data type columns without adding the `'0x'` prefix.
+    """
+    partition_include_schema_table: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Prefixes schema and table names to partition values, when the partition type is `primary-key-type`. Doing this increases data distribution among Kafka partitions. For example, suppose that a SysBench schema has thousands of tables and each table has only limited range for a primary key. In this case, the same primary key is sent from thousands of tables to the same partition, which causes throttling. Default is `false`.
+    """
+    sasl_mechanism: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    For SASL/SSL authentication, AWS DMS supports the `scram-sha-512` mechanism by default. AWS DMS versions 3.5.0 and later also support the PLAIN mechanism. To use the PLAIN mechanism, set this parameter to `plain`.
+    """
+    sasl_password: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Secure password you created when you first set up your MSK cluster to validate a client identity and make an encrypted connection between server and client using SASL-SSL authentication.
+    """
+    sasl_username: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Secure user name you created when you first set up your MSK cluster to validate a client identity and make an encrypted connection between server and client using SASL-SSL authentication.
+    """
+    security_protocol: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Set secure connection to a Kafka target endpoint using Transport Layer Security (TLS). Options include `ssl-encryption`, `ssl-authentication`, and `sasl-ssl`. `sasl-ssl` requires `sasl_username` and `sasl_password`.
+    """
+    ssl_ca_certificate_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    ARN for the private certificate authority (CA) cert that AWS DMS uses to securely connect to your Kafka target endpoint.
+    """
+    ssl_client_certificate_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    ARN of the client certificate used to securely connect to a Kafka target endpoint.
+    """
+    ssl_client_key_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    ARN for the client private key used to securely connect to a Kafka target endpoint.
+    """
+    ssl_client_key_password: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Password for the client private key used to securely connect to a Kafka target endpoint.
+    """
+    topic: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Kafka topic for migration. Default is `kafka-default-topic`.
+    """
 
 @pulumi.input_type
 class EndpointKafkaSettingsArgs:
@@ -542,50 +534,47 @@ class EndpointKafkaSettingsArgs:
         pulumi.set(self, "topic", value)
 
 
-if not MYPY:
-    class EndpointKinesisSettingsArgsDict(TypedDict):
-        include_control_details: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Shows detailed control information for table definition, column definition, and table and column changes in the Kinesis message output. Default is `false`.
-        """
-        include_null_and_empty: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Include NULL and empty columns in the target. Default is `false`.
-        """
-        include_partition_value: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Shows the partition value within the Kinesis message output, unless the partition type is schema-table-type. Default is `false`.
-        """
-        include_table_alter_operations: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Includes any data definition language (DDL) operations that change the table in the control data. Default is `false`.
-        """
-        include_transaction_details: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Provides detailed transaction information from the source database. Default is `false`.
-        """
-        message_format: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Output format for the records created. Default is `json`. Valid values are `json` and `json-unformatted` (a single line with no tab).
-        """
-        partition_include_schema_table: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Prefixes schema and table names to partition values, when the partition type is primary-key-type. Default is `false`.
-        """
-        service_access_role_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        ARN of the IAM Role with permissions to write to the Kinesis data stream.
-        """
-        stream_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        ARN of the Kinesis data stream.
-        """
-        use_large_integer_value: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Use up to 18 digit int instead of casting ints as doubles, available from AWS DMS version 3.5.4. Default is `false`.
-        """
-elif False:
-    EndpointKinesisSettingsArgsDict: TypeAlias = Mapping[str, Any]
+class EndpointKinesisSettingsArgsDict(TypedDict):
+    include_control_details: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Shows detailed control information for table definition, column definition, and table and column changes in the Kinesis message output. Default is `false`.
+    """
+    include_null_and_empty: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Include NULL and empty columns in the target. Default is `false`.
+    """
+    include_partition_value: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Shows the partition value within the Kinesis message output, unless the partition type is schema-table-type. Default is `false`.
+    """
+    include_table_alter_operations: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Includes any data definition language (DDL) operations that change the table in the control data. Default is `false`.
+    """
+    include_transaction_details: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Provides detailed transaction information from the source database. Default is `false`.
+    """
+    message_format: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Output format for the records created. Default is `json`. Valid values are `json` and `json-unformatted` (a single line with no tab).
+    """
+    partition_include_schema_table: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Prefixes schema and table names to partition values, when the partition type is primary-key-type. Default is `false`.
+    """
+    service_access_role_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    ARN of the IAM Role with permissions to write to the Kinesis data stream.
+    """
+    stream_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    ARN of the Kinesis data stream.
+    """
+    use_large_integer_value: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Use up to 18 digit int instead of casting ints as doubles, available from AWS DMS version 3.5.4. Default is `false`.
+    """
 
 @pulumi.input_type
 class EndpointKinesisSettingsArgs:
@@ -754,34 +743,31 @@ class EndpointKinesisSettingsArgs:
         pulumi.set(self, "use_large_integer_value", value)
 
 
-if not MYPY:
-    class EndpointMongodbSettingsArgsDict(TypedDict):
-        auth_mechanism: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Authentication mechanism to access the MongoDB source endpoint. Default is `default`.
-        """
-        auth_source: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Authentication database name. Not used when `auth_type` is `no`. Default is `admin`.
-        """
-        auth_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Authentication type to access the MongoDB source endpoint. Default is `password`.
-        """
-        docs_to_investigate: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Number of documents to preview to determine the document organization. Use this setting when `nesting_level` is set to `one`. Default is `1000`.
-        """
-        extract_doc_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Document ID. Use this setting when `nesting_level` is set to `none`. Default is `false`.
-        """
-        nesting_level: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specifies either document or table mode. Default is `none`. Valid values are `one` (table mode) and `none` (document mode).
-        """
-elif False:
-    EndpointMongodbSettingsArgsDict: TypeAlias = Mapping[str, Any]
+class EndpointMongodbSettingsArgsDict(TypedDict):
+    auth_mechanism: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Authentication mechanism to access the MongoDB source endpoint. Default is `default`.
+    """
+    auth_source: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Authentication database name. Not used when `auth_type` is `no`. Default is `admin`.
+    """
+    auth_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Authentication type to access the MongoDB source endpoint. Default is `password`.
+    """
+    docs_to_investigate: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Number of documents to preview to determine the document organization. Use this setting when `nesting_level` is set to `one`. Default is `1000`.
+    """
+    extract_doc_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Document ID. Use this setting when `nesting_level` is set to `none`. Default is `false`.
+    """
+    nesting_level: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies either document or table mode. Default is `none`. Valid values are `one` (table mode) and `none` (document mode).
+    """
 
 @pulumi.input_type
 class EndpointMongodbSettingsArgs:
@@ -886,50 +872,47 @@ class EndpointMongodbSettingsArgs:
         pulumi.set(self, "nesting_level", value)
 
 
-if not MYPY:
-    class EndpointMysqlSettingsArgsDict(TypedDict):
-        after_connect_script: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Script to run immediately after AWS DMS connects to the endpoint.
-        """
-        authentication_method: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Authentication method to use. Valid values: `password`, `iam`.
-        """
-        clean_source_metadata_on_mismatch: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether to clean and recreate table metadata information on the replication instance when a mismatch occurs.
-        """
-        events_poll_interval: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Time interval to check the binary log for new changes/events when the database is idle. Default is `5`.
-        """
-        execute_timeout: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Client statement timeout (in seconds) for a MySQL source endpoint.
-        """
-        max_file_size: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Maximum size (in KB) of any .csv file used to transfer data to a MySQL-compatible database.
-        """
-        parallel_load_threads: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Number of threads to use to load the data into the MySQL-compatible target database.
-        """
-        server_timezone: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Time zone for the source MySQL database.
-        """
-        service_access_role_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        ARN of the IAM role to authenticate when connecting to the endpoint.
-        """
-        target_db_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Where to migrate source tables on the target. Valid values are `specific-database` and `multiple-databases`.
-        """
-elif False:
-    EndpointMysqlSettingsArgsDict: TypeAlias = Mapping[str, Any]
+class EndpointMysqlSettingsArgsDict(TypedDict):
+    after_connect_script: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Script to run immediately after AWS DMS connects to the endpoint.
+    """
+    authentication_method: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Authentication method to use. Valid values: `password`, `iam`.
+    """
+    clean_source_metadata_on_mismatch: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether to clean and recreate table metadata information on the replication instance when a mismatch occurs.
+    """
+    events_poll_interval: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Time interval to check the binary log for new changes/events when the database is idle. Default is `5`.
+    """
+    execute_timeout: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Client statement timeout (in seconds) for a MySQL source endpoint.
+    """
+    max_file_size: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Maximum size (in KB) of any .csv file used to transfer data to a MySQL-compatible database.
+    """
+    parallel_load_threads: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Number of threads to use to load the data into the MySQL-compatible target database.
+    """
+    server_timezone: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Time zone for the source MySQL database.
+    """
+    service_access_role_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    ARN of the IAM role to authenticate when connecting to the endpoint.
+    """
+    target_db_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Where to migrate source tables on the target. Valid values are `specific-database` and `multiple-databases`.
+    """
 
 @pulumi.input_type
 class EndpointMysqlSettingsArgs:
@@ -1098,14 +1081,11 @@ class EndpointMysqlSettingsArgs:
         pulumi.set(self, "target_db_type", value)
 
 
-if not MYPY:
-    class EndpointOracleSettingsArgsDict(TypedDict):
-        authentication_method: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Authentication mechanism to access the Oracle source endpoint. Default is `password`. Valid values are `password` and `kerberos`.
-        """
-elif False:
-    EndpointOracleSettingsArgsDict: TypeAlias = Mapping[str, Any]
+class EndpointOracleSettingsArgsDict(TypedDict):
+    authentication_method: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Authentication mechanism to access the Oracle source endpoint. Default is `password`. Valid values are `password` and `kerberos`.
+    """
 
 @pulumi.input_type
 class EndpointOracleSettingsArgs:
@@ -1130,82 +1110,79 @@ class EndpointOracleSettingsArgs:
         pulumi.set(self, "authentication_method", value)
 
 
-if not MYPY:
-    class EndpointPostgresSettingsArgsDict(TypedDict):
-        after_connect_script: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        For use with change data capture (CDC) only, this attribute has AWS DMS bypass foreign keys and user triggers to reduce the time it takes to bulk load data.
-        """
-        authentication_method: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specifies the authentication method. Valid values: `password`, `iam`.
-        """
-        babelfish_database_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Babelfish for Aurora PostgreSQL database name for the endpoint.
-        """
-        capture_ddls: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        To capture DDL events, AWS DMS creates various artifacts in the PostgreSQL database when the task starts.
-        """
-        database_mode: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specifies the default behavior of the replication's handling of PostgreSQL- compatible endpoints that require some additional configuration, such as Babelfish endpoints.
-        """
-        ddl_artifacts_schema: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Sets the schema in which the operational DDL database artifacts are created. Default is `public`.
-        """
-        execute_timeout: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Sets the client statement timeout for the PostgreSQL instance, in seconds. Default value is `60`.
-        """
-        fail_tasks_on_lob_truncation: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        When set to `true`, this value causes a task to fail if the actual size of a LOB column is greater than the specified `LobMaxSize`. Default is `false`.
-        """
-        heartbeat_enable: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        The write-ahead log (WAL) heartbeat feature mimics a dummy transaction. By doing this, it prevents idle logical replication slots from holding onto old WAL logs, which can result in storage full situations on the source.
-        """
-        heartbeat_frequency: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Sets the WAL heartbeat frequency (in minutes). Default value is `5`.
-        """
-        heartbeat_schema: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Sets the schema in which the heartbeat artifacts are created. Default value is `public`.
-        """
-        map_boolean_as_boolean: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        You can use PostgreSQL endpoint settings to map a boolean as a boolean from your PostgreSQL source to a Amazon Redshift target. Default value is `false`.
-        """
-        map_jsonb_as_clob: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Optional When true, DMS migrates JSONB values as CLOB.
-        """
-        map_long_varchar_as: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Optional When true, DMS migrates LONG values as VARCHAR.
-        """
-        max_file_size: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Specifies the maximum size (in KB) of any .csv file used to transfer data to PostgreSQL. Default is `32,768 KB`.
-        """
-        plugin_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specifies the plugin to use to create a replication slot. Valid values: `pglogical`, `test-decoding`.
-        """
-        service_access_role_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specifies the IAM role to use to authenticate the connection.
-        """
-        slot_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Sets the name of a previously created logical replication slot for a CDC load of the PostgreSQL source instance.
-        """
-elif False:
-    EndpointPostgresSettingsArgsDict: TypeAlias = Mapping[str, Any]
+class EndpointPostgresSettingsArgsDict(TypedDict):
+    after_connect_script: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    For use with change data capture (CDC) only, this attribute has AWS DMS bypass foreign keys and user triggers to reduce the time it takes to bulk load data.
+    """
+    authentication_method: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies the authentication method. Valid values: `password`, `iam`.
+    """
+    babelfish_database_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Babelfish for Aurora PostgreSQL database name for the endpoint.
+    """
+    capture_ddls: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    To capture DDL events, AWS DMS creates various artifacts in the PostgreSQL database when the task starts.
+    """
+    database_mode: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies the default behavior of the replication's handling of PostgreSQL- compatible endpoints that require some additional configuration, such as Babelfish endpoints.
+    """
+    ddl_artifacts_schema: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Sets the schema in which the operational DDL database artifacts are created. Default is `public`.
+    """
+    execute_timeout: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Sets the client statement timeout for the PostgreSQL instance, in seconds. Default value is `60`.
+    """
+    fail_tasks_on_lob_truncation: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    When set to `true`, this value causes a task to fail if the actual size of a LOB column is greater than the specified `LobMaxSize`. Default is `false`.
+    """
+    heartbeat_enable: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    The write-ahead log (WAL) heartbeat feature mimics a dummy transaction. By doing this, it prevents idle logical replication slots from holding onto old WAL logs, which can result in storage full situations on the source.
+    """
+    heartbeat_frequency: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Sets the WAL heartbeat frequency (in minutes). Default value is `5`.
+    """
+    heartbeat_schema: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Sets the schema in which the heartbeat artifacts are created. Default value is `public`.
+    """
+    map_boolean_as_boolean: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    You can use PostgreSQL endpoint settings to map a boolean as a boolean from your PostgreSQL source to a Amazon Redshift target. Default value is `false`.
+    """
+    map_jsonb_as_clob: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Optional When true, DMS migrates JSONB values as CLOB.
+    """
+    map_long_varchar_as: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Optional When true, DMS migrates LONG values as VARCHAR.
+    """
+    max_file_size: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Specifies the maximum size (in KB) of any .csv file used to transfer data to PostgreSQL. Default is `32,768 KB`.
+    """
+    plugin_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies the plugin to use to create a replication slot. Valid values: `pglogical`, `test-decoding`.
+    """
+    service_access_role_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies the IAM role to use to authenticate the connection.
+    """
+    slot_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Sets the name of a previously created logical replication slot for a CDC load of the PostgreSQL source instance.
+    """
 
 @pulumi.input_type
 class EndpointPostgresSettingsArgs:
@@ -1502,38 +1479,35 @@ class EndpointPostgresSettingsArgs:
         pulumi.set(self, "slot_name", value)
 
 
-if not MYPY:
-    class EndpointRedisSettingsArgsDict(TypedDict):
-        auth_type: pulumi.Input[_builtins.str]
-        """
-        The type of authentication to perform when connecting to a Redis target. Options include `none`, `auth-token`, and `auth-role`. The `auth-token` option requires an `auth_password` value to be provided. The `auth-role` option requires `auth_user_name` and `auth_password` values to be provided.
-        """
-        port: pulumi.Input[_builtins.int]
-        """
-        Transmission Control Protocol (TCP) port for the endpoint.
-        """
-        server_name: pulumi.Input[_builtins.str]
-        """
-        Fully qualified domain name of the endpoint.
-        """
-        auth_password: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The password provided with the auth-role and auth-token options of the AuthType setting for a Redis target endpoint.
-        """
-        auth_user_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The username provided with the `auth-role` option of the AuthType setting for a Redis target endpoint.
-        """
-        ssl_ca_certificate_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Amazon Resource Name (ARN) for the certificate authority (CA) that DMS uses to connect to your Redis target endpoint.
-        """
-        ssl_security_protocol: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The plaintext option doesn't provide Transport Layer Security (TLS) encryption for traffic between endpoint and database. Options include `plaintext`, `ssl-encryption`. The default is `ssl-encryption`.
-        """
-elif False:
-    EndpointRedisSettingsArgsDict: TypeAlias = Mapping[str, Any]
+class EndpointRedisSettingsArgsDict(TypedDict):
+    auth_type: pulumi.Input[_builtins.str]
+    """
+    The type of authentication to perform when connecting to a Redis target. Options include `none`, `auth-token`, and `auth-role`. The `auth-token` option requires an `auth_password` value to be provided. The `auth-role` option requires `auth_user_name` and `auth_password` values to be provided.
+    """
+    port: pulumi.Input[_builtins.int]
+    """
+    Transmission Control Protocol (TCP) port for the endpoint.
+    """
+    server_name: pulumi.Input[_builtins.str]
+    """
+    Fully qualified domain name of the endpoint.
+    """
+    auth_password: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The password provided with the auth-role and auth-token options of the AuthType setting for a Redis target endpoint.
+    """
+    auth_user_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The username provided with the `auth-role` option of the AuthType setting for a Redis target endpoint.
+    """
+    ssl_ca_certificate_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Amazon Resource Name (ARN) for the certificate authority (CA) that DMS uses to connect to your Redis target endpoint.
+    """
+    ssl_security_protocol: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The plaintext option doesn't provide Transport Layer Security (TLS) encryption for traffic between endpoint and database. Options include `plaintext`, `ssl-encryption`. The default is `ssl-encryption`.
+    """
 
 @pulumi.input_type
 class EndpointRedisSettingsArgs:
@@ -1651,30 +1625,27 @@ class EndpointRedisSettingsArgs:
         pulumi.set(self, "ssl_security_protocol", value)
 
 
-if not MYPY:
-    class EndpointRedshiftSettingsArgsDict(TypedDict):
-        bucket_folder: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Custom S3 Bucket Object prefix for intermediate storage.
-        """
-        bucket_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Custom S3 Bucket name for intermediate storage.
-        """
-        encryption_mode: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The server-side encryption mode that you want to encrypt your intermediate .csv object files copied to S3. Defaults to `SSE_S3`. Valid values are `SSE_S3` and `SSE_KMS`.
-        """
-        server_side_encryption_kms_key_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        ARN or Id of KMS Key to use when `encryption_mode` is `SSE_KMS`.
-        """
-        service_access_role_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Amazon Resource Name (ARN) of the IAM Role with permissions to read from or write to the S3 Bucket for intermediate storage.
-        """
-elif False:
-    EndpointRedshiftSettingsArgsDict: TypeAlias = Mapping[str, Any]
+class EndpointRedshiftSettingsArgsDict(TypedDict):
+    bucket_folder: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Custom S3 Bucket Object prefix for intermediate storage.
+    """
+    bucket_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Custom S3 Bucket name for intermediate storage.
+    """
+    encryption_mode: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The server-side encryption mode that you want to encrypt your intermediate .csv object files copied to S3. Defaults to `SSE_S3`. Valid values are `SSE_S3` and `SSE_KMS`.
+    """
+    server_side_encryption_kms_key_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    ARN or Id of KMS Key to use when `encryption_mode` is `SSE_KMS`.
+    """
+    service_access_role_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Amazon Resource Name (ARN) of the IAM Role with permissions to read from or write to the S3 Bucket for intermediate storage.
+    """
 
 @pulumi.input_type
 class EndpointRedshiftSettingsArgs:
@@ -1763,51 +1734,48 @@ class EndpointRedshiftSettingsArgs:
         pulumi.set(self, "service_access_role_arn", value)
 
 
-if not MYPY:
-    class ReplicationConfigComputeConfigArgsDict(TypedDict):
-        replication_subnet_group_id: pulumi.Input[_builtins.str]
-        """
-        Specifies a subnet group identifier to associate with the DMS Serverless replication.
-        """
-        availability_zone: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Availability Zone where the DMS Serverless replication using this configuration will run. The default value is a random.
-        """
-        dns_name_servers: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A list of custom DNS name servers supported for the DMS Serverless replication to access your source or target database.
-        """
-        kms_key_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        An Key Management Service (KMS) key Amazon Resource Name (ARN) that is used to encrypt the data during DMS Serverless replication. If you don't specify a value for the KmsKeyId parameter, DMS uses your default encryption key.
-        """
-        max_capacity_units: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Specifies the maximum value of the DMS capacity units (DCUs) for which a given DMS Serverless replication can be provisioned. A single DCU is 2GB of RAM, with 1 DCUs as the minimum value allowed. The list of valid DCU values includes 1, 2, 4, 8, 16, 32, 64, 128, 192, 256, and 384.
-        """
-        min_capacity_units: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Specifies the minimum value of the DMS capacity units (DCUs) for which a given DMS Serverless replication can be provisioned. The list of valid DCU values includes 1, 2, 4, 8, 16, 32, 64, 128, 192, 256, and 384. If this value isn't set DMS sets the lowest allowed value, 1.
-        """
-        multi_az: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Specifies if the replication instance is a multi-az deployment. You cannot set the `availability_zone` parameter if the `multi_az` parameter is set to `true`.
-        """
-        preferred_maintenance_window: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
+class ReplicationConfigComputeConfigArgsDict(TypedDict):
+    replication_subnet_group_id: pulumi.Input[_builtins.str]
+    """
+    Specifies a subnet group identifier to associate with the DMS Serverless replication.
+    """
+    availability_zone: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Availability Zone where the DMS Serverless replication using this configuration will run. The default value is a random.
+    """
+    dns_name_servers: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A list of custom DNS name servers supported for the DMS Serverless replication to access your source or target database.
+    """
+    kms_key_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    An Key Management Service (KMS) key Amazon Resource Name (ARN) that is used to encrypt the data during DMS Serverless replication. If you don't specify a value for the KmsKeyId parameter, DMS uses your default encryption key.
+    """
+    max_capacity_units: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Specifies the maximum value of the DMS capacity units (DCUs) for which a given DMS Serverless replication can be provisioned. A single DCU is 2GB of RAM, with 1 DCUs as the minimum value allowed. The list of valid DCU values includes 1, 2, 4, 8, 16, 32, 64, 128, 192, 256, and 384.
+    """
+    min_capacity_units: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Specifies the minimum value of the DMS capacity units (DCUs) for which a given DMS Serverless replication can be provisioned. The list of valid DCU values includes 1, 2, 4, 8, 16, 32, 64, 128, 192, 256, and 384. If this value isn't set DMS sets the lowest allowed value, 1.
+    """
+    multi_az: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Specifies if the replication instance is a multi-az deployment. You cannot set the `availability_zone` parameter if the `multi_az` parameter is set to `true`.
+    """
+    preferred_maintenance_window: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
 
-        - Default: A 30-minute window selected at random from an 8-hour block of time per region, occurring on a random day of the week.
-        - Format: `ddd:hh24:mi-ddd:hh24:mi`
-        - Valid Days: `mon, tue, wed, thu, fri, sat, sun`
-        - Constraints: Minimum 30-minute window.
-        """
-        vpc_security_group_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Specifies the virtual private cloud (VPC) security group to use with the DMS Serverless replication. The VPC security group must work with the VPC containing the replication.
-        """
-elif False:
-    ReplicationConfigComputeConfigArgsDict: TypeAlias = Mapping[str, Any]
+    - Default: A 30-minute window selected at random from an 8-hour block of time per region, occurring on a random day of the week.
+    - Format: `ddd:hh24:mi-ddd:hh24:mi`
+    - Valid Days: `mon, tue, wed, thu, fri, sat, sun`
+    - Constraints: Minimum 30-minute window.
+    """
+    vpc_security_group_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Specifies the virtual private cloud (VPC) security group to use with the DMS Serverless replication. The VPC security group must work with the VPC containing the replication.
+    """
 
 @pulumi.input_type
 class ReplicationConfigComputeConfigArgs:
@@ -1969,22 +1937,19 @@ class ReplicationConfigComputeConfigArgs:
         pulumi.set(self, "vpc_security_group_ids", value)
 
 
-if not MYPY:
-    class ReplicationInstanceKerberosAuthenticationSettingsArgsDict(TypedDict):
-        key_cache_secret_iam_arn: pulumi.Input[_builtins.str]
-        """
-        ARN of the IAM role that grants AWS DMS access to the secret containing key cache file for the Kerberos authentication.
-        """
-        key_cache_secret_id: pulumi.Input[_builtins.str]
-        """
-        Secret ID that stores the key cache file required for Kerberos authentication.
-        """
-        krb5_file_contents: pulumi.Input[_builtins.str]
-        """
-        Contents of krb5 configuration file required for Kerberos authentication.
-        """
-elif False:
-    ReplicationInstanceKerberosAuthenticationSettingsArgsDict: TypeAlias = Mapping[str, Any]
+class ReplicationInstanceKerberosAuthenticationSettingsArgsDict(TypedDict):
+    key_cache_secret_iam_arn: pulumi.Input[_builtins.str]
+    """
+    ARN of the IAM role that grants AWS DMS access to the secret containing key cache file for the Kerberos authentication.
+    """
+    key_cache_secret_id: pulumi.Input[_builtins.str]
+    """
+    Secret ID that stores the key cache file required for Kerberos authentication.
+    """
+    krb5_file_contents: pulumi.Input[_builtins.str]
+    """
+    Contents of krb5 configuration file required for Kerberos authentication.
+    """
 
 @pulumi.input_type
 class ReplicationInstanceKerberosAuthenticationSettingsArgs:

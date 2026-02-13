@@ -176,11 +176,13 @@ namespace Pulumi.Aws.Sqs
     /// 
     /// #### Required
     /// 
-    /// * `url` (String) URL of the SQS queue.
+    /// * `Url` (String) URL of the SQS queue.
     /// 
-    /// Using `pulumi import`, import SQS Queues using the queue `url`. For example:
+    /// Using `pulumi import`, import SQS Queues using the queue `Url`. For example:
     /// 
-    /// % pulumi import aws_sqs_queue.example https://queue.amazonaws.com/80398EXAMPLE/MyQueue
+    /// ```sh
+    /// $ pulumi import aws:sqs/queue:Queue example https://queue.amazonaws.com/80398EXAMPLE/MyQueue
+    /// ```
     /// </summary>
     [AwsResourceType("aws:sqs/queue:Queue")]
     public partial class Queue : global::Pulumi.CustomResource

@@ -43,6 +43,7 @@ class RepositoryCreationTemplateArgs:
         :param pulumi.Input[Sequence[pulumi.Input['RepositoryCreationTemplateImageTagMutabilityExclusionFilterArgs']]] image_tag_mutability_exclusion_filters: Configuration block that defines filters to specify which image tags can override the default tag mutability setting. Only applicable when `image_tag_mutability` is set to `IMMUTABLE_WITH_EXCLUSION` or `MUTABLE_WITH_EXCLUSION`. See below for schema.
         :param pulumi.Input[_builtins.str] lifecycle_policy: The lifecycle policy document to apply to any created repositories. See more details about [Policy Parameters](http://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html#lifecycle_policy_parameters) in the official AWS docs. Consider using the `ecr_get_lifecycle_policy_document` data_source to generate/manage the JSON document used for the `lifecycle_policy` argument.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        :param pulumi.Input[_builtins.str] repository_policy: The registry policy document to apply to any created repositories. This is a JSON formatted string. For more information about building IAM policy documents with Terraform, see the AWS IAM Policy Document Guide.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] resource_tags: A map of tags to assign to any created repositories.
         """
         pulumi.set(__self__, "applied_fors", applied_fors)
@@ -177,6 +178,9 @@ class RepositoryCreationTemplateArgs:
     @_builtins.property
     @pulumi.getter(name="repositoryPolicy")
     def repository_policy(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The registry policy document to apply to any created repositories. This is a JSON formatted string. For more information about building IAM policy documents with Terraform, see the AWS IAM Policy Document Guide.
+        """
         return pulumi.get(self, "repository_policy")
 
     @repository_policy.setter
@@ -223,6 +227,7 @@ class _RepositoryCreationTemplateState:
         :param pulumi.Input[_builtins.str] prefix: The repository name prefix to match against. Use `ROOT` to match any prefix that doesn't explicitly match another template.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] registry_id: The registry ID the repository creation template applies to.
+        :param pulumi.Input[_builtins.str] repository_policy: The registry policy document to apply to any created repositories. This is a JSON formatted string. For more information about building IAM policy documents with Terraform, see the AWS IAM Policy Document Guide.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] resource_tags: A map of tags to assign to any created repositories.
         """
         if applied_fors is not None:
@@ -373,6 +378,9 @@ class _RepositoryCreationTemplateState:
     @_builtins.property
     @pulumi.getter(name="repositoryPolicy")
     def repository_policy(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The registry policy document to apply to any created repositories. This is a JSON formatted string. For more information about building IAM policy documents with Terraform, see the AWS IAM Policy Document Guide.
+        """
         return pulumi.get(self, "repository_policy")
 
     @repository_policy.setter
@@ -495,6 +503,7 @@ class RepositoryCreationTemplate(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] lifecycle_policy: The lifecycle policy document to apply to any created repositories. See more details about [Policy Parameters](http://docs.aws.amazon.com/AmazonECR/latest/userguide/LifecyclePolicies.html#lifecycle_policy_parameters) in the official AWS docs. Consider using the `ecr_get_lifecycle_policy_document` data_source to generate/manage the JSON document used for the `lifecycle_policy` argument.
         :param pulumi.Input[_builtins.str] prefix: The repository name prefix to match against. Use `ROOT` to match any prefix that doesn't explicitly match another template.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        :param pulumi.Input[_builtins.str] repository_policy: The registry policy document to apply to any created repositories. This is a JSON formatted string. For more information about building IAM policy documents with Terraform, see the AWS IAM Policy Document Guide.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] resource_tags: A map of tags to assign to any created repositories.
         """
         ...
@@ -667,6 +676,7 @@ class RepositoryCreationTemplate(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] prefix: The repository name prefix to match against. Use `ROOT` to match any prefix that doesn't explicitly match another template.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] registry_id: The registry ID the repository creation template applies to.
+        :param pulumi.Input[_builtins.str] repository_policy: The registry policy document to apply to any created repositories. This is a JSON formatted string. For more information about building IAM policy documents with Terraform, see the AWS IAM Policy Document Guide.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] resource_tags: A map of tags to assign to any created repositories.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -770,6 +780,9 @@ class RepositoryCreationTemplate(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="repositoryPolicy")
     def repository_policy(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        The registry policy document to apply to any created repositories. This is a JSON formatted string. For more information about building IAM policy documents with Terraform, see the AWS IAM Policy Document Guide.
+        """
         return pulumi.get(self, "repository_policy")
 
     @_builtins.property

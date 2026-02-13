@@ -29,20 +29,15 @@ __all__ = [
     'GetPipelineDefinitionParameterValueArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class PipelineDefinitionParameterObjectArgsDict(TypedDict):
-        id: pulumi.Input[_builtins.str]
-        """
-        ID of the parameter object.
-        """
-        attributes: NotRequired[pulumi.Input[Sequence[pulumi.Input['PipelineDefinitionParameterObjectAttributeArgsDict']]]]
-        """
-        Configuration block for attributes of the parameter object. See below
-        """
-elif False:
-    PipelineDefinitionParameterObjectArgsDict: TypeAlias = Mapping[str, Any]
+class PipelineDefinitionParameterObjectArgsDict(TypedDict):
+    id: pulumi.Input[_builtins.str]
+    """
+    ID of the parameter object.
+    """
+    attributes: NotRequired[pulumi.Input[Sequence[pulumi.Input['PipelineDefinitionParameterObjectAttributeArgsDict']]]]
+    """
+    Configuration block for attributes of the parameter object. See below
+    """
 
 @pulumi.input_type
 class PipelineDefinitionParameterObjectArgs:
@@ -82,18 +77,15 @@ class PipelineDefinitionParameterObjectArgs:
         pulumi.set(self, "attributes", value)
 
 
-if not MYPY:
-    class PipelineDefinitionParameterObjectAttributeArgsDict(TypedDict):
-        key: pulumi.Input[_builtins.str]
-        """
-        Field identifier.
-        """
-        string_value: pulumi.Input[_builtins.str]
-        """
-        Field value, expressed as a String.
-        """
-elif False:
-    PipelineDefinitionParameterObjectAttributeArgsDict: TypeAlias = Mapping[str, Any]
+class PipelineDefinitionParameterObjectAttributeArgsDict(TypedDict):
+    key: pulumi.Input[_builtins.str]
+    """
+    Field identifier.
+    """
+    string_value: pulumi.Input[_builtins.str]
+    """
+    Field value, expressed as a String.
+    """
 
 @pulumi.input_type
 class PipelineDefinitionParameterObjectAttributeArgs:
@@ -132,18 +124,15 @@ class PipelineDefinitionParameterObjectAttributeArgs:
         pulumi.set(self, "string_value", value)
 
 
-if not MYPY:
-    class PipelineDefinitionParameterValueArgsDict(TypedDict):
-        id: pulumi.Input[_builtins.str]
-        """
-        ID of the parameter value.
-        """
-        string_value: pulumi.Input[_builtins.str]
-        """
-        Field value, expressed as a String.
-        """
-elif False:
-    PipelineDefinitionParameterValueArgsDict: TypeAlias = Mapping[str, Any]
+class PipelineDefinitionParameterValueArgsDict(TypedDict):
+    id: pulumi.Input[_builtins.str]
+    """
+    ID of the parameter value.
+    """
+    string_value: pulumi.Input[_builtins.str]
+    """
+    Field value, expressed as a String.
+    """
 
 @pulumi.input_type
 class PipelineDefinitionParameterValueArgs:
@@ -182,22 +171,19 @@ class PipelineDefinitionParameterValueArgs:
         pulumi.set(self, "string_value", value)
 
 
-if not MYPY:
-    class PipelineDefinitionPipelineObjectArgsDict(TypedDict):
-        id: pulumi.Input[_builtins.str]
-        """
-        ID of the object.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        ARN of the storage connector.
-        """
-        fields: NotRequired[pulumi.Input[Sequence[pulumi.Input['PipelineDefinitionPipelineObjectFieldArgsDict']]]]
-        """
-        Configuration block for Key-value pairs that define the properties of the object. See below
-        """
-elif False:
-    PipelineDefinitionPipelineObjectArgsDict: TypeAlias = Mapping[str, Any]
+class PipelineDefinitionPipelineObjectArgsDict(TypedDict):
+    id: pulumi.Input[_builtins.str]
+    """
+    ID of the object.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    ARN of the storage connector.
+    """
+    fields: NotRequired[pulumi.Input[Sequence[pulumi.Input['PipelineDefinitionPipelineObjectFieldArgsDict']]]]
+    """
+    Configuration block for Key-value pairs that define the properties of the object. See below
+    """
 
 @pulumi.input_type
 class PipelineDefinitionPipelineObjectArgs:
@@ -252,22 +238,19 @@ class PipelineDefinitionPipelineObjectArgs:
         pulumi.set(self, "fields", value)
 
 
-if not MYPY:
-    class PipelineDefinitionPipelineObjectFieldArgsDict(TypedDict):
-        key: pulumi.Input[_builtins.str]
-        """
-        Field identifier.
-        """
-        ref_value: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Field value, expressed as the identifier of another object
-        """
-        string_value: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Field value, expressed as a String.
-        """
-elif False:
-    PipelineDefinitionPipelineObjectFieldArgsDict: TypeAlias = Mapping[str, Any]
+class PipelineDefinitionPipelineObjectFieldArgsDict(TypedDict):
+    key: pulumi.Input[_builtins.str]
+    """
+    Field identifier.
+    """
+    ref_value: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Field value, expressed as the identifier of another object
+    """
+    string_value: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Field value, expressed as a String.
+    """
 
 @pulumi.input_type
 class PipelineDefinitionPipelineObjectFieldArgs:
@@ -323,18 +306,15 @@ class PipelineDefinitionPipelineObjectFieldArgs:
         pulumi.set(self, "string_value", value)
 
 
-if not MYPY:
-    class GetPipelineDefinitionParameterValueArgsDict(TypedDict):
-        id: _builtins.str
-        """
-        ID of the object.
-        """
-        string_value: _builtins.str
-        """
-        Field value, expressed as a String.
-        """
-elif False:
-    GetPipelineDefinitionParameterValueArgsDict: TypeAlias = Mapping[str, Any]
+class GetPipelineDefinitionParameterValueArgsDict(TypedDict):
+    id: _builtins.str
+    """
+    ID of the object.
+    """
+    string_value: _builtins.str
+    """
+    Field value, expressed as a String.
+    """
 
 @pulumi.input_type
 class GetPipelineDefinitionParameterValueArgs:

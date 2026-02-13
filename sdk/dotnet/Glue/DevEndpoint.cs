@@ -72,7 +72,7 @@ namespace Pulumi.Aws.Glue
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import a Glue Development Endpoint using the `name`. For example:
+    /// Using `pulumi import`, import a Glue Development Endpoint using the `Name`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:glue/devEndpoint:DevEndpoint example foo
