@@ -56,13 +56,12 @@ jobs:
           PR_NUMBER: ${{ github.event.pull_request.number || github.event.issue.number }}
         run: gh pr checkout "$PR_NUMBER"
       - name: Setup mise
-        uses: blampe/mise-action@blampe/plugins
+        uses: jdx/mise-action@c1a019b8d2586943b4dbebc456323b516910e310
         env:
           MISE_FETCH_REMOTE_VERSIONS_TIMEOUT: 30s
         with:
-          version: 2026.1.1
+          version: 2026.2.10
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          plugin_install: https://github.com/pulumi/vfox-pulumi
           # only saving the cache in the prerequisites job
           cache_save: false
       - name: Prepare local workspace
