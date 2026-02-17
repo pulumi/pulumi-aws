@@ -230,7 +230,7 @@ func (st tagsState) validateTransitionTo(t *testing.T, testIdent int, st2 tagsSt
 
 	test2 := pulumitest.NewPulumiTest(t, "tags-combinations-go",
 		opttest.LocalProviderPath("aws", filepath.Join(getCwd(t), "..", "bin")),
-		opttest.GoModReplacement("github.com/pulumi/pulumi-aws/sdk/v7", rootSdkPath()),
+		opttest.TestInPlace(), // Use examples/go.mod instead of a nested per-test module.
 		opttest.SkipInstall(),
 	)
 	test2.SetConfig(t, "aws:region", getEnvRegion(t))
