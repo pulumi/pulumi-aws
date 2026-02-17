@@ -73,7 +73,7 @@ jobs:
       - name: Setup mise
         uses: jdx/mise-action@c1a019b8d2586943b4dbebc456323b516910e310
         with:
-          version: 2026.2.10
+          version: 2026.2.15
           github_token: ${{ secrets.GITHUB_TOKEN }}
           cache_save: false
       - name: Setup Go Cache
