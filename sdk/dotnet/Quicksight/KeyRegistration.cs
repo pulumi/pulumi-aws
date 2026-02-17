@@ -54,6 +54,9 @@ namespace Pulumi.Aws.Quicksight
     [AwsResourceType("aws:quicksight/keyRegistration:KeyRegistration")]
     public partial class KeyRegistration : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
+        /// </summary>
         [Output("awsAccountId")]
         public Output<string> AwsAccountId { get; private set; } = null!;
 
@@ -115,6 +118,9 @@ namespace Pulumi.Aws.Quicksight
 
     public sealed class KeyRegistrationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
+        /// </summary>
         [Input("awsAccountId")]
         public Input<string>? AwsAccountId { get; set; }
 
@@ -144,6 +150,9 @@ namespace Pulumi.Aws.Quicksight
 
     public sealed class KeyRegistrationState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
+        /// </summary>
         [Input("awsAccountId")]
         public Input<string>? AwsAccountId { get; set; }
 

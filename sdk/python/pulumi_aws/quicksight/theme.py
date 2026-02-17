@@ -36,6 +36,7 @@ class ThemeArgs:
         :param pulumi.Input[_builtins.str] theme_id: Identifier of the theme.
                
                The following arguments are optional:
+        :param pulumi.Input[_builtins.str] aws_account_id: AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
         :param pulumi.Input['ThemeConfigurationArgs'] configuration: The theme configuration, which contains the theme display properties. See configuration.
         :param pulumi.Input[_builtins.str] name: Display name of the theme.
         :param pulumi.Input[Sequence[pulumi.Input['ThemePermissionArgs']]] permissions: A set of resource permissions on the theme. Maximum of 64 items. See permissions.
@@ -89,6 +90,9 @@ class ThemeArgs:
     @_builtins.property
     @pulumi.getter(name="awsAccountId")
     def aws_account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
+        """
         return pulumi.get(self, "aws_account_id")
 
     @aws_account_id.setter
@@ -189,6 +193,7 @@ class _ThemeState:
         """
         Input properties used for looking up and filtering Theme resources.
         :param pulumi.Input[_builtins.str] arn: ARN of the theme.
+        :param pulumi.Input[_builtins.str] aws_account_id: AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
         :param pulumi.Input[_builtins.str] base_theme_id: The ID of the theme that a custom theme will inherit from. All themes inherit from one of the starting themes defined by Amazon QuickSight. For a list of the starting themes, use ListThemes or choose Themes from within an analysis.
         :param pulumi.Input['ThemeConfigurationArgs'] configuration: The theme configuration, which contains the theme display properties. See configuration.
         :param pulumi.Input[_builtins.str] created_time: The time that the theme was created.
@@ -251,6 +256,9 @@ class _ThemeState:
     @_builtins.property
     @pulumi.getter(name="awsAccountId")
     def aws_account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
+        """
         return pulumi.get(self, "aws_account_id")
 
     @aws_account_id.setter
@@ -480,6 +488,7 @@ class Theme(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[_builtins.str] aws_account_id: AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
         :param pulumi.Input[_builtins.str] base_theme_id: The ID of the theme that a custom theme will inherit from. All themes inherit from one of the starting themes defined by Amazon QuickSight. For a list of the starting themes, use ListThemes or choose Themes from within an analysis.
         :param pulumi.Input[Union['ThemeConfigurationArgs', 'ThemeConfigurationArgsDict']] configuration: The theme configuration, which contains the theme display properties. See configuration.
         :param pulumi.Input[_builtins.str] name: Display name of the theme.
@@ -628,6 +637,7 @@ class Theme(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] arn: ARN of the theme.
+        :param pulumi.Input[_builtins.str] aws_account_id: AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
         :param pulumi.Input[_builtins.str] base_theme_id: The ID of the theme that a custom theme will inherit from. All themes inherit from one of the starting themes defined by Amazon QuickSight. For a list of the starting themes, use ListThemes or choose Themes from within an analysis.
         :param pulumi.Input[Union['ThemeConfigurationArgs', 'ThemeConfigurationArgsDict']] configuration: The theme configuration, which contains the theme display properties. See configuration.
         :param pulumi.Input[_builtins.str] created_time: The time that the theme was created.
@@ -676,6 +686,9 @@ class Theme(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="awsAccountId")
     def aws_account_id(self) -> pulumi.Output[_builtins.str]:
+        """
+        AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
+        """
         return pulumi.get(self, "aws_account_id")
 
     @_builtins.property

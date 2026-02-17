@@ -136,7 +136,7 @@ namespace Pulumi.Aws.CodeDeploy
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import CodeDeploy Deployment Configurations using the `deployment_config_name`. For example:
+    /// Using `pulumi import`, import CodeDeploy Deployment Configurations using the `DeploymentConfigName`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:codedeploy/deploymentConfig:DeploymentConfig example my-deployment-config

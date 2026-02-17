@@ -22,7 +22,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Using `pulumi import`, import `aws_lightsail_bucket_access_key` using the `id` attribute. For example:
+ * Using `pulumi import`, import `aws.lightsail.BucketAccessKey` using the `id` attribute. For example:
  *
  * ```sh
  * $ pulumi import aws:lightsail/bucketAccessKey:BucketAccessKey example example-bucket,AKIAIOSFODNN7EXAMPLE

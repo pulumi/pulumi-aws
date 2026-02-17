@@ -126,6 +126,8 @@ from .proxy_protocol_policy import *
 from .route import *
 from .route_table import *
 from .route_table_association import *
+from .secondary_network import *
+from .secondary_subnet import *
 from .security_group import *
 from .security_group_association import *
 from .security_group_rule import *

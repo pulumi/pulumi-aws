@@ -91,7 +91,7 @@ namespace Pulumi.Aws.Cognito
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import Cognito User using the `user_pool_id`/`name` attributes concatenated. For example:
+    /// Using `pulumi import`, import Cognito User using the `UserPoolId`/`Name` attributes concatenated. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:cognito/user:User user us-east-1_vG78M4goG/user

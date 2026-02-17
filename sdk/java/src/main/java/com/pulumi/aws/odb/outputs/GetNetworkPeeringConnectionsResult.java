@@ -9,7 +9,6 @@ import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
-import javax.annotation.Nullable;
 
 @CustomType
 public final class GetNetworkPeeringConnectionsResult {
@@ -22,7 +21,7 @@ public final class GetNetworkPeeringConnectionsResult {
      * @return The list of ODB peering connections. A summary of an ODB peering connection.
      * 
      */
-    private @Nullable List<GetNetworkPeeringConnectionsOdbPeeringConnection> odbPeeringConnections;
+    private List<GetNetworkPeeringConnectionsOdbPeeringConnection> odbPeeringConnections;
     private String region;
 
     private GetNetworkPeeringConnectionsResult() {}
@@ -38,7 +37,7 @@ public final class GetNetworkPeeringConnectionsResult {
      * 
      */
     public List<GetNetworkPeeringConnectionsOdbPeeringConnection> odbPeeringConnections() {
-        return this.odbPeeringConnections == null ? List.of() : this.odbPeeringConnections;
+        return this.odbPeeringConnections;
     }
     public String region() {
         return this.region;
@@ -54,7 +53,7 @@ public final class GetNetworkPeeringConnectionsResult {
     @CustomType.Builder
     public static final class Builder {
         private String id;
-        private @Nullable List<GetNetworkPeeringConnectionsOdbPeeringConnection> odbPeeringConnections;
+        private List<GetNetworkPeeringConnectionsOdbPeeringConnection> odbPeeringConnections;
         private String region;
         public Builder() {}
         public Builder(GetNetworkPeeringConnectionsResult defaults) {
@@ -73,8 +72,10 @@ public final class GetNetworkPeeringConnectionsResult {
             return this;
         }
         @CustomType.Setter
-        public Builder odbPeeringConnections(@Nullable List<GetNetworkPeeringConnectionsOdbPeeringConnection> odbPeeringConnections) {
-
+        public Builder odbPeeringConnections(List<GetNetworkPeeringConnectionsOdbPeeringConnection> odbPeeringConnections) {
+            if (odbPeeringConnections == null) {
+              throw new MissingRequiredPropertyException("GetNetworkPeeringConnectionsResult", "odbPeeringConnections");
+            }
             this.odbPeeringConnections = odbPeeringConnections;
             return this;
         }

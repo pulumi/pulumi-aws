@@ -58,7 +58,7 @@ namespace Pulumi.Aws.Ecs
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import ECS Account Setting defaults using the `name`. For example:
+    /// Using `pulumi import`, import ECS Account Setting defaults using the `Name`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:ecs/accountSettingDefault:AccountSettingDefault example taskLongArnFormat

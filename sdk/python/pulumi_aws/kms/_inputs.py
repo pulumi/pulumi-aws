@@ -25,20 +25,15 @@ __all__ = [
     'GetSecretsSecretArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class CustomKeyStoreXksProxyAuthenticationCredentialArgsDict(TypedDict):
-        access_key_id: pulumi.Input[_builtins.str]
-        """
-        A unique identifier for the raw secret access key.
-        """
-        raw_secret_access_key: pulumi.Input[_builtins.str]
-        """
-        A secret string of 43-64 characters.
-        """
-elif False:
-    CustomKeyStoreXksProxyAuthenticationCredentialArgsDict: TypeAlias = Mapping[str, Any]
+class CustomKeyStoreXksProxyAuthenticationCredentialArgsDict(TypedDict):
+    access_key_id: pulumi.Input[_builtins.str]
+    """
+    A unique identifier for the raw secret access key.
+    """
+    raw_secret_access_key: pulumi.Input[_builtins.str]
+    """
+    A secret string of 43-64 characters.
+    """
 
 @pulumi.input_type
 class CustomKeyStoreXksProxyAuthenticationCredentialArgs:
@@ -77,18 +72,15 @@ class CustomKeyStoreXksProxyAuthenticationCredentialArgs:
         pulumi.set(self, "raw_secret_access_key", value)
 
 
-if not MYPY:
-    class GrantConstraintArgsDict(TypedDict):
-        encryption_context_equals: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
-        """
-        A list of key-value pairs that must match the encryption context in subsequent cryptographic operation requests. The grant allows the operation only when the encryption context in the request is the same as the encryption context specified in this constraint. Conflicts with `encryption_context_subset`.
-        """
-        encryption_context_subset: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
-        """
-        A list of key-value pairs that must be included in the encryption context of subsequent cryptographic operation requests. The grant allows the cryptographic operation only when the encryption context in the request includes the key-value pairs specified in this constraint, although it can include additional key-value pairs. Conflicts with `encryption_context_equals`.
-        """
-elif False:
-    GrantConstraintArgsDict: TypeAlias = Mapping[str, Any]
+class GrantConstraintArgsDict(TypedDict):
+    encryption_context_equals: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    """
+    A list of key-value pairs that must match the encryption context in subsequent cryptographic operation requests. The grant allows the operation only when the encryption context in the request is the same as the encryption context specified in this constraint. Conflicts with `encryption_context_subset`.
+    """
+    encryption_context_subset: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    """
+    A list of key-value pairs that must be included in the encryption context of subsequent cryptographic operation requests. The grant allows the cryptographic operation only when the encryption context in the request includes the key-value pairs specified in this constraint, although it can include additional key-value pairs. Conflicts with `encryption_context_equals`.
+    """
 
 @pulumi.input_type
 class GrantConstraintArgs:
@@ -129,14 +121,11 @@ class GrantConstraintArgs:
         pulumi.set(self, "encryption_context_subset", value)
 
 
-if not MYPY:
-    class GetSecretSecretArgsDict(TypedDict):
-        name: _builtins.str
-        payload: _builtins.str
-        context: NotRequired[Mapping[str, _builtins.str]]
-        grant_tokens: NotRequired[Sequence[_builtins.str]]
-elif False:
-    GetSecretSecretArgsDict: TypeAlias = Mapping[str, Any]
+class GetSecretSecretArgsDict(TypedDict):
+    name: _builtins.str
+    payload: _builtins.str
+    context: NotRequired[Mapping[str, _builtins.str]]
+    grant_tokens: NotRequired[Sequence[_builtins.str]]
 
 @pulumi.input_type
 class GetSecretSecretArgs:
@@ -189,37 +178,34 @@ class GetSecretSecretArgs:
         pulumi.set(self, "grant_tokens", value)
 
 
-if not MYPY:
-    class GetSecretsSecretArgsDict(TypedDict):
-        name: _builtins.str
-        """
-        Name to export this secret under in the attributes.
-        """
-        payload: _builtins.str
-        """
-        Base64 encoded payload, as returned from a KMS encrypt operation.
-        """
-        context: NotRequired[Mapping[str, _builtins.str]]
-        """
-        An optional mapping that makes up the Encryption Context for the secret.
-        """
-        encryption_algorithm: NotRequired[_builtins.str]
-        """
-        The encryption algorithm that will be used to decrypt the ciphertext. This parameter is required only when the ciphertext was encrypted under an asymmetric KMS key. Valid Values: SYMMETRIC_DEFAULT | RSAES_OAEP_SHA_1 | RSAES_OAEP_SHA_256 | SM2PKE
-        """
-        grant_tokens: NotRequired[Sequence[_builtins.str]]
-        """
-        An optional list of Grant Tokens for the secret.
-        """
-        key_id: NotRequired[_builtins.str]
-        """
-        Specifies the KMS key that AWS KMS uses to decrypt the ciphertext. This parameter is required only when the ciphertext was encrypted under an asymmetric KMS key.
+class GetSecretsSecretArgsDict(TypedDict):
+    name: _builtins.str
+    """
+    Name to export this secret under in the attributes.
+    """
+    payload: _builtins.str
+    """
+    Base64 encoded payload, as returned from a KMS encrypt operation.
+    """
+    context: NotRequired[Mapping[str, _builtins.str]]
+    """
+    An optional mapping that makes up the Encryption Context for the secret.
+    """
+    encryption_algorithm: NotRequired[_builtins.str]
+    """
+    The encryption algorithm that will be used to decrypt the ciphertext. This parameter is required only when the ciphertext was encrypted under an asymmetric KMS key. Valid Values: SYMMETRIC_DEFAULT | RSAES_OAEP_SHA_1 | RSAES_OAEP_SHA_256 | SM2PKE
+    """
+    grant_tokens: NotRequired[Sequence[_builtins.str]]
+    """
+    An optional list of Grant Tokens for the secret.
+    """
+    key_id: NotRequired[_builtins.str]
+    """
+    Specifies the KMS key that AWS KMS uses to decrypt the ciphertext. This parameter is required only when the ciphertext was encrypted under an asymmetric KMS key.
 
-        For more information on `context` and `grant_tokens` see the [KMS
-        Concepts](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html)
-        """
-elif False:
-    GetSecretsSecretArgsDict: TypeAlias = Mapping[str, Any]
+    For more information on `context` and `grant_tokens` see the [KMS
+    Concepts](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html)
+    """
 
 @pulumi.input_type
 class GetSecretsSecretArgs:

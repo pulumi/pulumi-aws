@@ -191,9 +191,23 @@ public final class RecordsExclusiveResourceRecordSetArgs extends com.pulumi.reso
         return Optional.ofNullable(this.setIdentifier);
     }
 
+    /**
+     * ID of the traffic policy instance that Route 53 created this resource record set for.
+     * To delete the resource record set that is associated with a traffic policy instance, use the `DeleteTrafficPolicyInstance` API.
+     * Route 53 will delete the resource record set automatically.
+     * If the resource record set is deleted via `ChangeResourceRecordSets` (the API underpinning this Terraform resource), Route 53 doesn&#39;t automatically delete the traffic policy instance, and you&#39;ll continue to be charged for it.
+     * 
+     */
     @Import(name="trafficPolicyInstanceId")
     private @Nullable Output<String> trafficPolicyInstanceId;
 
+    /**
+     * @return ID of the traffic policy instance that Route 53 created this resource record set for.
+     * To delete the resource record set that is associated with a traffic policy instance, use the `DeleteTrafficPolicyInstance` API.
+     * Route 53 will delete the resource record set automatically.
+     * If the resource record set is deleted via `ChangeResourceRecordSets` (the API underpinning this Terraform resource), Route 53 doesn&#39;t automatically delete the traffic policy instance, and you&#39;ll continue to be charged for it.
+     * 
+     */
     public Optional<Output<String>> trafficPolicyInstanceId() {
         return Optional.ofNullable(this.trafficPolicyInstanceId);
     }
@@ -527,11 +541,29 @@ public final class RecordsExclusiveResourceRecordSetArgs extends com.pulumi.reso
             return setIdentifier(Output.of(setIdentifier));
         }
 
+        /**
+         * @param trafficPolicyInstanceId ID of the traffic policy instance that Route 53 created this resource record set for.
+         * To delete the resource record set that is associated with a traffic policy instance, use the `DeleteTrafficPolicyInstance` API.
+         * Route 53 will delete the resource record set automatically.
+         * If the resource record set is deleted via `ChangeResourceRecordSets` (the API underpinning this Terraform resource), Route 53 doesn&#39;t automatically delete the traffic policy instance, and you&#39;ll continue to be charged for it.
+         * 
+         * @return builder
+         * 
+         */
         public Builder trafficPolicyInstanceId(@Nullable Output<String> trafficPolicyInstanceId) {
             $.trafficPolicyInstanceId = trafficPolicyInstanceId;
             return this;
         }
 
+        /**
+         * @param trafficPolicyInstanceId ID of the traffic policy instance that Route 53 created this resource record set for.
+         * To delete the resource record set that is associated with a traffic policy instance, use the `DeleteTrafficPolicyInstance` API.
+         * Route 53 will delete the resource record set automatically.
+         * If the resource record set is deleted via `ChangeResourceRecordSets` (the API underpinning this Terraform resource), Route 53 doesn&#39;t automatically delete the traffic policy instance, and you&#39;ll continue to be charged for it.
+         * 
+         * @return builder
+         * 
+         */
         public Builder trafficPolicyInstanceId(String trafficPolicyInstanceId) {
             return trafficPolicyInstanceId(Output.of(trafficPolicyInstanceId));
         }

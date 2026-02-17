@@ -98,20 +98,20 @@ def get_endpoint(endpoint_type: Optional[_builtins.str] = None,
     import pulumi_kubernetes as kubernetes
 
     example = aws.iot.get_endpoint()
-    agent = kubernetes.index.Pod("agent",
-        metadata=[{
-            name: my-device,
-        }],
-        spec=[{
-            container: [{
-                image: gcr.io/my-project/image-name,
-                name: image-name,
-                env: [{
-                    name: IOT_ENDPOINT,
-                    value: example.endpoint_address,
+    agent = kubernetes.core.v1.Pod("agent",
+        metadata={
+            "name": "my-device",
+        },
+        spec={
+            "container": [{
+                "image": "gcr.io/my-project/image-name",
+                "name": "image-name",
+                "env": [{
+                    "name": "IOT_ENDPOINT",
+                    "value": example.endpoint_address,
                 }],
             }],
-        }])
+        })
     ```
 
 
@@ -143,20 +143,20 @@ def get_endpoint_output(endpoint_type: Optional[pulumi.Input[Optional[_builtins.
     import pulumi_kubernetes as kubernetes
 
     example = aws.iot.get_endpoint()
-    agent = kubernetes.index.Pod("agent",
-        metadata=[{
-            name: my-device,
-        }],
-        spec=[{
-            container: [{
-                image: gcr.io/my-project/image-name,
-                name: image-name,
-                env: [{
-                    name: IOT_ENDPOINT,
-                    value: example.endpoint_address,
+    agent = kubernetes.core.v1.Pod("agent",
+        metadata={
+            "name": "my-device",
+        },
+        spec={
+            "container": [{
+                "image": "gcr.io/my-project/image-name",
+                "name": "image-name",
+                "env": [{
+                    "name": "IOT_ENDPOINT",
+                    "value": example.endpoint_address,
                 }],
             }],
-        }])
+        })
     ```
 
 

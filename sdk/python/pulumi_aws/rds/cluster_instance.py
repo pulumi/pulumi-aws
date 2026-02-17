@@ -1111,7 +1111,7 @@ class ClusterInstance(pulumi.CustomResource):
                 identifier=f"aurora-cluster-demo-{range['value']}",
                 cluster_identifier=default.id,
                 instance_class=aws.rds.InstanceType.R4_LARGE,
-                engine=default.engine,
+                engine=default.engine.apply(lambda x: aws.rds.EngineType(x)),
                 engine_version=default.engine_version))
         ```
 
@@ -1202,7 +1202,7 @@ class ClusterInstance(pulumi.CustomResource):
                 identifier=f"aurora-cluster-demo-{range['value']}",
                 cluster_identifier=default.id,
                 instance_class=aws.rds.InstanceType.R4_LARGE,
-                engine=default.engine,
+                engine=default.engine.apply(lambda x: aws.rds.EngineType(x)),
                 engine_version=default.engine_version))
         ```
 

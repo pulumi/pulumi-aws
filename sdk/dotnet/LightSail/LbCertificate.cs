@@ -47,7 +47,7 @@ namespace Pulumi.Aws.LightSail
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import `aws_lightsail_lb_certificate` using the id attribute. For example:
+    /// Using `pulumi import`, import `aws.lightsail.LbCertificate` using the id attribute. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:lightsail/lbCertificate:LbCertificate example example-load-balancer,example-load-balancer-certificate

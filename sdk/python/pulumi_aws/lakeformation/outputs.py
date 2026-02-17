@@ -255,8 +255,8 @@ class DataCellsFilterTableDataRowFilter(dict):
                  all_rows_wildcard: Optional['outputs.DataCellsFilterTableDataRowFilterAllRowsWildcard'] = None,
                  filter_expression: Optional[_builtins.str] = None):
         """
-        :param 'DataCellsFilterTableDataRowFilterAllRowsWildcardArgs' all_rows_wildcard: (Optional) A wildcard that matches all rows.
-        :param _builtins.str filter_expression: (Optional) A filter expression.
+        :param 'DataCellsFilterTableDataRowFilterAllRowsWildcardArgs' all_rows_wildcard: (Optional) A wildcard that matches all rows. Required when applying column-level filtering without row-level filtering. Use an empty block: `all_rows_wildcard {}`.
+        :param _builtins.str filter_expression: (Optional) A PartiQL predicate expression for row-level filtering.
         """
         if all_rows_wildcard is not None:
             pulumi.set(__self__, "all_rows_wildcard", all_rows_wildcard)
@@ -267,7 +267,7 @@ class DataCellsFilterTableDataRowFilter(dict):
     @pulumi.getter(name="allRowsWildcard")
     def all_rows_wildcard(self) -> Optional['outputs.DataCellsFilterTableDataRowFilterAllRowsWildcard']:
         """
-        (Optional) A wildcard that matches all rows.
+        (Optional) A wildcard that matches all rows. Required when applying column-level filtering without row-level filtering. Use an empty block: `all_rows_wildcard {}`.
         """
         return pulumi.get(self, "all_rows_wildcard")
 
@@ -275,7 +275,7 @@ class DataCellsFilterTableDataRowFilter(dict):
     @pulumi.getter(name="filterExpression")
     def filter_expression(self) -> Optional[_builtins.str]:
         """
-        (Optional) A filter expression.
+        (Optional) A PartiQL predicate expression for row-level filtering.
         """
         return pulumi.get(self, "filter_expression")
 
@@ -1972,12 +1972,18 @@ class ResourceLfTagTableWithColumnsColumnWildcard(dict):
 
     def __init__(__self__, *,
                  excluded_column_names: Optional[Sequence[_builtins.str]] = None):
+        """
+        :param Sequence[_builtins.str] excluded_column_names: Set of column names for the table to exclude. If `excluded_column_names` is included, `wildcard` must be set to `true` to avoid Terraform reporting a difference.
+        """
         if excluded_column_names is not None:
             pulumi.set(__self__, "excluded_column_names", excluded_column_names)
 
     @_builtins.property
     @pulumi.getter(name="excludedColumnNames")
     def excluded_column_names(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        Set of column names for the table to exclude. If `excluded_column_names` is included, `wildcard` must be set to `true` to avoid Terraform reporting a difference.
+        """
         return pulumi.get(self, "excluded_column_names")
 
 

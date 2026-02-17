@@ -13,6 +13,9 @@ namespace Pulumi.Aws.LakeFormation.Outputs
     [OutputType]
     public sealed class ResourceLfTagTableWithColumnsColumnWildcard
     {
+        /// <summary>
+        /// Set of column names for the table to exclude. If `ExcludedColumnNames` is included, `Wildcard` must be set to `True` to avoid Terraform reporting a difference.
+        /// </summary>
         public readonly ImmutableArray<string> ExcludedColumnNames;
 
         [OutputConstructor]

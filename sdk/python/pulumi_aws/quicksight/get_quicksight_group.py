@@ -143,6 +143,7 @@ def get_quicksight_group(aws_account_id: Optional[_builtins.str] = None,
     ```
 
 
+    :param _builtins.str aws_account_id: AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
     :param _builtins.str group_name: The name of the group that you want to match.
            
            The following arguments are optional:
@@ -188,6 +189,7 @@ def get_quicksight_group_output(aws_account_id: Optional[pulumi.Input[Optional[_
     ```
 
 
+    :param _builtins.str aws_account_id: AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
     :param _builtins.str group_name: The name of the group that you want to match.
            
            The following arguments are optional:

@@ -27,16 +27,11 @@ __all__ = [
     'PlanStageTargetContactTargetInfoArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class ContactChannelDeliveryAddressArgsDict(TypedDict):
-        simple_address: pulumi.Input[_builtins.str]
-        """
-        Details to engage this contact channel. The expected format depends on the contact channel type and is described in the [`ContactChannelAddress` section of the SSM Contacts API Reference](https://docs.aws.amazon.com/incident-manager/latest/APIReference/API_SSMContacts_ContactChannelAddress.html).
-        """
-elif False:
-    ContactChannelDeliveryAddressArgsDict: TypeAlias = Mapping[str, Any]
+class ContactChannelDeliveryAddressArgsDict(TypedDict):
+    simple_address: pulumi.Input[_builtins.str]
+    """
+    Details to engage this contact channel. The expected format depends on the contact channel type and is described in the [`ContactChannelAddress` section of the SSM Contacts API Reference](https://docs.aws.amazon.com/incident-manager/latest/APIReference/API_SSMContacts_ContactChannelAddress.html).
+    """
 
 @pulumi.input_type
 class ContactChannelDeliveryAddressArgs:
@@ -60,18 +55,15 @@ class ContactChannelDeliveryAddressArgs:
         pulumi.set(self, "simple_address", value)
 
 
-if not MYPY:
-    class PlanStageArgsDict(TypedDict):
-        duration_in_minutes: pulumi.Input[_builtins.int]
-        """
-        The time to wait until beginning the next stage. The duration can only be set to 0 if a target is specified.
-        """
-        targets: NotRequired[pulumi.Input[Sequence[pulumi.Input['PlanStageTargetArgsDict']]]]
-        """
-        One or more configuration blocks for specifying the contacts or contact methods that the escalation plan or engagement plan is engaging. See Target below for more details.
-        """
-elif False:
-    PlanStageArgsDict: TypeAlias = Mapping[str, Any]
+class PlanStageArgsDict(TypedDict):
+    duration_in_minutes: pulumi.Input[_builtins.int]
+    """
+    The time to wait until beginning the next stage. The duration can only be set to 0 if a target is specified.
+    """
+    targets: NotRequired[pulumi.Input[Sequence[pulumi.Input['PlanStageTargetArgsDict']]]]
+    """
+    One or more configuration blocks for specifying the contacts or contact methods that the escalation plan or engagement plan is engaging. See Target below for more details.
+    """
 
 @pulumi.input_type
 class PlanStageArgs:
@@ -111,18 +103,15 @@ class PlanStageArgs:
         pulumi.set(self, "targets", value)
 
 
-if not MYPY:
-    class PlanStageTargetArgsDict(TypedDict):
-        channel_target_info: NotRequired[pulumi.Input['PlanStageTargetChannelTargetInfoArgsDict']]
-        """
-        A configuration block for specifying information about the contact channel that Incident Manager engages. See Channel Target Info for more details.
-        """
-        contact_target_info: NotRequired[pulumi.Input['PlanStageTargetContactTargetInfoArgsDict']]
-        """
-        A configuration block for specifying information about the contact that Incident Manager engages. See Contact Target Info for more details.
-        """
-elif False:
-    PlanStageTargetArgsDict: TypeAlias = Mapping[str, Any]
+class PlanStageTargetArgsDict(TypedDict):
+    channel_target_info: NotRequired[pulumi.Input['PlanStageTargetChannelTargetInfoArgsDict']]
+    """
+    A configuration block for specifying information about the contact channel that Incident Manager engages. See Channel Target Info for more details.
+    """
+    contact_target_info: NotRequired[pulumi.Input['PlanStageTargetContactTargetInfoArgsDict']]
+    """
+    A configuration block for specifying information about the contact that Incident Manager engages. See Contact Target Info for more details.
+    """
 
 @pulumi.input_type
 class PlanStageTargetArgs:
@@ -163,18 +152,15 @@ class PlanStageTargetArgs:
         pulumi.set(self, "contact_target_info", value)
 
 
-if not MYPY:
-    class PlanStageTargetChannelTargetInfoArgsDict(TypedDict):
-        contact_channel_id: pulumi.Input[_builtins.str]
-        """
-        The Amazon Resource Name (ARN) of the contact channel.
-        """
-        retry_interval_in_minutes: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The number of minutes to wait before retrying to send engagement if the engagement initially failed.
-        """
-elif False:
-    PlanStageTargetChannelTargetInfoArgsDict: TypeAlias = Mapping[str, Any]
+class PlanStageTargetChannelTargetInfoArgsDict(TypedDict):
+    contact_channel_id: pulumi.Input[_builtins.str]
+    """
+    The Amazon Resource Name (ARN) of the contact channel.
+    """
+    retry_interval_in_minutes: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The number of minutes to wait before retrying to send engagement if the engagement initially failed.
+    """
 
 @pulumi.input_type
 class PlanStageTargetChannelTargetInfoArgs:
@@ -214,18 +200,15 @@ class PlanStageTargetChannelTargetInfoArgs:
         pulumi.set(self, "retry_interval_in_minutes", value)
 
 
-if not MYPY:
-    class PlanStageTargetContactTargetInfoArgsDict(TypedDict):
-        is_essential: pulumi.Input[_builtins.bool]
-        """
-        A Boolean value determining if the contact's acknowledgement stops the progress of stages in the plan.
-        """
-        contact_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Amazon Resource Name (ARN) of the contact.
-        """
-elif False:
-    PlanStageTargetContactTargetInfoArgsDict: TypeAlias = Mapping[str, Any]
+class PlanStageTargetContactTargetInfoArgsDict(TypedDict):
+    is_essential: pulumi.Input[_builtins.bool]
+    """
+    A Boolean value determining if the contact's acknowledgement stops the progress of stages in the plan.
+    """
+    contact_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Amazon Resource Name (ARN) of the contact.
+    """
 
 @pulumi.input_type
 class PlanStageTargetContactTargetInfoArgs:

@@ -869,6 +869,8 @@
         "ec2/route.ts",
         "ec2/routeTable.ts",
         "ec2/routeTableAssociation.ts",
+        "ec2/secondaryNetwork.ts",
+        "ec2/secondarySubnet.ts",
         "ec2/securityGroup.ts",
         "ec2/securityGroupAssociation.ts",
         "ec2/securityGroupRule.ts",

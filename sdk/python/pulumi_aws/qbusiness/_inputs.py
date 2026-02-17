@@ -23,16 +23,11 @@ __all__ = [
     'ApplicationTimeoutsArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class ApplicationAttachmentsConfigurationArgsDict(TypedDict):
-        attachments_control_mode: pulumi.Input[_builtins.str]
-        """
-        Status information about whether file upload functionality is activated or deactivated for your end user. Valid values are `ENABLED` and `DISABLED`.
-        """
-elif False:
-    ApplicationAttachmentsConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class ApplicationAttachmentsConfigurationArgsDict(TypedDict):
+    attachments_control_mode: pulumi.Input[_builtins.str]
+    """
+    Status information about whether file upload functionality is activated or deactivated for your end user. Valid values are `ENABLED` and `DISABLED`.
+    """
 
 @pulumi.input_type
 class ApplicationAttachmentsConfigurationArgs:
@@ -56,14 +51,11 @@ class ApplicationAttachmentsConfigurationArgs:
         pulumi.set(self, "attachments_control_mode", value)
 
 
-if not MYPY:
-    class ApplicationEncryptionConfigurationArgsDict(TypedDict):
-        kms_key_id: pulumi.Input[_builtins.str]
-        """
-        Identifier of the AWS KMS key that is used to encrypt your data. Amazon Q doesn't support asymmetric keys.
-        """
-elif False:
-    ApplicationEncryptionConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class ApplicationEncryptionConfigurationArgsDict(TypedDict):
+    kms_key_id: pulumi.Input[_builtins.str]
+    """
+    Identifier of the AWS KMS key that is used to encrypt your data. Amazon Q doesn't support asymmetric keys.
+    """
 
 @pulumi.input_type
 class ApplicationEncryptionConfigurationArgs:
@@ -87,22 +79,19 @@ class ApplicationEncryptionConfigurationArgs:
         pulumi.set(self, "kms_key_id", value)
 
 
-if not MYPY:
-    class ApplicationTimeoutsArgsDict(TypedDict):
-        create: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
-        """
-        delete: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
-        """
-        update: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
-        """
-elif False:
-    ApplicationTimeoutsArgsDict: TypeAlias = Mapping[str, Any]
+class ApplicationTimeoutsArgsDict(TypedDict):
+    create: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+    """
+    delete: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+    """
+    update: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+    """
 
 @pulumi.input_type
 class ApplicationTimeoutsArgs:

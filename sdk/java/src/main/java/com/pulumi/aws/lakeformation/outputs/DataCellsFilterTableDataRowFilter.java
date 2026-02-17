@@ -13,26 +13,26 @@ import javax.annotation.Nullable;
 @CustomType
 public final class DataCellsFilterTableDataRowFilter {
     /**
-     * @return (Optional) A wildcard that matches all rows.
+     * @return (Optional) A wildcard that matches all rows. Required when applying column-level filtering without row-level filtering. Use an empty block: `allRowsWildcard {}`.
      * 
      */
     private @Nullable DataCellsFilterTableDataRowFilterAllRowsWildcard allRowsWildcard;
     /**
-     * @return (Optional) A filter expression.
+     * @return (Optional) A PartiQL predicate expression for row-level filtering.
      * 
      */
     private @Nullable String filterExpression;
 
     private DataCellsFilterTableDataRowFilter() {}
     /**
-     * @return (Optional) A wildcard that matches all rows.
+     * @return (Optional) A wildcard that matches all rows. Required when applying column-level filtering without row-level filtering. Use an empty block: `allRowsWildcard {}`.
      * 
      */
     public Optional<DataCellsFilterTableDataRowFilterAllRowsWildcard> allRowsWildcard() {
         return Optional.ofNullable(this.allRowsWildcard);
     }
     /**
-     * @return (Optional) A filter expression.
+     * @return (Optional) A PartiQL predicate expression for row-level filtering.
      * 
      */
     public Optional<String> filterExpression() {

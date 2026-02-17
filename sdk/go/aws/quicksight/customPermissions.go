@@ -36,7 +36,8 @@ type CustomPermissions struct {
 	pulumi.CustomResourceState
 
 	// ARN of the custom permissions profile.
-	Arn          pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
 	AwsAccountId pulumi.StringOutput `pulumi:"awsAccountId"`
 	// Actions to include in the custom permissions profile. See capabilities.
 	Capabilities CustomPermissionsCapabilitiesOutput `pulumi:"capabilities"`
@@ -89,7 +90,8 @@ func GetCustomPermissions(ctx *pulumi.Context,
 // Input properties used for looking up and filtering CustomPermissions resources.
 type customPermissionsState struct {
 	// ARN of the custom permissions profile.
-	Arn          *string `pulumi:"arn"`
+	Arn *string `pulumi:"arn"`
+	// AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
 	AwsAccountId *string `pulumi:"awsAccountId"`
 	// Actions to include in the custom permissions profile. See capabilities.
 	Capabilities *CustomPermissionsCapabilities `pulumi:"capabilities"`
@@ -107,7 +109,8 @@ type customPermissionsState struct {
 
 type CustomPermissionsState struct {
 	// ARN of the custom permissions profile.
-	Arn          pulumi.StringPtrInput
+	Arn pulumi.StringPtrInput
+	// AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
 	AwsAccountId pulumi.StringPtrInput
 	// Actions to include in the custom permissions profile. See capabilities.
 	Capabilities CustomPermissionsCapabilitiesPtrInput
@@ -128,6 +131,7 @@ func (CustomPermissionsState) ElementType() reflect.Type {
 }
 
 type customPermissionsArgs struct {
+	// AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
 	AwsAccountId *string `pulumi:"awsAccountId"`
 	// Actions to include in the custom permissions profile. See capabilities.
 	Capabilities CustomPermissionsCapabilities `pulumi:"capabilities"`
@@ -143,6 +147,7 @@ type customPermissionsArgs struct {
 
 // The set of arguments for constructing a CustomPermissions resource.
 type CustomPermissionsArgs struct {
+	// AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
 	AwsAccountId pulumi.StringPtrInput
 	// Actions to include in the custom permissions profile. See capabilities.
 	Capabilities CustomPermissionsCapabilitiesInput
@@ -248,6 +253,7 @@ func (o CustomPermissionsOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *CustomPermissions) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
 func (o CustomPermissionsOutput) AwsAccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *CustomPermissions) pulumi.StringOutput { return v.AwsAccountId }).(pulumi.StringOutput)
 }

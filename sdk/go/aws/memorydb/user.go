@@ -32,8 +32,8 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := random.NewPassword(ctx, "example", &random.PasswordArgs{
-//				Length: 16,
+//			example, err := random.NewRandomPassword(ctx, "example", &random.RandomPasswordArgs{
+//				Length: pulumi.Int(16),
 //			})
 //			if err != nil {
 //				return err
@@ -59,11 +59,12 @@ import (
 //
 // ## Import
 //
-// Using `pulumi import`, import a user using the `user_name`. For example:
+// Using `pulumi import`, import a user using the `userName`. For example:
 //
 // ```sh
 // $ pulumi import aws:memorydb/user:User example my-user
 // ```
+//
 // The `passwords` are not available for imported resources, as this information cannot be read back from the MemoryDB API.
 type User struct {
 	pulumi.CustomResourceState

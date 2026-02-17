@@ -48,6 +48,7 @@ class _EnrollmentStatusState:
         """
         Input properties used for looking up and filtering EnrollmentStatus resources.
         :param pulumi.Input[_builtins.bool] include_member_accounts: Flag to enroll member accounts of the organization if the account is the management account. No drift detection is currently supported for this argument. Default value is `false`.
+        :param pulumi.Input[_builtins.str] status: Status of enrollment. When the resource is present in Terraform, its status will always be `Active`.
         """
         if include_member_accounts is not None:
             pulumi.set(__self__, "include_member_accounts", include_member_accounts)
@@ -69,6 +70,9 @@ class _EnrollmentStatusState:
     @_builtins.property
     @pulumi.getter
     def status(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Status of enrollment. When the resource is present in Terraform, its status will always be `Active`.
+        """
         return pulumi.get(self, "status")
 
     @status.setter
@@ -207,6 +211,7 @@ class EnrollmentStatus(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] include_member_accounts: Flag to enroll member accounts of the organization if the account is the management account. No drift detection is currently supported for this argument. Default value is `false`.
+        :param pulumi.Input[_builtins.str] status: Status of enrollment. When the resource is present in Terraform, its status will always be `Active`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -227,5 +232,8 @@ class EnrollmentStatus(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def status(self) -> pulumi.Output[_builtins.str]:
+        """
+        Status of enrollment. When the resource is present in Terraform, its status will always be `Active`.
+        """
         return pulumi.get(self, "status")
 

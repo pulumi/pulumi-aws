@@ -33,7 +33,9 @@ import * as utilities from "../utilities";
  *
  * Using `pulumi import`, import Inspector Classic Assessment Targets using their Amazon Resource Name (ARN). For example:
  *
- * % pulumi import aws_inspector_assessment_target.example arn:aws:inspector:us-east-1:123456789012:target/0-xxxxxxx
+ * ```sh
+ * $ pulumi import aws:inspector/assessmentTarget:AssessmentTarget example arn:aws:inspector:us-east-1:123456789012:target/0-xxxxxxx
+ * ```
  */
 export class AssessmentTarget extends pulumi.CustomResource {
     /**

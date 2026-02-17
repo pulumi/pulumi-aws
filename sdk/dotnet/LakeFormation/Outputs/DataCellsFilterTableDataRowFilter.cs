@@ -14,11 +14,11 @@ namespace Pulumi.Aws.LakeFormation.Outputs
     public sealed class DataCellsFilterTableDataRowFilter
     {
         /// <summary>
-        /// (Optional) A wildcard that matches all rows.
+        /// (Optional) A wildcard that matches all rows. Required when applying column-level filtering without row-level filtering. Use an empty block: `AllRowsWildcard {}`.
         /// </summary>
         public readonly Outputs.DataCellsFilterTableDataRowFilterAllRowsWildcard? AllRowsWildcard;
         /// <summary>
-        /// (Optional) A filter expression.
+        /// (Optional) A PartiQL predicate expression for row-level filtering.
         /// </summary>
         public readonly string? FilterExpression;
 

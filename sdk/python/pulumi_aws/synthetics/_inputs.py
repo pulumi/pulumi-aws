@@ -31,16 +31,11 @@ __all__ = [
     'CanaryVpcConfigArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class CanaryArtifactConfigArgsDict(TypedDict):
-        s3_encryption: NotRequired[pulumi.Input['CanaryArtifactConfigS3EncryptionArgsDict']]
-        """
-        Configuration of the encryption-at-rest settings for artifacts that the canary uploads to Amazon S3. See S3 Encryption.
-        """
-elif False:
-    CanaryArtifactConfigArgsDict: TypeAlias = Mapping[str, Any]
+class CanaryArtifactConfigArgsDict(TypedDict):
+    s3_encryption: NotRequired[pulumi.Input['CanaryArtifactConfigS3EncryptionArgsDict']]
+    """
+    Configuration of the encryption-at-rest settings for artifacts that the canary uploads to Amazon S3. See S3 Encryption.
+    """
 
 @pulumi.input_type
 class CanaryArtifactConfigArgs:
@@ -65,18 +60,15 @@ class CanaryArtifactConfigArgs:
         pulumi.set(self, "s3_encryption", value)
 
 
-if not MYPY:
-    class CanaryArtifactConfigS3EncryptionArgsDict(TypedDict):
-        encryption_mode: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The encryption method to use for artifacts created by this canary. Valid values are: `SSE_S3` and `SSE_KMS`.
-        """
-        kms_key_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ARN of the customer-managed KMS key to use, if you specify `SSE_KMS` for `encryption_mode`.
-        """
-elif False:
-    CanaryArtifactConfigS3EncryptionArgsDict: TypeAlias = Mapping[str, Any]
+class CanaryArtifactConfigS3EncryptionArgsDict(TypedDict):
+    encryption_mode: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The encryption method to use for artifacts created by this canary. Valid values are: `SSE_S3` and `SSE_KMS`.
+    """
+    kms_key_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ARN of the customer-managed KMS key to use, if you specify `SSE_KMS` for `encryption_mode`.
+    """
 
 @pulumi.input_type
 class CanaryArtifactConfigS3EncryptionArgs:
@@ -117,30 +109,27 @@ class CanaryArtifactConfigS3EncryptionArgs:
         pulumi.set(self, "kms_key_arn", value)
 
 
-if not MYPY:
-    class CanaryRunConfigArgsDict(TypedDict):
-        active_tracing: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether this canary is to use active AWS X-Ray tracing when it runs. You can enable active tracing only for canaries that use version syn-nodejs-2.0 or later for their canary runtime.
-        """
-        environment_variables: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
-        """
-        Map of environment variables that are accessible from the canary during execution. Please see [AWS Docs](https://docs.aws.amazon.com/lambda/latest/dg/configuration-envvars.html#configuration-envvars-runtime) for variables reserved for Lambda.
-        """
-        ephemeral_storage: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Amount of ephemeral storage (in MB) allocated for the canary run during execution. Defaults to 1024.
-        """
-        memory_in_mb: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Maximum amount of memory available to the canary while it is running, in MB. The value you specify must be a multiple of 64.
-        """
-        timeout_in_seconds: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Number of seconds the canary is allowed to run before it must stop. If you omit this field, the frequency of the canary is used, up to a maximum of 840 (14 minutes).
-        """
-elif False:
-    CanaryRunConfigArgsDict: TypeAlias = Mapping[str, Any]
+class CanaryRunConfigArgsDict(TypedDict):
+    active_tracing: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether this canary is to use active AWS X-Ray tracing when it runs. You can enable active tracing only for canaries that use version syn-nodejs-2.0 or later for their canary runtime.
+    """
+    environment_variables: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    """
+    Map of environment variables that are accessible from the canary during execution. Please see [AWS Docs](https://docs.aws.amazon.com/lambda/latest/dg/configuration-envvars.html#configuration-envvars-runtime) for variables reserved for Lambda.
+    """
+    ephemeral_storage: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Amount of ephemeral storage (in MB) allocated for the canary run during execution. Defaults to 1024.
+    """
+    memory_in_mb: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Maximum amount of memory available to the canary while it is running, in MB. The value you specify must be a multiple of 64.
+    """
+    timeout_in_seconds: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Number of seconds the canary is allowed to run before it must stop. If you omit this field, the frequency of the canary is used, up to a maximum of 840 (14 minutes).
+    """
 
 @pulumi.input_type
 class CanaryRunConfigArgs:
@@ -229,22 +218,19 @@ class CanaryRunConfigArgs:
         pulumi.set(self, "timeout_in_seconds", value)
 
 
-if not MYPY:
-    class CanaryScheduleArgsDict(TypedDict):
-        expression: pulumi.Input[_builtins.str]
-        """
-        Rate expression or cron expression that defines how often the canary is to run. For rate expression, the syntax is `rate(number unit)`. _unit_ can be `minute`, `minutes`, or `hour`. For cron expression, the syntax is `cron(expression)`. For more information about the syntax for cron expressions, see [Scheduling canary runs using cron](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_cron.html).
-        """
-        duration_in_seconds: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Duration in seconds, for the canary to continue making regular runs according to the schedule in the Expression value.
-        """
-        retry_config: NotRequired[pulumi.Input['CanaryScheduleRetryConfigArgsDict']]
-        """
-        Configuration block for canary retries. Detailed below.
-        """
-elif False:
-    CanaryScheduleArgsDict: TypeAlias = Mapping[str, Any]
+class CanaryScheduleArgsDict(TypedDict):
+    expression: pulumi.Input[_builtins.str]
+    """
+    Rate expression or cron expression that defines how often the canary is to run. For rate expression, the syntax is `rate(number unit)`. _unit_ can be `minute`, `minutes`, or `hour`. For cron expression, the syntax is `cron(expression)`. For more information about the syntax for cron expressions, see [Scheduling canary runs using cron](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Synthetics_Canaries_cron.html).
+    """
+    duration_in_seconds: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Duration in seconds, for the canary to continue making regular runs according to the schedule in the Expression value.
+    """
+    retry_config: NotRequired[pulumi.Input['CanaryScheduleRetryConfigArgsDict']]
+    """
+    Configuration block for canary retries. Detailed below.
+    """
 
 @pulumi.input_type
 class CanaryScheduleArgs:
@@ -300,14 +286,11 @@ class CanaryScheduleArgs:
         pulumi.set(self, "retry_config", value)
 
 
-if not MYPY:
-    class CanaryScheduleRetryConfigArgsDict(TypedDict):
-        max_retries: pulumi.Input[_builtins.int]
-        """
-        Maximum number of retries. The value must be less than or equal to `2`. If `max_retries` is `2`, `run_config.timeout_in_seconds` should be less than 600 seconds. Defaults to `0`.
-        """
-elif False:
-    CanaryScheduleRetryConfigArgsDict: TypeAlias = Mapping[str, Any]
+class CanaryScheduleRetryConfigArgsDict(TypedDict):
+    max_retries: pulumi.Input[_builtins.int]
+    """
+    Maximum number of retries. The value must be less than or equal to `2`. If `max_retries` is `2`, `run_config.timeout_in_seconds` should be less than 600 seconds. Defaults to `0`.
+    """
 
 @pulumi.input_type
 class CanaryScheduleRetryConfigArgs:
@@ -331,26 +314,23 @@ class CanaryScheduleRetryConfigArgs:
         pulumi.set(self, "max_retries", value)
 
 
-if not MYPY:
-    class CanaryTimelineArgsDict(TypedDict):
-        created: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Date and time the canary was created.
-        """
-        last_modified: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Date and time the canary was most recently modified.
-        """
-        last_started: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Date and time that the canary's most recent run started.
-        """
-        last_stopped: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Date and time that the canary's most recent run ended.
-        """
-elif False:
-    CanaryTimelineArgsDict: TypeAlias = Mapping[str, Any]
+class CanaryTimelineArgsDict(TypedDict):
+    created: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Date and time the canary was created.
+    """
+    last_modified: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Date and time the canary was most recently modified.
+    """
+    last_started: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Date and time that the canary's most recent run started.
+    """
+    last_stopped: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Date and time that the canary's most recent run ended.
+    """
 
 @pulumi.input_type
 class CanaryTimelineArgs:
@@ -423,26 +403,23 @@ class CanaryTimelineArgs:
         pulumi.set(self, "last_stopped", value)
 
 
-if not MYPY:
-    class CanaryVpcConfigArgsDict(TypedDict):
-        ipv6_allowed_for_dual_stack: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        If `true`, allow outbound IPv6 traffic on VPC canaries that are connected to dual-stack subnets. The default is `false`.
-        """
-        security_group_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        IDs of the security groups for this canary.
-        """
-        subnet_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        IDs of the subnets where this canary is to run.
-        """
-        vpc_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        ID of the VPC where this canary is to run.
-        """
-elif False:
-    CanaryVpcConfigArgsDict: TypeAlias = Mapping[str, Any]
+class CanaryVpcConfigArgsDict(TypedDict):
+    ipv6_allowed_for_dual_stack: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    If `true`, allow outbound IPv6 traffic on VPC canaries that are connected to dual-stack subnets. The default is `false`.
+    """
+    security_group_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    IDs of the security groups for this canary.
+    """
+    subnet_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    IDs of the subnets where this canary is to run.
+    """
+    vpc_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    ID of the VPC where this canary is to run.
+    """
 
 @pulumi.input_type
 class CanaryVpcConfigArgs:

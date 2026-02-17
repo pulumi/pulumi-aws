@@ -285,11 +285,12 @@ class BucketObjectLockConfiguration(pulumi.CustomResource):
 
         If the owner (account ID) of the source bucket differs from the account used to configure the AWS Provider, import using the `bucket` and `expected_bucket_owner`, separated by a comma (`,`). For example:
 
-        __Using `pulumi import`__, import an S3 bucket Object Lock Configuration using one of two forms. If the owner (account ID) of the source bucket is the same account used to configure the AWS Provider, import using the `bucket`. For example:
+        **Using `pulumi import`**, import an S3 bucket Object Lock Configuration using one of two forms. If the owner (account ID) of the source bucket is the same account used to configure the AWS Provider, import using the `bucket`. For example:
 
         ```sh
         $ pulumi import aws:s3/bucketObjectLockConfiguration:BucketObjectLockConfiguration example bucket-name
         ```
+
         If the owner (account ID) of the source bucket differs from the account used to configure the AWS Provider, import using the `bucket` and `expected_bucket_owner`, separated by a comma (`,`). For example:
 
         ```sh
@@ -347,11 +348,12 @@ class BucketObjectLockConfiguration(pulumi.CustomResource):
 
         If the owner (account ID) of the source bucket differs from the account used to configure the AWS Provider, import using the `bucket` and `expected_bucket_owner`, separated by a comma (`,`). For example:
 
-        __Using `pulumi import`__, import an S3 bucket Object Lock Configuration using one of two forms. If the owner (account ID) of the source bucket is the same account used to configure the AWS Provider, import using the `bucket`. For example:
+        **Using `pulumi import`**, import an S3 bucket Object Lock Configuration using one of two forms. If the owner (account ID) of the source bucket is the same account used to configure the AWS Provider, import using the `bucket`. For example:
 
         ```sh
         $ pulumi import aws:s3/bucketObjectLockConfiguration:BucketObjectLockConfiguration example bucket-name
         ```
+
         If the owner (account ID) of the source bucket differs from the account used to configure the AWS Provider, import using the `bucket` and `expected_bucket_owner`, separated by a comma (`,`). For example:
 
         ```sh

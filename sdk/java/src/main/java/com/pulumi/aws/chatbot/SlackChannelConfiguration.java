@@ -62,7 +62,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Using `pulumi import`, import Chatbot Slack Channel Configuration using the `chat_configuration_arn`. For example:
+ * Using `pulumi import`, import Chatbot Slack Channel Configuration using the `chatConfigurationArn`. For example:
  * 
  * ```sh
  * $ pulumi import aws:chatbot/slackChannelConfiguration:SlackChannelConfiguration example arn:aws:chatbot::123456789012:chat-configuration/slack-channel/min-slaka-kanal

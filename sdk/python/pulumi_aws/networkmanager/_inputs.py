@@ -81,16 +81,11 @@ __all__ = [
     'GetCoreNetworkPolicyDocumentSegmentActionWhenSentToArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class ConnectAttachmentOptionsArgsDict(TypedDict):
-        protocol: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Protocol used for the attachment connection. Valid values: `GRE`, `NO_ENCAP`.
-        """
-elif False:
-    ConnectAttachmentOptionsArgsDict: TypeAlias = Mapping[str, Any]
+class ConnectAttachmentOptionsArgsDict(TypedDict):
+    protocol: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Protocol used for the attachment connection. Valid values: `GRE`, `NO_ENCAP`.
+    """
 
 @pulumi.input_type
 class ConnectAttachmentOptionsArgs:
@@ -115,14 +110,11 @@ class ConnectAttachmentOptionsArgs:
         pulumi.set(self, "protocol", value)
 
 
-if not MYPY:
-    class ConnectPeerBgpOptionsArgsDict(TypedDict):
-        peer_asn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Peer ASN. Supports 2-byte and 4-byte ASNs (1 to 4294967295).
-        """
-elif False:
-    ConnectPeerBgpOptionsArgsDict: TypeAlias = Mapping[str, Any]
+class ConnectPeerBgpOptionsArgsDict(TypedDict):
+    peer_asn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Peer ASN. Supports 2-byte and 4-byte ASNs (1 to 4294967295).
+    """
 
 @pulumi.input_type
 class ConnectPeerBgpOptionsArgs:
@@ -147,26 +139,23 @@ class ConnectPeerBgpOptionsArgs:
         pulumi.set(self, "peer_asn", value)
 
 
-if not MYPY:
-    class ConnectPeerConfigurationArgsDict(TypedDict):
-        bgp_configurations: NotRequired[pulumi.Input[Sequence[pulumi.Input['ConnectPeerConfigurationBgpConfigurationArgsDict']]]]
-        core_network_address: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Connect peer core network address.
-        """
-        inside_cidr_blocks: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Inside IP addresses used for BGP peering. Required when the Connect attachment protocol is `GRE`. See `networkmanager.ConnectAttachment` for details.
-        """
-        peer_address: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Connect peer address.
+class ConnectPeerConfigurationArgsDict(TypedDict):
+    bgp_configurations: NotRequired[pulumi.Input[Sequence[pulumi.Input['ConnectPeerConfigurationBgpConfigurationArgsDict']]]]
+    core_network_address: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Connect peer core network address.
+    """
+    inside_cidr_blocks: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Inside IP addresses used for BGP peering. Required when the Connect attachment protocol is `GRE`. See `networkmanager.ConnectAttachment` for details.
+    """
+    peer_address: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Connect peer address.
 
-        The following arguments are optional:
-        """
-        protocol: NotRequired[pulumi.Input[_builtins.str]]
-elif False:
-    ConnectPeerConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+    The following arguments are optional:
+    """
+    protocol: NotRequired[pulumi.Input[_builtins.str]]
 
 @pulumi.input_type
 class ConnectPeerConfigurationArgs:
@@ -251,25 +240,22 @@ class ConnectPeerConfigurationArgs:
         pulumi.set(self, "protocol", value)
 
 
-if not MYPY:
-    class ConnectPeerConfigurationBgpConfigurationArgsDict(TypedDict):
-        core_network_address: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Connect peer core network address.
-        """
-        core_network_asn: NotRequired[pulumi.Input[_builtins.int]]
-        peer_address: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Connect peer address.
+class ConnectPeerConfigurationBgpConfigurationArgsDict(TypedDict):
+    core_network_address: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Connect peer core network address.
+    """
+    core_network_asn: NotRequired[pulumi.Input[_builtins.int]]
+    peer_address: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Connect peer address.
 
-        The following arguments are optional:
-        """
-        peer_asn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Peer ASN. Supports 2-byte and 4-byte ASNs (1 to 4294967295).
-        """
-elif False:
-    ConnectPeerConfigurationBgpConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+    The following arguments are optional:
+    """
+    peer_asn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Peer ASN. Supports 2-byte and 4-byte ASNs (1 to 4294967295).
+    """
 
 @pulumi.input_type
 class ConnectPeerConfigurationBgpConfigurationArgs:
@@ -342,22 +328,19 @@ class ConnectPeerConfigurationBgpConfigurationArgs:
         pulumi.set(self, "peer_asn", value)
 
 
-if not MYPY:
-    class CoreNetworkEdgeArgsDict(TypedDict):
-        asn: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        ASN of a core network edge.
-        """
-        edge_location: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Region where a core network edge is located.
-        """
-        inside_cidr_blocks: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Inside IP addresses used for core network edges.
-        """
-elif False:
-    CoreNetworkEdgeArgsDict: TypeAlias = Mapping[str, Any]
+class CoreNetworkEdgeArgsDict(TypedDict):
+    asn: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    ASN of a core network edge.
+    """
+    edge_location: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Region where a core network edge is located.
+    """
+    inside_cidr_blocks: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Inside IP addresses used for core network edges.
+    """
 
 @pulumi.input_type
 class CoreNetworkEdgeArgs:
@@ -414,22 +397,19 @@ class CoreNetworkEdgeArgs:
         pulumi.set(self, "inside_cidr_blocks", value)
 
 
-if not MYPY:
-    class CoreNetworkSegmentArgsDict(TypedDict):
-        edge_locations: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Regions where the edges are located.
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Name of a core network segment.
-        """
-        shared_segments: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Shared segments of a core network.
-        """
-elif False:
-    CoreNetworkSegmentArgsDict: TypeAlias = Mapping[str, Any]
+class CoreNetworkSegmentArgsDict(TypedDict):
+    edge_locations: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Regions where the edges are located.
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Name of a core network segment.
+    """
+    shared_segments: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Shared segments of a core network.
+    """
 
 @pulumi.input_type
 class CoreNetworkSegmentArgs:
@@ -486,18 +466,15 @@ class CoreNetworkSegmentArgs:
         pulumi.set(self, "shared_segments", value)
 
 
-if not MYPY:
-    class DeviceAwsLocationArgsDict(TypedDict):
-        subnet_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        ARN of the subnet that the device is located in.
-        """
-        zone: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Zone that the device is located in. Specify the ID of an Availability Zone, Local Zone, Wavelength Zone, or an Outpost.
-        """
-elif False:
-    DeviceAwsLocationArgsDict: TypeAlias = Mapping[str, Any]
+class DeviceAwsLocationArgsDict(TypedDict):
+    subnet_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    ARN of the subnet that the device is located in.
+    """
+    zone: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Zone that the device is located in. Specify the ID of an Availability Zone, Local Zone, Wavelength Zone, or an Outpost.
+    """
 
 @pulumi.input_type
 class DeviceAwsLocationArgs:
@@ -538,22 +515,19 @@ class DeviceAwsLocationArgs:
         pulumi.set(self, "zone", value)
 
 
-if not MYPY:
-    class DeviceLocationArgsDict(TypedDict):
-        address: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Physical address.
-        """
-        latitude: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Latitude.
-        """
-        longitude: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Longitude.
-        """
-elif False:
-    DeviceLocationArgsDict: TypeAlias = Mapping[str, Any]
+class DeviceLocationArgsDict(TypedDict):
+    address: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Physical address.
+    """
+    latitude: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Latitude.
+    """
+    longitude: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Longitude.
+    """
 
 @pulumi.input_type
 class DeviceLocationArgs:
@@ -610,22 +584,19 @@ class DeviceLocationArgs:
         pulumi.set(self, "longitude", value)
 
 
-if not MYPY:
-    class DxGatewayAttachmentTimeoutsArgsDict(TypedDict):
-        create: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
-        """
-        delete: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
-        """
-        update: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
-        """
-elif False:
-    DxGatewayAttachmentTimeoutsArgsDict: TypeAlias = Mapping[str, Any]
+class DxGatewayAttachmentTimeoutsArgsDict(TypedDict):
+    create: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+    """
+    delete: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+    """
+    update: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+    """
 
 @pulumi.input_type
 class DxGatewayAttachmentTimeoutsArgs:
@@ -682,18 +653,15 @@ class DxGatewayAttachmentTimeoutsArgs:
         pulumi.set(self, "update", value)
 
 
-if not MYPY:
-    class LinkBandwidthArgsDict(TypedDict):
-        download_speed: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Download speed in Mbps.
-        """
-        upload_speed: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Upload speed in Mbps.
-        """
-elif False:
-    LinkBandwidthArgsDict: TypeAlias = Mapping[str, Any]
+class LinkBandwidthArgsDict(TypedDict):
+    download_speed: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Download speed in Mbps.
+    """
+    upload_speed: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Upload speed in Mbps.
+    """
 
 @pulumi.input_type
 class LinkBandwidthArgs:
@@ -734,22 +702,19 @@ class LinkBandwidthArgs:
         pulumi.set(self, "upload_speed", value)
 
 
-if not MYPY:
-    class SiteLocationArgsDict(TypedDict):
-        address: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Address of the location.
-        """
-        latitude: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Latitude of the location.
-        """
-        longitude: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Longitude of the location.
-        """
-elif False:
-    SiteLocationArgsDict: TypeAlias = Mapping[str, Any]
+class SiteLocationArgsDict(TypedDict):
+    address: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Address of the location.
+    """
+    latitude: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Latitude of the location.
+    """
+    longitude: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Longitude of the location.
+    """
 
 @pulumi.input_type
 class SiteLocationArgs:
@@ -806,26 +771,23 @@ class SiteLocationArgs:
         pulumi.set(self, "longitude", value)
 
 
-if not MYPY:
-    class VpcAttachmentOptionsArgsDict(TypedDict):
-        appliance_mode_support: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether to enable appliance mode support. If enabled, traffic flow between a source and destination use the same Availability Zone for the VPC attachment for the lifetime of that flow. If the VPC attachment is pending acceptance, changing this value will recreate the resource.
-        """
-        dns_support: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether to enable DNS support. If the VPC attachment is pending acceptance, changing this value will recreate the resource.
-        """
-        ipv6_support: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether to enable IPv6 support. If the VPC attachment is pending acceptance, changing this value will recreate the resource.
-        """
-        security_group_referencing_support: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether to enable security group referencing support for this VPC attachment. The default is `true`. However, at the core network policy-level the default is set to `false`. If the VPC attachment is pending acceptance, changing this value will recreate the resource.
-        """
-elif False:
-    VpcAttachmentOptionsArgsDict: TypeAlias = Mapping[str, Any]
+class VpcAttachmentOptionsArgsDict(TypedDict):
+    appliance_mode_support: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether to enable appliance mode support. If enabled, traffic flow between a source and destination use the same Availability Zone for the VPC attachment for the lifetime of that flow. If the VPC attachment is pending acceptance, changing this value will recreate the resource.
+    """
+    dns_support: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether to enable DNS support. If the VPC attachment is pending acceptance, changing this value will recreate the resource.
+    """
+    ipv6_support: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether to enable IPv6 support. If the VPC attachment is pending acceptance, changing this value will recreate the resource.
+    """
+    security_group_referencing_support: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether to enable security group referencing support for this VPC attachment. The default is `true`. However, at the core network policy-level the default is set to `false`. If the VPC attachment is pending acceptance, changing this value will recreate the resource.
+    """
 
 @pulumi.input_type
 class VpcAttachmentOptionsArgs:
@@ -898,30 +860,27 @@ class VpcAttachmentOptionsArgs:
         pulumi.set(self, "security_group_referencing_support", value)
 
 
-if not MYPY:
-    class GetCoreNetworkPolicyDocumentAttachmentPolicyArgsDict(TypedDict):
-        action: 'GetCoreNetworkPolicyDocumentAttachmentPolicyActionArgsDict'
-        """
-        Action to take when a condition is true. Detailed Below.
-        """
-        conditions: Sequence['GetCoreNetworkPolicyDocumentAttachmentPolicyConditionArgsDict']
-        """
-        A block argument. Detailed Below.
-        """
-        rule_number: _builtins.int
-        """
-        An integer from `1` to `65535` indicating the rule's order number. Rules are processed in order from the lowest numbered rule to the highest. Rules stop processing when a rule is matched. It's important to make sure that you number your rules in the exact order that you want them processed.
-        """
-        condition_logic: NotRequired[_builtins.str]
-        """
-        Valid values include `and` or `or`. This is a mandatory parameter only if you have more than one condition. The `condition_logic` apply to all of the conditions for a rule, which also means nested conditions of `and` or `or` are not supported. Use `or` if you want to associate the attachment with the segment by either the segment name or attachment tag value, or by the chosen conditions. Use `and` if you want to associate the attachment with the segment by either the segment name or attachment tag value and by the chosen conditions. Detailed Below.
-        """
-        description: NotRequired[_builtins.str]
-        """
-        A user-defined description that further helps identify the rule.
-        """
-elif False:
-    GetCoreNetworkPolicyDocumentAttachmentPolicyArgsDict: TypeAlias = Mapping[str, Any]
+class GetCoreNetworkPolicyDocumentAttachmentPolicyArgsDict(TypedDict):
+    action: 'GetCoreNetworkPolicyDocumentAttachmentPolicyActionArgsDict'
+    """
+    Action to take when a condition is true. Detailed Below.
+    """
+    conditions: Sequence['GetCoreNetworkPolicyDocumentAttachmentPolicyConditionArgsDict']
+    """
+    A block argument. Detailed Below.
+    """
+    rule_number: _builtins.int
+    """
+    An integer from `1` to `65535` indicating the rule's order number. Rules are processed in order from the lowest numbered rule to the highest. Rules stop processing when a rule is matched. It's important to make sure that you number your rules in the exact order that you want them processed.
+    """
+    condition_logic: NotRequired[_builtins.str]
+    """
+    Valid values include `and` or `or`. This is a mandatory parameter only if you have more than one condition. The `condition_logic` apply to all of the conditions for a rule, which also means nested conditions of `and` or `or` are not supported. Use `or` if you want to associate the attachment with the segment by either the segment name or attachment tag value, or by the chosen conditions. Use `and` if you want to associate the attachment with the segment by either the segment name or attachment tag value and by the chosen conditions. Detailed Below.
+    """
+    description: NotRequired[_builtins.str]
+    """
+    A user-defined description that further helps identify the rule.
+    """
 
 @pulumi.input_type
 class GetCoreNetworkPolicyDocumentAttachmentPolicyArgs:
@@ -1007,30 +966,27 @@ class GetCoreNetworkPolicyDocumentAttachmentPolicyArgs:
         pulumi.set(self, "description", value)
 
 
-if not MYPY:
-    class GetCoreNetworkPolicyDocumentAttachmentPolicyActionArgsDict(TypedDict):
-        add_to_network_function_group: NotRequired[_builtins.str]
-        """
-        The name of the network function group to attach to the attachment policy.
-        """
-        association_method: NotRequired[_builtins.str]
-        """
-        Defines how a segment is mapped. Values can be `constant` or `tag`. `constant` statically defines the segment to associate the attachment to. `tag` uses the value of a tag to dynamically try to map to a segment.reference_policies_elements_condition_operators.html) to evaluate.
-        """
-        require_acceptance: NotRequired[_builtins.bool]
-        """
-        Determines if this mapping should override the segment value for `require_attachment_acceptance`. You can only set this to `true`, indicating that this setting applies only to segments that have `require_attachment_acceptance` set to `false`. If the segment already has the default `require_attachment_acceptance`, you can set this to inherit segment’s acceptance value.
-        """
-        segment: NotRequired[_builtins.str]
-        """
-        Name of the `segment` to share as defined in the `segments` section. This is used only when the `association_method` is `constant`.
-        """
-        tag_value_of_key: NotRequired[_builtins.str]
-        """
-        Maps the attachment to the value of a known key. This is used with the `association_method` is `tag`. For example a `tag` of `stage = “test”`, will map to a segment named `test`. The value must exactly match the name of a segment. This allows you to have many segments, but use only a single rule without having to define multiple nearly identical conditions. This prevents creating many similar conditions that all use the same keys to map to segments.
-        """
-elif False:
-    GetCoreNetworkPolicyDocumentAttachmentPolicyActionArgsDict: TypeAlias = Mapping[str, Any]
+class GetCoreNetworkPolicyDocumentAttachmentPolicyActionArgsDict(TypedDict):
+    add_to_network_function_group: NotRequired[_builtins.str]
+    """
+    The name of the network function group to attach to the attachment policy.
+    """
+    association_method: NotRequired[_builtins.str]
+    """
+    Defines how a segment is mapped. Values can be `constant` or `tag`. `constant` statically defines the segment to associate the attachment to. `tag` uses the value of a tag to dynamically try to map to a segment.reference_policies_elements_condition_operators.html) to evaluate.
+    """
+    require_acceptance: NotRequired[_builtins.bool]
+    """
+    Determines if this mapping should override the segment value for `require_attachment_acceptance`. You can only set this to `true`, indicating that this setting applies only to segments that have `require_attachment_acceptance` set to `false`. If the segment already has the default `require_attachment_acceptance`, you can set this to inherit segment’s acceptance value.
+    """
+    segment: NotRequired[_builtins.str]
+    """
+    Name of the `segment` to share as defined in the `segments` section. This is used only when the `association_method` is `constant`.
+    """
+    tag_value_of_key: NotRequired[_builtins.str]
+    """
+    Maps the attachment to the value of a known key. This is used with the `association_method` is `tag`. For example a `tag` of `stage = “test”`, will map to a segment named `test`. The value must exactly match the name of a segment. This allows you to have many segments, but use only a single rule without having to define multiple nearly identical conditions. This prevents creating many similar conditions that all use the same keys to map to segments.
+    """
 
 @pulumi.input_type
 class GetCoreNetworkPolicyDocumentAttachmentPolicyActionArgs:
@@ -1119,26 +1075,23 @@ class GetCoreNetworkPolicyDocumentAttachmentPolicyActionArgs:
         pulumi.set(self, "tag_value_of_key", value)
 
 
-if not MYPY:
-    class GetCoreNetworkPolicyDocumentAttachmentPolicyConditionArgsDict(TypedDict):
-        type: _builtins.str
-        """
-        Must be `routing-policy-label`.
-        """
-        key: NotRequired[_builtins.str]
-        """
-        string value
-        """
-        operator: NotRequired[_builtins.str]
-        """
-        Valid values include: `equals`, `not-equals`, `contains`, `begins-with`.
-        """
-        value: NotRequired[_builtins.str]
-        """
-        Routing policy label to match.
-        """
-elif False:
-    GetCoreNetworkPolicyDocumentAttachmentPolicyConditionArgsDict: TypeAlias = Mapping[str, Any]
+class GetCoreNetworkPolicyDocumentAttachmentPolicyConditionArgsDict(TypedDict):
+    type: _builtins.str
+    """
+    Must be `routing-policy-label`.
+    """
+    key: NotRequired[_builtins.str]
+    """
+    string value
+    """
+    operator: NotRequired[_builtins.str]
+    """
+    Valid values include: `equals`, `not-equals`, `contains`, `begins-with`.
+    """
+    value: NotRequired[_builtins.str]
+    """
+    Routing policy label to match.
+    """
 
 @pulumi.input_type
 class GetCoreNetworkPolicyDocumentAttachmentPolicyConditionArgs:
@@ -1210,30 +1163,27 @@ class GetCoreNetworkPolicyDocumentAttachmentPolicyConditionArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleArgsDict(TypedDict):
-        action: 'GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleActionArgsDict'
-        """
-        Block defining the action to take when conditions match. Detailed below.
-        """
-        conditions: Sequence['GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleConditionArgsDict']
-        """
-        A block argument. Detailed below.
-        """
-        rule_number: _builtins.int
-        """
-        An integer from `1` to `65535` indicating the rule's order number. Rules are processed in order from the lowest numbered rule to the highest. Rules stop processing when a rule is matched.
-        """
-        description: NotRequired[_builtins.str]
-        """
-        A user-defined description that further helps identify the rule.
-        """
-        edge_locations: NotRequired[Sequence[_builtins.str]]
-        """
-        A set of AWS Region codes where this rule applies.
-        """
-elif False:
-    GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleArgsDict: TypeAlias = Mapping[str, Any]
+class GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleArgsDict(TypedDict):
+    action: 'GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleActionArgsDict'
+    """
+    Block defining the action to take when conditions match. Detailed below.
+    """
+    conditions: Sequence['GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleConditionArgsDict']
+    """
+    A block argument. Detailed below.
+    """
+    rule_number: _builtins.int
+    """
+    An integer from `1` to `65535` indicating the rule's order number. Rules are processed in order from the lowest numbered rule to the highest. Rules stop processing when a rule is matched.
+    """
+    description: NotRequired[_builtins.str]
+    """
+    A user-defined description that further helps identify the rule.
+    """
+    edge_locations: NotRequired[Sequence[_builtins.str]]
+    """
+    A set of AWS Region codes where this rule applies.
+    """
 
 @pulumi.input_type
 class GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleArgs:
@@ -1319,14 +1269,11 @@ class GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleArgs:
         pulumi.set(self, "edge_locations", value)
 
 
-if not MYPY:
-    class GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleActionArgsDict(TypedDict):
-        associate_routing_policies: Sequence[_builtins.str]
-        """
-        Set of routing policy names to associate when the conditions match.
-        """
-elif False:
-    GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleActionArgsDict: TypeAlias = Mapping[str, Any]
+class GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleActionArgsDict(TypedDict):
+    associate_routing_policies: Sequence[_builtins.str]
+    """
+    Set of routing policy names to associate when the conditions match.
+    """
 
 @pulumi.input_type
 class GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleActionArgs:
@@ -1350,18 +1297,15 @@ class GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleActionArgs:
         pulumi.set(self, "associate_routing_policies", value)
 
 
-if not MYPY:
-    class GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleConditionArgsDict(TypedDict):
-        type: _builtins.str
-        """
-        Must be `routing-policy-label`.
-        """
-        value: _builtins.str
-        """
-        Routing policy label to match.
-        """
-elif False:
-    GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleConditionArgsDict: TypeAlias = Mapping[str, Any]
+class GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleConditionArgsDict(TypedDict):
+    type: _builtins.str
+    """
+    Must be `routing-policy-label`.
+    """
+    value: _builtins.str
+    """
+    Routing policy label to match.
+    """
 
 @pulumi.input_type
 class GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleConditionArgs:
@@ -1400,34 +1344,31 @@ class GetCoreNetworkPolicyDocumentAttachmentRoutingPolicyRuleConditionArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArgsDict(TypedDict):
-        asn_ranges: Sequence[_builtins.str]
-        """
-        List of strings containing Autonomous System Numbers (ASNs) to assign to Core Network Edges. By default, the core network automatically assigns an ASN for each Core Network Edge but you can optionally define the ASN in the edge-locations for each Region. The ASN uses an array of integer ranges only from `64512` to `65534` and `4200000000` to `4294967294` expressed as a string like `"64512-65534"`. No other ASN ranges can be used.
-        """
-        edge_locations: Sequence['GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArgsDict']
-        """
-        A block value of AWS Region locations where you're creating Core Network Edges. Detailed below.
-        """
-        dns_support: NotRequired[_builtins.bool]
-        """
-        Indicates whether DNS resolution is enabled for the core network. The value can be either `true` or `false`. When set to `true`, DNS resolution is enabled for VPCs attached to the core network, allowing resources in different VPCs to resolve each other's domain names. The default is `true`.
-        """
-        inside_cidr_blocks: NotRequired[Sequence[_builtins.str]]
-        """
-        The Classless Inter-Domain Routing (CIDR) block range used to create tunnels for AWS Transit Gateway Connect. The format is standard AWS CIDR range (for example, `10.0.1.0/24`). You can optionally define the inside CIDR in the Core Network Edges section per Region. The minimum is a `/24` for IPv4 or `/64` for IPv6. You can provide multiple `/24` subnets or a larger CIDR range. If you define a larger CIDR range, new Core Network Edges will be automatically assigned `/24` and `/64` subnets from the larger CIDR. an Inside CIDR block is required for attaching Connect attachments to a Core Network Edge.
-        """
-        security_group_referencing_support: NotRequired[_builtins.bool]
-        """
-        — (Optional) Indicates whether security group referencing is enabled for the core network. The value can be either `true` or `false`. When set to `true`, security groups in one VPC can reference security groups in another VPC attached to the core network, enabling more flexible security configurations across your network. The default is `false`.
-        """
-        vpn_ecmp_support: NotRequired[_builtins.bool]
-        """
-        Indicates whether the core network forwards traffic over multiple equal-cost routes using VPN. The value can be either `true` or `false`. The default is `true`.
-        """
-elif False:
-    GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArgsDict(TypedDict):
+    asn_ranges: Sequence[_builtins.str]
+    """
+    List of strings containing Autonomous System Numbers (ASNs) to assign to Core Network Edges. By default, the core network automatically assigns an ASN for each Core Network Edge but you can optionally define the ASN in the edge-locations for each Region. The ASN uses an array of integer ranges only from `64512` to `65534` and `4200000000` to `4294967294` expressed as a string like `"64512-65534"`. No other ASN ranges can be used.
+    """
+    edge_locations: Sequence['GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArgsDict']
+    """
+    A block value of AWS Region locations where you're creating Core Network Edges. Detailed below.
+    """
+    dns_support: NotRequired[_builtins.bool]
+    """
+    Indicates whether DNS resolution is enabled for the core network. The value can be either `true` or `false`. When set to `true`, DNS resolution is enabled for VPCs attached to the core network, allowing resources in different VPCs to resolve each other's domain names. The default is `true`.
+    """
+    inside_cidr_blocks: NotRequired[Sequence[_builtins.str]]
+    """
+    The Classless Inter-Domain Routing (CIDR) block range used to create tunnels for AWS Transit Gateway Connect. The format is standard AWS CIDR range (for example, `10.0.1.0/24`). You can optionally define the inside CIDR in the Core Network Edges section per Region. The minimum is a `/24` for IPv4 or `/64` for IPv6. You can provide multiple `/24` subnets or a larger CIDR range. If you define a larger CIDR range, new Core Network Edges will be automatically assigned `/24` and `/64` subnets from the larger CIDR. an Inside CIDR block is required for attaching Connect attachments to a Core Network Edge.
+    """
+    security_group_referencing_support: NotRequired[_builtins.bool]
+    """
+    — (Optional) Indicates whether security group referencing is enabled for the core network. The value can be either `true` or `false`. When set to `true`, security groups in one VPC can reference security groups in another VPC attached to the core network, enabling more flexible security configurations across your network. The default is `false`.
+    """
+    vpn_ecmp_support: NotRequired[_builtins.bool]
+    """
+    Indicates whether the core network forwards traffic over multiple equal-cost routes using VPN. The value can be either `true` or `false`. The default is `true`.
+    """
 
 @pulumi.input_type
 class GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArgs:
@@ -1530,19 +1471,16 @@ class GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArgs:
         pulumi.set(self, "vpn_ecmp_support", value)
 
 
-if not MYPY:
-    class GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArgsDict(TypedDict):
-        location: _builtins.str
-        asn: NotRequired[_builtins.str]
-        """
-        ASN of the Core Network Edge in an AWS Region. By default, the ASN will be a single integer automatically assigned from `asn_ranges`
-        """
-        inside_cidr_blocks: NotRequired[Sequence[_builtins.str]]
-        """
-        The local CIDR blocks for this Core Network Edge for AWS Transit Gateway Connect attachments. By default, this CIDR block will be one or more optional IPv4 and IPv6 CIDR prefixes auto-assigned from `inside_cidr_blocks`.
-        """
-elif False:
-    GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArgsDict: TypeAlias = Mapping[str, Any]
+class GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArgsDict(TypedDict):
+    location: _builtins.str
+    asn: NotRequired[_builtins.str]
+    """
+    ASN of the Core Network Edge in an AWS Region. By default, the ASN will be a single integer automatically assigned from `asn_ranges`
+    """
+    inside_cidr_blocks: NotRequired[Sequence[_builtins.str]]
+    """
+    The local CIDR blocks for this Core Network Edge for AWS Transit Gateway Connect attachments. By default, this CIDR block will be one or more optional IPv4 and IPv6 CIDR prefixes auto-assigned from `inside_cidr_blocks`.
+    """
 
 @pulumi.input_type
 class GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArgs:
@@ -1594,22 +1532,19 @@ class GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArgs:
         pulumi.set(self, "inside_cidr_blocks", value)
 
 
-if not MYPY:
-    class GetCoreNetworkPolicyDocumentNetworkFunctionGroupArgsDict(TypedDict):
-        name: _builtins.str
-        """
-        This identifies the network function group container.
-        """
-        require_attachment_acceptance: _builtins.bool
-        """
-        This will be either `true`, that attachment acceptance is required, or `false`, that it is not required.
-        """
-        description: NotRequired[_builtins.str]
-        """
-        Optional description of the network function group.
-        """
-elif False:
-    GetCoreNetworkPolicyDocumentNetworkFunctionGroupArgsDict: TypeAlias = Mapping[str, Any]
+class GetCoreNetworkPolicyDocumentNetworkFunctionGroupArgsDict(TypedDict):
+    name: _builtins.str
+    """
+    This identifies the network function group container.
+    """
+    require_attachment_acceptance: _builtins.bool
+    """
+    This will be either `true`, that attachment acceptance is required, or `false`, that it is not required.
+    """
+    description: NotRequired[_builtins.str]
+    """
+    Optional description of the network function group.
+    """
 
 @pulumi.input_type
 class GetCoreNetworkPolicyDocumentNetworkFunctionGroupArgs:
@@ -1664,30 +1599,27 @@ class GetCoreNetworkPolicyDocumentNetworkFunctionGroupArgs:
         pulumi.set(self, "description", value)
 
 
-if not MYPY:
-    class GetCoreNetworkPolicyDocumentRoutingPolicyArgsDict(TypedDict):
-        routing_policy_direction: _builtins.str
-        """
-        Direction of the routing policy. Valid values: `inbound`, `outbound`.
-        """
-        routing_policy_name: _builtins.str
-        """
-        Name of the routing policy. Must be 1-100 alphanumeric characters.
-        """
-        routing_policy_number: _builtins.int
-        """
-        Priority number for the routing policy. Must be between 1 and 9999. Lower numbers are evaluated first.
-        """
-        routing_policy_rules: Sequence['GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleArgsDict']
-        """
-        List of routing policy rules. Each rule defines match conditions and actions. Detailed below.
-        """
-        routing_policy_description: NotRequired[_builtins.str]
-        """
-        Description of the routing policy.
-        """
-elif False:
-    GetCoreNetworkPolicyDocumentRoutingPolicyArgsDict: TypeAlias = Mapping[str, Any]
+class GetCoreNetworkPolicyDocumentRoutingPolicyArgsDict(TypedDict):
+    routing_policy_direction: _builtins.str
+    """
+    Direction of the routing policy. Valid values: `inbound`, `outbound`.
+    """
+    routing_policy_name: _builtins.str
+    """
+    Name of the routing policy. Must be 1-100 alphanumeric characters.
+    """
+    routing_policy_number: _builtins.int
+    """
+    Priority number for the routing policy. Must be between 1 and 9999. Lower numbers are evaluated first.
+    """
+    routing_policy_rules: Sequence['GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleArgsDict']
+    """
+    List of routing policy rules. Each rule defines match conditions and actions. Detailed below.
+    """
+    routing_policy_description: NotRequired[_builtins.str]
+    """
+    Description of the routing policy.
+    """
 
 @pulumi.input_type
 class GetCoreNetworkPolicyDocumentRoutingPolicyArgs:
@@ -1772,18 +1704,15 @@ class GetCoreNetworkPolicyDocumentRoutingPolicyArgs:
         pulumi.set(self, "routing_policy_description", value)
 
 
-if not MYPY:
-    class GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleArgsDict(TypedDict):
-        rule_definition: 'GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinitionArgsDict'
-        """
-        Defines the match conditions and actions for the rule. Detailed below.
-        """
-        rule_number: _builtins.int
-        """
-        Priority number for the rule within the routing policy. Must be between 1 and 9999. Lower numbers are evaluated first.
-        """
-elif False:
-    GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleArgsDict: TypeAlias = Mapping[str, Any]
+class GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleArgsDict(TypedDict):
+    rule_definition: 'GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinitionArgsDict'
+    """
+    Defines the match conditions and actions for the rule. Detailed below.
+    """
+    rule_number: _builtins.int
+    """
+    Priority number for the rule within the routing policy. Must be between 1 and 9999. Lower numbers are evaluated first.
+    """
 
 @pulumi.input_type
 class GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleArgs:
@@ -1822,22 +1751,19 @@ class GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleArgs:
         pulumi.set(self, "rule_number", value)
 
 
-if not MYPY:
-    class GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinitionArgsDict(TypedDict):
-        action: 'GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinitionActionArgsDict'
-        """
-        Block defining the action to take when conditions match. Detailed below.
-        """
-        condition_logic: NotRequired[_builtins.str]
-        """
-        Logic to apply when multiple match conditions are present. Valid values: `and`, `or`.
-        """
-        match_conditions: NotRequired[Sequence['GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinitionMatchConditionArgsDict']]
-        """
-        List of conditions to match against routes. Detailed below.
-        """
-elif False:
-    GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinitionArgsDict: TypeAlias = Mapping[str, Any]
+class GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinitionArgsDict(TypedDict):
+    action: 'GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinitionActionArgsDict'
+    """
+    Block defining the action to take when conditions match. Detailed below.
+    """
+    condition_logic: NotRequired[_builtins.str]
+    """
+    Logic to apply when multiple match conditions are present. Valid values: `and`, `or`.
+    """
+    match_conditions: NotRequired[Sequence['GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinitionMatchConditionArgsDict']]
+    """
+    List of conditions to match against routes. Detailed below.
+    """
 
 @pulumi.input_type
 class GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinitionArgs:
@@ -1893,18 +1819,15 @@ class GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinitionAr
         pulumi.set(self, "match_conditions", value)
 
 
-if not MYPY:
-    class GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinitionActionArgsDict(TypedDict):
-        type: _builtins.str
-        """
-        Type of action to perform. Valid values: `drop`, `allow`, `summarize`, `prepend-asn-list`, `remove-asn-list`, `replace-asn-list`, `add-community`, `remove-community`, `set-med`, `set-local-preference`.
-        """
-        value: NotRequired[_builtins.str]
-        """
-        Value for the action, required for certain action types.
-        """
-elif False:
-    GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinitionActionArgsDict: TypeAlias = Mapping[str, Any]
+class GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinitionActionArgsDict(TypedDict):
+    type: _builtins.str
+    """
+    Type of action to perform. Valid values: `drop`, `allow`, `summarize`, `prepend-asn-list`, `remove-asn-list`, `replace-asn-list`, `add-community`, `remove-community`, `set-med`, `set-local-preference`.
+    """
+    value: NotRequired[_builtins.str]
+    """
+    Value for the action, required for certain action types.
+    """
 
 @pulumi.input_type
 class GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinitionActionArgs:
@@ -1944,18 +1867,15 @@ class GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinitionAc
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinitionMatchConditionArgsDict(TypedDict):
-        type: _builtins.str
-        """
-        Type of condition to match. Valid values: `prefix-equals`, `prefix-in-cidr`, `prefix-in-prefix-list`, `asn-in-as-path`, `community-in-list`, `med-equals`.
-        """
-        value: _builtins.str
-        """
-        Value to match against, depending on the condition type.
-        """
-elif False:
-    GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinitionMatchConditionArgsDict: TypeAlias = Mapping[str, Any]
+class GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinitionMatchConditionArgsDict(TypedDict):
+    type: _builtins.str
+    """
+    Type of condition to match. Valid values: `prefix-equals`, `prefix-in-cidr`, `prefix-in-prefix-list`, `asn-in-as-path`, `community-in-list`, `med-equals`.
+    """
+    value: _builtins.str
+    """
+    Value to match against, depending on the condition type.
+    """
 
 @pulumi.input_type
 class GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinitionMatchConditionArgs:
@@ -1994,38 +1914,35 @@ class GetCoreNetworkPolicyDocumentRoutingPolicyRoutingPolicyRuleRuleDefinitionMa
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class GetCoreNetworkPolicyDocumentSegmentArgsDict(TypedDict):
-        name: _builtins.str
-        """
-        Unique name for a segment. The name is a string used in other parts of the policy document, as well as in the console for metrics and other reference points. Valid characters are a–z, and 0–9.
-        """
-        allow_filters: NotRequired[Sequence[_builtins.str]]
-        """
-        List of strings of segment names that explicitly allows only routes from the segments that are listed in the array. Use the `allow_filter` setting if a segment has a well-defined group of other segments that connectivity should be restricted to. It is applied after routes have been shared in `segment_actions`. If a segment is listed in `allow_filter`, attachments between the two segments will have routes if they are also shared in the segment-actions area. For example, you might have a segment named "video-producer" that should only ever share routes with a "video-distributor" segment, no matter how many other share statements are created.
-        """
-        deny_filters: NotRequired[Sequence[_builtins.str]]
-        """
-        An array of segments that disallows routes from the segments listed in the array. It is applied only after routes have been shared in `segment_actions`. If a segment is listed in the `deny_filter`, attachments between the two segments will never have routes shared across them. For example, you might have a "financial" payment segment that should never share routes with a "development" segment, regardless of how many other share statements are created. Adding the payments segment to the deny-filter parameter prevents any shared routes from being created with other segments.
-        """
-        description: NotRequired[_builtins.str]
-        """
-        A user-defined string describing the segment.
-        """
-        edge_locations: NotRequired[Sequence[_builtins.str]]
-        """
-        A list of strings of AWS Region names. Allows you to define a more restrictive set of Regions for a segment. The edge location must be a subset of the locations that are defined for `edge_locations` in the `core_network_configuration`.
-        """
-        isolate_attachments: NotRequired[_builtins.bool]
-        """
-        This Boolean setting determines whether attachments on the same segment can communicate with each other. If set to `true`, the only routes available will be either shared routes through the share actions, which are attachments in other segments, or static routes. The default value is `false`. For example, you might have a segment dedicated to "development" that should never allow VPCs to talk to each other, even if they’re on the same segment. In this example, you would keep the default parameter of `false`.
-        """
-        require_attachment_acceptance: NotRequired[_builtins.bool]
-        """
-        This Boolean setting determines whether attachment requests are automatically approved or require acceptance. The default is `true`, indicating that attachment requests require acceptance. For example, you might use this setting to allow a "sandbox" segment to allow any attachment request so that a core network or attachment administrator does not need to review and approve attachment requests. In this example, `require_attachment_acceptance` is set to `false`.
-        """
-elif False:
-    GetCoreNetworkPolicyDocumentSegmentArgsDict: TypeAlias = Mapping[str, Any]
+class GetCoreNetworkPolicyDocumentSegmentArgsDict(TypedDict):
+    name: _builtins.str
+    """
+    Unique name for a segment. The name is a string used in other parts of the policy document, as well as in the console for metrics and other reference points. Valid characters are a–z, and 0–9.
+    """
+    allow_filters: NotRequired[Sequence[_builtins.str]]
+    """
+    List of strings of segment names that explicitly allows only routes from the segments that are listed in the array. Use the `allow_filter` setting if a segment has a well-defined group of other segments that connectivity should be restricted to. It is applied after routes have been shared in `segment_actions`. If a segment is listed in `allow_filter`, attachments between the two segments will have routes if they are also shared in the segment-actions area. For example, you might have a segment named "video-producer" that should only ever share routes with a "video-distributor" segment, no matter how many other share statements are created.
+    """
+    deny_filters: NotRequired[Sequence[_builtins.str]]
+    """
+    An array of segments that disallows routes from the segments listed in the array. It is applied only after routes have been shared in `segment_actions`. If a segment is listed in the `deny_filter`, attachments between the two segments will never have routes shared across them. For example, you might have a "financial" payment segment that should never share routes with a "development" segment, regardless of how many other share statements are created. Adding the payments segment to the deny-filter parameter prevents any shared routes from being created with other segments.
+    """
+    description: NotRequired[_builtins.str]
+    """
+    A user-defined string describing the segment.
+    """
+    edge_locations: NotRequired[Sequence[_builtins.str]]
+    """
+    A list of strings of AWS Region names. Allows you to define a more restrictive set of Regions for a segment. The edge location must be a subset of the locations that are defined for `edge_locations` in the `core_network_configuration`.
+    """
+    isolate_attachments: NotRequired[_builtins.bool]
+    """
+    This Boolean setting determines whether attachments on the same segment can communicate with each other. If set to `true`, the only routes available will be either shared routes through the share actions, which are attachments in other segments, or static routes. The default value is `false`. For example, you might have a segment dedicated to "development" that should never allow VPCs to talk to each other, even if they’re on the same segment. In this example, you would keep the default parameter of `false`.
+    """
+    require_attachment_acceptance: NotRequired[_builtins.bool]
+    """
+    This Boolean setting determines whether attachment requests are automatically approved or require acceptance. The default is `true`, indicating that attachment requests require acceptance. For example, you might use this setting to allow a "sandbox" segment to allow any attachment request so that a core network or attachment administrator does not need to review and approve attachment requests. In this example, `require_attachment_acceptance` is set to `false`.
+    """
 
 @pulumi.input_type
 class GetCoreNetworkPolicyDocumentSegmentArgs:
@@ -2145,58 +2062,55 @@ class GetCoreNetworkPolicyDocumentSegmentArgs:
         pulumi.set(self, "require_attachment_acceptance", value)
 
 
-if not MYPY:
-    class GetCoreNetworkPolicyDocumentSegmentActionArgsDict(TypedDict):
-        action: _builtins.str
-        """
-        Action to take for the chosen segment. Valid values: `create-route`, `share`, `send-via`, `send-to`, and `associate-routing-policy` (available in policy version `2025.11` and later).
-        """
-        segment: _builtins.str
-        """
-        Name of the segment.
-        """
-        description: NotRequired[_builtins.str]
-        """
-        A user-defined string describing the segment action.
-        """
-        destination_cidr_blocks: NotRequired[Sequence[_builtins.str]]
-        """
-        List of strings containing CIDRs. You can define the IPv4 and IPv6 CIDR notation for each AWS Region. For example, `10.1.0.0/16` or `2001:db8::/56`. This is an array of CIDR notation strings.
-        """
-        destinations: NotRequired[Sequence[_builtins.str]]
-        """
-        A list of strings. Valid values include `["blackhole"]` or a list of attachment ids.
-        """
-        edge_location_association: NotRequired['GetCoreNetworkPolicyDocumentSegmentActionEdgeLocationAssociationArgsDict']
-        """
-        Associates routing policies with specific edge location pairs. Available in policy version `2025.11` and later. Detailed below.
-        """
-        mode: NotRequired[_builtins.str]
-        """
-        String. When `action` is `share`, a `mode` value of `attachment-route` places the attachment and return routes in each of the `share_with` segments. When `action` is `send-via`, indicates the mode used for packets. Valid values: `attachment-route`, `single-hop`, `dual-hop`.
-        """
-        routing_policy_names: NotRequired[Sequence[_builtins.str]]
-        """
-        A list of routing policy names to apply to segment sharing. The routing policies control how routes are propagated between the shared segments. Only applicable when `action` is `share`. Available in policy version `2025.11` and later.
-        """
-        share_with_excepts: NotRequired[Sequence[_builtins.str]]
-        """
-        A set subtraction of segments to not share with.
-        """
-        share_withs: NotRequired[Sequence[_builtins.str]]
-        """
-        A list of strings to share with. Must be a substring is all segments. Valid values include: `["*"]` or `["<segment-names>"]`.
-        """
-        via: NotRequired['GetCoreNetworkPolicyDocumentSegmentActionViaArgsDict']
-        """
-        The network function groups and any edge overrides associated with the action.
-        """
-        when_sent_to: NotRequired['GetCoreNetworkPolicyDocumentSegmentActionWhenSentToArgsDict']
-        """
-        The destination segments for the `send-via` or `send-to` `action`.
-        """
-elif False:
-    GetCoreNetworkPolicyDocumentSegmentActionArgsDict: TypeAlias = Mapping[str, Any]
+class GetCoreNetworkPolicyDocumentSegmentActionArgsDict(TypedDict):
+    action: _builtins.str
+    """
+    Action to take for the chosen segment. Valid values: `create-route`, `share`, `send-via`, `send-to`, and `associate-routing-policy` (available in policy version `2025.11` and later).
+    """
+    segment: _builtins.str
+    """
+    Name of the segment.
+    """
+    description: NotRequired[_builtins.str]
+    """
+    A user-defined string describing the segment action.
+    """
+    destination_cidr_blocks: NotRequired[Sequence[_builtins.str]]
+    """
+    List of strings containing CIDRs. You can define the IPv4 and IPv6 CIDR notation for each AWS Region. For example, `10.1.0.0/16` or `2001:db8::/56`. This is an array of CIDR notation strings.
+    """
+    destinations: NotRequired[Sequence[_builtins.str]]
+    """
+    A list of strings. Valid values include `["blackhole"]` or a list of attachment ids.
+    """
+    edge_location_association: NotRequired['GetCoreNetworkPolicyDocumentSegmentActionEdgeLocationAssociationArgsDict']
+    """
+    Associates routing policies with specific edge location pairs. Available in policy version `2025.11` and later. Detailed below.
+    """
+    mode: NotRequired[_builtins.str]
+    """
+    String. When `action` is `share`, a `mode` value of `attachment-route` places the attachment and return routes in each of the `share_with` segments. When `action` is `send-via`, indicates the mode used for packets. Valid values: `attachment-route`, `single-hop`, `dual-hop`.
+    """
+    routing_policy_names: NotRequired[Sequence[_builtins.str]]
+    """
+    A list of routing policy names to apply to segment sharing. The routing policies control how routes are propagated between the shared segments. Only applicable when `action` is `share`. Available in policy version `2025.11` and later.
+    """
+    share_with_excepts: NotRequired[Sequence[_builtins.str]]
+    """
+    A set subtraction of segments to not share with.
+    """
+    share_withs: NotRequired[Sequence[_builtins.str]]
+    """
+    A list of strings to share with. Must be a substring is all segments. Valid values include: `["*"]` or `["<segment-names>"]`.
+    """
+    via: NotRequired['GetCoreNetworkPolicyDocumentSegmentActionViaArgsDict']
+    """
+    The network function groups and any edge overrides associated with the action.
+    """
+    when_sent_to: NotRequired['GetCoreNetworkPolicyDocumentSegmentActionWhenSentToArgsDict']
+    """
+    The destination segments for the `send-via` or `send-to` `action`.
+    """
 
 @pulumi.input_type
 class GetCoreNetworkPolicyDocumentSegmentActionArgs:
@@ -2395,22 +2309,19 @@ class GetCoreNetworkPolicyDocumentSegmentActionArgs:
         pulumi.set(self, "when_sent_to", value)
 
 
-if not MYPY:
-    class GetCoreNetworkPolicyDocumentSegmentActionEdgeLocationAssociationArgsDict(TypedDict):
-        edge_location: _builtins.str
-        """
-        The AWS Region code for the first edge location in the association (e.g., `us-east-1`).
-        """
-        peer_edge_location: _builtins.str
-        """
-        The AWS Region code for the second edge location in the association (e.g., `us-west-2`).
-        """
-        routing_policy_names: Sequence[_builtins.str]
-        """
-        A set of routing policy names to apply to this edge location pair.
-        """
-elif False:
-    GetCoreNetworkPolicyDocumentSegmentActionEdgeLocationAssociationArgsDict: TypeAlias = Mapping[str, Any]
+class GetCoreNetworkPolicyDocumentSegmentActionEdgeLocationAssociationArgsDict(TypedDict):
+    edge_location: _builtins.str
+    """
+    The AWS Region code for the first edge location in the association (e.g., `us-east-1`).
+    """
+    peer_edge_location: _builtins.str
+    """
+    The AWS Region code for the second edge location in the association (e.g., `us-west-2`).
+    """
+    routing_policy_names: Sequence[_builtins.str]
+    """
+    A set of routing policy names to apply to this edge location pair.
+    """
 
 @pulumi.input_type
 class GetCoreNetworkPolicyDocumentSegmentActionEdgeLocationAssociationArgs:
@@ -2464,18 +2375,15 @@ class GetCoreNetworkPolicyDocumentSegmentActionEdgeLocationAssociationArgs:
         pulumi.set(self, "routing_policy_names", value)
 
 
-if not MYPY:
-    class GetCoreNetworkPolicyDocumentSegmentActionViaArgsDict(TypedDict):
-        network_function_groups: NotRequired[Sequence[_builtins.str]]
-        """
-        A list of strings. The network function group to use for the service insertion action.
-        """
-        with_edge_overrides: NotRequired[Sequence['GetCoreNetworkPolicyDocumentSegmentActionViaWithEdgeOverrideArgsDict']]
-        """
-        Any edge overrides and the preferred edge to use.
-        """
-elif False:
-    GetCoreNetworkPolicyDocumentSegmentActionViaArgsDict: TypeAlias = Mapping[str, Any]
+class GetCoreNetworkPolicyDocumentSegmentActionViaArgsDict(TypedDict):
+    network_function_groups: NotRequired[Sequence[_builtins.str]]
+    """
+    A list of strings. The network function group to use for the service insertion action.
+    """
+    with_edge_overrides: NotRequired[Sequence['GetCoreNetworkPolicyDocumentSegmentActionViaWithEdgeOverrideArgsDict']]
+    """
+    Any edge overrides and the preferred edge to use.
+    """
 
 @pulumi.input_type
 class GetCoreNetworkPolicyDocumentSegmentActionViaArgs:
@@ -2516,22 +2424,19 @@ class GetCoreNetworkPolicyDocumentSegmentActionViaArgs:
         pulumi.set(self, "with_edge_overrides", value)
 
 
-if not MYPY:
-    class GetCoreNetworkPolicyDocumentSegmentActionViaWithEdgeOverrideArgsDict(TypedDict):
-        edge_sets: NotRequired[Sequence[Sequence[_builtins.str]]]
-        """
-        A list of a list of strings. The list of edges associated with the network function group.
-        """
-        use_edge: NotRequired[_builtins.str]
-        """
-        The preferred edge to use.
-        """
-        use_edge_location: NotRequired[_builtins.str]
-        """
-        The preferred edge to use.
-        """
-elif False:
-    GetCoreNetworkPolicyDocumentSegmentActionViaWithEdgeOverrideArgsDict: TypeAlias = Mapping[str, Any]
+class GetCoreNetworkPolicyDocumentSegmentActionViaWithEdgeOverrideArgsDict(TypedDict):
+    edge_sets: NotRequired[Sequence[Sequence[_builtins.str]]]
+    """
+    A list of a list of strings. The list of edges associated with the network function group.
+    """
+    use_edge: NotRequired[_builtins.str]
+    """
+    The preferred edge to use.
+    """
+    use_edge_location: NotRequired[_builtins.str]
+    """
+    The preferred edge to use.
+    """
 
 @pulumi.input_type
 class GetCoreNetworkPolicyDocumentSegmentActionViaWithEdgeOverrideArgs:
@@ -2592,14 +2497,11 @@ class GetCoreNetworkPolicyDocumentSegmentActionViaWithEdgeOverrideArgs:
         pulumi.set(self, "use_edge_location", value)
 
 
-if not MYPY:
-    class GetCoreNetworkPolicyDocumentSegmentActionWhenSentToArgsDict(TypedDict):
-        segments: NotRequired[Sequence[_builtins.str]]
-        """
-        A list of strings. The list of segments that the `send-via` `action` uses.
-        """
-elif False:
-    GetCoreNetworkPolicyDocumentSegmentActionWhenSentToArgsDict: TypeAlias = Mapping[str, Any]
+class GetCoreNetworkPolicyDocumentSegmentActionWhenSentToArgsDict(TypedDict):
+    segments: NotRequired[Sequence[_builtins.str]]
+    """
+    A list of strings. The list of segments that the `send-via` `action` uses.
+    """
 
 @pulumi.input_type
 class GetCoreNetworkPolicyDocumentSegmentActionWhenSentToArgs:

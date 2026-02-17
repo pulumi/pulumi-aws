@@ -84,7 +84,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Using `pulumi import`, import `aws_organizations_resource_policy` using the resource policy ID. For example:
+ * Using `pulumi import`, import `aws.organizations.ResourcePolicy` using the resource policy ID. For example:
  * 
  * ```sh
  * $ pulumi import aws:organizations/resourcePolicy:ResourcePolicy example rp-12345678

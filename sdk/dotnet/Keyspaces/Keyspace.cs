@@ -34,7 +34,7 @@ namespace Pulumi.Aws.Keyspaces
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import a keyspace using the `name`. For example:
+    /// Using `pulumi import`, import a keyspace using the `Name`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:keyspaces/keyspace:Keyspace example my_keyspace

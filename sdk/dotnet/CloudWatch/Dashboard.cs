@@ -76,7 +76,7 @@ namespace Pulumi.Aws.CloudWatch
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import CloudWatch dashboards using the `dashboard_name`. For example:
+    /// Using `pulumi import`, import CloudWatch dashboards using the `DashboardName`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:cloudwatch/dashboard:Dashboard sample dashboard_name

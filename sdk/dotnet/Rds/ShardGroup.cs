@@ -56,7 +56,7 @@ namespace Pulumi.Aws.Rds
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import shard group using the `db_shard_group_identifier`. For example:
+    /// Using `pulumi import`, import shard group using the `DbShardGroupIdentifier`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:rds/shardGroup:ShardGroup example example-shard-group

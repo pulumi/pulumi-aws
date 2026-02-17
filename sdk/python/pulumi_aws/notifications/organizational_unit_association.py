@@ -113,7 +113,7 @@ class OrganizationalUnitAssociation(pulumi.CustomResource):
         ```python
         import pulumi
         import pulumi_aws as aws
-        import pulumi_time as time
+        import pulumiverse_time as time
 
         example = aws.organizations.get_organization()
         example_notification_configuration = aws.notifications.NotificationConfiguration("example",
@@ -123,7 +123,7 @@ class OrganizationalUnitAssociation(pulumi.CustomResource):
             name="example-ou",
             parent_id=example.roots[0].id)
         # Allow time for organizational unit creation to propagate
-        wait = time.index.Sleep("wait", create_duration=5s,
+        wait = time.Sleep("wait", create_duration="5s",
         opts = pulumi.ResourceOptions(depends_on=[
                 example_organizational_unit,
                 example_notification_configuration,
@@ -178,7 +178,7 @@ class OrganizationalUnitAssociation(pulumi.CustomResource):
         ```python
         import pulumi
         import pulumi_aws as aws
-        import pulumi_time as time
+        import pulumiverse_time as time
 
         example = aws.organizations.get_organization()
         example_notification_configuration = aws.notifications.NotificationConfiguration("example",
@@ -188,7 +188,7 @@ class OrganizationalUnitAssociation(pulumi.CustomResource):
             name="example-ou",
             parent_id=example.roots[0].id)
         # Allow time for organizational unit creation to propagate
-        wait = time.index.Sleep("wait", create_duration=5s,
+        wait = time.Sleep("wait", create_duration="5s",
         opts = pulumi.ResourceOptions(depends_on=[
                 example_organizational_unit,
                 example_notification_configuration,

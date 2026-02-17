@@ -339,7 +339,7 @@ import javax.annotation.Nullable;
  *                 .build());
  * 
  *         var exampleResource = new Resource("exampleResource", ResourceArgs.builder()
- *             .triggers(Map.of("rerunUponChangeOf", StdFunctions.join(JoinArgs.builder()
+ *             .triggers(Map.of("rerun_upon_change_of", StdFunctions.join(JoinArgs.builder()
  *                 .separator(",")
  *                 .input(exampleAwsVpcEndpoint.securityGroupIds())
  *                 .build()).result()))
@@ -368,13 +368,14 @@ import javax.annotation.Nullable;
  * 
  * #### Optional
  * 
- * * `account_id` (String) AWS Account where this resource is managed.
- * 
+ * * `accountId` (String) AWS Account where this resource is managed.
  * * `region` (String) Region where this resource is managed.
  * 
  * Using `pulumi import`, import Security Groups using the security group `id`. For example:
  * 
- * % pulumi import aws_security_group.example sg-903004f8
+ * ```sh
+ * $ pulumi import aws:ec2/securityGroup:SecurityGroup example sg-903004f8
+ * ```
  * 
  */
 @ResourceType(type="aws:ec2/securityGroup:SecurityGroup")

@@ -44,7 +44,7 @@ namespace Pulumi.Aws.ApiGateway
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import API Gateway documentation_parts using `REST-API-ID/DOC-PART-ID`. For example:
+    /// Using `pulumi import`, import API Gateway DocumentationParts using `REST-API-ID/DOC-PART-ID`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:apigateway/documentationPart:DocumentationPart example 5i4e1ko720/3oyy3t

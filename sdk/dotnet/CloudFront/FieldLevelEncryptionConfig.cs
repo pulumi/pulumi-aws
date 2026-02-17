@@ -62,7 +62,7 @@ namespace Pulumi.Aws.CloudFront
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import Cloudfront Field Level Encryption Config using the `id`. For example:
+    /// Using `pulumi import`, import Cloudfront Field Level Encryption Config using the `Id`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:cloudfront/fieldLevelEncryptionConfig:FieldLevelEncryptionConfig config E74FTE3AEXAMPLE

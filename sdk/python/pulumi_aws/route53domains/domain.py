@@ -709,6 +709,8 @@ class Domain(pulumi.CustomResource):
                  transfer_lock: Optional[pulumi.Input[_builtins.bool]] = None,
                  __props__=None):
         """
+        Provides a resource to manage a domain. This resource registers, renews and deregisters a domain name. If a domain name's lifecycle is managed outside of Terraform use the `route53domains.RegisteredDomain` resource instead.
+
         ## Example Usage
 
         ```python
@@ -799,6 +801,8 @@ class Domain(pulumi.CustomResource):
                  args: DomainArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        Provides a resource to manage a domain. This resource registers, renews and deregisters a domain name. If a domain name's lifecycle is managed outside of Terraform use the `route53domains.RegisteredDomain` resource instead.
+
         ## Example Usage
 
         ```python

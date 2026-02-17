@@ -48,7 +48,7 @@ namespace Pulumi.Aws.FinSpace
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import an AWS FinSpace Kx Database using the `id` (environment ID and database name, comma-delimited). For example:
+    /// Using `pulumi import`, import an AWS FinSpace Kx Database using the `Id` (environment ID and database name, comma-delimited). For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:finspace/kxDatabase:KxDatabase example n3ceo7wqxoxcti5tujqwzs,my-tf-kx-database

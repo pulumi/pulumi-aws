@@ -956,6 +956,7 @@ class RoutingProfileMediaConcurrency(dict):
         """
         :param _builtins.str channel: Specifies the channels that agents can handle in the Contact Control Panel (CCP). Valid values are `VOICE`, `CHAT`, `TASK`.
         :param _builtins.int concurrency: Specifies the number of contacts an agent can have on a channel simultaneously. Valid Range for `VOICE`: Minimum value of `1`. Maximum value of `1`. Valid Range for `CHAT`: Minimum value of `1`. Maximum value of `10`. Valid Range for `TASK`: Minimum value of `1`. Maximum value of `10`.
+        :param 'RoutingProfileMediaConcurrencyCrossChannelBehaviorArgs' cross_channel_behavior: Defines the cross-channel routing behavior for each traffic type. **Out-of-band changes are only detected when this argument is explicitly configured in your Terraform configuration.** Documented below.
         """
         pulumi.set(__self__, "channel", channel)
         pulumi.set(__self__, "concurrency", concurrency)
@@ -981,6 +982,9 @@ class RoutingProfileMediaConcurrency(dict):
     @_builtins.property
     @pulumi.getter(name="crossChannelBehavior")
     def cross_channel_behavior(self) -> Optional['outputs.RoutingProfileMediaConcurrencyCrossChannelBehavior']:
+        """
+        Defines the cross-channel routing behavior for each traffic type. **Out-of-band changes are only detected when this argument is explicitly configured in your Terraform configuration.** Documented below.
+        """
         return pulumi.get(self, "cross_channel_behavior")
 
 

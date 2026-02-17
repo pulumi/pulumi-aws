@@ -29,7 +29,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := kms.NewExternalKey(ctx, "primary", &kms.ExternalKeyArgs{
+//			primary, err := kms.NewExternalKey(ctx, "primary", &kms.ExternalKeyArgs{
 //				Description:          pulumi.String("Multi-Region primary key"),
 //				DeletionWindowInDays: pulumi.Int(30),
 //				MultiRegion:          pulumi.Bool(true),
@@ -42,7 +42,7 @@ import (
 //			_, err = kms.NewReplicaExternalKey(ctx, "replica", &kms.ReplicaExternalKeyArgs{
 //				Description:          pulumi.String("Multi-Region replica key"),
 //				DeletionWindowInDays: pulumi.Int(7),
-//				PrimaryKeyArn:        pulumi.Any(primaryAwsKmsExternal.Arn),
+//				PrimaryKeyArn:        primary.Arn,
 //				KeyMaterialBase64:    pulumi.String("..."),
 //			})
 //			if err != nil {

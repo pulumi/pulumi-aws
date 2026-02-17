@@ -63,7 +63,7 @@ namespace Pulumi.Aws.Efs
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import the EFS file systems using the `id`. For example:
+    /// Using `pulumi import`, import the EFS file systems using the `Id`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:efs/fileSystem:FileSystem foo fs-6fa144c6

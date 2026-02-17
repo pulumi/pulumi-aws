@@ -111,9 +111,17 @@ public final class ParameterGroupArgs extends com.pulumi.resources.ResourceArgs 
         return Optional.ofNullable(this.region);
     }
 
+    /**
+     * Set to true if you do not wish the parameter group to be deleted at destroy time, and instead just remove the parameter group from the Terraform state.
+     * 
+     */
     @Import(name="skipDestroy")
     private @Nullable Output<Boolean> skipDestroy;
 
+    /**
+     * @return Set to true if you do not wish the parameter group to be deleted at destroy time, and instead just remove the parameter group from the Terraform state.
+     * 
+     */
     public Optional<Output<Boolean>> skipDestroy() {
         return Optional.ofNullable(this.skipDestroy);
     }
@@ -300,11 +308,23 @@ public final class ParameterGroupArgs extends com.pulumi.resources.ResourceArgs 
             return region(Output.of(region));
         }
 
+        /**
+         * @param skipDestroy Set to true if you do not wish the parameter group to be deleted at destroy time, and instead just remove the parameter group from the Terraform state.
+         * 
+         * @return builder
+         * 
+         */
         public Builder skipDestroy(@Nullable Output<Boolean> skipDestroy) {
             $.skipDestroy = skipDestroy;
             return this;
         }
 
+        /**
+         * @param skipDestroy Set to true if you do not wish the parameter group to be deleted at destroy time, and instead just remove the parameter group from the Terraform state.
+         * 
+         * @return builder
+         * 
+         */
         public Builder skipDestroy(Boolean skipDestroy) {
             return skipDestroy(Output.of(skipDestroy));
         }

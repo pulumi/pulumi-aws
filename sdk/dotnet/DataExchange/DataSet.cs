@@ -34,7 +34,7 @@ namespace Pulumi.Aws.DataExchange
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import DataExchange DataSets using their `id`. For example:
+    /// Using `pulumi import`, import DataExchange DataSets using their `Id`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:dataexchange/dataSet:DataSet example 4fa784c7-ccb4-4dbf-ba4f-02198320daa1

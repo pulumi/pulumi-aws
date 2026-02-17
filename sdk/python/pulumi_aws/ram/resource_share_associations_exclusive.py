@@ -228,6 +228,105 @@ class ResourceShareAssociationsExclusive(pulumi.CustomResource):
                  sources: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
+        Resource for maintaining exclusive management of principal and resource associations for an AWS RAM (Resource Access Manager) Resource Share.
+
+        !> This resource takes exclusive ownership over principal and resource associations for a resource share. This includes removal of principals and resources which are not explicitly configured.
+
+        > Destruction of this resource will disassociate all configured principals and resources from the resource share.
+
+        > **NOTE:** This resource cannot be used in conjunction with `ram.PrincipalAssociation` or `ram.ResourceAssociation` for the same resource share. Using them together will cause persistent drift and conflicts.
+
+        ## Example Usage
+
+        ### Basic Usage with Principals
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.ram.ResourceShare("example",
+            name="example",
+            allow_external_principals=True)
+        example_vpc = aws.ec2.Vpc("example", cidr_block="10.0.0.0/16")
+        example_subnet = aws.ec2.Subnet("example",
+            vpc_id=example_vpc.id,
+            cidr_block="10.0.1.0/24")
+        example_resource_share_associations_exclusive = aws.ram.ResourceShareAssociationsExclusive("example",
+            resource_share_arn=example.arn,
+            principals=[
+                "111111111111",
+                "222222222222",
+            ],
+            resource_arns=[example_subnet.arn])
+        ```
+
+        ### With Organization Principal
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+        import pulumi_std as std
+
+        example = aws.ram.ResourceShare("example", name="example")
+        example_vpc = aws.ec2.Vpc("example", cidr_block="10.0.0.0/16")
+        example_subnet = []
+        for range in [{"value": i} for i in range(0, 2)]:
+            example_subnet.append(aws.ec2.Subnet(f"example-{range['value']}",
+                vpc_id=example_vpc.id,
+                cidr_block=example_vpc.cidr_block.apply(lambda cidr_block: std.cidrsubnet_output(input=cidr_block,
+                    newbits=8,
+                    netnum=range["value"])).apply(lambda invoke: invoke.result)))
+        example_resource_share_associations_exclusive = aws.ram.ResourceShareAssociationsExclusive("example",
+            resource_share_arn=example.arn,
+            principals=[example_aws_organizations_organization["arn"]],
+            resource_arns=[__item.arn for __item in example_subnet])
+        ```
+
+        ### With Service Principals
+
+        When sharing resources with AWS services, use service principals. Service principals follow the pattern `service-id.amazonaws.com` (e.g., `pca-connector-ad.amazonaws.com`, `elasticmapreduce.amazonaws.com`). The `sources` argument can be used to restrict which AWS accounts the service can access the shared resources from.
+
+        > **NOTE:** Service principals cannot be mixed with other principal types (AWS account IDs, organization ARNs, OU ARNs, IAM role ARNs, or IAM user ARNs) in the same resource.
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.ram.ResourceShare("example",
+            name="example-service-share",
+            allow_external_principals=True)
+        example_certificate_authority = aws.acmpca.CertificateAuthority("example",
+            type="ROOT",
+            certificate_authority_configuration={
+                "key_algorithm": "RSA_4096",
+                "signing_algorithm": "SHA512WITHRSA",
+                "subject": {
+                    "common_name": "example.com",
+                },
+            })
+        example_resource_share_associations_exclusive = aws.ram.ResourceShareAssociationsExclusive("example",
+            resource_share_arn=example.arn,
+            principals=["pca-connector-ad.amazonaws.com"],
+            resource_arns=[example_certificate_authority.arn],
+            sources=[
+                "111111111111",
+                "222222222222",
+            ])
+        ```
+
+        ### Disallow All Associations
+
+        To automatically remove any configured associations, omit the `principals` and `resource_arns` arguments or set them to empty lists.
+
+        > This will not **prevent** associations from being created via Terraform (or any other interface). This resource enables bringing associations into a configured state, however, this reconciliation happens only when `apply` is proactively run.
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.ram.ResourceShareAssociationsExclusive("example", resource_share_arn=example_aws_ram_resource_share["arn"])
+        ```
+
         ## Import
 
         Using `pulumi import`, import RAM Resource Share Association Exclusive using the `resource_share_arn`. For example:
@@ -257,6 +356,105 @@ class ResourceShareAssociationsExclusive(pulumi.CustomResource):
                  args: ResourceShareAssociationsExclusiveArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        Resource for maintaining exclusive management of principal and resource associations for an AWS RAM (Resource Access Manager) Resource Share.
+
+        !> This resource takes exclusive ownership over principal and resource associations for a resource share. This includes removal of principals and resources which are not explicitly configured.
+
+        > Destruction of this resource will disassociate all configured principals and resources from the resource share.
+
+        > **NOTE:** This resource cannot be used in conjunction with `ram.PrincipalAssociation` or `ram.ResourceAssociation` for the same resource share. Using them together will cause persistent drift and conflicts.
+
+        ## Example Usage
+
+        ### Basic Usage with Principals
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.ram.ResourceShare("example",
+            name="example",
+            allow_external_principals=True)
+        example_vpc = aws.ec2.Vpc("example", cidr_block="10.0.0.0/16")
+        example_subnet = aws.ec2.Subnet("example",
+            vpc_id=example_vpc.id,
+            cidr_block="10.0.1.0/24")
+        example_resource_share_associations_exclusive = aws.ram.ResourceShareAssociationsExclusive("example",
+            resource_share_arn=example.arn,
+            principals=[
+                "111111111111",
+                "222222222222",
+            ],
+            resource_arns=[example_subnet.arn])
+        ```
+
+        ### With Organization Principal
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+        import pulumi_std as std
+
+        example = aws.ram.ResourceShare("example", name="example")
+        example_vpc = aws.ec2.Vpc("example", cidr_block="10.0.0.0/16")
+        example_subnet = []
+        for range in [{"value": i} for i in range(0, 2)]:
+            example_subnet.append(aws.ec2.Subnet(f"example-{range['value']}",
+                vpc_id=example_vpc.id,
+                cidr_block=example_vpc.cidr_block.apply(lambda cidr_block: std.cidrsubnet_output(input=cidr_block,
+                    newbits=8,
+                    netnum=range["value"])).apply(lambda invoke: invoke.result)))
+        example_resource_share_associations_exclusive = aws.ram.ResourceShareAssociationsExclusive("example",
+            resource_share_arn=example.arn,
+            principals=[example_aws_organizations_organization["arn"]],
+            resource_arns=[__item.arn for __item in example_subnet])
+        ```
+
+        ### With Service Principals
+
+        When sharing resources with AWS services, use service principals. Service principals follow the pattern `service-id.amazonaws.com` (e.g., `pca-connector-ad.amazonaws.com`, `elasticmapreduce.amazonaws.com`). The `sources` argument can be used to restrict which AWS accounts the service can access the shared resources from.
+
+        > **NOTE:** Service principals cannot be mixed with other principal types (AWS account IDs, organization ARNs, OU ARNs, IAM role ARNs, or IAM user ARNs) in the same resource.
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.ram.ResourceShare("example",
+            name="example-service-share",
+            allow_external_principals=True)
+        example_certificate_authority = aws.acmpca.CertificateAuthority("example",
+            type="ROOT",
+            certificate_authority_configuration={
+                "key_algorithm": "RSA_4096",
+                "signing_algorithm": "SHA512WITHRSA",
+                "subject": {
+                    "common_name": "example.com",
+                },
+            })
+        example_resource_share_associations_exclusive = aws.ram.ResourceShareAssociationsExclusive("example",
+            resource_share_arn=example.arn,
+            principals=["pca-connector-ad.amazonaws.com"],
+            resource_arns=[example_certificate_authority.arn],
+            sources=[
+                "111111111111",
+                "222222222222",
+            ])
+        ```
+
+        ### Disallow All Associations
+
+        To automatically remove any configured associations, omit the `principals` and `resource_arns` arguments or set them to empty lists.
+
+        > This will not **prevent** associations from being created via Terraform (or any other interface). This resource enables bringing associations into a configured state, however, this reconciliation happens only when `apply` is proactively run.
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.ram.ResourceShareAssociationsExclusive("example", resource_share_arn=example_aws_ram_resource_share["arn"])
+        ```
+
         ## Import
 
         Using `pulumi import`, import RAM Resource Share Association Exclusive using the `resource_share_arn`. For example:

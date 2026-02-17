@@ -48,7 +48,7 @@ namespace Pulumi.Aws.Pinpoint
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import Pinpoint Email Template using the `template_name`. For example:
+    /// Using `pulumi import`, import Pinpoint Email Template using the `TemplateName`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:pinpoint/emailTemplate:EmailTemplate reset template_name

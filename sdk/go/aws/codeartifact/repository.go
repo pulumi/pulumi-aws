@@ -141,7 +141,9 @@ import (
 //
 // Using `pulumi import`, import CodeArtifact Repository using the CodeArtifact Repository ARN. For example:
 //
-// % pulumi import aws_codeartifact_repository.example arn:aws:codeartifact:us-west-2:012345678912:repository/tf-acc-test-6968272603913957763/tf-acc-test-6968272603913957763
+// ```sh
+// $ pulumi import aws:codeartifact/repository:Repository example arn:aws:codeartifact:us-west-2:012345678912:repository/tf-acc-test-6968272603913957763/tf-acc-test-6968272603913957763
+// ```
 type Repository struct {
 	pulumi.CustomResourceState
 

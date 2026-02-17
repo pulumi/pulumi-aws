@@ -21,7 +21,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Using `pulumi import`, import Internet Monitor Monitors using the `monitor_name`. For example:
+ * Using `pulumi import`, import Internet Monitor Monitors using the `monitorName`. For example:
  *
  * ```sh
  * $ pulumi import aws:cloudwatch/internetMonitor:InternetMonitor some some-monitor

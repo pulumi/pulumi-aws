@@ -98,7 +98,7 @@ namespace Pulumi.Aws.BedrockModel
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import Bedrock custom model using the `id` set to the AWS Region. For example:
+    /// Using `pulumi import`, import Bedrock custom model using the `Id` set to the AWS Region. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:bedrockmodel/invocationLoggingConfiguration:InvocationLoggingConfiguration my_config us-east-1

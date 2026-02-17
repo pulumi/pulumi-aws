@@ -35,7 +35,7 @@ namespace Pulumi.Aws.RedShift
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import Redshift usage limits using the `id`. For example:
+    /// Using `pulumi import`, import Redshift usage limits using the `Id`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:redshift/usageLimit:UsageLimit example example-id

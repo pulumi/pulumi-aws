@@ -18,7 +18,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Using `pulumi import`, import `aws_ec2_transit_gateway` using the EC2 Transit Gateway identifier. For example:
+ * Using `pulumi import`, import `aws.ec2transitgateway.TransitGateway` using the EC2 Transit Gateway identifier. For example:
  *
  * ```sh
  * $ pulumi import aws:ec2transitgateway/transitGateway:TransitGateway example tgw-12345678

@@ -32,8 +32,6 @@ public final class BrokerUser {
     /**
      * @return Whether to set replication user. Defaults to `false`.
      * 
-     * &gt; **NOTE:** AWS currently does not support updating RabbitMQ users. Updates to users can only be in the RabbitMQ UI.
-     * 
      */
     private @Nullable Boolean replicationUser;
     /**
@@ -68,8 +66,6 @@ public final class BrokerUser {
     }
     /**
      * @return Whether to set replication user. Defaults to `false`.
-     * 
-     * &gt; **NOTE:** AWS currently does not support updating RabbitMQ users. Updates to users can only be in the RabbitMQ UI.
      * 
      */
     public Optional<Boolean> replicationUser() {

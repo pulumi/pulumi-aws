@@ -25,20 +25,15 @@ __all__ = [
     'ClusterTimeoutsArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class ClusterEncryptionDetailArgsDict(TypedDict):
-        encryption_status: pulumi.Input[_builtins.str]
-        """
-        The status of encryption for the DSQL Cluster.
-        """
-        encryption_type: pulumi.Input[_builtins.str]
-        """
-        The type of encryption that protects the data on the DSQL Cluster.
-        """
-elif False:
-    ClusterEncryptionDetailArgsDict: TypeAlias = Mapping[str, Any]
+class ClusterEncryptionDetailArgsDict(TypedDict):
+    encryption_status: pulumi.Input[_builtins.str]
+    """
+    The status of encryption for the DSQL Cluster.
+    """
+    encryption_type: pulumi.Input[_builtins.str]
+    """
+    The type of encryption that protects the data on the DSQL Cluster.
+    """
 
 @pulumi.input_type
 class ClusterEncryptionDetailArgs:
@@ -77,18 +72,15 @@ class ClusterEncryptionDetailArgs:
         pulumi.set(self, "encryption_type", value)
 
 
-if not MYPY:
-    class ClusterMultiRegionPropertiesArgsDict(TypedDict):
-        clusters: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        List of DSQL Cluster ARNs peered to this cluster.
-        """
-        witness_region: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Witness region for the multi-region clusters. Setting this makes this cluster a multi-region cluster. Changing it recreates the resource.
-        """
-elif False:
-    ClusterMultiRegionPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class ClusterMultiRegionPropertiesArgsDict(TypedDict):
+    clusters: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    List of DSQL Cluster ARNs peered to this cluster.
+    """
+    witness_region: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Witness region for the multi-region clusters. Setting this makes this cluster a multi-region cluster. Changing it recreates the resource.
+    """
 
 @pulumi.input_type
 class ClusterMultiRegionPropertiesArgs:
@@ -129,14 +121,11 @@ class ClusterMultiRegionPropertiesArgs:
         pulumi.set(self, "witness_region", value)
 
 
-if not MYPY:
-    class ClusterPeeringTimeoutsArgsDict(TypedDict):
-        create: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
-        """
-elif False:
-    ClusterPeeringTimeoutsArgsDict: TypeAlias = Mapping[str, Any]
+class ClusterPeeringTimeoutsArgsDict(TypedDict):
+    create: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+    """
 
 @pulumi.input_type
 class ClusterPeeringTimeoutsArgs:
@@ -161,22 +150,19 @@ class ClusterPeeringTimeoutsArgs:
         pulumi.set(self, "create", value)
 
 
-if not MYPY:
-    class ClusterTimeoutsArgsDict(TypedDict):
-        create: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
-        """
-        delete: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
-        """
-        update: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
-        """
-elif False:
-    ClusterTimeoutsArgsDict: TypeAlias = Mapping[str, Any]
+class ClusterTimeoutsArgsDict(TypedDict):
+    create: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+    """
+    delete: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+    """
+    update: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+    """
 
 @pulumi.input_type
 class ClusterTimeoutsArgs:

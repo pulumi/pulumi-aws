@@ -141,8 +141,9 @@ class CapacityProviderCapacityProviderScalingConfig(dict):
                  scaling_mode: _builtins.str,
                  scaling_policies: Sequence['outputs.CapacityProviderCapacityProviderScalingConfigScalingPolicy']):
         """
-        :param _builtins.str scaling_mode: The scaling mode for the Capacity Provider. Valid values are `AUTO` and `MANUAL`. Defaults to `AUTO`.
-        :param Sequence['CapacityProviderCapacityProviderScalingConfigScalingPolicyArgs'] scaling_policies: List of scaling policies. See Scaling Policies below.
+        :param _builtins.int max_vcpu_count: The maximum number of VCPUs for the Capacity Provider.
+        :param _builtins.str scaling_mode: The scaling mode for the Capacity Provider. Valid values are `"Auto"` and `"Manual"`. Defaults to `"Auto"`.
+        :param Sequence['CapacityProviderCapacityProviderScalingConfigScalingPolicyArgs'] scaling_policies: List of scaling policies. Only required if `scaling_mode` is set to `"Manual"`. See Scaling Policies below.
         """
         pulumi.set(__self__, "max_vcpu_count", max_vcpu_count)
         pulumi.set(__self__, "scaling_mode", scaling_mode)
@@ -151,13 +152,16 @@ class CapacityProviderCapacityProviderScalingConfig(dict):
     @_builtins.property
     @pulumi.getter(name="maxVcpuCount")
     def max_vcpu_count(self) -> _builtins.int:
+        """
+        The maximum number of VCPUs for the Capacity Provider.
+        """
         return pulumi.get(self, "max_vcpu_count")
 
     @_builtins.property
     @pulumi.getter(name="scalingMode")
     def scaling_mode(self) -> _builtins.str:
         """
-        The scaling mode for the Capacity Provider. Valid values are `AUTO` and `MANUAL`. Defaults to `AUTO`.
+        The scaling mode for the Capacity Provider. Valid values are `"Auto"` and `"Manual"`. Defaults to `"Auto"`.
         """
         return pulumi.get(self, "scaling_mode")
 
@@ -165,7 +169,7 @@ class CapacityProviderCapacityProviderScalingConfig(dict):
     @pulumi.getter(name="scalingPolicies")
     def scaling_policies(self) -> Sequence['outputs.CapacityProviderCapacityProviderScalingConfigScalingPolicy']:
         """
-        List of scaling policies. See Scaling Policies below.
+        List of scaling policies. Only required if `scaling_mode` is set to `"Manual"`. See Scaling Policies below.
         """
         return pulumi.get(self, "scaling_policies")
 
@@ -195,7 +199,7 @@ class CapacityProviderCapacityProviderScalingConfigScalingPolicy(dict):
                  predefined_metric_type: _builtins.str,
                  target_value: _builtins.float):
         """
-        :param _builtins.str predefined_metric_type: The predefined metric type for the scaling policy. Valid values are `LAMBDA_PROVISIONED_CONCURRENCY_UTILIZATION`.
+        :param _builtins.str predefined_metric_type: The predefined metric type for the scaling policy. Valid values are `"LambdaCapacityProviderAverageCPUUtilization"`.
         :param _builtins.float target_value: The target value for the scaling policy.
         """
         pulumi.set(__self__, "predefined_metric_type", predefined_metric_type)
@@ -205,7 +209,7 @@ class CapacityProviderCapacityProviderScalingConfigScalingPolicy(dict):
     @pulumi.getter(name="predefinedMetricType")
     def predefined_metric_type(self) -> _builtins.str:
         """
-        The predefined metric type for the scaling policy. Valid values are `LAMBDA_PROVISIONED_CONCURRENCY_UTILIZATION`.
+        The predefined metric type for the scaling policy. Valid values are `"LambdaCapacityProviderAverageCPUUtilization"`.
         """
         return pulumi.get(self, "predefined_metric_type")
 
@@ -244,9 +248,9 @@ class CapacityProviderInstanceRequirement(dict):
                  architectures: Sequence[_builtins.str],
                  excluded_instance_types: Sequence[_builtins.str]):
         """
-        :param Sequence[_builtins.str] allowed_instance_types: List of allowed instance types.
-        :param Sequence[_builtins.str] architectures: List of CPU architectures. Valid values are `X86_64` and `ARM64`.
-        :param Sequence[_builtins.str] excluded_instance_types: List of excluded instance types.
+        :param Sequence[_builtins.str] allowed_instance_types: List of allowed instance types (e.g., `["m5.xlarge"]`).
+        :param Sequence[_builtins.str] architectures: List of CPU architectures. Valid values are `["x86_64"]` and `["arm64"]`.
+        :param Sequence[_builtins.str] excluded_instance_types: List of excluded instance types. You can specify only one of `allowed_instance_types` or `excluded_instance_types`.
         """
         pulumi.set(__self__, "allowed_instance_types", allowed_instance_types)
         pulumi.set(__self__, "architectures", architectures)
@@ -256,7 +260,7 @@ class CapacityProviderInstanceRequirement(dict):
     @pulumi.getter(name="allowedInstanceTypes")
     def allowed_instance_types(self) -> Sequence[_builtins.str]:
         """
-        List of allowed instance types.
+        List of allowed instance types (e.g., `["m5.xlarge"]`).
         """
         return pulumi.get(self, "allowed_instance_types")
 
@@ -264,7 +268,7 @@ class CapacityProviderInstanceRequirement(dict):
     @pulumi.getter
     def architectures(self) -> Sequence[_builtins.str]:
         """
-        List of CPU architectures. Valid values are `X86_64` and `ARM64`.
+        List of CPU architectures. Valid values are `["x86_64"]` and `["arm64"]`.
         """
         return pulumi.get(self, "architectures")
 
@@ -272,7 +276,7 @@ class CapacityProviderInstanceRequirement(dict):
     @pulumi.getter(name="excludedInstanceTypes")
     def excluded_instance_types(self) -> Sequence[_builtins.str]:
         """
-        List of excluded instance types.
+        List of excluded instance types. You can specify only one of `allowed_instance_types` or `excluded_instance_types`.
         """
         return pulumi.get(self, "excluded_instance_types")
 

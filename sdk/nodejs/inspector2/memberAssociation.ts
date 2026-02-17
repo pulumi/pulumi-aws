@@ -20,7 +20,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Using `pulumi import`, import Amazon Inspector Member Association using the `account_id`. For example:
+ * Using `pulumi import`, import Amazon Inspector Member Association using the `accountId`. For example:
  *
  * ```sh
  * $ pulumi import aws:inspector2/memberAssociation:MemberAssociation example 123456789012

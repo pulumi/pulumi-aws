@@ -118,7 +118,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Using `pulumi import`, import Amazon Bedrock Guardrail using using a comma-delimited string of `guardrail_id` and `version`. For example:
+ * Using `pulumi import`, import Amazon Bedrock Guardrail using using a comma-delimited string of `guardrailId` and `version`. For example:
  * 
  * ```sh
  * $ pulumi import aws:bedrock/guardrail:Guardrail example guardrail-id-12345678,DRAFT

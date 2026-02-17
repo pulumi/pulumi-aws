@@ -58,7 +58,7 @@ namespace Pulumi.Aws.DataZone
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import DataZone Project using a colon-delimited string combining `domain_id` and `id`. For example:
+    /// Using `pulumi import`, import DataZone Project using a colon-delimited string combining `DomainId` and `Id`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:datazone/project:Project example domain-1234:project-1234

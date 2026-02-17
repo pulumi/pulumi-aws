@@ -37,7 +37,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import `aws_ec2_transit_gateway_vpc_attachment` using the EC2 Transit Gateway Attachment identifier. For example:
+    /// Using `pulumi import`, import `aws.ec2transitgateway.VpcAttachment` using the EC2 Transit Gateway Attachment identifier. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:ec2transitgateway/vpcAttachment:VpcAttachment example tgw-attach-12345678
@@ -100,9 +100,15 @@ namespace Pulumi.Aws.Ec2TransitGateway
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
+        /// <summary>
+        /// Boolean whether the VPC Attachment should be associated with the EC2 Transit Gateway association default route table. This cannot be configured or perform drift detection with Resource Access Manager shared EC2 Transit Gateways. Default value: `True`. **Setting this argument to** `False` will cause Terraform to remove the default association if it exists. This argument does not simply “ignore” the association; it actively manages (adds or removes) the association in AWS to match the value in your configuration. Do not attempt to manage the same association with both this resource and `aws.ec2transitgateway.RouteTableAssociation`, as this will cause perpetual diffs and resource churn. Use conditional logic to ensure only one resource manages the association at a time.
+        /// </summary>
         [Output("transitGatewayDefaultRouteTableAssociation")]
         public Output<bool> TransitGatewayDefaultRouteTableAssociation { get; private set; } = null!;
 
+        /// <summary>
+        /// Boolean whether the VPC Attachment should propagate routes with the EC2 Transit Gateway propagation default route table. This cannot be configured or perform drift detection with Resource Access Manager shared EC2 Transit Gateways. Default value: `True`. **Setting this argument to** `False` will cause Terraform to remove the default propagation if it exists. This argument does not simply “ignore” the propagation; it actively manages (adds or removes) the propagation in AWS to match the value in your configuration. Do not attempt to manage the same propagation with both this resource and `aws.ec2transitgateway.RouteTablePropagation`, as this will cause perpetual diffs and resource churn. Use conditional logic to ensure only one resource manages the propagation at a time.
+        /// </summary>
         [Output("transitGatewayDefaultRouteTablePropagation")]
         public Output<bool> TransitGatewayDefaultRouteTablePropagation { get; private set; } = null!;
 
@@ -224,9 +230,15 @@ namespace Pulumi.Aws.Ec2TransitGateway
             set => _tags = value;
         }
 
+        /// <summary>
+        /// Boolean whether the VPC Attachment should be associated with the EC2 Transit Gateway association default route table. This cannot be configured or perform drift detection with Resource Access Manager shared EC2 Transit Gateways. Default value: `True`. **Setting this argument to** `False` will cause Terraform to remove the default association if it exists. This argument does not simply “ignore” the association; it actively manages (adds or removes) the association in AWS to match the value in your configuration. Do not attempt to manage the same association with both this resource and `aws.ec2transitgateway.RouteTableAssociation`, as this will cause perpetual diffs and resource churn. Use conditional logic to ensure only one resource manages the association at a time.
+        /// </summary>
         [Input("transitGatewayDefaultRouteTableAssociation")]
         public Input<bool>? TransitGatewayDefaultRouteTableAssociation { get; set; }
 
+        /// <summary>
+        /// Boolean whether the VPC Attachment should propagate routes with the EC2 Transit Gateway propagation default route table. This cannot be configured or perform drift detection with Resource Access Manager shared EC2 Transit Gateways. Default value: `True`. **Setting this argument to** `False` will cause Terraform to remove the default propagation if it exists. This argument does not simply “ignore” the propagation; it actively manages (adds or removes) the propagation in AWS to match the value in your configuration. Do not attempt to manage the same propagation with both this resource and `aws.ec2transitgateway.RouteTablePropagation`, as this will cause perpetual diffs and resource churn. Use conditional logic to ensure only one resource manages the propagation at a time.
+        /// </summary>
         [Input("transitGatewayDefaultRouteTablePropagation")]
         public Input<bool>? TransitGatewayDefaultRouteTablePropagation { get; set; }
 
@@ -322,9 +334,15 @@ namespace Pulumi.Aws.Ec2TransitGateway
             set => _tagsAll = value;
         }
 
+        /// <summary>
+        /// Boolean whether the VPC Attachment should be associated with the EC2 Transit Gateway association default route table. This cannot be configured or perform drift detection with Resource Access Manager shared EC2 Transit Gateways. Default value: `True`. **Setting this argument to** `False` will cause Terraform to remove the default association if it exists. This argument does not simply “ignore” the association; it actively manages (adds or removes) the association in AWS to match the value in your configuration. Do not attempt to manage the same association with both this resource and `aws.ec2transitgateway.RouteTableAssociation`, as this will cause perpetual diffs and resource churn. Use conditional logic to ensure only one resource manages the association at a time.
+        /// </summary>
         [Input("transitGatewayDefaultRouteTableAssociation")]
         public Input<bool>? TransitGatewayDefaultRouteTableAssociation { get; set; }
 
+        /// <summary>
+        /// Boolean whether the VPC Attachment should propagate routes with the EC2 Transit Gateway propagation default route table. This cannot be configured or perform drift detection with Resource Access Manager shared EC2 Transit Gateways. Default value: `True`. **Setting this argument to** `False` will cause Terraform to remove the default propagation if it exists. This argument does not simply “ignore” the propagation; it actively manages (adds or removes) the propagation in AWS to match the value in your configuration. Do not attempt to manage the same propagation with both this resource and `aws.ec2transitgateway.RouteTablePropagation`, as this will cause perpetual diffs and resource churn. Use conditional logic to ensure only one resource manages the propagation at a time.
+        /// </summary>
         [Input("transitGatewayDefaultRouteTablePropagation")]
         public Input<bool>? TransitGatewayDefaultRouteTablePropagation { get; set; }
 

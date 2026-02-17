@@ -49,22 +49,17 @@ __all__ = [
     'ResourceSetTimeoutsArgsDict',
 ]
 
-MYPY = False
+class PolicyExcludeMapArgsDict(TypedDict):
+    accounts: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    A list of AWS Organization member Accounts that you want to include for this AWS FMS Policy.
+    """
+    orgunits: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    A list of IDs of the AWS Organizational Units that you want to include for this AWS FMS Policy. Specifying an OU is the equivalent of specifying all accounts in the OU and in any of its child OUs, including any child OUs and accounts that are added at a later time.
 
-if not MYPY:
-    class PolicyExcludeMapArgsDict(TypedDict):
-        accounts: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        A list of AWS Organization member Accounts that you want to include for this AWS FMS Policy.
-        """
-        orgunits: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        A list of IDs of the AWS Organizational Units that you want to include for this AWS FMS Policy. Specifying an OU is the equivalent of specifying all accounts in the OU and in any of its child OUs, including any child OUs and accounts that are added at a later time.
-
-        You can specify inclusions or exclusions, but not both. If you specify an `include_map`, AWS Firewall Manager applies the policy to all accounts specified by the `include_map`, and does not evaluate any `exclude_map` specifications. If you do not specify an `include_map`, then Firewall Manager applies the policy to all accounts except for those specified by the `exclude_map`.
-        """
-elif False:
-    PolicyExcludeMapArgsDict: TypeAlias = Mapping[str, Any]
+    You can specify inclusions or exclusions, but not both. If you specify an `include_map`, AWS Firewall Manager applies the policy to all accounts specified by the `include_map`, and does not evaluate any `exclude_map` specifications. If you do not specify an `include_map`, then Firewall Manager applies the policy to all accounts except for those specified by the `exclude_map`.
+    """
 
 @pulumi.input_type
 class PolicyExcludeMapArgs:
@@ -109,20 +104,17 @@ class PolicyExcludeMapArgs:
         pulumi.set(self, "orgunits", value)
 
 
-if not MYPY:
-    class PolicyIncludeMapArgsDict(TypedDict):
-        accounts: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        A list of AWS Organization member Accounts that you want to include for this AWS FMS Policy.
-        """
-        orgunits: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        A list of IDs of the AWS Organizational Units that you want to include for this AWS FMS Policy. Specifying an OU is the equivalent of specifying all accounts in the OU and in any of its child OUs, including any child OUs and accounts that are added at a later time.
+class PolicyIncludeMapArgsDict(TypedDict):
+    accounts: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    A list of AWS Organization member Accounts that you want to include for this AWS FMS Policy.
+    """
+    orgunits: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    A list of IDs of the AWS Organizational Units that you want to include for this AWS FMS Policy. Specifying an OU is the equivalent of specifying all accounts in the OU and in any of its child OUs, including any child OUs and accounts that are added at a later time.
 
-        You can specify inclusions or exclusions, but not both. If you specify an `include_map`, AWS Firewall Manager applies the policy to all accounts specified by the `include_map`, and does not evaluate any `exclude_map` specifications. If you do not specify an `include_map`, then Firewall Manager applies the policy to all accounts except for those specified by the `exclude_map`.
-        """
-elif False:
-    PolicyIncludeMapArgsDict: TypeAlias = Mapping[str, Any]
+    You can specify inclusions or exclusions, but not both. If you specify an `include_map`, AWS Firewall Manager applies the policy to all accounts specified by the `include_map`, and does not evaluate any `exclude_map` specifications. If you do not specify an `include_map`, then Firewall Manager applies the policy to all accounts except for those specified by the `exclude_map`.
+    """
 
 @pulumi.input_type
 class PolicyIncludeMapArgs:
@@ -167,22 +159,19 @@ class PolicyIncludeMapArgs:
         pulumi.set(self, "orgunits", value)
 
 
-if not MYPY:
-    class PolicySecurityServicePolicyDataArgsDict(TypedDict):
-        type: pulumi.Input[_builtins.str]
-        """
-        An integer value containing ICMP type.
-        """
-        managed_service_data: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Details about the service that are specific to the service type, in JSON format. For service type `SHIELD_ADVANCED`, this is an empty string. Examples depending on `type` can be found in the [AWS Firewall Manager SecurityServicePolicyData API Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_SecurityServicePolicyData.html).
-        """
-        policy_option: NotRequired[pulumi.Input['PolicySecurityServicePolicyDataPolicyOptionArgsDict']]
-        """
-        Contains the Network Firewall firewall policy options to configure a centralized deployment model. See the `policy_option` block.
-        """
-elif False:
-    PolicySecurityServicePolicyDataArgsDict: TypeAlias = Mapping[str, Any]
+class PolicySecurityServicePolicyDataArgsDict(TypedDict):
+    type: pulumi.Input[_builtins.str]
+    """
+    An integer value containing ICMP type.
+    """
+    managed_service_data: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Details about the service that are specific to the service type, in JSON format. For service type `SHIELD_ADVANCED`, this is an empty string. Examples depending on `type` can be found in the [AWS Firewall Manager SecurityServicePolicyData API Reference](https://docs.aws.amazon.com/fms/2018-01-01/APIReference/API_SecurityServicePolicyData.html).
+    """
+    policy_option: NotRequired[pulumi.Input['PolicySecurityServicePolicyDataPolicyOptionArgsDict']]
+    """
+    Contains the Network Firewall firewall policy options to configure a centralized deployment model. See the `policy_option` block.
+    """
 
 @pulumi.input_type
 class PolicySecurityServicePolicyDataArgs:
@@ -238,19 +227,16 @@ class PolicySecurityServicePolicyDataArgs:
         pulumi.set(self, "policy_option", value)
 
 
-if not MYPY:
-    class PolicySecurityServicePolicyDataPolicyOptionArgsDict(TypedDict):
-        network_acl_common_policy: NotRequired[pulumi.Input['PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyArgsDict']]
-        """
-        Defines NACL rules across accounts in their AWS Organization. See the `network_acl_common_policy` block.
-        """
-        network_firewall_policy: NotRequired[pulumi.Input['PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicyArgsDict']]
-        """
-        Defines the deployment model to use for the firewall policy.  See the `network_firewall_policy` block.
-        """
-        third_party_firewall_policy: NotRequired[pulumi.Input['PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicyArgsDict']]
-elif False:
-    PolicySecurityServicePolicyDataPolicyOptionArgsDict: TypeAlias = Mapping[str, Any]
+class PolicySecurityServicePolicyDataPolicyOptionArgsDict(TypedDict):
+    network_acl_common_policy: NotRequired[pulumi.Input['PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyArgsDict']]
+    """
+    Defines NACL rules across accounts in their AWS Organization. See the `network_acl_common_policy` block.
+    """
+    network_firewall_policy: NotRequired[pulumi.Input['PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicyArgsDict']]
+    """
+    Defines the deployment model to use for the firewall policy.  See the `network_firewall_policy` block.
+    """
+    third_party_firewall_policy: NotRequired[pulumi.Input['PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicyArgsDict']]
 
 @pulumi.input_type
 class PolicySecurityServicePolicyDataPolicyOptionArgs:
@@ -303,14 +289,11 @@ class PolicySecurityServicePolicyDataPolicyOptionArgs:
         pulumi.set(self, "third_party_firewall_policy", value)
 
 
-if not MYPY:
-    class PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyArgsDict(TypedDict):
-        network_acl_entry_set: NotRequired[pulumi.Input['PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetArgsDict']]
-        """
-        Defines NACL entries for Network ACL policy. See the `network_acl_entry_set` block.
-        """
-elif False:
-    PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyArgsDict: TypeAlias = Mapping[str, Any]
+class PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyArgsDict(TypedDict):
+    network_acl_entry_set: NotRequired[pulumi.Input['PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetArgsDict']]
+    """
+    Defines NACL entries for Network ACL policy. See the `network_acl_entry_set` block.
+    """
 
 @pulumi.input_type
 class PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyArgs:
@@ -335,26 +318,23 @@ class PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyArgs:
         pulumi.set(self, "network_acl_entry_set", value)
 
 
-if not MYPY:
-    class PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetArgsDict(TypedDict):
-        force_remediate_for_first_entries: pulumi.Input[_builtins.bool]
-        """
-        A boolean value, if true Firewall Manager uses this setting when it finds policy violations that involve conflicts between the custom entries and the policy entries. If false Firewall Manager marks the network ACL as noncompliant and does not try to remediate.
-        """
-        force_remediate_for_last_entries: pulumi.Input[_builtins.bool]
-        """
-        A boolean value, if true Firewall Manager uses this setting when it finds policy violations that involve conflicts between the custom entries and the policy entries. If false Firewall Manager marks the network ACL as noncompliant and does not try to remediate.
-        """
-        first_entries: NotRequired[pulumi.Input[Sequence[pulumi.Input['PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryArgsDict']]]]
-        """
-        The rules that you want to run first in the Firewall Manager managed network ACLs. Firewall manager creates entries with ID value between 1 and 5000. See the `first_entry` block.
-        """
-        last_entries: NotRequired[pulumi.Input[Sequence[pulumi.Input['PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryArgsDict']]]]
-        """
-        The rules that you want to run last in the Firewall Manager managed network ACLs. Firewall manager creates entries with ID value between 32000 and 32766. See the `last_entry` block.
-        """
-elif False:
-    PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetArgsDict: TypeAlias = Mapping[str, Any]
+class PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetArgsDict(TypedDict):
+    force_remediate_for_first_entries: pulumi.Input[_builtins.bool]
+    """
+    A boolean value, if true Firewall Manager uses this setting when it finds policy violations that involve conflicts between the custom entries and the policy entries. If false Firewall Manager marks the network ACL as noncompliant and does not try to remediate.
+    """
+    force_remediate_for_last_entries: pulumi.Input[_builtins.bool]
+    """
+    A boolean value, if true Firewall Manager uses this setting when it finds policy violations that involve conflicts between the custom entries and the policy entries. If false Firewall Manager marks the network ACL as noncompliant and does not try to remediate.
+    """
+    first_entries: NotRequired[pulumi.Input[Sequence[pulumi.Input['PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryArgsDict']]]]
+    """
+    The rules that you want to run first in the Firewall Manager managed network ACLs. Firewall manager creates entries with ID value between 1 and 5000. See the `first_entry` block.
+    """
+    last_entries: NotRequired[pulumi.Input[Sequence[pulumi.Input['PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryArgsDict']]]]
+    """
+    The rules that you want to run last in the Firewall Manager managed network ACLs. Firewall manager creates entries with ID value between 32000 and 32766. See the `last_entry` block.
+    """
 
 @pulumi.input_type
 class PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetArgs:
@@ -425,38 +405,35 @@ class PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAc
         pulumi.set(self, "last_entries", value)
 
 
-if not MYPY:
-    class PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryArgsDict(TypedDict):
-        egress: pulumi.Input[_builtins.bool]
-        """
-        A boolean value, if true Firewall Manager creates egress rule. If false Firewall Manager creates ingress rule.
-        """
-        protocol: pulumi.Input[_builtins.str]
-        """
-        The protocol number. A value of "-1" means all protocols.
-        """
-        rule_action: pulumi.Input[_builtins.str]
-        """
-        A string value that indicates whether to allow or deny the traffic that matches the rule. Valid values: `allow`, `deny`.
-        """
-        cidr_block: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A string value containing the IPv4 network range to allow or deny, in CIDR notation.
-        """
-        icmp_type_codes: NotRequired[pulumi.Input[Sequence[pulumi.Input['PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryIcmpTypeCodeArgsDict']]]]
-        """
-        A configuration block for ICMP protocol: The ICMP type and code. See the `icmp_type_code` block.
-        """
-        ipv6_cidr_block: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A string value containing the IPv6 network range to allow or deny, in CIDR notation.
-        """
-        port_ranges: NotRequired[pulumi.Input[Sequence[pulumi.Input['PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryPortRangeArgsDict']]]]
-        """
-        A configuration block for PortRange. See the `port_range` block.
-        """
-elif False:
-    PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryArgsDict: TypeAlias = Mapping[str, Any]
+class PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryArgsDict(TypedDict):
+    egress: pulumi.Input[_builtins.bool]
+    """
+    A boolean value, if true Firewall Manager creates egress rule. If false Firewall Manager creates ingress rule.
+    """
+    protocol: pulumi.Input[_builtins.str]
+    """
+    The protocol number. A value of "-1" means all protocols.
+    """
+    rule_action: pulumi.Input[_builtins.str]
+    """
+    A string value that indicates whether to allow or deny the traffic that matches the rule. Valid values: `allow`, `deny`.
+    """
+    cidr_block: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A string value containing the IPv4 network range to allow or deny, in CIDR notation.
+    """
+    icmp_type_codes: NotRequired[pulumi.Input[Sequence[pulumi.Input['PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryIcmpTypeCodeArgsDict']]]]
+    """
+    A configuration block for ICMP protocol: The ICMP type and code. See the `icmp_type_code` block.
+    """
+    ipv6_cidr_block: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A string value containing the IPv6 network range to allow or deny, in CIDR notation.
+    """
+    port_ranges: NotRequired[pulumi.Input[Sequence[pulumi.Input['PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryPortRangeArgsDict']]]]
+    """
+    A configuration block for PortRange. See the `port_range` block.
+    """
 
 @pulumi.input_type
 class PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryArgs:
@@ -574,18 +551,15 @@ class PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAc
         pulumi.set(self, "port_ranges", value)
 
 
-if not MYPY:
-    class PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryIcmpTypeCodeArgsDict(TypedDict):
-        code: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        An integer value containing ICMP code.
-        """
-        type: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        An integer value containing ICMP type.
-        """
-elif False:
-    PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryIcmpTypeCodeArgsDict: TypeAlias = Mapping[str, Any]
+class PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryIcmpTypeCodeArgsDict(TypedDict):
+    code: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    An integer value containing ICMP code.
+    """
+    type: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    An integer value containing ICMP type.
+    """
 
 @pulumi.input_type
 class PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryIcmpTypeCodeArgs:
@@ -626,18 +600,15 @@ class PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAc
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryPortRangeArgsDict(TypedDict):
-        from_: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The beginning port number of the range.
-        """
-        to: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The ending port number of the range.
-        """
-elif False:
-    PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryPortRangeArgsDict: TypeAlias = Mapping[str, Any]
+class PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryPortRangeArgsDict(TypedDict):
+    from_: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The beginning port number of the range.
+    """
+    to: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The ending port number of the range.
+    """
 
 @pulumi.input_type
 class PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetFirstEntryPortRangeArgs:
@@ -678,38 +649,35 @@ class PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAc
         pulumi.set(self, "to", value)
 
 
-if not MYPY:
-    class PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryArgsDict(TypedDict):
-        egress: pulumi.Input[_builtins.bool]
-        """
-        A boolean value, if true Firewall Manager creates egress rule. If false Firewall Manager creates ingress rule.
-        """
-        protocol: pulumi.Input[_builtins.str]
-        """
-        The protocol number. A value of "-1" means all protocols.
-        """
-        rule_action: pulumi.Input[_builtins.str]
-        """
-        A string value that indicates whether to allow or deny the traffic that matches the rule. Valid values: `allow`, `deny`.
-        """
-        cidr_block: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A string value containing the IPv4 network range to allow or deny, in CIDR notation.
-        """
-        icmp_type_codes: NotRequired[pulumi.Input[Sequence[pulumi.Input['PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryIcmpTypeCodeArgsDict']]]]
-        """
-        A configuration block for ICMP protocol: The ICMP type and code. See the `icmp_type_code` block.
-        """
-        ipv6_cidr_block: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A string value containing the IPv6 network range to allow or deny, in CIDR notation.
-        """
-        port_ranges: NotRequired[pulumi.Input[Sequence[pulumi.Input['PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryPortRangeArgsDict']]]]
-        """
-        A configuration block for PortRange. See the `port_range` block.
-        """
-elif False:
-    PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryArgsDict: TypeAlias = Mapping[str, Any]
+class PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryArgsDict(TypedDict):
+    egress: pulumi.Input[_builtins.bool]
+    """
+    A boolean value, if true Firewall Manager creates egress rule. If false Firewall Manager creates ingress rule.
+    """
+    protocol: pulumi.Input[_builtins.str]
+    """
+    The protocol number. A value of "-1" means all protocols.
+    """
+    rule_action: pulumi.Input[_builtins.str]
+    """
+    A string value that indicates whether to allow or deny the traffic that matches the rule. Valid values: `allow`, `deny`.
+    """
+    cidr_block: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A string value containing the IPv4 network range to allow or deny, in CIDR notation.
+    """
+    icmp_type_codes: NotRequired[pulumi.Input[Sequence[pulumi.Input['PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryIcmpTypeCodeArgsDict']]]]
+    """
+    A configuration block for ICMP protocol: The ICMP type and code. See the `icmp_type_code` block.
+    """
+    ipv6_cidr_block: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A string value containing the IPv6 network range to allow or deny, in CIDR notation.
+    """
+    port_ranges: NotRequired[pulumi.Input[Sequence[pulumi.Input['PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryPortRangeArgsDict']]]]
+    """
+    A configuration block for PortRange. See the `port_range` block.
+    """
 
 @pulumi.input_type
 class PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryArgs:
@@ -827,18 +795,15 @@ class PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAc
         pulumi.set(self, "port_ranges", value)
 
 
-if not MYPY:
-    class PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryIcmpTypeCodeArgsDict(TypedDict):
-        code: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        An integer value containing ICMP code.
-        """
-        type: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        An integer value containing ICMP type.
-        """
-elif False:
-    PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryIcmpTypeCodeArgsDict: TypeAlias = Mapping[str, Any]
+class PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryIcmpTypeCodeArgsDict(TypedDict):
+    code: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    An integer value containing ICMP code.
+    """
+    type: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    An integer value containing ICMP type.
+    """
 
 @pulumi.input_type
 class PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryIcmpTypeCodeArgs:
@@ -879,18 +844,15 @@ class PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAc
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryPortRangeArgsDict(TypedDict):
-        from_: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The beginning port number of the range.
-        """
-        to: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The ending port number of the range.
-        """
-elif False:
-    PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryPortRangeArgsDict: TypeAlias = Mapping[str, Any]
+class PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryPortRangeArgsDict(TypedDict):
+    from_: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The beginning port number of the range.
+    """
+    to: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The ending port number of the range.
+    """
 
 @pulumi.input_type
 class PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAclEntrySetLastEntryPortRangeArgs:
@@ -931,14 +893,11 @@ class PolicySecurityServicePolicyDataPolicyOptionNetworkAclCommonPolicyNetworkAc
         pulumi.set(self, "to", value)
 
 
-if not MYPY:
-    class PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicyArgsDict(TypedDict):
-        firewall_deployment_model: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Defines the deployment model to use for the third-party firewall policy. Valid values are `CENTRALIZED` and `DISTRIBUTED`.
-        """
-elif False:
-    PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicyArgsDict: TypeAlias = Mapping[str, Any]
+class PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicyArgsDict(TypedDict):
+    firewall_deployment_model: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Defines the deployment model to use for the third-party firewall policy. Valid values are `CENTRALIZED` and `DISTRIBUTED`.
+    """
 
 @pulumi.input_type
 class PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicyArgs:
@@ -963,14 +922,11 @@ class PolicySecurityServicePolicyDataPolicyOptionNetworkFirewallPolicyArgs:
         pulumi.set(self, "firewall_deployment_model", value)
 
 
-if not MYPY:
-    class PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicyArgsDict(TypedDict):
-        firewall_deployment_model: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Defines the deployment model to use for the third-party firewall policy. Valid values are `CENTRALIZED` and `DISTRIBUTED`.
-        """
-elif False:
-    PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicyArgsDict: TypeAlias = Mapping[str, Any]
+class PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicyArgsDict(TypedDict):
+    firewall_deployment_model: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Defines the deployment model to use for the third-party firewall policy. Valid values are `CENTRALIZED` and `DISTRIBUTED`.
+    """
 
 @pulumi.input_type
 class PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicyArgs:
@@ -995,35 +951,32 @@ class PolicySecurityServicePolicyDataPolicyOptionThirdPartyFirewallPolicyArgs:
         pulumi.set(self, "firewall_deployment_model", value)
 
 
-if not MYPY:
-    class ResourceSetResourceSetArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        """
-        Descriptive name of the resource set. You can't change the name of a resource set after you create it.
-        """
-        description: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Description of the resource set.
-        """
-        id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Unique identifier for the resource set. It's returned in the responses to create and list commands. You provide it to operations like update and delete.
-        """
-        last_update_time: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Last time that the reosurce set was changed.
-        """
-        resource_set_status: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Indicates whether the resource set is in or out of the admin's Region scope. Valid values are `ACTIVE` (Admin can manage and delete the resource set) or `OUT_OF_ADMIN_SCOPE` (Admin can view the resource set, but they can't edit or delete the resource set.)
-        """
-        resource_type_lists: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Determines the resources that can be associated to the resource set. Depending on your setting for max results and the number of resource sets, a single call might not return the full list.
-        """
-        update_token: NotRequired[pulumi.Input[_builtins.str]]
-elif False:
-    ResourceSetResourceSetArgsDict: TypeAlias = Mapping[str, Any]
+class ResourceSetResourceSetArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    Descriptive name of the resource set. You can't change the name of a resource set after you create it.
+    """
+    description: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Description of the resource set.
+    """
+    id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Unique identifier for the resource set. It's returned in the responses to create and list commands. You provide it to operations like update and delete.
+    """
+    last_update_time: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Last time that the reosurce set was changed.
+    """
+    resource_set_status: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Indicates whether the resource set is in or out of the admin's Region scope. Valid values are `ACTIVE` (Admin can manage and delete the resource set) or `OUT_OF_ADMIN_SCOPE` (Admin can view the resource set, but they can't edit or delete the resource set.)
+    """
+    resource_type_lists: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Determines the resources that can be associated to the resource set. Depending on your setting for max results and the number of resource sets, a single call might not return the full list.
+    """
+    update_token: NotRequired[pulumi.Input[_builtins.str]]
 
 @pulumi.input_type
 class ResourceSetResourceSetArgs:
@@ -1139,22 +1092,19 @@ class ResourceSetResourceSetArgs:
         pulumi.set(self, "update_token", value)
 
 
-if not MYPY:
-    class ResourceSetTimeoutsArgsDict(TypedDict):
-        create: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
-        """
-        delete: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
-        """
-        update: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
-        """
-elif False:
-    ResourceSetTimeoutsArgsDict: TypeAlias = Mapping[str, Any]
+class ResourceSetTimeoutsArgsDict(TypedDict):
+    create: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+    """
+    delete: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+    """
+    update: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+    """
 
 @pulumi.input_type
 class ResourceSetTimeoutsArgs:

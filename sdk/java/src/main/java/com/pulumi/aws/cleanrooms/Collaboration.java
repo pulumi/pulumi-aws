@@ -86,13 +86,14 @@ import javax.annotation.Nullable;
  * 
  * #### Optional
  * 
- * * `account_id` (String) AWS Account where this resource is managed.
- * 
+ * * `accountId` (String) AWS Account where this resource is managed.
  * * `region` (String) Region where this resource is managed.
  * 
- * Using `pulumi import`, import `aws_cleanrooms_collaboration` using the `id`. For example:
+ * Using `pulumi import`, import `aws.cleanrooms.Collaboration` using the `id`. For example:
  * 
- * % pulumi import aws_cleanrooms_collaboration.collaboration 1234abcd-12ab-34cd-56ef-1234567890ab
+ * ```sh
+ * $ pulumi import aws:cleanrooms/collaboration:Collaboration collaboration 1234abcd-12ab-34cd-56ef-1234567890ab
+ * ```
  * 
  */
 @ResourceType(type="aws:cleanrooms/collaboration:Collaboration")

@@ -39,7 +39,7 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import traffic mirror filter using the `id`. For example:
+    /// Using `pulumi import`, import traffic mirror filter using the `Id`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:ec2/trafficMirrorFilter:TrafficMirrorFilter foo tmf-0fbb93ddf38198f64

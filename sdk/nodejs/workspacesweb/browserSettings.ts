@@ -54,7 +54,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Using `pulumi import`, import WorkSpaces Web Browser Settings using the `browser_settings_arn`. For example:
+ * Using `pulumi import`, import WorkSpaces Web Browser Settings using the `browserSettingsArn`. For example:
  *
  * ```sh
  * $ pulumi import aws:workspacesweb/browserSettings:BrowserSettings example arn:aws:workspacesweb:us-west-2:123456789012:browsersettings/abcdef12345

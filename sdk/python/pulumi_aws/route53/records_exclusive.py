@@ -144,6 +144,55 @@ class RecordsExclusive(pulumi.CustomResource):
                  zone_id: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
+        Resource for maintaining exclusive management of resource record sets defined in an AWS Route53 hosted zone.
+
+        !> This resource takes exclusive ownership over resource record sets defined in a hosted zone. This includes removal of record sets which are not explicitly configured. To prevent persistent drift, ensure any `route53.Record` resources managed alongside this resource have an equivalent `resource_record_set` argument.
+
+        > Destruction of this resource means Terraform will no longer manage reconciliation of the configured resource record sets. It __will not__ delete the configured record sets from the hosted zone.
+
+        > The default `NS` and `SOA` records created during provisioning of the Route53 Zone __should not be included__ in this resource definition. Adding them will cause persistent drift as the read operation is explicitly configured to ignore writing them to state.
+
+        ## Example Usage
+
+        ### Basic Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.route53.Zone("example",
+            name="example.com",
+            force_destroy=True)
+        test = aws.route53.RecordsExclusive("test",
+            zone_id=test_aws_route53_zone["zoneId"],
+            resource_record_sets=[{
+                "name": "subdomain.example.com",
+                "type": "A",
+                "ttl": 30,
+                "resource_records": [
+                    {
+                        "value": "127.0.0.1",
+                    },
+                    {
+                        "value": "127.0.0.27",
+                    },
+                ],
+            }])
+        ```
+
+        ### Disallow Record Sets
+
+        To automatically remove any configured record sets, omit a `resource_record_set` block.
+
+        > This will not __prevent__ record sets from being defined in a hosted zone via Terraform (or any other interface). This resource enables bringing record set definitions into a configured state, however, this reconciliation happens only when `apply` is proactively run.
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        test = aws.route53.RecordsExclusive("test", zone_id=test_aws_route53_zone["zoneId"])
+        ```
+
         ## Import
 
         Using `pulumi import`, import Route 53 Records Exclusive using the `zone_id`. For example:
@@ -167,6 +216,55 @@ class RecordsExclusive(pulumi.CustomResource):
                  args: RecordsExclusiveArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        Resource for maintaining exclusive management of resource record sets defined in an AWS Route53 hosted zone.
+
+        !> This resource takes exclusive ownership over resource record sets defined in a hosted zone. This includes removal of record sets which are not explicitly configured. To prevent persistent drift, ensure any `route53.Record` resources managed alongside this resource have an equivalent `resource_record_set` argument.
+
+        > Destruction of this resource means Terraform will no longer manage reconciliation of the configured resource record sets. It __will not__ delete the configured record sets from the hosted zone.
+
+        > The default `NS` and `SOA` records created during provisioning of the Route53 Zone __should not be included__ in this resource definition. Adding them will cause persistent drift as the read operation is explicitly configured to ignore writing them to state.
+
+        ## Example Usage
+
+        ### Basic Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.route53.Zone("example",
+            name="example.com",
+            force_destroy=True)
+        test = aws.route53.RecordsExclusive("test",
+            zone_id=test_aws_route53_zone["zoneId"],
+            resource_record_sets=[{
+                "name": "subdomain.example.com",
+                "type": "A",
+                "ttl": 30,
+                "resource_records": [
+                    {
+                        "value": "127.0.0.1",
+                    },
+                    {
+                        "value": "127.0.0.27",
+                    },
+                ],
+            }])
+        ```
+
+        ### Disallow Record Sets
+
+        To automatically remove any configured record sets, omit a `resource_record_set` block.
+
+        > This will not __prevent__ record sets from being defined in a hosted zone via Terraform (or any other interface). This resource enables bringing record set definitions into a configured state, however, this reconciliation happens only when `apply` is proactively run.
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        test = aws.route53.RecordsExclusive("test", zone_id=test_aws_route53_zone["zoneId"])
+        ```
+
         ## Import
 
         Using `pulumi import`, import Route 53 Records Exclusive using the `zone_id`. For example:

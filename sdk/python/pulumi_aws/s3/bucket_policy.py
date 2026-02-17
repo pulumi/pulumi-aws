@@ -185,12 +185,13 @@ class BucketPolicy(pulumi.CustomResource):
         #### Optional
 
         * `account_id` (String) AWS Account where this resource is managed.
-
         * `region` (String) Region where this resource is managed.
 
         Using `pulumi import`, import S3 bucket policies using the bucket name. For example:
 
-        % pulumi import aws_s3_bucket_policy.example my-tf-test-bucket
+        ```sh
+        $ pulumi import aws:s3/bucketPolicy:BucketPolicy example my-tf-test-bucket
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -250,12 +251,13 @@ class BucketPolicy(pulumi.CustomResource):
         #### Optional
 
         * `account_id` (String) AWS Account where this resource is managed.
-
         * `region` (String) Region where this resource is managed.
 
         Using `pulumi import`, import S3 bucket policies using the bucket name. For example:
 
-        % pulumi import aws_s3_bucket_policy.example my-tf-test-bucket
+        ```sh
+        $ pulumi import aws:s3/bucketPolicy:BucketPolicy example my-tf-test-bucket
+        ```
 
         :param str resource_name: The name of the resource.
         :param BucketPolicyArgs args: The arguments to use to populate this resource's properties.

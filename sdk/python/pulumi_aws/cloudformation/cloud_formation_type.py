@@ -434,7 +434,7 @@ class CloudFormationType(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import `aws_cloudformation_type` using the type version Amazon Resource Name (ARN). For example:
+        Using `pulumi import`, import `cloudformation.CloudFormationType` using the type version Amazon Resource Name (ARN). For example:
 
         ```sh
         $ pulumi import aws:cloudformation/cloudFormationType:CloudFormationType example arn:aws:cloudformation:us-east-1:123456789012:type/resource/ExampleCompany-ExampleService-ExampleType/1
@@ -460,7 +460,7 @@ class CloudFormationType(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import `aws_cloudformation_type` using the type version Amazon Resource Name (ARN). For example:
+        Using `pulumi import`, import `cloudformation.CloudFormationType` using the type version Amazon Resource Name (ARN). For example:
 
         ```sh
         $ pulumi import aws:cloudformation/cloudFormationType:CloudFormationType example arn:aws:cloudformation:us-east-1:123456789012:type/resource/ExampleCompany-ExampleService-ExampleType/1

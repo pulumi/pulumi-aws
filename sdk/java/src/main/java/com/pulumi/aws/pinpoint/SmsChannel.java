@@ -57,7 +57,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Using `pulumi import`, import the Pinpoint SMS Channel using the `application_id`. For example:
+ * Using `pulumi import`, import the Pinpoint SMS Channel using the `applicationId`. For example:
  * 
  * ```sh
  * $ pulumi import aws:pinpoint/smsChannel:SmsChannel sms application-id

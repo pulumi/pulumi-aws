@@ -34,7 +34,7 @@ namespace Pulumi.Aws.VerifiedAccess
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import Transfer Workflows using the  `id`. For example:
+    /// Using `pulumi import`, import Transfer Workflows using the  `Id`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:verifiedaccess/trustProvider:TrustProvider example vatp-8012925589

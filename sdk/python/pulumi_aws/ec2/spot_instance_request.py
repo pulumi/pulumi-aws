@@ -59,6 +59,7 @@ class SpotInstanceRequestArgs:
                  private_ip: Optional[pulumi.Input[_builtins.str]] = None,
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  root_block_device: Optional[pulumi.Input['SpotInstanceRequestRootBlockDeviceArgs']] = None,
+                 secondary_network_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input['SpotInstanceRequestSecondaryNetworkInterfaceArgs']]]] = None,
                  secondary_private_ips: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  source_dest_check: Optional[pulumi.Input[_builtins.bool]] = None,
@@ -116,6 +117,7 @@ class SpotInstanceRequestArgs:
         :param pulumi.Input[_builtins.str] private_ip: Private IP address to associate with the instance in a VPC.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input['SpotInstanceRequestRootBlockDeviceArgs'] root_block_device: Configuration block to customize details about the root block device of the instance. See Block Devices below for details. When accessing this as an attribute reference, it is a list containing one object.
+        :param pulumi.Input[Sequence[pulumi.Input['SpotInstanceRequestSecondaryNetworkInterfaceArgs']]] secondary_network_interfaces: One or more secondary network interfaces to attach to the instance at launch time. See Secondary Network Interface below for more details.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] secondary_private_ips: List of secondary private IPv4 addresses to assign to the instance's primary network interface (eth0) in a VPC. Can only be assigned to the primary network interface (eth0) attached at instance creation, not a pre-existing network interface i.e., referenced in a `network_interface` block. Refer to the [Elastic network interfaces documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI) to see the maximum number of private IP addresses allowed per instance type.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_groups: List of security group names to associate with.
                
@@ -219,6 +221,8 @@ class SpotInstanceRequestArgs:
             pulumi.set(__self__, "region", region)
         if root_block_device is not None:
             pulumi.set(__self__, "root_block_device", root_block_device)
+        if secondary_network_interfaces is not None:
+            pulumi.set(__self__, "secondary_network_interfaces", secondary_network_interfaces)
         if secondary_private_ips is not None:
             pulumi.set(__self__, "secondary_private_ips", secondary_private_ips)
         if security_groups is not None:
@@ -711,6 +715,18 @@ class SpotInstanceRequestArgs:
         pulumi.set(self, "root_block_device", value)
 
     @_builtins.property
+    @pulumi.getter(name="secondaryNetworkInterfaces")
+    def secondary_network_interfaces(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SpotInstanceRequestSecondaryNetworkInterfaceArgs']]]]:
+        """
+        One or more secondary network interfaces to attach to the instance at launch time. See Secondary Network Interface below for more details.
+        """
+        return pulumi.get(self, "secondary_network_interfaces")
+
+    @secondary_network_interfaces.setter
+    def secondary_network_interfaces(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SpotInstanceRequestSecondaryNetworkInterfaceArgs']]]]):
+        pulumi.set(self, "secondary_network_interfaces", value)
+
+    @_builtins.property
     @pulumi.getter(name="secondaryPrivateIps")
     def secondary_private_ips(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
         """
@@ -960,6 +976,7 @@ class _SpotInstanceRequestState:
                  public_ip: Optional[pulumi.Input[_builtins.str]] = None,
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  root_block_device: Optional[pulumi.Input['SpotInstanceRequestRootBlockDeviceArgs']] = None,
+                 secondary_network_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input['SpotInstanceRequestSecondaryNetworkInterfaceArgs']]]] = None,
                  secondary_private_ips: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  source_dest_check: Optional[pulumi.Input[_builtins.bool]] = None,
@@ -1028,6 +1045,7 @@ class _SpotInstanceRequestState:
         :param pulumi.Input[_builtins.str] public_ip: The public IP address assigned to the instance, if applicable.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input['SpotInstanceRequestRootBlockDeviceArgs'] root_block_device: Configuration block to customize details about the root block device of the instance. See Block Devices below for details. When accessing this as an attribute reference, it is a list containing one object.
+        :param pulumi.Input[Sequence[pulumi.Input['SpotInstanceRequestSecondaryNetworkInterfaceArgs']]] secondary_network_interfaces: One or more secondary network interfaces to attach to the instance at launch time. See Secondary Network Interface below for more details.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] secondary_private_ips: List of secondary private IPv4 addresses to assign to the instance's primary network interface (eth0) in a VPC. Can only be assigned to the primary network interface (eth0) attached at instance creation, not a pre-existing network interface i.e., referenced in a `network_interface` block. Refer to the [Elastic network interfaces documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI) to see the maximum number of private IP addresses allowed per instance type.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_groups: List of security group names to associate with.
                
@@ -1158,6 +1176,8 @@ class _SpotInstanceRequestState:
             pulumi.set(__self__, "region", region)
         if root_block_device is not None:
             pulumi.set(__self__, "root_block_device", root_block_device)
+        if secondary_network_interfaces is not None:
+            pulumi.set(__self__, "secondary_network_interfaces", secondary_network_interfaces)
         if secondary_private_ips is not None:
             pulumi.set(__self__, "secondary_private_ips", secondary_private_ips)
         if security_groups is not None:
@@ -1754,6 +1774,18 @@ class _SpotInstanceRequestState:
         pulumi.set(self, "root_block_device", value)
 
     @_builtins.property
+    @pulumi.getter(name="secondaryNetworkInterfaces")
+    def secondary_network_interfaces(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SpotInstanceRequestSecondaryNetworkInterfaceArgs']]]]:
+        """
+        One or more secondary network interfaces to attach to the instance at launch time. See Secondary Network Interface below for more details.
+        """
+        return pulumi.get(self, "secondary_network_interfaces")
+
+    @secondary_network_interfaces.setter
+    def secondary_network_interfaces(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SpotInstanceRequestSecondaryNetworkInterfaceArgs']]]]):
+        pulumi.set(self, "secondary_network_interfaces", value)
+
+    @_builtins.property
     @pulumi.getter(name="secondaryPrivateIps")
     def secondary_private_ips(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
         """
@@ -2050,6 +2082,7 @@ class SpotInstanceRequest(pulumi.CustomResource):
                  private_ip: Optional[pulumi.Input[_builtins.str]] = None,
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  root_block_device: Optional[pulumi.Input[Union['SpotInstanceRequestRootBlockDeviceArgs', 'SpotInstanceRequestRootBlockDeviceArgsDict']]] = None,
+                 secondary_network_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SpotInstanceRequestSecondaryNetworkInterfaceArgs', 'SpotInstanceRequestSecondaryNetworkInterfaceArgsDict']]]]] = None,
                  secondary_private_ips: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  source_dest_check: Optional[pulumi.Input[_builtins.bool]] = None,
@@ -2068,6 +2101,32 @@ class SpotInstanceRequest(pulumi.CustomResource):
                  wait_for_fulfillment: Optional[pulumi.Input[_builtins.bool]] = None,
                  __props__=None):
         """
+        Provides an EC2 Spot Instance Request resource. This allows instances to be
+        requested on the spot market.
+
+        By default this provider creates Spot Instance Requests with a `persistent` type,
+        which means that for the duration of their lifetime, AWS will launch an
+        instance with the configured details if and when the spot market will accept
+        the requested price.
+
+        On destruction, this provider will make an attempt to terminate the associated Spot
+        Instance if there is one present.
+
+        Spot Instances requests with a `one-time` type will close the spot request
+        when the instance is terminated either by the request being below the current spot
+        price availability or by a user.
+
+        > **NOTE:** Because their behavior depends on the live status of the spot
+        market, Spot Instance Requests have a unique lifecycle that makes them behave
+        differently than other Terraform resources. Most importantly: there is **no
+        guarantee** that a Spot Instance exists to fulfill the request at any given
+        point in time. See the [AWS Spot Instance
+        documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-spot-instances.html)
+        for more information.
+
+        > **NOTE [AWS strongly discourages](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-best-practices.html#which-spot-request-method-to-use) the use of the legacy APIs called by this resource.
+        We recommend using the EC2 Instance resource with `instance_market_options` instead.
+
         ## Example Usage
 
         ```python
@@ -2125,6 +2184,7 @@ class SpotInstanceRequest(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] private_ip: Private IP address to associate with the instance in a VPC.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Union['SpotInstanceRequestRootBlockDeviceArgs', 'SpotInstanceRequestRootBlockDeviceArgsDict']] root_block_device: Configuration block to customize details about the root block device of the instance. See Block Devices below for details. When accessing this as an attribute reference, it is a list containing one object.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['SpotInstanceRequestSecondaryNetworkInterfaceArgs', 'SpotInstanceRequestSecondaryNetworkInterfaceArgsDict']]]] secondary_network_interfaces: One or more secondary network interfaces to attach to the instance at launch time. See Secondary Network Interface below for more details.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] secondary_private_ips: List of secondary private IPv4 addresses to assign to the instance's primary network interface (eth0) in a VPC. Can only be assigned to the primary network interface (eth0) attached at instance creation, not a pre-existing network interface i.e., referenced in a `network_interface` block. Refer to the [Elastic network interfaces documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI) to see the maximum number of private IP addresses allowed per instance type.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_groups: List of security group names to associate with.
                
@@ -2156,6 +2216,32 @@ class SpotInstanceRequest(pulumi.CustomResource):
                  args: Optional[SpotInstanceRequestArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        Provides an EC2 Spot Instance Request resource. This allows instances to be
+        requested on the spot market.
+
+        By default this provider creates Spot Instance Requests with a `persistent` type,
+        which means that for the duration of their lifetime, AWS will launch an
+        instance with the configured details if and when the spot market will accept
+        the requested price.
+
+        On destruction, this provider will make an attempt to terminate the associated Spot
+        Instance if there is one present.
+
+        Spot Instances requests with a `one-time` type will close the spot request
+        when the instance is terminated either by the request being below the current spot
+        price availability or by a user.
+
+        > **NOTE:** Because their behavior depends on the live status of the spot
+        market, Spot Instance Requests have a unique lifecycle that makes them behave
+        differently than other Terraform resources. Most importantly: there is **no
+        guarantee** that a Spot Instance exists to fulfill the request at any given
+        point in time. See the [AWS Spot Instance
+        documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-spot-instances.html)
+        for more information.
+
+        > **NOTE [AWS strongly discourages](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-best-practices.html#which-spot-request-method-to-use) the use of the legacy APIs called by this resource.
+        We recommend using the EC2 Instance resource with `instance_market_options` instead.
+
         ## Example Usage
 
         ```python
@@ -2225,6 +2311,7 @@ class SpotInstanceRequest(pulumi.CustomResource):
                  private_ip: Optional[pulumi.Input[_builtins.str]] = None,
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  root_block_device: Optional[pulumi.Input[Union['SpotInstanceRequestRootBlockDeviceArgs', 'SpotInstanceRequestRootBlockDeviceArgsDict']]] = None,
+                 secondary_network_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SpotInstanceRequestSecondaryNetworkInterfaceArgs', 'SpotInstanceRequestSecondaryNetworkInterfaceArgsDict']]]]] = None,
                  secondary_private_ips: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  source_dest_check: Optional[pulumi.Input[_builtins.bool]] = None,
@@ -2288,6 +2375,7 @@ class SpotInstanceRequest(pulumi.CustomResource):
             __props__.__dict__["private_ip"] = private_ip
             __props__.__dict__["region"] = region
             __props__.__dict__["root_block_device"] = root_block_device
+            __props__.__dict__["secondary_network_interfaces"] = secondary_network_interfaces
             __props__.__dict__["secondary_private_ips"] = secondary_private_ips
             __props__.__dict__["security_groups"] = security_groups
             __props__.__dict__["source_dest_check"] = source_dest_check
@@ -2374,6 +2462,7 @@ class SpotInstanceRequest(pulumi.CustomResource):
             public_ip: Optional[pulumi.Input[_builtins.str]] = None,
             region: Optional[pulumi.Input[_builtins.str]] = None,
             root_block_device: Optional[pulumi.Input[Union['SpotInstanceRequestRootBlockDeviceArgs', 'SpotInstanceRequestRootBlockDeviceArgsDict']]] = None,
+            secondary_network_interfaces: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SpotInstanceRequestSecondaryNetworkInterfaceArgs', 'SpotInstanceRequestSecondaryNetworkInterfaceArgsDict']]]]] = None,
             secondary_private_ips: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
             security_groups: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
             source_dest_check: Optional[pulumi.Input[_builtins.bool]] = None,
@@ -2447,6 +2536,7 @@ class SpotInstanceRequest(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] public_ip: The public IP address assigned to the instance, if applicable.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Union['SpotInstanceRequestRootBlockDeviceArgs', 'SpotInstanceRequestRootBlockDeviceArgsDict']] root_block_device: Configuration block to customize details about the root block device of the instance. See Block Devices below for details. When accessing this as an attribute reference, it is a list containing one object.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['SpotInstanceRequestSecondaryNetworkInterfaceArgs', 'SpotInstanceRequestSecondaryNetworkInterfaceArgsDict']]]] secondary_network_interfaces: One or more secondary network interfaces to attach to the instance at launch time. See Secondary Network Interface below for more details.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] secondary_private_ips: List of secondary private IPv4 addresses to assign to the instance's primary network interface (eth0) in a VPC. Can only be assigned to the primary network interface (eth0) attached at instance creation, not a pre-existing network interface i.e., referenced in a `network_interface` block. Refer to the [Elastic network interfaces documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI) to see the maximum number of private IP addresses allowed per instance type.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_groups: List of security group names to associate with.
                
@@ -2531,6 +2621,7 @@ class SpotInstanceRequest(pulumi.CustomResource):
         __props__.__dict__["public_ip"] = public_ip
         __props__.__dict__["region"] = region
         __props__.__dict__["root_block_device"] = root_block_device
+        __props__.__dict__["secondary_network_interfaces"] = secondary_network_interfaces
         __props__.__dict__["secondary_private_ips"] = secondary_private_ips
         __props__.__dict__["security_groups"] = security_groups
         __props__.__dict__["source_dest_check"] = source_dest_check
@@ -2918,6 +3009,14 @@ class SpotInstanceRequest(pulumi.CustomResource):
         Configuration block to customize details about the root block device of the instance. See Block Devices below for details. When accessing this as an attribute reference, it is a list containing one object.
         """
         return pulumi.get(self, "root_block_device")
+
+    @_builtins.property
+    @pulumi.getter(name="secondaryNetworkInterfaces")
+    def secondary_network_interfaces(self) -> pulumi.Output[Sequence['outputs.SpotInstanceRequestSecondaryNetworkInterface']]:
+        """
+        One or more secondary network interfaces to attach to the instance at launch time. See Secondary Network Interface below for more details.
+        """
+        return pulumi.get(self, "secondary_network_interfaces")
 
     @_builtins.property
     @pulumi.getter(name="secondaryPrivateIps")

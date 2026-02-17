@@ -86,7 +86,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Using `pulumi import`, import MediaLive Channel using the `channel_id`. For example:
+ * Using `pulumi import`, import MediaLive Channel using the `channelId`. For example:
  *
  * ```sh
  * $ pulumi import aws:medialive/channel:Channel example 1234567

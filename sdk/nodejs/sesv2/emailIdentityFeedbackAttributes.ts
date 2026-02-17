@@ -24,7 +24,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Using `pulumi import`, import SESv2 (Simple Email V2) Email Identity Feedback Attributes using the `email_identity`. For example:
+ * Using `pulumi import`, import SESv2 (Simple Email V2) Email Identity Feedback Attributes using the `emailIdentity`. For example:
  *
  * ```sh
  * $ pulumi import aws:sesv2/emailIdentityFeedbackAttributes:EmailIdentityFeedbackAttributes example example.com

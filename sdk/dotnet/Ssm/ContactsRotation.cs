@@ -10,6 +10,10 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Ssm
 {
     /// <summary>
+    /// Provides a Terraform resource for managing a Contacts Rotation in AWS Systems Manager Incident Manager.
+    /// 
+    /// &gt; **NOTE:** A rotation implicitly depends on a replication set. If you configured your replication set in Terraform, we recommend you add it to the `DependsOn` argument for the Terraform Contact Resource.
+    /// 
     /// ## Example Usage
     /// 
     /// ### Basic Usage
@@ -199,11 +203,13 @@ namespace Pulumi.Aws.Ssm
     /// 
     /// #### Required
     /// 
-    /// - `arn` (String) Amazon Resource Name (ARN) of the SSM Contacts rotation.
+    /// - `Arn` (String) Amazon Resource Name (ARN) of the SSM Contacts rotation.
     /// 
-    /// Using `pulumi import`, import CodeGuru Profiler Profiling Group using the `arn`. For example:
+    /// Using `pulumi import`, import CodeGuru Profiler Profiling Group using the `Arn`. For example:
     /// 
-    /// % pulumi import aws_ssmcontacts_rotation.example arn:aws:ssm-contacts:us-east-1:012345678910:rotation/example
+    /// ```sh
+    /// $ pulumi import aws:ssm/contactsRotation:ContactsRotation example arn:aws:ssm-contacts:us-east-1:012345678910:rotation/example
+    /// ```
     /// </summary>
     [AwsResourceType("aws:ssm/contactsRotation:ContactsRotation")]
     public partial class ContactsRotation : global::Pulumi.CustomResource

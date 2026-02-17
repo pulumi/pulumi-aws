@@ -91,36 +91,31 @@ __all__ = [
     'ServerlessClusterVpcConfigArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class ClusterBrokerNodeGroupInfoArgsDict(TypedDict):
-        client_subnets: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        A list of subnets to connect to in client VPC ([documentation](https://docs.aws.amazon.com/msk/1.0/apireference/clusters.html#clusters-prop-brokernodegroupinfo-clientsubnets)).
-        """
-        instance_type: pulumi.Input[_builtins.str]
-        """
-        Specify the instance type to use for the kafka brokersE.g., kafka.m5.large. ([Pricing info](https://aws.amazon.com/msk/pricing/))
-        """
-        security_groups: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        A list of the security groups to associate with the elastic network interfaces to control who can communicate with the cluster.
-        """
-        az_distribution: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The distribution of broker nodes across availability zones ([documentation](https://docs.aws.amazon.com/msk/1.0/apireference/clusters.html#clusters-model-brokerazdistribution)). Currently, the only valid value is `DEFAULT`.
-        """
-        connectivity_info: NotRequired[pulumi.Input['ClusterBrokerNodeGroupInfoConnectivityInfoArgsDict']]
-        """
-        Information about the cluster access configuration. See broker_node_group_info connectivity_info Argument Reference below. For security reasons, you can't turn on public access while creating an MSK cluster. However, you can update an existing cluster to make it publicly accessible. You can also create a new cluster and then update it to make it publicly accessible ([documentation](https://docs.aws.amazon.com/msk/latest/developerguide/public-access.html)).
-        """
-        storage_info: NotRequired[pulumi.Input['ClusterBrokerNodeGroupInfoStorageInfoArgsDict']]
-        """
-        A block that contains information about storage volumes attached to MSK broker nodes. See broker_node_group_info storage_info Argument Reference below.
-        """
-elif False:
-    ClusterBrokerNodeGroupInfoArgsDict: TypeAlias = Mapping[str, Any]
+class ClusterBrokerNodeGroupInfoArgsDict(TypedDict):
+    client_subnets: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    A list of subnets to connect to in client VPC ([documentation](https://docs.aws.amazon.com/msk/1.0/apireference/clusters.html#clusters-prop-brokernodegroupinfo-clientsubnets)).
+    """
+    instance_type: pulumi.Input[_builtins.str]
+    """
+    Specify the instance type to use for the kafka brokersE.g., kafka.m5.large. ([Pricing info](https://aws.amazon.com/msk/pricing/))
+    """
+    security_groups: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    A list of the security groups to associate with the elastic network interfaces to control who can communicate with the cluster.
+    """
+    az_distribution: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The distribution of broker nodes across availability zones ([documentation](https://docs.aws.amazon.com/msk/1.0/apireference/clusters.html#clusters-model-brokerazdistribution)). Currently, the only valid value is `DEFAULT`.
+    """
+    connectivity_info: NotRequired[pulumi.Input['ClusterBrokerNodeGroupInfoConnectivityInfoArgsDict']]
+    """
+    Information about the cluster access configuration. See broker_node_group_info connectivity_info Argument Reference below. For security reasons, you can't turn on public access while creating an MSK cluster. However, you can update an existing cluster to make it publicly accessible. You can also create a new cluster and then update it to make it publicly accessible ([documentation](https://docs.aws.amazon.com/msk/latest/developerguide/public-access.html)).
+    """
+    storage_info: NotRequired[pulumi.Input['ClusterBrokerNodeGroupInfoStorageInfoArgsDict']]
+    """
+    A block that contains information about storage volumes attached to MSK broker nodes. See broker_node_group_info storage_info Argument Reference below.
+    """
 
 @pulumi.input_type
 class ClusterBrokerNodeGroupInfoArgs:
@@ -222,18 +217,15 @@ class ClusterBrokerNodeGroupInfoArgs:
         pulumi.set(self, "storage_info", value)
 
 
-if not MYPY:
-    class ClusterBrokerNodeGroupInfoConnectivityInfoArgsDict(TypedDict):
-        public_access: NotRequired[pulumi.Input['ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessArgsDict']]
-        """
-        Access control settings for brokers. See connectivity_info public_access Argument Reference below.
-        """
-        vpc_connectivity: NotRequired[pulumi.Input['ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityArgsDict']]
-        """
-        VPC connectivity access control for brokers. See connectivity_info vpc_connectivity Argument Reference below.
-        """
-elif False:
-    ClusterBrokerNodeGroupInfoConnectivityInfoArgsDict: TypeAlias = Mapping[str, Any]
+class ClusterBrokerNodeGroupInfoConnectivityInfoArgsDict(TypedDict):
+    public_access: NotRequired[pulumi.Input['ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessArgsDict']]
+    """
+    Access control settings for brokers. See connectivity_info public_access Argument Reference below.
+    """
+    vpc_connectivity: NotRequired[pulumi.Input['ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityArgsDict']]
+    """
+    VPC connectivity access control for brokers. See connectivity_info vpc_connectivity Argument Reference below.
+    """
 
 @pulumi.input_type
 class ClusterBrokerNodeGroupInfoConnectivityInfoArgs:
@@ -274,14 +266,11 @@ class ClusterBrokerNodeGroupInfoConnectivityInfoArgs:
         pulumi.set(self, "vpc_connectivity", value)
 
 
-if not MYPY:
-    class ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessArgsDict(TypedDict):
-        type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Public access type. Valid values: `DISABLED`, `SERVICE_PROVIDED_EIPS`.
-        """
-elif False:
-    ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessArgsDict: TypeAlias = Mapping[str, Any]
+class ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessArgsDict(TypedDict):
+    type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Public access type. Valid values: `DISABLED`, `SERVICE_PROVIDED_EIPS`.
+    """
 
 @pulumi.input_type
 class ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessArgs:
@@ -306,14 +295,11 @@ class ClusterBrokerNodeGroupInfoConnectivityInfoPublicAccessArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityArgsDict(TypedDict):
-        client_authentication: NotRequired[pulumi.Input['ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationArgsDict']]
-        """
-        Configuration block for specifying a client authentication. See client_authentication Argument Reference below.
-        """
-elif False:
-    ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityArgsDict: TypeAlias = Mapping[str, Any]
+class ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityArgsDict(TypedDict):
+    client_authentication: NotRequired[pulumi.Input['ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationArgsDict']]
+    """
+    Configuration block for specifying a client authentication. See client_authentication Argument Reference below.
+    """
 
 @pulumi.input_type
 class ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityArgs:
@@ -338,18 +324,15 @@ class ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityArgs:
         pulumi.set(self, "client_authentication", value)
 
 
-if not MYPY:
-    class ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationArgsDict(TypedDict):
-        sasl: NotRequired[pulumi.Input['ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslArgsDict']]
-        """
-        Configuration block for specifying SASL client authentication. See client_authentication sasl Argument Reference below.
-        """
-        tls: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Configuration block for specifying TLS client authentication. See client_authentication tls Argument Reference below.
-        """
-elif False:
-    ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationArgsDict: TypeAlias = Mapping[str, Any]
+class ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationArgsDict(TypedDict):
+    sasl: NotRequired[pulumi.Input['ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslArgsDict']]
+    """
+    Configuration block for specifying SASL client authentication. See client_authentication sasl Argument Reference below.
+    """
+    tls: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Configuration block for specifying TLS client authentication. See client_authentication tls Argument Reference below.
+    """
 
 @pulumi.input_type
 class ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationArgs:
@@ -390,12 +373,9 @@ class ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticat
         pulumi.set(self, "tls", value)
 
 
-if not MYPY:
-    class ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslArgsDict(TypedDict):
-        iam: NotRequired[pulumi.Input[_builtins.bool]]
-        scram: NotRequired[pulumi.Input[_builtins.bool]]
-elif False:
-    ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslArgsDict: TypeAlias = Mapping[str, Any]
+class ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslArgsDict(TypedDict):
+    iam: NotRequired[pulumi.Input[_builtins.bool]]
+    scram: NotRequired[pulumi.Input[_builtins.bool]]
 
 @pulumi.input_type
 class ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticationSaslArgs:
@@ -426,14 +406,11 @@ class ClusterBrokerNodeGroupInfoConnectivityInfoVpcConnectivityClientAuthenticat
         pulumi.set(self, "scram", value)
 
 
-if not MYPY:
-    class ClusterBrokerNodeGroupInfoStorageInfoArgsDict(TypedDict):
-        ebs_storage_info: NotRequired[pulumi.Input['ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoArgsDict']]
-        """
-        A block that contains EBS volume information. See storage_info ebs_storage_info Argument Reference below.
-        """
-elif False:
-    ClusterBrokerNodeGroupInfoStorageInfoArgsDict: TypeAlias = Mapping[str, Any]
+class ClusterBrokerNodeGroupInfoStorageInfoArgsDict(TypedDict):
+    ebs_storage_info: NotRequired[pulumi.Input['ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoArgsDict']]
+    """
+    A block that contains EBS volume information. See storage_info ebs_storage_info Argument Reference below.
+    """
 
 @pulumi.input_type
 class ClusterBrokerNodeGroupInfoStorageInfoArgs:
@@ -458,18 +435,15 @@ class ClusterBrokerNodeGroupInfoStorageInfoArgs:
         pulumi.set(self, "ebs_storage_info", value)
 
 
-if not MYPY:
-    class ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoArgsDict(TypedDict):
-        provisioned_throughput: NotRequired[pulumi.Input['ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputArgsDict']]
-        """
-        A block that contains EBS volume provisioned throughput information. To provision storage throughput, you must choose broker type kafka.m5.4xlarge or larger. See ebs_storage_info provisioned_throughput Argument Reference below.
-        """
-        volume_size: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The size in GiB of the EBS volume for the data drive on each broker node. Minimum value of `1` and maximum value of `16384`.
-        """
-elif False:
-    ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoArgsDict: TypeAlias = Mapping[str, Any]
+class ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoArgsDict(TypedDict):
+    provisioned_throughput: NotRequired[pulumi.Input['ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputArgsDict']]
+    """
+    A block that contains EBS volume provisioned throughput information. To provision storage throughput, you must choose broker type kafka.m5.4xlarge or larger. See ebs_storage_info provisioned_throughput Argument Reference below.
+    """
+    volume_size: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The size in GiB of the EBS volume for the data drive on each broker node. Minimum value of `1` and maximum value of `16384`.
+    """
 
 @pulumi.input_type
 class ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoArgs:
@@ -510,15 +484,12 @@ class ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoArgs:
         pulumi.set(self, "volume_size", value)
 
 
-if not MYPY:
-    class ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputArgsDict(TypedDict):
-        enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        volume_throughput: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Throughput value of the EBS volumes for the data drive on each kafka broker node in MiB per second. The minimum value is `250`. The maximum value varies between broker type. You can refer to the valid values for the maximum volume throughput at the following [documentation on throughput bottlenecks](https://docs.aws.amazon.com/msk/latest/developerguide/msk-provision-throughput.html#throughput-bottlenecks)
-        """
-elif False:
-    ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputArgsDict: TypeAlias = Mapping[str, Any]
+class ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputArgsDict(TypedDict):
+    enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    volume_throughput: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Throughput value of the EBS volumes for the data drive on each kafka broker node in MiB per second. The minimum value is `250`. The maximum value varies between broker type. You can refer to the valid values for the maximum volume throughput at the following [documentation on throughput bottlenecks](https://docs.aws.amazon.com/msk/latest/developerguide/msk-provision-throughput.html#throughput-bottlenecks)
+    """
 
 @pulumi.input_type
 class ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputArgs:
@@ -555,22 +526,19 @@ class ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputAr
         pulumi.set(self, "volume_throughput", value)
 
 
-if not MYPY:
-    class ClusterClientAuthenticationArgsDict(TypedDict):
-        sasl: NotRequired[pulumi.Input['ClusterClientAuthenticationSaslArgsDict']]
-        """
-        Configuration block for specifying SASL client authentication. See client_authentication sasl Argument Reference below.
-        """
-        tls: NotRequired[pulumi.Input['ClusterClientAuthenticationTlsArgsDict']]
-        """
-        Configuration block for specifying TLS client authentication. See client_authentication tls Argument Reference below.
-        """
-        unauthenticated: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Enables unauthenticated access.
-        """
-elif False:
-    ClusterClientAuthenticationArgsDict: TypeAlias = Mapping[str, Any]
+class ClusterClientAuthenticationArgsDict(TypedDict):
+    sasl: NotRequired[pulumi.Input['ClusterClientAuthenticationSaslArgsDict']]
+    """
+    Configuration block for specifying SASL client authentication. See client_authentication sasl Argument Reference below.
+    """
+    tls: NotRequired[pulumi.Input['ClusterClientAuthenticationTlsArgsDict']]
+    """
+    Configuration block for specifying TLS client authentication. See client_authentication tls Argument Reference below.
+    """
+    unauthenticated: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Enables unauthenticated access.
+    """
 
 @pulumi.input_type
 class ClusterClientAuthenticationArgs:
@@ -627,12 +595,9 @@ class ClusterClientAuthenticationArgs:
         pulumi.set(self, "unauthenticated", value)
 
 
-if not MYPY:
-    class ClusterClientAuthenticationSaslArgsDict(TypedDict):
-        iam: NotRequired[pulumi.Input[_builtins.bool]]
-        scram: NotRequired[pulumi.Input[_builtins.bool]]
-elif False:
-    ClusterClientAuthenticationSaslArgsDict: TypeAlias = Mapping[str, Any]
+class ClusterClientAuthenticationSaslArgsDict(TypedDict):
+    iam: NotRequired[pulumi.Input[_builtins.bool]]
+    scram: NotRequired[pulumi.Input[_builtins.bool]]
 
 @pulumi.input_type
 class ClusterClientAuthenticationSaslArgs:
@@ -663,14 +628,11 @@ class ClusterClientAuthenticationSaslArgs:
         pulumi.set(self, "scram", value)
 
 
-if not MYPY:
-    class ClusterClientAuthenticationTlsArgsDict(TypedDict):
-        certificate_authority_arns: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        List of ACM Certificate Authority Amazon Resource Names (ARNs).
-        """
-elif False:
-    ClusterClientAuthenticationTlsArgsDict: TypeAlias = Mapping[str, Any]
+class ClusterClientAuthenticationTlsArgsDict(TypedDict):
+    certificate_authority_arns: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    List of ACM Certificate Authority Amazon Resource Names (ARNs).
+    """
 
 @pulumi.input_type
 class ClusterClientAuthenticationTlsArgs:
@@ -695,18 +657,15 @@ class ClusterClientAuthenticationTlsArgs:
         pulumi.set(self, "certificate_authority_arns", value)
 
 
-if not MYPY:
-    class ClusterConfigurationInfoArgsDict(TypedDict):
-        arn: pulumi.Input[_builtins.str]
-        """
-        Amazon Resource Name (ARN) of the MSK Configuration to use in the cluster.
-        """
-        revision: pulumi.Input[_builtins.int]
-        """
-        Revision of the MSK Configuration to use in the cluster.
-        """
-elif False:
-    ClusterConfigurationInfoArgsDict: TypeAlias = Mapping[str, Any]
+class ClusterConfigurationInfoArgsDict(TypedDict):
+    arn: pulumi.Input[_builtins.str]
+    """
+    Amazon Resource Name (ARN) of the MSK Configuration to use in the cluster.
+    """
+    revision: pulumi.Input[_builtins.int]
+    """
+    Revision of the MSK Configuration to use in the cluster.
+    """
 
 @pulumi.input_type
 class ClusterConfigurationInfoArgs:
@@ -745,18 +704,15 @@ class ClusterConfigurationInfoArgs:
         pulumi.set(self, "revision", value)
 
 
-if not MYPY:
-    class ClusterEncryptionInfoArgsDict(TypedDict):
-        encryption_at_rest_kms_key_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        You may specify a KMS key short ID or ARN (it will always output an ARN) to use for encrypting your data at rest.  If no key is specified, an AWS managed KMS ('aws/msk' managed service) key will be used for encrypting the data at rest.
-        """
-        encryption_in_transit: NotRequired[pulumi.Input['ClusterEncryptionInfoEncryptionInTransitArgsDict']]
-        """
-        Configuration block to specify encryption in transit. See encryption_info encryption_in_transit Argument Reference below.
-        """
-elif False:
-    ClusterEncryptionInfoArgsDict: TypeAlias = Mapping[str, Any]
+class ClusterEncryptionInfoArgsDict(TypedDict):
+    encryption_at_rest_kms_key_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    You may specify a KMS key short ID or ARN (it will always output an ARN) to use for encrypting your data at rest.  If no key is specified, an AWS managed KMS ('aws/msk' managed service) key will be used for encrypting the data at rest.
+    """
+    encryption_in_transit: NotRequired[pulumi.Input['ClusterEncryptionInfoEncryptionInTransitArgsDict']]
+    """
+    Configuration block to specify encryption in transit. See encryption_info encryption_in_transit Argument Reference below.
+    """
 
 @pulumi.input_type
 class ClusterEncryptionInfoArgs:
@@ -797,18 +753,15 @@ class ClusterEncryptionInfoArgs:
         pulumi.set(self, "encryption_in_transit", value)
 
 
-if not MYPY:
-    class ClusterEncryptionInfoEncryptionInTransitArgsDict(TypedDict):
-        client_broker: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Encryption setting for data in transit between clients and brokers. Valid values: `TLS`, `TLS_PLAINTEXT`, and `PLAINTEXT`. Default value is `TLS`.
-        """
-        in_cluster: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether data communication among broker nodes is encrypted. Default value: `true`.
-        """
-elif False:
-    ClusterEncryptionInfoEncryptionInTransitArgsDict: TypeAlias = Mapping[str, Any]
+class ClusterEncryptionInfoEncryptionInTransitArgsDict(TypedDict):
+    client_broker: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Encryption setting for data in transit between clients and brokers. Valid values: `TLS`, `TLS_PLAINTEXT`, and `PLAINTEXT`. Default value is `TLS`.
+    """
+    in_cluster: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether data communication among broker nodes is encrypted. Default value: `true`.
+    """
 
 @pulumi.input_type
 class ClusterEncryptionInfoEncryptionInTransitArgs:
@@ -849,14 +802,11 @@ class ClusterEncryptionInfoEncryptionInTransitArgs:
         pulumi.set(self, "in_cluster", value)
 
 
-if not MYPY:
-    class ClusterLoggingInfoArgsDict(TypedDict):
-        broker_logs: pulumi.Input['ClusterLoggingInfoBrokerLogsArgsDict']
-        """
-        Configuration block for Broker Logs settings for logging info. See logging_info broker_logs Argument Reference below.
-        """
-elif False:
-    ClusterLoggingInfoArgsDict: TypeAlias = Mapping[str, Any]
+class ClusterLoggingInfoArgsDict(TypedDict):
+    broker_logs: pulumi.Input['ClusterLoggingInfoBrokerLogsArgsDict']
+    """
+    Configuration block for Broker Logs settings for logging info. See logging_info broker_logs Argument Reference below.
+    """
 
 @pulumi.input_type
 class ClusterLoggingInfoArgs:
@@ -880,22 +830,19 @@ class ClusterLoggingInfoArgs:
         pulumi.set(self, "broker_logs", value)
 
 
-if not MYPY:
-    class ClusterLoggingInfoBrokerLogsArgsDict(TypedDict):
-        cloudwatch_logs: NotRequired[pulumi.Input['ClusterLoggingInfoBrokerLogsCloudwatchLogsArgsDict']]
-        """
-        Configuration block for Cloudwatch Logs settings. See logging_info broker_logs cloudwatch_logs Argument Reference below.
-        """
-        firehose: NotRequired[pulumi.Input['ClusterLoggingInfoBrokerLogsFirehoseArgsDict']]
-        """
-        Configuration block for Kinesis Data Firehose settings. See logging_info broker_logs firehose Argument Reference below.
-        """
-        s3: NotRequired[pulumi.Input['ClusterLoggingInfoBrokerLogsS3ArgsDict']]
-        """
-        Configuration block for S3 settings. See logging_info broker_logs s3 Argument Reference below.
-        """
-elif False:
-    ClusterLoggingInfoBrokerLogsArgsDict: TypeAlias = Mapping[str, Any]
+class ClusterLoggingInfoBrokerLogsArgsDict(TypedDict):
+    cloudwatch_logs: NotRequired[pulumi.Input['ClusterLoggingInfoBrokerLogsCloudwatchLogsArgsDict']]
+    """
+    Configuration block for Cloudwatch Logs settings. See logging_info broker_logs cloudwatch_logs Argument Reference below.
+    """
+    firehose: NotRequired[pulumi.Input['ClusterLoggingInfoBrokerLogsFirehoseArgsDict']]
+    """
+    Configuration block for Kinesis Data Firehose settings. See logging_info broker_logs firehose Argument Reference below.
+    """
+    s3: NotRequired[pulumi.Input['ClusterLoggingInfoBrokerLogsS3ArgsDict']]
+    """
+    Configuration block for S3 settings. See logging_info broker_logs s3 Argument Reference below.
+    """
 
 @pulumi.input_type
 class ClusterLoggingInfoBrokerLogsArgs:
@@ -952,15 +899,12 @@ class ClusterLoggingInfoBrokerLogsArgs:
         pulumi.set(self, "s3", value)
 
 
-if not MYPY:
-    class ClusterLoggingInfoBrokerLogsCloudwatchLogsArgsDict(TypedDict):
-        enabled: pulumi.Input[_builtins.bool]
-        log_group: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Name of the Cloudwatch Log Group to deliver logs to.
-        """
-elif False:
-    ClusterLoggingInfoBrokerLogsCloudwatchLogsArgsDict: TypeAlias = Mapping[str, Any]
+class ClusterLoggingInfoBrokerLogsCloudwatchLogsArgsDict(TypedDict):
+    enabled: pulumi.Input[_builtins.bool]
+    log_group: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Name of the Cloudwatch Log Group to deliver logs to.
+    """
 
 @pulumi.input_type
 class ClusterLoggingInfoBrokerLogsCloudwatchLogsArgs:
@@ -996,15 +940,12 @@ class ClusterLoggingInfoBrokerLogsCloudwatchLogsArgs:
         pulumi.set(self, "log_group", value)
 
 
-if not MYPY:
-    class ClusterLoggingInfoBrokerLogsFirehoseArgsDict(TypedDict):
-        enabled: pulumi.Input[_builtins.bool]
-        delivery_stream: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Name of the Kinesis Data Firehose delivery stream to deliver logs to.
-        """
-elif False:
-    ClusterLoggingInfoBrokerLogsFirehoseArgsDict: TypeAlias = Mapping[str, Any]
+class ClusterLoggingInfoBrokerLogsFirehoseArgsDict(TypedDict):
+    enabled: pulumi.Input[_builtins.bool]
+    delivery_stream: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Name of the Kinesis Data Firehose delivery stream to deliver logs to.
+    """
 
 @pulumi.input_type
 class ClusterLoggingInfoBrokerLogsFirehoseArgs:
@@ -1040,19 +981,16 @@ class ClusterLoggingInfoBrokerLogsFirehoseArgs:
         pulumi.set(self, "delivery_stream", value)
 
 
-if not MYPY:
-    class ClusterLoggingInfoBrokerLogsS3ArgsDict(TypedDict):
-        enabled: pulumi.Input[_builtins.bool]
-        bucket: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Name of the S3 bucket to deliver logs to.
-        """
-        prefix: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Prefix to append to the folder name.
-        """
-elif False:
-    ClusterLoggingInfoBrokerLogsS3ArgsDict: TypeAlias = Mapping[str, Any]
+class ClusterLoggingInfoBrokerLogsS3ArgsDict(TypedDict):
+    enabled: pulumi.Input[_builtins.bool]
+    bucket: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Name of the S3 bucket to deliver logs to.
+    """
+    prefix: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Prefix to append to the folder name.
+    """
 
 @pulumi.input_type
 class ClusterLoggingInfoBrokerLogsS3Args:
@@ -1104,14 +1042,11 @@ class ClusterLoggingInfoBrokerLogsS3Args:
         pulumi.set(self, "prefix", value)
 
 
-if not MYPY:
-    class ClusterOpenMonitoringArgsDict(TypedDict):
-        prometheus: pulumi.Input['ClusterOpenMonitoringPrometheusArgsDict']
-        """
-        Configuration block for Prometheus settings for open monitoring. See open_monitoring prometheus Argument Reference below.
-        """
-elif False:
-    ClusterOpenMonitoringArgsDict: TypeAlias = Mapping[str, Any]
+class ClusterOpenMonitoringArgsDict(TypedDict):
+    prometheus: pulumi.Input['ClusterOpenMonitoringPrometheusArgsDict']
+    """
+    Configuration block for Prometheus settings for open monitoring. See open_monitoring prometheus Argument Reference below.
+    """
 
 @pulumi.input_type
 class ClusterOpenMonitoringArgs:
@@ -1135,18 +1070,15 @@ class ClusterOpenMonitoringArgs:
         pulumi.set(self, "prometheus", value)
 
 
-if not MYPY:
-    class ClusterOpenMonitoringPrometheusArgsDict(TypedDict):
-        jmx_exporter: NotRequired[pulumi.Input['ClusterOpenMonitoringPrometheusJmxExporterArgsDict']]
-        """
-        Configuration block for JMX Exporter. See open_monitoring prometheus jmx_exporter Argument Reference below.
-        """
-        node_exporter: NotRequired[pulumi.Input['ClusterOpenMonitoringPrometheusNodeExporterArgsDict']]
-        """
-        Configuration block for Node Exporter. See open_monitoring prometheus node_exporter Argument Reference below.
-        """
-elif False:
-    ClusterOpenMonitoringPrometheusArgsDict: TypeAlias = Mapping[str, Any]
+class ClusterOpenMonitoringPrometheusArgsDict(TypedDict):
+    jmx_exporter: NotRequired[pulumi.Input['ClusterOpenMonitoringPrometheusJmxExporterArgsDict']]
+    """
+    Configuration block for JMX Exporter. See open_monitoring prometheus jmx_exporter Argument Reference below.
+    """
+    node_exporter: NotRequired[pulumi.Input['ClusterOpenMonitoringPrometheusNodeExporterArgsDict']]
+    """
+    Configuration block for Node Exporter. See open_monitoring prometheus node_exporter Argument Reference below.
+    """
 
 @pulumi.input_type
 class ClusterOpenMonitoringPrometheusArgs:
@@ -1187,14 +1119,11 @@ class ClusterOpenMonitoringPrometheusArgs:
         pulumi.set(self, "node_exporter", value)
 
 
-if not MYPY:
-    class ClusterOpenMonitoringPrometheusJmxExporterArgsDict(TypedDict):
-        enabled_in_broker: pulumi.Input[_builtins.bool]
-        """
-        Indicates whether you want to enable or disable the Node Exporter.
-        """
-elif False:
-    ClusterOpenMonitoringPrometheusJmxExporterArgsDict: TypeAlias = Mapping[str, Any]
+class ClusterOpenMonitoringPrometheusJmxExporterArgsDict(TypedDict):
+    enabled_in_broker: pulumi.Input[_builtins.bool]
+    """
+    Indicates whether you want to enable or disable the Node Exporter.
+    """
 
 @pulumi.input_type
 class ClusterOpenMonitoringPrometheusJmxExporterArgs:
@@ -1218,14 +1147,11 @@ class ClusterOpenMonitoringPrometheusJmxExporterArgs:
         pulumi.set(self, "enabled_in_broker", value)
 
 
-if not MYPY:
-    class ClusterOpenMonitoringPrometheusNodeExporterArgsDict(TypedDict):
-        enabled_in_broker: pulumi.Input[_builtins.bool]
-        """
-        Indicates whether you want to enable or disable the Node Exporter.
-        """
-elif False:
-    ClusterOpenMonitoringPrometheusNodeExporterArgsDict: TypeAlias = Mapping[str, Any]
+class ClusterOpenMonitoringPrometheusNodeExporterArgsDict(TypedDict):
+    enabled_in_broker: pulumi.Input[_builtins.bool]
+    """
+    Indicates whether you want to enable or disable the Node Exporter.
+    """
 
 @pulumi.input_type
 class ClusterOpenMonitoringPrometheusNodeExporterArgs:
@@ -1249,16 +1175,13 @@ class ClusterOpenMonitoringPrometheusNodeExporterArgs:
         pulumi.set(self, "enabled_in_broker", value)
 
 
-if not MYPY:
-    class ClusterRebalancingArgsDict(TypedDict):
-        status: pulumi.Input[_builtins.str]
-        """
-        The status of intelligent rebalancing. Valid values: `ACTIVE`, `PAUSED`. Default is `ACTIVE` for new Express-based clusters.
+class ClusterRebalancingArgsDict(TypedDict):
+    status: pulumi.Input[_builtins.str]
+    """
+    The status of intelligent rebalancing. Valid values: `ACTIVE`, `PAUSED`. Default is `ACTIVE` for new Express-based clusters.
 
-        > **NOTE:** Intelligent rebalancing is only available for MSK Provisioned clusters with Express brokers. When enabled, you cannot use third-party rebalancing tools such as Cruise Control. See [AWS MSK Intelligent Rebalancing](https://docs.aws.amazon.com/msk/latest/developerguide/intelligent-rebalancing.html) for more information.
-        """
-elif False:
-    ClusterRebalancingArgsDict: TypeAlias = Mapping[str, Any]
+    > **NOTE:** Intelligent rebalancing is only available for MSK Provisioned clusters with Express brokers. When enabled, you cannot use third-party rebalancing tools such as Cruise Control. See [AWS MSK Intelligent Rebalancing](https://docs.aws.amazon.com/msk/latest/developerguide/intelligent-rebalancing.html) for more information.
+    """
 
 @pulumi.input_type
 class ClusterRebalancingArgs:
@@ -1286,18 +1209,15 @@ class ClusterRebalancingArgs:
         pulumi.set(self, "status", value)
 
 
-if not MYPY:
-    class ReplicatorKafkaClusterArgsDict(TypedDict):
-        amazon_msk_cluster: pulumi.Input['ReplicatorKafkaClusterAmazonMskClusterArgsDict']
-        """
-        Details of an Amazon MSK cluster.
-        """
-        vpc_config: pulumi.Input['ReplicatorKafkaClusterVpcConfigArgsDict']
-        """
-        Details of an Amazon VPC which has network connectivity to the Apache Kafka cluster.
-        """
-elif False:
-    ReplicatorKafkaClusterArgsDict: TypeAlias = Mapping[str, Any]
+class ReplicatorKafkaClusterArgsDict(TypedDict):
+    amazon_msk_cluster: pulumi.Input['ReplicatorKafkaClusterAmazonMskClusterArgsDict']
+    """
+    Details of an Amazon MSK cluster.
+    """
+    vpc_config: pulumi.Input['ReplicatorKafkaClusterVpcConfigArgsDict']
+    """
+    Details of an Amazon VPC which has network connectivity to the Apache Kafka cluster.
+    """
 
 @pulumi.input_type
 class ReplicatorKafkaClusterArgs:
@@ -1336,14 +1256,11 @@ class ReplicatorKafkaClusterArgs:
         pulumi.set(self, "vpc_config", value)
 
 
-if not MYPY:
-    class ReplicatorKafkaClusterAmazonMskClusterArgsDict(TypedDict):
-        msk_cluster_arn: pulumi.Input[_builtins.str]
-        """
-        The ARN of an Amazon MSK cluster.
-        """
-elif False:
-    ReplicatorKafkaClusterAmazonMskClusterArgsDict: TypeAlias = Mapping[str, Any]
+class ReplicatorKafkaClusterAmazonMskClusterArgsDict(TypedDict):
+    msk_cluster_arn: pulumi.Input[_builtins.str]
+    """
+    The ARN of an Amazon MSK cluster.
+    """
 
 @pulumi.input_type
 class ReplicatorKafkaClusterAmazonMskClusterArgs:
@@ -1367,18 +1284,15 @@ class ReplicatorKafkaClusterAmazonMskClusterArgs:
         pulumi.set(self, "msk_cluster_arn", value)
 
 
-if not MYPY:
-    class ReplicatorKafkaClusterVpcConfigArgsDict(TypedDict):
-        subnet_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        The list of subnets to connect to in the virtual private cloud (VPC). AWS creates elastic network interfaces inside these subnets to allow communication between your Kafka Cluster and the replicator.
-        """
-        security_groups_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The AWS security groups to associate with the ENIs used by the replicator. If a security group is not specified, the default security group associated with the VPC is used.
-        """
-elif False:
-    ReplicatorKafkaClusterVpcConfigArgsDict: TypeAlias = Mapping[str, Any]
+class ReplicatorKafkaClusterVpcConfigArgsDict(TypedDict):
+    subnet_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    The list of subnets to connect to in the virtual private cloud (VPC). AWS creates elastic network interfaces inside these subnets to allow communication between your Kafka Cluster and the replicator.
+    """
+    security_groups_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The AWS security groups to associate with the ENIs used by the replicator. If a security group is not specified, the default security group associated with the VPC is used.
+    """
 
 @pulumi.input_type
 class ReplicatorKafkaClusterVpcConfigArgs:
@@ -1418,32 +1332,29 @@ class ReplicatorKafkaClusterVpcConfigArgs:
         pulumi.set(self, "security_groups_ids", value)
 
 
-if not MYPY:
-    class ReplicatorReplicationInfoListArgsDict(TypedDict):
-        consumer_group_replications: pulumi.Input[Sequence[pulumi.Input['ReplicatorReplicationInfoListConsumerGroupReplicationArgsDict']]]
-        """
-        Configuration relating to consumer group replication.
-        """
-        source_kafka_cluster_arn: pulumi.Input[_builtins.str]
-        """
-        The ARN of the source Kafka cluster.
-        """
-        target_compression_type: pulumi.Input[_builtins.str]
-        """
-        The type of compression to use writing records to target Kafka cluster.
-        """
-        target_kafka_cluster_arn: pulumi.Input[_builtins.str]
-        """
-        The ARN of the target Kafka cluster.
-        """
-        topic_replications: pulumi.Input[Sequence[pulumi.Input['ReplicatorReplicationInfoListTopicReplicationArgsDict']]]
-        """
-        Configuration relating to topic replication.
-        """
-        source_kafka_cluster_alias: NotRequired[pulumi.Input[_builtins.str]]
-        target_kafka_cluster_alias: NotRequired[pulumi.Input[_builtins.str]]
-elif False:
-    ReplicatorReplicationInfoListArgsDict: TypeAlias = Mapping[str, Any]
+class ReplicatorReplicationInfoListArgsDict(TypedDict):
+    consumer_group_replications: pulumi.Input[Sequence[pulumi.Input['ReplicatorReplicationInfoListConsumerGroupReplicationArgsDict']]]
+    """
+    Configuration relating to consumer group replication.
+    """
+    source_kafka_cluster_arn: pulumi.Input[_builtins.str]
+    """
+    The ARN of the source Kafka cluster.
+    """
+    target_compression_type: pulumi.Input[_builtins.str]
+    """
+    The type of compression to use writing records to target Kafka cluster.
+    """
+    target_kafka_cluster_arn: pulumi.Input[_builtins.str]
+    """
+    The ARN of the target Kafka cluster.
+    """
+    topic_replications: pulumi.Input[Sequence[pulumi.Input['ReplicatorReplicationInfoListTopicReplicationArgsDict']]]
+    """
+    Configuration relating to topic replication.
+    """
+    source_kafka_cluster_alias: NotRequired[pulumi.Input[_builtins.str]]
+    target_kafka_cluster_alias: NotRequired[pulumi.Input[_builtins.str]]
 
 @pulumi.input_type
 class ReplicatorReplicationInfoListArgs:
@@ -1551,26 +1462,23 @@ class ReplicatorReplicationInfoListArgs:
         pulumi.set(self, "target_kafka_cluster_alias", value)
 
 
-if not MYPY:
-    class ReplicatorReplicationInfoListConsumerGroupReplicationArgsDict(TypedDict):
-        consumer_groups_to_replicates: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        List of regular expression patterns indicating the consumer groups to copy.
-        """
-        consumer_groups_to_excludes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        List of regular expression patterns indicating the consumer groups that should not be replicated.
-        """
-        detect_and_copy_new_consumer_groups: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether to periodically check for new consumer groups.
-        """
-        synchronise_consumer_group_offsets: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether to periodically write the translated offsets to __consumer_offsets topic in target cluster.
-        """
-elif False:
-    ReplicatorReplicationInfoListConsumerGroupReplicationArgsDict: TypeAlias = Mapping[str, Any]
+class ReplicatorReplicationInfoListConsumerGroupReplicationArgsDict(TypedDict):
+    consumer_groups_to_replicates: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    List of regular expression patterns indicating the consumer groups to copy.
+    """
+    consumer_groups_to_excludes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    List of regular expression patterns indicating the consumer groups that should not be replicated.
+    """
+    detect_and_copy_new_consumer_groups: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether to periodically check for new consumer groups.
+    """
+    synchronise_consumer_group_offsets: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether to periodically write the translated offsets to __consumer_offsets topic in target cluster.
+    """
 
 @pulumi.input_type
 class ReplicatorReplicationInfoListConsumerGroupReplicationArgs:
@@ -1642,38 +1550,35 @@ class ReplicatorReplicationInfoListConsumerGroupReplicationArgs:
         pulumi.set(self, "synchronise_consumer_group_offsets", value)
 
 
-if not MYPY:
-    class ReplicatorReplicationInfoListTopicReplicationArgsDict(TypedDict):
-        topics_to_replicates: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        List of regular expression patterns indicating the topics to copy.
-        """
-        copy_access_control_lists_for_topics: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether to periodically configure remote topic ACLs to match their corresponding upstream topics.
-        """
-        copy_topic_configurations: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether to periodically configure remote topics to match their corresponding upstream topics.
-        """
-        detect_and_copy_new_topics: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether to periodically check for new topics and partitions.
-        """
-        starting_position: NotRequired[pulumi.Input['ReplicatorReplicationInfoListTopicReplicationStartingPositionArgsDict']]
-        """
-        Configuration for specifying the position in the topics to start replicating from.
-        """
-        topic_name_configuration: NotRequired[pulumi.Input['ReplicatorReplicationInfoListTopicReplicationTopicNameConfigurationArgsDict']]
-        """
-        Configuration for specifying replicated topic names should be the same as their corresponding upstream topics or prefixed with source cluster alias.
-        """
-        topics_to_excludes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        List of regular expression patterns indicating the topics that should not be replica.
-        """
-elif False:
-    ReplicatorReplicationInfoListTopicReplicationArgsDict: TypeAlias = Mapping[str, Any]
+class ReplicatorReplicationInfoListTopicReplicationArgsDict(TypedDict):
+    topics_to_replicates: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    List of regular expression patterns indicating the topics to copy.
+    """
+    copy_access_control_lists_for_topics: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether to periodically configure remote topic ACLs to match their corresponding upstream topics.
+    """
+    copy_topic_configurations: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether to periodically configure remote topics to match their corresponding upstream topics.
+    """
+    detect_and_copy_new_topics: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether to periodically check for new topics and partitions.
+    """
+    starting_position: NotRequired[pulumi.Input['ReplicatorReplicationInfoListTopicReplicationStartingPositionArgsDict']]
+    """
+    Configuration for specifying the position in the topics to start replicating from.
+    """
+    topic_name_configuration: NotRequired[pulumi.Input['ReplicatorReplicationInfoListTopicReplicationTopicNameConfigurationArgsDict']]
+    """
+    Configuration for specifying replicated topic names should be the same as their corresponding upstream topics or prefixed with source cluster alias.
+    """
+    topics_to_excludes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    List of regular expression patterns indicating the topics that should not be replica.
+    """
 
 @pulumi.input_type
 class ReplicatorReplicationInfoListTopicReplicationArgs:
@@ -1793,14 +1698,11 @@ class ReplicatorReplicationInfoListTopicReplicationArgs:
         pulumi.set(self, "topics_to_excludes", value)
 
 
-if not MYPY:
-    class ReplicatorReplicationInfoListTopicReplicationStartingPositionArgsDict(TypedDict):
-        type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The type of replication starting position. Supports `LATEST` and `EARLIEST`.
-        """
-elif False:
-    ReplicatorReplicationInfoListTopicReplicationStartingPositionArgsDict: TypeAlias = Mapping[str, Any]
+class ReplicatorReplicationInfoListTopicReplicationStartingPositionArgsDict(TypedDict):
+    type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The type of replication starting position. Supports `LATEST` and `EARLIEST`.
+    """
 
 @pulumi.input_type
 class ReplicatorReplicationInfoListTopicReplicationStartingPositionArgs:
@@ -1825,14 +1727,11 @@ class ReplicatorReplicationInfoListTopicReplicationStartingPositionArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class ReplicatorReplicationInfoListTopicReplicationTopicNameConfigurationArgsDict(TypedDict):
-        type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The type of topic configuration name. Supports `PREFIXED_WITH_SOURCE_CLUSTER_ALIAS` and `IDENTICAL`.
-        """
-elif False:
-    ReplicatorReplicationInfoListTopicReplicationTopicNameConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class ReplicatorReplicationInfoListTopicReplicationTopicNameConfigurationArgsDict(TypedDict):
+    type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The type of topic configuration name. Supports `PREFIXED_WITH_SOURCE_CLUSTER_ALIAS` and `IDENTICAL`.
+    """
 
 @pulumi.input_type
 class ReplicatorReplicationInfoListTopicReplicationTopicNameConfigurationArgs:
@@ -1857,14 +1756,11 @@ class ReplicatorReplicationInfoListTopicReplicationTopicNameConfigurationArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class ServerlessClusterClientAuthenticationArgsDict(TypedDict):
-        sasl: pulumi.Input['ServerlessClusterClientAuthenticationSaslArgsDict']
-        """
-        Details for client authentication using SASL. See below.
-        """
-elif False:
-    ServerlessClusterClientAuthenticationArgsDict: TypeAlias = Mapping[str, Any]
+class ServerlessClusterClientAuthenticationArgsDict(TypedDict):
+    sasl: pulumi.Input['ServerlessClusterClientAuthenticationSaslArgsDict']
+    """
+    Details for client authentication using SASL. See below.
+    """
 
 @pulumi.input_type
 class ServerlessClusterClientAuthenticationArgs:
@@ -1888,14 +1784,11 @@ class ServerlessClusterClientAuthenticationArgs:
         pulumi.set(self, "sasl", value)
 
 
-if not MYPY:
-    class ServerlessClusterClientAuthenticationSaslArgsDict(TypedDict):
-        iam: pulumi.Input['ServerlessClusterClientAuthenticationSaslIamArgsDict']
-        """
-        Details for client authentication using IAM. See below.
-        """
-elif False:
-    ServerlessClusterClientAuthenticationSaslArgsDict: TypeAlias = Mapping[str, Any]
+class ServerlessClusterClientAuthenticationSaslArgsDict(TypedDict):
+    iam: pulumi.Input['ServerlessClusterClientAuthenticationSaslIamArgsDict']
+    """
+    Details for client authentication using IAM. See below.
+    """
 
 @pulumi.input_type
 class ServerlessClusterClientAuthenticationSaslArgs:
@@ -1919,14 +1812,11 @@ class ServerlessClusterClientAuthenticationSaslArgs:
         pulumi.set(self, "iam", value)
 
 
-if not MYPY:
-    class ServerlessClusterClientAuthenticationSaslIamArgsDict(TypedDict):
-        enabled: pulumi.Input[_builtins.bool]
-        """
-        Whether SASL/IAM authentication is enabled or not.
-        """
-elif False:
-    ServerlessClusterClientAuthenticationSaslIamArgsDict: TypeAlias = Mapping[str, Any]
+class ServerlessClusterClientAuthenticationSaslIamArgsDict(TypedDict):
+    enabled: pulumi.Input[_builtins.bool]
+    """
+    Whether SASL/IAM authentication is enabled or not.
+    """
 
 @pulumi.input_type
 class ServerlessClusterClientAuthenticationSaslIamArgs:
@@ -1950,18 +1840,15 @@ class ServerlessClusterClientAuthenticationSaslIamArgs:
         pulumi.set(self, "enabled", value)
 
 
-if not MYPY:
-    class ServerlessClusterVpcConfigArgsDict(TypedDict):
-        subnet_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        A list of subnets in at least two different Availability Zones that host your client applications.
-        """
-        security_group_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Specifies up to five security groups that control inbound and outbound traffic for the serverless cluster.
-        """
-elif False:
-    ServerlessClusterVpcConfigArgsDict: TypeAlias = Mapping[str, Any]
+class ServerlessClusterVpcConfigArgsDict(TypedDict):
+    subnet_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    A list of subnets in at least two different Availability Zones that host your client applications.
+    """
+    security_group_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Specifies up to five security groups that control inbound and outbound traffic for the serverless cluster.
+    """
 
 @pulumi.input_type
 class ServerlessClusterVpcConfigArgs:

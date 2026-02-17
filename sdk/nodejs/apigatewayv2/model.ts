@@ -34,7 +34,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Using `pulumi import`, import `aws_apigatewayv2_model` using the API identifier and model identifier. For example:
+ * Using `pulumi import`, import `aws.apigatewayv2.Model` using the API identifier and model identifier. For example:
  *
  * ```sh
  * $ pulumi import aws:apigatewayv2/model:Model example aabbccddee/1122334

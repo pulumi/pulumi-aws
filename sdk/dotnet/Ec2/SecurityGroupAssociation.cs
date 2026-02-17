@@ -41,7 +41,7 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import VPC Endpoint Security Group Associations using `vpc_endpoint_id` together with `security_group_id`. For example:
+    /// Using `pulumi import`, import VPC Endpoint Security Group Associations using `VpcEndpointId` together with `SecurityGroupId`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:ec2/securityGroupAssociation:SecurityGroupAssociation example vpce-aaaaaaaa/sg-bbbbbbbbbbbbbbbbb

@@ -44,7 +44,7 @@ namespace Pulumi.Aws.ElasticBeanstalk
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import Elastic Beanstalk Applications using the `name`. For example:
+    /// Using `pulumi import`, import Elastic Beanstalk Applications using the `Name`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:elasticbeanstalk/application:Application tf_test tf-test-name

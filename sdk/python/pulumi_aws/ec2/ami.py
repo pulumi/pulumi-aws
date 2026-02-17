@@ -889,7 +889,7 @@ class Ami(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import `aws_ami` using the ID of the AMI. For example:
+        Using `pulumi import`, import `ec2.Ami` using the ID of the AMI. For example:
 
         ```sh
         $ pulumi import aws:ec2/ami:Ami example ami-12345678
@@ -956,7 +956,7 @@ class Ami(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import `aws_ami` using the ID of the AMI. For example:
+        Using `pulumi import`, import `ec2.Ami` using the ID of the AMI. For example:
 
         ```sh
         $ pulumi import aws:ec2/ami:Ami example ami-12345678

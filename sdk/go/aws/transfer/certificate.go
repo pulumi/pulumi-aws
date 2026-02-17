@@ -18,7 +18,7 @@ import (
 //
 // ## Import
 //
-// Using `pulumi import`, import Transfer AS2 Certificate using the `certificate_id`. For example:
+// Using `pulumi import`, import Transfer AS2 Certificate using the `certificateId`. For example:
 //
 // ```sh
 // $ pulumi import aws:transfer/certificate:Certificate example c-4221a88afd5f4362a

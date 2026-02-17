@@ -600,6 +600,16 @@ export type RouteTableAssociation = import("./routeTableAssociation").RouteTable
 export const RouteTableAssociation: typeof import("./routeTableAssociation").RouteTableAssociation = null as any;
 utilities.lazyLoad(exports, ["RouteTableAssociation"], () => require("./routeTableAssociation"));
 
+export { SecondaryNetworkArgs, SecondaryNetworkState } from "./secondaryNetwork";
+export type SecondaryNetwork = import("./secondaryNetwork").SecondaryNetwork;
+export const SecondaryNetwork: typeof import("./secondaryNetwork").SecondaryNetwork = null as any;
+utilities.lazyLoad(exports, ["SecondaryNetwork"], () => require("./secondaryNetwork"));
+
+export { SecondarySubnetArgs, SecondarySubnetState } from "./secondarySubnet";
+export type SecondarySubnet = import("./secondarySubnet").SecondarySubnet;
+export const SecondarySubnet: typeof import("./secondarySubnet").SecondarySubnet = null as any;
+utilities.lazyLoad(exports, ["SecondarySubnet"], () => require("./secondarySubnet"));
+
 export { SecurityGroupArgs, SecurityGroupState } from "./securityGroup";
 export type SecurityGroup = import("./securityGroup").SecurityGroup;
 export const SecurityGroup: typeof import("./securityGroup").SecurityGroup = null as any;
@@ -973,6 +983,10 @@ const _module = {
                 return new RouteTable(name, <any>undefined, { urn })
             case "aws:ec2/routeTableAssociation:RouteTableAssociation":
                 return new RouteTableAssociation(name, <any>undefined, { urn })
+            case "aws:ec2/secondaryNetwork:SecondaryNetwork":
+                return new SecondaryNetwork(name, <any>undefined, { urn })
+            case "aws:ec2/secondarySubnet:SecondarySubnet":
+                return new SecondarySubnet(name, <any>undefined, { urn })
             case "aws:ec2/securityGroup:SecurityGroup":
                 return new SecurityGroup(name, <any>undefined, { urn })
             case "aws:ec2/securityGroupAssociation:SecurityGroupAssociation":
@@ -1135,6 +1149,8 @@ pulumi.runtime.registerResourceModule("aws", "ec2/proxyProtocolPolicy", _module)
 pulumi.runtime.registerResourceModule("aws", "ec2/route", _module)
 pulumi.runtime.registerResourceModule("aws", "ec2/routeTable", _module)
 pulumi.runtime.registerResourceModule("aws", "ec2/routeTableAssociation", _module)
+pulumi.runtime.registerResourceModule("aws", "ec2/secondaryNetwork", _module)
+pulumi.runtime.registerResourceModule("aws", "ec2/secondarySubnet", _module)
 pulumi.runtime.registerResourceModule("aws", "ec2/securityGroup", _module)
 pulumi.runtime.registerResourceModule("aws", "ec2/securityGroupAssociation", _module)
 pulumi.runtime.registerResourceModule("aws", "ec2/securityGroupRule", _module)

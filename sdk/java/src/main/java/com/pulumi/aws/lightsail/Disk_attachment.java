@@ -80,7 +80,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Using `pulumi import`, import `aws_lightsail_disk_attachment` using the id attribute. For example:
+ * Using `pulumi import`, import `aws.lightsail.Disk_attachment` using the id attribute. For example:
  * 
  * ```sh
  * $ pulumi import aws:lightsail/disk_attachment:Disk_attachment example example-disk,example-instance

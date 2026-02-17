@@ -126,7 +126,7 @@ import (
 //
 // ## Import
 //
-// Using `pulumi import`, import ElastiCache Global Replication Groups using the `global_replication_group_id`. For example:
+// Using `pulumi import`, import ElastiCache Global Replication Groups using the `globalReplicationGroupId`. For example:
 //
 // ```sh
 // $ pulumi import aws:elasticache/globalReplicationGroup:GlobalReplicationGroup my_global_replication_group okuqm-global-replication-group-1

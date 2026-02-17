@@ -167,6 +167,7 @@ import (
 type QueuePolicy struct {
 	pulumi.CustomResourceState
 
+	// JSON policy for the SQS queue. For more information about building AWS IAM policy documents with Terraform, see the AWS IAM Policy Document Guide. Ensure that `Version = "2012-10-17"` is set in the policy or AWS may hang in creating the queue.
 	Policy pulumi.StringOutput `pulumi:"policy"`
 	// URL of the SQS Queue to which to attach the policy.
 	QueueUrl pulumi.StringOutput `pulumi:"queueUrl"`
@@ -210,6 +211,7 @@ func GetQueuePolicy(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering QueuePolicy resources.
 type queuePolicyState struct {
+	// JSON policy for the SQS queue. For more information about building AWS IAM policy documents with Terraform, see the AWS IAM Policy Document Guide. Ensure that `Version = "2012-10-17"` is set in the policy or AWS may hang in creating the queue.
 	Policy interface{} `pulumi:"policy"`
 	// URL of the SQS Queue to which to attach the policy.
 	QueueUrl *string `pulumi:"queueUrl"`
@@ -218,6 +220,7 @@ type queuePolicyState struct {
 }
 
 type QueuePolicyState struct {
+	// JSON policy for the SQS queue. For more information about building AWS IAM policy documents with Terraform, see the AWS IAM Policy Document Guide. Ensure that `Version = "2012-10-17"` is set in the policy or AWS may hang in creating the queue.
 	Policy pulumi.Input
 	// URL of the SQS Queue to which to attach the policy.
 	QueueUrl pulumi.StringPtrInput
@@ -230,6 +233,7 @@ func (QueuePolicyState) ElementType() reflect.Type {
 }
 
 type queuePolicyArgs struct {
+	// JSON policy for the SQS queue. For more information about building AWS IAM policy documents with Terraform, see the AWS IAM Policy Document Guide. Ensure that `Version = "2012-10-17"` is set in the policy or AWS may hang in creating the queue.
 	Policy interface{} `pulumi:"policy"`
 	// URL of the SQS Queue to which to attach the policy.
 	QueueUrl string `pulumi:"queueUrl"`
@@ -239,6 +243,7 @@ type queuePolicyArgs struct {
 
 // The set of arguments for constructing a QueuePolicy resource.
 type QueuePolicyArgs struct {
+	// JSON policy for the SQS queue. For more information about building AWS IAM policy documents with Terraform, see the AWS IAM Policy Document Guide. Ensure that `Version = "2012-10-17"` is set in the policy or AWS may hang in creating the queue.
 	Policy pulumi.Input
 	// URL of the SQS Queue to which to attach the policy.
 	QueueUrl pulumi.StringInput
@@ -333,6 +338,7 @@ func (o QueuePolicyOutput) ToQueuePolicyOutputWithContext(ctx context.Context) Q
 	return o
 }
 
+// JSON policy for the SQS queue. For more information about building AWS IAM policy documents with Terraform, see the AWS IAM Policy Document Guide. Ensure that `Version = "2012-10-17"` is set in the policy or AWS may hang in creating the queue.
 func (o QueuePolicyOutput) Policy() pulumi.StringOutput {
 	return o.ApplyT(func(v *QueuePolicy) pulumi.StringOutput { return v.Policy }).(pulumi.StringOutput)
 }

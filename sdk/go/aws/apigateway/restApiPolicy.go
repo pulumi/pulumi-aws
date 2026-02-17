@@ -90,7 +90,7 @@ import (
 //
 // ## Import
 //
-// Using `pulumi import`, import `aws_api_gateway_rest_api_policy` using the REST API ID. For example:
+// Using `pulumi import`, import `apigateway.RestApiPolicy` using the REST API ID. For example:
 //
 // ```sh
 // $ pulumi import aws:apigateway/restApiPolicy:RestApiPolicy example 12345abcde

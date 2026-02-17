@@ -48,7 +48,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Using `pulumi import`, import OpenSearch domains using the `domain_name`. For example:
+ * Using `pulumi import`, import OpenSearch domains using the `domainName`. For example:
  *
  * ```sh
  * $ pulumi import aws:opensearch/domainSamlOptions:DomainSamlOptions example domain_name

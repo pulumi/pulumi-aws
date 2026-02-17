@@ -239,37 +239,29 @@ namespace Pulumi.Aws.S3
     /// 
     /// #### Required
     /// 
-    /// * `bucket` (String) S3 bucket name.
-    /// 
-    /// * `key` (String) Object key.
+    /// * `Bucket` (String) S3 bucket name.
+    /// * `Key` (String) Object key.
     /// 
     /// #### Optional
     /// 
-    /// * `account_id` (String) AWS Account where this resource is managed.
-    /// 
-    /// * `region` (String) Region where this resource is managed.
-    /// 
-    /// Import using S3 URL syntax:
-    /// 
-    /// terraform
-    /// 
-    /// import {
-    /// 
-    ///   to = aws_s3_object.example
-    /// 
-    ///   id = "s3://some-bucket-name/some/key.txt"
-    /// 
-    /// }
-    /// 
-    /// **Using `pulumi import` to import** objects using the `id` or S3 URL. For example:
-    /// 
-    /// Import using the `id`, which is the bucket name and the key together:
-    /// 
-    /// % pulumi import aws_s3_object.example some-bucket-name/some/key.txt
+    /// * `AccountId` (String) AWS Account where this resource is managed.
+    /// * `Region` (String) Region where this resource is managed.
     /// 
     /// Import using S3 URL syntax:
     /// 
-    /// % pulumi import aws_s3_object.example s3://some-bucket-name/some/key.txt
+    /// **Using `pulumi import` to import** objects using the `Id` or S3 URL. For example:
+    /// 
+    /// Import using the `Id`, which is the bucket name and the key together:
+    /// 
+    /// ```sh
+    /// $ pulumi import aws:s3/bucketObjectv2:BucketObjectv2 example some-bucket-name/some/key.txt
+    /// ```
+    /// 
+    /// Import using S3 URL syntax:
+    /// 
+    /// ```sh
+    /// $ pulumi import aws:s3/bucketObjectv2:BucketObjectv2 example s3://some-bucket-name/some/key.txt
+    /// ```
     /// </summary>
     [AwsResourceType("aws:s3/bucketObjectv2:BucketObjectv2")]
     public partial class BucketObjectv2 : global::Pulumi.CustomResource

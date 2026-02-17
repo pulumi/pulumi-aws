@@ -59,7 +59,7 @@ import javax.annotation.Nullable;
  *         var replica = new ReplicaExternalKey("replica", ReplicaExternalKeyArgs.builder()
  *             .description("Multi-Region replica key")
  *             .deletionWindowInDays(7)
- *             .primaryKeyArn(primaryAwsKmsExternal.arn())
+ *             .primaryKeyArn(primary.arn())
  *             .keyMaterialBase64("...")
  *             .build());
  * 

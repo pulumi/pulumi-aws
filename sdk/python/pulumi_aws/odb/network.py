@@ -41,11 +41,17 @@ class NetworkArgs:
                  timeouts: Optional[pulumi.Input['NetworkTimeoutsArgs']] = None):
         """
         The set of arguments for constructing a Network resource.
+        :param pulumi.Input[_builtins.str] availability_zone_id: The AZ ID of the AZ where the ODB network is located. Changing this will force terraform to create new resource.
+        :param pulumi.Input[_builtins.str] backup_subnet_cidr: The CIDR range of the backup subnet for the ODB network. Changing this will force terraform to create new resource.
+        :param pulumi.Input[_builtins.str] client_subnet_cidr: The CIDR notation for the network resource. Changing this will force terraform to create new resource.
+        :param pulumi.Input[_builtins.str] display_name: The user-friendly name for the odb network. Changing this will force terraform to create a new resource.
         :param pulumi.Input[_builtins.str] s3_access: Specifies the configuration for Amazon S3 access from the ODB network.
         :param pulumi.Input[_builtins.str] zero_etl_access: Specifies the configuration for Zero-ETL access from the ODB network.
                
                The following arguments are optional:
-        :param pulumi.Input[_builtins.str] custom_domain_name: The name of the custom domain that the network is located. custom_domain_name and default_dns_prefix both can't be given.
+        :param pulumi.Input[_builtins.str] availability_zone: The name of the Availability Zone (AZ) where the odb network is located. Changing this will force terraform to create new resource. Make sure availability_zone maps correctly with availability_zone_id.
+        :param pulumi.Input[_builtins.str] custom_domain_name: The name of the custom domain that the network is located. Custom_domain_name and default_dns_prefix both can't be given. Changing this will force terraform to create new resource.
+        :param pulumi.Input[_builtins.str] default_dns_prefix: The default DNS prefix for the network resource. Changing this will force terraform to create new resource. Changing this will force terraform to create new resource.
         :param pulumi.Input[_builtins.bool] delete_associated_resources: If set to true deletes associated OCI resources. Default false.
         :param pulumi.Input[_builtins.str] kms_access: Specifies the configuration for KMS access from the ODB network.
         :param pulumi.Input[_builtins.str] kms_policy_document: Specifies the endpoint policy for KMS access from the ODB network.
@@ -89,6 +95,9 @@ class NetworkArgs:
     @_builtins.property
     @pulumi.getter(name="availabilityZoneId")
     def availability_zone_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        The AZ ID of the AZ where the ODB network is located. Changing this will force terraform to create new resource.
+        """
         return pulumi.get(self, "availability_zone_id")
 
     @availability_zone_id.setter
@@ -98,6 +107,9 @@ class NetworkArgs:
     @_builtins.property
     @pulumi.getter(name="backupSubnetCidr")
     def backup_subnet_cidr(self) -> pulumi.Input[_builtins.str]:
+        """
+        The CIDR range of the backup subnet for the ODB network. Changing this will force terraform to create new resource.
+        """
         return pulumi.get(self, "backup_subnet_cidr")
 
     @backup_subnet_cidr.setter
@@ -107,6 +119,9 @@ class NetworkArgs:
     @_builtins.property
     @pulumi.getter(name="clientSubnetCidr")
     def client_subnet_cidr(self) -> pulumi.Input[_builtins.str]:
+        """
+        The CIDR notation for the network resource. Changing this will force terraform to create new resource.
+        """
         return pulumi.get(self, "client_subnet_cidr")
 
     @client_subnet_cidr.setter
@@ -116,6 +131,9 @@ class NetworkArgs:
     @_builtins.property
     @pulumi.getter(name="displayName")
     def display_name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The user-friendly name for the odb network. Changing this will force terraform to create a new resource.
+        """
         return pulumi.get(self, "display_name")
 
     @display_name.setter
@@ -151,6 +169,9 @@ class NetworkArgs:
     @_builtins.property
     @pulumi.getter(name="availabilityZone")
     def availability_zone(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The name of the Availability Zone (AZ) where the odb network is located. Changing this will force terraform to create new resource. Make sure availability_zone maps correctly with availability_zone_id.
+        """
         return pulumi.get(self, "availability_zone")
 
     @availability_zone.setter
@@ -161,7 +182,7 @@ class NetworkArgs:
     @pulumi.getter(name="customDomainName")
     def custom_domain_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The name of the custom domain that the network is located. custom_domain_name and default_dns_prefix both can't be given.
+        The name of the custom domain that the network is located. Custom_domain_name and default_dns_prefix both can't be given. Changing this will force terraform to create new resource.
         """
         return pulumi.get(self, "custom_domain_name")
 
@@ -172,6 +193,9 @@ class NetworkArgs:
     @_builtins.property
     @pulumi.getter(name="defaultDnsPrefix")
     def default_dns_prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The default DNS prefix for the network resource. Changing this will force terraform to create new resource. Changing this will force terraform to create new resource.
+        """
         return pulumi.get(self, "default_dns_prefix")
 
     @default_dns_prefix.setter
@@ -322,9 +346,15 @@ class _NetworkState:
         """
         Input properties used for looking up and filtering Network resources.
         :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the odb network resource.
+        :param pulumi.Input[_builtins.str] availability_zone: The name of the Availability Zone (AZ) where the odb network is located. Changing this will force terraform to create new resource. Make sure availability_zone maps correctly with availability_zone_id.
+        :param pulumi.Input[_builtins.str] availability_zone_id: The AZ ID of the AZ where the ODB network is located. Changing this will force terraform to create new resource.
+        :param pulumi.Input[_builtins.str] backup_subnet_cidr: The CIDR range of the backup subnet for the ODB network. Changing this will force terraform to create new resource.
+        :param pulumi.Input[_builtins.str] client_subnet_cidr: The CIDR notation for the network resource. Changing this will force terraform to create new resource.
         :param pulumi.Input[_builtins.str] created_at: The date and time when the ODB network was created.
-        :param pulumi.Input[_builtins.str] custom_domain_name: The name of the custom domain that the network is located. custom_domain_name and default_dns_prefix both can't be given.
+        :param pulumi.Input[_builtins.str] custom_domain_name: The name of the custom domain that the network is located. Custom_domain_name and default_dns_prefix both can't be given. Changing this will force terraform to create new resource.
+        :param pulumi.Input[_builtins.str] default_dns_prefix: The default DNS prefix for the network resource. Changing this will force terraform to create new resource. Changing this will force terraform to create new resource.
         :param pulumi.Input[_builtins.bool] delete_associated_resources: If set to true deletes associated OCI resources. Default false.
+        :param pulumi.Input[_builtins.str] display_name: The user-friendly name for the odb network. Changing this will force terraform to create a new resource.
         :param pulumi.Input[_builtins.str] kms_access: Specifies the configuration for KMS access from the ODB network.
         :param pulumi.Input[_builtins.str] kms_policy_document: Specifies the endpoint policy for KMS access from the ODB network.
         :param pulumi.Input[Sequence[pulumi.Input['NetworkManagedServiceArgs']]] managed_services: The name of the OCI resource anchor for the Exadata infrastructure.
@@ -428,6 +458,9 @@ class _NetworkState:
     @_builtins.property
     @pulumi.getter(name="availabilityZone")
     def availability_zone(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The name of the Availability Zone (AZ) where the odb network is located. Changing this will force terraform to create new resource. Make sure availability_zone maps correctly with availability_zone_id.
+        """
         return pulumi.get(self, "availability_zone")
 
     @availability_zone.setter
@@ -437,6 +470,9 @@ class _NetworkState:
     @_builtins.property
     @pulumi.getter(name="availabilityZoneId")
     def availability_zone_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The AZ ID of the AZ where the ODB network is located. Changing this will force terraform to create new resource.
+        """
         return pulumi.get(self, "availability_zone_id")
 
     @availability_zone_id.setter
@@ -446,6 +482,9 @@ class _NetworkState:
     @_builtins.property
     @pulumi.getter(name="backupSubnetCidr")
     def backup_subnet_cidr(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The CIDR range of the backup subnet for the ODB network. Changing this will force terraform to create new resource.
+        """
         return pulumi.get(self, "backup_subnet_cidr")
 
     @backup_subnet_cidr.setter
@@ -455,6 +494,9 @@ class _NetworkState:
     @_builtins.property
     @pulumi.getter(name="clientSubnetCidr")
     def client_subnet_cidr(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The CIDR notation for the network resource. Changing this will force terraform to create new resource.
+        """
         return pulumi.get(self, "client_subnet_cidr")
 
     @client_subnet_cidr.setter
@@ -477,7 +519,7 @@ class _NetworkState:
     @pulumi.getter(name="customDomainName")
     def custom_domain_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The name of the custom domain that the network is located. custom_domain_name and default_dns_prefix both can't be given.
+        The name of the custom domain that the network is located. Custom_domain_name and default_dns_prefix both can't be given. Changing this will force terraform to create new resource.
         """
         return pulumi.get(self, "custom_domain_name")
 
@@ -488,6 +530,9 @@ class _NetworkState:
     @_builtins.property
     @pulumi.getter(name="defaultDnsPrefix")
     def default_dns_prefix(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The default DNS prefix for the network resource. Changing this will force terraform to create new resource. Changing this will force terraform to create new resource.
+        """
         return pulumi.get(self, "default_dns_prefix")
 
     @default_dns_prefix.setter
@@ -509,6 +554,9 @@ class _NetworkState:
     @_builtins.property
     @pulumi.getter(name="displayName")
     def display_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The user-friendly name for the odb network. Changing this will force terraform to create a new resource.
+        """
         return pulumi.get(self, "display_name")
 
     @display_name.setter
@@ -816,8 +864,14 @@ class Network(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] custom_domain_name: The name of the custom domain that the network is located. custom_domain_name and default_dns_prefix both can't be given.
+        :param pulumi.Input[_builtins.str] availability_zone: The name of the Availability Zone (AZ) where the odb network is located. Changing this will force terraform to create new resource. Make sure availability_zone maps correctly with availability_zone_id.
+        :param pulumi.Input[_builtins.str] availability_zone_id: The AZ ID of the AZ where the ODB network is located. Changing this will force terraform to create new resource.
+        :param pulumi.Input[_builtins.str] backup_subnet_cidr: The CIDR range of the backup subnet for the ODB network. Changing this will force terraform to create new resource.
+        :param pulumi.Input[_builtins.str] client_subnet_cidr: The CIDR notation for the network resource. Changing this will force terraform to create new resource.
+        :param pulumi.Input[_builtins.str] custom_domain_name: The name of the custom domain that the network is located. Custom_domain_name and default_dns_prefix both can't be given. Changing this will force terraform to create new resource.
+        :param pulumi.Input[_builtins.str] default_dns_prefix: The default DNS prefix for the network resource. Changing this will force terraform to create new resource. Changing this will force terraform to create new resource.
         :param pulumi.Input[_builtins.bool] delete_associated_resources: If set to true deletes associated OCI resources. Default false.
+        :param pulumi.Input[_builtins.str] display_name: The user-friendly name for the odb network. Changing this will force terraform to create a new resource.
         :param pulumi.Input[_builtins.str] kms_access: Specifies the configuration for KMS access from the ODB network.
         :param pulumi.Input[_builtins.str] kms_policy_document: Specifies the endpoint policy for KMS access from the ODB network.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -985,9 +1039,15 @@ class Network(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the odb network resource.
+        :param pulumi.Input[_builtins.str] availability_zone: The name of the Availability Zone (AZ) where the odb network is located. Changing this will force terraform to create new resource. Make sure availability_zone maps correctly with availability_zone_id.
+        :param pulumi.Input[_builtins.str] availability_zone_id: The AZ ID of the AZ where the ODB network is located. Changing this will force terraform to create new resource.
+        :param pulumi.Input[_builtins.str] backup_subnet_cidr: The CIDR range of the backup subnet for the ODB network. Changing this will force terraform to create new resource.
+        :param pulumi.Input[_builtins.str] client_subnet_cidr: The CIDR notation for the network resource. Changing this will force terraform to create new resource.
         :param pulumi.Input[_builtins.str] created_at: The date and time when the ODB network was created.
-        :param pulumi.Input[_builtins.str] custom_domain_name: The name of the custom domain that the network is located. custom_domain_name and default_dns_prefix both can't be given.
+        :param pulumi.Input[_builtins.str] custom_domain_name: The name of the custom domain that the network is located. Custom_domain_name and default_dns_prefix both can't be given. Changing this will force terraform to create new resource.
+        :param pulumi.Input[_builtins.str] default_dns_prefix: The default DNS prefix for the network resource. Changing this will force terraform to create new resource. Changing this will force terraform to create new resource.
         :param pulumi.Input[_builtins.bool] delete_associated_resources: If set to true deletes associated OCI resources. Default false.
+        :param pulumi.Input[_builtins.str] display_name: The user-friendly name for the odb network. Changing this will force terraform to create a new resource.
         :param pulumi.Input[_builtins.str] kms_access: Specifies the configuration for KMS access from the ODB network.
         :param pulumi.Input[_builtins.str] kms_policy_document: Specifies the endpoint policy for KMS access from the ODB network.
         :param pulumi.Input[Sequence[pulumi.Input[Union['NetworkManagedServiceArgs', 'NetworkManagedServiceArgsDict']]]] managed_services: The name of the OCI resource anchor for the Exadata infrastructure.
@@ -1060,21 +1120,33 @@ class Network(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="availabilityZone")
     def availability_zone(self) -> pulumi.Output[_builtins.str]:
+        """
+        The name of the Availability Zone (AZ) where the odb network is located. Changing this will force terraform to create new resource. Make sure availability_zone maps correctly with availability_zone_id.
+        """
         return pulumi.get(self, "availability_zone")
 
     @_builtins.property
     @pulumi.getter(name="availabilityZoneId")
     def availability_zone_id(self) -> pulumi.Output[_builtins.str]:
+        """
+        The AZ ID of the AZ where the ODB network is located. Changing this will force terraform to create new resource.
+        """
         return pulumi.get(self, "availability_zone_id")
 
     @_builtins.property
     @pulumi.getter(name="backupSubnetCidr")
     def backup_subnet_cidr(self) -> pulumi.Output[_builtins.str]:
+        """
+        The CIDR range of the backup subnet for the ODB network. Changing this will force terraform to create new resource.
+        """
         return pulumi.get(self, "backup_subnet_cidr")
 
     @_builtins.property
     @pulumi.getter(name="clientSubnetCidr")
     def client_subnet_cidr(self) -> pulumi.Output[_builtins.str]:
+        """
+        The CIDR notation for the network resource. Changing this will force terraform to create new resource.
+        """
         return pulumi.get(self, "client_subnet_cidr")
 
     @_builtins.property
@@ -1089,13 +1161,16 @@ class Network(pulumi.CustomResource):
     @pulumi.getter(name="customDomainName")
     def custom_domain_name(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The name of the custom domain that the network is located. custom_domain_name and default_dns_prefix both can't be given.
+        The name of the custom domain that the network is located. Custom_domain_name and default_dns_prefix both can't be given. Changing this will force terraform to create new resource.
         """
         return pulumi.get(self, "custom_domain_name")
 
     @_builtins.property
     @pulumi.getter(name="defaultDnsPrefix")
     def default_dns_prefix(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        The default DNS prefix for the network resource. Changing this will force terraform to create new resource. Changing this will force terraform to create new resource.
+        """
         return pulumi.get(self, "default_dns_prefix")
 
     @_builtins.property
@@ -1109,6 +1184,9 @@ class Network(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="displayName")
     def display_name(self) -> pulumi.Output[_builtins.str]:
+        """
+        The user-friendly name for the odb network. Changing this will force terraform to create a new resource.
+        """
         return pulumi.get(self, "display_name")
 
     @_builtins.property

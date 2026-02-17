@@ -44,9 +44,69 @@ namespace Pulumi.Aws.Lambda
     /// });
     /// ```
     /// 
+    /// ### Manual Scaling with Specific Instance Types
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.Lambda.CapacityProvider("example", new()
+    ///     {
+    ///         Name = "example",
+    ///         VpcConfig = new Aws.Lambda.Inputs.CapacityProviderVpcConfigArgs
+    ///         {
+    ///             SubnetIds = exampleAwsSubnet.Select(__item =&gt; __item.Id).ToList(),
+    ///             SecurityGroupIds = new[]
+    ///             {
+    ///                 exampleAwsSecurityGroup.Id,
+    ///             },
+    ///         },
+    ///         PermissionsConfig = new Aws.Lambda.Inputs.CapacityProviderPermissionsConfigArgs
+    ///         {
+    ///             CapacityProviderOperatorRoleArn = exampleAwsIamRole.Arn,
+    ///         },
+    ///         InstanceRequirements = new[]
+    ///         {
+    ///             new Aws.Lambda.Inputs.CapacityProviderInstanceRequirementArgs
+    ///             {
+    ///                 Architectures = new[]
+    ///                 {
+    ///                     "x86_64",
+    ///                 },
+    ///                 AllowedInstanceTypes = new[]
+    ///                 {
+    ///                     "c6i.2xlarge",
+    ///                     "c7i.2xlarge",
+    ///                 },
+    ///             },
+    ///         },
+    ///         CapacityProviderScalingConfigs = new[]
+    ///         {
+    ///             new Aws.Lambda.Inputs.CapacityProviderCapacityProviderScalingConfigArgs
+    ///             {
+    ///                 ScalingMode = "Manual",
+    ///                 ScalingPolicies = new[]
+    ///                 {
+    ///                     new Aws.Lambda.Inputs.CapacityProviderCapacityProviderScalingConfigScalingPolicyArgs
+    ///                     {
+    ///                         PredefinedMetricType = "LambdaCapacityProviderAverageCPUUtilization",
+    ///                         TargetValue = 50,
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import Lambda Capacity Provider using the `name`. For example:
+    /// Using `pulumi import`, import Lambda Capacity Provider using the `Name`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:lambda/capacityProvider:CapacityProvider example example
@@ -61,6 +121,9 @@ namespace Pulumi.Aws.Lambda
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// Configuration block for scaling policy settings. See Capacity Provider Scaling Config below.
+        /// </summary>
         [Output("capacityProviderScalingConfigs")]
         public Output<ImmutableArray<Outputs.CapacityProviderCapacityProviderScalingConfig>> CapacityProviderScalingConfigs { get; private set; } = null!;
 
@@ -162,6 +225,10 @@ namespace Pulumi.Aws.Lambda
     {
         [Input("capacityProviderScalingConfigs")]
         private InputList<Inputs.CapacityProviderCapacityProviderScalingConfigArgs>? _capacityProviderScalingConfigs;
+
+        /// <summary>
+        /// Configuration block for scaling policy settings. See Capacity Provider Scaling Config below.
+        /// </summary>
         public InputList<Inputs.CapacityProviderCapacityProviderScalingConfigArgs> CapacityProviderScalingConfigs
         {
             get => _capacityProviderScalingConfigs ?? (_capacityProviderScalingConfigs = new InputList<Inputs.CapacityProviderCapacityProviderScalingConfigArgs>());
@@ -240,6 +307,10 @@ namespace Pulumi.Aws.Lambda
 
         [Input("capacityProviderScalingConfigs")]
         private InputList<Inputs.CapacityProviderCapacityProviderScalingConfigGetArgs>? _capacityProviderScalingConfigs;
+
+        /// <summary>
+        /// Configuration block for scaling policy settings. See Capacity Provider Scaling Config below.
+        /// </summary>
         public InputList<Inputs.CapacityProviderCapacityProviderScalingConfigGetArgs> CapacityProviderScalingConfigs
         {
             get => _capacityProviderScalingConfigs ?? (_capacityProviderScalingConfigs = new InputList<Inputs.CapacityProviderCapacityProviderScalingConfigGetArgs>());

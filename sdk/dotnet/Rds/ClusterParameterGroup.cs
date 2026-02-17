@@ -50,7 +50,7 @@ namespace Pulumi.Aws.Rds
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import RDS Cluster Parameter Groups using the `name`. For example:
+    /// Using `pulumi import`, import RDS Cluster Parameter Groups using the `Name`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:rds/clusterParameterGroup:ClusterParameterGroup cluster_pg production-pg-1

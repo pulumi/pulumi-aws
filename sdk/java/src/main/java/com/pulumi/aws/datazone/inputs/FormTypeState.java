@@ -191,9 +191,17 @@ public final class FormTypeState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.revision);
     }
 
+    /**
+     * Status of form type. Must be &#34;ENABLED&#34; or &#34;DISABLED&#34; If status is set to &#34;ENABLED&#34; terraform cannot delete the resource until it is manually changed in the AWS console.
+     * 
+     */
     @Import(name="status")
     private @Nullable Output<String> status;
 
+    /**
+     * @return Status of form type. Must be &#34;ENABLED&#34; or &#34;DISABLED&#34; If status is set to &#34;ENABLED&#34; terraform cannot delete the resource until it is manually changed in the AWS console.
+     * 
+     */
     public Optional<Output<String>> status() {
         return Optional.ofNullable(this.status);
     }
@@ -486,11 +494,23 @@ public final class FormTypeState extends com.pulumi.resources.ResourceArgs {
             return revision(Output.of(revision));
         }
 
+        /**
+         * @param status Status of form type. Must be &#34;ENABLED&#34; or &#34;DISABLED&#34; If status is set to &#34;ENABLED&#34; terraform cannot delete the resource until it is manually changed in the AWS console.
+         * 
+         * @return builder
+         * 
+         */
         public Builder status(@Nullable Output<String> status) {
             $.status = status;
             return this;
         }
 
+        /**
+         * @param status Status of form type. Must be &#34;ENABLED&#34; or &#34;DISABLED&#34; If status is set to &#34;ENABLED&#34; terraform cannot delete the resource until it is manually changed in the AWS console.
+         * 
+         * @return builder
+         * 
+         */
         public Builder status(String status) {
             return status(Output.of(status));
         }

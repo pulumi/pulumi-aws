@@ -378,6 +378,14 @@ class StackInstances(pulumi.CustomResource):
                  stack_set_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
+        Manages CloudFormation stack instances for the specified accounts, within the specified regions. A stack instance refers to a stack in a specific account and region. Additional information about stacks can be found in the [AWS CloudFormation User Guide](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacks.html).
+
+        > **NOTE:** This resource will manage all stack instances for the specified `stack_set_name`. If you create stack instances outside of Terraform or import existing infrastructure, ensure that your configuration includes all accounts and regions where stack instances exist for the stack set. Failing to include all accounts and regions will cause Terraform to continuously report differences between your configuration and the actual infrastructure.
+
+        > **NOTE:** All target accounts must have an IAM Role created that matches the name of the execution role configured in the stack (the `execution_role_name` argument in the `cloudformation.StackSet` resource) in a trust relationship with the administrative account or administration IAM Role. The execution role must have appropriate permissions to manage resources defined in the template along with those required for stacks to operate. See the [AWS CloudFormation User Guide](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-prereqs.html) for more details.
+
+        > **NOTE:** To retain the Stack during Terraform resource destroy, ensure `retain_stacks = true` has been successfully applied into the Terraform state first. This must be completed _before_ an apply that would destroy the resource.
+
         ## Example Usage
 
         ### Basic Usage
@@ -458,6 +466,7 @@ class StackInstances(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:cloudformation/stackInstances:StackInstances example example,SELF
         ```
+
         Using `pulumi import`, Import CloudFormation stack instances that target OUs, using the stack set name, `call_as`, and "OU" separated by commas (`,`). For example:
 
         ```sh
@@ -485,6 +494,14 @@ class StackInstances(pulumi.CustomResource):
                  args: StackInstancesArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        Manages CloudFormation stack instances for the specified accounts, within the specified regions. A stack instance refers to a stack in a specific account and region. Additional information about stacks can be found in the [AWS CloudFormation User Guide](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacks.html).
+
+        > **NOTE:** This resource will manage all stack instances for the specified `stack_set_name`. If you create stack instances outside of Terraform or import existing infrastructure, ensure that your configuration includes all accounts and regions where stack instances exist for the stack set. Failing to include all accounts and regions will cause Terraform to continuously report differences between your configuration and the actual infrastructure.
+
+        > **NOTE:** All target accounts must have an IAM Role created that matches the name of the execution role configured in the stack (the `execution_role_name` argument in the `cloudformation.StackSet` resource) in a trust relationship with the administrative account or administration IAM Role. The execution role must have appropriate permissions to manage resources defined in the template along with those required for stacks to operate. See the [AWS CloudFormation User Guide](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-prereqs.html) for more details.
+
+        > **NOTE:** To retain the Stack during Terraform resource destroy, ensure `retain_stacks = true` has been successfully applied into the Terraform state first. This must be completed _before_ an apply that would destroy the resource.
+
         ## Example Usage
 
         ### Basic Usage
@@ -565,6 +582,7 @@ class StackInstances(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:cloudformation/stackInstances:StackInstances example example,SELF
         ```
+
         Using `pulumi import`, Import CloudFormation stack instances that target OUs, using the stack set name, `call_as`, and "OU" separated by commas (`,`). For example:
 
         ```sh

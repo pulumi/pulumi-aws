@@ -670,7 +670,9 @@ class StateMachine(pulumi.CustomResource):
 
         Using `pulumi import`, import State Machines using the `arn`. For example:
 
-        % pulumi import aws_sfn_state_machine.foo arn:aws:states:eu-west-1:123456789098:stateMachine:bar
+        ```sh
+        $ pulumi import aws:sfn/stateMachine:StateMachine foo arn:aws:states:eu-west-1:123456789098:stateMachine:bar
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -844,7 +846,9 @@ class StateMachine(pulumi.CustomResource):
 
         Using `pulumi import`, import State Machines using the `arn`. For example:
 
-        % pulumi import aws_sfn_state_machine.foo arn:aws:states:eu-west-1:123456789098:stateMachine:bar
+        ```sh
+        $ pulumi import aws:sfn/stateMachine:StateMachine foo arn:aws:states:eu-west-1:123456789098:stateMachine:bar
+        ```
 
         :param str resource_name: The name of the resource.
         :param StateMachineArgs args: The arguments to use to populate this resource's properties.

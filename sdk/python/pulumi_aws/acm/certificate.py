@@ -641,10 +641,10 @@ class Certificate(pulumi.CustomResource):
         example_self_signed_cert = tls.SelfSignedCert("example",
             key_algorithm="RSA",
             private_key_pem=example.private_key_pem,
-            subject=[{
-                "commonName": "example.com",
+            subject={
+                "common_name": "example.com",
                 "organization": "ACME Examples, Inc",
-            }],
+            },
             validity_period_hours=12,
             allowed_uses=[
                 "key_encipherment",
@@ -689,7 +689,9 @@ class Certificate(pulumi.CustomResource):
 
         Using `pulumi import`, import certificates using their ARN. For example:
 
-        % pulumi import aws_acm_certificate.example arn:aws:acm:eu-central-1:123456789012:certificate/7e7a28d2-163f-4b8f-b9cd-822f96c08d6a
+        ```sh
+        $ pulumi import aws:acm/certificate:Certificate example arn:aws:acm:eu-central-1:123456789012:certificate/7e7a28d2-163f-4b8f-b9cd-822f96c08d6a
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -771,10 +773,10 @@ class Certificate(pulumi.CustomResource):
         example_self_signed_cert = tls.SelfSignedCert("example",
             key_algorithm="RSA",
             private_key_pem=example.private_key_pem,
-            subject=[{
-                "commonName": "example.com",
+            subject={
+                "common_name": "example.com",
                 "organization": "ACME Examples, Inc",
-            }],
+            },
             validity_period_hours=12,
             allowed_uses=[
                 "key_encipherment",
@@ -819,7 +821,9 @@ class Certificate(pulumi.CustomResource):
 
         Using `pulumi import`, import certificates using their ARN. For example:
 
-        % pulumi import aws_acm_certificate.example arn:aws:acm:eu-central-1:123456789012:certificate/7e7a28d2-163f-4b8f-b9cd-822f96c08d6a
+        ```sh
+        $ pulumi import aws:acm/certificate:Certificate example arn:aws:acm:eu-central-1:123456789012:certificate/7e7a28d2-163f-4b8f-b9cd-822f96c08d6a
+        ```
 
         :param str resource_name: The name of the resource.
         :param CertificateArgs args: The arguments to use to populate this resource's properties.

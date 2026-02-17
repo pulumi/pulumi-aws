@@ -293,7 +293,7 @@ namespace Pulumi.Aws.Pipes
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import pipes using the `name`. For example:
+    /// Using `pulumi import`, import pipes using the `Name`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:pipes/pipe:Pipe example my-pipe

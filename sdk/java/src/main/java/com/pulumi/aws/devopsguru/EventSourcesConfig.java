@@ -16,6 +16,12 @@ import java.util.List;
 import javax.annotation.Nullable;
 
 /**
+ * Resource for managing an AWS DevOps Guru Event Sources Config. Currently the only service that can be integrated with DevOps Guru is Amazon CodeGuru Profiler, which can produce proactive recommendations which can be stored and viewed in DevOps Guru.
+ * 
+ * &gt; Destruction of this resource will set the CodeGuru profiler status to `DISABLED`. If you wish to preserve an `ENABLED` configuration while removing the Terraform resource, utilize a `removed` block (available in Terraform 1.7+).
+ * 
+ * &gt; Event sources are configured at the account level. To avoid persistent differences, this resource should be defined only once.
+ * 
  * ## Example Usage
  * 
  * ### Basic Usage

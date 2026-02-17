@@ -35,6 +35,7 @@ class AccessGrantArgs:
         :param pulumi.Input['AccessGrantGranteeArgs'] grantee: See Grantee below for more details.
         :param pulumi.Input[_builtins.str] permission: The access grant's level of access. Valid values: `READ`, `WRITE`, `READWRITE`.
         :param pulumi.Input['AccessGrantAccessGrantsLocationConfigurationArgs'] access_grants_location_configuration: See Location Configuration below for more details.
+        :param pulumi.Input[_builtins.str] account_id: The AWS account ID for the S3 Access Grants location. Defaults to automatically determined account ID of the Terraform AWS provider.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] s3_prefix_type: If you are creating an access grant that grants access to only one object, set this to `Object`. Valid values: `Object`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -104,6 +105,9 @@ class AccessGrantArgs:
     @_builtins.property
     @pulumi.getter(name="accountId")
     def account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The AWS account ID for the S3 Access Grants location. Defaults to automatically determined account ID of the Terraform AWS provider.
+        """
         return pulumi.get(self, "account_id")
 
     @account_id.setter
@@ -168,6 +172,7 @@ class _AccessGrantState:
         :param pulumi.Input[_builtins.str] access_grant_id: Unique ID of the S3 Access Grant.
         :param pulumi.Input['AccessGrantAccessGrantsLocationConfigurationArgs'] access_grants_location_configuration: See Location Configuration below for more details.
         :param pulumi.Input[_builtins.str] access_grants_location_id: The ID of the S3 Access Grants location to with the access grant is giving access.
+        :param pulumi.Input[_builtins.str] account_id: The AWS account ID for the S3 Access Grants location. Defaults to automatically determined account ID of the Terraform AWS provider.
         :param pulumi.Input[_builtins.str] grant_scope: The access grant's scope.
         :param pulumi.Input['AccessGrantGranteeArgs'] grantee: See Grantee below for more details.
         :param pulumi.Input[_builtins.str] permission: The access grant's level of access. Valid values: `READ`, `WRITE`, `READWRITE`.
@@ -252,6 +257,9 @@ class _AccessGrantState:
     @_builtins.property
     @pulumi.getter(name="accountId")
     def account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The AWS account ID for the S3 Access Grants location. Defaults to automatically determined account ID of the Terraform AWS provider.
+        """
         return pulumi.get(self, "account_id")
 
     @account_id.setter
@@ -398,6 +406,7 @@ class AccessGrant(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['AccessGrantAccessGrantsLocationConfigurationArgs', 'AccessGrantAccessGrantsLocationConfigurationArgsDict']] access_grants_location_configuration: See Location Configuration below for more details.
         :param pulumi.Input[_builtins.str] access_grants_location_id: The ID of the S3 Access Grants location to with the access grant is giving access.
+        :param pulumi.Input[_builtins.str] account_id: The AWS account ID for the S3 Access Grants location. Defaults to automatically determined account ID of the Terraform AWS provider.
         :param pulumi.Input[Union['AccessGrantGranteeArgs', 'AccessGrantGranteeArgsDict']] grantee: See Grantee below for more details.
         :param pulumi.Input[_builtins.str] permission: The access grant's level of access. Valid values: `READ`, `WRITE`, `READWRITE`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -529,6 +538,7 @@ class AccessGrant(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] access_grant_id: Unique ID of the S3 Access Grant.
         :param pulumi.Input[Union['AccessGrantAccessGrantsLocationConfigurationArgs', 'AccessGrantAccessGrantsLocationConfigurationArgsDict']] access_grants_location_configuration: See Location Configuration below for more details.
         :param pulumi.Input[_builtins.str] access_grants_location_id: The ID of the S3 Access Grants location to with the access grant is giving access.
+        :param pulumi.Input[_builtins.str] account_id: The AWS account ID for the S3 Access Grants location. Defaults to automatically determined account ID of the Terraform AWS provider.
         :param pulumi.Input[_builtins.str] grant_scope: The access grant's scope.
         :param pulumi.Input[Union['AccessGrantGranteeArgs', 'AccessGrantGranteeArgsDict']] grantee: See Grantee below for more details.
         :param pulumi.Input[_builtins.str] permission: The access grant's level of access. Valid values: `READ`, `WRITE`, `READWRITE`.
@@ -590,6 +600,9 @@ class AccessGrant(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="accountId")
     def account_id(self) -> pulumi.Output[_builtins.str]:
+        """
+        The AWS account ID for the S3 Access Grants location. Defaults to automatically determined account ID of the Terraform AWS provider.
+        """
         return pulumi.get(self, "account_id")
 
     @_builtins.property

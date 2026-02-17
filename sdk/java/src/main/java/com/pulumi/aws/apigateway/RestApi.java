@@ -29,12 +29,13 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Using `pulumi import`, import `aws_api_gateway_rest_api` using the REST API ID. For example:
+ * Using `pulumi import`, import `aws.apigateway.RestApi` using the REST API ID. For example:
  * 
  * ```sh
  * $ pulumi import aws:apigateway/restApi:RestApi example 12345abcde
  * ```
- * ~&gt; __NOTE:__ Resource import does not currently support the `body` attribute.
+ * 
+ * &gt; **NOTE:** Resource import does not currently support the `body` attribute.
  * 
  */
 @ResourceType(type="aws:apigateway/restApi:RestApi")

@@ -62,6 +62,9 @@ export class IpRestriction extends pulumi.CustomResource {
         return obj['__pulumiType'] === IpRestriction.__pulumiType;
     }
 
+    /**
+     * AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
+     */
     declare public readonly awsAccountId: pulumi.Output<string>;
     /**
      * Whether IP rules are turned on.
@@ -124,6 +127,9 @@ export class IpRestriction extends pulumi.CustomResource {
  * Input properties used for looking up and filtering IpRestriction resources.
  */
 export interface IpRestrictionState {
+    /**
+     * AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
+     */
     awsAccountId?: pulumi.Input<string>;
     /**
      * Whether IP rules are turned on.
@@ -151,6 +157,9 @@ export interface IpRestrictionState {
  * The set of arguments for constructing a IpRestriction resource.
  */
 export interface IpRestrictionArgs {
+    /**
+     * AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
+     */
     awsAccountId?: pulumi.Input<string>;
     /**
      * Whether IP rules are turned on.

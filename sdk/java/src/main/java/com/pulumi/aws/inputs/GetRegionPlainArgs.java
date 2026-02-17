@@ -29,9 +29,17 @@ public final class GetRegionPlainArgs extends com.pulumi.resources.InvokeArgs {
         return Optional.ofNullable(this.endpoint);
     }
 
+    /**
+     * Region&#39;s name (e.g. `us-east-1`).
+     * 
+     */
     @Import(name="id")
     private @Nullable String id;
 
+    /**
+     * @return Region&#39;s name (e.g. `us-east-1`).
+     * 
+     */
     public Optional<String> id() {
         return Optional.ofNullable(this.id);
     }
@@ -112,6 +120,12 @@ public final class GetRegionPlainArgs extends com.pulumi.resources.InvokeArgs {
             return this;
         }
 
+        /**
+         * @param id Region&#39;s name (e.g. `us-east-1`).
+         * 
+         * @return builder
+         * 
+         */
         public Builder id(@Nullable String id) {
             $.id = id;
             return this;

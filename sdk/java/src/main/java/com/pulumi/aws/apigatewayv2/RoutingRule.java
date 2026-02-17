@@ -84,7 +84,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Using `pulumi import`, import API Gateway V2 Routing Rule using the `routing_rule_arn`. For example:
+ * Using `pulumi import`, import API Gateway V2 Routing Rule using the `routingRuleArn`. For example:
  * 
  * ```sh
  * $ pulumi import aws:apigatewayv2/routingRule:RoutingRule example arn:aws:apigateway:us-east-1:123456789012:/domainnames/example.com/routingrules/rule1

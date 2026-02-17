@@ -52,7 +52,7 @@ import (
 //
 // ## Import
 //
-// Using `pulumi import`, import SageMaker AI Human Task UIs using the `human_task_ui_name`. For example:
+// Using `pulumi import`, import SageMaker AI Human Task UIs using the `humanTaskUiName`. For example:
 //
 // ```sh
 // $ pulumi import aws:sagemaker/humanTaskUI:HumanTaskUI example example

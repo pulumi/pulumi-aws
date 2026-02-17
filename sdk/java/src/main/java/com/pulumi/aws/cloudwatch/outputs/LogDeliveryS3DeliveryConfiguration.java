@@ -17,7 +17,7 @@ public final class LogDeliveryS3DeliveryConfiguration {
      */
     private Boolean enableHiveCompatiblePath;
     /**
-     * @return This string allows re-configuring the S3 object prefix to contain either static or variable sections. The valid variables to use in the suffix path will vary by each log source.
+     * @return This string allows re-configuring the S3 object prefix to contain either static or variable sections. The valid variables to use in the suffix path will vary by each log source. **Note:** AWS automatically prepends account and service-specific prefixes (e.g., `AWSLogs/{account-id}/CloudFront/` for CloudFront sources) to the configured value. Specify only your custom suffix path without these AWS-managed prefixes.
      * 
      */
     private String suffixPath;
@@ -31,7 +31,7 @@ public final class LogDeliveryS3DeliveryConfiguration {
         return this.enableHiveCompatiblePath;
     }
     /**
-     * @return This string allows re-configuring the S3 object prefix to contain either static or variable sections. The valid variables to use in the suffix path will vary by each log source.
+     * @return This string allows re-configuring the S3 object prefix to contain either static or variable sections. The valid variables to use in the suffix path will vary by each log source. **Note:** AWS automatically prepends account and service-specific prefixes (e.g., `AWSLogs/{account-id}/CloudFront/` for CloudFront sources) to the configured value. Specify only your custom suffix path without these AWS-managed prefixes.
      * 
      */
     public String suffixPath() {

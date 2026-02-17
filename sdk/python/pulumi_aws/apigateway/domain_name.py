@@ -847,6 +847,7 @@ class DomainName(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:apigateway/domainName:DomainName example dev.example.com
         ```
+
         For a private custom domain name:
 
         ```sh
@@ -985,6 +986,7 @@ class DomainName(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:apigateway/domainName:DomainName example dev.example.com
         ```
+
         For a private custom domain name:
 
         ```sh

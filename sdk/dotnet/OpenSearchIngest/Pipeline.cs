@@ -106,7 +106,7 @@ namespace Pulumi.Aws.OpenSearchIngest
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import OpenSearch Ingestion Pipeline using the `id`. For example:
+    /// Using `pulumi import`, import OpenSearch Ingestion Pipeline using the `Id`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:opensearchingest/pipeline:Pipeline example example

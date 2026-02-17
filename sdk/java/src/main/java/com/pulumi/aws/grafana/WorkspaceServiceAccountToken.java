@@ -16,6 +16,11 @@ import java.util.List;
 import javax.annotation.Nullable;
 
 /**
+ * &gt; **Note:** You cannot update a service account token. If you change any attribute, Terraform
+ * will delete the current and create a new one.
+ * 
+ * Read about Service Accounts Tokens in the [Amazon Managed Grafana user guide](https://docs.aws.amazon.com/grafana/latest/userguide/service-accounts.html#service-account-tokens).
+ * 
  * ## Example Usage
  * 
  * ### Basic Usage

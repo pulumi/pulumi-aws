@@ -135,7 +135,7 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import VPC Peering Connection Options using the VPC peering `id`. For example:
+    /// Using `pulumi import`, import VPC Peering Connection Options using the VPC peering `Id`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:ec2/peeringConnectionOptions:PeeringConnectionOptions foo pcx-111aaa111

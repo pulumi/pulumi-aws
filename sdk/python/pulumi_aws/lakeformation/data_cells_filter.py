@@ -143,13 +143,83 @@ class DataCellsFilter(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.lakeformation.DataCellsFilter("example", table_data={
-            "database_name": test["name"],
+            "database_name": example_aws_glue_catalog_database["name"],
             "name": "example",
             "table_catalog_id": current["accountId"],
-            "table_name": test_aws_glue_catalog_table["name"],
+            "table_name": example_aws_glue_catalog_table["name"],
             "column_names": ["my_column"],
             "row_filter": {
                 "filter_expression": "my_column='example'",
+            },
+        })
+        ```
+
+        ### Filter with Excluded Columns Only (No Row Filter)
+
+        When excluding columns without a row filter, you must include `all_rows_wildcard {}`:
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        excluded_columns = aws.lakeformation.DataCellsFilter("excluded_columns", table_data={
+            "database_name": example["name"],
+            "name": "exclude-pii",
+            "table_catalog_id": current["accountId"],
+            "table_name": example_aws_glue_catalog_table["name"],
+            "column_wildcard": {
+                "excluded_column_names": [
+                    "ssn",
+                    "credit_card",
+                ],
+            },
+            "row_filter": {
+                "all_rows_wildcard": {},
+            },
+        })
+        ```
+
+        ### Filter with Row Filter and Excluded Columns
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        row_and_column = aws.lakeformation.DataCellsFilter("row_and_column", table_data={
+            "database_name": example["name"],
+            "name": "marketing-filtered",
+            "table_catalog_id": current["accountId"],
+            "table_name": example_aws_glue_catalog_table["name"],
+            "column_wildcard": {
+                "excluded_column_names": [
+                    "salary",
+                    "bonus",
+                ],
+            },
+            "row_filter": {
+                "filter_expression": "department = 'Marketing'",
+            },
+        })
+        ```
+
+        ### Filter with Row Filter Only (All Columns Included)
+
+        To include all columns with a row filter, set `excluded_column_names` to an empty list:
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        row_only = aws.lakeformation.DataCellsFilter("row_only", table_data={
+            "database_name": example["name"],
+            "name": "regional-filter",
+            "table_catalog_id": current["accountId"],
+            "table_name": example_aws_glue_catalog_table["name"],
+            "column_wildcard": {
+                "excluded_column_names": [],
+            },
+            "row_filter": {
+                "filter_expression": "region = 'US-WEST'",
             },
         })
         ```
@@ -185,13 +255,83 @@ class DataCellsFilter(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.lakeformation.DataCellsFilter("example", table_data={
-            "database_name": test["name"],
+            "database_name": example_aws_glue_catalog_database["name"],
             "name": "example",
             "table_catalog_id": current["accountId"],
-            "table_name": test_aws_glue_catalog_table["name"],
+            "table_name": example_aws_glue_catalog_table["name"],
             "column_names": ["my_column"],
             "row_filter": {
                 "filter_expression": "my_column='example'",
+            },
+        })
+        ```
+
+        ### Filter with Excluded Columns Only (No Row Filter)
+
+        When excluding columns without a row filter, you must include `all_rows_wildcard {}`:
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        excluded_columns = aws.lakeformation.DataCellsFilter("excluded_columns", table_data={
+            "database_name": example["name"],
+            "name": "exclude-pii",
+            "table_catalog_id": current["accountId"],
+            "table_name": example_aws_glue_catalog_table["name"],
+            "column_wildcard": {
+                "excluded_column_names": [
+                    "ssn",
+                    "credit_card",
+                ],
+            },
+            "row_filter": {
+                "all_rows_wildcard": {},
+            },
+        })
+        ```
+
+        ### Filter with Row Filter and Excluded Columns
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        row_and_column = aws.lakeformation.DataCellsFilter("row_and_column", table_data={
+            "database_name": example["name"],
+            "name": "marketing-filtered",
+            "table_catalog_id": current["accountId"],
+            "table_name": example_aws_glue_catalog_table["name"],
+            "column_wildcard": {
+                "excluded_column_names": [
+                    "salary",
+                    "bonus",
+                ],
+            },
+            "row_filter": {
+                "filter_expression": "department = 'Marketing'",
+            },
+        })
+        ```
+
+        ### Filter with Row Filter Only (All Columns Included)
+
+        To include all columns with a row filter, set `excluded_column_names` to an empty list:
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        row_only = aws.lakeformation.DataCellsFilter("row_only", table_data={
+            "database_name": example["name"],
+            "name": "regional-filter",
+            "table_catalog_id": current["accountId"],
+            "table_name": example_aws_glue_catalog_table["name"],
+            "column_wildcard": {
+                "excluded_column_names": [],
+            },
+            "row_filter": {
+                "filter_expression": "region = 'US-WEST'",
             },
         })
         ```

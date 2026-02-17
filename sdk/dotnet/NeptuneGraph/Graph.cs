@@ -51,7 +51,7 @@ namespace Pulumi.Aws.NeptuneGraph
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import `aws_neptunegraph_graph` using the graph identifier. For example:
+    /// Using `pulumi import`, import `aws.neptunegraph.Graph` using the graph identifier. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:neptunegraph/graph:Graph example "graph_id"
@@ -79,11 +79,7 @@ namespace Pulumi.Aws.NeptuneGraph
         public Output<string> Endpoint { get; private set; } = null!;
 
         /// <summary>
-        /// The graph name. For example: my-graph-1.
-        /// 								The name must contain from 1 to 63 letters, numbers, or hyphens, 
-        /// 								and its first character must be a letter. It cannot end with a hyphen or contain two consecutive hyphens.
-        /// 								If you don't specify a graph name, a unique graph name is generated for you using the prefix graph-for, 
-        /// 								followed by a combination of Stack Name and a UUID.
+        /// Contains a user-supplied name for the Graph. If omitted, Terraform will assign a random, unique identifier.
         /// </summary>
         [Output("graphName")]
         public Output<string> GraphName { get; private set; } = null!;
@@ -200,11 +196,7 @@ namespace Pulumi.Aws.NeptuneGraph
         public Input<bool>? DeletionProtection { get; set; }
 
         /// <summary>
-        /// The graph name. For example: my-graph-1.
-        /// 								The name must contain from 1 to 63 letters, numbers, or hyphens, 
-        /// 								and its first character must be a letter. It cannot end with a hyphen or contain two consecutive hyphens.
-        /// 								If you don't specify a graph name, a unique graph name is generated for you using the prefix graph-for, 
-        /// 								followed by a combination of Stack Name and a UUID.
+        /// Contains a user-supplied name for the Graph. If omitted, Terraform will assign a random, unique identifier.
         /// </summary>
         [Input("graphName")]
         public Input<string>? GraphName { get; set; }
@@ -295,11 +287,7 @@ namespace Pulumi.Aws.NeptuneGraph
         public Input<string>? Endpoint { get; set; }
 
         /// <summary>
-        /// The graph name. For example: my-graph-1.
-        /// 								The name must contain from 1 to 63 letters, numbers, or hyphens, 
-        /// 								and its first character must be a letter. It cannot end with a hyphen or contain two consecutive hyphens.
-        /// 								If you don't specify a graph name, a unique graph name is generated for you using the prefix graph-for, 
-        /// 								followed by a combination of Stack Name and a UUID.
+        /// Contains a user-supplied name for the Graph. If omitted, Terraform will assign a random, unique identifier.
         /// </summary>
         [Input("graphName")]
         public Input<string>? GraphName { get; set; }

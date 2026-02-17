@@ -49,36 +49,31 @@ __all__ = [
     'StageRouteSettingArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class ApiCorsConfigurationArgsDict(TypedDict):
-        allow_credentials: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether credentials are included in the CORS request.
-        """
-        allow_headers: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Set of allowed HTTP headers.
-        """
-        allow_methods: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Set of allowed HTTP methods.
-        """
-        allow_origins: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Set of allowed origins.
-        """
-        expose_headers: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Set of exposed HTTP headers.
-        """
-        max_age: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Number of seconds that the browser should cache preflight request results.
-        """
-elif False:
-    ApiCorsConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class ApiCorsConfigurationArgsDict(TypedDict):
+    allow_credentials: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether credentials are included in the CORS request.
+    """
+    allow_headers: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Set of allowed HTTP headers.
+    """
+    allow_methods: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Set of allowed HTTP methods.
+    """
+    allow_origins: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Set of allowed origins.
+    """
+    expose_headers: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Set of exposed HTTP headers.
+    """
+    max_age: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Number of seconds that the browser should cache preflight request results.
+    """
 
 @pulumi.input_type
 class ApiCorsConfigurationArgs:
@@ -183,18 +178,15 @@ class ApiCorsConfigurationArgs:
         pulumi.set(self, "max_age", value)
 
 
-if not MYPY:
-    class AuthorizerJwtConfigurationArgsDict(TypedDict):
-        audiences: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        List of the intended recipients of the JWT. A valid JWT must provide an aud that matches at least one entry in this list.
-        """
-        issuer: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Base domain of the identity provider that issues JSON Web Tokens, such as the `endpoint` attribute of the `cognito.UserPool` resource.
-        """
-elif False:
-    AuthorizerJwtConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class AuthorizerJwtConfigurationArgsDict(TypedDict):
+    audiences: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    List of the intended recipients of the JWT. A valid JWT must provide an aud that matches at least one entry in this list.
+    """
+    issuer: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Base domain of the identity provider that issues JSON Web Tokens, such as the `endpoint` attribute of the `cognito.UserPool` resource.
+    """
 
 @pulumi.input_type
 class AuthorizerJwtConfigurationArgs:
@@ -235,38 +227,35 @@ class AuthorizerJwtConfigurationArgs:
         pulumi.set(self, "issuer", value)
 
 
-if not MYPY:
-    class DomainNameDomainNameConfigurationArgsDict(TypedDict):
-        certificate_arn: pulumi.Input[_builtins.str]
-        """
-        ARN of an AWS-managed certificate that will be used by the endpoint for the domain name. AWS Certificate Manager is the only supported source. Use the `acm.Certificate` resource to configure an ACM certificate.
-        """
-        endpoint_type: pulumi.Input[_builtins.str]
-        """
-        Endpoint type. Valid values: `REGIONAL`.
-        """
-        security_policy: pulumi.Input[_builtins.str]
-        """
-        Transport Layer Security (TLS) version of the [security policy](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-custom-domain-tls-version.html) for the domain name. Valid values: `TLS_1_2`.
-        """
-        hosted_zone_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Amazon Route 53 Hosted Zone ID of the endpoint.
-        """
-        ip_address_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The IP address types that can invoke the domain name. Valid values: `ipv4`, `dualstack`. Use `ipv4` to allow only IPv4 addresses to invoke your domain name, or use `dualstack` to allow both IPv4 and IPv6 addresses to invoke your domain name. Defaults to `ipv4`.
-        """
-        ownership_verification_certificate_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        ARN of the AWS-issued certificate used to validate custom domain ownership (when `certificate_arn` is issued via an ACM Private CA or `mutual_tls_authentication` is configured with an ACM-imported certificate.)
-        """
-        target_domain_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Target domain name.
-        """
-elif False:
-    DomainNameDomainNameConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class DomainNameDomainNameConfigurationArgsDict(TypedDict):
+    certificate_arn: pulumi.Input[_builtins.str]
+    """
+    ARN of an AWS-managed certificate that will be used by the endpoint for the domain name. AWS Certificate Manager is the only supported source. Use the `acm.Certificate` resource to configure an ACM certificate.
+    """
+    endpoint_type: pulumi.Input[_builtins.str]
+    """
+    Endpoint type. Valid values: `REGIONAL`.
+    """
+    security_policy: pulumi.Input[_builtins.str]
+    """
+    Transport Layer Security (TLS) version of the [security policy](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-custom-domain-tls-version.html) for the domain name. Valid values: `TLS_1_2`.
+    """
+    hosted_zone_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Amazon Route 53 Hosted Zone ID of the endpoint.
+    """
+    ip_address_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The IP address types that can invoke the domain name. Valid values: `ipv4`, `dualstack`. Use `ipv4` to allow only IPv4 addresses to invoke your domain name, or use `dualstack` to allow both IPv4 and IPv6 addresses to invoke your domain name. Defaults to `ipv4`.
+    """
+    ownership_verification_certificate_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    ARN of the AWS-issued certificate used to validate custom domain ownership (when `certificate_arn` is issued via an ACM Private CA or `mutual_tls_authentication` is configured with an ACM-imported certificate.)
+    """
+    target_domain_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Target domain name.
+    """
 
 @pulumi.input_type
 class DomainNameDomainNameConfigurationArgs:
@@ -384,18 +373,15 @@ class DomainNameDomainNameConfigurationArgs:
         pulumi.set(self, "target_domain_name", value)
 
 
-if not MYPY:
-    class DomainNameMutualTlsAuthenticationArgsDict(TypedDict):
-        truststore_uri: pulumi.Input[_builtins.str]
-        """
-        Amazon S3 URL that specifies the truststore for mutual TLS authentication, for example, `s3://bucket-name/key-name`. The truststore can contain certificates from public or private certificate authorities. To update the truststore, upload a new version to S3, and then update your custom domain name to use the new version.
-        """
-        truststore_version: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Version of the S3 object that contains the truststore. To specify a version, you must have versioning enabled for the S3 bucket.
-        """
-elif False:
-    DomainNameMutualTlsAuthenticationArgsDict: TypeAlias = Mapping[str, Any]
+class DomainNameMutualTlsAuthenticationArgsDict(TypedDict):
+    truststore_uri: pulumi.Input[_builtins.str]
+    """
+    Amazon S3 URL that specifies the truststore for mutual TLS authentication, for example, `s3://bucket-name/key-name`. The truststore can contain certificates from public or private certificate authorities. To update the truststore, upload a new version to S3, and then update your custom domain name to use the new version.
+    """
+    truststore_version: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Version of the S3 object that contains the truststore. To specify a version, you must have versioning enabled for the S3 bucket.
+    """
 
 @pulumi.input_type
 class DomainNameMutualTlsAuthenticationArgs:
@@ -435,19 +421,16 @@ class DomainNameMutualTlsAuthenticationArgs:
         pulumi.set(self, "truststore_version", value)
 
 
-if not MYPY:
-    class IntegrationResponseParameterArgsDict(TypedDict):
-        mappings: pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]
-        """
-        Key-value map. The key of this map identifies the location of the request parameter to change, and how to change it. The corresponding value specifies the new data for the parameter.
-        See the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-parameter-mapping.html) for details.
-        """
-        status_code: pulumi.Input[_builtins.str]
-        """
-        HTTP status code in the range 200-599.
-        """
-elif False:
-    IntegrationResponseParameterArgsDict: TypeAlias = Mapping[str, Any]
+class IntegrationResponseParameterArgsDict(TypedDict):
+    mappings: pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]
+    """
+    Key-value map. The key of this map identifies the location of the request parameter to change, and how to change it. The corresponding value specifies the new data for the parameter.
+    See the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-parameter-mapping.html) for details.
+    """
+    status_code: pulumi.Input[_builtins.str]
+    """
+    HTTP status code in the range 200-599.
+    """
 
 @pulumi.input_type
 class IntegrationResponseParameterArgs:
@@ -488,14 +471,11 @@ class IntegrationResponseParameterArgs:
         pulumi.set(self, "status_code", value)
 
 
-if not MYPY:
-    class IntegrationTlsConfigArgsDict(TypedDict):
-        server_name_to_verify: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        If you specify a server name, API Gateway uses it to verify the hostname on the integration's certificate. The server name is also included in the TLS handshake to support Server Name Indication (SNI) or virtual hosting.
-        """
-elif False:
-    IntegrationTlsConfigArgsDict: TypeAlias = Mapping[str, Any]
+class IntegrationTlsConfigArgsDict(TypedDict):
+    server_name_to_verify: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    If you specify a server name, API Gateway uses it to verify the hostname on the integration's certificate. The server name is also included in the TLS handshake to support Server Name Indication (SNI) or virtual hosting.
+    """
 
 @pulumi.input_type
 class IntegrationTlsConfigArgs:
@@ -520,18 +500,15 @@ class IntegrationTlsConfigArgs:
         pulumi.set(self, "server_name_to_verify", value)
 
 
-if not MYPY:
-    class RouteRequestParameterArgsDict(TypedDict):
-        request_parameter_key: pulumi.Input[_builtins.str]
-        """
-        Request parameter key. This is a [request data mapping parameter](https://docs.aws.amazon.com/apigateway/latest/developerguide/websocket-api-data-mapping.html#websocket-mapping-request-parameters).
-        """
-        required: pulumi.Input[_builtins.bool]
-        """
-        Boolean whether or not the parameter is required.
-        """
-elif False:
-    RouteRequestParameterArgsDict: TypeAlias = Mapping[str, Any]
+class RouteRequestParameterArgsDict(TypedDict):
+    request_parameter_key: pulumi.Input[_builtins.str]
+    """
+    Request parameter key. This is a [request data mapping parameter](https://docs.aws.amazon.com/apigateway/latest/developerguide/websocket-api-data-mapping.html#websocket-mapping-request-parameters).
+    """
+    required: pulumi.Input[_builtins.bool]
+    """
+    Boolean whether or not the parameter is required.
+    """
 
 @pulumi.input_type
 class RouteRequestParameterArgs:
@@ -570,14 +547,11 @@ class RouteRequestParameterArgs:
         pulumi.set(self, "required", value)
 
 
-if not MYPY:
-    class RoutingRuleActionArgsDict(TypedDict):
-        invoke_api: pulumi.Input['RoutingRuleActionInvokeApiArgsDict']
-        """
-        Configuration to invoke a stage of a target API. Only REST APIs are supported. See below.
-        """
-elif False:
-    RoutingRuleActionArgsDict: TypeAlias = Mapping[str, Any]
+class RoutingRuleActionArgsDict(TypedDict):
+    invoke_api: pulumi.Input['RoutingRuleActionInvokeApiArgsDict']
+    """
+    Configuration to invoke a stage of a target API. Only REST APIs are supported. See below.
+    """
 
 @pulumi.input_type
 class RoutingRuleActionArgs:
@@ -601,22 +575,19 @@ class RoutingRuleActionArgs:
         pulumi.set(self, "invoke_api", value)
 
 
-if not MYPY:
-    class RoutingRuleActionInvokeApiArgsDict(TypedDict):
-        api_id: pulumi.Input[_builtins.str]
-        """
-        Action to invoke a stage of a target API. Only REST APIs are supported.
-        """
-        stage: pulumi.Input[_builtins.str]
-        """
-        Action to invoke a stage of a target API. Only REST APIs are supported.
-        """
-        strip_base_path: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Action to invoke a stage of a target API. Only REST APIs are supported.
-        """
-elif False:
-    RoutingRuleActionInvokeApiArgsDict: TypeAlias = Mapping[str, Any]
+class RoutingRuleActionInvokeApiArgsDict(TypedDict):
+    api_id: pulumi.Input[_builtins.str]
+    """
+    Action to invoke a stage of a target API. Only REST APIs are supported.
+    """
+    stage: pulumi.Input[_builtins.str]
+    """
+    Action to invoke a stage of a target API. Only REST APIs are supported.
+    """
+    strip_base_path: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Action to invoke a stage of a target API. Only REST APIs are supported.
+    """
 
 @pulumi.input_type
 class RoutingRuleActionInvokeApiArgs:
@@ -671,18 +642,15 @@ class RoutingRuleActionInvokeApiArgs:
         pulumi.set(self, "strip_base_path", value)
 
 
-if not MYPY:
-    class RoutingRuleConditionArgsDict(TypedDict):
-        match_base_paths: NotRequired[pulumi.Input['RoutingRuleConditionMatchBasePathsArgsDict']]
-        """
-        The base path to be matched. See below.
-        """
-        match_headers: NotRequired[pulumi.Input['RoutingRuleConditionMatchHeadersArgsDict']]
-        """
-        The headers to be matched. See below.
-        """
-elif False:
-    RoutingRuleConditionArgsDict: TypeAlias = Mapping[str, Any]
+class RoutingRuleConditionArgsDict(TypedDict):
+    match_base_paths: NotRequired[pulumi.Input['RoutingRuleConditionMatchBasePathsArgsDict']]
+    """
+    The base path to be matched. See below.
+    """
+    match_headers: NotRequired[pulumi.Input['RoutingRuleConditionMatchHeadersArgsDict']]
+    """
+    The headers to be matched. See below.
+    """
 
 @pulumi.input_type
 class RoutingRuleConditionArgs:
@@ -723,14 +691,11 @@ class RoutingRuleConditionArgs:
         pulumi.set(self, "match_headers", value)
 
 
-if not MYPY:
-    class RoutingRuleConditionMatchBasePathsArgsDict(TypedDict):
-        any_ofs: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        List of strings of the case sensitive base path to be matched.
-        """
-elif False:
-    RoutingRuleConditionMatchBasePathsArgsDict: TypeAlias = Mapping[str, Any]
+class RoutingRuleConditionMatchBasePathsArgsDict(TypedDict):
+    any_ofs: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    List of strings of the case sensitive base path to be matched.
+    """
 
 @pulumi.input_type
 class RoutingRuleConditionMatchBasePathsArgs:
@@ -754,14 +719,11 @@ class RoutingRuleConditionMatchBasePathsArgs:
         pulumi.set(self, "any_ofs", value)
 
 
-if not MYPY:
-    class RoutingRuleConditionMatchHeadersArgsDict(TypedDict):
-        any_of: pulumi.Input['RoutingRuleConditionMatchHeadersAnyOfArgsDict']
-        """
-        Configuration of the headers to be matched. There is a match if any of the header name and header value globs are matched. See below.
-        """
-elif False:
-    RoutingRuleConditionMatchHeadersArgsDict: TypeAlias = Mapping[str, Any]
+class RoutingRuleConditionMatchHeadersArgsDict(TypedDict):
+    any_of: pulumi.Input['RoutingRuleConditionMatchHeadersAnyOfArgsDict']
+    """
+    Configuration of the headers to be matched. There is a match if any of the header name and header value globs are matched. See below.
+    """
 
 @pulumi.input_type
 class RoutingRuleConditionMatchHeadersArgs:
@@ -785,18 +747,15 @@ class RoutingRuleConditionMatchHeadersArgs:
         pulumi.set(self, "any_of", value)
 
 
-if not MYPY:
-    class RoutingRuleConditionMatchHeadersAnyOfArgsDict(TypedDict):
-        header: pulumi.Input[_builtins.str]
-        """
-        The case insensitive header name to be matched. The header name must be less than 40 characters and the only allowed characters are a-z, A-Z, 0-9, and the following special characters: *?-!#$%&'.^_`|~.
-        """
-        value_glob: pulumi.Input[_builtins.str]
-        """
-        The case sensitive header glob value to be matched against entire header value. The header glob value must be less than 128 characters and the only allowed characters are a-z, A-Z, 0-9, and the following special characters: \\*?-!#$%&'.^_`|~. Wildcard matching is supported for header glob values but must be for \\*prefix-match, suffix-match*, or \\*infix*-match.
-        """
-elif False:
-    RoutingRuleConditionMatchHeadersAnyOfArgsDict: TypeAlias = Mapping[str, Any]
+class RoutingRuleConditionMatchHeadersAnyOfArgsDict(TypedDict):
+    header: pulumi.Input[_builtins.str]
+    """
+    The case insensitive header name to be matched. The header name must be less than 40 characters and the only allowed characters are a-z, A-Z, 0-9, and the following special characters: *?-!#$%&'.^_`|~.
+    """
+    value_glob: pulumi.Input[_builtins.str]
+    """
+    The case sensitive header glob value to be matched against entire header value. The header glob value must be less than 128 characters and the only allowed characters are a-z, A-Z, 0-9, and the following special characters: \\*?-!#$%&'.^_`|~. Wildcard matching is supported for header glob values but must be for \\*prefix-match, suffix-match*, or \\*infix*-match.
+    """
 
 @pulumi.input_type
 class RoutingRuleConditionMatchHeadersAnyOfArgs:
@@ -835,18 +794,15 @@ class RoutingRuleConditionMatchHeadersAnyOfArgs:
         pulumi.set(self, "value_glob", value)
 
 
-if not MYPY:
-    class StageAccessLogSettingsArgsDict(TypedDict):
-        destination_arn: pulumi.Input[_builtins.str]
-        """
-        ARN of the CloudWatch Logs log group to receive access logs. Any trailing `:*` is trimmed from the ARN.
-        """
-        format: pulumi.Input[_builtins.str]
-        """
-        Single line [format](https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-logging.html#apigateway-cloudwatch-log-formats) of the access logs of data. Refer to log settings for [HTTP](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-logging-variables.html) or [Websocket](https://docs.aws.amazon.com/apigateway/latest/developerguide/websocket-api-logging.html).
-        """
-elif False:
-    StageAccessLogSettingsArgsDict: TypeAlias = Mapping[str, Any]
+class StageAccessLogSettingsArgsDict(TypedDict):
+    destination_arn: pulumi.Input[_builtins.str]
+    """
+    ARN of the CloudWatch Logs log group to receive access logs. Any trailing `:*` is trimmed from the ARN.
+    """
+    format: pulumi.Input[_builtins.str]
+    """
+    Single line [format](https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-logging.html#apigateway-cloudwatch-log-formats) of the access logs of data. Refer to log settings for [HTTP](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-logging-variables.html) or [Websocket](https://docs.aws.amazon.com/apigateway/latest/developerguide/websocket-api-logging.html).
+    """
 
 @pulumi.input_type
 class StageAccessLogSettingsArgs:
@@ -885,32 +841,29 @@ class StageAccessLogSettingsArgs:
         pulumi.set(self, "format", value)
 
 
-if not MYPY:
-    class StageDefaultRouteSettingsArgsDict(TypedDict):
-        data_trace_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether data trace logging is enabled for the default route. Affects the log entries pushed to Amazon CloudWatch Logs.
-        Defaults to `false`. Supported only for WebSocket APIs.
-        """
-        detailed_metrics_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether detailed metrics are enabled for the default route. Defaults to `false`.
-        """
-        logging_level: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Logging level for the default route. Affects the log entries pushed to Amazon CloudWatch Logs.
-        Valid values: `ERROR`, `INFO`, `OFF`. Defaults to `OFF`. Supported only for WebSocket APIs. This provider will only perform drift detection of its value when present in a configuration.
-        """
-        throttling_burst_limit: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Throttling burst limit for the default route.
-        """
-        throttling_rate_limit: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        Throttling rate limit for the default route.
-        """
-elif False:
-    StageDefaultRouteSettingsArgsDict: TypeAlias = Mapping[str, Any]
+class StageDefaultRouteSettingsArgsDict(TypedDict):
+    data_trace_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether data trace logging is enabled for the default route. Affects the log entries pushed to Amazon CloudWatch Logs.
+    Defaults to `false`. Supported only for WebSocket APIs.
+    """
+    detailed_metrics_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether detailed metrics are enabled for the default route. Defaults to `false`.
+    """
+    logging_level: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Logging level for the default route. Affects the log entries pushed to Amazon CloudWatch Logs.
+    Valid values: `ERROR`, `INFO`, `OFF`. Defaults to `OFF`. Supported only for WebSocket APIs. This provider will only perform drift detection of its value when present in a configuration.
+    """
+    throttling_burst_limit: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Throttling burst limit for the default route.
+    """
+    throttling_rate_limit: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    Throttling rate limit for the default route.
+    """
 
 @pulumi.input_type
 class StageDefaultRouteSettingsArgs:
@@ -1003,36 +956,33 @@ class StageDefaultRouteSettingsArgs:
         pulumi.set(self, "throttling_rate_limit", value)
 
 
-if not MYPY:
-    class StageRouteSettingArgsDict(TypedDict):
-        route_key: pulumi.Input[_builtins.str]
-        """
-        Route key.
-        """
-        data_trace_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether data trace logging is enabled for the route. Affects the log entries pushed to Amazon CloudWatch Logs.
-        Defaults to `false`. Supported only for WebSocket APIs.
-        """
-        detailed_metrics_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether detailed metrics are enabled for the route. Defaults to `false`.
-        """
-        logging_level: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Logging level for the route. Affects the log entries pushed to Amazon CloudWatch Logs.
-        Valid values: `ERROR`, `INFO`, `OFF`. Defaults to `OFF`. Supported only for WebSocket APIs. This provider will only perform drift detection of its value when present in a configuration.
-        """
-        throttling_burst_limit: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Throttling burst limit for the route.
-        """
-        throttling_rate_limit: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        Throttling rate limit for the route.
-        """
-elif False:
-    StageRouteSettingArgsDict: TypeAlias = Mapping[str, Any]
+class StageRouteSettingArgsDict(TypedDict):
+    route_key: pulumi.Input[_builtins.str]
+    """
+    Route key.
+    """
+    data_trace_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether data trace logging is enabled for the route. Affects the log entries pushed to Amazon CloudWatch Logs.
+    Defaults to `false`. Supported only for WebSocket APIs.
+    """
+    detailed_metrics_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether detailed metrics are enabled for the route. Defaults to `false`.
+    """
+    logging_level: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Logging level for the route. Affects the log entries pushed to Amazon CloudWatch Logs.
+    Valid values: `ERROR`, `INFO`, `OFF`. Defaults to `OFF`. Supported only for WebSocket APIs. This provider will only perform drift detection of its value when present in a configuration.
+    """
+    throttling_burst_limit: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Throttling burst limit for the route.
+    """
+    throttling_rate_limit: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    Throttling rate limit for the route.
+    """
 
 @pulumi.input_type
 class StageRouteSettingArgs:

@@ -41,7 +41,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Using `pulumi import`, import OpenSearch Domain Policy using `domain_name` prefixed with `esd-policy-`. For example:
+ * Using `pulumi import`, import OpenSearch Domain Policy using `domainName` prefixed with `esd-policy-`. For example:
  *
  * ```sh
  * $ pulumi import aws:opensearch/domainPolicy:DomainPolicy example esd-policy-tf-test

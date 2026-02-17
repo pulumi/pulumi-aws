@@ -25,7 +25,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Using `pulumi import`, import `aws_apigatewayv2_api_mapping` using the API mapping identifier and domain name. For example:
+ * Using `pulumi import`, import `aws.apigatewayv2.ApiMapping` using the API mapping identifier and domain name. For example:
  *
  * ```sh
  * $ pulumi import aws:apigatewayv2/apiMapping:ApiMapping example 1122334/ws-api.example.com

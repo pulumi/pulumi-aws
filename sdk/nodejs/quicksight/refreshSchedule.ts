@@ -116,6 +116,9 @@ export class RefreshSchedule extends pulumi.CustomResource {
      * Amazon Resource Name (ARN) of the refresh schedule.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
+    /**
+     * AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
+     */
     declare public readonly awsAccountId: pulumi.Output<string>;
     /**
      * The ID of the dataset.
@@ -186,6 +189,9 @@ export interface RefreshScheduleState {
      * Amazon Resource Name (ARN) of the refresh schedule.
      */
     arn?: pulumi.Input<string>;
+    /**
+     * AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
+     */
     awsAccountId?: pulumi.Input<string>;
     /**
      * The ID of the dataset.
@@ -211,6 +217,9 @@ export interface RefreshScheduleState {
  * The set of arguments for constructing a RefreshSchedule resource.
  */
 export interface RefreshScheduleArgs {
+    /**
+     * AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
+     */
     awsAccountId?: pulumi.Input<string>;
     /**
      * The ID of the dataset.

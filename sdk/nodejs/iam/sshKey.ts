@@ -26,7 +26,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Using `pulumi import`, import SSH public keys using the `username`, `ssh_public_key_id`, and `encoding`. For example:
+ * Using `pulumi import`, import SSH public keys using the `username`, `sshPublicKeyId`, and `encoding`. For example:
  *
  * ```sh
  * $ pulumi import aws:iam/sshKey:SshKey user user:APKAJNCNNJICVN7CFKCA:SSH

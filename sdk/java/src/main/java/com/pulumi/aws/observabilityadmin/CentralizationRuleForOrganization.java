@@ -239,7 +239,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Using `pulumi import`, import CloudWatch Observability Admin Centralization Rule For Organization using the `rule_name`. For example:
+ * Using `pulumi import`, import CloudWatch Observability Admin Centralization Rule For Organization using the `ruleName`. For example:
  * 
  * ```sh
  * $ pulumi import aws:observabilityadmin/centralizationRuleForOrganization:CentralizationRuleForOrganization example example-centralization-rule

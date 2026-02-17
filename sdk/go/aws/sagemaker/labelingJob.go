@@ -23,8 +23,6 @@ import (
 //
 // import (
 //
-//	"fmt"
-//
 //	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/sagemaker"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
@@ -74,7 +72,7 @@ import (
 //
 // ## Import
 //
-// Using `pulumi import`, import labeling jobs using the `labeling_job_name`. For example:
+// Using `pulumi import`, import labeling jobs using the `labelingJobName`. For example:
 //
 // ```sh
 // $ pulumi import aws:sagemaker/labelingJob:LabelingJob example my-labeling-job

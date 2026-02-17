@@ -57,7 +57,7 @@ namespace Pulumi.Aws.CloudWatch
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import CloudWatch Logs Delivery Destination using the `name`. For example:
+    /// Using `pulumi import`, import CloudWatch Logs Delivery Destination using the `Name`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:cloudwatch/logDeliveryDestination:LogDeliveryDestination example example

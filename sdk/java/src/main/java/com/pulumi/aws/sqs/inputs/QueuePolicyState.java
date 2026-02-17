@@ -17,9 +17,17 @@ public final class QueuePolicyState extends com.pulumi.resources.ResourceArgs {
 
     public static final QueuePolicyState Empty = new QueuePolicyState();
 
+    /**
+     * JSON policy for the SQS queue. For more information about building AWS IAM policy documents with Terraform, see the AWS IAM Policy Document Guide. Ensure that `Version = &#34;2012-10-17&#34;` is set in the policy or AWS may hang in creating the queue.
+     * 
+     */
     @Import(name="policy")
     private @Nullable Output<Either<String,PolicyDocumentArgs>> policy;
 
+    /**
+     * @return JSON policy for the SQS queue. For more information about building AWS IAM policy documents with Terraform, see the AWS IAM Policy Document Guide. Ensure that `Version = &#34;2012-10-17&#34;` is set in the policy or AWS may hang in creating the queue.
+     * 
+     */
     public Optional<Output<Either<String,PolicyDocumentArgs>>> policy() {
         return Optional.ofNullable(this.policy);
     }
@@ -80,19 +88,43 @@ public final class QueuePolicyState extends com.pulumi.resources.ResourceArgs {
             $ = new QueuePolicyState(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param policy JSON policy for the SQS queue. For more information about building AWS IAM policy documents with Terraform, see the AWS IAM Policy Document Guide. Ensure that `Version = &#34;2012-10-17&#34;` is set in the policy or AWS may hang in creating the queue.
+         * 
+         * @return builder
+         * 
+         */
         public Builder policy(@Nullable Output<Either<String,PolicyDocumentArgs>> policy) {
             $.policy = policy;
             return this;
         }
 
+        /**
+         * @param policy JSON policy for the SQS queue. For more information about building AWS IAM policy documents with Terraform, see the AWS IAM Policy Document Guide. Ensure that `Version = &#34;2012-10-17&#34;` is set in the policy or AWS may hang in creating the queue.
+         * 
+         * @return builder
+         * 
+         */
         public Builder policy(Either<String,PolicyDocumentArgs> policy) {
             return policy(Output.of(policy));
         }
 
+        /**
+         * @param policy JSON policy for the SQS queue. For more information about building AWS IAM policy documents with Terraform, see the AWS IAM Policy Document Guide. Ensure that `Version = &#34;2012-10-17&#34;` is set in the policy or AWS may hang in creating the queue.
+         * 
+         * @return builder
+         * 
+         */
         public Builder policy(String policy) {
             return policy(Either.ofLeft(policy));
         }
 
+        /**
+         * @param policy JSON policy for the SQS queue. For more information about building AWS IAM policy documents with Terraform, see the AWS IAM Policy Document Guide. Ensure that `Version = &#34;2012-10-17&#34;` is set in the policy or AWS may hang in creating the queue.
+         * 
+         * @return builder
+         * 
+         */
         public Builder policy(PolicyDocumentArgs policy) {
             return policy(Either.ofRight(policy));
         }

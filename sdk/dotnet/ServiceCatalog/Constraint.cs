@@ -44,7 +44,7 @@ namespace Pulumi.Aws.ServiceCatalog
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import `aws_servicecatalog_constraint` using the constraint ID. For example:
+    /// Using `pulumi import`, import `aws.servicecatalog.Constraint` using the constraint ID. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:servicecatalog/constraint:Constraint example cons-nmdkb6cgxfcrs

@@ -109,13 +109,11 @@ import (
 //			_, err = github.NewRepositoryWebhook(ctx, "bar", &github.RepositoryWebhookArgs{
 //				Repository: pulumi.Any(repo.Name),
 //				Name:       "web",
-//				Configuration: github.RepositoryWebhookConfigurationArgs{
-//					map[string]interface{}{
-//						"url":         barWebhook.Url,
-//						"contentType": "json",
-//						"insecureSsl": true,
-//						"secret":      webhookSecret,
-//					},
+//				Configuration: &github.RepositoryWebhookConfigurationArgs{
+//					Url:         barWebhook.Url,
+//					ContentType: pulumi.String("json"),
+//					InsecureSsl: pulumi.Bool(true),
+//					Secret:      pulumi.String(webhookSecret),
 //				},
 //				Events: pulumi.StringArray{
 //					pulumi.String("push"),
@@ -140,7 +138,9 @@ import (
 //
 // Using `pulumi import`, import CodePipeline Webhooks using their ARN. For example:
 //
-// % pulumi import aws_codepipeline_webhook.example arn:aws:codepipeline:us-west-2:123456789012:webhook:example
+// ```sh
+// $ pulumi import aws:codepipeline/webhook:Webhook example arn:aws:codepipeline:us-west-2:123456789012:webhook:example
+// ```
 type Webhook struct {
 	pulumi.CustomResourceState
 

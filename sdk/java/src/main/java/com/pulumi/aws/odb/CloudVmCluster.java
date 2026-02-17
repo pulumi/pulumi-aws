@@ -23,6 +23,10 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
+ * Terraform to manage cloud vm cluster resource in AWS for Oracle Database{@literal @}AWS. If underlying odb network and cloud exadata infrastructure is shared, ARN must be used while creating VM cluster.
+ * 
+ * You can find out more about Oracle Database{@literal @}AWS from [User Guide](https://docs.aws.amazon.com/odb/latest/UserGuide/what-is-odb.html).
+ * 
  * ## Example Usage
  * 
  * ### Basic Usage

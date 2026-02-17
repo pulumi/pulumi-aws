@@ -370,7 +370,9 @@ class Accelerator(pulumi.CustomResource):
 
         Using `pulumi import`, import Global Accelerator accelerators using the `arn`. For example:
 
-        % pulumi import aws_globalaccelerator_accelerator.example arn:aws:globalaccelerator::111111111111:accelerator/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+        ```sh
+        $ pulumi import aws:globalaccelerator/accelerator:Accelerator example arn:aws:globalaccelerator::111111111111:accelerator/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -418,7 +420,9 @@ class Accelerator(pulumi.CustomResource):
 
         Using `pulumi import`, import Global Accelerator accelerators using the `arn`. For example:
 
-        % pulumi import aws_globalaccelerator_accelerator.example arn:aws:globalaccelerator::111111111111:accelerator/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+        ```sh
+        $ pulumi import aws:globalaccelerator/accelerator:Accelerator example arn:aws:globalaccelerator::111111111111:accelerator/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+        ```
 
         :param str resource_name: The name of the resource.
         :param AcceleratorArgs args: The arguments to use to populate this resource's properties.

@@ -90,18 +90,6 @@ namespace Pulumi.Aws.Odb
 
     public sealed class GetNetworkPeeringConnectionsArgs : global::Pulumi.InvokeArgs
     {
-        [Input("odbPeeringConnections")]
-        private List<Inputs.GetNetworkPeeringConnectionsOdbPeeringConnectionArgs>? _odbPeeringConnections;
-
-        /// <summary>
-        /// The list of ODB peering connections. A summary of an ODB peering connection.
-        /// </summary>
-        public List<Inputs.GetNetworkPeeringConnectionsOdbPeeringConnectionArgs> OdbPeeringConnections
-        {
-            get => _odbPeeringConnections ?? (_odbPeeringConnections = new List<Inputs.GetNetworkPeeringConnectionsOdbPeeringConnectionArgs>());
-            set => _odbPeeringConnections = value;
-        }
-
         /// <summary>
         /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         /// </summary>
@@ -116,18 +104,6 @@ namespace Pulumi.Aws.Odb
 
     public sealed class GetNetworkPeeringConnectionsInvokeArgs : global::Pulumi.InvokeArgs
     {
-        [Input("odbPeeringConnections")]
-        private InputList<Inputs.GetNetworkPeeringConnectionsOdbPeeringConnectionInputArgs>? _odbPeeringConnections;
-
-        /// <summary>
-        /// The list of ODB peering connections. A summary of an ODB peering connection.
-        /// </summary>
-        public InputList<Inputs.GetNetworkPeeringConnectionsOdbPeeringConnectionInputArgs> OdbPeeringConnections
-        {
-            get => _odbPeeringConnections ?? (_odbPeeringConnections = new InputList<Inputs.GetNetworkPeeringConnectionsOdbPeeringConnectionInputArgs>());
-            set => _odbPeeringConnections = value;
-        }
-
         /// <summary>
         /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         /// </summary>

@@ -141,7 +141,7 @@ namespace Pulumi.Aws.DataZone
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import DataZone Form Type using a comma separated value of `domain_identifier`,`name`,`revision`. For example:
+    /// Using `pulumi import`, import DataZone Form Type using a comma separated value of `DomainIdentifier`,`Name`,`Revision`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:datazone/formType:FormType example domain_identifier,name,revision
@@ -219,6 +219,9 @@ namespace Pulumi.Aws.DataZone
         [Output("revision")]
         public Output<string> Revision { get; private set; } = null!;
 
+        /// <summary>
+        /// Status of form type. Must be "ENABLED" or "DISABLED" If status is set to "ENABLED" terraform cannot delete the resource until it is manually changed in the AWS console.
+        /// </summary>
         [Output("status")]
         public Output<string> Status { get; private set; } = null!;
 
@@ -307,6 +310,9 @@ namespace Pulumi.Aws.DataZone
         [Input("region")]
         public Input<string>? Region { get; set; }
 
+        /// <summary>
+        /// Status of form type. Must be "ENABLED" or "DISABLED" If status is set to "ENABLED" terraform cannot delete the resource until it is manually changed in the AWS console.
+        /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
 
@@ -395,6 +401,9 @@ namespace Pulumi.Aws.DataZone
         [Input("revision")]
         public Input<string>? Revision { get; set; }
 
+        /// <summary>
+        /// Status of form type. Must be "ENABLED" or "DISABLED" If status is set to "ENABLED" terraform cannot delete the resource until it is manually changed in the AWS console.
+        /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
 

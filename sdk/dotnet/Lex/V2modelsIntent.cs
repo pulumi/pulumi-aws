@@ -10,6 +10,192 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Lex
 {
     /// <summary>
+    /// Resource for managing an AWS Lex V2 Models Intent.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ### Basic Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using System.Text.Json;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var current = Aws.GetPartition.Invoke();
+    /// 
+    ///     var test = new Aws.Iam.Role("test", new()
+    ///     {
+    ///         Name = "botens_namn",
+    ///         AssumeRolePolicy = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///         {
+    ///             ["Version"] = "2012-10-17",
+    ///             ["Statement"] = new[]
+    ///             {
+    ///                 new Dictionary&lt;string, object?&gt;
+    ///                 {
+    ///                     ["Action"] = "sts:AssumeRole",
+    ///                     ["Effect"] = "Allow",
+    ///                     ["Sid"] = "",
+    ///                     ["Principal"] = new Dictionary&lt;string, object?&gt;
+    ///                     {
+    ///                         ["Service"] = "lexv2.amazonaws.com",
+    ///                     },
+    ///                 },
+    ///             },
+    ///         }),
+    ///     });
+    /// 
+    ///     var testRolePolicyAttachment = new Aws.Iam.RolePolicyAttachment("test", new()
+    ///     {
+    ///         Role = test.Name,
+    ///         PolicyArn = $"arn:{current.Apply(getPartitionResult =&gt; getPartitionResult.Partition)}:iam::aws:policy/AmazonLexFullAccess",
+    ///     });
+    /// 
+    ///     var testV2modelsBot = new Aws.Lex.V2modelsBot("test", new()
+    ///     {
+    ///         Name = "botens_namn",
+    ///         IdleSessionTtlInSeconds = 60,
+    ///         RoleArn = test.Arn,
+    ///         DataPrivacies = new[]
+    ///         {
+    ///             new Aws.Lex.Inputs.V2modelsBotDataPrivacyArgs
+    ///             {
+    ///                 ChildDirected = true,
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var testV2modelsBotLocale = new Aws.Lex.V2modelsBotLocale("test", new()
+    ///     {
+    ///         LocaleId = "en_US",
+    ///         BotId = testV2modelsBot.Id,
+    ///         BotVersion = "DRAFT",
+    ///         NLuIntentConfidenceThreshold = 0.7,
+    ///     });
+    /// 
+    ///     var testV2modelsBotVersion = new Aws.Lex.V2modelsBotVersion("test", new()
+    ///     {
+    ///         BotId = testV2modelsBot.Id,
+    ///         LocaleSpecification = testV2modelsBotLocale.LocaleId.Apply(localeId =&gt; 
+    ///         {
+    ///             { localeId, 
+    ///             {
+    ///                 { "sourceBotVersion", "DRAFT" },
+    ///             } },
+    ///         }),
+    ///     });
+    /// 
+    ///     var example = new Aws.Lex.V2modelsIntent("example", new()
+    ///     {
+    ///         BotId = testV2modelsBot.Id,
+    ///         BotVersion = testV2modelsBotLocale.BotVersion,
+    ///         Name = "botens_namn",
+    ///         LocaleId = testV2modelsBotLocale.LocaleId,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ### `ConfirmationSetting` Example
+    /// 
+    /// When using `ConfirmationSetting`, if you do not provide a `PromptAttemptsSpecification`, AWS Lex will provide default `PromptAttemptsSpecification`s. As a result, Terraform will report a difference in the configuration. To avoid this behavior, include the default `PromptAttemptsSpecification` configuration shown below.
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.Lex.V2modelsIntent("example", new()
+    ///     {
+    ///         BotId = test.Id,
+    ///         BotVersion = testAwsLexv2modelsBotLocale.BotVersion,
+    ///         Name = "botens_namn",
+    ///         LocaleId = testAwsLexv2modelsBotLocale.LocaleId,
+    ///         ConfirmationSetting = new Aws.Lex.Inputs.V2modelsIntentConfirmationSettingArgs
+    ///         {
+    ///             Active = true,
+    ///             PromptSpecification = new Aws.Lex.Inputs.V2modelsIntentConfirmationSettingPromptSpecificationArgs
+    ///             {
+    ///                 AllowInterrupt = true,
+    ///                 MaxRetries = 1,
+    ///                 MessageSelectionStrategy = "Ordered",
+    ///                 PromptAttemptsSpecifications = new[]
+    ///                 {
+    ///                     new Aws.Lex.Inputs.V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationArgs
+    ///                     {
+    ///                         AllowInterrupt = true,
+    ///                         MapBlockKey = "Initial",
+    ///                         AllowedInputTypes = new Aws.Lex.Inputs.V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationAllowedInputTypesArgs
+    ///                         {
+    ///                             AllowAudioInput = true,
+    ///                             AllowDtmfInput = true,
+    ///                         },
+    ///                         AudioAndDtmfInputSpecification = new Aws.Lex.Inputs.V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationArgs
+    ///                         {
+    ///                             StartTimeoutMs = 4000,
+    ///                             AudioSpecification = new Aws.Lex.Inputs.V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationAudioSpecificationArgs
+    ///                             {
+    ///                                 EndTimeoutMs = 640,
+    ///                                 MaxLengthMs = 15000,
+    ///                             },
+    ///                             DtmfSpecification = new Aws.Lex.Inputs.V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationDtmfSpecificationArgs
+    ///                             {
+    ///                                 DeletionCharacter = "*",
+    ///                                 EndCharacter = "#",
+    ///                                 EndTimeoutMs = 5000,
+    ///                                 MaxLength = 513,
+    ///                             },
+    ///                         },
+    ///                         TextInputSpecification = new Aws.Lex.Inputs.V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationTextInputSpecificationArgs
+    ///                         {
+    ///                             StartTimeoutMs = 30000,
+    ///                         },
+    ///                     },
+    ///                     new Aws.Lex.Inputs.V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationArgs
+    ///                     {
+    ///                         AllowInterrupt = true,
+    ///                         MapBlockKey = "Retry1",
+    ///                         AllowedInputTypes = new Aws.Lex.Inputs.V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationAllowedInputTypesArgs
+    ///                         {
+    ///                             AllowAudioInput = true,
+    ///                             AllowDtmfInput = true,
+    ///                         },
+    ///                         AudioAndDtmfInputSpecification = new Aws.Lex.Inputs.V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationArgs
+    ///                         {
+    ///                             StartTimeoutMs = 4000,
+    ///                             AudioSpecification = new Aws.Lex.Inputs.V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationAudioSpecificationArgs
+    ///                             {
+    ///                                 EndTimeoutMs = 640,
+    ///                                 MaxLengthMs = 15000,
+    ///                             },
+    ///                             DtmfSpecification = new Aws.Lex.Inputs.V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationDtmfSpecificationArgs
+    ///                             {
+    ///                                 DeletionCharacter = "*",
+    ///                                 EndCharacter = "#",
+    ///                                 EndTimeoutMs = 5000,
+    ///                                 MaxLength = 513,
+    ///                             },
+    ///                         },
+    ///                         TextInputSpecification = new Aws.Lex.Inputs.V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationTextInputSpecificationArgs
+    ///                         {
+    ///                             StartTimeoutMs = 30000,
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Lex V2 Models Intent using the `intent_id:bot_id:bot_version:locale_id`. For example:
@@ -39,6 +225,9 @@ namespace Pulumi.Aws.Lex
         [Output("closingSetting")]
         public Output<Outputs.V2modelsIntentClosingSetting?> ClosingSetting { get; private set; } = null!;
 
+        /// <summary>
+        /// Configuration block for prompts that Amazon Lex sends to the user to confirm the completion of an intent. If the user answers "no," the settings contain a statement that is sent to the user to end the intent. If you configure this block without `prompt_specification.*.prompt_attempts_specification`, AWS will provide default configurations for `Initial` and `Retry1` `PromptAttemptsSpecification`s. This will cause Terraform to report differences. Use the `ConfirmationSetting` configuration above in the Basic Usage example to avoid differences resulting from AWS default configuration. See `ConfirmationSetting`.
+        /// </summary>
         [Output("confirmationSetting")]
         public Output<Outputs.V2modelsIntentConfirmationSetting?> ConfirmationSetting { get; private set; } = null!;
 
@@ -207,6 +396,9 @@ namespace Pulumi.Aws.Lex
         [Input("closingSetting")]
         public Input<Inputs.V2modelsIntentClosingSettingArgs>? ClosingSetting { get; set; }
 
+        /// <summary>
+        /// Configuration block for prompts that Amazon Lex sends to the user to confirm the completion of an intent. If the user answers "no," the settings contain a statement that is sent to the user to end the intent. If you configure this block without `prompt_specification.*.prompt_attempts_specification`, AWS will provide default configurations for `Initial` and `Retry1` `PromptAttemptsSpecification`s. This will cause Terraform to report differences. Use the `ConfirmationSetting` configuration above in the Basic Usage example to avoid differences resulting from AWS default configuration. See `ConfirmationSetting`.
+        /// </summary>
         [Input("confirmationSetting")]
         public Input<Inputs.V2modelsIntentConfirmationSettingArgs>? ConfirmationSetting { get; set; }
 
@@ -343,6 +535,9 @@ namespace Pulumi.Aws.Lex
         [Input("closingSetting")]
         public Input<Inputs.V2modelsIntentClosingSettingGetArgs>? ClosingSetting { get; set; }
 
+        /// <summary>
+        /// Configuration block for prompts that Amazon Lex sends to the user to confirm the completion of an intent. If the user answers "no," the settings contain a statement that is sent to the user to end the intent. If you configure this block without `prompt_specification.*.prompt_attempts_specification`, AWS will provide default configurations for `Initial` and `Retry1` `PromptAttemptsSpecification`s. This will cause Terraform to report differences. Use the `ConfirmationSetting` configuration above in the Basic Usage example to avoid differences resulting from AWS default configuration. See `ConfirmationSetting`.
+        /// </summary>
         [Input("confirmationSetting")]
         public Input<Inputs.V2modelsIntentConfirmationSettingGetArgs>? ConfirmationSetting { get; set; }
 

@@ -27,7 +27,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Using `pulumi import`, import S3 Access Grants locations using the `account_id` and `access_grants_location_id`, separated by a comma (`,`). For example:
+ * Using `pulumi import`, import S3 Access Grants locations using the `accountId` and `accessGrantsLocationId`, separated by a comma (`,`). For example:
  *
  * ```sh
  * $ pulumi import aws:s3control/accessGrantsLocation:AccessGrantsLocation example 123456789012,default
@@ -69,6 +69,9 @@ export class AccessGrantsLocation extends pulumi.CustomResource {
      * Unique ID of the S3 Access Grants location.
      */
     declare public /*out*/ readonly accessGrantsLocationId: pulumi.Output<string>;
+    /**
+     * The AWS account ID for the S3 Access Grants location. Defaults to automatically determined account ID of the Terraform AWS provider.
+     */
     declare public readonly accountId: pulumi.Output<string>;
     /**
      * The ARN of the IAM role that S3 Access Grants should use when fulfilling runtime access
@@ -147,6 +150,9 @@ export interface AccessGrantsLocationState {
      * Unique ID of the S3 Access Grants location.
      */
     accessGrantsLocationId?: pulumi.Input<string>;
+    /**
+     * The AWS account ID for the S3 Access Grants location. Defaults to automatically determined account ID of the Terraform AWS provider.
+     */
     accountId?: pulumi.Input<string>;
     /**
      * The ARN of the IAM role that S3 Access Grants should use when fulfilling runtime access
@@ -175,6 +181,9 @@ export interface AccessGrantsLocationState {
  * The set of arguments for constructing a AccessGrantsLocation resource.
  */
 export interface AccessGrantsLocationArgs {
+    /**
+     * The AWS account ID for the S3 Access Grants location. Defaults to automatically determined account ID of the Terraform AWS provider.
+     */
     accountId?: pulumi.Input<string>;
     /**
      * The ARN of the IAM role that S3 Access Grants should use when fulfilling runtime access

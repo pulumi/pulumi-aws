@@ -73,7 +73,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Using `pulumi import`, import S3 Access Grants instance resource policies using the `account_id`. For example:
+ * Using `pulumi import`, import S3 Access Grants instance resource policies using the `accountId`. For example:
  * 
  * ```sh
  * $ pulumi import aws:s3control/accessGrantsInstanceResourcePolicy:AccessGrantsInstanceResourcePolicy example 123456789012
@@ -82,9 +82,17 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="aws:s3control/accessGrantsInstanceResourcePolicy:AccessGrantsInstanceResourcePolicy")
 public class AccessGrantsInstanceResourcePolicy extends com.pulumi.resources.CustomResource {
+    /**
+     * The AWS account ID for the S3 Access Grants instance. Defaults to automatically determined account ID of the Terraform AWS provider.
+     * 
+     */
     @Export(name="accountId", refs={String.class}, tree="[0]")
     private Output<String> accountId;
 
+    /**
+     * @return The AWS account ID for the S3 Access Grants instance. Defaults to automatically determined account ID of the Terraform AWS provider.
+     * 
+     */
     public Output<String> accountId() {
         return this.accountId;
     }

@@ -131,7 +131,7 @@ namespace Pulumi.Aws.DataZone
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import DataZone Glossary Term using a comma-delimited string combining the `domain_identifier`, `id`, and the `glossary_identifier`. For example:
+    /// Using `pulumi import`, import DataZone Glossary Term using a comma-delimited string combining the `DomainIdentifier`, `Id`, and the `GlossaryIdentifier`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:datazone/glossaryTerm:GlossaryTerm example domain-id,glossary-term-id,glossary-id

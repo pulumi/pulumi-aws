@@ -452,11 +452,13 @@ namespace Pulumi.Aws.LB
     /// 
     /// #### Required
     /// 
-    /// - `arn` (String) Amazon Resource Name (ARN) of the load balancer listener.
+    /// - `Arn` (String) Amazon Resource Name (ARN) of the load balancer listener.
     /// 
     /// Using `pulumi import`, import listeners using their ARN. For example:
     /// 
-    /// % pulumi import aws_lb_listener.front_end arn:aws:elasticloadbalancing:us-west-2:187416307283:listener/app/front-end-alb/8e4497da625e2d8a/9ab28ade35828f96
+    /// ```sh
+    /// $ pulumi import aws:lb/listener:Listener front_end arn:aws:elasticloadbalancing:us-west-2:187416307283:listener/app/front-end-alb/8e4497da625e2d8a/9ab28ade35828f96
+    /// ```
     /// </summary>
     [AwsResourceType("aws:lb/listener:Listener")]
     public partial class Listener : global::Pulumi.CustomResource

@@ -102,11 +102,13 @@ namespace Pulumi.Aws.ImageBuilder
     /// 
     /// #### Required
     /// 
-    /// - `arn` (String) Amazon Resource Name (ARN) of the Image Builder lifecycle policy.
+    /// - `Arn` (String) Amazon Resource Name (ARN) of the Image Builder lifecycle policy.
     /// 
-    /// Using `pulumi import`, import `aws_imagebuilder_lifecycle_policy` using the Amazon Resource Name (ARN). For example:
+    /// Using `pulumi import`, import `aws.imagebuilder.LifecyclePolicy` using the Amazon Resource Name (ARN). For example:
     /// 
-    /// % pulumi import aws_imagebuilder_lifecycle_policy.example arn:aws:imagebuilder:us-east-1:123456789012:lifecycle-policy/example
+    /// ```sh
+    /// $ pulumi import aws:imagebuilder/lifecyclePolicy:LifecyclePolicy example arn:aws:imagebuilder:us-east-1:123456789012:lifecycle-policy/example
+    /// ```
     /// </summary>
     [AwsResourceType("aws:imagebuilder/lifecyclePolicy:LifecyclePolicy")]
     public partial class LifecyclePolicy : global::Pulumi.CustomResource

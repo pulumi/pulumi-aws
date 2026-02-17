@@ -130,7 +130,7 @@ namespace Pulumi.Aws.Oam
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import CloudWatch Observability Access Manager Link using the `arn`. For example:
+    /// Using `pulumi import`, import CloudWatch Observability Access Manager Link using the `Arn`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:oam/link:Link example arn:aws:oam:us-west-2:123456789012:link/link-id

@@ -11,6 +11,32 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Provides an EC2 Spot Instance Request resource. This allows instances to be
+// requested on the spot market.
+//
+// By default this provider creates Spot Instance Requests with a `persistent` type,
+// which means that for the duration of their lifetime, AWS will launch an
+// instance with the configured details if and when the spot market will accept
+// the requested price.
+//
+// On destruction, this provider will make an attempt to terminate the associated Spot
+// Instance if there is one present.
+//
+// Spot Instances requests with a `one-time` type will close the spot request
+// when the instance is terminated either by the request being below the current spot
+// price availability or by a user.
+//
+// > **NOTE:** Because their behavior depends on the live status of the spot
+// market, Spot Instance Requests have a unique lifecycle that makes them behave
+// differently than other Terraform resources. Most importantly: there is **no
+// guarantee** that a Spot Instance exists to fulfill the request at any given
+// point in time. See the [AWS Spot Instance
+// documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-spot-instances.html)
+// for more information.
+//
+// > **NOTE [AWS strongly discourages](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-best-practices.html#which-spot-request-method-to-use) the use of the legacy APIs called by this resource.
+// We recommend using the EC2 Instance resource with `instanceMarketOptions` instead.
+//
 // ## Example Usage
 //
 // ```go
@@ -140,6 +166,8 @@ type SpotInstanceRequest struct {
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Configuration block to customize details about the root block device of the instance. See Block Devices below for details. When accessing this as an attribute reference, it is a list containing one object.
 	RootBlockDevice SpotInstanceRequestRootBlockDeviceOutput `pulumi:"rootBlockDevice"`
+	// One or more secondary network interfaces to attach to the instance at launch time. See Secondary Network Interface below for more details.
+	SecondaryNetworkInterfaces SpotInstanceRequestSecondaryNetworkInterfaceArrayOutput `pulumi:"secondaryNetworkInterfaces"`
 	// List of secondary private IPv4 addresses to assign to the instance's primary network interface (eth0) in a VPC. Can only be assigned to the primary network interface (eth0) attached at instance creation, not a pre-existing network interface i.e., referenced in a `networkInterface` block. Refer to the [Elastic network interfaces documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI) to see the maximum number of private IP addresses allowed per instance type.
 	SecondaryPrivateIps pulumi.StringArrayOutput `pulumi:"secondaryPrivateIps"`
 	// List of security group names to associate with.
@@ -319,6 +347,8 @@ type spotInstanceRequestState struct {
 	Region *string `pulumi:"region"`
 	// Configuration block to customize details about the root block device of the instance. See Block Devices below for details. When accessing this as an attribute reference, it is a list containing one object.
 	RootBlockDevice *SpotInstanceRequestRootBlockDevice `pulumi:"rootBlockDevice"`
+	// One or more secondary network interfaces to attach to the instance at launch time. See Secondary Network Interface below for more details.
+	SecondaryNetworkInterfaces []SpotInstanceRequestSecondaryNetworkInterface `pulumi:"secondaryNetworkInterfaces"`
 	// List of secondary private IPv4 addresses to assign to the instance's primary network interface (eth0) in a VPC. Can only be assigned to the primary network interface (eth0) attached at instance creation, not a pre-existing network interface i.e., referenced in a `networkInterface` block. Refer to the [Elastic network interfaces documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI) to see the maximum number of private IP addresses allowed per instance type.
 	SecondaryPrivateIps []string `pulumi:"secondaryPrivateIps"`
 	// List of security group names to associate with.
@@ -469,6 +499,8 @@ type SpotInstanceRequestState struct {
 	Region pulumi.StringPtrInput
 	// Configuration block to customize details about the root block device of the instance. See Block Devices below for details. When accessing this as an attribute reference, it is a list containing one object.
 	RootBlockDevice SpotInstanceRequestRootBlockDevicePtrInput
+	// One or more secondary network interfaces to attach to the instance at launch time. See Secondary Network Interface below for more details.
+	SecondaryNetworkInterfaces SpotInstanceRequestSecondaryNetworkInterfaceArrayInput
 	// List of secondary private IPv4 addresses to assign to the instance's primary network interface (eth0) in a VPC. Can only be assigned to the primary network interface (eth0) attached at instance creation, not a pre-existing network interface i.e., referenced in a `networkInterface` block. Refer to the [Elastic network interfaces documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI) to see the maximum number of private IP addresses allowed per instance type.
 	SecondaryPrivateIps pulumi.StringArrayInput
 	// List of security group names to associate with.
@@ -607,6 +639,8 @@ type spotInstanceRequestArgs struct {
 	Region *string `pulumi:"region"`
 	// Configuration block to customize details about the root block device of the instance. See Block Devices below for details. When accessing this as an attribute reference, it is a list containing one object.
 	RootBlockDevice *SpotInstanceRequestRootBlockDevice `pulumi:"rootBlockDevice"`
+	// One or more secondary network interfaces to attach to the instance at launch time. See Secondary Network Interface below for more details.
+	SecondaryNetworkInterfaces []SpotInstanceRequestSecondaryNetworkInterface `pulumi:"secondaryNetworkInterfaces"`
 	// List of secondary private IPv4 addresses to assign to the instance's primary network interface (eth0) in a VPC. Can only be assigned to the primary network interface (eth0) attached at instance creation, not a pre-existing network interface i.e., referenced in a `networkInterface` block. Refer to the [Elastic network interfaces documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI) to see the maximum number of private IP addresses allowed per instance type.
 	SecondaryPrivateIps []string `pulumi:"secondaryPrivateIps"`
 	// List of security group names to associate with.
@@ -729,6 +763,8 @@ type SpotInstanceRequestArgs struct {
 	Region pulumi.StringPtrInput
 	// Configuration block to customize details about the root block device of the instance. See Block Devices below for details. When accessing this as an attribute reference, it is a list containing one object.
 	RootBlockDevice SpotInstanceRequestRootBlockDevicePtrInput
+	// One or more secondary network interfaces to attach to the instance at launch time. See Secondary Network Interface below for more details.
+	SecondaryNetworkInterfaces SpotInstanceRequestSecondaryNetworkInterfaceArrayInput
 	// List of secondary private IPv4 addresses to assign to the instance's primary network interface (eth0) in a VPC. Can only be assigned to the primary network interface (eth0) attached at instance creation, not a pre-existing network interface i.e., referenced in a `networkInterface` block. Refer to the [Elastic network interfaces documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI) to see the maximum number of private IP addresses allowed per instance type.
 	SecondaryPrivateIps pulumi.StringArrayInput
 	// List of security group names to associate with.
@@ -1103,6 +1139,13 @@ func (o SpotInstanceRequestOutput) Region() pulumi.StringOutput {
 // Configuration block to customize details about the root block device of the instance. See Block Devices below for details. When accessing this as an attribute reference, it is a list containing one object.
 func (o SpotInstanceRequestOutput) RootBlockDevice() SpotInstanceRequestRootBlockDeviceOutput {
 	return o.ApplyT(func(v *SpotInstanceRequest) SpotInstanceRequestRootBlockDeviceOutput { return v.RootBlockDevice }).(SpotInstanceRequestRootBlockDeviceOutput)
+}
+
+// One or more secondary network interfaces to attach to the instance at launch time. See Secondary Network Interface below for more details.
+func (o SpotInstanceRequestOutput) SecondaryNetworkInterfaces() SpotInstanceRequestSecondaryNetworkInterfaceArrayOutput {
+	return o.ApplyT(func(v *SpotInstanceRequest) SpotInstanceRequestSecondaryNetworkInterfaceArrayOutput {
+		return v.SecondaryNetworkInterfaces
+	}).(SpotInstanceRequestSecondaryNetworkInterfaceArrayOutput)
 }
 
 // List of secondary private IPv4 addresses to assign to the instance's primary network interface (eth0) in a VPC. Can only be assigned to the primary network interface (eth0) attached at instance creation, not a pre-existing network interface i.e., referenced in a `networkInterface` block. Refer to the [Elastic network interfaces documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI) to see the maximum number of private IP addresses allowed per instance type.

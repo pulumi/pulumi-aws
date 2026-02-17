@@ -74,7 +74,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Using `pulumi import`, import `aws_neptune_cluster` using the cluster identifier. For example:
+ * Using `pulumi import`, import `aws.neptune.Cluster` using the cluster identifier. For example:
  * 
  * ```sh
  * $ pulumi import aws:neptune/cluster:Cluster example my-cluster
@@ -153,9 +153,17 @@ public class Cluster extends com.pulumi.resources.CustomResource {
     public Output<Optional<Integer>> backupRetentionPeriod() {
         return Codegen.optional(this.backupRetentionPeriod);
     }
+    /**
+     * Cluster identifier. If omitted, Terraform will assign a random, unique identifier.
+     * 
+     */
     @Export(name="clusterIdentifier", refs={String.class}, tree="[0]")
     private Output<String> clusterIdentifier;
 
+    /**
+     * @return Cluster identifier. If omitted, Terraform will assign a random, unique identifier.
+     * 
+     */
     public Output<String> clusterIdentifier() {
         return this.clusterIdentifier;
     }

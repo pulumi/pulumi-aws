@@ -52,7 +52,8 @@ type TemplateAssociation struct {
 	pulumi.CustomResourceState
 
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region      pulumi.StringOutput  `pulumi:"region"`
+	Region pulumi.StringOutput `pulumi:"region"`
+	// Skip disassociating the quota increase template upon destruction. This will remove the resource from Terraform state, but leave the remote association in place.
 	SkipDestroy pulumi.BoolPtrOutput `pulumi:"skipDestroy"`
 	// Association status. Creating this resource will result in an `ASSOCIATED` status, and quota increase requests in the template are automatically applied to new AWS accounts in the organization.
 	Status pulumi.StringOutput `pulumi:"status"`
@@ -89,15 +90,17 @@ func GetTemplateAssociation(ctx *pulumi.Context,
 // Input properties used for looking up and filtering TemplateAssociation resources.
 type templateAssociationState struct {
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region      *string `pulumi:"region"`
-	SkipDestroy *bool   `pulumi:"skipDestroy"`
+	Region *string `pulumi:"region"`
+	// Skip disassociating the quota increase template upon destruction. This will remove the resource from Terraform state, but leave the remote association in place.
+	SkipDestroy *bool `pulumi:"skipDestroy"`
 	// Association status. Creating this resource will result in an `ASSOCIATED` status, and quota increase requests in the template are automatically applied to new AWS accounts in the organization.
 	Status *string `pulumi:"status"`
 }
 
 type TemplateAssociationState struct {
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region      pulumi.StringPtrInput
+	Region pulumi.StringPtrInput
+	// Skip disassociating the quota increase template upon destruction. This will remove the resource from Terraform state, but leave the remote association in place.
 	SkipDestroy pulumi.BoolPtrInput
 	// Association status. Creating this resource will result in an `ASSOCIATED` status, and quota increase requests in the template are automatically applied to new AWS accounts in the organization.
 	Status pulumi.StringPtrInput
@@ -109,14 +112,16 @@ func (TemplateAssociationState) ElementType() reflect.Type {
 
 type templateAssociationArgs struct {
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region      *string `pulumi:"region"`
-	SkipDestroy *bool   `pulumi:"skipDestroy"`
+	Region *string `pulumi:"region"`
+	// Skip disassociating the quota increase template upon destruction. This will remove the resource from Terraform state, but leave the remote association in place.
+	SkipDestroy *bool `pulumi:"skipDestroy"`
 }
 
 // The set of arguments for constructing a TemplateAssociation resource.
 type TemplateAssociationArgs struct {
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region      pulumi.StringPtrInput
+	Region pulumi.StringPtrInput
+	// Skip disassociating the quota increase template upon destruction. This will remove the resource from Terraform state, but leave the remote association in place.
 	SkipDestroy pulumi.BoolPtrInput
 }
 
@@ -212,6 +217,7 @@ func (o TemplateAssociationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *TemplateAssociation) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
+// Skip disassociating the quota increase template upon destruction. This will remove the resource from Terraform state, but leave the remote association in place.
 func (o TemplateAssociationOutput) SkipDestroy() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *TemplateAssociation) pulumi.BoolPtrOutput { return v.SkipDestroy }).(pulumi.BoolPtrOutput)
 }

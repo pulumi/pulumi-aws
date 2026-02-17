@@ -37,16 +37,11 @@ __all__ = [
     'GetSecurityGroupRulesFilterArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class EndpointServicePrivateDnsVerificationTimeoutsArgsDict(TypedDict):
-        create: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
-        """
-elif False:
-    EndpointServicePrivateDnsVerificationTimeoutsArgsDict: TypeAlias = Mapping[str, Any]
+class EndpointServicePrivateDnsVerificationTimeoutsArgsDict(TypedDict):
+    create: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+    """
 
 @pulumi.input_type
 class EndpointServicePrivateDnsVerificationTimeoutsArgs:
@@ -71,18 +66,15 @@ class EndpointServicePrivateDnsVerificationTimeoutsArgs:
         pulumi.set(self, "create", value)
 
 
-if not MYPY:
-    class RouteServerEndpointTimeoutsArgsDict(TypedDict):
-        create: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
-        """
-        delete: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
-        """
-elif False:
-    RouteServerEndpointTimeoutsArgsDict: TypeAlias = Mapping[str, Any]
+class RouteServerEndpointTimeoutsArgsDict(TypedDict):
+    create: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+    """
+    delete: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+    """
 
 @pulumi.input_type
 class RouteServerEndpointTimeoutsArgs:
@@ -123,18 +115,15 @@ class RouteServerEndpointTimeoutsArgs:
         pulumi.set(self, "delete", value)
 
 
-if not MYPY:
-    class RouteServerPeerBgpOptionsArgsDict(TypedDict):
-        peer_asn: pulumi.Input[_builtins.int]
-        """
-        The Border Gateway Protocol (BGP) Autonomous System Number (ASN) for the appliance. Valid values are from 1 to 4294967295. We recommend using a private ASN in the 64512–65534 (16-bit ASN) or 4200000000–4294967294 (32-bit ASN) range.
-        """
-        peer_liveness_detection: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The requested liveness detection protocol for the BGP peer. Valid values are `bgp-keepalive` and `bfd`. Default value is `bgp-keepalive`.
-        """
-elif False:
-    RouteServerPeerBgpOptionsArgsDict: TypeAlias = Mapping[str, Any]
+class RouteServerPeerBgpOptionsArgsDict(TypedDict):
+    peer_asn: pulumi.Input[_builtins.int]
+    """
+    The Border Gateway Protocol (BGP) Autonomous System Number (ASN) for the appliance. Valid values are from 1 to 4294967295. We recommend using a private ASN in the 64512–65534 (16-bit ASN) or 4200000000–4294967294 (32-bit ASN) range.
+    """
+    peer_liveness_detection: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The requested liveness detection protocol for the BGP peer. Valid values are `bgp-keepalive` and `bfd`. Default value is `bgp-keepalive`.
+    """
 
 @pulumi.input_type
 class RouteServerPeerBgpOptionsArgs:
@@ -174,18 +163,15 @@ class RouteServerPeerBgpOptionsArgs:
         pulumi.set(self, "peer_liveness_detection", value)
 
 
-if not MYPY:
-    class RouteServerPeerTimeoutsArgsDict(TypedDict):
-        create: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
-        """
-        delete: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
-        """
-elif False:
-    RouteServerPeerTimeoutsArgsDict: TypeAlias = Mapping[str, Any]
+class RouteServerPeerTimeoutsArgsDict(TypedDict):
+    create: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+    """
+    delete: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+    """
 
 @pulumi.input_type
 class RouteServerPeerTimeoutsArgs:
@@ -226,18 +212,15 @@ class RouteServerPeerTimeoutsArgs:
         pulumi.set(self, "delete", value)
 
 
-if not MYPY:
-    class RouteServerPropagationTimeoutsArgsDict(TypedDict):
-        create: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
-        """
-        delete: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
-        """
-elif False:
-    RouteServerPropagationTimeoutsArgsDict: TypeAlias = Mapping[str, Any]
+class RouteServerPropagationTimeoutsArgsDict(TypedDict):
+    create: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+    """
+    delete: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+    """
 
 @pulumi.input_type
 class RouteServerPropagationTimeoutsArgs:
@@ -278,22 +261,19 @@ class RouteServerPropagationTimeoutsArgs:
         pulumi.set(self, "delete", value)
 
 
-if not MYPY:
-    class RouteServerTimeoutsArgsDict(TypedDict):
-        create: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
-        """
-        delete: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
-        """
-        update: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
-        """
-elif False:
-    RouteServerTimeoutsArgsDict: TypeAlias = Mapping[str, Any]
+class RouteServerTimeoutsArgsDict(TypedDict):
+    create: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+    """
+    delete: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+    """
+    update: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+    """
 
 @pulumi.input_type
 class RouteServerTimeoutsArgs:
@@ -350,18 +330,15 @@ class RouteServerTimeoutsArgs:
         pulumi.set(self, "update", value)
 
 
-if not MYPY:
-    class RouteServerVpcAssociationTimeoutsArgsDict(TypedDict):
-        create: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
-        """
-        delete: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
-        """
-elif False:
-    RouteServerVpcAssociationTimeoutsArgsDict: TypeAlias = Mapping[str, Any]
+class RouteServerVpcAssociationTimeoutsArgsDict(TypedDict):
+    create: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+    """
+    delete: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+    """
 
 @pulumi.input_type
 class RouteServerVpcAssociationTimeoutsArgs:
@@ -402,18 +379,15 @@ class RouteServerVpcAssociationTimeoutsArgs:
         pulumi.set(self, "delete", value)
 
 
-if not MYPY:
-    class SecurityGroupVpcAssociationTimeoutsArgsDict(TypedDict):
-        create: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
-        """
-        delete: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
-        """
-elif False:
-    SecurityGroupVpcAssociationTimeoutsArgsDict: TypeAlias = Mapping[str, Any]
+class SecurityGroupVpcAssociationTimeoutsArgsDict(TypedDict):
+    create: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+    """
+    delete: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+    """
 
 @pulumi.input_type
 class SecurityGroupVpcAssociationTimeoutsArgs:
@@ -454,18 +428,15 @@ class SecurityGroupVpcAssociationTimeoutsArgs:
         pulumi.set(self, "delete", value)
 
 
-if not MYPY:
-    class GetSecurityGroupRuleFilterArgsDict(TypedDict):
-        name: _builtins.str
-        """
-        Name of the filter field. Valid values can be found in the EC2 [`DescribeSecurityGroupRules`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSecurityGroupRules.html) API Reference.
-        """
-        values: Sequence[_builtins.str]
-        """
-        Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
-        """
-elif False:
-    GetSecurityGroupRuleFilterArgsDict: TypeAlias = Mapping[str, Any]
+class GetSecurityGroupRuleFilterArgsDict(TypedDict):
+    name: _builtins.str
+    """
+    Name of the filter field. Valid values can be found in the EC2 [`DescribeSecurityGroupRules`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSecurityGroupRules.html) API Reference.
+    """
+    values: Sequence[_builtins.str]
+    """
+    Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
+    """
 
 @pulumi.input_type
 class GetSecurityGroupRuleFilterArgs:
@@ -504,21 +475,18 @@ class GetSecurityGroupRuleFilterArgs:
         pulumi.set(self, "values", value)
 
 
-if not MYPY:
-    class GetSecurityGroupRulesFilterArgsDict(TypedDict):
-        name: _builtins.str
-        """
-        Name of the field to filter by, as defined by
-        [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSecurityGroupRules.html).
-        """
-        values: Sequence[_builtins.str]
-        """
-        Set of values that are accepted for the given field.
+class GetSecurityGroupRulesFilterArgsDict(TypedDict):
+    name: _builtins.str
+    """
+    Name of the field to filter by, as defined by
+    [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSecurityGroupRules.html).
+    """
+    values: Sequence[_builtins.str]
+    """
+    Set of values that are accepted for the given field.
 
-        Security group rule IDs will be selected if any one of the given values match.
-        """
-elif False:
-    GetSecurityGroupRulesFilterArgsDict: TypeAlias = Mapping[str, Any]
+    Security group rule IDs will be selected if any one of the given values match.
+    """
 
 @pulumi.input_type
 class GetSecurityGroupRulesFilterArgs:

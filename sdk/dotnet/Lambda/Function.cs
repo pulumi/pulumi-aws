@@ -680,6 +680,8 @@ namespace Pulumi.Aws.Lambda
     /// });
     /// ```
     /// 
+    /// See the `aws.lambda.CapacityProvider` resource for more details, such as configuring instance requirements and the scaling policy.
+    /// 
     /// ## Specifying the Deployment Package
     /// 
     /// AWS Lambda expects source code to be provided as a deployment package whose structure varies depending on which `Runtime` is in use. See [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_CreateFunction.html#SSS-CreateFunction-request-Runtime) for the valid values of `Runtime`. The expected structure of the deployment package can be found in [the AWS Lambda documentation for each runtime](https://docs.aws.amazon.com/lambda/latest/dg/deployment-package-v2.html).
@@ -694,17 +696,18 @@ namespace Pulumi.Aws.Lambda
     /// 
     /// #### Required
     /// 
-    /// * `function_name` (String) Name of the Lambda function.
+    /// * `FunctionName` (String) Name of the Lambda function.
     /// 
     /// #### Optional
     /// 
-    /// * `account_id` (String) AWS Account where this resource is managed.
+    /// * `AccountId` (String) AWS Account where this resource is managed.
+    /// * `Region` (String) Region where this resource is managed.
     /// 
-    /// * `region` (String) Region where this resource is managed.
+    /// Using `pulumi import`, import Lambda Functions using the `FunctionName`. For example:
     /// 
-    /// Using `pulumi import`, import Lambda Functions using the `function_name`. For example:
-    /// 
-    /// % pulumi import aws_lambda_function.example example
+    /// ```sh
+    /// $ pulumi import aws:lambda/function:Function example example
+    /// ```
     /// </summary>
     [AwsResourceType("aws:lambda/function:Function")]
     public partial class Function : global::Pulumi.CustomResource

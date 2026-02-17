@@ -34,7 +34,7 @@ namespace Pulumi.Aws.RedShift
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import Redshift Snapshot Schedule using the `identifier`. For example:
+    /// Using `pulumi import`, import Redshift Snapshot Schedule using the `Identifier`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:redshift/snapshotSchedule:SnapshotSchedule default tf-redshift-snapshot-schedule

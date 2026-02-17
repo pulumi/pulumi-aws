@@ -126,7 +126,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Using `pulumi import`, import AMP (Managed Prometheus) Workspace Configuration using the `workspace_id`. For example
+ * Using `pulumi import`, import AMP (Managed Prometheus) Workspace Configuration using the `workspaceId`. For example
  * 
  * ```sh
  * $ pulumi import aws:amp/workspaceConfiguration:WorkspaceConfiguration example ws-12345678-abcd-1234-abcd-123456789012

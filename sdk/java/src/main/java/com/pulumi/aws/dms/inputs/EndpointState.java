@@ -256,9 +256,17 @@ public final class EndpointState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.password);
     }
 
+    /**
+     * Whether to pause associated running replication tasks, regardless if they are managed by Terraform, prior to modifying the endpoint. Only tasks paused by the resource will be restarted after the modification completes. Default is `false`.
+     * 
+     */
     @Import(name="pauseReplicationTasks")
     private @Nullable Output<Boolean> pauseReplicationTasks;
 
+    /**
+     * @return Whether to pause associated running replication tasks, regardless if they are managed by Terraform, prior to modifying the endpoint. Only tasks paused by the resource will be restarted after the modification completes. Default is `false`.
+     * 
+     */
     public Optional<Output<Boolean>> pauseReplicationTasks() {
         return Optional.ofNullable(this.pauseReplicationTasks);
     }
@@ -825,11 +833,23 @@ public final class EndpointState extends com.pulumi.resources.ResourceArgs {
             return password(Output.of(password));
         }
 
+        /**
+         * @param pauseReplicationTasks Whether to pause associated running replication tasks, regardless if they are managed by Terraform, prior to modifying the endpoint. Only tasks paused by the resource will be restarted after the modification completes. Default is `false`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder pauseReplicationTasks(@Nullable Output<Boolean> pauseReplicationTasks) {
             $.pauseReplicationTasks = pauseReplicationTasks;
             return this;
         }
 
+        /**
+         * @param pauseReplicationTasks Whether to pause associated running replication tasks, regardless if they are managed by Terraform, prior to modifying the endpoint. Only tasks paused by the resource will be restarted after the modification completes. Default is `false`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder pauseReplicationTasks(Boolean pauseReplicationTasks) {
             return pauseReplicationTasks(Output.of(pauseReplicationTasks));
         }

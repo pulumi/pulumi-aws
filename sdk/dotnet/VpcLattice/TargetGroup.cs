@@ -133,7 +133,7 @@ namespace Pulumi.Aws.VpcLattice
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import VPC Lattice Target Group using the `id`. For example:
+    /// Using `pulumi import`, import VPC Lattice Target Group using the `Id`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:vpclattice/targetGroup:TargetGroup example tg-0c11d4dc16ed96bdb

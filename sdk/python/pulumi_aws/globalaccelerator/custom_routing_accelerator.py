@@ -354,7 +354,9 @@ class CustomRoutingAccelerator(pulumi.CustomResource):
 
         Using `pulumi import`, import Global Accelerator custom routing accelerators using the `arn`. For example:
 
-        % pulumi import aws_globalaccelerator_custom_routing_accelerator.example arn:aws:globalaccelerator::111111111111:accelerator/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+        ```sh
+        $ pulumi import aws:globalaccelerator/customRoutingAccelerator:CustomRoutingAccelerator example arn:aws:globalaccelerator::111111111111:accelerator/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -402,7 +404,9 @@ class CustomRoutingAccelerator(pulumi.CustomResource):
 
         Using `pulumi import`, import Global Accelerator custom routing accelerators using the `arn`. For example:
 
-        % pulumi import aws_globalaccelerator_custom_routing_accelerator.example arn:aws:globalaccelerator::111111111111:accelerator/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+        ```sh
+        $ pulumi import aws:globalaccelerator/customRoutingAccelerator:CustomRoutingAccelerator example arn:aws:globalaccelerator::111111111111:accelerator/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+        ```
 
         :param str resource_name: The name of the resource.
         :param CustomRoutingAcceleratorArgs args: The arguments to use to populate this resource's properties.

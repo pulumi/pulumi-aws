@@ -92,7 +92,7 @@ namespace Pulumi.Aws.Sagemaker
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import SageMaker AI App Image Configs using the `name`. For example:
+    /// Using `pulumi import`, import SageMaker AI App Image Configs using the `Name`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:sagemaker/appImageConfig:AppImageConfig example example

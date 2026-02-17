@@ -23,8 +23,6 @@ import (
 //
 // import (
 //
-//	"fmt"
-//
 //	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/sfn"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
@@ -66,8 +64,6 @@ import (
 // package main
 //
 // import (
-//
-//	"fmt"
 //
 //	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/sfn"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
@@ -111,8 +107,6 @@ import (
 // package main
 //
 // import (
-//
-//	"fmt"
 //
 //	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/sfn"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
@@ -159,8 +153,6 @@ import (
 // package main
 //
 // import (
-//
-//	"fmt"
 //
 //	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/sfn"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
@@ -210,8 +202,6 @@ import (
 // package main
 //
 // import (
-//
-//	"fmt"
 //
 //	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/sfn"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
@@ -263,7 +253,9 @@ import (
 //
 // Using `pulumi import`, import State Machines using the `arn`. For example:
 //
-// % pulumi import aws_sfn_state_machine.foo arn:aws:states:eu-west-1:123456789098:stateMachine:bar
+// ```sh
+// $ pulumi import aws:sfn/stateMachine:StateMachine foo arn:aws:states:eu-west-1:123456789098:stateMachine:bar
+// ```
 type StateMachine struct {
 	pulumi.CustomResourceState
 

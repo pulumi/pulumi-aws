@@ -122,7 +122,7 @@ namespace Pulumi.Aws.DevOpsGuru
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import DevOps Guru Resource Collection using the `id`. For example:
+    /// Using `pulumi import`, import DevOps Guru Resource Collection using the `Id`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:devopsguru/resourceCollection:ResourceCollection example AWS_CLOUD_FORMATION

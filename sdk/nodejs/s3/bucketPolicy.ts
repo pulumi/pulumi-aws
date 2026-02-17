@@ -55,13 +55,14 @@ import * as utilities from "../utilities";
  *
  * #### Optional
  *
- * * `account_id` (String) AWS Account where this resource is managed.
- *
+ * * `accountId` (String) AWS Account where this resource is managed.
  * * `region` (String) Region where this resource is managed.
  *
  * Using `pulumi import`, import S3 bucket policies using the bucket name. For example:
  *
- * % pulumi import aws_s3_bucket_policy.example my-tf-test-bucket
+ * ```sh
+ * $ pulumi import aws:s3/bucketPolicy:BucketPolicy example my-tf-test-bucket
+ * ```
  */
 export class BucketPolicy extends pulumi.CustomResource {
     /**

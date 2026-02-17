@@ -19,10 +19,10 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.lakeformation.DataCellsFilter("example", {tableData: {
- *     databaseName: test.name,
+ *     databaseName: exampleAwsGlueCatalogDatabase.name,
  *     name: "example",
  *     tableCatalogId: current.accountId,
- *     tableName: testAwsGlueCatalogTable.name,
+ *     tableName: exampleAwsGlueCatalogTable.name,
  *     columnNames: ["my_column"],
  *     rowFilter: {
  *         filterExpression: "my_column='example'",
@@ -30,9 +30,79 @@ import * as utilities from "../utilities";
  * }});
  * ```
  *
+ * ### Filter with Excluded Columns Only (No Row Filter)
+ *
+ * When excluding columns without a row filter, you must include `allRowsWildcard {}`:
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const excludedColumns = new aws.lakeformation.DataCellsFilter("excluded_columns", {tableData: {
+ *     databaseName: example.name,
+ *     name: "exclude-pii",
+ *     tableCatalogId: current.accountId,
+ *     tableName: exampleAwsGlueCatalogTable.name,
+ *     columnWildcard: {
+ *         excludedColumnNames: [
+ *             "ssn",
+ *             "credit_card",
+ *         ],
+ *     },
+ *     rowFilter: {
+ *         allRowsWildcard: {},
+ *     },
+ * }});
+ * ```
+ *
+ * ### Filter with Row Filter and Excluded Columns
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const rowAndColumn = new aws.lakeformation.DataCellsFilter("row_and_column", {tableData: {
+ *     databaseName: example.name,
+ *     name: "marketing-filtered",
+ *     tableCatalogId: current.accountId,
+ *     tableName: exampleAwsGlueCatalogTable.name,
+ *     columnWildcard: {
+ *         excludedColumnNames: [
+ *             "salary",
+ *             "bonus",
+ *         ],
+ *     },
+ *     rowFilter: {
+ *         filterExpression: "department = 'Marketing'",
+ *     },
+ * }});
+ * ```
+ *
+ * ### Filter with Row Filter Only (All Columns Included)
+ *
+ * To include all columns with a row filter, set `excludedColumnNames` to an empty list:
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const rowOnly = new aws.lakeformation.DataCellsFilter("row_only", {tableData: {
+ *     databaseName: example.name,
+ *     name: "regional-filter",
+ *     tableCatalogId: current.accountId,
+ *     tableName: exampleAwsGlueCatalogTable.name,
+ *     columnWildcard: {
+ *         excludedColumnNames: [],
+ *     },
+ *     rowFilter: {
+ *         filterExpression: "region = 'US-WEST'",
+ *     },
+ * }});
+ * ```
+ *
  * ## Import
  *
- * Using `pulumi import`, import Lake Formation Data Cells Filter using the `database_name`, `name`, `table_catalog_id`, and `table_name` separated by `,`. For example:
+ * Using `pulumi import`, import Lake Formation Data Cells Filter using the `databaseName`, `name`, `tableCatalogId`, and `tableName` separated by `,`. For example:
  *
  * ```sh
  * $ pulumi import aws:lakeformation/dataCellsFilter:DataCellsFilter example database_name,name,table_catalog_id,table_name

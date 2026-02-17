@@ -31,9 +31,17 @@ public final class EnrollmentStatusState extends com.pulumi.resources.ResourceAr
         return Optional.ofNullable(this.includeMemberAccounts);
     }
 
+    /**
+     * Status of enrollment. When the resource is present in Terraform, its status will always be `Active`.
+     * 
+     */
     @Import(name="status")
     private @Nullable Output<String> status;
 
+    /**
+     * @return Status of enrollment. When the resource is present in Terraform, its status will always be `Active`.
+     * 
+     */
     public Optional<Output<String>> status() {
         return Optional.ofNullable(this.status);
     }
@@ -84,11 +92,23 @@ public final class EnrollmentStatusState extends com.pulumi.resources.ResourceAr
             return includeMemberAccounts(Output.of(includeMemberAccounts));
         }
 
+        /**
+         * @param status Status of enrollment. When the resource is present in Terraform, its status will always be `Active`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder status(@Nullable Output<String> status) {
             $.status = status;
             return this;
         }
 
+        /**
+         * @param status Status of enrollment. When the resource is present in Terraform, its status will always be `Active`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder status(String status) {
             return status(Output.of(status));
         }

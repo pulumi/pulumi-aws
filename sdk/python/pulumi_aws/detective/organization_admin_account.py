@@ -122,7 +122,7 @@ class OrganizationAdminAccount(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import `aws_detective_organization_admin_account` using `account_id`. For example:
+        Using `pulumi import`, import `detective.OrganizationAdminAccount` using `account_id`. For example:
 
         ```sh
         $ pulumi import aws:detective/organizationAdminAccount:OrganizationAdminAccount example 123456789012
@@ -157,7 +157,7 @@ class OrganizationAdminAccount(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import `aws_detective_organization_admin_account` using `account_id`. For example:
+        Using `pulumi import`, import `detective.OrganizationAdminAccount` using `account_id`. For example:
 
         ```sh
         $ pulumi import aws:detective/organizationAdminAccount:OrganizationAdminAccount example 123456789012

@@ -66,16 +66,12 @@ public final class BrokerUserArgs extends com.pulumi.resources.ResourceArgs {
     /**
      * Whether to set replication user. Defaults to `false`.
      * 
-     * &gt; **NOTE:** AWS currently does not support updating RabbitMQ users. Updates to users can only be in the RabbitMQ UI.
-     * 
      */
     @Import(name="replicationUser")
     private @Nullable Output<Boolean> replicationUser;
 
     /**
      * @return Whether to set replication user. Defaults to `false`.
-     * 
-     * &gt; **NOTE:** AWS currently does not support updating RabbitMQ users. Updates to users can only be in the RabbitMQ UI.
      * 
      */
     public Optional<Output<Boolean>> replicationUser() {
@@ -205,8 +201,6 @@ public final class BrokerUserArgs extends com.pulumi.resources.ResourceArgs {
         /**
          * @param replicationUser Whether to set replication user. Defaults to `false`.
          * 
-         * &gt; **NOTE:** AWS currently does not support updating RabbitMQ users. Updates to users can only be in the RabbitMQ UI.
-         * 
          * @return builder
          * 
          */
@@ -217,8 +211,6 @@ public final class BrokerUserArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param replicationUser Whether to set replication user. Defaults to `false`.
-         * 
-         * &gt; **NOTE:** AWS currently does not support updating RabbitMQ users. Updates to users can only be in the RabbitMQ UI.
          * 
          * @return builder
          * 

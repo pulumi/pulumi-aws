@@ -141,6 +141,8 @@ def get_contacts_rotation(arn: Optional[_builtins.str] = None,
                           region: Optional[_builtins.str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetContactsRotationResult:
     """
+    Provides a Terraform data source for managing a Contacts Rotation in AWS Systems Manager Incident Manager
+
     ## Example Usage
 
     ### Basic Usage
@@ -176,6 +178,8 @@ def get_contacts_rotation_output(arn: Optional[pulumi.Input[_builtins.str]] = No
                                  region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                                  opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetContactsRotationResult]:
     """
+    Provides a Terraform data source for managing a Contacts Rotation in AWS Systems Manager Incident Manager
+
     ## Example Usage
 
     ### Basic Usage

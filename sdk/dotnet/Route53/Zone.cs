@@ -121,7 +121,7 @@ namespace Pulumi.Aws.Route53
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import Route53 Zones using the zone `id`. For example:
+    /// Using `pulumi import`, import Route53 Zones using the zone `Id`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:route53/zone:Zone myzone Z1D633PJN98FT9

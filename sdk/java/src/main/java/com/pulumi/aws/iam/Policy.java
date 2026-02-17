@@ -76,7 +76,9 @@ import javax.annotation.Nullable;
  * 
  * Using `pulumi import`, import IAM Policies using the `arn`. For example:
  * 
- * % pulumi import aws_iam_policy.administrator arn:aws:iam::123456789012:policy/UsersManageOwnCredentials
+ * ```sh
+ * $ pulumi import aws:iam/policy:Policy administrator arn:aws:iam::123456789012:policy/UsersManageOwnCredentials
+ * ```
  * 
  */
 @ResourceType(type="aws:iam/policy:Policy")
@@ -110,14 +112,14 @@ public class Policy extends com.pulumi.resources.CustomResource {
         return this.attachmentCount;
     }
     /**
-     * Number of ms to wait between creating the policy and settong its version as default. May be required in environments with very high S3 IO loads.
+     * Number of ms to wait between creating the policy and setting its version as default. May be required in environments with very high S3 IO loads.
      * 
      */
     @Export(name="delayAfterPolicyCreationInMs", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> delayAfterPolicyCreationInMs;
 
     /**
-     * @return Number of ms to wait between creating the policy and settong its version as default. May be required in environments with very high S3 IO loads.
+     * @return Number of ms to wait between creating the policy and setting its version as default. May be required in environments with very high S3 IO loads.
      * 
      */
     public Output<Optional<Integer>> delayAfterPolicyCreationInMs() {

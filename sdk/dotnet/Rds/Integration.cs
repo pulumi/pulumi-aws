@@ -151,11 +151,13 @@ namespace Pulumi.Aws.Rds
     /// 
     /// #### Required
     /// 
-    /// - `arn` (String) Amazon Resource Name (ARN) of the RDS integration.
+    /// - `Arn` (String) Amazon Resource Name (ARN) of the RDS integration.
     /// 
-    /// Using `pulumi import`, import RDS (Relational Database) Integration using the `arn`. For example:
+    /// Using `pulumi import`, import RDS (Relational Database) Integration using the `Arn`. For example:
     /// 
-    /// % pulumi import aws_rds_integration.example arn:aws:rds:us-west-2:123456789012:integration:abcdefgh-0000-1111-2222-123456789012
+    /// ```sh
+    /// $ pulumi import aws:rds/integration:Integration example arn:aws:rds:us-west-2:123456789012:integration:abcdefgh-0000-1111-2222-123456789012
+    /// ```
     /// </summary>
     [AwsResourceType("aws:rds/integration:Integration")]
     public partial class Integration : global::Pulumi.CustomResource

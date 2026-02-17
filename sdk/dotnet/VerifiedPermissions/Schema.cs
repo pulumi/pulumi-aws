@@ -10,6 +10,8 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.VerifiedPermissions
 {
     /// <summary>
+    /// This is a Terraform resource for managing an AWS Verified Permissions Policy Store Schema.
+    /// 
     /// ## Example Usage
     /// 
     /// ### Basic Usage
@@ -48,9 +50,11 @@ namespace Pulumi.Aws.VerifiedPermissions
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import Verified Permissions Policy Store Schema using the `policy_store_id`. For example:
+    /// Using `pulumi import`, import Verified Permissions Policy Store Schema using the `PolicyStoreId`. For example:
     /// 
-    ///  % pulumi import aws_verifiedpermissions_schema.example DxQg2j8xvXJQ1tQCYNWj9T
+    /// ```sh
+    ///  $ pulumi import aws:verifiedpermissions/schema:Schema example DxQg2j8xvXJQ1tQCYNWj9T
+    /// ```
     /// </summary>
     [AwsResourceType("aws:verifiedpermissions/schema:Schema")]
     public partial class Schema : global::Pulumi.CustomResource

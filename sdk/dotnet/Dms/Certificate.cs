@@ -38,7 +38,7 @@ namespace Pulumi.Aws.Dms
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import certificates using the `certificate_id`. For example:
+    /// Using `pulumi import`, import certificates using the `CertificateId`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:dms/certificate:Certificate test test-dms-certificate-tf

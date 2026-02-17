@@ -74,7 +74,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Using `pulumi import`, import DataZone Environment Blueprint Configuration using the `domain_id` and `environment_blueprint_id`, separated by a `/`. For example:
+ * Using `pulumi import`, import DataZone Environment Blueprint Configuration using the `domainId` and `environmentBlueprintId`, separated by a `/`. For example:
  * 
  * ```sh
  * $ pulumi import aws:datazone/environmentBlueprintConfiguration:EnvironmentBlueprintConfiguration example domain-id-12345/environment-blueprint-id-54321

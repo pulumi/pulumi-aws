@@ -33,16 +33,11 @@ __all__ = [
     'VoiceConnectorTerminationCredentialsCredentialArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class SdkvoiceGlobalSettingsVoiceConnectorArgsDict(TypedDict):
-        cdr_bucket: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The S3 bucket that stores the Voice Connector's call detail records.
-        """
-elif False:
-    SdkvoiceGlobalSettingsVoiceConnectorArgsDict: TypeAlias = Mapping[str, Any]
+class SdkvoiceGlobalSettingsVoiceConnectorArgsDict(TypedDict):
+    cdr_bucket: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The S3 bucket that stores the Voice Connector's call detail records.
+    """
 
 @pulumi.input_type
 class SdkvoiceGlobalSettingsVoiceConnectorArgs:
@@ -67,14 +62,11 @@ class SdkvoiceGlobalSettingsVoiceConnectorArgs:
         pulumi.set(self, "cdr_bucket", value)
 
 
-if not MYPY:
-    class SdkvoiceSipMediaApplicationEndpointsArgsDict(TypedDict):
-        lambda_arn: pulumi.Input[_builtins.str]
-        """
-        Valid Amazon Resource Name (ARN) of the Lambda function, version, or alias. The function must be created in the same AWS Region as the SIP media application.
-        """
-elif False:
-    SdkvoiceSipMediaApplicationEndpointsArgsDict: TypeAlias = Mapping[str, Any]
+class SdkvoiceSipMediaApplicationEndpointsArgsDict(TypedDict):
+    lambda_arn: pulumi.Input[_builtins.str]
+    """
+    Valid Amazon Resource Name (ARN) of the Lambda function, version, or alias. The function must be created in the same AWS Region as the SIP media application.
+    """
 
 @pulumi.input_type
 class SdkvoiceSipMediaApplicationEndpointsArgs:
@@ -98,22 +90,19 @@ class SdkvoiceSipMediaApplicationEndpointsArgs:
         pulumi.set(self, "lambda_arn", value)
 
 
-if not MYPY:
-    class SdkvoiceSipRuleTargetApplicationArgsDict(TypedDict):
-        aws_region: pulumi.Input[_builtins.str]
-        """
-        The AWS Region of the target application.
-        """
-        priority: pulumi.Input[_builtins.int]
-        """
-        Priority of the SIP media application in the target list.
-        """
-        sip_media_application_id: pulumi.Input[_builtins.str]
-        """
-        The SIP media application ID.
-        """
-elif False:
-    SdkvoiceSipRuleTargetApplicationArgsDict: TypeAlias = Mapping[str, Any]
+class SdkvoiceSipRuleTargetApplicationArgsDict(TypedDict):
+    aws_region: pulumi.Input[_builtins.str]
+    """
+    The AWS Region of the target application.
+    """
+    priority: pulumi.Input[_builtins.int]
+    """
+    Priority of the SIP media application in the target list.
+    """
+    sip_media_application_id: pulumi.Input[_builtins.str]
+    """
+    The SIP media application ID.
+    """
 
 @pulumi.input_type
 class SdkvoiceSipRuleTargetApplicationArgs:
@@ -167,16 +156,13 @@ class SdkvoiceSipRuleTargetApplicationArgs:
         pulumi.set(self, "sip_media_application_id", value)
 
 
-if not MYPY:
-    class SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationArgsDict(TypedDict):
-        kms_key_arn: pulumi.Input[_builtins.str]
-        """
-        ARN for KMS Key.
+class SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationArgsDict(TypedDict):
+    kms_key_arn: pulumi.Input[_builtins.str]
+    """
+    ARN for KMS Key.
 
-        The following arguments are optional:
-        """
-elif False:
-    SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+    The following arguments are optional:
+    """
 
 @pulumi.input_type
 class SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationArgs:
@@ -204,18 +190,15 @@ class SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationArgs:
         pulumi.set(self, "kms_key_arn", value)
 
 
-if not MYPY:
-    class VoiceConnectorGroupConnectorArgsDict(TypedDict):
-        priority: pulumi.Input[_builtins.int]
-        """
-        The priority associated with the Amazon Chime Voice Connector, with 1 being the highest priority. Higher priority Amazon Chime Voice Connectors are attempted first.
-        """
-        voice_connector_id: pulumi.Input[_builtins.str]
-        """
-        The Amazon Chime Voice Connector ID.
-        """
-elif False:
-    VoiceConnectorGroupConnectorArgsDict: TypeAlias = Mapping[str, Any]
+class VoiceConnectorGroupConnectorArgsDict(TypedDict):
+    priority: pulumi.Input[_builtins.int]
+    """
+    The priority associated with the Amazon Chime Voice Connector, with 1 being the highest priority. Higher priority Amazon Chime Voice Connectors are attempted first.
+    """
+    voice_connector_id: pulumi.Input[_builtins.str]
+    """
+    The Amazon Chime Voice Connector ID.
+    """
 
 @pulumi.input_type
 class VoiceConnectorGroupConnectorArgs:
@@ -254,30 +237,27 @@ class VoiceConnectorGroupConnectorArgs:
         pulumi.set(self, "voice_connector_id", value)
 
 
-if not MYPY:
-    class VoiceConnectorOriginationRouteArgsDict(TypedDict):
-        host: pulumi.Input[_builtins.str]
-        """
-        The FQDN or IP address to contact for origination traffic.
-        """
-        priority: pulumi.Input[_builtins.int]
-        """
-        The priority associated with the host, with 1 being the highest priority. Higher priority hosts are attempted first.
-        """
-        protocol: pulumi.Input[_builtins.str]
-        """
-        The protocol to use for the origination route. Encryption-enabled Amazon Chime Voice Connectors use TCP protocol by default.
-        """
-        weight: pulumi.Input[_builtins.int]
-        """
-        The weight associated with the host. If hosts are equal in priority, calls are redistributed among them based on their relative weight.
-        """
-        port: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The designated origination route port. Defaults to `5060`.
-        """
-elif False:
-    VoiceConnectorOriginationRouteArgsDict: TypeAlias = Mapping[str, Any]
+class VoiceConnectorOriginationRouteArgsDict(TypedDict):
+    host: pulumi.Input[_builtins.str]
+    """
+    The FQDN or IP address to contact for origination traffic.
+    """
+    priority: pulumi.Input[_builtins.int]
+    """
+    The priority associated with the host, with 1 being the highest priority. Higher priority hosts are attempted first.
+    """
+    protocol: pulumi.Input[_builtins.str]
+    """
+    The protocol to use for the origination route. Encryption-enabled Amazon Chime Voice Connectors use TCP protocol by default.
+    """
+    weight: pulumi.Input[_builtins.int]
+    """
+    The weight associated with the host. If hosts are equal in priority, calls are redistributed among them based on their relative weight.
+    """
+    port: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The designated origination route port. Defaults to `5060`.
+    """
 
 @pulumi.input_type
 class VoiceConnectorOriginationRouteArgs:
@@ -362,18 +342,15 @@ class VoiceConnectorOriginationRouteArgs:
         pulumi.set(self, "port", value)
 
 
-if not MYPY:
-    class VoiceConnectorStreamingMediaInsightsConfigurationArgsDict(TypedDict):
-        configuration_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The media insights configuration that will be invoked by the Voice Connector.
-        """
-        disabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        When `true`, the media insights configuration is not enabled. Defaults to `false`.
-        """
-elif False:
-    VoiceConnectorStreamingMediaInsightsConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class VoiceConnectorStreamingMediaInsightsConfigurationArgsDict(TypedDict):
+    configuration_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The media insights configuration that will be invoked by the Voice Connector.
+    """
+    disabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    When `true`, the media insights configuration is not enabled. Defaults to `false`.
+    """
 
 @pulumi.input_type
 class VoiceConnectorStreamingMediaInsightsConfigurationArgs:
@@ -414,18 +391,15 @@ class VoiceConnectorStreamingMediaInsightsConfigurationArgs:
         pulumi.set(self, "disabled", value)
 
 
-if not MYPY:
-    class VoiceConnectorTerminationCredentialsCredentialArgsDict(TypedDict):
-        password: pulumi.Input[_builtins.str]
-        """
-        RFC2617 compliant password associated with the SIP credentials.
-        """
-        username: pulumi.Input[_builtins.str]
-        """
-        RFC2617 compliant username associated with the SIP credentials.
-        """
-elif False:
-    VoiceConnectorTerminationCredentialsCredentialArgsDict: TypeAlias = Mapping[str, Any]
+class VoiceConnectorTerminationCredentialsCredentialArgsDict(TypedDict):
+    password: pulumi.Input[_builtins.str]
+    """
+    RFC2617 compliant password associated with the SIP credentials.
+    """
+    username: pulumi.Input[_builtins.str]
+    """
+    RFC2617 compliant username associated with the SIP credentials.
+    """
 
 @pulumi.input_type
 class VoiceConnectorTerminationCredentialsCredentialArgs:

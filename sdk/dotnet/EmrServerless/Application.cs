@@ -196,7 +196,7 @@ namespace Pulumi.Aws.EmrServerless
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import EMR Serverless applications using the `id`. For example:
+    /// Using `pulumi import`, import EMR Serverless applications using the `Id`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:emrserverless/application:Application example id

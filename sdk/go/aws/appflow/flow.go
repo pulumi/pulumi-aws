@@ -185,13 +185,14 @@ import (
 //
 // #### Optional
 //
-// * `account_id` (String) AWS Account where this resource is managed.
-//
+// * `accountId` (String) AWS Account where this resource is managed.
 // * `region` (String) Region where this resource is managed.
 //
 // Using `pulumi import`, import AppFlow flows using the `name`. For example:
 //
-// % pulumi import aws_appflow_flow.example example-flow
+// ```sh
+// $ pulumi import aws:appflow/flow:Flow example example-flow
+// ```
 type Flow struct {
 	pulumi.CustomResourceState
 

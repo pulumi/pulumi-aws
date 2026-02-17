@@ -27,8 +27,6 @@ import (
 //
 // import (
 //
-//	"fmt"
-//
 //	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws"
 //	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/observabilityadmin"
 //	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/organizations"
@@ -84,8 +82,6 @@ import (
 // package main
 //
 // import (
-//
-//	"fmt"
 //
 //	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws"
 //	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/observabilityadmin"
@@ -153,8 +149,6 @@ import (
 //
 // import (
 //
-//	"fmt"
-//
 //	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws"
 //	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/observabilityadmin"
 //	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/organizations"
@@ -207,7 +201,7 @@ import (
 //
 // ## Import
 //
-// Using `pulumi import`, import CloudWatch Observability Admin Centralization Rule For Organization using the `rule_name`. For example:
+// Using `pulumi import`, import CloudWatch Observability Admin Centralization Rule For Organization using the `ruleName`. For example:
 //
 // ```sh
 // $ pulumi import aws:observabilityadmin/centralizationRuleForOrganization:CentralizationRuleForOrganization example example-centralization-rule

@@ -335,7 +335,9 @@ class ReportGroup(pulumi.CustomResource):
 
         Using `pulumi import`, import CodeBuild Report Group using the CodeBuild Report Group arn. For example:
 
-        % pulumi import aws_codebuild_report_group.example arn:aws:codebuild:us-west-2:123456789:report-group/report-group-name
+        ```sh
+        $ pulumi import aws:codebuild/reportGroup:ReportGroup example arn:aws:codebuild:us-west-2:123456789:report-group/report-group-name
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -402,7 +404,9 @@ class ReportGroup(pulumi.CustomResource):
 
         Using `pulumi import`, import CodeBuild Report Group using the CodeBuild Report Group arn. For example:
 
-        % pulumi import aws_codebuild_report_group.example arn:aws:codebuild:us-west-2:123456789:report-group/report-group-name
+        ```sh
+        $ pulumi import aws:codebuild/reportGroup:ReportGroup example arn:aws:codebuild:us-west-2:123456789:report-group/report-group-name
+        ```
 
         :param str resource_name: The name of the resource.
         :param ReportGroupArgs args: The arguments to use to populate this resource's properties.

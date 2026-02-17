@@ -14,6 +14,10 @@ import java.lang.String;
 import javax.annotation.Nullable;
 
 /**
+ * Manages an AWS IAM (Identity &amp; Access Management) Outbound Web Identity Federation.
+ * 
+ * &gt; **NOTE:** Creating this Terraform resource enables IAM Outbound Web Identity Federation and deleting this Terraform resource disables IAM Outbound Web Identity Federation.
+ * 
  * ## Example Usage
  * 
  * <pre>

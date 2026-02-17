@@ -115,7 +115,7 @@ namespace Pulumi.Aws.Ssm
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import SSM resource data sync using the `name`. For example:
+    /// Using `pulumi import`, import SSM resource data sync using the `Name`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:ssm/resourceDataSync:ResourceDataSync example example-name

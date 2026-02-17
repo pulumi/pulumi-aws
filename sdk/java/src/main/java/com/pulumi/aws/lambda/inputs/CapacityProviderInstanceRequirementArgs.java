@@ -16,14 +16,14 @@ public final class CapacityProviderInstanceRequirementArgs extends com.pulumi.re
     public static final CapacityProviderInstanceRequirementArgs Empty = new CapacityProviderInstanceRequirementArgs();
 
     /**
-     * List of allowed instance types.
+     * List of allowed instance types (e.g., `[&#34;m5.xlarge&#34;]`).
      * 
      */
     @Import(name="allowedInstanceTypes", required=true)
     private Output<List<String>> allowedInstanceTypes;
 
     /**
-     * @return List of allowed instance types.
+     * @return List of allowed instance types (e.g., `[&#34;m5.xlarge&#34;]`).
      * 
      */
     public Output<List<String>> allowedInstanceTypes() {
@@ -31,14 +31,14 @@ public final class CapacityProviderInstanceRequirementArgs extends com.pulumi.re
     }
 
     /**
-     * List of CPU architectures. Valid values are `X86_64` and `ARM64`.
+     * List of CPU architectures. Valid values are `[&#34;x8664&#34;]` and `[&#34;arm64&#34;]`.
      * 
      */
     @Import(name="architectures", required=true)
     private Output<List<String>> architectures;
 
     /**
-     * @return List of CPU architectures. Valid values are `X86_64` and `ARM64`.
+     * @return List of CPU architectures. Valid values are `[&#34;x8664&#34;]` and `[&#34;arm64&#34;]`.
      * 
      */
     public Output<List<String>> architectures() {
@@ -46,14 +46,14 @@ public final class CapacityProviderInstanceRequirementArgs extends com.pulumi.re
     }
 
     /**
-     * List of excluded instance types.
+     * List of excluded instance types. You can specify only one of `allowedInstanceTypes` or `excludedInstanceTypes`.
      * 
      */
     @Import(name="excludedInstanceTypes", required=true)
     private Output<List<String>> excludedInstanceTypes;
 
     /**
-     * @return List of excluded instance types.
+     * @return List of excluded instance types. You can specify only one of `allowedInstanceTypes` or `excludedInstanceTypes`.
      * 
      */
     public Output<List<String>> excludedInstanceTypes() {
@@ -87,7 +87,7 @@ public final class CapacityProviderInstanceRequirementArgs extends com.pulumi.re
         }
 
         /**
-         * @param allowedInstanceTypes List of allowed instance types.
+         * @param allowedInstanceTypes List of allowed instance types (e.g., `[&#34;m5.xlarge&#34;]`).
          * 
          * @return builder
          * 
@@ -98,7 +98,7 @@ public final class CapacityProviderInstanceRequirementArgs extends com.pulumi.re
         }
 
         /**
-         * @param allowedInstanceTypes List of allowed instance types.
+         * @param allowedInstanceTypes List of allowed instance types (e.g., `[&#34;m5.xlarge&#34;]`).
          * 
          * @return builder
          * 
@@ -108,7 +108,7 @@ public final class CapacityProviderInstanceRequirementArgs extends com.pulumi.re
         }
 
         /**
-         * @param allowedInstanceTypes List of allowed instance types.
+         * @param allowedInstanceTypes List of allowed instance types (e.g., `[&#34;m5.xlarge&#34;]`).
          * 
          * @return builder
          * 
@@ -118,7 +118,7 @@ public final class CapacityProviderInstanceRequirementArgs extends com.pulumi.re
         }
 
         /**
-         * @param architectures List of CPU architectures. Valid values are `X86_64` and `ARM64`.
+         * @param architectures List of CPU architectures. Valid values are `[&#34;x8664&#34;]` and `[&#34;arm64&#34;]`.
          * 
          * @return builder
          * 
@@ -129,7 +129,7 @@ public final class CapacityProviderInstanceRequirementArgs extends com.pulumi.re
         }
 
         /**
-         * @param architectures List of CPU architectures. Valid values are `X86_64` and `ARM64`.
+         * @param architectures List of CPU architectures. Valid values are `[&#34;x8664&#34;]` and `[&#34;arm64&#34;]`.
          * 
          * @return builder
          * 
@@ -139,7 +139,7 @@ public final class CapacityProviderInstanceRequirementArgs extends com.pulumi.re
         }
 
         /**
-         * @param architectures List of CPU architectures. Valid values are `X86_64` and `ARM64`.
+         * @param architectures List of CPU architectures. Valid values are `[&#34;x8664&#34;]` and `[&#34;arm64&#34;]`.
          * 
          * @return builder
          * 
@@ -149,7 +149,7 @@ public final class CapacityProviderInstanceRequirementArgs extends com.pulumi.re
         }
 
         /**
-         * @param excludedInstanceTypes List of excluded instance types.
+         * @param excludedInstanceTypes List of excluded instance types. You can specify only one of `allowedInstanceTypes` or `excludedInstanceTypes`.
          * 
          * @return builder
          * 
@@ -160,7 +160,7 @@ public final class CapacityProviderInstanceRequirementArgs extends com.pulumi.re
         }
 
         /**
-         * @param excludedInstanceTypes List of excluded instance types.
+         * @param excludedInstanceTypes List of excluded instance types. You can specify only one of `allowedInstanceTypes` or `excludedInstanceTypes`.
          * 
          * @return builder
          * 
@@ -170,7 +170,7 @@ public final class CapacityProviderInstanceRequirementArgs extends com.pulumi.re
         }
 
         /**
-         * @param excludedInstanceTypes List of excluded instance types.
+         * @param excludedInstanceTypes List of excluded instance types. You can specify only one of `allowedInstanceTypes` or `excludedInstanceTypes`.
          * 
          * @return builder
          * 

@@ -53,7 +53,7 @@ import (
 //
 // ## Import
 //
-// Using `pulumi import`, import `aws_ec2_transit_gateway_connect_peer` using the EC2 Transit Gateway Connect Peer identifier. For example:
+// Using `pulumi import`, import `ec2transitgateway.ConnectPeer` using the EC2 Transit Gateway Connect Peer identifier. For example:
 //
 // ```sh
 // $ pulumi import aws:ec2transitgateway/connectPeer:ConnectPeer example tgw-connect-peer-12345678

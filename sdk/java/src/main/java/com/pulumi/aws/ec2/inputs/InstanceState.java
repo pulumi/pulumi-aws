@@ -19,6 +19,7 @@ import com.pulumi.aws.ec2.inputs.InstanceNetworkInterfaceArgs;
 import com.pulumi.aws.ec2.inputs.InstancePrimaryNetworkInterfaceArgs;
 import com.pulumi.aws.ec2.inputs.InstancePrivateDnsNameOptionsArgs;
 import com.pulumi.aws.ec2.inputs.InstanceRootBlockDeviceArgs;
+import com.pulumi.aws.ec2.inputs.InstanceSecondaryNetworkInterfaceArgs;
 import com.pulumi.core.Either;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
@@ -750,6 +751,21 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * One or more secondary network interfaces to attach to the instance at launch time. See Secondary Network Interface below for more details.
+     * 
+     */
+    @Import(name="secondaryNetworkInterfaces")
+    private @Nullable Output<List<InstanceSecondaryNetworkInterfaceArgs>> secondaryNetworkInterfaces;
+
+    /**
+     * @return One or more secondary network interfaces to attach to the instance at launch time. See Secondary Network Interface below for more details.
+     * 
+     */
+    public Optional<Output<List<InstanceSecondaryNetworkInterfaceArgs>>> secondaryNetworkInterfaces() {
+        return Optional.ofNullable(this.secondaryNetworkInterfaces);
+    }
+
+    /**
      * List of secondary private IPv4 addresses to assign to the instance&#39;s primary network interface (eth0) in a VPC. Can only be assigned to the primary network interface (eth0) attached at instance creation, not a pre-existing network interface i.e., referenced in a `networkInterface` block. Refer to the [Elastic network interfaces documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI) to see the maximum number of private IP addresses allowed per instance type.
      * 
      */
@@ -1010,6 +1026,7 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
         this.publicIp = $.publicIp;
         this.region = $.region;
         this.rootBlockDevice = $.rootBlockDevice;
+        this.secondaryNetworkInterfaces = $.secondaryNetworkInterfaces;
         this.secondaryPrivateIps = $.secondaryPrivateIps;
         this.securityGroups = $.securityGroups;
         this.sourceDestCheck = $.sourceDestCheck;
@@ -2100,6 +2117,37 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder rootBlockDevice(InstanceRootBlockDeviceArgs rootBlockDevice) {
             return rootBlockDevice(Output.of(rootBlockDevice));
+        }
+
+        /**
+         * @param secondaryNetworkInterfaces One or more secondary network interfaces to attach to the instance at launch time. See Secondary Network Interface below for more details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder secondaryNetworkInterfaces(@Nullable Output<List<InstanceSecondaryNetworkInterfaceArgs>> secondaryNetworkInterfaces) {
+            $.secondaryNetworkInterfaces = secondaryNetworkInterfaces;
+            return this;
+        }
+
+        /**
+         * @param secondaryNetworkInterfaces One or more secondary network interfaces to attach to the instance at launch time. See Secondary Network Interface below for more details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder secondaryNetworkInterfaces(List<InstanceSecondaryNetworkInterfaceArgs> secondaryNetworkInterfaces) {
+            return secondaryNetworkInterfaces(Output.of(secondaryNetworkInterfaces));
+        }
+
+        /**
+         * @param secondaryNetworkInterfaces One or more secondary network interfaces to attach to the instance at launch time. See Secondary Network Interface below for more details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder secondaryNetworkInterfaces(InstanceSecondaryNetworkInterfaceArgs... secondaryNetworkInterfaces) {
+            return secondaryNetworkInterfaces(List.of(secondaryNetworkInterfaces));
         }
 
         /**

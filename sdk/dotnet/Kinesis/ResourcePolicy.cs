@@ -56,11 +56,13 @@ namespace Pulumi.Aws.Kinesis
     /// 
     /// #### Required
     /// 
-    /// - `arn` (String) Amazon Resource Name (ARN) of the Kinesis stream.
+    /// - `Arn` (String) Amazon Resource Name (ARN) of the Kinesis stream.
     /// 
-    /// Using `pulumi import`, import Kinesis resource policies using the `resource_arn`. For example:
+    /// Using `pulumi import`, import Kinesis resource policies using the `ResourceArn`. For example:
     /// 
-    /// % pulumi import aws_kinesis_resource_policy.example arn:aws:kinesis:us-west-2:123456789012:stream/example
+    /// ```sh
+    /// $ pulumi import aws:kinesis/resourcePolicy:ResourcePolicy example arn:aws:kinesis:us-west-2:123456789012:stream/example
+    /// ```
     /// </summary>
     [AwsResourceType("aws:kinesis/resourcePolicy:ResourcePolicy")]
     public partial class ResourcePolicy : global::Pulumi.CustomResource

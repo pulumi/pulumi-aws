@@ -59,7 +59,7 @@ namespace Pulumi.Aws.LightSail
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import `aws_lightsail_lb_https_redirection_policy` using the `lb_name` attribute. For example:
+    /// Using `pulumi import`, import `aws.lightsail.LbHttpsRedirectionPolicy` using the `LbName` attribute. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:lightsail/lbHttpsRedirectionPolicy:LbHttpsRedirectionPolicy example example-load-balancer

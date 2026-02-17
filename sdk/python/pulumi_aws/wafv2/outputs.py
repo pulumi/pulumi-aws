@@ -16058,7 +16058,7 @@ class WebAclLoggingConfigurationLoggingFilterFilterConditionLabelNameCondition(d
     def __init__(__self__, *,
                  label_name: _builtins.str):
         """
-        :param _builtins.str label_name: Name of the label that a log record must contain in order to meet the condition. It must be a fully qualified label name, which includes a prefix, optional namespaces, and the label name itself. The prefix identifies the rule group or web ACL context of the rule that added the label.
+        :param _builtins.str label_name: Name of the label that a log record must contain in order to meet the condition. It must be a [fully qualified label name](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-label-requirements.html#waf-rule-label-syntax), which includes a prefix, optional namespaces, and the label name itself. The prefix identifies the rule group or web ACL context of the rule that added the label.
         """
         pulumi.set(__self__, "label_name", label_name)
 
@@ -16066,7 +16066,7 @@ class WebAclLoggingConfigurationLoggingFilterFilterConditionLabelNameCondition(d
     @pulumi.getter(name="labelName")
     def label_name(self) -> _builtins.str:
         """
-        Name of the label that a log record must contain in order to meet the condition. It must be a fully qualified label name, which includes a prefix, optional namespaces, and the label name itself. The prefix identifies the rule group or web ACL context of the rule that added the label.
+        Name of the label that a log record must contain in order to meet the condition. It must be a [fully qualified label name](https://docs.aws.amazon.com/waf/latest/developerguide/waf-rule-label-requirements.html#waf-rule-label-syntax), which includes a prefix, optional namespaces, and the label name itself. The prefix identifies the rule group or web ACL context of the rule that added the label.
         """
         return pulumi.get(self, "label_name")
 
@@ -18649,7 +18649,7 @@ class WebAclRuleStatement(dict):
         :param 'WebAclRuleStatementManagedRuleGroupStatementArgs' managed_rule_group_statement: Rule statement used to run the rules that are defined in a managed rule group.  This statement can not be nested. See `managed_rule_group_statement` below for details.
         :param 'WebAclRuleStatementNotStatementArgs' not_statement: Logical rule statement used to negate the results of another rule statement. See `not_statement` below for details.
         :param 'WebAclRuleStatementOrStatementArgs' or_statement: Logical rule statement used to combine other rule statements with OR logic. See `or_statement` below for details.
-        :param 'WebAclRuleStatementRateBasedStatementArgs' rate_based_statement: Rate-based rule tracks the rate of requests for each originating `IP address`, and triggers the rule action when the rate exceeds a limit that you specify on the number of requests in any `5-minute` time span. This statement can not be nested. See `rate_based_statement` below for details.
+        :param 'WebAclRuleStatementRateBasedStatementArgs' rate_based_statement: Rate-based rule tracks the rate of requests for each originating `IP address`, and triggers the rule action when the rate exceeds a limit that you specify on the number of requests in any specified time span. This statement can not be nested. See `rate_based_statement` below for details.
         :param 'WebAclRuleStatementRegexMatchStatementArgs' regex_match_statement: Rule statement used to search web request components for a match against a single regular expression. See `regex_match_statement` below for details.
         :param 'WebAclRuleStatementRegexPatternSetReferenceStatementArgs' regex_pattern_set_reference_statement: Rule statement used to search web request components for matches with regular expressions. See `regex_pattern_set_reference_statement` below for details.
         :param 'WebAclRuleStatementRuleGroupReferenceStatementArgs' rule_group_reference_statement: Rule statement used to run the rules that are defined in an WAFv2 Rule Group. See `rule_group_reference_statement` below for details.
@@ -18766,7 +18766,7 @@ class WebAclRuleStatement(dict):
     @pulumi.getter(name="rateBasedStatement")
     def rate_based_statement(self) -> Optional['outputs.WebAclRuleStatementRateBasedStatement']:
         """
-        Rate-based rule tracks the rate of requests for each originating `IP address`, and triggers the rule action when the rate exceeds a limit that you specify on the number of requests in any `5-minute` time span. This statement can not be nested. See `rate_based_statement` below for details.
+        Rate-based rule tracks the rate of requests for each originating `IP address`, and triggers the rule action when the rate exceeds a limit that you specify on the number of requests in any specified time span. This statement can not be nested. See `rate_based_statement` below for details.
         """
         return pulumi.get(self, "rate_based_statement")
 
@@ -28375,7 +28375,7 @@ class WebAclRuleStatementRateBasedStatement(dict):
                  forwarded_ip_config: Optional['outputs.WebAclRuleStatementRateBasedStatementForwardedIpConfig'] = None,
                  scope_down_statement: Optional['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatement'] = None):
         """
-        :param _builtins.int limit: Limit on requests per 5-minute (or `evaluation_window_sec`) period for a single originating IP address (or for other aggregate key, depending on `aggregate_key_type` and `custom_key`).
+        :param _builtins.int limit: Limit on requests during the specified evaluation window for a single aggregation instance.
         :param _builtins.str aggregate_key_type: Setting that indicates how to aggregate the request counts. Valid values include: `CONSTANT`, `CUSTOM_KEYS`, `FORWARDED_IP`, or `IP`. Default: `IP`.
         :param Sequence['WebAclRuleStatementRateBasedStatementCustomKeyArgs'] custom_keys: Aggregate the request counts using one or more web request components as the aggregate keys. See `custom_key` below for details.
         :param _builtins.int evaluation_window_sec: The amount of time, in seconds, that AWS WAF should include in its request counts, looking back from the current time. Valid values are `60`, `120`, `300`, and `600`. Defaults to `300` (5 minutes).
@@ -28400,7 +28400,7 @@ class WebAclRuleStatementRateBasedStatement(dict):
     @pulumi.getter
     def limit(self) -> _builtins.int:
         """
-        Limit on requests per 5-minute (or `evaluation_window_sec`) period for a single originating IP address (or for other aggregate key, depending on `aggregate_key_type` and `custom_key`).
+        Limit on requests during the specified evaluation window for a single aggregation instance.
         """
         return pulumi.get(self, "limit")
 

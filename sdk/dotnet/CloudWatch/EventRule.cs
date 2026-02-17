@@ -95,19 +95,19 @@ namespace Pulumi.Aws.CloudWatch
     /// 
     /// #### Required
     /// 
-    /// * `name` (String) Name of the EventBridge rule.
+    /// * `Name` (String) Name of the EventBridge rule.
     /// 
     /// #### Optional
     /// 
-    /// * `account_id` (String) AWS Account where this resource is managed.
+    /// * `AccountId` (String) AWS Account where this resource is managed.
+    /// * `EventBusName` (String) Name of the event bus.
+    /// * `Region` (String) Region where this resource is managed.
     /// 
-    /// * `event_bus_name` (String) Name of the event bus.
+    /// Using `pulumi import`, import EventBridge Rules using the `event_bus_name/rule_name` (if you omit `EventBusName`, the `Default` event bus will be used). For example:
     /// 
-    /// * `region` (String) Region where this resource is managed.
-    /// 
-    /// Using `pulumi import`, import EventBridge Rules using the `event_bus_name/rule_name` (if you omit `event_bus_name`, the `default` event bus will be used). For example:
-    /// 
-    /// % pulumi import aws_cloudwatch_event_rule.example example-event-bus/capture-console-sign-in
+    /// ```sh
+    /// $ pulumi import aws:cloudwatch/eventRule:EventRule example example-event-bus/capture-console-sign-in
+    /// ```
     /// </summary>
     [AwsResourceType("aws:cloudwatch/eventRule:EventRule")]
     public partial class EventRule : global::Pulumi.CustomResource

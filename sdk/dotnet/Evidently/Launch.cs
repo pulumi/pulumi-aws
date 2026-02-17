@@ -393,16 +393,17 @@ namespace Pulumi.Aws.Evidently
     /// 
     /// ## Import
     /// 
-    /// Import using the `name` of the launch and `arn` of the project separated by a `:`:
+    /// Import using the `Name` of the launch and `Arn` of the project separated by a `:`:
     /// 
-    /// __Using `pulumi import` to import__ CloudWatch Evidently Launch using the `name` of the launch and `name` of the project or `arn` of the hosting CloudWatch Evidently Project separated by a `:`. For example:
+    /// **Using `pulumi import` to import** CloudWatch Evidently Launch using the `Name` of the launch and `Name` of the project or `Arn` of the hosting CloudWatch Evidently Project separated by a `:`. For example:
     /// 
-    /// Import using the `name` of the launch and `name` of the project separated by a `:`:
+    /// Import using the `Name` of the launch and `Name` of the project separated by a `:`:
     /// 
     /// ```sh
     /// $ pulumi import aws:evidently/launch:Launch example exampleLaunchName:exampleProjectName
     /// ```
-    /// Import using the `name` of the launch and `arn` of the project separated by a `:`:
+    /// 
+    /// Import using the `Name` of the launch and `Arn` of the project separated by a `:`:
     /// 
     /// ```sh
     /// $ pulumi import aws:evidently/launch:Launch example exampleLaunchName:arn:aws:evidently:us-east-1:123456789012:project/exampleProjectName

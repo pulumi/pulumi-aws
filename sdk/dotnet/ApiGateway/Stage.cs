@@ -50,7 +50,7 @@ namespace Pulumi.Aws.ApiGateway
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import `aws_api_gateway_stage` using `REST-API-ID/STAGE-NAME`. For example:
+    /// Using `pulumi import`, import `aws.apigateway.Stage` using `REST-API-ID/STAGE-NAME`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:apigateway/stage:Stage example 12345abcde/example

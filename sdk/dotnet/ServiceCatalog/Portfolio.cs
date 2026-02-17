@@ -34,7 +34,7 @@ namespace Pulumi.Aws.ServiceCatalog
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import Service Catalog Portfolios using the Service Catalog Portfolio `id`. For example:
+    /// Using `pulumi import`, import Service Catalog Portfolios using the Service Catalog Portfolio `Id`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:servicecatalog/portfolio:Portfolio testfolio port-12344321

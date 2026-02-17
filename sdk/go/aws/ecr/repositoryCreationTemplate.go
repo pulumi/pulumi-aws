@@ -140,7 +140,8 @@ type RepositoryCreationTemplate struct {
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// The registry ID the repository creation template applies to.
-	RegistryId       pulumi.StringOutput    `pulumi:"registryId"`
+	RegistryId pulumi.StringOutput `pulumi:"registryId"`
+	// The registry policy document to apply to any created repositories. This is a JSON formatted string. For more information about building IAM policy documents with Terraform, see the AWS IAM Policy Document Guide.
 	RepositoryPolicy pulumi.StringPtrOutput `pulumi:"repositoryPolicy"`
 	// A map of tags to assign to any created repositories.
 	ResourceTags pulumi.StringMapOutput `pulumi:"resourceTags"`
@@ -201,7 +202,8 @@ type repositoryCreationTemplateState struct {
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// The registry ID the repository creation template applies to.
-	RegistryId       *string `pulumi:"registryId"`
+	RegistryId *string `pulumi:"registryId"`
+	// The registry policy document to apply to any created repositories. This is a JSON formatted string. For more information about building IAM policy documents with Terraform, see the AWS IAM Policy Document Guide.
 	RepositoryPolicy *string `pulumi:"repositoryPolicy"`
 	// A map of tags to assign to any created repositories.
 	ResourceTags map[string]string `pulumi:"resourceTags"`
@@ -227,7 +229,8 @@ type RepositoryCreationTemplateState struct {
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// The registry ID the repository creation template applies to.
-	RegistryId       pulumi.StringPtrInput
+	RegistryId pulumi.StringPtrInput
+	// The registry policy document to apply to any created repositories. This is a JSON formatted string. For more information about building IAM policy documents with Terraform, see the AWS IAM Policy Document Guide.
 	RepositoryPolicy pulumi.StringPtrInput
 	// A map of tags to assign to any created repositories.
 	ResourceTags pulumi.StringMapInput
@@ -255,7 +258,8 @@ type repositoryCreationTemplateArgs struct {
 	// The repository name prefix to match against. Use `ROOT` to match any prefix that doesn't explicitly match another template.
 	Prefix string `pulumi:"prefix"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region           *string `pulumi:"region"`
+	Region *string `pulumi:"region"`
+	// The registry policy document to apply to any created repositories. This is a JSON formatted string. For more information about building IAM policy documents with Terraform, see the AWS IAM Policy Document Guide.
 	RepositoryPolicy *string `pulumi:"repositoryPolicy"`
 	// A map of tags to assign to any created repositories.
 	ResourceTags map[string]string `pulumi:"resourceTags"`
@@ -280,7 +284,8 @@ type RepositoryCreationTemplateArgs struct {
 	// The repository name prefix to match against. Use `ROOT` to match any prefix that doesn't explicitly match another template.
 	Prefix pulumi.StringInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region           pulumi.StringPtrInput
+	Region pulumi.StringPtrInput
+	// The registry policy document to apply to any created repositories. This is a JSON formatted string. For more information about building IAM policy documents with Terraform, see the AWS IAM Policy Document Guide.
 	RepositoryPolicy pulumi.StringPtrInput
 	// A map of tags to assign to any created repositories.
 	ResourceTags pulumi.StringMapInput
@@ -427,6 +432,7 @@ func (o RepositoryCreationTemplateOutput) RegistryId() pulumi.StringOutput {
 	return o.ApplyT(func(v *RepositoryCreationTemplate) pulumi.StringOutput { return v.RegistryId }).(pulumi.StringOutput)
 }
 
+// The registry policy document to apply to any created repositories. This is a JSON formatted string. For more information about building IAM policy documents with Terraform, see the AWS IAM Policy Document Guide.
 func (o RepositoryCreationTemplateOutput) RepositoryPolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RepositoryCreationTemplate) pulumi.StringPtrOutput { return v.RepositoryPolicy }).(pulumi.StringPtrOutput)
 }

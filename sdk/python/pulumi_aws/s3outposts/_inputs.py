@@ -19,16 +19,11 @@ __all__ = [
     'EndpointNetworkInterfaceArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class EndpointNetworkInterfaceArgsDict(TypedDict):
-        network_interface_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Identifier of the Elastic Network Interface (ENI).
-        """
-elif False:
-    EndpointNetworkInterfaceArgsDict: TypeAlias = Mapping[str, Any]
+class EndpointNetworkInterfaceArgsDict(TypedDict):
+    network_interface_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Identifier of the Elastic Network Interface (ENI).
+    """
 
 @pulumi.input_type
 class EndpointNetworkInterfaceArgs:

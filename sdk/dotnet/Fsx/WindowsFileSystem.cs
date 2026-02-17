@@ -116,12 +116,32 @@ namespace Pulumi.Aws.Fsx
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import FSx File Systems using the `id`. For example:
+    /// Using `pulumi import`, import FSx File Systems using the `Id`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:fsx/windowsFileSystem:WindowsFileSystem example fs-543ab12b1ca672f33
     /// ```
-    /// Certain resource arguments, like `security_group_ids` and the `self_managed_active_directory` configuation block `password`, do not have a FSx API method for reading the information after creation. If these arguments are set in the Pulumi program on an imported resource, Pulumi will always show a difference. To workaround this behavior, either omit the argument from the Pulumi program or use `ignore_changes` to hide the difference. For example:
+    /// 
+    /// Certain resource arguments, like `SecurityGroupIds` and the `SelfManagedActiveDirectory` configuation block `Password`, do not have a FSx API method for reading the information after creation. If these arguments are set in the Pulumi program on an imported resource, Pulumi will always show a difference. To workaround this behavior, either omit the argument from the Pulumi program or use `IgnoreChanges` to hide the difference. For example:
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.Fsx.WindowsFileSystem("example", new()
+    ///     {
+    ///         SecurityGroupIds = new[]
+    ///         {
+    ///             exampleAwsSecurityGroup.Id,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
     /// </summary>
     [AwsResourceType("aws:fsx/windowsFileSystem:WindowsFileSystem")]
     public partial class WindowsFileSystem : global::Pulumi.CustomResource

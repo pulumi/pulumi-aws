@@ -21,18 +21,13 @@ __all__ = [
     'RepositoryUpstreamArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class RepositoryExternalConnectionsArgsDict(TypedDict):
-        external_connection_name: pulumi.Input[_builtins.str]
-        """
-        The name of the external connection associated with a repository.
-        """
-        package_format: NotRequired[pulumi.Input[_builtins.str]]
-        status: NotRequired[pulumi.Input[_builtins.str]]
-elif False:
-    RepositoryExternalConnectionsArgsDict: TypeAlias = Mapping[str, Any]
+class RepositoryExternalConnectionsArgsDict(TypedDict):
+    external_connection_name: pulumi.Input[_builtins.str]
+    """
+    The name of the external connection associated with a repository.
+    """
+    package_format: NotRequired[pulumi.Input[_builtins.str]]
+    status: NotRequired[pulumi.Input[_builtins.str]]
 
 @pulumi.input_type
 class RepositoryExternalConnectionsArgs:
@@ -80,14 +75,11 @@ class RepositoryExternalConnectionsArgs:
         pulumi.set(self, "status", value)
 
 
-if not MYPY:
-    class RepositoryUpstreamArgsDict(TypedDict):
-        repository_name: pulumi.Input[_builtins.str]
-        """
-        The name of an upstream repository.
-        """
-elif False:
-    RepositoryUpstreamArgsDict: TypeAlias = Mapping[str, Any]
+class RepositoryUpstreamArgsDict(TypedDict):
+    repository_name: pulumi.Input[_builtins.str]
+    """
+    The name of an upstream repository.
+    """
 
 @pulumi.input_type
 class RepositoryUpstreamArgs:

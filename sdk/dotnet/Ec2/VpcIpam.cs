@@ -97,7 +97,7 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import IPAMs using the IPAM `id`. For example:
+    /// Using `pulumi import`, import IPAMs using the IPAM `Id`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:ec2/vpcIpam:VpcIpam example ipam-0178368ad2146a492

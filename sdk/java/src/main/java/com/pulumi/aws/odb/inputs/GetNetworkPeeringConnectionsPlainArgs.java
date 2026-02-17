@@ -3,10 +3,8 @@
 
 package com.pulumi.aws.odb.inputs;
 
-import com.pulumi.aws.odb.inputs.GetNetworkPeeringConnectionsOdbPeeringConnection;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
-import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -15,21 +13,6 @@ import javax.annotation.Nullable;
 public final class GetNetworkPeeringConnectionsPlainArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetNetworkPeeringConnectionsPlainArgs Empty = new GetNetworkPeeringConnectionsPlainArgs();
-
-    /**
-     * The list of ODB peering connections. A summary of an ODB peering connection.
-     * 
-     */
-    @Import(name="odbPeeringConnections")
-    private @Nullable List<GetNetworkPeeringConnectionsOdbPeeringConnection> odbPeeringConnections;
-
-    /**
-     * @return The list of ODB peering connections. A summary of an ODB peering connection.
-     * 
-     */
-    public Optional<List<GetNetworkPeeringConnectionsOdbPeeringConnection>> odbPeeringConnections() {
-        return Optional.ofNullable(this.odbPeeringConnections);
-    }
 
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -49,7 +32,6 @@ public final class GetNetworkPeeringConnectionsPlainArgs extends com.pulumi.reso
     private GetNetworkPeeringConnectionsPlainArgs() {}
 
     private GetNetworkPeeringConnectionsPlainArgs(GetNetworkPeeringConnectionsPlainArgs $) {
-        this.odbPeeringConnections = $.odbPeeringConnections;
         this.region = $.region;
     }
 
@@ -69,27 +51,6 @@ public final class GetNetworkPeeringConnectionsPlainArgs extends com.pulumi.reso
 
         public Builder(GetNetworkPeeringConnectionsPlainArgs defaults) {
             $ = new GetNetworkPeeringConnectionsPlainArgs(Objects.requireNonNull(defaults));
-        }
-
-        /**
-         * @param odbPeeringConnections The list of ODB peering connections. A summary of an ODB peering connection.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder odbPeeringConnections(@Nullable List<GetNetworkPeeringConnectionsOdbPeeringConnection> odbPeeringConnections) {
-            $.odbPeeringConnections = odbPeeringConnections;
-            return this;
-        }
-
-        /**
-         * @param odbPeeringConnections The list of ODB peering connections. A summary of an ODB peering connection.
-         * 
-         * @return builder
-         * 
-         */
-        public Builder odbPeeringConnections(GetNetworkPeeringConnectionsOdbPeeringConnection... odbPeeringConnections) {
-            return odbPeeringConnections(List.of(odbPeeringConnections));
         }
 
         /**

@@ -55,7 +55,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Using `pulumi import`, import VPC Block Public Access Options using the `aws_region`. For example:
+ * Using `pulumi import`, import VPC Block Public Access Options using the `aws.getRegion`. For example:
  * 
  * ```sh
  * $ pulumi import aws:ec2/vpcBlockPublicAccessOptions:VpcBlockPublicAccessOptions example us-east-1

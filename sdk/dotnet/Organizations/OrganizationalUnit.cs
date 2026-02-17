@@ -37,15 +37,17 @@ namespace Pulumi.Aws.Organizations
     /// 
     /// #### Required
     /// 
-    /// * `id` (String) ID of the organizational unit.
+    /// * `Id` (String) ID of the organizational unit.
     /// 
     /// #### Optional
     /// 
-    /// * `account_id` (String) AWS Account where this resource is managed.
+    /// * `AccountId` (String) AWS Account where this resource is managed.
     /// 
-    /// Using `pulumi import`, import AWS Organizations Organizational Units using the `id`. For example:
+    /// Using `pulumi import`, import AWS Organizations Organizational Units using the `Id`. For example:
     /// 
-    /// % pulumi import aws_organizations_organizational_unit.example ou-1234567
+    /// ```sh
+    /// $ pulumi import aws:organizations/organizationalUnit:OrganizationalUnit example ou-1234567
+    /// ```
     /// </summary>
     [AwsResourceType("aws:organizations/organizationalUnit:OrganizationalUnit")]
     public partial class OrganizationalUnit : global::Pulumi.CustomResource

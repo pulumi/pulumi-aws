@@ -172,7 +172,7 @@ namespace Pulumi.Aws.Bedrock
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import Bedrock Agents Flow using the `id`. For example:
+    /// Using `pulumi import`, import Bedrock Agents Flow using the `Id`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:bedrock/agentFlow:AgentFlow example ABCDEFGHIJ

@@ -20,6 +20,7 @@ import com.pulumi.aws.ec2.outputs.InstanceNetworkInterface;
 import com.pulumi.aws.ec2.outputs.InstancePrimaryNetworkInterface;
 import com.pulumi.aws.ec2.outputs.InstancePrivateDnsNameOptions;
 import com.pulumi.aws.ec2.outputs.InstanceRootBlockDevice;
+import com.pulumi.aws.ec2.outputs.InstanceSecondaryNetworkInterface;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
@@ -380,13 +381,14 @@ import javax.annotation.Nullable;
  * 
  * #### Optional
  * 
- * * `account_id` (String) AWS Account where this resource is managed.
- * 
+ * * `accountId` (String) AWS Account where this resource is managed.
  * * `region` (String) Region where this resource is managed.
  * 
  * Using `pulumi import`, import instances using the `id`. For example:
  * 
- * % pulumi import aws_instance.web i-12345678
+ * ```sh
+ * $ pulumi import aws:ec2/instance:Instance web i-12345678
+ * ```
  * 
  */
 @ResourceType(type="aws:ec2/instance:Instance")
@@ -1052,6 +1054,20 @@ public class Instance extends com.pulumi.resources.CustomResource {
      */
     public Output<InstanceRootBlockDevice> rootBlockDevice() {
         return this.rootBlockDevice;
+    }
+    /**
+     * One or more secondary network interfaces to attach to the instance at launch time. See Secondary Network Interface below for more details.
+     * 
+     */
+    @Export(name="secondaryNetworkInterfaces", refs={List.class,InstanceSecondaryNetworkInterface.class}, tree="[0,1]")
+    private Output<List<InstanceSecondaryNetworkInterface>> secondaryNetworkInterfaces;
+
+    /**
+     * @return One or more secondary network interfaces to attach to the instance at launch time. See Secondary Network Interface below for more details.
+     * 
+     */
+    public Output<List<InstanceSecondaryNetworkInterface>> secondaryNetworkInterfaces() {
+        return this.secondaryNetworkInterfaces;
     }
     /**
      * List of secondary private IPv4 addresses to assign to the instance&#39;s primary network interface (eth0) in a VPC. Can only be assigned to the primary network interface (eth0) attached at instance creation, not a pre-existing network interface i.e., referenced in a `networkInterface` block. Refer to the [Elastic network interfaces documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI) to see the maximum number of private IP addresses allowed per instance type.

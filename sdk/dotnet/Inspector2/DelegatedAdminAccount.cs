@@ -36,7 +36,7 @@ namespace Pulumi.Aws.Inspector2
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import Inspector Delegated Admin Account using the `account_id`. For example:
+    /// Using `pulumi import`, import Inspector Delegated Admin Account using the `AccountId`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:inspector2/delegatedAdminAccount:DelegatedAdminAccount example 123456789012

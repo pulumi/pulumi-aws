@@ -69,26 +69,21 @@ __all__ = [
     'GetTableServerSideEncryptionArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class GlobalSecondaryIndexKeySchemaArgsDict(TypedDict):
-        attribute_name: pulumi.Input[_builtins.str]
-        """
-        Name of the attribute.
-        """
-        attribute_type: pulumi.Input[_builtins.str]
-        """
-        Type of the attribute in the index.
-        Valid values are `S` (string), `N` (number), or `B` (binary).
-        """
-        key_type: pulumi.Input[_builtins.str]
-        """
-        Key type.
-        Valid values are `HASH` or `RANGE`.
-        """
-elif False:
-    GlobalSecondaryIndexKeySchemaArgsDict: TypeAlias = Mapping[str, Any]
+class GlobalSecondaryIndexKeySchemaArgsDict(TypedDict):
+    attribute_name: pulumi.Input[_builtins.str]
+    """
+    Name of the attribute.
+    """
+    attribute_type: pulumi.Input[_builtins.str]
+    """
+    Type of the attribute in the index.
+    Valid values are `S` (string), `N` (number), or `B` (binary).
+    """
+    key_type: pulumi.Input[_builtins.str]
+    """
+    Key type.
+    Valid values are `HASH` or `RANGE`.
+    """
 
 @pulumi.input_type
 class GlobalSecondaryIndexKeySchemaArgs:
@@ -146,18 +141,15 @@ class GlobalSecondaryIndexKeySchemaArgs:
         pulumi.set(self, "key_type", value)
 
 
-if not MYPY:
-    class GlobalSecondaryIndexOnDemandThroughputArgsDict(TypedDict):
-        max_read_request_units: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Maximum number of read request units for this index.
-        """
-        max_write_request_units: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Maximum number of write request units for this index.
-        """
-elif False:
-    GlobalSecondaryIndexOnDemandThroughputArgsDict: TypeAlias = Mapping[str, Any]
+class GlobalSecondaryIndexOnDemandThroughputArgsDict(TypedDict):
+    max_read_request_units: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Maximum number of read request units for this index.
+    """
+    max_write_request_units: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Maximum number of write request units for this index.
+    """
 
 @pulumi.input_type
 class GlobalSecondaryIndexOnDemandThroughputArgs:
@@ -198,20 +190,17 @@ class GlobalSecondaryIndexOnDemandThroughputArgs:
         pulumi.set(self, "max_write_request_units", value)
 
 
-if not MYPY:
-    class GlobalSecondaryIndexProjectionArgsDict(TypedDict):
-        projection_type: pulumi.Input[_builtins.str]
-        """
-        The set of attributes represented in the index.
-        One of `ALL`, `INCLUDE`, or `KEYS_ONLY`.
-        """
-        non_key_attributes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Specifies which additional attributes to include in the index.
-        Only valid when `projection_type` is `INCLUDE`.`
-        """
-elif False:
-    GlobalSecondaryIndexProjectionArgsDict: TypeAlias = Mapping[str, Any]
+class GlobalSecondaryIndexProjectionArgsDict(TypedDict):
+    projection_type: pulumi.Input[_builtins.str]
+    """
+    The set of attributes represented in the index.
+    One of `ALL`, `INCLUDE`, or `KEYS_ONLY`.
+    """
+    non_key_attributes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Specifies which additional attributes to include in the index.
+    Only valid when `projection_type` is `INCLUDE`.`
+    """
 
 @pulumi.input_type
 class GlobalSecondaryIndexProjectionArgs:
@@ -255,18 +244,15 @@ class GlobalSecondaryIndexProjectionArgs:
         pulumi.set(self, "non_key_attributes", value)
 
 
-if not MYPY:
-    class GlobalSecondaryIndexProvisionedThroughputArgsDict(TypedDict):
-        read_capacity_units: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Number of read capacity units for this index.
-        """
-        write_capacity_units: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Number of write capacity units for this index.
-        """
-elif False:
-    GlobalSecondaryIndexProvisionedThroughputArgsDict: TypeAlias = Mapping[str, Any]
+class GlobalSecondaryIndexProvisionedThroughputArgsDict(TypedDict):
+    read_capacity_units: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Number of read capacity units for this index.
+    """
+    write_capacity_units: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Number of write capacity units for this index.
+    """
 
 @pulumi.input_type
 class GlobalSecondaryIndexProvisionedThroughputArgs:
@@ -307,22 +293,19 @@ class GlobalSecondaryIndexProvisionedThroughputArgs:
         pulumi.set(self, "write_capacity_units", value)
 
 
-if not MYPY:
-    class GlobalSecondaryIndexTimeoutsArgsDict(TypedDict):
-        create: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
-        """
-        delete: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
-        """
-        update: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
-        """
-elif False:
-    GlobalSecondaryIndexTimeoutsArgsDict: TypeAlias = Mapping[str, Any]
+class GlobalSecondaryIndexTimeoutsArgsDict(TypedDict):
+    create: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+    """
+    delete: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+    """
+    update: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+    """
 
 @pulumi.input_type
 class GlobalSecondaryIndexTimeoutsArgs:
@@ -379,18 +362,15 @@ class GlobalSecondaryIndexTimeoutsArgs:
         pulumi.set(self, "update", value)
 
 
-if not MYPY:
-    class GlobalSecondaryIndexWarmThroughputArgsDict(TypedDict):
-        read_units_per_second: pulumi.Input[_builtins.int]
-        """
-        Number of read operations this index can instantaneously support.
-        """
-        write_units_per_second: pulumi.Input[_builtins.int]
-        """
-        Number of write operations this index can instantaneously support.
-        """
-elif False:
-    GlobalSecondaryIndexWarmThroughputArgsDict: TypeAlias = Mapping[str, Any]
+class GlobalSecondaryIndexWarmThroughputArgsDict(TypedDict):
+    read_units_per_second: pulumi.Input[_builtins.int]
+    """
+    Number of read operations this index can instantaneously support.
+    """
+    write_units_per_second: pulumi.Input[_builtins.int]
+    """
+    Number of write operations this index can instantaneously support.
+    """
 
 @pulumi.input_type
 class GlobalSecondaryIndexWarmThroughputArgs:
@@ -429,14 +409,11 @@ class GlobalSecondaryIndexWarmThroughputArgs:
         pulumi.set(self, "write_units_per_second", value)
 
 
-if not MYPY:
-    class GlobalTableReplicaArgsDict(TypedDict):
-        region_name: pulumi.Input[_builtins.str]
-        """
-        AWS region name of replica DynamoDB TableE.g., `us-east-1`
-        """
-elif False:
-    GlobalTableReplicaArgsDict: TypeAlias = Mapping[str, Any]
+class GlobalTableReplicaArgsDict(TypedDict):
+    region_name: pulumi.Input[_builtins.str]
+    """
+    AWS region name of replica DynamoDB TableE.g., `us-east-1`
+    """
 
 @pulumi.input_type
 class GlobalTableReplicaArgs:
@@ -460,18 +437,15 @@ class GlobalTableReplicaArgs:
         pulumi.set(self, "region_name", value)
 
 
-if not MYPY:
-    class TableAttributeArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        """
-        Name of the attribute
-        """
-        type: pulumi.Input[_builtins.str]
-        """
-        Attribute type. Valid values are `S` (string), `N` (number), `B` (binary).
-        """
-elif False:
-    TableAttributeArgsDict: TypeAlias = Mapping[str, Any]
+class TableAttributeArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    Name of the attribute
+    """
+    type: pulumi.Input[_builtins.str]
+    """
+    Attribute type. Valid values are `S` (string), `N` (number), `B` (binary).
+    """
 
 @pulumi.input_type
 class TableAttributeArgs:
@@ -510,13 +484,10 @@ class TableAttributeArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class TableExportIncrementalExportSpecificationArgsDict(TypedDict):
-        export_from_time: NotRequired[pulumi.Input[_builtins.str]]
-        export_to_time: NotRequired[pulumi.Input[_builtins.str]]
-        export_view_type: NotRequired[pulumi.Input[_builtins.str]]
-elif False:
-    TableExportIncrementalExportSpecificationArgsDict: TypeAlias = Mapping[str, Any]
+class TableExportIncrementalExportSpecificationArgsDict(TypedDict):
+    export_from_time: NotRequired[pulumi.Input[_builtins.str]]
+    export_to_time: NotRequired[pulumi.Input[_builtins.str]]
+    export_view_type: NotRequired[pulumi.Input[_builtins.str]]
 
 @pulumi.input_type
 class TableExportIncrementalExportSpecificationArgs:
@@ -559,47 +530,47 @@ class TableExportIncrementalExportSpecificationArgs:
         pulumi.set(self, "export_view_type", value)
 
 
-if not MYPY:
-    class TableGlobalSecondaryIndexArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        """
-        Name of the index.
-        """
-        projection_type: pulumi.Input[_builtins.str]
-        """
-        One of `ALL`, `INCLUDE` or `KEYS_ONLY` where `ALL` projects every attribute into the index, `KEYS_ONLY` projects  into the index only the table and index hash_key and sort_key attributes ,  `INCLUDE` projects into the index all of the attributes that are defined in `non_key_attributes` in addition to the attributes that that`KEYS_ONLY` project.
-        """
-        hash_key: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        and `hash_keys` are `mutually exclusive`, but one is `required`. Refer to [AWS SDK Documentation](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GSI.DesignPattern.MultiAttributeKeys.html)
-        """
-        key_schemas: NotRequired[pulumi.Input[Sequence[pulumi.Input['TableGlobalSecondaryIndexKeySchemaArgsDict']]]]
-        non_key_attributes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Only required with `INCLUDE` as a projection type; a list of attributes to project into the index. These do not need to be defined as attributes on the table.
-        """
-        on_demand_throughput: NotRequired[pulumi.Input['TableGlobalSecondaryIndexOnDemandThroughputArgsDict']]
-        """
-        Sets the maximum number of read and write units for the specified on-demand index. See below.
-        """
-        range_key: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        and `range_keys` are `mutually exclusive`, but are both `optional`. Refer to [AWS SDK Documentation](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GSI.DesignPattern.MultiAttributeKeys.html)
-        """
-        read_capacity: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Number of read units for this index. Must be set if billing_mode is set to PROVISIONED.
-        """
-        warm_throughput: NotRequired[pulumi.Input['TableGlobalSecondaryIndexWarmThroughputArgsDict']]
-        """
-        Sets the number of warm read and write units for this index. See below.
-        """
-        write_capacity: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Number of write units for this index. Must be set if billing_mode is set to PROVISIONED.
-        """
-elif False:
-    TableGlobalSecondaryIndexArgsDict: TypeAlias = Mapping[str, Any]
+class TableGlobalSecondaryIndexArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    Name of the index.
+    """
+    projection_type: pulumi.Input[_builtins.str]
+    """
+    One of `ALL`, `INCLUDE` or `KEYS_ONLY` where `ALL` projects every attribute into the index, `KEYS_ONLY` projects into the index only the table and index hash_key and sort_key attributes, `INCLUDE` projects into the index all of the attributes that are defined in `non_key_attributes` in addition to the attributes that `KEYS_ONLY` project.
+    """
+    hash_key: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Name of the hash key in the index; must be defined as an attribute in the resource. Mutually exclusive with `key_schema`. Use `key_schema` instead.
+    """
+    key_schemas: NotRequired[pulumi.Input[Sequence[pulumi.Input['TableGlobalSecondaryIndexKeySchemaArgsDict']]]]
+    """
+    Configuration block(s) for the key schema. Mutually exclusive with `hash_key` and `range_key`. Required if `hash_key` is not specified. Supports multi-attribute keys for the [Multi-Attribute Keys design pattern](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GSI.DesignPattern.MultiAttributeKeys.html). See below.
+    """
+    non_key_attributes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Only required with `INCLUDE` as a projection type; a list of attributes to project into the index. These do not need to be defined as attributes on the table.
+    """
+    on_demand_throughput: NotRequired[pulumi.Input['TableGlobalSecondaryIndexOnDemandThroughputArgsDict']]
+    """
+    Sets the maximum number of read and write units for the specified on-demand index. See below.
+    """
+    range_key: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Name of the range key; must be defined as an attribute in the resource. Mutually exclusive with `key_schema`. Use `key_schema` instead.
+    """
+    read_capacity: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Number of read units for this index. Must be set if billing_mode is set to PROVISIONED.
+    """
+    warm_throughput: NotRequired[pulumi.Input['TableGlobalSecondaryIndexWarmThroughputArgsDict']]
+    """
+    Sets the number of warm read and write units for this index. See below.
+    """
+    write_capacity: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Number of write units for this index. Must be set if billing_mode is set to PROVISIONED.
+    """
 
 @pulumi.input_type
 class TableGlobalSecondaryIndexArgs:
@@ -616,11 +587,12 @@ class TableGlobalSecondaryIndexArgs:
                  write_capacity: Optional[pulumi.Input[_builtins.int]] = None):
         """
         :param pulumi.Input[_builtins.str] name: Name of the index.
-        :param pulumi.Input[_builtins.str] projection_type: One of `ALL`, `INCLUDE` or `KEYS_ONLY` where `ALL` projects every attribute into the index, `KEYS_ONLY` projects  into the index only the table and index hash_key and sort_key attributes ,  `INCLUDE` projects into the index all of the attributes that are defined in `non_key_attributes` in addition to the attributes that that`KEYS_ONLY` project.
-        :param pulumi.Input[_builtins.str] hash_key: and `hash_keys` are `mutually exclusive`, but one is `required`. Refer to [AWS SDK Documentation](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GSI.DesignPattern.MultiAttributeKeys.html)
+        :param pulumi.Input[_builtins.str] projection_type: One of `ALL`, `INCLUDE` or `KEYS_ONLY` where `ALL` projects every attribute into the index, `KEYS_ONLY` projects into the index only the table and index hash_key and sort_key attributes, `INCLUDE` projects into the index all of the attributes that are defined in `non_key_attributes` in addition to the attributes that `KEYS_ONLY` project.
+        :param pulumi.Input[_builtins.str] hash_key: Name of the hash key in the index; must be defined as an attribute in the resource. Mutually exclusive with `key_schema`. Use `key_schema` instead.
+        :param pulumi.Input[Sequence[pulumi.Input['TableGlobalSecondaryIndexKeySchemaArgs']]] key_schemas: Configuration block(s) for the key schema. Mutually exclusive with `hash_key` and `range_key`. Required if `hash_key` is not specified. Supports multi-attribute keys for the [Multi-Attribute Keys design pattern](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GSI.DesignPattern.MultiAttributeKeys.html). See below.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] non_key_attributes: Only required with `INCLUDE` as a projection type; a list of attributes to project into the index. These do not need to be defined as attributes on the table.
         :param pulumi.Input['TableGlobalSecondaryIndexOnDemandThroughputArgs'] on_demand_throughput: Sets the maximum number of read and write units for the specified on-demand index. See below.
-        :param pulumi.Input[_builtins.str] range_key: and `range_keys` are `mutually exclusive`, but are both `optional`. Refer to [AWS SDK Documentation](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GSI.DesignPattern.MultiAttributeKeys.html)
+        :param pulumi.Input[_builtins.str] range_key: Name of the range key; must be defined as an attribute in the resource. Mutually exclusive with `key_schema`. Use `key_schema` instead.
         :param pulumi.Input[_builtins.int] read_capacity: Number of read units for this index. Must be set if billing_mode is set to PROVISIONED.
         :param pulumi.Input['TableGlobalSecondaryIndexWarmThroughputArgs'] warm_throughput: Sets the number of warm read and write units for this index. See below.
         :param pulumi.Input[_builtins.int] write_capacity: Number of write units for this index. Must be set if billing_mode is set to PROVISIONED.
@@ -666,7 +638,7 @@ class TableGlobalSecondaryIndexArgs:
     @pulumi.getter(name="projectionType")
     def projection_type(self) -> pulumi.Input[_builtins.str]:
         """
-        One of `ALL`, `INCLUDE` or `KEYS_ONLY` where `ALL` projects every attribute into the index, `KEYS_ONLY` projects  into the index only the table and index hash_key and sort_key attributes ,  `INCLUDE` projects into the index all of the attributes that are defined in `non_key_attributes` in addition to the attributes that that`KEYS_ONLY` project.
+        One of `ALL`, `INCLUDE` or `KEYS_ONLY` where `ALL` projects every attribute into the index, `KEYS_ONLY` projects into the index only the table and index hash_key and sort_key attributes, `INCLUDE` projects into the index all of the attributes that are defined in `non_key_attributes` in addition to the attributes that `KEYS_ONLY` project.
         """
         return pulumi.get(self, "projection_type")
 
@@ -679,7 +651,7 @@ class TableGlobalSecondaryIndexArgs:
     @_utilities.deprecated("""hash_key is deprecated. Use key_schema instead.""")
     def hash_key(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        and `hash_keys` are `mutually exclusive`, but one is `required`. Refer to [AWS SDK Documentation](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GSI.DesignPattern.MultiAttributeKeys.html)
+        Name of the hash key in the index; must be defined as an attribute in the resource. Mutually exclusive with `key_schema`. Use `key_schema` instead.
         """
         return pulumi.get(self, "hash_key")
 
@@ -690,6 +662,9 @@ class TableGlobalSecondaryIndexArgs:
     @_builtins.property
     @pulumi.getter(name="keySchemas")
     def key_schemas(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TableGlobalSecondaryIndexKeySchemaArgs']]]]:
+        """
+        Configuration block(s) for the key schema. Mutually exclusive with `hash_key` and `range_key`. Required if `hash_key` is not specified. Supports multi-attribute keys for the [Multi-Attribute Keys design pattern](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GSI.DesignPattern.MultiAttributeKeys.html). See below.
+        """
         return pulumi.get(self, "key_schemas")
 
     @key_schemas.setter
@@ -725,7 +700,7 @@ class TableGlobalSecondaryIndexArgs:
     @_utilities.deprecated("""range_key is deprecated. Use key_schema instead.""")
     def range_key(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        and `range_keys` are `mutually exclusive`, but are both `optional`. Refer to [AWS SDK Documentation](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GSI.DesignPattern.MultiAttributeKeys.html)
+        Name of the range key; must be defined as an attribute in the resource. Mutually exclusive with `key_schema`. Use `key_schema` instead.
         """
         return pulumi.get(self, "range_key")
 
@@ -770,16 +745,15 @@ class TableGlobalSecondaryIndexArgs:
         pulumi.set(self, "write_capacity", value)
 
 
-if not MYPY:
-    class TableGlobalSecondaryIndexKeySchemaArgsDict(TypedDict):
-        attribute_name: pulumi.Input[_builtins.str]
-        """
-        Name of the table attribute to store the TTL timestamp in.
-        Required if `enabled` is `true`, must not be set otherwise.
-        """
-        key_type: pulumi.Input[_builtins.str]
-elif False:
-    TableGlobalSecondaryIndexKeySchemaArgsDict: TypeAlias = Mapping[str, Any]
+class TableGlobalSecondaryIndexKeySchemaArgsDict(TypedDict):
+    attribute_name: pulumi.Input[_builtins.str]
+    """
+    Name of the attribute; must be defined as an attribute in the resource.
+    """
+    key_type: pulumi.Input[_builtins.str]
+    """
+    The type of key. Valid values are `HASH` (partition key) or `RANGE` (sort key). You can specify up to 4 attributes with `key_type = "HASH"` and up to 4 attributes with `key_type = "RANGE"`.
+    """
 
 @pulumi.input_type
 class TableGlobalSecondaryIndexKeySchemaArgs:
@@ -787,8 +761,8 @@ class TableGlobalSecondaryIndexKeySchemaArgs:
                  attribute_name: pulumi.Input[_builtins.str],
                  key_type: pulumi.Input[_builtins.str]):
         """
-        :param pulumi.Input[_builtins.str] attribute_name: Name of the table attribute to store the TTL timestamp in.
-               Required if `enabled` is `true`, must not be set otherwise.
+        :param pulumi.Input[_builtins.str] attribute_name: Name of the attribute; must be defined as an attribute in the resource.
+        :param pulumi.Input[_builtins.str] key_type: The type of key. Valid values are `HASH` (partition key) or `RANGE` (sort key). You can specify up to 4 attributes with `key_type = "HASH"` and up to 4 attributes with `key_type = "RANGE"`.
         """
         pulumi.set(__self__, "attribute_name", attribute_name)
         pulumi.set(__self__, "key_type", key_type)
@@ -797,8 +771,7 @@ class TableGlobalSecondaryIndexKeySchemaArgs:
     @pulumi.getter(name="attributeName")
     def attribute_name(self) -> pulumi.Input[_builtins.str]:
         """
-        Name of the table attribute to store the TTL timestamp in.
-        Required if `enabled` is `true`, must not be set otherwise.
+        Name of the attribute; must be defined as an attribute in the resource.
         """
         return pulumi.get(self, "attribute_name")
 
@@ -809,6 +782,9 @@ class TableGlobalSecondaryIndexKeySchemaArgs:
     @_builtins.property
     @pulumi.getter(name="keyType")
     def key_type(self) -> pulumi.Input[_builtins.str]:
+        """
+        The type of key. Valid values are `HASH` (partition key) or `RANGE` (sort key). You can specify up to 4 attributes with `key_type = "HASH"` and up to 4 attributes with `key_type = "RANGE"`.
+        """
         return pulumi.get(self, "key_type")
 
     @key_type.setter
@@ -816,18 +792,15 @@ class TableGlobalSecondaryIndexKeySchemaArgs:
         pulumi.set(self, "key_type", value)
 
 
-if not MYPY:
-    class TableGlobalSecondaryIndexOnDemandThroughputArgsDict(TypedDict):
-        max_read_request_units: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Maximum number of read request units for the specified table. To specify set the value greater than or equal to 1. To remove set the value to -1.
-        """
-        max_write_request_units: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Maximum number of write request units for the specified table. To specify set the value greater than or equal to 1. To remove set the value to -1.
-        """
-elif False:
-    TableGlobalSecondaryIndexOnDemandThroughputArgsDict: TypeAlias = Mapping[str, Any]
+class TableGlobalSecondaryIndexOnDemandThroughputArgsDict(TypedDict):
+    max_read_request_units: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Maximum number of read request units for the specified table. To specify set the value greater than or equal to 1. To remove set the value to -1.
+    """
+    max_write_request_units: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Maximum number of write request units for the specified table. To specify set the value greater than or equal to 1. To remove set the value to -1.
+    """
 
 @pulumi.input_type
 class TableGlobalSecondaryIndexOnDemandThroughputArgs:
@@ -868,18 +841,15 @@ class TableGlobalSecondaryIndexOnDemandThroughputArgs:
         pulumi.set(self, "max_write_request_units", value)
 
 
-if not MYPY:
-    class TableGlobalSecondaryIndexWarmThroughputArgsDict(TypedDict):
-        read_units_per_second: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Number of read operations a table or index can instantaneously support. For the base table, decreasing this value will force a new resource. For a global secondary index, this value can be increased or decreased without recreation. Minimum value of `12000` (default).
-        """
-        write_units_per_second: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Number of write operations a table or index can instantaneously support. For the base table, decreasing this value will force a new resource. For a global secondary index, this value can be increased or decreased without recreation. Minimum value of `4000` (default).
-        """
-elif False:
-    TableGlobalSecondaryIndexWarmThroughputArgsDict: TypeAlias = Mapping[str, Any]
+class TableGlobalSecondaryIndexWarmThroughputArgsDict(TypedDict):
+    read_units_per_second: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Number of read operations a table or index can instantaneously support. For the base table, decreasing this value will force a new resource. For a global secondary index, this value can be increased or decreased without recreation. Minimum value of `12000` (default).
+    """
+    write_units_per_second: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Number of write operations a table or index can instantaneously support. For the base table, decreasing this value will force a new resource. For a global secondary index, this value can be increased or decreased without recreation. Minimum value of `4000` (default).
+    """
 
 @pulumi.input_type
 class TableGlobalSecondaryIndexWarmThroughputArgs:
@@ -920,14 +890,11 @@ class TableGlobalSecondaryIndexWarmThroughputArgs:
         pulumi.set(self, "write_units_per_second", value)
 
 
-if not MYPY:
-    class TableGlobalTableWitnessArgsDict(TypedDict):
-        region_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Name of the AWS Region that serves as a witness for the MRSC global table.
-        """
-elif False:
-    TableGlobalTableWitnessArgsDict: TypeAlias = Mapping[str, Any]
+class TableGlobalTableWitnessArgsDict(TypedDict):
+    region_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Name of the AWS Region that serves as a witness for the MRSC global table.
+    """
 
 @pulumi.input_type
 class TableGlobalTableWitnessArgs:
@@ -952,31 +919,28 @@ class TableGlobalTableWitnessArgs:
         pulumi.set(self, "region_name", value)
 
 
-if not MYPY:
-    class TableImportTableArgsDict(TypedDict):
-        input_format: pulumi.Input[_builtins.str]
-        """
-        The format of the source data.
-        Valid values are `CSV`, `DYNAMODB_JSON`, and `ION`.
-        """
-        s3_bucket_source: pulumi.Input['TableImportTableS3BucketSourceArgsDict']
-        """
-        Values for the S3 bucket the source file is imported from.
-        See below.
-        """
-        input_compression_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Type of compression to be used on the input coming from the imported table.
-        Valid values are `GZIP`, `ZSTD` and `NONE`.
-        """
-        input_format_options: NotRequired[pulumi.Input['TableImportTableInputFormatOptionsArgsDict']]
-        """
-        Describe the format options for the data that was imported into the target table.
-        There is one value, `csv`.
-        See below.
-        """
-elif False:
-    TableImportTableArgsDict: TypeAlias = Mapping[str, Any]
+class TableImportTableArgsDict(TypedDict):
+    input_format: pulumi.Input[_builtins.str]
+    """
+    The format of the source data.
+    Valid values are `CSV`, `DYNAMODB_JSON`, and `ION`.
+    """
+    s3_bucket_source: pulumi.Input['TableImportTableS3BucketSourceArgsDict']
+    """
+    Values for the S3 bucket the source file is imported from.
+    See below.
+    """
+    input_compression_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Type of compression to be used on the input coming from the imported table.
+    Valid values are `GZIP`, `ZSTD` and `NONE`.
+    """
+    input_format_options: NotRequired[pulumi.Input['TableImportTableInputFormatOptionsArgsDict']]
+    """
+    Describe the format options for the data that was imported into the target table.
+    There is one value, `csv`.
+    See below.
+    """
 
 @pulumi.input_type
 class TableImportTableArgs:
@@ -1057,14 +1021,11 @@ class TableImportTableArgs:
         pulumi.set(self, "input_format_options", value)
 
 
-if not MYPY:
-    class TableImportTableInputFormatOptionsArgsDict(TypedDict):
-        csv: NotRequired[pulumi.Input['TableImportTableInputFormatOptionsCsvArgsDict']]
-        """
-        This block contains the processing options for the CSV file being imported:
-        """
-elif False:
-    TableImportTableInputFormatOptionsArgsDict: TypeAlias = Mapping[str, Any]
+class TableImportTableInputFormatOptionsArgsDict(TypedDict):
+    csv: NotRequired[pulumi.Input['TableImportTableInputFormatOptionsCsvArgsDict']]
+    """
+    This block contains the processing options for the CSV file being imported:
+    """
 
 @pulumi.input_type
 class TableImportTableInputFormatOptionsArgs:
@@ -1089,18 +1050,15 @@ class TableImportTableInputFormatOptionsArgs:
         pulumi.set(self, "csv", value)
 
 
-if not MYPY:
-    class TableImportTableInputFormatOptionsCsvArgsDict(TypedDict):
-        delimiter: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The delimiter used for separating items in the CSV file being imported.
-        """
-        header_lists: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        List of the headers used to specify a common header for all source CSV files being imported.
-        """
-elif False:
-    TableImportTableInputFormatOptionsCsvArgsDict: TypeAlias = Mapping[str, Any]
+class TableImportTableInputFormatOptionsCsvArgsDict(TypedDict):
+    delimiter: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The delimiter used for separating items in the CSV file being imported.
+    """
+    header_lists: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    List of the headers used to specify a common header for all source CSV files being imported.
+    """
 
 @pulumi.input_type
 class TableImportTableInputFormatOptionsCsvArgs:
@@ -1141,22 +1099,19 @@ class TableImportTableInputFormatOptionsCsvArgs:
         pulumi.set(self, "header_lists", value)
 
 
-if not MYPY:
-    class TableImportTableS3BucketSourceArgsDict(TypedDict):
-        bucket: pulumi.Input[_builtins.str]
-        """
-        The S3 bucket that is being imported from.
-        """
-        bucket_owner: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The account number of the S3 bucket that is being imported from.
-        """
-        key_prefix: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The key prefix shared by all S3 Objects that are being imported.
-        """
-elif False:
-    TableImportTableS3BucketSourceArgsDict: TypeAlias = Mapping[str, Any]
+class TableImportTableS3BucketSourceArgsDict(TypedDict):
+    bucket: pulumi.Input[_builtins.str]
+    """
+    The S3 bucket that is being imported from.
+    """
+    bucket_owner: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The account number of the S3 bucket that is being imported from.
+    """
+    key_prefix: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The key prefix shared by all S3 Objects that are being imported.
+    """
 
 @pulumi.input_type
 class TableImportTableS3BucketSourceArgs:
@@ -1212,26 +1167,23 @@ class TableImportTableS3BucketSourceArgs:
         pulumi.set(self, "key_prefix", value)
 
 
-if not MYPY:
-    class TableLocalSecondaryIndexArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        """
-        Name of the index
-        """
-        projection_type: pulumi.Input[_builtins.str]
-        """
-        One of `ALL`, `INCLUDE` or `KEYS_ONLY` where `ALL` projects every attribute into the index, `KEYS_ONLY` projects  into the index only the table and index hash_key and sort_key attributes ,  `INCLUDE` projects into the index all of the attributes that are defined in `non_key_attributes` in addition to the attributes that that`KEYS_ONLY` project.
-        """
-        range_key: pulumi.Input[_builtins.str]
-        """
-        Name of the range key.
-        """
-        non_key_attributes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Only required with `INCLUDE` as a projection type; a list of attributes to project into the index. These do not need to be defined as attributes on the table.
-        """
-elif False:
-    TableLocalSecondaryIndexArgsDict: TypeAlias = Mapping[str, Any]
+class TableLocalSecondaryIndexArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    Name of the index
+    """
+    projection_type: pulumi.Input[_builtins.str]
+    """
+    One of `ALL`, `INCLUDE` or `KEYS_ONLY` where `ALL` projects every attribute into the index, `KEYS_ONLY` projects  into the index only the table and index hash_key and sort_key attributes ,  `INCLUDE` projects into the index all of the attributes that are defined in `non_key_attributes` in addition to the attributes that that`KEYS_ONLY` project.
+    """
+    range_key: pulumi.Input[_builtins.str]
+    """
+    Name of the range key.
+    """
+    non_key_attributes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Only required with `INCLUDE` as a projection type; a list of attributes to project into the index. These do not need to be defined as attributes on the table.
+    """
 
 @pulumi.input_type
 class TableLocalSecondaryIndexArgs:
@@ -1301,18 +1253,15 @@ class TableLocalSecondaryIndexArgs:
         pulumi.set(self, "non_key_attributes", value)
 
 
-if not MYPY:
-    class TableOnDemandThroughputArgsDict(TypedDict):
-        max_read_request_units: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Maximum number of read request units for the specified table. To specify set the value greater than or equal to 1. To remove set the value to -1.
-        """
-        max_write_request_units: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Maximum number of write request units for the specified table. To specify set the value greater than or equal to 1. To remove set the value to -1.
-        """
-elif False:
-    TableOnDemandThroughputArgsDict: TypeAlias = Mapping[str, Any]
+class TableOnDemandThroughputArgsDict(TypedDict):
+    max_read_request_units: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Maximum number of read request units for the specified table. To specify set the value greater than or equal to 1. To remove set the value to -1.
+    """
+    max_write_request_units: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Maximum number of write request units for the specified table. To specify set the value greater than or equal to 1. To remove set the value to -1.
+    """
 
 @pulumi.input_type
 class TableOnDemandThroughputArgs:
@@ -1353,18 +1302,15 @@ class TableOnDemandThroughputArgs:
         pulumi.set(self, "max_write_request_units", value)
 
 
-if not MYPY:
-    class TablePointInTimeRecoveryArgsDict(TypedDict):
-        enabled: pulumi.Input[_builtins.bool]
-        """
-        Whether to enable point-in-time recovery. It can take 10 minutes to enable for new tables. If the `point_in_time_recovery` block is not provided, this defaults to `false`.
-        """
-        recovery_period_in_days: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Number of preceding days for which continuous backups are taken and maintained. Default is 35.
-        """
-elif False:
-    TablePointInTimeRecoveryArgsDict: TypeAlias = Mapping[str, Any]
+class TablePointInTimeRecoveryArgsDict(TypedDict):
+    enabled: pulumi.Input[_builtins.bool]
+    """
+    Whether to enable point-in-time recovery. It can take 10 minutes to enable for new tables. If the `point_in_time_recovery` block is not provided, this defaults to `false`.
+    """
+    recovery_period_in_days: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Number of preceding days for which continuous backups are taken and maintained. Default is 35.
+    """
 
 @pulumi.input_type
 class TablePointInTimeRecoveryArgs:
@@ -1404,54 +1350,51 @@ class TablePointInTimeRecoveryArgs:
         pulumi.set(self, "recovery_period_in_days", value)
 
 
-if not MYPY:
-    class TableReplicaArgsDict(TypedDict):
-        region_name: pulumi.Input[_builtins.str]
-        """
-        Region name of the replica.
-        """
-        arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        ARN of the table
-        """
-        consistency_mode: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Whether this global table will be using `STRONG` consistency mode or `EVENTUAL` consistency mode. Default value is `EVENTUAL`.
-        """
-        deletion_protection_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether deletion protection is enabled (true) or disabled (false) on the replica. Default is `false`.
-        """
-        kms_key_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        ARN of the CMK that should be used for the AWS KMS encryption.
-        This argument should only be used if the key is different from the default KMS-managed DynamoDB key, `alias/aws/dynamodb`.
-        **Note:** This attribute will _not_ be populated with the ARN of _default_ keys.
-        **Note:** Changing this value will recreate the replica.
-        """
-        point_in_time_recovery: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether to enable Point In Time Recovery for the replica. Default is `false`.
-        """
-        propagate_tags: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether to propagate the global table's tags to a replica.
-        Default is `false`.
-        Changes to tags only move in one direction: from global (source) to replica.
-        Tag drift on a replica will not trigger an update.
-        Tag changes on the global table are propagated to replicas.
-        Changing from `true` to `false` on a subsequent `apply` leaves replica tags as-is and no longer manages them.
-        """
-        stream_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        ARN of the Table Stream. Only available when `stream_enabled = true`
-        """
-        stream_label: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Timestamp, in ISO 8601 format, for this stream. Note that this timestamp is not a unique identifier for the stream on its own. However, the combination of AWS customer ID, table name and this field is guaranteed to be unique. It can be used for creating CloudWatch Alarms. Only available when `stream_enabled = true`.
-        """
-elif False:
-    TableReplicaArgsDict: TypeAlias = Mapping[str, Any]
+class TableReplicaArgsDict(TypedDict):
+    region_name: pulumi.Input[_builtins.str]
+    """
+    Region name of the replica.
+    """
+    arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    ARN of the table
+    """
+    consistency_mode: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Whether this global table will be using `STRONG` consistency mode or `EVENTUAL` consistency mode. Default value is `EVENTUAL`.
+    """
+    deletion_protection_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether deletion protection is enabled (true) or disabled (false) on the replica. Default is `false`.
+    """
+    kms_key_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    ARN of the CMK that should be used for the AWS KMS encryption.
+    This argument should only be used if the key is different from the default KMS-managed DynamoDB key, `alias/aws/dynamodb`.
+    **Note:** This attribute will _not_ be populated with the ARN of _default_ keys.
+    **Note:** Changing this value will recreate the replica.
+    """
+    point_in_time_recovery: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether to enable Point In Time Recovery for the replica. Default is `false`.
+    """
+    propagate_tags: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether to propagate the global table's tags to a replica.
+    Default is `false`.
+    Changes to tags only move in one direction: from global (source) to replica.
+    Tag drift on a replica will not trigger an update.
+    Tag changes on the global table are propagated to replicas.
+    Changing from `true` to `false` on a subsequent `apply` leaves replica tags as-is and no longer manages them.
+    """
+    stream_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    ARN of the Table Stream. Only available when `stream_enabled = true`
+    """
+    stream_label: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Timestamp, in ISO 8601 format, for this stream. Note that this timestamp is not a unique identifier for the stream on its own. However, the combination of AWS customer ID, table name and this field is guaranteed to be unique. It can be used for creating CloudWatch Alarms. Only available when `stream_enabled = true`.
+    """
 
 @pulumi.input_type
 class TableReplicaArgs:
@@ -1619,18 +1562,15 @@ class TableReplicaArgs:
         pulumi.set(self, "stream_label", value)
 
 
-if not MYPY:
-    class TableServerSideEncryptionArgsDict(TypedDict):
-        enabled: pulumi.Input[_builtins.bool]
-        """
-        Whether or not to enable encryption at rest using an AWS managed KMS customer master key (CMK). If `enabled` is `false` then server-side encryption is set to AWS-_owned_ key (shown as `DEFAULT` in the AWS console). Potentially confusingly, if `enabled` is `true` and no `kms_key_arn` is specified then server-side encryption is set to the _default_ KMS-_managed_ key (shown as `KMS` in the AWS console). The [AWS KMS documentation](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html) explains the difference between AWS-_owned_ and KMS-_managed_ keys.
-        """
-        kms_key_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        ARN of the CMK that should be used for the AWS KMS encryption. This argument should only be used if the key is different from the default KMS-managed DynamoDB key, `alias/aws/dynamodb`. **Note:** This attribute will _not_ be populated with the ARN of _default_ keys.
-        """
-elif False:
-    TableServerSideEncryptionArgsDict: TypeAlias = Mapping[str, Any]
+class TableServerSideEncryptionArgsDict(TypedDict):
+    enabled: pulumi.Input[_builtins.bool]
+    """
+    Whether or not to enable encryption at rest using an AWS managed KMS customer master key (CMK). If `enabled` is `false` then server-side encryption is set to AWS-_owned_ key (shown as `DEFAULT` in the AWS console). Potentially confusingly, if `enabled` is `true` and no `kms_key_arn` is specified then server-side encryption is set to the _default_ KMS-_managed_ key (shown as `KMS` in the AWS console). The [AWS KMS documentation](https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html) explains the difference between AWS-_owned_ and KMS-_managed_ keys.
+    """
+    kms_key_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    ARN of the CMK that should be used for the AWS KMS encryption. This argument should only be used if the key is different from the default KMS-managed DynamoDB key, `alias/aws/dynamodb`. **Note:** This attribute will _not_ be populated with the ARN of _default_ keys.
+    """
 
 @pulumi.input_type
 class TableServerSideEncryptionArgs:
@@ -1670,20 +1610,17 @@ class TableServerSideEncryptionArgs:
         pulumi.set(self, "kms_key_arn", value)
 
 
-if not MYPY:
-    class TableTtlArgsDict(TypedDict):
-        attribute_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Name of the table attribute to store the TTL timestamp in.
-        Required if `enabled` is `true`, must not be set otherwise.
-        """
-        enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether TTL is enabled.
-        Default value is `false`.
-        """
-elif False:
-    TableTtlArgsDict: TypeAlias = Mapping[str, Any]
+class TableTtlArgsDict(TypedDict):
+    attribute_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Name of the table attribute to store the TTL timestamp in.
+    Required if `enabled` is `true`, must not be set otherwise.
+    """
+    enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether TTL is enabled.
+    Default value is `false`.
+    """
 
 @pulumi.input_type
 class TableTtlArgs:
@@ -1728,18 +1665,15 @@ class TableTtlArgs:
         pulumi.set(self, "enabled", value)
 
 
-if not MYPY:
-    class TableWarmThroughputArgsDict(TypedDict):
-        read_units_per_second: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Number of read operations a table or index can instantaneously support. For the base table, decreasing this value will force a new resource. For a global secondary index, this value can be increased or decreased without recreation. Minimum value of `12000` (default).
-        """
-        write_units_per_second: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Number of write operations a table or index can instantaneously support. For the base table, decreasing this value will force a new resource. For a global secondary index, this value can be increased or decreased without recreation. Minimum value of `4000` (default).
-        """
-elif False:
-    TableWarmThroughputArgsDict: TypeAlias = Mapping[str, Any]
+class TableWarmThroughputArgsDict(TypedDict):
+    read_units_per_second: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Number of read operations a table or index can instantaneously support. For the base table, decreasing this value will force a new resource. For a global secondary index, this value can be increased or decreased without recreation. Minimum value of `12000` (default).
+    """
+    write_units_per_second: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Number of write operations a table or index can instantaneously support. For the base table, decreasing this value will force a new resource. For a global secondary index, this value can be increased or decreased without recreation. Minimum value of `4000` (default).
+    """
 
 @pulumi.input_type
 class TableWarmThroughputArgs:
@@ -1780,12 +1714,9 @@ class TableWarmThroughputArgs:
         pulumi.set(self, "write_units_per_second", value)
 
 
-if not MYPY:
-    class GetTableServerSideEncryptionArgsDict(TypedDict):
-        enabled: _builtins.bool
-        kms_key_arn: _builtins.str
-elif False:
-    GetTableServerSideEncryptionArgsDict: TypeAlias = Mapping[str, Any]
+class GetTableServerSideEncryptionArgsDict(TypedDict):
+    enabled: _builtins.bool
+    kms_key_arn: _builtins.str
 
 @pulumi.input_type
 class GetTableServerSideEncryptionArgs:

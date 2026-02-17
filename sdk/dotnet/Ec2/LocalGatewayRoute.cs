@@ -34,7 +34,7 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import `aws_ec2_local_gateway_route` using the EC2 Local Gateway Route Table identifier and destination CIDR block separated by underscores (`_`). For example:
+    /// Using `pulumi import`, import `aws.ec2.LocalGatewayRoute` using the EC2 Local Gateway Route Table identifier and destination CIDR block separated by underscores (`_`). For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:ec2/localGatewayRoute:LocalGatewayRoute example lgw-rtb-12345678_172.16.0.0/16

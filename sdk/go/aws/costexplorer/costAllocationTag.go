@@ -43,7 +43,7 @@ import (
 //
 // ## Import
 //
-// Using `pulumi import`, import `aws_ce_cost_allocation_tag` using the `id`. For example:
+// Using `pulumi import`, import `costexplorer.CostAllocationTag` using the `id`. For example:
 //
 // ```sh
 // $ pulumi import aws:costexplorer/costAllocationTag:CostAllocationTag example key

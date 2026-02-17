@@ -36,7 +36,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Using `pulumi import`, import Report Definitions using the `report_name`. For example:
+ * Using `pulumi import`, import Report Definitions using the `reportName`. For example:
  *
  * ```sh
  * $ pulumi import aws:cur/reportDefinition:ReportDefinition example_cur_report_definition example-cur-report-definition

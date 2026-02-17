@@ -8,6 +8,32 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
+ * Provides an EC2 Spot Instance Request resource. This allows instances to be
+ * requested on the spot market.
+ *
+ * By default this provider creates Spot Instance Requests with a `persistent` type,
+ * which means that for the duration of their lifetime, AWS will launch an
+ * instance with the configured details if and when the spot market will accept
+ * the requested price.
+ *
+ * On destruction, this provider will make an attempt to terminate the associated Spot
+ * Instance if there is one present.
+ *
+ * Spot Instances requests with a `one-time` type will close the spot request
+ * when the instance is terminated either by the request being below the current spot
+ * price availability or by a user.
+ *
+ * > **NOTE:** Because their behavior depends on the live status of the spot
+ * market, Spot Instance Requests have a unique lifecycle that makes them behave
+ * differently than other Terraform resources. Most importantly: there is **no
+ * guarantee** that a Spot Instance exists to fulfill the request at any given
+ * point in time. See the [AWS Spot Instance
+ * documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-spot-instances.html)
+ * for more information.
+ *
+ * > **NOTE [AWS strongly discourages](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-best-practices.html#which-spot-request-method-to-use) the use of the legacy APIs called by this resource.
+ * We recommend using the EC2 Instance resource with `instanceMarketOptions` instead.
+ *
  * ## Example Usage
  *
  * ```typescript
@@ -233,6 +259,10 @@ export class SpotInstanceRequest extends pulumi.CustomResource {
      */
     declare public readonly rootBlockDevice: pulumi.Output<outputs.ec2.SpotInstanceRequestRootBlockDevice>;
     /**
+     * One or more secondary network interfaces to attach to the instance at launch time. See Secondary Network Interface below for more details.
+     */
+    declare public readonly secondaryNetworkInterfaces: pulumi.Output<outputs.ec2.SpotInstanceRequestSecondaryNetworkInterface[]>;
+    /**
      * List of secondary private IPv4 addresses to assign to the instance's primary network interface (eth0) in a VPC. Can only be assigned to the primary network interface (eth0) attached at instance creation, not a pre-existing network interface i.e., referenced in a `networkInterface` block. Refer to the [Elastic network interfaces documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI) to see the maximum number of private IP addresses allowed per instance type.
      */
     declare public readonly secondaryPrivateIps: pulumi.Output<string[]>;
@@ -385,6 +415,7 @@ export class SpotInstanceRequest extends pulumi.CustomResource {
             resourceInputs["publicIp"] = state?.publicIp;
             resourceInputs["region"] = state?.region;
             resourceInputs["rootBlockDevice"] = state?.rootBlockDevice;
+            resourceInputs["secondaryNetworkInterfaces"] = state?.secondaryNetworkInterfaces;
             resourceInputs["secondaryPrivateIps"] = state?.secondaryPrivateIps;
             resourceInputs["securityGroups"] = state?.securityGroups;
             resourceInputs["sourceDestCheck"] = state?.sourceDestCheck;
@@ -445,6 +476,7 @@ export class SpotInstanceRequest extends pulumi.CustomResource {
             resourceInputs["privateIp"] = args?.privateIp;
             resourceInputs["region"] = args?.region;
             resourceInputs["rootBlockDevice"] = args?.rootBlockDevice;
+            resourceInputs["secondaryNetworkInterfaces"] = args?.secondaryNetworkInterfaces;
             resourceInputs["secondaryPrivateIps"] = args?.secondaryPrivateIps;
             resourceInputs["securityGroups"] = args?.securityGroups;
             resourceInputs["sourceDestCheck"] = args?.sourceDestCheck;
@@ -663,6 +695,10 @@ export interface SpotInstanceRequestState {
      * Configuration block to customize details about the root block device of the instance. See Block Devices below for details. When accessing this as an attribute reference, it is a list containing one object.
      */
     rootBlockDevice?: pulumi.Input<inputs.ec2.SpotInstanceRequestRootBlockDevice>;
+    /**
+     * One or more secondary network interfaces to attach to the instance at launch time. See Secondary Network Interface below for more details.
+     */
+    secondaryNetworkInterfaces?: pulumi.Input<pulumi.Input<inputs.ec2.SpotInstanceRequestSecondaryNetworkInterface>[]>;
     /**
      * List of secondary private IPv4 addresses to assign to the instance's primary network interface (eth0) in a VPC. Can only be assigned to the primary network interface (eth0) attached at instance creation, not a pre-existing network interface i.e., referenced in a `networkInterface` block. Refer to the [Elastic network interfaces documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI) to see the maximum number of private IP addresses allowed per instance type.
      */
@@ -916,6 +952,10 @@ export interface SpotInstanceRequestArgs {
      * Configuration block to customize details about the root block device of the instance. See Block Devices below for details. When accessing this as an attribute reference, it is a list containing one object.
      */
     rootBlockDevice?: pulumi.Input<inputs.ec2.SpotInstanceRequestRootBlockDevice>;
+    /**
+     * One or more secondary network interfaces to attach to the instance at launch time. See Secondary Network Interface below for more details.
+     */
+    secondaryNetworkInterfaces?: pulumi.Input<pulumi.Input<inputs.ec2.SpotInstanceRequestSecondaryNetworkInterface>[]>;
     /**
      * List of secondary private IPv4 addresses to assign to the instance's primary network interface (eth0) in a VPC. Can only be assigned to the primary network interface (eth0) attached at instance creation, not a pre-existing network interface i.e., referenced in a `networkInterface` block. Refer to the [Elastic network interfaces documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI) to see the maximum number of private IP addresses allowed per instance type.
      */

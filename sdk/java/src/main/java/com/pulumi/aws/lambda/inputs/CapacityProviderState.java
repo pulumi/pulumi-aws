@@ -37,9 +37,17 @@ public final class CapacityProviderState extends com.pulumi.resources.ResourceAr
         return Optional.ofNullable(this.arn);
     }
 
+    /**
+     * Configuration block for scaling policy settings. See Capacity Provider Scaling Config below.
+     * 
+     */
     @Import(name="capacityProviderScalingConfigs")
     private @Nullable Output<List<CapacityProviderCapacityProviderScalingConfigArgs>> capacityProviderScalingConfigs;
 
+    /**
+     * @return Configuration block for scaling policy settings. See Capacity Provider Scaling Config below.
+     * 
+     */
     public Optional<Output<List<CapacityProviderCapacityProviderScalingConfigArgs>>> capacityProviderScalingConfigs() {
         return Optional.ofNullable(this.capacityProviderScalingConfigs);
     }
@@ -222,15 +230,33 @@ public final class CapacityProviderState extends com.pulumi.resources.ResourceAr
             return arn(Output.of(arn));
         }
 
+        /**
+         * @param capacityProviderScalingConfigs Configuration block for scaling policy settings. See Capacity Provider Scaling Config below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder capacityProviderScalingConfigs(@Nullable Output<List<CapacityProviderCapacityProviderScalingConfigArgs>> capacityProviderScalingConfigs) {
             $.capacityProviderScalingConfigs = capacityProviderScalingConfigs;
             return this;
         }
 
+        /**
+         * @param capacityProviderScalingConfigs Configuration block for scaling policy settings. See Capacity Provider Scaling Config below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder capacityProviderScalingConfigs(List<CapacityProviderCapacityProviderScalingConfigArgs> capacityProviderScalingConfigs) {
             return capacityProviderScalingConfigs(Output.of(capacityProviderScalingConfigs));
         }
 
+        /**
+         * @param capacityProviderScalingConfigs Configuration block for scaling policy settings. See Capacity Provider Scaling Config below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder capacityProviderScalingConfigs(CapacityProviderCapacityProviderScalingConfigArgs... capacityProviderScalingConfigs) {
             return capacityProviderScalingConfigs(List.of(capacityProviderScalingConfigs));
         }

@@ -39,7 +39,7 @@ namespace Pulumi.Aws.Backup
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import Backup Global Settings using the `id`. For example:
+    /// Using `pulumi import`, import Backup Global Settings using the `Id`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:backup/globalSettings:GlobalSettings example 123456789012

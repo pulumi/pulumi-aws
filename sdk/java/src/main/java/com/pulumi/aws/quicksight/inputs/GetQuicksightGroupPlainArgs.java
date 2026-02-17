@@ -15,9 +15,17 @@ public final class GetQuicksightGroupPlainArgs extends com.pulumi.resources.Invo
 
     public static final GetQuicksightGroupPlainArgs Empty = new GetQuicksightGroupPlainArgs();
 
+    /**
+     * AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
+     * 
+     */
     @Import(name="awsAccountId")
     private @Nullable String awsAccountId;
 
+    /**
+     * @return AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
+     * 
+     */
     public Optional<String> awsAccountId() {
         return Optional.ofNullable(this.awsAccountId);
     }
@@ -98,6 +106,12 @@ public final class GetQuicksightGroupPlainArgs extends com.pulumi.resources.Invo
             $ = new GetQuicksightGroupPlainArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param awsAccountId AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
+         * 
+         * @return builder
+         * 
+         */
         public Builder awsAccountId(@Nullable String awsAccountId) {
             $.awsAccountId = awsAccountId;
             return this;

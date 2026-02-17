@@ -41,7 +41,7 @@ namespace Pulumi.Aws.Rds
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import DB Subnet groups using the `name`. For example:
+    /// Using `pulumi import`, import DB Subnet groups using the `Name`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:rds/subnetGroup:SubnetGroup default production-subnet-group

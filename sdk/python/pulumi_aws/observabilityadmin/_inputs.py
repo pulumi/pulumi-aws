@@ -33,20 +33,15 @@ __all__ = [
     'CentralizationRuleForOrganizationTimeoutsArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class CentralizationRuleForOrganizationRuleArgsDict(TypedDict):
-        destination: pulumi.Input['CentralizationRuleForOrganizationRuleDestinationArgsDict']
-        """
-        Configuration block for the destination where logs will be centralized. See `destination` below.
-        """
-        source: pulumi.Input['CentralizationRuleForOrganizationRuleSourceArgsDict']
-        """
-        Configuration block for the source of logs to be centralized. See `source` below.
-        """
-elif False:
-    CentralizationRuleForOrganizationRuleArgsDict: TypeAlias = Mapping[str, Any]
+class CentralizationRuleForOrganizationRuleArgsDict(TypedDict):
+    destination: pulumi.Input['CentralizationRuleForOrganizationRuleDestinationArgsDict']
+    """
+    Configuration block for the destination where logs will be centralized. See `destination` below.
+    """
+    source: pulumi.Input['CentralizationRuleForOrganizationRuleSourceArgsDict']
+    """
+    Configuration block for the source of logs to be centralized. See `source` below.
+    """
 
 @pulumi.input_type
 class CentralizationRuleForOrganizationRuleArgs:
@@ -85,22 +80,19 @@ class CentralizationRuleForOrganizationRuleArgs:
         pulumi.set(self, "source", value)
 
 
-if not MYPY:
-    class CentralizationRuleForOrganizationRuleDestinationArgsDict(TypedDict):
-        account: pulumi.Input[_builtins.str]
-        """
-        AWS account ID where logs will be centralized.
-        """
-        region: pulumi.Input[_builtins.str]
-        """
-        AWS region where logs will be centralized.
-        """
-        destination_logs_configuration: NotRequired[pulumi.Input['CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationArgsDict']]
-        """
-        Configuration block for destination logs settings. See `destination_logs_configuration` below.
-        """
-elif False:
-    CentralizationRuleForOrganizationRuleDestinationArgsDict: TypeAlias = Mapping[str, Any]
+class CentralizationRuleForOrganizationRuleDestinationArgsDict(TypedDict):
+    account: pulumi.Input[_builtins.str]
+    """
+    AWS account ID where logs will be centralized.
+    """
+    region: pulumi.Input[_builtins.str]
+    """
+    AWS region where logs will be centralized.
+    """
+    destination_logs_configuration: NotRequired[pulumi.Input['CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationArgsDict']]
+    """
+    Configuration block for destination logs settings. See `destination_logs_configuration` below.
+    """
 
 @pulumi.input_type
 class CentralizationRuleForOrganizationRuleDestinationArgs:
@@ -155,18 +147,15 @@ class CentralizationRuleForOrganizationRuleDestinationArgs:
         pulumi.set(self, "destination_logs_configuration", value)
 
 
-if not MYPY:
-    class CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationArgsDict(TypedDict):
-        backup_configuration: NotRequired[pulumi.Input['CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationBackupConfigurationArgsDict']]
-        """
-        Configuration block for backup settings. See `backup_configuration` below.
-        """
-        logs_encryption_configuration: NotRequired[pulumi.Input['CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationLogsEncryptionConfigurationArgsDict']]
-        """
-        Configuration block for logs encryption settings. See `logs_encryption_configuration` below.
-        """
-elif False:
-    CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationArgsDict(TypedDict):
+    backup_configuration: NotRequired[pulumi.Input['CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationBackupConfigurationArgsDict']]
+    """
+    Configuration block for backup settings. See `backup_configuration` below.
+    """
+    logs_encryption_configuration: NotRequired[pulumi.Input['CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationLogsEncryptionConfigurationArgsDict']]
+    """
+    Configuration block for logs encryption settings. See `logs_encryption_configuration` below.
+    """
 
 @pulumi.input_type
 class CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationArgs:
@@ -207,18 +196,15 @@ class CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurati
         pulumi.set(self, "logs_encryption_configuration", value)
 
 
-if not MYPY:
-    class CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationBackupConfigurationArgsDict(TypedDict):
-        kms_key_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        ARN of the KMS key to use for backup encryption.
-        """
-        region: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        AWS region for backup storage.
-        """
-elif False:
-    CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationBackupConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationBackupConfigurationArgsDict(TypedDict):
+    kms_key_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    ARN of the KMS key to use for backup encryption.
+    """
+    region: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    AWS region for backup storage.
+    """
 
 @pulumi.input_type
 class CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationBackupConfigurationArgs:
@@ -259,22 +245,19 @@ class CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurati
         pulumi.set(self, "region", value)
 
 
-if not MYPY:
-    class CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationLogsEncryptionConfigurationArgsDict(TypedDict):
-        encryption_strategy: pulumi.Input[_builtins.str]
-        """
-        Encryption strategy for logs. Valid values: `AWS_OWNED`, `CUSTOMER_MANAGED`.
-        """
-        encryption_conflict_resolution_strategy: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Strategy for resolving encryption conflicts. Valid values: `ALLOW`, `SKIP`.
-        """
-        kms_key_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        ARN of the KMS key to use for encryption when `encryption_strategy` is `CUSTOMER_MANAGED`.
-        """
-elif False:
-    CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationLogsEncryptionConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationLogsEncryptionConfigurationArgsDict(TypedDict):
+    encryption_strategy: pulumi.Input[_builtins.str]
+    """
+    Encryption strategy for logs. Valid values: `AWS_OWNED`, `CUSTOMER_MANAGED`.
+    """
+    encryption_conflict_resolution_strategy: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Strategy for resolving encryption conflicts. Valid values: `ALLOW`, `SKIP`.
+    """
+    kms_key_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    ARN of the KMS key to use for encryption when `encryption_strategy` is `CUSTOMER_MANAGED`.
+    """
 
 @pulumi.input_type
 class CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationLogsEncryptionConfigurationArgs:
@@ -330,22 +313,19 @@ class CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurati
         pulumi.set(self, "kms_key_arn", value)
 
 
-if not MYPY:
-    class CentralizationRuleForOrganizationRuleSourceArgsDict(TypedDict):
-        regions: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        Set of AWS regions from which to centralize logs. Must contain at least one region.
-        """
-        scope: pulumi.Input[_builtins.str]
-        """
-        Scope defining which resources to include. Use organization ID format: `OrganizationId = 'o-example123456'`.
-        """
-        source_logs_configuration: NotRequired[pulumi.Input['CentralizationRuleForOrganizationRuleSourceSourceLogsConfigurationArgsDict']]
-        """
-        Configuration block for source logs settings. See `source_logs_configuration` below.
-        """
-elif False:
-    CentralizationRuleForOrganizationRuleSourceArgsDict: TypeAlias = Mapping[str, Any]
+class CentralizationRuleForOrganizationRuleSourceArgsDict(TypedDict):
+    regions: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    Set of AWS regions from which to centralize logs. Must contain at least one region.
+    """
+    scope: pulumi.Input[_builtins.str]
+    """
+    Scope defining which resources to include. Use organization ID format: `OrganizationId = 'o-example123456'`.
+    """
+    source_logs_configuration: NotRequired[pulumi.Input['CentralizationRuleForOrganizationRuleSourceSourceLogsConfigurationArgsDict']]
+    """
+    Configuration block for source logs settings. See `source_logs_configuration` below.
+    """
 
 @pulumi.input_type
 class CentralizationRuleForOrganizationRuleSourceArgs:
@@ -400,18 +380,15 @@ class CentralizationRuleForOrganizationRuleSourceArgs:
         pulumi.set(self, "source_logs_configuration", value)
 
 
-if not MYPY:
-    class CentralizationRuleForOrganizationRuleSourceSourceLogsConfigurationArgsDict(TypedDict):
-        encrypted_log_group_strategy: pulumi.Input[_builtins.str]
-        """
-        Strategy for handling encrypted log groups. Valid values: `ALLOW`, `SKIP`.
-        """
-        log_group_selection_criteria: pulumi.Input[_builtins.str]
-        """
-        Criteria for selecting log groups. Use `*` for all log groups or OAM filter syntax like `LogGroupName LIKE '/aws/lambda%'`. Must be between 1 and 2000 characters.
-        """
-elif False:
-    CentralizationRuleForOrganizationRuleSourceSourceLogsConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class CentralizationRuleForOrganizationRuleSourceSourceLogsConfigurationArgsDict(TypedDict):
+    encrypted_log_group_strategy: pulumi.Input[_builtins.str]
+    """
+    Strategy for handling encrypted log groups. Valid values: `ALLOW`, `SKIP`.
+    """
+    log_group_selection_criteria: pulumi.Input[_builtins.str]
+    """
+    Criteria for selecting log groups. Use `*` for all log groups or OAM filter syntax like `LogGroupName LIKE '/aws/lambda%'`. Must be between 1 and 2000 characters.
+    """
 
 @pulumi.input_type
 class CentralizationRuleForOrganizationRuleSourceSourceLogsConfigurationArgs:
@@ -450,18 +427,15 @@ class CentralizationRuleForOrganizationRuleSourceSourceLogsConfigurationArgs:
         pulumi.set(self, "log_group_selection_criteria", value)
 
 
-if not MYPY:
-    class CentralizationRuleForOrganizationTimeoutsArgsDict(TypedDict):
-        create: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
-        """
-        update: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
-        """
-elif False:
-    CentralizationRuleForOrganizationTimeoutsArgsDict: TypeAlias = Mapping[str, Any]
+class CentralizationRuleForOrganizationTimeoutsArgsDict(TypedDict):
+    create: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+    """
+    update: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+    """
 
 @pulumi.input_type
 class CentralizationRuleForOrganizationTimeoutsArgs:

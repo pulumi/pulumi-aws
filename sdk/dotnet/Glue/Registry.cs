@@ -36,11 +36,13 @@ namespace Pulumi.Aws.Glue
     /// 
     /// #### Required
     /// 
-    /// - `arn` (String) Amazon Resource Name (ARN) of the Glue registry.
+    /// - `Arn` (String) Amazon Resource Name (ARN) of the Glue registry.
     /// 
-    /// Using `pulumi import`, import Glue Registries using `arn`. For example:
+    /// Using `pulumi import`, import Glue Registries using `Arn`. For example:
     /// 
-    /// % pulumi import aws_glue_registry.example arn:aws:glue:us-west-2:123456789012:registry/example
+    /// ```sh
+    /// $ pulumi import aws:glue/registry:Registry example arn:aws:glue:us-west-2:123456789012:registry/example
+    /// ```
     /// </summary>
     [AwsResourceType("aws:glue/registry:Registry")]
     public partial class Registry : global::Pulumi.CustomResource

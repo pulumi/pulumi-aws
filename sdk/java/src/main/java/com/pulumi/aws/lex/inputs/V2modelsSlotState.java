@@ -214,9 +214,29 @@ public final class V2modelsSlotState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.timeouts);
     }
 
+    /**
+     * Prompts that Amazon Lex sends to the user to elicit a response that provides the value for the slot.
+     * If you configure this block without `prompt_specification.*.prompt_attempts_specification`, AWS will provide default `promptAttemptsSpecification` blocks for the initial prompt (map key `Initial`) and each retry attempt (map keys `Retry1`, `Retry2`, etc.).
+     * This will cause Terraform to report differences.
+     * Use the `valueElicitationSetting` configuration above in the `valueElicitationSetting` example to avoid differences resulting from AWS default configurations.
+     * See the `valueElicitationSetting` argument reference below.
+     * 
+     * The following arguments are optional:
+     * 
+     */
     @Import(name="valueElicitationSetting")
     private @Nullable Output<V2modelsSlotValueElicitationSettingArgs> valueElicitationSetting;
 
+    /**
+     * @return Prompts that Amazon Lex sends to the user to elicit a response that provides the value for the slot.
+     * If you configure this block without `prompt_specification.*.prompt_attempts_specification`, AWS will provide default `promptAttemptsSpecification` blocks for the initial prompt (map key `Initial`) and each retry attempt (map keys `Retry1`, `Retry2`, etc.).
+     * This will cause Terraform to report differences.
+     * Use the `valueElicitationSetting` configuration above in the `valueElicitationSetting` example to avoid differences resulting from AWS default configurations.
+     * See the `valueElicitationSetting` argument reference below.
+     * 
+     * The following arguments are optional:
+     * 
+     */
     public Optional<Output<V2modelsSlotValueElicitationSettingArgs>> valueElicitationSetting() {
         return Optional.ofNullable(this.valueElicitationSetting);
     }
@@ -558,11 +578,35 @@ public final class V2modelsSlotState extends com.pulumi.resources.ResourceArgs {
             return timeouts(Output.of(timeouts));
         }
 
+        /**
+         * @param valueElicitationSetting Prompts that Amazon Lex sends to the user to elicit a response that provides the value for the slot.
+         * If you configure this block without `prompt_specification.*.prompt_attempts_specification`, AWS will provide default `promptAttemptsSpecification` blocks for the initial prompt (map key `Initial`) and each retry attempt (map keys `Retry1`, `Retry2`, etc.).
+         * This will cause Terraform to report differences.
+         * Use the `valueElicitationSetting` configuration above in the `valueElicitationSetting` example to avoid differences resulting from AWS default configurations.
+         * See the `valueElicitationSetting` argument reference below.
+         * 
+         * The following arguments are optional:
+         * 
+         * @return builder
+         * 
+         */
         public Builder valueElicitationSetting(@Nullable Output<V2modelsSlotValueElicitationSettingArgs> valueElicitationSetting) {
             $.valueElicitationSetting = valueElicitationSetting;
             return this;
         }
 
+        /**
+         * @param valueElicitationSetting Prompts that Amazon Lex sends to the user to elicit a response that provides the value for the slot.
+         * If you configure this block without `prompt_specification.*.prompt_attempts_specification`, AWS will provide default `promptAttemptsSpecification` blocks for the initial prompt (map key `Initial`) and each retry attempt (map keys `Retry1`, `Retry2`, etc.).
+         * This will cause Terraform to report differences.
+         * Use the `valueElicitationSetting` configuration above in the `valueElicitationSetting` example to avoid differences resulting from AWS default configurations.
+         * See the `valueElicitationSetting` argument reference below.
+         * 
+         * The following arguments are optional:
+         * 
+         * @return builder
+         * 
+         */
         public Builder valueElicitationSetting(V2modelsSlotValueElicitationSettingArgs valueElicitationSetting) {
             return valueElicitationSetting(Output.of(valueElicitationSetting));
         }

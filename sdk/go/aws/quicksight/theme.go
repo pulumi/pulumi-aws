@@ -76,7 +76,8 @@ type Theme struct {
 	pulumi.CustomResourceState
 
 	// ARN of the theme.
-	Arn          pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
 	AwsAccountId pulumi.StringOutput `pulumi:"awsAccountId"`
 	// The ID of the theme that a custom theme will inherit from. All themes inherit from one of the starting themes defined by Amazon QuickSight. For a list of the starting themes, use ListThemes or choose Themes from within an analysis.
 	BaseThemeId pulumi.StringOutput `pulumi:"baseThemeId"`
@@ -145,7 +146,8 @@ func GetTheme(ctx *pulumi.Context,
 // Input properties used for looking up and filtering Theme resources.
 type themeState struct {
 	// ARN of the theme.
-	Arn          *string `pulumi:"arn"`
+	Arn *string `pulumi:"arn"`
+	// AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
 	AwsAccountId *string `pulumi:"awsAccountId"`
 	// The ID of the theme that a custom theme will inherit from. All themes inherit from one of the starting themes defined by Amazon QuickSight. For a list of the starting themes, use ListThemes or choose Themes from within an analysis.
 	BaseThemeId *string `pulumi:"baseThemeId"`
@@ -179,7 +181,8 @@ type themeState struct {
 
 type ThemeState struct {
 	// ARN of the theme.
-	Arn          pulumi.StringPtrInput
+	Arn pulumi.StringPtrInput
+	// AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
 	AwsAccountId pulumi.StringPtrInput
 	// The ID of the theme that a custom theme will inherit from. All themes inherit from one of the starting themes defined by Amazon QuickSight. For a list of the starting themes, use ListThemes or choose Themes from within an analysis.
 	BaseThemeId pulumi.StringPtrInput
@@ -216,6 +219,7 @@ func (ThemeState) ElementType() reflect.Type {
 }
 
 type themeArgs struct {
+	// AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
 	AwsAccountId *string `pulumi:"awsAccountId"`
 	// The ID of the theme that a custom theme will inherit from. All themes inherit from one of the starting themes defined by Amazon QuickSight. For a list of the starting themes, use ListThemes or choose Themes from within an analysis.
 	BaseThemeId string `pulumi:"baseThemeId"`
@@ -239,6 +243,7 @@ type themeArgs struct {
 
 // The set of arguments for constructing a Theme resource.
 type ThemeArgs struct {
+	// AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
 	AwsAccountId pulumi.StringPtrInput
 	// The ID of the theme that a custom theme will inherit from. All themes inherit from one of the starting themes defined by Amazon QuickSight. For a list of the starting themes, use ListThemes or choose Themes from within an analysis.
 	BaseThemeId pulumi.StringInput
@@ -352,6 +357,7 @@ func (o ThemeOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Theme) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
 func (o ThemeOutput) AwsAccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Theme) pulumi.StringOutput { return v.AwsAccountId }).(pulumi.StringOutput)
 }

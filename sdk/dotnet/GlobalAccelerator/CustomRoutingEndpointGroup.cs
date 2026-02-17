@@ -55,11 +55,13 @@ namespace Pulumi.Aws.GlobalAccelerator
     /// 
     /// #### Required
     /// 
-    /// - `arn` (String) Amazon Resource Name (ARN) of the Global Accelerator custom routing endpoint group.
+    /// - `Arn` (String) Amazon Resource Name (ARN) of the Global Accelerator custom routing endpoint group.
     /// 
-    /// Using `pulumi import`, import Global Accelerator custom routing endpoint groups using the `id`. For example:
+    /// Using `pulumi import`, import Global Accelerator custom routing endpoint groups using the `Id`. For example:
     /// 
-    /// % pulumi import aws_globalaccelerator_custom_routing_endpoint_group.example arn:aws:globalaccelerator::111111111111:accelerator/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/listener/xxxxxxx/endpoint-group/xxxxxxxx
+    /// ```sh
+    /// $ pulumi import aws:globalaccelerator/customRoutingEndpointGroup:CustomRoutingEndpointGroup example arn:aws:globalaccelerator::111111111111:accelerator/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/listener/xxxxxxx/endpoint-group/xxxxxxxx
+    /// ```
     /// </summary>
     [AwsResourceType("aws:globalaccelerator/customRoutingEndpointGroup:CustomRoutingEndpointGroup")]
     public partial class CustomRoutingEndpointGroup : global::Pulumi.CustomResource

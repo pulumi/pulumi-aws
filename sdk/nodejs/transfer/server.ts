@@ -137,7 +137,8 @@ import * as utilities from "../utilities";
  * ```sh
  * $ pulumi import aws:transfer/server:Server example s-12345678
  * ```
- * Certain resource arguments, such as `host_key`, cannot be read via the API and imported into the provider. This provider will display a difference for these arguments the first run after import if declared in the provider configuration for an imported resource.
+ *
+ * Certain resource arguments, such as `hostKey`, cannot be read via the API and imported into the provider. This provider will display a difference for these arguments the first run after import if declared in the provider configuration for an imported resource.
  */
 export class Server extends pulumi.CustomResource {
     /**

@@ -59,12 +59,12 @@ import * as utilities from "../utilities";
  *     events: ["push"],
  *     name: "example",
  *     repository: exampleGithubRepository.name,
- *     configuration: [{
+ *     configuration: {
  *         url: example.payloadUrl,
  *         secret: example.secret,
  *         contentType: "json",
  *         insecureSsl: false,
- *     }],
+ *     },
  * });
  * ```
  *

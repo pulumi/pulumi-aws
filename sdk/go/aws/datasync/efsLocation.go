@@ -56,9 +56,11 @@ import (
 //
 // - `arn` (String) Amazon Resource Name (ARN) of the DataSync EFS location.
 //
-// Using `pulumi import`, import `aws_datasync_location_efs` using the DataSync Task Amazon Resource Name (ARN). For example:
+// Using `pulumi import`, import `datasync.EfsLocation` using the DataSync Task Amazon Resource Name (ARN). For example:
 //
-// % pulumi import aws_datasync_location_efs.example arn:aws:datasync:us-east-1:123456789012:location/loc-12345678901234567
+// ```sh
+// $ pulumi import aws:datasync/efsLocation:EfsLocation example arn:aws:datasync:us-east-1:123456789012:location/loc-12345678901234567
+// ```
 type EfsLocation struct {
 	pulumi.CustomResourceState
 

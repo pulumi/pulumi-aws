@@ -83,6 +83,58 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * 
+ * ### With useAs
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.quicksight.DataSet;
+ * import com.pulumi.aws.quicksight.DataSetArgs;
+ * import com.pulumi.aws.quicksight.inputs.DataSetPhysicalTableMapArgs;
+ * import com.pulumi.aws.quicksight.inputs.DataSetPhysicalTableMapS3SourceArgs;
+ * import com.pulumi.aws.quicksight.inputs.DataSetPhysicalTableMapS3SourceUploadSettingsArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new DataSet("example", DataSetArgs.builder()
+ *             .dataSetId("example-id")
+ *             .name("example-name")
+ *             .importMode("SPICE")
+ *             .useAs("RLS_RULES")
+ *             .physicalTableMaps(DataSetPhysicalTableMapArgs.builder()
+ *                 .physicalTableMapId("example-id")
+ *                 .s3Source(DataSetPhysicalTableMapS3SourceArgs.builder()
+ *                     .dataSourceArn(exampleAwsQuicksightDataSource.arn())
+ *                     .inputColumns(DataSetPhysicalTableMapS3SourceInputColumnArgs.builder()
+ *                         .name("UserName")
+ *                         .type("STRING")
+ *                         .build())
+ *                     .uploadSettings(DataSetPhysicalTableMapS3SourceUploadSettingsArgs.builder()
+ *                         .format("JSON")
+ *                         .build())
+ *                     .build())
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
  * ### With Column Level Permission Rules
  * 
  * <pre>
@@ -343,9 +395,17 @@ public class DataSet extends com.pulumi.resources.CustomResource {
     public Output<String> arn() {
         return this.arn;
     }
+    /**
+     * AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
+     * 
+     */
     @Export(name="awsAccountId", refs={String.class}, tree="[0]")
     private Output<String> awsAccountId;
 
+    /**
+     * @return AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
+     * 
+     */
     public Output<String> awsAccountId() {
         return this.awsAccountId;
     }
@@ -590,6 +650,20 @@ public class DataSet extends com.pulumi.resources.CustomResource {
      */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
+    }
+    /**
+     * Specifies the purpose of the data set. The only valid value is `RLS_RULES`, which designates this data set as a Row Level Security (RLS) rules dataset. An RLS rules dataset is used to control access to data at the row level in QuickSight analyses and dashboards. See the [AWS documentation](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_CreateDataSet.html#API_CreateDataSet_RequestSyntax) for details.
+     * 
+     */
+    @Export(name="useAs", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> useAs;
+
+    /**
+     * @return Specifies the purpose of the data set. The only valid value is `RLS_RULES`, which designates this data set as a Row Level Security (RLS) rules dataset. An RLS rules dataset is used to control access to data at the row level in QuickSight analyses and dashboards. See the [AWS documentation](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_CreateDataSet.html#API_CreateDataSet_RequestSyntax) for details.
+     * 
+     */
+    public Output<Optional<String>> useAs() {
+        return Codegen.optional(this.useAs);
     }
 
     /**

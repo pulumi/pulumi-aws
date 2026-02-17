@@ -69,7 +69,7 @@ namespace Pulumi.Aws.Rds
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import DB Event Subscriptions using the `name`. For example:
+    /// Using `pulumi import`, import DB Event Subscriptions using the `Name`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:rds/eventSubscription:EventSubscription default rds-event-sub
@@ -133,7 +133,7 @@ namespace Pulumi.Aws.Rds
         public Output<ImmutableArray<string>> SourceIds { get; private set; } = null!;
 
         /// <summary>
-        /// The type of source that will be generating the events. Valid options are `db-instance`, `db-security-group`, `db-parameter-group`, `db-snapshot`, `db-cluster`, `db-cluster-snapshot`, or `db-proxy`. If not set, all sources will be subscribed to.
+        /// The type of source that will be generating the events. Valid options are `db-instance`, `db-parameter-group`, `db-security-group`, `db-snapshot`, `db-cluster`, `db-cluster-snapshot`, `custom-engine-version`, `db-proxy`, `blue-green-deployment`, `db-shard-group`, and `zero-etl`. If not set, all sources will be subscribed to.
         /// </summary>
         [Output("sourceType")]
         public Output<string?> SourceType { get; private set; } = null!;
@@ -251,7 +251,7 @@ namespace Pulumi.Aws.Rds
         }
 
         /// <summary>
-        /// The type of source that will be generating the events. Valid options are `db-instance`, `db-security-group`, `db-parameter-group`, `db-snapshot`, `db-cluster`, `db-cluster-snapshot`, or `db-proxy`. If not set, all sources will be subscribed to.
+        /// The type of source that will be generating the events. Valid options are `db-instance`, `db-parameter-group`, `db-security-group`, `db-snapshot`, `db-cluster`, `db-cluster-snapshot`, `custom-engine-version`, `db-proxy`, `blue-green-deployment`, `db-shard-group`, and `zero-etl`. If not set, all sources will be subscribed to.
         /// </summary>
         [Input("sourceType")]
         public Input<string>? SourceType { get; set; }
@@ -343,7 +343,7 @@ namespace Pulumi.Aws.Rds
         }
 
         /// <summary>
-        /// The type of source that will be generating the events. Valid options are `db-instance`, `db-security-group`, `db-parameter-group`, `db-snapshot`, `db-cluster`, `db-cluster-snapshot`, or `db-proxy`. If not set, all sources will be subscribed to.
+        /// The type of source that will be generating the events. Valid options are `db-instance`, `db-parameter-group`, `db-security-group`, `db-snapshot`, `db-cluster`, `db-cluster-snapshot`, `custom-engine-version`, `db-proxy`, `blue-green-deployment`, `db-shard-group`, and `zero-etl`. If not set, all sources will be subscribed to.
         /// </summary>
         [Input("sourceType")]
         public Input<string>? SourceType { get; set; }

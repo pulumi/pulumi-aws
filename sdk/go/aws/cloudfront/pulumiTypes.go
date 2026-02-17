@@ -11435,9 +11435,9 @@ type MultitenantDistributionCustomErrorResponse struct {
 	ErrorCachingMinTtl *int `pulumi:"errorCachingMinTtl"`
 	// HTTP status code for which you want to specify a custom error page and/or a caching duration.
 	ErrorCode int `pulumi:"errorCode"`
-	// HTTP status code that you want CloudFront to return to the viewer along with the custom error page.
+	// HTTP status code that you want CloudFront to return to the viewer along with the custom error page. Both `responseCode` and `responsePagePath` must be specified or both must be omitted.
 	ResponseCode *string `pulumi:"responseCode"`
-	// Path to the custom error page that you want CloudFront to return to a viewer when your origin returns the HTTP status code specified by ErrorCode.
+	// Path to the custom error page that you want CloudFront to return to a viewer when your origin returns the HTTP status code specified by ErrorCode. Both `responseCode` and `responsePagePath` must be specified or both must be omitted.
 	ResponsePagePath *string `pulumi:"responsePagePath"`
 }
 
@@ -11457,9 +11457,9 @@ type MultitenantDistributionCustomErrorResponseArgs struct {
 	ErrorCachingMinTtl pulumi.IntPtrInput `pulumi:"errorCachingMinTtl"`
 	// HTTP status code for which you want to specify a custom error page and/or a caching duration.
 	ErrorCode pulumi.IntInput `pulumi:"errorCode"`
-	// HTTP status code that you want CloudFront to return to the viewer along with the custom error page.
+	// HTTP status code that you want CloudFront to return to the viewer along with the custom error page. Both `responseCode` and `responsePagePath` must be specified or both must be omitted.
 	ResponseCode pulumi.StringPtrInput `pulumi:"responseCode"`
-	// Path to the custom error page that you want CloudFront to return to a viewer when your origin returns the HTTP status code specified by ErrorCode.
+	// Path to the custom error page that you want CloudFront to return to a viewer when your origin returns the HTTP status code specified by ErrorCode. Both `responseCode` and `responsePagePath` must be specified or both must be omitted.
 	ResponsePagePath pulumi.StringPtrInput `pulumi:"responsePagePath"`
 }
 
@@ -11524,12 +11524,12 @@ func (o MultitenantDistributionCustomErrorResponseOutput) ErrorCode() pulumi.Int
 	return o.ApplyT(func(v MultitenantDistributionCustomErrorResponse) int { return v.ErrorCode }).(pulumi.IntOutput)
 }
 
-// HTTP status code that you want CloudFront to return to the viewer along with the custom error page.
+// HTTP status code that you want CloudFront to return to the viewer along with the custom error page. Both `responseCode` and `responsePagePath` must be specified or both must be omitted.
 func (o MultitenantDistributionCustomErrorResponseOutput) ResponseCode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MultitenantDistributionCustomErrorResponse) *string { return v.ResponseCode }).(pulumi.StringPtrOutput)
 }
 
-// Path to the custom error page that you want CloudFront to return to a viewer when your origin returns the HTTP status code specified by ErrorCode.
+// Path to the custom error page that you want CloudFront to return to a viewer when your origin returns the HTTP status code specified by ErrorCode. Both `responseCode` and `responsePagePath` must be specified or both must be omitted.
 func (o MultitenantDistributionCustomErrorResponseOutput) ResponsePagePath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MultitenantDistributionCustomErrorResponse) *string { return v.ResponsePagePath }).(pulumi.StringPtrOutput)
 }

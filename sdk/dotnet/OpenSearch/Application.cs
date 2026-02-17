@@ -260,7 +260,7 @@ namespace Pulumi.Aws.OpenSearch
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import OpenSearch applications using the `id`. For example:
+    /// Using `pulumi import`, import OpenSearch applications using the `Id`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:opensearch/application:Application example app-1234567890abcdef0

@@ -46,7 +46,7 @@ namespace Pulumi.Aws.VerifiedAccess
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import Verified Access Instance Trust Provider Attachments using the `verifiedaccess_instance_id` and `verifiedaccess_trust_provider_id` separated by a forward slash (`/`). For example:
+    /// Using `pulumi import`, import Verified Access Instance Trust Provider Attachments using the `VerifiedaccessInstanceId` and `VerifiedaccessTrustProviderId` separated by a forward slash (`/`). For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:verifiedaccess/instanceTrustProviderAttachment:InstanceTrustProviderAttachment example vai-1234567890abcdef0/vatp-8012925589

@@ -25,8 +25,6 @@ import (
 //
 // import (
 //
-//	"fmt"
-//
 //	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/transfer"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
@@ -56,8 +54,6 @@ import (
 //
 // import (
 //
-//	"fmt"
-//
 //	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/transfer"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
@@ -86,7 +82,7 @@ import (
 //
 // ## Import
 //
-// Using `pulumi import`, import Transfer Accesses using the `server_id` and `external_id`. For example:
+// Using `pulumi import`, import Transfer Accesses using the `serverId` and `externalId`. For example:
 //
 // ```sh
 // $ pulumi import aws:transfer/access:Access example s-12345678/S-1-1-12-1234567890-123456789-1234567890-1234

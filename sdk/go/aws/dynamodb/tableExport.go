@@ -12,6 +12,14 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Resource for managing an AWS DynamoDB Table Export. Terraform will wait until the Table export reaches a status of `COMPLETED` or `FAILED`.
+//
+// See the [AWS Documentation](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/S3DataExport.HowItWorks.html) for more information on how this process works.
+//
+// > **TIP:** Point-in-time Recovery must be enabled on the target DynamoDB Table.
+//
+// > **NOTE:** Once a AWS DynamoDB Table Export has been created it is immutable. The AWS API does not delete this resource. When you run destroy the provider will remove the resource from the Terraform state, no exported data will be deleted.
+//
 // ## Example Usage
 //
 // ### Basic Usage
@@ -136,7 +144,9 @@ import (
 //
 // Using `pulumi import`, import DynamoDB table exports using the `arn`. For example:
 //
-// % pulumi import aws_dynamodb_table_export.example arn:aws:dynamodb:us-west-2:12345678911:table/my-table-1/export/01580735656614-2c2f422e
+// ```sh
+// $ pulumi import aws:dynamodb/tableExport:TableExport example arn:aws:dynamodb:us-west-2:12345678911:table/my-table-1/export/01580735656614-2c2f422e
+// ```
 type TableExport struct {
 	pulumi.CustomResourceState
 

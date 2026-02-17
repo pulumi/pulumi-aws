@@ -55,37 +55,47 @@ import (
 //
 // #### Optional
 //
-// * `account_id` (String) AWS Account where this resource is managed.
+// * `accountId` (String) AWS Account where this resource is managed.
 //
-// Using `pulumi import`, import the AWS member account using the `account_id`. For example:
+// Using `pulumi import`, import the AWS member account using the `accountId`. For example:
 //
-// % pulumi import aws_organizations_account.example 111111111111
+// ```sh
+// $ pulumi import aws:organizations/account:Account example 111111111111
+// ```
 //
 // To import accounts that have set iam_user_access_to_billing, use the following:
 //
-// % pulumi import aws_organizations_account.example 111111111111_ALLOW
+// ```sh
+// $ pulumi import aws:organizations/account:Account example 111111111111_ALLOW
+// ```
 //
-// Certain resource arguments, like `role_name`, do not have an Organizations API method for reading the information after account creation. If the argument is set in the Pulumi program on an imported resource, Pulumi will always show a difference. To workaround this behavior, either omit the argument from the Pulumi program or use `ignore_changes` to hide the difference. For example:
+// Certain resource arguments, like `roleName`, do not have an Organizations API method for reading the information after account creation. If the argument is set in the Pulumi program on an imported resource, Pulumi will always show a difference. To workaround this behavior, either omit the argument from the Pulumi program or use `ignoreChanges` to hide the difference. For example:
 //
-// terraform
+// ```go
+// package main
 //
-// resource "aws_organizations_account" "account" {
+// import (
 //
-//	name      = "my_new_account"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/organizations"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
-//	email     = "john@doe.org"
+// )
 //
-//	role_name = "myOrganizationRole"
-//
-// # There is no AWS Organizations API for reading role_name
-//
-//	lifecycle {
-//
-//	  ignore_changes = [role_name]
-//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := organizations.NewAccount(ctx, "account", &organizations.AccountArgs{
+//				Name:     pulumi.String("my_new_account"),
+//				Email:    pulumi.String("john@doe.org"),
+//				RoleName: pulumi.String("myOrganizationRole"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
 //	}
 //
-// }
+// ```
 type Account struct {
 	pulumi.CustomResourceState
 

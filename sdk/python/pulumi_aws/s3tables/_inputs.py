@@ -53,20 +53,15 @@ __all__ = [
     'TableReplicationRuleDestinationArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class TableBucketEncryptionConfigurationArgsDict(TypedDict):
-        kms_key_arn: pulumi.Input[_builtins.str]
-        """
-        The ARN of a KMS Key to be used with `aws:kms` `sse_algorithm`
-        """
-        sse_algorithm: pulumi.Input[_builtins.str]
-        """
-        One of `aws:kms` or `AES256`
-        """
-elif False:
-    TableBucketEncryptionConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class TableBucketEncryptionConfigurationArgsDict(TypedDict):
+    kms_key_arn: pulumi.Input[_builtins.str]
+    """
+    The ARN of a KMS Key to be used with `aws:kms` `sse_algorithm`
+    """
+    sse_algorithm: pulumi.Input[_builtins.str]
+    """
+    One of `aws:kms` or `AES256`
+    """
 
 @pulumi.input_type
 class TableBucketEncryptionConfigurationArgs:
@@ -105,15 +100,12 @@ class TableBucketEncryptionConfigurationArgs:
         pulumi.set(self, "sse_algorithm", value)
 
 
-if not MYPY:
-    class TableBucketMaintenanceConfigurationArgsDict(TypedDict):
-        iceberg_unreferenced_file_removal: pulumi.Input['TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalArgsDict']
-        """
-        A single Iceberg unreferenced file removal settings object.
-        See `iceberg_unreferenced_file_removal` below.
-        """
-elif False:
-    TableBucketMaintenanceConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class TableBucketMaintenanceConfigurationArgsDict(TypedDict):
+    iceberg_unreferenced_file_removal: pulumi.Input['TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalArgsDict']
+    """
+    A single Iceberg unreferenced file removal settings object.
+    See `iceberg_unreferenced_file_removal` below.
+    """
 
 @pulumi.input_type
 class TableBucketMaintenanceConfigurationArgs:
@@ -139,20 +131,17 @@ class TableBucketMaintenanceConfigurationArgs:
         pulumi.set(self, "iceberg_unreferenced_file_removal", value)
 
 
-if not MYPY:
-    class TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalArgsDict(TypedDict):
-        settings: pulumi.Input['TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettingsArgsDict']
-        """
-        Settings object for unreferenced file removal.
-        See `iceberg_unreferenced_file_removal.settings` below.
-        """
-        status: pulumi.Input[_builtins.str]
-        """
-        Whether the configuration is enabled.
-        Valid values are `enabled` and `disabled`.
-        """
-elif False:
-    TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalArgsDict: TypeAlias = Mapping[str, Any]
+class TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalArgsDict(TypedDict):
+    settings: pulumi.Input['TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettingsArgsDict']
+    """
+    Settings object for unreferenced file removal.
+    See `iceberg_unreferenced_file_removal.settings` below.
+    """
+    status: pulumi.Input[_builtins.str]
+    """
+    Whether the configuration is enabled.
+    Valid values are `enabled` and `disabled`.
+    """
 
 @pulumi.input_type
 class TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalArgs:
@@ -195,20 +184,17 @@ class TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalArgs:
         pulumi.set(self, "status", value)
 
 
-if not MYPY:
-    class TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettingsArgsDict(TypedDict):
-        non_current_days: pulumi.Input[_builtins.int]
-        """
-        Data objects marked for deletion are deleted after this many days.
-        Must be at least `1`.
-        """
-        unreferenced_days: pulumi.Input[_builtins.int]
-        """
-        Unreferenced data objects are marked for deletion after this many days.
-        Must be at least `1`.
-        """
-elif False:
-    TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettingsArgsDict: TypeAlias = Mapping[str, Any]
+class TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettingsArgsDict(TypedDict):
+    non_current_days: pulumi.Input[_builtins.int]
+    """
+    Data objects marked for deletion are deleted after this many days.
+    Must be at least `1`.
+    """
+    unreferenced_days: pulumi.Input[_builtins.int]
+    """
+    Unreferenced data objects are marked for deletion after this many days.
+    Must be at least `1`.
+    """
 
 @pulumi.input_type
 class TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettingsArgs:
@@ -251,14 +237,11 @@ class TableBucketMaintenanceConfigurationIcebergUnreferencedFileRemovalSettingsA
         pulumi.set(self, "unreferenced_days", value)
 
 
-if not MYPY:
-    class TableBucketReplicationRuleArgsDict(TypedDict):
-        destinations: pulumi.Input[Sequence[pulumi.Input['TableBucketReplicationRuleDestinationArgsDict']]]
-        """
-        Replication destination. See Destination below for more details.
-        """
-elif False:
-    TableBucketReplicationRuleArgsDict: TypeAlias = Mapping[str, Any]
+class TableBucketReplicationRuleArgsDict(TypedDict):
+    destinations: pulumi.Input[Sequence[pulumi.Input['TableBucketReplicationRuleDestinationArgsDict']]]
+    """
+    Replication destination. See Destination below for more details.
+    """
 
 @pulumi.input_type
 class TableBucketReplicationRuleArgs:
@@ -282,14 +265,11 @@ class TableBucketReplicationRuleArgs:
         pulumi.set(self, "destinations", value)
 
 
-if not MYPY:
-    class TableBucketReplicationRuleDestinationArgsDict(TypedDict):
-        destination_table_bucket_arn: pulumi.Input[_builtins.str]
-        """
-        ARN of destination table bucket to replicate source tables to.
-        """
-elif False:
-    TableBucketReplicationRuleDestinationArgsDict: TypeAlias = Mapping[str, Any]
+class TableBucketReplicationRuleDestinationArgsDict(TypedDict):
+    destination_table_bucket_arn: pulumi.Input[_builtins.str]
+    """
+    ARN of destination table bucket to replicate source tables to.
+    """
 
 @pulumi.input_type
 class TableBucketReplicationRuleDestinationArgs:
@@ -313,18 +293,15 @@ class TableBucketReplicationRuleDestinationArgs:
         pulumi.set(self, "destination_table_bucket_arn", value)
 
 
-if not MYPY:
-    class TableEncryptionConfigurationArgsDict(TypedDict):
-        kms_key_arn: pulumi.Input[_builtins.str]
-        """
-        The ARN of a KMS Key to be used with `aws:kms` `sse_algorithm`
-        """
-        sse_algorithm: pulumi.Input[_builtins.str]
-        """
-        One of `aws:kms` or `AES256`
-        """
-elif False:
-    TableEncryptionConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class TableEncryptionConfigurationArgsDict(TypedDict):
+    kms_key_arn: pulumi.Input[_builtins.str]
+    """
+    The ARN of a KMS Key to be used with `aws:kms` `sse_algorithm`
+    """
+    sse_algorithm: pulumi.Input[_builtins.str]
+    """
+    One of `aws:kms` or `AES256`
+    """
 
 @pulumi.input_type
 class TableEncryptionConfigurationArgs:
@@ -363,20 +340,17 @@ class TableEncryptionConfigurationArgs:
         pulumi.set(self, "sse_algorithm", value)
 
 
-if not MYPY:
-    class TableMaintenanceConfigurationArgsDict(TypedDict):
-        iceberg_compaction: pulumi.Input['TableMaintenanceConfigurationIcebergCompactionArgsDict']
-        """
-        A single Iceberg compaction settings object.
-        See `iceberg_compaction` below.
-        """
-        iceberg_snapshot_management: pulumi.Input['TableMaintenanceConfigurationIcebergSnapshotManagementArgsDict']
-        """
-        A single Iceberg snapshot management settings object.
-        See `iceberg_snapshot_management` below.
-        """
-elif False:
-    TableMaintenanceConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class TableMaintenanceConfigurationArgsDict(TypedDict):
+    iceberg_compaction: pulumi.Input['TableMaintenanceConfigurationIcebergCompactionArgsDict']
+    """
+    A single Iceberg compaction settings object.
+    See `iceberg_compaction` below.
+    """
+    iceberg_snapshot_management: pulumi.Input['TableMaintenanceConfigurationIcebergSnapshotManagementArgsDict']
+    """
+    A single Iceberg snapshot management settings object.
+    See `iceberg_snapshot_management` below.
+    """
 
 @pulumi.input_type
 class TableMaintenanceConfigurationArgs:
@@ -419,20 +393,17 @@ class TableMaintenanceConfigurationArgs:
         pulumi.set(self, "iceberg_snapshot_management", value)
 
 
-if not MYPY:
-    class TableMaintenanceConfigurationIcebergCompactionArgsDict(TypedDict):
-        settings: pulumi.Input['TableMaintenanceConfigurationIcebergCompactionSettingsArgsDict']
-        """
-        Settings object for compaction.
-        See `iceberg_compaction.settings` below.
-        """
-        status: pulumi.Input[_builtins.str]
-        """
-        Whether the configuration is enabled.
-        Valid values are `enabled` and `disabled`.
-        """
-elif False:
-    TableMaintenanceConfigurationIcebergCompactionArgsDict: TypeAlias = Mapping[str, Any]
+class TableMaintenanceConfigurationIcebergCompactionArgsDict(TypedDict):
+    settings: pulumi.Input['TableMaintenanceConfigurationIcebergCompactionSettingsArgsDict']
+    """
+    Settings object for compaction.
+    See `iceberg_compaction.settings` below.
+    """
+    status: pulumi.Input[_builtins.str]
+    """
+    Whether the configuration is enabled.
+    Valid values are `enabled` and `disabled`.
+    """
 
 @pulumi.input_type
 class TableMaintenanceConfigurationIcebergCompactionArgs:
@@ -475,15 +446,12 @@ class TableMaintenanceConfigurationIcebergCompactionArgs:
         pulumi.set(self, "status", value)
 
 
-if not MYPY:
-    class TableMaintenanceConfigurationIcebergCompactionSettingsArgsDict(TypedDict):
-        target_file_size_mb: pulumi.Input[_builtins.int]
-        """
-        Data objects smaller than this size may be combined with others to improve query performance.
-        Must be between `64` and `512`.
-        """
-elif False:
-    TableMaintenanceConfigurationIcebergCompactionSettingsArgsDict: TypeAlias = Mapping[str, Any]
+class TableMaintenanceConfigurationIcebergCompactionSettingsArgsDict(TypedDict):
+    target_file_size_mb: pulumi.Input[_builtins.int]
+    """
+    Data objects smaller than this size may be combined with others to improve query performance.
+    Must be between `64` and `512`.
+    """
 
 @pulumi.input_type
 class TableMaintenanceConfigurationIcebergCompactionSettingsArgs:
@@ -509,20 +477,17 @@ class TableMaintenanceConfigurationIcebergCompactionSettingsArgs:
         pulumi.set(self, "target_file_size_mb", value)
 
 
-if not MYPY:
-    class TableMaintenanceConfigurationIcebergSnapshotManagementArgsDict(TypedDict):
-        settings: pulumi.Input['TableMaintenanceConfigurationIcebergSnapshotManagementSettingsArgsDict']
-        """
-        Settings object for snapshot management.
-        See `iceberg_snapshot_management.settings` below.
-        """
-        status: pulumi.Input[_builtins.str]
-        """
-        Whether the configuration is enabled.
-        Valid values are `enabled` and `disabled`.
-        """
-elif False:
-    TableMaintenanceConfigurationIcebergSnapshotManagementArgsDict: TypeAlias = Mapping[str, Any]
+class TableMaintenanceConfigurationIcebergSnapshotManagementArgsDict(TypedDict):
+    settings: pulumi.Input['TableMaintenanceConfigurationIcebergSnapshotManagementSettingsArgsDict']
+    """
+    Settings object for snapshot management.
+    See `iceberg_snapshot_management.settings` below.
+    """
+    status: pulumi.Input[_builtins.str]
+    """
+    Whether the configuration is enabled.
+    Valid values are `enabled` and `disabled`.
+    """
 
 @pulumi.input_type
 class TableMaintenanceConfigurationIcebergSnapshotManagementArgs:
@@ -565,20 +530,17 @@ class TableMaintenanceConfigurationIcebergSnapshotManagementArgs:
         pulumi.set(self, "status", value)
 
 
-if not MYPY:
-    class TableMaintenanceConfigurationIcebergSnapshotManagementSettingsArgsDict(TypedDict):
-        max_snapshot_age_hours: pulumi.Input[_builtins.int]
-        """
-        Snapshots older than this will be marked for deletiion.
-        Must be at least `1`.
-        """
-        min_snapshots_to_keep: pulumi.Input[_builtins.int]
-        """
-        Minimum number of snapshots to keep.
-        Must be at least `1`.
-        """
-elif False:
-    TableMaintenanceConfigurationIcebergSnapshotManagementSettingsArgsDict: TypeAlias = Mapping[str, Any]
+class TableMaintenanceConfigurationIcebergSnapshotManagementSettingsArgsDict(TypedDict):
+    max_snapshot_age_hours: pulumi.Input[_builtins.int]
+    """
+    Snapshots older than this will be marked for deletiion.
+    Must be at least `1`.
+    """
+    min_snapshots_to_keep: pulumi.Input[_builtins.int]
+    """
+    Minimum number of snapshots to keep.
+    Must be at least `1`.
+    """
 
 @pulumi.input_type
 class TableMaintenanceConfigurationIcebergSnapshotManagementSettingsArgs:
@@ -621,15 +583,12 @@ class TableMaintenanceConfigurationIcebergSnapshotManagementSettingsArgs:
         pulumi.set(self, "min_snapshots_to_keep", value)
 
 
-if not MYPY:
-    class TableMetadataArgsDict(TypedDict):
-        iceberg: pulumi.Input['TableMetadataIcebergArgsDict']
-        """
-        Contains details about the metadata for an Iceberg table. This block defines the schema structure for the Apache Iceberg table format.
-        See `iceberg` below.
-        """
-elif False:
-    TableMetadataArgsDict: TypeAlias = Mapping[str, Any]
+class TableMetadataArgsDict(TypedDict):
+    iceberg: pulumi.Input['TableMetadataIcebergArgsDict']
+    """
+    Contains details about the metadata for an Iceberg table. This block defines the schema structure for the Apache Iceberg table format.
+    See `iceberg` below.
+    """
 
 @pulumi.input_type
 class TableMetadataArgs:
@@ -655,15 +614,12 @@ class TableMetadataArgs:
         pulumi.set(self, "iceberg", value)
 
 
-if not MYPY:
-    class TableMetadataIcebergArgsDict(TypedDict):
-        schema: pulumi.Input['TableMetadataIcebergSchemaArgsDict']
-        """
-        Schema configuration for the Iceberg table.
-        See `schema` below.
-        """
-elif False:
-    TableMetadataIcebergArgsDict: TypeAlias = Mapping[str, Any]
+class TableMetadataIcebergArgsDict(TypedDict):
+    schema: pulumi.Input['TableMetadataIcebergSchemaArgsDict']
+    """
+    Schema configuration for the Iceberg table.
+    See `schema` below.
+    """
 
 @pulumi.input_type
 class TableMetadataIcebergArgs:
@@ -689,15 +645,12 @@ class TableMetadataIcebergArgs:
         pulumi.set(self, "schema", value)
 
 
-if not MYPY:
-    class TableMetadataIcebergSchemaArgsDict(TypedDict):
-        fields: pulumi.Input[Sequence[pulumi.Input['TableMetadataIcebergSchemaFieldArgsDict']]]
-        """
-        List of schema fields for the Iceberg table. Each field defines a column in the table schema.
-        See `field` below.
-        """
-elif False:
-    TableMetadataIcebergSchemaArgsDict: TypeAlias = Mapping[str, Any]
+class TableMetadataIcebergSchemaArgsDict(TypedDict):
+    fields: pulumi.Input[Sequence[pulumi.Input['TableMetadataIcebergSchemaFieldArgsDict']]]
+    """
+    List of schema fields for the Iceberg table. Each field defines a column in the table schema.
+    See `field` below.
+    """
 
 @pulumi.input_type
 class TableMetadataIcebergSchemaArgs:
@@ -723,22 +676,19 @@ class TableMetadataIcebergSchemaArgs:
         pulumi.set(self, "fields", value)
 
 
-if not MYPY:
-    class TableMetadataIcebergSchemaFieldArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the field.
-        """
-        type: pulumi.Input[_builtins.str]
-        """
-        The field type. S3 Tables supports all Apache Iceberg primitive types including: `boolean`, `int`, `long`, `float`, `double`, `decimal(precision,scale)`, `date`, `time`, `timestamp`, `timestamptz`, `string`, `uuid`, `fixed(length)`, `binary`.
-        """
-        required: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        A Boolean value that specifies whether values are required for each row in this field. Defaults to `false`.
-        """
-elif False:
-    TableMetadataIcebergSchemaFieldArgsDict: TypeAlias = Mapping[str, Any]
+class TableMetadataIcebergSchemaFieldArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the field.
+    """
+    type: pulumi.Input[_builtins.str]
+    """
+    The field type. S3 Tables supports all Apache Iceberg primitive types including: `boolean`, `int`, `long`, `float`, `double`, `decimal(precision,scale)`, `date`, `time`, `timestamp`, `timestamptz`, `string`, `uuid`, `fixed(length)`, `binary`.
+    """
+    required: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    A Boolean value that specifies whether values are required for each row in this field. Defaults to `false`.
+    """
 
 @pulumi.input_type
 class TableMetadataIcebergSchemaFieldArgs:
@@ -793,14 +743,11 @@ class TableMetadataIcebergSchemaFieldArgs:
         pulumi.set(self, "required", value)
 
 
-if not MYPY:
-    class TableReplicationRuleArgsDict(TypedDict):
-        destinations: pulumi.Input[Sequence[pulumi.Input['TableReplicationRuleDestinationArgsDict']]]
-        """
-        Replication destination. See Destination below for more details.
-        """
-elif False:
-    TableReplicationRuleArgsDict: TypeAlias = Mapping[str, Any]
+class TableReplicationRuleArgsDict(TypedDict):
+    destinations: pulumi.Input[Sequence[pulumi.Input['TableReplicationRuleDestinationArgsDict']]]
+    """
+    Replication destination. See Destination below for more details.
+    """
 
 @pulumi.input_type
 class TableReplicationRuleArgs:
@@ -824,14 +771,11 @@ class TableReplicationRuleArgs:
         pulumi.set(self, "destinations", value)
 
 
-if not MYPY:
-    class TableReplicationRuleDestinationArgsDict(TypedDict):
-        destination_table_bucket_arn: pulumi.Input[_builtins.str]
-        """
-        ARN of destination table bucket to replicate source tables to.
-        """
-elif False:
-    TableReplicationRuleDestinationArgsDict: TypeAlias = Mapping[str, Any]
+class TableReplicationRuleDestinationArgsDict(TypedDict):
+    destination_table_bucket_arn: pulumi.Input[_builtins.str]
+    """
+    ARN of destination table bucket to replicate source tables to.
+    """
 
 @pulumi.input_type
 class TableReplicationRuleDestinationArgs:

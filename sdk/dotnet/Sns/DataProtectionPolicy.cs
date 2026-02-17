@@ -70,11 +70,13 @@ namespace Pulumi.Aws.Sns
     /// 
     /// #### Required
     /// 
-    /// - `arn` (String) Amazon Resource Name (ARN) of the SNS topic.
+    /// - `Arn` (String) Amazon Resource Name (ARN) of the SNS topic.
     /// 
     /// Using `pulumi import`, import SNS Data Protection Topic Policy using the topic ARN. For example:
     /// 
-    /// % pulumi import aws_sns_topic_data_protection_policy.example arn:aws:sns:us-west-2:123456789012:example
+    /// ```sh
+    /// $ pulumi import aws:sns/dataProtectionPolicy:DataProtectionPolicy example arn:aws:sns:us-west-2:123456789012:example
+    /// ```
     /// </summary>
     [AwsResourceType("aws:sns/dataProtectionPolicy:DataProtectionPolicy")]
     public partial class DataProtectionPolicy : global::Pulumi.CustomResource

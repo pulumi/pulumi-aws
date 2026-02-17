@@ -73,7 +73,7 @@ namespace Pulumi.Aws.Grafana
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import Grafana Workspace SAML configuration using the workspace's `id`. For example:
+    /// Using `pulumi import`, import Grafana Workspace SAML configuration using the workspace's `Id`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:grafana/workspaceSamlConfiguration:WorkspaceSamlConfiguration example g-2054c75a02

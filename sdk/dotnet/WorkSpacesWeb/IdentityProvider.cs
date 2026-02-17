@@ -78,7 +78,7 @@ namespace Pulumi.Aws.WorkSpacesWeb
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import WorkSpaces Web Identity Provider using the `identity_provider_arn`. For example:
+    /// Using `pulumi import`, import WorkSpaces Web Identity Provider using the `IdentityProviderArn`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:workspacesweb/identityProvider:IdentityProvider example arn:aws:workspaces-web:us-west-2:123456789012:identityprovider/abcdef12345678/12345678-1234-1234-1234-123456789012

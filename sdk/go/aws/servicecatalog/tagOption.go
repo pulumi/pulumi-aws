@@ -45,7 +45,7 @@ import (
 //
 // ## Import
 //
-// Using `pulumi import`, import `aws_servicecatalog_tag_option` using the tag option ID. For example:
+// Using `pulumi import`, import `servicecatalog.TagOption` using the tag option ID. For example:
 //
 // ```sh
 // $ pulumi import aws:servicecatalog/tagOption:TagOption example tag-pjtvagohlyo3m

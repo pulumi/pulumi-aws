@@ -67,7 +67,7 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import VPC Endpoint Services using the VPC endpoint service `id`. For example:
+    /// Using `pulumi import`, import VPC Endpoint Services using the VPC endpoint service `Id`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:ec2/vpcEndpointService:VpcEndpointService foo vpce-svc-0f97a19d3fa8220bc

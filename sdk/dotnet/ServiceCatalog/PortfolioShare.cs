@@ -44,7 +44,7 @@ namespace Pulumi.Aws.ServiceCatalog
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import `aws_servicecatalog_portfolio_share` using the portfolio share ID. For example:
+    /// Using `pulumi import`, import `aws.servicecatalog.PortfolioShare` using the portfolio share ID. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:servicecatalog/portfolioShare:PortfolioShare example port-12344321:ACCOUNT:123456789012

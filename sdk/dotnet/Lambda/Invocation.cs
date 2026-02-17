@@ -153,8 +153,9 @@ namespace Pulumi.Aws.Lambda
     /// ```sh
     /// $ pulumi import aws:lambda/invocation:Invocation test_lambda my_test_lambda_function,$LATEST,b326b5062b2f0e69046810717534cb09
     /// ```
+    /// 
     /// Because it is not possible to retrieve previous invocations, during the next update Pulumi will update the resource calling again the function.
-    /// To compute the `result_hash`, it is necessary to hash it with the standard `md5` hash function.
+    /// To compute the `ResultHash`, it is necessary to hash it with the standard `Md5` hash function.
     /// </summary>
     [AwsResourceType("aws:lambda/invocation:Invocation")]
     public partial class Invocation : global::Pulumi.CustomResource

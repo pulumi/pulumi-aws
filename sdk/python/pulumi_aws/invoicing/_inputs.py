@@ -21,16 +21,11 @@ __all__ = [
     'InvoiceUnitTimeoutsArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class InvoiceUnitRuleArgsDict(TypedDict):
-        linked_accounts: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        Set of AWS account IDs included in this invoice unit.
-        """
-elif False:
-    InvoiceUnitRuleArgsDict: TypeAlias = Mapping[str, Any]
+class InvoiceUnitRuleArgsDict(TypedDict):
+    linked_accounts: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    Set of AWS account IDs included in this invoice unit.
+    """
 
 @pulumi.input_type
 class InvoiceUnitRuleArgs:
@@ -54,22 +49,19 @@ class InvoiceUnitRuleArgs:
         pulumi.set(self, "linked_accounts", value)
 
 
-if not MYPY:
-    class InvoiceUnitTimeoutsArgsDict(TypedDict):
-        create: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
-        """
-        delete: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
-        """
-        update: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
-        """
-elif False:
-    InvoiceUnitTimeoutsArgsDict: TypeAlias = Mapping[str, Any]
+class InvoiceUnitTimeoutsArgsDict(TypedDict):
+    create: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+    """
+    delete: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+    """
+    update: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+    """
 
 @pulumi.input_type
 class InvoiceUnitTimeoutsArgs:

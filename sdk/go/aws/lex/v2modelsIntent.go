@@ -12,6 +12,201 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Resource for managing an AWS Lex V2 Models Intent.
+//
+// ## Example Usage
+//
+// ### Basic Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"encoding/json"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/lex"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// current, err := aws.GetPartition(ctx, &aws.GetPartitionArgs{
+// }, nil);
+// if err != nil {
+// return err
+// }
+// tmpJSON0, err := json.Marshal(map[string]interface{}{
+// "Version": "2012-10-17",
+// "Statement": []map[string]interface{}{
+// map[string]interface{}{
+// "Action": "sts:AssumeRole",
+// "Effect": "Allow",
+// "Sid": "",
+// "Principal": map[string]interface{}{
+// "Service": "lexv2.amazonaws.com",
+// },
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// json0 := string(tmpJSON0)
+// test, err := iam.NewRole(ctx, "test", &iam.RoleArgs{
+// Name: pulumi.String("botens_namn"),
+// AssumeRolePolicy: pulumi.String(json0),
+// })
+// if err != nil {
+// return err
+// }
+// _, err = iam.NewRolePolicyAttachment(ctx, "test", &iam.RolePolicyAttachmentArgs{
+// Role: test.Name,
+// PolicyArn: pulumi.Sprintf("arn:%v:iam::aws:policy/AmazonLexFullAccess", current.Partition),
+// })
+// if err != nil {
+// return err
+// }
+// testV2modelsBot, err := lex.NewV2modelsBot(ctx, "test", &lex.V2modelsBotArgs{
+// Name: pulumi.String("botens_namn"),
+// IdleSessionTtlInSeconds: pulumi.Int(60),
+// RoleArn: test.Arn,
+// DataPrivacies: lex.V2modelsBotDataPrivacyArray{
+// &lex.V2modelsBotDataPrivacyArgs{
+// ChildDirected: pulumi.Bool(true),
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// testV2modelsBotLocale, err := lex.NewV2modelsBotLocale(ctx, "test", &lex.V2modelsBotLocaleArgs{
+// LocaleId: pulumi.String("en_US"),
+// BotId: testV2modelsBot.ID(),
+// BotVersion: pulumi.String("DRAFT"),
+// NLuIntentConfidenceThreshold: pulumi.Float64(0.7),
+// })
+// if err != nil {
+// return err
+// }
+// _, err = lex.NewV2modelsBotVersion(ctx, "test", &lex.V2modelsBotVersionArgs{
+// BotId: testV2modelsBot.ID(),
+// LocaleSpecification: testV2modelsBotLocale.LocaleId.ApplyT(func(localeId string) (map[string]map[string]interface{}, error) {
+// return map[string]map[string]interface{}{
+// localeId: map[string]interface{}{
+// "sourceBotVersion": "DRAFT",
+// },
+// }, nil
+// }).(pulumi.Map[string]map[string]interface{}Output),
+// })
+// if err != nil {
+// return err
+// }
+// _, err = lex.NewV2modelsIntent(ctx, "example", &lex.V2modelsIntentArgs{
+// BotId: testV2modelsBot.ID(),
+// BotVersion: testV2modelsBotLocale.BotVersion,
+// Name: pulumi.String("botens_namn"),
+// LocaleId: testV2modelsBotLocale.LocaleId,
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
+// ```
+//
+// ### `confirmationSetting` Example
+//
+// When using `confirmationSetting`, if you do not provide a `promptAttemptsSpecification`, AWS Lex will provide default `promptAttemptsSpecification`s. As a result, Terraform will report a difference in the configuration. To avoid this behavior, include the default `promptAttemptsSpecification` configuration shown below.
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/lex"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := lex.NewV2modelsIntent(ctx, "example", &lex.V2modelsIntentArgs{
+//				BotId:      pulumi.Any(test.Id),
+//				BotVersion: pulumi.Any(testAwsLexv2modelsBotLocale.BotVersion),
+//				Name:       pulumi.String("botens_namn"),
+//				LocaleId:   pulumi.Any(testAwsLexv2modelsBotLocale.LocaleId),
+//				ConfirmationSetting: &lex.V2modelsIntentConfirmationSettingArgs{
+//					Active: pulumi.Bool(true),
+//					PromptSpecification: &lex.V2modelsIntentConfirmationSettingPromptSpecificationArgs{
+//						AllowInterrupt:           pulumi.Bool(true),
+//						MaxRetries:               pulumi.Int(1),
+//						MessageSelectionStrategy: pulumi.String("Ordered"),
+//						PromptAttemptsSpecifications: lex.V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationArray{
+//							&lex.V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationArgs{
+//								AllowInterrupt: pulumi.Bool(true),
+//								MapBlockKey:    pulumi.String("Initial"),
+//								AllowedInputTypes: &lex.V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationAllowedInputTypesArgs{
+//									AllowAudioInput: pulumi.Bool(true),
+//									AllowDtmfInput:  pulumi.Bool(true),
+//								},
+//								AudioAndDtmfInputSpecification: &lex.V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationArgs{
+//									StartTimeoutMs: pulumi.Int(4000),
+//									AudioSpecification: &lex.V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationAudioSpecificationArgs{
+//										EndTimeoutMs: pulumi.Int(640),
+//										MaxLengthMs:  pulumi.Int(15000),
+//									},
+//									DtmfSpecification: &lex.V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationDtmfSpecificationArgs{
+//										DeletionCharacter: pulumi.String("*"),
+//										EndCharacter:      pulumi.String("#"),
+//										EndTimeoutMs:      pulumi.Int(5000),
+//										MaxLength:         pulumi.Int(513),
+//									},
+//								},
+//								TextInputSpecification: &lex.V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationTextInputSpecificationArgs{
+//									StartTimeoutMs: pulumi.Int(30000),
+//								},
+//							},
+//							&lex.V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationArgs{
+//								AllowInterrupt: pulumi.Bool(true),
+//								MapBlockKey:    pulumi.String("Retry1"),
+//								AllowedInputTypes: &lex.V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationAllowedInputTypesArgs{
+//									AllowAudioInput: pulumi.Bool(true),
+//									AllowDtmfInput:  pulumi.Bool(true),
+//								},
+//								AudioAndDtmfInputSpecification: &lex.V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationArgs{
+//									StartTimeoutMs: pulumi.Int(4000),
+//									AudioSpecification: &lex.V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationAudioSpecificationArgs{
+//										EndTimeoutMs: pulumi.Int(640),
+//										MaxLengthMs:  pulumi.Int(15000),
+//									},
+//									DtmfSpecification: &lex.V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationAudioAndDtmfInputSpecificationDtmfSpecificationArgs{
+//										DeletionCharacter: pulumi.String("*"),
+//										EndCharacter:      pulumi.String("#"),
+//										EndTimeoutMs:      pulumi.Int(5000),
+//										MaxLength:         pulumi.Int(513),
+//									},
+//								},
+//								TextInputSpecification: &lex.V2modelsIntentConfirmationSettingPromptSpecificationPromptAttemptsSpecificationTextInputSpecificationArgs{
+//									StartTimeoutMs: pulumi.Int(30000),
+//								},
+//							},
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Using `pulumi import`, import Lex V2 Models Intent using the `intent_id:bot_id:bot_version:locale_id`. For example:
@@ -27,7 +222,8 @@ type V2modelsIntent struct {
 	// Version of the bot associated with this intent.
 	BotVersion pulumi.StringOutput `pulumi:"botVersion"`
 	// Configuration block for the response that Amazon Lex sends to the user when the intent is closed. See `closingSetting`.
-	ClosingSetting      V2modelsIntentClosingSettingPtrOutput      `pulumi:"closingSetting"`
+	ClosingSetting V2modelsIntentClosingSettingPtrOutput `pulumi:"closingSetting"`
+	// Configuration block for prompts that Amazon Lex sends to the user to confirm the completion of an intent. If the user answers "no," the settings contain a statement that is sent to the user to end the intent. If you configure this block without `prompt_specification.*.prompt_attempts_specification`, AWS will provide default configurations for `Initial` and `Retry1` `promptAttemptsSpecification`s. This will cause Terraform to report differences. Use the `confirmationSetting` configuration above in the Basic Usage example to avoid differences resulting from AWS default configuration. See `confirmationSetting`.
 	ConfirmationSetting V2modelsIntentConfirmationSettingPtrOutput `pulumi:"confirmationSetting"`
 	// Timestamp of the date and time that the intent was created.
 	CreationDateTime pulumi.StringOutput `pulumi:"creationDateTime"`
@@ -110,7 +306,8 @@ type v2modelsIntentState struct {
 	// Version of the bot associated with this intent.
 	BotVersion *string `pulumi:"botVersion"`
 	// Configuration block for the response that Amazon Lex sends to the user when the intent is closed. See `closingSetting`.
-	ClosingSetting      *V2modelsIntentClosingSetting      `pulumi:"closingSetting"`
+	ClosingSetting *V2modelsIntentClosingSetting `pulumi:"closingSetting"`
+	// Configuration block for prompts that Amazon Lex sends to the user to confirm the completion of an intent. If the user answers "no," the settings contain a statement that is sent to the user to end the intent. If you configure this block without `prompt_specification.*.prompt_attempts_specification`, AWS will provide default configurations for `Initial` and `Retry1` `promptAttemptsSpecification`s. This will cause Terraform to report differences. Use the `confirmationSetting` configuration above in the Basic Usage example to avoid differences resulting from AWS default configuration. See `confirmationSetting`.
 	ConfirmationSetting *V2modelsIntentConfirmationSetting `pulumi:"confirmationSetting"`
 	// Timestamp of the date and time that the intent was created.
 	CreationDateTime *string `pulumi:"creationDateTime"`
@@ -155,7 +352,8 @@ type V2modelsIntentState struct {
 	// Version of the bot associated with this intent.
 	BotVersion pulumi.StringPtrInput
 	// Configuration block for the response that Amazon Lex sends to the user when the intent is closed. See `closingSetting`.
-	ClosingSetting      V2modelsIntentClosingSettingPtrInput
+	ClosingSetting V2modelsIntentClosingSettingPtrInput
+	// Configuration block for prompts that Amazon Lex sends to the user to confirm the completion of an intent. If the user answers "no," the settings contain a statement that is sent to the user to end the intent. If you configure this block without `prompt_specification.*.prompt_attempts_specification`, AWS will provide default configurations for `Initial` and `Retry1` `promptAttemptsSpecification`s. This will cause Terraform to report differences. Use the `confirmationSetting` configuration above in the Basic Usage example to avoid differences resulting from AWS default configuration. See `confirmationSetting`.
 	ConfirmationSetting V2modelsIntentConfirmationSettingPtrInput
 	// Timestamp of the date and time that the intent was created.
 	CreationDateTime pulumi.StringPtrInput
@@ -204,7 +402,8 @@ type v2modelsIntentArgs struct {
 	// Version of the bot associated with this intent.
 	BotVersion string `pulumi:"botVersion"`
 	// Configuration block for the response that Amazon Lex sends to the user when the intent is closed. See `closingSetting`.
-	ClosingSetting      *V2modelsIntentClosingSetting      `pulumi:"closingSetting"`
+	ClosingSetting *V2modelsIntentClosingSetting `pulumi:"closingSetting"`
+	// Configuration block for prompts that Amazon Lex sends to the user to confirm the completion of an intent. If the user answers "no," the settings contain a statement that is sent to the user to end the intent. If you configure this block without `prompt_specification.*.prompt_attempts_specification`, AWS will provide default configurations for `Initial` and `Retry1` `promptAttemptsSpecification`s. This will cause Terraform to report differences. Use the `confirmationSetting` configuration above in the Basic Usage example to avoid differences resulting from AWS default configuration. See `confirmationSetting`.
 	ConfirmationSetting *V2modelsIntentConfirmationSetting `pulumi:"confirmationSetting"`
 	// Description of the intent. Use the description to help identify the intent in lists.
 	Description *string `pulumi:"description"`
@@ -244,7 +443,8 @@ type V2modelsIntentArgs struct {
 	// Version of the bot associated with this intent.
 	BotVersion pulumi.StringInput
 	// Configuration block for the response that Amazon Lex sends to the user when the intent is closed. See `closingSetting`.
-	ClosingSetting      V2modelsIntentClosingSettingPtrInput
+	ClosingSetting V2modelsIntentClosingSettingPtrInput
+	// Configuration block for prompts that Amazon Lex sends to the user to confirm the completion of an intent. If the user answers "no," the settings contain a statement that is sent to the user to end the intent. If you configure this block without `prompt_specification.*.prompt_attempts_specification`, AWS will provide default configurations for `Initial` and `Retry1` `promptAttemptsSpecification`s. This will cause Terraform to report differences. Use the `confirmationSetting` configuration above in the Basic Usage example to avoid differences resulting from AWS default configuration. See `confirmationSetting`.
 	ConfirmationSetting V2modelsIntentConfirmationSettingPtrInput
 	// Description of the intent. Use the description to help identify the intent in lists.
 	Description pulumi.StringPtrInput
@@ -379,6 +579,7 @@ func (o V2modelsIntentOutput) ClosingSetting() V2modelsIntentClosingSettingPtrOu
 	return o.ApplyT(func(v *V2modelsIntent) V2modelsIntentClosingSettingPtrOutput { return v.ClosingSetting }).(V2modelsIntentClosingSettingPtrOutput)
 }
 
+// Configuration block for prompts that Amazon Lex sends to the user to confirm the completion of an intent. If the user answers "no," the settings contain a statement that is sent to the user to end the intent. If you configure this block without `prompt_specification.*.prompt_attempts_specification`, AWS will provide default configurations for `Initial` and `Retry1` `promptAttemptsSpecification`s. This will cause Terraform to report differences. Use the `confirmationSetting` configuration above in the Basic Usage example to avoid differences resulting from AWS default configuration. See `confirmationSetting`.
 func (o V2modelsIntentOutput) ConfirmationSetting() V2modelsIntentConfirmationSettingPtrOutput {
 	return o.ApplyT(func(v *V2modelsIntent) V2modelsIntentConfirmationSettingPtrOutput { return v.ConfirmationSetting }).(V2modelsIntentConfirmationSettingPtrOutput)
 }

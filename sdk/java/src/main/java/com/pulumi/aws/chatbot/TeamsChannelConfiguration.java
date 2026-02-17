@@ -65,7 +65,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Using `pulumi import`, import Chatbot Microsoft Teams Channel Configuration using the `team_id`. For example:
+ * Using `pulumi import`, import Chatbot Microsoft Teams Channel Configuration using the `teamId`. For example:
  * 
  * ```sh
  * $ pulumi import aws:chatbot/teamsChannelConfiguration:TeamsChannelConfiguration example 5f4f15d2-b958-522a-8333-124aa8bf0925

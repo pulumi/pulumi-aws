@@ -169,7 +169,7 @@ namespace Pulumi.Aws.Evidently
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import CloudWatch Evidently Feature using the feature `name` and `name` or `arn` of the hosting CloudWatch Evidently Project separated by a `:`. For example:
+    /// Using `pulumi import`, import CloudWatch Evidently Feature using the feature `Name` and `Name` or `Arn` of the hosting CloudWatch Evidently Project separated by a `:`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:evidently/feature:Feature example exampleFeatureName:arn:aws:evidently:us-east-1:123456789012:project/example

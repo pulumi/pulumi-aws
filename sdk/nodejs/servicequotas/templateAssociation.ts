@@ -60,6 +60,9 @@ export class TemplateAssociation extends pulumi.CustomResource {
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     declare public readonly region: pulumi.Output<string>;
+    /**
+     * Skip disassociating the quota increase template upon destruction. This will remove the resource from Terraform state, but leave the remote association in place.
+     */
     declare public readonly skipDestroy: pulumi.Output<boolean | undefined>;
     /**
      * Association status. Creating this resource will result in an `ASSOCIATED` status, and quota increase requests in the template are automatically applied to new AWS accounts in the organization.
@@ -101,6 +104,9 @@ export interface TemplateAssociationState {
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string>;
+    /**
+     * Skip disassociating the quota increase template upon destruction. This will remove the resource from Terraform state, but leave the remote association in place.
+     */
     skipDestroy?: pulumi.Input<boolean>;
     /**
      * Association status. Creating this resource will result in an `ASSOCIATED` status, and quota increase requests in the template are automatically applied to new AWS accounts in the organization.
@@ -116,5 +122,8 @@ export interface TemplateAssociationArgs {
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string>;
+    /**
+     * Skip disassociating the quota increase template upon destruction. This will remove the resource from Terraform state, but leave the remote association in place.
+     */
     skipDestroy?: pulumi.Input<boolean>;
 }

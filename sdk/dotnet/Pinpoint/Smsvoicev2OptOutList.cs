@@ -32,7 +32,7 @@ namespace Pulumi.Aws.Pinpoint
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import opt-out lists using the `name`. For example:
+    /// Using `pulumi import`, import opt-out lists using the `Name`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:pinpoint/smsvoicev2OptOutList:Smsvoicev2OptOutList example example-opt-out-list

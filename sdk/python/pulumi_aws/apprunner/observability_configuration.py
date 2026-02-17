@@ -281,7 +281,9 @@ class ObservabilityConfiguration(pulumi.CustomResource):
 
         Using `pulumi import`, import App Runner Observability Configuration using the `arn`. For example:
 
-        % pulumi import aws_apprunner_observability_configuration.example arn:aws:apprunner:us-east-1:1234567890:observabilityconfiguration/example/1/d75bc7ea55b71e724fe5c23452fe22a1
+        ```sh
+        $ pulumi import aws:apprunner/observabilityConfiguration:ObservabilityConfiguration example arn:aws:apprunner:us-east-1:1234567890:observabilityconfiguration/example/1/d75bc7ea55b71e724fe5c23452fe22a1
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -325,7 +327,9 @@ class ObservabilityConfiguration(pulumi.CustomResource):
 
         Using `pulumi import`, import App Runner Observability Configuration using the `arn`. For example:
 
-        % pulumi import aws_apprunner_observability_configuration.example arn:aws:apprunner:us-east-1:1234567890:observabilityconfiguration/example/1/d75bc7ea55b71e724fe5c23452fe22a1
+        ```sh
+        $ pulumi import aws:apprunner/observabilityConfiguration:ObservabilityConfiguration example arn:aws:apprunner:us-east-1:1234567890:observabilityconfiguration/example/1/d75bc7ea55b71e724fe5c23452fe22a1
+        ```
 
         :param str resource_name: The name of the resource.
         :param ObservabilityConfigurationArgs args: The arguments to use to populate this resource's properties.

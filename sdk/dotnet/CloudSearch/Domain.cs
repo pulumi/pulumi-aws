@@ -61,7 +61,7 @@ namespace Pulumi.Aws.CloudSearch
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import CloudSearch Domains using the `name`. For example:
+    /// Using `pulumi import`, import CloudSearch Domains using the `Name`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:cloudsearch/domain:Domain example example-domain

@@ -154,7 +154,7 @@ import (
 //
 // ## Import
 //
-// Using `pulumi import`, import DataZone Form Type using a comma separated value of `domain_identifier`,`name`,`revision`. For example:
+// Using `pulumi import`, import DataZone Form Type using a comma separated value of `domainIdentifier`,`name`,`revision`. For example:
 //
 // ```sh
 // $ pulumi import aws:datazone/formType:FormType example domain_identifier,name,revision
@@ -184,7 +184,8 @@ type FormType struct {
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Revision of the Form Type.
-	Revision pulumi.StringOutput       `pulumi:"revision"`
+	Revision pulumi.StringOutput `pulumi:"revision"`
+	// Status of form type. Must be "ENABLED" or "DISABLED" If status is set to "ENABLED" terraform cannot delete the resource until it is manually changed in the AWS console.
 	Status   pulumi.StringOutput       `pulumi:"status"`
 	Timeouts FormTypeTimeoutsPtrOutput `pulumi:"timeouts"`
 }
@@ -250,7 +251,8 @@ type formTypeState struct {
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Revision of the Form Type.
-	Revision *string           `pulumi:"revision"`
+	Revision *string `pulumi:"revision"`
+	// Status of form type. Must be "ENABLED" or "DISABLED" If status is set to "ENABLED" terraform cannot delete the resource until it is manually changed in the AWS console.
 	Status   *string           `pulumi:"status"`
 	Timeouts *FormTypeTimeouts `pulumi:"timeouts"`
 }
@@ -279,6 +281,7 @@ type FormTypeState struct {
 	Region pulumi.StringPtrInput
 	// Revision of the Form Type.
 	Revision pulumi.StringPtrInput
+	// Status of form type. Must be "ENABLED" or "DISABLED" If status is set to "ENABLED" terraform cannot delete the resource until it is manually changed in the AWS console.
 	Status   pulumi.StringPtrInput
 	Timeouts FormTypeTimeoutsPtrInput
 }
@@ -299,7 +302,8 @@ type formTypeArgs struct {
 	// Identifier of project that owns the form type. Must follow regex of ^[a-zA-Z0-9_-]{1,36}.
 	OwningProjectIdentifier string `pulumi:"owningProjectIdentifier"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region   *string           `pulumi:"region"`
+	Region *string `pulumi:"region"`
+	// Status of form type. Must be "ENABLED" or "DISABLED" If status is set to "ENABLED" terraform cannot delete the resource until it is manually changed in the AWS console.
 	Status   *string           `pulumi:"status"`
 	Timeouts *FormTypeTimeouts `pulumi:"timeouts"`
 }
@@ -317,7 +321,8 @@ type FormTypeArgs struct {
 	// Identifier of project that owns the form type. Must follow regex of ^[a-zA-Z0-9_-]{1,36}.
 	OwningProjectIdentifier pulumi.StringInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-	Region   pulumi.StringPtrInput
+	Region pulumi.StringPtrInput
+	// Status of form type. Must be "ENABLED" or "DISABLED" If status is set to "ENABLED" terraform cannot delete the resource until it is manually changed in the AWS console.
 	Status   pulumi.StringPtrInput
 	Timeouts FormTypeTimeoutsPtrInput
 }
@@ -468,6 +473,7 @@ func (o FormTypeOutput) Revision() pulumi.StringOutput {
 	return o.ApplyT(func(v *FormType) pulumi.StringOutput { return v.Revision }).(pulumi.StringOutput)
 }
 
+// Status of form type. Must be "ENABLED" or "DISABLED" If status is set to "ENABLED" terraform cannot delete the resource until it is manually changed in the AWS console.
 func (o FormTypeOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v *FormType) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
 }

@@ -128,19 +128,20 @@ import javax.annotation.Nullable;
  * 
  * #### Required
  * 
- * * `policy_id` (String) Organizations policy ID.
- * 
- * * `target_id` (String) Organizations target ID (account, OU, or root).
+ * * `policyId` (String) Organizations policy ID.
+ * * `targetId` (String) Organizations target ID (account, OU, or root).
  * 
  * #### Optional
  * 
- * * `account_id` (String) AWS Account where this resource is managed.
+ * * `accountId` (String) AWS Account where this resource is managed.
  * 
- * Using `pulumi import`, import `aws_organizations_policy_attachment` using the target ID and policy ID. For example:
+ * Using `pulumi import`, import `aws.organizations.PolicyAttachment` using the target ID and policy ID. For example:
  * 
  * With an account target:
  * 
- * % pulumi import aws_organizations_policy_attachment.example 123456789012:p-12345678
+ * ```sh
+ * $ pulumi import aws:organizations/policyAttachment:PolicyAttachment example 123456789012:p-12345678
+ * ```
  * 
  */
 @ResourceType(type="aws:organizations/policyAttachment:PolicyAttachment")

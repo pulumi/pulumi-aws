@@ -23,16 +23,11 @@ __all__ = [
     'RecordingConfigurationThumbnailConfigurationArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class RecordingConfigurationDestinationConfigurationArgsDict(TypedDict):
-        s3: pulumi.Input['RecordingConfigurationDestinationConfigurationS3ArgsDict']
-        """
-        S3 destination configuration where recorded videos will be stored.
-        """
-elif False:
-    RecordingConfigurationDestinationConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class RecordingConfigurationDestinationConfigurationArgsDict(TypedDict):
+    s3: pulumi.Input['RecordingConfigurationDestinationConfigurationS3ArgsDict']
+    """
+    S3 destination configuration where recorded videos will be stored.
+    """
 
 @pulumi.input_type
 class RecordingConfigurationDestinationConfigurationArgs:
@@ -56,16 +51,13 @@ class RecordingConfigurationDestinationConfigurationArgs:
         pulumi.set(self, "s3", value)
 
 
-if not MYPY:
-    class RecordingConfigurationDestinationConfigurationS3ArgsDict(TypedDict):
-        bucket_name: pulumi.Input[_builtins.str]
-        """
-        S3 bucket name where recorded videos will be stored.
+class RecordingConfigurationDestinationConfigurationS3ArgsDict(TypedDict):
+    bucket_name: pulumi.Input[_builtins.str]
+    """
+    S3 bucket name where recorded videos will be stored.
 
-        The following arguments are optional:
-        """
-elif False:
-    RecordingConfigurationDestinationConfigurationS3ArgsDict: TypeAlias = Mapping[str, Any]
+    The following arguments are optional:
+    """
 
 @pulumi.input_type
 class RecordingConfigurationDestinationConfigurationS3Args:
@@ -93,18 +85,15 @@ class RecordingConfigurationDestinationConfigurationS3Args:
         pulumi.set(self, "bucket_name", value)
 
 
-if not MYPY:
-    class RecordingConfigurationThumbnailConfigurationArgsDict(TypedDict):
-        recording_mode: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Thumbnail recording mode. Valid values: `DISABLED`, `INTERVAL`.
-        """
-        target_interval_seconds: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The targeted thumbnail-generation interval in seconds.
-        """
-elif False:
-    RecordingConfigurationThumbnailConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class RecordingConfigurationThumbnailConfigurationArgsDict(TypedDict):
+    recording_mode: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Thumbnail recording mode. Valid values: `DISABLED`, `INTERVAL`.
+    """
+    target_interval_seconds: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The targeted thumbnail-generation interval in seconds.
+    """
 
 @pulumi.input_type
 class RecordingConfigurationThumbnailConfigurationArgs:

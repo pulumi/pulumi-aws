@@ -124,9 +124,11 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * 
- * ### Basic Example containing Global Secondary Indexs using Multi-attribute keys pattern
+ * ### Basic Example containing Global Secondary Indexes using Multi-attribute keys pattern
  * 
  * The following dynamodb table description models the table and GSIs shown in the [AWS SDK example documentation](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GSI.DesignPattern.MultiAttributeKeys.html)
+ * 
+ * &gt; **Note:** Multi-attribute keys for GSIs use the `keySchema` block instead of `hashKey`/`rangeKey`. The `hashKey` and `rangeKey` arguments are deprecated in favor of `keySchema`.
  * 
  * <pre>
  * {@code
@@ -182,11 +184,11 @@ import javax.annotation.Nullable;
  *                     .build(),
  *                 TableAttributeArgs.builder()
  *                     .name("playerId")
- *                     .type(N)
+ *                     .type("N")
  *                     .build(),
  *                 TableAttributeArgs.builder()
  *                     .name("matchDate")
- *                     .type(S)
+ *                     .type("S")
  *                     .build())
  *             .ttl(TableTtlArgs.builder()
  *                 .attributeName("TimeToExist")
@@ -195,23 +197,46 @@ import javax.annotation.Nullable;
  *             .globalSecondaryIndexes(            
  *                 TableGlobalSecondaryIndexArgs.builder()
  *                     .name("TournamentRegionIndex")
- *                     .hashKeys(List.of(                    
- *                         "tournamentId",
- *                         "region"))
- *                     .rangeKeys(List.of(                    
- *                         "round",
- *                         "bracket",
- *                         "matchId"))
+ *                     .keySchemas(                    
+ *                         TableGlobalSecondaryIndexKeySchemaArgs.builder()
+ *                             .attributeName("tournamentId")
+ *                             .keyType("HASH")
+ *                             .build(),
+ *                         TableGlobalSecondaryIndexKeySchemaArgs.builder()
+ *                             .attributeName("region")
+ *                             .keyType("HASH")
+ *                             .build(),
+ *                         TableGlobalSecondaryIndexKeySchemaArgs.builder()
+ *                             .attributeName("round")
+ *                             .keyType("RANGE")
+ *                             .build(),
+ *                         TableGlobalSecondaryIndexKeySchemaArgs.builder()
+ *                             .attributeName("bracket")
+ *                             .keyType("RANGE")
+ *                             .build(),
+ *                         TableGlobalSecondaryIndexKeySchemaArgs.builder()
+ *                             .attributeName("matchId")
+ *                             .keyType("RANGE")
+ *                             .build())
  *                     .writeCapacity(10)
  *                     .readCapacity(10)
  *                     .projectionType("ALL")
  *                     .build(),
  *                 TableGlobalSecondaryIndexArgs.builder()
  *                     .name("PlayerMatchHistoryIndex")
- *                     .hashKey("playerId")
- *                     .rangeKeys(List.of(                    
- *                         "matchDate",
- *                         "round"))
+ *                     .keySchemas(                    
+ *                         TableGlobalSecondaryIndexKeySchemaArgs.builder()
+ *                             .attributeName("playerId")
+ *                             .keyType("HASH")
+ *                             .build(),
+ *                         TableGlobalSecondaryIndexKeySchemaArgs.builder()
+ *                             .attributeName("matchDate")
+ *                             .keyType("RANGE")
+ *                             .build(),
+ *                         TableGlobalSecondaryIndexKeySchemaArgs.builder()
+ *                             .attributeName("round")
+ *                             .keyType("RANGE")
+ *                             .build())
  *                     .writeCapacity(10)
  *                     .readCapacity(10)
  *                     .projectionType("ALL")

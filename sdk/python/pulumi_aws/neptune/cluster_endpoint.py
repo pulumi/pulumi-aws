@@ -332,7 +332,7 @@ class ClusterEndpoint(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import `aws_neptune_cluster_endpoint` using the `cluster-identifier:endpoint-identfier`. For example:
+        Using `pulumi import`, import `neptune.ClusterEndpoint` using the `cluster-identifier:endpoint-identfier`. For example:
 
         ```sh
         $ pulumi import aws:neptune/clusterEndpoint:ClusterEndpoint example my-cluster:my-endpoint
@@ -371,7 +371,7 @@ class ClusterEndpoint(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import `aws_neptune_cluster_endpoint` using the `cluster-identifier:endpoint-identfier`. For example:
+        Using `pulumi import`, import `neptune.ClusterEndpoint` using the `cluster-identifier:endpoint-identfier`. For example:
 
         ```sh
         $ pulumi import aws:neptune/clusterEndpoint:ClusterEndpoint example my-cluster:my-endpoint

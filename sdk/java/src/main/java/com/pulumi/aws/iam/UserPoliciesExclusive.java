@@ -15,9 +15,89 @@ import java.util.List;
 import javax.annotation.Nullable;
 
 /**
+ * Resource for maintaining exclusive management of inline policies assigned to an AWS IAM (Identity &amp; Access Management) user.
+ * 
+ * !&gt; This resource takes exclusive ownership over inline policies assigned to a user. This includes removal of inline policies which are not explicitly configured. To prevent persistent drift, ensure any `aws.iam.UserPolicy` resources managed alongside this resource are included in the `policyNames` argument.
+ * 
+ * &gt; Destruction of this resource means Terraform will no longer manage reconciliation of the configured inline policy assignments. It __will not__ delete the configured policies from the user.
+ * 
+ * ## Example Usage
+ * 
+ * ### Basic Usage
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.iam.UserPoliciesExclusive;
+ * import com.pulumi.aws.iam.UserPoliciesExclusiveArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new UserPoliciesExclusive("example", UserPoliciesExclusiveArgs.builder()
+ *             .userName(exampleAwsIamUser.name())
+ *             .policyNames(exampleAwsIamUserPolicy.name())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
+ * ### Disallow Inline Policies
+ * 
+ * To automatically remove any configured inline policies, set the `policyNames` argument to an empty list.
+ * 
+ * &gt; This will not __prevent__ inline policies from being assigned to a user via Terraform (or any other interface). This resource enables bringing inline policy assignments into a configured state, however, this reconciliation happens only when `apply` is proactively run.
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.iam.UserPoliciesExclusive;
+ * import com.pulumi.aws.iam.UserPoliciesExclusiveArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new UserPoliciesExclusive("example", UserPoliciesExclusiveArgs.builder()
+ *             .userName(exampleAwsIamUser.name())
+ *             .policyNames()
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
  * ## Import
  * 
- * Using `pulumi import`, import exclusive management of inline policy assignments using the `user_name`. For example:
+ * Using `pulumi import`, import exclusive management of inline policy assignments using the `userName`. For example:
  * 
  * ```sh
  * $ pulumi import aws:iam/userPoliciesExclusive:UserPoliciesExclusive example MyUser

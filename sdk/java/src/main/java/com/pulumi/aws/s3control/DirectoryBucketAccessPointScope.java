@@ -15,6 +15,14 @@ import java.lang.String;
 import javax.annotation.Nullable;
 
 /**
+ * Provides a resource to manage the access point scope for a directory bucket.
+ * 
+ * With access points for directory buckets, you can use the access point scope to restrict access to specific prefixes, API actions, or a combination of both. You can specify any amount of prefixes, but the total length of characters of all prefixes must be less than 256 bytes. For more information, see [AWS Documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-points-directory-buckets-manage-scope.html).
+ * 
+ * &gt; For all the services in AWS Local Zones, including Amazon S3, your accountID must be enabled before you can create or access any resource in the Local Zone. You can use the `DescribeAvailabilityZones` API operation to confirm your accountID access to a Local Zone. For more information, see [AWS Documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/opt-in-directory-bucket-lz.html)
+ * 
+ * &gt; Terraform provides two ways to manage access point scopes. You can use a standalone resource `awsS3controlDirectoryAccessPointScope` or, an in-line scope with the  `awsS3DirectoryAccessPoint` resource. You cannot use a standalone resource at the same time as in-line, which will cause an overwrite of each other. You must use one or the other.
+ * 
  * ## Example Usage
  * 
  * ### S3 Access Point Scope for a directory bucket in an AWS Local Zone

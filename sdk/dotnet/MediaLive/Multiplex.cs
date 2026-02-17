@@ -56,7 +56,7 @@ namespace Pulumi.Aws.MediaLive
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import MediaLive Multiplex using the `id`. For example:
+    /// Using `pulumi import`, import MediaLive Multiplex using the `Id`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:medialive/multiplex:Multiplex example 12345678

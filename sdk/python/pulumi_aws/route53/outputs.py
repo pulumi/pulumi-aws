@@ -555,6 +555,10 @@ class RecordsExclusiveResourceRecordSet(dict):
                See `resource_records` below.
         :param _builtins.str set_identifier: An identifier that differentiates among multiple resource record sets that have the same combination of name and type.
                Required if using `cidr_routing_config`, `failover`, `geolocation`,`geoproximity_location`, `multivalue_answer`, `region`, or `weight`.
+        :param _builtins.str traffic_policy_instance_id: ID of the traffic policy instance that Route 53 created this resource record set for.
+               To delete the resource record set that is associated with a traffic policy instance, use the `DeleteTrafficPolicyInstance` API.
+               Route 53 will delete the resource record set automatically.
+               If the resource record set is deleted via `ChangeResourceRecordSets` (the API underpinning this Terraform resource), Route 53 doesn't automatically delete the traffic policy instance, and you'll continue to be charged for it.
         :param _builtins.int ttl: Resource record cache time to live (TTL), in seconds.
         :param _builtins.str type: Record type.
                Valid values are `A`, `AAAA`, `CAA`, `CNAME`, `DS`, `MX`, `NAPTR`, `NS`, `PTR`, `SOA`, `SPF`, `SRV`, `TXT`, `TLSA`, `SSHFP`, `SVCB`, and `HTTPS`.
@@ -688,6 +692,12 @@ class RecordsExclusiveResourceRecordSet(dict):
     @_builtins.property
     @pulumi.getter(name="trafficPolicyInstanceId")
     def traffic_policy_instance_id(self) -> Optional[_builtins.str]:
+        """
+        ID of the traffic policy instance that Route 53 created this resource record set for.
+        To delete the resource record set that is associated with a traffic policy instance, use the `DeleteTrafficPolicyInstance` API.
+        Route 53 will delete the resource record set automatically.
+        If the resource record set is deleted via `ChangeResourceRecordSets` (the API underpinning this Terraform resource), Route 53 doesn't automatically delete the traffic policy instance, and you'll continue to be charged for it.
+        """
         return pulumi.get(self, "traffic_policy_instance_id")
 
     @_builtins.property

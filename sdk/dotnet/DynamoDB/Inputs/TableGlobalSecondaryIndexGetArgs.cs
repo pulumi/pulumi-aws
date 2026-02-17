@@ -13,13 +13,17 @@ namespace Pulumi.Aws.DynamoDB.Inputs
     public sealed class TableGlobalSecondaryIndexGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// and `HashKeys` are `mutually exclusive`, but one is `Required`. Refer to [AWS SDK Documentation](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GSI.DesignPattern.MultiAttributeKeys.html)
+        /// Name of the hash key in the index; must be defined as an attribute in the resource. Mutually exclusive with `KeySchema`. Use `KeySchema` instead.
         /// </summary>
         [Input("hashKey")]
         public Input<string>? HashKey { get; set; }
 
         [Input("keySchemas")]
         private InputList<Inputs.TableGlobalSecondaryIndexKeySchemaGetArgs>? _keySchemas;
+
+        /// <summary>
+        /// Configuration block(s) for the key schema. Mutually exclusive with `HashKey` and `RangeKey`. Required if `HashKey` is not specified. Supports multi-attribute keys for the [Multi-Attribute Keys design pattern](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GSI.DesignPattern.MultiAttributeKeys.html). See below.
+        /// </summary>
         public InputList<Inputs.TableGlobalSecondaryIndexKeySchemaGetArgs> KeySchemas
         {
             get => _keySchemas ?? (_keySchemas = new InputList<Inputs.TableGlobalSecondaryIndexKeySchemaGetArgs>());
@@ -51,13 +55,13 @@ namespace Pulumi.Aws.DynamoDB.Inputs
         public Input<Inputs.TableGlobalSecondaryIndexOnDemandThroughputGetArgs>? OnDemandThroughput { get; set; }
 
         /// <summary>
-        /// One of `ALL`, `INCLUDE` or `KEYS_ONLY` where `ALL` projects every attribute into the index, `KEYS_ONLY` projects  into the index only the table and index HashKey and SortKey attributes ,  `INCLUDE` projects into the index all of the attributes that are defined in `NonKeyAttributes` in addition to the attributes that that`KEYS_ONLY` project.
+        /// One of `ALL`, `INCLUDE` or `KEYS_ONLY` where `ALL` projects every attribute into the index, `KEYS_ONLY` projects into the index only the table and index HashKey and SortKey attributes, `INCLUDE` projects into the index all of the attributes that are defined in `NonKeyAttributes` in addition to the attributes that `KEYS_ONLY` project.
         /// </summary>
         [Input("projectionType", required: true)]
         public Input<string> ProjectionType { get; set; } = null!;
 
         /// <summary>
-        /// and `RangeKeys` are `mutually exclusive`, but are both `Optional`. Refer to [AWS SDK Documentation](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GSI.DesignPattern.MultiAttributeKeys.html)
+        /// Name of the range key; must be defined as an attribute in the resource. Mutually exclusive with `KeySchema`. Use `KeySchema` instead.
         /// </summary>
         [Input("rangeKey")]
         public Input<string>? RangeKey { get; set; }

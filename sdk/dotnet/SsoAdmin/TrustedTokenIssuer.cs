@@ -48,7 +48,7 @@ namespace Pulumi.Aws.SsoAdmin
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import SSO Admin Trusted Token Issuer using the `id`. For example:
+    /// Using `pulumi import`, import SSO Admin Trusted Token Issuer using the `Id`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:ssoadmin/trustedTokenIssuer:TrustedTokenIssuer example arn:aws:sso::123456789012:trustedTokenIssuer/ssoins-lu1ye3gew4mbc7ju/tti-2657c556-9707-11ee-b9d1-0242ac120002

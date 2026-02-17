@@ -46,7 +46,7 @@ import (
 //
 // ## Import
 //
-// Using `pulumi import`, import `aws_s3_account_public_access_block` using the AWS account ID. For example:
+// Using `pulumi import`, import `s3.AccountPublicAccessBlock` using the AWS account ID. For example:
 //
 // ```sh
 // $ pulumi import aws:s3/accountPublicAccessBlock:AccountPublicAccessBlock example 123456789012

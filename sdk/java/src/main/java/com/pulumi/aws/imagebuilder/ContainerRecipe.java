@@ -90,9 +90,11 @@ import javax.annotation.Nullable;
  * 
  * - `arn` (String) Amazon Resource Name (ARN) of the Image Builder container recipe.
  * 
- * Using `pulumi import`, import `aws_imagebuilder_container_recipe` resources using the Amazon Resource Name (ARN). For example:
+ * Using `pulumi import`, import `aws.imagebuilder.ContainerRecipe` resources using the Amazon Resource Name (ARN). For example:
  * 
- * % pulumi import aws_imagebuilder_container_recipe.example arn:aws:imagebuilder:us-east-1:123456789012:container-recipe/example/1.0.0
+ * ```sh
+ * $ pulumi import aws:imagebuilder/containerRecipe:ContainerRecipe example arn:aws:imagebuilder:us-east-1:123456789012:container-recipe/example/1.0.0
+ * ```
  * 
  */
 @ResourceType(type="aws:imagebuilder/containerRecipe:ContainerRecipe")

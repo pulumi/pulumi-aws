@@ -25,8 +25,8 @@ import (
 //
 //	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/notifications"
 //	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/organizations"
-//	"github.com/pulumi/pulumi-time/sdk/go/time"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"github.com/pulumiverse/pulumi-time/sdk/go/time"
 //
 // )
 //
@@ -52,7 +52,7 @@ import (
 //			}
 //			// Allow time for organizational unit creation to propagate
 //			wait, err := time.NewSleep(ctx, "wait", &time.SleepArgs{
-//				CreateDuration: "5s",
+//				CreateDuration: pulumi.String("5s"),
 //			}, pulumi.DependsOn([]pulumi.Resource{
 //				exampleOrganizationalUnit,
 //				exampleNotificationConfiguration,

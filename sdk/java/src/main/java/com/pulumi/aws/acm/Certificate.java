@@ -114,6 +114,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.tls.PrivateKeyArgs;
  * import com.pulumi.tls.SelfSignedCert;
  * import com.pulumi.tls.SelfSignedCertArgs;
+ * import com.pulumi.tls.inputs.SelfSignedCertSubjectArgs;
  * import com.pulumi.aws.acm.Certificate;
  * import com.pulumi.aws.acm.CertificateArgs;
  * import java.util.List;
@@ -171,7 +172,9 @@ import javax.annotation.Nullable;
  * 
  * Using `pulumi import`, import certificates using their ARN. For example:
  * 
- * % pulumi import aws_acm_certificate.example arn:aws:acm:eu-central-1:123456789012:certificate/7e7a28d2-163f-4b8f-b9cd-822f96c08d6a
+ * ```sh
+ * $ pulumi import aws:acm/certificate:Certificate example arn:aws:acm:eu-central-1:123456789012:certificate/7e7a28d2-163f-4b8f-b9cd-822f96c08d6a
+ * ```
  * 
  */
 @ResourceType(type="aws:acm/certificate:Certificate")

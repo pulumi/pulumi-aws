@@ -65,7 +65,7 @@ namespace Pulumi.Aws.Transcribe
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import Transcribe Vocabulary using the `vocabulary_name`. For example:
+    /// Using `pulumi import`, import Transcribe Vocabulary using the `VocabularyName`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:transcribe/vocabulary:Vocabulary example example-name

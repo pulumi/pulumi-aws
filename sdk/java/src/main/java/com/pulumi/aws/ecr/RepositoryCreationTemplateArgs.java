@@ -155,9 +155,17 @@ public final class RepositoryCreationTemplateArgs extends com.pulumi.resources.R
         return Optional.ofNullable(this.region);
     }
 
+    /**
+     * The registry policy document to apply to any created repositories. This is a JSON formatted string. For more information about building IAM policy documents with Terraform, see the AWS IAM Policy Document Guide.
+     * 
+     */
     @Import(name="repositoryPolicy")
     private @Nullable Output<String> repositoryPolicy;
 
+    /**
+     * @return The registry policy document to apply to any created repositories. This is a JSON formatted string. For more information about building IAM policy documents with Terraform, see the AWS IAM Policy Document Guide.
+     * 
+     */
     public Optional<Output<String>> repositoryPolicy() {
         return Optional.ofNullable(this.repositoryPolicy);
     }
@@ -430,11 +438,23 @@ public final class RepositoryCreationTemplateArgs extends com.pulumi.resources.R
             return region(Output.of(region));
         }
 
+        /**
+         * @param repositoryPolicy The registry policy document to apply to any created repositories. This is a JSON formatted string. For more information about building IAM policy documents with Terraform, see the AWS IAM Policy Document Guide.
+         * 
+         * @return builder
+         * 
+         */
         public Builder repositoryPolicy(@Nullable Output<String> repositoryPolicy) {
             $.repositoryPolicy = repositoryPolicy;
             return this;
         }
 
+        /**
+         * @param repositoryPolicy The registry policy document to apply to any created repositories. This is a JSON formatted string. For more information about building IAM policy documents with Terraform, see the AWS IAM Policy Document Guide.
+         * 
+         * @return builder
+         * 
+         */
         public Builder repositoryPolicy(String repositoryPolicy) {
             return repositoryPolicy(Output.of(repositoryPolicy));
         }

@@ -43,7 +43,7 @@ namespace Pulumi.Aws.ServiceCatalog
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import `aws_servicecatalog_provisioning_artifact` using the provisioning artifact ID and product ID separated by a colon. For example:
+    /// Using `pulumi import`, import `aws.servicecatalog.ProvisioningArtifact` using the provisioning artifact ID and product ID separated by a colon. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:servicecatalog/provisioningArtifact:ProvisioningArtifact example pa-ij2b6lusy6dec:prod-el3an0rma3

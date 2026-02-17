@@ -53,7 +53,7 @@ import (
 //
 // ## Import
 //
-// Using `pulumi import`, import `aws_ec2_transit_gateway_connect` using the EC2 Transit Gateway Connect identifier. For example:
+// Using `pulumi import`, import `ec2transitgateway.Connect` using the EC2 Transit Gateway Connect identifier. For example:
 //
 // ```sh
 // $ pulumi import aws:ec2transitgateway/connect:Connect example tgw-attach-12345678

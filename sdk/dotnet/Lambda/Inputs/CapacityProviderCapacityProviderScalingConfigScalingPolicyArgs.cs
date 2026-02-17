@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Lambda.Inputs
     public sealed class CapacityProviderCapacityProviderScalingConfigScalingPolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The predefined metric type for the scaling policy. Valid values are `LAMBDA_PROVISIONED_CONCURRENCY_UTILIZATION`.
+        /// The predefined metric type for the scaling policy. Valid values are `"LambdaCapacityProviderAverageCPUUtilization"`.
         /// </summary>
         [Input("predefinedMetricType", required: true)]
         public Input<string> PredefinedMetricType { get; set; } = null!;

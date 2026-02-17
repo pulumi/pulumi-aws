@@ -41,7 +41,7 @@ namespace Pulumi.Aws.ControlTower
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import Control Tower Baseline using the `arn`. For example:
+    /// Using `pulumi import`, import Control Tower Baseline using the `Arn`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:controltower/baseline:Baseline example arn:aws:controltower:us-east-1:012345678912:enabledbaseline/XALULM96QHI525UOC

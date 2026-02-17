@@ -22,7 +22,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Using `pulumi import`, import `aws_connect_phone_number_contact_flow_association` using the `phone_number_id`, `instance_id` and `contact_flow_id` separated by a comma (`,`). For example:
+ * Using `pulumi import`, import `aws.connect.PhoneNumberContactFlowAssociation` using the `phoneNumberId`, `instanceId` and `contactFlowId` separated by a comma (`,`). For example:
  *
  * ```sh
  * $ pulumi import aws:connect/phoneNumberContactFlowAssociation:PhoneNumberContactFlowAssociation example 36727a4c-4683-4e49-880c-3347c61110a4,fa6c1691-e2eb-4487-bdb9-1aaed6268ebd,c4acdc79-395e-4280-a294-9062f56b07bb

@@ -87,20 +87,15 @@ __all__ = [
     'GetBotAssociationLexBotArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class BotAssociationLexBotArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the Amazon Lex (V1) bot.
-        """
-        lex_region: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Region that the Amazon Lex (V1) bot was created in. Defaults to current region.
-        """
-elif False:
-    BotAssociationLexBotArgsDict: TypeAlias = Mapping[str, Any]
+class BotAssociationLexBotArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the Amazon Lex (V1) bot.
+    """
+    lex_region: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Region that the Amazon Lex (V1) bot was created in. Defaults to current region.
+    """
 
 @pulumi.input_type
 class BotAssociationLexBotArgs:
@@ -140,22 +135,19 @@ class BotAssociationLexBotArgs:
         pulumi.set(self, "lex_region", value)
 
 
-if not MYPY:
-    class HoursOfOperationConfigArgsDict(TypedDict):
-        day: pulumi.Input[_builtins.str]
-        """
-        Specifies the day that the hours of operation applies to.
-        """
-        end_time: pulumi.Input['HoursOfOperationConfigEndTimeArgsDict']
-        """
-        A end time block specifies the time that your contact center closes. The `end_time` is documented below.
-        """
-        start_time: pulumi.Input['HoursOfOperationConfigStartTimeArgsDict']
-        """
-        A start time block specifies the time that your contact center opens. The `start_time` is documented below.
-        """
-elif False:
-    HoursOfOperationConfigArgsDict: TypeAlias = Mapping[str, Any]
+class HoursOfOperationConfigArgsDict(TypedDict):
+    day: pulumi.Input[_builtins.str]
+    """
+    Specifies the day that the hours of operation applies to.
+    """
+    end_time: pulumi.Input['HoursOfOperationConfigEndTimeArgsDict']
+    """
+    A end time block specifies the time that your contact center closes. The `end_time` is documented below.
+    """
+    start_time: pulumi.Input['HoursOfOperationConfigStartTimeArgsDict']
+    """
+    A start time block specifies the time that your contact center opens. The `start_time` is documented below.
+    """
 
 @pulumi.input_type
 class HoursOfOperationConfigArgs:
@@ -209,18 +201,15 @@ class HoursOfOperationConfigArgs:
         pulumi.set(self, "start_time", value)
 
 
-if not MYPY:
-    class HoursOfOperationConfigEndTimeArgsDict(TypedDict):
-        hours: pulumi.Input[_builtins.int]
-        """
-        Specifies the hour of closing.
-        """
-        minutes: pulumi.Input[_builtins.int]
-        """
-        Specifies the minute of closing.
-        """
-elif False:
-    HoursOfOperationConfigEndTimeArgsDict: TypeAlias = Mapping[str, Any]
+class HoursOfOperationConfigEndTimeArgsDict(TypedDict):
+    hours: pulumi.Input[_builtins.int]
+    """
+    Specifies the hour of closing.
+    """
+    minutes: pulumi.Input[_builtins.int]
+    """
+    Specifies the minute of closing.
+    """
 
 @pulumi.input_type
 class HoursOfOperationConfigEndTimeArgs:
@@ -259,18 +248,15 @@ class HoursOfOperationConfigEndTimeArgs:
         pulumi.set(self, "minutes", value)
 
 
-if not MYPY:
-    class HoursOfOperationConfigStartTimeArgsDict(TypedDict):
-        hours: pulumi.Input[_builtins.int]
-        """
-        Specifies the hour of opening.
-        """
-        minutes: pulumi.Input[_builtins.int]
-        """
-        Specifies the minute of opening.
-        """
-elif False:
-    HoursOfOperationConfigStartTimeArgsDict: TypeAlias = Mapping[str, Any]
+class HoursOfOperationConfigStartTimeArgsDict(TypedDict):
+    hours: pulumi.Input[_builtins.int]
+    """
+    Specifies the hour of opening.
+    """
+    minutes: pulumi.Input[_builtins.int]
+    """
+    Specifies the minute of opening.
+    """
 
 @pulumi.input_type
 class HoursOfOperationConfigStartTimeArgs:
@@ -309,30 +295,27 @@ class HoursOfOperationConfigStartTimeArgs:
         pulumi.set(self, "minutes", value)
 
 
-if not MYPY:
-    class InstanceStorageConfigStorageConfigArgsDict(TypedDict):
-        storage_type: pulumi.Input[_builtins.str]
-        """
-        A valid storage type. Valid Values: `S3` | `KINESIS_VIDEO_STREAM` | `KINESIS_STREAM` | `KINESIS_FIREHOSE`.
-        """
-        kinesis_firehose_config: NotRequired[pulumi.Input['InstanceStorageConfigStorageConfigKinesisFirehoseConfigArgsDict']]
-        """
-        A block that specifies the configuration of the Kinesis Firehose delivery stream. Documented below.
-        """
-        kinesis_stream_config: NotRequired[pulumi.Input['InstanceStorageConfigStorageConfigKinesisStreamConfigArgsDict']]
-        """
-        A block that specifies the configuration of the Kinesis data stream. Documented below.
-        """
-        kinesis_video_stream_config: NotRequired[pulumi.Input['InstanceStorageConfigStorageConfigKinesisVideoStreamConfigArgsDict']]
-        """
-        A block that specifies the configuration of the Kinesis video stream. Documented below.
-        """
-        s3_config: NotRequired[pulumi.Input['InstanceStorageConfigStorageConfigS3ConfigArgsDict']]
-        """
-        A block that specifies the configuration of S3 Bucket. Documented below.
-        """
-elif False:
-    InstanceStorageConfigStorageConfigArgsDict: TypeAlias = Mapping[str, Any]
+class InstanceStorageConfigStorageConfigArgsDict(TypedDict):
+    storage_type: pulumi.Input[_builtins.str]
+    """
+    A valid storage type. Valid Values: `S3` | `KINESIS_VIDEO_STREAM` | `KINESIS_STREAM` | `KINESIS_FIREHOSE`.
+    """
+    kinesis_firehose_config: NotRequired[pulumi.Input['InstanceStorageConfigStorageConfigKinesisFirehoseConfigArgsDict']]
+    """
+    A block that specifies the configuration of the Kinesis Firehose delivery stream. Documented below.
+    """
+    kinesis_stream_config: NotRequired[pulumi.Input['InstanceStorageConfigStorageConfigKinesisStreamConfigArgsDict']]
+    """
+    A block that specifies the configuration of the Kinesis data stream. Documented below.
+    """
+    kinesis_video_stream_config: NotRequired[pulumi.Input['InstanceStorageConfigStorageConfigKinesisVideoStreamConfigArgsDict']]
+    """
+    A block that specifies the configuration of the Kinesis video stream. Documented below.
+    """
+    s3_config: NotRequired[pulumi.Input['InstanceStorageConfigStorageConfigS3ConfigArgsDict']]
+    """
+    A block that specifies the configuration of S3 Bucket. Documented below.
+    """
 
 @pulumi.input_type
 class InstanceStorageConfigStorageConfigArgs:
@@ -420,14 +403,11 @@ class InstanceStorageConfigStorageConfigArgs:
         pulumi.set(self, "s3_config", value)
 
 
-if not MYPY:
-    class InstanceStorageConfigStorageConfigKinesisFirehoseConfigArgsDict(TypedDict):
-        firehose_arn: pulumi.Input[_builtins.str]
-        """
-        The Amazon Resource Name (ARN) of the delivery stream.
-        """
-elif False:
-    InstanceStorageConfigStorageConfigKinesisFirehoseConfigArgsDict: TypeAlias = Mapping[str, Any]
+class InstanceStorageConfigStorageConfigKinesisFirehoseConfigArgsDict(TypedDict):
+    firehose_arn: pulumi.Input[_builtins.str]
+    """
+    The Amazon Resource Name (ARN) of the delivery stream.
+    """
 
 @pulumi.input_type
 class InstanceStorageConfigStorageConfigKinesisFirehoseConfigArgs:
@@ -451,14 +431,11 @@ class InstanceStorageConfigStorageConfigKinesisFirehoseConfigArgs:
         pulumi.set(self, "firehose_arn", value)
 
 
-if not MYPY:
-    class InstanceStorageConfigStorageConfigKinesisStreamConfigArgsDict(TypedDict):
-        stream_arn: pulumi.Input[_builtins.str]
-        """
-        The Amazon Resource Name (ARN) of the data stream.
-        """
-elif False:
-    InstanceStorageConfigStorageConfigKinesisStreamConfigArgsDict: TypeAlias = Mapping[str, Any]
+class InstanceStorageConfigStorageConfigKinesisStreamConfigArgsDict(TypedDict):
+    stream_arn: pulumi.Input[_builtins.str]
+    """
+    The Amazon Resource Name (ARN) of the data stream.
+    """
 
 @pulumi.input_type
 class InstanceStorageConfigStorageConfigKinesisStreamConfigArgs:
@@ -482,22 +459,19 @@ class InstanceStorageConfigStorageConfigKinesisStreamConfigArgs:
         pulumi.set(self, "stream_arn", value)
 
 
-if not MYPY:
-    class InstanceStorageConfigStorageConfigKinesisVideoStreamConfigArgsDict(TypedDict):
-        encryption_config: pulumi.Input['InstanceStorageConfigStorageConfigKinesisVideoStreamConfigEncryptionConfigArgsDict']
-        """
-        The encryption configuration. Documented below.
-        """
-        prefix: pulumi.Input[_builtins.str]
-        """
-        The prefix of the video stream. Minimum length of `1`. Maximum length of `128`. When read from the state, the value returned is `<prefix>-connect-<connect_instance_alias>-contact-` since the API appends additional details to the `prefix`.
-        """
-        retention_period_hours: pulumi.Input[_builtins.int]
-        """
-        The number of hours data is retained in the stream. Kinesis Video Streams retains the data in a data store that is associated with the stream. Minimum value of `0`. Maximum value of `87600`. A value of `0`, indicates that the stream does not persist data.
-        """
-elif False:
-    InstanceStorageConfigStorageConfigKinesisVideoStreamConfigArgsDict: TypeAlias = Mapping[str, Any]
+class InstanceStorageConfigStorageConfigKinesisVideoStreamConfigArgsDict(TypedDict):
+    encryption_config: pulumi.Input['InstanceStorageConfigStorageConfigKinesisVideoStreamConfigEncryptionConfigArgsDict']
+    """
+    The encryption configuration. Documented below.
+    """
+    prefix: pulumi.Input[_builtins.str]
+    """
+    The prefix of the video stream. Minimum length of `1`. Maximum length of `128`. When read from the state, the value returned is `<prefix>-connect-<connect_instance_alias>-contact-` since the API appends additional details to the `prefix`.
+    """
+    retention_period_hours: pulumi.Input[_builtins.int]
+    """
+    The number of hours data is retained in the stream. Kinesis Video Streams retains the data in a data store that is associated with the stream. Minimum value of `0`. Maximum value of `87600`. A value of `0`, indicates that the stream does not persist data.
+    """
 
 @pulumi.input_type
 class InstanceStorageConfigStorageConfigKinesisVideoStreamConfigArgs:
@@ -551,18 +525,15 @@ class InstanceStorageConfigStorageConfigKinesisVideoStreamConfigArgs:
         pulumi.set(self, "retention_period_hours", value)
 
 
-if not MYPY:
-    class InstanceStorageConfigStorageConfigKinesisVideoStreamConfigEncryptionConfigArgsDict(TypedDict):
-        encryption_type: pulumi.Input[_builtins.str]
-        """
-        The type of encryption. Valid Values: `KMS`.
-        """
-        key_id: pulumi.Input[_builtins.str]
-        """
-        The full ARN of the encryption key. Be sure to provide the full ARN of the encryption key, not just the ID.
-        """
-elif False:
-    InstanceStorageConfigStorageConfigKinesisVideoStreamConfigEncryptionConfigArgsDict: TypeAlias = Mapping[str, Any]
+class InstanceStorageConfigStorageConfigKinesisVideoStreamConfigEncryptionConfigArgsDict(TypedDict):
+    encryption_type: pulumi.Input[_builtins.str]
+    """
+    The type of encryption. Valid Values: `KMS`.
+    """
+    key_id: pulumi.Input[_builtins.str]
+    """
+    The full ARN of the encryption key. Be sure to provide the full ARN of the encryption key, not just the ID.
+    """
 
 @pulumi.input_type
 class InstanceStorageConfigStorageConfigKinesisVideoStreamConfigEncryptionConfigArgs:
@@ -601,22 +572,19 @@ class InstanceStorageConfigStorageConfigKinesisVideoStreamConfigEncryptionConfig
         pulumi.set(self, "key_id", value)
 
 
-if not MYPY:
-    class InstanceStorageConfigStorageConfigS3ConfigArgsDict(TypedDict):
-        bucket_name: pulumi.Input[_builtins.str]
-        """
-        The S3 bucket name.
-        """
-        bucket_prefix: pulumi.Input[_builtins.str]
-        """
-        The S3 bucket prefix.
-        """
-        encryption_config: NotRequired[pulumi.Input['InstanceStorageConfigStorageConfigS3ConfigEncryptionConfigArgsDict']]
-        """
-        The encryption configuration. Documented below.
-        """
-elif False:
-    InstanceStorageConfigStorageConfigS3ConfigArgsDict: TypeAlias = Mapping[str, Any]
+class InstanceStorageConfigStorageConfigS3ConfigArgsDict(TypedDict):
+    bucket_name: pulumi.Input[_builtins.str]
+    """
+    The S3 bucket name.
+    """
+    bucket_prefix: pulumi.Input[_builtins.str]
+    """
+    The S3 bucket prefix.
+    """
+    encryption_config: NotRequired[pulumi.Input['InstanceStorageConfigStorageConfigS3ConfigEncryptionConfigArgsDict']]
+    """
+    The encryption configuration. Documented below.
+    """
 
 @pulumi.input_type
 class InstanceStorageConfigStorageConfigS3ConfigArgs:
@@ -671,18 +639,15 @@ class InstanceStorageConfigStorageConfigS3ConfigArgs:
         pulumi.set(self, "encryption_config", value)
 
 
-if not MYPY:
-    class InstanceStorageConfigStorageConfigS3ConfigEncryptionConfigArgsDict(TypedDict):
-        encryption_type: pulumi.Input[_builtins.str]
-        """
-        The type of encryption. Valid Values: `KMS`.
-        """
-        key_id: pulumi.Input[_builtins.str]
-        """
-        The full ARN of the encryption key. Be sure to provide the full ARN of the encryption key, not just the ID.
-        """
-elif False:
-    InstanceStorageConfigStorageConfigS3ConfigEncryptionConfigArgsDict: TypeAlias = Mapping[str, Any]
+class InstanceStorageConfigStorageConfigS3ConfigEncryptionConfigArgsDict(TypedDict):
+    encryption_type: pulumi.Input[_builtins.str]
+    """
+    The type of encryption. Valid Values: `KMS`.
+    """
+    key_id: pulumi.Input[_builtins.str]
+    """
+    The full ARN of the encryption key. Be sure to provide the full ARN of the encryption key, not just the ID.
+    """
 
 @pulumi.input_type
 class InstanceStorageConfigStorageConfigS3ConfigEncryptionConfigArgs:
@@ -721,18 +686,15 @@ class InstanceStorageConfigStorageConfigS3ConfigEncryptionConfigArgs:
         pulumi.set(self, "key_id", value)
 
 
-if not MYPY:
-    class PhoneNumberStatusArgsDict(TypedDict):
-        message: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The status message.
-        """
-        status: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The status of the phone number. Valid Values: `CLAIMED` | `IN_PROGRESS` | `FAILED`.
-        """
-elif False:
-    PhoneNumberStatusArgsDict: TypeAlias = Mapping[str, Any]
+class PhoneNumberStatusArgsDict(TypedDict):
+    message: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The status message.
+    """
+    status: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The status of the phone number. Valid Values: `CLAIMED` | `IN_PROGRESS` | `FAILED`.
+    """
 
 @pulumi.input_type
 class PhoneNumberStatusArgs:
@@ -773,22 +735,19 @@ class PhoneNumberStatusArgs:
         pulumi.set(self, "status", value)
 
 
-if not MYPY:
-    class QueueOutboundCallerConfigArgsDict(TypedDict):
-        outbound_caller_id_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specifies the caller ID name.
-        """
-        outbound_caller_id_number_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specifies the caller ID number.
-        """
-        outbound_flow_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specifies outbound whisper flow to be used during an outbound call.
-        """
-elif False:
-    QueueOutboundCallerConfigArgsDict: TypeAlias = Mapping[str, Any]
+class QueueOutboundCallerConfigArgsDict(TypedDict):
+    outbound_caller_id_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies the caller ID name.
+    """
+    outbound_caller_id_number_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies the caller ID number.
+    """
+    outbound_flow_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies outbound whisper flow to be used during an outbound call.
+    """
 
 @pulumi.input_type
 class QueueOutboundCallerConfigArgs:
@@ -845,26 +804,23 @@ class QueueOutboundCallerConfigArgs:
         pulumi.set(self, "outbound_flow_id", value)
 
 
-if not MYPY:
-    class QuickConnectQuickConnectConfigArgsDict(TypedDict):
-        quick_connect_type: pulumi.Input[_builtins.str]
-        """
-        Specifies the configuration type of the quick connect. valid values are `PHONE_NUMBER`, `QUEUE`, `USER`.
-        """
-        phone_configs: NotRequired[pulumi.Input[Sequence[pulumi.Input['QuickConnectQuickConnectConfigPhoneConfigArgsDict']]]]
-        """
-        Specifies the phone configuration of the Quick Connect. This is required only if `quick_connect_type` is `PHONE_NUMBER`. The `phone_config` block is documented below.
-        """
-        queue_configs: NotRequired[pulumi.Input[Sequence[pulumi.Input['QuickConnectQuickConnectConfigQueueConfigArgsDict']]]]
-        """
-        Specifies the queue configuration of the Quick Connect. This is required only if `quick_connect_type` is `QUEUE`. The `queue_config` block is documented below.
-        """
-        user_configs: NotRequired[pulumi.Input[Sequence[pulumi.Input['QuickConnectQuickConnectConfigUserConfigArgsDict']]]]
-        """
-        Specifies the user configuration of the Quick Connect. This is required only if `quick_connect_type` is `USER`. The `user_config` block is documented below.
-        """
-elif False:
-    QuickConnectQuickConnectConfigArgsDict: TypeAlias = Mapping[str, Any]
+class QuickConnectQuickConnectConfigArgsDict(TypedDict):
+    quick_connect_type: pulumi.Input[_builtins.str]
+    """
+    Specifies the configuration type of the quick connect. valid values are `PHONE_NUMBER`, `QUEUE`, `USER`.
+    """
+    phone_configs: NotRequired[pulumi.Input[Sequence[pulumi.Input['QuickConnectQuickConnectConfigPhoneConfigArgsDict']]]]
+    """
+    Specifies the phone configuration of the Quick Connect. This is required only if `quick_connect_type` is `PHONE_NUMBER`. The `phone_config` block is documented below.
+    """
+    queue_configs: NotRequired[pulumi.Input[Sequence[pulumi.Input['QuickConnectQuickConnectConfigQueueConfigArgsDict']]]]
+    """
+    Specifies the queue configuration of the Quick Connect. This is required only if `quick_connect_type` is `QUEUE`. The `queue_config` block is documented below.
+    """
+    user_configs: NotRequired[pulumi.Input[Sequence[pulumi.Input['QuickConnectQuickConnectConfigUserConfigArgsDict']]]]
+    """
+    Specifies the user configuration of the Quick Connect. This is required only if `quick_connect_type` is `USER`. The `user_config` block is documented below.
+    """
 
 @pulumi.input_type
 class QuickConnectQuickConnectConfigArgs:
@@ -936,14 +892,11 @@ class QuickConnectQuickConnectConfigArgs:
         pulumi.set(self, "user_configs", value)
 
 
-if not MYPY:
-    class QuickConnectQuickConnectConfigPhoneConfigArgsDict(TypedDict):
-        phone_number: pulumi.Input[_builtins.str]
-        """
-        Specifies the phone number in in E.164 format.
-        """
-elif False:
-    QuickConnectQuickConnectConfigPhoneConfigArgsDict: TypeAlias = Mapping[str, Any]
+class QuickConnectQuickConnectConfigPhoneConfigArgsDict(TypedDict):
+    phone_number: pulumi.Input[_builtins.str]
+    """
+    Specifies the phone number in in E.164 format.
+    """
 
 @pulumi.input_type
 class QuickConnectQuickConnectConfigPhoneConfigArgs:
@@ -967,18 +920,15 @@ class QuickConnectQuickConnectConfigPhoneConfigArgs:
         pulumi.set(self, "phone_number", value)
 
 
-if not MYPY:
-    class QuickConnectQuickConnectConfigQueueConfigArgsDict(TypedDict):
-        contact_flow_id: pulumi.Input[_builtins.str]
-        """
-        Specifies the identifier of the contact flow.
-        """
-        queue_id: pulumi.Input[_builtins.str]
-        """
-        Specifies the identifier for the queue.
-        """
-elif False:
-    QuickConnectQuickConnectConfigQueueConfigArgsDict: TypeAlias = Mapping[str, Any]
+class QuickConnectQuickConnectConfigQueueConfigArgsDict(TypedDict):
+    contact_flow_id: pulumi.Input[_builtins.str]
+    """
+    Specifies the identifier of the contact flow.
+    """
+    queue_id: pulumi.Input[_builtins.str]
+    """
+    Specifies the identifier for the queue.
+    """
 
 @pulumi.input_type
 class QuickConnectQuickConnectConfigQueueConfigArgs:
@@ -1017,18 +967,15 @@ class QuickConnectQuickConnectConfigQueueConfigArgs:
         pulumi.set(self, "queue_id", value)
 
 
-if not MYPY:
-    class QuickConnectQuickConnectConfigUserConfigArgsDict(TypedDict):
-        contact_flow_id: pulumi.Input[_builtins.str]
-        """
-        Specifies the identifier of the contact flow.
-        """
-        user_id: pulumi.Input[_builtins.str]
-        """
-        Specifies the identifier for the user.
-        """
-elif False:
-    QuickConnectQuickConnectConfigUserConfigArgsDict: TypeAlias = Mapping[str, Any]
+class QuickConnectQuickConnectConfigUserConfigArgsDict(TypedDict):
+    contact_flow_id: pulumi.Input[_builtins.str]
+    """
+    Specifies the identifier of the contact flow.
+    """
+    user_id: pulumi.Input[_builtins.str]
+    """
+    Specifies the identifier for the user.
+    """
 
 @pulumi.input_type
 class QuickConnectQuickConnectConfigUserConfigArgs:
@@ -1067,19 +1014,19 @@ class QuickConnectQuickConnectConfigUserConfigArgs:
         pulumi.set(self, "user_id", value)
 
 
-if not MYPY:
-    class RoutingProfileMediaConcurrencyArgsDict(TypedDict):
-        channel: pulumi.Input[_builtins.str]
-        """
-        Specifies the channels that agents can handle in the Contact Control Panel (CCP). Valid values are `VOICE`, `CHAT`, `TASK`.
-        """
-        concurrency: pulumi.Input[_builtins.int]
-        """
-        Specifies the number of contacts an agent can have on a channel simultaneously. Valid Range for `VOICE`: Minimum value of `1`. Maximum value of `1`. Valid Range for `CHAT`: Minimum value of `1`. Maximum value of `10`. Valid Range for `TASK`: Minimum value of `1`. Maximum value of `10`.
-        """
-        cross_channel_behavior: NotRequired[pulumi.Input['RoutingProfileMediaConcurrencyCrossChannelBehaviorArgsDict']]
-elif False:
-    RoutingProfileMediaConcurrencyArgsDict: TypeAlias = Mapping[str, Any]
+class RoutingProfileMediaConcurrencyArgsDict(TypedDict):
+    channel: pulumi.Input[_builtins.str]
+    """
+    Specifies the channels that agents can handle in the Contact Control Panel (CCP). Valid values are `VOICE`, `CHAT`, `TASK`.
+    """
+    concurrency: pulumi.Input[_builtins.int]
+    """
+    Specifies the number of contacts an agent can have on a channel simultaneously. Valid Range for `VOICE`: Minimum value of `1`. Maximum value of `1`. Valid Range for `CHAT`: Minimum value of `1`. Maximum value of `10`. Valid Range for `TASK`: Minimum value of `1`. Maximum value of `10`.
+    """
+    cross_channel_behavior: NotRequired[pulumi.Input['RoutingProfileMediaConcurrencyCrossChannelBehaviorArgsDict']]
+    """
+    Defines the cross-channel routing behavior for each traffic type. **Out-of-band changes are only detected when this argument is explicitly configured in your Terraform configuration.** Documented below.
+    """
 
 @pulumi.input_type
 class RoutingProfileMediaConcurrencyArgs:
@@ -1090,6 +1037,7 @@ class RoutingProfileMediaConcurrencyArgs:
         """
         :param pulumi.Input[_builtins.str] channel: Specifies the channels that agents can handle in the Contact Control Panel (CCP). Valid values are `VOICE`, `CHAT`, `TASK`.
         :param pulumi.Input[_builtins.int] concurrency: Specifies the number of contacts an agent can have on a channel simultaneously. Valid Range for `VOICE`: Minimum value of `1`. Maximum value of `1`. Valid Range for `CHAT`: Minimum value of `1`. Maximum value of `10`. Valid Range for `TASK`: Minimum value of `1`. Maximum value of `10`.
+        :param pulumi.Input['RoutingProfileMediaConcurrencyCrossChannelBehaviorArgs'] cross_channel_behavior: Defines the cross-channel routing behavior for each traffic type. **Out-of-band changes are only detected when this argument is explicitly configured in your Terraform configuration.** Documented below.
         """
         pulumi.set(__self__, "channel", channel)
         pulumi.set(__self__, "concurrency", concurrency)
@@ -1123,6 +1071,9 @@ class RoutingProfileMediaConcurrencyArgs:
     @_builtins.property
     @pulumi.getter(name="crossChannelBehavior")
     def cross_channel_behavior(self) -> Optional[pulumi.Input['RoutingProfileMediaConcurrencyCrossChannelBehaviorArgs']]:
+        """
+        Defines the cross-channel routing behavior for each traffic type. **Out-of-band changes are only detected when this argument is explicitly configured in your Terraform configuration.** Documented below.
+        """
         return pulumi.get(self, "cross_channel_behavior")
 
     @cross_channel_behavior.setter
@@ -1130,14 +1081,11 @@ class RoutingProfileMediaConcurrencyArgs:
         pulumi.set(self, "cross_channel_behavior", value)
 
 
-if not MYPY:
-    class RoutingProfileMediaConcurrencyCrossChannelBehaviorArgsDict(TypedDict):
-        behavior_type: pulumi.Input[_builtins.str]
-        """
-        Specifies the cross-channel behavior for routing contacts across multiple channels. Valid values are `ROUTE_CURRENT_CHANNEL_ONLY` and `ROUTE_ANY_CHANNEL`. `ROUTE_CURRENT_CHANNEL_ONLY` restricts agents to receive contacts only from the channel they are currently handling. `ROUTE_ANY_CHANNEL` allows agents to receive contacts from any channel regardless of what they are currently handling.
-        """
-elif False:
-    RoutingProfileMediaConcurrencyCrossChannelBehaviorArgsDict: TypeAlias = Mapping[str, Any]
+class RoutingProfileMediaConcurrencyCrossChannelBehaviorArgsDict(TypedDict):
+    behavior_type: pulumi.Input[_builtins.str]
+    """
+    Specifies the cross-channel behavior for routing contacts across multiple channels. Valid values are `ROUTE_CURRENT_CHANNEL_ONLY` and `ROUTE_ANY_CHANNEL`. `ROUTE_CURRENT_CHANNEL_ONLY` restricts agents to receive contacts only from the channel they are currently handling. `ROUTE_ANY_CHANNEL` allows agents to receive contacts from any channel regardless of what they are currently handling.
+    """
 
 @pulumi.input_type
 class RoutingProfileMediaConcurrencyCrossChannelBehaviorArgs:
@@ -1161,34 +1109,31 @@ class RoutingProfileMediaConcurrencyCrossChannelBehaviorArgs:
         pulumi.set(self, "behavior_type", value)
 
 
-if not MYPY:
-    class RoutingProfileQueueConfigArgsDict(TypedDict):
-        channel: pulumi.Input[_builtins.str]
-        """
-        Specifies the channels agents can handle in the Contact Control Panel (CCP) for this routing profile. Valid values are `VOICE`, `CHAT`, `TASK`.
-        """
-        delay: pulumi.Input[_builtins.int]
-        """
-        Specifies the delay, in seconds, that a contact should be in the queue before they are routed to an available agent
-        """
-        priority: pulumi.Input[_builtins.int]
-        """
-        Specifies the order in which contacts are to be handled for the queue.
-        """
-        queue_id: pulumi.Input[_builtins.str]
-        """
-        Specifies the identifier for the queue.
-        """
-        queue_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        ARN for the queue.
-        """
-        queue_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Name for the queue.
-        """
-elif False:
-    RoutingProfileQueueConfigArgsDict: TypeAlias = Mapping[str, Any]
+class RoutingProfileQueueConfigArgsDict(TypedDict):
+    channel: pulumi.Input[_builtins.str]
+    """
+    Specifies the channels agents can handle in the Contact Control Panel (CCP) for this routing profile. Valid values are `VOICE`, `CHAT`, `TASK`.
+    """
+    delay: pulumi.Input[_builtins.int]
+    """
+    Specifies the delay, in seconds, that a contact should be in the queue before they are routed to an available agent
+    """
+    priority: pulumi.Input[_builtins.int]
+    """
+    Specifies the order in which contacts are to be handled for the queue.
+    """
+    queue_id: pulumi.Input[_builtins.str]
+    """
+    Specifies the identifier for the queue.
+    """
+    queue_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    ARN for the queue.
+    """
+    queue_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Name for the queue.
+    """
 
 @pulumi.input_type
 class RoutingProfileQueueConfigArgs:
@@ -1289,30 +1234,27 @@ class RoutingProfileQueueConfigArgs:
         pulumi.set(self, "queue_name", value)
 
 
-if not MYPY:
-    class UserHierarchyGroupHierarchyPathArgsDict(TypedDict):
-        level_fives: NotRequired[pulumi.Input[Sequence[pulumi.Input['UserHierarchyGroupHierarchyPathLevelFifeArgsDict']]]]
-        """
-        A block that defines the details of level five. The level block is documented below.
-        """
-        level_fours: NotRequired[pulumi.Input[Sequence[pulumi.Input['UserHierarchyGroupHierarchyPathLevelFourArgsDict']]]]
-        """
-        A block that defines the details of level four. The level block is documented below.
-        """
-        level_ones: NotRequired[pulumi.Input[Sequence[pulumi.Input['UserHierarchyGroupHierarchyPathLevelOneArgsDict']]]]
-        """
-        A block that defines the details of level one. The level block is documented below.
-        """
-        level_threes: NotRequired[pulumi.Input[Sequence[pulumi.Input['UserHierarchyGroupHierarchyPathLevelThreeArgsDict']]]]
-        """
-        A block that defines the details of level three. The level block is documented below.
-        """
-        level_twos: NotRequired[pulumi.Input[Sequence[pulumi.Input['UserHierarchyGroupHierarchyPathLevelTwoArgsDict']]]]
-        """
-        A block that defines the details of level two. The level block is documented below.
-        """
-elif False:
-    UserHierarchyGroupHierarchyPathArgsDict: TypeAlias = Mapping[str, Any]
+class UserHierarchyGroupHierarchyPathArgsDict(TypedDict):
+    level_fives: NotRequired[pulumi.Input[Sequence[pulumi.Input['UserHierarchyGroupHierarchyPathLevelFifeArgsDict']]]]
+    """
+    A block that defines the details of level five. The level block is documented below.
+    """
+    level_fours: NotRequired[pulumi.Input[Sequence[pulumi.Input['UserHierarchyGroupHierarchyPathLevelFourArgsDict']]]]
+    """
+    A block that defines the details of level four. The level block is documented below.
+    """
+    level_ones: NotRequired[pulumi.Input[Sequence[pulumi.Input['UserHierarchyGroupHierarchyPathLevelOneArgsDict']]]]
+    """
+    A block that defines the details of level one. The level block is documented below.
+    """
+    level_threes: NotRequired[pulumi.Input[Sequence[pulumi.Input['UserHierarchyGroupHierarchyPathLevelThreeArgsDict']]]]
+    """
+    A block that defines the details of level three. The level block is documented below.
+    """
+    level_twos: NotRequired[pulumi.Input[Sequence[pulumi.Input['UserHierarchyGroupHierarchyPathLevelTwoArgsDict']]]]
+    """
+    A block that defines the details of level two. The level block is documented below.
+    """
 
 @pulumi.input_type
 class UserHierarchyGroupHierarchyPathArgs:
@@ -1401,22 +1343,19 @@ class UserHierarchyGroupHierarchyPathArgs:
         pulumi.set(self, "level_twos", value)
 
 
-if not MYPY:
-    class UserHierarchyGroupHierarchyPathLevelFifeArgsDict(TypedDict):
-        arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Amazon Resource Name (ARN) of the hierarchy group.
-        """
-        id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The identifier of the hierarchy group.
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the user hierarchy group. Must not be more than 100 characters.
-        """
-elif False:
-    UserHierarchyGroupHierarchyPathLevelFifeArgsDict: TypeAlias = Mapping[str, Any]
+class UserHierarchyGroupHierarchyPathLevelFifeArgsDict(TypedDict):
+    arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Amazon Resource Name (ARN) of the hierarchy group.
+    """
+    id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The identifier of the hierarchy group.
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the user hierarchy group. Must not be more than 100 characters.
+    """
 
 @pulumi.input_type
 class UserHierarchyGroupHierarchyPathLevelFifeArgs:
@@ -1473,22 +1412,19 @@ class UserHierarchyGroupHierarchyPathLevelFifeArgs:
         pulumi.set(self, "name", value)
 
 
-if not MYPY:
-    class UserHierarchyGroupHierarchyPathLevelFourArgsDict(TypedDict):
-        arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Amazon Resource Name (ARN) of the hierarchy group.
-        """
-        id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The identifier of the hierarchy group.
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the user hierarchy group. Must not be more than 100 characters.
-        """
-elif False:
-    UserHierarchyGroupHierarchyPathLevelFourArgsDict: TypeAlias = Mapping[str, Any]
+class UserHierarchyGroupHierarchyPathLevelFourArgsDict(TypedDict):
+    arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Amazon Resource Name (ARN) of the hierarchy group.
+    """
+    id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The identifier of the hierarchy group.
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the user hierarchy group. Must not be more than 100 characters.
+    """
 
 @pulumi.input_type
 class UserHierarchyGroupHierarchyPathLevelFourArgs:
@@ -1545,22 +1481,19 @@ class UserHierarchyGroupHierarchyPathLevelFourArgs:
         pulumi.set(self, "name", value)
 
 
-if not MYPY:
-    class UserHierarchyGroupHierarchyPathLevelOneArgsDict(TypedDict):
-        arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Amazon Resource Name (ARN) of the hierarchy group.
-        """
-        id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The identifier of the hierarchy group.
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the user hierarchy group. Must not be more than 100 characters.
-        """
-elif False:
-    UserHierarchyGroupHierarchyPathLevelOneArgsDict: TypeAlias = Mapping[str, Any]
+class UserHierarchyGroupHierarchyPathLevelOneArgsDict(TypedDict):
+    arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Amazon Resource Name (ARN) of the hierarchy group.
+    """
+    id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The identifier of the hierarchy group.
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the user hierarchy group. Must not be more than 100 characters.
+    """
 
 @pulumi.input_type
 class UserHierarchyGroupHierarchyPathLevelOneArgs:
@@ -1617,22 +1550,19 @@ class UserHierarchyGroupHierarchyPathLevelOneArgs:
         pulumi.set(self, "name", value)
 
 
-if not MYPY:
-    class UserHierarchyGroupHierarchyPathLevelThreeArgsDict(TypedDict):
-        arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Amazon Resource Name (ARN) of the hierarchy group.
-        """
-        id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The identifier of the hierarchy group.
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the user hierarchy group. Must not be more than 100 characters.
-        """
-elif False:
-    UserHierarchyGroupHierarchyPathLevelThreeArgsDict: TypeAlias = Mapping[str, Any]
+class UserHierarchyGroupHierarchyPathLevelThreeArgsDict(TypedDict):
+    arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Amazon Resource Name (ARN) of the hierarchy group.
+    """
+    id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The identifier of the hierarchy group.
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the user hierarchy group. Must not be more than 100 characters.
+    """
 
 @pulumi.input_type
 class UserHierarchyGroupHierarchyPathLevelThreeArgs:
@@ -1689,22 +1619,19 @@ class UserHierarchyGroupHierarchyPathLevelThreeArgs:
         pulumi.set(self, "name", value)
 
 
-if not MYPY:
-    class UserHierarchyGroupHierarchyPathLevelTwoArgsDict(TypedDict):
-        arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Amazon Resource Name (ARN) of the hierarchy group.
-        """
-        id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The identifier of the hierarchy group.
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the user hierarchy group. Must not be more than 100 characters.
-        """
-elif False:
-    UserHierarchyGroupHierarchyPathLevelTwoArgsDict: TypeAlias = Mapping[str, Any]
+class UserHierarchyGroupHierarchyPathLevelTwoArgsDict(TypedDict):
+    arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Amazon Resource Name (ARN) of the hierarchy group.
+    """
+    id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The identifier of the hierarchy group.
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the user hierarchy group. Must not be more than 100 characters.
+    """
 
 @pulumi.input_type
 class UserHierarchyGroupHierarchyPathLevelTwoArgs:
@@ -1761,32 +1688,29 @@ class UserHierarchyGroupHierarchyPathLevelTwoArgs:
         pulumi.set(self, "name", value)
 
 
-if not MYPY:
-    class UserHierarchyStructureHierarchyStructureArgsDict(TypedDict):
-        level_five: NotRequired[pulumi.Input['UserHierarchyStructureHierarchyStructureLevelFiveArgsDict']]
-        """
-        A block that defines the details of level five. The level block is documented below.
+class UserHierarchyStructureHierarchyStructureArgsDict(TypedDict):
+    level_five: NotRequired[pulumi.Input['UserHierarchyStructureHierarchyStructureLevelFiveArgsDict']]
+    """
+    A block that defines the details of level five. The level block is documented below.
 
-        Each level block supports the following arguments:
-        """
-        level_four: NotRequired[pulumi.Input['UserHierarchyStructureHierarchyStructureLevelFourArgsDict']]
-        """
-        A block that defines the details of level four. The level block is documented below.
-        """
-        level_one: NotRequired[pulumi.Input['UserHierarchyStructureHierarchyStructureLevelOneArgsDict']]
-        """
-        A block that defines the details of level one. The level block is documented below.
-        """
-        level_three: NotRequired[pulumi.Input['UserHierarchyStructureHierarchyStructureLevelThreeArgsDict']]
-        """
-        A block that defines the details of level three. The level block is documented below.
-        """
-        level_two: NotRequired[pulumi.Input['UserHierarchyStructureHierarchyStructureLevelTwoArgsDict']]
-        """
-        A block that defines the details of level two. The level block is documented below.
-        """
-elif False:
-    UserHierarchyStructureHierarchyStructureArgsDict: TypeAlias = Mapping[str, Any]
+    Each level block supports the following arguments:
+    """
+    level_four: NotRequired[pulumi.Input['UserHierarchyStructureHierarchyStructureLevelFourArgsDict']]
+    """
+    A block that defines the details of level four. The level block is documented below.
+    """
+    level_one: NotRequired[pulumi.Input['UserHierarchyStructureHierarchyStructureLevelOneArgsDict']]
+    """
+    A block that defines the details of level one. The level block is documented below.
+    """
+    level_three: NotRequired[pulumi.Input['UserHierarchyStructureHierarchyStructureLevelThreeArgsDict']]
+    """
+    A block that defines the details of level three. The level block is documented below.
+    """
+    level_two: NotRequired[pulumi.Input['UserHierarchyStructureHierarchyStructureLevelTwoArgsDict']]
+    """
+    A block that defines the details of level two. The level block is documented below.
+    """
 
 @pulumi.input_type
 class UserHierarchyStructureHierarchyStructureArgs:
@@ -1879,22 +1803,19 @@ class UserHierarchyStructureHierarchyStructureArgs:
         pulumi.set(self, "level_two", value)
 
 
-if not MYPY:
-    class UserHierarchyStructureHierarchyStructureLevelFiveArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the user hierarchy level. Must not be more than 50 characters.
-        """
-        arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Amazon Resource Name (ARN) of the hierarchy level.
-        """
-        id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The identifier of the hierarchy level.
-        """
-elif False:
-    UserHierarchyStructureHierarchyStructureLevelFiveArgsDict: TypeAlias = Mapping[str, Any]
+class UserHierarchyStructureHierarchyStructureLevelFiveArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the user hierarchy level. Must not be more than 50 characters.
+    """
+    arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Amazon Resource Name (ARN) of the hierarchy level.
+    """
+    id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The identifier of the hierarchy level.
+    """
 
 @pulumi.input_type
 class UserHierarchyStructureHierarchyStructureLevelFiveArgs:
@@ -1950,22 +1871,19 @@ class UserHierarchyStructureHierarchyStructureLevelFiveArgs:
         pulumi.set(self, "id", value)
 
 
-if not MYPY:
-    class UserHierarchyStructureHierarchyStructureLevelFourArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the user hierarchy level. Must not be more than 50 characters.
-        """
-        arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Amazon Resource Name (ARN) of the hierarchy level.
-        """
-        id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The identifier of the hierarchy level.
-        """
-elif False:
-    UserHierarchyStructureHierarchyStructureLevelFourArgsDict: TypeAlias = Mapping[str, Any]
+class UserHierarchyStructureHierarchyStructureLevelFourArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the user hierarchy level. Must not be more than 50 characters.
+    """
+    arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Amazon Resource Name (ARN) of the hierarchy level.
+    """
+    id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The identifier of the hierarchy level.
+    """
 
 @pulumi.input_type
 class UserHierarchyStructureHierarchyStructureLevelFourArgs:
@@ -2021,22 +1939,19 @@ class UserHierarchyStructureHierarchyStructureLevelFourArgs:
         pulumi.set(self, "id", value)
 
 
-if not MYPY:
-    class UserHierarchyStructureHierarchyStructureLevelOneArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the user hierarchy level. Must not be more than 50 characters.
-        """
-        arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Amazon Resource Name (ARN) of the hierarchy level.
-        """
-        id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The identifier of the hierarchy level.
-        """
-elif False:
-    UserHierarchyStructureHierarchyStructureLevelOneArgsDict: TypeAlias = Mapping[str, Any]
+class UserHierarchyStructureHierarchyStructureLevelOneArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the user hierarchy level. Must not be more than 50 characters.
+    """
+    arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Amazon Resource Name (ARN) of the hierarchy level.
+    """
+    id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The identifier of the hierarchy level.
+    """
 
 @pulumi.input_type
 class UserHierarchyStructureHierarchyStructureLevelOneArgs:
@@ -2092,22 +2007,19 @@ class UserHierarchyStructureHierarchyStructureLevelOneArgs:
         pulumi.set(self, "id", value)
 
 
-if not MYPY:
-    class UserHierarchyStructureHierarchyStructureLevelThreeArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the user hierarchy level. Must not be more than 50 characters.
-        """
-        arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Amazon Resource Name (ARN) of the hierarchy level.
-        """
-        id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The identifier of the hierarchy level.
-        """
-elif False:
-    UserHierarchyStructureHierarchyStructureLevelThreeArgsDict: TypeAlias = Mapping[str, Any]
+class UserHierarchyStructureHierarchyStructureLevelThreeArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the user hierarchy level. Must not be more than 50 characters.
+    """
+    arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Amazon Resource Name (ARN) of the hierarchy level.
+    """
+    id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The identifier of the hierarchy level.
+    """
 
 @pulumi.input_type
 class UserHierarchyStructureHierarchyStructureLevelThreeArgs:
@@ -2163,22 +2075,19 @@ class UserHierarchyStructureHierarchyStructureLevelThreeArgs:
         pulumi.set(self, "id", value)
 
 
-if not MYPY:
-    class UserHierarchyStructureHierarchyStructureLevelTwoArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the user hierarchy level. Must not be more than 50 characters.
-        """
-        arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Amazon Resource Name (ARN) of the hierarchy level.
-        """
-        id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The identifier of the hierarchy level.
-        """
-elif False:
-    UserHierarchyStructureHierarchyStructureLevelTwoArgsDict: TypeAlias = Mapping[str, Any]
+class UserHierarchyStructureHierarchyStructureLevelTwoArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the user hierarchy level. Must not be more than 50 characters.
+    """
+    arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Amazon Resource Name (ARN) of the hierarchy level.
+    """
+    id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The identifier of the hierarchy level.
+    """
 
 @pulumi.input_type
 class UserHierarchyStructureHierarchyStructureLevelTwoArgs:
@@ -2234,26 +2143,23 @@ class UserHierarchyStructureHierarchyStructureLevelTwoArgs:
         pulumi.set(self, "id", value)
 
 
-if not MYPY:
-    class UserIdentityInfoArgsDict(TypedDict):
-        email: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The email address. If you are using SAML for identity management and include this parameter, an error is returned. Note that updates to the `email` is supported. From the [UpdateUserIdentityInfo API documentation](https://docs.aws.amazon.com/connect/latest/APIReference/API_UpdateUserIdentityInfo.html) it is strongly recommended to limit who has the ability to invoke `UpdateUserIdentityInfo`. Someone with that ability can change the login credentials of other users by changing their email address. This poses a security risk to your organization. They can change the email address of a user to the attacker's email address, and then reset the password through email. For more information, see [Best Practices for Security Profiles](https://docs.aws.amazon.com/connect/latest/adminguide/security-profile-best-practices.html) in the Amazon Connect Administrator Guide.
-        """
-        first_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The first name. This is required if you are using Amazon Connect or SAML for identity management. Minimum length of 1. Maximum length of 100.
-        """
-        last_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The last name. This is required if you are using Amazon Connect or SAML for identity management. Minimum length of 1. Maximum length of 100.
-        """
-        secondary_email: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The secondary email address. If present, email notifications will be sent to this email address instead of the primary one.
-        """
-elif False:
-    UserIdentityInfoArgsDict: TypeAlias = Mapping[str, Any]
+class UserIdentityInfoArgsDict(TypedDict):
+    email: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The email address. If you are using SAML for identity management and include this parameter, an error is returned. Note that updates to the `email` is supported. From the [UpdateUserIdentityInfo API documentation](https://docs.aws.amazon.com/connect/latest/APIReference/API_UpdateUserIdentityInfo.html) it is strongly recommended to limit who has the ability to invoke `UpdateUserIdentityInfo`. Someone with that ability can change the login credentials of other users by changing their email address. This poses a security risk to your organization. They can change the email address of a user to the attacker's email address, and then reset the password through email. For more information, see [Best Practices for Security Profiles](https://docs.aws.amazon.com/connect/latest/adminguide/security-profile-best-practices.html) in the Amazon Connect Administrator Guide.
+    """
+    first_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The first name. This is required if you are using Amazon Connect or SAML for identity management. Minimum length of 1. Maximum length of 100.
+    """
+    last_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The last name. This is required if you are using Amazon Connect or SAML for identity management. Minimum length of 1. Maximum length of 100.
+    """
+    secondary_email: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The secondary email address. If present, email notifications will be sent to this email address instead of the primary one.
+    """
 
 @pulumi.input_type
 class UserIdentityInfoArgs:
@@ -2326,26 +2232,23 @@ class UserIdentityInfoArgs:
         pulumi.set(self, "secondary_email", value)
 
 
-if not MYPY:
-    class UserPhoneConfigArgsDict(TypedDict):
-        phone_type: pulumi.Input[_builtins.str]
-        """
-        The phone type. Valid values are `DESK_PHONE` and `SOFT_PHONE`.
-        """
-        after_contact_work_time_limit: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The After Call Work (ACW) timeout setting, in seconds. Minimum value of 0.
-        """
-        auto_accept: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        When Auto-Accept Call is enabled for an available agent, the agent connects to contacts automatically.
-        """
-        desk_phone_number: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The phone number for the user's desk phone. Required if `phone_type` is set as `DESK_PHONE`.
-        """
-elif False:
-    UserPhoneConfigArgsDict: TypeAlias = Mapping[str, Any]
+class UserPhoneConfigArgsDict(TypedDict):
+    phone_type: pulumi.Input[_builtins.str]
+    """
+    The phone type. Valid values are `DESK_PHONE` and `SOFT_PHONE`.
+    """
+    after_contact_work_time_limit: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The After Call Work (ACW) timeout setting, in seconds. Minimum value of 0.
+    """
+    auto_accept: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    When Auto-Accept Call is enabled for an available agent, the agent connects to contacts automatically.
+    """
+    desk_phone_number: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The phone number for the user's desk phone. Required if `phone_type` is set as `DESK_PHONE`.
+    """
 
 @pulumi.input_type
 class UserPhoneConfigArgs:
@@ -2417,18 +2320,15 @@ class UserPhoneConfigArgs:
         pulumi.set(self, "desk_phone_number", value)
 
 
-if not MYPY:
-    class GetBotAssociationLexBotArgsDict(TypedDict):
-        lex_region: _builtins.str
-        """
-        Region that the Amazon Lex (V1) bot was created in.
-        """
-        name: _builtins.str
-        """
-        Name of the Amazon Lex (V1) bot.
-        """
-elif False:
-    GetBotAssociationLexBotArgsDict: TypeAlias = Mapping[str, Any]
+class GetBotAssociationLexBotArgsDict(TypedDict):
+    lex_region: _builtins.str
+    """
+    Region that the Amazon Lex (V1) bot was created in.
+    """
+    name: _builtins.str
+    """
+    Name of the Amazon Lex (V1) bot.
+    """
 
 @pulumi.input_type
 class GetBotAssociationLexBotArgs:

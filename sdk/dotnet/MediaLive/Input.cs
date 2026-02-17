@@ -58,7 +58,7 @@ namespace Pulumi.Aws.MediaLive
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import MediaLive Input using the `id`. For example:
+    /// Using `pulumi import`, import MediaLive Input using the `Id`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:medialive/input:Input example 12345678

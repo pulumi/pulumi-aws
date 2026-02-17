@@ -90,7 +90,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Using `pulumi import`, import MediaLive MultiplexProgram using the `id`, or a combination of &#34;`program_name`/`multiplex_id`&#34;. For example:
+ * Using `pulumi import`, import MediaLive MultiplexProgram using the `id`, or a combination of &#34;`programName`/`multiplexId`&#34;. For example:
  * 
  * ```sh
  * $ pulumi import aws:medialive/multiplexProgram:MultiplexProgram example example_program/1234567

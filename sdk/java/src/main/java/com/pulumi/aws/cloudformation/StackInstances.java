@@ -21,6 +21,14 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
+ * Manages CloudFormation stack instances for the specified accounts, within the specified regions. A stack instance refers to a stack in a specific account and region. Additional information about stacks can be found in the [AWS CloudFormation User Guide](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacks.html).
+ * 
+ * &gt; **NOTE:** This resource will manage all stack instances for the specified `stackSetName`. If you create stack instances outside of Terraform or import existing infrastructure, ensure that your configuration includes all accounts and regions where stack instances exist for the stack set. Failing to include all accounts and regions will cause Terraform to continuously report differences between your configuration and the actual infrastructure.
+ * 
+ * &gt; **NOTE:** All target accounts must have an IAM Role created that matches the name of the execution role configured in the stack (the `executionRoleName` argument in the `aws.cloudformation.StackSet` resource) in a trust relationship with the administrative account or administration IAM Role. The execution role must have appropriate permissions to manage resources defined in the template along with those required for stacks to operate. See the [AWS CloudFormation User Guide](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-prereqs.html) for more details.
+ * 
+ * &gt; **NOTE:** To retain the Stack during Terraform resource destroy, ensure `retainStacks = true` has been successfully applied into the Terraform state first. This must be completed _before_ an apply that would destroy the resource.
+ * 
  * ## Example Usage
  * 
  * ### Basic Usage
@@ -172,14 +180,15 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Import CloudFormation stack instances that target OUs, using the stack set name, `call_as`, and &#34;OU&#34; separated by commas (`,`). For example:
+ * Import CloudFormation stack instances that target OUs, using the stack set name, `callAs`, and &#34;OU&#34; separated by commas (`,`). For example:
  * 
- * Using `pulumi import`, import CloudFormation stack instances using the stack set name and `call_as` separated by commas (`,`). If you are importing a stack instance targeting OUs, see the example below. For example:
+ * Using `pulumi import`, import CloudFormation stack instances using the stack set name and `callAs` separated by commas (`,`). If you are importing a stack instance targeting OUs, see the example below. For example:
  * 
  * ```sh
  * $ pulumi import aws:cloudformation/stackInstances:StackInstances example example,SELF
  * ```
- * Using `pulumi import`, Import CloudFormation stack instances that target OUs, using the stack set name, `call_as`, and &#34;OU&#34; separated by commas (`,`). For example:
+ * 
+ * Using `pulumi import`, Import CloudFormation stack instances that target OUs, using the stack set name, `callAs`, and &#34;OU&#34; separated by commas (`,`). For example:
  * 
  * ```sh
  * $ pulumi import aws:cloudformation/stackInstances:StackInstances example example,SELF,OU

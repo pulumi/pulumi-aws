@@ -31,14 +31,14 @@ public final class LogDeliveryS3DeliveryConfigurationArgs extends com.pulumi.res
     }
 
     /**
-     * This string allows re-configuring the S3 object prefix to contain either static or variable sections. The valid variables to use in the suffix path will vary by each log source.
+     * This string allows re-configuring the S3 object prefix to contain either static or variable sections. The valid variables to use in the suffix path will vary by each log source. **Note:** AWS automatically prepends account and service-specific prefixes (e.g., `AWSLogs/{account-id}/CloudFront/` for CloudFront sources) to the configured value. Specify only your custom suffix path without these AWS-managed prefixes.
      * 
      */
     @Import(name="suffixPath", required=true)
     private Output<String> suffixPath;
 
     /**
-     * @return This string allows re-configuring the S3 object prefix to contain either static or variable sections. The valid variables to use in the suffix path will vary by each log source.
+     * @return This string allows re-configuring the S3 object prefix to contain either static or variable sections. The valid variables to use in the suffix path will vary by each log source. **Note:** AWS automatically prepends account and service-specific prefixes (e.g., `AWSLogs/{account-id}/CloudFront/` for CloudFront sources) to the configured value. Specify only your custom suffix path without these AWS-managed prefixes.
      * 
      */
     public Output<String> suffixPath() {
@@ -92,7 +92,7 @@ public final class LogDeliveryS3DeliveryConfigurationArgs extends com.pulumi.res
         }
 
         /**
-         * @param suffixPath This string allows re-configuring the S3 object prefix to contain either static or variable sections. The valid variables to use in the suffix path will vary by each log source.
+         * @param suffixPath This string allows re-configuring the S3 object prefix to contain either static or variable sections. The valid variables to use in the suffix path will vary by each log source. **Note:** AWS automatically prepends account and service-specific prefixes (e.g., `AWSLogs/{account-id}/CloudFront/` for CloudFront sources) to the configured value. Specify only your custom suffix path without these AWS-managed prefixes.
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class LogDeliveryS3DeliveryConfigurationArgs extends com.pulumi.res
         }
 
         /**
-         * @param suffixPath This string allows re-configuring the S3 object prefix to contain either static or variable sections. The valid variables to use in the suffix path will vary by each log source.
+         * @param suffixPath This string allows re-configuring the S3 object prefix to contain either static or variable sections. The valid variables to use in the suffix path will vary by each log source. **Note:** AWS automatically prepends account and service-specific prefixes (e.g., `AWSLogs/{account-id}/CloudFront/` for CloudFront sources) to the configured value. Specify only your custom suffix path without these AWS-managed prefixes.
          * 
          * @return builder
          * 

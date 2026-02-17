@@ -37,7 +37,7 @@ namespace Pulumi.Aws.DirectConnect
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import Direct Connect LAGs using the LAG `id`. For example:
+    /// Using `pulumi import`, import Direct Connect LAGs using the LAG `Id`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:directconnect/linkAggregationGroup:LinkAggregationGroup test_lag dxlag-fgnsp5rq

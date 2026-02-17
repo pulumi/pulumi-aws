@@ -34,6 +34,8 @@ import * as utilities from "../utilities";
  * ```sh
  * $ pulumi import aws:kinesis/streamConsumer:StreamConsumer example arn:aws:kinesis:us-west-2:123456789012:stream/example/consumer/example:1616044553
  * ```
+ *
+ * [1]: https://docs.aws.amazon.com/streams/latest/dev/enhanced-consumers.html
  */
 export class StreamConsumer extends pulumi.CustomResource {
     /**

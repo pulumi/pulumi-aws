@@ -25,24 +25,19 @@ __all__ = [
     'ParameterGroupParameterArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class ClusterParameterGroupParameterArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the neptune parameter.
-        """
-        value: pulumi.Input[_builtins.str]
-        """
-        The value of the neptune parameter.
-        """
-        apply_method: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Valid values are `immediate` and `pending-reboot`. Defaults to `pending-reboot`.
-        """
-elif False:
-    ClusterParameterGroupParameterArgsDict: TypeAlias = Mapping[str, Any]
+class ClusterParameterGroupParameterArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the neptune parameter.
+    """
+    value: pulumi.Input[_builtins.str]
+    """
+    The value of the neptune parameter.
+    """
+    apply_method: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Valid values are `immediate` and `pending-reboot`. Defaults to `pending-reboot`.
+    """
 
 @pulumi.input_type
 class ClusterParameterGroupParameterArgs:
@@ -97,18 +92,15 @@ class ClusterParameterGroupParameterArgs:
         pulumi.set(self, "apply_method", value)
 
 
-if not MYPY:
-    class ClusterServerlessV2ScalingConfigurationArgsDict(TypedDict):
-        max_capacity: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        Maximum Neptune Capacity Units (NCUs) for this cluster. Must be lower or equal than **128**. See [AWS Documentation](https://docs.aws.amazon.com/neptune/latest/userguide/neptune-serverless-capacity-scaling.html) for more details.
-        """
-        min_capacity: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        Minimum Neptune Capacity Units (NCUs) for this cluster. Must be greater or equal than **1**. See [AWS Documentation](https://docs.aws.amazon.com/neptune/latest/userguide/neptune-serverless-capacity-scaling.html) for more details.
-        """
-elif False:
-    ClusterServerlessV2ScalingConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class ClusterServerlessV2ScalingConfigurationArgsDict(TypedDict):
+    max_capacity: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    Maximum Neptune Capacity Units (NCUs) for this cluster. Must be lower or equal than **128**. See [AWS Documentation](https://docs.aws.amazon.com/neptune/latest/userguide/neptune-serverless-capacity-scaling.html) for more details.
+    """
+    min_capacity: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    Minimum Neptune Capacity Units (NCUs) for this cluster. Must be greater or equal than **1**. See [AWS Documentation](https://docs.aws.amazon.com/neptune/latest/userguide/neptune-serverless-capacity-scaling.html) for more details.
+    """
 
 @pulumi.input_type
 class ClusterServerlessV2ScalingConfigurationArgs:
@@ -149,18 +141,15 @@ class ClusterServerlessV2ScalingConfigurationArgs:
         pulumi.set(self, "min_capacity", value)
 
 
-if not MYPY:
-    class GlobalClusterGlobalClusterMemberArgsDict(TypedDict):
-        db_cluster_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        ARN of member DB Cluster.
-        """
-        is_writer: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether the member is the primary DB Cluster.
-        """
-elif False:
-    GlobalClusterGlobalClusterMemberArgsDict: TypeAlias = Mapping[str, Any]
+class GlobalClusterGlobalClusterMemberArgsDict(TypedDict):
+    db_cluster_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    ARN of member DB Cluster.
+    """
+    is_writer: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether the member is the primary DB Cluster.
+    """
 
 @pulumi.input_type
 class GlobalClusterGlobalClusterMemberArgs:
@@ -201,22 +190,19 @@ class GlobalClusterGlobalClusterMemberArgs:
         pulumi.set(self, "is_writer", value)
 
 
-if not MYPY:
-    class ParameterGroupParameterArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the Neptune parameter.
-        """
-        value: pulumi.Input[_builtins.str]
-        """
-        The value of the Neptune parameter.
-        """
-        apply_method: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The apply method of the Neptune parameter. Valid values are `immediate` and `pending-reboot`. Defaults to `pending-reboot`.
-        """
-elif False:
-    ParameterGroupParameterArgsDict: TypeAlias = Mapping[str, Any]
+class ParameterGroupParameterArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the Neptune parameter.
+    """
+    value: pulumi.Input[_builtins.str]
+    """
+    The value of the Neptune parameter.
+    """
+    apply_method: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The apply method of the Neptune parameter. Valid values are `immediate` and `pending-reboot`. Defaults to `pending-reboot`.
+    """
 
 @pulumi.input_type
 class ParameterGroupParameterArgs:

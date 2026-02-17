@@ -35,7 +35,7 @@ namespace Pulumi.Aws.AppRunner
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import App Runner Custom Domain Associations using the `domain_name` and `service_arn` separated by a comma (`,`). For example:
+    /// Using `pulumi import`, import App Runner Custom Domain Associations using the `DomainName` and `ServiceArn` separated by a comma (`,`). For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:apprunner/customDomainAssociation:CustomDomainAssociation example example.com,arn:aws:apprunner:us-east-1:123456789012:service/example-app/8fe1e10304f84fd2b0df550fe98a71fa

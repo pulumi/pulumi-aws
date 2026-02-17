@@ -5079,6 +5079,22 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "ec2/secondaryNetwork",
+  "fqn": "pulumi_aws.ec2",
+  "classes": {
+   "aws:ec2/secondaryNetwork:SecondaryNetwork": "SecondaryNetwork"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "ec2/secondarySubnet",
+  "fqn": "pulumi_aws.ec2",
+  "classes": {
+   "aws:ec2/secondarySubnet:SecondarySubnet": "SecondarySubnet"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "ec2/securityGroup",
   "fqn": "pulumi_aws.ec2",
   "classes": {

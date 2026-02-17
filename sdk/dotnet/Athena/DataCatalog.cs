@@ -119,7 +119,7 @@ namespace Pulumi.Aws.Athena
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import data catalogs using their `name`. For example:
+    /// Using `pulumi import`, import data catalogs using their `Name`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:athena/dataCatalog:DataCatalog example example-data-catalog

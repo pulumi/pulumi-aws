@@ -27,24 +27,19 @@ __all__ = [
     'ViewTimeoutsArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class ViewDataFilterExpressionArgsDict(TypedDict):
-        dimensions: NotRequired[pulumi.Input['ViewDataFilterExpressionDimensionsArgsDict']]
-        """
-        Dimension to use for `expression`. Refer to #dimensions for more details.
-        """
-        tags: NotRequired[pulumi.Input[Sequence[pulumi.Input['ViewDataFilterExpressionTagArgsDict']]]]
-        """
-        List of key value map specifying tags associated to the billing view being created.
-        """
-        time_range: NotRequired[pulumi.Input['ViewDataFilterExpressionTimeRangeArgsDict']]
-        """
-        Time range to use for `expression`. Refer to #time-range for more details.
-        """
-elif False:
-    ViewDataFilterExpressionArgsDict: TypeAlias = Mapping[str, Any]
+class ViewDataFilterExpressionArgsDict(TypedDict):
+    dimensions: NotRequired[pulumi.Input['ViewDataFilterExpressionDimensionsArgsDict']]
+    """
+    Dimension to use for `expression`. Refer to #dimensions for more details.
+    """
+    tags: NotRequired[pulumi.Input[Sequence[pulumi.Input['ViewDataFilterExpressionTagArgsDict']]]]
+    """
+    List of key value map specifying tags associated to the billing view being created.
+    """
+    time_range: NotRequired[pulumi.Input['ViewDataFilterExpressionTimeRangeArgsDict']]
+    """
+    Time range to use for `expression`. Refer to #time-range for more details.
+    """
 
 @pulumi.input_type
 class ViewDataFilterExpressionArgs:
@@ -101,18 +96,15 @@ class ViewDataFilterExpressionArgs:
         pulumi.set(self, "time_range", value)
 
 
-if not MYPY:
-    class ViewDataFilterExpressionDimensionsArgsDict(TypedDict):
-        key: pulumi.Input[_builtins.str]
-        """
-        Key of the dimension. Possible values are `LINKED_ACCOUNT`.
-        """
-        values: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        List of metadata values that you can use to filter and group your results.
-        """
-elif False:
-    ViewDataFilterExpressionDimensionsArgsDict: TypeAlias = Mapping[str, Any]
+class ViewDataFilterExpressionDimensionsArgsDict(TypedDict):
+    key: pulumi.Input[_builtins.str]
+    """
+    Key of the dimension. Possible values are `LINKED_ACCOUNT`.
+    """
+    values: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    List of metadata values that you can use to filter and group your results.
+    """
 
 @pulumi.input_type
 class ViewDataFilterExpressionDimensionsArgs:
@@ -151,18 +143,15 @@ class ViewDataFilterExpressionDimensionsArgs:
         pulumi.set(self, "values", value)
 
 
-if not MYPY:
-    class ViewDataFilterExpressionTagArgsDict(TypedDict):
-        key: pulumi.Input[_builtins.str]
-        """
-        Key of the tag.
-        """
-        values: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        List of values for the tag.
-        """
-elif False:
-    ViewDataFilterExpressionTagArgsDict: TypeAlias = Mapping[str, Any]
+class ViewDataFilterExpressionTagArgsDict(TypedDict):
+    key: pulumi.Input[_builtins.str]
+    """
+    Key of the tag.
+    """
+    values: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    List of values for the tag.
+    """
 
 @pulumi.input_type
 class ViewDataFilterExpressionTagArgs:
@@ -201,15 +190,12 @@ class ViewDataFilterExpressionTagArgs:
         pulumi.set(self, "values", value)
 
 
-if not MYPY:
-    class ViewDataFilterExpressionTimeRangeArgsDict(TypedDict):
-        begin_date_inclusive: pulumi.Input[_builtins.str]
-        """
-        Inclusive end date of the time range.
-        """
-        end_date_inclusive: pulumi.Input[_builtins.str]
-elif False:
-    ViewDataFilterExpressionTimeRangeArgsDict: TypeAlias = Mapping[str, Any]
+class ViewDataFilterExpressionTimeRangeArgsDict(TypedDict):
+    begin_date_inclusive: pulumi.Input[_builtins.str]
+    """
+    Inclusive end date of the time range.
+    """
+    end_date_inclusive: pulumi.Input[_builtins.str]
 
 @pulumi.input_type
 class ViewDataFilterExpressionTimeRangeArgs:
@@ -244,22 +230,19 @@ class ViewDataFilterExpressionTimeRangeArgs:
         pulumi.set(self, "end_date_inclusive", value)
 
 
-if not MYPY:
-    class ViewTimeoutsArgsDict(TypedDict):
-        create: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
-        """
-        delete: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
-        """
-        update: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
-        """
-elif False:
-    ViewTimeoutsArgsDict: TypeAlias = Mapping[str, Any]
+class ViewTimeoutsArgsDict(TypedDict):
+    create: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+    """
+    delete: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+    """
+    update: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+    """
 
 @pulumi.input_type
 class ViewTimeoutsArgs:

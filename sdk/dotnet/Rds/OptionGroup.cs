@@ -81,7 +81,7 @@ namespace Pulumi.Aws.Rds
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import DB option groups using the `name`. For example:
+    /// Using `pulumi import`, import DB option groups using the `Name`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:rds/optionGroup:OptionGroup example mysql-option-group

@@ -38,7 +38,7 @@ namespace Pulumi.Aws.Vpc
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import a VPC (Virtual Private Cloud) Endpoint Private DNS using the `vpc_endpoint_id`. For example:
+    /// Using `pulumi import`, import a VPC (Virtual Private Cloud) Endpoint Private DNS using the `VpcEndpointId`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:vpc/endpointPrivateDns:EndpointPrivateDns example vpce-abcd-1234

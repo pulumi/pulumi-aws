@@ -67,7 +67,8 @@ type IamPolicyAssignment struct {
 	//
 	// The following arguments are optional:
 	AssignmentStatus pulumi.StringOutput `pulumi:"assignmentStatus"`
-	AwsAccountId     pulumi.StringOutput `pulumi:"awsAccountId"`
+	// AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
+	AwsAccountId pulumi.StringOutput `pulumi:"awsAccountId"`
 	// Amazon QuickSight users, groups, or both to assign the policy to. See `identities` block.
 	Identities IamPolicyAssignmentIdentitiesPtrOutput `pulumi:"identities"`
 	// Namespace that contains the assignment. Defaults to `default`.
@@ -122,7 +123,8 @@ type iamPolicyAssignmentState struct {
 	//
 	// The following arguments are optional:
 	AssignmentStatus *string `pulumi:"assignmentStatus"`
-	AwsAccountId     *string `pulumi:"awsAccountId"`
+	// AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
+	AwsAccountId *string `pulumi:"awsAccountId"`
 	// Amazon QuickSight users, groups, or both to assign the policy to. See `identities` block.
 	Identities *IamPolicyAssignmentIdentities `pulumi:"identities"`
 	// Namespace that contains the assignment. Defaults to `default`.
@@ -142,7 +144,8 @@ type IamPolicyAssignmentState struct {
 	//
 	// The following arguments are optional:
 	AssignmentStatus pulumi.StringPtrInput
-	AwsAccountId     pulumi.StringPtrInput
+	// AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
+	AwsAccountId pulumi.StringPtrInput
 	// Amazon QuickSight users, groups, or both to assign the policy to. See `identities` block.
 	Identities IamPolicyAssignmentIdentitiesPtrInput
 	// Namespace that contains the assignment. Defaults to `default`.
@@ -163,8 +166,9 @@ type iamPolicyAssignmentArgs struct {
 	// Status of the assignment. Valid values are `ENABLED`, `DISABLED`, and `DRAFT`.
 	//
 	// The following arguments are optional:
-	AssignmentStatus string  `pulumi:"assignmentStatus"`
-	AwsAccountId     *string `pulumi:"awsAccountId"`
+	AssignmentStatus string `pulumi:"assignmentStatus"`
+	// AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
+	AwsAccountId *string `pulumi:"awsAccountId"`
 	// Amazon QuickSight users, groups, or both to assign the policy to. See `identities` block.
 	Identities *IamPolicyAssignmentIdentities `pulumi:"identities"`
 	// Namespace that contains the assignment. Defaults to `default`.
@@ -183,7 +187,8 @@ type IamPolicyAssignmentArgs struct {
 	//
 	// The following arguments are optional:
 	AssignmentStatus pulumi.StringInput
-	AwsAccountId     pulumi.StringPtrInput
+	// AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
+	AwsAccountId pulumi.StringPtrInput
 	// Amazon QuickSight users, groups, or both to assign the policy to. See `identities` block.
 	Identities IamPolicyAssignmentIdentitiesPtrInput
 	// Namespace that contains the assignment. Defaults to `default`.
@@ -298,6 +303,7 @@ func (o IamPolicyAssignmentOutput) AssignmentStatus() pulumi.StringOutput {
 	return o.ApplyT(func(v *IamPolicyAssignment) pulumi.StringOutput { return v.AssignmentStatus }).(pulumi.StringOutput)
 }
 
+// AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
 func (o IamPolicyAssignmentOutput) AwsAccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *IamPolicyAssignment) pulumi.StringOutput { return v.AwsAccountId }).(pulumi.StringOutput)
 }

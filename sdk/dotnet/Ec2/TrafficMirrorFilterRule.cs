@@ -72,7 +72,7 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import traffic mirror rules using the `traffic_mirror_filter_id` and `id` separated by `:`. For example:
+    /// Using `pulumi import`, import traffic mirror rules using the `TrafficMirrorFilterId` and `Id` separated by `:`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:ec2/trafficMirrorFilterRule:TrafficMirrorFilterRule rule tmf-0fbb93ddf38198f64:tmfr-05a458f06445d0aee

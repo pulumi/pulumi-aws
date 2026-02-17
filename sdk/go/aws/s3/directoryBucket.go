@@ -77,6 +77,17 @@ import (
 //
 // ## Import
 //
+// ### Identity Schema
+//
+// #### Required
+//
+// * `bucket` (String) Name of the S3 Directory Bucket.
+//
+// #### Optional
+//
+// * `accountId` (String) AWS Account where this resource is managed.
+// * `region` (String) Region where this resource is managed.
+//
 // Using `pulumi import`, import S3 bucket using `bucket`. For example:
 //
 // ```sh

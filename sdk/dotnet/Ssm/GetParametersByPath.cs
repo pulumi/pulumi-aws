@@ -11,12 +11,81 @@ namespace Pulumi.Aws.Ssm
 {
     public static class GetParametersByPath
     {
+        /// <summary>
+        /// Use this data source to get information about one or more System Manager parameters in a specific hierarchy.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.Ssm.GetParametersByPath.Invoke(new()
+        ///     {
+        ///         Path = "/site/newyork/department/",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// 
+        /// &gt; **Note:** When the `WithDecryption` argument is set to `True`, the unencrypted values of `SecureString` parameters will be stored in the raw state as plain-text as per normal Terraform behavior. &gt; **Note:** The data source follows the behavior of the [SSM API](https://docs.aws.amazon.com/sdk-for-go/api/service/ssm/#Parameter) to return a string value, regardless of parameter type. For `StringList` type where the value is returned as a comma-separated string with no spaces between comma, you may use the built-in split function to get values in a list. Example: `split(",", data.aws_ssm_parameter.subnets.value)`
+        /// </summary>
         public static Task<GetParametersByPathResult> InvokeAsync(GetParametersByPathArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetParametersByPathResult>("aws:ssm/getParametersByPath:getParametersByPath", args ?? new GetParametersByPathArgs(), options.WithDefaults());
 
+        /// <summary>
+        /// Use this data source to get information about one or more System Manager parameters in a specific hierarchy.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.Ssm.GetParametersByPath.Invoke(new()
+        ///     {
+        ///         Path = "/site/newyork/department/",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// 
+        /// &gt; **Note:** When the `WithDecryption` argument is set to `True`, the unencrypted values of `SecureString` parameters will be stored in the raw state as plain-text as per normal Terraform behavior. &gt; **Note:** The data source follows the behavior of the [SSM API](https://docs.aws.amazon.com/sdk-for-go/api/service/ssm/#Parameter) to return a string value, regardless of parameter type. For `StringList` type where the value is returned as a comma-separated string with no spaces between comma, you may use the built-in split function to get values in a list. Example: `split(",", data.aws_ssm_parameter.subnets.value)`
+        /// </summary>
         public static Output<GetParametersByPathResult> Invoke(GetParametersByPathInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetParametersByPathResult>("aws:ssm/getParametersByPath:getParametersByPath", args ?? new GetParametersByPathInvokeArgs(), options.WithDefaults());
 
+        /// <summary>
+        /// Use this data source to get information about one or more System Manager parameters in a specific hierarchy.
+        /// 
+        /// ## Example Usage
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Aws = Pulumi.Aws;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Aws.Ssm.GetParametersByPath.Invoke(new()
+        ///     {
+        ///         Path = "/site/newyork/department/",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// 
+        /// &gt; **Note:** When the `WithDecryption` argument is set to `True`, the unencrypted values of `SecureString` parameters will be stored in the raw state as plain-text as per normal Terraform behavior. &gt; **Note:** The data source follows the behavior of the [SSM API](https://docs.aws.amazon.com/sdk-for-go/api/service/ssm/#Parameter) to return a string value, regardless of parameter type. For `StringList` type where the value is returned as a comma-separated string with no spaces between comma, you may use the built-in split function to get values in a list. Example: `split(",", data.aws_ssm_parameter.subnets.value)`
+        /// </summary>
         public static Output<GetParametersByPathResult> Invoke(GetParametersByPathInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetParametersByPathResult>("aws:ssm/getParametersByPath:getParametersByPath", args ?? new GetParametersByPathInvokeArgs(), options.WithDefaults());
     }

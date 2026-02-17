@@ -22,7 +22,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Using `pulumi import`, import `aws_lightsail_static_ip` using the name attribute. For example:
+ * Using `pulumi import`, import `aws.lightsail.StaticIp` using the name attribute. For example:
  *
  * ```sh
  * $ pulumi import aws:lightsail/staticIp:StaticIp example example

@@ -72,12 +72,29 @@ namespace Pulumi.Aws.Fsx
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import FSx Storage Virtual Machine using the `id`. For example:
+    /// Using `pulumi import`, import FSx Storage Virtual Machine using the `Id`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:fsx/ontapStorageVirtualMachine:OntapStorageVirtualMachine example svm-12345678abcdef123
     /// ```
-    /// Certain resource arguments, like `svm_admin_password` and the `self_managed_active_directory` configuation block `password`, do not have a FSx API method for reading the information after creation. If these arguments are set in the Pulumi program on an imported resource, Pulumi will always show a difference. To workaround this behavior, either omit the argument from the Pulumi program or use `ignore_changes` to hide the difference. For example:
+    /// 
+    /// Certain resource arguments, like `SvmAdminPassword` and the `SelfManagedActiveDirectory` configuation block `Password`, do not have a FSx API method for reading the information after creation. If these arguments are set in the Pulumi program on an imported resource, Pulumi will always show a difference. To workaround this behavior, either omit the argument from the Pulumi program or use `IgnoreChanges` to hide the difference. For example:
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.Fsx.OntapStorageVirtualMachine("example", new()
+    ///     {
+    ///         SvmAdminPassword = "avoid-plaintext-passwords",
+    ///     });
+    /// 
+    /// });
+    /// ```
     /// </summary>
     [AwsResourceType("aws:fsx/ontapStorageVirtualMachine:OntapStorageVirtualMachine")]
     public partial class OntapStorageVirtualMachine : global::Pulumi.CustomResource

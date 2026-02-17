@@ -45,17 +45,12 @@ __all__ = [
     'RevisionAssetsTimeoutsArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class EventActionActionArgsDict(TypedDict):
-        export_revision_to_s3: pulumi.Input['EventActionActionExportRevisionToS3ArgsDict']
-        """
-        Configuration for an Export Revision to S3 action.
-        Described in `export_revision_to_s3` Configuration Block
-        """
-elif False:
-    EventActionActionArgsDict: TypeAlias = Mapping[str, Any]
+class EventActionActionArgsDict(TypedDict):
+    export_revision_to_s3: pulumi.Input['EventActionActionExportRevisionToS3ArgsDict']
+    """
+    Configuration for an Export Revision to S3 action.
+    Described in `export_revision_to_s3` Configuration Block
+    """
 
 @pulumi.input_type
 class EventActionActionArgs:
@@ -81,20 +76,17 @@ class EventActionActionArgs:
         pulumi.set(self, "export_revision_to_s3", value)
 
 
-if not MYPY:
-    class EventActionActionExportRevisionToS3ArgsDict(TypedDict):
-        revision_destination: pulumi.Input['EventActionActionExportRevisionToS3RevisionDestinationArgsDict']
-        """
-        Configures the S3 destination of the exported revision.
-        Described in `revision_destination` Configuration Block below.
-        """
-        encryption: NotRequired[pulumi.Input['EventActionActionExportRevisionToS3EncryptionArgsDict']]
-        """
-        Configures server-side encryption of the exported revision.
-        Described in `encryption` Configuration Block below.
-        """
-elif False:
-    EventActionActionExportRevisionToS3ArgsDict: TypeAlias = Mapping[str, Any]
+class EventActionActionExportRevisionToS3ArgsDict(TypedDict):
+    revision_destination: pulumi.Input['EventActionActionExportRevisionToS3RevisionDestinationArgsDict']
+    """
+    Configures the S3 destination of the exported revision.
+    Described in `revision_destination` Configuration Block below.
+    """
+    encryption: NotRequired[pulumi.Input['EventActionActionExportRevisionToS3EncryptionArgsDict']]
+    """
+    Configures server-side encryption of the exported revision.
+    Described in `encryption` Configuration Block below.
+    """
 
 @pulumi.input_type
 class EventActionActionExportRevisionToS3Args:
@@ -138,19 +130,16 @@ class EventActionActionExportRevisionToS3Args:
         pulumi.set(self, "encryption", value)
 
 
-if not MYPY:
-    class EventActionActionExportRevisionToS3EncryptionArgsDict(TypedDict):
-        kms_key_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        ARN of the KMS key used for encryption.
-        """
-        type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Type of server-side encryption.
-        Valid values are `aws:kms` or `aws:s3`.
-        """
-elif False:
-    EventActionActionExportRevisionToS3EncryptionArgsDict: TypeAlias = Mapping[str, Any]
+class EventActionActionExportRevisionToS3EncryptionArgsDict(TypedDict):
+    kms_key_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    ARN of the KMS key used for encryption.
+    """
+    type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Type of server-side encryption.
+    Valid values are `aws:kms` or `aws:s3`.
+    """
 
 @pulumi.input_type
 class EventActionActionExportRevisionToS3EncryptionArgs:
@@ -193,19 +182,16 @@ class EventActionActionExportRevisionToS3EncryptionArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class EventActionActionExportRevisionToS3RevisionDestinationArgsDict(TypedDict):
-        bucket: pulumi.Input[_builtins.str]
-        """
-        The S3 bucket where the revision will be exported.
-        """
-        key_pattern: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Pattern for naming revisions in the S3 bucket.
-        Defaults to `${Revision.CreatedAt}/${Asset.Name}`.
-        """
-elif False:
-    EventActionActionExportRevisionToS3RevisionDestinationArgsDict: TypeAlias = Mapping[str, Any]
+class EventActionActionExportRevisionToS3RevisionDestinationArgsDict(TypedDict):
+    bucket: pulumi.Input[_builtins.str]
+    """
+    The S3 bucket where the revision will be exported.
+    """
+    key_pattern: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Pattern for naming revisions in the S3 bucket.
+    Defaults to `${Revision.CreatedAt}/${Asset.Name}`.
+    """
 
 @pulumi.input_type
 class EventActionActionExportRevisionToS3RevisionDestinationArgs:
@@ -247,15 +233,12 @@ class EventActionActionExportRevisionToS3RevisionDestinationArgs:
         pulumi.set(self, "key_pattern", value)
 
 
-if not MYPY:
-    class EventActionEventArgsDict(TypedDict):
-        revision_published: pulumi.Input['EventActionEventRevisionPublishedArgsDict']
-        """
-        Configuration for a Revision Published event.
-        Described in `revision_published` Configuration Block below.
-        """
-elif False:
-    EventActionEventArgsDict: TypeAlias = Mapping[str, Any]
+class EventActionEventArgsDict(TypedDict):
+    revision_published: pulumi.Input['EventActionEventRevisionPublishedArgsDict']
+    """
+    Configuration for a Revision Published event.
+    Described in `revision_published` Configuration Block below.
+    """
 
 @pulumi.input_type
 class EventActionEventArgs:
@@ -281,15 +264,12 @@ class EventActionEventArgs:
         pulumi.set(self, "revision_published", value)
 
 
-if not MYPY:
-    class EventActionEventRevisionPublishedArgsDict(TypedDict):
-        data_set_id: pulumi.Input[_builtins.str]
-        """
-        The ID of the data set to monitor for revision publications.
-        Changing this value will recreate the resource.
-        """
-elif False:
-    EventActionEventRevisionPublishedArgsDict: TypeAlias = Mapping[str, Any]
+class EventActionEventRevisionPublishedArgsDict(TypedDict):
+    data_set_id: pulumi.Input[_builtins.str]
+    """
+    The ID of the data set to monitor for revision publications.
+    Changing this value will recreate the resource.
+    """
 
 @pulumi.input_type
 class EventActionEventRevisionPublishedArgs:
@@ -315,39 +295,36 @@ class EventActionEventRevisionPublishedArgs:
         pulumi.set(self, "data_set_id", value)
 
 
-if not MYPY:
-    class RevisionAssetsAssetArgsDict(TypedDict):
-        arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ARN of the Data Exchange Revision Assets.
-        """
-        create_s3_data_access_from_s3_bucket: NotRequired[pulumi.Input['RevisionAssetsAssetCreateS3DataAccessFromS3BucketArgsDict']]
-        """
-        A block to create S3 data access from an S3 bucket. See Create S3 Data Access from S3 Bucket for more details.
-        """
-        created_at: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The timestamp when the revision was created, in RFC3339 format.
-        """
-        id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The unique identifier for the revision.
-        """
-        import_assets_from_s3: NotRequired[pulumi.Input['RevisionAssetsAssetImportAssetsFromS3ArgsDict']]
-        """
-        A block to import assets from S3. See Import Assets from S3 for more details.
-        """
-        import_assets_from_signed_url: NotRequired[pulumi.Input['RevisionAssetsAssetImportAssetsFromSignedUrlArgsDict']]
-        """
-        A block to import assets from a signed URL. See Import Assets from Signed URL for more details.
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        updated_at: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The timestamp when the revision was last updated, in RFC3339 format.
-        """
-elif False:
-    RevisionAssetsAssetArgsDict: TypeAlias = Mapping[str, Any]
+class RevisionAssetsAssetArgsDict(TypedDict):
+    arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ARN of the Data Exchange Revision Assets.
+    """
+    create_s3_data_access_from_s3_bucket: NotRequired[pulumi.Input['RevisionAssetsAssetCreateS3DataAccessFromS3BucketArgsDict']]
+    """
+    A block to create S3 data access from an S3 bucket. See Create S3 Data Access from S3 Bucket for more details.
+    """
+    created_at: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The timestamp when the revision was created, in RFC3339 format.
+    """
+    id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The unique identifier for the revision.
+    """
+    import_assets_from_s3: NotRequired[pulumi.Input['RevisionAssetsAssetImportAssetsFromS3ArgsDict']]
+    """
+    A block to import assets from S3. See Import Assets from S3 for more details.
+    """
+    import_assets_from_signed_url: NotRequired[pulumi.Input['RevisionAssetsAssetImportAssetsFromSignedUrlArgsDict']]
+    """
+    A block to import assets from a signed URL. See Import Assets from Signed URL for more details.
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    updated_at: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The timestamp when the revision was last updated, in RFC3339 format.
+    """
 
 @pulumi.input_type
 class RevisionAssetsAssetArgs:
@@ -480,16 +457,13 @@ class RevisionAssetsAssetArgs:
         pulumi.set(self, "updated_at", value)
 
 
-if not MYPY:
-    class RevisionAssetsAssetCreateS3DataAccessFromS3BucketArgsDict(TypedDict):
-        access_point_alias: NotRequired[pulumi.Input[_builtins.str]]
-        access_point_arn: NotRequired[pulumi.Input[_builtins.str]]
-        asset_source: NotRequired[pulumi.Input['RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourceArgsDict']]
-        """
-        A block specifying the source bucket for the asset. This block supports the following:
-        """
-elif False:
-    RevisionAssetsAssetCreateS3DataAccessFromS3BucketArgsDict: TypeAlias = Mapping[str, Any]
+class RevisionAssetsAssetCreateS3DataAccessFromS3BucketArgsDict(TypedDict):
+    access_point_alias: NotRequired[pulumi.Input[_builtins.str]]
+    access_point_arn: NotRequired[pulumi.Input[_builtins.str]]
+    asset_source: NotRequired[pulumi.Input['RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourceArgsDict']]
+    """
+    A block specifying the source bucket for the asset. This block supports the following:
+    """
 
 @pulumi.input_type
 class RevisionAssetsAssetCreateS3DataAccessFromS3BucketArgs:
@@ -538,23 +512,20 @@ class RevisionAssetsAssetCreateS3DataAccessFromS3BucketArgs:
         pulumi.set(self, "asset_source", value)
 
 
-if not MYPY:
-    class RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourceArgsDict(TypedDict):
-        bucket: pulumi.Input[_builtins.str]
-        """
-        The name of the S3 bucket.
-        """
-        key_prefixes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        List of key prefixes in the S3 bucket.
-        """
-        keys: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        List of object keys in the S3 bucket.
-        """
-        kms_keys_to_grants: NotRequired[pulumi.Input[Sequence[pulumi.Input['RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourceKmsKeysToGrantArgsDict']]]]
-elif False:
-    RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourceArgsDict: TypeAlias = Mapping[str, Any]
+class RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourceArgsDict(TypedDict):
+    bucket: pulumi.Input[_builtins.str]
+    """
+    The name of the S3 bucket.
+    """
+    key_prefixes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    List of key prefixes in the S3 bucket.
+    """
+    keys: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    List of object keys in the S3 bucket.
+    """
+    kms_keys_to_grants: NotRequired[pulumi.Input[Sequence[pulumi.Input['RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourceKmsKeysToGrantArgsDict']]]]
 
 @pulumi.input_type
 class RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourceArgs:
@@ -622,14 +593,11 @@ class RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourceArgs:
         pulumi.set(self, "kms_keys_to_grants", value)
 
 
-if not MYPY:
-    class RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourceKmsKeysToGrantArgsDict(TypedDict):
-        kms_key_arn: pulumi.Input[_builtins.str]
-        """
-        The ARN of the KMS key.
-        """
-elif False:
-    RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourceKmsKeysToGrantArgsDict: TypeAlias = Mapping[str, Any]
+class RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourceKmsKeysToGrantArgsDict(TypedDict):
+    kms_key_arn: pulumi.Input[_builtins.str]
+    """
+    The ARN of the KMS key.
+    """
 
 @pulumi.input_type
 class RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourceKmsKeysToGrantArgs:
@@ -653,14 +621,11 @@ class RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourceKmsKeysToGrant
         pulumi.set(self, "kms_key_arn", value)
 
 
-if not MYPY:
-    class RevisionAssetsAssetImportAssetsFromS3ArgsDict(TypedDict):
-        asset_source: NotRequired[pulumi.Input['RevisionAssetsAssetImportAssetsFromS3AssetSourceArgsDict']]
-        """
-        A block specifying the source bucket and key for the asset. This block supports the following:
-        """
-elif False:
-    RevisionAssetsAssetImportAssetsFromS3ArgsDict: TypeAlias = Mapping[str, Any]
+class RevisionAssetsAssetImportAssetsFromS3ArgsDict(TypedDict):
+    asset_source: NotRequired[pulumi.Input['RevisionAssetsAssetImportAssetsFromS3AssetSourceArgsDict']]
+    """
+    A block specifying the source bucket and key for the asset. This block supports the following:
+    """
 
 @pulumi.input_type
 class RevisionAssetsAssetImportAssetsFromS3Args:
@@ -685,18 +650,15 @@ class RevisionAssetsAssetImportAssetsFromS3Args:
         pulumi.set(self, "asset_source", value)
 
 
-if not MYPY:
-    class RevisionAssetsAssetImportAssetsFromS3AssetSourceArgsDict(TypedDict):
-        bucket: pulumi.Input[_builtins.str]
-        """
-        The name of the S3 bucket.
-        """
-        key: pulumi.Input[_builtins.str]
-        """
-        The key of the object in the S3 bucket.
-        """
-elif False:
-    RevisionAssetsAssetImportAssetsFromS3AssetSourceArgsDict: TypeAlias = Mapping[str, Any]
+class RevisionAssetsAssetImportAssetsFromS3AssetSourceArgsDict(TypedDict):
+    bucket: pulumi.Input[_builtins.str]
+    """
+    The name of the S3 bucket.
+    """
+    key: pulumi.Input[_builtins.str]
+    """
+    The key of the object in the S3 bucket.
+    """
 
 @pulumi.input_type
 class RevisionAssetsAssetImportAssetsFromS3AssetSourceArgs:
@@ -735,14 +697,11 @@ class RevisionAssetsAssetImportAssetsFromS3AssetSourceArgs:
         pulumi.set(self, "key", value)
 
 
-if not MYPY:
-    class RevisionAssetsAssetImportAssetsFromSignedUrlArgsDict(TypedDict):
-        filename: pulumi.Input[_builtins.str]
-        """
-        The name of the file to import.
-        """
-elif False:
-    RevisionAssetsAssetImportAssetsFromSignedUrlArgsDict: TypeAlias = Mapping[str, Any]
+class RevisionAssetsAssetImportAssetsFromSignedUrlArgsDict(TypedDict):
+    filename: pulumi.Input[_builtins.str]
+    """
+    The name of the file to import.
+    """
 
 @pulumi.input_type
 class RevisionAssetsAssetImportAssetsFromSignedUrlArgs:
@@ -766,14 +725,11 @@ class RevisionAssetsAssetImportAssetsFromSignedUrlArgs:
         pulumi.set(self, "filename", value)
 
 
-if not MYPY:
-    class RevisionAssetsTimeoutsArgsDict(TypedDict):
-        create: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
-        """
-elif False:
-    RevisionAssetsTimeoutsArgsDict: TypeAlias = Mapping[str, Any]
+class RevisionAssetsTimeoutsArgsDict(TypedDict):
+    create: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+    """
 
 @pulumi.input_type
 class RevisionAssetsTimeoutsArgs:

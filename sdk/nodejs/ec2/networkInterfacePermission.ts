@@ -34,7 +34,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Using `pulumi import`, import Network Interface Permissions using the `network_interface_permission_id`. For example:
+ * Using `pulumi import`, import Network Interface Permissions using the `networkInterfacePermissionId`. For example:
  *
  * ```sh
  * $ pulumi import aws:ec2/networkInterfacePermission:NetworkInterfacePermission example eni-perm-056ad97ce2ac377ed

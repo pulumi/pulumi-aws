@@ -47,7 +47,7 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import `aws_ec2_fleet` using the Fleet identifier. For example:
+    /// Using `pulumi import`, import `aws.ec2.Fleet` using the Fleet identifier. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:ec2/fleet:Fleet example fleet-b9b55d27-c5fc-41ac-a6f3-48fcc91f080c

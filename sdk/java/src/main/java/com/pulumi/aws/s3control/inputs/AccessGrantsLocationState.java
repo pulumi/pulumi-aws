@@ -46,9 +46,17 @@ public final class AccessGrantsLocationState extends com.pulumi.resources.Resour
         return Optional.ofNullable(this.accessGrantsLocationId);
     }
 
+    /**
+     * The AWS account ID for the S3 Access Grants location. Defaults to automatically determined account ID of the Terraform AWS provider.
+     * 
+     */
     @Import(name="accountId")
     private @Nullable Output<String> accountId;
 
+    /**
+     * @return The AWS account ID for the S3 Access Grants location. Defaults to automatically determined account ID of the Terraform AWS provider.
+     * 
+     */
     public Optional<Output<String>> accountId() {
         return Optional.ofNullable(this.accountId);
     }
@@ -203,11 +211,23 @@ public final class AccessGrantsLocationState extends com.pulumi.resources.Resour
             return accessGrantsLocationId(Output.of(accessGrantsLocationId));
         }
 
+        /**
+         * @param accountId The AWS account ID for the S3 Access Grants location. Defaults to automatically determined account ID of the Terraform AWS provider.
+         * 
+         * @return builder
+         * 
+         */
         public Builder accountId(@Nullable Output<String> accountId) {
             $.accountId = accountId;
             return this;
         }
 
+        /**
+         * @param accountId The AWS account ID for the S3 Access Grants location. Defaults to automatically determined account ID of the Terraform AWS provider.
+         * 
+         * @return builder
+         * 
+         */
         public Builder accountId(String accountId) {
             return accountId(Output.of(accountId));
         }

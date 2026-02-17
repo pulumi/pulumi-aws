@@ -15,6 +15,14 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
+ * Resource for managing an AWS Security Hub Standards Control Association.
+ * 
+ * Disable/enable Security Hub security control in the standard.
+ * 
+ * The `aws.securityhub.StandardsControlAssociation`, similarly to `aws.securityhub.StandardsControl`,
+ * behaves differently from normal resources, in that Terraform does not _create_ this resource, but instead &#34;adopts&#34; it
+ * into management. When you _delete_ this resource configuration, Terraform &#34;abandons&#34; resource as is and just removes it from the state.
+ * 
  * ## Example Usage
  * 
  * ### Basic usage

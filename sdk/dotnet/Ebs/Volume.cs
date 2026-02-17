@@ -37,7 +37,7 @@ namespace Pulumi.Aws.Ebs
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import EBS Volumes using the `id`. For example:
+    /// Using `pulumi import`, import EBS Volumes using the `Id`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:ebs/volume:Volume id vol-049df61146c4d7901

@@ -496,8 +496,6 @@ class BrokerUser(dict):
         :param _builtins.bool console_access: Whether to enable access to the [ActiveMQ Web Console](http://activemq.apache.org/web-console.html) for the user. Applies to `engine_type` of `ActiveMQ` only.
         :param Sequence[_builtins.str] groups: List of groups (20 maximum) to which the ActiveMQ user belongs. Applies to `engine_type` of `ActiveMQ` only.
         :param _builtins.bool replication_user: Whether to set replication user. Defaults to `false`.
-               
-               > **NOTE:** AWS currently does not support updating RabbitMQ users. Updates to users can only be in the RabbitMQ UI.
         """
         pulumi.set(__self__, "password", password)
         pulumi.set(__self__, "username", username)
@@ -547,8 +545,6 @@ class BrokerUser(dict):
     def replication_user(self) -> Optional[_builtins.bool]:
         """
         Whether to set replication user. Defaults to `false`.
-
-        > **NOTE:** AWS currently does not support updating RabbitMQ users. Updates to users can only be in the RabbitMQ UI.
         """
         return pulumi.get(self, "replication_user")
 

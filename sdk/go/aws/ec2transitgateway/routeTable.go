@@ -42,7 +42,7 @@ import (
 //
 // ## Import
 //
-// Using `pulumi import`, import `aws_ec2_transit_gateway_route_table` using the EC2 Transit Gateway Route Table identifier. For example:
+// Using `pulumi import`, import `ec2transitgateway.RouteTable` using the EC2 Transit Gateway Route Table identifier. For example:
 //
 // ```sh
 // $ pulumi import aws:ec2transitgateway/routeTable:RouteTable example tgw-rtb-12345678

@@ -39,7 +39,7 @@ namespace Pulumi.Aws.Chime
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import a ChimeSDKVoice SIP Media Application using the `id`. For example:
+    /// Using `pulumi import`, import a ChimeSDKVoice SIP Media Application using the `Id`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:chime/sdkvoiceSipMediaApplication:SdkvoiceSipMediaApplication example abcdef123456

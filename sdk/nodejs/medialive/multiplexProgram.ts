@@ -53,7 +53,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Using `pulumi import`, import MediaLive MultiplexProgram using the `id`, or a combination of "`program_name`/`multiplex_id`". For example:
+ * Using `pulumi import`, import MediaLive MultiplexProgram using the `id`, or a combination of "`programName`/`multiplexId`". For example:
  *
  * ```sh
  * $ pulumi import aws:medialive/multiplexProgram:MultiplexProgram example example_program/1234567

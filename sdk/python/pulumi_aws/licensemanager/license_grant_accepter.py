@@ -246,7 +246,7 @@ class LicenseGrantAccepter(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import `aws_licensemanager_grant_accepter` using the grant arn. For example:
+        Using `pulumi import`, import `licensemanager.LicenseGrantAccepter` using the grant arn. For example:
 
         ```sh
         $ pulumi import aws:licensemanager/licenseGrantAccepter:LicenseGrantAccepter test arn:aws:license-manager::123456789012:grant:g-1cf9fba4ba2f42dcab11c686c4b4d329
@@ -277,7 +277,7 @@ class LicenseGrantAccepter(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import `aws_licensemanager_grant_accepter` using the grant arn. For example:
+        Using `pulumi import`, import `licensemanager.LicenseGrantAccepter` using the grant arn. For example:
 
         ```sh
         $ pulumi import aws:licensemanager/licenseGrantAccepter:LicenseGrantAccepter test arn:aws:license-manager::123456789012:grant:g-1cf9fba4ba2f42dcab11c686c4b4d329

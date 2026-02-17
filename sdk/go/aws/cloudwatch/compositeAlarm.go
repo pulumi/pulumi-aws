@@ -23,8 +23,6 @@ import (
 //
 // import (
 //
-//	"fmt"
-//
 //	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/cloudwatch"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
@@ -55,7 +53,7 @@ import (
 //
 // ## Import
 //
-// Using `pulumi import`, import a CloudWatch Composite Alarm using the `alarm_name`. For example:
+// Using `pulumi import`, import a CloudWatch Composite Alarm using the `alarmName`. For example:
 //
 // ```sh
 // $ pulumi import aws:cloudwatch/compositeAlarm:CompositeAlarm test my-alarm

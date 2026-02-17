@@ -58,7 +58,8 @@ func GetRegion(ctx *pulumi.Context, args *GetRegionArgs, opts ...pulumi.InvokeOp
 type GetRegionArgs struct {
 	// EC2 endpoint of the region to select.
 	Endpoint *string `pulumi:"endpoint"`
-	Id       *string `pulumi:"id"`
+	// Region's name (e.g. `us-east-1`).
+	Id *string `pulumi:"id"`
 	// Full name of the region to select. Use `region` instead.
 	//
 	// Deprecated: name is deprecated. Use region instead.
@@ -72,7 +73,8 @@ type GetRegionResult struct {
 	// Region's description in this format: "Location (Region name)".
 	Description string `pulumi:"description"`
 	Endpoint    string `pulumi:"endpoint"`
-	Id          string `pulumi:"id"`
+	// Region's name (e.g. `us-east-1`).
+	Id string `pulumi:"id"`
 	// Deprecated: name is deprecated. Use region instead.
 	Name   string `pulumi:"name"`
 	Region string `pulumi:"region"`
@@ -91,7 +93,8 @@ func GetRegionOutput(ctx *pulumi.Context, args GetRegionOutputArgs, opts ...pulu
 type GetRegionOutputArgs struct {
 	// EC2 endpoint of the region to select.
 	Endpoint pulumi.StringPtrInput `pulumi:"endpoint"`
-	Id       pulumi.StringPtrInput `pulumi:"id"`
+	// Region's name (e.g. `us-east-1`).
+	Id pulumi.StringPtrInput `pulumi:"id"`
 	// Full name of the region to select. Use `region` instead.
 	//
 	// Deprecated: name is deprecated. Use region instead.
@@ -128,6 +131,7 @@ func (o GetRegionResultOutput) Endpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v GetRegionResult) string { return v.Endpoint }).(pulumi.StringOutput)
 }
 
+// Region's name (e.g. `us-east-1`).
 func (o GetRegionResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetRegionResult) string { return v.Id }).(pulumi.StringOutput)
 }

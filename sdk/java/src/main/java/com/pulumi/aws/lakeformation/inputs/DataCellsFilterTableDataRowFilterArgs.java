@@ -17,14 +17,14 @@ public final class DataCellsFilterTableDataRowFilterArgs extends com.pulumi.reso
     public static final DataCellsFilterTableDataRowFilterArgs Empty = new DataCellsFilterTableDataRowFilterArgs();
 
     /**
-     * (Optional) A wildcard that matches all rows.
+     * (Optional) A wildcard that matches all rows. Required when applying column-level filtering without row-level filtering. Use an empty block: `allRowsWildcard {}`.
      * 
      */
     @Import(name="allRowsWildcard")
     private @Nullable Output<DataCellsFilterTableDataRowFilterAllRowsWildcardArgs> allRowsWildcard;
 
     /**
-     * @return (Optional) A wildcard that matches all rows.
+     * @return (Optional) A wildcard that matches all rows. Required when applying column-level filtering without row-level filtering. Use an empty block: `allRowsWildcard {}`.
      * 
      */
     public Optional<Output<DataCellsFilterTableDataRowFilterAllRowsWildcardArgs>> allRowsWildcard() {
@@ -32,14 +32,14 @@ public final class DataCellsFilterTableDataRowFilterArgs extends com.pulumi.reso
     }
 
     /**
-     * (Optional) A filter expression.
+     * (Optional) A PartiQL predicate expression for row-level filtering.
      * 
      */
     @Import(name="filterExpression")
     private @Nullable Output<String> filterExpression;
 
     /**
-     * @return (Optional) A filter expression.
+     * @return (Optional) A PartiQL predicate expression for row-level filtering.
      * 
      */
     public Optional<Output<String>> filterExpression() {
@@ -72,7 +72,7 @@ public final class DataCellsFilterTableDataRowFilterArgs extends com.pulumi.reso
         }
 
         /**
-         * @param allRowsWildcard (Optional) A wildcard that matches all rows.
+         * @param allRowsWildcard (Optional) A wildcard that matches all rows. Required when applying column-level filtering without row-level filtering. Use an empty block: `allRowsWildcard {}`.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class DataCellsFilterTableDataRowFilterArgs extends com.pulumi.reso
         }
 
         /**
-         * @param allRowsWildcard (Optional) A wildcard that matches all rows.
+         * @param allRowsWildcard (Optional) A wildcard that matches all rows. Required when applying column-level filtering without row-level filtering. Use an empty block: `allRowsWildcard {}`.
          * 
          * @return builder
          * 
@@ -93,7 +93,7 @@ public final class DataCellsFilterTableDataRowFilterArgs extends com.pulumi.reso
         }
 
         /**
-         * @param filterExpression (Optional) A filter expression.
+         * @param filterExpression (Optional) A PartiQL predicate expression for row-level filtering.
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class DataCellsFilterTableDataRowFilterArgs extends com.pulumi.reso
         }
 
         /**
-         * @param filterExpression (Optional) A filter expression.
+         * @param filterExpression (Optional) A PartiQL predicate expression for row-level filtering.
          * 
          * @return builder
          * 

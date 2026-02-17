@@ -44,7 +44,7 @@ namespace Pulumi.Aws.Fms
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import FMS (Firewall Manager) Resource Set using the `id`. For example:
+    /// Using `pulumi import`, import FMS (Firewall Manager) Resource Set using the `Id`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:fms/resourceSet:ResourceSet example resource_set-id-12345678

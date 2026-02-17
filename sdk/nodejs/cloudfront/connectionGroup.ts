@@ -32,6 +32,8 @@ import * as utilities from "../utilities";
  * ```sh
  * $ pulumi import aws:cloudfront/connectionGroup:ConnectionGroup example CGROUP123EXAMPLE
  * ```
+ *
+ * [1]: https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-cloudfront-connectiongroup.html
  */
 export class ConnectionGroup extends pulumi.CustomResource {
     /**

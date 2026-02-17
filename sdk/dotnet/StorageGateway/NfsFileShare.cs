@@ -38,7 +38,7 @@ namespace Pulumi.Aws.StorageGateway
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import `aws_storagegateway_nfs_file_share` using the NFS File Share Amazon Resource Name (ARN). For example:
+    /// Using `pulumi import`, import `aws.storagegateway.NfsFileShare` using the NFS File Share Amazon Resource Name (ARN). For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:storagegateway/nfsFileShare:NfsFileShare example arn:aws:storagegateway:us-east-1:123456789012:share/share-12345678

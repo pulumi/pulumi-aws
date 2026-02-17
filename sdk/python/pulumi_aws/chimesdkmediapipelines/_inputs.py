@@ -47,48 +47,43 @@ __all__ = [
     'MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleSentimentConfigurationArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class MediaInsightsPipelineConfigurationElementArgsDict(TypedDict):
-        type: pulumi.Input[_builtins.str]
-        """
-        Element type.
-        """
-        amazon_transcribe_call_analytics_processor_configuration: NotRequired[pulumi.Input['MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationArgsDict']]
-        """
-        Configuration for Amazon Transcribe Call Analytics processor.
-        """
-        amazon_transcribe_processor_configuration: NotRequired[pulumi.Input['MediaInsightsPipelineConfigurationElementAmazonTranscribeProcessorConfigurationArgsDict']]
-        """
-        Configuration for Amazon Transcribe processor.
-        """
-        kinesis_data_stream_sink_configuration: NotRequired[pulumi.Input['MediaInsightsPipelineConfigurationElementKinesisDataStreamSinkConfigurationArgsDict']]
-        """
-        Configuration for Kinesis Data Stream sink.
-        """
-        lambda_function_sink_configuration: NotRequired[pulumi.Input['MediaInsightsPipelineConfigurationElementLambdaFunctionSinkConfigurationArgsDict']]
-        """
-        Configuration for Lambda Function sink.
-        """
-        s3_recording_sink_configuration: NotRequired[pulumi.Input['MediaInsightsPipelineConfigurationElementS3RecordingSinkConfigurationArgsDict']]
-        """
-        Configuration for S3 recording sink.
-        """
-        sns_topic_sink_configuration: NotRequired[pulumi.Input['MediaInsightsPipelineConfigurationElementSnsTopicSinkConfigurationArgsDict']]
-        """
-        Configuration for SNS Topic sink.
-        """
-        sqs_queue_sink_configuration: NotRequired[pulumi.Input['MediaInsightsPipelineConfigurationElementSqsQueueSinkConfigurationArgsDict']]
-        """
-        Configuration for SQS Queue sink.
-        """
-        voice_analytics_processor_configuration: NotRequired[pulumi.Input['MediaInsightsPipelineConfigurationElementVoiceAnalyticsProcessorConfigurationArgsDict']]
-        """
-        Configuration for Voice analytics processor.
-        """
-elif False:
-    MediaInsightsPipelineConfigurationElementArgsDict: TypeAlias = Mapping[str, Any]
+class MediaInsightsPipelineConfigurationElementArgsDict(TypedDict):
+    type: pulumi.Input[_builtins.str]
+    """
+    Element type.
+    """
+    amazon_transcribe_call_analytics_processor_configuration: NotRequired[pulumi.Input['MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationArgsDict']]
+    """
+    Configuration for Amazon Transcribe Call Analytics processor.
+    """
+    amazon_transcribe_processor_configuration: NotRequired[pulumi.Input['MediaInsightsPipelineConfigurationElementAmazonTranscribeProcessorConfigurationArgsDict']]
+    """
+    Configuration for Amazon Transcribe processor.
+    """
+    kinesis_data_stream_sink_configuration: NotRequired[pulumi.Input['MediaInsightsPipelineConfigurationElementKinesisDataStreamSinkConfigurationArgsDict']]
+    """
+    Configuration for Kinesis Data Stream sink.
+    """
+    lambda_function_sink_configuration: NotRequired[pulumi.Input['MediaInsightsPipelineConfigurationElementLambdaFunctionSinkConfigurationArgsDict']]
+    """
+    Configuration for Lambda Function sink.
+    """
+    s3_recording_sink_configuration: NotRequired[pulumi.Input['MediaInsightsPipelineConfigurationElementS3RecordingSinkConfigurationArgsDict']]
+    """
+    Configuration for S3 recording sink.
+    """
+    sns_topic_sink_configuration: NotRequired[pulumi.Input['MediaInsightsPipelineConfigurationElementSnsTopicSinkConfigurationArgsDict']]
+    """
+    Configuration for SNS Topic sink.
+    """
+    sqs_queue_sink_configuration: NotRequired[pulumi.Input['MediaInsightsPipelineConfigurationElementSqsQueueSinkConfigurationArgsDict']]
+    """
+    Configuration for SQS Queue sink.
+    """
+    voice_analytics_processor_configuration: NotRequired[pulumi.Input['MediaInsightsPipelineConfigurationElementVoiceAnalyticsProcessorConfigurationArgsDict']]
+    """
+    Configuration for Voice analytics processor.
+    """
 
 @pulumi.input_type
 class MediaInsightsPipelineConfigurationElementArgs:
@@ -240,62 +235,59 @@ class MediaInsightsPipelineConfigurationElementArgs:
         pulumi.set(self, "voice_analytics_processor_configuration", value)
 
 
-if not MYPY:
-    class MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationArgsDict(TypedDict):
-        language_code: pulumi.Input[_builtins.str]
-        """
-        Language code for the transcription model.
-        """
-        call_analytics_stream_categories: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Filter for category events to be delivered to insights target.
-        """
-        content_identification_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Labels all personally identifiable information (PII) identified in Utterance events.
-        """
-        content_redaction_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Redacts all personally identifiable information (PII) identified in Utterance events.
-        """
-        enable_partial_results_stabilization: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Enables partial result stabilization in Utterance events.
-        """
-        filter_partial_results: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Filters partial Utterance events from delivery to the insights target.
-        """
-        language_model_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Name of custom language model for transcription.
-        """
-        partial_results_stability: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Level of stability to use when partial results stabilization is enabled.
-        """
-        pii_entity_types: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Types of personally identifiable information (PII) to redact from an Utterance event.
-        """
-        post_call_analytics_settings: NotRequired[pulumi.Input['MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationPostCallAnalyticsSettingsArgsDict']]
-        """
-        Settings for post call analytics.
-        """
-        vocabulary_filter_method: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Method for applying a vocabulary filter to Utterance events.
-        """
-        vocabulary_filter_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Name of the custom vocabulary filter to use when processing Utterance events.
-        """
-        vocabulary_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Name of the custom vocabulary to use when processing Utterance events.
-        """
-elif False:
-    MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationArgsDict(TypedDict):
+    language_code: pulumi.Input[_builtins.str]
+    """
+    Language code for the transcription model.
+    """
+    call_analytics_stream_categories: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Filter for category events to be delivered to insights target.
+    """
+    content_identification_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Labels all personally identifiable information (PII) identified in Utterance events.
+    """
+    content_redaction_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Redacts all personally identifiable information (PII) identified in Utterance events.
+    """
+    enable_partial_results_stabilization: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Enables partial result stabilization in Utterance events.
+    """
+    filter_partial_results: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Filters partial Utterance events from delivery to the insights target.
+    """
+    language_model_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Name of custom language model for transcription.
+    """
+    partial_results_stability: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Level of stability to use when partial results stabilization is enabled.
+    """
+    pii_entity_types: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Types of personally identifiable information (PII) to redact from an Utterance event.
+    """
+    post_call_analytics_settings: NotRequired[pulumi.Input['MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationPostCallAnalyticsSettingsArgsDict']]
+    """
+    Settings for post call analytics.
+    """
+    vocabulary_filter_method: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Method for applying a vocabulary filter to Utterance events.
+    """
+    vocabulary_filter_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Name of the custom vocabulary filter to use when processing Utterance events.
+    """
+    vocabulary_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Name of the custom vocabulary to use when processing Utterance events.
+    """
 
 @pulumi.input_type
 class MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationArgs:
@@ -511,26 +503,23 @@ class MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProc
         pulumi.set(self, "vocabulary_name", value)
 
 
-if not MYPY:
-    class MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationPostCallAnalyticsSettingsArgsDict(TypedDict):
-        data_access_role_arn: pulumi.Input[_builtins.str]
-        """
-        ARN of the role used by AWS Transcribe to upload your post call analysis.
-        """
-        output_location: pulumi.Input[_builtins.str]
-        """
-        The Amazon S3 location where you want your Call Analytics post-call transcription output stored.
-        """
-        content_redaction_output: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Should output be redacted.
-        """
-        output_encryption_kms_key_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        ID of the KMS key used to encrypt the output.
-        """
-elif False:
-    MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationPostCallAnalyticsSettingsArgsDict: TypeAlias = Mapping[str, Any]
+class MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationPostCallAnalyticsSettingsArgsDict(TypedDict):
+    data_access_role_arn: pulumi.Input[_builtins.str]
+    """
+    ARN of the role used by AWS Transcribe to upload your post call analysis.
+    """
+    output_location: pulumi.Input[_builtins.str]
+    """
+    The Amazon S3 location where you want your Call Analytics post-call transcription output stored.
+    """
+    content_redaction_output: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Should output be redacted.
+    """
+    output_encryption_kms_key_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    ID of the KMS key used to encrypt the output.
+    """
 
 @pulumi.input_type
 class MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationPostCallAnalyticsSettingsArgs:
@@ -601,58 +590,55 @@ class MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProc
         pulumi.set(self, "output_encryption_kms_key_id", value)
 
 
-if not MYPY:
-    class MediaInsightsPipelineConfigurationElementAmazonTranscribeProcessorConfigurationArgsDict(TypedDict):
-        language_code: pulumi.Input[_builtins.str]
-        """
-        Language code for the transcription model.
-        """
-        content_identification_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Labels all personally identifiable information (PII) identified in Transcript events.
-        """
-        content_redaction_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Redacts all personally identifiable information (PII) identified in Transcript events.
-        """
-        enable_partial_results_stabilization: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Enables partial result stabilization in Transcript events.
-        """
-        filter_partial_results: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Filters partial Utterance events from delivery to the insights target.
-        """
-        language_model_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Name of custom language model for transcription.
-        """
-        partial_results_stability: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Level of stability to use when partial results stabilization is enabled.
-        """
-        pii_entity_types: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Types of personally identifiable information (PII) to redact from a Transcript event.
-        """
-        show_speaker_label: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Enables speaker partitioning (diarization) in your Transcript events.
-        """
-        vocabulary_filter_method: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Method for applying a vocabulary filter to Transcript events.
-        """
-        vocabulary_filter_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Name of the custom vocabulary filter to use when processing Transcript events.
-        """
-        vocabulary_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Name of the custom vocabulary to use when processing Transcript events.
-        """
-elif False:
-    MediaInsightsPipelineConfigurationElementAmazonTranscribeProcessorConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class MediaInsightsPipelineConfigurationElementAmazonTranscribeProcessorConfigurationArgsDict(TypedDict):
+    language_code: pulumi.Input[_builtins.str]
+    """
+    Language code for the transcription model.
+    """
+    content_identification_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Labels all personally identifiable information (PII) identified in Transcript events.
+    """
+    content_redaction_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Redacts all personally identifiable information (PII) identified in Transcript events.
+    """
+    enable_partial_results_stabilization: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Enables partial result stabilization in Transcript events.
+    """
+    filter_partial_results: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Filters partial Utterance events from delivery to the insights target.
+    """
+    language_model_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Name of custom language model for transcription.
+    """
+    partial_results_stability: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Level of stability to use when partial results stabilization is enabled.
+    """
+    pii_entity_types: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Types of personally identifiable information (PII) to redact from a Transcript event.
+    """
+    show_speaker_label: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Enables speaker partitioning (diarization) in your Transcript events.
+    """
+    vocabulary_filter_method: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Method for applying a vocabulary filter to Transcript events.
+    """
+    vocabulary_filter_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Name of the custom vocabulary filter to use when processing Transcript events.
+    """
+    vocabulary_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Name of the custom vocabulary to use when processing Transcript events.
+    """
 
 @pulumi.input_type
 class MediaInsightsPipelineConfigurationElementAmazonTranscribeProcessorConfigurationArgs:
@@ -852,14 +838,11 @@ class MediaInsightsPipelineConfigurationElementAmazonTranscribeProcessorConfigur
         pulumi.set(self, "vocabulary_name", value)
 
 
-if not MYPY:
-    class MediaInsightsPipelineConfigurationElementKinesisDataStreamSinkConfigurationArgsDict(TypedDict):
-        insights_target: pulumi.Input[_builtins.str]
-        """
-        Kinesis Data Stream to deliver results.
-        """
-elif False:
-    MediaInsightsPipelineConfigurationElementKinesisDataStreamSinkConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class MediaInsightsPipelineConfigurationElementKinesisDataStreamSinkConfigurationArgsDict(TypedDict):
+    insights_target: pulumi.Input[_builtins.str]
+    """
+    Kinesis Data Stream to deliver results.
+    """
 
 @pulumi.input_type
 class MediaInsightsPipelineConfigurationElementKinesisDataStreamSinkConfigurationArgs:
@@ -883,14 +866,11 @@ class MediaInsightsPipelineConfigurationElementKinesisDataStreamSinkConfiguratio
         pulumi.set(self, "insights_target", value)
 
 
-if not MYPY:
-    class MediaInsightsPipelineConfigurationElementLambdaFunctionSinkConfigurationArgsDict(TypedDict):
-        insights_target: pulumi.Input[_builtins.str]
-        """
-        Lambda Function to deliver results.
-        """
-elif False:
-    MediaInsightsPipelineConfigurationElementLambdaFunctionSinkConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class MediaInsightsPipelineConfigurationElementLambdaFunctionSinkConfigurationArgsDict(TypedDict):
+    insights_target: pulumi.Input[_builtins.str]
+    """
+    Lambda Function to deliver results.
+    """
 
 @pulumi.input_type
 class MediaInsightsPipelineConfigurationElementLambdaFunctionSinkConfigurationArgs:
@@ -914,14 +894,11 @@ class MediaInsightsPipelineConfigurationElementLambdaFunctionSinkConfigurationAr
         pulumi.set(self, "insights_target", value)
 
 
-if not MYPY:
-    class MediaInsightsPipelineConfigurationElementS3RecordingSinkConfigurationArgsDict(TypedDict):
-        destination: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        S3 URI to deliver recordings.
-        """
-elif False:
-    MediaInsightsPipelineConfigurationElementS3RecordingSinkConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class MediaInsightsPipelineConfigurationElementS3RecordingSinkConfigurationArgsDict(TypedDict):
+    destination: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    S3 URI to deliver recordings.
+    """
 
 @pulumi.input_type
 class MediaInsightsPipelineConfigurationElementS3RecordingSinkConfigurationArgs:
@@ -946,14 +923,11 @@ class MediaInsightsPipelineConfigurationElementS3RecordingSinkConfigurationArgs:
         pulumi.set(self, "destination", value)
 
 
-if not MYPY:
-    class MediaInsightsPipelineConfigurationElementSnsTopicSinkConfigurationArgsDict(TypedDict):
-        insights_target: pulumi.Input[_builtins.str]
-        """
-        SNS topic to deliver results.
-        """
-elif False:
-    MediaInsightsPipelineConfigurationElementSnsTopicSinkConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class MediaInsightsPipelineConfigurationElementSnsTopicSinkConfigurationArgsDict(TypedDict):
+    insights_target: pulumi.Input[_builtins.str]
+    """
+    SNS topic to deliver results.
+    """
 
 @pulumi.input_type
 class MediaInsightsPipelineConfigurationElementSnsTopicSinkConfigurationArgs:
@@ -977,14 +951,11 @@ class MediaInsightsPipelineConfigurationElementSnsTopicSinkConfigurationArgs:
         pulumi.set(self, "insights_target", value)
 
 
-if not MYPY:
-    class MediaInsightsPipelineConfigurationElementSqsQueueSinkConfigurationArgsDict(TypedDict):
-        insights_target: pulumi.Input[_builtins.str]
-        """
-        SQS queue to deliver results.
-        """
-elif False:
-    MediaInsightsPipelineConfigurationElementSqsQueueSinkConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class MediaInsightsPipelineConfigurationElementSqsQueueSinkConfigurationArgsDict(TypedDict):
+    insights_target: pulumi.Input[_builtins.str]
+    """
+    SQS queue to deliver results.
+    """
 
 @pulumi.input_type
 class MediaInsightsPipelineConfigurationElementSqsQueueSinkConfigurationArgs:
@@ -1008,18 +979,15 @@ class MediaInsightsPipelineConfigurationElementSqsQueueSinkConfigurationArgs:
         pulumi.set(self, "insights_target", value)
 
 
-if not MYPY:
-    class MediaInsightsPipelineConfigurationElementVoiceAnalyticsProcessorConfigurationArgsDict(TypedDict):
-        speaker_search_status: pulumi.Input[_builtins.str]
-        """
-        Enable speaker search.
-        """
-        voice_tone_analysis_status: pulumi.Input[_builtins.str]
-        """
-        Enable voice tone analysis.
-        """
-elif False:
-    MediaInsightsPipelineConfigurationElementVoiceAnalyticsProcessorConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class MediaInsightsPipelineConfigurationElementVoiceAnalyticsProcessorConfigurationArgsDict(TypedDict):
+    speaker_search_status: pulumi.Input[_builtins.str]
+    """
+    Enable speaker search.
+    """
+    voice_tone_analysis_status: pulumi.Input[_builtins.str]
+    """
+    Enable voice tone analysis.
+    """
 
 @pulumi.input_type
 class MediaInsightsPipelineConfigurationElementVoiceAnalyticsProcessorConfigurationArgs:
@@ -1058,18 +1026,15 @@ class MediaInsightsPipelineConfigurationElementVoiceAnalyticsProcessorConfigurat
         pulumi.set(self, "voice_tone_analysis_status", value)
 
 
-if not MYPY:
-    class MediaInsightsPipelineConfigurationRealTimeAlertConfigurationArgsDict(TypedDict):
-        rules: pulumi.Input[Sequence[pulumi.Input['MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleArgsDict']]]
-        """
-        Collection of real time alert rules
-        """
-        disabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Disables real time alert rules.
-        """
-elif False:
-    MediaInsightsPipelineConfigurationRealTimeAlertConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class MediaInsightsPipelineConfigurationRealTimeAlertConfigurationArgsDict(TypedDict):
+    rules: pulumi.Input[Sequence[pulumi.Input['MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleArgsDict']]]
+    """
+    Collection of real time alert rules
+    """
+    disabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Disables real time alert rules.
+    """
 
 @pulumi.input_type
 class MediaInsightsPipelineConfigurationRealTimeAlertConfigurationArgs:
@@ -1109,26 +1074,23 @@ class MediaInsightsPipelineConfigurationRealTimeAlertConfigurationArgs:
         pulumi.set(self, "disabled", value)
 
 
-if not MYPY:
-    class MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleArgsDict(TypedDict):
-        type: pulumi.Input[_builtins.str]
-        """
-        Rule type.
-        """
-        issue_detection_configuration: NotRequired[pulumi.Input['MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleIssueDetectionConfigurationArgsDict']]
-        """
-        Configuration for an issue detection rule.
-        """
-        keyword_match_configuration: NotRequired[pulumi.Input['MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleKeywordMatchConfigurationArgsDict']]
-        """
-        Configuration for a keyword match rule.
-        """
-        sentiment_configuration: NotRequired[pulumi.Input['MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleSentimentConfigurationArgsDict']]
-        """
-        Configuration for a sentiment rule.
-        """
-elif False:
-    MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleArgsDict: TypeAlias = Mapping[str, Any]
+class MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleArgsDict(TypedDict):
+    type: pulumi.Input[_builtins.str]
+    """
+    Rule type.
+    """
+    issue_detection_configuration: NotRequired[pulumi.Input['MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleIssueDetectionConfigurationArgsDict']]
+    """
+    Configuration for an issue detection rule.
+    """
+    keyword_match_configuration: NotRequired[pulumi.Input['MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleKeywordMatchConfigurationArgsDict']]
+    """
+    Configuration for a keyword match rule.
+    """
+    sentiment_configuration: NotRequired[pulumi.Input['MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleSentimentConfigurationArgsDict']]
+    """
+    Configuration for a sentiment rule.
+    """
 
 @pulumi.input_type
 class MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleArgs:
@@ -1200,14 +1162,11 @@ class MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleArgs:
         pulumi.set(self, "sentiment_configuration", value)
 
 
-if not MYPY:
-    class MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleIssueDetectionConfigurationArgsDict(TypedDict):
-        rule_name: pulumi.Input[_builtins.str]
-        """
-        Rule name.
-        """
-elif False:
-    MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleIssueDetectionConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleIssueDetectionConfigurationArgsDict(TypedDict):
+    rule_name: pulumi.Input[_builtins.str]
+    """
+    Rule name.
+    """
 
 @pulumi.input_type
 class MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleIssueDetectionConfigurationArgs:
@@ -1231,22 +1190,19 @@ class MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleIssueDetec
         pulumi.set(self, "rule_name", value)
 
 
-if not MYPY:
-    class MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleKeywordMatchConfigurationArgsDict(TypedDict):
-        keywords: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        Collection of keywords to match.
-        """
-        rule_name: pulumi.Input[_builtins.str]
-        """
-        Rule name.
-        """
-        negate: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Negate the rule.
-        """
-elif False:
-    MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleKeywordMatchConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleKeywordMatchConfigurationArgsDict(TypedDict):
+    keywords: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    Collection of keywords to match.
+    """
+    rule_name: pulumi.Input[_builtins.str]
+    """
+    Rule name.
+    """
+    negate: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Negate the rule.
+    """
 
 @pulumi.input_type
 class MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleKeywordMatchConfigurationArgs:
@@ -1301,22 +1257,19 @@ class MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleKeywordMat
         pulumi.set(self, "negate", value)
 
 
-if not MYPY:
-    class MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleSentimentConfigurationArgsDict(TypedDict):
-        rule_name: pulumi.Input[_builtins.str]
-        """
-        Rule name.
-        """
-        sentiment_type: pulumi.Input[_builtins.str]
-        """
-        Sentiment type to match.
-        """
-        time_period: pulumi.Input[_builtins.int]
-        """
-        Analysis interval.
-        """
-elif False:
-    MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleSentimentConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleSentimentConfigurationArgsDict(TypedDict):
+    rule_name: pulumi.Input[_builtins.str]
+    """
+    Rule name.
+    """
+    sentiment_type: pulumi.Input[_builtins.str]
+    """
+    Sentiment type to match.
+    """
+    time_period: pulumi.Input[_builtins.int]
+    """
+    Analysis interval.
+    """
 
 @pulumi.input_type
 class MediaInsightsPipelineConfigurationRealTimeAlertConfigurationRuleSentimentConfigurationArgs:

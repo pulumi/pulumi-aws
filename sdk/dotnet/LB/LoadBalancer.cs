@@ -154,11 +154,13 @@ namespace Pulumi.Aws.LB
     /// 
     /// #### Required
     /// 
-    /// - `arn` (String) Amazon Resource Name (ARN) of the load balancer.
+    /// - `Arn` (String) Amazon Resource Name (ARN) of the load balancer.
     /// 
     /// Using `pulumi import`, import LBs using their ARN. For example:
     /// 
-    /// % pulumi import aws_lb.bar arn:aws:elasticloadbalancing:us-west-2:123456789012:loadbalancer/app/my-load-balancer/50dc6c495c0c9188
+    /// ```sh
+    /// $ pulumi import aws:lb/loadBalancer:LoadBalancer bar arn:aws:elasticloadbalancing:us-west-2:123456789012:loadbalancer/app/my-load-balancer/50dc6c495c0c9188
+    /// ```
     /// </summary>
     [AwsResourceType("aws:lb/loadBalancer:LoadBalancer")]
     public partial class LoadBalancer : global::Pulumi.CustomResource

@@ -336,6 +336,17 @@ class DirectoryBucket(pulumi.CustomResource):
 
         ## Import
 
+        ### Identity Schema
+
+        #### Required
+
+        * `bucket` (String) Name of the S3 Directory Bucket.
+
+        #### Optional
+
+        * `account_id` (String) AWS Account where this resource is managed.
+        * `region` (String) Region where this resource is managed.
+
         Using `pulumi import`, import S3 bucket using `bucket`. For example:
 
         ```sh
@@ -391,6 +402,17 @@ class DirectoryBucket(pulumi.CustomResource):
         ```
 
         ## Import
+
+        ### Identity Schema
+
+        #### Required
+
+        * `bucket` (String) Name of the S3 Directory Bucket.
+
+        #### Optional
+
+        * `account_id` (String) AWS Account where this resource is managed.
+        * `region` (String) Region where this resource is managed.
 
         Using `pulumi import`, import S3 bucket using `bucket`. For example:
 

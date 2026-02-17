@@ -598,12 +598,13 @@ class RestApi(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import `aws_api_gateway_rest_api` using the REST API ID. For example:
+        Using `pulumi import`, import `apigateway.RestApi` using the REST API ID. For example:
 
         ```sh
         $ pulumi import aws:apigateway/restApi:RestApi example 12345abcde
         ```
-        ~> __NOTE:__ Resource import does not currently support the `body` attribute.
+
+        > **NOTE:** Resource import does not currently support the `body` attribute.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -639,12 +640,13 @@ class RestApi(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import `aws_api_gateway_rest_api` using the REST API ID. For example:
+        Using `pulumi import`, import `apigateway.RestApi` using the REST API ID. For example:
 
         ```sh
         $ pulumi import aws:apigateway/restApi:RestApi example 12345abcde
         ```
-        ~> __NOTE:__ Resource import does not currently support the `body` attribute.
+
+        > **NOTE:** Resource import does not currently support the `body` attribute.
 
         :param str resource_name: The name of the resource.
         :param RestApiArgs args: The arguments to use to populate this resource's properties.

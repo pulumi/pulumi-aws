@@ -50,7 +50,7 @@ namespace Pulumi.Aws.MemoryDb
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import a subnet group using its `name`. For example:
+    /// Using `pulumi import`, import a subnet group using its `Name`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:memorydb/subnetGroup:SubnetGroup example my-subnet-group

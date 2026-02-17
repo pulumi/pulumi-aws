@@ -21,18 +21,13 @@ __all__ = [
     'PolicyDocumentArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class PolicyDocumentArgsDict(TypedDict):
-        """
-        Represents an AWS IAM policy document that defines permissions for AWS resources and actions.
-        """
-        statement: pulumi.Input[Sequence[pulumi.Input['_iam.PolicyStatementArgsDict']]]
-        version: pulumi.Input['iam.PolicyDocumentVersion']
-        id: NotRequired[pulumi.Input[_builtins.str]]
-elif False:
-    PolicyDocumentArgsDict: TypeAlias = Mapping[str, Any]
+class PolicyDocumentArgsDict(TypedDict):
+    """
+    Represents an AWS IAM policy document that defines permissions for AWS resources and actions.
+    """
+    statement: pulumi.Input[Sequence[pulumi.Input['_iam.PolicyStatementArgsDict']]]
+    version: pulumi.Input['iam.PolicyDocumentVersion']
+    id: NotRequired[pulumi.Input[_builtins.str]]
 
 @pulumi.input_type
 class PolicyDocumentArgs:

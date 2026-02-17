@@ -5,9 +5,68 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
+ * Resource for managing an exclusive set of AWS VPC (Virtual Private Cloud) Security Group Rules.
+ *
+ * This resource manages the complete set of ingress and egress rules assigned to a security group. It provides exclusive control by removing any rules not explicitly defined in the configuration.
+ *
+ * !> This resource takes exclusive ownership over ingress and egress rules assigned to a security group. This includes removal of rules which are not explicitly configured. To prevent persistent drift, ensure any `aws.vpc.SecurityGroupIngressRule` and `aws.vpc.SecurityGroupEgressRule` resources managed alongside this resource are included in the `ingressRuleIds` and `egressRuleIds` arguments.
+ *
+ * > Destruction of this resource means Terraform will no longer manage reconciliation of the configured security group rules. It **will not** revoke the configured rules from the security group.
+ *
+ * > When this resource detects a configured rule ID which must be created, a warning diagnostic is emitted. This is due to a limitation in the [`AuthorizeSecurityGroupEgress`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_AuthorizeSecurityGroupEgress.html) and [`AuthorizeSecurityGroupIngress`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_AuthorizeSecurityGroupIngress.html) APIs, which require the full rule definition to be provided rather than a reference to an existing rule ID.
+ *
+ * ## Example Usage
+ *
+ * ### Basic Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.ec2.Vpc("example", {cidrBlock: "10.0.0.0/16"});
+ * const exampleSecurityGroup = new aws.ec2.SecurityGroup("example", {
+ *     name: "example",
+ *     vpcId: example.id,
+ * });
+ * const exampleSecurityGroupIngressRule = new aws.vpc.SecurityGroupIngressRule("example", {
+ *     securityGroupId: exampleSecurityGroup.id,
+ *     cidrIpv4: "10.0.0.0/8",
+ *     fromPort: 80,
+ *     toPort: 80,
+ *     ipProtocol: "tcp",
+ * });
+ * const exampleSecurityGroupEgressRule = new aws.vpc.SecurityGroupEgressRule("example", {
+ *     securityGroupId: exampleSecurityGroup.id,
+ *     cidrIpv4: "0.0.0.0/0",
+ *     ipProtocol: "-1",
+ * });
+ * const exampleVpcSecurityGroupRulesExclusive = new aws.ec2.VpcSecurityGroupRulesExclusive("example", {
+ *     securityGroupId: exampleSecurityGroup.id,
+ *     ingressRuleIds: [exampleSecurityGroupIngressRule.id],
+ *     egressRuleIds: [exampleSecurityGroupEgressRule.id],
+ * });
+ * ```
+ *
+ * ### Disallow All Rules
+ *
+ * To automatically remove any configured security group rules, set both `ingressRuleIds` and `egressRuleIds` to empty lists.
+ *
+ * > This will not __prevent__ rules from being assigned to a security group via Terraform (or any other interface). This resource enables bringing security group rule assignments into a configured state, however, this reconciliation happens only when `apply` is proactively run.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.ec2.VpcSecurityGroupRulesExclusive("example", {
+ *     securityGroupId: exampleAwsSecurityGroup.id,
+ *     ingressRuleIds: [],
+ *     egressRuleIds: [],
+ * });
+ * ```
+ *
  * ## Import
  *
- * Using `pulumi import`, import exclusive management of security group rules using the `security_group_id`. For example:
+ * Using `pulumi import`, import exclusive management of security group rules using the `securityGroupId`. For example:
  *
  * ```sh
  * $ pulumi import aws:ec2/vpcSecurityGroupRulesExclusive:VpcSecurityGroupRulesExclusive example sg-1234567890abcdef0

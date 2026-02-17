@@ -10,9 +10,85 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Route53
 {
     /// <summary>
+    /// Resource for maintaining exclusive management of resource record sets defined in an AWS Route53 hosted zone.
+    /// 
+    /// !&gt; This resource takes exclusive ownership over resource record sets defined in a hosted zone. This includes removal of record sets which are not explicitly configured. To prevent persistent drift, ensure any `aws.route53.Record` resources managed alongside this resource have an equivalent `ResourceRecordSet` argument.
+    /// 
+    /// &gt; Destruction of this resource means Terraform will no longer manage reconciliation of the configured resource record sets. It __will not__ delete the configured record sets from the hosted zone.
+    /// 
+    /// &gt; The default `NS` and `SOA` records created during provisioning of the Route53 Zone __should not be included__ in this resource definition. Adding them will cause persistent drift as the read operation is explicitly configured to ignore writing them to state.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ### Basic Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.Route53.Zone("example", new()
+    ///     {
+    ///         Name = "example.com",
+    ///         ForceDestroy = true,
+    ///     });
+    /// 
+    ///     var test = new Aws.Route53.RecordsExclusive("test", new()
+    ///     {
+    ///         ZoneId = testAwsRoute53Zone.ZoneId,
+    ///         ResourceRecordSets = new[]
+    ///         {
+    ///             new Aws.Route53.Inputs.RecordsExclusiveResourceRecordSetArgs
+    ///             {
+    ///                 Name = "subdomain.example.com",
+    ///                 Type = "A",
+    ///                 Ttl = 30,
+    ///                 ResourceRecords = new[]
+    ///                 {
+    ///                     new Aws.Route53.Inputs.RecordsExclusiveResourceRecordSetResourceRecordArgs
+    ///                     {
+    ///                         Value = "127.0.0.1",
+    ///                     },
+    ///                     new Aws.Route53.Inputs.RecordsExclusiveResourceRecordSetResourceRecordArgs
+    ///                     {
+    ///                         Value = "127.0.0.27",
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ### Disallow Record Sets
+    /// 
+    /// To automatically remove any configured record sets, omit a `ResourceRecordSet` block.
+    /// 
+    /// &gt; This will not __prevent__ record sets from being defined in a hosted zone via Terraform (or any other interface). This resource enables bringing record set definitions into a configured state, however, this reconciliation happens only when `Apply` is proactively run.
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var test = new Aws.Route53.RecordsExclusive("test", new()
+    ///     {
+    ///         ZoneId = testAwsRoute53Zone.ZoneId,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import Route 53 Records Exclusive using the `zone_id`. For example:
+    /// Using `pulumi import`, import Route 53 Records Exclusive using the `ZoneId`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:route53/recordsExclusive:RecordsExclusive example ABCD1234

@@ -131,7 +131,8 @@ type Folder struct {
 	pulumi.CustomResourceState
 
 	// ARN of the folder.
-	Arn          pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
 	AwsAccountId pulumi.StringOutput `pulumi:"awsAccountId"`
 	// The time that the folder was created.
 	CreatedTime pulumi.StringOutput `pulumi:"createdTime"`
@@ -193,7 +194,8 @@ func GetFolder(ctx *pulumi.Context,
 // Input properties used for looking up and filtering Folder resources.
 type folderState struct {
 	// ARN of the folder.
-	Arn          *string `pulumi:"arn"`
+	Arn *string `pulumi:"arn"`
+	// AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
 	AwsAccountId *string `pulumi:"awsAccountId"`
 	// The time that the folder was created.
 	CreatedTime *string `pulumi:"createdTime"`
@@ -223,7 +225,8 @@ type folderState struct {
 
 type FolderState struct {
 	// ARN of the folder.
-	Arn          pulumi.StringPtrInput
+	Arn pulumi.StringPtrInput
+	// AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
 	AwsAccountId pulumi.StringPtrInput
 	// The time that the folder was created.
 	CreatedTime pulumi.StringPtrInput
@@ -256,6 +259,7 @@ func (FolderState) ElementType() reflect.Type {
 }
 
 type folderArgs struct {
+	// AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
 	AwsAccountId *string `pulumi:"awsAccountId"`
 	// Identifier for the folder.
 	FolderId string `pulumi:"folderId"`
@@ -277,6 +281,7 @@ type folderArgs struct {
 
 // The set of arguments for constructing a Folder resource.
 type FolderArgs struct {
+	// AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
 	AwsAccountId pulumi.StringPtrInput
 	// Identifier for the folder.
 	FolderId pulumi.StringInput
@@ -388,6 +393,7 @@ func (o FolderOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Folder) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
 func (o FolderOutput) AwsAccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Folder) pulumi.StringOutput { return v.AwsAccountId }).(pulumi.StringOutput)
 }

@@ -19,14 +19,9 @@ __all__ = [
     'StatementParameterArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class StatementParameterArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        value: pulumi.Input[_builtins.str]
-elif False:
-    StatementParameterArgsDict: TypeAlias = Mapping[str, Any]
+class StatementParameterArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    value: pulumi.Input[_builtins.str]
 
 @pulumi.input_type
 class StatementParameterArgs:

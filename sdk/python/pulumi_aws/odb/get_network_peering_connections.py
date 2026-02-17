@@ -14,7 +14,6 @@ else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
 from . import outputs
-from ._inputs import *
 
 __all__ = [
     'GetNetworkPeeringConnectionsResult',
@@ -49,7 +48,7 @@ class GetNetworkPeeringConnectionsResult:
 
     @_builtins.property
     @pulumi.getter(name="odbPeeringConnections")
-    def odb_peering_connections(self) -> Optional[Sequence['outputs.GetNetworkPeeringConnectionsOdbPeeringConnectionResult']]:
+    def odb_peering_connections(self) -> Sequence['outputs.GetNetworkPeeringConnectionsOdbPeeringConnectionResult']:
         """
         The list of ODB peering connections. A summary of an ODB peering connection.
         """
@@ -72,8 +71,7 @@ class AwaitableGetNetworkPeeringConnectionsResult(GetNetworkPeeringConnectionsRe
             region=self.region)
 
 
-def get_network_peering_connections(odb_peering_connections: Optional[Sequence[Union['GetNetworkPeeringConnectionsOdbPeeringConnectionArgs', 'GetNetworkPeeringConnectionsOdbPeeringConnectionArgsDict']]] = None,
-                                    region: Optional[_builtins.str] = None,
+def get_network_peering_connections(region: Optional[_builtins.str] = None,
                                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetNetworkPeeringConnectionsResult:
     """
     Data source for retrieving all oracle database network peering resource in Oracle Database@AWS.
@@ -92,11 +90,9 @@ def get_network_peering_connections(odb_peering_connections: Optional[Sequence[U
     ```
 
 
-    :param Sequence[Union['GetNetworkPeeringConnectionsOdbPeeringConnectionArgs', 'GetNetworkPeeringConnectionsOdbPeeringConnectionArgsDict']] odb_peering_connections: The list of ODB peering connections. A summary of an ODB peering connection.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
-    __args__['odbPeeringConnections'] = odb_peering_connections
     __args__['region'] = region
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('aws:odb/getNetworkPeeringConnections:getNetworkPeeringConnections', __args__, opts=opts, typ=GetNetworkPeeringConnectionsResult).value
@@ -105,8 +101,7 @@ def get_network_peering_connections(odb_peering_connections: Optional[Sequence[U
         id=pulumi.get(__ret__, 'id'),
         odb_peering_connections=pulumi.get(__ret__, 'odb_peering_connections'),
         region=pulumi.get(__ret__, 'region'))
-def get_network_peering_connections_output(odb_peering_connections: Optional[pulumi.Input[Optional[Sequence[Union['GetNetworkPeeringConnectionsOdbPeeringConnectionArgs', 'GetNetworkPeeringConnectionsOdbPeeringConnectionArgsDict']]]]] = None,
-                                           region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
+def get_network_peering_connections_output(region: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
                                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetNetworkPeeringConnectionsResult]:
     """
     Data source for retrieving all oracle database network peering resource in Oracle Database@AWS.
@@ -125,11 +120,9 @@ def get_network_peering_connections_output(odb_peering_connections: Optional[pul
     ```
 
 
-    :param Sequence[Union['GetNetworkPeeringConnectionsOdbPeeringConnectionArgs', 'GetNetworkPeeringConnectionsOdbPeeringConnectionArgsDict']] odb_peering_connections: The list of ODB peering connections. A summary of an ODB peering connection.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
     __args__ = dict()
-    __args__['odbPeeringConnections'] = odb_peering_connections
     __args__['region'] = region
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('aws:odb/getNetworkPeeringConnections:getNetworkPeeringConnections', __args__, opts=opts, typ=GetNetworkPeeringConnectionsResult)

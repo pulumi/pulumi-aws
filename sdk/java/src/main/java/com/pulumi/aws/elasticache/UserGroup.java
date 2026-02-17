@@ -66,7 +66,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Using `pulumi import`, import ElastiCache user groups using the `user_group_id`. For example:
+ * Using `pulumi import`, import ElastiCache user groups using the `userGroupId`. For example:
  * 
  * ```sh
  * $ pulumi import aws:elasticache/userGroup:UserGroup my_user_group userGoupId1

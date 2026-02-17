@@ -65,7 +65,7 @@ namespace Pulumi.Aws.SsoAdmin
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import SSO Account Assignments using the `instance_arn`. For example:
+    /// Using `pulumi import`, import SSO Account Assignments using the `InstanceArn`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:ssoadmin/instanceAccessControlAttributes:InstanceAccessControlAttributes example arn:aws:sso:::instance/ssoins-0123456789abcdef

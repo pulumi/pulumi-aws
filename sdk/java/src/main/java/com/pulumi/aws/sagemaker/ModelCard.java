@@ -71,7 +71,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Using `pulumi import`, import model cards using the `model_card_name`. For example:
+ * Using `pulumi import`, import model cards using the `modelCardName`. For example:
  * 
  * ```sh
  * $ pulumi import aws:sagemaker/modelCard:ModelCard example my-model-card

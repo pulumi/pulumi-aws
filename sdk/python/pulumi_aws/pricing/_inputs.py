@@ -19,20 +19,15 @@ __all__ = [
     'GetProductFilterArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class GetProductFilterArgsDict(TypedDict):
-        field: _builtins.str
-        """
-        Product attribute name that you want to filter on.
-        """
-        value: _builtins.str
-        """
-        Product attribute value that you want to filter on.
-        """
-elif False:
-    GetProductFilterArgsDict: TypeAlias = Mapping[str, Any]
+class GetProductFilterArgsDict(TypedDict):
+    field: _builtins.str
+    """
+    Product attribute name that you want to filter on.
+    """
+    value: _builtins.str
+    """
+    Product attribute value that you want to filter on.
+    """
 
 @pulumi.input_type
 class GetProductFilterArgs:

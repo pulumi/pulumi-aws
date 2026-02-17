@@ -257,7 +257,7 @@ namespace Pulumi.Aws.Fis
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import FIS Experiment Templates using the `id`. For example:
+    /// Using `pulumi import`, import FIS Experiment Templates using the `Id`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:fis/experimentTemplate:ExperimentTemplate template EXT123AbCdEfGhIjK

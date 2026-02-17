@@ -136,7 +136,7 @@ namespace Pulumi.Aws.CloudFront
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import CloudFront Continuous Deployment Policy using the `id`. For example:
+    /// Using `pulumi import`, import CloudFront Continuous Deployment Policy using the `Id`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:cloudfront/continuousDeploymentPolicy:ContinuousDeploymentPolicy example abcd-1234

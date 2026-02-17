@@ -81,6 +81,7 @@ __all__ = [
     'InstancePrimaryNetworkInterface',
     'InstancePrivateDnsNameOptions',
     'InstanceRootBlockDevice',
+    'InstanceSecondaryNetworkInterface',
     'LaunchConfigurationEbsBlockDevice',
     'LaunchConfigurationEphemeralBlockDevice',
     'LaunchConfigurationMetadataOptions',
@@ -215,6 +216,10 @@ __all__ = [
     'PeeringConnectionOptionsAccepter',
     'PeeringConnectionOptionsRequester',
     'RouteTableRoute',
+    'SecondaryNetworkIpv4CidrBlockAssociation',
+    'SecondaryNetworkTimeouts',
+    'SecondarySubnetIpv4CidrBlockAssociation',
+    'SecondarySubnetTimeouts',
     'SecurityGroupEgress',
     'SecurityGroupIngress',
     'SpotFleetRequestLaunchSpecification',
@@ -250,6 +255,7 @@ __all__ = [
     'SpotInstanceRequestPrimaryNetworkInterface',
     'SpotInstanceRequestPrivateDnsNameOptions',
     'SpotInstanceRequestRootBlockDevice',
+    'SpotInstanceRequestSecondaryNetworkInterface',
     'TrafficMirrorFilterRuleDestinationPortRange',
     'TrafficMirrorFilterRuleSourcePortRange',
     'VpcBlockPublicAccessExclusionTimeouts',
@@ -5305,6 +5311,176 @@ class InstanceRootBlockDevice(dict):
         Modifying the `encrypted` or `kms_key_id` settings of the `root_block_device` requires resource replacement.
         """
         return pulumi.get(self, "volume_type")
+
+
+@pulumi.output_type
+class InstanceSecondaryNetworkInterface(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "networkCardIndex":
+            suggest = "network_card_index"
+        elif key == "secondarySubnetId":
+            suggest = "secondary_subnet_id"
+        elif key == "deleteOnTermination":
+            suggest = "delete_on_termination"
+        elif key == "deviceIndex":
+            suggest = "device_index"
+        elif key == "interfaceType":
+            suggest = "interface_type"
+        elif key == "macAddress":
+            suggest = "mac_address"
+        elif key == "privateIpAddressCount":
+            suggest = "private_ip_address_count"
+        elif key == "privateIpAddresses":
+            suggest = "private_ip_addresses"
+        elif key == "secondaryInterfaceId":
+            suggest = "secondary_interface_id"
+        elif key == "secondaryNetworkId":
+            suggest = "secondary_network_id"
+        elif key == "sourceDestCheck":
+            suggest = "source_dest_check"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in InstanceSecondaryNetworkInterface. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        InstanceSecondaryNetworkInterface.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        InstanceSecondaryNetworkInterface.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 network_card_index: _builtins.int,
+                 secondary_subnet_id: _builtins.str,
+                 delete_on_termination: Optional[_builtins.bool] = None,
+                 device_index: Optional[_builtins.int] = None,
+                 interface_type: Optional[_builtins.str] = None,
+                 mac_address: Optional[_builtins.str] = None,
+                 private_ip_address_count: Optional[_builtins.int] = None,
+                 private_ip_addresses: Optional[Sequence[_builtins.str]] = None,
+                 secondary_interface_id: Optional[_builtins.str] = None,
+                 secondary_network_id: Optional[_builtins.str] = None,
+                 source_dest_check: Optional[_builtins.bool] = None,
+                 status: Optional[_builtins.str] = None):
+        """
+        :param _builtins.int network_card_index: Network card index for the interface. Each network card can have one secondary interface. Forces replacement.
+        :param _builtins.str secondary_subnet_id: ID of the secondary subnet in which to create the network interface. Forces replacement.
+        :param _builtins.bool delete_on_termination: Whether the network interface should be destroyed when the instance is terminated. Defaults to `true`. Forces replacement.
+        :param _builtins.int device_index: Device index for the network interface attachment. Defaults to `0`. Forces replacement.
+        :param _builtins.str interface_type: Type of network interface. Currently only `secondary` is supported. Defaults to `secondary`. Forces replacement.
+        :param _builtins.int private_ip_address_count: Number of private IP addresses to assign to the network interface. Defaults to `1`. Forces replacement.
+        :param Sequence[_builtins.str] private_ip_addresses: List of private IP addresses to assign to the network interface. If not specified, AWS will automatically assign IP addresses based on `private_ip_address_count`. Forces replacement.
+        :param _builtins.bool source_dest_check: Controls if traffic is routed to the instance when the destination address does not match the instance. Used for NAT or VPNs. Defaults true.
+        """
+        pulumi.set(__self__, "network_card_index", network_card_index)
+        pulumi.set(__self__, "secondary_subnet_id", secondary_subnet_id)
+        if delete_on_termination is not None:
+            pulumi.set(__self__, "delete_on_termination", delete_on_termination)
+        if device_index is not None:
+            pulumi.set(__self__, "device_index", device_index)
+        if interface_type is not None:
+            pulumi.set(__self__, "interface_type", interface_type)
+        if mac_address is not None:
+            pulumi.set(__self__, "mac_address", mac_address)
+        if private_ip_address_count is not None:
+            pulumi.set(__self__, "private_ip_address_count", private_ip_address_count)
+        if private_ip_addresses is not None:
+            pulumi.set(__self__, "private_ip_addresses", private_ip_addresses)
+        if secondary_interface_id is not None:
+            pulumi.set(__self__, "secondary_interface_id", secondary_interface_id)
+        if secondary_network_id is not None:
+            pulumi.set(__self__, "secondary_network_id", secondary_network_id)
+        if source_dest_check is not None:
+            pulumi.set(__self__, "source_dest_check", source_dest_check)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+
+    @_builtins.property
+    @pulumi.getter(name="networkCardIndex")
+    def network_card_index(self) -> _builtins.int:
+        """
+        Network card index for the interface. Each network card can have one secondary interface. Forces replacement.
+        """
+        return pulumi.get(self, "network_card_index")
+
+    @_builtins.property
+    @pulumi.getter(name="secondarySubnetId")
+    def secondary_subnet_id(self) -> _builtins.str:
+        """
+        ID of the secondary subnet in which to create the network interface. Forces replacement.
+        """
+        return pulumi.get(self, "secondary_subnet_id")
+
+    @_builtins.property
+    @pulumi.getter(name="deleteOnTermination")
+    def delete_on_termination(self) -> Optional[_builtins.bool]:
+        """
+        Whether the network interface should be destroyed when the instance is terminated. Defaults to `true`. Forces replacement.
+        """
+        return pulumi.get(self, "delete_on_termination")
+
+    @_builtins.property
+    @pulumi.getter(name="deviceIndex")
+    def device_index(self) -> Optional[_builtins.int]:
+        """
+        Device index for the network interface attachment. Defaults to `0`. Forces replacement.
+        """
+        return pulumi.get(self, "device_index")
+
+    @_builtins.property
+    @pulumi.getter(name="interfaceType")
+    def interface_type(self) -> Optional[_builtins.str]:
+        """
+        Type of network interface. Currently only `secondary` is supported. Defaults to `secondary`. Forces replacement.
+        """
+        return pulumi.get(self, "interface_type")
+
+    @_builtins.property
+    @pulumi.getter(name="macAddress")
+    def mac_address(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "mac_address")
+
+    @_builtins.property
+    @pulumi.getter(name="privateIpAddressCount")
+    def private_ip_address_count(self) -> Optional[_builtins.int]:
+        """
+        Number of private IP addresses to assign to the network interface. Defaults to `1`. Forces replacement.
+        """
+        return pulumi.get(self, "private_ip_address_count")
+
+    @_builtins.property
+    @pulumi.getter(name="privateIpAddresses")
+    def private_ip_addresses(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        List of private IP addresses to assign to the network interface. If not specified, AWS will automatically assign IP addresses based on `private_ip_address_count`. Forces replacement.
+        """
+        return pulumi.get(self, "private_ip_addresses")
+
+    @_builtins.property
+    @pulumi.getter(name="secondaryInterfaceId")
+    def secondary_interface_id(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "secondary_interface_id")
+
+    @_builtins.property
+    @pulumi.getter(name="secondaryNetworkId")
+    def secondary_network_id(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "secondary_network_id")
+
+    @_builtins.property
+    @pulumi.getter(name="sourceDestCheck")
+    def source_dest_check(self) -> Optional[_builtins.bool]:
+        """
+        Controls if traffic is routed to the instance when the destination address does not match the instance. Used for NAT or VPNs. Defaults true.
+        """
+        return pulumi.get(self, "source_dest_check")
+
+    @_builtins.property
+    @pulumi.getter
+    def status(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "status")
 
 
 @pulumi.output_type
@@ -13753,6 +13929,210 @@ class RouteTableRoute(dict):
 
 
 @pulumi.output_type
+class SecondaryNetworkIpv4CidrBlockAssociation(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "associationId":
+            suggest = "association_id"
+        elif key == "cidrBlock":
+            suggest = "cidr_block"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SecondaryNetworkIpv4CidrBlockAssociation. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SecondaryNetworkIpv4CidrBlockAssociation.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SecondaryNetworkIpv4CidrBlockAssociation.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 association_id: _builtins.str,
+                 cidr_block: _builtins.str,
+                 state: _builtins.str):
+        """
+        :param _builtins.str association_id: Association ID for the IPv4 CIDR block.
+        :param _builtins.str cidr_block: IPv4 CIDR block.
+        :param _builtins.str state: State of the IPv4 CIDR block association.
+        """
+        pulumi.set(__self__, "association_id", association_id)
+        pulumi.set(__self__, "cidr_block", cidr_block)
+        pulumi.set(__self__, "state", state)
+
+    @_builtins.property
+    @pulumi.getter(name="associationId")
+    def association_id(self) -> _builtins.str:
+        """
+        Association ID for the IPv4 CIDR block.
+        """
+        return pulumi.get(self, "association_id")
+
+    @_builtins.property
+    @pulumi.getter(name="cidrBlock")
+    def cidr_block(self) -> _builtins.str:
+        """
+        IPv4 CIDR block.
+        """
+        return pulumi.get(self, "cidr_block")
+
+    @_builtins.property
+    @pulumi.getter
+    def state(self) -> _builtins.str:
+        """
+        State of the IPv4 CIDR block association.
+        """
+        return pulumi.get(self, "state")
+
+
+@pulumi.output_type
+class SecondaryNetworkTimeouts(dict):
+    def __init__(__self__, *,
+                 create: Optional[_builtins.str] = None,
+                 delete: Optional[_builtins.str] = None,
+                 update: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str create: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        :param _builtins.str delete: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        :param _builtins.str update: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        if create is not None:
+            pulumi.set(__self__, "create", create)
+        if delete is not None:
+            pulumi.set(__self__, "delete", delete)
+        if update is not None:
+            pulumi.set(__self__, "update", update)
+
+    @_builtins.property
+    @pulumi.getter
+    def create(self) -> Optional[_builtins.str]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "create")
+
+    @_builtins.property
+    @pulumi.getter
+    def delete(self) -> Optional[_builtins.str]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        """
+        return pulumi.get(self, "delete")
+
+    @_builtins.property
+    @pulumi.getter
+    def update(self) -> Optional[_builtins.str]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "update")
+
+
+@pulumi.output_type
+class SecondarySubnetIpv4CidrBlockAssociation(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "associationId":
+            suggest = "association_id"
+        elif key == "cidrBlock":
+            suggest = "cidr_block"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SecondarySubnetIpv4CidrBlockAssociation. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SecondarySubnetIpv4CidrBlockAssociation.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SecondarySubnetIpv4CidrBlockAssociation.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 association_id: _builtins.str,
+                 cidr_block: _builtins.str,
+                 state: _builtins.str):
+        """
+        :param _builtins.str association_id: Association ID for the IPv4 CIDR block.
+        :param _builtins.str cidr_block: IPv4 CIDR block.
+        :param _builtins.str state: State of the IPv4 CIDR block association.
+        """
+        pulumi.set(__self__, "association_id", association_id)
+        pulumi.set(__self__, "cidr_block", cidr_block)
+        pulumi.set(__self__, "state", state)
+
+    @_builtins.property
+    @pulumi.getter(name="associationId")
+    def association_id(self) -> _builtins.str:
+        """
+        Association ID for the IPv4 CIDR block.
+        """
+        return pulumi.get(self, "association_id")
+
+    @_builtins.property
+    @pulumi.getter(name="cidrBlock")
+    def cidr_block(self) -> _builtins.str:
+        """
+        IPv4 CIDR block.
+        """
+        return pulumi.get(self, "cidr_block")
+
+    @_builtins.property
+    @pulumi.getter
+    def state(self) -> _builtins.str:
+        """
+        State of the IPv4 CIDR block association.
+        """
+        return pulumi.get(self, "state")
+
+
+@pulumi.output_type
+class SecondarySubnetTimeouts(dict):
+    def __init__(__self__, *,
+                 create: Optional[_builtins.str] = None,
+                 delete: Optional[_builtins.str] = None,
+                 update: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str create: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        :param _builtins.str delete: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        :param _builtins.str update: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        if create is not None:
+            pulumi.set(__self__, "create", create)
+        if delete is not None:
+            pulumi.set(__self__, "delete", delete)
+        if update is not None:
+            pulumi.set(__self__, "update", update)
+
+    @_builtins.property
+    @pulumi.getter
+    def create(self) -> Optional[_builtins.str]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "create")
+
+    @_builtins.property
+    @pulumi.getter
+    def delete(self) -> Optional[_builtins.str]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        """
+        return pulumi.get(self, "delete")
+
+    @_builtins.property
+    @pulumi.getter
+    def update(self) -> Optional[_builtins.str]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "update")
+
+
+@pulumi.output_type
 class SecurityGroupEgress(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -16536,6 +16916,176 @@ class SpotInstanceRequestRootBlockDevice(dict):
         Modifying the `encrypted` or `kms_key_id` settings of the `root_block_device` requires resource replacement.
         """
         return pulumi.get(self, "volume_type")
+
+
+@pulumi.output_type
+class SpotInstanceRequestSecondaryNetworkInterface(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "networkCardIndex":
+            suggest = "network_card_index"
+        elif key == "secondarySubnetId":
+            suggest = "secondary_subnet_id"
+        elif key == "deleteOnTermination":
+            suggest = "delete_on_termination"
+        elif key == "deviceIndex":
+            suggest = "device_index"
+        elif key == "interfaceType":
+            suggest = "interface_type"
+        elif key == "macAddress":
+            suggest = "mac_address"
+        elif key == "privateIpAddressCount":
+            suggest = "private_ip_address_count"
+        elif key == "privateIpAddresses":
+            suggest = "private_ip_addresses"
+        elif key == "secondaryInterfaceId":
+            suggest = "secondary_interface_id"
+        elif key == "secondaryNetworkId":
+            suggest = "secondary_network_id"
+        elif key == "sourceDestCheck":
+            suggest = "source_dest_check"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SpotInstanceRequestSecondaryNetworkInterface. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SpotInstanceRequestSecondaryNetworkInterface.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SpotInstanceRequestSecondaryNetworkInterface.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 network_card_index: _builtins.int,
+                 secondary_subnet_id: _builtins.str,
+                 delete_on_termination: Optional[_builtins.bool] = None,
+                 device_index: Optional[_builtins.int] = None,
+                 interface_type: Optional[_builtins.str] = None,
+                 mac_address: Optional[_builtins.str] = None,
+                 private_ip_address_count: Optional[_builtins.int] = None,
+                 private_ip_addresses: Optional[Sequence[_builtins.str]] = None,
+                 secondary_interface_id: Optional[_builtins.str] = None,
+                 secondary_network_id: Optional[_builtins.str] = None,
+                 source_dest_check: Optional[_builtins.bool] = None,
+                 status: Optional[_builtins.str] = None):
+        """
+        :param _builtins.int network_card_index: Network card index for the interface. Each network card can have one secondary interface. Forces replacement.
+        :param _builtins.str secondary_subnet_id: ID of the secondary subnet in which to create the network interface. Forces replacement.
+        :param _builtins.bool delete_on_termination: Whether the network interface should be destroyed when the instance is terminated. Defaults to `true`. Forces replacement.
+        :param _builtins.int device_index: Device index for the network interface attachment. Defaults to `0`. Forces replacement.
+        :param _builtins.str interface_type: Type of network interface. Currently only `secondary` is supported. Defaults to `secondary`. Forces replacement.
+        :param _builtins.int private_ip_address_count: Number of private IP addresses to assign to the network interface. Defaults to `1`. Forces replacement.
+        :param Sequence[_builtins.str] private_ip_addresses: List of private IP addresses to assign to the network interface. If not specified, AWS will automatically assign IP addresses based on `private_ip_address_count`. Forces replacement.
+        :param _builtins.bool source_dest_check: Controls if traffic is routed to the instance when the destination address does not match the instance. Used for NAT or VPNs. Defaults true.
+        """
+        pulumi.set(__self__, "network_card_index", network_card_index)
+        pulumi.set(__self__, "secondary_subnet_id", secondary_subnet_id)
+        if delete_on_termination is not None:
+            pulumi.set(__self__, "delete_on_termination", delete_on_termination)
+        if device_index is not None:
+            pulumi.set(__self__, "device_index", device_index)
+        if interface_type is not None:
+            pulumi.set(__self__, "interface_type", interface_type)
+        if mac_address is not None:
+            pulumi.set(__self__, "mac_address", mac_address)
+        if private_ip_address_count is not None:
+            pulumi.set(__self__, "private_ip_address_count", private_ip_address_count)
+        if private_ip_addresses is not None:
+            pulumi.set(__self__, "private_ip_addresses", private_ip_addresses)
+        if secondary_interface_id is not None:
+            pulumi.set(__self__, "secondary_interface_id", secondary_interface_id)
+        if secondary_network_id is not None:
+            pulumi.set(__self__, "secondary_network_id", secondary_network_id)
+        if source_dest_check is not None:
+            pulumi.set(__self__, "source_dest_check", source_dest_check)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+
+    @_builtins.property
+    @pulumi.getter(name="networkCardIndex")
+    def network_card_index(self) -> _builtins.int:
+        """
+        Network card index for the interface. Each network card can have one secondary interface. Forces replacement.
+        """
+        return pulumi.get(self, "network_card_index")
+
+    @_builtins.property
+    @pulumi.getter(name="secondarySubnetId")
+    def secondary_subnet_id(self) -> _builtins.str:
+        """
+        ID of the secondary subnet in which to create the network interface. Forces replacement.
+        """
+        return pulumi.get(self, "secondary_subnet_id")
+
+    @_builtins.property
+    @pulumi.getter(name="deleteOnTermination")
+    def delete_on_termination(self) -> Optional[_builtins.bool]:
+        """
+        Whether the network interface should be destroyed when the instance is terminated. Defaults to `true`. Forces replacement.
+        """
+        return pulumi.get(self, "delete_on_termination")
+
+    @_builtins.property
+    @pulumi.getter(name="deviceIndex")
+    def device_index(self) -> Optional[_builtins.int]:
+        """
+        Device index for the network interface attachment. Defaults to `0`. Forces replacement.
+        """
+        return pulumi.get(self, "device_index")
+
+    @_builtins.property
+    @pulumi.getter(name="interfaceType")
+    def interface_type(self) -> Optional[_builtins.str]:
+        """
+        Type of network interface. Currently only `secondary` is supported. Defaults to `secondary`. Forces replacement.
+        """
+        return pulumi.get(self, "interface_type")
+
+    @_builtins.property
+    @pulumi.getter(name="macAddress")
+    def mac_address(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "mac_address")
+
+    @_builtins.property
+    @pulumi.getter(name="privateIpAddressCount")
+    def private_ip_address_count(self) -> Optional[_builtins.int]:
+        """
+        Number of private IP addresses to assign to the network interface. Defaults to `1`. Forces replacement.
+        """
+        return pulumi.get(self, "private_ip_address_count")
+
+    @_builtins.property
+    @pulumi.getter(name="privateIpAddresses")
+    def private_ip_addresses(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        List of private IP addresses to assign to the network interface. If not specified, AWS will automatically assign IP addresses based on `private_ip_address_count`. Forces replacement.
+        """
+        return pulumi.get(self, "private_ip_addresses")
+
+    @_builtins.property
+    @pulumi.getter(name="secondaryInterfaceId")
+    def secondary_interface_id(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "secondary_interface_id")
+
+    @_builtins.property
+    @pulumi.getter(name="secondaryNetworkId")
+    def secondary_network_id(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "secondary_network_id")
+
+    @_builtins.property
+    @pulumi.getter(name="sourceDestCheck")
+    def source_dest_check(self) -> Optional[_builtins.bool]:
+        """
+        Controls if traffic is routed to the instance when the destination address does not match the instance. Used for NAT or VPNs. Defaults true.
+        """
+        return pulumi.get(self, "source_dest_check")
+
+    @_builtins.property
+    @pulumi.getter
+    def status(self) -> Optional[_builtins.str]:
+        return pulumi.get(self, "status")
 
 
 @pulumi.output_type

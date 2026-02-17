@@ -12,7 +12,7 @@ import java.util.Objects;
 @CustomType
 public final class CapacityProviderCapacityProviderScalingConfigScalingPolicy {
     /**
-     * @return The predefined metric type for the scaling policy. Valid values are `LAMBDA_PROVISIONED_CONCURRENCY_UTILIZATION`.
+     * @return The predefined metric type for the scaling policy. Valid values are `&#34;LambdaCapacityProviderAverageCPUUtilization&#34;`.
      * 
      */
     private String predefinedMetricType;
@@ -24,7 +24,7 @@ public final class CapacityProviderCapacityProviderScalingConfigScalingPolicy {
 
     private CapacityProviderCapacityProviderScalingConfigScalingPolicy() {}
     /**
-     * @return The predefined metric type for the scaling policy. Valid values are `LAMBDA_PROVISIONED_CONCURRENCY_UTILIZATION`.
+     * @return The predefined metric type for the scaling policy. Valid values are `&#34;LambdaCapacityProviderAverageCPUUtilization&#34;`.
      * 
      */
     public String predefinedMetricType() {

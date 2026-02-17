@@ -22,11 +22,11 @@ namespace Pulumi.Aws.CloudFront.Outputs
         /// </summary>
         public readonly int ErrorCode;
         /// <summary>
-        /// HTTP status code that you want CloudFront to return to the viewer along with the custom error page.
+        /// HTTP status code that you want CloudFront to return to the viewer along with the custom error page. Both `ResponseCode` and `ResponsePagePath` must be specified or both must be omitted.
         /// </summary>
         public readonly string? ResponseCode;
         /// <summary>
-        /// Path to the custom error page that you want CloudFront to return to a viewer when your origin returns the HTTP status code specified by ErrorCode.
+        /// Path to the custom error page that you want CloudFront to return to a viewer when your origin returns the HTTP status code specified by ErrorCode. Both `ResponseCode` and `ResponsePagePath` must be specified or both must be omitted.
         /// </summary>
         public readonly string? ResponsePagePath;
 

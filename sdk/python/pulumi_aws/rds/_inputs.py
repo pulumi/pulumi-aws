@@ -70,24 +70,19 @@ __all__ = [
     'GetInstancesFilterArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class ClusterMasterUserSecretArgsDict(TypedDict):
-        kms_key_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        ARN for the KMS encryption key. When specifying `kms_key_id`, `storage_encrypted` needs to be set to true.
-        """
-        secret_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Amazon Resource Name (ARN) of the secret.
-        """
-        secret_status: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Status of the secret. Valid Values: `creating` | `active` | `rotating` | `impaired`.
-        """
-elif False:
-    ClusterMasterUserSecretArgsDict: TypeAlias = Mapping[str, Any]
+class ClusterMasterUserSecretArgsDict(TypedDict):
+    kms_key_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    ARN for the KMS encryption key. When specifying `kms_key_id`, `storage_encrypted` needs to be set to true.
+    """
+    secret_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Amazon Resource Name (ARN) of the secret.
+    """
+    secret_status: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Status of the secret. Valid Values: `creating` | `active` | `rotating` | `impaired`.
+    """
 
 @pulumi.input_type
 class ClusterMasterUserSecretArgs:
@@ -144,24 +139,21 @@ class ClusterMasterUserSecretArgs:
         pulumi.set(self, "secret_status", value)
 
 
-if not MYPY:
-    class ClusterParameterGroupParameterArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the DB parameter.
-        """
-        value: pulumi.Input[_builtins.str]
-        """
-        The value of the DB parameter.
-        """
-        apply_method: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        "immediate" (default), or "pending-reboot". Some
-        engines can't apply some parameters without a reboot, and you will need to
-        specify "pending-reboot" here.
-        """
-elif False:
-    ClusterParameterGroupParameterArgsDict: TypeAlias = Mapping[str, Any]
+class ClusterParameterGroupParameterArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the DB parameter.
+    """
+    value: pulumi.Input[_builtins.str]
+    """
+    The value of the DB parameter.
+    """
+    apply_method: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    "immediate" (default), or "pending-reboot". Some
+    engines can't apply some parameters without a reboot, and you will need to
+    specify "pending-reboot" here.
+    """
 
 @pulumi.input_type
 class ClusterParameterGroupParameterArgs:
@@ -220,31 +212,28 @@ class ClusterParameterGroupParameterArgs:
         pulumi.set(self, "apply_method", value)
 
 
-if not MYPY:
-    class ClusterRestoreToPointInTimeArgsDict(TypedDict):
-        restore_to_time: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Date and time in UTC format to restore the database cluster to. Conflicts with `use_latest_restorable_time`.
-        """
-        restore_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Type of restore to be performed.
-        Valid options are `full-copy` (default) and `copy-on-write`.
-        """
-        source_cluster_identifier: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Identifier of the source database cluster from which to restore. When restoring from a cluster in another AWS account, the identifier is the ARN of that cluster.
-        """
-        source_cluster_resource_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Cluster resource ID of the source database cluster from which to restore. To be used for restoring a deleted cluster in the same account which still has a retained automatic backup available.
-        """
-        use_latest_restorable_time: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Set to true to restore the database cluster to the latest restorable backup time. Defaults to false. Conflicts with `restore_to_time`.
-        """
-elif False:
-    ClusterRestoreToPointInTimeArgsDict: TypeAlias = Mapping[str, Any]
+class ClusterRestoreToPointInTimeArgsDict(TypedDict):
+    restore_to_time: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Date and time in UTC format to restore the database cluster to. Conflicts with `use_latest_restorable_time`.
+    """
+    restore_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Type of restore to be performed.
+    Valid options are `full-copy` (default) and `copy-on-write`.
+    """
+    source_cluster_identifier: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Identifier of the source database cluster from which to restore. When restoring from a cluster in another AWS account, the identifier is the ARN of that cluster.
+    """
+    source_cluster_resource_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Cluster resource ID of the source database cluster from which to restore. To be used for restoring a deleted cluster in the same account which still has a retained automatic backup available.
+    """
+    use_latest_restorable_time: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Set to true to restore the database cluster to the latest restorable backup time. Defaults to false. Conflicts with `restore_to_time`.
+    """
 
 @pulumi.input_type
 class ClusterRestoreToPointInTimeArgs:
@@ -335,32 +324,29 @@ class ClusterRestoreToPointInTimeArgs:
         pulumi.set(self, "use_latest_restorable_time", value)
 
 
-if not MYPY:
-    class ClusterS3ImportArgsDict(TypedDict):
-        bucket_name: pulumi.Input[_builtins.str]
-        """
-        Bucket name where your backup is stored
-        """
-        ingestion_role: pulumi.Input[_builtins.str]
-        """
-        Role applied to load the data.
-        """
-        source_engine: pulumi.Input[_builtins.str]
-        """
-        Source engine for the backup
-        """
-        source_engine_version: pulumi.Input[_builtins.str]
-        """
-        Version of the source engine used to make the backup
+class ClusterS3ImportArgsDict(TypedDict):
+    bucket_name: pulumi.Input[_builtins.str]
+    """
+    Bucket name where your backup is stored
+    """
+    ingestion_role: pulumi.Input[_builtins.str]
+    """
+    Role applied to load the data.
+    """
+    source_engine: pulumi.Input[_builtins.str]
+    """
+    Source engine for the backup
+    """
+    source_engine_version: pulumi.Input[_builtins.str]
+    """
+    Version of the source engine used to make the backup
 
-        This will not recreate the resource if the S3 object changes in some way. It's only used to initialize the database. This only works currently with the aurora engine. See AWS for currently supported engines and options. See [Aurora S3 Migration Docs](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Migrating.ExtMySQL.html#AuroraMySQL.Migrating.ExtMySQL.S3).
-        """
-        bucket_prefix: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Can be blank, but is the path to your backup
-        """
-elif False:
-    ClusterS3ImportArgsDict: TypeAlias = Mapping[str, Any]
+    This will not recreate the resource if the S3 object changes in some way. It's only used to initialize the database. This only works currently with the aurora engine. See AWS for currently supported engines and options. See [Aurora S3 Migration Docs](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Migrating.ExtMySQL.html#AuroraMySQL.Migrating.ExtMySQL.S3).
+    """
+    bucket_prefix: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Can be blank, but is the path to your backup
+    """
 
 @pulumi.input_type
 class ClusterS3ImportArgs:
@@ -449,34 +435,31 @@ class ClusterS3ImportArgs:
         pulumi.set(self, "bucket_prefix", value)
 
 
-if not MYPY:
-    class ClusterScalingConfigurationArgsDict(TypedDict):
-        auto_pause: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether to enable automatic pause. A DB cluster can be paused only when it's idle (it has no connections). If a DB cluster is paused for more than seven days, the DB cluster might be backed up with a snapshot. In this case, the DB cluster is restored when there is a request to connect to it. Defaults to `true`.
-        """
-        max_capacity: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Maximum capacity for an Aurora DB cluster in `serverless` DB engine mode. The maximum capacity must be greater than or equal to the minimum capacity. Valid Aurora MySQL capacity values are `1`, `2`, `4`, `8`, `16`, `32`, `64`, `128`, `256`. Valid Aurora PostgreSQL capacity values are (`2`, `4`, `8`, `16`, `32`, `64`, `192`, and `384`). Defaults to `16`.
-        """
-        min_capacity: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Minimum capacity for an Aurora DB cluster in `serverless` DB engine mode. The minimum capacity must be lesser than or equal to the maximum capacity. Valid Aurora MySQL capacity values are `1`, `2`, `4`, `8`, `16`, `32`, `64`, `128`, `256`. Valid Aurora PostgreSQL capacity values are (`2`, `4`, `8`, `16`, `32`, `64`, `192`, and `384`). Defaults to `1`.
-        """
-        seconds_before_timeout: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Amount of time, in seconds, that Aurora Serverless v1 tries to find a scaling point to perform seamless scaling before enforcing the timeout action. Valid values are `60` through `600`. Defaults to `300`.
-        """
-        seconds_until_auto_pause: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Time, in seconds, before an Aurora DB cluster in serverless mode is paused. Valid values are `300` through `86400`. Defaults to `300`.
-        """
-        timeout_action: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Action to take when the timeout is reached. Valid values: `ForceApplyCapacityChange`, `RollbackCapacityChange`. Defaults to `RollbackCapacityChange`. See [documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless-v1.how-it-works.html#aurora-serverless.how-it-works.timeout-action).
-        """
-elif False:
-    ClusterScalingConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class ClusterScalingConfigurationArgsDict(TypedDict):
+    auto_pause: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether to enable automatic pause. A DB cluster can be paused only when it's idle (it has no connections). If a DB cluster is paused for more than seven days, the DB cluster might be backed up with a snapshot. In this case, the DB cluster is restored when there is a request to connect to it. Defaults to `true`.
+    """
+    max_capacity: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Maximum capacity for an Aurora DB cluster in `serverless` DB engine mode. The maximum capacity must be greater than or equal to the minimum capacity. Valid Aurora MySQL capacity values are `1`, `2`, `4`, `8`, `16`, `32`, `64`, `128`, `256`. Valid Aurora PostgreSQL capacity values are (`2`, `4`, `8`, `16`, `32`, `64`, `192`, and `384`). Defaults to `16`.
+    """
+    min_capacity: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Minimum capacity for an Aurora DB cluster in `serverless` DB engine mode. The minimum capacity must be lesser than or equal to the maximum capacity. Valid Aurora MySQL capacity values are `1`, `2`, `4`, `8`, `16`, `32`, `64`, `128`, `256`. Valid Aurora PostgreSQL capacity values are (`2`, `4`, `8`, `16`, `32`, `64`, `192`, and `384`). Defaults to `1`.
+    """
+    seconds_before_timeout: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Amount of time, in seconds, that Aurora Serverless v1 tries to find a scaling point to perform seamless scaling before enforcing the timeout action. Valid values are `60` through `600`. Defaults to `300`.
+    """
+    seconds_until_auto_pause: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Time, in seconds, before an Aurora DB cluster in serverless mode is paused. Valid values are `300` through `86400`. Defaults to `300`.
+    """
+    timeout_action: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Action to take when the timeout is reached. Valid values: `ForceApplyCapacityChange`, `RollbackCapacityChange`. Defaults to `RollbackCapacityChange`. See [documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless-v1.how-it-works.html#aurora-serverless.how-it-works.timeout-action).
+    """
 
 @pulumi.input_type
 class ClusterScalingConfigurationArgs:
@@ -581,22 +564,19 @@ class ClusterScalingConfigurationArgs:
         pulumi.set(self, "timeout_action", value)
 
 
-if not MYPY:
-    class ClusterServerlessv2ScalingConfigurationArgsDict(TypedDict):
-        max_capacity: pulumi.Input[_builtins.float]
-        """
-        Maximum capacity for an Aurora DB cluster in `provisioned` DB engine mode. The maximum capacity must be greater than or equal to the minimum capacity. Valid capacity values are in a range of `0` up to `256` in steps of `0.5`.
-        """
-        min_capacity: pulumi.Input[_builtins.float]
-        """
-        Minimum capacity for an Aurora DB cluster in `provisioned` DB engine mode. The minimum capacity must be lesser than or equal to the maximum capacity. Valid capacity values are in a range of `0` up to `256` in steps of `0.5`.
-        """
-        seconds_until_auto_pause: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Time, in seconds, before an Aurora DB cluster in `provisioned` DB engine mode is paused. Valid values are `300` through `86400`.
-        """
-elif False:
-    ClusterServerlessv2ScalingConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class ClusterServerlessv2ScalingConfigurationArgsDict(TypedDict):
+    max_capacity: pulumi.Input[_builtins.float]
+    """
+    Maximum capacity for an Aurora DB cluster in `provisioned` DB engine mode. The maximum capacity must be greater than or equal to the minimum capacity. Valid capacity values are in a range of `0` up to `256` in steps of `0.5`.
+    """
+    min_capacity: pulumi.Input[_builtins.float]
+    """
+    Minimum capacity for an Aurora DB cluster in `provisioned` DB engine mode. The minimum capacity must be lesser than or equal to the maximum capacity. Valid capacity values are in a range of `0` up to `256` in steps of `0.5`.
+    """
+    seconds_until_auto_pause: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Time, in seconds, before an Aurora DB cluster in `provisioned` DB engine mode is paused. Valid values are `300` through `86400`.
+    """
 
 @pulumi.input_type
 class ClusterServerlessv2ScalingConfigurationArgs:
@@ -651,14 +631,11 @@ class ClusterServerlessv2ScalingConfigurationArgs:
         pulumi.set(self, "seconds_until_auto_pause", value)
 
 
-if not MYPY:
-    class ClusterSnapshotCopyTimeoutsArgsDict(TypedDict):
-        create: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
-        """
-elif False:
-    ClusterSnapshotCopyTimeoutsArgsDict: TypeAlias = Mapping[str, Any]
+class ClusterSnapshotCopyTimeoutsArgsDict(TypedDict):
+    create: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+    """
 
 @pulumi.input_type
 class ClusterSnapshotCopyTimeoutsArgs:
@@ -683,18 +660,15 @@ class ClusterSnapshotCopyTimeoutsArgs:
         pulumi.set(self, "create", value)
 
 
-if not MYPY:
-    class ExportTaskTimeoutsArgsDict(TypedDict):
-        create: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
-        """
-        delete: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
-        """
-elif False:
-    ExportTaskTimeoutsArgsDict: TypeAlias = Mapping[str, Any]
+class ExportTaskTimeoutsArgsDict(TypedDict):
+    create: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+    """
+    delete: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+    """
 
 @pulumi.input_type
 class ExportTaskTimeoutsArgs:
@@ -735,18 +709,15 @@ class ExportTaskTimeoutsArgs:
         pulumi.set(self, "delete", value)
 
 
-if not MYPY:
-    class GlobalClusterGlobalClusterMemberArgsDict(TypedDict):
-        db_cluster_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Amazon Resource Name (ARN) of member DB Cluster.
-        """
-        is_writer: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether the member is the primary DB Cluster.
-        """
-elif False:
-    GlobalClusterGlobalClusterMemberArgsDict: TypeAlias = Mapping[str, Any]
+class GlobalClusterGlobalClusterMemberArgsDict(TypedDict):
+    db_cluster_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Amazon Resource Name (ARN) of member DB Cluster.
+    """
+    is_writer: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether the member is the primary DB Cluster.
+    """
 
 @pulumi.input_type
 class GlobalClusterGlobalClusterMemberArgs:
@@ -787,22 +758,19 @@ class GlobalClusterGlobalClusterMemberArgs:
         pulumi.set(self, "is_writer", value)
 
 
-if not MYPY:
-    class InstanceBlueGreenUpdateArgsDict(TypedDict):
-        enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Enables low-downtime updates when `true`.
-        Default is `false`.
+class InstanceBlueGreenUpdateArgsDict(TypedDict):
+    enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Enables low-downtime updates when `true`.
+    Default is `false`.
 
-        [instance-replication]:
-        https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.Replication.html
-        [instance-maintenance]:
-        https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.Maintenance.html
-        [blue-green]:
-        https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/blue-green-deployments.html
-        """
-elif False:
-    InstanceBlueGreenUpdateArgsDict: TypeAlias = Mapping[str, Any]
+    [instance-replication]:
+    https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.Replication.html
+    [instance-maintenance]:
+    https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.Maintenance.html
+    [blue-green]:
+    https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/blue-green-deployments.html
+    """
 
 @pulumi.input_type
 class InstanceBlueGreenUpdateArgs:
@@ -843,18 +811,15 @@ class InstanceBlueGreenUpdateArgs:
         pulumi.set(self, "enabled", value)
 
 
-if not MYPY:
-    class InstanceDesiredStateTimeoutsArgsDict(TypedDict):
-        create: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
-        """
-        update: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
-        """
-elif False:
-    InstanceDesiredStateTimeoutsArgsDict: TypeAlias = Mapping[str, Any]
+class InstanceDesiredStateTimeoutsArgsDict(TypedDict):
+    create: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+    """
+    update: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+    """
 
 @pulumi.input_type
 class InstanceDesiredStateTimeoutsArgs:
@@ -895,22 +860,19 @@ class InstanceDesiredStateTimeoutsArgs:
         pulumi.set(self, "update", value)
 
 
-if not MYPY:
-    class InstanceListenerEndpointArgsDict(TypedDict):
-        address: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specifies the DNS address of the DB instance.
-        """
-        hosted_zone_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specifies the ID that Amazon Route 53 assigns when you create a hosted zone.
-        """
-        port: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The port on which the DB accepts connections.
-        """
-elif False:
-    InstanceListenerEndpointArgsDict: TypeAlias = Mapping[str, Any]
+class InstanceListenerEndpointArgsDict(TypedDict):
+    address: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies the DNS address of the DB instance.
+    """
+    hosted_zone_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies the ID that Amazon Route 53 assigns when you create a hosted zone.
+    """
+    port: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The port on which the DB accepts connections.
+    """
 
 @pulumi.input_type
 class InstanceListenerEndpointArgs:
@@ -967,23 +929,20 @@ class InstanceListenerEndpointArgs:
         pulumi.set(self, "port", value)
 
 
-if not MYPY:
-    class InstanceMasterUserSecretArgsDict(TypedDict):
-        kms_key_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ARN for the KMS encryption key. If creating an
-        encrypted replica, set this to the destination KMS ARN.
-        """
-        secret_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Amazon Resource Name (ARN) of the secret.
-        """
-        secret_status: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The status of the secret. Valid Values: `creating` | `active` | `rotating` | `impaired`.
-        """
-elif False:
-    InstanceMasterUserSecretArgsDict: TypeAlias = Mapping[str, Any]
+class InstanceMasterUserSecretArgsDict(TypedDict):
+    kms_key_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ARN for the KMS encryption key. If creating an
+    encrypted replica, set this to the destination KMS ARN.
+    """
+    secret_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Amazon Resource Name (ARN) of the secret.
+    """
+    secret_status: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The status of the secret. Valid Values: `creating` | `active` | `rotating` | `impaired`.
+    """
 
 @pulumi.input_type
 class InstanceMasterUserSecretArgs:
@@ -1042,30 +1001,27 @@ class InstanceMasterUserSecretArgs:
         pulumi.set(self, "secret_status", value)
 
 
-if not MYPY:
-    class InstanceRestoreToPointInTimeArgsDict(TypedDict):
-        restore_time: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The date and time to restore from. Value must be a time in Universal Coordinated Time (UTC) format and must be before the latest restorable time for the DB instance. Cannot be specified with `use_latest_restorable_time`.
-        """
-        source_db_instance_automated_backups_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ARN of the automated backup from which to restore. Required if `source_db_instance_identifier` or `source_dbi_resource_id` is not specified.
-        """
-        source_db_instance_identifier: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The identifier of the source DB instance from which to restore. Must match the identifier of an existing DB instance. Required if `source_db_instance_automated_backups_arn` or `source_dbi_resource_id` is not specified.
-        """
-        source_dbi_resource_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The resource ID of the source DB instance from which to restore. Required if `source_db_instance_identifier` or `source_db_instance_automated_backups_arn` is not specified.
-        """
-        use_latest_restorable_time: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        A boolean value that indicates whether the DB instance is restored from the latest backup time. Defaults to `false`. Cannot be specified with `restore_time`.
-        """
-elif False:
-    InstanceRestoreToPointInTimeArgsDict: TypeAlias = Mapping[str, Any]
+class InstanceRestoreToPointInTimeArgsDict(TypedDict):
+    restore_time: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The date and time to restore from. Value must be a time in Universal Coordinated Time (UTC) format and must be before the latest restorable time for the DB instance. Cannot be specified with `use_latest_restorable_time`.
+    """
+    source_db_instance_automated_backups_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ARN of the automated backup from which to restore. Required if `source_db_instance_identifier` or `source_dbi_resource_id` is not specified.
+    """
+    source_db_instance_identifier: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The identifier of the source DB instance from which to restore. Must match the identifier of an existing DB instance. Required if `source_db_instance_automated_backups_arn` or `source_dbi_resource_id` is not specified.
+    """
+    source_dbi_resource_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The resource ID of the source DB instance from which to restore. Required if `source_db_instance_identifier` or `source_db_instance_automated_backups_arn` is not specified.
+    """
+    use_latest_restorable_time: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    A boolean value that indicates whether the DB instance is restored from the latest backup time. Defaults to `false`. Cannot be specified with `restore_time`.
+    """
 
 @pulumi.input_type
 class InstanceRestoreToPointInTimeArgs:
@@ -1154,32 +1110,29 @@ class InstanceRestoreToPointInTimeArgs:
         pulumi.set(self, "use_latest_restorable_time", value)
 
 
-if not MYPY:
-    class InstanceS3ImportArgsDict(TypedDict):
-        bucket_name: pulumi.Input[_builtins.str]
-        """
-        The bucket name where your backup is stored
-        """
-        ingestion_role: pulumi.Input[_builtins.str]
-        """
-        Role applied to load the data.
-        """
-        source_engine: pulumi.Input[_builtins.str]
-        """
-        Source engine for the backup
-        """
-        source_engine_version: pulumi.Input[_builtins.str]
-        """
-        Version of the source engine used to make the backup
+class InstanceS3ImportArgsDict(TypedDict):
+    bucket_name: pulumi.Input[_builtins.str]
+    """
+    The bucket name where your backup is stored
+    """
+    ingestion_role: pulumi.Input[_builtins.str]
+    """
+    Role applied to load the data.
+    """
+    source_engine: pulumi.Input[_builtins.str]
+    """
+    Source engine for the backup
+    """
+    source_engine_version: pulumi.Input[_builtins.str]
+    """
+    Version of the source engine used to make the backup
 
-        This will not recreate the resource if the S3 object changes in some way.  It's only used to initialize the database.
-        """
-        bucket_prefix: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Can be blank, but is the path to your backup
-        """
-elif False:
-    InstanceS3ImportArgsDict: TypeAlias = Mapping[str, Any]
+    This will not recreate the resource if the S3 object changes in some way.  It's only used to initialize the database.
+    """
+    bucket_prefix: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Can be blank, but is the path to your backup
+    """
 
 @pulumi.input_type
 class InstanceS3ImportArgs:
@@ -1268,18 +1221,15 @@ class InstanceS3ImportArgs:
         pulumi.set(self, "bucket_prefix", value)
 
 
-if not MYPY:
-    class IntegrationTimeoutsArgsDict(TypedDict):
-        create: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
-        """
-        delete: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
-        """
-elif False:
-    IntegrationTimeoutsArgsDict: TypeAlias = Mapping[str, Any]
+class IntegrationTimeoutsArgsDict(TypedDict):
+    create: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+    """
+    delete: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+    """
 
 @pulumi.input_type
 class IntegrationTimeoutsArgs:
@@ -1320,34 +1270,31 @@ class IntegrationTimeoutsArgs:
         pulumi.set(self, "delete", value)
 
 
-if not MYPY:
-    class OptionGroupOptionArgsDict(TypedDict):
-        option_name: pulumi.Input[_builtins.str]
-        """
-        Name of the option (e.g., MEMCACHED).
-        """
-        db_security_group_memberships: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        List of DB Security Groups for which the option is enabled.
-        """
-        option_settings: NotRequired[pulumi.Input[Sequence[pulumi.Input['OptionGroupOptionOptionSettingArgsDict']]]]
-        """
-        The option settings to apply. See `option_settings` Block below for more details.
-        """
-        port: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Port number when connecting to the option (e.g., 11211). Leaving out or removing `port` from your configuration does not remove or clear a port from the option in AWS. AWS may assign a default port. Not including `port` in your configuration means that the AWS provider will ignore a previously set value, a value set by AWS, and any port changes.
-        """
-        version: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Version of the option (e.g., 13.1.0.0). Leaving out or removing `version` from your configuration does not remove or clear a version from the option in AWS. AWS may assign a default version. Not including `version` in your configuration means that the AWS provider will ignore a previously set value, a value set by AWS, and any version changes.
-        """
-        vpc_security_group_memberships: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        List of VPC Security Groups for which the option is enabled.
-        """
-elif False:
-    OptionGroupOptionArgsDict: TypeAlias = Mapping[str, Any]
+class OptionGroupOptionArgsDict(TypedDict):
+    option_name: pulumi.Input[_builtins.str]
+    """
+    Name of the option (e.g., MEMCACHED).
+    """
+    db_security_group_memberships: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    List of DB Security Groups for which the option is enabled.
+    """
+    option_settings: NotRequired[pulumi.Input[Sequence[pulumi.Input['OptionGroupOptionOptionSettingArgsDict']]]]
+    """
+    The option settings to apply. See `option_settings` Block below for more details.
+    """
+    port: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Port number when connecting to the option (e.g., 11211). Leaving out or removing `port` from your configuration does not remove or clear a port from the option in AWS. AWS may assign a default port. Not including `port` in your configuration means that the AWS provider will ignore a previously set value, a value set by AWS, and any port changes.
+    """
+    version: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Version of the option (e.g., 13.1.0.0). Leaving out or removing `version` from your configuration does not remove or clear a version from the option in AWS. AWS may assign a default version. Not including `version` in your configuration means that the AWS provider will ignore a previously set value, a value set by AWS, and any version changes.
+    """
+    vpc_security_group_memberships: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    List of VPC Security Groups for which the option is enabled.
+    """
 
 @pulumi.input_type
 class OptionGroupOptionArgs:
@@ -1451,18 +1398,15 @@ class OptionGroupOptionArgs:
         pulumi.set(self, "vpc_security_group_memberships", value)
 
 
-if not MYPY:
-    class OptionGroupOptionOptionSettingArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        """
-        Name of the setting.
-        """
-        value: pulumi.Input[_builtins.str]
-        """
-        Value of the setting.
-        """
-elif False:
-    OptionGroupOptionOptionSettingArgsDict: TypeAlias = Mapping[str, Any]
+class OptionGroupOptionOptionSettingArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    Name of the setting.
+    """
+    value: pulumi.Input[_builtins.str]
+    """
+    Value of the setting.
+    """
 
 @pulumi.input_type
 class OptionGroupOptionOptionSettingArgs:
@@ -1501,24 +1445,21 @@ class OptionGroupOptionOptionSettingArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class ParameterGroupParameterArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the DB parameter.
-        """
-        value: pulumi.Input[_builtins.str]
-        """
-        The value of the DB parameter.
-        """
-        apply_method: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        "immediate" (default), or "pending-reboot". Some
-        engines can't apply some parameters without a reboot, and you will need to
-        specify "pending-reboot" here.
-        """
-elif False:
-    ParameterGroupParameterArgsDict: TypeAlias = Mapping[str, Any]
+class ParameterGroupParameterArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the DB parameter.
+    """
+    value: pulumi.Input[_builtins.str]
+    """
+    The value of the DB parameter.
+    """
+    apply_method: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    "immediate" (default), or "pending-reboot". Some
+    engines can't apply some parameters without a reboot, and you will need to
+    specify "pending-reboot" here.
+    """
 
 @pulumi.input_type
 class ParameterGroupParameterArgs:
@@ -1579,34 +1520,31 @@ class ParameterGroupParameterArgs:
         pulumi.set(self, "apply_method", value)
 
 
-if not MYPY:
-    class ProxyAuthArgsDict(TypedDict):
-        auth_scheme: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The type of authentication that the proxy uses for connections from the proxy to the underlying database. One of `SECRETS`.
-        """
-        client_password_auth_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The type of authentication the proxy uses for connections from clients. Valid values are `MYSQL_CACHING_SHA2_PASSWORD`, `MYSQL_NATIVE_PASSWORD`, `POSTGRES_SCRAM_SHA_256`, `POSTGRES_MD5`, and `SQL_SERVER_AUTHENTICATION`.
-        """
-        description: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A user-specified description about the authentication used by a proxy to log in as a specific database user.
-        """
-        iam_auth: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Whether to require or disallow AWS Identity and Access Management (IAM) authentication for connections to the proxy. One of `DISABLED`, `REQUIRED`.
-        """
-        secret_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Amazon Resource Name (ARN) representing the secret that the proxy uses to authenticate to the RDS DB instance or Aurora DB cluster. These secrets are stored within Amazon Secrets Manager.
-        """
-        username: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the database user to which the proxy connects.
-        """
-elif False:
-    ProxyAuthArgsDict: TypeAlias = Mapping[str, Any]
+class ProxyAuthArgsDict(TypedDict):
+    auth_scheme: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The type of authentication that the proxy uses for connections from the proxy to the underlying database. One of `SECRETS`.
+    """
+    client_password_auth_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The type of authentication the proxy uses for connections from clients. Valid values are `MYSQL_CACHING_SHA2_PASSWORD`, `MYSQL_NATIVE_PASSWORD`, `POSTGRES_SCRAM_SHA_256`, `POSTGRES_MD5`, and `SQL_SERVER_AUTHENTICATION`.
+    """
+    description: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A user-specified description about the authentication used by a proxy to log in as a specific database user.
+    """
+    iam_auth: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Whether to require or disallow AWS Identity and Access Management (IAM) authentication for connections to the proxy. One of `DISABLED`, `REQUIRED`.
+    """
+    secret_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Amazon Resource Name (ARN) representing the secret that the proxy uses to authenticate to the RDS DB instance or Aurora DB cluster. These secrets are stored within Amazon Secrets Manager.
+    """
+    username: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the database user to which the proxy connects.
+    """
 
 @pulumi.input_type
 class ProxyAuthArgs:
@@ -1711,30 +1649,27 @@ class ProxyAuthArgs:
         pulumi.set(self, "username", value)
 
 
-if not MYPY:
-    class ProxyDefaultTargetGroupConnectionPoolConfigArgsDict(TypedDict):
-        connection_borrow_timeout: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The number of seconds for a proxy to wait for a connection to become available in the connection pool. Only applies when the proxy has opened its maximum number of connections and all connections are busy with client sessions.
-        """
-        init_query: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        One or more SQL statements for the proxy to run when opening each new database connection. Typically used with `SET` statements to make sure that each connection has identical settings such as time zone and character set. This setting is empty by default. For multiple statements, use semicolons as the separator. You can also include multiple variables in a single `SET` statement, such as `SET x=1, y=2`.
-        """
-        max_connections_percent: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The maximum size of the connection pool for each target in a target group. For Aurora MySQL, it is expressed as a percentage of the max_connections setting for the RDS DB instance or Aurora DB cluster used by the target group.
-        """
-        max_idle_connections_percent: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Controls how actively the proxy closes idle database connections in the connection pool. A high value enables the proxy to leave a high percentage of idle connections open. A low value causes the proxy to close idle client connections and return the underlying database connections to the connection pool. For Aurora MySQL, it is expressed as a percentage of the max_connections setting for the RDS DB instance or Aurora DB cluster used by the target group.
-        """
-        session_pinning_filters: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Each item in the list represents a class of SQL operations that normally cause all later statements in a session using a proxy to be pinned to the same underlying database connection. Including an item in the list exempts that class of SQL operations from the pinning behavior. This setting is only supported for MySQL engine family databases. Currently, the only allowed value is `EXCLUDE_VARIABLE_SETS`.
-        """
-elif False:
-    ProxyDefaultTargetGroupConnectionPoolConfigArgsDict: TypeAlias = Mapping[str, Any]
+class ProxyDefaultTargetGroupConnectionPoolConfigArgsDict(TypedDict):
+    connection_borrow_timeout: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The number of seconds for a proxy to wait for a connection to become available in the connection pool. Only applies when the proxy has opened its maximum number of connections and all connections are busy with client sessions.
+    """
+    init_query: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    One or more SQL statements for the proxy to run when opening each new database connection. Typically used with `SET` statements to make sure that each connection has identical settings such as time zone and character set. This setting is empty by default. For multiple statements, use semicolons as the separator. You can also include multiple variables in a single `SET` statement, such as `SET x=1, y=2`.
+    """
+    max_connections_percent: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The maximum size of the connection pool for each target in a target group. For Aurora MySQL, it is expressed as a percentage of the max_connections setting for the RDS DB instance or Aurora DB cluster used by the target group.
+    """
+    max_idle_connections_percent: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Controls how actively the proxy closes idle database connections in the connection pool. A high value enables the proxy to leave a high percentage of idle connections open. A low value causes the proxy to close idle client connections and return the underlying database connections to the connection pool. For Aurora MySQL, it is expressed as a percentage of the max_connections setting for the RDS DB instance or Aurora DB cluster used by the target group.
+    """
+    session_pinning_filters: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Each item in the list represents a class of SQL operations that normally cause all later statements in a session using a proxy to be pinned to the same underlying database connection. Including an item in the list exempts that class of SQL operations from the pinning behavior. This setting is only supported for MySQL engine family databases. Currently, the only allowed value is `EXCLUDE_VARIABLE_SETS`.
+    """
 
 @pulumi.input_type
 class ProxyDefaultTargetGroupConnectionPoolConfigArgs:
@@ -1823,12 +1758,9 @@ class ProxyDefaultTargetGroupConnectionPoolConfigArgs:
         pulumi.set(self, "session_pinning_filters", value)
 
 
-if not MYPY:
-    class ReservedInstanceRecurringChargeArgsDict(TypedDict):
-        recurring_charge_amount: NotRequired[pulumi.Input[_builtins.int]]
-        recurring_charge_frequency: NotRequired[pulumi.Input[_builtins.str]]
-elif False:
-    ReservedInstanceRecurringChargeArgsDict: TypeAlias = Mapping[str, Any]
+class ReservedInstanceRecurringChargeArgsDict(TypedDict):
+    recurring_charge_amount: NotRequired[pulumi.Input[_builtins.int]]
+    recurring_charge_frequency: NotRequired[pulumi.Input[_builtins.str]]
 
 @pulumi.input_type
 class ReservedInstanceRecurringChargeArgs:
@@ -1859,22 +1791,19 @@ class ReservedInstanceRecurringChargeArgs:
         pulumi.set(self, "recurring_charge_frequency", value)
 
 
-if not MYPY:
-    class ShardGroupTimeoutsArgsDict(TypedDict):
-        create: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
-        """
-        delete: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
-        """
-        update: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
-        """
-elif False:
-    ShardGroupTimeoutsArgsDict: TypeAlias = Mapping[str, Any]
+class ShardGroupTimeoutsArgsDict(TypedDict):
+    create: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+    """
+    delete: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+    """
+    update: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+    """
 
 @pulumi.input_type
 class ShardGroupTimeoutsArgs:
@@ -1931,18 +1860,15 @@ class ShardGroupTimeoutsArgs:
         pulumi.set(self, "update", value)
 
 
-if not MYPY:
-    class GetClustersFilterArgsDict(TypedDict):
-        name: _builtins.str
-        """
-        Name of the filter field. Valid values can be found in the [RDS DescribeDBClusters API Reference](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeDBClusters.html).
-        """
-        values: Sequence[_builtins.str]
-        """
-        Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
-        """
-elif False:
-    GetClustersFilterArgsDict: TypeAlias = Mapping[str, Any]
+class GetClustersFilterArgsDict(TypedDict):
+    name: _builtins.str
+    """
+    Name of the filter field. Valid values can be found in the [RDS DescribeDBClusters API Reference](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeDBClusters.html).
+    """
+    values: Sequence[_builtins.str]
+    """
+    Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
+    """
 
 @pulumi.input_type
 class GetClustersFilterArgs:
@@ -1981,12 +1907,9 @@ class GetClustersFilterArgs:
         pulumi.set(self, "values", value)
 
 
-if not MYPY:
-    class GetEngineVersionFilterArgsDict(TypedDict):
-        name: _builtins.str
-        values: Sequence[_builtins.str]
-elif False:
-    GetEngineVersionFilterArgsDict: TypeAlias = Mapping[str, Any]
+class GetEngineVersionFilterArgsDict(TypedDict):
+    name: _builtins.str
+    values: Sequence[_builtins.str]
 
 @pulumi.input_type
 class GetEngineVersionFilterArgs:
@@ -2015,18 +1938,15 @@ class GetEngineVersionFilterArgs:
         pulumi.set(self, "values", value)
 
 
-if not MYPY:
-    class GetInstancesFilterArgsDict(TypedDict):
-        name: _builtins.str
-        """
-        Name of the filter field. Valid values can be found in the [RDS DescribeDBClusters API Reference](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeDBClusters.html) or [RDS DescribeDBInstances API Reference](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeDBInstances.html).
-        """
-        values: Sequence[_builtins.str]
-        """
-        Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
-        """
-elif False:
-    GetInstancesFilterArgsDict: TypeAlias = Mapping[str, Any]
+class GetInstancesFilterArgsDict(TypedDict):
+    name: _builtins.str
+    """
+    Name of the filter field. Valid values can be found in the [RDS DescribeDBClusters API Reference](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeDBClusters.html) or [RDS DescribeDBInstances API Reference](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeDBInstances.html).
+    """
+    values: Sequence[_builtins.str]
+    """
+    Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
+    """
 
 @pulumi.input_type
 class GetInstancesFilterArgs:

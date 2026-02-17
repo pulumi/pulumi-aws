@@ -65,7 +65,7 @@ import (
 //
 // ## Import
 //
-// Using `pulumi import`, import `aws_db_snapshot_copy` using the snapshot identifier. For example:
+// Using `pulumi import`, import `rds.SnapshotCopy` using the snapshot identifier. For example:
 //
 // ```sh
 // $ pulumi import aws:rds/snapshotCopy:SnapshotCopy example my-snapshot

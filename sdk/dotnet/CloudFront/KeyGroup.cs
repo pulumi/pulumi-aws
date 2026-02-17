@@ -48,7 +48,7 @@ namespace Pulumi.Aws.CloudFront
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import CloudFront Key Group using the `id`. For example:
+    /// Using `pulumi import`, import CloudFront Key Group using the `Id`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:cloudfront/keyGroup:KeyGroup example 4b4f2r1c-315d-5c2e-f093-216t50jed10f

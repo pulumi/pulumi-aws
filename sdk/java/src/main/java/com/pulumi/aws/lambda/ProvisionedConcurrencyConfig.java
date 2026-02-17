@@ -95,7 +95,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Using `pulumi import`, import a Lambda Provisioned Concurrency Configuration using the `function_name` and `qualifier` separated by a comma (`,`). For example:
+ * Using `pulumi import`, import a Lambda Provisioned Concurrency Configuration using the `functionName` and `qualifier` separated by a comma (`,`). For example:
  * 
  * ```sh
  * $ pulumi import aws:lambda/provisionedConcurrencyConfig:ProvisionedConcurrencyConfig example example,production

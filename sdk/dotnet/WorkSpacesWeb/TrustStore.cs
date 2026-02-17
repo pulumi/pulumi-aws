@@ -83,7 +83,7 @@ namespace Pulumi.Aws.WorkSpacesWeb
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import WorkSpaces Web Trust Store using the `trust_store_arn`. For example:
+    /// Using `pulumi import`, import WorkSpaces Web Trust Store using the `TrustStoreArn`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:workspacesweb/trustStore:TrustStore example arn:aws:workspaces-web:us-west-2:123456789012:trustStore/trust_store-id-12345678

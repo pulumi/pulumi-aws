@@ -190,6 +190,7 @@ class DomainNameEndpointConfiguration(dict):
                  ip_address_type: Optional[_builtins.str] = None):
         """
         :param _builtins.str types: A list of endpoint types of an API or its custom domain name. For an edge-optimized API and its custom domain name, the endpoint type is `EDGE`. For a regional API and its custom domain name, the endpoint type is `REGIONAL`. For a private API, the endpoint type is `PRIVATE`.
+        :param _builtins.str ip_address_type: The IP address types that can invoke a DomainName. Valid values: `ipv4`, `dualstack`. Use `ipv4` to allow only IPv4 addresses to invoke a DomainName, or use `dualstack` to allow both IPv4 and IPv6 addresses to invoke a DomainName. For the `PRIVATE` endpoint type, only `dualstack` is supported. Terraform performs drift detection for this argument only when the value is provided.
         """
         pulumi.set(__self__, "types", types)
         if ip_address_type is not None:
@@ -206,6 +207,9 @@ class DomainNameEndpointConfiguration(dict):
     @_builtins.property
     @pulumi.getter(name="ipAddressType")
     def ip_address_type(self) -> Optional[_builtins.str]:
+        """
+        The IP address types that can invoke a DomainName. Valid values: `ipv4`, `dualstack`. Use `ipv4` to allow only IPv4 addresses to invoke a DomainName, or use `dualstack` to allow both IPv4 and IPv6 addresses to invoke a DomainName. For the `PRIVATE` endpoint type, only `dualstack` is supported. Terraform performs drift detection for this argument only when the value is provided.
+        """
         return pulumi.get(self, "ip_address_type")
 
 

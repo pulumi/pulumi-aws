@@ -17,74 +17,74 @@ import javax.annotation.Nullable;
 @CustomType
 public final class CloudAutonomousVmClusterMaintenanceWindow {
     /**
-     * @return The days of the week when maintenance can be performed.
+     * @return The days of the week when maintenance can be performed. Changing this will force terraform to create new resource.
      * 
      */
     private @Nullable List<CloudAutonomousVmClusterMaintenanceWindowDaysOfWeek> daysOfWeeks;
     /**
-     * @return The hours of the day when maintenance can be performed.
+     * @return The hours of the day when maintenance can be performed. Changing this will force terraform to create new resource.
      * 
      */
     private @Nullable List<Integer> hoursOfDays;
     /**
-     * @return The lead time in weeks before the maintenance window.
+     * @return The lead time in weeks before the maintenance window. Changing this will force terraform to create new resource.
      * 
      */
     private @Nullable Integer leadTimeInWeeks;
     /**
-     * @return The months when maintenance can be performed.
+     * @return The months when maintenance can be performed. Changing this will force terraform to create new resource.
      * 
      */
     private @Nullable List<CloudAutonomousVmClusterMaintenanceWindowMonth> months;
     /**
-     * @return The preference for the maintenance window scheduling.
+     * @return The preference for the maintenance window scheduling. Changing this will force terraform to create new resource.
      * 
      */
     private String preference;
     /**
-     * @return Indicates whether to skip release updates during maintenance.
+     * @return Indicates whether to skip release updates during maintenance. Changing this will force terraform to create new resource.
      * 
      */
     private @Nullable List<Integer> weeksOfMonths;
 
     private CloudAutonomousVmClusterMaintenanceWindow() {}
     /**
-     * @return The days of the week when maintenance can be performed.
+     * @return The days of the week when maintenance can be performed. Changing this will force terraform to create new resource.
      * 
      */
     public List<CloudAutonomousVmClusterMaintenanceWindowDaysOfWeek> daysOfWeeks() {
         return this.daysOfWeeks == null ? List.of() : this.daysOfWeeks;
     }
     /**
-     * @return The hours of the day when maintenance can be performed.
+     * @return The hours of the day when maintenance can be performed. Changing this will force terraform to create new resource.
      * 
      */
     public List<Integer> hoursOfDays() {
         return this.hoursOfDays == null ? List.of() : this.hoursOfDays;
     }
     /**
-     * @return The lead time in weeks before the maintenance window.
+     * @return The lead time in weeks before the maintenance window. Changing this will force terraform to create new resource.
      * 
      */
     public Optional<Integer> leadTimeInWeeks() {
         return Optional.ofNullable(this.leadTimeInWeeks);
     }
     /**
-     * @return The months when maintenance can be performed.
+     * @return The months when maintenance can be performed. Changing this will force terraform to create new resource.
      * 
      */
     public List<CloudAutonomousVmClusterMaintenanceWindowMonth> months() {
         return this.months == null ? List.of() : this.months;
     }
     /**
-     * @return The preference for the maintenance window scheduling.
+     * @return The preference for the maintenance window scheduling. Changing this will force terraform to create new resource.
      * 
      */
     public String preference() {
         return this.preference;
     }
     /**
-     * @return Indicates whether to skip release updates during maintenance.
+     * @return Indicates whether to skip release updates during maintenance. Changing this will force terraform to create new resource.
      * 
      */
     public List<Integer> weeksOfMonths() {

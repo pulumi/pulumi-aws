@@ -69,7 +69,9 @@ import javax.annotation.Nullable;
  * 
  * Using `pulumi import`, import App Runner Observability Configuration using the `arn`. For example:
  * 
- * % pulumi import aws_apprunner_observability_configuration.example arn:aws:apprunner:us-east-1:1234567890:observabilityconfiguration/example/1/d75bc7ea55b71e724fe5c23452fe22a1
+ * ```sh
+ * $ pulumi import aws:apprunner/observabilityConfiguration:ObservabilityConfiguration example arn:aws:apprunner:us-east-1:1234567890:observabilityconfiguration/example/1/d75bc7ea55b71e724fe5c23452fe22a1
+ * ```
  * 
  */
 @ResourceType(type="aws:apprunner/observabilityConfiguration:ObservabilityConfiguration")

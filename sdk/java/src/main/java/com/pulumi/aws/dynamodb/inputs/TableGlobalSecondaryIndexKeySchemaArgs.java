@@ -15,25 +15,31 @@ public final class TableGlobalSecondaryIndexKeySchemaArgs extends com.pulumi.res
     public static final TableGlobalSecondaryIndexKeySchemaArgs Empty = new TableGlobalSecondaryIndexKeySchemaArgs();
 
     /**
-     * Name of the table attribute to store the TTL timestamp in.
-     * Required if `enabled` is `true`, must not be set otherwise.
+     * Name of the attribute; must be defined as an attribute in the resource.
      * 
      */
     @Import(name="attributeName", required=true)
     private Output<String> attributeName;
 
     /**
-     * @return Name of the table attribute to store the TTL timestamp in.
-     * Required if `enabled` is `true`, must not be set otherwise.
+     * @return Name of the attribute; must be defined as an attribute in the resource.
      * 
      */
     public Output<String> attributeName() {
         return this.attributeName;
     }
 
+    /**
+     * The type of key. Valid values are `HASH` (partition key) or `RANGE` (sort key). You can specify up to 4 attributes with `keyType = &#34;HASH&#34;` and up to 4 attributes with `keyType = &#34;RANGE&#34;`.
+     * 
+     */
     @Import(name="keyType", required=true)
     private Output<String> keyType;
 
+    /**
+     * @return The type of key. Valid values are `HASH` (partition key) or `RANGE` (sort key). You can specify up to 4 attributes with `keyType = &#34;HASH&#34;` and up to 4 attributes with `keyType = &#34;RANGE&#34;`.
+     * 
+     */
     public Output<String> keyType() {
         return this.keyType;
     }
@@ -64,8 +70,7 @@ public final class TableGlobalSecondaryIndexKeySchemaArgs extends com.pulumi.res
         }
 
         /**
-         * @param attributeName Name of the table attribute to store the TTL timestamp in.
-         * Required if `enabled` is `true`, must not be set otherwise.
+         * @param attributeName Name of the attribute; must be defined as an attribute in the resource.
          * 
          * @return builder
          * 
@@ -76,8 +81,7 @@ public final class TableGlobalSecondaryIndexKeySchemaArgs extends com.pulumi.res
         }
 
         /**
-         * @param attributeName Name of the table attribute to store the TTL timestamp in.
-         * Required if `enabled` is `true`, must not be set otherwise.
+         * @param attributeName Name of the attribute; must be defined as an attribute in the resource.
          * 
          * @return builder
          * 
@@ -86,11 +90,23 @@ public final class TableGlobalSecondaryIndexKeySchemaArgs extends com.pulumi.res
             return attributeName(Output.of(attributeName));
         }
 
+        /**
+         * @param keyType The type of key. Valid values are `HASH` (partition key) or `RANGE` (sort key). You can specify up to 4 attributes with `keyType = &#34;HASH&#34;` and up to 4 attributes with `keyType = &#34;RANGE&#34;`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder keyType(Output<String> keyType) {
             $.keyType = keyType;
             return this;
         }
 
+        /**
+         * @param keyType The type of key. Valid values are `HASH` (partition key) or `RANGE` (sort key). You can specify up to 4 attributes with `keyType = &#34;HASH&#34;` and up to 4 attributes with `keyType = &#34;RANGE&#34;`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder keyType(String keyType) {
             return keyType(Output.of(keyType));
         }

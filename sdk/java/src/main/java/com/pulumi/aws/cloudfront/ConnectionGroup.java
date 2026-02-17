@@ -65,6 +65,8 @@ import javax.annotation.Nullable;
  * $ pulumi import aws:cloudfront/connectionGroup:ConnectionGroup example CGROUP123EXAMPLE
  * ```
  * 
+ * [1]: https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/aws-resource-cloudfront-connectiongroup.html
+ * 
  */
 @ResourceType(type="aws:cloudfront/connectionGroup:ConnectionGroup")
 public class ConnectionGroup extends com.pulumi.resources.CustomResource {

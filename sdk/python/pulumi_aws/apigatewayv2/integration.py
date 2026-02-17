@@ -812,12 +812,13 @@ class Integration(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import `aws_apigatewayv2_integration` using the API identifier and integration identifier. For example:
+        Using `pulumi import`, import `apigatewayv2.Integration` using the API identifier and integration identifier. For example:
 
         ```sh
         $ pulumi import aws:apigatewayv2/integration:Integration example aabbccddee/1122334
         ```
-        -> __Note:__ The API Gateway managed integration created as part of [_quick_create_](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-basic-concept.html#apigateway-definition-quick-create) cannot be imported.
+
+        > **Note:** The API Gateway managed integration created as part of [_quick_create_](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-basic-concept.html#apigateway-definition-quick-create) cannot be imported.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -953,12 +954,13 @@ class Integration(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import `aws_apigatewayv2_integration` using the API identifier and integration identifier. For example:
+        Using `pulumi import`, import `apigatewayv2.Integration` using the API identifier and integration identifier. For example:
 
         ```sh
         $ pulumi import aws:apigatewayv2/integration:Integration example aabbccddee/1122334
         ```
-        -> __Note:__ The API Gateway managed integration created as part of [_quick_create_](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-basic-concept.html#apigateway-definition-quick-create) cannot be imported.
+
+        > **Note:** The API Gateway managed integration created as part of [_quick_create_](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-basic-concept.html#apigateway-definition-quick-create) cannot be imported.
 
         :param str resource_name: The name of the resource.
         :param IntegrationArgs args: The arguments to use to populate this resource's properties.

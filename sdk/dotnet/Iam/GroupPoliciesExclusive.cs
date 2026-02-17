@@ -10,9 +10,62 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Iam
 {
     /// <summary>
+    /// Resource for maintaining exclusive management of inline policies assigned to an AWS IAM (Identity &amp; Access Management) group.
+    /// 
+    /// !&gt; This resource takes exclusive ownership over inline policies assigned to a group. This includes removal of inline policies which are not explicitly configured. To prevent persistent drift, ensure any `aws.iam.GroupPolicy` resources managed alongside this resource are included in the `PolicyNames` argument.
+    /// 
+    /// &gt; Destruction of this resource means Terraform will no longer manage reconciliation of the configured inline policy assignments. It __will not__ delete the configured policies from the group.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ### Basic Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.Iam.GroupPoliciesExclusive("example", new()
+    ///     {
+    ///         GroupName = exampleAwsIamGroup.Name,
+    ///         PolicyNames = new[]
+    ///         {
+    ///             exampleAwsIamGroupPolicy.Name,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ### Disallow Inline Policies
+    /// 
+    /// To automatically remove any configured inline policies, set the `PolicyNames` argument to an empty list.
+    /// 
+    /// &gt; This will not __prevent__ inline policies from being assigned to a group via Terraform (or any other interface). This resource enables bringing inline policy assignments into a configured state, however, this reconciliation happens only when `Apply` is proactively run.
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.Iam.GroupPoliciesExclusive("example", new()
+    ///     {
+    ///         GroupName = exampleAwsIamGroup.Name,
+    ///         PolicyNames = new[] {},
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import exclusive management of inline policy assignments using the `group_name`. For example:
+    /// Using `pulumi import`, import exclusive management of inline policy assignments using the `GroupName`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:iam/groupPoliciesExclusive:GroupPoliciesExclusive example MyGroup

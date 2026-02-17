@@ -39,11 +39,13 @@ namespace Pulumi.Aws.Bedrock
     /// 
     /// #### Required
     /// 
-    /// - `arn` (String) Amazon Resource Name (ARN) of the Bedrock provisioned model throughput.
+    /// - `Arn` (String) Amazon Resource Name (ARN) of the Bedrock provisioned model throughput.
     /// 
-    /// Using `pulumi import`, import Provisioned Throughput using the `provisioned_model_arn`. For example:
+    /// Using `pulumi import`, import Provisioned Throughput using the `ProvisionedModelArn`. For example:
     /// 
-    /// % pulumi import aws_bedrock_provisioned_model_throughput.example arn:aws:bedrock:us-west-2:123456789012:provisioned-model/1y5n57gh5y2e
+    /// ```sh
+    /// $ pulumi import aws:bedrock/provisionedModelThroughput:ProvisionedModelThroughput example arn:aws:bedrock:us-west-2:123456789012:provisioned-model/1y5n57gh5y2e
+    /// ```
     /// </summary>
     [AwsResourceType("aws:bedrock/provisionedModelThroughput:ProvisionedModelThroughput")]
     public partial class ProvisionedModelThroughput : global::Pulumi.CustomResource

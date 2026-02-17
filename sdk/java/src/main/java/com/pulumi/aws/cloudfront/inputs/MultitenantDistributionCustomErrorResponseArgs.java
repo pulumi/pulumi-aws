@@ -48,14 +48,14 @@ public final class MultitenantDistributionCustomErrorResponseArgs extends com.pu
     }
 
     /**
-     * HTTP status code that you want CloudFront to return to the viewer along with the custom error page.
+     * HTTP status code that you want CloudFront to return to the viewer along with the custom error page. Both `responseCode` and `responsePagePath` must be specified or both must be omitted.
      * 
      */
     @Import(name="responseCode")
     private @Nullable Output<String> responseCode;
 
     /**
-     * @return HTTP status code that you want CloudFront to return to the viewer along with the custom error page.
+     * @return HTTP status code that you want CloudFront to return to the viewer along with the custom error page. Both `responseCode` and `responsePagePath` must be specified or both must be omitted.
      * 
      */
     public Optional<Output<String>> responseCode() {
@@ -63,14 +63,14 @@ public final class MultitenantDistributionCustomErrorResponseArgs extends com.pu
     }
 
     /**
-     * Path to the custom error page that you want CloudFront to return to a viewer when your origin returns the HTTP status code specified by ErrorCode.
+     * Path to the custom error page that you want CloudFront to return to a viewer when your origin returns the HTTP status code specified by ErrorCode. Both `responseCode` and `responsePagePath` must be specified or both must be omitted.
      * 
      */
     @Import(name="responsePagePath")
     private @Nullable Output<String> responsePagePath;
 
     /**
-     * @return Path to the custom error page that you want CloudFront to return to a viewer when your origin returns the HTTP status code specified by ErrorCode.
+     * @return Path to the custom error page that you want CloudFront to return to a viewer when your origin returns the HTTP status code specified by ErrorCode. Both `responseCode` and `responsePagePath` must be specified or both must be omitted.
      * 
      */
     public Optional<Output<String>> responsePagePath() {
@@ -147,7 +147,7 @@ public final class MultitenantDistributionCustomErrorResponseArgs extends com.pu
         }
 
         /**
-         * @param responseCode HTTP status code that you want CloudFront to return to the viewer along with the custom error page.
+         * @param responseCode HTTP status code that you want CloudFront to return to the viewer along with the custom error page. Both `responseCode` and `responsePagePath` must be specified or both must be omitted.
          * 
          * @return builder
          * 
@@ -158,7 +158,7 @@ public final class MultitenantDistributionCustomErrorResponseArgs extends com.pu
         }
 
         /**
-         * @param responseCode HTTP status code that you want CloudFront to return to the viewer along with the custom error page.
+         * @param responseCode HTTP status code that you want CloudFront to return to the viewer along with the custom error page. Both `responseCode` and `responsePagePath` must be specified or both must be omitted.
          * 
          * @return builder
          * 
@@ -168,7 +168,7 @@ public final class MultitenantDistributionCustomErrorResponseArgs extends com.pu
         }
 
         /**
-         * @param responsePagePath Path to the custom error page that you want CloudFront to return to a viewer when your origin returns the HTTP status code specified by ErrorCode.
+         * @param responsePagePath Path to the custom error page that you want CloudFront to return to a viewer when your origin returns the HTTP status code specified by ErrorCode. Both `responseCode` and `responsePagePath` must be specified or both must be omitted.
          * 
          * @return builder
          * 
@@ -179,7 +179,7 @@ public final class MultitenantDistributionCustomErrorResponseArgs extends com.pu
         }
 
         /**
-         * @param responsePagePath Path to the custom error page that you want CloudFront to return to a viewer when your origin returns the HTTP status code specified by ErrorCode.
+         * @param responsePagePath Path to the custom error page that you want CloudFront to return to a viewer when your origin returns the HTTP status code specified by ErrorCode. Both `responseCode` and `responsePagePath` must be specified or both must be omitted.
          * 
          * @return builder
          * 

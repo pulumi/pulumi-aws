@@ -30,7 +30,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Using `pulumi import`, import S3 Access Grants instances using the `account_id`. For example:
+ * Using `pulumi import`, import S3 Access Grants instances using the `accountId`. For example:
  *
  * ```sh
  * $ pulumi import aws:s3control/accessGrantsInstance:AccessGrantsInstance example 123456789012
@@ -72,6 +72,9 @@ export class AccessGrantsInstance extends pulumi.CustomResource {
      * Unique ID of the S3 Access Grants instance.
      */
     declare public /*out*/ readonly accessGrantsInstanceId: pulumi.Output<string>;
+    /**
+     * The AWS account ID for the S3 Access Grants instance. Defaults to automatically determined account ID of the Terraform AWS provider.
+     */
     declare public readonly accountId: pulumi.Output<string>;
     /**
      * The ARN of the AWS IAM Identity Center instance application; a subresource of the original Identity Center instance.
@@ -143,6 +146,9 @@ export interface AccessGrantsInstanceState {
      * Unique ID of the S3 Access Grants instance.
      */
     accessGrantsInstanceId?: pulumi.Input<string>;
+    /**
+     * The AWS account ID for the S3 Access Grants instance. Defaults to automatically determined account ID of the Terraform AWS provider.
+     */
     accountId?: pulumi.Input<string>;
     /**
      * The ARN of the AWS IAM Identity Center instance application; a subresource of the original Identity Center instance.
@@ -170,6 +176,9 @@ export interface AccessGrantsInstanceState {
  * The set of arguments for constructing a AccessGrantsInstance resource.
  */
 export interface AccessGrantsInstanceArgs {
+    /**
+     * The AWS account ID for the S3 Access Grants instance. Defaults to automatically determined account ID of the Terraform AWS provider.
+     */
     accountId?: pulumi.Input<string>;
     /**
      * The ARN of the AWS IAM Identity Center instance associated with the S3 Access Grants instance.

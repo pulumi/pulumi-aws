@@ -40,6 +40,13 @@ class V2modelsSlotArgs:
         :param pulumi.Input[_builtins.str] bot_version: Version of the bot associated with the slot.
         :param pulumi.Input[_builtins.str] intent_id: Identifier of the intent that contains the slot.
         :param pulumi.Input[_builtins.str] locale_id: Identifier of the language and locale that the slot will be used in.
+        :param pulumi.Input['V2modelsSlotValueElicitationSettingArgs'] value_elicitation_setting: Prompts that Amazon Lex sends to the user to elicit a response that provides the value for the slot.
+               If you configure this block without `prompt_specification.*.prompt_attempts_specification`, AWS will provide default `prompt_attempts_specification` blocks for the initial prompt (map key `Initial`) and each retry attempt (map keys `Retry1`, `Retry2`, etc.).
+               This will cause Terraform to report differences.
+               Use the `value_elicitation_setting` configuration above in the `value_elicitation_setting` example to avoid differences resulting from AWS default configurations.
+               See the `value_elicitation_setting` argument reference below.
+               
+               The following arguments are optional:
         :param pulumi.Input[_builtins.str] description: Description of the slot.
         :param pulumi.Input[Sequence[pulumi.Input['V2modelsSlotMultipleValuesSettingArgs']]] multiple_values_settings: Whether the slot returns multiple values in one response.
                See the `multiple_values_setting` argument reference below.
@@ -124,6 +131,15 @@ class V2modelsSlotArgs:
     @_builtins.property
     @pulumi.getter(name="valueElicitationSetting")
     def value_elicitation_setting(self) -> pulumi.Input['V2modelsSlotValueElicitationSettingArgs']:
+        """
+        Prompts that Amazon Lex sends to the user to elicit a response that provides the value for the slot.
+        If you configure this block without `prompt_specification.*.prompt_attempts_specification`, AWS will provide default `prompt_attempts_specification` blocks for the initial prompt (map key `Initial`) and each retry attempt (map keys `Retry1`, `Retry2`, etc.).
+        This will cause Terraform to report differences.
+        Use the `value_elicitation_setting` configuration above in the `value_elicitation_setting` example to avoid differences resulting from AWS default configurations.
+        See the `value_elicitation_setting` argument reference below.
+
+        The following arguments are optional:
+        """
         return pulumi.get(self, "value_elicitation_setting")
 
     @value_elicitation_setting.setter
@@ -261,6 +277,13 @@ class _V2modelsSlotState:
         :param pulumi.Input[_builtins.str] slot_type_id: Unique identifier for the slot type associated with this slot.
         :param pulumi.Input[Sequence[pulumi.Input['V2modelsSlotSubSlotSettingArgs']]] sub_slot_settings: Specifications for the constituent sub slots and the expression for the composite slot.
                See the `sub_slot_setting` argument reference below.
+        :param pulumi.Input['V2modelsSlotValueElicitationSettingArgs'] value_elicitation_setting: Prompts that Amazon Lex sends to the user to elicit a response that provides the value for the slot.
+               If you configure this block without `prompt_specification.*.prompt_attempts_specification`, AWS will provide default `prompt_attempts_specification` blocks for the initial prompt (map key `Initial`) and each retry attempt (map keys `Retry1`, `Retry2`, etc.).
+               This will cause Terraform to report differences.
+               Use the `value_elicitation_setting` configuration above in the `value_elicitation_setting` example to avoid differences resulting from AWS default configurations.
+               See the `value_elicitation_setting` argument reference below.
+               
+               The following arguments are optional:
         """
         if bot_id is not None:
             pulumi.set(__self__, "bot_id", bot_id)
@@ -450,6 +473,15 @@ class _V2modelsSlotState:
     @_builtins.property
     @pulumi.getter(name="valueElicitationSetting")
     def value_elicitation_setting(self) -> Optional[pulumi.Input['V2modelsSlotValueElicitationSettingArgs']]:
+        """
+        Prompts that Amazon Lex sends to the user to elicit a response that provides the value for the slot.
+        If you configure this block without `prompt_specification.*.prompt_attempts_specification`, AWS will provide default `prompt_attempts_specification` blocks for the initial prompt (map key `Initial`) and each retry attempt (map keys `Retry1`, `Retry2`, etc.).
+        This will cause Terraform to report differences.
+        Use the `value_elicitation_setting` configuration above in the `value_elicitation_setting` example to avoid differences resulting from AWS default configurations.
+        See the `value_elicitation_setting` argument reference below.
+
+        The following arguments are optional:
+        """
         return pulumi.get(self, "value_elicitation_setting")
 
     @value_elicitation_setting.setter
@@ -478,6 +510,107 @@ class V2modelsSlot(pulumi.CustomResource):
                  value_elicitation_setting: Optional[pulumi.Input[Union['V2modelsSlotValueElicitationSettingArgs', 'V2modelsSlotValueElicitationSettingArgsDict']]] = None,
                  __props__=None):
         """
+        Resource for managing an AWS Lex V2 Models Slot.
+
+        ## Example Usage
+
+        ### Basic Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.lex.V2modelsSlot("example",
+            bot_id=example_aws_lexv2models_bot["id"],
+            bot_version=example_aws_lexv2models_bot_version["botVersion"],
+            intent_id=example_aws_lexv2models_intent["id"],
+            locale_id=example_aws_lexv2models_bot_locale["localeId"],
+            name="example")
+        ```
+
+        ### `value_elicitation_setting` Example
+
+        > When using `value_elicitation_setting`, if you do not provide a `prompt_attempts_specification`, AWS Lex will configure default `prompt_attempts_specification`s.
+        As a result, Terraform will report a difference in the configuration.
+        To avoid this behavior, include `prompt_attempts_specification` blocks matching the default configuration, as shown below.
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.lex.V2modelsSlot("example",
+            bot_id=test["id"],
+            bot_version=test_aws_lexv2models_bot_locale["botVersion"],
+            intent_id=test_aws_lexv2models_intent["intentId"],
+            locale_id=test_aws_lexv2models_bot_locale["localeId"],
+            name="example",
+            value_elicitation_setting={
+                "slot_constraint": "Required",
+                "prompt_specification": {
+                    "allow_interrupt": True,
+                    "max_retries": 1,
+                    "message_selection_strategy": "Random",
+                    "message_groups": [{
+                        "message": {
+                            "plain_text_message": {
+                                "value": "What is your favorite color?",
+                            },
+                        },
+                    }],
+                    "prompt_attempts_specifications": [
+                        {
+                            "allow_interrupt": True,
+                            "map_block_key": "Initial",
+                            "allowed_input_types": {
+                                "allow_audio_input": True,
+                                "allow_dtmf_input": True,
+                            },
+                            "audio_and_dtmf_input_specification": {
+                                "start_timeout_ms": 4000,
+                                "audio_specification": {
+                                    "end_timeout_ms": 640,
+                                    "max_length_ms": 15000,
+                                },
+                                "dtmf_specification": {
+                                    "deletion_character": "*",
+                                    "end_character": "#",
+                                    "end_timeout_ms": 5000,
+                                    "max_length": 513,
+                                },
+                            },
+                            "text_input_specification": {
+                                "start_timeout_ms": 30000,
+                            },
+                        },
+                        {
+                            "allow_interrupt": True,
+                            "map_block_key": "Retry1",
+                            "allowed_input_types": {
+                                "allow_audio_input": True,
+                                "allow_dtmf_input": True,
+                            },
+                            "audio_and_dtmf_input_specification": {
+                                "start_timeout_ms": 4000,
+                                "audio_specification": {
+                                    "end_timeout_ms": 640,
+                                    "max_length_ms": 15000,
+                                },
+                                "dtmf_specification": {
+                                    "deletion_character": "*",
+                                    "end_character": "#",
+                                    "end_timeout_ms": 5000,
+                                    "max_length": 513,
+                                },
+                            },
+                            "text_input_specification": {
+                                "start_timeout_ms": 30000,
+                            },
+                        },
+                    ],
+                },
+            })
+        ```
+
         ## Import
 
         Using `pulumi import`, import Lex V2 Models Slot using the `id`. For example:
@@ -502,6 +635,13 @@ class V2modelsSlot(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] slot_type_id: Unique identifier for the slot type associated with this slot.
         :param pulumi.Input[Sequence[pulumi.Input[Union['V2modelsSlotSubSlotSettingArgs', 'V2modelsSlotSubSlotSettingArgsDict']]]] sub_slot_settings: Specifications for the constituent sub slots and the expression for the composite slot.
                See the `sub_slot_setting` argument reference below.
+        :param pulumi.Input[Union['V2modelsSlotValueElicitationSettingArgs', 'V2modelsSlotValueElicitationSettingArgsDict']] value_elicitation_setting: Prompts that Amazon Lex sends to the user to elicit a response that provides the value for the slot.
+               If you configure this block without `prompt_specification.*.prompt_attempts_specification`, AWS will provide default `prompt_attempts_specification` blocks for the initial prompt (map key `Initial`) and each retry attempt (map keys `Retry1`, `Retry2`, etc.).
+               This will cause Terraform to report differences.
+               Use the `value_elicitation_setting` configuration above in the `value_elicitation_setting` example to avoid differences resulting from AWS default configurations.
+               See the `value_elicitation_setting` argument reference below.
+               
+               The following arguments are optional:
         """
         ...
     @overload
@@ -510,6 +650,107 @@ class V2modelsSlot(pulumi.CustomResource):
                  args: V2modelsSlotArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        Resource for managing an AWS Lex V2 Models Slot.
+
+        ## Example Usage
+
+        ### Basic Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.lex.V2modelsSlot("example",
+            bot_id=example_aws_lexv2models_bot["id"],
+            bot_version=example_aws_lexv2models_bot_version["botVersion"],
+            intent_id=example_aws_lexv2models_intent["id"],
+            locale_id=example_aws_lexv2models_bot_locale["localeId"],
+            name="example")
+        ```
+
+        ### `value_elicitation_setting` Example
+
+        > When using `value_elicitation_setting`, if you do not provide a `prompt_attempts_specification`, AWS Lex will configure default `prompt_attempts_specification`s.
+        As a result, Terraform will report a difference in the configuration.
+        To avoid this behavior, include `prompt_attempts_specification` blocks matching the default configuration, as shown below.
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.lex.V2modelsSlot("example",
+            bot_id=test["id"],
+            bot_version=test_aws_lexv2models_bot_locale["botVersion"],
+            intent_id=test_aws_lexv2models_intent["intentId"],
+            locale_id=test_aws_lexv2models_bot_locale["localeId"],
+            name="example",
+            value_elicitation_setting={
+                "slot_constraint": "Required",
+                "prompt_specification": {
+                    "allow_interrupt": True,
+                    "max_retries": 1,
+                    "message_selection_strategy": "Random",
+                    "message_groups": [{
+                        "message": {
+                            "plain_text_message": {
+                                "value": "What is your favorite color?",
+                            },
+                        },
+                    }],
+                    "prompt_attempts_specifications": [
+                        {
+                            "allow_interrupt": True,
+                            "map_block_key": "Initial",
+                            "allowed_input_types": {
+                                "allow_audio_input": True,
+                                "allow_dtmf_input": True,
+                            },
+                            "audio_and_dtmf_input_specification": {
+                                "start_timeout_ms": 4000,
+                                "audio_specification": {
+                                    "end_timeout_ms": 640,
+                                    "max_length_ms": 15000,
+                                },
+                                "dtmf_specification": {
+                                    "deletion_character": "*",
+                                    "end_character": "#",
+                                    "end_timeout_ms": 5000,
+                                    "max_length": 513,
+                                },
+                            },
+                            "text_input_specification": {
+                                "start_timeout_ms": 30000,
+                            },
+                        },
+                        {
+                            "allow_interrupt": True,
+                            "map_block_key": "Retry1",
+                            "allowed_input_types": {
+                                "allow_audio_input": True,
+                                "allow_dtmf_input": True,
+                            },
+                            "audio_and_dtmf_input_specification": {
+                                "start_timeout_ms": 4000,
+                                "audio_specification": {
+                                    "end_timeout_ms": 640,
+                                    "max_length_ms": 15000,
+                                },
+                                "dtmf_specification": {
+                                    "deletion_character": "*",
+                                    "end_character": "#",
+                                    "end_timeout_ms": 5000,
+                                    "max_length": 513,
+                                },
+                            },
+                            "text_input_specification": {
+                                "start_timeout_ms": 30000,
+                            },
+                        },
+                    ],
+                },
+            })
+        ```
+
         ## Import
 
         Using `pulumi import`, import Lex V2 Models Slot using the `id`. For example:
@@ -625,6 +866,13 @@ class V2modelsSlot(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] slot_type_id: Unique identifier for the slot type associated with this slot.
         :param pulumi.Input[Sequence[pulumi.Input[Union['V2modelsSlotSubSlotSettingArgs', 'V2modelsSlotSubSlotSettingArgsDict']]]] sub_slot_settings: Specifications for the constituent sub slots and the expression for the composite slot.
                See the `sub_slot_setting` argument reference below.
+        :param pulumi.Input[Union['V2modelsSlotValueElicitationSettingArgs', 'V2modelsSlotValueElicitationSettingArgsDict']] value_elicitation_setting: Prompts that Amazon Lex sends to the user to elicit a response that provides the value for the slot.
+               If you configure this block without `prompt_specification.*.prompt_attempts_specification`, AWS will provide default `prompt_attempts_specification` blocks for the initial prompt (map key `Initial`) and each retry attempt (map keys `Retry1`, `Retry2`, etc.).
+               This will cause Terraform to report differences.
+               Use the `value_elicitation_setting` configuration above in the `value_elicitation_setting` example to avoid differences resulting from AWS default configurations.
+               See the `value_elicitation_setting` argument reference below.
+               
+               The following arguments are optional:
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -753,5 +1001,14 @@ class V2modelsSlot(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="valueElicitationSetting")
     def value_elicitation_setting(self) -> pulumi.Output['outputs.V2modelsSlotValueElicitationSetting']:
+        """
+        Prompts that Amazon Lex sends to the user to elicit a response that provides the value for the slot.
+        If you configure this block without `prompt_specification.*.prompt_attempts_specification`, AWS will provide default `prompt_attempts_specification` blocks for the initial prompt (map key `Initial`) and each retry attempt (map keys `Retry1`, `Retry2`, etc.).
+        This will cause Terraform to report differences.
+        Use the `value_elicitation_setting` configuration above in the `value_elicitation_setting` example to avoid differences resulting from AWS default configurations.
+        See the `value_elicitation_setting` argument reference below.
+
+        The following arguments are optional:
+        """
         return pulumi.get(self, "value_elicitation_setting")
 

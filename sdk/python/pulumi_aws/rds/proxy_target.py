@@ -307,19 +307,22 @@ class ProxyTarget(pulumi.CustomResource):
                  target_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        ## Example Usage
+        Provides an RDS DB proxy target resource.
+
+        > **NOTE:** When the associated `rds.Proxy` resource is replaced, Terraform will lose track of this resource, causing unexpected differences on the next apply. To ensure proper dependency management, add a `lifecycle` block with `replace_triggered_by` referencing the `rds.Proxy` resource's `id` attribute.
 
         ## Import
 
         Provisioned Clusters:
 
-        __Using `pulumi import` to import__ RDS DB Proxy Targets using the `db_proxy_name`, `target_group_name`, target type (such as `RDS_INSTANCE` or `TRACKED_CLUSTER`), and resource identifier separated by forward slashes (`/`). For example:
+        **Using `pulumi import` to import** RDS DB Proxy Targets using the `db_proxy_name`, `target_group_name`, target type (such as `RDS_INSTANCE` or `TRACKED_CLUSTER`), and resource identifier separated by forward slashes (`/`). For example:
 
         Instances:
 
         ```sh
         $ pulumi import aws:rds/proxyTarget:ProxyTarget example example-proxy/default/RDS_INSTANCE/example-instance
         ```
+
         Provisioned Clusters:
 
         ```sh
@@ -343,19 +346,22 @@ class ProxyTarget(pulumi.CustomResource):
                  args: ProxyTargetArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        ## Example Usage
+        Provides an RDS DB proxy target resource.
+
+        > **NOTE:** When the associated `rds.Proxy` resource is replaced, Terraform will lose track of this resource, causing unexpected differences on the next apply. To ensure proper dependency management, add a `lifecycle` block with `replace_triggered_by` referencing the `rds.Proxy` resource's `id` attribute.
 
         ## Import
 
         Provisioned Clusters:
 
-        __Using `pulumi import` to import__ RDS DB Proxy Targets using the `db_proxy_name`, `target_group_name`, target type (such as `RDS_INSTANCE` or `TRACKED_CLUSTER`), and resource identifier separated by forward slashes (`/`). For example:
+        **Using `pulumi import` to import** RDS DB Proxy Targets using the `db_proxy_name`, `target_group_name`, target type (such as `RDS_INSTANCE` or `TRACKED_CLUSTER`), and resource identifier separated by forward slashes (`/`). For example:
 
         Instances:
 
         ```sh
         $ pulumi import aws:rds/proxyTarget:ProxyTarget example example-proxy/default/RDS_INSTANCE/example-instance
         ```
+
         Provisioned Clusters:
 
         ```sh

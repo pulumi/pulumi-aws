@@ -77,9 +77,11 @@ import javax.annotation.Nullable;
  * 
  * - `arn` (String) Amazon Resource Name (ARN) of the Image Builder distribution configuration.
  * 
- * Using `pulumi import`, import `aws_imagebuilder_distribution_configurations` resources using the Amazon Resource Name (ARN). For example:
+ * Using `pulumi import`, import `aws.imagebuilder.getDistributionConfigurations` resources using the Amazon Resource Name (ARN). For example:
  * 
- * % pulumi import aws_imagebuilder_distribution_configuration.example arn:aws:imagebuilder:us-east-1:123456789012:distribution-configuration/example
+ * ```sh
+ * $ pulumi import aws:imagebuilder/distributionConfiguration:DistributionConfiguration example arn:aws:imagebuilder:us-east-1:123456789012:distribution-configuration/example
+ * ```
  * 
  */
 @ResourceType(type="aws:imagebuilder/distributionConfiguration:DistributionConfiguration")

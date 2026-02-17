@@ -84,7 +84,7 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import VPC Endpoint connection notifications using the VPC endpoint connection notification `id`. For example:
+    /// Using `pulumi import`, import VPC Endpoint connection notifications using the VPC endpoint connection notification `Id`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:ec2/vpcEndpointConnectionNotification:VpcEndpointConnectionNotification foo vpce-nfn-09e6ed3b4efba2263

@@ -106,13 +106,14 @@ import * as utilities from "../utilities";
  *
  * #### Optional
  *
- * * `account_id` (String) AWS Account where this resource is managed.
- *
+ * * `accountId` (String) AWS Account where this resource is managed.
  * * `region` (String) Region where this resource is managed.
  *
  * Using `pulumi import`, import subnets using the subnet `id`. For example:
  *
- * % pulumi import aws_subnet.example subnet-9d4a7b6c
+ * ```sh
+ * $ pulumi import aws:ec2/subnet:Subnet example subnet-9d4a7b6c
+ * ```
  */
 export class Subnet extends pulumi.CustomResource {
     /**

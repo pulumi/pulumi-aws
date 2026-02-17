@@ -8,6 +8,190 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
+ * > **Note:** If you change a Scraper's source (EKS cluster), Terraform
+ * will delete the current Scraper and create a new one.
+ *
+ * Provides an Amazon Managed Service for Prometheus fully managed collector
+ * (scraper).
+ *
+ * Read more in the [Amazon Managed Service for Prometheus user guide](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-collector.html).
+ *
+ * ## Example Usage
+ *
+ * ### Basic Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.amp.Scraper("example", {
+ *     source: {
+ *         eks: {
+ *             clusterArn: exampleAwsEksCluster.arn,
+ *             subnetIds: exampleAwsEksCluster.vpcConfig[0].subnetIds,
+ *         },
+ *     },
+ *     destination: {
+ *         amp: {
+ *             workspaceArn: exampleAwsPrometheusWorkspace.arn,
+ *         },
+ *     },
+ *     scrapeConfiguration: `global:
+ *   scrape_interval: 30s
+ * scrape_configs:
+ *   # pod metrics
+ *   - job_name: pod_exporter
+ *     kubernetes_sd_configs:
+ *       - role: pod
+ *   # container metrics
+ *   - job_name: cadvisor
+ *     scheme: https
+ *     authorization:
+ *       credentials_file: /var/run/secrets/kubernetes.io/serviceaccount/token
+ *     kubernetes_sd_configs:
+ *       - role: node
+ *     relabel_configs:
+ *       - action: labelmap
+ *         regex: __meta_kubernetes_node_label_(.+)
+ *       - replacement: kubernetes.default.svc:443
+ *         target_label: __address__
+ *       - source_labels: [__meta_kubernetes_node_name]
+ *         regex: (.+)
+ *         target_label: __metrics_path__
+ *         replacement: /api/v1/nodes/1/proxy/metrics/cadvisor
+ *   # apiserver metrics
+ *   - bearer_token_file: /var/run/secrets/kubernetes.io/serviceaccount/token
+ *     job_name: kubernetes-apiservers
+ *     kubernetes_sd_configs:
+ *     - role: endpoints
+ *     relabel_configs:
+ *     - action: keep
+ *       regex: default;kubernetes;https
+ *       source_labels:
+ *       - __meta_kubernetes_namespace
+ *       - __meta_kubernetes_service_name
+ *       - __meta_kubernetes_endpoint_port_name
+ *     scheme: https
+ *   # kube proxy metrics
+ *   - job_name: kube-proxy
+ *     honor_labels: true
+ *     kubernetes_sd_configs:
+ *     - role: pod
+ *     relabel_configs:
+ *     - action: keep
+ *       source_labels:
+ *       - __meta_kubernetes_namespace
+ *       - __meta_kubernetes_pod_name
+ *       separator: '/'
+ *       regex: 'kube-system/kube-proxy.+'
+ *     - source_labels:
+ *       - __address__
+ *       action: replace
+ *       target_label: __address__
+ *       regex: (.+?)(\\\\\\\\:\\\\\\\\d+)?
+ *       replacement: 1:10249
+ * `,
+ * });
+ * ```
+ *
+ * ### Use default EKS scraper configuration
+ *
+ * You can use the data source `awsPrometheusScraperConfiguration` to use a
+ * service managed scrape configuration.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.amp.getDefaultScraperConfiguration({});
+ * const exampleScraper = new aws.amp.Scraper("example", {
+ *     destination: {
+ *         amp: {
+ *             workspaceArn: exampleAwsPrometheusWorkspace.arn,
+ *         },
+ *     },
+ *     scrapeConfiguration: exampleAwsPrometheusScraperConfiguration.configuration,
+ *     source: {
+ *         eks: {
+ *             clusterArn: exampleAwsEksCluster.arn,
+ *             subnetIds: exampleAwsEksCluster.vpcConfig[0].subnetIds,
+ *         },
+ *     },
+ * });
+ * ```
+ *
+ * ### Ignoring changes to Prometheus Workspace destination
+ *
+ * A managed scraper will add a `AMPAgentlessScraper` tag to its Prometheus workspace
+ * destination. To avoid Terraform state forcing removing the tag from the workspace,
+ * you can add this tag to the destination workspace (preferred) or ignore tags
+ * changes with `lifecycle`. See example below.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const _this = aws.eks.getCluster({
+ *     name: "example",
+ * });
+ * const example = new aws.amp.Workspace("example", {tags: {
+ *     AMPAgentlessScraper: "",
+ * }});
+ * const exampleScraper = new aws.amp.Scraper("example", {
+ *     source: {
+ *         eks: {
+ *             clusterArn: exampleAwsEksCluster.arn,
+ *             subnetIds: exampleAwsEksCluster.vpcConfig[0].subnetIds,
+ *         },
+ *     },
+ *     scrapeConfiguration: "...",
+ *     destination: {
+ *         amp: {
+ *             workspaceArn: example.arn,
+ *         },
+ *     },
+ * });
+ * ```
+ *
+ * ### Configure aws-auth
+ *
+ * Your source Amazon EKS cluster must be configured to allow the scraper to access
+ * metrics. Follow the [user guide](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-collector-how-to.html#AMP-collector-eks-setup)
+ * to setup the appropriate Kubernetes permissions.
+ *
+ * ### Cross-Account Configuration
+ *
+ * This setup allows the scraper, running in a source account, to remote write its collected metrics to a workspace in a target account. Note that:
+ *
+ * - The target Role and target Workspace must be in the same account
+ * - The source Scraper and target Workspace must be in the same Region
+ *
+ * Follow [the AWS Best Practices guide](https://aws-observability.github.io/observability-best-practices/patterns/ampxa) to learn about the IAM roles configuration and overall setup.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.amp.Scraper("example", {
+ *     source: {
+ *         eks: {
+ *             clusterArn: exampleAwsEksCluster.arn,
+ *             subnetIds: exampleAwsEksCluster.vpcConfig[0].subnetIds,
+ *         },
+ *     },
+ *     destination: {
+ *         amp: {
+ *             workspaceArn: "<target_account_workspace_arn>",
+ *         },
+ *     },
+ *     roleConfiguration: {
+ *         sourceRoleArn: source.arn,
+ *         targetRoleArn: "arn:aws:iam::ACCOUNT-ID:role/target-role-name",
+ *     },
+ *     scrapeConfiguration: "...",
+ * });
+ * ```
+ *
  * ## Import
  *
  * Using `pulumi import`, import the Managed Scraper using its identifier.

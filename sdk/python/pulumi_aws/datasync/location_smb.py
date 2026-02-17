@@ -404,9 +404,11 @@ class LocationSmb(pulumi.CustomResource):
 
         - `arn` (String) Amazon Resource Name (ARN) of the DataSync SMB location.
 
-        Using `pulumi import`, import `aws_datasync_location_smb` using the Amazon Resource Name (ARN). For example:
+        Using `pulumi import`, import `datasync.LocationSmb` using the Amazon Resource Name (ARN). For example:
 
-        % pulumi import aws_datasync_location_smb.example arn:aws:datasync:us-east-1:123456789012:location/loc-12345678901234567
+        ```sh
+        $ pulumi import aws:datasync/locationSmb:LocationSmb example arn:aws:datasync:us-east-1:123456789012:location/loc-12345678901234567
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -453,9 +455,11 @@ class LocationSmb(pulumi.CustomResource):
 
         - `arn` (String) Amazon Resource Name (ARN) of the DataSync SMB location.
 
-        Using `pulumi import`, import `aws_datasync_location_smb` using the Amazon Resource Name (ARN). For example:
+        Using `pulumi import`, import `datasync.LocationSmb` using the Amazon Resource Name (ARN). For example:
 
-        % pulumi import aws_datasync_location_smb.example arn:aws:datasync:us-east-1:123456789012:location/loc-12345678901234567
+        ```sh
+        $ pulumi import aws:datasync/locationSmb:LocationSmb example arn:aws:datasync:us-east-1:123456789012:location/loc-12345678901234567
+        ```
 
         :param str resource_name: The name of the resource.
         :param LocationSmbArgs args: The arguments to use to populate this resource's properties.

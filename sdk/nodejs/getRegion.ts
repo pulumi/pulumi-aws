@@ -43,6 +43,9 @@ export interface GetRegionArgs {
      * EC2 endpoint of the region to select.
      */
     endpoint?: string;
+    /**
+     * Region's name (e.g. `us-east-1`).
+     */
     id?: string;
     /**
      * Full name of the region to select. Use `region` instead.
@@ -65,6 +68,9 @@ export interface GetRegionResult {
      */
     readonly description: string;
     readonly endpoint: string;
+    /**
+     * Region's name (e.g. `us-east-1`).
+     */
     readonly id: string;
     /**
      * @deprecated name is deprecated. Use region instead.
@@ -111,6 +117,9 @@ export interface GetRegionOutputArgs {
      * EC2 endpoint of the region to select.
      */
     endpoint?: pulumi.Input<string>;
+    /**
+     * Region's name (e.g. `us-east-1`).
+     */
     id?: pulumi.Input<string>;
     /**
      * Full name of the region to select. Use `region` instead.

@@ -84,7 +84,9 @@ import * as utilities from "../utilities";
  *
  * Using `pulumi import`, import SNS Topics using the topic `arn`. For example:
  *
- * % pulumi import aws_sns_topic.user_updates arn:aws:sns:us-west-2:123456789012:my-topic
+ * ```sh
+ * $ pulumi import aws:sns/topic:Topic user_updates arn:aws:sns:us-west-2:123456789012:my-topic
+ * ```
  */
 export class Topic extends pulumi.CustomResource {
     /**

@@ -63,7 +63,7 @@ namespace Pulumi.Aws.DocDB
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import DocumentDB Event Subscriptions using the `name`. For example:
+    /// Using `pulumi import`, import DocumentDB Event Subscriptions using the `Name`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:docdb/eventSubscription:EventSubscription example event-sub
