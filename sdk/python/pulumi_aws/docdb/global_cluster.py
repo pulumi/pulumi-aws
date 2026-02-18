@@ -427,12 +427,20 @@ class GlobalCluster(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import `aws_docdb_global_cluster` using the Global Cluster identifier. For example:
+        Using `pulumi import`, import `docdb.GlobalCluster` using the Global Cluster identifier. For example:
 
         ```sh
         $ pulumi import aws:docdb/globalCluster:GlobalCluster example example
         ```
+
         Certain resource arguments, like `source_db_cluster_identifier`, do not have an API method for reading the information after creation. If the argument is set in the Pulumi program on an imported resource, Pulumi will always show a difference. To workaround this behavior, either omit the argument from the Pulumi program or use `ignore_changes` to hide the difference. For example:
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.docdb.GlobalCluster("example")
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -511,12 +519,20 @@ class GlobalCluster(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import `aws_docdb_global_cluster` using the Global Cluster identifier. For example:
+        Using `pulumi import`, import `docdb.GlobalCluster` using the Global Cluster identifier. For example:
 
         ```sh
         $ pulumi import aws:docdb/globalCluster:GlobalCluster example example
         ```
+
         Certain resource arguments, like `source_db_cluster_identifier`, do not have an API method for reading the information after creation. If the argument is set in the Pulumi program on an imported resource, Pulumi will always show a difference. To workaround this behavior, either omit the argument from the Pulumi program or use `ignore_changes` to hide the difference. For example:
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.docdb.GlobalCluster("example")
+        ```
 
         :param str resource_name: The name of the resource.
         :param GlobalClusterArgs args: The arguments to use to populate this resource's properties.

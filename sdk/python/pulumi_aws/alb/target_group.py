@@ -1092,7 +1092,9 @@ class TargetGroup(pulumi.CustomResource):
 
         Using `pulumi import`, import Target Groups using their ARN. For example:
 
-        % pulumi import aws_lb_target_group.app_front_end arn:aws:elasticloadbalancing:us-west-2:187416307283:targetgroup/app-front-end/20cfe21448b66314
+        ```sh
+        $ pulumi import aws:alb/targetGroup:TargetGroup app_front_end arn:aws:elasticloadbalancing:us-west-2:187416307283:targetgroup/app-front-end/20cfe21448b66314
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -1251,7 +1253,9 @@ class TargetGroup(pulumi.CustomResource):
 
         Using `pulumi import`, import Target Groups using their ARN. For example:
 
-        % pulumi import aws_lb_target_group.app_front_end arn:aws:elasticloadbalancing:us-west-2:187416307283:targetgroup/app-front-end/20cfe21448b66314
+        ```sh
+        $ pulumi import aws:alb/targetGroup:TargetGroup app_front_end arn:aws:elasticloadbalancing:us-west-2:187416307283:targetgroup/app-front-end/20cfe21448b66314
+        ```
 
         :param str resource_name: The name of the resource.
         :param TargetGroupArgs args: The arguments to use to populate this resource's properties.

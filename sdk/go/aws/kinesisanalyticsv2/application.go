@@ -304,7 +304,7 @@ import (
 //
 // ## Import
 //
-// Using `pulumi import`, import `aws_kinesisanalyticsv2_application` using the application ARN. For example:
+// Using `pulumi import`, import `kinesisanalyticsv2.Application` using the application ARN. For example:
 //
 // ```sh
 // $ pulumi import aws:kinesisanalyticsv2/application:Application example arn:aws:kinesisanalytics:us-west-2:123456789012:application/example-sql-application

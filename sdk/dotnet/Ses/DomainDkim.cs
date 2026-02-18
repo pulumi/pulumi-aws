@@ -55,7 +55,7 @@ namespace Pulumi.Aws.Ses
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import DKIM tokens using the `domain` attribute. For example:
+    /// Using `pulumi import`, import DKIM tokens using the `Domain` attribute. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:ses/domainDkim:DomainDkim example example.com

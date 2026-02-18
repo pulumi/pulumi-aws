@@ -84,9 +84,17 @@ public final class QuerySuggestionsBlockListState extends com.pulumi.resources.R
         return Optional.ofNullable(this.querySuggestionsBlockListId);
     }
 
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
+     * 
+     */
     @Import(name="region")
     private @Nullable Output<String> region;
 
+    /**
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
+     * 
+     */
     public Optional<Output<String>> region() {
         return Optional.ofNullable(this.region);
     }
@@ -277,11 +285,23 @@ public final class QuerySuggestionsBlockListState extends com.pulumi.resources.R
             return querySuggestionsBlockListId(Output.of(querySuggestionsBlockListId));
         }
 
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
+         * 
+         * @return builder
+         * 
+         */
         public Builder region(@Nullable Output<String> region) {
             $.region = region;
             return this;
         }
 
+        /**
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
+         * 
+         * @return builder
+         * 
+         */
         public Builder region(String region) {
             return region(Output.of(region));
         }

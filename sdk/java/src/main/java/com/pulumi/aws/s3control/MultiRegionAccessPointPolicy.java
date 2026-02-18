@@ -106,7 +106,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Using `pulumi import`, import Multi-Region Access Point Policies using the `account_id` and `name` of the Multi-Region Access Point separated by a colon (`:`). For example:
+ * Using `pulumi import`, import Multi-Region Access Point Policies using the `accountId` and `name` of the Multi-Region Access Point separated by a colon (`:`). For example:
  * 
  * ```sh
  * $ pulumi import aws:s3control/multiRegionAccessPointPolicy:MultiRegionAccessPointPolicy example 123456789012:example

@@ -41,7 +41,7 @@ namespace Pulumi.Aws.Neptune
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import Neptune Subnet groups using the `name`. For example:
+    /// Using `pulumi import`, import Neptune Subnet groups using the `Name`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:neptune/subnetGroup:SubnetGroup default production-subnet-group

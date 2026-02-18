@@ -35,7 +35,7 @@ namespace Pulumi.Aws.RedShift
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import Redshift Data Share Authorization using the `id`. For example:
+    /// Using `pulumi import`, import Redshift Data Share Authorization using the `Id`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:redshift/dataShareAuthorization:DataShareAuthorization example arn:aws:redshift:us-west-2:123456789012:datashare:3072dae5-022b-4d45-9cd3-01f010aae4b2/example_share,123456789012

@@ -165,7 +165,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Using `pulumi import`, import App Mesh virtual nodes using `mesh_name` together with the virtual node's `name`. For example:
+ * Using `pulumi import`, import App Mesh virtual nodes using `meshName` together with the virtual node's `name`. For example:
  *
  * ```sh
  * $ pulumi import aws:appmesh/virtualNode:VirtualNode serviceb1 simpleapp/serviceBv1

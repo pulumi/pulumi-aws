@@ -39,6 +39,7 @@ class VpcConnectionArgs:
                
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] vpc_connection_id: The ID of the VPC connection.
+        :param pulumi.Input[_builtins.str] aws_account_id: AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] dns_resolvers: A list of IP addresses of DNS resolver endpoints for the VPC connection.
         :param pulumi.Input[_builtins.str] name: The display name for the VPC connection.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -114,6 +115,9 @@ class VpcConnectionArgs:
     @_builtins.property
     @pulumi.getter(name="awsAccountId")
     def aws_account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
+        """
         return pulumi.get(self, "aws_account_id")
 
     @aws_account_id.setter
@@ -198,6 +202,7 @@ class _VpcConnectionState:
         Input properties used for looking up and filtering VpcConnection resources.
         :param pulumi.Input[_builtins.str] arn: ARN of the VPC connection.
         :param pulumi.Input[_builtins.str] availability_status: The availability status of the VPC connection. Valid values are `AVAILABLE`, `UNAVAILABLE` or `PARTIALLY_AVAILABLE`.
+        :param pulumi.Input[_builtins.str] aws_account_id: AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] dns_resolvers: A list of IP addresses of DNS resolver endpoints for the VPC connection.
         :param pulumi.Input[_builtins.str] name: The display name for the VPC connection.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -264,6 +269,9 @@ class _VpcConnectionState:
     @_builtins.property
     @pulumi.getter(name="awsAccountId")
     def aws_account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
+        """
         return pulumi.get(self, "aws_account_id")
 
     @aws_account_id.setter
@@ -468,6 +476,7 @@ class VpcConnection(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[_builtins.str] aws_account_id: AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] dns_resolvers: A list of IP addresses of DNS resolver endpoints for the VPC connection.
         :param pulumi.Input[_builtins.str] name: The display name for the VPC connection.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -631,6 +640,7 @@ class VpcConnection(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] arn: ARN of the VPC connection.
         :param pulumi.Input[_builtins.str] availability_status: The availability status of the VPC connection. Valid values are `AVAILABLE`, `UNAVAILABLE` or `PARTIALLY_AVAILABLE`.
+        :param pulumi.Input[_builtins.str] aws_account_id: AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] dns_resolvers: A list of IP addresses of DNS resolver endpoints for the VPC connection.
         :param pulumi.Input[_builtins.str] name: The display name for the VPC connection.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -681,6 +691,9 @@ class VpcConnection(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="awsAccountId")
     def aws_account_id(self) -> pulumi.Output[_builtins.str]:
+        """
+        AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
+        """
         return pulumi.get(self, "aws_account_id")
 
     @_builtins.property

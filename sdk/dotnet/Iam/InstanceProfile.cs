@@ -68,7 +68,7 @@ namespace Pulumi.Aws.Iam
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import Instance Profiles using the `name`. For example:
+    /// Using `pulumi import`, import Instance Profiles using the `Name`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:iam/instanceProfile:InstanceProfile test_profile app-instance-profile-1

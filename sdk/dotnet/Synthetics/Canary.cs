@@ -43,7 +43,7 @@ namespace Pulumi.Aws.Synthetics
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import Synthetics Canaries using the `name`. For example:
+    /// Using `pulumi import`, import Synthetics Canaries using the `Name`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:synthetics/canary:Canary some some-canary

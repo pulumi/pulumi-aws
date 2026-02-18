@@ -51,7 +51,8 @@ import (
 type GroupMembership struct {
 	pulumi.CustomResourceState
 
-	Arn          pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
 	AwsAccountId pulumi.StringOutput `pulumi:"awsAccountId"`
 	// The name of the group in which the member will be added.
 	GroupName pulumi.StringOutput `pulumi:"groupName"`
@@ -99,7 +100,8 @@ func GetGroupMembership(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering GroupMembership resources.
 type groupMembershipState struct {
-	Arn          *string `pulumi:"arn"`
+	Arn *string `pulumi:"arn"`
+	// AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
 	AwsAccountId *string `pulumi:"awsAccountId"`
 	// The name of the group in which the member will be added.
 	GroupName *string `pulumi:"groupName"`
@@ -112,7 +114,8 @@ type groupMembershipState struct {
 }
 
 type GroupMembershipState struct {
-	Arn          pulumi.StringPtrInput
+	Arn pulumi.StringPtrInput
+	// AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
 	AwsAccountId pulumi.StringPtrInput
 	// The name of the group in which the member will be added.
 	GroupName pulumi.StringPtrInput
@@ -129,6 +132,7 @@ func (GroupMembershipState) ElementType() reflect.Type {
 }
 
 type groupMembershipArgs struct {
+	// AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
 	AwsAccountId *string `pulumi:"awsAccountId"`
 	// The name of the group in which the member will be added.
 	GroupName string `pulumi:"groupName"`
@@ -142,6 +146,7 @@ type groupMembershipArgs struct {
 
 // The set of arguments for constructing a GroupMembership resource.
 type GroupMembershipArgs struct {
+	// AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
 	AwsAccountId pulumi.StringPtrInput
 	// The name of the group in which the member will be added.
 	GroupName pulumi.StringInput
@@ -244,6 +249,7 @@ func (o GroupMembershipOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *GroupMembership) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
 func (o GroupMembershipOutput) AwsAccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *GroupMembership) pulumi.StringOutput { return v.AwsAccountId }).(pulumi.StringOutput)
 }

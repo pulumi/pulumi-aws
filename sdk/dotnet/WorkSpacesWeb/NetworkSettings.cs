@@ -76,7 +76,7 @@ namespace Pulumi.Aws.WorkSpacesWeb
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import WorkSpaces Web Network Settings using the `network_settings_arn`. For example:
+    /// Using `pulumi import`, import WorkSpaces Web Network Settings using the `NetworkSettingsArn`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:workspacesweb/networkSettings:NetworkSettings example arn:aws:workspacesweb:us-west-2:123456789012:networksettings/abcdef12345

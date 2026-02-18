@@ -78,9 +78,11 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
- * ### Basic Example containing Global Secondary Indexs using Multi-attribute keys pattern
+ * ### Basic Example containing Global Secondary Indexes using Multi-attribute keys pattern
  *
  * The following dynamodb table description models the table and GSIs shown in the [AWS SDK example documentation](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GSI.DesignPattern.MultiAttributeKeys.html)
+ *
+ * > **Note:** Multi-attribute keys for GSIs use the `keySchema` block instead of `hashKey`/`rangeKey`. The `hashKey` and `rangeKey` arguments are deprecated in favor of `keySchema`.
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -115,11 +117,11 @@ import * as utilities from "../utilities";
  *         },
  *         {
  *             name: "playerId",
- *             type: N,
+ *             type: "N",
  *         },
  *         {
  *             name: "matchDate",
- *             type: S,
+ *             type: "S",
  *         },
  *     ],
  *     ttl: {
@@ -129,14 +131,27 @@ import * as utilities from "../utilities";
  *     globalSecondaryIndexes: [
  *         {
  *             name: "TournamentRegionIndex",
- *             hashKeys: [
- *                 "tournamentId",
- *                 "region",
- *             ],
- *             rangeKeys: [
- *                 "round",
- *                 "bracket",
- *                 "matchId",
+ *             keySchemas: [
+ *                 {
+ *                     attributeName: "tournamentId",
+ *                     keyType: "HASH",
+ *                 },
+ *                 {
+ *                     attributeName: "region",
+ *                     keyType: "HASH",
+ *                 },
+ *                 {
+ *                     attributeName: "round",
+ *                     keyType: "RANGE",
+ *                 },
+ *                 {
+ *                     attributeName: "bracket",
+ *                     keyType: "RANGE",
+ *                 },
+ *                 {
+ *                     attributeName: "matchId",
+ *                     keyType: "RANGE",
+ *                 },
  *             ],
  *             writeCapacity: 10,
  *             readCapacity: 10,
@@ -144,10 +159,19 @@ import * as utilities from "../utilities";
  *         },
  *         {
  *             name: "PlayerMatchHistoryIndex",
- *             hashKey: "playerId",
- *             rangeKeys: [
- *                 "matchDate",
- *                 "round",
+ *             keySchemas: [
+ *                 {
+ *                     attributeName: "playerId",
+ *                     keyType: "HASH",
+ *                 },
+ *                 {
+ *                     attributeName: "matchDate",
+ *                     keyType: "RANGE",
+ *                 },
+ *                 {
+ *                     attributeName: "round",
+ *                     keyType: "RANGE",
+ *                 },
  *             ],
  *             writeCapacity: 10,
  *             readCapacity: 10,

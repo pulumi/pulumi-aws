@@ -37,7 +37,7 @@ namespace Pulumi.Aws.FinSpace
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import an AWS FinSpace Kx Scaling Group using the `id` (environment ID and scaling group name, comma-delimited). For example:
+    /// Using `pulumi import`, import an AWS FinSpace Kx Scaling Group using the `Id` (environment ID and scaling group name, comma-delimited). For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:finspace/kxScalingGroup:KxScalingGroup example n3ceo7wqxoxcti5tujqwzs,my-tf-kx-scalinggroup

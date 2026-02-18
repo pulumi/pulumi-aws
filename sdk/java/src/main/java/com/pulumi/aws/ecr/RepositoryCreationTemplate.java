@@ -262,9 +262,17 @@ public class RepositoryCreationTemplate extends com.pulumi.resources.CustomResou
     public Output<String> registryId() {
         return this.registryId;
     }
+    /**
+     * The registry policy document to apply to any created repositories. This is a JSON formatted string. For more information about building IAM policy documents with Terraform, see the AWS IAM Policy Document Guide.
+     * 
+     */
     @Export(name="repositoryPolicy", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> repositoryPolicy;
 
+    /**
+     * @return The registry policy document to apply to any created repositories. This is a JSON formatted string. For more information about building IAM policy documents with Terraform, see the AWS IAM Policy Document Guide.
+     * 
+     */
     public Output<Optional<String>> repositoryPolicy() {
         return Codegen.optional(this.repositoryPolicy);
     }

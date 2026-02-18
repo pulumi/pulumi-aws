@@ -49,7 +49,7 @@ namespace Pulumi.Aws.Chime
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import AWS Chime SDK Voice Profile Domain using the `id`. For example:
+    /// Using `pulumi import`, import AWS Chime SDK Voice Profile Domain using the `Id`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:chime/sdkvoiceVoiceProfileDomain:SdkvoiceVoiceProfileDomain example abcdef123456

@@ -81,7 +81,7 @@ namespace Pulumi.Aws.DirectConnect
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import Direct Connect connections using the connection `id`. For example:
+    /// Using `pulumi import`, import Direct Connect connections using the connection `Id`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:directconnect/connection:Connection test_connection dxcon-ffre0ec3

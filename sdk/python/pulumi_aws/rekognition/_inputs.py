@@ -49,16 +49,11 @@ __all__ = [
     'StreamProcessorTimeoutsArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class CollectionTimeoutsArgsDict(TypedDict):
-        create: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
-        """
-elif False:
-    CollectionTimeoutsArgsDict: TypeAlias = Mapping[str, Any]
+class CollectionTimeoutsArgsDict(TypedDict):
+    create: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+    """
 
 @pulumi.input_type
 class CollectionTimeoutsArgs:
@@ -83,18 +78,15 @@ class CollectionTimeoutsArgs:
         pulumi.set(self, "create", value)
 
 
-if not MYPY:
-    class ProjectTimeoutsArgsDict(TypedDict):
-        create: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
-        """
-        delete: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
-        """
-elif False:
-    ProjectTimeoutsArgsDict: TypeAlias = Mapping[str, Any]
+class ProjectTimeoutsArgsDict(TypedDict):
+    create: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+    """
+    delete: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+    """
 
 @pulumi.input_type
 class ProjectTimeoutsArgs:
@@ -135,14 +127,11 @@ class ProjectTimeoutsArgs:
         pulumi.set(self, "delete", value)
 
 
-if not MYPY:
-    class StreamProcessorDataSharingPreferenceArgsDict(TypedDict):
-        opt_in: pulumi.Input[_builtins.bool]
-        """
-        Whether you are sharing data with Rekognition to improve model performance.
-        """
-elif False:
-    StreamProcessorDataSharingPreferenceArgsDict: TypeAlias = Mapping[str, Any]
+class StreamProcessorDataSharingPreferenceArgsDict(TypedDict):
+    opt_in: pulumi.Input[_builtins.bool]
+    """
+    Whether you are sharing data with Rekognition to improve model performance.
+    """
 
 @pulumi.input_type
 class StreamProcessorDataSharingPreferenceArgs:
@@ -166,14 +155,11 @@ class StreamProcessorDataSharingPreferenceArgs:
         pulumi.set(self, "opt_in", value)
 
 
-if not MYPY:
-    class StreamProcessorInputArgsDict(TypedDict):
-        kinesis_video_stream: pulumi.Input['StreamProcessorInputKinesisVideoStreamArgsDict']
-        """
-        Kinesis input stream. See `kinesis_video_stream`.
-        """
-elif False:
-    StreamProcessorInputArgsDict: TypeAlias = Mapping[str, Any]
+class StreamProcessorInputArgsDict(TypedDict):
+    kinesis_video_stream: pulumi.Input['StreamProcessorInputKinesisVideoStreamArgsDict']
+    """
+    Kinesis input stream. See `kinesis_video_stream`.
+    """
 
 @pulumi.input_type
 class StreamProcessorInputArgs:
@@ -197,14 +183,11 @@ class StreamProcessorInputArgs:
         pulumi.set(self, "kinesis_video_stream", value)
 
 
-if not MYPY:
-    class StreamProcessorInputKinesisVideoStreamArgsDict(TypedDict):
-        arn: pulumi.Input[_builtins.str]
-        """
-        ARN of the Kinesis video stream stream that streams the source video.
-        """
-elif False:
-    StreamProcessorInputKinesisVideoStreamArgsDict: TypeAlias = Mapping[str, Any]
+class StreamProcessorInputKinesisVideoStreamArgsDict(TypedDict):
+    arn: pulumi.Input[_builtins.str]
+    """
+    ARN of the Kinesis video stream stream that streams the source video.
+    """
 
 @pulumi.input_type
 class StreamProcessorInputKinesisVideoStreamArgs:
@@ -228,14 +211,11 @@ class StreamProcessorInputKinesisVideoStreamArgs:
         pulumi.set(self, "arn", value)
 
 
-if not MYPY:
-    class StreamProcessorNotificationChannelArgsDict(TypedDict):
-        sns_topic_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The Amazon Resource Number (ARN) of the Amazon Amazon Simple Notification Service topic to which Amazon Rekognition posts the completion status.
-        """
-elif False:
-    StreamProcessorNotificationChannelArgsDict: TypeAlias = Mapping[str, Any]
+class StreamProcessorNotificationChannelArgsDict(TypedDict):
+    sns_topic_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The Amazon Resource Number (ARN) of the Amazon Amazon Simple Notification Service topic to which Amazon Rekognition posts the completion status.
+    """
 
 @pulumi.input_type
 class StreamProcessorNotificationChannelArgs:
@@ -260,18 +240,15 @@ class StreamProcessorNotificationChannelArgs:
         pulumi.set(self, "sns_topic_arn", value)
 
 
-if not MYPY:
-    class StreamProcessorOutputArgsDict(TypedDict):
-        kinesis_data_stream: NotRequired[pulumi.Input['StreamProcessorOutputKinesisDataStreamArgsDict']]
-        """
-        The Amazon Kinesis Data Streams stream to which the Amazon Rekognition stream processor streams the analysis results. See `kinesis_data_stream`.
-        """
-        s3_destination: NotRequired[pulumi.Input['StreamProcessorOutputS3DestinationArgsDict']]
-        """
-        The Amazon S3 bucket location to which Amazon Rekognition publishes the detailed inference results of a video analysis operation. See `s3_destination`.
-        """
-elif False:
-    StreamProcessorOutputArgsDict: TypeAlias = Mapping[str, Any]
+class StreamProcessorOutputArgsDict(TypedDict):
+    kinesis_data_stream: NotRequired[pulumi.Input['StreamProcessorOutputKinesisDataStreamArgsDict']]
+    """
+    The Amazon Kinesis Data Streams stream to which the Amazon Rekognition stream processor streams the analysis results. See `kinesis_data_stream`.
+    """
+    s3_destination: NotRequired[pulumi.Input['StreamProcessorOutputS3DestinationArgsDict']]
+    """
+    The Amazon S3 bucket location to which Amazon Rekognition publishes the detailed inference results of a video analysis operation. See `s3_destination`.
+    """
 
 @pulumi.input_type
 class StreamProcessorOutputArgs:
@@ -312,14 +289,11 @@ class StreamProcessorOutputArgs:
         pulumi.set(self, "s3_destination", value)
 
 
-if not MYPY:
-    class StreamProcessorOutputKinesisDataStreamArgsDict(TypedDict):
-        arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        ARN of the output Amazon Kinesis Data Streams stream.
-        """
-elif False:
-    StreamProcessorOutputKinesisDataStreamArgsDict: TypeAlias = Mapping[str, Any]
+class StreamProcessorOutputKinesisDataStreamArgsDict(TypedDict):
+    arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    ARN of the output Amazon Kinesis Data Streams stream.
+    """
 
 @pulumi.input_type
 class StreamProcessorOutputKinesisDataStreamArgs:
@@ -344,18 +318,15 @@ class StreamProcessorOutputKinesisDataStreamArgs:
         pulumi.set(self, "arn", value)
 
 
-if not MYPY:
-    class StreamProcessorOutputS3DestinationArgsDict(TypedDict):
-        bucket: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Name of the Amazon S3 bucket you want to associate with the streaming video project.
-        """
-        key_prefix: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The prefix value of the location within the bucket that you want the information to be published to.
-        """
-elif False:
-    StreamProcessorOutputS3DestinationArgsDict: TypeAlias = Mapping[str, Any]
+class StreamProcessorOutputS3DestinationArgsDict(TypedDict):
+    bucket: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Name of the Amazon S3 bucket you want to associate with the streaming video project.
+    """
+    key_prefix: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The prefix value of the location within the bucket that you want the information to be published to.
+    """
 
 @pulumi.input_type
 class StreamProcessorOutputS3DestinationArgs:
@@ -396,18 +367,15 @@ class StreamProcessorOutputS3DestinationArgs:
         pulumi.set(self, "key_prefix", value)
 
 
-if not MYPY:
-    class StreamProcessorRegionsOfInterestArgsDict(TypedDict):
-        bounding_box: NotRequired[pulumi.Input['StreamProcessorRegionsOfInterestBoundingBoxArgsDict']]
-        """
-        Box representing a region of interest on screen. Only 1 per region is allowed. See `bounding_box`.
-        """
-        polygons: NotRequired[pulumi.Input[Sequence[pulumi.Input['StreamProcessorRegionsOfInterestPolygonArgsDict']]]]
-        """
-        Shape made up of up to 10 Point objects to define a region of interest. See `polygon`.
-        """
-elif False:
-    StreamProcessorRegionsOfInterestArgsDict: TypeAlias = Mapping[str, Any]
+class StreamProcessorRegionsOfInterestArgsDict(TypedDict):
+    bounding_box: NotRequired[pulumi.Input['StreamProcessorRegionsOfInterestBoundingBoxArgsDict']]
+    """
+    Box representing a region of interest on screen. Only 1 per region is allowed. See `bounding_box`.
+    """
+    polygons: NotRequired[pulumi.Input[Sequence[pulumi.Input['StreamProcessorRegionsOfInterestPolygonArgsDict']]]]
+    """
+    Shape made up of up to 10 Point objects to define a region of interest. See `polygon`.
+    """
 
 @pulumi.input_type
 class StreamProcessorRegionsOfInterestArgs:
@@ -448,26 +416,23 @@ class StreamProcessorRegionsOfInterestArgs:
         pulumi.set(self, "polygons", value)
 
 
-if not MYPY:
-    class StreamProcessorRegionsOfInterestBoundingBoxArgsDict(TypedDict):
-        height: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        Height of the bounding box as a ratio of the overall image height.
-        """
-        left: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        Left coordinate of the bounding box as a ratio of overall image width.
-        """
-        top: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        Top coordinate of the bounding box as a ratio of overall image height.
-        """
-        width: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        Width of the bounding box as a ratio of the overall image width.
-        """
-elif False:
-    StreamProcessorRegionsOfInterestBoundingBoxArgsDict: TypeAlias = Mapping[str, Any]
+class StreamProcessorRegionsOfInterestBoundingBoxArgsDict(TypedDict):
+    height: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    Height of the bounding box as a ratio of the overall image height.
+    """
+    left: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    Left coordinate of the bounding box as a ratio of overall image width.
+    """
+    top: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    Top coordinate of the bounding box as a ratio of overall image height.
+    """
+    width: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    Width of the bounding box as a ratio of the overall image width.
+    """
 
 @pulumi.input_type
 class StreamProcessorRegionsOfInterestBoundingBoxArgs:
@@ -540,18 +505,15 @@ class StreamProcessorRegionsOfInterestBoundingBoxArgs:
         pulumi.set(self, "width", value)
 
 
-if not MYPY:
-    class StreamProcessorRegionsOfInterestPolygonArgsDict(TypedDict):
-        x: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        The value of the X coordinate for a point on a Polygon.
-        """
-        y: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        The value of the Y coordinate for a point on a Polygon.
-        """
-elif False:
-    StreamProcessorRegionsOfInterestPolygonArgsDict: TypeAlias = Mapping[str, Any]
+class StreamProcessorRegionsOfInterestPolygonArgsDict(TypedDict):
+    x: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    The value of the X coordinate for a point on a Polygon.
+    """
+    y: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    The value of the Y coordinate for a point on a Polygon.
+    """
 
 @pulumi.input_type
 class StreamProcessorRegionsOfInterestPolygonArgs:
@@ -592,18 +554,15 @@ class StreamProcessorRegionsOfInterestPolygonArgs:
         pulumi.set(self, "y", value)
 
 
-if not MYPY:
-    class StreamProcessorSettingsArgsDict(TypedDict):
-        connected_home: NotRequired[pulumi.Input['StreamProcessorSettingsConnectedHomeArgsDict']]
-        """
-        Label detection settings to use on a streaming video. See `connected_home`.
-        """
-        face_search: NotRequired[pulumi.Input['StreamProcessorSettingsFaceSearchArgsDict']]
-        """
-        Input face recognition parameters for an Amazon Rekognition stream processor. See `face_search`.
-        """
-elif False:
-    StreamProcessorSettingsArgsDict: TypeAlias = Mapping[str, Any]
+class StreamProcessorSettingsArgsDict(TypedDict):
+    connected_home: NotRequired[pulumi.Input['StreamProcessorSettingsConnectedHomeArgsDict']]
+    """
+    Label detection settings to use on a streaming video. See `connected_home`.
+    """
+    face_search: NotRequired[pulumi.Input['StreamProcessorSettingsFaceSearchArgsDict']]
+    """
+    Input face recognition parameters for an Amazon Rekognition stream processor. See `face_search`.
+    """
 
 @pulumi.input_type
 class StreamProcessorSettingsArgs:
@@ -644,18 +603,15 @@ class StreamProcessorSettingsArgs:
         pulumi.set(self, "face_search", value)
 
 
-if not MYPY:
-    class StreamProcessorSettingsConnectedHomeArgsDict(TypedDict):
-        labels: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Specifies what you want to detect in the video, such as people, packages, or pets. The current valid labels you can include in this list are: `PERSON`, `PET`, `PACKAGE`, and `ALL`.
-        """
-        min_confidence: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        Minimum confidence required to label an object in the video.
-        """
-elif False:
-    StreamProcessorSettingsConnectedHomeArgsDict: TypeAlias = Mapping[str, Any]
+class StreamProcessorSettingsConnectedHomeArgsDict(TypedDict):
+    labels: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Specifies what you want to detect in the video, such as people, packages, or pets. The current valid labels you can include in this list are: `PERSON`, `PET`, `PACKAGE`, and `ALL`.
+    """
+    min_confidence: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    Minimum confidence required to label an object in the video.
+    """
 
 @pulumi.input_type
 class StreamProcessorSettingsConnectedHomeArgs:
@@ -696,18 +652,15 @@ class StreamProcessorSettingsConnectedHomeArgs:
         pulumi.set(self, "min_confidence", value)
 
 
-if not MYPY:
-    class StreamProcessorSettingsFaceSearchArgsDict(TypedDict):
-        collection_id: pulumi.Input[_builtins.str]
-        """
-        ID of a collection that contains faces that you want to search for.
-        """
-        face_match_threshold: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        Minimum face match confidence score that must be met to return a result for a recognized face.
-        """
-elif False:
-    StreamProcessorSettingsFaceSearchArgsDict: TypeAlias = Mapping[str, Any]
+class StreamProcessorSettingsFaceSearchArgsDict(TypedDict):
+    collection_id: pulumi.Input[_builtins.str]
+    """
+    ID of a collection that contains faces that you want to search for.
+    """
+    face_match_threshold: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    Minimum face match confidence score that must be met to return a result for a recognized face.
+    """
 
 @pulumi.input_type
 class StreamProcessorSettingsFaceSearchArgs:
@@ -747,22 +700,19 @@ class StreamProcessorSettingsFaceSearchArgs:
         pulumi.set(self, "face_match_threshold", value)
 
 
-if not MYPY:
-    class StreamProcessorTimeoutsArgsDict(TypedDict):
-        create: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
-        """
-        delete: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
-        """
-        update: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
-        """
-elif False:
-    StreamProcessorTimeoutsArgsDict: TypeAlias = Mapping[str, Any]
+class StreamProcessorTimeoutsArgsDict(TypedDict):
+    create: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+    """
+    delete: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+    """
+    update: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+    """
 
 @pulumi.input_type
 class StreamProcessorTimeoutsArgs:

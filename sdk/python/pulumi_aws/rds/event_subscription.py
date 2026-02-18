@@ -37,7 +37,7 @@ class EventSubscriptionArgs:
         :param pulumi.Input[_builtins.str] name_prefix: The name of the DB event subscription. Conflicts with `name`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] source_ids: A list of identifiers of the event sources for which events will be returned. If not specified, then all sources are included in the response. If specified, a source_type must also be specified.
-        :param pulumi.Input[_builtins.str] source_type: The type of source that will be generating the events. Valid options are `db-instance`, `db-security-group`, `db-parameter-group`, `db-snapshot`, `db-cluster`, `db-cluster-snapshot`, or `db-proxy`. If not set, all sources will be subscribed to.
+        :param pulumi.Input[_builtins.str] source_type: The type of source that will be generating the events. Valid options are `db-instance`, `db-parameter-group`, `db-security-group`, `db-snapshot`, `db-cluster`, `db-cluster-snapshot`, `custom-engine-version`, `db-proxy`, `blue-green-deployment`, `db-shard-group`, and `zero-etl`. If not set, all sources will be subscribed to.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "sns_topic", sns_topic)
@@ -146,7 +146,7 @@ class EventSubscriptionArgs:
     @pulumi.getter(name="sourceType")
     def source_type(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The type of source that will be generating the events. Valid options are `db-instance`, `db-security-group`, `db-parameter-group`, `db-snapshot`, `db-cluster`, `db-cluster-snapshot`, or `db-proxy`. If not set, all sources will be subscribed to.
+        The type of source that will be generating the events. Valid options are `db-instance`, `db-parameter-group`, `db-security-group`, `db-snapshot`, `db-cluster`, `db-cluster-snapshot`, `custom-engine-version`, `db-proxy`, `blue-green-deployment`, `db-shard-group`, and `zero-etl`. If not set, all sources will be subscribed to.
         """
         return pulumi.get(self, "source_type")
 
@@ -193,7 +193,7 @@ class _EventSubscriptionState:
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] sns_topic: The SNS topic to send events to.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] source_ids: A list of identifiers of the event sources for which events will be returned. If not specified, then all sources are included in the response. If specified, a source_type must also be specified.
-        :param pulumi.Input[_builtins.str] source_type: The type of source that will be generating the events. Valid options are `db-instance`, `db-security-group`, `db-parameter-group`, `db-snapshot`, `db-cluster`, `db-cluster-snapshot`, or `db-proxy`. If not set, all sources will be subscribed to.
+        :param pulumi.Input[_builtins.str] source_type: The type of source that will be generating the events. Valid options are `db-instance`, `db-parameter-group`, `db-security-group`, `db-snapshot`, `db-cluster`, `db-cluster-snapshot`, `custom-engine-version`, `db-proxy`, `blue-green-deployment`, `db-shard-group`, and `zero-etl`. If not set, all sources will be subscribed to.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
@@ -334,7 +334,7 @@ class _EventSubscriptionState:
     @pulumi.getter(name="sourceType")
     def source_type(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The type of source that will be generating the events. Valid options are `db-instance`, `db-security-group`, `db-parameter-group`, `db-snapshot`, `db-cluster`, `db-cluster-snapshot`, or `db-proxy`. If not set, all sources will be subscribed to.
+        The type of source that will be generating the events. Valid options are `db-instance`, `db-parameter-group`, `db-security-group`, `db-snapshot`, `db-cluster`, `db-cluster-snapshot`, `custom-engine-version`, `db-proxy`, `blue-green-deployment`, `db-shard-group`, and `zero-etl`. If not set, all sources will be subscribed to.
         """
         return pulumi.get(self, "source_type")
 
@@ -439,7 +439,7 @@ class EventSubscription(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] sns_topic: The SNS topic to send events to.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] source_ids: A list of identifiers of the event sources for which events will be returned. If not specified, then all sources are included in the response. If specified, a source_type must also be specified.
-        :param pulumi.Input[_builtins.str] source_type: The type of source that will be generating the events. Valid options are `db-instance`, `db-security-group`, `db-parameter-group`, `db-snapshot`, `db-cluster`, `db-cluster-snapshot`, or `db-proxy`. If not set, all sources will be subscribed to.
+        :param pulumi.Input[_builtins.str] source_type: The type of source that will be generating the events. Valid options are `db-instance`, `db-parameter-group`, `db-security-group`, `db-snapshot`, `db-cluster`, `db-cluster-snapshot`, `custom-engine-version`, `db-proxy`, `blue-green-deployment`, `db-shard-group`, and `zero-etl`. If not set, all sources will be subscribed to.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
@@ -580,7 +580,7 @@ class EventSubscription(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] sns_topic: The SNS topic to send events to.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] source_ids: A list of identifiers of the event sources for which events will be returned. If not specified, then all sources are included in the response. If specified, a source_type must also be specified.
-        :param pulumi.Input[_builtins.str] source_type: The type of source that will be generating the events. Valid options are `db-instance`, `db-security-group`, `db-parameter-group`, `db-snapshot`, `db-cluster`, `db-cluster-snapshot`, or `db-proxy`. If not set, all sources will be subscribed to.
+        :param pulumi.Input[_builtins.str] source_type: The type of source that will be generating the events. Valid options are `db-instance`, `db-parameter-group`, `db-security-group`, `db-snapshot`, `db-cluster`, `db-cluster-snapshot`, `custom-engine-version`, `db-proxy`, `blue-green-deployment`, `db-shard-group`, and `zero-etl`. If not set, all sources will be subscribed to.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
@@ -678,7 +678,7 @@ class EventSubscription(pulumi.CustomResource):
     @pulumi.getter(name="sourceType")
     def source_type(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The type of source that will be generating the events. Valid options are `db-instance`, `db-security-group`, `db-parameter-group`, `db-snapshot`, `db-cluster`, `db-cluster-snapshot`, or `db-proxy`. If not set, all sources will be subscribed to.
+        The type of source that will be generating the events. Valid options are `db-instance`, `db-parameter-group`, `db-security-group`, `db-snapshot`, `db-cluster`, `db-cluster-snapshot`, `custom-engine-version`, `db-proxy`, `blue-green-deployment`, `db-shard-group`, and `zero-etl`. If not set, all sources will be subscribed to.
         """
         return pulumi.get(self, "source_type")
 

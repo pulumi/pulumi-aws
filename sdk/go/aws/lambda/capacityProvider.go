@@ -49,6 +49,61 @@ import (
 // }
 // ```
 //
+// ### Manual Scaling with Specific Instance Types
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/lambda"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// _, err := lambda.NewCapacityProvider(ctx, "example", &lambda.CapacityProviderArgs{
+// Name: pulumi.String("example"),
+// VpcConfig: &lambda.CapacityProviderVpcConfigArgs{
+// SubnetIds: []pulumi.String(%!v(PANIC=Format method: fatal: A failure has occurred: unlowered splat expression @ example.pp:3,24-46)),
+// SecurityGroupIds: pulumi.StringArray{
+// exampleAwsSecurityGroup.Id,
+// },
+// },
+// PermissionsConfig: &lambda.CapacityProviderPermissionsConfigArgs{
+// CapacityProviderOperatorRoleArn: pulumi.Any(exampleAwsIamRole.Arn),
+// },
+// InstanceRequirements: lambda.CapacityProviderInstanceRequirementArray{
+// &lambda.CapacityProviderInstanceRequirementArgs{
+// Architectures: pulumi.StringArray{
+// pulumi.String("x86_64"),
+// },
+// AllowedInstanceTypes: pulumi.StringArray{
+// pulumi.String("c6i.2xlarge"),
+// pulumi.String("c7i.2xlarge"),
+// },
+// },
+// },
+// CapacityProviderScalingConfigs: lambda.CapacityProviderCapacityProviderScalingConfigArray{
+// &lambda.CapacityProviderCapacityProviderScalingConfigArgs{
+// ScalingMode: pulumi.String("Manual"),
+// ScalingPolicies: lambda.CapacityProviderCapacityProviderScalingConfigScalingPolicyArray{
+// &lambda.CapacityProviderCapacityProviderScalingConfigScalingPolicyArgs{
+// PredefinedMetricType: pulumi.String("LambdaCapacityProviderAverageCPUUtilization"),
+// TargetValue: pulumi.Float64(50),
+// },
+// },
+// },
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
+// ```
+//
 // ## Import
 //
 // Using `pulumi import`, import Lambda Capacity Provider using the `name`. For example:
@@ -60,7 +115,8 @@ type CapacityProvider struct {
 	pulumi.CustomResourceState
 
 	// ARN of the Capacity Provider.
-	Arn                            pulumi.StringOutput                                      `pulumi:"arn"`
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// Configuration block for scaling policy settings. See Capacity Provider Scaling Config below.
 	CapacityProviderScalingConfigs CapacityProviderCapacityProviderScalingConfigArrayOutput `pulumi:"capacityProviderScalingConfigs"`
 	// Configuration block for instance requirements settings. See Instance Requirements below.
 	InstanceRequirements CapacityProviderInstanceRequirementArrayOutput `pulumi:"instanceRequirements"`
@@ -119,7 +175,8 @@ func GetCapacityProvider(ctx *pulumi.Context,
 // Input properties used for looking up and filtering CapacityProvider resources.
 type capacityProviderState struct {
 	// ARN of the Capacity Provider.
-	Arn                            *string                                         `pulumi:"arn"`
+	Arn *string `pulumi:"arn"`
+	// Configuration block for scaling policy settings. See Capacity Provider Scaling Config below.
 	CapacityProviderScalingConfigs []CapacityProviderCapacityProviderScalingConfig `pulumi:"capacityProviderScalingConfigs"`
 	// Configuration block for instance requirements settings. See Instance Requirements below.
 	InstanceRequirements []CapacityProviderInstanceRequirement `pulumi:"instanceRequirements"`
@@ -143,7 +200,8 @@ type capacityProviderState struct {
 
 type CapacityProviderState struct {
 	// ARN of the Capacity Provider.
-	Arn                            pulumi.StringPtrInput
+	Arn pulumi.StringPtrInput
+	// Configuration block for scaling policy settings. See Capacity Provider Scaling Config below.
 	CapacityProviderScalingConfigs CapacityProviderCapacityProviderScalingConfigArrayInput
 	// Configuration block for instance requirements settings. See Instance Requirements below.
 	InstanceRequirements CapacityProviderInstanceRequirementArrayInput
@@ -170,6 +228,7 @@ func (CapacityProviderState) ElementType() reflect.Type {
 }
 
 type capacityProviderArgs struct {
+	// Configuration block for scaling policy settings. See Capacity Provider Scaling Config below.
 	CapacityProviderScalingConfigs []CapacityProviderCapacityProviderScalingConfig `pulumi:"capacityProviderScalingConfigs"`
 	// Configuration block for instance requirements settings. See Instance Requirements below.
 	InstanceRequirements []CapacityProviderInstanceRequirement `pulumi:"instanceRequirements"`
@@ -191,6 +250,7 @@ type capacityProviderArgs struct {
 
 // The set of arguments for constructing a CapacityProvider resource.
 type CapacityProviderArgs struct {
+	// Configuration block for scaling policy settings. See Capacity Provider Scaling Config below.
 	CapacityProviderScalingConfigs CapacityProviderCapacityProviderScalingConfigArrayInput
 	// Configuration block for instance requirements settings. See Instance Requirements below.
 	InstanceRequirements CapacityProviderInstanceRequirementArrayInput
@@ -302,6 +362,7 @@ func (o CapacityProviderOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *CapacityProvider) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// Configuration block for scaling policy settings. See Capacity Provider Scaling Config below.
 func (o CapacityProviderOutput) CapacityProviderScalingConfigs() CapacityProviderCapacityProviderScalingConfigArrayOutput {
 	return o.ApplyT(func(v *CapacityProvider) CapacityProviderCapacityProviderScalingConfigArrayOutput {
 		return v.CapacityProviderScalingConfigs

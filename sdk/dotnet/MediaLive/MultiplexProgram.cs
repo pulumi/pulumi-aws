@@ -71,7 +71,7 @@ namespace Pulumi.Aws.MediaLive
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import MediaLive MultiplexProgram using the `id`, or a combination of "`program_name`/`multiplex_id`". For example:
+    /// Using `pulumi import`, import MediaLive MultiplexProgram using the `Id`, or a combination of "`ProgramName`/`MultiplexId`". For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:medialive/multiplexProgram:MultiplexProgram example example_program/1234567

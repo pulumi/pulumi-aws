@@ -25,36 +25,31 @@ __all__ = [
     'InvocationLoggingConfigurationLoggingConfigS3ConfigArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class InvocationLoggingConfigurationLoggingConfigArgsDict(TypedDict):
-        cloudwatch_config: NotRequired[pulumi.Input['InvocationLoggingConfigurationLoggingConfigCloudwatchConfigArgsDict']]
-        """
-        CloudWatch logging configuration. See `cloudwatch_config` Block for details.
-        """
-        embedding_data_delivery_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Set to include embeddings data in the log delivery. Defaults to `true`.
-        """
-        image_data_delivery_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Set to include image data in the log delivery. Defaults to `true`.
-        """
-        s3_config: NotRequired[pulumi.Input['InvocationLoggingConfigurationLoggingConfigS3ConfigArgsDict']]
-        """
-        S3 configuration for storing log data. See `s3_config` Block for details.
-        """
-        text_data_delivery_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Set to include text data in the log delivery. Defaults to `true`.
-        """
-        video_data_delivery_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Set to include text data in the log delivery. Defaults to `true`.
-        """
-elif False:
-    InvocationLoggingConfigurationLoggingConfigArgsDict: TypeAlias = Mapping[str, Any]
+class InvocationLoggingConfigurationLoggingConfigArgsDict(TypedDict):
+    cloudwatch_config: NotRequired[pulumi.Input['InvocationLoggingConfigurationLoggingConfigCloudwatchConfigArgsDict']]
+    """
+    CloudWatch logging configuration. See `cloudwatch_config` Block for details.
+    """
+    embedding_data_delivery_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Set to include embeddings data in the log delivery. Defaults to `true`.
+    """
+    image_data_delivery_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Set to include image data in the log delivery. Defaults to `true`.
+    """
+    s3_config: NotRequired[pulumi.Input['InvocationLoggingConfigurationLoggingConfigS3ConfigArgsDict']]
+    """
+    S3 configuration for storing log data. See `s3_config` Block for details.
+    """
+    text_data_delivery_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Set to include text data in the log delivery. Defaults to `true`.
+    """
+    video_data_delivery_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Set to include text data in the log delivery. Defaults to `true`.
+    """
 
 @pulumi.input_type
 class InvocationLoggingConfigurationLoggingConfigArgs:
@@ -159,22 +154,19 @@ class InvocationLoggingConfigurationLoggingConfigArgs:
         pulumi.set(self, "video_data_delivery_enabled", value)
 
 
-if not MYPY:
-    class InvocationLoggingConfigurationLoggingConfigCloudwatchConfigArgsDict(TypedDict):
-        log_group_name: pulumi.Input[_builtins.str]
-        """
-        Log group name.
-        """
-        role_arn: pulumi.Input[_builtins.str]
-        """
-        The role ARN.
-        """
-        large_data_delivery_s3_config: NotRequired[pulumi.Input['InvocationLoggingConfigurationLoggingConfigCloudwatchConfigLargeDataDeliveryS3ConfigArgsDict']]
-        """
-        S3 configuration for delivering a large amount of data. See `large_data_delivery_s3_config` Block for details.
-        """
-elif False:
-    InvocationLoggingConfigurationLoggingConfigCloudwatchConfigArgsDict: TypeAlias = Mapping[str, Any]
+class InvocationLoggingConfigurationLoggingConfigCloudwatchConfigArgsDict(TypedDict):
+    log_group_name: pulumi.Input[_builtins.str]
+    """
+    Log group name.
+    """
+    role_arn: pulumi.Input[_builtins.str]
+    """
+    The role ARN.
+    """
+    large_data_delivery_s3_config: NotRequired[pulumi.Input['InvocationLoggingConfigurationLoggingConfigCloudwatchConfigLargeDataDeliveryS3ConfigArgsDict']]
+    """
+    S3 configuration for delivering a large amount of data. See `large_data_delivery_s3_config` Block for details.
+    """
 
 @pulumi.input_type
 class InvocationLoggingConfigurationLoggingConfigCloudwatchConfigArgs:
@@ -229,18 +221,15 @@ class InvocationLoggingConfigurationLoggingConfigCloudwatchConfigArgs:
         pulumi.set(self, "large_data_delivery_s3_config", value)
 
 
-if not MYPY:
-    class InvocationLoggingConfigurationLoggingConfigCloudwatchConfigLargeDataDeliveryS3ConfigArgsDict(TypedDict):
-        bucket_name: pulumi.Input[_builtins.str]
-        """
-        S3 bucket name.
-        """
-        key_prefix: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        S3 prefix.
-        """
-elif False:
-    InvocationLoggingConfigurationLoggingConfigCloudwatchConfigLargeDataDeliveryS3ConfigArgsDict: TypeAlias = Mapping[str, Any]
+class InvocationLoggingConfigurationLoggingConfigCloudwatchConfigLargeDataDeliveryS3ConfigArgsDict(TypedDict):
+    bucket_name: pulumi.Input[_builtins.str]
+    """
+    S3 bucket name.
+    """
+    key_prefix: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    S3 prefix.
+    """
 
 @pulumi.input_type
 class InvocationLoggingConfigurationLoggingConfigCloudwatchConfigLargeDataDeliveryS3ConfigArgs:
@@ -280,18 +269,15 @@ class InvocationLoggingConfigurationLoggingConfigCloudwatchConfigLargeDataDelive
         pulumi.set(self, "key_prefix", value)
 
 
-if not MYPY:
-    class InvocationLoggingConfigurationLoggingConfigS3ConfigArgsDict(TypedDict):
-        bucket_name: pulumi.Input[_builtins.str]
-        """
-        S3 bucket name.
-        """
-        key_prefix: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        S3 prefix.
-        """
-elif False:
-    InvocationLoggingConfigurationLoggingConfigS3ConfigArgsDict: TypeAlias = Mapping[str, Any]
+class InvocationLoggingConfigurationLoggingConfigS3ConfigArgsDict(TypedDict):
+    bucket_name: pulumi.Input[_builtins.str]
+    """
+    S3 bucket name.
+    """
+    key_prefix: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    S3 prefix.
+    """
 
 @pulumi.input_type
 class InvocationLoggingConfigurationLoggingConfigS3ConfigArgs:

@@ -2365,7 +2365,8 @@ type RoutingProfileMediaConcurrency struct {
 	// Specifies the channels that agents can handle in the Contact Control Panel (CCP). Valid values are `VOICE`, `CHAT`, `TASK`.
 	Channel string `pulumi:"channel"`
 	// Specifies the number of contacts an agent can have on a channel simultaneously. Valid Range for `VOICE`: Minimum value of `1`. Maximum value of `1`. Valid Range for `CHAT`: Minimum value of `1`. Maximum value of `10`. Valid Range for `TASK`: Minimum value of `1`. Maximum value of `10`.
-	Concurrency          int                                                 `pulumi:"concurrency"`
+	Concurrency int `pulumi:"concurrency"`
+	// Defines the cross-channel routing behavior for each traffic type. **Out-of-band changes are only detected when this argument is explicitly configured in your Terraform configuration.** Documented below.
 	CrossChannelBehavior *RoutingProfileMediaConcurrencyCrossChannelBehavior `pulumi:"crossChannelBehavior"`
 }
 
@@ -2384,7 +2385,8 @@ type RoutingProfileMediaConcurrencyArgs struct {
 	// Specifies the channels that agents can handle in the Contact Control Panel (CCP). Valid values are `VOICE`, `CHAT`, `TASK`.
 	Channel pulumi.StringInput `pulumi:"channel"`
 	// Specifies the number of contacts an agent can have on a channel simultaneously. Valid Range for `VOICE`: Minimum value of `1`. Maximum value of `1`. Valid Range for `CHAT`: Minimum value of `1`. Maximum value of `10`. Valid Range for `TASK`: Minimum value of `1`. Maximum value of `10`.
-	Concurrency          pulumi.IntInput                                            `pulumi:"concurrency"`
+	Concurrency pulumi.IntInput `pulumi:"concurrency"`
+	// Defines the cross-channel routing behavior for each traffic type. **Out-of-band changes are only detected when this argument is explicitly configured in your Terraform configuration.** Documented below.
 	CrossChannelBehavior RoutingProfileMediaConcurrencyCrossChannelBehaviorPtrInput `pulumi:"crossChannelBehavior"`
 }
 
@@ -2449,6 +2451,7 @@ func (o RoutingProfileMediaConcurrencyOutput) Concurrency() pulumi.IntOutput {
 	return o.ApplyT(func(v RoutingProfileMediaConcurrency) int { return v.Concurrency }).(pulumi.IntOutput)
 }
 
+// Defines the cross-channel routing behavior for each traffic type. **Out-of-band changes are only detected when this argument is explicitly configured in your Terraform configuration.** Documented below.
 func (o RoutingProfileMediaConcurrencyOutput) CrossChannelBehavior() RoutingProfileMediaConcurrencyCrossChannelBehaviorPtrOutput {
 	return o.ApplyT(func(v RoutingProfileMediaConcurrency) *RoutingProfileMediaConcurrencyCrossChannelBehavior {
 		return v.CrossChannelBehavior

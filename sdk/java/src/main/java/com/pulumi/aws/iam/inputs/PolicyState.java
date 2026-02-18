@@ -50,14 +50,14 @@ public final class PolicyState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Number of ms to wait between creating the policy and settong its version as default. May be required in environments with very high S3 IO loads.
+     * Number of ms to wait between creating the policy and setting its version as default. May be required in environments with very high S3 IO loads.
      * 
      */
     @Import(name="delayAfterPolicyCreationInMs")
     private @Nullable Output<Integer> delayAfterPolicyCreationInMs;
 
     /**
-     * @return Number of ms to wait between creating the policy and settong its version as default. May be required in environments with very high S3 IO loads.
+     * @return Number of ms to wait between creating the policy and setting its version as default. May be required in environments with very high S3 IO loads.
      * 
      */
     public Optional<Output<Integer>> delayAfterPolicyCreationInMs() {
@@ -261,7 +261,7 @@ public final class PolicyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param delayAfterPolicyCreationInMs Number of ms to wait between creating the policy and settong its version as default. May be required in environments with very high S3 IO loads.
+         * @param delayAfterPolicyCreationInMs Number of ms to wait between creating the policy and setting its version as default. May be required in environments with very high S3 IO loads.
          * 
          * @return builder
          * 
@@ -272,7 +272,7 @@ public final class PolicyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param delayAfterPolicyCreationInMs Number of ms to wait between creating the policy and settong its version as default. May be required in environments with very high S3 IO loads.
+         * @param delayAfterPolicyCreationInMs Number of ms to wait between creating the policy and setting its version as default. May be required in environments with very high S3 IO loads.
          * 
          * @return builder
          * 

@@ -68,11 +68,13 @@ namespace Pulumi.Aws.Iam
     /// 
     /// #### Required
     /// 
-    /// - `arn` (String) Amazon Resource Name (ARN) of the IAM OpenID Connect provider.
+    /// - `Arn` (String) Amazon Resource Name (ARN) of the IAM OpenID Connect provider.
     /// 
-    /// Using `pulumi import`, import IAM OpenID Connect Providers using the `arn`. For example:
+    /// Using `pulumi import`, import IAM OpenID Connect Providers using the `Arn`. For example:
     /// 
-    /// % pulumi import aws_iam_openid_connect_provider.default arn:aws:iam::123456789012:oidc-provider/accounts.google.com
+    /// ```sh
+    /// $ pulumi import aws:iam/openIdConnectProvider:OpenIdConnectProvider default arn:aws:iam::123456789012:oidc-provider/accounts.google.com
+    /// ```
     /// </summary>
     [AwsResourceType("aws:iam/openIdConnectProvider:OpenIdConnectProvider")]
     public partial class OpenIdConnectProvider : global::Pulumi.CustomResource
@@ -101,6 +103,9 @@ namespace Pulumi.Aws.Iam
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
+        /// <summary>
+        /// List of server certificate thumbprints for the OpenID Connect (OIDC) identity provider's server certificate(s). For certain OIDC identity providers (e.g., Auth0, GitHub, GitLab, Google, or those using an Amazon S3-hosted JWKS endpoint), AWS relies on its own library of trusted root certificate authorities (CAs) for validation instead of using any configured thumbprints. In these cases, any configured `ThumbprintList` is retained in the configuration but not used for verification. For other IdPs, if no `ThumbprintList` is provided, IAM automatically retrieves and uses the top intermediate CA thumbprint from the OIDC IdP server certificate. However, if a `ThumbprintList` is initially configured and later removed, Terraform does not prompt IAM to retrieve a thumbprint the same way. Instead, it continues using the original thumbprint list from the initial configuration. This differs from the behavior when creating an `aws.iam.OpenIdConnectProvider` without a `ThumbprintList`.
+        /// </summary>
         [Output("thumbprintLists")]
         public Output<ImmutableArray<string>> ThumbprintLists { get; private set; } = null!;
 
@@ -182,6 +187,10 @@ namespace Pulumi.Aws.Iam
 
         [Input("thumbprintLists")]
         private InputList<string>? _thumbprintLists;
+
+        /// <summary>
+        /// List of server certificate thumbprints for the OpenID Connect (OIDC) identity provider's server certificate(s). For certain OIDC identity providers (e.g., Auth0, GitHub, GitLab, Google, or those using an Amazon S3-hosted JWKS endpoint), AWS relies on its own library of trusted root certificate authorities (CAs) for validation instead of using any configured thumbprints. In these cases, any configured `ThumbprintList` is retained in the configuration but not used for verification. For other IdPs, if no `ThumbprintList` is provided, IAM automatically retrieves and uses the top intermediate CA thumbprint from the OIDC IdP server certificate. However, if a `ThumbprintList` is initially configured and later removed, Terraform does not prompt IAM to retrieve a thumbprint the same way. Instead, it continues using the original thumbprint list from the initial configuration. This differs from the behavior when creating an `aws.iam.OpenIdConnectProvider` without a `ThumbprintList`.
+        /// </summary>
         public InputList<string> ThumbprintLists
         {
             get => _thumbprintLists ?? (_thumbprintLists = new InputList<string>());
@@ -246,6 +255,10 @@ namespace Pulumi.Aws.Iam
 
         [Input("thumbprintLists")]
         private InputList<string>? _thumbprintLists;
+
+        /// <summary>
+        /// List of server certificate thumbprints for the OpenID Connect (OIDC) identity provider's server certificate(s). For certain OIDC identity providers (e.g., Auth0, GitHub, GitLab, Google, or those using an Amazon S3-hosted JWKS endpoint), AWS relies on its own library of trusted root certificate authorities (CAs) for validation instead of using any configured thumbprints. In these cases, any configured `ThumbprintList` is retained in the configuration but not used for verification. For other IdPs, if no `ThumbprintList` is provided, IAM automatically retrieves and uses the top intermediate CA thumbprint from the OIDC IdP server certificate. However, if a `ThumbprintList` is initially configured and later removed, Terraform does not prompt IAM to retrieve a thumbprint the same way. Instead, it continues using the original thumbprint list from the initial configuration. This differs from the behavior when creating an `aws.iam.OpenIdConnectProvider` without a `ThumbprintList`.
+        /// </summary>
         public InputList<string> ThumbprintLists
         {
             get => _thumbprintLists ?? (_thumbprintLists = new InputList<string>());

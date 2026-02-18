@@ -155,6 +155,8 @@ class Schema(pulumi.CustomResource):
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
+        This is a Terraform resource for managing an AWS Verified Permissions Policy Store Schema.
+
         ## Example Usage
 
         ### Basic Usage
@@ -180,7 +182,9 @@ class Schema(pulumi.CustomResource):
 
         Using `pulumi import`, import Verified Permissions Policy Store Schema using the `policy_store_id`. For example:
 
-         % pulumi import aws_verifiedpermissions_schema.example DxQg2j8xvXJQ1tQCYNWj9T
+        ```sh
+         $ pulumi import aws:verifiedpermissions/schema:Schema example DxQg2j8xvXJQ1tQCYNWj9T
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -195,6 +199,8 @@ class Schema(pulumi.CustomResource):
                  args: SchemaArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        This is a Terraform resource for managing an AWS Verified Permissions Policy Store Schema.
+
         ## Example Usage
 
         ### Basic Usage
@@ -220,7 +226,9 @@ class Schema(pulumi.CustomResource):
 
         Using `pulumi import`, import Verified Permissions Policy Store Schema using the `policy_store_id`. For example:
 
-         % pulumi import aws_verifiedpermissions_schema.example DxQg2j8xvXJQ1tQCYNWj9T
+        ```sh
+         $ pulumi import aws:verifiedpermissions/schema:Schema example DxQg2j8xvXJQ1tQCYNWj9T
+        ```
 
         :param str resource_name: The name of the resource.
         :param SchemaArgs args: The arguments to use to populate this resource's properties.

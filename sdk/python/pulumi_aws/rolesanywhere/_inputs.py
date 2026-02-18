@@ -23,20 +23,15 @@ __all__ = [
     'TrustAnchorSourceSourceDataArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class TrustAnchorNotificationSettingArgsDict(TypedDict):
-        channel: NotRequired[pulumi.Input[_builtins.str]]
-        configured_by: NotRequired[pulumi.Input[_builtins.str]]
-        enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether or not the Trust Anchor should be enabled.
-        """
-        event: NotRequired[pulumi.Input[_builtins.str]]
-        threshold: NotRequired[pulumi.Input[_builtins.int]]
-elif False:
-    TrustAnchorNotificationSettingArgsDict: TypeAlias = Mapping[str, Any]
+class TrustAnchorNotificationSettingArgsDict(TypedDict):
+    channel: NotRequired[pulumi.Input[_builtins.str]]
+    configured_by: NotRequired[pulumi.Input[_builtins.str]]
+    enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether or not the Trust Anchor should be enabled.
+    """
+    event: NotRequired[pulumi.Input[_builtins.str]]
+    threshold: NotRequired[pulumi.Input[_builtins.int]]
 
 @pulumi.input_type
 class TrustAnchorNotificationSettingArgs:
@@ -109,18 +104,15 @@ class TrustAnchorNotificationSettingArgs:
         pulumi.set(self, "threshold", value)
 
 
-if not MYPY:
-    class TrustAnchorSourceArgsDict(TypedDict):
-        source_data: pulumi.Input['TrustAnchorSourceSourceDataArgsDict']
-        """
-        The data denoting the source of trust, documented below
-        """
-        source_type: pulumi.Input[_builtins.str]
-        """
-        The type of the source of trust. Must be either `AWS_ACM_PCA` or `CERTIFICATE_BUNDLE`.
-        """
-elif False:
-    TrustAnchorSourceArgsDict: TypeAlias = Mapping[str, Any]
+class TrustAnchorSourceArgsDict(TypedDict):
+    source_data: pulumi.Input['TrustAnchorSourceSourceDataArgsDict']
+    """
+    The data denoting the source of trust, documented below
+    """
+    source_type: pulumi.Input[_builtins.str]
+    """
+    The type of the source of trust. Must be either `AWS_ACM_PCA` or `CERTIFICATE_BUNDLE`.
+    """
 
 @pulumi.input_type
 class TrustAnchorSourceArgs:
@@ -159,15 +151,12 @@ class TrustAnchorSourceArgs:
         pulumi.set(self, "source_type", value)
 
 
-if not MYPY:
-    class TrustAnchorSourceSourceDataArgsDict(TypedDict):
-        acm_pca_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ARN of an ACM Private Certificate Authority.
-        """
-        x509_certificate_data: NotRequired[pulumi.Input[_builtins.str]]
-elif False:
-    TrustAnchorSourceSourceDataArgsDict: TypeAlias = Mapping[str, Any]
+class TrustAnchorSourceSourceDataArgsDict(TypedDict):
+    acm_pca_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ARN of an ACM Private Certificate Authority.
+    """
+    x509_certificate_data: NotRequired[pulumi.Input[_builtins.str]]
 
 @pulumi.input_type
 class TrustAnchorSourceSourceDataArgs:

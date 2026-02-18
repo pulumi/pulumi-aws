@@ -24,6 +24,10 @@ public final class RoutingProfileMediaConcurrency {
      * 
      */
     private Integer concurrency;
+    /**
+     * @return Defines the cross-channel routing behavior for each traffic type. **Out-of-band changes are only detected when this argument is explicitly configured in your Terraform configuration.** Documented below.
+     * 
+     */
     private @Nullable RoutingProfileMediaConcurrencyCrossChannelBehavior crossChannelBehavior;
 
     private RoutingProfileMediaConcurrency() {}
@@ -41,6 +45,10 @@ public final class RoutingProfileMediaConcurrency {
     public Integer concurrency() {
         return this.concurrency;
     }
+    /**
+     * @return Defines the cross-channel routing behavior for each traffic type. **Out-of-band changes are only detected when this argument is explicitly configured in your Terraform configuration.** Documented below.
+     * 
+     */
     public Optional<RoutingProfileMediaConcurrencyCrossChannelBehavior> crossChannelBehavior() {
         return Optional.ofNullable(this.crossChannelBehavior);
     }

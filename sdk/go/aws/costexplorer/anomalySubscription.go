@@ -313,9 +313,11 @@ import (
 //
 // - `arn` (String) Amazon Resource Name (ARN) of the Cost Explorer anomaly subscription.
 //
-// Using `pulumi import`, import `aws_ce_anomaly_subscription` using the `id`. For example:
+// Using `pulumi import`, import `costexplorer.AnomalySubscription` using the `id`. For example:
 //
-// % pulumi import aws_ce_anomaly_subscription.example AnomalySubscriptionARN
+// ```sh
+// $ pulumi import aws:costexplorer/anomalySubscription:AnomalySubscription example AnomalySubscriptionARN
+// ```
 type AnomalySubscription struct {
 	pulumi.CustomResourceState
 

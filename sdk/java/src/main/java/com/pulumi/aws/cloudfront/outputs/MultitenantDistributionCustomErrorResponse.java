@@ -24,12 +24,12 @@ public final class MultitenantDistributionCustomErrorResponse {
      */
     private Integer errorCode;
     /**
-     * @return HTTP status code that you want CloudFront to return to the viewer along with the custom error page.
+     * @return HTTP status code that you want CloudFront to return to the viewer along with the custom error page. Both `responseCode` and `responsePagePath` must be specified or both must be omitted.
      * 
      */
     private @Nullable String responseCode;
     /**
-     * @return Path to the custom error page that you want CloudFront to return to a viewer when your origin returns the HTTP status code specified by ErrorCode.
+     * @return Path to the custom error page that you want CloudFront to return to a viewer when your origin returns the HTTP status code specified by ErrorCode. Both `responseCode` and `responsePagePath` must be specified or both must be omitted.
      * 
      */
     private @Nullable String responsePagePath;
@@ -50,14 +50,14 @@ public final class MultitenantDistributionCustomErrorResponse {
         return this.errorCode;
     }
     /**
-     * @return HTTP status code that you want CloudFront to return to the viewer along with the custom error page.
+     * @return HTTP status code that you want CloudFront to return to the viewer along with the custom error page. Both `responseCode` and `responsePagePath` must be specified or both must be omitted.
      * 
      */
     public Optional<String> responseCode() {
         return Optional.ofNullable(this.responseCode);
     }
     /**
-     * @return Path to the custom error page that you want CloudFront to return to a viewer when your origin returns the HTTP status code specified by ErrorCode.
+     * @return Path to the custom error page that you want CloudFront to return to a viewer when your origin returns the HTTP status code specified by ErrorCode. Both `responseCode` and `responsePagePath` must be specified or both must be omitted.
      * 
      */
     public Optional<String> responsePagePath() {

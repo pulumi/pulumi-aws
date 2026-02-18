@@ -57,20 +57,15 @@ __all__ = [
     'CustomPluginLocationS3ArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class ConnectorCapacityArgsDict(TypedDict):
-        autoscaling: NotRequired[pulumi.Input['ConnectorCapacityAutoscalingArgsDict']]
-        """
-        Information about the auto scaling parameters for the connector. See `autoscaling` Block for details.
-        """
-        provisioned_capacity: NotRequired[pulumi.Input['ConnectorCapacityProvisionedCapacityArgsDict']]
-        """
-        Details about a fixed capacity allocated to a connector. See `provisioned_capacity` Block for details.
-        """
-elif False:
-    ConnectorCapacityArgsDict: TypeAlias = Mapping[str, Any]
+class ConnectorCapacityArgsDict(TypedDict):
+    autoscaling: NotRequired[pulumi.Input['ConnectorCapacityAutoscalingArgsDict']]
+    """
+    Information about the auto scaling parameters for the connector. See `autoscaling` Block for details.
+    """
+    provisioned_capacity: NotRequired[pulumi.Input['ConnectorCapacityProvisionedCapacityArgsDict']]
+    """
+    Details about a fixed capacity allocated to a connector. See `provisioned_capacity` Block for details.
+    """
 
 @pulumi.input_type
 class ConnectorCapacityArgs:
@@ -111,30 +106,27 @@ class ConnectorCapacityArgs:
         pulumi.set(self, "provisioned_capacity", value)
 
 
-if not MYPY:
-    class ConnectorCapacityAutoscalingArgsDict(TypedDict):
-        max_worker_count: pulumi.Input[_builtins.int]
-        """
-        The maximum number of workers allocated to the connector.
-        """
-        min_worker_count: pulumi.Input[_builtins.int]
-        """
-        The minimum number of workers allocated to the connector.
-        """
-        mcu_count: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The number of microcontroller units (MCUs) allocated to each connector worker. Valid values: `1`, `2`, `4`, `8`. The default value is `1`.
-        """
-        scale_in_policy: NotRequired[pulumi.Input['ConnectorCapacityAutoscalingScaleInPolicyArgsDict']]
-        """
-        The scale-in policy for the connector. See `scale_in_policy` Block for details.
-        """
-        scale_out_policy: NotRequired[pulumi.Input['ConnectorCapacityAutoscalingScaleOutPolicyArgsDict']]
-        """
-        The scale-out policy for the connector. See `scale_out_policy` Block for details.
-        """
-elif False:
-    ConnectorCapacityAutoscalingArgsDict: TypeAlias = Mapping[str, Any]
+class ConnectorCapacityAutoscalingArgsDict(TypedDict):
+    max_worker_count: pulumi.Input[_builtins.int]
+    """
+    The maximum number of workers allocated to the connector.
+    """
+    min_worker_count: pulumi.Input[_builtins.int]
+    """
+    The minimum number of workers allocated to the connector.
+    """
+    mcu_count: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The number of microcontroller units (MCUs) allocated to each connector worker. Valid values: `1`, `2`, `4`, `8`. The default value is `1`.
+    """
+    scale_in_policy: NotRequired[pulumi.Input['ConnectorCapacityAutoscalingScaleInPolicyArgsDict']]
+    """
+    The scale-in policy for the connector. See `scale_in_policy` Block for details.
+    """
+    scale_out_policy: NotRequired[pulumi.Input['ConnectorCapacityAutoscalingScaleOutPolicyArgsDict']]
+    """
+    The scale-out policy for the connector. See `scale_out_policy` Block for details.
+    """
 
 @pulumi.input_type
 class ConnectorCapacityAutoscalingArgs:
@@ -221,14 +213,11 @@ class ConnectorCapacityAutoscalingArgs:
         pulumi.set(self, "scale_out_policy", value)
 
 
-if not MYPY:
-    class ConnectorCapacityAutoscalingScaleInPolicyArgsDict(TypedDict):
-        cpu_utilization_percentage: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Specifies the CPU utilization percentage threshold at which you want connector scale in to be triggered.
-        """
-elif False:
-    ConnectorCapacityAutoscalingScaleInPolicyArgsDict: TypeAlias = Mapping[str, Any]
+class ConnectorCapacityAutoscalingScaleInPolicyArgsDict(TypedDict):
+    cpu_utilization_percentage: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Specifies the CPU utilization percentage threshold at which you want connector scale in to be triggered.
+    """
 
 @pulumi.input_type
 class ConnectorCapacityAutoscalingScaleInPolicyArgs:
@@ -253,14 +242,11 @@ class ConnectorCapacityAutoscalingScaleInPolicyArgs:
         pulumi.set(self, "cpu_utilization_percentage", value)
 
 
-if not MYPY:
-    class ConnectorCapacityAutoscalingScaleOutPolicyArgsDict(TypedDict):
-        cpu_utilization_percentage: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The CPU utilization percentage threshold at which you want connector scale out to be triggered.
-        """
-elif False:
-    ConnectorCapacityAutoscalingScaleOutPolicyArgsDict: TypeAlias = Mapping[str, Any]
+class ConnectorCapacityAutoscalingScaleOutPolicyArgsDict(TypedDict):
+    cpu_utilization_percentage: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The CPU utilization percentage threshold at which you want connector scale out to be triggered.
+    """
 
 @pulumi.input_type
 class ConnectorCapacityAutoscalingScaleOutPolicyArgs:
@@ -285,18 +271,15 @@ class ConnectorCapacityAutoscalingScaleOutPolicyArgs:
         pulumi.set(self, "cpu_utilization_percentage", value)
 
 
-if not MYPY:
-    class ConnectorCapacityProvisionedCapacityArgsDict(TypedDict):
-        worker_count: pulumi.Input[_builtins.int]
-        """
-        The number of workers that are allocated to the connector.
-        """
-        mcu_count: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The number of microcontroller units (MCUs) allocated to each connector worker. Valid values: `1`, `2`, `4`, `8`. The default value is `1`.
-        """
-elif False:
-    ConnectorCapacityProvisionedCapacityArgsDict: TypeAlias = Mapping[str, Any]
+class ConnectorCapacityProvisionedCapacityArgsDict(TypedDict):
+    worker_count: pulumi.Input[_builtins.int]
+    """
+    The number of workers that are allocated to the connector.
+    """
+    mcu_count: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The number of microcontroller units (MCUs) allocated to each connector worker. Valid values: `1`, `2`, `4`, `8`. The default value is `1`.
+    """
 
 @pulumi.input_type
 class ConnectorCapacityProvisionedCapacityArgs:
@@ -336,14 +319,11 @@ class ConnectorCapacityProvisionedCapacityArgs:
         pulumi.set(self, "mcu_count", value)
 
 
-if not MYPY:
-    class ConnectorKafkaClusterArgsDict(TypedDict):
-        apache_kafka_cluster: pulumi.Input['ConnectorKafkaClusterApacheKafkaClusterArgsDict']
-        """
-        The Apache Kafka cluster to which the connector is connected. See `apache_kafka_cluster` Block for details.
-        """
-elif False:
-    ConnectorKafkaClusterArgsDict: TypeAlias = Mapping[str, Any]
+class ConnectorKafkaClusterArgsDict(TypedDict):
+    apache_kafka_cluster: pulumi.Input['ConnectorKafkaClusterApacheKafkaClusterArgsDict']
+    """
+    The Apache Kafka cluster to which the connector is connected. See `apache_kafka_cluster` Block for details.
+    """
 
 @pulumi.input_type
 class ConnectorKafkaClusterArgs:
@@ -367,18 +347,15 @@ class ConnectorKafkaClusterArgs:
         pulumi.set(self, "apache_kafka_cluster", value)
 
 
-if not MYPY:
-    class ConnectorKafkaClusterApacheKafkaClusterArgsDict(TypedDict):
-        bootstrap_servers: pulumi.Input[_builtins.str]
-        """
-        The bootstrap servers of the cluster.
-        """
-        vpc: pulumi.Input['ConnectorKafkaClusterApacheKafkaClusterVpcArgsDict']
-        """
-        Details of an Amazon VPC which has network connectivity to the Apache Kafka cluster. See `vpc` Block for details.
-        """
-elif False:
-    ConnectorKafkaClusterApacheKafkaClusterArgsDict: TypeAlias = Mapping[str, Any]
+class ConnectorKafkaClusterApacheKafkaClusterArgsDict(TypedDict):
+    bootstrap_servers: pulumi.Input[_builtins.str]
+    """
+    The bootstrap servers of the cluster.
+    """
+    vpc: pulumi.Input['ConnectorKafkaClusterApacheKafkaClusterVpcArgsDict']
+    """
+    Details of an Amazon VPC which has network connectivity to the Apache Kafka cluster. See `vpc` Block for details.
+    """
 
 @pulumi.input_type
 class ConnectorKafkaClusterApacheKafkaClusterArgs:
@@ -417,18 +394,15 @@ class ConnectorKafkaClusterApacheKafkaClusterArgs:
         pulumi.set(self, "vpc", value)
 
 
-if not MYPY:
-    class ConnectorKafkaClusterApacheKafkaClusterVpcArgsDict(TypedDict):
-        security_groups: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        The security groups for the connector.
-        """
-        subnets: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        The subnets for the connector.
-        """
-elif False:
-    ConnectorKafkaClusterApacheKafkaClusterVpcArgsDict: TypeAlias = Mapping[str, Any]
+class ConnectorKafkaClusterApacheKafkaClusterVpcArgsDict(TypedDict):
+    security_groups: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    The security groups for the connector.
+    """
+    subnets: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    The subnets for the connector.
+    """
 
 @pulumi.input_type
 class ConnectorKafkaClusterApacheKafkaClusterVpcArgs:
@@ -467,14 +441,11 @@ class ConnectorKafkaClusterApacheKafkaClusterVpcArgs:
         pulumi.set(self, "subnets", value)
 
 
-if not MYPY:
-    class ConnectorKafkaClusterClientAuthenticationArgsDict(TypedDict):
-        authentication_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The type of client authentication used to connect to the Apache Kafka cluster. Valid values: `IAM`, `NONE`. A value of `NONE` means that no client authentication is used. The default value is `NONE`.
-        """
-elif False:
-    ConnectorKafkaClusterClientAuthenticationArgsDict: TypeAlias = Mapping[str, Any]
+class ConnectorKafkaClusterClientAuthenticationArgsDict(TypedDict):
+    authentication_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The type of client authentication used to connect to the Apache Kafka cluster. Valid values: `IAM`, `NONE`. A value of `NONE` means that no client authentication is used. The default value is `NONE`.
+    """
 
 @pulumi.input_type
 class ConnectorKafkaClusterClientAuthenticationArgs:
@@ -499,14 +470,11 @@ class ConnectorKafkaClusterClientAuthenticationArgs:
         pulumi.set(self, "authentication_type", value)
 
 
-if not MYPY:
-    class ConnectorKafkaClusterEncryptionInTransitArgsDict(TypedDict):
-        encryption_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The type of encryption in transit to the Apache Kafka cluster. Valid values: `PLAINTEXT`, `TLS`. The default values is `PLAINTEXT`.
-        """
-elif False:
-    ConnectorKafkaClusterEncryptionInTransitArgsDict: TypeAlias = Mapping[str, Any]
+class ConnectorKafkaClusterEncryptionInTransitArgsDict(TypedDict):
+    encryption_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The type of encryption in transit to the Apache Kafka cluster. Valid values: `PLAINTEXT`, `TLS`. The default values is `PLAINTEXT`.
+    """
 
 @pulumi.input_type
 class ConnectorKafkaClusterEncryptionInTransitArgs:
@@ -531,14 +499,11 @@ class ConnectorKafkaClusterEncryptionInTransitArgs:
         pulumi.set(self, "encryption_type", value)
 
 
-if not MYPY:
-    class ConnectorLogDeliveryArgsDict(TypedDict):
-        worker_log_delivery: pulumi.Input['ConnectorLogDeliveryWorkerLogDeliveryArgsDict']
-        """
-        The workers can send worker logs to different destination types. This configuration specifies the details of these destinations. See `worker_log_delivery` Block for details.
-        """
-elif False:
-    ConnectorLogDeliveryArgsDict: TypeAlias = Mapping[str, Any]
+class ConnectorLogDeliveryArgsDict(TypedDict):
+    worker_log_delivery: pulumi.Input['ConnectorLogDeliveryWorkerLogDeliveryArgsDict']
+    """
+    The workers can send worker logs to different destination types. This configuration specifies the details of these destinations. See `worker_log_delivery` Block for details.
+    """
 
 @pulumi.input_type
 class ConnectorLogDeliveryArgs:
@@ -562,22 +527,19 @@ class ConnectorLogDeliveryArgs:
         pulumi.set(self, "worker_log_delivery", value)
 
 
-if not MYPY:
-    class ConnectorLogDeliveryWorkerLogDeliveryArgsDict(TypedDict):
-        cloudwatch_logs: NotRequired[pulumi.Input['ConnectorLogDeliveryWorkerLogDeliveryCloudwatchLogsArgsDict']]
-        """
-        Details about delivering logs to Amazon CloudWatch Logs. See `cloudwatch_logs` Block for details.
-        """
-        firehose: NotRequired[pulumi.Input['ConnectorLogDeliveryWorkerLogDeliveryFirehoseArgsDict']]
-        """
-        Details about delivering logs to Amazon Kinesis Data Firehose. See `firehose` Block for details.
-        """
-        s3: NotRequired[pulumi.Input['ConnectorLogDeliveryWorkerLogDeliveryS3ArgsDict']]
-        """
-        Details about delivering logs to Amazon S3. See `s3` Block for deetails.
-        """
-elif False:
-    ConnectorLogDeliveryWorkerLogDeliveryArgsDict: TypeAlias = Mapping[str, Any]
+class ConnectorLogDeliveryWorkerLogDeliveryArgsDict(TypedDict):
+    cloudwatch_logs: NotRequired[pulumi.Input['ConnectorLogDeliveryWorkerLogDeliveryCloudwatchLogsArgsDict']]
+    """
+    Details about delivering logs to Amazon CloudWatch Logs. See `cloudwatch_logs` Block for details.
+    """
+    firehose: NotRequired[pulumi.Input['ConnectorLogDeliveryWorkerLogDeliveryFirehoseArgsDict']]
+    """
+    Details about delivering logs to Amazon Kinesis Data Firehose. See `firehose` Block for details.
+    """
+    s3: NotRequired[pulumi.Input['ConnectorLogDeliveryWorkerLogDeliveryS3ArgsDict']]
+    """
+    Details about delivering logs to Amazon S3. See `s3` Block for deetails.
+    """
 
 @pulumi.input_type
 class ConnectorLogDeliveryWorkerLogDeliveryArgs:
@@ -634,18 +596,15 @@ class ConnectorLogDeliveryWorkerLogDeliveryArgs:
         pulumi.set(self, "s3", value)
 
 
-if not MYPY:
-    class ConnectorLogDeliveryWorkerLogDeliveryCloudwatchLogsArgsDict(TypedDict):
-        enabled: pulumi.Input[_builtins.bool]
-        """
-        Whether log delivery to Amazon CloudWatch Logs is enabled.
-        """
-        log_group: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the CloudWatch log group that is the destination for log delivery.
-        """
-elif False:
-    ConnectorLogDeliveryWorkerLogDeliveryCloudwatchLogsArgsDict: TypeAlias = Mapping[str, Any]
+class ConnectorLogDeliveryWorkerLogDeliveryCloudwatchLogsArgsDict(TypedDict):
+    enabled: pulumi.Input[_builtins.bool]
+    """
+    Whether log delivery to Amazon CloudWatch Logs is enabled.
+    """
+    log_group: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the CloudWatch log group that is the destination for log delivery.
+    """
 
 @pulumi.input_type
 class ConnectorLogDeliveryWorkerLogDeliveryCloudwatchLogsArgs:
@@ -685,18 +644,15 @@ class ConnectorLogDeliveryWorkerLogDeliveryCloudwatchLogsArgs:
         pulumi.set(self, "log_group", value)
 
 
-if not MYPY:
-    class ConnectorLogDeliveryWorkerLogDeliveryFirehoseArgsDict(TypedDict):
-        enabled: pulumi.Input[_builtins.bool]
-        """
-        Specifies whether connector logs get delivered to Amazon Kinesis Data Firehose.
-        """
-        delivery_stream: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the Kinesis Data Firehose delivery stream that is the destination for log delivery.
-        """
-elif False:
-    ConnectorLogDeliveryWorkerLogDeliveryFirehoseArgsDict: TypeAlias = Mapping[str, Any]
+class ConnectorLogDeliveryWorkerLogDeliveryFirehoseArgsDict(TypedDict):
+    enabled: pulumi.Input[_builtins.bool]
+    """
+    Specifies whether connector logs get delivered to Amazon Kinesis Data Firehose.
+    """
+    delivery_stream: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the Kinesis Data Firehose delivery stream that is the destination for log delivery.
+    """
 
 @pulumi.input_type
 class ConnectorLogDeliveryWorkerLogDeliveryFirehoseArgs:
@@ -736,22 +692,19 @@ class ConnectorLogDeliveryWorkerLogDeliveryFirehoseArgs:
         pulumi.set(self, "delivery_stream", value)
 
 
-if not MYPY:
-    class ConnectorLogDeliveryWorkerLogDeliveryS3ArgsDict(TypedDict):
-        enabled: pulumi.Input[_builtins.bool]
-        """
-        Specifies whether connector logs get sent to the specified Amazon S3 destination.
-        """
-        bucket: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the S3 bucket that is the destination for log delivery.
-        """
-        prefix: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The S3 prefix that is the destination for log delivery.
-        """
-elif False:
-    ConnectorLogDeliveryWorkerLogDeliveryS3ArgsDict: TypeAlias = Mapping[str, Any]
+class ConnectorLogDeliveryWorkerLogDeliveryS3ArgsDict(TypedDict):
+    enabled: pulumi.Input[_builtins.bool]
+    """
+    Specifies whether connector logs get sent to the specified Amazon S3 destination.
+    """
+    bucket: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the S3 bucket that is the destination for log delivery.
+    """
+    prefix: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The S3 prefix that is the destination for log delivery.
+    """
 
 @pulumi.input_type
 class ConnectorLogDeliveryWorkerLogDeliveryS3Args:
@@ -807,14 +760,11 @@ class ConnectorLogDeliveryWorkerLogDeliveryS3Args:
         pulumi.set(self, "prefix", value)
 
 
-if not MYPY:
-    class ConnectorPluginArgsDict(TypedDict):
-        custom_plugin: pulumi.Input['ConnectorPluginCustomPluginArgsDict']
-        """
-        Details about a custom plugin. See `custom_plugin` Block for details.
-        """
-elif False:
-    ConnectorPluginArgsDict: TypeAlias = Mapping[str, Any]
+class ConnectorPluginArgsDict(TypedDict):
+    custom_plugin: pulumi.Input['ConnectorPluginCustomPluginArgsDict']
+    """
+    Details about a custom plugin. See `custom_plugin` Block for details.
+    """
 
 @pulumi.input_type
 class ConnectorPluginArgs:
@@ -838,18 +788,15 @@ class ConnectorPluginArgs:
         pulumi.set(self, "custom_plugin", value)
 
 
-if not MYPY:
-    class ConnectorPluginCustomPluginArgsDict(TypedDict):
-        arn: pulumi.Input[_builtins.str]
-        """
-        The Amazon Resource Name (ARN) of the custom plugin.
-        """
-        revision: pulumi.Input[_builtins.int]
-        """
-        The revision of the custom plugin.
-        """
-elif False:
-    ConnectorPluginCustomPluginArgsDict: TypeAlias = Mapping[str, Any]
+class ConnectorPluginCustomPluginArgsDict(TypedDict):
+    arn: pulumi.Input[_builtins.str]
+    """
+    The Amazon Resource Name (ARN) of the custom plugin.
+    """
+    revision: pulumi.Input[_builtins.int]
+    """
+    The revision of the custom plugin.
+    """
 
 @pulumi.input_type
 class ConnectorPluginCustomPluginArgs:
@@ -888,18 +835,15 @@ class ConnectorPluginCustomPluginArgs:
         pulumi.set(self, "revision", value)
 
 
-if not MYPY:
-    class ConnectorWorkerConfigurationArgsDict(TypedDict):
-        arn: pulumi.Input[_builtins.str]
-        """
-        The Amazon Resource Name (ARN) of the worker configuration.
-        """
-        revision: pulumi.Input[_builtins.int]
-        """
-        The revision of the worker configuration.
-        """
-elif False:
-    ConnectorWorkerConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class ConnectorWorkerConfigurationArgsDict(TypedDict):
+    arn: pulumi.Input[_builtins.str]
+    """
+    The Amazon Resource Name (ARN) of the worker configuration.
+    """
+    revision: pulumi.Input[_builtins.int]
+    """
+    The revision of the worker configuration.
+    """
 
 @pulumi.input_type
 class ConnectorWorkerConfigurationArgs:
@@ -938,14 +882,11 @@ class ConnectorWorkerConfigurationArgs:
         pulumi.set(self, "revision", value)
 
 
-if not MYPY:
-    class CustomPluginLocationArgsDict(TypedDict):
-        s3: pulumi.Input['CustomPluginLocationS3ArgsDict']
-        """
-        Information of the plugin file stored in Amazon S3. See `s3` Block for details..
-        """
-elif False:
-    CustomPluginLocationArgsDict: TypeAlias = Mapping[str, Any]
+class CustomPluginLocationArgsDict(TypedDict):
+    s3: pulumi.Input['CustomPluginLocationS3ArgsDict']
+    """
+    Information of the plugin file stored in Amazon S3. See `s3` Block for details..
+    """
 
 @pulumi.input_type
 class CustomPluginLocationArgs:
@@ -969,22 +910,19 @@ class CustomPluginLocationArgs:
         pulumi.set(self, "s3", value)
 
 
-if not MYPY:
-    class CustomPluginLocationS3ArgsDict(TypedDict):
-        bucket_arn: pulumi.Input[_builtins.str]
-        """
-        The Amazon Resource Name (ARN) of an S3 bucket.
-        """
-        file_key: pulumi.Input[_builtins.str]
-        """
-        The file key for an object in an S3 bucket.
-        """
-        object_version: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The version of an object in an S3 bucket.
-        """
-elif False:
-    CustomPluginLocationS3ArgsDict: TypeAlias = Mapping[str, Any]
+class CustomPluginLocationS3ArgsDict(TypedDict):
+    bucket_arn: pulumi.Input[_builtins.str]
+    """
+    The Amazon Resource Name (ARN) of an S3 bucket.
+    """
+    file_key: pulumi.Input[_builtins.str]
+    """
+    The file key for an object in an S3 bucket.
+    """
+    object_version: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The version of an object in an S3 bucket.
+    """
 
 @pulumi.input_type
 class CustomPluginLocationS3Args:

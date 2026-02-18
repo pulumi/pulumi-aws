@@ -27,6 +27,7 @@ class QueuePolicyArgs:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a QueuePolicy resource.
+        :param pulumi.Input[Union[_builtins.str, 'PolicyDocumentArgs']] policy: JSON policy for the SQS queue. For more information about building AWS IAM policy documents with Terraform, see the AWS IAM Policy Document Guide. Ensure that `Version = "2012-10-17"` is set in the policy or AWS may hang in creating the queue.
         :param pulumi.Input[_builtins.str] queue_url: URL of the SQS Queue to which to attach the policy.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
@@ -38,6 +39,9 @@ class QueuePolicyArgs:
     @_builtins.property
     @pulumi.getter
     def policy(self) -> pulumi.Input[Union[_builtins.str, 'PolicyDocumentArgs']]:
+        """
+        JSON policy for the SQS queue. For more information about building AWS IAM policy documents with Terraform, see the AWS IAM Policy Document Guide. Ensure that `Version = "2012-10-17"` is set in the policy or AWS may hang in creating the queue.
+        """
         return pulumi.get(self, "policy")
 
     @policy.setter
@@ -77,6 +81,7 @@ class _QueuePolicyState:
                  region: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering QueuePolicy resources.
+        :param pulumi.Input[Union[_builtins.str, 'PolicyDocumentArgs']] policy: JSON policy for the SQS queue. For more information about building AWS IAM policy documents with Terraform, see the AWS IAM Policy Document Guide. Ensure that `Version = "2012-10-17"` is set in the policy or AWS may hang in creating the queue.
         :param pulumi.Input[_builtins.str] queue_url: URL of the SQS Queue to which to attach the policy.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
@@ -90,6 +95,9 @@ class _QueuePolicyState:
     @_builtins.property
     @pulumi.getter
     def policy(self) -> Optional[pulumi.Input[Union[_builtins.str, 'PolicyDocumentArgs']]]:
+        """
+        JSON policy for the SQS queue. For more information about building AWS IAM policy documents with Terraform, see the AWS IAM Policy Document Guide. Ensure that `Version = "2012-10-17"` is set in the policy or AWS may hang in creating the queue.
+        """
         return pulumi.get(self, "policy")
 
     @policy.setter
@@ -207,6 +215,7 @@ class QueuePolicy(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Union[_builtins.str, Union['PolicyDocumentArgs', 'PolicyDocumentArgsDict']]] policy: JSON policy for the SQS queue. For more information about building AWS IAM policy documents with Terraform, see the AWS IAM Policy Document Guide. Ensure that `Version = "2012-10-17"` is set in the policy or AWS may hang in creating the queue.
         :param pulumi.Input[_builtins.str] queue_url: URL of the SQS Queue to which to attach the policy.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
@@ -344,6 +353,7 @@ class QueuePolicy(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Union[_builtins.str, Union['PolicyDocumentArgs', 'PolicyDocumentArgsDict']]] policy: JSON policy for the SQS queue. For more information about building AWS IAM policy documents with Terraform, see the AWS IAM Policy Document Guide. Ensure that `Version = "2012-10-17"` is set in the policy or AWS may hang in creating the queue.
         :param pulumi.Input[_builtins.str] queue_url: URL of the SQS Queue to which to attach the policy.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
@@ -359,6 +369,9 @@ class QueuePolicy(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def policy(self) -> pulumi.Output[_builtins.str]:
+        """
+        JSON policy for the SQS queue. For more information about building AWS IAM policy documents with Terraform, see the AWS IAM Policy Document Guide. Ensure that `Version = "2012-10-17"` is set in the policy or AWS may hang in creating the queue.
+        """
         return pulumi.get(self, "policy")
 
     @_builtins.property

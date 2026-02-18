@@ -43,7 +43,7 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import subnets using the subnet `id`. For example:
+    /// Using `pulumi import`, import subnets using the subnet `Id`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:ec2/defaultSubnet:DefaultSubnet public_subnet subnet-9d4a7b6c
@@ -128,6 +128,9 @@ namespace Pulumi.Aws.Ec2
         [Output("privateDnsHostnameTypeOnLaunch")]
         public Output<string> PrivateDnsHostnameTypeOnLaunch { get; private set; } = null!;
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
+        /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
@@ -235,6 +238,9 @@ namespace Pulumi.Aws.Ec2
         [Input("privateDnsHostnameTypeOnLaunch")]
         public Input<string>? PrivateDnsHostnameTypeOnLaunch { get; set; }
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
+        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -330,6 +336,9 @@ namespace Pulumi.Aws.Ec2
         [Input("privateDnsHostnameTypeOnLaunch")]
         public Input<string>? PrivateDnsHostnameTypeOnLaunch { get; set; }
 
+        /// <summary>
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
+        /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 

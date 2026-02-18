@@ -29,24 +29,19 @@ __all__ = [
     'Smsvoicev2PhoneNumberTimeoutsArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class AppCampaignHookArgsDict(TypedDict):
-        lambda_function_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Lambda function name or ARN to be called for delivery. Conflicts with `web_url`
-        """
-        mode: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        What mode Lambda should be invoked in. Valid values for this parameter are `DELIVERY`, `FILTER`.
-        """
-        web_url: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Web URL to call for hook. If the URL has authentication specified it will be added as authentication to the request. Conflicts with `lambda_function_name`
-        """
-elif False:
-    AppCampaignHookArgsDict: TypeAlias = Mapping[str, Any]
+class AppCampaignHookArgsDict(TypedDict):
+    lambda_function_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Lambda function name or ARN to be called for delivery. Conflicts with `web_url`
+    """
+    mode: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    What mode Lambda should be invoked in. Valid values for this parameter are `DELIVERY`, `FILTER`.
+    """
+    web_url: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Web URL to call for hook. If the URL has authentication specified it will be added as authentication to the request. Conflicts with `lambda_function_name`
+    """
 
 @pulumi.input_type
 class AppCampaignHookArgs:
@@ -103,26 +98,23 @@ class AppCampaignHookArgs:
         pulumi.set(self, "web_url", value)
 
 
-if not MYPY:
-    class AppLimitsArgsDict(TypedDict):
-        daily: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The maximum number of messages that the campaign can send daily.
-        """
-        maximum_duration: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The length of time (in seconds) that the campaign can run before it ends and message deliveries stop. This duration begins at the scheduled start time for the campaign. The minimum value is 60.
-        """
-        messages_per_second: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The number of messages that the campaign can send per second. The minimum value is 50, and the maximum is 20000.
-        """
-        total: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The maximum total number of messages that the campaign can send.
-        """
-elif False:
-    AppLimitsArgsDict: TypeAlias = Mapping[str, Any]
+class AppLimitsArgsDict(TypedDict):
+    daily: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The maximum number of messages that the campaign can send daily.
+    """
+    maximum_duration: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The length of time (in seconds) that the campaign can run before it ends and message deliveries stop. This duration begins at the scheduled start time for the campaign. The minimum value is 60.
+    """
+    messages_per_second: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The number of messages that the campaign can send per second. The minimum value is 50, and the maximum is 20000.
+    """
+    total: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The maximum total number of messages that the campaign can send.
+    """
 
 @pulumi.input_type
 class AppLimitsArgs:
@@ -195,18 +187,15 @@ class AppLimitsArgs:
         pulumi.set(self, "total", value)
 
 
-if not MYPY:
-    class AppQuietTimeArgsDict(TypedDict):
-        end: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The default end time for quiet time in ISO 8601 format. Required if `start` is set
-        """
-        start: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The default start time for quiet time in ISO 8601 format. Required if `end` is set
-        """
-elif False:
-    AppQuietTimeArgsDict: TypeAlias = Mapping[str, Any]
+class AppQuietTimeArgsDict(TypedDict):
+    end: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The default end time for quiet time in ISO 8601 format. Required if `start` is set
+    """
+    start: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The default start time for quiet time in ISO 8601 format. Required if `end` is set
+    """
 
 @pulumi.input_type
 class AppQuietTimeArgs:
@@ -247,32 +236,29 @@ class AppQuietTimeArgs:
         pulumi.set(self, "start", value)
 
 
-if not MYPY:
-    class EmailTemplateEmailTemplateArgsDict(TypedDict):
-        default_substitutions: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        JSON object that specifies the default values to use for message variables in the message template. This object is a set of key-value pairs. Each key defines a message variable in the template. The corresponding value defines the default value for that variable. When you create a message that's based on the template, you can override these defaults with message-specific and address-specific variables and values.
-        """
-        description: NotRequired[pulumi.Input[_builtins.str]]
-        headers: NotRequired[pulumi.Input[Sequence[pulumi.Input['EmailTemplateEmailTemplateHeaderArgsDict']]]]
-        html_part: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The message body, in HTML format, to use in email messages that are based on the message template. We recommend using HTML format for email clients that render HTML content. You can include links, formatted text, and more in an HTML message.
-        """
-        recommender_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The unique identifier for the recommender model to use for the message template. Amazon Pinpoint uses this value to determine how to retrieve and process data from a recommender model when it sends messages that use the template, if the template contains message variables for recommendation data.
-        """
-        subject: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Subject line, or title, to use in email messages that are based on the message template.
-        """
-        text_part: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Message body, in plain text format, to use in email messages that are based on the message template. We recommend using plain text format for email clients that don't render HTML content and clients that are connected to high-latency networks, such as mobile devices.
-        """
-elif False:
-    EmailTemplateEmailTemplateArgsDict: TypeAlias = Mapping[str, Any]
+class EmailTemplateEmailTemplateArgsDict(TypedDict):
+    default_substitutions: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    JSON object that specifies the default values to use for message variables in the message template. This object is a set of key-value pairs. Each key defines a message variable in the template. The corresponding value defines the default value for that variable. When you create a message that's based on the template, you can override these defaults with message-specific and address-specific variables and values.
+    """
+    description: NotRequired[pulumi.Input[_builtins.str]]
+    headers: NotRequired[pulumi.Input[Sequence[pulumi.Input['EmailTemplateEmailTemplateHeaderArgsDict']]]]
+    html_part: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The message body, in HTML format, to use in email messages that are based on the message template. We recommend using HTML format for email clients that render HTML content. You can include links, formatted text, and more in an HTML message.
+    """
+    recommender_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The unique identifier for the recommender model to use for the message template. Amazon Pinpoint uses this value to determine how to retrieve and process data from a recommender model when it sends messages that use the template, if the template contains message variables for recommendation data.
+    """
+    subject: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Subject line, or title, to use in email messages that are based on the message template.
+    """
+    text_part: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Message body, in plain text format, to use in email messages that are based on the message template. We recommend using plain text format for email clients that don't render HTML content and clients that are connected to high-latency networks, such as mobile devices.
+    """
 
 @pulumi.input_type
 class EmailTemplateEmailTemplateArgs:
@@ -385,18 +371,15 @@ class EmailTemplateEmailTemplateArgs:
         pulumi.set(self, "text_part", value)
 
 
-if not MYPY:
-    class EmailTemplateEmailTemplateHeaderArgsDict(TypedDict):
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Name of the message header. The header name can contain up to 126 characters.
-        """
-        value: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Value of the message header. The header value can contain up to 870 characters, including the length of any rendered attributes. For example if you add the {CreationDate} attribute, it renders as YYYY-MM-DDTHH:MM:SS.SSSZ and is 24 characters in length.
-        """
-elif False:
-    EmailTemplateEmailTemplateHeaderArgsDict: TypeAlias = Mapping[str, Any]
+class EmailTemplateEmailTemplateHeaderArgsDict(TypedDict):
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Name of the message header. The header name can contain up to 126 characters.
+    """
+    value: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Value of the message header. The header value can contain up to 870 characters, including the length of any rendered attributes. For example if you add the {CreationDate} attribute, it renders as YYYY-MM-DDTHH:MM:SS.SSSZ and is 24 characters in length.
+    """
 
 @pulumi.input_type
 class EmailTemplateEmailTemplateHeaderArgs:
@@ -437,22 +420,19 @@ class EmailTemplateEmailTemplateHeaderArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class Smsvoicev2PhoneNumberTimeoutsArgsDict(TypedDict):
-        create: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
-        """
-        delete: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
-        """
-        update: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
-        """
-elif False:
-    Smsvoicev2PhoneNumberTimeoutsArgsDict: TypeAlias = Mapping[str, Any]
+class Smsvoicev2PhoneNumberTimeoutsArgsDict(TypedDict):
+    create: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+    """
+    delete: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+    """
+    update: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+    """
 
 @pulumi.input_type
 class Smsvoicev2PhoneNumberTimeoutsArgs:

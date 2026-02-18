@@ -419,12 +419,12 @@ class Webhook(pulumi.CustomResource):
         bar_repository_webhook = github.RepositoryWebhook("bar",
             repository=repo["name"],
             name="web",
-            configuration=[{
+            configuration={
                 "url": bar_webhook.url,
-                "contentType": "json",
-                "insecureSsl": True,
+                "content_type": "json",
+                "insecure_ssl": True,
                 "secret": webhook_secret,
-            }],
+            },
             events=["push"])
         ```
 
@@ -438,7 +438,9 @@ class Webhook(pulumi.CustomResource):
 
         Using `pulumi import`, import CodePipeline Webhooks using their ARN. For example:
 
-        % pulumi import aws_codepipeline_webhook.example arn:aws:codepipeline:us-west-2:123456789012:webhook:example
+        ```sh
+        $ pulumi import aws:codepipeline/webhook:Webhook example arn:aws:codepipeline:us-west-2:123456789012:webhook:example
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -527,12 +529,12 @@ class Webhook(pulumi.CustomResource):
         bar_repository_webhook = github.RepositoryWebhook("bar",
             repository=repo["name"],
             name="web",
-            configuration=[{
+            configuration={
                 "url": bar_webhook.url,
-                "contentType": "json",
-                "insecureSsl": True,
+                "content_type": "json",
+                "insecure_ssl": True,
                 "secret": webhook_secret,
-            }],
+            },
             events=["push"])
         ```
 
@@ -546,7 +548,9 @@ class Webhook(pulumi.CustomResource):
 
         Using `pulumi import`, import CodePipeline Webhooks using their ARN. For example:
 
-        % pulumi import aws_codepipeline_webhook.example arn:aws:codepipeline:us-west-2:123456789012:webhook:example
+        ```sh
+        $ pulumi import aws:codepipeline/webhook:Webhook example arn:aws:codepipeline:us-west-2:123456789012:webhook:example
+        ```
 
         :param str resource_name: The name of the resource.
         :param WebhookArgs args: The arguments to use to populate this resource's properties.

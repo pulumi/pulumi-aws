@@ -34,7 +34,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Using `pulumi import`, import the `aws_kendra_query_suggestions_block_list` resource using the unique identifiers of the block list and index separated by a slash (`/`). For example:
+ * Using `pulumi import`, import the `aws.kendra.QuerySuggestionsBlockList` resource using the unique identifiers of the block list and index separated by a slash (`/`). For example:
  *
  * ```sh
  * $ pulumi import aws:kendra/querySuggestionsBlockList:QuerySuggestionsBlockList example blocklist-123456780/idx-8012925589
@@ -85,6 +85,9 @@ export class QuerySuggestionsBlockList extends pulumi.CustomResource {
      * Unique identifier of the block list.
      */
     declare public /*out*/ readonly querySuggestionsBlockListId: pulumi.Output<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
+     */
     declare public readonly region: pulumi.Output<string>;
     /**
      * IAM (Identity and Access Management) role used to access the block list text file in S3.
@@ -174,6 +177,9 @@ export interface QuerySuggestionsBlockListState {
      * Unique identifier of the block list.
      */
     querySuggestionsBlockListId?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
+     */
     region?: pulumi.Input<string>;
     /**
      * IAM (Identity and Access Management) role used to access the block list text file in S3.
@@ -204,6 +210,9 @@ export interface QuerySuggestionsBlockListArgs {
      * Name for the block list.
      */
     name?: pulumi.Input<string>;
+    /**
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
+     */
     region?: pulumi.Input<string>;
     /**
      * IAM (Identity and Access Management) role used to access the block list text file in S3.

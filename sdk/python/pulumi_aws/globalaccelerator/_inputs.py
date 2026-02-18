@@ -39,24 +39,19 @@ __all__ = [
     'ListenerPortRangeArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class AcceleratorAttributesArgsDict(TypedDict):
-        flow_logs_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Indicates whether flow logs are enabled. Defaults to `false`. Valid values: `true`, `false`.
-        """
-        flow_logs_s3_bucket: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the Amazon S3 bucket for the flow logs. Required if `flow_logs_enabled` is `true`.
-        """
-        flow_logs_s3_prefix: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The prefix for the location in the Amazon S3 bucket for the flow logs. Required if `flow_logs_enabled` is `true`.
-        """
-elif False:
-    AcceleratorAttributesArgsDict: TypeAlias = Mapping[str, Any]
+class AcceleratorAttributesArgsDict(TypedDict):
+    flow_logs_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Indicates whether flow logs are enabled. Defaults to `false`. Valid values: `true`, `false`.
+    """
+    flow_logs_s3_bucket: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the Amazon S3 bucket for the flow logs. Required if `flow_logs_enabled` is `true`.
+    """
+    flow_logs_s3_prefix: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The prefix for the location in the Amazon S3 bucket for the flow logs. Required if `flow_logs_enabled` is `true`.
+    """
 
 @pulumi.input_type
 class AcceleratorAttributesArgs:
@@ -113,18 +108,15 @@ class AcceleratorAttributesArgs:
         pulumi.set(self, "flow_logs_s3_prefix", value)
 
 
-if not MYPY:
-    class AcceleratorIpSetArgsDict(TypedDict):
-        ip_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The IP addresses to use for BYOIP accelerators. If not specified, the service assigns IP addresses. Valid values: 1 or 2 IPv4 addresses.
-        """
-        ip_family: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The type of IP addresses included in this IP set.
-        """
-elif False:
-    AcceleratorIpSetArgsDict: TypeAlias = Mapping[str, Any]
+class AcceleratorIpSetArgsDict(TypedDict):
+    ip_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The IP addresses to use for BYOIP accelerators. If not specified, the service assigns IP addresses. Valid values: 1 or 2 IPv4 addresses.
+    """
+    ip_family: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The type of IP addresses included in this IP set.
+    """
 
 @pulumi.input_type
 class AcceleratorIpSetArgs:
@@ -165,22 +157,19 @@ class AcceleratorIpSetArgs:
         pulumi.set(self, "ip_family", value)
 
 
-if not MYPY:
-    class CrossAccountAttachmentResourceArgsDict(TypedDict):
-        cidr_block: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        IP address range, in CIDR format, that is specified as resource.
-        """
-        endpoint_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The endpoint ID for the endpoint that is specified as a AWS resource.
-        """
-        region: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The AWS Region where a shared endpoint resource is located.
-        """
-elif False:
-    CrossAccountAttachmentResourceArgsDict: TypeAlias = Mapping[str, Any]
+class CrossAccountAttachmentResourceArgsDict(TypedDict):
+    cidr_block: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    IP address range, in CIDR format, that is specified as resource.
+    """
+    endpoint_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The endpoint ID for the endpoint that is specified as a AWS resource.
+    """
+    region: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The AWS Region where a shared endpoint resource is located.
+    """
 
 @pulumi.input_type
 class CrossAccountAttachmentResourceArgs:
@@ -237,22 +226,19 @@ class CrossAccountAttachmentResourceArgs:
         pulumi.set(self, "region", value)
 
 
-if not MYPY:
-    class CustomRoutingAcceleratorAttributesArgsDict(TypedDict):
-        flow_logs_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Indicates whether flow logs are enabled. Defaults to `false`. Valid values: `true`, `false`.
-        """
-        flow_logs_s3_bucket: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the Amazon S3 bucket for the flow logs. Required if `flow_logs_enabled` is `true`.
-        """
-        flow_logs_s3_prefix: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The prefix for the location in the Amazon S3 bucket for the flow logs. Required if `flow_logs_enabled` is `true`.
-        """
-elif False:
-    CustomRoutingAcceleratorAttributesArgsDict: TypeAlias = Mapping[str, Any]
+class CustomRoutingAcceleratorAttributesArgsDict(TypedDict):
+    flow_logs_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Indicates whether flow logs are enabled. Defaults to `false`. Valid values: `true`, `false`.
+    """
+    flow_logs_s3_bucket: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the Amazon S3 bucket for the flow logs. Required if `flow_logs_enabled` is `true`.
+    """
+    flow_logs_s3_prefix: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The prefix for the location in the Amazon S3 bucket for the flow logs. Required if `flow_logs_enabled` is `true`.
+    """
 
 @pulumi.input_type
 class CustomRoutingAcceleratorAttributesArgs:
@@ -309,18 +295,15 @@ class CustomRoutingAcceleratorAttributesArgs:
         pulumi.set(self, "flow_logs_s3_prefix", value)
 
 
-if not MYPY:
-    class CustomRoutingAcceleratorIpSetArgsDict(TypedDict):
-        ip_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The IP addresses to use for BYOIP accelerators. If not specified, the service assigns IP addresses. Valid values: 1 or 2 IPv4 addresses.
-        """
-        ip_family: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The type of IP addresses included in this IP set.
-        """
-elif False:
-    CustomRoutingAcceleratorIpSetArgsDict: TypeAlias = Mapping[str, Any]
+class CustomRoutingAcceleratorIpSetArgsDict(TypedDict):
+    ip_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The IP addresses to use for BYOIP accelerators. If not specified, the service assigns IP addresses. Valid values: 1 or 2 IPv4 addresses.
+    """
+    ip_family: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The type of IP addresses included in this IP set.
+    """
 
 @pulumi.input_type
 class CustomRoutingAcceleratorIpSetArgs:
@@ -361,22 +344,19 @@ class CustomRoutingAcceleratorIpSetArgs:
         pulumi.set(self, "ip_family", value)
 
 
-if not MYPY:
-    class CustomRoutingEndpointGroupDestinationConfigurationArgsDict(TypedDict):
-        from_port: pulumi.Input[_builtins.int]
-        """
-        The first port, inclusive, in the range of ports for the endpoint group that is associated with a custom routing accelerator.
-        """
-        protocols: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        The protocol for the endpoint group that is associated with a custom routing accelerator. The protocol can be either `"TCP"` or `"UDP"`.
-        """
-        to_port: pulumi.Input[_builtins.int]
-        """
-        The last port, inclusive, in the range of ports for the endpoint group that is associated with a custom routing accelerator.
-        """
-elif False:
-    CustomRoutingEndpointGroupDestinationConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class CustomRoutingEndpointGroupDestinationConfigurationArgsDict(TypedDict):
+    from_port: pulumi.Input[_builtins.int]
+    """
+    The first port, inclusive, in the range of ports for the endpoint group that is associated with a custom routing accelerator.
+    """
+    protocols: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    The protocol for the endpoint group that is associated with a custom routing accelerator. The protocol can be either `"TCP"` or `"UDP"`.
+    """
+    to_port: pulumi.Input[_builtins.int]
+    """
+    The last port, inclusive, in the range of ports for the endpoint group that is associated with a custom routing accelerator.
+    """
 
 @pulumi.input_type
 class CustomRoutingEndpointGroupDestinationConfigurationArgs:
@@ -430,14 +410,11 @@ class CustomRoutingEndpointGroupDestinationConfigurationArgs:
         pulumi.set(self, "to_port", value)
 
 
-if not MYPY:
-    class CustomRoutingEndpointGroupEndpointConfigurationArgsDict(TypedDict):
-        endpoint_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        An ID for the endpoint. For custom routing accelerators, this is the virtual private cloud (VPC) subnet ID.
-        """
-elif False:
-    CustomRoutingEndpointGroupEndpointConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class CustomRoutingEndpointGroupEndpointConfigurationArgsDict(TypedDict):
+    endpoint_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    An ID for the endpoint. For custom routing accelerators, this is the virtual private cloud (VPC) subnet ID.
+    """
 
 @pulumi.input_type
 class CustomRoutingEndpointGroupEndpointConfigurationArgs:
@@ -462,18 +439,15 @@ class CustomRoutingEndpointGroupEndpointConfigurationArgs:
         pulumi.set(self, "endpoint_id", value)
 
 
-if not MYPY:
-    class CustomRoutingListenerPortRangeArgsDict(TypedDict):
-        from_port: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The first port in the range of ports, inclusive.
-        """
-        to_port: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The last port in the range of ports, inclusive.
-        """
-elif False:
-    CustomRoutingListenerPortRangeArgsDict: TypeAlias = Mapping[str, Any]
+class CustomRoutingListenerPortRangeArgsDict(TypedDict):
+    from_port: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The first port in the range of ports, inclusive.
+    """
+    to_port: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The last port in the range of ports, inclusive.
+    """
 
 @pulumi.input_type
 class CustomRoutingListenerPortRangeArgs:
@@ -514,27 +488,24 @@ class CustomRoutingListenerPortRangeArgs:
         pulumi.set(self, "to_port", value)
 
 
-if not MYPY:
-    class EndpointGroupEndpointConfigurationArgsDict(TypedDict):
-        attachment_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        An ARN of an exposed cross-account attachment. See the [AWS documentation](https://docs.aws.amazon.com/global-accelerator/latest/dg/cross-account-resources.html) for more details.
-        """
-        client_ip_preservation_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Indicates whether client IP address preservation is enabled for an Application Load Balancer endpoint. See the [AWS documentation](https://docs.aws.amazon.com/global-accelerator/latest/dg/preserve-client-ip-address.html) for more details. The default value is `false`.
-        **Note:** When client IP address preservation is enabled, the Global Accelerator service creates an EC2 Security Group in the VPC named `GlobalAccelerator` that must be deleted (potentially outside of the provider) before the VPC will successfully delete. If this EC2 Security Group is not deleted, the provider will retry the VPC deletion for a few minutes before reporting a `DependencyViolation` error. This cannot be resolved by re-running the provider.
-        """
-        endpoint_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        An ID for the endpoint. If the endpoint is a Network Load Balancer or Application Load Balancer, this is the Amazon Resource Name (ARN) of the resource. If the endpoint is an Elastic IP address, this is the Elastic IP address allocation ID.
-        """
-        weight: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The weight associated with the endpoint. When you add weights to endpoints, you configure AWS Global Accelerator to route traffic based on proportions that you specify.
-        """
-elif False:
-    EndpointGroupEndpointConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class EndpointGroupEndpointConfigurationArgsDict(TypedDict):
+    attachment_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    An ARN of an exposed cross-account attachment. See the [AWS documentation](https://docs.aws.amazon.com/global-accelerator/latest/dg/cross-account-resources.html) for more details.
+    """
+    client_ip_preservation_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Indicates whether client IP address preservation is enabled for an Application Load Balancer endpoint. See the [AWS documentation](https://docs.aws.amazon.com/global-accelerator/latest/dg/preserve-client-ip-address.html) for more details. The default value is `false`.
+    **Note:** When client IP address preservation is enabled, the Global Accelerator service creates an EC2 Security Group in the VPC named `GlobalAccelerator` that must be deleted (potentially outside of the provider) before the VPC will successfully delete. If this EC2 Security Group is not deleted, the provider will retry the VPC deletion for a few minutes before reporting a `DependencyViolation` error. This cannot be resolved by re-running the provider.
+    """
+    endpoint_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    An ID for the endpoint. If the endpoint is a Network Load Balancer or Application Load Balancer, this is the Amazon Resource Name (ARN) of the resource. If the endpoint is an Elastic IP address, this is the Elastic IP address allocation ID.
+    """
+    weight: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The weight associated with the endpoint. When you add weights to endpoints, you configure AWS Global Accelerator to route traffic based on proportions that you specify.
+    """
 
 @pulumi.input_type
 class EndpointGroupEndpointConfigurationArgs:
@@ -609,18 +580,15 @@ class EndpointGroupEndpointConfigurationArgs:
         pulumi.set(self, "weight", value)
 
 
-if not MYPY:
-    class EndpointGroupPortOverrideArgsDict(TypedDict):
-        endpoint_port: pulumi.Input[_builtins.int]
-        """
-        The endpoint port that you want a listener port to be mapped to. This is the port on the endpoint, such as the Application Load Balancer or Amazon EC2 instance.
-        """
-        listener_port: pulumi.Input[_builtins.int]
-        """
-        The listener port that you want to map to a specific endpoint port. This is the port that user traffic arrives to the Global Accelerator on.
-        """
-elif False:
-    EndpointGroupPortOverrideArgsDict: TypeAlias = Mapping[str, Any]
+class EndpointGroupPortOverrideArgsDict(TypedDict):
+    endpoint_port: pulumi.Input[_builtins.int]
+    """
+    The endpoint port that you want a listener port to be mapped to. This is the port on the endpoint, such as the Application Load Balancer or Amazon EC2 instance.
+    """
+    listener_port: pulumi.Input[_builtins.int]
+    """
+    The listener port that you want to map to a specific endpoint port. This is the port that user traffic arrives to the Global Accelerator on.
+    """
 
 @pulumi.input_type
 class EndpointGroupPortOverrideArgs:
@@ -659,18 +627,15 @@ class EndpointGroupPortOverrideArgs:
         pulumi.set(self, "listener_port", value)
 
 
-if not MYPY:
-    class ListenerPortRangeArgsDict(TypedDict):
-        from_port: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The first port in the range of ports, inclusive.
-        """
-        to_port: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The last port in the range of ports, inclusive.
-        """
-elif False:
-    ListenerPortRangeArgsDict: TypeAlias = Mapping[str, Any]
+class ListenerPortRangeArgsDict(TypedDict):
+    from_port: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The first port in the range of ports, inclusive.
+    """
+    to_port: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The last port in the range of ports, inclusive.
+    """
 
 @pulumi.input_type
 class ListenerPortRangeArgs:

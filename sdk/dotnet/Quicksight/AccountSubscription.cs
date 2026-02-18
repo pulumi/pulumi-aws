@@ -37,7 +37,7 @@ namespace Pulumi.Aws.Quicksight
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import a QuickSight Account Subscription using `aws_account_id`. For example:
+    /// Using `pulumi import`, import a QuickSight Account Subscription using `AwsAccountId`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:quicksight/accountSubscription:AccountSubscription example "012345678901"

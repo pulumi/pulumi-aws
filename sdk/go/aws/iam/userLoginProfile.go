@@ -59,7 +59,30 @@ import (
 // ```sh
 // $ pulumi import aws:iam/userLoginProfile:UserLoginProfile example myusername
 // ```
-// Since Pulumi has no method to read the PGP or password information during import, use the resource options `ignore_changes` argument to ignore them (unless you want to recreate a password). For example:
+//
+// Since Pulumi has no method to read the PGP or password information during import, use the resource options `ignoreChanges` argument to ignore them (unless you want to recreate a password). For example:
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/iam"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := iam.NewUserLoginProfile(ctx, "example", nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 type UserLoginProfile struct {
 	pulumi.CustomResourceState
 

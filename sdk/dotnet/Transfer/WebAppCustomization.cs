@@ -16,7 +16,7 @@ namespace Pulumi.Aws.Transfer
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import Transfer Family Web App Customization using the `web_app_id`. For example:
+    /// Using `pulumi import`, import Transfer Family Web App Customization using the `WebAppId`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:transfer/webAppCustomization:WebAppCustomization example webapp-12345678901234567890
@@ -25,9 +25,15 @@ namespace Pulumi.Aws.Transfer
     [AwsResourceType("aws:transfer/webAppCustomization:WebAppCustomization")]
     public partial class WebAppCustomization : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// Base64-encoded string representing the favicon image. Terraform will detect drift only if this argument is specified. To remove the favicon, recreate the resource.
+        /// </summary>
         [Output("faviconFile")]
         public Output<string> FaviconFile { get; private set; } = null!;
 
+        /// <summary>
+        /// Base64-encoded string representing the logo image. Terraform will detect drift only if this argument is specified. To remove the logo, recreate the resource.
+        /// </summary>
         [Output("logoFile")]
         public Output<string> LogoFile { get; private set; } = null!;
 
@@ -97,9 +103,15 @@ namespace Pulumi.Aws.Transfer
 
     public sealed class WebAppCustomizationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Base64-encoded string representing the favicon image. Terraform will detect drift only if this argument is specified. To remove the favicon, recreate the resource.
+        /// </summary>
         [Input("faviconFile")]
         public Input<string>? FaviconFile { get; set; }
 
+        /// <summary>
+        /// Base64-encoded string representing the logo image. Terraform will detect drift only if this argument is specified. To remove the logo, recreate the resource.
+        /// </summary>
         [Input("logoFile")]
         public Input<string>? LogoFile { get; set; }
 
@@ -131,9 +143,15 @@ namespace Pulumi.Aws.Transfer
 
     public sealed class WebAppCustomizationState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Base64-encoded string representing the favicon image. Terraform will detect drift only if this argument is specified. To remove the favicon, recreate the resource.
+        /// </summary>
         [Input("faviconFile")]
         public Input<string>? FaviconFile { get; set; }
 
+        /// <summary>
+        /// Base64-encoded string representing the logo image. Terraform will detect drift only if this argument is specified. To remove the logo, recreate the resource.
+        /// </summary>
         [Input("logoFile")]
         public Input<string>? LogoFile { get; set; }
 

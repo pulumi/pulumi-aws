@@ -77,7 +77,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Using `pulumi import`, import SES event destinations using `configuration_set_name` together with the event destination's `name`. For example:
+ * Using `pulumi import`, import SES event destinations using `configurationSetName` together with the event destination's `name`. For example:
  *
  * ```sh
  * $ pulumi import aws:ses/eventDestination:EventDestination sns some-configuration-set-test/event-destination-sns

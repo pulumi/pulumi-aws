@@ -1090,9 +1090,11 @@ class Table(pulumi.CustomResource):
             })
         ```
 
-        ### Basic Example containing Global Secondary Indexs using Multi-attribute keys pattern
+        ### Basic Example containing Global Secondary Indexes using Multi-attribute keys pattern
 
         The following dynamodb table description models the table and GSIs shown in the [AWS SDK example documentation](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GSI.DesignPattern.MultiAttributeKeys.html)
+
+        > **Note:** Multi-attribute keys for GSIs use the `key_schema` block instead of `hash_key`/`range_key`. The `hash_key` and `range_key` arguments are deprecated in favor of `key_schema`.
 
         ```python
         import pulumi
@@ -1127,11 +1129,11 @@ class Table(pulumi.CustomResource):
                 },
                 {
                     "name": "playerId",
-                    "type": n,
+                    "type": "N",
                 },
                 {
                     "name": "matchDate",
-                    "type": s,
+                    "type": "S",
                 },
             ],
             ttl={
@@ -1141,14 +1143,27 @@ class Table(pulumi.CustomResource):
             global_secondary_indexes=[
                 {
                     "name": "TournamentRegionIndex",
-                    "hash_keys": [
-                        "tournamentId",
-                        "region",
-                    ],
-                    "range_keys": [
-                        "round",
-                        "bracket",
-                        "matchId",
+                    "key_schemas": [
+                        {
+                            "attribute_name": "tournamentId",
+                            "key_type": "HASH",
+                        },
+                        {
+                            "attribute_name": "region",
+                            "key_type": "HASH",
+                        },
+                        {
+                            "attribute_name": "round",
+                            "key_type": "RANGE",
+                        },
+                        {
+                            "attribute_name": "bracket",
+                            "key_type": "RANGE",
+                        },
+                        {
+                            "attribute_name": "matchId",
+                            "key_type": "RANGE",
+                        },
                     ],
                     "write_capacity": 10,
                     "read_capacity": 10,
@@ -1156,10 +1171,19 @@ class Table(pulumi.CustomResource):
                 },
                 {
                     "name": "PlayerMatchHistoryIndex",
-                    "hash_key": "playerId",
-                    "range_keys": [
-                        "matchDate",
-                        "round",
+                    "key_schemas": [
+                        {
+                            "attribute_name": "playerId",
+                            "key_type": "HASH",
+                        },
+                        {
+                            "attribute_name": "matchDate",
+                            "key_type": "RANGE",
+                        },
+                        {
+                            "attribute_name": "round",
+                            "key_type": "RANGE",
+                        },
                     ],
                     "write_capacity": 10,
                     "read_capacity": 10,
@@ -1428,9 +1452,11 @@ class Table(pulumi.CustomResource):
             })
         ```
 
-        ### Basic Example containing Global Secondary Indexs using Multi-attribute keys pattern
+        ### Basic Example containing Global Secondary Indexes using Multi-attribute keys pattern
 
         The following dynamodb table description models the table and GSIs shown in the [AWS SDK example documentation](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GSI.DesignPattern.MultiAttributeKeys.html)
+
+        > **Note:** Multi-attribute keys for GSIs use the `key_schema` block instead of `hash_key`/`range_key`. The `hash_key` and `range_key` arguments are deprecated in favor of `key_schema`.
 
         ```python
         import pulumi
@@ -1465,11 +1491,11 @@ class Table(pulumi.CustomResource):
                 },
                 {
                     "name": "playerId",
-                    "type": n,
+                    "type": "N",
                 },
                 {
                     "name": "matchDate",
-                    "type": s,
+                    "type": "S",
                 },
             ],
             ttl={
@@ -1479,14 +1505,27 @@ class Table(pulumi.CustomResource):
             global_secondary_indexes=[
                 {
                     "name": "TournamentRegionIndex",
-                    "hash_keys": [
-                        "tournamentId",
-                        "region",
-                    ],
-                    "range_keys": [
-                        "round",
-                        "bracket",
-                        "matchId",
+                    "key_schemas": [
+                        {
+                            "attribute_name": "tournamentId",
+                            "key_type": "HASH",
+                        },
+                        {
+                            "attribute_name": "region",
+                            "key_type": "HASH",
+                        },
+                        {
+                            "attribute_name": "round",
+                            "key_type": "RANGE",
+                        },
+                        {
+                            "attribute_name": "bracket",
+                            "key_type": "RANGE",
+                        },
+                        {
+                            "attribute_name": "matchId",
+                            "key_type": "RANGE",
+                        },
                     ],
                     "write_capacity": 10,
                     "read_capacity": 10,
@@ -1494,10 +1533,19 @@ class Table(pulumi.CustomResource):
                 },
                 {
                     "name": "PlayerMatchHistoryIndex",
-                    "hash_key": "playerId",
-                    "range_keys": [
-                        "matchDate",
-                        "round",
+                    "key_schemas": [
+                        {
+                            "attribute_name": "playerId",
+                            "key_type": "HASH",
+                        },
+                        {
+                            "attribute_name": "matchDate",
+                            "key_type": "RANGE",
+                        },
+                        {
+                            "attribute_name": "round",
+                            "key_type": "RANGE",
+                        },
                     ],
                     "write_capacity": 10,
                     "read_capacity": 10,

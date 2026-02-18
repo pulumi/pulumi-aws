@@ -16,9 +16,17 @@ public final class ResourceLfTagTableWithColumnsColumnWildcardArgs extends com.p
 
     public static final ResourceLfTagTableWithColumnsColumnWildcardArgs Empty = new ResourceLfTagTableWithColumnsColumnWildcardArgs();
 
+    /**
+     * Set of column names for the table to exclude. If `excludedColumnNames` is included, `wildcard` must be set to `true` to avoid Terraform reporting a difference.
+     * 
+     */
     @Import(name="excludedColumnNames")
     private @Nullable Output<List<String>> excludedColumnNames;
 
+    /**
+     * @return Set of column names for the table to exclude. If `excludedColumnNames` is included, `wildcard` must be set to `true` to avoid Terraform reporting a difference.
+     * 
+     */
     public Optional<Output<List<String>>> excludedColumnNames() {
         return Optional.ofNullable(this.excludedColumnNames);
     }
@@ -47,15 +55,33 @@ public final class ResourceLfTagTableWithColumnsColumnWildcardArgs extends com.p
             $ = new ResourceLfTagTableWithColumnsColumnWildcardArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param excludedColumnNames Set of column names for the table to exclude. If `excludedColumnNames` is included, `wildcard` must be set to `true` to avoid Terraform reporting a difference.
+         * 
+         * @return builder
+         * 
+         */
         public Builder excludedColumnNames(@Nullable Output<List<String>> excludedColumnNames) {
             $.excludedColumnNames = excludedColumnNames;
             return this;
         }
 
+        /**
+         * @param excludedColumnNames Set of column names for the table to exclude. If `excludedColumnNames` is included, `wildcard` must be set to `true` to avoid Terraform reporting a difference.
+         * 
+         * @return builder
+         * 
+         */
         public Builder excludedColumnNames(List<String> excludedColumnNames) {
             return excludedColumnNames(Output.of(excludedColumnNames));
         }
 
+        /**
+         * @param excludedColumnNames Set of column names for the table to exclude. If `excludedColumnNames` is included, `wildcard` must be set to `true` to avoid Terraform reporting a difference.
+         * 
+         * @return builder
+         * 
+         */
         public Builder excludedColumnNames(String... excludedColumnNames) {
             return excludedColumnNames(List.of(excludedColumnNames));
         }

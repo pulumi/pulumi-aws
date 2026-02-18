@@ -65,6 +65,9 @@ export class AccountSettings extends pulumi.CustomResource {
         return obj['__pulumiType'] === AccountSettings.__pulumiType;
     }
 
+    /**
+     * AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
+     */
     declare public readonly awsAccountId: pulumi.Output<string>;
     /**
      * The default namespace for this Amazon Web Services account. Currently, the default is `default`.
@@ -115,6 +118,9 @@ export class AccountSettings extends pulumi.CustomResource {
  * Input properties used for looking up and filtering AccountSettings resources.
  */
 export interface AccountSettingsState {
+    /**
+     * AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
+     */
     awsAccountId?: pulumi.Input<string>;
     /**
      * The default namespace for this Amazon Web Services account. Currently, the default is `default`.
@@ -135,6 +141,9 @@ export interface AccountSettingsState {
  * The set of arguments for constructing a AccountSettings resource.
  */
 export interface AccountSettingsArgs {
+    /**
+     * AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
+     */
     awsAccountId?: pulumi.Input<string>;
     /**
      * The default namespace for this Amazon Web Services account. Currently, the default is `default`.

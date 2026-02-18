@@ -10,9 +10,189 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Ram
 {
     /// <summary>
+    /// Resource for maintaining exclusive management of principal and resource associations for an AWS RAM (Resource Access Manager) Resource Share.
+    /// 
+    /// !&gt; This resource takes exclusive ownership over principal and resource associations for a resource share. This includes removal of principals and resources which are not explicitly configured.
+    /// 
+    /// &gt; Destruction of this resource will disassociate all configured principals and resources from the resource share.
+    /// 
+    /// &gt; **NOTE:** This resource cannot be used in conjunction with `aws.ram.PrincipalAssociation` or `aws.ram.ResourceAssociation` for the same resource share. Using them together will cause persistent drift and conflicts.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ### Basic Usage with Principals
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.Ram.ResourceShare("example", new()
+    ///     {
+    ///         Name = "example",
+    ///         AllowExternalPrincipals = true,
+    ///     });
+    /// 
+    ///     var exampleVpc = new Aws.Ec2.Vpc("example", new()
+    ///     {
+    ///         CidrBlock = "10.0.0.0/16",
+    ///     });
+    /// 
+    ///     var exampleSubnet = new Aws.Ec2.Subnet("example", new()
+    ///     {
+    ///         VpcId = exampleVpc.Id,
+    ///         CidrBlock = "10.0.1.0/24",
+    ///     });
+    /// 
+    ///     var exampleResourceShareAssociationsExclusive = new Aws.Ram.ResourceShareAssociationsExclusive("example", new()
+    ///     {
+    ///         ResourceShareArn = example.Arn,
+    ///         Principals = new[]
+    ///         {
+    ///             "111111111111",
+    ///             "222222222222",
+    ///         },
+    ///         ResourceArns = new[]
+    ///         {
+    ///             exampleSubnet.Arn,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ### With Organization Principal
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// using Std = Pulumi.Std;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.Ram.ResourceShare("example", new()
+    ///     {
+    ///         Name = "example",
+    ///     });
+    /// 
+    ///     var exampleVpc = new Aws.Ec2.Vpc("example", new()
+    ///     {
+    ///         CidrBlock = "10.0.0.0/16",
+    ///     });
+    /// 
+    ///     var exampleSubnet = new List&lt;Aws.Ec2.Subnet&gt;();
+    ///     for (var rangeIndex = 0; rangeIndex &lt; 2; rangeIndex++)
+    ///     {
+    ///         var range = new { Value = rangeIndex };
+    ///         exampleSubnet.Add(new Aws.Ec2.Subnet($"example-{range.Value}", new()
+    ///         {
+    ///             VpcId = exampleVpc.Id,
+    ///             CidrBlock = exampleVpc.CidrBlock.Apply(cidrBlock =&gt; Std.Cidrsubnet.Invoke(new()
+    ///             {
+    ///                 Input = cidrBlock,
+    ///                 Newbits = 8,
+    ///                 Netnum = range.Value,
+    ///             })).Apply(invoke =&gt; invoke.Result),
+    ///         }));
+    ///     }
+    ///     var exampleResourceShareAssociationsExclusive = new Aws.Ram.ResourceShareAssociationsExclusive("example", new()
+    ///     {
+    ///         ResourceShareArn = example.Arn,
+    ///         Principals = new[]
+    ///         {
+    ///             exampleAwsOrganizationsOrganization.Arn,
+    ///         },
+    ///         ResourceArns = exampleSubnet.Select(__item =&gt; __item.Arn).ToList(),
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ### With Service Principals
+    /// 
+    /// When sharing resources with AWS services, use service principals. Service principals follow the pattern `service-id.amazonaws.com` (e.g., `pca-connector-ad.amazonaws.com`, `elasticmapreduce.amazonaws.com`). The `Sources` argument can be used to restrict which AWS accounts the service can access the shared resources from.
+    /// 
+    /// &gt; **NOTE:** Service principals cannot be mixed with other principal types (AWS account IDs, organization ARNs, OU ARNs, IAM role ARNs, or IAM user ARNs) in the same resource.
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.Ram.ResourceShare("example", new()
+    ///     {
+    ///         Name = "example-service-share",
+    ///         AllowExternalPrincipals = true,
+    ///     });
+    /// 
+    ///     var exampleCertificateAuthority = new Aws.Acmpca.CertificateAuthority("example", new()
+    ///     {
+    ///         Type = "ROOT",
+    ///         CertificateAuthorityConfiguration = new Aws.Acmpca.Inputs.CertificateAuthorityCertificateAuthorityConfigurationArgs
+    ///         {
+    ///             KeyAlgorithm = "RSA_4096",
+    ///             SigningAlgorithm = "SHA512WITHRSA",
+    ///             Subject = new Aws.Acmpca.Inputs.CertificateAuthorityCertificateAuthorityConfigurationSubjectArgs
+    ///             {
+    ///                 CommonName = "example.com",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleResourceShareAssociationsExclusive = new Aws.Ram.ResourceShareAssociationsExclusive("example", new()
+    ///     {
+    ///         ResourceShareArn = example.Arn,
+    ///         Principals = new[]
+    ///         {
+    ///             "pca-connector-ad.amazonaws.com",
+    ///         },
+    ///         ResourceArns = new[]
+    ///         {
+    ///             exampleCertificateAuthority.Arn,
+    ///         },
+    ///         Sources = new[]
+    ///         {
+    ///             "111111111111",
+    ///             "222222222222",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ### Disallow All Associations
+    /// 
+    /// To automatically remove any configured associations, omit the `Principals` and `ResourceArns` arguments or set them to empty lists.
+    /// 
+    /// &gt; This will not **prevent** associations from being created via Terraform (or any other interface). This resource enables bringing associations into a configured state, however, this reconciliation happens only when `Apply` is proactively run.
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.Ram.ResourceShareAssociationsExclusive("example", new()
+    ///     {
+    ///         ResourceShareArn = exampleAwsRamResourceShare.Arn,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import RAM Resource Share Association Exclusive using the `resource_share_arn`. For example:
+    /// Using `pulumi import`, import RAM Resource Share Association Exclusive using the `ResourceShareArn`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:ram/resourceShareAssociationsExclusive:ResourceShareAssociationsExclusive example arn:aws:ram:eu-west-1:123456789012:resource-share/73da1ab9-b94a-4ba3-8eb4-45917f7f4b12

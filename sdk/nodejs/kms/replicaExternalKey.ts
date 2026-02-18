@@ -24,7 +24,7 @@ import * as utilities from "../utilities";
  * const replica = new aws.kms.ReplicaExternalKey("replica", {
  *     description: "Multi-Region replica key",
  *     deletionWindowInDays: 7,
- *     primaryKeyArn: primaryAwsKmsExternal.arn,
+ *     primaryKeyArn: primary.arn,
  *     keyMaterialBase64: "...",
  * });
  * ```

@@ -73,17 +73,18 @@ namespace Pulumi.Aws.Ecr
     /// 
     /// #### Required
     /// 
-    /// * `name` - (String) Name of the ECR repository.
+    /// * `Name` - (String) Name of the ECR repository.
     /// 
     /// #### Optional
     /// 
-    /// * `account_id` (String) AWS Account where this resource is managed.
+    /// * `AccountId` (String) AWS Account where this resource is managed.
+    /// * `Region` (String) Region where this resource is managed.
     /// 
-    /// * `region` (String) Region where this resource is managed.
+    /// Using `pulumi import`, import ECR Repositories using the `Name`. For example:
     /// 
-    /// Using `pulumi import`, import ECR Repositories using the `name`. For example:
-    /// 
-    /// % pulumi import aws_ecr_repository.service test-service
+    /// ```sh
+    /// $ pulumi import aws:ecr/repository:Repository service test-service
+    /// ```
     /// </summary>
     [AwsResourceType("aws:ecr/repository:Repository")]
     public partial class Repository : global::Pulumi.CustomResource

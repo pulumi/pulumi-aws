@@ -36,7 +36,7 @@ namespace Pulumi.Aws.CodeCatalyst
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import CodeCatalyst Source Repository using the `id`. For example:
+    /// Using `pulumi import`, import CodeCatalyst Source Repository using the `Id`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:codecatalyst/sourceRepository:SourceRepository example example-repo

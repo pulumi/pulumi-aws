@@ -51,7 +51,7 @@ import (
 //
 // ## Import
 //
-// Using `pulumi import`, import `aws_kendra_thesaurus` using the unique identifiers of the thesaurus and index separated by a slash (`/`). For example:
+// Using `pulumi import`, import `kendra.Thesaurus` using the unique identifiers of the thesaurus and index separated by a slash (`/`). For example:
 //
 // ```sh
 // $ pulumi import aws:kendra/thesaurus:Thesaurus example thesaurus-123456780/idx-8012925589
@@ -65,7 +65,8 @@ type Thesaurus struct {
 	// The identifier of the index for a thesaurus.
 	IndexId pulumi.StringOutput `pulumi:"indexId"`
 	// The name for the thesaurus.
-	Name   pulumi.StringOutput `pulumi:"name"`
+	Name pulumi.StringOutput `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
 	Region pulumi.StringOutput `pulumi:"region"`
 	// The IAM (Identity and Access Management) role used to access the thesaurus file in S3.
 	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
@@ -124,7 +125,8 @@ type thesaurusState struct {
 	// The identifier of the index for a thesaurus.
 	IndexId *string `pulumi:"indexId"`
 	// The name for the thesaurus.
-	Name   *string `pulumi:"name"`
+	Name *string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
 	Region *string `pulumi:"region"`
 	// The IAM (Identity and Access Management) role used to access the thesaurus file in S3.
 	RoleArn *string `pulumi:"roleArn"`
@@ -145,7 +147,8 @@ type ThesaurusState struct {
 	// The identifier of the index for a thesaurus.
 	IndexId pulumi.StringPtrInput
 	// The name for the thesaurus.
-	Name   pulumi.StringPtrInput
+	Name pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
 	Region pulumi.StringPtrInput
 	// The IAM (Identity and Access Management) role used to access the thesaurus file in S3.
 	RoleArn pulumi.StringPtrInput
@@ -168,7 +171,8 @@ type thesaurusArgs struct {
 	// The identifier of the index for a thesaurus.
 	IndexId string `pulumi:"indexId"`
 	// The name for the thesaurus.
-	Name   *string `pulumi:"name"`
+	Name *string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
 	Region *string `pulumi:"region"`
 	// The IAM (Identity and Access Management) role used to access the thesaurus file in S3.
 	RoleArn string `pulumi:"roleArn"`
@@ -183,7 +187,8 @@ type ThesaurusArgs struct {
 	// The identifier of the index for a thesaurus.
 	IndexId pulumi.StringInput
 	// The name for the thesaurus.
-	Name   pulumi.StringPtrInput
+	Name pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
 	Region pulumi.StringPtrInput
 	// The IAM (Identity and Access Management) role used to access the thesaurus file in S3.
 	RoleArn pulumi.StringInput
@@ -298,6 +303,7 @@ func (o ThesaurusOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Thesaurus) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
 func (o ThesaurusOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Thesaurus) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

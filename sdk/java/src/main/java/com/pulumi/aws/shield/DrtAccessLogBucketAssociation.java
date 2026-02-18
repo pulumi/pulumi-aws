@@ -63,7 +63,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Using `pulumi import`, import Shield DRT access log bucket associations using the `log_bucket`. For example:
+ * Using `pulumi import`, import Shield DRT access log bucket associations using the `logBucket`. For example:
  * 
  * ```sh
  * $ pulumi import aws:shield/drtAccessLogBucketAssociation:DrtAccessLogBucketAssociation example example-bucket

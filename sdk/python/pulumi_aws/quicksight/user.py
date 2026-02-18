@@ -35,6 +35,7 @@ class UserArgs:
         :param pulumi.Input[_builtins.str] user_role: Amazon QuickSight role for the user. Valid values: `READER`, `AUTHOR`, `ADMIN`, `READER_PRO`, `AUTHOR_PRO`, `ADMIN_PRO`, `RESTRICTED_AUTHOR`, `RESTRICTED_READER`.
                
                The following arguments are optional:
+        :param pulumi.Input[_builtins.str] aws_account_id: AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
         :param pulumi.Input[_builtins.str] iam_arn: ARN of the IAM user or role that you are registering with Amazon QuickSight. Required only for users with an identity type of `IAM`.
         :param pulumi.Input[_builtins.str] namespace: The Amazon Quicksight namespace to create the user in. Defaults to `default`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -98,6 +99,9 @@ class UserArgs:
     @_builtins.property
     @pulumi.getter(name="awsAccountId")
     def aws_account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
+        """
         return pulumi.get(self, "aws_account_id")
 
     @aws_account_id.setter
@@ -182,6 +186,7 @@ class _UserState:
         """
         Input properties used for looking up and filtering User resources.
         :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) for the user.
+        :param pulumi.Input[_builtins.str] aws_account_id: AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
         :param pulumi.Input[_builtins.str] email: Email address of the user that you want to register.
         :param pulumi.Input[_builtins.str] iam_arn: ARN of the IAM user or role that you are registering with Amazon QuickSight. Required only for users with an identity type of `IAM`.
         :param pulumi.Input[_builtins.str] identity_type: Identity type that your Amazon QuickSight account uses to manage the identity of users. Valid values: `IAM`, `QUICKSIGHT`, `IAM_IDENTITY_CENTER`.
@@ -232,6 +237,9 @@ class _UserState:
     @_builtins.property
     @pulumi.getter(name="awsAccountId")
     def aws_account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
+        """
         return pulumi.get(self, "aws_account_id")
 
     @aws_account_id.setter
@@ -417,6 +425,7 @@ class User(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[_builtins.str] aws_account_id: AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
         :param pulumi.Input[_builtins.str] email: Email address of the user that you want to register.
         :param pulumi.Input[_builtins.str] iam_arn: ARN of the IAM user or role that you are registering with Amazon QuickSight. Required only for users with an identity type of `IAM`.
         :param pulumi.Input[_builtins.str] identity_type: Identity type that your Amazon QuickSight account uses to manage the identity of users. Valid values: `IAM`, `QUICKSIGHT`, `IAM_IDENTITY_CENTER`.
@@ -563,6 +572,7 @@ class User(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) for the user.
+        :param pulumi.Input[_builtins.str] aws_account_id: AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
         :param pulumi.Input[_builtins.str] email: Email address of the user that you want to register.
         :param pulumi.Input[_builtins.str] iam_arn: ARN of the IAM user or role that you are registering with Amazon QuickSight. Required only for users with an identity type of `IAM`.
         :param pulumi.Input[_builtins.str] identity_type: Identity type that your Amazon QuickSight account uses to manage the identity of users. Valid values: `IAM`, `QUICKSIGHT`, `IAM_IDENTITY_CENTER`.
@@ -603,6 +613,9 @@ class User(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="awsAccountId")
     def aws_account_id(self) -> pulumi.Output[_builtins.str]:
+        """
+        AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
+        """
         return pulumi.get(self, "aws_account_id")
 
     @_builtins.property

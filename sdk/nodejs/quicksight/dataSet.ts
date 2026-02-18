@@ -38,6 +38,33 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
+ * ### With useAs
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.quicksight.DataSet("example", {
+ *     dataSetId: "example-id",
+ *     name: "example-name",
+ *     importMode: "SPICE",
+ *     useAs: "RLS_RULES",
+ *     physicalTableMaps: [{
+ *         physicalTableMapId: "example-id",
+ *         s3Source: {
+ *             dataSourceArn: exampleAwsQuicksightDataSource.arn,
+ *             inputColumns: [{
+ *                 name: "UserName",
+ *                 type: "STRING",
+ *             }],
+ *             uploadSettings: {
+ *                 format: "JSON",
+ *             },
+ *         },
+ *     }],
+ * });
+ * ```
+ *
  * ### With Column Level Permission Rules
  *
  * ```typescript
@@ -210,6 +237,9 @@ export class DataSet extends pulumi.CustomResource {
      * Amazon Resource Name (ARN) of the data set.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
+    /**
+     * AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
+     */
     declare public readonly awsAccountId: pulumi.Output<string>;
     /**
      * Groupings of columns that work together in certain Amazon QuickSight features. Currently, only geospatial hierarchy is supported. See column_groups.
@@ -281,6 +311,10 @@ export class DataSet extends pulumi.CustomResource {
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    /**
+     * Specifies the purpose of the data set. The only valid value is `RLS_RULES`, which designates this data set as a Row Level Security (RLS) rules dataset. An RLS rules dataset is used to control access to data at the row level in QuickSight analyses and dashboards. See the [AWS documentation](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_CreateDataSet.html#API_CreateDataSet_RequestSyntax) for details.
+     */
+    declare public readonly useAs: pulumi.Output<string | undefined>;
 
     /**
      * Create a DataSet resource with the given unique name, arguments, and options.
@@ -314,6 +348,7 @@ export class DataSet extends pulumi.CustomResource {
             resourceInputs["rowLevelPermissionTagConfiguration"] = state?.rowLevelPermissionTagConfiguration;
             resourceInputs["tags"] = state?.tags;
             resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["useAs"] = state?.useAs;
         } else {
             const args = argsOrState as DataSetArgs | undefined;
             if (args?.dataSetId === undefined && !opts.urn) {
@@ -338,6 +373,7 @@ export class DataSet extends pulumi.CustomResource {
             resourceInputs["rowLevelPermissionDataSet"] = args?.rowLevelPermissionDataSet;
             resourceInputs["rowLevelPermissionTagConfiguration"] = args?.rowLevelPermissionTagConfiguration;
             resourceInputs["tags"] = args?.tags;
+            resourceInputs["useAs"] = args?.useAs;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["outputColumns"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
@@ -355,6 +391,9 @@ export interface DataSetState {
      * Amazon Resource Name (ARN) of the data set.
      */
     arn?: pulumi.Input<string>;
+    /**
+     * AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
+     */
     awsAccountId?: pulumi.Input<string>;
     /**
      * Groupings of columns that work together in certain Amazon QuickSight features. Currently, only geospatial hierarchy is supported. See column_groups.
@@ -426,12 +465,19 @@ export interface DataSetState {
      * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Specifies the purpose of the data set. The only valid value is `RLS_RULES`, which designates this data set as a Row Level Security (RLS) rules dataset. An RLS rules dataset is used to control access to data at the row level in QuickSight analyses and dashboards. See the [AWS documentation](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_CreateDataSet.html#API_CreateDataSet_RequestSyntax) for details.
+     */
+    useAs?: pulumi.Input<string>;
 }
 
 /**
  * The set of arguments for constructing a DataSet resource.
  */
 export interface DataSetArgs {
+    /**
+     * AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
+     */
     awsAccountId?: pulumi.Input<string>;
     /**
      * Groupings of columns that work together in certain Amazon QuickSight features. Currently, only geospatial hierarchy is supported. See column_groups.
@@ -495,4 +541,8 @@ export interface DataSetArgs {
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Specifies the purpose of the data set. The only valid value is `RLS_RULES`, which designates this data set as a Row Level Security (RLS) rules dataset. An RLS rules dataset is used to control access to data at the row level in QuickSight analyses and dashboards. See the [AWS documentation](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_CreateDataSet.html#API_CreateDataSet_RequestSyntax) for details.
+     */
+    useAs?: pulumi.Input<string>;
 }

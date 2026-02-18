@@ -58,6 +58,7 @@ class ClusterArgs:
         :param pulumi.Input[_builtins.bool] apply_immediately: Whether any cluster modifications are applied immediately, or during the next maintenance window. Default is `false`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] availability_zones: List of EC2 Availability Zones that instances in the Neptune cluster can be created in.
         :param pulumi.Input[_builtins.int] backup_retention_period: Days to retain backups for. Default `1`
+        :param pulumi.Input[_builtins.str] cluster_identifier: Cluster identifier. If omitted, Terraform will assign a random, unique identifier.
         :param pulumi.Input[_builtins.str] cluster_identifier_prefix: Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `cluster_identifier`.
         :param pulumi.Input[_builtins.bool] copy_tags_to_snapshot: If set to true, tags are copied to any snapshot of the DB cluster that is created.
         :param pulumi.Input[_builtins.bool] deletion_protection: Value that indicates whether the DB cluster has deletion protection enabled.The database can't be deleted when deletion protection is enabled. By default, deletion protection is disabled.
@@ -199,6 +200,9 @@ class ClusterArgs:
     @_builtins.property
     @pulumi.getter(name="clusterIdentifier")
     def cluster_identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Cluster identifier. If omitted, Terraform will assign a random, unique identifier.
+        """
         return pulumi.get(self, "cluster_identifier")
 
     @cluster_identifier.setter
@@ -566,6 +570,7 @@ class _ClusterState:
         :param pulumi.Input[_builtins.str] arn: Neptune Cluster ARN
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] availability_zones: List of EC2 Availability Zones that instances in the Neptune cluster can be created in.
         :param pulumi.Input[_builtins.int] backup_retention_period: Days to retain backups for. Default `1`
+        :param pulumi.Input[_builtins.str] cluster_identifier: Cluster identifier. If omitted, Terraform will assign a random, unique identifier.
         :param pulumi.Input[_builtins.str] cluster_identifier_prefix: Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `cluster_identifier`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] cluster_members: List of Neptune Instances that are a part of this cluster
         :param pulumi.Input[_builtins.str] cluster_resource_id: Neptune Cluster Resource ID
@@ -739,6 +744,9 @@ class _ClusterState:
     @_builtins.property
     @pulumi.getter(name="clusterIdentifier")
     def cluster_identifier(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Cluster identifier. If omitted, Terraform will assign a random, unique identifier.
+        """
         return pulumi.get(self, "cluster_identifier")
 
     @cluster_identifier.setter
@@ -1200,7 +1208,7 @@ class Cluster(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import `aws_neptune_cluster` using the cluster identifier. For example:
+        Using `pulumi import`, import `neptune.Cluster` using the cluster identifier. For example:
 
         ```sh
         $ pulumi import aws:neptune/cluster:Cluster example my-cluster
@@ -1212,6 +1220,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] apply_immediately: Whether any cluster modifications are applied immediately, or during the next maintenance window. Default is `false`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] availability_zones: List of EC2 Availability Zones that instances in the Neptune cluster can be created in.
         :param pulumi.Input[_builtins.int] backup_retention_period: Days to retain backups for. Default `1`
+        :param pulumi.Input[_builtins.str] cluster_identifier: Cluster identifier. If omitted, Terraform will assign a random, unique identifier.
         :param pulumi.Input[_builtins.str] cluster_identifier_prefix: Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `cluster_identifier`.
         :param pulumi.Input[_builtins.bool] copy_tags_to_snapshot: If set to true, tags are copied to any snapshot of the DB cluster that is created.
         :param pulumi.Input[_builtins.bool] deletion_protection: Value that indicates whether the DB cluster has deletion protection enabled.The database can't be deleted when deletion protection is enabled. By default, deletion protection is disabled.
@@ -1277,7 +1286,7 @@ class Cluster(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import `aws_neptune_cluster` using the cluster identifier. For example:
+        Using `pulumi import`, import `neptune.Cluster` using the cluster identifier. For example:
 
         ```sh
         $ pulumi import aws:neptune/cluster:Cluster example my-cluster
@@ -1436,6 +1445,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] arn: Neptune Cluster ARN
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] availability_zones: List of EC2 Availability Zones that instances in the Neptune cluster can be created in.
         :param pulumi.Input[_builtins.int] backup_retention_period: Days to retain backups for. Default `1`
+        :param pulumi.Input[_builtins.str] cluster_identifier: Cluster identifier. If omitted, Terraform will assign a random, unique identifier.
         :param pulumi.Input[_builtins.str] cluster_identifier_prefix: Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `cluster_identifier`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] cluster_members: List of Neptune Instances that are a part of this cluster
         :param pulumi.Input[_builtins.str] cluster_resource_id: Neptune Cluster Resource ID
@@ -1556,6 +1566,9 @@ class Cluster(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="clusterIdentifier")
     def cluster_identifier(self) -> pulumi.Output[_builtins.str]:
+        """
+        Cluster identifier. If omitted, Terraform will assign a random, unique identifier.
+        """
         return pulumi.get(self, "cluster_identifier")
 
     @_builtins.property

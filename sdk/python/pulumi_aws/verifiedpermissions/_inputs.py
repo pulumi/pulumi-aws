@@ -47,20 +47,15 @@ __all__ = [
     'SchemaDefinitionArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class IdentitySourceConfigurationArgsDict(TypedDict):
-        cognito_user_pool_configuration: NotRequired[pulumi.Input['IdentitySourceConfigurationCognitoUserPoolConfigurationArgsDict']]
-        """
-        Specifies the configuration details of an Amazon Cognito user pool that Verified Permissions can use as a source of authenticated identities as entities. See Cognito User Pool Configuration below.
-        """
-        open_id_connect_configuration: NotRequired[pulumi.Input['IdentitySourceConfigurationOpenIdConnectConfigurationArgsDict']]
-        """
-        Specifies the configuration details of an OpenID Connect (OIDC) identity provider, or identity source, that Verified Permissions can use to generate entities from authenticated identities. See Open ID Connect Configuration below.
-        """
-elif False:
-    IdentitySourceConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class IdentitySourceConfigurationArgsDict(TypedDict):
+    cognito_user_pool_configuration: NotRequired[pulumi.Input['IdentitySourceConfigurationCognitoUserPoolConfigurationArgsDict']]
+    """
+    Specifies the configuration details of an Amazon Cognito user pool that Verified Permissions can use as a source of authenticated identities as entities. See Cognito User Pool Configuration below.
+    """
+    open_id_connect_configuration: NotRequired[pulumi.Input['IdentitySourceConfigurationOpenIdConnectConfigurationArgsDict']]
+    """
+    Specifies the configuration details of an OpenID Connect (OIDC) identity provider, or identity source, that Verified Permissions can use to generate entities from authenticated identities. See Open ID Connect Configuration below.
+    """
 
 @pulumi.input_type
 class IdentitySourceConfigurationArgs:
@@ -101,22 +96,19 @@ class IdentitySourceConfigurationArgs:
         pulumi.set(self, "open_id_connect_configuration", value)
 
 
-if not MYPY:
-    class IdentitySourceConfigurationCognitoUserPoolConfigurationArgsDict(TypedDict):
-        user_pool_arn: pulumi.Input[_builtins.str]
-        """
-        The Amazon Resource Name (ARN) of the Amazon Cognito user pool that contains the identities to be authorized.
-        """
-        client_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The unique application client IDs that are associated with the specified Amazon Cognito user pool.
-        """
-        group_configuration: NotRequired[pulumi.Input['IdentitySourceConfigurationCognitoUserPoolConfigurationGroupConfigurationArgsDict']]
-        """
-        The type of entity that a policy store maps to groups from an Amazon Cognito user pool identity source. See Group Configuration below.
-        """
-elif False:
-    IdentitySourceConfigurationCognitoUserPoolConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class IdentitySourceConfigurationCognitoUserPoolConfigurationArgsDict(TypedDict):
+    user_pool_arn: pulumi.Input[_builtins.str]
+    """
+    The Amazon Resource Name (ARN) of the Amazon Cognito user pool that contains the identities to be authorized.
+    """
+    client_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The unique application client IDs that are associated with the specified Amazon Cognito user pool.
+    """
+    group_configuration: NotRequired[pulumi.Input['IdentitySourceConfigurationCognitoUserPoolConfigurationGroupConfigurationArgsDict']]
+    """
+    The type of entity that a policy store maps to groups from an Amazon Cognito user pool identity source. See Group Configuration below.
+    """
 
 @pulumi.input_type
 class IdentitySourceConfigurationCognitoUserPoolConfigurationArgs:
@@ -172,14 +164,11 @@ class IdentitySourceConfigurationCognitoUserPoolConfigurationArgs:
         pulumi.set(self, "group_configuration", value)
 
 
-if not MYPY:
-    class IdentitySourceConfigurationCognitoUserPoolConfigurationGroupConfigurationArgsDict(TypedDict):
-        group_entity_type: pulumi.Input[_builtins.str]
-        """
-        The name of the schema entity type that's mapped to the user pool group. Defaults to `AWS::CognitoGroup`.
-        """
-elif False:
-    IdentitySourceConfigurationCognitoUserPoolConfigurationGroupConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class IdentitySourceConfigurationCognitoUserPoolConfigurationGroupConfigurationArgsDict(TypedDict):
+    group_entity_type: pulumi.Input[_builtins.str]
+    """
+    The name of the schema entity type that's mapped to the user pool group. Defaults to `AWS::CognitoGroup`.
+    """
 
 @pulumi.input_type
 class IdentitySourceConfigurationCognitoUserPoolConfigurationGroupConfigurationArgs:
@@ -203,26 +192,23 @@ class IdentitySourceConfigurationCognitoUserPoolConfigurationGroupConfigurationA
         pulumi.set(self, "group_entity_type", value)
 
 
-if not MYPY:
-    class IdentitySourceConfigurationOpenIdConnectConfigurationArgsDict(TypedDict):
-        issuer: pulumi.Input[_builtins.str]
-        """
-        The issuer URL of an OIDC identity provider. This URL must have an OIDC discovery endpoint at the path `.well-known/openid-configuration`.
-        """
-        token_selection: pulumi.Input['IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionArgsDict']
-        """
-        The token type that you want to process from your OIDC identity provider. Your policy store can process either identity (ID) or access tokens from a given OIDC identity source. See Token Selection below.
-        """
-        entity_id_prefix: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A descriptive string that you want to prefix to user entities from your OIDC identity provider.
-        """
-        group_configuration: NotRequired[pulumi.Input['IdentitySourceConfigurationOpenIdConnectConfigurationGroupConfigurationArgsDict']]
-        """
-        The type of entity that a policy store maps to groups from an Amazon Cognito user pool identity source. See Group Configuration below.
-        """
-elif False:
-    IdentitySourceConfigurationOpenIdConnectConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class IdentitySourceConfigurationOpenIdConnectConfigurationArgsDict(TypedDict):
+    issuer: pulumi.Input[_builtins.str]
+    """
+    The issuer URL of an OIDC identity provider. This URL must have an OIDC discovery endpoint at the path `.well-known/openid-configuration`.
+    """
+    token_selection: pulumi.Input['IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionArgsDict']
+    """
+    The token type that you want to process from your OIDC identity provider. Your policy store can process either identity (ID) or access tokens from a given OIDC identity source. See Token Selection below.
+    """
+    entity_id_prefix: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A descriptive string that you want to prefix to user entities from your OIDC identity provider.
+    """
+    group_configuration: NotRequired[pulumi.Input['IdentitySourceConfigurationOpenIdConnectConfigurationGroupConfigurationArgsDict']]
+    """
+    The type of entity that a policy store maps to groups from an Amazon Cognito user pool identity source. See Group Configuration below.
+    """
 
 @pulumi.input_type
 class IdentitySourceConfigurationOpenIdConnectConfigurationArgs:
@@ -293,18 +279,15 @@ class IdentitySourceConfigurationOpenIdConnectConfigurationArgs:
         pulumi.set(self, "group_configuration", value)
 
 
-if not MYPY:
-    class IdentitySourceConfigurationOpenIdConnectConfigurationGroupConfigurationArgsDict(TypedDict):
-        group_claim: pulumi.Input[_builtins.str]
-        """
-        The token claim that you want Verified Permissions to interpret as group membership. For example, `groups`.
-        """
-        group_entity_type: pulumi.Input[_builtins.str]
-        """
-        The name of the schema entity type that's mapped to the user pool group. Defaults to `AWS::CognitoGroup`.
-        """
-elif False:
-    IdentitySourceConfigurationOpenIdConnectConfigurationGroupConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class IdentitySourceConfigurationOpenIdConnectConfigurationGroupConfigurationArgsDict(TypedDict):
+    group_claim: pulumi.Input[_builtins.str]
+    """
+    The token claim that you want Verified Permissions to interpret as group membership. For example, `groups`.
+    """
+    group_entity_type: pulumi.Input[_builtins.str]
+    """
+    The name of the schema entity type that's mapped to the user pool group. Defaults to `AWS::CognitoGroup`.
+    """
 
 @pulumi.input_type
 class IdentitySourceConfigurationOpenIdConnectConfigurationGroupConfigurationArgs:
@@ -343,18 +326,15 @@ class IdentitySourceConfigurationOpenIdConnectConfigurationGroupConfigurationArg
         pulumi.set(self, "group_entity_type", value)
 
 
-if not MYPY:
-    class IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionArgsDict(TypedDict):
-        access_token_only: NotRequired[pulumi.Input['IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionAccessTokenOnlyArgsDict']]
-        """
-        The OIDC configuration for processing access tokens. See Access Token Only below.
-        """
-        identity_token_only: NotRequired[pulumi.Input['IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionIdentityTokenOnlyArgsDict']]
-        """
-        The OIDC configuration for processing identity (ID) tokens. See Identity Token Only below.
-        """
-elif False:
-    IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionArgsDict: TypeAlias = Mapping[str, Any]
+class IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionArgsDict(TypedDict):
+    access_token_only: NotRequired[pulumi.Input['IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionAccessTokenOnlyArgsDict']]
+    """
+    The OIDC configuration for processing access tokens. See Access Token Only below.
+    """
+    identity_token_only: NotRequired[pulumi.Input['IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionIdentityTokenOnlyArgsDict']]
+    """
+    The OIDC configuration for processing identity (ID) tokens. See Identity Token Only below.
+    """
 
 @pulumi.input_type
 class IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionArgs:
@@ -395,18 +375,15 @@ class IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionArgs:
         pulumi.set(self, "identity_token_only", value)
 
 
-if not MYPY:
-    class IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionAccessTokenOnlyArgsDict(TypedDict):
-        audiences: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The access token aud claim values that you want to accept in your policy store.
-        """
-        principal_id_claim: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The claim that determines the principal in OIDC access tokens.
-        """
-elif False:
-    IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionAccessTokenOnlyArgsDict: TypeAlias = Mapping[str, Any]
+class IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionAccessTokenOnlyArgsDict(TypedDict):
+    audiences: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The access token aud claim values that you want to accept in your policy store.
+    """
+    principal_id_claim: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The claim that determines the principal in OIDC access tokens.
+    """
 
 @pulumi.input_type
 class IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionAccessTokenOnlyArgs:
@@ -447,18 +424,15 @@ class IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionAccessT
         pulumi.set(self, "principal_id_claim", value)
 
 
-if not MYPY:
-    class IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionIdentityTokenOnlyArgsDict(TypedDict):
-        client_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The ID token audience, or client ID, claim values that you want to accept in your policy store from an OIDC identity provider.
-        """
-        principal_id_claim: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The claim that determines the principal in OIDC identity tokens.
-        """
-elif False:
-    IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionIdentityTokenOnlyArgsDict: TypeAlias = Mapping[str, Any]
+class IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionIdentityTokenOnlyArgsDict(TypedDict):
+    client_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The ID token audience, or client ID, claim values that you want to accept in your policy store from an OIDC identity provider.
+    """
+    principal_id_claim: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The claim that determines the principal in OIDC identity tokens.
+    """
 
 @pulumi.input_type
 class IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionIdentityTokenOnlyArgs:
@@ -499,18 +473,15 @@ class IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionIdentit
         pulumi.set(self, "principal_id_claim", value)
 
 
-if not MYPY:
-    class PolicyDefinitionArgsDict(TypedDict):
-        static: NotRequired[pulumi.Input['PolicyDefinitionStaticArgsDict']]
-        """
-        The static policy statement. See Static below.
-        """
-        template_linked: NotRequired[pulumi.Input['PolicyDefinitionTemplateLinkedArgsDict']]
-        """
-        The template linked policy. See Template Linked below.
-        """
-elif False:
-    PolicyDefinitionArgsDict: TypeAlias = Mapping[str, Any]
+class PolicyDefinitionArgsDict(TypedDict):
+    static: NotRequired[pulumi.Input['PolicyDefinitionStaticArgsDict']]
+    """
+    The static policy statement. See Static below.
+    """
+    template_linked: NotRequired[pulumi.Input['PolicyDefinitionTemplateLinkedArgsDict']]
+    """
+    The template linked policy. See Template Linked below.
+    """
 
 @pulumi.input_type
 class PolicyDefinitionArgs:
@@ -551,18 +522,15 @@ class PolicyDefinitionArgs:
         pulumi.set(self, "template_linked", value)
 
 
-if not MYPY:
-    class PolicyDefinitionStaticArgsDict(TypedDict):
-        statement: pulumi.Input[_builtins.str]
-        """
-        The statement of the static policy.
-        """
-        description: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The description of the static policy.
-        """
-elif False:
-    PolicyDefinitionStaticArgsDict: TypeAlias = Mapping[str, Any]
+class PolicyDefinitionStaticArgsDict(TypedDict):
+    statement: pulumi.Input[_builtins.str]
+    """
+    The statement of the static policy.
+    """
+    description: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The description of the static policy.
+    """
 
 @pulumi.input_type
 class PolicyDefinitionStaticArgs:
@@ -602,22 +570,19 @@ class PolicyDefinitionStaticArgs:
         pulumi.set(self, "description", value)
 
 
-if not MYPY:
-    class PolicyDefinitionTemplateLinkedArgsDict(TypedDict):
-        policy_template_id: pulumi.Input[_builtins.str]
-        """
-        The ID of the template.
-        """
-        principal: NotRequired[pulumi.Input['PolicyDefinitionTemplateLinkedPrincipalArgsDict']]
-        """
-        The principal of the template linked policy.
-        """
-        resource: NotRequired[pulumi.Input['PolicyDefinitionTemplateLinkedResourceArgsDict']]
-        """
-        The resource of the template linked policy.
-        """
-elif False:
-    PolicyDefinitionTemplateLinkedArgsDict: TypeAlias = Mapping[str, Any]
+class PolicyDefinitionTemplateLinkedArgsDict(TypedDict):
+    policy_template_id: pulumi.Input[_builtins.str]
+    """
+    The ID of the template.
+    """
+    principal: NotRequired[pulumi.Input['PolicyDefinitionTemplateLinkedPrincipalArgsDict']]
+    """
+    The principal of the template linked policy.
+    """
+    resource: NotRequired[pulumi.Input['PolicyDefinitionTemplateLinkedResourceArgsDict']]
+    """
+    The resource of the template linked policy.
+    """
 
 @pulumi.input_type
 class PolicyDefinitionTemplateLinkedArgs:
@@ -673,18 +638,15 @@ class PolicyDefinitionTemplateLinkedArgs:
         pulumi.set(self, "resource", value)
 
 
-if not MYPY:
-    class PolicyDefinitionTemplateLinkedPrincipalArgsDict(TypedDict):
-        entity_id: pulumi.Input[_builtins.str]
-        """
-        The entity ID of the principal.
-        """
-        entity_type: pulumi.Input[_builtins.str]
-        """
-        The entity type of the principal.
-        """
-elif False:
-    PolicyDefinitionTemplateLinkedPrincipalArgsDict: TypeAlias = Mapping[str, Any]
+class PolicyDefinitionTemplateLinkedPrincipalArgsDict(TypedDict):
+    entity_id: pulumi.Input[_builtins.str]
+    """
+    The entity ID of the principal.
+    """
+    entity_type: pulumi.Input[_builtins.str]
+    """
+    The entity type of the principal.
+    """
 
 @pulumi.input_type
 class PolicyDefinitionTemplateLinkedPrincipalArgs:
@@ -723,18 +685,15 @@ class PolicyDefinitionTemplateLinkedPrincipalArgs:
         pulumi.set(self, "entity_type", value)
 
 
-if not MYPY:
-    class PolicyDefinitionTemplateLinkedResourceArgsDict(TypedDict):
-        entity_id: pulumi.Input[_builtins.str]
-        """
-        The entity ID of the resource.
-        """
-        entity_type: pulumi.Input[_builtins.str]
-        """
-        The entity type of the resource.
-        """
-elif False:
-    PolicyDefinitionTemplateLinkedResourceArgsDict: TypeAlias = Mapping[str, Any]
+class PolicyDefinitionTemplateLinkedResourceArgsDict(TypedDict):
+    entity_id: pulumi.Input[_builtins.str]
+    """
+    The entity ID of the resource.
+    """
+    entity_type: pulumi.Input[_builtins.str]
+    """
+    The entity type of the resource.
+    """
 
 @pulumi.input_type
 class PolicyDefinitionTemplateLinkedResourceArgs:
@@ -773,16 +732,13 @@ class PolicyDefinitionTemplateLinkedResourceArgs:
         pulumi.set(self, "entity_type", value)
 
 
-if not MYPY:
-    class PolicyStoreValidationSettingsArgsDict(TypedDict):
-        mode: pulumi.Input[_builtins.str]
-        """
-        The mode for the validation settings. Valid values: `OFF`, `STRICT`.
+class PolicyStoreValidationSettingsArgsDict(TypedDict):
+    mode: pulumi.Input[_builtins.str]
+    """
+    The mode for the validation settings. Valid values: `OFF`, `STRICT`.
 
-        The following arguments are optional:
-        """
-elif False:
-    PolicyStoreValidationSettingsArgsDict: TypeAlias = Mapping[str, Any]
+    The following arguments are optional:
+    """
 
 @pulumi.input_type
 class PolicyStoreValidationSettingsArgs:
@@ -810,14 +766,11 @@ class PolicyStoreValidationSettingsArgs:
         pulumi.set(self, "mode", value)
 
 
-if not MYPY:
-    class SchemaDefinitionArgsDict(TypedDict):
-        value: pulumi.Input[_builtins.str]
-        """
-        A JSON string representation of the schema.
-        """
-elif False:
-    SchemaDefinitionArgsDict: TypeAlias = Mapping[str, Any]
+class SchemaDefinitionArgsDict(TypedDict):
+    value: pulumi.Input[_builtins.str]
+    """
+    A JSON string representation of the schema.
+    """
 
 @pulumi.input_type
 class SchemaDefinitionArgs:

@@ -37,7 +37,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Using `pulumi import`, import CloudWatch Logs destination policies using the `destination_name`. For example:
+ * Using `pulumi import`, import CloudWatch Logs destination policies using the `destinationName`. For example:
  *
  * ```sh
  * $ pulumi import aws:cloudwatch/logDestinationPolicy:LogDestinationPolicy test_destination_policy test_destination

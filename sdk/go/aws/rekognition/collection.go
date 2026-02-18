@@ -45,7 +45,7 @@ import (
 //
 // ## Import
 //
-// Using `pulumi import`, import Rekognition Collection using the `collection_id`. For example:
+// Using `pulumi import`, import Rekognition Collection using the `collectionId`. For example:
 //
 // ```sh
 // $ pulumi import aws:rekognition/collection:Collection example collection-id-12345678

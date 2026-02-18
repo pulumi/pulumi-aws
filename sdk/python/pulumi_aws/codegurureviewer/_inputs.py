@@ -33,20 +33,15 @@ __all__ = [
     'RepositoryAssociationS3RepositoryDetailCodeArtifactArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class RepositoryAssociationKmsKeyDetailsArgsDict(TypedDict):
-        encryption_option: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The encryption option for a repository association. It is either owned by AWS Key Management Service (KMS) (`AWS_OWNED_CMK`) or customer managed (`CUSTOMER_MANAGED_CMK`).
-        """
-        kms_key_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ID of the AWS KMS key that is associated with a repository association.
-        """
-elif False:
-    RepositoryAssociationKmsKeyDetailsArgsDict: TypeAlias = Mapping[str, Any]
+class RepositoryAssociationKmsKeyDetailsArgsDict(TypedDict):
+    encryption_option: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The encryption option for a repository association. It is either owned by AWS Key Management Service (KMS) (`AWS_OWNED_CMK`) or customer managed (`CUSTOMER_MANAGED_CMK`).
+    """
+    kms_key_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ID of the AWS KMS key that is associated with a repository association.
+    """
 
 @pulumi.input_type
 class RepositoryAssociationKmsKeyDetailsArgs:
@@ -87,14 +82,11 @@ class RepositoryAssociationKmsKeyDetailsArgs:
         pulumi.set(self, "kms_key_id", value)
 
 
-if not MYPY:
-    class RepositoryAssociationRepositoryArgsDict(TypedDict):
-        bitbucket: NotRequired[pulumi.Input['RepositoryAssociationRepositoryBitbucketArgsDict']]
-        codecommit: NotRequired[pulumi.Input['RepositoryAssociationRepositoryCodecommitArgsDict']]
-        github_enterprise_server: NotRequired[pulumi.Input['RepositoryAssociationRepositoryGithubEnterpriseServerArgsDict']]
-        s3_bucket: NotRequired[pulumi.Input['RepositoryAssociationRepositoryS3BucketArgsDict']]
-elif False:
-    RepositoryAssociationRepositoryArgsDict: TypeAlias = Mapping[str, Any]
+class RepositoryAssociationRepositoryArgsDict(TypedDict):
+    bitbucket: NotRequired[pulumi.Input['RepositoryAssociationRepositoryBitbucketArgsDict']]
+    codecommit: NotRequired[pulumi.Input['RepositoryAssociationRepositoryCodecommitArgsDict']]
+    github_enterprise_server: NotRequired[pulumi.Input['RepositoryAssociationRepositoryGithubEnterpriseServerArgsDict']]
+    s3_bucket: NotRequired[pulumi.Input['RepositoryAssociationRepositoryS3BucketArgsDict']]
 
 @pulumi.input_type
 class RepositoryAssociationRepositoryArgs:
@@ -149,22 +141,19 @@ class RepositoryAssociationRepositoryArgs:
         pulumi.set(self, "s3_bucket", value)
 
 
-if not MYPY:
-    class RepositoryAssociationRepositoryBitbucketArgsDict(TypedDict):
-        connection_arn: pulumi.Input[_builtins.str]
-        """
-        The Amazon Resource Name (ARN) of an AWS CodeStar Connections connection.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the third party source repository.
-        """
-        owner: pulumi.Input[_builtins.str]
-        """
-        The username for the account that owns the repository.
-        """
-elif False:
-    RepositoryAssociationRepositoryBitbucketArgsDict: TypeAlias = Mapping[str, Any]
+class RepositoryAssociationRepositoryBitbucketArgsDict(TypedDict):
+    connection_arn: pulumi.Input[_builtins.str]
+    """
+    The Amazon Resource Name (ARN) of an AWS CodeStar Connections connection.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the third party source repository.
+    """
+    owner: pulumi.Input[_builtins.str]
+    """
+    The username for the account that owns the repository.
+    """
 
 @pulumi.input_type
 class RepositoryAssociationRepositoryBitbucketArgs:
@@ -218,14 +207,11 @@ class RepositoryAssociationRepositoryBitbucketArgs:
         pulumi.set(self, "owner", value)
 
 
-if not MYPY:
-    class RepositoryAssociationRepositoryCodecommitArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the AWS CodeCommit repository.
-        """
-elif False:
-    RepositoryAssociationRepositoryCodecommitArgsDict: TypeAlias = Mapping[str, Any]
+class RepositoryAssociationRepositoryCodecommitArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the AWS CodeCommit repository.
+    """
 
 @pulumi.input_type
 class RepositoryAssociationRepositoryCodecommitArgs:
@@ -249,22 +235,19 @@ class RepositoryAssociationRepositoryCodecommitArgs:
         pulumi.set(self, "name", value)
 
 
-if not MYPY:
-    class RepositoryAssociationRepositoryGithubEnterpriseServerArgsDict(TypedDict):
-        connection_arn: pulumi.Input[_builtins.str]
-        """
-        The Amazon Resource Name (ARN) of an AWS CodeStar Connections connection.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the third party source repository.
-        """
-        owner: pulumi.Input[_builtins.str]
-        """
-        The username for the account that owns the repository.
-        """
-elif False:
-    RepositoryAssociationRepositoryGithubEnterpriseServerArgsDict: TypeAlias = Mapping[str, Any]
+class RepositoryAssociationRepositoryGithubEnterpriseServerArgsDict(TypedDict):
+    connection_arn: pulumi.Input[_builtins.str]
+    """
+    The Amazon Resource Name (ARN) of an AWS CodeStar Connections connection.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the third party source repository.
+    """
+    owner: pulumi.Input[_builtins.str]
+    """
+    The username for the account that owns the repository.
+    """
 
 @pulumi.input_type
 class RepositoryAssociationRepositoryGithubEnterpriseServerArgs:
@@ -318,18 +301,15 @@ class RepositoryAssociationRepositoryGithubEnterpriseServerArgs:
         pulumi.set(self, "owner", value)
 
 
-if not MYPY:
-    class RepositoryAssociationRepositoryS3BucketArgsDict(TypedDict):
-        bucket_name: pulumi.Input[_builtins.str]
-        """
-        The name of the S3 bucket used for associating a new S3 repository. Note: The name must begin with `codeguru-reviewer-`.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the repository in the S3 bucket.
-        """
-elif False:
-    RepositoryAssociationRepositoryS3BucketArgsDict: TypeAlias = Mapping[str, Any]
+class RepositoryAssociationRepositoryS3BucketArgsDict(TypedDict):
+    bucket_name: pulumi.Input[_builtins.str]
+    """
+    The name of the S3 bucket used for associating a new S3 repository. Note: The name must begin with `codeguru-reviewer-`.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the repository in the S3 bucket.
+    """
 
 @pulumi.input_type
 class RepositoryAssociationRepositoryS3BucketArgs:
@@ -368,15 +348,12 @@ class RepositoryAssociationRepositoryS3BucketArgs:
         pulumi.set(self, "name", value)
 
 
-if not MYPY:
-    class RepositoryAssociationS3RepositoryDetailArgsDict(TypedDict):
-        bucket_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the S3 bucket used for associating a new S3 repository. Note: The name must begin with `codeguru-reviewer-`.
-        """
-        code_artifacts: NotRequired[pulumi.Input[Sequence[pulumi.Input['RepositoryAssociationS3RepositoryDetailCodeArtifactArgsDict']]]]
-elif False:
-    RepositoryAssociationS3RepositoryDetailArgsDict: TypeAlias = Mapping[str, Any]
+class RepositoryAssociationS3RepositoryDetailArgsDict(TypedDict):
+    bucket_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the S3 bucket used for associating a new S3 repository. Note: The name must begin with `codeguru-reviewer-`.
+    """
+    code_artifacts: NotRequired[pulumi.Input[Sequence[pulumi.Input['RepositoryAssociationS3RepositoryDetailCodeArtifactArgsDict']]]]
 
 @pulumi.input_type
 class RepositoryAssociationS3RepositoryDetailArgs:
@@ -413,12 +390,9 @@ class RepositoryAssociationS3RepositoryDetailArgs:
         pulumi.set(self, "code_artifacts", value)
 
 
-if not MYPY:
-    class RepositoryAssociationS3RepositoryDetailCodeArtifactArgsDict(TypedDict):
-        build_artifacts_object_key: NotRequired[pulumi.Input[_builtins.str]]
-        source_code_artifacts_object_key: NotRequired[pulumi.Input[_builtins.str]]
-elif False:
-    RepositoryAssociationS3RepositoryDetailCodeArtifactArgsDict: TypeAlias = Mapping[str, Any]
+class RepositoryAssociationS3RepositoryDetailCodeArtifactArgsDict(TypedDict):
+    build_artifacts_object_key: NotRequired[pulumi.Input[_builtins.str]]
+    source_code_artifacts_object_key: NotRequired[pulumi.Input[_builtins.str]]
 
 @pulumi.input_type
 class RepositoryAssociationS3RepositoryDetailCodeArtifactArgs:

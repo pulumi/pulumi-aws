@@ -17,22 +17,30 @@ public final class CapacityProviderCapacityProviderScalingConfigArgs extends com
 
     public static final CapacityProviderCapacityProviderScalingConfigArgs Empty = new CapacityProviderCapacityProviderScalingConfigArgs();
 
+    /**
+     * The maximum number of VCPUs for the Capacity Provider.
+     * 
+     */
     @Import(name="maxVcpuCount", required=true)
     private Output<Integer> maxVcpuCount;
 
+    /**
+     * @return The maximum number of VCPUs for the Capacity Provider.
+     * 
+     */
     public Output<Integer> maxVcpuCount() {
         return this.maxVcpuCount;
     }
 
     /**
-     * The scaling mode for the Capacity Provider. Valid values are `AUTO` and `MANUAL`. Defaults to `AUTO`.
+     * The scaling mode for the Capacity Provider. Valid values are `&#34;Auto&#34;` and `&#34;Manual&#34;`. Defaults to `&#34;Auto&#34;`.
      * 
      */
     @Import(name="scalingMode", required=true)
     private Output<String> scalingMode;
 
     /**
-     * @return The scaling mode for the Capacity Provider. Valid values are `AUTO` and `MANUAL`. Defaults to `AUTO`.
+     * @return The scaling mode for the Capacity Provider. Valid values are `&#34;Auto&#34;` and `&#34;Manual&#34;`. Defaults to `&#34;Auto&#34;`.
      * 
      */
     public Output<String> scalingMode() {
@@ -40,14 +48,14 @@ public final class CapacityProviderCapacityProviderScalingConfigArgs extends com
     }
 
     /**
-     * List of scaling policies. See Scaling Policies below.
+     * List of scaling policies. Only required if `scalingMode` is set to `&#34;Manual&#34;`. See Scaling Policies below.
      * 
      */
     @Import(name="scalingPolicies", required=true)
     private Output<List<CapacityProviderCapacityProviderScalingConfigScalingPolicyArgs>> scalingPolicies;
 
     /**
-     * @return List of scaling policies. See Scaling Policies below.
+     * @return List of scaling policies. Only required if `scalingMode` is set to `&#34;Manual&#34;`. See Scaling Policies below.
      * 
      */
     public Output<List<CapacityProviderCapacityProviderScalingConfigScalingPolicyArgs>> scalingPolicies() {
@@ -80,17 +88,29 @@ public final class CapacityProviderCapacityProviderScalingConfigArgs extends com
             $ = new CapacityProviderCapacityProviderScalingConfigArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param maxVcpuCount The maximum number of VCPUs for the Capacity Provider.
+         * 
+         * @return builder
+         * 
+         */
         public Builder maxVcpuCount(Output<Integer> maxVcpuCount) {
             $.maxVcpuCount = maxVcpuCount;
             return this;
         }
 
+        /**
+         * @param maxVcpuCount The maximum number of VCPUs for the Capacity Provider.
+         * 
+         * @return builder
+         * 
+         */
         public Builder maxVcpuCount(Integer maxVcpuCount) {
             return maxVcpuCount(Output.of(maxVcpuCount));
         }
 
         /**
-         * @param scalingMode The scaling mode for the Capacity Provider. Valid values are `AUTO` and `MANUAL`. Defaults to `AUTO`.
+         * @param scalingMode The scaling mode for the Capacity Provider. Valid values are `&#34;Auto&#34;` and `&#34;Manual&#34;`. Defaults to `&#34;Auto&#34;`.
          * 
          * @return builder
          * 
@@ -101,7 +121,7 @@ public final class CapacityProviderCapacityProviderScalingConfigArgs extends com
         }
 
         /**
-         * @param scalingMode The scaling mode for the Capacity Provider. Valid values are `AUTO` and `MANUAL`. Defaults to `AUTO`.
+         * @param scalingMode The scaling mode for the Capacity Provider. Valid values are `&#34;Auto&#34;` and `&#34;Manual&#34;`. Defaults to `&#34;Auto&#34;`.
          * 
          * @return builder
          * 
@@ -111,7 +131,7 @@ public final class CapacityProviderCapacityProviderScalingConfigArgs extends com
         }
 
         /**
-         * @param scalingPolicies List of scaling policies. See Scaling Policies below.
+         * @param scalingPolicies List of scaling policies. Only required if `scalingMode` is set to `&#34;Manual&#34;`. See Scaling Policies below.
          * 
          * @return builder
          * 
@@ -122,7 +142,7 @@ public final class CapacityProviderCapacityProviderScalingConfigArgs extends com
         }
 
         /**
-         * @param scalingPolicies List of scaling policies. See Scaling Policies below.
+         * @param scalingPolicies List of scaling policies. Only required if `scalingMode` is set to `&#34;Manual&#34;`. See Scaling Policies below.
          * 
          * @return builder
          * 
@@ -132,7 +152,7 @@ public final class CapacityProviderCapacityProviderScalingConfigArgs extends com
         }
 
         /**
-         * @param scalingPolicies List of scaling policies. See Scaling Policies below.
+         * @param scalingPolicies List of scaling policies. Only required if `scalingMode` is set to `&#34;Manual&#34;`. See Scaling Policies below.
          * 
          * @return builder
          * 

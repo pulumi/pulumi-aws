@@ -79,7 +79,7 @@ import (
 //
 // ## Import
 //
-// Using `pulumi import`, import `aws_ec2_instance_state` using the `instance_id` attribute. For example:
+// Using `pulumi import`, import `ec2transitgateway.InstanceState` using the `instanceId` attribute. For example:
 //
 // ```sh
 // $ pulumi import aws:ec2transitgateway/instanceState:InstanceState test i-02cae6557dfcf2f96

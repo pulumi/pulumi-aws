@@ -8,6 +8,10 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
+ * Manages an AWS Bedrock AgentCore API Key Credential Provider. API Key credential providers enable secure authentication with external services that use API key-based authentication for agent runtimes.
+ *
+ * > **Note:** Write-Only argument `apiKeyWo` is available to use in place of `apiKey`. Write-Only arguments are supported in HashiCorp Terraform 1.11.0 and later. Learn more.
+ *
  * ## Example Usage
  *
  * ### Basic Usage

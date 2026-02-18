@@ -19,26 +19,21 @@ __all__ = [
     'LanguageModelInputDataConfigArgsDict',
 ]
 
-MYPY = False
+class LanguageModelInputDataConfigArgsDict(TypedDict):
+    data_access_role_arn: pulumi.Input[_builtins.str]
+    """
+    IAM role with access to S3 bucket.
+    """
+    s3_uri: pulumi.Input[_builtins.str]
+    """
+    S3 URI where training data is located.
+    """
+    tuning_data_s3_uri: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    S3 URI where tuning data is located.
 
-if not MYPY:
-    class LanguageModelInputDataConfigArgsDict(TypedDict):
-        data_access_role_arn: pulumi.Input[_builtins.str]
-        """
-        IAM role with access to S3 bucket.
-        """
-        s3_uri: pulumi.Input[_builtins.str]
-        """
-        S3 URI where training data is located.
-        """
-        tuning_data_s3_uri: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        S3 URI where tuning data is located.
-
-        The following arguments are optional:
-        """
-elif False:
-    LanguageModelInputDataConfigArgsDict: TypeAlias = Mapping[str, Any]
+    The following arguments are optional:
+    """
 
 @pulumi.input_type
 class LanguageModelInputDataConfigArgs:

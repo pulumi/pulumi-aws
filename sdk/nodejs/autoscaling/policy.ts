@@ -189,7 +189,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Using `pulumi import`, import AutoScaling scaling policy using the role autoscaling_group_name and name separated by `/`. For example:
+ * Using `pulumi import`, import AutoScaling scaling policy using the role autoscalingGroupName and name separated by `/`. For example:
  *
  * ```sh
  * $ pulumi import aws:autoscaling/policy:Policy test-policy asg-name/policy-name

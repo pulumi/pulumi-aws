@@ -38,7 +38,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Using `pulumi import`, import EKS Capability using the `cluster_name` and `capability_name` separated by a comma (`,`). For example:
+ * Using `pulumi import`, import EKS Capability using the `clusterName` and `capabilityName` separated by a comma (`,`). For example:
  *
  * ```sh
  * $ pulumi import aws:eks/capability:Capability example my-cluster,my-capability

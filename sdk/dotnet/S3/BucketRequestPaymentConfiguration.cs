@@ -37,16 +37,17 @@ namespace Pulumi.Aws.S3
     /// 
     /// ## Import
     /// 
-    /// If the owner (account ID) of the source bucket differs from the account used to configure the AWS Provider, import using the `bucket` and `expected_bucket_owner` separated by a comma (`,`):
+    /// If the owner (account ID) of the source bucket differs from the account used to configure the AWS Provider, import using the `Bucket` and `ExpectedBucketOwner` separated by a comma (`,`):
     /// 
-    /// __Using `pulumi import` to import__ S3 bucket request payment configuration using the `bucket` or using the `bucket` and `expected_bucket_owner` separated by a comma (`,`). For example:
+    /// **Using `pulumi import` to import** S3 bucket request payment configuration using the `Bucket` or using the `Bucket` and `ExpectedBucketOwner` separated by a comma (`,`). For example:
     /// 
-    /// If the owner (account ID) of the source bucket is the same account used to configure the AWS Provider, import using the `bucket`:
+    /// If the owner (account ID) of the source bucket is the same account used to configure the AWS Provider, import using the `Bucket`:
     /// 
     /// ```sh
     /// $ pulumi import aws:s3/bucketRequestPaymentConfiguration:BucketRequestPaymentConfiguration example bucket-name
     /// ```
-    /// If the owner (account ID) of the source bucket differs from the account used to configure the AWS Provider, import using the `bucket` and `expected_bucket_owner` separated by a comma (`,`):
+    /// 
+    /// If the owner (account ID) of the source bucket differs from the account used to configure the AWS Provider, import using the `Bucket` and `ExpectedBucketOwner` separated by a comma (`,`):
     /// 
     /// ```sh
     /// $ pulumi import aws:s3/bucketRequestPaymentConfiguration:BucketRequestPaymentConfiguration example bucket-name,123456789012

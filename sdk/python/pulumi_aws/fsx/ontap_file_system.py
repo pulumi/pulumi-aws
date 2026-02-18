@@ -854,7 +854,15 @@ class OntapFileSystem(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:fsx/ontapFileSystem:OntapFileSystem example fs-543ab12b1ca672f33
         ```
+
         Certain resource arguments, like `security_group_ids`, do not have a FSx API method for reading the information after creation. If the argument is set in the Pulumi program on an imported resource, Pulumi will always show a difference. To workaround this behavior, either omit the argument from the Pulumi program or use `ignore_changes` to hide the difference. For example:
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.fsx.OntapFileSystem("example", security_group_ids=[example_aws_security_group["id"]])
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -956,7 +964,15 @@ class OntapFileSystem(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:fsx/ontapFileSystem:OntapFileSystem example fs-543ab12b1ca672f33
         ```
+
         Certain resource arguments, like `security_group_ids`, do not have a FSx API method for reading the information after creation. If the argument is set in the Pulumi program on an imported resource, Pulumi will always show a difference. To workaround this behavior, either omit the argument from the Pulumi program or use `ignore_changes` to hide the difference. For example:
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.fsx.OntapFileSystem("example", security_group_ids=[example_aws_security_group["id"]])
+        ```
 
         :param str resource_name: The name of the resource.
         :param OntapFileSystemArgs args: The arguments to use to populate this resource's properties.

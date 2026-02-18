@@ -24,7 +24,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Using `pulumi import`, import Redshift Serverless Endpoint Access using the `endpoint_name`. For example:
+ * Using `pulumi import`, import Redshift Serverless Endpoint Access using the `endpointName`. For example:
  *
  * ```sh
  * $ pulumi import aws:redshiftserverless/endpointAccess:EndpointAccess example example

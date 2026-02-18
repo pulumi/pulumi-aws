@@ -37,7 +37,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Using `pulumi import`, import endpoints using the `endpoint_id`. For example:
+ * Using `pulumi import`, import endpoints using the `endpointId`. For example:
  *
  * ```sh
  * $ pulumi import aws:dms/endpoint:Endpoint test test-dms-endpoint-tf
@@ -133,6 +133,9 @@ export class Endpoint extends pulumi.CustomResource {
      * Password to be used to login to the endpoint database.
      */
     declare public readonly password: pulumi.Output<string | undefined>;
+    /**
+     * Whether to pause associated running replication tasks, regardless if they are managed by Terraform, prior to modifying the endpoint. Only tasks paused by the resource will be restarted after the modification completes. Default is `false`.
+     */
     declare public readonly pauseReplicationTasks: pulumi.Output<boolean | undefined>;
     /**
      * Port used by the endpoint database.
@@ -342,6 +345,9 @@ export interface EndpointState {
      * Password to be used to login to the endpoint database.
      */
     password?: pulumi.Input<string>;
+    /**
+     * Whether to pause associated running replication tasks, regardless if they are managed by Terraform, prior to modifying the endpoint. Only tasks paused by the resource will be restarted after the modification completes. Default is `false`.
+     */
     pauseReplicationTasks?: pulumi.Input<boolean>;
     /**
      * Port used by the endpoint database.
@@ -458,6 +464,9 @@ export interface EndpointArgs {
      * Password to be used to login to the endpoint database.
      */
     password?: pulumi.Input<string>;
+    /**
+     * Whether to pause associated running replication tasks, regardless if they are managed by Terraform, prior to modifying the endpoint. Only tasks paused by the resource will be restarted after the modification completes. Default is `false`.
+     */
     pauseReplicationTasks?: pulumi.Input<boolean>;
     /**
      * Port used by the endpoint database.

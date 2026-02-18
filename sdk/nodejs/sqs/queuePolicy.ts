@@ -112,6 +112,9 @@ export class QueuePolicy extends pulumi.CustomResource {
         return obj['__pulumiType'] === QueuePolicy.__pulumiType;
     }
 
+    /**
+     * JSON policy for the SQS queue. For more information about building AWS IAM policy documents with Terraform, see the AWS IAM Policy Document Guide. Ensure that `Version = "2012-10-17"` is set in the policy or AWS may hang in creating the queue.
+     */
     declare public readonly policy: pulumi.Output<string>;
     /**
      * URL of the SQS Queue to which to attach the policy.
@@ -159,6 +162,9 @@ export class QueuePolicy extends pulumi.CustomResource {
  * Input properties used for looking up and filtering QueuePolicy resources.
  */
 export interface QueuePolicyState {
+    /**
+     * JSON policy for the SQS queue. For more information about building AWS IAM policy documents with Terraform, see the AWS IAM Policy Document Guide. Ensure that `Version = "2012-10-17"` is set in the policy or AWS may hang in creating the queue.
+     */
     policy?: pulumi.Input<string | inputs.sqs.PolicyDocument>;
     /**
      * URL of the SQS Queue to which to attach the policy.
@@ -174,6 +180,9 @@ export interface QueuePolicyState {
  * The set of arguments for constructing a QueuePolicy resource.
  */
 export interface QueuePolicyArgs {
+    /**
+     * JSON policy for the SQS queue. For more information about building AWS IAM policy documents with Terraform, see the AWS IAM Policy Document Guide. Ensure that `Version = "2012-10-17"` is set in the policy or AWS may hang in creating the queue.
+     */
     policy: pulumi.Input<string | inputs.sqs.PolicyDocument>;
     /**
      * URL of the SQS Queue to which to attach the policy.

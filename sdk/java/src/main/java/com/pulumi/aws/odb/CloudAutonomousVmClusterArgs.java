@@ -23,53 +23,77 @@ public final class CloudAutonomousVmClusterArgs extends com.pulumi.resources.Res
 
     public static final CloudAutonomousVmClusterArgs Empty = new CloudAutonomousVmClusterArgs();
 
+    /**
+     * The data storage size allocated for Autonomous Databases in the Autonomous VM cluster, in TB. Changing this will force terraform to create new resource.
+     * 
+     */
     @Import(name="autonomousDataStorageSizeInTbs", required=true)
     private Output<Double> autonomousDataStorageSizeInTbs;
 
+    /**
+     * @return The data storage size allocated for Autonomous Databases in the Autonomous VM cluster, in TB. Changing this will force terraform to create new resource.
+     * 
+     */
     public Output<Double> autonomousDataStorageSizeInTbs() {
         return this.autonomousDataStorageSizeInTbs;
     }
 
     /**
-     * The unique identifier of the Exadata infrastructure for this VM cluster. Changing this will create a new resource.
+     * Exadata infrastructure ARN. Changing this will force Terraform to create a new resource. Either the combination of `cloudExadataInfrastructureId` and `odbNetworkId` or `cloudExadataInfrastructureArn` and `odbNetworkArn` must be used.
      * 
      */
     @Import(name="cloudExadataInfrastructureArn")
     private @Nullable Output<String> cloudExadataInfrastructureArn;
 
     /**
-     * @return The unique identifier of the Exadata infrastructure for this VM cluster. Changing this will create a new resource.
+     * @return Exadata infrastructure ARN. Changing this will force Terraform to create a new resource. Either the combination of `cloudExadataInfrastructureId` and `odbNetworkId` or `cloudExadataInfrastructureArn` and `odbNetworkArn` must be used.
      * 
      */
     public Optional<Output<String>> cloudExadataInfrastructureArn() {
         return Optional.ofNullable(this.cloudExadataInfrastructureArn);
     }
 
+    /**
+     * Exadata infrastructure id. Changing this will force Terraform to create a new resource. Either the combination of `cloudExadataInfrastructureId` and `odbNetworkId` or `cloudExadataInfrastructureArn` and `odbNetworkArn` must be used.
+     * 
+     */
     @Import(name="cloudExadataInfrastructureId")
     private @Nullable Output<String> cloudExadataInfrastructureId;
 
+    /**
+     * @return Exadata infrastructure id. Changing this will force Terraform to create a new resource. Either the combination of `cloudExadataInfrastructureId` and `odbNetworkId` or `cloudExadataInfrastructureArn` and `odbNetworkArn` must be used.
+     * 
+     */
     public Optional<Output<String>> cloudExadataInfrastructureId() {
         return Optional.ofNullable(this.cloudExadataInfrastructureId);
     }
 
     /**
-     * The number of CPU cores enabled per node in the Autonomous VM cluster.
+     * The number of CPU cores enabled per node in the Autonomous VM cluster. Changing this will force terraform to create new resource.
      * 
      */
     @Import(name="cpuCoreCountPerNode", required=true)
     private Output<Integer> cpuCoreCountPerNode;
 
     /**
-     * @return The number of CPU cores enabled per node in the Autonomous VM cluster.
+     * @return The number of CPU cores enabled per node in the Autonomous VM cluster. Changing this will force terraform to create new resource.
      * 
      */
     public Output<Integer> cpuCoreCountPerNode() {
         return this.cpuCoreCountPerNode;
     }
 
+    /**
+     * The database servers in the Autonomous VM cluster. Changing this will force terraform to create new resource.
+     * 
+     */
     @Import(name="dbServers", required=true)
     private Output<List<String>> dbServers;
 
+    /**
+     * @return The database servers in the Autonomous VM cluster. Changing this will force terraform to create new resource.
+     * 
+     */
     public Output<List<String>> dbServers() {
         return this.dbServers;
     }
@@ -89,67 +113,111 @@ public final class CloudAutonomousVmClusterArgs extends com.pulumi.resources.Res
         return Optional.ofNullable(this.description);
     }
 
+    /**
+     * The display name of the Autonomous VM cluster. Changing this will force terraform to create new resource.
+     * 
+     */
     @Import(name="displayName", required=true)
     private Output<String> displayName;
 
+    /**
+     * @return The display name of the Autonomous VM cluster. Changing this will force terraform to create new resource.
+     * 
+     */
     public Output<String> displayName() {
         return this.displayName;
     }
 
+    /**
+     * Indicates whether mutual TLS (mTLS) authentication is enabled for the Autonomous VM cluster. Changing this will force terraform to create new resource.
+     * 
+     */
     @Import(name="isMtlsEnabledVmCluster")
     private @Nullable Output<Boolean> isMtlsEnabledVmCluster;
 
+    /**
+     * @return Indicates whether mutual TLS (mTLS) authentication is enabled for the Autonomous VM cluster. Changing this will force terraform to create new resource.
+     * 
+     */
     public Optional<Output<Boolean>> isMtlsEnabledVmCluster() {
         return Optional.ofNullable(this.isMtlsEnabledVmCluster);
     }
 
+    /**
+     * The license model for the Autonomous VM cluster. Valid values are LICENSE_INCLUDED or BRING_YOUR_OWN_LICENSE. Changing this will force terraform to create new resource.
+     * 
+     */
     @Import(name="licenseModel")
     private @Nullable Output<String> licenseModel;
 
+    /**
+     * @return The license model for the Autonomous VM cluster. Valid values are LICENSE_INCLUDED or BRING_YOUR_OWN_LICENSE. Changing this will force terraform to create new resource.
+     * 
+     */
     public Optional<Output<String>> licenseModel() {
         return Optional.ofNullable(this.licenseModel);
     }
 
     /**
-     * The maintenance window of the Autonomous VM cluster.
+     * The maintenance window of the Autonomous VM cluster. Changing this will force terraform to create new resource.
+     * 
+     * The following arguments are optional:
      * 
      */
     @Import(name="maintenanceWindow", required=true)
     private Output<CloudAutonomousVmClusterMaintenanceWindowArgs> maintenanceWindow;
 
     /**
-     * @return The maintenance window of the Autonomous VM cluster.
+     * @return The maintenance window of the Autonomous VM cluster. Changing this will force terraform to create new resource.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<CloudAutonomousVmClusterMaintenanceWindowArgs> maintenanceWindow() {
         return this.maintenanceWindow;
     }
 
+    /**
+     * The amount of memory allocated per Oracle Compute Unit, in GB. Changing this will force terraform to create new resource.
+     * 
+     */
     @Import(name="memoryPerOracleComputeUnitInGbs", required=true)
     private Output<Integer> memoryPerOracleComputeUnitInGbs;
 
+    /**
+     * @return The amount of memory allocated per Oracle Compute Unit, in GB. Changing this will force terraform to create new resource.
+     * 
+     */
     public Output<Integer> memoryPerOracleComputeUnitInGbs() {
         return this.memoryPerOracleComputeUnitInGbs;
     }
 
     /**
-     * The unique identifier of the ODB network for the VM cluster. This member is required. Changing this will create a new resource.
+     * ARN of the ODB network associated with this Autonomous VM Cluster. Changing this will force Terraform to create a new resource. Either the combination of `cloudExadataInfrastructureId` and `odbNetworkId` or `cloudExadataInfrastructureArn` and `odbNetworkArn` must be used.
      * 
      */
     @Import(name="odbNetworkArn")
     private @Nullable Output<String> odbNetworkArn;
 
     /**
-     * @return The unique identifier of the ODB network for the VM cluster. This member is required. Changing this will create a new resource.
+     * @return ARN of the ODB network associated with this Autonomous VM Cluster. Changing this will force Terraform to create a new resource. Either the combination of `cloudExadataInfrastructureId` and `odbNetworkId` or `cloudExadataInfrastructureArn` and `odbNetworkArn` must be used.
      * 
      */
     public Optional<Output<String>> odbNetworkArn() {
         return Optional.ofNullable(this.odbNetworkArn);
     }
 
+    /**
+     * Unique identifier of the ODB network associated with this Autonomous VM Cluster. Changing this will force Terraform to create a new resource. Changing this will create a new resource. Either the combination of `cloudExadataInfrastructureId` and `odbNetworkId` or `cloudExadataInfrastructureArn` and `odbNetworkArn` must be used.
+     * 
+     */
     @Import(name="odbNetworkId")
     private @Nullable Output<String> odbNetworkId;
 
+    /**
+     * @return Unique identifier of the ODB network associated with this Autonomous VM Cluster. Changing this will force Terraform to create a new resource. Changing this will create a new resource. Either the combination of `cloudExadataInfrastructureId` and `odbNetworkId` or `cloudExadataInfrastructureArn` and `odbNetworkArn` must be used.
+     * 
+     */
     public Optional<Output<String>> odbNetworkId() {
         return Optional.ofNullable(this.odbNetworkId);
     }
@@ -169,16 +237,32 @@ public final class CloudAutonomousVmClusterArgs extends com.pulumi.resources.Res
         return Optional.ofNullable(this.region);
     }
 
+    /**
+     * The SCAN listener port for non-TLS (TCP) protocol. The default is 1521. Changing this will force terraform to create new resource.
+     * 
+     */
     @Import(name="scanListenerPortNonTls", required=true)
     private Output<Integer> scanListenerPortNonTls;
 
+    /**
+     * @return The SCAN listener port for non-TLS (TCP) protocol. The default is 1521. Changing this will force terraform to create new resource.
+     * 
+     */
     public Output<Integer> scanListenerPortNonTls() {
         return this.scanListenerPortNonTls;
     }
 
+    /**
+     * The SCAN listener port for TLS (TCP) protocol. The default is 2484. Changing this will force terraform to create new resource.
+     * 
+     */
     @Import(name="scanListenerPortTls", required=true)
     private Output<Integer> scanListenerPortTls;
 
+    /**
+     * @return The SCAN listener port for TLS (TCP) protocol. The default is 2484. Changing this will force terraform to create new resource.
+     * 
+     */
     public Output<Integer> scanListenerPortTls() {
         return this.scanListenerPortTls;
     }
@@ -198,9 +282,17 @@ public final class CloudAutonomousVmClusterArgs extends com.pulumi.resources.Res
         return Optional.ofNullable(this.tags);
     }
 
+    /**
+     * The time zone of the Autonomous VM cluster. Changing this will force terraform to create new resource.
+     * 
+     */
     @Import(name="timeZone")
     private @Nullable Output<String> timeZone;
 
+    /**
+     * @return The time zone of the Autonomous VM cluster. Changing this will force terraform to create new resource.
+     * 
+     */
     public Optional<Output<String>> timeZone() {
         return Optional.ofNullable(this.timeZone);
     }
@@ -212,9 +304,17 @@ public final class CloudAutonomousVmClusterArgs extends com.pulumi.resources.Res
         return Optional.ofNullable(this.timeouts);
     }
 
+    /**
+     * The total number of Autonomous Container Databases that can be created with the allocated local storage. Changing this will force terraform to create new resource.
+     * 
+     */
     @Import(name="totalContainerDatabases", required=true)
     private Output<Integer> totalContainerDatabases;
 
+    /**
+     * @return The total number of Autonomous Container Databases that can be created with the allocated local storage. Changing this will force terraform to create new resource.
+     * 
+     */
     public Output<Integer> totalContainerDatabases() {
         return this.totalContainerDatabases;
     }
@@ -262,17 +362,29 @@ public final class CloudAutonomousVmClusterArgs extends com.pulumi.resources.Res
             $ = new CloudAutonomousVmClusterArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param autonomousDataStorageSizeInTbs The data storage size allocated for Autonomous Databases in the Autonomous VM cluster, in TB. Changing this will force terraform to create new resource.
+         * 
+         * @return builder
+         * 
+         */
         public Builder autonomousDataStorageSizeInTbs(Output<Double> autonomousDataStorageSizeInTbs) {
             $.autonomousDataStorageSizeInTbs = autonomousDataStorageSizeInTbs;
             return this;
         }
 
+        /**
+         * @param autonomousDataStorageSizeInTbs The data storage size allocated for Autonomous Databases in the Autonomous VM cluster, in TB. Changing this will force terraform to create new resource.
+         * 
+         * @return builder
+         * 
+         */
         public Builder autonomousDataStorageSizeInTbs(Double autonomousDataStorageSizeInTbs) {
             return autonomousDataStorageSizeInTbs(Output.of(autonomousDataStorageSizeInTbs));
         }
 
         /**
-         * @param cloudExadataInfrastructureArn The unique identifier of the Exadata infrastructure for this VM cluster. Changing this will create a new resource.
+         * @param cloudExadataInfrastructureArn Exadata infrastructure ARN. Changing this will force Terraform to create a new resource. Either the combination of `cloudExadataInfrastructureId` and `odbNetworkId` or `cloudExadataInfrastructureArn` and `odbNetworkArn` must be used.
          * 
          * @return builder
          * 
@@ -283,7 +395,7 @@ public final class CloudAutonomousVmClusterArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param cloudExadataInfrastructureArn The unique identifier of the Exadata infrastructure for this VM cluster. Changing this will create a new resource.
+         * @param cloudExadataInfrastructureArn Exadata infrastructure ARN. Changing this will force Terraform to create a new resource. Either the combination of `cloudExadataInfrastructureId` and `odbNetworkId` or `cloudExadataInfrastructureArn` and `odbNetworkArn` must be used.
          * 
          * @return builder
          * 
@@ -292,17 +404,29 @@ public final class CloudAutonomousVmClusterArgs extends com.pulumi.resources.Res
             return cloudExadataInfrastructureArn(Output.of(cloudExadataInfrastructureArn));
         }
 
+        /**
+         * @param cloudExadataInfrastructureId Exadata infrastructure id. Changing this will force Terraform to create a new resource. Either the combination of `cloudExadataInfrastructureId` and `odbNetworkId` or `cloudExadataInfrastructureArn` and `odbNetworkArn` must be used.
+         * 
+         * @return builder
+         * 
+         */
         public Builder cloudExadataInfrastructureId(@Nullable Output<String> cloudExadataInfrastructureId) {
             $.cloudExadataInfrastructureId = cloudExadataInfrastructureId;
             return this;
         }
 
+        /**
+         * @param cloudExadataInfrastructureId Exadata infrastructure id. Changing this will force Terraform to create a new resource. Either the combination of `cloudExadataInfrastructureId` and `odbNetworkId` or `cloudExadataInfrastructureArn` and `odbNetworkArn` must be used.
+         * 
+         * @return builder
+         * 
+         */
         public Builder cloudExadataInfrastructureId(String cloudExadataInfrastructureId) {
             return cloudExadataInfrastructureId(Output.of(cloudExadataInfrastructureId));
         }
 
         /**
-         * @param cpuCoreCountPerNode The number of CPU cores enabled per node in the Autonomous VM cluster.
+         * @param cpuCoreCountPerNode The number of CPU cores enabled per node in the Autonomous VM cluster. Changing this will force terraform to create new resource.
          * 
          * @return builder
          * 
@@ -313,7 +437,7 @@ public final class CloudAutonomousVmClusterArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param cpuCoreCountPerNode The number of CPU cores enabled per node in the Autonomous VM cluster.
+         * @param cpuCoreCountPerNode The number of CPU cores enabled per node in the Autonomous VM cluster. Changing this will force terraform to create new resource.
          * 
          * @return builder
          * 
@@ -322,15 +446,33 @@ public final class CloudAutonomousVmClusterArgs extends com.pulumi.resources.Res
             return cpuCoreCountPerNode(Output.of(cpuCoreCountPerNode));
         }
 
+        /**
+         * @param dbServers The database servers in the Autonomous VM cluster. Changing this will force terraform to create new resource.
+         * 
+         * @return builder
+         * 
+         */
         public Builder dbServers(Output<List<String>> dbServers) {
             $.dbServers = dbServers;
             return this;
         }
 
+        /**
+         * @param dbServers The database servers in the Autonomous VM cluster. Changing this will force terraform to create new resource.
+         * 
+         * @return builder
+         * 
+         */
         public Builder dbServers(List<String> dbServers) {
             return dbServers(Output.of(dbServers));
         }
 
+        /**
+         * @param dbServers The database servers in the Autonomous VM cluster. Changing this will force terraform to create new resource.
+         * 
+         * @return builder
+         * 
+         */
         public Builder dbServers(String... dbServers) {
             return dbServers(List.of(dbServers));
         }
@@ -356,35 +498,73 @@ public final class CloudAutonomousVmClusterArgs extends com.pulumi.resources.Res
             return description(Output.of(description));
         }
 
+        /**
+         * @param displayName The display name of the Autonomous VM cluster. Changing this will force terraform to create new resource.
+         * 
+         * @return builder
+         * 
+         */
         public Builder displayName(Output<String> displayName) {
             $.displayName = displayName;
             return this;
         }
 
+        /**
+         * @param displayName The display name of the Autonomous VM cluster. Changing this will force terraform to create new resource.
+         * 
+         * @return builder
+         * 
+         */
         public Builder displayName(String displayName) {
             return displayName(Output.of(displayName));
         }
 
+        /**
+         * @param isMtlsEnabledVmCluster Indicates whether mutual TLS (mTLS) authentication is enabled for the Autonomous VM cluster. Changing this will force terraform to create new resource.
+         * 
+         * @return builder
+         * 
+         */
         public Builder isMtlsEnabledVmCluster(@Nullable Output<Boolean> isMtlsEnabledVmCluster) {
             $.isMtlsEnabledVmCluster = isMtlsEnabledVmCluster;
             return this;
         }
 
+        /**
+         * @param isMtlsEnabledVmCluster Indicates whether mutual TLS (mTLS) authentication is enabled for the Autonomous VM cluster. Changing this will force terraform to create new resource.
+         * 
+         * @return builder
+         * 
+         */
         public Builder isMtlsEnabledVmCluster(Boolean isMtlsEnabledVmCluster) {
             return isMtlsEnabledVmCluster(Output.of(isMtlsEnabledVmCluster));
         }
 
+        /**
+         * @param licenseModel The license model for the Autonomous VM cluster. Valid values are LICENSE_INCLUDED or BRING_YOUR_OWN_LICENSE. Changing this will force terraform to create new resource.
+         * 
+         * @return builder
+         * 
+         */
         public Builder licenseModel(@Nullable Output<String> licenseModel) {
             $.licenseModel = licenseModel;
             return this;
         }
 
+        /**
+         * @param licenseModel The license model for the Autonomous VM cluster. Valid values are LICENSE_INCLUDED or BRING_YOUR_OWN_LICENSE. Changing this will force terraform to create new resource.
+         * 
+         * @return builder
+         * 
+         */
         public Builder licenseModel(String licenseModel) {
             return licenseModel(Output.of(licenseModel));
         }
 
         /**
-         * @param maintenanceWindow The maintenance window of the Autonomous VM cluster.
+         * @param maintenanceWindow The maintenance window of the Autonomous VM cluster. Changing this will force terraform to create new resource.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -395,7 +575,9 @@ public final class CloudAutonomousVmClusterArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param maintenanceWindow The maintenance window of the Autonomous VM cluster.
+         * @param maintenanceWindow The maintenance window of the Autonomous VM cluster. Changing this will force terraform to create new resource.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -404,17 +586,29 @@ public final class CloudAutonomousVmClusterArgs extends com.pulumi.resources.Res
             return maintenanceWindow(Output.of(maintenanceWindow));
         }
 
+        /**
+         * @param memoryPerOracleComputeUnitInGbs The amount of memory allocated per Oracle Compute Unit, in GB. Changing this will force terraform to create new resource.
+         * 
+         * @return builder
+         * 
+         */
         public Builder memoryPerOracleComputeUnitInGbs(Output<Integer> memoryPerOracleComputeUnitInGbs) {
             $.memoryPerOracleComputeUnitInGbs = memoryPerOracleComputeUnitInGbs;
             return this;
         }
 
+        /**
+         * @param memoryPerOracleComputeUnitInGbs The amount of memory allocated per Oracle Compute Unit, in GB. Changing this will force terraform to create new resource.
+         * 
+         * @return builder
+         * 
+         */
         public Builder memoryPerOracleComputeUnitInGbs(Integer memoryPerOracleComputeUnitInGbs) {
             return memoryPerOracleComputeUnitInGbs(Output.of(memoryPerOracleComputeUnitInGbs));
         }
 
         /**
-         * @param odbNetworkArn The unique identifier of the ODB network for the VM cluster. This member is required. Changing this will create a new resource.
+         * @param odbNetworkArn ARN of the ODB network associated with this Autonomous VM Cluster. Changing this will force Terraform to create a new resource. Either the combination of `cloudExadataInfrastructureId` and `odbNetworkId` or `cloudExadataInfrastructureArn` and `odbNetworkArn` must be used.
          * 
          * @return builder
          * 
@@ -425,7 +619,7 @@ public final class CloudAutonomousVmClusterArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param odbNetworkArn The unique identifier of the ODB network for the VM cluster. This member is required. Changing this will create a new resource.
+         * @param odbNetworkArn ARN of the ODB network associated with this Autonomous VM Cluster. Changing this will force Terraform to create a new resource. Either the combination of `cloudExadataInfrastructureId` and `odbNetworkId` or `cloudExadataInfrastructureArn` and `odbNetworkArn` must be used.
          * 
          * @return builder
          * 
@@ -434,11 +628,23 @@ public final class CloudAutonomousVmClusterArgs extends com.pulumi.resources.Res
             return odbNetworkArn(Output.of(odbNetworkArn));
         }
 
+        /**
+         * @param odbNetworkId Unique identifier of the ODB network associated with this Autonomous VM Cluster. Changing this will force Terraform to create a new resource. Changing this will create a new resource. Either the combination of `cloudExadataInfrastructureId` and `odbNetworkId` or `cloudExadataInfrastructureArn` and `odbNetworkArn` must be used.
+         * 
+         * @return builder
+         * 
+         */
         public Builder odbNetworkId(@Nullable Output<String> odbNetworkId) {
             $.odbNetworkId = odbNetworkId;
             return this;
         }
 
+        /**
+         * @param odbNetworkId Unique identifier of the ODB network associated with this Autonomous VM Cluster. Changing this will force Terraform to create a new resource. Changing this will create a new resource. Either the combination of `cloudExadataInfrastructureId` and `odbNetworkId` or `cloudExadataInfrastructureArn` and `odbNetworkArn` must be used.
+         * 
+         * @return builder
+         * 
+         */
         public Builder odbNetworkId(String odbNetworkId) {
             return odbNetworkId(Output.of(odbNetworkId));
         }
@@ -464,20 +670,44 @@ public final class CloudAutonomousVmClusterArgs extends com.pulumi.resources.Res
             return region(Output.of(region));
         }
 
+        /**
+         * @param scanListenerPortNonTls The SCAN listener port for non-TLS (TCP) protocol. The default is 1521. Changing this will force terraform to create new resource.
+         * 
+         * @return builder
+         * 
+         */
         public Builder scanListenerPortNonTls(Output<Integer> scanListenerPortNonTls) {
             $.scanListenerPortNonTls = scanListenerPortNonTls;
             return this;
         }
 
+        /**
+         * @param scanListenerPortNonTls The SCAN listener port for non-TLS (TCP) protocol. The default is 1521. Changing this will force terraform to create new resource.
+         * 
+         * @return builder
+         * 
+         */
         public Builder scanListenerPortNonTls(Integer scanListenerPortNonTls) {
             return scanListenerPortNonTls(Output.of(scanListenerPortNonTls));
         }
 
+        /**
+         * @param scanListenerPortTls The SCAN listener port for TLS (TCP) protocol. The default is 2484. Changing this will force terraform to create new resource.
+         * 
+         * @return builder
+         * 
+         */
         public Builder scanListenerPortTls(Output<Integer> scanListenerPortTls) {
             $.scanListenerPortTls = scanListenerPortTls;
             return this;
         }
 
+        /**
+         * @param scanListenerPortTls The SCAN listener port for TLS (TCP) protocol. The default is 2484. Changing this will force terraform to create new resource.
+         * 
+         * @return builder
+         * 
+         */
         public Builder scanListenerPortTls(Integer scanListenerPortTls) {
             return scanListenerPortTls(Output.of(scanListenerPortTls));
         }
@@ -503,11 +733,23 @@ public final class CloudAutonomousVmClusterArgs extends com.pulumi.resources.Res
             return tags(Output.of(tags));
         }
 
+        /**
+         * @param timeZone The time zone of the Autonomous VM cluster. Changing this will force terraform to create new resource.
+         * 
+         * @return builder
+         * 
+         */
         public Builder timeZone(@Nullable Output<String> timeZone) {
             $.timeZone = timeZone;
             return this;
         }
 
+        /**
+         * @param timeZone The time zone of the Autonomous VM cluster. Changing this will force terraform to create new resource.
+         * 
+         * @return builder
+         * 
+         */
         public Builder timeZone(String timeZone) {
             return timeZone(Output.of(timeZone));
         }
@@ -521,11 +763,23 @@ public final class CloudAutonomousVmClusterArgs extends com.pulumi.resources.Res
             return timeouts(Output.of(timeouts));
         }
 
+        /**
+         * @param totalContainerDatabases The total number of Autonomous Container Databases that can be created with the allocated local storage. Changing this will force terraform to create new resource.
+         * 
+         * @return builder
+         * 
+         */
         public Builder totalContainerDatabases(Output<Integer> totalContainerDatabases) {
             $.totalContainerDatabases = totalContainerDatabases;
             return this;
         }
 
+        /**
+         * @param totalContainerDatabases The total number of Autonomous Container Databases that can be created with the allocated local storage. Changing this will force terraform to create new resource.
+         * 
+         * @return builder
+         * 
+         */
         public Builder totalContainerDatabases(Integer totalContainerDatabases) {
             return totalContainerDatabases(Output.of(totalContainerDatabases));
         }

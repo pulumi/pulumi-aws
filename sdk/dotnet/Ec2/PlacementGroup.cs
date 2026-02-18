@@ -34,7 +34,7 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import placement groups using the `name`. For example:
+    /// Using `pulumi import`, import placement groups using the `Name`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:ec2/placementGroup:PlacementGroup prod_pg production-placement-group

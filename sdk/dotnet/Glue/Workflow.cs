@@ -73,7 +73,7 @@ namespace Pulumi.Aws.Glue
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import Glue Workflows using `name`. For example:
+    /// Using `pulumi import`, import Glue Workflows using `Name`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:glue/workflow:Workflow MyWorkflow MyWorkflow

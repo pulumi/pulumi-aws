@@ -49,7 +49,7 @@ namespace Pulumi.Aws.Neptune
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import `aws_neptune_cluster` using the cluster identifier. For example:
+    /// Using `pulumi import`, import `aws.neptune.Cluster` using the cluster identifier. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:neptune/cluster:Cluster example my-cluster
@@ -88,6 +88,9 @@ namespace Pulumi.Aws.Neptune
         [Output("backupRetentionPeriod")]
         public Output<int?> BackupRetentionPeriod { get; private set; } = null!;
 
+        /// <summary>
+        /// Cluster identifier. If omitted, Terraform will assign a random, unique identifier.
+        /// </summary>
         [Output("clusterIdentifier")]
         public Output<string> ClusterIdentifier { get; private set; } = null!;
 
@@ -359,6 +362,9 @@ namespace Pulumi.Aws.Neptune
         [Input("backupRetentionPeriod")]
         public Input<int>? BackupRetentionPeriod { get; set; }
 
+        /// <summary>
+        /// Cluster identifier. If omitted, Terraform will assign a random, unique identifier.
+        /// </summary>
         [Input("clusterIdentifier")]
         public Input<string>? ClusterIdentifier { get; set; }
 
@@ -586,6 +592,9 @@ namespace Pulumi.Aws.Neptune
         [Input("backupRetentionPeriod")]
         public Input<int>? BackupRetentionPeriod { get; set; }
 
+        /// <summary>
+        /// Cluster identifier. If omitted, Terraform will assign a random, unique identifier.
+        /// </summary>
         [Input("clusterIdentifier")]
         public Input<string>? ClusterIdentifier { get; set; }
 

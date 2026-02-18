@@ -10,6 +10,8 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Route53Domains
 {
     /// <summary>
+    /// Provides a resource to manage a domain. This resource registers, renews and deregisters a domain name. If a domain name's lifecycle is managed outside of Terraform use the `aws.route53domains.RegisteredDomain` resource instead.
+    /// 
     /// ## Example Usage
     /// 
     /// ```csharp
@@ -80,7 +82,7 @@ namespace Pulumi.Aws.Route53Domains
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import domains using the `domain_name`. For example:
+    /// Using `pulumi import`, import domains using the `DomainName`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:route53domains/domain:Domain example example.com

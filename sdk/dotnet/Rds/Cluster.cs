@@ -290,7 +290,7 @@ namespace Pulumi.Aws.Rds
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import RDS Clusters using the `cluster_identifier`. For example:
+    /// Using `pulumi import`, import RDS Clusters using the `ClusterIdentifier`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:rds/cluster:Cluster aurora_cluster aurora-prod-cluster

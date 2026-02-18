@@ -8,6 +8,8 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
+ * Provides a Terraform data source for managing a Contacts Rotation in AWS Systems Manager Incident Manager
+ *
  * ## Example Usage
  *
  * ### Basic Usage
@@ -76,6 +78,8 @@ export interface GetContactsRotationResult {
     readonly timeZoneId: string;
 }
 /**
+ * Provides a Terraform data source for managing a Contacts Rotation in AWS Systems Manager Incident Manager
+ *
  * ## Example Usage
  *
  * ### Basic Usage

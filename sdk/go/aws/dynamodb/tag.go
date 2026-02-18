@@ -79,7 +79,7 @@ import (
 //
 // ## Import
 //
-// Using `pulumi import`, import `aws_dynamodb_tag` using the DynamoDB resource identifier and key, separated by a comma (`,`). For example:
+// Using `pulumi import`, import `dynamodb.Tag` using the DynamoDB resource identifier and key, separated by a comma (`,`). For example:
 //
 // ```sh
 // $ pulumi import aws:dynamodb/tag:Tag example arn:aws:dynamodb:us-east-1:123456789012:table/example,Name

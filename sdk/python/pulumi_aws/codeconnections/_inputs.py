@@ -23,24 +23,19 @@ __all__ = [
     'HostVpcConfigurationArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class ConnectionTimeoutsArgsDict(TypedDict):
-        create: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
-        """
-        delete: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
-        """
-        update: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
-        """
-elif False:
-    ConnectionTimeoutsArgsDict: TypeAlias = Mapping[str, Any]
+class ConnectionTimeoutsArgsDict(TypedDict):
+    create: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+    """
+    delete: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+    """
+    update: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+    """
 
 @pulumi.input_type
 class ConnectionTimeoutsArgs:
@@ -97,22 +92,19 @@ class ConnectionTimeoutsArgs:
         pulumi.set(self, "update", value)
 
 
-if not MYPY:
-    class HostTimeoutsArgsDict(TypedDict):
-        create: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
-        """
-        delete: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
-        """
-        update: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
-        """
-elif False:
-    HostTimeoutsArgsDict: TypeAlias = Mapping[str, Any]
+class HostTimeoutsArgsDict(TypedDict):
+    create: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+    """
+    delete: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+    """
+    update: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+    """
 
 @pulumi.input_type
 class HostTimeoutsArgs:
@@ -169,26 +161,23 @@ class HostTimeoutsArgs:
         pulumi.set(self, "update", value)
 
 
-if not MYPY:
-    class HostVpcConfigurationArgsDict(TypedDict):
-        security_group_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        ID of the security group or security groups associated with the Amazon VPC connected to the infrastructure where your provider type is installed.
-        """
-        subnet_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        The ID of the subnet or subnets associated with the Amazon VPC connected to the infrastructure where your provider type is installed.
-        """
-        vpc_id: pulumi.Input[_builtins.str]
-        """
-        The ID of the Amazon VPC connected to the infrastructure where your provider type is installed.
-        """
-        tls_certificate: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The value of the Transport Layer Security (TLS) certificate associated with the infrastructure where your provider type is installed.
-        """
-elif False:
-    HostVpcConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class HostVpcConfigurationArgsDict(TypedDict):
+    security_group_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    ID of the security group or security groups associated with the Amazon VPC connected to the infrastructure where your provider type is installed.
+    """
+    subnet_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    The ID of the subnet or subnets associated with the Amazon VPC connected to the infrastructure where your provider type is installed.
+    """
+    vpc_id: pulumi.Input[_builtins.str]
+    """
+    The ID of the Amazon VPC connected to the infrastructure where your provider type is installed.
+    """
+    tls_certificate: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The value of the Transport Layer Security (TLS) certificate associated with the infrastructure where your provider type is installed.
+    """
 
 @pulumi.input_type
 class HostVpcConfigurationArgs:

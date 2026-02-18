@@ -34,7 +34,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Using `pulumi import`, import KMS Key Policies using the `key_id`. For example:
+ * Using `pulumi import`, import KMS Key Policies using the `keyId`. For example:
  *
  * ```sh
  * $ pulumi import aws:kms/keyPolicy:KeyPolicy a 1234abcd-12ab-34cd-56ef-1234567890ab

@@ -424,7 +424,7 @@ class SiteToSiteVpnAttachment(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import `aws_networkmanager_site_to_site_vpn_attachment` using the attachment ID. For example:
+        Using `pulumi import`, import `networkmanager.SiteToSiteVpnAttachment` using the attachment ID. For example:
 
         ```sh
         $ pulumi import aws:networkmanager/siteToSiteVpnAttachment:SiteToSiteVpnAttachment example attachment-0f8fa60d2238d1bd8
@@ -532,7 +532,7 @@ class SiteToSiteVpnAttachment(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import `aws_networkmanager_site_to_site_vpn_attachment` using the attachment ID. For example:
+        Using `pulumi import`, import `networkmanager.SiteToSiteVpnAttachment` using the attachment ID. For example:
 
         ```sh
         $ pulumi import aws:networkmanager/siteToSiteVpnAttachment:SiteToSiteVpnAttachment example attachment-0f8fa60d2238d1bd8

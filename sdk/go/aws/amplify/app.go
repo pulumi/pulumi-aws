@@ -319,6 +319,7 @@ import (
 // ```sh
 // $ pulumi import aws:amplify/app:App example d2ypk4k47z8u6
 // ```
+//
 // App ID can be obtained from App ARN (e.g., `arn:aws:amplify:us-east-1:12345678:apps/d2ypk4k47z8u6`).
 type App struct {
 	pulumi.CustomResourceState

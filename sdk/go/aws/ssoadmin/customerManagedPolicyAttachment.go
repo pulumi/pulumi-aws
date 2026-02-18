@@ -89,7 +89,7 @@ import (
 //
 // ## Import
 //
-// Using `pulumi import`, import SSO Managed Policy Attachments using the `name`, `path`, `permission_set_arn`, and `instance_arn` separated by a comma (`,`). For example:
+// Using `pulumi import`, import SSO Managed Policy Attachments using the `name`, `path`, `permissionSetArn`, and `instanceArn` separated by a comma (`,`). For example:
 //
 // ```sh
 // $ pulumi import aws:ssoadmin/customerManagedPolicyAttachment:CustomerManagedPolicyAttachment example TestPolicy,/,arn:aws:sso:::permissionSet/ssoins-2938j0x8920sbj72/ps-80383020jr9302rk,arn:aws:sso:::instance/ssoins-2938j0x8920sbj72

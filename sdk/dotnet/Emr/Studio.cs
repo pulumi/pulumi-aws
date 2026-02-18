@@ -43,7 +43,7 @@ namespace Pulumi.Aws.Emr
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import EMR studios using the `id`. For example:
+    /// Using `pulumi import`, import EMR studios using the `Id`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:emr/studio:Studio studio es-123456ABCDEF

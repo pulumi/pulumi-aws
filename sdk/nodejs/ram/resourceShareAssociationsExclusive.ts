@@ -5,9 +5,119 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
+ * Resource for maintaining exclusive management of principal and resource associations for an AWS RAM (Resource Access Manager) Resource Share.
+ *
+ * !> This resource takes exclusive ownership over principal and resource associations for a resource share. This includes removal of principals and resources which are not explicitly configured.
+ *
+ * > Destruction of this resource will disassociate all configured principals and resources from the resource share.
+ *
+ * > **NOTE:** This resource cannot be used in conjunction with `aws.ram.PrincipalAssociation` or `aws.ram.ResourceAssociation` for the same resource share. Using them together will cause persistent drift and conflicts.
+ *
+ * ## Example Usage
+ *
+ * ### Basic Usage with Principals
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.ram.ResourceShare("example", {
+ *     name: "example",
+ *     allowExternalPrincipals: true,
+ * });
+ * const exampleVpc = new aws.ec2.Vpc("example", {cidrBlock: "10.0.0.0/16"});
+ * const exampleSubnet = new aws.ec2.Subnet("example", {
+ *     vpcId: exampleVpc.id,
+ *     cidrBlock: "10.0.1.0/24",
+ * });
+ * const exampleResourceShareAssociationsExclusive = new aws.ram.ResourceShareAssociationsExclusive("example", {
+ *     resourceShareArn: example.arn,
+ *     principals: [
+ *         "111111111111",
+ *         "222222222222",
+ *     ],
+ *     resourceArns: [exampleSubnet.arn],
+ * });
+ * ```
+ *
+ * ### With Organization Principal
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * import * as std from "@pulumi/std";
+ *
+ * const example = new aws.ram.ResourceShare("example", {name: "example"});
+ * const exampleVpc = new aws.ec2.Vpc("example", {cidrBlock: "10.0.0.0/16"});
+ * const exampleSubnet: aws.ec2.Subnet[] = [];
+ * for (const range = {value: 0}; range.value < 2; range.value++) {
+ *     exampleSubnet.push(new aws.ec2.Subnet(`example-${range.value}`, {
+ *         vpcId: exampleVpc.id,
+ *         cidrBlock: exampleVpc.cidrBlock.apply(cidrBlock => std.cidrsubnetOutput({
+ *             input: cidrBlock,
+ *             newbits: 8,
+ *             netnum: range.value,
+ *         })).apply(invoke => invoke.result),
+ *     }));
+ * }
+ * const exampleResourceShareAssociationsExclusive = new aws.ram.ResourceShareAssociationsExclusive("example", {
+ *     resourceShareArn: example.arn,
+ *     principals: [exampleAwsOrganizationsOrganization.arn],
+ *     resourceArns: exampleSubnet.map(__item => __item.arn),
+ * });
+ * ```
+ *
+ * ### With Service Principals
+ *
+ * When sharing resources with AWS services, use service principals. Service principals follow the pattern `service-id.amazonaws.com` (e.g., `pca-connector-ad.amazonaws.com`, `elasticmapreduce.amazonaws.com`). The `sources` argument can be used to restrict which AWS accounts the service can access the shared resources from.
+ *
+ * > **NOTE:** Service principals cannot be mixed with other principal types (AWS account IDs, organization ARNs, OU ARNs, IAM role ARNs, or IAM user ARNs) in the same resource.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.ram.ResourceShare("example", {
+ *     name: "example-service-share",
+ *     allowExternalPrincipals: true,
+ * });
+ * const exampleCertificateAuthority = new aws.acmpca.CertificateAuthority("example", {
+ *     type: "ROOT",
+ *     certificateAuthorityConfiguration: {
+ *         keyAlgorithm: "RSA_4096",
+ *         signingAlgorithm: "SHA512WITHRSA",
+ *         subject: {
+ *             commonName: "example.com",
+ *         },
+ *     },
+ * });
+ * const exampleResourceShareAssociationsExclusive = new aws.ram.ResourceShareAssociationsExclusive("example", {
+ *     resourceShareArn: example.arn,
+ *     principals: ["pca-connector-ad.amazonaws.com"],
+ *     resourceArns: [exampleCertificateAuthority.arn],
+ *     sources: [
+ *         "111111111111",
+ *         "222222222222",
+ *     ],
+ * });
+ * ```
+ *
+ * ### Disallow All Associations
+ *
+ * To automatically remove any configured associations, omit the `principals` and `resourceArns` arguments or set them to empty lists.
+ *
+ * > This will not **prevent** associations from being created via Terraform (or any other interface). This resource enables bringing associations into a configured state, however, this reconciliation happens only when `apply` is proactively run.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.ram.ResourceShareAssociationsExclusive("example", {resourceShareArn: exampleAwsRamResourceShare.arn});
+ * ```
+ *
  * ## Import
  *
- * Using `pulumi import`, import RAM Resource Share Association Exclusive using the `resource_share_arn`. For example:
+ * Using `pulumi import`, import RAM Resource Share Association Exclusive using the `resourceShareArn`. For example:
  *
  * ```sh
  * $ pulumi import aws:ram/resourceShareAssociationsExclusive:ResourceShareAssociationsExclusive example arn:aws:ram:eu-west-1:123456789012:resource-share/73da1ab9-b94a-4ba3-8eb4-45917f7f4b12

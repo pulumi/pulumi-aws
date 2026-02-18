@@ -108,11 +108,9 @@ import (
 //			exampleSelfSignedCert, err := tls.NewSelfSignedCert(ctx, "example", &tls.SelfSignedCertArgs{
 //				KeyAlgorithm:  "RSA",
 //				PrivateKeyPem: example.PrivateKeyPem,
-//				Subject: tls.SelfSignedCertSubjectArgs{
-//					map[string]interface{}{
-//						"commonName":   "example.com",
-//						"organization": "ACME Examples, Inc",
-//					},
+//				Subject: &tls.SelfSignedCertSubjectArgs{
+//					CommonName:   pulumi.String("example.com"),
+//					Organization: pulumi.String("ACME Examples, Inc"),
 //				},
 //				ValidityPeriodHours: pulumi.Int(12),
 //				AllowedUses: pulumi.StringArray{
@@ -151,7 +149,9 @@ import (
 //
 // Using `pulumi import`, import certificates using their ARN. For example:
 //
-// % pulumi import aws_acm_certificate.example arn:aws:acm:eu-central-1:123456789012:certificate/7e7a28d2-163f-4b8f-b9cd-822f96c08d6a
+// ```sh
+// $ pulumi import aws:acm/certificate:Certificate example arn:aws:acm:eu-central-1:123456789012:certificate/7e7a28d2-163f-4b8f-b9cd-822f96c08d6a
+// ```
 type Certificate struct {
 	pulumi.CustomResourceState
 

@@ -108,7 +108,7 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import VPCs using the VPC `id`. For example:
+    /// Using `pulumi import`, import VPCs using the VPC `Id`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:ec2/vpc:Vpc test_vpc vpc-a01106c2

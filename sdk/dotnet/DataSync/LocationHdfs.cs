@@ -91,11 +91,13 @@ namespace Pulumi.Aws.DataSync
     /// 
     /// #### Required
     /// 
-    /// - `arn` (String) Amazon Resource Name (ARN) of the DataSync HDFS location.
+    /// - `Arn` (String) Amazon Resource Name (ARN) of the DataSync HDFS location.
     /// 
-    /// Using `pulumi import`, import `aws_datasync_location_hdfs` using the Amazon Resource Name (ARN). For example:
+    /// Using `pulumi import`, import `aws.datasync.LocationHdfs` using the Amazon Resource Name (ARN). For example:
     /// 
-    /// % pulumi import aws_datasync_location_hdfs.example arn:aws:datasync:us-east-1:123456789012:location/loc-12345678901234567
+    /// ```sh
+    /// $ pulumi import aws:datasync/locationHdfs:LocationHdfs example arn:aws:datasync:us-east-1:123456789012:location/loc-12345678901234567
+    /// ```
     /// </summary>
     [AwsResourceType("aws:datasync/locationHdfs:LocationHdfs")]
     public partial class LocationHdfs : global::Pulumi.CustomResource

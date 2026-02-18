@@ -50,7 +50,7 @@ namespace Pulumi.Aws.CostOptimizationHub
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import Cost Optimization Hub Preferences using the `id`. For example:
+    /// Using `pulumi import`, import Cost Optimization Hub Preferences using the `Id`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:costoptimizationhub/preferences:Preferences example 111222333444

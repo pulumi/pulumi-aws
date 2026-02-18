@@ -30,6 +30,38 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
+ * ### Manual Scaling with Specific Instance Types
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.lambda.CapacityProvider("example", {
+ *     name: "example",
+ *     vpcConfig: {
+ *         subnetIds: exampleAwsSubnet.map(__item => __item.id),
+ *         securityGroupIds: [exampleAwsSecurityGroup.id],
+ *     },
+ *     permissionsConfig: {
+ *         capacityProviderOperatorRoleArn: exampleAwsIamRole.arn,
+ *     },
+ *     instanceRequirements: [{
+ *         architectures: ["x86_64"],
+ *         allowedInstanceTypes: [
+ *             "c6i.2xlarge",
+ *             "c7i.2xlarge",
+ *         ],
+ *     }],
+ *     capacityProviderScalingConfigs: [{
+ *         scalingMode: "Manual",
+ *         scalingPolicies: [{
+ *             predefinedMetricType: "LambdaCapacityProviderAverageCPUUtilization",
+ *             targetValue: 50,
+ *         }],
+ *     }],
+ * });
+ * ```
+ *
  * ## Import
  *
  * Using `pulumi import`, import Lambda Capacity Provider using the `name`. For example:
@@ -70,6 +102,9 @@ export class CapacityProvider extends pulumi.CustomResource {
      * ARN of the Capacity Provider.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
+    /**
+     * Configuration block for scaling policy settings. See Capacity Provider Scaling Config below.
+     */
     declare public readonly capacityProviderScalingConfigs: pulumi.Output<outputs.lambda.CapacityProviderCapacityProviderScalingConfig[]>;
     /**
      * Configuration block for instance requirements settings. See Instance Requirements below.
@@ -161,6 +196,9 @@ export interface CapacityProviderState {
      * ARN of the Capacity Provider.
      */
     arn?: pulumi.Input<string>;
+    /**
+     * Configuration block for scaling policy settings. See Capacity Provider Scaling Config below.
+     */
     capacityProviderScalingConfigs?: pulumi.Input<pulumi.Input<inputs.lambda.CapacityProviderCapacityProviderScalingConfig>[]>;
     /**
      * Configuration block for instance requirements settings. See Instance Requirements below.
@@ -200,6 +238,9 @@ export interface CapacityProviderState {
  * The set of arguments for constructing a CapacityProvider resource.
  */
 export interface CapacityProviderArgs {
+    /**
+     * Configuration block for scaling policy settings. See Capacity Provider Scaling Config below.
+     */
     capacityProviderScalingConfigs?: pulumi.Input<pulumi.Input<inputs.lambda.CapacityProviderCapacityProviderScalingConfig>[]>;
     /**
      * Configuration block for instance requirements settings. See Instance Requirements below.

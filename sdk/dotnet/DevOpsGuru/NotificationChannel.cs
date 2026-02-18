@@ -69,7 +69,7 @@ namespace Pulumi.Aws.DevOpsGuru
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import DevOps Guru Notification Channel using the `id`. For example:
+    /// Using `pulumi import`, import DevOps Guru Notification Channel using the `Id`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:devopsguru/notificationChannel:NotificationChannel example id-12345678

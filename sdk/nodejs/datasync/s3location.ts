@@ -52,9 +52,11 @@ import * as utilities from "../utilities";
  *
  * - `arn` (String) Amazon Resource Name (ARN) of the DataSync S3 location.
  *
- * Using `pulumi import`, import `aws_datasync_location_s3` using the DataSync Task Amazon Resource Name (ARN). For example:
+ * Using `pulumi import`, import `aws.datasync.S3Location` using the DataSync Task Amazon Resource Name (ARN). For example:
  *
- * % pulumi import aws_datasync_location_s3.example arn:aws:datasync:us-east-1:123456789012:location/loc-12345678901234567
+ * ```sh
+ * $ pulumi import aws:datasync/s3Location:S3Location example arn:aws:datasync:us-east-1:123456789012:location/loc-12345678901234567
+ * ```
  */
 export class S3Location extends pulumi.CustomResource {
     /**

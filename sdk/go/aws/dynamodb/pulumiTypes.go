@@ -1308,10 +1308,11 @@ func (o TableExportIncrementalExportSpecificationPtrOutput) ExportViewType() pul
 }
 
 type TableGlobalSecondaryIndex struct {
-	// and `hashKeys` are `mutually exclusive`, but one is `required`. Refer to [AWS SDK Documentation](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GSI.DesignPattern.MultiAttributeKeys.html)
+	// Name of the hash key in the index; must be defined as an attribute in the resource. Mutually exclusive with `keySchema`. Use `keySchema` instead.
 	//
 	// Deprecated: hash_key is deprecated. Use keySchema instead.
-	HashKey    *string                              `pulumi:"hashKey"`
+	HashKey *string `pulumi:"hashKey"`
+	// Configuration block(s) for the key schema. Mutually exclusive with `hashKey` and `rangeKey`. Required if `hashKey` is not specified. Supports multi-attribute keys for the [Multi-Attribute Keys design pattern](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GSI.DesignPattern.MultiAttributeKeys.html). See below.
 	KeySchemas []TableGlobalSecondaryIndexKeySchema `pulumi:"keySchemas"`
 	// Name of the index.
 	Name string `pulumi:"name"`
@@ -1319,9 +1320,9 @@ type TableGlobalSecondaryIndex struct {
 	NonKeyAttributes []string `pulumi:"nonKeyAttributes"`
 	// Sets the maximum number of read and write units for the specified on-demand index. See below.
 	OnDemandThroughput *TableGlobalSecondaryIndexOnDemandThroughput `pulumi:"onDemandThroughput"`
-	// One of `ALL`, `INCLUDE` or `KEYS_ONLY` where `ALL` projects every attribute into the index, `KEYS_ONLY` projects  into the index only the table and index hashKey and sortKey attributes ,  `INCLUDE` projects into the index all of the attributes that are defined in `nonKeyAttributes` in addition to the attributes that that`KEYS_ONLY` project.
+	// One of `ALL`, `INCLUDE` or `KEYS_ONLY` where `ALL` projects every attribute into the index, `KEYS_ONLY` projects into the index only the table and index hashKey and sortKey attributes, `INCLUDE` projects into the index all of the attributes that are defined in `nonKeyAttributes` in addition to the attributes that `KEYS_ONLY` project.
 	ProjectionType string `pulumi:"projectionType"`
-	// and `rangeKeys` are `mutually exclusive`, but are both `optional`. Refer to [AWS SDK Documentation](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GSI.DesignPattern.MultiAttributeKeys.html)
+	// Name of the range key; must be defined as an attribute in the resource. Mutually exclusive with `keySchema`. Use `keySchema` instead.
 	//
 	// Deprecated: range_key is deprecated. Use keySchema instead.
 	RangeKey *string `pulumi:"rangeKey"`
@@ -1345,10 +1346,11 @@ type TableGlobalSecondaryIndexInput interface {
 }
 
 type TableGlobalSecondaryIndexArgs struct {
-	// and `hashKeys` are `mutually exclusive`, but one is `required`. Refer to [AWS SDK Documentation](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GSI.DesignPattern.MultiAttributeKeys.html)
+	// Name of the hash key in the index; must be defined as an attribute in the resource. Mutually exclusive with `keySchema`. Use `keySchema` instead.
 	//
 	// Deprecated: hash_key is deprecated. Use keySchema instead.
-	HashKey    pulumi.StringPtrInput                        `pulumi:"hashKey"`
+	HashKey pulumi.StringPtrInput `pulumi:"hashKey"`
+	// Configuration block(s) for the key schema. Mutually exclusive with `hashKey` and `rangeKey`. Required if `hashKey` is not specified. Supports multi-attribute keys for the [Multi-Attribute Keys design pattern](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GSI.DesignPattern.MultiAttributeKeys.html). See below.
 	KeySchemas TableGlobalSecondaryIndexKeySchemaArrayInput `pulumi:"keySchemas"`
 	// Name of the index.
 	Name pulumi.StringInput `pulumi:"name"`
@@ -1356,9 +1358,9 @@ type TableGlobalSecondaryIndexArgs struct {
 	NonKeyAttributes pulumi.StringArrayInput `pulumi:"nonKeyAttributes"`
 	// Sets the maximum number of read and write units for the specified on-demand index. See below.
 	OnDemandThroughput TableGlobalSecondaryIndexOnDemandThroughputPtrInput `pulumi:"onDemandThroughput"`
-	// One of `ALL`, `INCLUDE` or `KEYS_ONLY` where `ALL` projects every attribute into the index, `KEYS_ONLY` projects  into the index only the table and index hashKey and sortKey attributes ,  `INCLUDE` projects into the index all of the attributes that are defined in `nonKeyAttributes` in addition to the attributes that that`KEYS_ONLY` project.
+	// One of `ALL`, `INCLUDE` or `KEYS_ONLY` where `ALL` projects every attribute into the index, `KEYS_ONLY` projects into the index only the table and index hashKey and sortKey attributes, `INCLUDE` projects into the index all of the attributes that are defined in `nonKeyAttributes` in addition to the attributes that `KEYS_ONLY` project.
 	ProjectionType pulumi.StringInput `pulumi:"projectionType"`
-	// and `rangeKeys` are `mutually exclusive`, but are both `optional`. Refer to [AWS SDK Documentation](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GSI.DesignPattern.MultiAttributeKeys.html)
+	// Name of the range key; must be defined as an attribute in the resource. Mutually exclusive with `keySchema`. Use `keySchema` instead.
 	//
 	// Deprecated: range_key is deprecated. Use keySchema instead.
 	RangeKey pulumi.StringPtrInput `pulumi:"rangeKey"`
@@ -1421,13 +1423,14 @@ func (o TableGlobalSecondaryIndexOutput) ToTableGlobalSecondaryIndexOutputWithCo
 	return o
 }
 
-// and `hashKeys` are `mutually exclusive`, but one is `required`. Refer to [AWS SDK Documentation](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GSI.DesignPattern.MultiAttributeKeys.html)
+// Name of the hash key in the index; must be defined as an attribute in the resource. Mutually exclusive with `keySchema`. Use `keySchema` instead.
 //
 // Deprecated: hash_key is deprecated. Use keySchema instead.
 func (o TableGlobalSecondaryIndexOutput) HashKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TableGlobalSecondaryIndex) *string { return v.HashKey }).(pulumi.StringPtrOutput)
 }
 
+// Configuration block(s) for the key schema. Mutually exclusive with `hashKey` and `rangeKey`. Required if `hashKey` is not specified. Supports multi-attribute keys for the [Multi-Attribute Keys design pattern](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GSI.DesignPattern.MultiAttributeKeys.html). See below.
 func (o TableGlobalSecondaryIndexOutput) KeySchemas() TableGlobalSecondaryIndexKeySchemaArrayOutput {
 	return o.ApplyT(func(v TableGlobalSecondaryIndex) []TableGlobalSecondaryIndexKeySchema { return v.KeySchemas }).(TableGlobalSecondaryIndexKeySchemaArrayOutput)
 }
@@ -1449,12 +1452,12 @@ func (o TableGlobalSecondaryIndexOutput) OnDemandThroughput() TableGlobalSeconda
 	}).(TableGlobalSecondaryIndexOnDemandThroughputPtrOutput)
 }
 
-// One of `ALL`, `INCLUDE` or `KEYS_ONLY` where `ALL` projects every attribute into the index, `KEYS_ONLY` projects  into the index only the table and index hashKey and sortKey attributes ,  `INCLUDE` projects into the index all of the attributes that are defined in `nonKeyAttributes` in addition to the attributes that that`KEYS_ONLY` project.
+// One of `ALL`, `INCLUDE` or `KEYS_ONLY` where `ALL` projects every attribute into the index, `KEYS_ONLY` projects into the index only the table and index hashKey and sortKey attributes, `INCLUDE` projects into the index all of the attributes that are defined in `nonKeyAttributes` in addition to the attributes that `KEYS_ONLY` project.
 func (o TableGlobalSecondaryIndexOutput) ProjectionType() pulumi.StringOutput {
 	return o.ApplyT(func(v TableGlobalSecondaryIndex) string { return v.ProjectionType }).(pulumi.StringOutput)
 }
 
-// and `rangeKeys` are `mutually exclusive`, but are both `optional`. Refer to [AWS SDK Documentation](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GSI.DesignPattern.MultiAttributeKeys.html)
+// Name of the range key; must be defined as an attribute in the resource. Mutually exclusive with `keySchema`. Use `keySchema` instead.
 //
 // Deprecated: range_key is deprecated. Use keySchema instead.
 func (o TableGlobalSecondaryIndexOutput) RangeKey() pulumi.StringPtrOutput {
@@ -1497,10 +1500,10 @@ func (o TableGlobalSecondaryIndexArrayOutput) Index(i pulumi.IntInput) TableGlob
 }
 
 type TableGlobalSecondaryIndexKeySchema struct {
-	// Name of the table attribute to store the TTL timestamp in.
-	// Required if `enabled` is `true`, must not be set otherwise.
+	// Name of the attribute; must be defined as an attribute in the resource.
 	AttributeName string `pulumi:"attributeName"`
-	KeyType       string `pulumi:"keyType"`
+	// The type of key. Valid values are `HASH` (partition key) or `RANGE` (sort key). You can specify up to 4 attributes with `keyType = "HASH"` and up to 4 attributes with `keyType = "RANGE"`.
+	KeyType string `pulumi:"keyType"`
 }
 
 // TableGlobalSecondaryIndexKeySchemaInput is an input type that accepts TableGlobalSecondaryIndexKeySchemaArgs and TableGlobalSecondaryIndexKeySchemaOutput values.
@@ -1515,10 +1518,10 @@ type TableGlobalSecondaryIndexKeySchemaInput interface {
 }
 
 type TableGlobalSecondaryIndexKeySchemaArgs struct {
-	// Name of the table attribute to store the TTL timestamp in.
-	// Required if `enabled` is `true`, must not be set otherwise.
+	// Name of the attribute; must be defined as an attribute in the resource.
 	AttributeName pulumi.StringInput `pulumi:"attributeName"`
-	KeyType       pulumi.StringInput `pulumi:"keyType"`
+	// The type of key. Valid values are `HASH` (partition key) or `RANGE` (sort key). You can specify up to 4 attributes with `keyType = "HASH"` and up to 4 attributes with `keyType = "RANGE"`.
+	KeyType pulumi.StringInput `pulumi:"keyType"`
 }
 
 func (TableGlobalSecondaryIndexKeySchemaArgs) ElementType() reflect.Type {
@@ -1572,12 +1575,12 @@ func (o TableGlobalSecondaryIndexKeySchemaOutput) ToTableGlobalSecondaryIndexKey
 	return o
 }
 
-// Name of the table attribute to store the TTL timestamp in.
-// Required if `enabled` is `true`, must not be set otherwise.
+// Name of the attribute; must be defined as an attribute in the resource.
 func (o TableGlobalSecondaryIndexKeySchemaOutput) AttributeName() pulumi.StringOutput {
 	return o.ApplyT(func(v TableGlobalSecondaryIndexKeySchema) string { return v.AttributeName }).(pulumi.StringOutput)
 }
 
+// The type of key. Valid values are `HASH` (partition key) or `RANGE` (sort key). You can specify up to 4 attributes with `keyType = "HASH"` and up to 4 attributes with `keyType = "RANGE"`.
 func (o TableGlobalSecondaryIndexKeySchemaOutput) KeyType() pulumi.StringOutput {
 	return o.ApplyT(func(v TableGlobalSecondaryIndexKeySchema) string { return v.KeyType }).(pulumi.StringOutput)
 }

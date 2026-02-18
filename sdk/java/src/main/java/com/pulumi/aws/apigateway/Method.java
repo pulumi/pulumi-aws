@@ -142,7 +142,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Using `pulumi import`, import `aws_api_gateway_method` using `REST-API-ID/RESOURCE-ID/HTTP-METHOD`. For example:
+ * Using `pulumi import`, import `aws.apigateway.Method` using `REST-API-ID/RESOURCE-ID/HTTP-METHOD`. For example:
  * 
  * ```sh
  * $ pulumi import aws:apigateway/method:Method example 12345abcde/67890fghij/GET

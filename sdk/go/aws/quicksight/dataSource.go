@@ -224,7 +224,8 @@ type DataSource struct {
 	pulumi.CustomResourceState
 
 	// Amazon Resource Name (ARN) of the data source
-	Arn          pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
 	AwsAccountId pulumi.StringOutput `pulumi:"awsAccountId"`
 	// The credentials Amazon QuickSight uses to connect to your underlying source. See Credentials below for more details.
 	Credentials DataSourceCredentialsPtrOutput `pulumi:"credentials"`
@@ -292,7 +293,8 @@ func GetDataSource(ctx *pulumi.Context,
 // Input properties used for looking up and filtering DataSource resources.
 type dataSourceState struct {
 	// Amazon Resource Name (ARN) of the data source
-	Arn          *string `pulumi:"arn"`
+	Arn *string `pulumi:"arn"`
+	// AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
 	AwsAccountId *string `pulumi:"awsAccountId"`
 	// The credentials Amazon QuickSight uses to connect to your underlying source. See Credentials below for more details.
 	Credentials *DataSourceCredentials `pulumi:"credentials"`
@@ -322,7 +324,8 @@ type dataSourceState struct {
 
 type DataSourceState struct {
 	// Amazon Resource Name (ARN) of the data source
-	Arn          pulumi.StringPtrInput
+	Arn pulumi.StringPtrInput
+	// AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
 	AwsAccountId pulumi.StringPtrInput
 	// The credentials Amazon QuickSight uses to connect to your underlying source. See Credentials below for more details.
 	Credentials DataSourceCredentialsPtrInput
@@ -355,6 +358,7 @@ func (DataSourceState) ElementType() reflect.Type {
 }
 
 type dataSourceArgs struct {
+	// AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
 	AwsAccountId *string `pulumi:"awsAccountId"`
 	// The credentials Amazon QuickSight uses to connect to your underlying source. See Credentials below for more details.
 	Credentials *DataSourceCredentials `pulumi:"credentials"`
@@ -382,6 +386,7 @@ type dataSourceArgs struct {
 
 // The set of arguments for constructing a DataSource resource.
 type DataSourceArgs struct {
+	// AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
 	AwsAccountId pulumi.StringPtrInput
 	// The credentials Amazon QuickSight uses to connect to your underlying source. See Credentials below for more details.
 	Credentials DataSourceCredentialsPtrInput
@@ -499,6 +504,7 @@ func (o DataSourceOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *DataSource) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
 func (o DataSourceOutput) AwsAccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *DataSource) pulumi.StringOutput { return v.AwsAccountId }).(pulumi.StringOutput)
 }

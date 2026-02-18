@@ -72,9 +72,17 @@ public final class V2modelsIntentState extends com.pulumi.resources.ResourceArgs
         return Optional.ofNullable(this.closingSetting);
     }
 
+    /**
+     * Configuration block for prompts that Amazon Lex sends to the user to confirm the completion of an intent. If the user answers &#34;no,&#34; the settings contain a statement that is sent to the user to end the intent. If you configure this block without `prompt_specification.*.prompt_attempts_specification`, AWS will provide default configurations for `Initial` and `Retry1` `promptAttemptsSpecification`s. This will cause Terraform to report differences. Use the `confirmationSetting` configuration above in the Basic Usage example to avoid differences resulting from AWS default configuration. See `confirmationSetting`.
+     * 
+     */
     @Import(name="confirmationSetting")
     private @Nullable Output<V2modelsIntentConfirmationSettingArgs> confirmationSetting;
 
+    /**
+     * @return Configuration block for prompts that Amazon Lex sends to the user to confirm the completion of an intent. If the user answers &#34;no,&#34; the settings contain a statement that is sent to the user to end the intent. If you configure this block without `prompt_specification.*.prompt_attempts_specification`, AWS will provide default configurations for `Initial` and `Retry1` `promptAttemptsSpecification`s. This will cause Terraform to report differences. Use the `confirmationSetting` configuration above in the Basic Usage example to avoid differences resulting from AWS default configuration. See `confirmationSetting`.
+     * 
+     */
     public Optional<Output<V2modelsIntentConfirmationSettingArgs>> confirmationSetting() {
         return Optional.ofNullable(this.confirmationSetting);
     }
@@ -437,11 +445,23 @@ public final class V2modelsIntentState extends com.pulumi.resources.ResourceArgs
             return closingSetting(Output.of(closingSetting));
         }
 
+        /**
+         * @param confirmationSetting Configuration block for prompts that Amazon Lex sends to the user to confirm the completion of an intent. If the user answers &#34;no,&#34; the settings contain a statement that is sent to the user to end the intent. If you configure this block without `prompt_specification.*.prompt_attempts_specification`, AWS will provide default configurations for `Initial` and `Retry1` `promptAttemptsSpecification`s. This will cause Terraform to report differences. Use the `confirmationSetting` configuration above in the Basic Usage example to avoid differences resulting from AWS default configuration. See `confirmationSetting`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder confirmationSetting(@Nullable Output<V2modelsIntentConfirmationSettingArgs> confirmationSetting) {
             $.confirmationSetting = confirmationSetting;
             return this;
         }
 
+        /**
+         * @param confirmationSetting Configuration block for prompts that Amazon Lex sends to the user to confirm the completion of an intent. If the user answers &#34;no,&#34; the settings contain a statement that is sent to the user to end the intent. If you configure this block without `prompt_specification.*.prompt_attempts_specification`, AWS will provide default configurations for `Initial` and `Retry1` `promptAttemptsSpecification`s. This will cause Terraform to report differences. Use the `confirmationSetting` configuration above in the Basic Usage example to avoid differences resulting from AWS default configuration. See `confirmationSetting`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder confirmationSetting(V2modelsIntentConfirmationSettingArgs confirmationSetting) {
             return confirmationSetting(Output.of(confirmationSetting));
         }

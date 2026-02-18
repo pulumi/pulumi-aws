@@ -12,6 +12,14 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Resource for managing exclusive AWS SSO Admin Managed Policy Attachments.
+//
+// This resource is designed to manage all managed policy attachments for an SSO permission set. Using this resource, Terraform will remove any managed policies attached to the permission set that are not defined in the configuration.
+//
+// !> **WARNING:** Do not use this resource together with the `ssoadmin.ManagedPolicyAttachment` resource for the same permission set. Doing so will cause a conflict and will lead to managed policies being removed.
+//
+// > Destruction of this resource means Terraform will no longer manage the managed policy attachments, **but will not detach any policies**. The permission set will retain all managed policies that were attached at the time of destruction.
+//
 // ## Example Usage
 //
 // ### Basic Usage
@@ -93,17 +101,18 @@ import (
 //
 // #### Required
 //
-// * `instance_arn` (String) ARN of the SSO Instance.
-//
-// * `permission_set_arn` (String) ARN of the Permission Set.
+// * `instanceArn` (String) ARN of the SSO Instance.
+// * `permissionSetArn` (String) ARN of the Permission Set.
 //
 // #### Optional
 //
 // * `region` (String) Region where this resource is managed.
 //
-// Using `pulumi import`, import SSO Admin Managed Policy Attachments Exclusive using the `instance_arn` and `permission_set_arn` arguments, separated by a comma (`,`). For example:
+// Using `pulumi import`, import SSO Admin Managed Policy Attachments Exclusive using the `instanceArn` and `permissionSetArn` arguments, separated by a comma (`,`). For example:
 //
-// % pulumi import aws_ssoadmin_managed_policy_attachments_exclusive.example arn:aws:sso:::instance/ssoins-1234567890abcdef,arn:aws:sso:::permissionSet/ssoins-1234567890abcdef/ps-1234567890abcdef
+// ```sh
+// $ pulumi import aws:ssoadmin/managedPolicyAttachmentsExclusive:ManagedPolicyAttachmentsExclusive example arn:aws:sso:::instance/ssoins-1234567890abcdef,arn:aws:sso:::permissionSet/ssoins-1234567890abcdef/ps-1234567890abcdef
+// ```
 type ManagedPolicyAttachmentsExclusive struct {
 	pulumi.CustomResourceState
 

@@ -131,6 +131,9 @@ import javax.annotation.Nullable;
  * $ pulumi import aws:iam/serverCertificate:ServerCertificate certificate example.com-certificate-until-2018
  * ```
  * 
+ * [1]: https://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html
+ * [2]: https://docs.aws.amazon.com/IAM/latest/UserGuide/ManagingServerCerts.html
+ * 
  */
 @ResourceType(type="aws:iam/serverCertificate:ServerCertificate")
 public class ServerCertificate extends com.pulumi.resources.CustomResource {

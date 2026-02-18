@@ -58,6 +58,7 @@ import (
 type IpRestriction struct {
 	pulumi.CustomResourceState
 
+	// AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
 	AwsAccountId pulumi.StringOutput `pulumi:"awsAccountId"`
 	// Whether IP rules are turned on.
 	Enabled pulumi.BoolOutput `pulumi:"enabled"`
@@ -104,6 +105,7 @@ func GetIpRestriction(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering IpRestriction resources.
 type ipRestrictionState struct {
+	// AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
 	AwsAccountId *string `pulumi:"awsAccountId"`
 	// Whether IP rules are turned on.
 	Enabled *bool `pulumi:"enabled"`
@@ -118,6 +120,7 @@ type ipRestrictionState struct {
 }
 
 type IpRestrictionState struct {
+	// AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
 	AwsAccountId pulumi.StringPtrInput
 	// Whether IP rules are turned on.
 	Enabled pulumi.BoolPtrInput
@@ -136,6 +139,7 @@ func (IpRestrictionState) ElementType() reflect.Type {
 }
 
 type ipRestrictionArgs struct {
+	// AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
 	AwsAccountId *string `pulumi:"awsAccountId"`
 	// Whether IP rules are turned on.
 	Enabled bool `pulumi:"enabled"`
@@ -151,6 +155,7 @@ type ipRestrictionArgs struct {
 
 // The set of arguments for constructing a IpRestriction resource.
 type IpRestrictionArgs struct {
+	// AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
 	AwsAccountId pulumi.StringPtrInput
 	// Whether IP rules are turned on.
 	Enabled pulumi.BoolInput
@@ -251,6 +256,7 @@ func (o IpRestrictionOutput) ToIpRestrictionOutputWithContext(ctx context.Contex
 	return o
 }
 
+// AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
 func (o IpRestrictionOutput) AwsAccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *IpRestriction) pulumi.StringOutput { return v.AwsAccountId }).(pulumi.StringOutput)
 }

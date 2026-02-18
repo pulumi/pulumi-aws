@@ -54,7 +54,7 @@ namespace Pulumi.Aws.Cognito
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import `aws_cognito_identity_provider` resources using their User Pool ID and Provider Name. For example:
+    /// Using `pulumi import`, import `aws.cognito.IdentityProvider` resources using their User Pool ID and Provider Name. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:cognito/identityProvider:IdentityProvider example us-west-2_abc123:CorpAD

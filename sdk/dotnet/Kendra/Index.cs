@@ -740,7 +740,7 @@ namespace Pulumi.Aws.Kendra
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import Amazon Kendra Indexes using its `id`. For example:
+    /// Using `pulumi import`, import Amazon Kendra Indexes using its `Id`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:kendra/index:Index example 12345678-1234-5678-9123-123456789123

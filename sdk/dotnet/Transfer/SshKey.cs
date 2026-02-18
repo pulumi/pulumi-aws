@@ -124,7 +124,7 @@ namespace Pulumi.Aws.Transfer
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import Transfer SSH Public Key using the `server_id` and `user_name` and `ssh_public_key_id` separated by `/`. For example:
+    /// Using `pulumi import`, import Transfer SSH Public Key using the `ServerId` and `UserName` and `SshPublicKeyId` separated by `/`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:transfer/sshKey:SshKey bar s-12345678/test-username/key-12345

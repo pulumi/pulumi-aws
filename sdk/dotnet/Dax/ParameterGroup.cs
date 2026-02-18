@@ -45,7 +45,7 @@ namespace Pulumi.Aws.Dax
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import DAX Parameter Group using the `name`. For example:
+    /// Using `pulumi import`, import DAX Parameter Group using the `Name`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:dax/parameterGroup:ParameterGroup example my_dax_pg

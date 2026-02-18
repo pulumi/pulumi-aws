@@ -40,19 +40,14 @@ __all__ = [
     'GetPrincipalPolicySimulationContextArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class AWSPrincipalArgsDict(TypedDict):
-        """
-        When you use an AWS account identifier as the principal in a policy, the permissions in the policy statement can be granted to all identities contained in that account. This includes IAM users and roles in that account.
-        """
-        aws: pulumi.Input[Union[_builtins.str, Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        AWS account identifier or ARN.
-        """
-elif False:
-    AWSPrincipalArgsDict: TypeAlias = Mapping[str, Any]
+class AWSPrincipalArgsDict(TypedDict):
+    """
+    When you use an AWS account identifier as the principal in a policy, the permissions in the policy statement can be granted to all identities contained in that account. This includes IAM users and roles in that account.
+    """
+    aws: pulumi.Input[Union[_builtins.str, Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    AWS account identifier or ARN.
+    """
 
 @pulumi.input_type
 class AWSPrincipalArgs:
@@ -77,17 +72,14 @@ class AWSPrincipalArgs:
         pulumi.set(self, "aws", value)
 
 
-if not MYPY:
-    class FederatedPrincipalArgsDict(TypedDict):
-        """
-        Federated principal for identity providers.
-        """
-        federated: pulumi.Input[Union[_builtins.str, Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The federated principal identifier.
-        """
-elif False:
-    FederatedPrincipalArgsDict: TypeAlias = Mapping[str, Any]
+class FederatedPrincipalArgsDict(TypedDict):
+    """
+    Federated principal for identity providers.
+    """
+    federated: pulumi.Input[Union[_builtins.str, Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The federated principal identifier.
+    """
 
 @pulumi.input_type
 class FederatedPrincipalArgs:
@@ -112,16 +104,13 @@ class FederatedPrincipalArgs:
         pulumi.set(self, "federated", value)
 
 
-if not MYPY:
-    class PolicyDocumentArgsDict(TypedDict):
-        """
-        Represents an AWS IAM policy document that defines permissions for AWS resources and actions.
-        """
-        statement: pulumi.Input[Sequence[pulumi.Input['PolicyStatementArgsDict']]]
-        version: pulumi.Input['PolicyDocumentVersion']
-        id: NotRequired[pulumi.Input[_builtins.str]]
-elif False:
-    PolicyDocumentArgsDict: TypeAlias = Mapping[str, Any]
+class PolicyDocumentArgsDict(TypedDict):
+    """
+    Represents an AWS IAM policy document that defines permissions for AWS resources and actions.
+    """
+    statement: pulumi.Input[Sequence[pulumi.Input['PolicyStatementArgsDict']]]
+    version: pulumi.Input['PolicyDocumentVersion']
+    id: NotRequired[pulumi.Input[_builtins.str]]
 
 @pulumi.input_type
 class PolicyDocumentArgs:
@@ -165,49 +154,46 @@ class PolicyDocumentArgs:
         pulumi.set(self, "id", value)
 
 
-if not MYPY:
-    class PolicyStatementArgsDict(TypedDict):
-        """
-        The Statement element is the main element for a policy. This element is required. It can include multiple elements (see the subsequent sections in this page). The Statement element contains an array of individual statements.
-        """
-        effect: pulumi.Input['PolicyStatementEffect']
-        """
-        Indicate whether the policy allows or denies access.
-        """
-        action: NotRequired[pulumi.Input[Union[_builtins.str, Sequence[pulumi.Input[_builtins.str]]]]]
-        """
-        Include a list of actions that the policy allows or denies. Required (either Action or NotAction)
-        """
-        condition: NotRequired[pulumi.Input[Mapping[str, Any]]]
-        """
-        Specify the circumstances under which the policy grants permission.
-        """
-        not_action: NotRequired[pulumi.Input[Union[_builtins.str, Sequence[pulumi.Input[_builtins.str]]]]]
-        """
-        Include a list of actions that are not covered by this policy. Required (either Action or NotAction)
-        """
-        not_principal: NotRequired[pulumi.Input[Union[_builtins.str, 'AWSPrincipalArgsDict', 'ServicePrincipalArgsDict', 'FederatedPrincipalArgsDict']]]
-        """
-        Indicate the account, user, role, or federated user to which this policy does not apply.
-        """
-        not_resource: NotRequired[pulumi.Input[Union[_builtins.str, Sequence[pulumi.Input[_builtins.str]]]]]
-        """
-        A list of resources that are specifically excluded by this policy.
-        """
-        principal: NotRequired[pulumi.Input[Union[_builtins.str, 'AWSPrincipalArgsDict', 'ServicePrincipalArgsDict', 'FederatedPrincipalArgsDict']]]
-        """
-        Indicate the account, user, role, or federated user to which you would like to allow or deny access. If you are creating a policy to attach to a user or role, you cannot include this element. The principal is implied as that user or role.
-        """
-        resource: NotRequired[pulumi.Input[Union[_builtins.str, Sequence[pulumi.Input[_builtins.str]]]]]
-        """
-        A list of resources to which the actions apply.
-        """
-        sid: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        An optional statement ID to differentiate between your statements.
-        """
-elif False:
-    PolicyStatementArgsDict: TypeAlias = Mapping[str, Any]
+class PolicyStatementArgsDict(TypedDict):
+    """
+    The Statement element is the main element for a policy. This element is required. It can include multiple elements (see the subsequent sections in this page). The Statement element contains an array of individual statements.
+    """
+    effect: pulumi.Input['PolicyStatementEffect']
+    """
+    Indicate whether the policy allows or denies access.
+    """
+    action: NotRequired[pulumi.Input[Union[_builtins.str, Sequence[pulumi.Input[_builtins.str]]]]]
+    """
+    Include a list of actions that the policy allows or denies. Required (either Action or NotAction)
+    """
+    condition: NotRequired[pulumi.Input[Mapping[str, Any]]]
+    """
+    Specify the circumstances under which the policy grants permission.
+    """
+    not_action: NotRequired[pulumi.Input[Union[_builtins.str, Sequence[pulumi.Input[_builtins.str]]]]]
+    """
+    Include a list of actions that are not covered by this policy. Required (either Action or NotAction)
+    """
+    not_principal: NotRequired[pulumi.Input[Union[_builtins.str, 'AWSPrincipalArgsDict', 'ServicePrincipalArgsDict', 'FederatedPrincipalArgsDict']]]
+    """
+    Indicate the account, user, role, or federated user to which this policy does not apply.
+    """
+    not_resource: NotRequired[pulumi.Input[Union[_builtins.str, Sequence[pulumi.Input[_builtins.str]]]]]
+    """
+    A list of resources that are specifically excluded by this policy.
+    """
+    principal: NotRequired[pulumi.Input[Union[_builtins.str, 'AWSPrincipalArgsDict', 'ServicePrincipalArgsDict', 'FederatedPrincipalArgsDict']]]
+    """
+    Indicate the account, user, role, or federated user to which you would like to allow or deny access. If you are creating a policy to attach to a user or role, you cannot include this element. The principal is implied as that user or role.
+    """
+    resource: NotRequired[pulumi.Input[Union[_builtins.str, Sequence[pulumi.Input[_builtins.str]]]]]
+    """
+    A list of resources to which the actions apply.
+    """
+    sid: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    An optional statement ID to differentiate between your statements.
+    """
 
 @pulumi.input_type
 class PolicyStatementArgs:
@@ -360,18 +346,15 @@ class PolicyStatementArgs:
         pulumi.set(self, "sid", value)
 
 
-if not MYPY:
-    class RoleInlinePolicyArgsDict(TypedDict):
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Name of the role policy.
-        """
-        policy: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Policy document as a JSON formatted string.
-        """
-elif False:
-    RoleInlinePolicyArgsDict: TypeAlias = Mapping[str, Any]
+class RoleInlinePolicyArgsDict(TypedDict):
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Name of the role policy.
+    """
+    policy: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Policy document as a JSON formatted string.
+    """
 
 @pulumi.input_type
 class RoleInlinePolicyArgs:
@@ -412,17 +395,14 @@ class RoleInlinePolicyArgs:
         pulumi.set(self, "policy", value)
 
 
-if not MYPY:
-    class ServicePrincipalArgsDict(TypedDict):
-        """
-        IAM roles that can be assumed by an AWS service are called service roles. Service roles must include a trust policy. A service principal is an identifier that is used to grant permissions to a service.
-        """
-        service: pulumi.Input[Union[_builtins.str, Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The service principal identifier.
-        """
-elif False:
-    ServicePrincipalArgsDict: TypeAlias = Mapping[str, Any]
+class ServicePrincipalArgsDict(TypedDict):
+    """
+    IAM roles that can be assumed by an AWS service are called service roles. Service roles must include a trust policy. A service principal is an identifier that is used to grant permissions to a service.
+    """
+    service: pulumi.Input[Union[_builtins.str, Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The service principal identifier.
+    """
 
 @pulumi.input_type
 class ServicePrincipalArgs:
@@ -447,46 +427,43 @@ class ServicePrincipalArgs:
         pulumi.set(self, "service", value)
 
 
-if not MYPY:
-    class GetPolicyDocumentStatementArgsDict(TypedDict):
-        actions: NotRequired[Sequence[_builtins.str]]
-        """
-        List of actions that this statement either allows or denies. For example, `["ec2:RunInstances", "s3:*"]`.
-        """
-        conditions: NotRequired[Sequence['GetPolicyDocumentStatementConditionArgsDict']]
-        """
-        Configuration block for a condition. Detailed below.
-        """
-        effect: NotRequired[_builtins.str]
-        """
-        Whether this statement allows or denies the given actions. Valid values are `Allow` and `Deny`. Defaults to `Allow`.
-        """
-        not_actions: NotRequired[Sequence[_builtins.str]]
-        """
-        List of actions that this statement does *not* apply to. Use to apply a policy statement to all actions *except* those listed.
-        """
-        not_principals: NotRequired[Sequence['GetPolicyDocumentStatementNotPrincipalArgsDict']]
-        """
-        Like `principals` except these are principals that the statement does *not* apply to.
-        """
-        not_resources: NotRequired[Sequence[_builtins.str]]
-        """
-        List of resource ARNs that this statement does *not* apply to. Use to apply a policy statement to all resources *except* those listed. Conflicts with `resources`.
-        """
-        principals: NotRequired[Sequence['GetPolicyDocumentStatementPrincipalArgsDict']]
-        """
-        Configuration block for principals. Detailed below.
-        """
-        resources: NotRequired[Sequence[_builtins.str]]
-        """
-        List of resource ARNs that this statement applies to. This is required by AWS if used for an IAM policy. Conflicts with `not_resources`.
-        """
-        sid: NotRequired[_builtins.str]
-        """
-        Sid (statement ID) is an identifier for a policy statement.
-        """
-elif False:
-    GetPolicyDocumentStatementArgsDict: TypeAlias = Mapping[str, Any]
+class GetPolicyDocumentStatementArgsDict(TypedDict):
+    actions: NotRequired[Sequence[_builtins.str]]
+    """
+    List of actions that this statement either allows or denies. For example, `["ec2:RunInstances", "s3:*"]`.
+    """
+    conditions: NotRequired[Sequence['GetPolicyDocumentStatementConditionArgsDict']]
+    """
+    Configuration block for a condition. Detailed below.
+    """
+    effect: NotRequired[_builtins.str]
+    """
+    Whether this statement allows or denies the given actions. Valid values are `Allow` and `Deny`. Defaults to `Allow`.
+    """
+    not_actions: NotRequired[Sequence[_builtins.str]]
+    """
+    List of actions that this statement does *not* apply to. Use to apply a policy statement to all actions *except* those listed.
+    """
+    not_principals: NotRequired[Sequence['GetPolicyDocumentStatementNotPrincipalArgsDict']]
+    """
+    Like `principals` except these are principals that the statement does *not* apply to.
+    """
+    not_resources: NotRequired[Sequence[_builtins.str]]
+    """
+    List of resource ARNs that this statement does *not* apply to. Use to apply a policy statement to all resources *except* those listed. Conflicts with `resources`.
+    """
+    principals: NotRequired[Sequence['GetPolicyDocumentStatementPrincipalArgsDict']]
+    """
+    Configuration block for principals. Detailed below.
+    """
+    resources: NotRequired[Sequence[_builtins.str]]
+    """
+    List of resource ARNs that this statement applies to. This is required by AWS if used for an IAM policy. Conflicts with `not_resources`.
+    """
+    sid: NotRequired[_builtins.str]
+    """
+    Sid (statement ID) is an identifier for a policy statement.
+    """
 
 @pulumi.input_type
 class GetPolicyDocumentStatementArgs:
@@ -639,22 +616,19 @@ class GetPolicyDocumentStatementArgs:
         pulumi.set(self, "sid", value)
 
 
-if not MYPY:
-    class GetPolicyDocumentStatementConditionArgsDict(TypedDict):
-        test: _builtins.str
-        """
-        Name of the [IAM condition operator](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_condition_operators.html) to evaluate.
-        """
-        values: Sequence[_builtins.str]
-        """
-        Values to evaluate the condition against. If multiple values are provided, the condition matches if at least one of them applies. That is, AWS evaluates multiple values as though using an "OR" boolean operation.
-        """
-        variable: _builtins.str
-        """
-        Name of a [Context Variable](http://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements.html#AvailableKeys) to apply the condition to. Context variables may either be standard AWS variables starting with `aws:` or service-specific variables prefixed with the service name.
-        """
-elif False:
-    GetPolicyDocumentStatementConditionArgsDict: TypeAlias = Mapping[str, Any]
+class GetPolicyDocumentStatementConditionArgsDict(TypedDict):
+    test: _builtins.str
+    """
+    Name of the [IAM condition operator](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_condition_operators.html) to evaluate.
+    """
+    values: Sequence[_builtins.str]
+    """
+    Values to evaluate the condition against. If multiple values are provided, the condition matches if at least one of them applies. That is, AWS evaluates multiple values as though using an "OR" boolean operation.
+    """
+    variable: _builtins.str
+    """
+    Name of a [Context Variable](http://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements.html#AvailableKeys) to apply the condition to. Context variables may either be standard AWS variables starting with `aws:` or service-specific variables prefixed with the service name.
+    """
 
 @pulumi.input_type
 class GetPolicyDocumentStatementConditionArgs:
@@ -708,18 +682,15 @@ class GetPolicyDocumentStatementConditionArgs:
         pulumi.set(self, "variable", value)
 
 
-if not MYPY:
-    class GetPolicyDocumentStatementNotPrincipalArgsDict(TypedDict):
-        identifiers: Sequence[_builtins.str]
-        """
-        List of identifiers for principals. When `type` is `AWS`, these are IAM principal ARNs, e.g., `arn:aws:iam::12345678901:role/yak-role`.  When `type` is `Service`, these are AWS Service roles, e.g., `lambda.amazonaws.com`. When `type` is `Federated`, these are web identity users or SAML provider ARNs, e.g., `accounts.google.com` or `arn:aws:iam::12345678901:saml-provider/yak-saml-provider`. When `type` is `CanonicalUser`, these are [canonical user IDs](https://docs.aws.amazon.com/general/latest/gr/acct-identifiers.html#FindingCanonicalId), e.g., `79a59df900b949e55d96a1e698fbacedfd6e09d98eacf8f8d5218e7cd47ef2be`.
-        """
-        type: _builtins.str
-        """
-        Type of principal. Valid values include `AWS`, `Service`, `Federated`, `CanonicalUser` and `*`.
-        """
-elif False:
-    GetPolicyDocumentStatementNotPrincipalArgsDict: TypeAlias = Mapping[str, Any]
+class GetPolicyDocumentStatementNotPrincipalArgsDict(TypedDict):
+    identifiers: Sequence[_builtins.str]
+    """
+    List of identifiers for principals. When `type` is `AWS`, these are IAM principal ARNs, e.g., `arn:aws:iam::12345678901:role/yak-role`.  When `type` is `Service`, these are AWS Service roles, e.g., `lambda.amazonaws.com`. When `type` is `Federated`, these are web identity users or SAML provider ARNs, e.g., `accounts.google.com` or `arn:aws:iam::12345678901:saml-provider/yak-saml-provider`. When `type` is `CanonicalUser`, these are [canonical user IDs](https://docs.aws.amazon.com/general/latest/gr/acct-identifiers.html#FindingCanonicalId), e.g., `79a59df900b949e55d96a1e698fbacedfd6e09d98eacf8f8d5218e7cd47ef2be`.
+    """
+    type: _builtins.str
+    """
+    Type of principal. Valid values include `AWS`, `Service`, `Federated`, `CanonicalUser` and `*`.
+    """
 
 @pulumi.input_type
 class GetPolicyDocumentStatementNotPrincipalArgs:
@@ -758,18 +729,15 @@ class GetPolicyDocumentStatementNotPrincipalArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class GetPolicyDocumentStatementPrincipalArgsDict(TypedDict):
-        identifiers: Sequence[_builtins.str]
-        """
-        List of identifiers for principals. When `type` is `AWS`, these are IAM principal ARNs, e.g., `arn:aws:iam::12345678901:role/yak-role`.  When `type` is `Service`, these are AWS Service roles, e.g., `lambda.amazonaws.com`. When `type` is `Federated`, these are web identity users or SAML provider ARNs, e.g., `accounts.google.com` or `arn:aws:iam::12345678901:saml-provider/yak-saml-provider`. When `type` is `CanonicalUser`, these are [canonical user IDs](https://docs.aws.amazon.com/general/latest/gr/acct-identifiers.html#FindingCanonicalId), e.g., `79a59df900b949e55d96a1e698fbacedfd6e09d98eacf8f8d5218e7cd47ef2be`.
-        """
-        type: _builtins.str
-        """
-        Type of principal. Valid values include `AWS`, `Service`, `Federated`, `CanonicalUser` and `*`.
-        """
-elif False:
-    GetPolicyDocumentStatementPrincipalArgsDict: TypeAlias = Mapping[str, Any]
+class GetPolicyDocumentStatementPrincipalArgsDict(TypedDict):
+    identifiers: Sequence[_builtins.str]
+    """
+    List of identifiers for principals. When `type` is `AWS`, these are IAM principal ARNs, e.g., `arn:aws:iam::12345678901:role/yak-role`.  When `type` is `Service`, these are AWS Service roles, e.g., `lambda.amazonaws.com`. When `type` is `Federated`, these are web identity users or SAML provider ARNs, e.g., `accounts.google.com` or `arn:aws:iam::12345678901:saml-provider/yak-saml-provider`. When `type` is `CanonicalUser`, these are [canonical user IDs](https://docs.aws.amazon.com/general/latest/gr/acct-identifiers.html#FindingCanonicalId), e.g., `79a59df900b949e55d96a1e698fbacedfd6e09d98eacf8f8d5218e7cd47ef2be`.
+    """
+    type: _builtins.str
+    """
+    Type of principal. Valid values include `AWS`, `Service`, `Federated`, `CanonicalUser` and `*`.
+    """
 
 @pulumi.input_type
 class GetPolicyDocumentStatementPrincipalArgs:
@@ -808,26 +776,23 @@ class GetPolicyDocumentStatementPrincipalArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class GetPrincipalPolicySimulationContextArgsDict(TypedDict):
-        key: _builtins.str
-        """
-        The context _condition key_ to set.
+class GetPrincipalPolicySimulationContextArgsDict(TypedDict):
+    key: _builtins.str
+    """
+    The context _condition key_ to set.
 
-        If you have policies containing `Condition` elements or using dynamic interpolations then you will need to provide suitable values for each condition key your policies use. See [Actions, resources, and condition keys for AWS services](https://docs.aws.amazon.com/service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.html) to find the various condition keys that are normally provided for real requests to each action of each AWS service.
-        """
-        type: _builtins.str
-        """
-        An IAM value type that determines how the policy simulator will interpret the strings given in `values`.
+    If you have policies containing `Condition` elements or using dynamic interpolations then you will need to provide suitable values for each condition key your policies use. See [Actions, resources, and condition keys for AWS services](https://docs.aws.amazon.com/service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.html) to find the various condition keys that are normally provided for real requests to each action of each AWS service.
+    """
+    type: _builtins.str
+    """
+    An IAM value type that determines how the policy simulator will interpret the strings given in `values`.
 
-        For more information, see the `ContextKeyType` field of [`iam.ContextEntry`](https://docs.aws.amazon.com/IAM/latest/APIReference/API_ContextEntry.html) in the underlying API.
-        """
-        values: Sequence[_builtins.str]
-        """
-        A set of one or more values for this context entry.
-        """
-elif False:
-    GetPrincipalPolicySimulationContextArgsDict: TypeAlias = Mapping[str, Any]
+    For more information, see the `ContextKeyType` field of [`iam.ContextEntry`](https://docs.aws.amazon.com/IAM/latest/APIReference/API_ContextEntry.html) in the underlying API.
+    """
+    values: Sequence[_builtins.str]
+    """
+    A set of one or more values for this context entry.
+    """
 
 @pulumi.input_type
 class GetPrincipalPolicySimulationContextArgs:

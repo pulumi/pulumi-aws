@@ -20,7 +20,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  * import * as random from "@pulumi/random";
  *
- * const example = new random.index.Password("example", {length: 16});
+ * const example = new random.RandomPassword("example", {length: 16});
  * const exampleUser = new aws.memorydb.User("example", {
  *     userName: "my-user",
  *     accessString: "on ~* &* +@all",
@@ -33,11 +33,12 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Using `pulumi import`, import a user using the `user_name`. For example:
+ * Using `pulumi import`, import a user using the `userName`. For example:
  *
  * ```sh
  * $ pulumi import aws:memorydb/user:User example my-user
  * ```
+ *
  * The `passwords` are not available for imported resources, as this information cannot be read back from the MemoryDB API.
  */
 export class User extends pulumi.CustomResource {

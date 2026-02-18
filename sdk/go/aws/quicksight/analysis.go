@@ -149,7 +149,8 @@ type Analysis struct {
 	// Identifier for the analysis.
 	AnalysisId pulumi.StringOutput `pulumi:"analysisId"`
 	// ARN of the analysis.
-	Arn          pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
 	AwsAccountId pulumi.StringOutput `pulumi:"awsAccountId"`
 	// The time that the analysis was created.
 	CreatedTime       pulumi.StringOutput `pulumi:"createdTime"`
@@ -216,7 +217,8 @@ type analysisState struct {
 	// Identifier for the analysis.
 	AnalysisId *string `pulumi:"analysisId"`
 	// ARN of the analysis.
-	Arn          *string `pulumi:"arn"`
+	Arn *string `pulumi:"arn"`
+	// AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
 	AwsAccountId *string `pulumi:"awsAccountId"`
 	// The time that the analysis was created.
 	CreatedTime       *string `pulumi:"createdTime"`
@@ -251,7 +253,8 @@ type AnalysisState struct {
 	// Identifier for the analysis.
 	AnalysisId pulumi.StringPtrInput
 	// ARN of the analysis.
-	Arn          pulumi.StringPtrInput
+	Arn pulumi.StringPtrInput
+	// AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
 	AwsAccountId pulumi.StringPtrInput
 	// The time that the analysis was created.
 	CreatedTime       pulumi.StringPtrInput
@@ -288,7 +291,8 @@ func (AnalysisState) ElementType() reflect.Type {
 
 type analysisArgs struct {
 	// Identifier for the analysis.
-	AnalysisId   string  `pulumi:"analysisId"`
+	AnalysisId string `pulumi:"analysisId"`
+	// AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
 	AwsAccountId *string `pulumi:"awsAccountId"`
 	// Display name for the analysis.
 	//
@@ -313,7 +317,8 @@ type analysisArgs struct {
 // The set of arguments for constructing a Analysis resource.
 type AnalysisArgs struct {
 	// Identifier for the analysis.
-	AnalysisId   pulumi.StringInput
+	AnalysisId pulumi.StringInput
+	// AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
 	AwsAccountId pulumi.StringPtrInput
 	// Display name for the analysis.
 	//
@@ -432,6 +437,7 @@ func (o AnalysisOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Analysis) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
 func (o AnalysisOutput) AwsAccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Analysis) pulumi.StringOutput { return v.AwsAccountId }).(pulumi.StringOutput)
 }

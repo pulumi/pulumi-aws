@@ -29,7 +29,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Using `pulumi import`, import `aws_api_gateway_gateway_response` using `REST-API-ID/RESPONSE-TYPE`. For example:
+ * Using `pulumi import`, import `aws.apigateway.Response` using `REST-API-ID/RESPONSE-TYPE`. For example:
  *
  * ```sh
  * $ pulumi import aws:apigateway/response:Response example 12345abcde/UNAUTHORIZED

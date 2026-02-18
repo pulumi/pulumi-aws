@@ -161,11 +161,13 @@ namespace Pulumi.Aws.AppRunner
     /// 
     /// #### Required
     /// 
-    /// - `arn` (String) Amazon Resource Name (ARN) of the App Runner service.
+    /// - `Arn` (String) Amazon Resource Name (ARN) of the App Runner service.
     /// 
-    /// Using `pulumi import`, import App Runner Services using the `arn`. For example:
+    /// Using `pulumi import`, import App Runner Services using the `Arn`. For example:
     /// 
-    /// % pulumi import aws_apprunner_service.example arn:aws:apprunner:us-east-1:1234567890:service/example/0a03292a89764e5882c41d8f991c82fe
+    /// ```sh
+    /// $ pulumi import aws:apprunner/service:Service example arn:aws:apprunner:us-east-1:1234567890:service/example/0a03292a89764e5882c41d8f991c82fe
+    /// ```
     /// </summary>
     [AwsResourceType("aws:apprunner/service:Service")]
     public partial class Service : global::Pulumi.CustomResource

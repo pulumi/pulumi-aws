@@ -16,9 +16,17 @@ public final class GetDataSetPlainArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetDataSetPlainArgs Empty = new GetDataSetPlainArgs();
 
+    /**
+     * AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
+     * 
+     */
     @Import(name="awsAccountId")
     private @Nullable String awsAccountId;
 
+    /**
+     * @return AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
+     * 
+     */
     public Optional<String> awsAccountId() {
         return Optional.ofNullable(this.awsAccountId);
     }
@@ -87,6 +95,12 @@ public final class GetDataSetPlainArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetDataSetPlainArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param awsAccountId AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
+         * 
+         * @return builder
+         * 
+         */
         public Builder awsAccountId(@Nullable String awsAccountId) {
             $.awsAccountId = awsAccountId;
             return this;

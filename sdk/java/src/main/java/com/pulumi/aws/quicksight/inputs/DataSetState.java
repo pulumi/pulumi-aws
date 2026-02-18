@@ -43,9 +43,17 @@ public final class DataSetState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.arn);
     }
 
+    /**
+     * AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
+     * 
+     */
     @Import(name="awsAccountId")
     private @Nullable Output<String> awsAccountId;
 
+    /**
+     * @return AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
+     * 
+     */
     public Optional<Output<String>> awsAccountId() {
         return Optional.ofNullable(this.awsAccountId);
     }
@@ -309,6 +317,21 @@ public final class DataSetState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.tagsAll);
     }
 
+    /**
+     * Specifies the purpose of the data set. The only valid value is `RLS_RULES`, which designates this data set as a Row Level Security (RLS) rules dataset. An RLS rules dataset is used to control access to data at the row level in QuickSight analyses and dashboards. See the [AWS documentation](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_CreateDataSet.html#API_CreateDataSet_RequestSyntax) for details.
+     * 
+     */
+    @Import(name="useAs")
+    private @Nullable Output<String> useAs;
+
+    /**
+     * @return Specifies the purpose of the data set. The only valid value is `RLS_RULES`, which designates this data set as a Row Level Security (RLS) rules dataset. An RLS rules dataset is used to control access to data at the row level in QuickSight analyses and dashboards. See the [AWS documentation](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_CreateDataSet.html#API_CreateDataSet_RequestSyntax) for details.
+     * 
+     */
+    public Optional<Output<String>> useAs() {
+        return Optional.ofNullable(this.useAs);
+    }
+
     private DataSetState() {}
 
     private DataSetState(DataSetState $) {
@@ -331,6 +354,7 @@ public final class DataSetState extends com.pulumi.resources.ResourceArgs {
         this.rowLevelPermissionTagConfiguration = $.rowLevelPermissionTagConfiguration;
         this.tags = $.tags;
         this.tagsAll = $.tagsAll;
+        this.useAs = $.useAs;
     }
 
     public static Builder builder() {
@@ -372,11 +396,23 @@ public final class DataSetState extends com.pulumi.resources.ResourceArgs {
             return arn(Output.of(arn));
         }
 
+        /**
+         * @param awsAccountId AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
+         * 
+         * @return builder
+         * 
+         */
         public Builder awsAccountId(@Nullable Output<String> awsAccountId) {
             $.awsAccountId = awsAccountId;
             return this;
         }
 
+        /**
+         * @param awsAccountId AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
+         * 
+         * @return builder
+         * 
+         */
         public Builder awsAccountId(String awsAccountId) {
             return awsAccountId(Output.of(awsAccountId));
         }
@@ -810,6 +846,27 @@ public final class DataSetState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder tagsAll(Map<String,String> tagsAll) {
             return tagsAll(Output.of(tagsAll));
+        }
+
+        /**
+         * @param useAs Specifies the purpose of the data set. The only valid value is `RLS_RULES`, which designates this data set as a Row Level Security (RLS) rules dataset. An RLS rules dataset is used to control access to data at the row level in QuickSight analyses and dashboards. See the [AWS documentation](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_CreateDataSet.html#API_CreateDataSet_RequestSyntax) for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder useAs(@Nullable Output<String> useAs) {
+            $.useAs = useAs;
+            return this;
+        }
+
+        /**
+         * @param useAs Specifies the purpose of the data set. The only valid value is `RLS_RULES`, which designates this data set as a Row Level Security (RLS) rules dataset. An RLS rules dataset is used to control access to data at the row level in QuickSight analyses and dashboards. See the [AWS documentation](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_CreateDataSet.html#API_CreateDataSet_RequestSyntax) for details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder useAs(String useAs) {
+            return useAs(Output.of(useAs));
         }
 
         public DataSetState build() {

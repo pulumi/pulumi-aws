@@ -18,9 +18,17 @@ public final class CustomPermissionsArgs extends com.pulumi.resources.ResourceAr
 
     public static final CustomPermissionsArgs Empty = new CustomPermissionsArgs();
 
+    /**
+     * AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
+     * 
+     */
     @Import(name="awsAccountId")
     private @Nullable Output<String> awsAccountId;
 
+    /**
+     * @return AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
+     * 
+     */
     public Optional<Output<String>> awsAccountId() {
         return Optional.ofNullable(this.awsAccountId);
     }
@@ -117,11 +125,23 @@ public final class CustomPermissionsArgs extends com.pulumi.resources.ResourceAr
             $ = new CustomPermissionsArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param awsAccountId AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
+         * 
+         * @return builder
+         * 
+         */
         public Builder awsAccountId(@Nullable Output<String> awsAccountId) {
             $.awsAccountId = awsAccountId;
             return this;
         }
 
+        /**
+         * @param awsAccountId AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
+         * 
+         * @return builder
+         * 
+         */
         public Builder awsAccountId(String awsAccountId) {
             return awsAccountId(Output.of(awsAccountId));
         }

@@ -21,7 +21,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Using `pulumi import`, import `aws_location_route_calculator` using the route calculator name. For example:
+ * Using `pulumi import`, import `aws.location.RouteCalculation` using the route calculator name. For example:
  *
  * ```sh
  * $ pulumi import aws:location/routeCalculation:RouteCalculation example example

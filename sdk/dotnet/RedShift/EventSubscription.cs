@@ -61,7 +61,7 @@ namespace Pulumi.Aws.RedShift
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import Redshift Event Subscriptions using the `name`. For example:
+    /// Using `pulumi import`, import Redshift Event Subscriptions using the `Name`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:redshift/eventSubscription:EventSubscription default redshift-event-sub

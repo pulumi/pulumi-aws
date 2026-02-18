@@ -10,6 +10,243 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Amp
 {
     /// <summary>
+    /// &gt; **Note:** If you change a Scraper's source (EKS cluster), Terraform
+    /// will delete the current Scraper and create a new one.
+    /// 
+    /// Provides an Amazon Managed Service for Prometheus fully managed collector
+    /// (scraper).
+    /// 
+    /// Read more in the [Amazon Managed Service for Prometheus user guide](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-collector.html).
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ### Basic Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.Amp.Scraper("example", new()
+    ///     {
+    ///         Source = new Aws.Amp.Inputs.ScraperSourceArgs
+    ///         {
+    ///             Eks = new Aws.Amp.Inputs.ScraperSourceEksArgs
+    ///             {
+    ///                 ClusterArn = exampleAwsEksCluster.Arn,
+    ///                 SubnetIds = exampleAwsEksCluster.VpcConfig[0].SubnetIds,
+    ///             },
+    ///         },
+    ///         Destination = new Aws.Amp.Inputs.ScraperDestinationArgs
+    ///         {
+    ///             Amp = new Aws.Amp.Inputs.ScraperDestinationAmpArgs
+    ///             {
+    ///                 WorkspaceArn = exampleAwsPrometheusWorkspace.Arn,
+    ///             },
+    ///         },
+    ///         ScrapeConfiguration = @"global:
+    ///   scrape_interval: 30s
+    /// scrape_configs:
+    ///   # pod metrics
+    ///   - job_name: pod_exporter
+    ///     kubernetes_sd_configs:
+    ///       - role: pod
+    ///   # container metrics
+    ///   - job_name: cadvisor
+    ///     scheme: https
+    ///     authorization:
+    ///       credentials_file: /var/run/secrets/kubernetes.io/serviceaccount/token
+    ///     kubernetes_sd_configs:
+    ///       - role: node
+    ///     relabel_configs:
+    ///       - action: labelmap
+    ///         regex: __meta_kubernetes_node_label_(.+)
+    ///       - replacement: kubernetes.default.svc:443
+    ///         target_label: __address__
+    ///       - source_labels: [__meta_kubernetes_node_name]
+    ///         regex: (.+)
+    ///         target_label: __metrics_path__
+    ///         replacement: /api/v1/nodes/$1/proxy/metrics/cadvisor
+    ///   # apiserver metrics
+    ///   - bearer_token_file: /var/run/secrets/kubernetes.io/serviceaccount/token
+    ///     job_name: kubernetes-apiservers
+    ///     kubernetes_sd_configs:
+    ///     - role: endpoints
+    ///     relabel_configs:
+    ///     - action: keep
+    ///       regex: default;kubernetes;https
+    ///       source_labels:
+    ///       - __meta_kubernetes_namespace
+    ///       - __meta_kubernetes_service_name
+    ///       - __meta_kubernetes_endpoint_port_name
+    ///     scheme: https
+    ///   # kube proxy metrics
+    ///   - job_name: kube-proxy
+    ///     honor_labels: true
+    ///     kubernetes_sd_configs:
+    ///     - role: pod
+    ///     relabel_configs:
+    ///     - action: keep
+    ///       source_labels:
+    ///       - __meta_kubernetes_namespace
+    ///       - __meta_kubernetes_pod_name
+    ///       separator: '/'
+    ///       regex: 'kube-system/kube-proxy.+'
+    ///     - source_labels:
+    ///       - __address__
+    ///       action: replace
+    ///       target_label: __address__
+    ///       regex: (.+?)(\\\\:\\\\d+)?
+    ///       replacement: $1:10249
+    /// ",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ### Use default EKS scraper configuration
+    /// 
+    /// You can use the data source `AwsPrometheusScraperConfiguration` to use a
+    /// service managed scrape configuration.
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = Aws.Amp.GetDefaultScraperConfiguration.Invoke();
+    /// 
+    ///     var exampleScraper = new Aws.Amp.Scraper("example", new()
+    ///     {
+    ///         Destination = new Aws.Amp.Inputs.ScraperDestinationArgs
+    ///         {
+    ///             Amp = new Aws.Amp.Inputs.ScraperDestinationAmpArgs
+    ///             {
+    ///                 WorkspaceArn = exampleAwsPrometheusWorkspace.Arn,
+    ///             },
+    ///         },
+    ///         ScrapeConfiguration = exampleAwsPrometheusScraperConfiguration.Configuration,
+    ///         Source = new Aws.Amp.Inputs.ScraperSourceArgs
+    ///         {
+    ///             Eks = new Aws.Amp.Inputs.ScraperSourceEksArgs
+    ///             {
+    ///                 ClusterArn = exampleAwsEksCluster.Arn,
+    ///                 SubnetIds = exampleAwsEksCluster.VpcConfig[0].SubnetIds,
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ### Ignoring changes to Prometheus Workspace destination
+    /// 
+    /// A managed scraper will add a `AMPAgentlessScraper` tag to its Prometheus workspace
+    /// destination. To avoid Terraform state forcing removing the tag from the workspace,
+    /// you can add this tag to the destination workspace (preferred) or ignore tags
+    /// changes with `Lifecycle`. See example below.
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var @this = Aws.Eks.GetCluster.Invoke(new()
+    ///     {
+    ///         Name = "example",
+    ///     });
+    /// 
+    ///     var example = new Aws.Amp.Workspace("example", new()
+    ///     {
+    ///         Tags = 
+    ///         {
+    ///             { "AMPAgentlessScraper", "" },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleScraper = new Aws.Amp.Scraper("example", new()
+    ///     {
+    ///         Source = new Aws.Amp.Inputs.ScraperSourceArgs
+    ///         {
+    ///             Eks = new Aws.Amp.Inputs.ScraperSourceEksArgs
+    ///             {
+    ///                 ClusterArn = exampleAwsEksCluster.Arn,
+    ///                 SubnetIds = exampleAwsEksCluster.VpcConfig[0].SubnetIds,
+    ///             },
+    ///         },
+    ///         ScrapeConfiguration = "...",
+    ///         Destination = new Aws.Amp.Inputs.ScraperDestinationArgs
+    ///         {
+    ///             Amp = new Aws.Amp.Inputs.ScraperDestinationAmpArgs
+    ///             {
+    ///                 WorkspaceArn = example.Arn,
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ### Configure aws-auth
+    /// 
+    /// Your source Amazon EKS cluster must be configured to allow the scraper to access
+    /// metrics. Follow the [user guide](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-collector-how-to.html#AMP-collector-eks-setup)
+    /// to setup the appropriate Kubernetes permissions.
+    /// 
+    /// ### Cross-Account Configuration
+    /// 
+    /// This setup allows the scraper, running in a source account, to remote write its collected metrics to a workspace in a target account. Note that:
+    /// 
+    /// - The target Role and target Workspace must be in the same account
+    /// - The source Scraper and target Workspace must be in the same Region
+    /// 
+    /// Follow [the AWS Best Practices guide](https://aws-observability.github.io/observability-best-practices/patterns/ampxa) to learn about the IAM roles configuration and overall setup.
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.Amp.Scraper("example", new()
+    ///     {
+    ///         Source = new Aws.Amp.Inputs.ScraperSourceArgs
+    ///         {
+    ///             Eks = new Aws.Amp.Inputs.ScraperSourceEksArgs
+    ///             {
+    ///                 ClusterArn = exampleAwsEksCluster.Arn,
+    ///                 SubnetIds = exampleAwsEksCluster.VpcConfig[0].SubnetIds,
+    ///             },
+    ///         },
+    ///         Destination = new Aws.Amp.Inputs.ScraperDestinationArgs
+    ///         {
+    ///             Amp = new Aws.Amp.Inputs.ScraperDestinationAmpArgs
+    ///             {
+    ///                 WorkspaceArn = "&lt;target_account_workspace_arn&gt;",
+    ///             },
+    ///         },
+    ///         RoleConfiguration = new Aws.Amp.Inputs.ScraperRoleConfigurationArgs
+    ///         {
+    ///             SourceRoleArn = source.Arn,
+    ///             TargetRoleArn = "arn:aws:iam::ACCOUNT-ID:role/target-role-name",
+    ///         },
+    ///         ScrapeConfiguration = "...",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import the Managed Scraper using its identifier.

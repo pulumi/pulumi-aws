@@ -25,6 +25,7 @@ class AccessGrantsInstanceArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a AccessGrantsInstance resource.
+        :param pulumi.Input[_builtins.str] account_id: The AWS account ID for the S3 Access Grants instance. Defaults to automatically determined account ID of the Terraform AWS provider.
         :param pulumi.Input[_builtins.str] identity_center_arn: The ARN of the AWS IAM Identity Center instance associated with the S3 Access Grants instance.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -41,6 +42,9 @@ class AccessGrantsInstanceArgs:
     @_builtins.property
     @pulumi.getter(name="accountId")
     def account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The AWS account ID for the S3 Access Grants instance. Defaults to automatically determined account ID of the Terraform AWS provider.
+        """
         return pulumi.get(self, "account_id")
 
     @account_id.setter
@@ -99,6 +103,7 @@ class _AccessGrantsInstanceState:
         Input properties used for looking up and filtering AccessGrantsInstance resources.
         :param pulumi.Input[_builtins.str] access_grants_instance_arn: Amazon Resource Name (ARN) of the S3 Access Grants instance.
         :param pulumi.Input[_builtins.str] access_grants_instance_id: Unique ID of the S3 Access Grants instance.
+        :param pulumi.Input[_builtins.str] account_id: The AWS account ID for the S3 Access Grants instance. Defaults to automatically determined account ID of the Terraform AWS provider.
         :param pulumi.Input[_builtins.str] identity_center_application_arn: The ARN of the AWS IAM Identity Center instance application; a subresource of the original Identity Center instance.
         :param pulumi.Input[_builtins.str] identity_center_arn: The ARN of the AWS IAM Identity Center instance associated with the S3 Access Grants instance.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -149,6 +154,9 @@ class _AccessGrantsInstanceState:
     @_builtins.property
     @pulumi.getter(name="accountId")
     def account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The AWS account ID for the S3 Access Grants instance. Defaults to automatically determined account ID of the Terraform AWS provider.
+        """
         return pulumi.get(self, "account_id")
 
     @account_id.setter
@@ -261,6 +269,7 @@ class AccessGrantsInstance(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[_builtins.str] account_id: The AWS account ID for the S3 Access Grants instance. Defaults to automatically determined account ID of the Terraform AWS provider.
         :param pulumi.Input[_builtins.str] identity_center_arn: The ARN of the AWS IAM Identity Center instance associated with the S3 Access Grants instance.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -366,6 +375,7 @@ class AccessGrantsInstance(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] access_grants_instance_arn: Amazon Resource Name (ARN) of the S3 Access Grants instance.
         :param pulumi.Input[_builtins.str] access_grants_instance_id: Unique ID of the S3 Access Grants instance.
+        :param pulumi.Input[_builtins.str] account_id: The AWS account ID for the S3 Access Grants instance. Defaults to automatically determined account ID of the Terraform AWS provider.
         :param pulumi.Input[_builtins.str] identity_center_application_arn: The ARN of the AWS IAM Identity Center instance application; a subresource of the original Identity Center instance.
         :param pulumi.Input[_builtins.str] identity_center_arn: The ARN of the AWS IAM Identity Center instance associated with the S3 Access Grants instance.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -405,6 +415,9 @@ class AccessGrantsInstance(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="accountId")
     def account_id(self) -> pulumi.Output[_builtins.str]:
+        """
+        The AWS account ID for the S3 Access Grants instance. Defaults to automatically determined account ID of the Terraform AWS provider.
+        """
         return pulumi.get(self, "account_id")
 
     @_builtins.property

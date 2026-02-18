@@ -165,7 +165,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Using `pulumi import`, import Chime Voice Connector Streaming using the `voice_connector_id`. For example:
+ * Using `pulumi import`, import Chime Voice Connector Streaming using the `voiceConnectorId`. For example:
  * 
  * ```sh
  * $ pulumi import aws:chime/voiceConnectorStreaming:VoiceConnectorStreaming default abcdef1ghij2klmno3pqr4

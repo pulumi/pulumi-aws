@@ -67,7 +67,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Using `pulumi import`, import Network Firewall VPC Endpoint Association using the `vpc_endpoint_association_arn`. For example:
+ * Using `pulumi import`, import Network Firewall VPC Endpoint Association using the `vpcEndpointAssociationArn`. For example:
  * 
  * ```sh
  * $ pulumi import aws:networkfirewall/vpcEndpointAssociation:VpcEndpointAssociation example arn:aws:network-firewall:us-west-1:123456789012:vpc-endpoint-association/example

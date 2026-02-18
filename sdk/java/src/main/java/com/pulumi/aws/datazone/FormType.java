@@ -152,7 +152,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Using `pulumi import`, import DataZone Form Type using a comma separated value of `domain_identifier`,`name`,`revision`. For example:
+ * Using `pulumi import`, import DataZone Form Type using a comma separated value of `domainIdentifier`,`name`,`revision`. For example:
  * 
  * ```sh
  * $ pulumi import aws:datazone/formType:FormType example domain_identifier,name,revision
@@ -321,9 +321,17 @@ public class FormType extends com.pulumi.resources.CustomResource {
     public Output<String> revision() {
         return this.revision;
     }
+    /**
+     * Status of form type. Must be &#34;ENABLED&#34; or &#34;DISABLED&#34; If status is set to &#34;ENABLED&#34; terraform cannot delete the resource until it is manually changed in the AWS console.
+     * 
+     */
     @Export(name="status", refs={String.class}, tree="[0]")
     private Output<String> status;
 
+    /**
+     * @return Status of form type. Must be &#34;ENABLED&#34; or &#34;DISABLED&#34; If status is set to &#34;ENABLED&#34; terraform cannot delete the resource until it is manually changed in the AWS console.
+     * 
+     */
     public Output<String> status() {
         return this.status;
     }

@@ -48,11 +48,13 @@ namespace Pulumi.Aws.GlobalAccelerator
     /// 
     /// #### Required
     /// 
-    /// - `arn` (String) Amazon Resource Name (ARN) of the Global Accelerator custom routing accelerator.
+    /// - `Arn` (String) Amazon Resource Name (ARN) of the Global Accelerator custom routing accelerator.
     /// 
-    /// Using `pulumi import`, import Global Accelerator custom routing accelerators using the `arn`. For example:
+    /// Using `pulumi import`, import Global Accelerator custom routing accelerators using the `Arn`. For example:
     /// 
-    /// % pulumi import aws_globalaccelerator_custom_routing_accelerator.example arn:aws:globalaccelerator::111111111111:accelerator/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+    /// ```sh
+    /// $ pulumi import aws:globalaccelerator/customRoutingAccelerator:CustomRoutingAccelerator example arn:aws:globalaccelerator::111111111111:accelerator/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+    /// ```
     /// </summary>
     [AwsResourceType("aws:globalaccelerator/customRoutingAccelerator:CustomRoutingAccelerator")]
     public partial class CustomRoutingAccelerator : global::Pulumi.CustomResource

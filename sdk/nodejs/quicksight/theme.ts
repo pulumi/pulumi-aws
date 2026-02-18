@@ -86,6 +86,9 @@ export class Theme extends pulumi.CustomResource {
      * ARN of the theme.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
+    /**
+     * AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
+     */
     declare public readonly awsAccountId: pulumi.Output<string>;
     /**
      * The ID of the theme that a custom theme will inherit from. All themes inherit from one of the starting themes defined by Amazon QuickSight. For a list of the starting themes, use ListThemes or choose Themes from within an analysis.
@@ -207,6 +210,9 @@ export interface ThemeState {
      * ARN of the theme.
      */
     arn?: pulumi.Input<string>;
+    /**
+     * AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
+     */
     awsAccountId?: pulumi.Input<string>;
     /**
      * The ID of the theme that a custom theme will inherit from. All themes inherit from one of the starting themes defined by Amazon QuickSight. For a list of the starting themes, use ListThemes or choose Themes from within an analysis.
@@ -268,6 +274,9 @@ export interface ThemeState {
  * The set of arguments for constructing a Theme resource.
  */
 export interface ThemeArgs {
+    /**
+     * AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
+     */
     awsAccountId?: pulumi.Input<string>;
     /**
      * The ID of the theme that a custom theme will inherit from. All themes inherit from one of the starting themes defined by Amazon QuickSight. For a list of the starting themes, use ListThemes or choose Themes from within an analysis.

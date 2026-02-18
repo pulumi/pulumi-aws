@@ -34,7 +34,7 @@ namespace Pulumi.Aws.Auditmanager
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import Audit Manager Organization Admin Account Registration using the `id`. For example:
+    /// Using `pulumi import`, import Audit Manager Organization Admin Account Registration using the `Id`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:auditmanager/organizationAdminAccountRegistration:OrganizationAdminAccountRegistration example 123456789012

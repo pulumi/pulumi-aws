@@ -59,16 +59,11 @@ __all__ = [
     'UserProfileTimeoutsArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class AssetTypeFormsInputArgsDict(TypedDict):
-        map_block_key: pulumi.Input[_builtins.str]
-        type_identifier: pulumi.Input[_builtins.str]
-        type_revision: pulumi.Input[_builtins.str]
-        required: NotRequired[pulumi.Input[_builtins.bool]]
-elif False:
-    AssetTypeFormsInputArgsDict: TypeAlias = Mapping[str, Any]
+class AssetTypeFormsInputArgsDict(TypedDict):
+    map_block_key: pulumi.Input[_builtins.str]
+    type_identifier: pulumi.Input[_builtins.str]
+    type_revision: pulumi.Input[_builtins.str]
+    required: NotRequired[pulumi.Input[_builtins.bool]]
 
 @pulumi.input_type
 class AssetTypeFormsInputArgs:
@@ -120,14 +115,11 @@ class AssetTypeFormsInputArgs:
         pulumi.set(self, "required", value)
 
 
-if not MYPY:
-    class AssetTypeTimeoutsArgsDict(TypedDict):
-        create: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
-        """
-elif False:
-    AssetTypeTimeoutsArgsDict: TypeAlias = Mapping[str, Any]
+class AssetTypeTimeoutsArgsDict(TypedDict):
+    create: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+    """
 
 @pulumi.input_type
 class AssetTypeTimeoutsArgs:
@@ -152,12 +144,9 @@ class AssetTypeTimeoutsArgs:
         pulumi.set(self, "create", value)
 
 
-if not MYPY:
-    class DomainSingleSignOnArgsDict(TypedDict):
-        type: NotRequired[pulumi.Input[_builtins.str]]
-        user_assignment: NotRequired[pulumi.Input[_builtins.str]]
-elif False:
-    DomainSingleSignOnArgsDict: TypeAlias = Mapping[str, Any]
+class DomainSingleSignOnArgsDict(TypedDict):
+    type: NotRequired[pulumi.Input[_builtins.str]]
+    user_assignment: NotRequired[pulumi.Input[_builtins.str]]
 
 @pulumi.input_type
 class DomainSingleSignOnArgs:
@@ -188,18 +177,15 @@ class DomainSingleSignOnArgs:
         pulumi.set(self, "user_assignment", value)
 
 
-if not MYPY:
-    class DomainTimeoutsArgsDict(TypedDict):
-        create: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
-        """
-        delete: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
-        """
-elif False:
-    DomainTimeoutsArgsDict: TypeAlias = Mapping[str, Any]
+class DomainTimeoutsArgsDict(TypedDict):
+    create: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+    """
+    delete: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+    """
 
 @pulumi.input_type
 class DomainTimeoutsArgs:
@@ -240,16 +226,13 @@ class DomainTimeoutsArgs:
         pulumi.set(self, "delete", value)
 
 
-if not MYPY:
-    class EnvironmentLastDeploymentArgsDict(TypedDict):
-        deployment_id: pulumi.Input[_builtins.str]
-        deployment_status: pulumi.Input[_builtins.str]
-        deployment_type: pulumi.Input[_builtins.str]
-        failure_reasons: pulumi.Input[Sequence[pulumi.Input['EnvironmentLastDeploymentFailureReasonArgsDict']]]
-        is_deployment_complete: pulumi.Input[_builtins.bool]
-        messages: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-elif False:
-    EnvironmentLastDeploymentArgsDict: TypeAlias = Mapping[str, Any]
+class EnvironmentLastDeploymentArgsDict(TypedDict):
+    deployment_id: pulumi.Input[_builtins.str]
+    deployment_status: pulumi.Input[_builtins.str]
+    deployment_type: pulumi.Input[_builtins.str]
+    failure_reasons: pulumi.Input[Sequence[pulumi.Input['EnvironmentLastDeploymentFailureReasonArgsDict']]]
+    is_deployment_complete: pulumi.Input[_builtins.bool]
+    messages: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
 
 @pulumi.input_type
 class EnvironmentLastDeploymentArgs:
@@ -322,12 +305,9 @@ class EnvironmentLastDeploymentArgs:
         pulumi.set(self, "messages", value)
 
 
-if not MYPY:
-    class EnvironmentLastDeploymentFailureReasonArgsDict(TypedDict):
-        code: pulumi.Input[_builtins.str]
-        message: pulumi.Input[_builtins.str]
-elif False:
-    EnvironmentLastDeploymentFailureReasonArgsDict: TypeAlias = Mapping[str, Any]
+class EnvironmentLastDeploymentFailureReasonArgsDict(TypedDict):
+    code: pulumi.Input[_builtins.str]
+    message: pulumi.Input[_builtins.str]
 
 @pulumi.input_type
 class EnvironmentLastDeploymentFailureReasonArgs:
@@ -356,18 +336,15 @@ class EnvironmentLastDeploymentFailureReasonArgs:
         pulumi.set(self, "message", value)
 
 
-if not MYPY:
-    class EnvironmentProfileUserParameterArgsDict(TypedDict):
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Name of the environment profile parameter.
-        """
-        value: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Value of the environment profile parameter.
-        """
-elif False:
-    EnvironmentProfileUserParameterArgsDict: TypeAlias = Mapping[str, Any]
+class EnvironmentProfileUserParameterArgsDict(TypedDict):
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Name of the environment profile parameter.
+    """
+    value: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Value of the environment profile parameter.
+    """
 
 @pulumi.input_type
 class EnvironmentProfileUserParameterArgs:
@@ -408,20 +385,17 @@ class EnvironmentProfileUserParameterArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class EnvironmentProvisionedResourceArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the environment.
-        """
-        provider: pulumi.Input[_builtins.str]
-        type: pulumi.Input[_builtins.str]
-        value: pulumi.Input[_builtins.str]
-        """
-        The value of an environment profile parameter.
-        """
-elif False:
-    EnvironmentProvisionedResourceArgsDict: TypeAlias = Mapping[str, Any]
+class EnvironmentProvisionedResourceArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the environment.
+    """
+    provider: pulumi.Input[_builtins.str]
+    type: pulumi.Input[_builtins.str]
+    value: pulumi.Input[_builtins.str]
+    """
+    The value of an environment profile parameter.
+    """
 
 @pulumi.input_type
 class EnvironmentProvisionedResourceArgs:
@@ -482,22 +456,19 @@ class EnvironmentProvisionedResourceArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class EnvironmentTimeoutsArgsDict(TypedDict):
-        create: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
-        """
-        delete: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
-        """
-        update: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
-        """
-elif False:
-    EnvironmentTimeoutsArgsDict: TypeAlias = Mapping[str, Any]
+class EnvironmentTimeoutsArgsDict(TypedDict):
+    create: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+    """
+    delete: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+    """
+    update: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+    """
 
 @pulumi.input_type
 class EnvironmentTimeoutsArgs:
@@ -554,18 +525,15 @@ class EnvironmentTimeoutsArgs:
         pulumi.set(self, "update", value)
 
 
-if not MYPY:
-    class EnvironmentUserParameterArgsDict(TypedDict):
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of an environment profile parameter.
-        """
-        value: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The value of an environment profile parameter.
-        """
-elif False:
-    EnvironmentUserParameterArgsDict: TypeAlias = Mapping[str, Any]
+class EnvironmentUserParameterArgsDict(TypedDict):
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of an environment profile parameter.
+    """
+    value: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The value of an environment profile parameter.
+    """
 
 @pulumi.input_type
 class EnvironmentUserParameterArgs:
@@ -606,18 +574,15 @@ class EnvironmentUserParameterArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class FormTypeImportArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        """
-        Name of the form type. Must be the name of the structure in smithy document.
-        """
-        revision: pulumi.Input[_builtins.str]
-        """
-        Revision of the Form Type.
-        """
-elif False:
-    FormTypeImportArgsDict: TypeAlias = Mapping[str, Any]
+class FormTypeImportArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    Name of the form type. Must be the name of the structure in smithy document.
+    """
+    revision: pulumi.Input[_builtins.str]
+    """
+    Revision of the Form Type.
+    """
 
 @pulumi.input_type
 class FormTypeImportArgs:
@@ -656,16 +621,13 @@ class FormTypeImportArgs:
         pulumi.set(self, "revision", value)
 
 
-if not MYPY:
-    class FormTypeModelArgsDict(TypedDict):
-        smithy: pulumi.Input[_builtins.str]
-        """
-        Smithy document that indicates the model of the API. Must be between the lengths 1 and 100,000 and be encoded as a smithy document.
+class FormTypeModelArgsDict(TypedDict):
+    smithy: pulumi.Input[_builtins.str]
+    """
+    Smithy document that indicates the model of the API. Must be between the lengths 1 and 100,000 and be encoded as a smithy document.
 
-        The following arguments are optional:
-        """
-elif False:
-    FormTypeModelArgsDict: TypeAlias = Mapping[str, Any]
+    The following arguments are optional:
+    """
 
 @pulumi.input_type
 class FormTypeModelArgs:
@@ -693,14 +655,11 @@ class FormTypeModelArgs:
         pulumi.set(self, "smithy", value)
 
 
-if not MYPY:
-    class FormTypeTimeoutsArgsDict(TypedDict):
-        create: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
-        """
-elif False:
-    FormTypeTimeoutsArgsDict: TypeAlias = Mapping[str, Any]
+class FormTypeTimeoutsArgsDict(TypedDict):
+    create: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+    """
 
 @pulumi.input_type
 class FormTypeTimeoutsArgs:
@@ -725,15 +684,12 @@ class FormTypeTimeoutsArgs:
         pulumi.set(self, "create", value)
 
 
-if not MYPY:
-    class GlossaryTermTermRelationsArgsDict(TypedDict):
-        classifies: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        String array that calssifies the term relations.
-        """
-        is_as: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-elif False:
-    GlossaryTermTermRelationsArgsDict: TypeAlias = Mapping[str, Any]
+class GlossaryTermTermRelationsArgsDict(TypedDict):
+    classifies: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    String array that calssifies the term relations.
+    """
+    is_as: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
 
 @pulumi.input_type
 class GlossaryTermTermRelationsArgs:
@@ -770,14 +726,11 @@ class GlossaryTermTermRelationsArgs:
         pulumi.set(self, "is_as", value)
 
 
-if not MYPY:
-    class GlossaryTermTimeoutsArgsDict(TypedDict):
-        create: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
-        """
-elif False:
-    GlossaryTermTimeoutsArgsDict: TypeAlias = Mapping[str, Any]
+class GlossaryTermTimeoutsArgsDict(TypedDict):
+    create: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+    """
 
 @pulumi.input_type
 class GlossaryTermTimeoutsArgs:
@@ -802,12 +755,9 @@ class GlossaryTermTimeoutsArgs:
         pulumi.set(self, "create", value)
 
 
-if not MYPY:
-    class ProjectFailureReasonArgsDict(TypedDict):
-        code: pulumi.Input[_builtins.str]
-        message: pulumi.Input[_builtins.str]
-elif False:
-    ProjectFailureReasonArgsDict: TypeAlias = Mapping[str, Any]
+class ProjectFailureReasonArgsDict(TypedDict):
+    code: pulumi.Input[_builtins.str]
+    message: pulumi.Input[_builtins.str]
 
 @pulumi.input_type
 class ProjectFailureReasonArgs:
@@ -836,18 +786,15 @@ class ProjectFailureReasonArgs:
         pulumi.set(self, "message", value)
 
 
-if not MYPY:
-    class ProjectTimeoutsArgsDict(TypedDict):
-        create: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
-        """
-        delete: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
-        """
-elif False:
-    ProjectTimeoutsArgsDict: TypeAlias = Mapping[str, Any]
+class ProjectTimeoutsArgsDict(TypedDict):
+    create: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+    """
+    delete: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+    """
 
 @pulumi.input_type
 class ProjectTimeoutsArgs:
@@ -888,12 +835,9 @@ class ProjectTimeoutsArgs:
         pulumi.set(self, "delete", value)
 
 
-if not MYPY:
-    class UserProfileDetailArgsDict(TypedDict):
-        iams: pulumi.Input[Sequence[pulumi.Input['UserProfileDetailIamArgsDict']]]
-        ssos: pulumi.Input[Sequence[pulumi.Input['UserProfileDetailSsoArgsDict']]]
-elif False:
-    UserProfileDetailArgsDict: TypeAlias = Mapping[str, Any]
+class UserProfileDetailArgsDict(TypedDict):
+    iams: pulumi.Input[Sequence[pulumi.Input['UserProfileDetailIamArgsDict']]]
+    ssos: pulumi.Input[Sequence[pulumi.Input['UserProfileDetailSsoArgsDict']]]
 
 @pulumi.input_type
 class UserProfileDetailArgs:
@@ -922,11 +866,8 @@ class UserProfileDetailArgs:
         pulumi.set(self, "ssos", value)
 
 
-if not MYPY:
-    class UserProfileDetailIamArgsDict(TypedDict):
-        arn: pulumi.Input[_builtins.str]
-elif False:
-    UserProfileDetailIamArgsDict: TypeAlias = Mapping[str, Any]
+class UserProfileDetailIamArgsDict(TypedDict):
+    arn: pulumi.Input[_builtins.str]
 
 @pulumi.input_type
 class UserProfileDetailIamArgs:
@@ -944,13 +885,10 @@ class UserProfileDetailIamArgs:
         pulumi.set(self, "arn", value)
 
 
-if not MYPY:
-    class UserProfileDetailSsoArgsDict(TypedDict):
-        first_name: pulumi.Input[_builtins.str]
-        last_name: pulumi.Input[_builtins.str]
-        user_name: pulumi.Input[_builtins.str]
-elif False:
-    UserProfileDetailSsoArgsDict: TypeAlias = Mapping[str, Any]
+class UserProfileDetailSsoArgsDict(TypedDict):
+    first_name: pulumi.Input[_builtins.str]
+    last_name: pulumi.Input[_builtins.str]
+    user_name: pulumi.Input[_builtins.str]
 
 @pulumi.input_type
 class UserProfileDetailSsoArgs:
@@ -990,18 +928,15 @@ class UserProfileDetailSsoArgs:
         pulumi.set(self, "user_name", value)
 
 
-if not MYPY:
-    class UserProfileTimeoutsArgsDict(TypedDict):
-        create: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
-        """
-        update: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
-        """
-elif False:
-    UserProfileTimeoutsArgsDict: TypeAlias = Mapping[str, Any]
+class UserProfileTimeoutsArgsDict(TypedDict):
+    create: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+    """
+    update: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+    """
 
 @pulumi.input_type
 class UserProfileTimeoutsArgs:

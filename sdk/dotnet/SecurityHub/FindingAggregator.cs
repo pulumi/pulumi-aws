@@ -138,7 +138,7 @@ namespace Pulumi.Aws.SecurityHub
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import an existing Security Hub finding aggregator using the `arn`. For example:
+    /// Using `pulumi import`, import an existing Security Hub finding aggregator using the `Arn`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:securityhub/findingAggregator:FindingAggregator example arn:aws:securityhub:eu-west-1:123456789098:finding-aggregator/abcd1234-abcd-1234-1234-abcdef123456

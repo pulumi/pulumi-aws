@@ -580,7 +580,7 @@ namespace Pulumi.Aws.CloudFront
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import CloudFront Distributions using the `id`. For example:
+    /// Using `pulumi import`, import CloudFront Distributions using the `Id`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:cloudfront/distribution:Distribution distribution E74FTE3EXAMPLE

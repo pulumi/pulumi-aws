@@ -2414,7 +2414,7 @@ class LogDeliveryS3DeliveryConfiguration(dict):
                  suffix_path: _builtins.str):
         """
         :param _builtins.bool enable_hive_compatible_path: This parameter causes the S3 objects that contain delivered logs to use a prefix structure that allows for integration with Apache Hive.
-        :param _builtins.str suffix_path: This string allows re-configuring the S3 object prefix to contain either static or variable sections. The valid variables to use in the suffix path will vary by each log source.
+        :param _builtins.str suffix_path: This string allows re-configuring the S3 object prefix to contain either static or variable sections. The valid variables to use in the suffix path will vary by each log source. **Note:** AWS automatically prepends account and service-specific prefixes (e.g., `AWSLogs/{account-id}/CloudFront/` for CloudFront sources) to the configured value. Specify only your custom suffix path without these AWS-managed prefixes.
         """
         pulumi.set(__self__, "enable_hive_compatible_path", enable_hive_compatible_path)
         pulumi.set(__self__, "suffix_path", suffix_path)
@@ -2431,7 +2431,7 @@ class LogDeliveryS3DeliveryConfiguration(dict):
     @pulumi.getter(name="suffixPath")
     def suffix_path(self) -> _builtins.str:
         """
-        This string allows re-configuring the S3 object prefix to contain either static or variable sections. The valid variables to use in the suffix path will vary by each log source.
+        This string allows re-configuring the S3 object prefix to contain either static or variable sections. The valid variables to use in the suffix path will vary by each log source. **Note:** AWS automatically prepends account and service-specific prefixes (e.g., `AWSLogs/{account-id}/CloudFront/` for CloudFront sources) to the configured value. Specify only your custom suffix path without these AWS-managed prefixes.
         """
         return pulumi.get(self, "suffix_path")
 

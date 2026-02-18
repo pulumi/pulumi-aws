@@ -108,6 +108,9 @@ namespace Pulumi.Aws
         [Input("endpoint")]
         public string? Endpoint { get; set; }
 
+        /// <summary>
+        /// Region's name (e.g. `us-east-1`).
+        /// </summary>
         [Input("id")]
         public string? Id { get; set; }
 
@@ -137,6 +140,9 @@ namespace Pulumi.Aws
         [Input("endpoint")]
         public Input<string>? Endpoint { get; set; }
 
+        /// <summary>
+        /// Region's name (e.g. `us-east-1`).
+        /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }
 
@@ -167,6 +173,9 @@ namespace Pulumi.Aws
         /// </summary>
         public readonly string Description;
         public readonly string Endpoint;
+        /// <summary>
+        /// Region's name (e.g. `us-east-1`).
+        /// </summary>
         public readonly string Id;
         public readonly string Name;
         public readonly string Region;

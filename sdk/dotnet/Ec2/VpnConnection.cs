@@ -156,7 +156,7 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import VPN Connections using the VPN connection `id`. For example:
+    /// Using `pulumi import`, import VPN Connections using the VPN connection `Id`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:ec2/vpnConnection:VpnConnection testvpnconnection vpn-40f41529

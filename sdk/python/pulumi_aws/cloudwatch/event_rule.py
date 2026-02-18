@@ -531,14 +531,14 @@ class EventRule(pulumi.CustomResource):
         #### Optional
 
         * `account_id` (String) AWS Account where this resource is managed.
-
         * `event_bus_name` (String) Name of the event bus.
-
         * `region` (String) Region where this resource is managed.
 
         Using `pulumi import`, import EventBridge Rules using the `event_bus_name/rule_name` (if you omit `event_bus_name`, the `default` event bus will be used). For example:
 
-        % pulumi import aws_cloudwatch_event_rule.example example-event-bus/capture-console-sign-in
+        ```sh
+        $ pulumi import aws:cloudwatch/eventRule:EventRule example example-event-bus/capture-console-sign-in
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -611,14 +611,14 @@ class EventRule(pulumi.CustomResource):
         #### Optional
 
         * `account_id` (String) AWS Account where this resource is managed.
-
         * `event_bus_name` (String) Name of the event bus.
-
         * `region` (String) Region where this resource is managed.
 
         Using `pulumi import`, import EventBridge Rules using the `event_bus_name/rule_name` (if you omit `event_bus_name`, the `default` event bus will be used). For example:
 
-        % pulumi import aws_cloudwatch_event_rule.example example-event-bus/capture-console-sign-in
+        ```sh
+        $ pulumi import aws:cloudwatch/eventRule:EventRule example example-event-bus/capture-console-sign-in
+        ```
 
         :param str resource_name: The name of the resource.
         :param EventRuleArgs args: The arguments to use to populate this resource's properties.

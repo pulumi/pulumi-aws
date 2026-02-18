@@ -10,6 +10,10 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Rds
 {
     /// <summary>
+    /// Provides a resource to override the system-default Secure Sockets Layer/Transport Layer Security (SSL/TLS) certificate for Amazon RDS for new DB instances in the current AWS region.
+    /// 
+    /// &gt; **NOTE:** Removing this Terraform resource removes the override. New DB instances will use the system-default certificate for the current AWS region.
+    /// 
     /// ## Example Usage
     /// 
     /// ```csharp
@@ -30,7 +34,7 @@ namespace Pulumi.Aws.Rds
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import the RDS certificate override using the `region`. For example:
+    /// Using `pulumi import`, import the RDS certificate override using the `Region`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:rds/certificate:Certificate example us-west-2

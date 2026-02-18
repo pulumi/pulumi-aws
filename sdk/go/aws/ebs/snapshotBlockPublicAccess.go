@@ -12,6 +12,10 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Provides a resource to manage the state of the "Block public access for snapshots" setting on region level.
+//
+// > **NOTE:** Removing this Terraform resource disables blocking.
+//
 // ## Example Usage
 //
 // ```go

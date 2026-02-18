@@ -41,7 +41,7 @@ namespace Pulumi.Aws.ServiceCatalog
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import Service Catalog AppRegistry Attribute Group using the `id`. For example:
+    /// Using `pulumi import`, import Service Catalog AppRegistry Attribute Group using the `Id`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:servicecatalog/appregistryAttributeGroup:AppregistryAttributeGroup example 1234567890abcfedhijk09876s

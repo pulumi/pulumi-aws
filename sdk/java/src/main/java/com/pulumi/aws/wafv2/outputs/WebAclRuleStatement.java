@@ -72,7 +72,7 @@ public final class WebAclRuleStatement {
      */
     private @Nullable WebAclRuleStatementOrStatement orStatement;
     /**
-     * @return Rate-based rule tracks the rate of requests for each originating `IP address`, and triggers the rule action when the rate exceeds a limit that you specify on the number of requests in any `5-minute` time span. This statement can not be nested. See `rateBasedStatement` below for details.
+     * @return Rate-based rule tracks the rate of requests for each originating `IP address`, and triggers the rule action when the rate exceeds a limit that you specify on the number of requests in any specified time span. This statement can not be nested. See `rateBasedStatement` below for details.
      * 
      */
     private @Nullable WebAclRuleStatementRateBasedStatement rateBasedStatement;
@@ -172,7 +172,7 @@ public final class WebAclRuleStatement {
         return Optional.ofNullable(this.orStatement);
     }
     /**
-     * @return Rate-based rule tracks the rate of requests for each originating `IP address`, and triggers the rule action when the rate exceeds a limit that you specify on the number of requests in any `5-minute` time span. This statement can not be nested. See `rateBasedStatement` below for details.
+     * @return Rate-based rule tracks the rate of requests for each originating `IP address`, and triggers the rule action when the rate exceeds a limit that you specify on the number of requests in any specified time span. This statement can not be nested. See `rateBasedStatement` below for details.
      * 
      */
     public Optional<WebAclRuleStatementRateBasedStatement> rateBasedStatement() {

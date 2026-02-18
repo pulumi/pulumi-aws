@@ -149,7 +149,8 @@ type Dashboard struct {
 	pulumi.CustomResourceState
 
 	// ARN of the dashboard.
-	Arn          pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
 	AwsAccountId pulumi.StringOutput `pulumi:"awsAccountId"`
 	// The time that the dashboard was created.
 	CreatedTime pulumi.StringOutput `pulumi:"createdTime"`
@@ -225,7 +226,8 @@ func GetDashboard(ctx *pulumi.Context,
 // Input properties used for looking up and filtering Dashboard resources.
 type dashboardState struct {
 	// ARN of the dashboard.
-	Arn          *string `pulumi:"arn"`
+	Arn *string `pulumi:"arn"`
+	// AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
 	AwsAccountId *string `pulumi:"awsAccountId"`
 	// The time that the dashboard was created.
 	CreatedTime *string `pulumi:"createdTime"`
@@ -266,7 +268,8 @@ type dashboardState struct {
 
 type DashboardState struct {
 	// ARN of the dashboard.
-	Arn          pulumi.StringPtrInput
+	Arn pulumi.StringPtrInput
+	// AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
 	AwsAccountId pulumi.StringPtrInput
 	// The time that the dashboard was created.
 	CreatedTime pulumi.StringPtrInput
@@ -310,6 +313,7 @@ func (DashboardState) ElementType() reflect.Type {
 }
 
 type dashboardArgs struct {
+	// AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
 	AwsAccountId *string `pulumi:"awsAccountId"`
 	// Identifier for the dashboard.
 	DashboardId string `pulumi:"dashboardId"`
@@ -337,6 +341,7 @@ type dashboardArgs struct {
 
 // The set of arguments for constructing a Dashboard resource.
 type DashboardArgs struct {
+	// AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
 	AwsAccountId pulumi.StringPtrInput
 	// Identifier for the dashboard.
 	DashboardId pulumi.StringInput
@@ -454,6 +459,7 @@ func (o DashboardOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Dashboard) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
 func (o DashboardOutput) AwsAccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Dashboard) pulumi.StringOutput { return v.AwsAccountId }).(pulumi.StringOutput)
 }

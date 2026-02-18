@@ -42,7 +42,7 @@ import (
 //
 // ## Import
 //
-// Using `pulumi import`, import `aws_location_tracker` resources using the tracker name. For example:
+// Using `pulumi import`, import `location.Tracker` resources using the tracker name. For example:
 //
 // ```sh
 // $ pulumi import aws:location/tracker:Tracker example example

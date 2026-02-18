@@ -45,7 +45,7 @@ namespace Pulumi.Aws.Efs
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import the EFS mount targets using the `id`. For example:
+    /// Using `pulumi import`, import the EFS mount targets using the `Id`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:efs/mountTarget:MountTarget alpha fsmt-52a643fb

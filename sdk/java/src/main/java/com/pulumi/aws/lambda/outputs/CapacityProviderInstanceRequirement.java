@@ -12,38 +12,38 @@ import java.util.Objects;
 @CustomType
 public final class CapacityProviderInstanceRequirement {
     /**
-     * @return List of allowed instance types.
+     * @return List of allowed instance types (e.g., `[&#34;m5.xlarge&#34;]`).
      * 
      */
     private List<String> allowedInstanceTypes;
     /**
-     * @return List of CPU architectures. Valid values are `X86_64` and `ARM64`.
+     * @return List of CPU architectures. Valid values are `[&#34;x8664&#34;]` and `[&#34;arm64&#34;]`.
      * 
      */
     private List<String> architectures;
     /**
-     * @return List of excluded instance types.
+     * @return List of excluded instance types. You can specify only one of `allowedInstanceTypes` or `excludedInstanceTypes`.
      * 
      */
     private List<String> excludedInstanceTypes;
 
     private CapacityProviderInstanceRequirement() {}
     /**
-     * @return List of allowed instance types.
+     * @return List of allowed instance types (e.g., `[&#34;m5.xlarge&#34;]`).
      * 
      */
     public List<String> allowedInstanceTypes() {
         return this.allowedInstanceTypes;
     }
     /**
-     * @return List of CPU architectures. Valid values are `X86_64` and `ARM64`.
+     * @return List of CPU architectures. Valid values are `[&#34;x8664&#34;]` and `[&#34;arm64&#34;]`.
      * 
      */
     public List<String> architectures() {
         return this.architectures;
     }
     /**
-     * @return List of excluded instance types.
+     * @return List of excluded instance types. You can specify only one of `allowedInstanceTypes` or `excludedInstanceTypes`.
      * 
      */
     public List<String> excludedInstanceTypes() {

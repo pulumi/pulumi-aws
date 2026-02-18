@@ -55,7 +55,7 @@ namespace Pulumi.Aws.Macie2
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import `aws_macie2_classification_job` using the id. For example:
+    /// Using `pulumi import`, import `aws.macie2.ClassificationJob` using the id. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:macie2/classificationJob:ClassificationJob example abcd1

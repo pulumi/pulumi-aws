@@ -57,7 +57,7 @@ import (
 //
 // ## Import
 //
-// Using `pulumi import`, import `aws_lightsail_lb_stickiness_policy` using the `lb_name` attribute. For example:
+// Using `pulumi import`, import `lightsail.LbStickinessPolicy` using the `lbName` attribute. For example:
 //
 // ```sh
 // $ pulumi import aws:lightsail/lbStickinessPolicy:LbStickinessPolicy example example-load-balancer

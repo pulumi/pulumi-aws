@@ -139,19 +139,19 @@ import * as utilities from "../utilities";
  *
  * #### Required
  *
- * * `window_id` - (String) ID of the maintenance window.
- *
+ * * `windowId` - (String) ID of the maintenance window.
  * * `id` - (String) ID of the maintenance window task.
  *
  * #### Optional
  *
- * * `account_id` (String) AWS Account where this resource is managed.
- *
+ * * `accountId` (String) AWS Account where this resource is managed.
  * * `region` (String) Region where this resource is managed.
  *
- * Using `pulumi import`, import AWS Maintenance Window Task using the `window_id` and `window_task_id` separated by `/`. For example:
+ * Using `pulumi import`, import AWS Maintenance Window Task using the `windowId` and `windowTaskId` separated by `/`. For example:
  *
- * % pulumi import aws_ssm_maintenance_window_task.example <window_id>/<window_task_id>
+ * ```sh
+ * $ pulumi import aws:ssm/maintenanceWindowTask:MaintenanceWindowTask example <window_id>/<window_task_id>
+ * ```
  */
 export class MaintenanceWindowTask extends pulumi.CustomResource {
     /**

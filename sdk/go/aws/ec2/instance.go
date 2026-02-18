@@ -351,13 +351,14 @@ import (
 //
 // #### Optional
 //
-// * `account_id` (String) AWS Account where this resource is managed.
-//
+// * `accountId` (String) AWS Account where this resource is managed.
 // * `region` (String) Region where this resource is managed.
 //
 // Using `pulumi import`, import instances using the `id`. For example:
 //
-// % pulumi import aws_instance.web i-12345678
+// ```sh
+// $ pulumi import aws:ec2/instance:Instance web i-12345678
+// ```
 type Instance struct {
 	pulumi.CustomResourceState
 
@@ -457,6 +458,8 @@ type Instance struct {
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Configuration block to customize details about the root block device of the instance. See Block Devices below for details. When accessing this as an attribute reference, it is a list containing one object.
 	RootBlockDevice InstanceRootBlockDeviceOutput `pulumi:"rootBlockDevice"`
+	// One or more secondary network interfaces to attach to the instance at launch time. See Secondary Network Interface below for more details.
+	SecondaryNetworkInterfaces InstanceSecondaryNetworkInterfaceArrayOutput `pulumi:"secondaryNetworkInterfaces"`
 	// List of secondary private IPv4 addresses to assign to the instance's primary network interface (eth0) in a VPC. Can only be assigned to the primary network interface (eth0) attached at instance creation, not a pre-existing network interface i.e., referenced in a `networkInterface` block. Refer to the [Elastic network interfaces documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI) to see the maximum number of private IP addresses allowed per instance type.
 	SecondaryPrivateIps pulumi.StringArrayOutput `pulumi:"secondaryPrivateIps"`
 	// List of security group names to associate with.
@@ -617,6 +620,8 @@ type instanceState struct {
 	Region *string `pulumi:"region"`
 	// Configuration block to customize details about the root block device of the instance. See Block Devices below for details. When accessing this as an attribute reference, it is a list containing one object.
 	RootBlockDevice *InstanceRootBlockDevice `pulumi:"rootBlockDevice"`
+	// One or more secondary network interfaces to attach to the instance at launch time. See Secondary Network Interface below for more details.
+	SecondaryNetworkInterfaces []InstanceSecondaryNetworkInterface `pulumi:"secondaryNetworkInterfaces"`
 	// List of secondary private IPv4 addresses to assign to the instance's primary network interface (eth0) in a VPC. Can only be assigned to the primary network interface (eth0) attached at instance creation, not a pre-existing network interface i.e., referenced in a `networkInterface` block. Refer to the [Elastic network interfaces documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI) to see the maximum number of private IP addresses allowed per instance type.
 	SecondaryPrivateIps []string `pulumi:"secondaryPrivateIps"`
 	// List of security group names to associate with.
@@ -748,6 +753,8 @@ type InstanceState struct {
 	Region pulumi.StringPtrInput
 	// Configuration block to customize details about the root block device of the instance. See Block Devices below for details. When accessing this as an attribute reference, it is a list containing one object.
 	RootBlockDevice InstanceRootBlockDevicePtrInput
+	// One or more secondary network interfaces to attach to the instance at launch time. See Secondary Network Interface below for more details.
+	SecondaryNetworkInterfaces InstanceSecondaryNetworkInterfaceArrayInput
 	// List of secondary private IPv4 addresses to assign to the instance's primary network interface (eth0) in a VPC. Can only be assigned to the primary network interface (eth0) attached at instance creation, not a pre-existing network interface i.e., referenced in a `networkInterface` block. Refer to the [Elastic network interfaces documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI) to see the maximum number of private IP addresses allowed per instance type.
 	SecondaryPrivateIps pulumi.StringArrayInput
 	// List of security group names to associate with.
@@ -865,6 +872,8 @@ type instanceArgs struct {
 	Region *string `pulumi:"region"`
 	// Configuration block to customize details about the root block device of the instance. See Block Devices below for details. When accessing this as an attribute reference, it is a list containing one object.
 	RootBlockDevice *InstanceRootBlockDevice `pulumi:"rootBlockDevice"`
+	// One or more secondary network interfaces to attach to the instance at launch time. See Secondary Network Interface below for more details.
+	SecondaryNetworkInterfaces []InstanceSecondaryNetworkInterface `pulumi:"secondaryNetworkInterfaces"`
 	// List of secondary private IPv4 addresses to assign to the instance's primary network interface (eth0) in a VPC. Can only be assigned to the primary network interface (eth0) attached at instance creation, not a pre-existing network interface i.e., referenced in a `networkInterface` block. Refer to the [Elastic network interfaces documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI) to see the maximum number of private IP addresses allowed per instance type.
 	SecondaryPrivateIps []string `pulumi:"secondaryPrivateIps"`
 	// List of security group names to associate with.
@@ -975,6 +984,8 @@ type InstanceArgs struct {
 	Region pulumi.StringPtrInput
 	// Configuration block to customize details about the root block device of the instance. See Block Devices below for details. When accessing this as an attribute reference, it is a list containing one object.
 	RootBlockDevice InstanceRootBlockDevicePtrInput
+	// One or more secondary network interfaces to attach to the instance at launch time. See Secondary Network Interface below for more details.
+	SecondaryNetworkInterfaces InstanceSecondaryNetworkInterfaceArrayInput
 	// List of secondary private IPv4 addresses to assign to the instance's primary network interface (eth0) in a VPC. Can only be assigned to the primary network interface (eth0) attached at instance creation, not a pre-existing network interface i.e., referenced in a `networkInterface` block. Refer to the [Elastic network interfaces documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI) to see the maximum number of private IP addresses allowed per instance type.
 	SecondaryPrivateIps pulumi.StringArrayInput
 	// List of security group names to associate with.
@@ -1329,6 +1340,11 @@ func (o InstanceOutput) Region() pulumi.StringOutput {
 // Configuration block to customize details about the root block device of the instance. See Block Devices below for details. When accessing this as an attribute reference, it is a list containing one object.
 func (o InstanceOutput) RootBlockDevice() InstanceRootBlockDeviceOutput {
 	return o.ApplyT(func(v *Instance) InstanceRootBlockDeviceOutput { return v.RootBlockDevice }).(InstanceRootBlockDeviceOutput)
+}
+
+// One or more secondary network interfaces to attach to the instance at launch time. See Secondary Network Interface below for more details.
+func (o InstanceOutput) SecondaryNetworkInterfaces() InstanceSecondaryNetworkInterfaceArrayOutput {
+	return o.ApplyT(func(v *Instance) InstanceSecondaryNetworkInterfaceArrayOutput { return v.SecondaryNetworkInterfaces }).(InstanceSecondaryNetworkInterfaceArrayOutput)
 }
 
 // List of secondary private IPv4 addresses to assign to the instance's primary network interface (eth0) in a VPC. Can only be assigned to the primary network interface (eth0) attached at instance creation, not a pre-existing network interface i.e., referenced in a `networkInterface` block. Refer to the [Elastic network interfaces documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI) to see the maximum number of private IP addresses allowed per instance type.

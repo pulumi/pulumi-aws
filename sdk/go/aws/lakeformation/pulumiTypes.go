@@ -421,9 +421,9 @@ func (o DataCellsFilterTableDataColumnWildcardPtrOutput) ExcludedColumnNames() p
 }
 
 type DataCellsFilterTableDataRowFilter struct {
-	// (Optional) A wildcard that matches all rows.
+	// (Optional) A wildcard that matches all rows. Required when applying column-level filtering without row-level filtering. Use an empty block: `allRowsWildcard {}`.
 	AllRowsWildcard *DataCellsFilterTableDataRowFilterAllRowsWildcard `pulumi:"allRowsWildcard"`
-	// (Optional) A filter expression.
+	// (Optional) A PartiQL predicate expression for row-level filtering.
 	FilterExpression *string `pulumi:"filterExpression"`
 }
 
@@ -439,9 +439,9 @@ type DataCellsFilterTableDataRowFilterInput interface {
 }
 
 type DataCellsFilterTableDataRowFilterArgs struct {
-	// (Optional) A wildcard that matches all rows.
+	// (Optional) A wildcard that matches all rows. Required when applying column-level filtering without row-level filtering. Use an empty block: `allRowsWildcard {}`.
 	AllRowsWildcard DataCellsFilterTableDataRowFilterAllRowsWildcardPtrInput `pulumi:"allRowsWildcard"`
-	// (Optional) A filter expression.
+	// (Optional) A PartiQL predicate expression for row-level filtering.
 	FilterExpression pulumi.StringPtrInput `pulumi:"filterExpression"`
 }
 
@@ -522,14 +522,14 @@ func (o DataCellsFilterTableDataRowFilterOutput) ToDataCellsFilterTableDataRowFi
 	}).(DataCellsFilterTableDataRowFilterPtrOutput)
 }
 
-// (Optional) A wildcard that matches all rows.
+// (Optional) A wildcard that matches all rows. Required when applying column-level filtering without row-level filtering. Use an empty block: `allRowsWildcard {}`.
 func (o DataCellsFilterTableDataRowFilterOutput) AllRowsWildcard() DataCellsFilterTableDataRowFilterAllRowsWildcardPtrOutput {
 	return o.ApplyT(func(v DataCellsFilterTableDataRowFilter) *DataCellsFilterTableDataRowFilterAllRowsWildcard {
 		return v.AllRowsWildcard
 	}).(DataCellsFilterTableDataRowFilterAllRowsWildcardPtrOutput)
 }
 
-// (Optional) A filter expression.
+// (Optional) A PartiQL predicate expression for row-level filtering.
 func (o DataCellsFilterTableDataRowFilterOutput) FilterExpression() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DataCellsFilterTableDataRowFilter) *string { return v.FilterExpression }).(pulumi.StringPtrOutput)
 }
@@ -558,7 +558,7 @@ func (o DataCellsFilterTableDataRowFilterPtrOutput) Elem() DataCellsFilterTableD
 	}).(DataCellsFilterTableDataRowFilterOutput)
 }
 
-// (Optional) A wildcard that matches all rows.
+// (Optional) A wildcard that matches all rows. Required when applying column-level filtering without row-level filtering. Use an empty block: `allRowsWildcard {}`.
 func (o DataCellsFilterTableDataRowFilterPtrOutput) AllRowsWildcard() DataCellsFilterTableDataRowFilterAllRowsWildcardPtrOutput {
 	return o.ApplyT(func(v *DataCellsFilterTableDataRowFilter) *DataCellsFilterTableDataRowFilterAllRowsWildcard {
 		if v == nil {
@@ -568,7 +568,7 @@ func (o DataCellsFilterTableDataRowFilterPtrOutput) AllRowsWildcard() DataCellsF
 	}).(DataCellsFilterTableDataRowFilterAllRowsWildcardPtrOutput)
 }
 
-// (Optional) A filter expression.
+// (Optional) A PartiQL predicate expression for row-level filtering.
 func (o DataCellsFilterTableDataRowFilterPtrOutput) FilterExpression() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataCellsFilterTableDataRowFilter) *string {
 		if v == nil {
@@ -5142,6 +5142,7 @@ func (o ResourceLfTagTableWithColumnsPtrOutput) Name() pulumi.StringPtrOutput {
 }
 
 type ResourceLfTagTableWithColumnsColumnWildcard struct {
+	// Set of column names for the table to exclude. If `excludedColumnNames` is included, `wildcard` must be set to `true` to avoid Terraform reporting a difference.
 	ExcludedColumnNames []string `pulumi:"excludedColumnNames"`
 }
 
@@ -5157,6 +5158,7 @@ type ResourceLfTagTableWithColumnsColumnWildcardInput interface {
 }
 
 type ResourceLfTagTableWithColumnsColumnWildcardArgs struct {
+	// Set of column names for the table to exclude. If `excludedColumnNames` is included, `wildcard` must be set to `true` to avoid Terraform reporting a difference.
 	ExcludedColumnNames pulumi.StringArrayInput `pulumi:"excludedColumnNames"`
 }
 
@@ -5237,6 +5239,7 @@ func (o ResourceLfTagTableWithColumnsColumnWildcardOutput) ToResourceLfTagTableW
 	}).(ResourceLfTagTableWithColumnsColumnWildcardPtrOutput)
 }
 
+// Set of column names for the table to exclude. If `excludedColumnNames` is included, `wildcard` must be set to `true` to avoid Terraform reporting a difference.
 func (o ResourceLfTagTableWithColumnsColumnWildcardOutput) ExcludedColumnNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ResourceLfTagTableWithColumnsColumnWildcard) []string { return v.ExcludedColumnNames }).(pulumi.StringArrayOutput)
 }
@@ -5265,6 +5268,7 @@ func (o ResourceLfTagTableWithColumnsColumnWildcardPtrOutput) Elem() ResourceLfT
 	}).(ResourceLfTagTableWithColumnsColumnWildcardOutput)
 }
 
+// Set of column names for the table to exclude. If `excludedColumnNames` is included, `wildcard` must be set to `true` to avoid Terraform reporting a difference.
 func (o ResourceLfTagTableWithColumnsColumnWildcardPtrOutput) ExcludedColumnNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ResourceLfTagTableWithColumnsColumnWildcard) []string {
 		if v == nil {

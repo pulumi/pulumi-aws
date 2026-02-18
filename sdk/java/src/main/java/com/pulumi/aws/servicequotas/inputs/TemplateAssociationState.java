@@ -31,9 +31,17 @@ public final class TemplateAssociationState extends com.pulumi.resources.Resourc
         return Optional.ofNullable(this.region);
     }
 
+    /**
+     * Skip disassociating the quota increase template upon destruction. This will remove the resource from Terraform state, but leave the remote association in place.
+     * 
+     */
     @Import(name="skipDestroy")
     private @Nullable Output<Boolean> skipDestroy;
 
+    /**
+     * @return Skip disassociating the quota increase template upon destruction. This will remove the resource from Terraform state, but leave the remote association in place.
+     * 
+     */
     public Optional<Output<Boolean>> skipDestroy() {
         return Optional.ofNullable(this.skipDestroy);
     }
@@ -100,11 +108,23 @@ public final class TemplateAssociationState extends com.pulumi.resources.Resourc
             return region(Output.of(region));
         }
 
+        /**
+         * @param skipDestroy Skip disassociating the quota increase template upon destruction. This will remove the resource from Terraform state, but leave the remote association in place.
+         * 
+         * @return builder
+         * 
+         */
         public Builder skipDestroy(@Nullable Output<Boolean> skipDestroy) {
             $.skipDestroy = skipDestroy;
             return this;
         }
 
+        /**
+         * @param skipDestroy Skip disassociating the quota increase template upon destruction. This will remove the resource from Terraform state, but leave the remote association in place.
+         * 
+         * @return builder
+         * 
+         */
         public Builder skipDestroy(Boolean skipDestroy) {
             return skipDestroy(Output.of(skipDestroy));
         }

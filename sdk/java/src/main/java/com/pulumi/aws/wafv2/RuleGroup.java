@@ -165,8 +165,8 @@ import javax.annotation.Nullable;
  *                         .block(RuleGroupRuleActionBlockArgs.builder()
  *                             .build())
  *                         .build())
- *                     .statement(Map.of("notStatement", Map.of("statements", Map.of("andStatement", RuleGroupRuleStatementAndStatementArgs.builder()
- *                         .statements(                        
+ *                     .statement(Map.of("notStatement", RuleGroupRuleStatementNotStatementArgs.builder()
+ *                         .statements(Map.of("andStatement", Map.of("statements",                         
  *                             RuleGroupRuleStatementArgs.builder()
  *                                 .geoMatchStatement(RuleGroupRuleStatementGeoMatchStatementArgs.builder()
  *                                     .countryCodes("US")
@@ -190,8 +190,8 @@ import javax.annotation.Nullable;
  *                                             .type("LOWERCASE")
  *                                             .build())
  *                                     .build())
- *                                 .build())
- *                         .build()))))
+ *                                 .build())))
+ *                         .build()))
  *                     .visibilityConfig(RuleGroupRuleVisibilityConfigArgs.builder()
  *                         .cloudwatchMetricsEnabled(false)
  *                         .metricName("rule-1")
@@ -205,8 +205,8 @@ import javax.annotation.Nullable;
  *                         .count(RuleGroupRuleActionCountArgs.builder()
  *                             .build())
  *                         .build())
- *                     .statement(RuleGroupRuleStatementArgs.builder()
- *                         .orStatement(Map.of("statements",                         
+ *                     .statement(Map.of("orStatement", RuleGroupRuleStatementOrStatementArgs.builder()
+ *                         .statements(                        
  *                             RuleGroupRuleStatementArgs.builder()
  *                                 .regexMatchStatement(RuleGroupRuleStatementRegexMatchStatementArgs.builder()
  *                                     .regexString("a-z?")
@@ -253,8 +253,8 @@ import javax.annotation.Nullable;
  *                                         .type("NONE")
  *                                         .build())
  *                                     .build())
- *                                 .build()))
- *                         .build())
+ *                                 .build())
+ *                         .build()))
  *                     .visibilityConfig(RuleGroupRuleVisibilityConfigArgs.builder()
  *                         .cloudwatchMetricsEnabled(false)
  *                         .metricName("rule-2")

@@ -10,9 +10,169 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Rds
 {
     /// <summary>
+    /// Provides an RDS DB parameter group resource. Documentation of the available parameters for various RDS engines can be found at:
+    /// 
+    /// * [Aurora MySQL Parameters](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AuroraMySQL.Reference.html)
+    /// * [Aurora PostgreSQL Parameters](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/AuroraPostgreSQL.Reference.html)
+    /// * [MariaDB Parameters](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.MariaDB.Parameters.html)
+    /// * [Oracle Parameters](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ModifyInstance.Oracle.html#USER_ModifyInstance.Oracle.sqlnet)
+    /// * [PostgreSQL Parameters](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.PostgreSQL.CommonDBATasks.html#Appendix.PostgreSQL.CommonDBATasks.Parameters)
+    /// 
+    /// &gt; **Hands-on:** For an example of the `aws.rds.ParameterGroup` in use, follow the Manage AWS RDS Instances tutorial on HashiCorp Learn.
+    /// 
+    /// &gt; **NOTE:** If you encounter a pulumi preview showing parameter changes after an apply (_i.e._, _perpetual diffs_), see the Problematic Plan Changes example below for additional guidance.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ### Basic Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var @default = new Aws.Rds.ParameterGroup("default", new()
+    ///     {
+    ///         Name = "rds-pg",
+    ///         Family = "mysql5.6",
+    ///         Parameters = new[]
+    ///         {
+    ///             new Aws.Rds.Inputs.ParameterGroupParameterArgs
+    ///             {
+    ///                 Name = "character_set_server",
+    ///                 Value = "utf8",
+    ///             },
+    ///             new Aws.Rds.Inputs.ParameterGroupParameterArgs
+    ///             {
+    ///                 Name = "character_set_client",
+    ///                 Value = "utf8",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ### Example of Problematic Configuration
+    /// 
+    /// The following Terraform configuration includes a parameter that overlaps with an AWS default parameter, using the same `Name` (`DefaultPasswordLifetime`) and `Value` (`0`). However:
+    /// 
+    /// - AWS sets the default `ApplyMethod` for this parameter to `pending-reboot`.
+    /// - The AWS Provider defaults all parameters' `ApplyMethod` to `Immediate`.
+    /// 
+    /// This configuration attempts to change _only_ the `ApplyMethod` from `pending-reboot` to `Immediate`, which is not allowed by AWS.
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var test = new Aws.Rds.ParameterGroup("test", new()
+    ///     {
+    ///         Name = "random-test-parameter",
+    ///         Family = "mysql5.7",
+    ///         Parameters = new[]
+    ///         {
+    ///             new Aws.Rds.Inputs.ParameterGroupParameterArgs
+    ///             {
+    ///                 Name = "default_password_lifetime",
+    ///                 Value = "0",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ### Solution 1: Remove the Default Parameter
+    /// 
+    /// Exclude the default parameter, such as `DefaultPasswordLifetime` in this example, from your configuration entirely. This ensures Terraform does not attempt to modify the parameter, leaving it with AWS's default settings.
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var test = new Aws.Rds.ParameterGroup("test", new()
+    ///     {
+    ///         Name = "random-test-parameter",
+    ///         Family = "mysql5.7",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ### Solution 2: Modify the Parameter's Value Also
+    /// 
+    /// Change the `Value` of the parameter along with its `ApplyMethod`. Since the AWS default `Value` is `0`, selecting any other valid value (_e.g._, `1`) will resolve the issue.
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var test = new Aws.Rds.ParameterGroup("test", new()
+    ///     {
+    ///         Name = "random-test-parameter",
+    ///         Family = "mysql5.7",
+    ///         Parameters = new[]
+    ///         {
+    ///             new Aws.Rds.Inputs.ParameterGroupParameterArgs
+    ///             {
+    ///                 Name = "default_password_lifetime",
+    ///                 Value = "1",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ### Solution 3: Align `ApplyMethod` with AWS Defaults
+    /// 
+    /// Explicitly set the `ApplyMethod` to match AWS's default value for this parameter (`pending-reboot`). This prevents conflicts between Terraform's default (`Immediate`) and AWS's default where the `Value` is not changing.
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var test = new Aws.Rds.ParameterGroup("test", new()
+    ///     {
+    ///         Name = "random-test-parameter",
+    ///         Family = "mysql5.7",
+    ///         Parameters = new[]
+    ///         {
+    ///             new Aws.Rds.Inputs.ParameterGroupParameterArgs
+    ///             {
+    ///                 ApplyMethod = "pending-reboot",
+    ///                 Name = "default_password_lifetime",
+    ///                 Value = "0",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import DB Parameter groups using the `name`. For example:
+    /// Using `pulumi import`, import DB Parameter groups using the `Name`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:rds/parameterGroup:ParameterGroup rds_pg rds-pg
@@ -63,6 +223,9 @@ namespace Pulumi.Aws.Rds
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
+        /// <summary>
+        /// Set to true if you do not wish the parameter group to be deleted at destroy time, and instead just remove the parameter group from the Terraform state.
+        /// </summary>
         [Output("skipDestroy")]
         public Output<bool?> SkipDestroy { get; private set; } = null!;
 
@@ -166,6 +329,9 @@ namespace Pulumi.Aws.Rds
         [Input("region")]
         public Input<string>? Region { get; set; }
 
+        /// <summary>
+        /// Set to true if you do not wish the parameter group to be deleted at destroy time, and instead just remove the parameter group from the Terraform state.
+        /// </summary>
         [Input("skipDestroy")]
         public Input<bool>? SkipDestroy { get; set; }
 
@@ -238,6 +404,9 @@ namespace Pulumi.Aws.Rds
         [Input("region")]
         public Input<string>? Region { get; set; }
 
+        /// <summary>
+        /// Set to true if you do not wish the parameter group to be deleted at destroy time, and instead just remove the parameter group from the Terraform state.
+        /// </summary>
         [Input("skipDestroy")]
         public Input<bool>? SkipDestroy { get; set; }
 

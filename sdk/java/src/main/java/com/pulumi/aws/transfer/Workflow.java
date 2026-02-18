@@ -122,7 +122,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Using `pulumi import`, import Transfer Workflows using the `worflow_id`. For example:
+ * Using `pulumi import`, import Transfer Workflows using the `worflowId`. For example:
  * 
  * ```sh
  * $ pulumi import aws:transfer/workflow:Workflow example example

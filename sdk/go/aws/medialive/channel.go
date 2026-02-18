@@ -23,8 +23,6 @@ import (
 //
 // import (
 //
-//	"fmt"
-//
 //	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/medialive"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
@@ -123,7 +121,7 @@ import (
 //
 // ## Import
 //
-// Using `pulumi import`, import MediaLive Channel using the `channel_id`. For example:
+// Using `pulumi import`, import MediaLive Channel using the `channelId`. For example:
 //
 // ```sh
 // $ pulumi import aws:medialive/channel:Channel example 1234567

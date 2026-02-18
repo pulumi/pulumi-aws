@@ -69,6 +69,9 @@ export class EnrollmentStatus extends pulumi.CustomResource {
      * Flag to enroll member accounts of the organization if the account is the management account. No drift detection is currently supported for this argument. Default value is `false`.
      */
     declare public readonly includeMemberAccounts: pulumi.Output<boolean>;
+    /**
+     * Status of enrollment. When the resource is present in Terraform, its status will always be `Active`.
+     */
     declare public /*out*/ readonly status: pulumi.Output<string>;
 
     /**
@@ -104,6 +107,9 @@ export interface EnrollmentStatusState {
      * Flag to enroll member accounts of the organization if the account is the management account. No drift detection is currently supported for this argument. Default value is `false`.
      */
     includeMemberAccounts?: pulumi.Input<boolean>;
+    /**
+     * Status of enrollment. When the resource is present in Terraform, its status will always be `Active`.
+     */
     status?: pulumi.Input<string>;
 }
 

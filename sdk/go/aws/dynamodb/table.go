@@ -100,9 +100,11 @@ import (
 //
 // ```
 //
-// ### Basic Example containing Global Secondary Indexs using Multi-attribute keys pattern
+// ### Basic Example containing Global Secondary Indexes using Multi-attribute keys pattern
 //
 // The following dynamodb table description models the table and GSIs shown in the [AWS SDK example documentation](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GSI.DesignPattern.MultiAttributeKeys.html)
+//
+// > **Note:** Multi-attribute keys for GSIs use the `keySchema` block instead of `hashKey`/`rangeKey`. The `hashKey` and `rangeKey` arguments are deprecated in favor of `keySchema`.
 //
 // ```go
 // package main
@@ -145,11 +147,11 @@ import (
 //					},
 //					&dynamodb.TableAttributeArgs{
 //						Name: pulumi.String("playerId"),
-//						Type: pulumi.Any(N),
+//						Type: pulumi.String("N"),
 //					},
 //					&dynamodb.TableAttributeArgs{
 //						Name: pulumi.String("matchDate"),
-//						Type: pulumi.Any(S),
+//						Type: pulumi.String("S"),
 //					},
 //				},
 //				Ttl: &dynamodb.TableTtlArgs{
@@ -159,25 +161,47 @@ import (
 //				GlobalSecondaryIndexes: dynamodb.TableGlobalSecondaryIndexArray{
 //					&dynamodb.TableGlobalSecondaryIndexArgs{
 //						Name: pulumi.String("TournamentRegionIndex"),
-//						HashKeys: []string{
-//							"tournamentId",
-//							"region",
-//						},
-//						RangeKeys: []string{
-//							"round",
-//							"bracket",
-//							"matchId",
+//						KeySchemas: dynamodb.TableGlobalSecondaryIndexKeySchemaArray{
+//							&dynamodb.TableGlobalSecondaryIndexKeySchemaArgs{
+//								AttributeName: pulumi.String("tournamentId"),
+//								KeyType:       pulumi.String("HASH"),
+//							},
+//							&dynamodb.TableGlobalSecondaryIndexKeySchemaArgs{
+//								AttributeName: pulumi.String("region"),
+//								KeyType:       pulumi.String("HASH"),
+//							},
+//							&dynamodb.TableGlobalSecondaryIndexKeySchemaArgs{
+//								AttributeName: pulumi.String("round"),
+//								KeyType:       pulumi.String("RANGE"),
+//							},
+//							&dynamodb.TableGlobalSecondaryIndexKeySchemaArgs{
+//								AttributeName: pulumi.String("bracket"),
+//								KeyType:       pulumi.String("RANGE"),
+//							},
+//							&dynamodb.TableGlobalSecondaryIndexKeySchemaArgs{
+//								AttributeName: pulumi.String("matchId"),
+//								KeyType:       pulumi.String("RANGE"),
+//							},
 //						},
 //						WriteCapacity:  pulumi.Int(10),
 //						ReadCapacity:   pulumi.Int(10),
 //						ProjectionType: pulumi.String("ALL"),
 //					},
 //					&dynamodb.TableGlobalSecondaryIndexArgs{
-//						Name:    pulumi.String("PlayerMatchHistoryIndex"),
-//						HashKey: pulumi.String("playerId"),
-//						RangeKeys: []string{
-//							"matchDate",
-//							"round",
+//						Name: pulumi.String("PlayerMatchHistoryIndex"),
+//						KeySchemas: dynamodb.TableGlobalSecondaryIndexKeySchemaArray{
+//							&dynamodb.TableGlobalSecondaryIndexKeySchemaArgs{
+//								AttributeName: pulumi.String("playerId"),
+//								KeyType:       pulumi.String("HASH"),
+//							},
+//							&dynamodb.TableGlobalSecondaryIndexKeySchemaArgs{
+//								AttributeName: pulumi.String("matchDate"),
+//								KeyType:       pulumi.String("RANGE"),
+//							},
+//							&dynamodb.TableGlobalSecondaryIndexKeySchemaArgs{
+//								AttributeName: pulumi.String("round"),
+//								KeyType:       pulumi.String("RANGE"),
+//							},
 //						},
 //						WriteCapacity:  pulumi.Int(10),
 //						ReadCapacity:   pulumi.Int(10),

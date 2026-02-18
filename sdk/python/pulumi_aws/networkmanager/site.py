@@ -227,7 +227,7 @@ class Site(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import `aws_networkmanager_site` using the site ARN. For example:
+        Using `pulumi import`, import `networkmanager.Site` using the site ARN. For example:
 
         ```sh
         $ pulumi import aws:networkmanager/site:Site example arn:aws:networkmanager::123456789012:site/global-network-0d47f6t230mz46dy4/site-444555aaabbb11223
@@ -263,7 +263,7 @@ class Site(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import `aws_networkmanager_site` using the site ARN. For example:
+        Using `pulumi import`, import `networkmanager.Site` using the site ARN. For example:
 
         ```sh
         $ pulumi import aws:networkmanager/site:Site example arn:aws:networkmanager::123456789012:site/global-network-0d47f6t230mz46dy4/site-444555aaabbb11223

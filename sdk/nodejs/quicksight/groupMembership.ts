@@ -56,6 +56,9 @@ export class GroupMembership extends pulumi.CustomResource {
     }
 
     declare public /*out*/ readonly arn: pulumi.Output<string>;
+    /**
+     * AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
+     */
     declare public readonly awsAccountId: pulumi.Output<string>;
     /**
      * The name of the group in which the member will be added.
@@ -118,6 +121,9 @@ export class GroupMembership extends pulumi.CustomResource {
  */
 export interface GroupMembershipState {
     arn?: pulumi.Input<string>;
+    /**
+     * AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
+     */
     awsAccountId?: pulumi.Input<string>;
     /**
      * The name of the group in which the member will be added.
@@ -141,6 +147,9 @@ export interface GroupMembershipState {
  * The set of arguments for constructing a GroupMembership resource.
  */
 export interface GroupMembershipArgs {
+    /**
+     * AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
+     */
     awsAccountId?: pulumi.Input<string>;
     /**
      * The name of the group in which the member will be added.

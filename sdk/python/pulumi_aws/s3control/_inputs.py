@@ -93,16 +93,11 @@ __all__ = [
     'StorageLensConfigurationStorageLensConfigurationIncludeArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class AccessGrantAccessGrantsLocationConfigurationArgsDict(TypedDict):
-        s3_sub_prefix: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Sub-prefix.
-        """
-elif False:
-    AccessGrantAccessGrantsLocationConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class AccessGrantAccessGrantsLocationConfigurationArgsDict(TypedDict):
+    s3_sub_prefix: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Sub-prefix.
+    """
 
 @pulumi.input_type
 class AccessGrantAccessGrantsLocationConfigurationArgs:
@@ -127,18 +122,15 @@ class AccessGrantAccessGrantsLocationConfigurationArgs:
         pulumi.set(self, "s3_sub_prefix", value)
 
 
-if not MYPY:
-    class AccessGrantGranteeArgsDict(TypedDict):
-        grantee_identifier: pulumi.Input[_builtins.str]
-        """
-        Grantee identifier.
-        """
-        grantee_type: pulumi.Input[_builtins.str]
-        """
-        Grantee types. Valid values: `DIRECTORY_USER`, `DIRECTORY_GROUP`, `IAM`.
-        """
-elif False:
-    AccessGrantGranteeArgsDict: TypeAlias = Mapping[str, Any]
+class AccessGrantGranteeArgsDict(TypedDict):
+    grantee_identifier: pulumi.Input[_builtins.str]
+    """
+    Grantee identifier.
+    """
+    grantee_type: pulumi.Input[_builtins.str]
+    """
+    Grantee types. Valid values: `DIRECTORY_USER`, `DIRECTORY_GROUP`, `IAM`.
+    """
 
 @pulumi.input_type
 class AccessGrantGranteeArgs:
@@ -177,30 +169,27 @@ class AccessGrantGranteeArgs:
         pulumi.set(self, "grantee_type", value)
 
 
-if not MYPY:
-    class BucketLifecycleConfigurationRuleArgsDict(TypedDict):
-        id: pulumi.Input[_builtins.str]
-        """
-        Unique identifier for the rule.
-        """
-        abort_incomplete_multipart_upload: NotRequired[pulumi.Input['BucketLifecycleConfigurationRuleAbortIncompleteMultipartUploadArgsDict']]
-        """
-        Configuration block containing settings for abort incomplete multipart upload.
-        """
-        expiration: NotRequired[pulumi.Input['BucketLifecycleConfigurationRuleExpirationArgsDict']]
-        """
-        Configuration block containing settings for expiration of objects.
-        """
-        filter: NotRequired[pulumi.Input['BucketLifecycleConfigurationRuleFilterArgsDict']]
-        """
-        Configuration block containing settings for filtering.
-        """
-        status: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Status of the rule. Valid values: `Enabled` and `Disabled`. Defaults to `Enabled`.
-        """
-elif False:
-    BucketLifecycleConfigurationRuleArgsDict: TypeAlias = Mapping[str, Any]
+class BucketLifecycleConfigurationRuleArgsDict(TypedDict):
+    id: pulumi.Input[_builtins.str]
+    """
+    Unique identifier for the rule.
+    """
+    abort_incomplete_multipart_upload: NotRequired[pulumi.Input['BucketLifecycleConfigurationRuleAbortIncompleteMultipartUploadArgsDict']]
+    """
+    Configuration block containing settings for abort incomplete multipart upload.
+    """
+    expiration: NotRequired[pulumi.Input['BucketLifecycleConfigurationRuleExpirationArgsDict']]
+    """
+    Configuration block containing settings for expiration of objects.
+    """
+    filter: NotRequired[pulumi.Input['BucketLifecycleConfigurationRuleFilterArgsDict']]
+    """
+    Configuration block containing settings for filtering.
+    """
+    status: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Status of the rule. Valid values: `Enabled` and `Disabled`. Defaults to `Enabled`.
+    """
 
 @pulumi.input_type
 class BucketLifecycleConfigurationRuleArgs:
@@ -288,14 +277,11 @@ class BucketLifecycleConfigurationRuleArgs:
         pulumi.set(self, "status", value)
 
 
-if not MYPY:
-    class BucketLifecycleConfigurationRuleAbortIncompleteMultipartUploadArgsDict(TypedDict):
-        days_after_initiation: pulumi.Input[_builtins.int]
-        """
-        Number of days after which Amazon S3 aborts an incomplete multipart upload.
-        """
-elif False:
-    BucketLifecycleConfigurationRuleAbortIncompleteMultipartUploadArgsDict: TypeAlias = Mapping[str, Any]
+class BucketLifecycleConfigurationRuleAbortIncompleteMultipartUploadArgsDict(TypedDict):
+    days_after_initiation: pulumi.Input[_builtins.int]
+    """
+    Number of days after which Amazon S3 aborts an incomplete multipart upload.
+    """
 
 @pulumi.input_type
 class BucketLifecycleConfigurationRuleAbortIncompleteMultipartUploadArgs:
@@ -319,22 +305,19 @@ class BucketLifecycleConfigurationRuleAbortIncompleteMultipartUploadArgs:
         pulumi.set(self, "days_after_initiation", value)
 
 
-if not MYPY:
-    class BucketLifecycleConfigurationRuleExpirationArgsDict(TypedDict):
-        date: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Date the object is to be deleted. Should be in `YYYY-MM-DD` date format, e.g., `2020-09-30`.
-        """
-        days: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Number of days before the object is to be deleted.
-        """
-        expired_object_delete_marker: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Enable to remove a delete marker with no noncurrent versions. Cannot be specified with `date` or `days`.
-        """
-elif False:
-    BucketLifecycleConfigurationRuleExpirationArgsDict: TypeAlias = Mapping[str, Any]
+class BucketLifecycleConfigurationRuleExpirationArgsDict(TypedDict):
+    date: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Date the object is to be deleted. Should be in `YYYY-MM-DD` date format, e.g., `2020-09-30`.
+    """
+    days: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Number of days before the object is to be deleted.
+    """
+    expired_object_delete_marker: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Enable to remove a delete marker with no noncurrent versions. Cannot be specified with `date` or `days`.
+    """
 
 @pulumi.input_type
 class BucketLifecycleConfigurationRuleExpirationArgs:
@@ -391,18 +374,15 @@ class BucketLifecycleConfigurationRuleExpirationArgs:
         pulumi.set(self, "expired_object_delete_marker", value)
 
 
-if not MYPY:
-    class BucketLifecycleConfigurationRuleFilterArgsDict(TypedDict):
-        prefix: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Object prefix for rule filtering.
-        """
-        tags: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
-        """
-        Key-value map of object tags for rule filtering.
-        """
-elif False:
-    BucketLifecycleConfigurationRuleFilterArgsDict: TypeAlias = Mapping[str, Any]
+class BucketLifecycleConfigurationRuleFilterArgsDict(TypedDict):
+    prefix: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Object prefix for rule filtering.
+    """
+    tags: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    """
+    Key-value map of object tags for rule filtering.
+    """
 
 @pulumi.input_type
 class BucketLifecycleConfigurationRuleFilterArgs:
@@ -443,20 +423,17 @@ class BucketLifecycleConfigurationRuleFilterArgs:
         pulumi.set(self, "tags", value)
 
 
-if not MYPY:
-    class DirectoryBucketAccessPointScopeScopeArgsDict(TypedDict):
-        permissions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        You can specify a list of API operations as permissions for the access point.
-        """
-        prefixes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        You can specify a list of prefixes, but the total length of characters of all prefixes must be less than 256 bytes.
+class DirectoryBucketAccessPointScopeScopeArgsDict(TypedDict):
+    permissions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    You can specify a list of API operations as permissions for the access point.
+    """
+    prefixes: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    You can specify a list of prefixes, but the total length of characters of all prefixes must be less than 256 bytes.
 
-        * For more information on access point scope, see [AWS Documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-points-directory-buckets-manage-scope.html).
-        """
-elif False:
-    DirectoryBucketAccessPointScopeScopeArgsDict: TypeAlias = Mapping[str, Any]
+    * For more information on access point scope, see [AWS Documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/access-points-directory-buckets-manage-scope.html).
+    """
 
 @pulumi.input_type
 class DirectoryBucketAccessPointScopeScopeArgs:
@@ -501,16 +478,13 @@ class DirectoryBucketAccessPointScopeScopeArgs:
         pulumi.set(self, "prefixes", value)
 
 
-if not MYPY:
-    class MultiRegionAccessPointDetailsArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        regions: pulumi.Input[Sequence[pulumi.Input['MultiRegionAccessPointDetailsRegionArgsDict']]]
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
-        public_access_block: NotRequired[pulumi.Input['MultiRegionAccessPointDetailsPublicAccessBlockArgsDict']]
-elif False:
-    MultiRegionAccessPointDetailsArgsDict: TypeAlias = Mapping[str, Any]
+class MultiRegionAccessPointDetailsArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    regions: pulumi.Input[Sequence[pulumi.Input['MultiRegionAccessPointDetailsRegionArgsDict']]]
+    """
+    Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    """
+    public_access_block: NotRequired[pulumi.Input['MultiRegionAccessPointDetailsPublicAccessBlockArgsDict']]
 
 @pulumi.input_type
 class MultiRegionAccessPointDetailsArgs:
@@ -557,14 +531,11 @@ class MultiRegionAccessPointDetailsArgs:
         pulumi.set(self, "public_access_block", value)
 
 
-if not MYPY:
-    class MultiRegionAccessPointDetailsPublicAccessBlockArgsDict(TypedDict):
-        block_public_acls: NotRequired[pulumi.Input[_builtins.bool]]
-        block_public_policy: NotRequired[pulumi.Input[_builtins.bool]]
-        ignore_public_acls: NotRequired[pulumi.Input[_builtins.bool]]
-        restrict_public_buckets: NotRequired[pulumi.Input[_builtins.bool]]
-elif False:
-    MultiRegionAccessPointDetailsPublicAccessBlockArgsDict: TypeAlias = Mapping[str, Any]
+class MultiRegionAccessPointDetailsPublicAccessBlockArgsDict(TypedDict):
+    block_public_acls: NotRequired[pulumi.Input[_builtins.bool]]
+    block_public_policy: NotRequired[pulumi.Input[_builtins.bool]]
+    ignore_public_acls: NotRequired[pulumi.Input[_builtins.bool]]
+    restrict_public_buckets: NotRequired[pulumi.Input[_builtins.bool]]
 
 @pulumi.input_type
 class MultiRegionAccessPointDetailsPublicAccessBlockArgs:
@@ -619,16 +590,13 @@ class MultiRegionAccessPointDetailsPublicAccessBlockArgs:
         pulumi.set(self, "restrict_public_buckets", value)
 
 
-if not MYPY:
-    class MultiRegionAccessPointDetailsRegionArgsDict(TypedDict):
-        bucket: pulumi.Input[_builtins.str]
-        bucket_account_id: NotRequired[pulumi.Input[_builtins.str]]
-        region: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        """
-elif False:
-    MultiRegionAccessPointDetailsRegionArgsDict: TypeAlias = Mapping[str, Any]
+class MultiRegionAccessPointDetailsRegionArgsDict(TypedDict):
+    bucket: pulumi.Input[_builtins.str]
+    bucket_account_id: NotRequired[pulumi.Input[_builtins.str]]
+    region: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    """
 
 @pulumi.input_type
 class MultiRegionAccessPointDetailsRegionArgs:
@@ -676,20 +644,17 @@ class MultiRegionAccessPointDetailsRegionArgs:
         pulumi.set(self, "region", value)
 
 
-if not MYPY:
-    class MultiRegionAccessPointPolicyDetailsArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the Multi-Region Access Point.
-        """
-        policy: pulumi.Input[_builtins.str]
-        """
-        A valid JSON document that specifies the policy that you want to associate with this Multi-Region Access Point. Once applied, the policy can be edited, but not deleted. For more information, see the documentation on [Multi-Region Access Point Permissions](https://docs.aws.amazon.com/AmazonS3/latest/userguide/MultiRegionAccessPointPermissions.html).
+class MultiRegionAccessPointPolicyDetailsArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the Multi-Region Access Point.
+    """
+    policy: pulumi.Input[_builtins.str]
+    """
+    A valid JSON document that specifies the policy that you want to associate with this Multi-Region Access Point. Once applied, the policy can be edited, but not deleted. For more information, see the documentation on [Multi-Region Access Point Permissions](https://docs.aws.amazon.com/AmazonS3/latest/userguide/MultiRegionAccessPointPermissions.html).
 
-        > **NOTE:** When you update the `policy`, the update is first listed as the proposed policy. After the update is finished and all Regions have been updated, the proposed policy is listed as the established policy. If both policies have the same version number, the proposed policy is the established policy.
-        """
-elif False:
-    MultiRegionAccessPointPolicyDetailsArgsDict: TypeAlias = Mapping[str, Any]
+    > **NOTE:** When you update the `policy`, the update is first listed as the proposed policy. After the update is finished and all Regions have been updated, the proposed policy is listed as the established policy. If both policies have the same version number, the proposed policy is the established policy.
+    """
 
 @pulumi.input_type
 class MultiRegionAccessPointPolicyDetailsArgs:
@@ -732,26 +697,23 @@ class MultiRegionAccessPointPolicyDetailsArgs:
         pulumi.set(self, "policy", value)
 
 
-if not MYPY:
-    class ObjectLambdaAccessPointConfigurationArgsDict(TypedDict):
-        supporting_access_point: pulumi.Input[_builtins.str]
-        """
-        Standard access point associated with the Object Lambda Access Point.
-        """
-        transformation_configurations: pulumi.Input[Sequence[pulumi.Input['ObjectLambdaAccessPointConfigurationTransformationConfigurationArgsDict']]]
-        """
-        List of transformation configurations for the Object Lambda Access Point. See Transformation Configuration below for more details.
-        """
-        allowed_features: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Allowed features. Valid values: `GetObject-Range`, `GetObject-PartNumber`.
-        """
-        cloud_watch_metrics_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether or not the CloudWatch metrics configuration is enabled.
-        """
-elif False:
-    ObjectLambdaAccessPointConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class ObjectLambdaAccessPointConfigurationArgsDict(TypedDict):
+    supporting_access_point: pulumi.Input[_builtins.str]
+    """
+    Standard access point associated with the Object Lambda Access Point.
+    """
+    transformation_configurations: pulumi.Input[Sequence[pulumi.Input['ObjectLambdaAccessPointConfigurationTransformationConfigurationArgsDict']]]
+    """
+    List of transformation configurations for the Object Lambda Access Point. See Transformation Configuration below for more details.
+    """
+    allowed_features: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Allowed features. Valid values: `GetObject-Range`, `GetObject-PartNumber`.
+    """
+    cloud_watch_metrics_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether or not the CloudWatch metrics configuration is enabled.
+    """
 
 @pulumi.input_type
 class ObjectLambdaAccessPointConfigurationArgs:
@@ -822,18 +784,15 @@ class ObjectLambdaAccessPointConfigurationArgs:
         pulumi.set(self, "cloud_watch_metrics_enabled", value)
 
 
-if not MYPY:
-    class ObjectLambdaAccessPointConfigurationTransformationConfigurationArgsDict(TypedDict):
-        actions: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        The actions of an Object Lambda Access Point configuration. Valid values: `GetObject`.
-        """
-        content_transformation: pulumi.Input['ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationArgsDict']
-        """
-        The content transformation of an Object Lambda Access Point configuration. See Content Transformation below for more details.
-        """
-elif False:
-    ObjectLambdaAccessPointConfigurationTransformationConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class ObjectLambdaAccessPointConfigurationTransformationConfigurationArgsDict(TypedDict):
+    actions: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    The actions of an Object Lambda Access Point configuration. Valid values: `GetObject`.
+    """
+    content_transformation: pulumi.Input['ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationArgsDict']
+    """
+    The content transformation of an Object Lambda Access Point configuration. See Content Transformation below for more details.
+    """
 
 @pulumi.input_type
 class ObjectLambdaAccessPointConfigurationTransformationConfigurationArgs:
@@ -872,14 +831,11 @@ class ObjectLambdaAccessPointConfigurationTransformationConfigurationArgs:
         pulumi.set(self, "content_transformation", value)
 
 
-if not MYPY:
-    class ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationArgsDict(TypedDict):
-        aws_lambda: pulumi.Input['ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationAwsLambdaArgsDict']
-        """
-        Configuration for an AWS Lambda function. See AWS Lambda below for more details.
-        """
-elif False:
-    ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationArgsDict: TypeAlias = Mapping[str, Any]
+class ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationArgsDict(TypedDict):
+    aws_lambda: pulumi.Input['ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationAwsLambdaArgsDict']
+    """
+    Configuration for an AWS Lambda function. See AWS Lambda below for more details.
+    """
 
 @pulumi.input_type
 class ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationArgs:
@@ -903,18 +859,15 @@ class ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTran
         pulumi.set(self, "aws_lambda", value)
 
 
-if not MYPY:
-    class ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationAwsLambdaArgsDict(TypedDict):
-        function_arn: pulumi.Input[_builtins.str]
-        """
-        The Amazon Resource Name (ARN) of the AWS Lambda function.
-        """
-        function_payload: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Additional JSON that provides supplemental data to the Lambda function used to transform objects.
-        """
-elif False:
-    ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationAwsLambdaArgsDict: TypeAlias = Mapping[str, Any]
+class ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationAwsLambdaArgsDict(TypedDict):
+    function_arn: pulumi.Input[_builtins.str]
+    """
+    The Amazon Resource Name (ARN) of the AWS Lambda function.
+    """
+    function_payload: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Additional JSON that provides supplemental data to the Lambda function used to transform objects.
+    """
 
 @pulumi.input_type
 class ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationAwsLambdaArgs:
@@ -954,34 +907,31 @@ class ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTran
         pulumi.set(self, "function_payload", value)
 
 
-if not MYPY:
-    class StorageLensConfigurationStorageLensConfigurationArgsDict(TypedDict):
-        account_level: pulumi.Input['StorageLensConfigurationStorageLensConfigurationAccountLevelArgsDict']
-        """
-        The account-level configurations of the S3 Storage Lens configuration. See Account Level below for more details.
-        """
-        enabled: pulumi.Input[_builtins.bool]
-        """
-        Whether the S3 Storage Lens configuration is enabled.
-        """
-        aws_org: NotRequired[pulumi.Input['StorageLensConfigurationStorageLensConfigurationAwsOrgArgsDict']]
-        """
-        The Amazon Web Services organization for the S3 Storage Lens configuration. See AWS Org below for more details.
-        """
-        data_export: NotRequired[pulumi.Input['StorageLensConfigurationStorageLensConfigurationDataExportArgsDict']]
-        """
-        Properties of S3 Storage Lens metrics export including the destination, schema and format. See Data Export below for more details.
-        """
-        exclude: NotRequired[pulumi.Input['StorageLensConfigurationStorageLensConfigurationExcludeArgsDict']]
-        """
-        What is excluded in this configuration. Conflicts with `include`. See Exclude below for more details.
-        """
-        include: NotRequired[pulumi.Input['StorageLensConfigurationStorageLensConfigurationIncludeArgsDict']]
-        """
-        What is included in this configuration. Conflicts with `exclude`. See Include below for more details.
-        """
-elif False:
-    StorageLensConfigurationStorageLensConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class StorageLensConfigurationStorageLensConfigurationArgsDict(TypedDict):
+    account_level: pulumi.Input['StorageLensConfigurationStorageLensConfigurationAccountLevelArgsDict']
+    """
+    The account-level configurations of the S3 Storage Lens configuration. See Account Level below for more details.
+    """
+    enabled: pulumi.Input[_builtins.bool]
+    """
+    Whether the S3 Storage Lens configuration is enabled.
+    """
+    aws_org: NotRequired[pulumi.Input['StorageLensConfigurationStorageLensConfigurationAwsOrgArgsDict']]
+    """
+    The Amazon Web Services organization for the S3 Storage Lens configuration. See AWS Org below for more details.
+    """
+    data_export: NotRequired[pulumi.Input['StorageLensConfigurationStorageLensConfigurationDataExportArgsDict']]
+    """
+    Properties of S3 Storage Lens metrics export including the destination, schema and format. See Data Export below for more details.
+    """
+    exclude: NotRequired[pulumi.Input['StorageLensConfigurationStorageLensConfigurationExcludeArgsDict']]
+    """
+    What is excluded in this configuration. Conflicts with `include`. See Exclude below for more details.
+    """
+    include: NotRequired[pulumi.Input['StorageLensConfigurationStorageLensConfigurationIncludeArgsDict']]
+    """
+    What is included in this configuration. Conflicts with `exclude`. See Include below for more details.
+    """
 
 @pulumi.input_type
 class StorageLensConfigurationStorageLensConfigurationArgs:
@@ -1084,30 +1034,27 @@ class StorageLensConfigurationStorageLensConfigurationArgs:
         pulumi.set(self, "include", value)
 
 
-if not MYPY:
-    class StorageLensConfigurationStorageLensConfigurationAccountLevelArgsDict(TypedDict):
-        bucket_level: pulumi.Input['StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelArgsDict']
-        """
-        S3 Storage Lens bucket-level configuration. See Bucket Level below for more details.
-        """
-        activity_metrics: NotRequired[pulumi.Input['StorageLensConfigurationStorageLensConfigurationAccountLevelActivityMetricsArgsDict']]
-        """
-        S3 Storage Lens activity metrics. See Activity Metrics below for more details.
-        """
-        advanced_cost_optimization_metrics: NotRequired[pulumi.Input['StorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedCostOptimizationMetricsArgsDict']]
-        """
-        Advanced cost-optimization metrics for S3 Storage Lens. See Advanced Cost-Optimization Metrics below for more details.
-        """
-        advanced_data_protection_metrics: NotRequired[pulumi.Input['StorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedDataProtectionMetricsArgsDict']]
-        """
-        Advanced data-protection metrics for S3 Storage Lens. See Advanced Data-Protection Metrics below for more details.
-        """
-        detailed_status_code_metrics: NotRequired[pulumi.Input['StorageLensConfigurationStorageLensConfigurationAccountLevelDetailedStatusCodeMetricsArgsDict']]
-        """
-        Detailed status code metrics for S3 Storage Lens. See Detailed Status Code Metrics below for more details.
-        """
-elif False:
-    StorageLensConfigurationStorageLensConfigurationAccountLevelArgsDict: TypeAlias = Mapping[str, Any]
+class StorageLensConfigurationStorageLensConfigurationAccountLevelArgsDict(TypedDict):
+    bucket_level: pulumi.Input['StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelArgsDict']
+    """
+    S3 Storage Lens bucket-level configuration. See Bucket Level below for more details.
+    """
+    activity_metrics: NotRequired[pulumi.Input['StorageLensConfigurationStorageLensConfigurationAccountLevelActivityMetricsArgsDict']]
+    """
+    S3 Storage Lens activity metrics. See Activity Metrics below for more details.
+    """
+    advanced_cost_optimization_metrics: NotRequired[pulumi.Input['StorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedCostOptimizationMetricsArgsDict']]
+    """
+    Advanced cost-optimization metrics for S3 Storage Lens. See Advanced Cost-Optimization Metrics below for more details.
+    """
+    advanced_data_protection_metrics: NotRequired[pulumi.Input['StorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedDataProtectionMetricsArgsDict']]
+    """
+    Advanced data-protection metrics for S3 Storage Lens. See Advanced Data-Protection Metrics below for more details.
+    """
+    detailed_status_code_metrics: NotRequired[pulumi.Input['StorageLensConfigurationStorageLensConfigurationAccountLevelDetailedStatusCodeMetricsArgsDict']]
+    """
+    Detailed status code metrics for S3 Storage Lens. See Detailed Status Code Metrics below for more details.
+    """
 
 @pulumi.input_type
 class StorageLensConfigurationStorageLensConfigurationAccountLevelArgs:
@@ -1195,14 +1142,11 @@ class StorageLensConfigurationStorageLensConfigurationAccountLevelArgs:
         pulumi.set(self, "detailed_status_code_metrics", value)
 
 
-if not MYPY:
-    class StorageLensConfigurationStorageLensConfigurationAccountLevelActivityMetricsArgsDict(TypedDict):
-        enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether the activity metrics are enabled.
-        """
-elif False:
-    StorageLensConfigurationStorageLensConfigurationAccountLevelActivityMetricsArgsDict: TypeAlias = Mapping[str, Any]
+class StorageLensConfigurationStorageLensConfigurationAccountLevelActivityMetricsArgsDict(TypedDict):
+    enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether the activity metrics are enabled.
+    """
 
 @pulumi.input_type
 class StorageLensConfigurationStorageLensConfigurationAccountLevelActivityMetricsArgs:
@@ -1227,14 +1171,11 @@ class StorageLensConfigurationStorageLensConfigurationAccountLevelActivityMetric
         pulumi.set(self, "enabled", value)
 
 
-if not MYPY:
-    class StorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedCostOptimizationMetricsArgsDict(TypedDict):
-        enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether advanced cost-optimization metrics are enabled.
-        """
-elif False:
-    StorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedCostOptimizationMetricsArgsDict: TypeAlias = Mapping[str, Any]
+class StorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedCostOptimizationMetricsArgsDict(TypedDict):
+    enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether advanced cost-optimization metrics are enabled.
+    """
 
 @pulumi.input_type
 class StorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedCostOptimizationMetricsArgs:
@@ -1259,14 +1200,11 @@ class StorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedCostOp
         pulumi.set(self, "enabled", value)
 
 
-if not MYPY:
-    class StorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedDataProtectionMetricsArgsDict(TypedDict):
-        enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether advanced data-protection metrics are enabled.
-        """
-elif False:
-    StorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedDataProtectionMetricsArgsDict: TypeAlias = Mapping[str, Any]
+class StorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedDataProtectionMetricsArgsDict(TypedDict):
+    enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether advanced data-protection metrics are enabled.
+    """
 
 @pulumi.input_type
 class StorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedDataProtectionMetricsArgs:
@@ -1291,30 +1229,27 @@ class StorageLensConfigurationStorageLensConfigurationAccountLevelAdvancedDataPr
         pulumi.set(self, "enabled", value)
 
 
-if not MYPY:
-    class StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelArgsDict(TypedDict):
-        activity_metrics: NotRequired[pulumi.Input['StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelActivityMetricsArgsDict']]
-        """
-        S3 Storage Lens activity metrics. See Activity Metrics above for more details.
-        """
-        advanced_cost_optimization_metrics: NotRequired[pulumi.Input['StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelAdvancedCostOptimizationMetricsArgsDict']]
-        """
-        Advanced cost-optimization metrics for S3 Storage Lens. See Advanced Cost-Optimization Metrics above for more details.
-        """
-        advanced_data_protection_metrics: NotRequired[pulumi.Input['StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelAdvancedDataProtectionMetricsArgsDict']]
-        """
-        Advanced data-protection metrics for S3 Storage Lens. See Advanced Data-Protection Metrics above for more details.
-        """
-        detailed_status_code_metrics: NotRequired[pulumi.Input['StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelDetailedStatusCodeMetricsArgsDict']]
-        """
-        Detailed status code metrics for S3 Storage Lens. See Detailed Status Code Metrics above for more details.
-        """
-        prefix_level: NotRequired[pulumi.Input['StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelArgsDict']]
-        """
-        Prefix-level metrics for S3 Storage Lens. See Prefix Level below for more details.
-        """
-elif False:
-    StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelArgsDict: TypeAlias = Mapping[str, Any]
+class StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelArgsDict(TypedDict):
+    activity_metrics: NotRequired[pulumi.Input['StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelActivityMetricsArgsDict']]
+    """
+    S3 Storage Lens activity metrics. See Activity Metrics above for more details.
+    """
+    advanced_cost_optimization_metrics: NotRequired[pulumi.Input['StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelAdvancedCostOptimizationMetricsArgsDict']]
+    """
+    Advanced cost-optimization metrics for S3 Storage Lens. See Advanced Cost-Optimization Metrics above for more details.
+    """
+    advanced_data_protection_metrics: NotRequired[pulumi.Input['StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelAdvancedDataProtectionMetricsArgsDict']]
+    """
+    Advanced data-protection metrics for S3 Storage Lens. See Advanced Data-Protection Metrics above for more details.
+    """
+    detailed_status_code_metrics: NotRequired[pulumi.Input['StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelDetailedStatusCodeMetricsArgsDict']]
+    """
+    Detailed status code metrics for S3 Storage Lens. See Detailed Status Code Metrics above for more details.
+    """
+    prefix_level: NotRequired[pulumi.Input['StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelArgsDict']]
+    """
+    Prefix-level metrics for S3 Storage Lens. See Prefix Level below for more details.
+    """
 
 @pulumi.input_type
 class StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelArgs:
@@ -1403,14 +1338,11 @@ class StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelArg
         pulumi.set(self, "prefix_level", value)
 
 
-if not MYPY:
-    class StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelActivityMetricsArgsDict(TypedDict):
-        enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether the activity metrics are enabled.
-        """
-elif False:
-    StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelActivityMetricsArgsDict: TypeAlias = Mapping[str, Any]
+class StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelActivityMetricsArgsDict(TypedDict):
+    enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether the activity metrics are enabled.
+    """
 
 @pulumi.input_type
 class StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelActivityMetricsArgs:
@@ -1435,14 +1367,11 @@ class StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelAct
         pulumi.set(self, "enabled", value)
 
 
-if not MYPY:
-    class StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelAdvancedCostOptimizationMetricsArgsDict(TypedDict):
-        enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether advanced cost-optimization metrics are enabled.
-        """
-elif False:
-    StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelAdvancedCostOptimizationMetricsArgsDict: TypeAlias = Mapping[str, Any]
+class StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelAdvancedCostOptimizationMetricsArgsDict(TypedDict):
+    enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether advanced cost-optimization metrics are enabled.
+    """
 
 @pulumi.input_type
 class StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelAdvancedCostOptimizationMetricsArgs:
@@ -1467,14 +1396,11 @@ class StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelAdv
         pulumi.set(self, "enabled", value)
 
 
-if not MYPY:
-    class StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelAdvancedDataProtectionMetricsArgsDict(TypedDict):
-        enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether advanced data-protection metrics are enabled.
-        """
-elif False:
-    StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelAdvancedDataProtectionMetricsArgsDict: TypeAlias = Mapping[str, Any]
+class StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelAdvancedDataProtectionMetricsArgsDict(TypedDict):
+    enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether advanced data-protection metrics are enabled.
+    """
 
 @pulumi.input_type
 class StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelAdvancedDataProtectionMetricsArgs:
@@ -1499,14 +1425,11 @@ class StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelAdv
         pulumi.set(self, "enabled", value)
 
 
-if not MYPY:
-    class StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelDetailedStatusCodeMetricsArgsDict(TypedDict):
-        enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether detailed status code metrics are enabled.
-        """
-elif False:
-    StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelDetailedStatusCodeMetricsArgsDict: TypeAlias = Mapping[str, Any]
+class StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelDetailedStatusCodeMetricsArgsDict(TypedDict):
+    enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether detailed status code metrics are enabled.
+    """
 
 @pulumi.input_type
 class StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelDetailedStatusCodeMetricsArgs:
@@ -1531,14 +1454,11 @@ class StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelDet
         pulumi.set(self, "enabled", value)
 
 
-if not MYPY:
-    class StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelArgsDict(TypedDict):
-        storage_metrics: pulumi.Input['StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsArgsDict']
-        """
-        Prefix-level storage metrics for S3 Storage Lens. See Prefix Level Storage Metrics below for more details.
-        """
-elif False:
-    StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelArgsDict: TypeAlias = Mapping[str, Any]
+class StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelArgsDict(TypedDict):
+    storage_metrics: pulumi.Input['StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsArgsDict']
+    """
+    Prefix-level storage metrics for S3 Storage Lens. See Prefix Level Storage Metrics below for more details.
+    """
 
 @pulumi.input_type
 class StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelArgs:
@@ -1562,18 +1482,15 @@ class StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPre
         pulumi.set(self, "storage_metrics", value)
 
 
-if not MYPY:
-    class StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsArgsDict(TypedDict):
-        enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether prefix-level storage metrics are enabled.
-        """
-        selection_criteria: NotRequired[pulumi.Input['StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteriaArgsDict']]
-        """
-        Selection criteria. See Selection Criteria below for more details.
-        """
-elif False:
-    StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsArgsDict: TypeAlias = Mapping[str, Any]
+class StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsArgsDict(TypedDict):
+    enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether prefix-level storage metrics are enabled.
+    """
+    selection_criteria: NotRequired[pulumi.Input['StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteriaArgsDict']]
+    """
+    Selection criteria. See Selection Criteria below for more details.
+    """
 
 @pulumi.input_type
 class StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsArgs:
@@ -1614,22 +1531,19 @@ class StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPre
         pulumi.set(self, "selection_criteria", value)
 
 
-if not MYPY:
-    class StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteriaArgsDict(TypedDict):
-        delimiter: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The delimiter of the selection criteria being used.
-        """
-        max_depth: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The max depth of the selection criteria.
-        """
-        min_storage_bytes_percentage: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        The minimum number of storage bytes percentage whose metrics will be selected.
-        """
-elif False:
-    StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteriaArgsDict: TypeAlias = Mapping[str, Any]
+class StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteriaArgsDict(TypedDict):
+    delimiter: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The delimiter of the selection criteria being used.
+    """
+    max_depth: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The max depth of the selection criteria.
+    """
+    min_storage_bytes_percentage: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    The minimum number of storage bytes percentage whose metrics will be selected.
+    """
 
 @pulumi.input_type
 class StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPrefixLevelStorageMetricsSelectionCriteriaArgs:
@@ -1686,14 +1600,11 @@ class StorageLensConfigurationStorageLensConfigurationAccountLevelBucketLevelPre
         pulumi.set(self, "min_storage_bytes_percentage", value)
 
 
-if not MYPY:
-    class StorageLensConfigurationStorageLensConfigurationAccountLevelDetailedStatusCodeMetricsArgsDict(TypedDict):
-        enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether detailed status code metrics are enabled.
-        """
-elif False:
-    StorageLensConfigurationStorageLensConfigurationAccountLevelDetailedStatusCodeMetricsArgsDict: TypeAlias = Mapping[str, Any]
+class StorageLensConfigurationStorageLensConfigurationAccountLevelDetailedStatusCodeMetricsArgsDict(TypedDict):
+    enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether detailed status code metrics are enabled.
+    """
 
 @pulumi.input_type
 class StorageLensConfigurationStorageLensConfigurationAccountLevelDetailedStatusCodeMetricsArgs:
@@ -1718,14 +1629,11 @@ class StorageLensConfigurationStorageLensConfigurationAccountLevelDetailedStatus
         pulumi.set(self, "enabled", value)
 
 
-if not MYPY:
-    class StorageLensConfigurationStorageLensConfigurationAwsOrgArgsDict(TypedDict):
-        arn: pulumi.Input[_builtins.str]
-        """
-        The Amazon Resource Name (ARN) of the Amazon Web Services organization.
-        """
-elif False:
-    StorageLensConfigurationStorageLensConfigurationAwsOrgArgsDict: TypeAlias = Mapping[str, Any]
+class StorageLensConfigurationStorageLensConfigurationAwsOrgArgsDict(TypedDict):
+    arn: pulumi.Input[_builtins.str]
+    """
+    The Amazon Resource Name (ARN) of the Amazon Web Services organization.
+    """
 
 @pulumi.input_type
 class StorageLensConfigurationStorageLensConfigurationAwsOrgArgs:
@@ -1749,18 +1657,15 @@ class StorageLensConfigurationStorageLensConfigurationAwsOrgArgs:
         pulumi.set(self, "arn", value)
 
 
-if not MYPY:
-    class StorageLensConfigurationStorageLensConfigurationDataExportArgsDict(TypedDict):
-        cloud_watch_metrics: NotRequired[pulumi.Input['StorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetricsArgsDict']]
-        """
-        Amazon CloudWatch publishing for S3 Storage Lens metrics. See Cloud Watch Metrics below for more details.
-        """
-        s3_bucket_destination: NotRequired[pulumi.Input['StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationArgsDict']]
-        """
-        The bucket where the S3 Storage Lens metrics export will be located. See S3 Bucket Destination below for more details.
-        """
-elif False:
-    StorageLensConfigurationStorageLensConfigurationDataExportArgsDict: TypeAlias = Mapping[str, Any]
+class StorageLensConfigurationStorageLensConfigurationDataExportArgsDict(TypedDict):
+    cloud_watch_metrics: NotRequired[pulumi.Input['StorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetricsArgsDict']]
+    """
+    Amazon CloudWatch publishing for S3 Storage Lens metrics. See Cloud Watch Metrics below for more details.
+    """
+    s3_bucket_destination: NotRequired[pulumi.Input['StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationArgsDict']]
+    """
+    The bucket where the S3 Storage Lens metrics export will be located. See S3 Bucket Destination below for more details.
+    """
 
 @pulumi.input_type
 class StorageLensConfigurationStorageLensConfigurationDataExportArgs:
@@ -1801,14 +1706,11 @@ class StorageLensConfigurationStorageLensConfigurationDataExportArgs:
         pulumi.set(self, "s3_bucket_destination", value)
 
 
-if not MYPY:
-    class StorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetricsArgsDict(TypedDict):
-        enabled: pulumi.Input[_builtins.bool]
-        """
-        Whether CloudWatch publishing for S3 Storage Lens metrics is enabled.
-        """
-elif False:
-    StorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetricsArgsDict: TypeAlias = Mapping[str, Any]
+class StorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetricsArgsDict(TypedDict):
+    enabled: pulumi.Input[_builtins.bool]
+    """
+    Whether CloudWatch publishing for S3 Storage Lens metrics is enabled.
+    """
 
 @pulumi.input_type
 class StorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetricsArgs:
@@ -1832,34 +1734,31 @@ class StorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetric
         pulumi.set(self, "enabled", value)
 
 
-if not MYPY:
-    class StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationArgsDict(TypedDict):
-        account_id: pulumi.Input[_builtins.str]
-        """
-        The account ID of the owner of the S3 Storage Lens metrics export bucket.
-        """
-        arn: pulumi.Input[_builtins.str]
-        """
-        The Amazon Resource Name (ARN) of the bucket.
-        """
-        format: pulumi.Input[_builtins.str]
-        """
-        The export format. Valid values: `CSV`, `Parquet`.
-        """
-        output_schema_version: pulumi.Input[_builtins.str]
-        """
-        The schema version of the export file. Valid values: `V_1`.
-        """
-        encryption: NotRequired[pulumi.Input['StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionArgsDict']]
-        """
-        Encryption of the metrics exports in this bucket. See Encryption below for more details.
-        """
-        prefix: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The prefix of the destination bucket where the metrics export will be delivered.
-        """
-elif False:
-    StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationArgsDict: TypeAlias = Mapping[str, Any]
+class StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationArgsDict(TypedDict):
+    account_id: pulumi.Input[_builtins.str]
+    """
+    The account ID of the owner of the S3 Storage Lens metrics export bucket.
+    """
+    arn: pulumi.Input[_builtins.str]
+    """
+    The Amazon Resource Name (ARN) of the bucket.
+    """
+    format: pulumi.Input[_builtins.str]
+    """
+    The export format. Valid values: `CSV`, `Parquet`.
+    """
+    output_schema_version: pulumi.Input[_builtins.str]
+    """
+    The schema version of the export file. Valid values: `V_1`.
+    """
+    encryption: NotRequired[pulumi.Input['StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionArgsDict']]
+    """
+    Encryption of the metrics exports in this bucket. See Encryption below for more details.
+    """
+    prefix: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The prefix of the destination bucket where the metrics export will be delivered.
+    """
 
 @pulumi.input_type
 class StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationArgs:
@@ -1960,18 +1859,15 @@ class StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinat
         pulumi.set(self, "prefix", value)
 
 
-if not MYPY:
-    class StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionArgsDict(TypedDict):
-        sse_kms: NotRequired[pulumi.Input['StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseKmsArgsDict']]
-        """
-        SSE-KMS encryption. See SSE KMS below for more details.
-        """
-        sse_s3s: NotRequired[pulumi.Input[Sequence[pulumi.Input['StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseS3ArgsDict']]]]
-        """
-        SSE-S3 encryption. An empty configuration block `{}` should be used.
-        """
-elif False:
-    StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionArgsDict: TypeAlias = Mapping[str, Any]
+class StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionArgsDict(TypedDict):
+    sse_kms: NotRequired[pulumi.Input['StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseKmsArgsDict']]
+    """
+    SSE-KMS encryption. See SSE KMS below for more details.
+    """
+    sse_s3s: NotRequired[pulumi.Input[Sequence[pulumi.Input['StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseS3ArgsDict']]]]
+    """
+    SSE-S3 encryption. An empty configuration block `{}` should be used.
+    """
 
 @pulumi.input_type
 class StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionArgs:
@@ -2012,14 +1908,11 @@ class StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinat
         pulumi.set(self, "sse_s3s", value)
 
 
-if not MYPY:
-    class StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseKmsArgsDict(TypedDict):
-        key_id: pulumi.Input[_builtins.str]
-        """
-        KMS key ARN.
-        """
-elif False:
-    StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseKmsArgsDict: TypeAlias = Mapping[str, Any]
+class StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseKmsArgsDict(TypedDict):
+    key_id: pulumi.Input[_builtins.str]
+    """
+    KMS key ARN.
+    """
 
 @pulumi.input_type
 class StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseKmsArgs:
@@ -2043,11 +1936,8 @@ class StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinat
         pulumi.set(self, "key_id", value)
 
 
-if not MYPY:
-    class StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseS3ArgsDict(TypedDict):
-        pass
-elif False:
-    StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseS3ArgsDict: TypeAlias = Mapping[str, Any]
+class StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseS3ArgsDict(TypedDict):
+    pass
 
 @pulumi.input_type
 class StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseS3Args:
@@ -2055,18 +1945,15 @@ class StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinat
         pass
 
 
-if not MYPY:
-    class StorageLensConfigurationStorageLensConfigurationExcludeArgsDict(TypedDict):
-        buckets: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        List of S3 bucket ARNs.
-        """
-        regions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        List of AWS Regions.
-        """
-elif False:
-    StorageLensConfigurationStorageLensConfigurationExcludeArgsDict: TypeAlias = Mapping[str, Any]
+class StorageLensConfigurationStorageLensConfigurationExcludeArgsDict(TypedDict):
+    buckets: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    List of S3 bucket ARNs.
+    """
+    regions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    List of AWS Regions.
+    """
 
 @pulumi.input_type
 class StorageLensConfigurationStorageLensConfigurationExcludeArgs:
@@ -2107,18 +1994,15 @@ class StorageLensConfigurationStorageLensConfigurationExcludeArgs:
         pulumi.set(self, "regions", value)
 
 
-if not MYPY:
-    class StorageLensConfigurationStorageLensConfigurationIncludeArgsDict(TypedDict):
-        buckets: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        List of S3 bucket ARNs.
-        """
-        regions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        List of AWS Regions.
-        """
-elif False:
-    StorageLensConfigurationStorageLensConfigurationIncludeArgsDict: TypeAlias = Mapping[str, Any]
+class StorageLensConfigurationStorageLensConfigurationIncludeArgsDict(TypedDict):
+    buckets: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    List of S3 bucket ARNs.
+    """
+    regions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    List of AWS Regions.
+    """
 
 @pulumi.input_type
 class StorageLensConfigurationStorageLensConfigurationIncludeArgs:

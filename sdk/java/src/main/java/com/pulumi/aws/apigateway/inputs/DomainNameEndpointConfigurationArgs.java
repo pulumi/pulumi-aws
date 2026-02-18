@@ -16,9 +16,17 @@ public final class DomainNameEndpointConfigurationArgs extends com.pulumi.resour
 
     public static final DomainNameEndpointConfigurationArgs Empty = new DomainNameEndpointConfigurationArgs();
 
+    /**
+     * The IP address types that can invoke a DomainName. Valid values: `ipv4`, `dualstack`. Use `ipv4` to allow only IPv4 addresses to invoke a DomainName, or use `dualstack` to allow both IPv4 and IPv6 addresses to invoke a DomainName. For the `PRIVATE` endpoint type, only `dualstack` is supported. Terraform performs drift detection for this argument only when the value is provided.
+     * 
+     */
     @Import(name="ipAddressType")
     private @Nullable Output<String> ipAddressType;
 
+    /**
+     * @return The IP address types that can invoke a DomainName. Valid values: `ipv4`, `dualstack`. Use `ipv4` to allow only IPv4 addresses to invoke a DomainName, or use `dualstack` to allow both IPv4 and IPv6 addresses to invoke a DomainName. For the `PRIVATE` endpoint type, only `dualstack` is supported. Terraform performs drift detection for this argument only when the value is provided.
+     * 
+     */
     public Optional<Output<String>> ipAddressType() {
         return Optional.ofNullable(this.ipAddressType);
     }
@@ -63,11 +71,23 @@ public final class DomainNameEndpointConfigurationArgs extends com.pulumi.resour
             $ = new DomainNameEndpointConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param ipAddressType The IP address types that can invoke a DomainName. Valid values: `ipv4`, `dualstack`. Use `ipv4` to allow only IPv4 addresses to invoke a DomainName, or use `dualstack` to allow both IPv4 and IPv6 addresses to invoke a DomainName. For the `PRIVATE` endpoint type, only `dualstack` is supported. Terraform performs drift detection for this argument only when the value is provided.
+         * 
+         * @return builder
+         * 
+         */
         public Builder ipAddressType(@Nullable Output<String> ipAddressType) {
             $.ipAddressType = ipAddressType;
             return this;
         }
 
+        /**
+         * @param ipAddressType The IP address types that can invoke a DomainName. Valid values: `ipv4`, `dualstack`. Use `ipv4` to allow only IPv4 addresses to invoke a DomainName, or use `dualstack` to allow both IPv4 and IPv6 addresses to invoke a DomainName. For the `PRIVATE` endpoint type, only `dualstack` is supported. Terraform performs drift detection for this argument only when the value is provided.
+         * 
+         * @return builder
+         * 
+         */
         public Builder ipAddressType(String ipAddressType) {
             return ipAddressType(Output.of(ipAddressType));
         }

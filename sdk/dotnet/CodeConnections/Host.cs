@@ -42,11 +42,13 @@ namespace Pulumi.Aws.CodeConnections
     /// 
     /// #### Required
     /// 
-    /// - `arn` (String) Amazon Resource Name (ARN) of the CodeConnections host.
+    /// - `Arn` (String) Amazon Resource Name (ARN) of the CodeConnections host.
     /// 
     /// Using `pulumi import`, import CodeConnections Host using the ARN. For example:
     /// 
-    /// % pulumi import aws_codeconnections_host.example-host arn:aws:codeconnections:us-west-1:0123456789:host/79d4d357-a2ee-41e4-b350-2fe39ae59448
+    /// ```sh
+    /// $ pulumi import aws:codeconnections/host:Host example-host arn:aws:codeconnections:us-west-1:0123456789:host/79d4d357-a2ee-41e4-b350-2fe39ae59448
+    /// ```
     /// </summary>
     [AwsResourceType("aws:codeconnections/host:Host")]
     public partial class Host : global::Pulumi.CustomResource

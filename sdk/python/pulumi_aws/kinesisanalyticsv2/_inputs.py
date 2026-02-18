@@ -105,44 +105,39 @@ __all__ = [
     'ApplicationCloudwatchLoggingOptionsArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class ApplicationApplicationConfigurationArgsDict(TypedDict):
-        application_code_configuration: pulumi.Input['ApplicationApplicationConfigurationApplicationCodeConfigurationArgsDict']
-        """
-        The code location and type parameters for the application.
-        """
-        application_encryption_configuration: NotRequired[pulumi.Input['ApplicationApplicationConfigurationApplicationEncryptionConfigurationArgsDict']]
-        """
-        The encryption configuration for the application. This can be used to encrypt data at rest in the application.
-        """
-        application_snapshot_configuration: NotRequired[pulumi.Input['ApplicationApplicationConfigurationApplicationSnapshotConfigurationArgsDict']]
-        """
-        Describes whether snapshots are enabled for a Flink-based application.
-        """
-        environment_properties: NotRequired[pulumi.Input['ApplicationApplicationConfigurationEnvironmentPropertiesArgsDict']]
-        """
-        Describes execution properties for a Flink-based application.
-        """
-        flink_application_configuration: NotRequired[pulumi.Input['ApplicationApplicationConfigurationFlinkApplicationConfigurationArgsDict']]
-        """
-        The configuration of a Flink-based application.
-        """
-        run_configuration: NotRequired[pulumi.Input['ApplicationApplicationConfigurationRunConfigurationArgsDict']]
-        """
-        Describes the starting properties for a Flink-based application.
-        """
-        sql_application_configuration: NotRequired[pulumi.Input['ApplicationApplicationConfigurationSqlApplicationConfigurationArgsDict']]
-        """
-        The configuration of a SQL-based application.
-        """
-        vpc_configuration: NotRequired[pulumi.Input['ApplicationApplicationConfigurationVpcConfigurationArgsDict']]
-        """
-        The VPC configuration of a Flink-based application.
-        """
-elif False:
-    ApplicationApplicationConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class ApplicationApplicationConfigurationArgsDict(TypedDict):
+    application_code_configuration: pulumi.Input['ApplicationApplicationConfigurationApplicationCodeConfigurationArgsDict']
+    """
+    The code location and type parameters for the application.
+    """
+    application_encryption_configuration: NotRequired[pulumi.Input['ApplicationApplicationConfigurationApplicationEncryptionConfigurationArgsDict']]
+    """
+    The encryption configuration for the application. This can be used to encrypt data at rest in the application.
+    """
+    application_snapshot_configuration: NotRequired[pulumi.Input['ApplicationApplicationConfigurationApplicationSnapshotConfigurationArgsDict']]
+    """
+    Describes whether snapshots are enabled for a Flink-based application.
+    """
+    environment_properties: NotRequired[pulumi.Input['ApplicationApplicationConfigurationEnvironmentPropertiesArgsDict']]
+    """
+    Describes execution properties for a Flink-based application.
+    """
+    flink_application_configuration: NotRequired[pulumi.Input['ApplicationApplicationConfigurationFlinkApplicationConfigurationArgsDict']]
+    """
+    The configuration of a Flink-based application.
+    """
+    run_configuration: NotRequired[pulumi.Input['ApplicationApplicationConfigurationRunConfigurationArgsDict']]
+    """
+    Describes the starting properties for a Flink-based application.
+    """
+    sql_application_configuration: NotRequired[pulumi.Input['ApplicationApplicationConfigurationSqlApplicationConfigurationArgsDict']]
+    """
+    The configuration of a SQL-based application.
+    """
+    vpc_configuration: NotRequired[pulumi.Input['ApplicationApplicationConfigurationVpcConfigurationArgsDict']]
+    """
+    The VPC configuration of a Flink-based application.
+    """
 
 @pulumi.input_type
 class ApplicationApplicationConfigurationArgs:
@@ -278,18 +273,15 @@ class ApplicationApplicationConfigurationArgs:
         pulumi.set(self, "vpc_configuration", value)
 
 
-if not MYPY:
-    class ApplicationApplicationConfigurationApplicationCodeConfigurationArgsDict(TypedDict):
-        code_content_type: pulumi.Input[_builtins.str]
-        """
-        Specifies whether the code content is in text or zip format. Valid values: `PLAINTEXT`, `ZIPFILE`.
-        """
-        code_content: NotRequired[pulumi.Input['ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentArgsDict']]
-        """
-        The location and type of the application code.
-        """
-elif False:
-    ApplicationApplicationConfigurationApplicationCodeConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class ApplicationApplicationConfigurationApplicationCodeConfigurationArgsDict(TypedDict):
+    code_content_type: pulumi.Input[_builtins.str]
+    """
+    Specifies whether the code content is in text or zip format. Valid values: `PLAINTEXT`, `ZIPFILE`.
+    """
+    code_content: NotRequired[pulumi.Input['ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentArgsDict']]
+    """
+    The location and type of the application code.
+    """
 
 @pulumi.input_type
 class ApplicationApplicationConfigurationApplicationCodeConfigurationArgs:
@@ -329,18 +321,15 @@ class ApplicationApplicationConfigurationApplicationCodeConfigurationArgs:
         pulumi.set(self, "code_content", value)
 
 
-if not MYPY:
-    class ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentArgsDict(TypedDict):
-        s3_content_location: NotRequired[pulumi.Input['ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentS3ContentLocationArgsDict']]
-        """
-        Information about the Amazon S3 bucket containing the application code.
-        """
-        text_content: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The text-format code for the application.
-        """
-elif False:
-    ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentArgsDict: TypeAlias = Mapping[str, Any]
+class ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentArgsDict(TypedDict):
+    s3_content_location: NotRequired[pulumi.Input['ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentS3ContentLocationArgsDict']]
+    """
+    Information about the Amazon S3 bucket containing the application code.
+    """
+    text_content: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The text-format code for the application.
+    """
 
 @pulumi.input_type
 class ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentArgs:
@@ -381,22 +370,19 @@ class ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContent
         pulumi.set(self, "text_content", value)
 
 
-if not MYPY:
-    class ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentS3ContentLocationArgsDict(TypedDict):
-        bucket_arn: pulumi.Input[_builtins.str]
-        """
-        The ARN for the S3 bucket containing the application code.
-        """
-        file_key: pulumi.Input[_builtins.str]
-        """
-        The file key for the object containing the application code.
-        """
-        object_version: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The version of the object containing the application code.
-        """
-elif False:
-    ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentS3ContentLocationArgsDict: TypeAlias = Mapping[str, Any]
+class ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentS3ContentLocationArgsDict(TypedDict):
+    bucket_arn: pulumi.Input[_builtins.str]
+    """
+    The ARN for the S3 bucket containing the application code.
+    """
+    file_key: pulumi.Input[_builtins.str]
+    """
+    The file key for the object containing the application code.
+    """
+    object_version: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The version of the object containing the application code.
+    """
 
 @pulumi.input_type
 class ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContentS3ContentLocationArgs:
@@ -451,18 +437,15 @@ class ApplicationApplicationConfigurationApplicationCodeConfigurationCodeContent
         pulumi.set(self, "object_version", value)
 
 
-if not MYPY:
-    class ApplicationApplicationConfigurationApplicationEncryptionConfigurationArgsDict(TypedDict):
-        key_type: pulumi.Input[_builtins.str]
-        """
-        The type of encryption key to use. Valid values: `CUSTOMER_MANAGED_KEY`, `AWS_OWNED_KEY`.
-        """
-        key_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ARN of the KMS key to use for encryption. Required when `key_type` is set to `CUSTOMER_MANAGED_KEY`. The KMS key must be in the same region as the application.
-        """
-elif False:
-    ApplicationApplicationConfigurationApplicationEncryptionConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class ApplicationApplicationConfigurationApplicationEncryptionConfigurationArgsDict(TypedDict):
+    key_type: pulumi.Input[_builtins.str]
+    """
+    The type of encryption key to use. Valid values: `CUSTOMER_MANAGED_KEY`, `AWS_OWNED_KEY`.
+    """
+    key_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ARN of the KMS key to use for encryption. Required when `key_type` is set to `CUSTOMER_MANAGED_KEY`. The KMS key must be in the same region as the application.
+    """
 
 @pulumi.input_type
 class ApplicationApplicationConfigurationApplicationEncryptionConfigurationArgs:
@@ -502,14 +485,11 @@ class ApplicationApplicationConfigurationApplicationEncryptionConfigurationArgs:
         pulumi.set(self, "key_id", value)
 
 
-if not MYPY:
-    class ApplicationApplicationConfigurationApplicationSnapshotConfigurationArgsDict(TypedDict):
-        snapshots_enabled: pulumi.Input[_builtins.bool]
-        """
-        Describes whether snapshots are enabled for a Flink-based Kinesis Data Analytics application.
-        """
-elif False:
-    ApplicationApplicationConfigurationApplicationSnapshotConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class ApplicationApplicationConfigurationApplicationSnapshotConfigurationArgsDict(TypedDict):
+    snapshots_enabled: pulumi.Input[_builtins.bool]
+    """
+    Describes whether snapshots are enabled for a Flink-based Kinesis Data Analytics application.
+    """
 
 @pulumi.input_type
 class ApplicationApplicationConfigurationApplicationSnapshotConfigurationArgs:
@@ -533,14 +513,11 @@ class ApplicationApplicationConfigurationApplicationSnapshotConfigurationArgs:
         pulumi.set(self, "snapshots_enabled", value)
 
 
-if not MYPY:
-    class ApplicationApplicationConfigurationEnvironmentPropertiesArgsDict(TypedDict):
-        property_groups: pulumi.Input[Sequence[pulumi.Input['ApplicationApplicationConfigurationEnvironmentPropertiesPropertyGroupArgsDict']]]
-        """
-        Describes the execution property groups.
-        """
-elif False:
-    ApplicationApplicationConfigurationEnvironmentPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class ApplicationApplicationConfigurationEnvironmentPropertiesArgsDict(TypedDict):
+    property_groups: pulumi.Input[Sequence[pulumi.Input['ApplicationApplicationConfigurationEnvironmentPropertiesPropertyGroupArgsDict']]]
+    """
+    Describes the execution property groups.
+    """
 
 @pulumi.input_type
 class ApplicationApplicationConfigurationEnvironmentPropertiesArgs:
@@ -564,18 +541,15 @@ class ApplicationApplicationConfigurationEnvironmentPropertiesArgs:
         pulumi.set(self, "property_groups", value)
 
 
-if not MYPY:
-    class ApplicationApplicationConfigurationEnvironmentPropertiesPropertyGroupArgsDict(TypedDict):
-        property_group_id: pulumi.Input[_builtins.str]
-        """
-        The key of the application execution property key-value map.
-        """
-        property_map: pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]
-        """
-        Application execution property key-value map.
-        """
-elif False:
-    ApplicationApplicationConfigurationEnvironmentPropertiesPropertyGroupArgsDict: TypeAlias = Mapping[str, Any]
+class ApplicationApplicationConfigurationEnvironmentPropertiesPropertyGroupArgsDict(TypedDict):
+    property_group_id: pulumi.Input[_builtins.str]
+    """
+    The key of the application execution property key-value map.
+    """
+    property_map: pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]
+    """
+    Application execution property key-value map.
+    """
 
 @pulumi.input_type
 class ApplicationApplicationConfigurationEnvironmentPropertiesPropertyGroupArgs:
@@ -614,22 +588,19 @@ class ApplicationApplicationConfigurationEnvironmentPropertiesPropertyGroupArgs:
         pulumi.set(self, "property_map", value)
 
 
-if not MYPY:
-    class ApplicationApplicationConfigurationFlinkApplicationConfigurationArgsDict(TypedDict):
-        checkpoint_configuration: NotRequired[pulumi.Input['ApplicationApplicationConfigurationFlinkApplicationConfigurationCheckpointConfigurationArgsDict']]
-        """
-        Describes an application's checkpointing configuration.
-        """
-        monitoring_configuration: NotRequired[pulumi.Input['ApplicationApplicationConfigurationFlinkApplicationConfigurationMonitoringConfigurationArgsDict']]
-        """
-        Describes configuration parameters for CloudWatch logging for an application.
-        """
-        parallelism_configuration: NotRequired[pulumi.Input['ApplicationApplicationConfigurationFlinkApplicationConfigurationParallelismConfigurationArgsDict']]
-        """
-        Describes parameters for how an application executes multiple tasks simultaneously.
-        """
-elif False:
-    ApplicationApplicationConfigurationFlinkApplicationConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class ApplicationApplicationConfigurationFlinkApplicationConfigurationArgsDict(TypedDict):
+    checkpoint_configuration: NotRequired[pulumi.Input['ApplicationApplicationConfigurationFlinkApplicationConfigurationCheckpointConfigurationArgsDict']]
+    """
+    Describes an application's checkpointing configuration.
+    """
+    monitoring_configuration: NotRequired[pulumi.Input['ApplicationApplicationConfigurationFlinkApplicationConfigurationMonitoringConfigurationArgsDict']]
+    """
+    Describes configuration parameters for CloudWatch logging for an application.
+    """
+    parallelism_configuration: NotRequired[pulumi.Input['ApplicationApplicationConfigurationFlinkApplicationConfigurationParallelismConfigurationArgsDict']]
+    """
+    Describes parameters for how an application executes multiple tasks simultaneously.
+    """
 
 @pulumi.input_type
 class ApplicationApplicationConfigurationFlinkApplicationConfigurationArgs:
@@ -686,29 +657,26 @@ class ApplicationApplicationConfigurationFlinkApplicationConfigurationArgs:
         pulumi.set(self, "parallelism_configuration", value)
 
 
-if not MYPY:
-    class ApplicationApplicationConfigurationFlinkApplicationConfigurationCheckpointConfigurationArgsDict(TypedDict):
-        configuration_type: pulumi.Input[_builtins.str]
-        """
-        Describes whether the application uses Kinesis Data Analytics' default checkpointing behavior. Valid values: `CUSTOM`, `DEFAULT`. Set this attribute to `CUSTOM` in order for any specified `checkpointing_enabled`, `checkpoint_interval`, or `min_pause_between_checkpoints` attribute values to be effective. If this attribute is set to `DEFAULT`, the application will always use the following values:
-        * `checkpointing_enabled = true`
-        * `checkpoint_interval = 60000`
-        * `min_pause_between_checkpoints = 5000`
-        """
-        checkpoint_interval: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Describes the interval in milliseconds between checkpoint operations.
-        """
-        checkpointing_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Describes whether checkpointing is enabled for a Flink-based Kinesis Data Analytics application.
-        """
-        min_pause_between_checkpoints: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Describes the minimum time in milliseconds after a checkpoint operation completes that a new checkpoint operation can start.
-        """
-elif False:
-    ApplicationApplicationConfigurationFlinkApplicationConfigurationCheckpointConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class ApplicationApplicationConfigurationFlinkApplicationConfigurationCheckpointConfigurationArgsDict(TypedDict):
+    configuration_type: pulumi.Input[_builtins.str]
+    """
+    Describes whether the application uses Kinesis Data Analytics' default checkpointing behavior. Valid values: `CUSTOM`, `DEFAULT`. Set this attribute to `CUSTOM` in order for any specified `checkpointing_enabled`, `checkpoint_interval`, or `min_pause_between_checkpoints` attribute values to be effective. If this attribute is set to `DEFAULT`, the application will always use the following values:
+    * `checkpointing_enabled = true`
+    * `checkpoint_interval = 60000`
+    * `min_pause_between_checkpoints = 5000`
+    """
+    checkpoint_interval: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Describes the interval in milliseconds between checkpoint operations.
+    """
+    checkpointing_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Describes whether checkpointing is enabled for a Flink-based Kinesis Data Analytics application.
+    """
+    min_pause_between_checkpoints: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Describes the minimum time in milliseconds after a checkpoint operation completes that a new checkpoint operation can start.
+    """
 
 @pulumi.input_type
 class ApplicationApplicationConfigurationFlinkApplicationConfigurationCheckpointConfigurationArgs:
@@ -786,22 +754,19 @@ class ApplicationApplicationConfigurationFlinkApplicationConfigurationCheckpoint
         pulumi.set(self, "min_pause_between_checkpoints", value)
 
 
-if not MYPY:
-    class ApplicationApplicationConfigurationFlinkApplicationConfigurationMonitoringConfigurationArgsDict(TypedDict):
-        configuration_type: pulumi.Input[_builtins.str]
-        """
-        Describes whether to use the default CloudWatch logging configuration for an application. Valid values: `CUSTOM`, `DEFAULT`. Set this attribute to `CUSTOM` in order for any specified `log_level` or `metrics_level` attribute values to be effective.
-        """
-        log_level: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Describes the verbosity of the CloudWatch Logs for an application. Valid values: `DEBUG`, `ERROR`, `INFO`, `WARN`.
-        """
-        metrics_level: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Describes the granularity of the CloudWatch Logs for an application. Valid values: `APPLICATION`, `OPERATOR`, `PARALLELISM`, `TASK`.
-        """
-elif False:
-    ApplicationApplicationConfigurationFlinkApplicationConfigurationMonitoringConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class ApplicationApplicationConfigurationFlinkApplicationConfigurationMonitoringConfigurationArgsDict(TypedDict):
+    configuration_type: pulumi.Input[_builtins.str]
+    """
+    Describes whether to use the default CloudWatch logging configuration for an application. Valid values: `CUSTOM`, `DEFAULT`. Set this attribute to `CUSTOM` in order for any specified `log_level` or `metrics_level` attribute values to be effective.
+    """
+    log_level: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Describes the verbosity of the CloudWatch Logs for an application. Valid values: `DEBUG`, `ERROR`, `INFO`, `WARN`.
+    """
+    metrics_level: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Describes the granularity of the CloudWatch Logs for an application. Valid values: `APPLICATION`, `OPERATOR`, `PARALLELISM`, `TASK`.
+    """
 
 @pulumi.input_type
 class ApplicationApplicationConfigurationFlinkApplicationConfigurationMonitoringConfigurationArgs:
@@ -857,26 +822,23 @@ class ApplicationApplicationConfigurationFlinkApplicationConfigurationMonitoring
         pulumi.set(self, "metrics_level", value)
 
 
-if not MYPY:
-    class ApplicationApplicationConfigurationFlinkApplicationConfigurationParallelismConfigurationArgsDict(TypedDict):
-        configuration_type: pulumi.Input[_builtins.str]
-        """
-        Describes whether the application uses the default parallelism for the Kinesis Data Analytics service. Valid values: `CUSTOM`, `DEFAULT`. Set this attribute to `CUSTOM` in order for any specified `auto_scaling_enabled`, `parallelism`, or `parallelism_per_kpu` attribute values to be effective.
-        """
-        auto_scaling_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Describes whether the Kinesis Data Analytics service can increase the parallelism of the application in response to increased throughput.
-        """
-        parallelism: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Describes the initial number of parallel tasks that a Flink-based Kinesis Data Analytics application can perform.
-        """
-        parallelism_per_kpu: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Describes the number of parallel tasks that a Flink-based Kinesis Data Analytics application can perform per Kinesis Processing Unit (KPU) used by the application.
-        """
-elif False:
-    ApplicationApplicationConfigurationFlinkApplicationConfigurationParallelismConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class ApplicationApplicationConfigurationFlinkApplicationConfigurationParallelismConfigurationArgsDict(TypedDict):
+    configuration_type: pulumi.Input[_builtins.str]
+    """
+    Describes whether the application uses the default parallelism for the Kinesis Data Analytics service. Valid values: `CUSTOM`, `DEFAULT`. Set this attribute to `CUSTOM` in order for any specified `auto_scaling_enabled`, `parallelism`, or `parallelism_per_kpu` attribute values to be effective.
+    """
+    auto_scaling_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Describes whether the Kinesis Data Analytics service can increase the parallelism of the application in response to increased throughput.
+    """
+    parallelism: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Describes the initial number of parallel tasks that a Flink-based Kinesis Data Analytics application can perform.
+    """
+    parallelism_per_kpu: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Describes the number of parallel tasks that a Flink-based Kinesis Data Analytics application can perform per Kinesis Processing Unit (KPU) used by the application.
+    """
 
 @pulumi.input_type
 class ApplicationApplicationConfigurationFlinkApplicationConfigurationParallelismConfigurationArgs:
@@ -948,18 +910,15 @@ class ApplicationApplicationConfigurationFlinkApplicationConfigurationParallelis
         pulumi.set(self, "parallelism_per_kpu", value)
 
 
-if not MYPY:
-    class ApplicationApplicationConfigurationRunConfigurationArgsDict(TypedDict):
-        application_restore_configuration: NotRequired[pulumi.Input['ApplicationApplicationConfigurationRunConfigurationApplicationRestoreConfigurationArgsDict']]
-        """
-        The restore behavior of a restarting application.
-        """
-        flink_run_configuration: NotRequired[pulumi.Input['ApplicationApplicationConfigurationRunConfigurationFlinkRunConfigurationArgsDict']]
-        """
-        The starting parameters for a Flink-based Kinesis Data Analytics application.
-        """
-elif False:
-    ApplicationApplicationConfigurationRunConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class ApplicationApplicationConfigurationRunConfigurationArgsDict(TypedDict):
+    application_restore_configuration: NotRequired[pulumi.Input['ApplicationApplicationConfigurationRunConfigurationApplicationRestoreConfigurationArgsDict']]
+    """
+    The restore behavior of a restarting application.
+    """
+    flink_run_configuration: NotRequired[pulumi.Input['ApplicationApplicationConfigurationRunConfigurationFlinkRunConfigurationArgsDict']]
+    """
+    The starting parameters for a Flink-based Kinesis Data Analytics application.
+    """
 
 @pulumi.input_type
 class ApplicationApplicationConfigurationRunConfigurationArgs:
@@ -1000,18 +959,15 @@ class ApplicationApplicationConfigurationRunConfigurationArgs:
         pulumi.set(self, "flink_run_configuration", value)
 
 
-if not MYPY:
-    class ApplicationApplicationConfigurationRunConfigurationApplicationRestoreConfigurationArgsDict(TypedDict):
-        application_restore_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specifies how the application should be restored. Valid values: `RESTORE_FROM_CUSTOM_SNAPSHOT`, `RESTORE_FROM_LATEST_SNAPSHOT`, `SKIP_RESTORE_FROM_SNAPSHOT`.
-        """
-        snapshot_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The identifier of an existing snapshot of application state to use to restart an application. The application uses this value if `RESTORE_FROM_CUSTOM_SNAPSHOT` is specified for `application_restore_type`.
-        """
-elif False:
-    ApplicationApplicationConfigurationRunConfigurationApplicationRestoreConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class ApplicationApplicationConfigurationRunConfigurationApplicationRestoreConfigurationArgsDict(TypedDict):
+    application_restore_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies how the application should be restored. Valid values: `RESTORE_FROM_CUSTOM_SNAPSHOT`, `RESTORE_FROM_LATEST_SNAPSHOT`, `SKIP_RESTORE_FROM_SNAPSHOT`.
+    """
+    snapshot_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The identifier of an existing snapshot of application state to use to restart an application. The application uses this value if `RESTORE_FROM_CUSTOM_SNAPSHOT` is specified for `application_restore_type`.
+    """
 
 @pulumi.input_type
 class ApplicationApplicationConfigurationRunConfigurationApplicationRestoreConfigurationArgs:
@@ -1052,14 +1008,11 @@ class ApplicationApplicationConfigurationRunConfigurationApplicationRestoreConfi
         pulumi.set(self, "snapshot_name", value)
 
 
-if not MYPY:
-    class ApplicationApplicationConfigurationRunConfigurationFlinkRunConfigurationArgsDict(TypedDict):
-        allow_non_restored_state: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        When restoring from a snapshot, specifies whether the runtime is allowed to skip a state that cannot be mapped to the new program. Default is `false`.
-        """
-elif False:
-    ApplicationApplicationConfigurationRunConfigurationFlinkRunConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class ApplicationApplicationConfigurationRunConfigurationFlinkRunConfigurationArgsDict(TypedDict):
+    allow_non_restored_state: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    When restoring from a snapshot, specifies whether the runtime is allowed to skip a state that cannot be mapped to the new program. Default is `false`.
+    """
 
 @pulumi.input_type
 class ApplicationApplicationConfigurationRunConfigurationFlinkRunConfigurationArgs:
@@ -1084,22 +1037,19 @@ class ApplicationApplicationConfigurationRunConfigurationFlinkRunConfigurationAr
         pulumi.set(self, "allow_non_restored_state", value)
 
 
-if not MYPY:
-    class ApplicationApplicationConfigurationSqlApplicationConfigurationArgsDict(TypedDict):
-        input: NotRequired[pulumi.Input['ApplicationApplicationConfigurationSqlApplicationConfigurationInputArgsDict']]
-        """
-        The input stream used by the application.
-        """
-        outputs: NotRequired[pulumi.Input[Sequence[pulumi.Input['ApplicationApplicationConfigurationSqlApplicationConfigurationOutputArgsDict']]]]
-        """
-        The destination streams used by the application.
-        """
-        reference_data_source: NotRequired[pulumi.Input['ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceArgsDict']]
-        """
-        The reference data source used by the application.
-        """
-elif False:
-    ApplicationApplicationConfigurationSqlApplicationConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class ApplicationApplicationConfigurationSqlApplicationConfigurationArgsDict(TypedDict):
+    input: NotRequired[pulumi.Input['ApplicationApplicationConfigurationSqlApplicationConfigurationInputArgsDict']]
+    """
+    The input stream used by the application.
+    """
+    outputs: NotRequired[pulumi.Input[Sequence[pulumi.Input['ApplicationApplicationConfigurationSqlApplicationConfigurationOutputArgsDict']]]]
+    """
+    The destination streams used by the application.
+    """
+    reference_data_source: NotRequired[pulumi.Input['ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceArgsDict']]
+    """
+    The reference data source used by the application.
+    """
 
 @pulumi.input_type
 class ApplicationApplicationConfigurationSqlApplicationConfigurationArgs:
@@ -1156,41 +1106,38 @@ class ApplicationApplicationConfigurationSqlApplicationConfigurationArgs:
         pulumi.set(self, "reference_data_source", value)
 
 
-if not MYPY:
-    class ApplicationApplicationConfigurationSqlApplicationConfigurationInputArgsDict(TypedDict):
-        input_schema: pulumi.Input['ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaArgsDict']
-        """
-        Describes the format of the data in the streaming source, and how each data element maps to corresponding columns in the in-application stream that is being created.
-        """
-        name_prefix: pulumi.Input[_builtins.str]
-        """
-        The name prefix to use when creating an in-application stream.
-        """
-        in_app_stream_names: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        input_id: NotRequired[pulumi.Input[_builtins.str]]
-        input_parallelism: NotRequired[pulumi.Input['ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputParallelismArgsDict']]
-        """
-        Describes the number of in-application streams to create.
-        """
-        input_processing_configuration: NotRequired[pulumi.Input['ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationArgsDict']]
-        """
-        The input processing configuration for the input.
-        An input processor transforms records as they are received from the stream, before the application's SQL code executes.
-        """
-        input_starting_position_configurations: NotRequired[pulumi.Input[Sequence[pulumi.Input['ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputStartingPositionConfigurationArgsDict']]]]
-        """
-        The point at which the application starts processing records from the streaming source.
-        """
-        kinesis_firehose_input: NotRequired[pulumi.Input['ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisFirehoseInputArgsDict']]
-        """
-        If the streaming source is a Kinesis Data Firehose delivery stream, identifies the delivery stream's ARN.
-        """
-        kinesis_streams_input: NotRequired[pulumi.Input['ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisStreamsInputArgsDict']]
-        """
-        If the streaming source is a Kinesis data stream, identifies the stream's Amazon Resource Name (ARN).
-        """
-elif False:
-    ApplicationApplicationConfigurationSqlApplicationConfigurationInputArgsDict: TypeAlias = Mapping[str, Any]
+class ApplicationApplicationConfigurationSqlApplicationConfigurationInputArgsDict(TypedDict):
+    input_schema: pulumi.Input['ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaArgsDict']
+    """
+    Describes the format of the data in the streaming source, and how each data element maps to corresponding columns in the in-application stream that is being created.
+    """
+    name_prefix: pulumi.Input[_builtins.str]
+    """
+    The name prefix to use when creating an in-application stream.
+    """
+    in_app_stream_names: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    input_id: NotRequired[pulumi.Input[_builtins.str]]
+    input_parallelism: NotRequired[pulumi.Input['ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputParallelismArgsDict']]
+    """
+    Describes the number of in-application streams to create.
+    """
+    input_processing_configuration: NotRequired[pulumi.Input['ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationArgsDict']]
+    """
+    The input processing configuration for the input.
+    An input processor transforms records as they are received from the stream, before the application's SQL code executes.
+    """
+    input_starting_position_configurations: NotRequired[pulumi.Input[Sequence[pulumi.Input['ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputStartingPositionConfigurationArgsDict']]]]
+    """
+    The point at which the application starts processing records from the streaming source.
+    """
+    kinesis_firehose_input: NotRequired[pulumi.Input['ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisFirehoseInputArgsDict']]
+    """
+    If the streaming source is a Kinesis Data Firehose delivery stream, identifies the delivery stream's ARN.
+    """
+    kinesis_streams_input: NotRequired[pulumi.Input['ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisStreamsInputArgsDict']]
+    """
+    If the streaming source is a Kinesis data stream, identifies the stream's Amazon Resource Name (ARN).
+    """
 
 @pulumi.input_type
 class ApplicationApplicationConfigurationSqlApplicationConfigurationInputArgs:
@@ -1335,14 +1282,11 @@ class ApplicationApplicationConfigurationSqlApplicationConfigurationInputArgs:
         pulumi.set(self, "kinesis_streams_input", value)
 
 
-if not MYPY:
-    class ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputParallelismArgsDict(TypedDict):
-        count: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The number of in-application streams to create.
-        """
-elif False:
-    ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputParallelismArgsDict: TypeAlias = Mapping[str, Any]
+class ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputParallelismArgsDict(TypedDict):
+    count: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The number of in-application streams to create.
+    """
 
 @pulumi.input_type
 class ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputParallelismArgs:
@@ -1367,14 +1311,11 @@ class ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputPa
         pulumi.set(self, "count", value)
 
 
-if not MYPY:
-    class ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationArgsDict(TypedDict):
-        input_lambda_processor: pulumi.Input['ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationInputLambdaProcessorArgsDict']
-        """
-        Describes the Lambda function that is used to preprocess the records in the stream before being processed by your application code.
-        """
-elif False:
-    ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationArgsDict(TypedDict):
+    input_lambda_processor: pulumi.Input['ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationInputLambdaProcessorArgsDict']
+    """
+    Describes the Lambda function that is used to preprocess the records in the stream before being processed by your application code.
+    """
 
 @pulumi.input_type
 class ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationArgs:
@@ -1398,14 +1339,11 @@ class ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputPr
         pulumi.set(self, "input_lambda_processor", value)
 
 
-if not MYPY:
-    class ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationInputLambdaProcessorArgsDict(TypedDict):
-        resource_arn: pulumi.Input[_builtins.str]
-        """
-        The ARN of the Lambda function that operates on records in the stream.
-        """
-elif False:
-    ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationInputLambdaProcessorArgsDict: TypeAlias = Mapping[str, Any]
+class ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationInputLambdaProcessorArgsDict(TypedDict):
+    resource_arn: pulumi.Input[_builtins.str]
+    """
+    The ARN of the Lambda function that operates on records in the stream.
+    """
 
 @pulumi.input_type
 class ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputProcessingConfigurationInputLambdaProcessorArgs:
@@ -1429,22 +1367,19 @@ class ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputPr
         pulumi.set(self, "resource_arn", value)
 
 
-if not MYPY:
-    class ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaArgsDict(TypedDict):
-        record_columns: pulumi.Input[Sequence[pulumi.Input['ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordColumnArgsDict']]]
-        """
-        Describes the mapping of each data element in the streaming source to the corresponding column in the in-application stream.
-        """
-        record_format: pulumi.Input['ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatArgsDict']
-        """
-        Specifies the format of the records on the streaming source.
-        """
-        record_encoding: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specifies the encoding of the records in the streaming source. For example, `UTF-8`.
-        """
-elif False:
-    ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaArgsDict: TypeAlias = Mapping[str, Any]
+class ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaArgsDict(TypedDict):
+    record_columns: pulumi.Input[Sequence[pulumi.Input['ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordColumnArgsDict']]]
+    """
+    Describes the mapping of each data element in the streaming source to the corresponding column in the in-application stream.
+    """
+    record_format: pulumi.Input['ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatArgsDict']
+    """
+    Specifies the format of the records on the streaming source.
+    """
+    record_encoding: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies the encoding of the records in the streaming source. For example, `UTF-8`.
+    """
 
 @pulumi.input_type
 class ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaArgs:
@@ -1499,22 +1434,19 @@ class ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSc
         pulumi.set(self, "record_encoding", value)
 
 
-if not MYPY:
-    class ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordColumnArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the column that is created in the in-application input stream or reference table.
-        """
-        sql_type: pulumi.Input[_builtins.str]
-        """
-        The type of column created in the in-application input stream or reference table.
-        """
-        mapping: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A reference to the data element in the streaming input or the reference data source.
-        """
-elif False:
-    ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordColumnArgsDict: TypeAlias = Mapping[str, Any]
+class ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordColumnArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the column that is created in the in-application input stream or reference table.
+    """
+    sql_type: pulumi.Input[_builtins.str]
+    """
+    The type of column created in the in-application input stream or reference table.
+    """
+    mapping: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A reference to the data element in the streaming input or the reference data source.
+    """
 
 @pulumi.input_type
 class ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordColumnArgs:
@@ -1569,18 +1501,15 @@ class ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSc
         pulumi.set(self, "mapping", value)
 
 
-if not MYPY:
-    class ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatArgsDict(TypedDict):
-        mapping_parameters: pulumi.Input['ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersArgsDict']
-        """
-        Provides additional mapping information specific to the record format (such as JSON, CSV, or record fields delimited by some delimiter) on the streaming source.
-        """
-        record_format_type: pulumi.Input[_builtins.str]
-        """
-        The type of record format. Valid values: `CSV`, `JSON`.
-        """
-elif False:
-    ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatArgsDict: TypeAlias = Mapping[str, Any]
+class ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatArgsDict(TypedDict):
+    mapping_parameters: pulumi.Input['ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersArgsDict']
+    """
+    Provides additional mapping information specific to the record format (such as JSON, CSV, or record fields delimited by some delimiter) on the streaming source.
+    """
+    record_format_type: pulumi.Input[_builtins.str]
+    """
+    The type of record format. Valid values: `CSV`, `JSON`.
+    """
 
 @pulumi.input_type
 class ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatArgs:
@@ -1619,18 +1548,15 @@ class ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSc
         pulumi.set(self, "record_format_type", value)
 
 
-if not MYPY:
-    class ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersArgsDict(TypedDict):
-        csv_mapping_parameters: NotRequired[pulumi.Input['ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersCsvMappingParametersArgsDict']]
-        """
-        Provides additional mapping information when the record format uses delimiters (for example, CSV).
-        """
-        json_mapping_parameters: NotRequired[pulumi.Input['ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersJsonMappingParametersArgsDict']]
-        """
-        Provides additional mapping information when JSON is the record format on the streaming source.
-        """
-elif False:
-    ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersArgsDict: TypeAlias = Mapping[str, Any]
+class ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersArgsDict(TypedDict):
+    csv_mapping_parameters: NotRequired[pulumi.Input['ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersCsvMappingParametersArgsDict']]
+    """
+    Provides additional mapping information when the record format uses delimiters (for example, CSV).
+    """
+    json_mapping_parameters: NotRequired[pulumi.Input['ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersJsonMappingParametersArgsDict']]
+    """
+    Provides additional mapping information when JSON is the record format on the streaming source.
+    """
 
 @pulumi.input_type
 class ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersArgs:
@@ -1671,18 +1597,15 @@ class ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSc
         pulumi.set(self, "json_mapping_parameters", value)
 
 
-if not MYPY:
-    class ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersCsvMappingParametersArgsDict(TypedDict):
-        record_column_delimiter: pulumi.Input[_builtins.str]
-        """
-        The column delimiter. For example, in a CSV format, a comma (`,`) is the typical column delimiter.
-        """
-        record_row_delimiter: pulumi.Input[_builtins.str]
-        """
-        The row delimiter. For example, in a CSV format, `\\n` is the typical row delimiter.
-        """
-elif False:
-    ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersCsvMappingParametersArgsDict: TypeAlias = Mapping[str, Any]
+class ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersCsvMappingParametersArgsDict(TypedDict):
+    record_column_delimiter: pulumi.Input[_builtins.str]
+    """
+    The column delimiter. For example, in a CSV format, a comma (`,`) is the typical column delimiter.
+    """
+    record_row_delimiter: pulumi.Input[_builtins.str]
+    """
+    The row delimiter. For example, in a CSV format, `\\n` is the typical row delimiter.
+    """
 
 @pulumi.input_type
 class ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersCsvMappingParametersArgs:
@@ -1721,14 +1644,11 @@ class ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSc
         pulumi.set(self, "record_row_delimiter", value)
 
 
-if not MYPY:
-    class ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersJsonMappingParametersArgsDict(TypedDict):
-        record_row_path: pulumi.Input[_builtins.str]
-        """
-        The path to the top-level parent that contains the records.
-        """
-elif False:
-    ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersJsonMappingParametersArgsDict: TypeAlias = Mapping[str, Any]
+class ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersJsonMappingParametersArgsDict(TypedDict):
+    record_row_path: pulumi.Input[_builtins.str]
+    """
+    The path to the top-level parent that contains the records.
+    """
 
 @pulumi.input_type
 class ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSchemaRecordFormatMappingParametersJsonMappingParametersArgs:
@@ -1752,14 +1672,11 @@ class ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSc
         pulumi.set(self, "record_row_path", value)
 
 
-if not MYPY:
-    class ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputStartingPositionConfigurationArgsDict(TypedDict):
-        input_starting_position: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The starting position on the stream. Valid values: `LAST_STOPPED_POINT`, `NOW`, `TRIM_HORIZON`.
-        """
-elif False:
-    ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputStartingPositionConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputStartingPositionConfigurationArgsDict(TypedDict):
+    input_starting_position: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The starting position on the stream. Valid values: `LAST_STOPPED_POINT`, `NOW`, `TRIM_HORIZON`.
+    """
 
 @pulumi.input_type
 class ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputStartingPositionConfigurationArgs:
@@ -1784,14 +1701,11 @@ class ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputSt
         pulumi.set(self, "input_starting_position", value)
 
 
-if not MYPY:
-    class ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisFirehoseInputArgsDict(TypedDict):
-        resource_arn: pulumi.Input[_builtins.str]
-        """
-        The ARN of the delivery stream.
-        """
-elif False:
-    ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisFirehoseInputArgsDict: TypeAlias = Mapping[str, Any]
+class ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisFirehoseInputArgsDict(TypedDict):
+    resource_arn: pulumi.Input[_builtins.str]
+    """
+    The ARN of the delivery stream.
+    """
 
 @pulumi.input_type
 class ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisFirehoseInputArgs:
@@ -1815,14 +1729,11 @@ class ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesis
         pulumi.set(self, "resource_arn", value)
 
 
-if not MYPY:
-    class ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisStreamsInputArgsDict(TypedDict):
-        resource_arn: pulumi.Input[_builtins.str]
-        """
-        The ARN of the input Kinesis data stream to read.
-        """
-elif False:
-    ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisStreamsInputArgsDict: TypeAlias = Mapping[str, Any]
+class ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisStreamsInputArgsDict(TypedDict):
+    resource_arn: pulumi.Input[_builtins.str]
+    """
+    The ARN of the input Kinesis data stream to read.
+    """
 
 @pulumi.input_type
 class ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisStreamsInputArgs:
@@ -1846,31 +1757,28 @@ class ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesis
         pulumi.set(self, "resource_arn", value)
 
 
-if not MYPY:
-    class ApplicationApplicationConfigurationSqlApplicationConfigurationOutputArgsDict(TypedDict):
-        destination_schema: pulumi.Input['ApplicationApplicationConfigurationSqlApplicationConfigurationOutputDestinationSchemaArgsDict']
-        """
-        Describes the data format when records are written to the destination.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the in-application stream.
-        """
-        kinesis_firehose_output: NotRequired[pulumi.Input['ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisFirehoseOutputArgsDict']]
-        """
-        Identifies a Kinesis Data Firehose delivery stream as the destination.
-        """
-        kinesis_streams_output: NotRequired[pulumi.Input['ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisStreamsOutputArgsDict']]
-        """
-        Identifies a Kinesis data stream as the destination.
-        """
-        lambda_output: NotRequired[pulumi.Input['ApplicationApplicationConfigurationSqlApplicationConfigurationOutputLambdaOutputArgsDict']]
-        """
-        Identifies a Lambda function as the destination.
-        """
-        output_id: NotRequired[pulumi.Input[_builtins.str]]
-elif False:
-    ApplicationApplicationConfigurationSqlApplicationConfigurationOutputArgsDict: TypeAlias = Mapping[str, Any]
+class ApplicationApplicationConfigurationSqlApplicationConfigurationOutputArgsDict(TypedDict):
+    destination_schema: pulumi.Input['ApplicationApplicationConfigurationSqlApplicationConfigurationOutputDestinationSchemaArgsDict']
+    """
+    Describes the data format when records are written to the destination.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the in-application stream.
+    """
+    kinesis_firehose_output: NotRequired[pulumi.Input['ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisFirehoseOutputArgsDict']]
+    """
+    Identifies a Kinesis Data Firehose delivery stream as the destination.
+    """
+    kinesis_streams_output: NotRequired[pulumi.Input['ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisStreamsOutputArgsDict']]
+    """
+    Identifies a Kinesis data stream as the destination.
+    """
+    lambda_output: NotRequired[pulumi.Input['ApplicationApplicationConfigurationSqlApplicationConfigurationOutputLambdaOutputArgsDict']]
+    """
+    Identifies a Lambda function as the destination.
+    """
+    output_id: NotRequired[pulumi.Input[_builtins.str]]
 
 @pulumi.input_type
 class ApplicationApplicationConfigurationSqlApplicationConfigurationOutputArgs:
@@ -1969,14 +1877,11 @@ class ApplicationApplicationConfigurationSqlApplicationConfigurationOutputArgs:
         pulumi.set(self, "output_id", value)
 
 
-if not MYPY:
-    class ApplicationApplicationConfigurationSqlApplicationConfigurationOutputDestinationSchemaArgsDict(TypedDict):
-        record_format_type: pulumi.Input[_builtins.str]
-        """
-        Specifies the format of the records on the output stream. Valid values: `CSV`, `JSON`.
-        """
-elif False:
-    ApplicationApplicationConfigurationSqlApplicationConfigurationOutputDestinationSchemaArgsDict: TypeAlias = Mapping[str, Any]
+class ApplicationApplicationConfigurationSqlApplicationConfigurationOutputDestinationSchemaArgsDict(TypedDict):
+    record_format_type: pulumi.Input[_builtins.str]
+    """
+    Specifies the format of the records on the output stream. Valid values: `CSV`, `JSON`.
+    """
 
 @pulumi.input_type
 class ApplicationApplicationConfigurationSqlApplicationConfigurationOutputDestinationSchemaArgs:
@@ -2000,14 +1905,11 @@ class ApplicationApplicationConfigurationSqlApplicationConfigurationOutputDestin
         pulumi.set(self, "record_format_type", value)
 
 
-if not MYPY:
-    class ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisFirehoseOutputArgsDict(TypedDict):
-        resource_arn: pulumi.Input[_builtins.str]
-        """
-        The ARN of the destination delivery stream to write to.
-        """
-elif False:
-    ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisFirehoseOutputArgsDict: TypeAlias = Mapping[str, Any]
+class ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisFirehoseOutputArgsDict(TypedDict):
+    resource_arn: pulumi.Input[_builtins.str]
+    """
+    The ARN of the destination delivery stream to write to.
+    """
 
 @pulumi.input_type
 class ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisFirehoseOutputArgs:
@@ -2031,14 +1933,11 @@ class ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesi
         pulumi.set(self, "resource_arn", value)
 
 
-if not MYPY:
-    class ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisStreamsOutputArgsDict(TypedDict):
-        resource_arn: pulumi.Input[_builtins.str]
-        """
-        The ARN of the destination Kinesis data stream to write to.
-        """
-elif False:
-    ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisStreamsOutputArgsDict: TypeAlias = Mapping[str, Any]
+class ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisStreamsOutputArgsDict(TypedDict):
+    resource_arn: pulumi.Input[_builtins.str]
+    """
+    The ARN of the destination Kinesis data stream to write to.
+    """
 
 @pulumi.input_type
 class ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesisStreamsOutputArgs:
@@ -2062,14 +1961,11 @@ class ApplicationApplicationConfigurationSqlApplicationConfigurationOutputKinesi
         pulumi.set(self, "resource_arn", value)
 
 
-if not MYPY:
-    class ApplicationApplicationConfigurationSqlApplicationConfigurationOutputLambdaOutputArgsDict(TypedDict):
-        resource_arn: pulumi.Input[_builtins.str]
-        """
-        The ARN of the destination Lambda function to write to.
-        """
-elif False:
-    ApplicationApplicationConfigurationSqlApplicationConfigurationOutputLambdaOutputArgsDict: TypeAlias = Mapping[str, Any]
+class ApplicationApplicationConfigurationSqlApplicationConfigurationOutputLambdaOutputArgsDict(TypedDict):
+    resource_arn: pulumi.Input[_builtins.str]
+    """
+    The ARN of the destination Lambda function to write to.
+    """
 
 @pulumi.input_type
 class ApplicationApplicationConfigurationSqlApplicationConfigurationOutputLambdaOutputArgs:
@@ -2093,23 +1989,20 @@ class ApplicationApplicationConfigurationSqlApplicationConfigurationOutputLambda
         pulumi.set(self, "resource_arn", value)
 
 
-if not MYPY:
-    class ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceArgsDict(TypedDict):
-        reference_schema: pulumi.Input['ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaArgsDict']
-        """
-        Describes the format of the data in the streaming source, and how each data element maps to corresponding columns created in the in-application stream.
-        """
-        s3_reference_data_source: pulumi.Input['ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceS3ReferenceDataSourceArgsDict']
-        """
-        Identifies the S3 bucket and object that contains the reference data.
-        """
-        table_name: pulumi.Input[_builtins.str]
-        """
-        The name of the in-application table to create.
-        """
-        reference_id: NotRequired[pulumi.Input[_builtins.str]]
-elif False:
-    ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceArgsDict: TypeAlias = Mapping[str, Any]
+class ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceArgsDict(TypedDict):
+    reference_schema: pulumi.Input['ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaArgsDict']
+    """
+    Describes the format of the data in the streaming source, and how each data element maps to corresponding columns created in the in-application stream.
+    """
+    s3_reference_data_source: pulumi.Input['ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceS3ReferenceDataSourceArgsDict']
+    """
+    Identifies the S3 bucket and object that contains the reference data.
+    """
+    table_name: pulumi.Input[_builtins.str]
+    """
+    The name of the in-application table to create.
+    """
+    reference_id: NotRequired[pulumi.Input[_builtins.str]]
 
 @pulumi.input_type
 class ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceArgs:
@@ -2175,22 +2068,19 @@ class ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDat
         pulumi.set(self, "reference_id", value)
 
 
-if not MYPY:
-    class ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaArgsDict(TypedDict):
-        record_columns: pulumi.Input[Sequence[pulumi.Input['ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordColumnArgsDict']]]
-        """
-        Describes the mapping of each data element in the streaming source to the corresponding column in the in-application stream.
-        """
-        record_format: pulumi.Input['ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatArgsDict']
-        """
-        Specifies the format of the records on the streaming source.
-        """
-        record_encoding: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specifies the encoding of the records in the streaming source. For example, `UTF-8`.
-        """
-elif False:
-    ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaArgsDict: TypeAlias = Mapping[str, Any]
+class ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaArgsDict(TypedDict):
+    record_columns: pulumi.Input[Sequence[pulumi.Input['ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordColumnArgsDict']]]
+    """
+    Describes the mapping of each data element in the streaming source to the corresponding column in the in-application stream.
+    """
+    record_format: pulumi.Input['ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatArgsDict']
+    """
+    Specifies the format of the records on the streaming source.
+    """
+    record_encoding: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies the encoding of the records in the streaming source. For example, `UTF-8`.
+    """
 
 @pulumi.input_type
 class ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaArgs:
@@ -2245,22 +2135,19 @@ class ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDat
         pulumi.set(self, "record_encoding", value)
 
 
-if not MYPY:
-    class ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordColumnArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the column that is created in the in-application input stream or reference table.
-        """
-        sql_type: pulumi.Input[_builtins.str]
-        """
-        The type of column created in the in-application input stream or reference table.
-        """
-        mapping: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A reference to the data element in the streaming input or the reference data source.
-        """
-elif False:
-    ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordColumnArgsDict: TypeAlias = Mapping[str, Any]
+class ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordColumnArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the column that is created in the in-application input stream or reference table.
+    """
+    sql_type: pulumi.Input[_builtins.str]
+    """
+    The type of column created in the in-application input stream or reference table.
+    """
+    mapping: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A reference to the data element in the streaming input or the reference data source.
+    """
 
 @pulumi.input_type
 class ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordColumnArgs:
@@ -2315,18 +2202,15 @@ class ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDat
         pulumi.set(self, "mapping", value)
 
 
-if not MYPY:
-    class ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatArgsDict(TypedDict):
-        mapping_parameters: pulumi.Input['ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersArgsDict']
-        """
-        Provides additional mapping information specific to the record format (such as JSON, CSV, or record fields delimited by some delimiter) on the streaming source.
-        """
-        record_format_type: pulumi.Input[_builtins.str]
-        """
-        The type of record format. Valid values: `CSV`, `JSON`.
-        """
-elif False:
-    ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatArgsDict: TypeAlias = Mapping[str, Any]
+class ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatArgsDict(TypedDict):
+    mapping_parameters: pulumi.Input['ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersArgsDict']
+    """
+    Provides additional mapping information specific to the record format (such as JSON, CSV, or record fields delimited by some delimiter) on the streaming source.
+    """
+    record_format_type: pulumi.Input[_builtins.str]
+    """
+    The type of record format. Valid values: `CSV`, `JSON`.
+    """
 
 @pulumi.input_type
 class ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatArgs:
@@ -2365,18 +2249,15 @@ class ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDat
         pulumi.set(self, "record_format_type", value)
 
 
-if not MYPY:
-    class ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersArgsDict(TypedDict):
-        csv_mapping_parameters: NotRequired[pulumi.Input['ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersCsvMappingParametersArgsDict']]
-        """
-        Provides additional mapping information when the record format uses delimiters (for example, CSV).
-        """
-        json_mapping_parameters: NotRequired[pulumi.Input['ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersJsonMappingParametersArgsDict']]
-        """
-        Provides additional mapping information when JSON is the record format on the streaming source.
-        """
-elif False:
-    ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersArgsDict: TypeAlias = Mapping[str, Any]
+class ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersArgsDict(TypedDict):
+    csv_mapping_parameters: NotRequired[pulumi.Input['ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersCsvMappingParametersArgsDict']]
+    """
+    Provides additional mapping information when the record format uses delimiters (for example, CSV).
+    """
+    json_mapping_parameters: NotRequired[pulumi.Input['ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersJsonMappingParametersArgsDict']]
+    """
+    Provides additional mapping information when JSON is the record format on the streaming source.
+    """
 
 @pulumi.input_type
 class ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersArgs:
@@ -2417,18 +2298,15 @@ class ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDat
         pulumi.set(self, "json_mapping_parameters", value)
 
 
-if not MYPY:
-    class ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersCsvMappingParametersArgsDict(TypedDict):
-        record_column_delimiter: pulumi.Input[_builtins.str]
-        """
-        The column delimiter. For example, in a CSV format, a comma (`,`) is the typical column delimiter.
-        """
-        record_row_delimiter: pulumi.Input[_builtins.str]
-        """
-        The row delimiter. For example, in a CSV format, `\\n` is the typical row delimiter.
-        """
-elif False:
-    ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersCsvMappingParametersArgsDict: TypeAlias = Mapping[str, Any]
+class ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersCsvMappingParametersArgsDict(TypedDict):
+    record_column_delimiter: pulumi.Input[_builtins.str]
+    """
+    The column delimiter. For example, in a CSV format, a comma (`,`) is the typical column delimiter.
+    """
+    record_row_delimiter: pulumi.Input[_builtins.str]
+    """
+    The row delimiter. For example, in a CSV format, `\\n` is the typical row delimiter.
+    """
 
 @pulumi.input_type
 class ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersCsvMappingParametersArgs:
@@ -2467,14 +2345,11 @@ class ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDat
         pulumi.set(self, "record_row_delimiter", value)
 
 
-if not MYPY:
-    class ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersJsonMappingParametersArgsDict(TypedDict):
-        record_row_path: pulumi.Input[_builtins.str]
-        """
-        The path to the top-level parent that contains the records.
-        """
-elif False:
-    ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersJsonMappingParametersArgsDict: TypeAlias = Mapping[str, Any]
+class ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersJsonMappingParametersArgsDict(TypedDict):
+    record_row_path: pulumi.Input[_builtins.str]
+    """
+    The path to the top-level parent that contains the records.
+    """
 
 @pulumi.input_type
 class ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceReferenceSchemaRecordFormatMappingParametersJsonMappingParametersArgs:
@@ -2498,18 +2373,15 @@ class ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDat
         pulumi.set(self, "record_row_path", value)
 
 
-if not MYPY:
-    class ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceS3ReferenceDataSourceArgsDict(TypedDict):
-        bucket_arn: pulumi.Input[_builtins.str]
-        """
-        The ARN of the S3 bucket.
-        """
-        file_key: pulumi.Input[_builtins.str]
-        """
-        The object key name containing the reference data.
-        """
-elif False:
-    ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceS3ReferenceDataSourceArgsDict: TypeAlias = Mapping[str, Any]
+class ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceS3ReferenceDataSourceArgsDict(TypedDict):
+    bucket_arn: pulumi.Input[_builtins.str]
+    """
+    The ARN of the S3 bucket.
+    """
+    file_key: pulumi.Input[_builtins.str]
+    """
+    The object key name containing the reference data.
+    """
 
 @pulumi.input_type
 class ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDataSourceS3ReferenceDataSourceArgs:
@@ -2548,20 +2420,17 @@ class ApplicationApplicationConfigurationSqlApplicationConfigurationReferenceDat
         pulumi.set(self, "file_key", value)
 
 
-if not MYPY:
-    class ApplicationApplicationConfigurationVpcConfigurationArgsDict(TypedDict):
-        security_group_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        The Security Group IDs used by the VPC configuration.
-        """
-        subnet_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        The Subnet IDs used by the VPC configuration.
-        """
-        vpc_configuration_id: NotRequired[pulumi.Input[_builtins.str]]
-        vpc_id: NotRequired[pulumi.Input[_builtins.str]]
-elif False:
-    ApplicationApplicationConfigurationVpcConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class ApplicationApplicationConfigurationVpcConfigurationArgsDict(TypedDict):
+    security_group_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    The Security Group IDs used by the VPC configuration.
+    """
+    subnet_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    The Subnet IDs used by the VPC configuration.
+    """
+    vpc_configuration_id: NotRequired[pulumi.Input[_builtins.str]]
+    vpc_id: NotRequired[pulumi.Input[_builtins.str]]
 
 @pulumi.input_type
 class ApplicationApplicationConfigurationVpcConfigurationArgs:
@@ -2624,15 +2493,12 @@ class ApplicationApplicationConfigurationVpcConfigurationArgs:
         pulumi.set(self, "vpc_id", value)
 
 
-if not MYPY:
-    class ApplicationCloudwatchLoggingOptionsArgsDict(TypedDict):
-        log_stream_arn: pulumi.Input[_builtins.str]
-        """
-        The ARN of the CloudWatch log stream to receive application messages.
-        """
-        cloudwatch_logging_option_id: NotRequired[pulumi.Input[_builtins.str]]
-elif False:
-    ApplicationCloudwatchLoggingOptionsArgsDict: TypeAlias = Mapping[str, Any]
+class ApplicationCloudwatchLoggingOptionsArgsDict(TypedDict):
+    log_stream_arn: pulumi.Input[_builtins.str]
+    """
+    The ARN of the CloudWatch log stream to receive application messages.
+    """
+    cloudwatch_logging_option_id: NotRequired[pulumi.Input[_builtins.str]]
 
 @pulumi.input_type
 class ApplicationCloudwatchLoggingOptionsArgs:

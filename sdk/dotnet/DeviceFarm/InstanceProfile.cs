@@ -38,11 +38,13 @@ namespace Pulumi.Aws.DeviceFarm
     /// 
     /// #### Required
     /// 
-    /// - `arn` (String) Amazon Resource Name (ARN) of the Device Farm instance profile.
+    /// - `Arn` (String) Amazon Resource Name (ARN) of the Device Farm instance profile.
     /// 
     /// Using `pulumi import`, import DeviceFarm Instance Profiles using their ARN. For example:
     /// 
-    /// % pulumi import aws_devicefarm_instance_profile.example arn:aws:devicefarm:us-west-2:123456789012:instanceprofile:4fa784c7-ccb4-4dbf-ba4f-02198320daa1
+    /// ```sh
+    /// $ pulumi import aws:devicefarm/instanceProfile:InstanceProfile example arn:aws:devicefarm:us-west-2:123456789012:instanceprofile:4fa784c7-ccb4-4dbf-ba4f-02198320daa1
+    /// ```
     /// </summary>
     [AwsResourceType("aws:devicefarm/instanceProfile:InstanceProfile")]
     public partial class InstanceProfile : global::Pulumi.CustomResource

@@ -1540,7 +1540,11 @@ type RecordsExclusiveResourceRecordSet struct {
 	ResourceRecords []RecordsExclusiveResourceRecordSetResourceRecord `pulumi:"resourceRecords"`
 	// An identifier that differentiates among multiple resource record sets that have the same combination of name and type.
 	// Required if using `cidrRoutingConfig`, `failover`, `geolocation`,`geoproximityLocation`, `multivalueAnswer`, `region`, or `weight`.
-	SetIdentifier           *string `pulumi:"setIdentifier"`
+	SetIdentifier *string `pulumi:"setIdentifier"`
+	// ID of the traffic policy instance that Route 53 created this resource record set for.
+	// To delete the resource record set that is associated with a traffic policy instance, use the `DeleteTrafficPolicyInstance` API.
+	// Route 53 will delete the resource record set automatically.
+	// If the resource record set is deleted via `ChangeResourceRecordSets` (the API underpinning this Terraform resource), Route 53 doesn't automatically delete the traffic policy instance, and you'll continue to be charged for it.
 	TrafficPolicyInstanceId *string `pulumi:"trafficPolicyInstanceId"`
 	// Resource record cache time to live (TTL), in seconds.
 	Ttl *int `pulumi:"ttl"`
@@ -1595,7 +1599,11 @@ type RecordsExclusiveResourceRecordSetArgs struct {
 	ResourceRecords RecordsExclusiveResourceRecordSetResourceRecordArrayInput `pulumi:"resourceRecords"`
 	// An identifier that differentiates among multiple resource record sets that have the same combination of name and type.
 	// Required if using `cidrRoutingConfig`, `failover`, `geolocation`,`geoproximityLocation`, `multivalueAnswer`, `region`, or `weight`.
-	SetIdentifier           pulumi.StringPtrInput `pulumi:"setIdentifier"`
+	SetIdentifier pulumi.StringPtrInput `pulumi:"setIdentifier"`
+	// ID of the traffic policy instance that Route 53 created this resource record set for.
+	// To delete the resource record set that is associated with a traffic policy instance, use the `DeleteTrafficPolicyInstance` API.
+	// Route 53 will delete the resource record set automatically.
+	// If the resource record set is deleted via `ChangeResourceRecordSets` (the API underpinning this Terraform resource), Route 53 doesn't automatically delete the traffic policy instance, and you'll continue to be charged for it.
 	TrafficPolicyInstanceId pulumi.StringPtrInput `pulumi:"trafficPolicyInstanceId"`
 	// Resource record cache time to live (TTL), in seconds.
 	Ttl pulumi.IntPtrInput `pulumi:"ttl"`
@@ -1733,6 +1741,10 @@ func (o RecordsExclusiveResourceRecordSetOutput) SetIdentifier() pulumi.StringPt
 	return o.ApplyT(func(v RecordsExclusiveResourceRecordSet) *string { return v.SetIdentifier }).(pulumi.StringPtrOutput)
 }
 
+// ID of the traffic policy instance that Route 53 created this resource record set for.
+// To delete the resource record set that is associated with a traffic policy instance, use the `DeleteTrafficPolicyInstance` API.
+// Route 53 will delete the resource record set automatically.
+// If the resource record set is deleted via `ChangeResourceRecordSets` (the API underpinning this Terraform resource), Route 53 doesn't automatically delete the traffic policy instance, and you'll continue to be charged for it.
 func (o RecordsExclusiveResourceRecordSetOutput) TrafficPolicyInstanceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RecordsExclusiveResourceRecordSet) *string { return v.TrafficPolicyInstanceId }).(pulumi.StringPtrOutput)
 }

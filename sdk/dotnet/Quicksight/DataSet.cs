@@ -57,6 +57,50 @@ namespace Pulumi.Aws.Quicksight
     /// });
     /// ```
     /// 
+    /// ### With UseAs
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.Quicksight.DataSet("example", new()
+    ///     {
+    ///         DataSetId = "example-id",
+    ///         Name = "example-name",
+    ///         ImportMode = "SPICE",
+    ///         UseAs = "RLS_RULES",
+    ///         PhysicalTableMaps = new[]
+    ///         {
+    ///             new Aws.Quicksight.Inputs.DataSetPhysicalTableMapArgs
+    ///             {
+    ///                 PhysicalTableMapId = "example-id",
+    ///                 S3Source = new Aws.Quicksight.Inputs.DataSetPhysicalTableMapS3SourceArgs
+    ///                 {
+    ///                     DataSourceArn = exampleAwsQuicksightDataSource.Arn,
+    ///                     InputColumns = new[]
+    ///                     {
+    ///                         new Aws.Quicksight.Inputs.DataSetPhysicalTableMapS3SourceInputColumnArgs
+    ///                         {
+    ///                             Name = "UserName",
+    ///                             Type = "STRING",
+    ///                         },
+    ///                     },
+    ///                     UploadSettings = new Aws.Quicksight.Inputs.DataSetPhysicalTableMapS3SourceUploadSettingsArgs
+    ///                     {
+    ///                         Format = "JSON",
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ### With Column Level Permission Rules
     /// 
     /// ```csharp
@@ -301,6 +345,9 @@ namespace Pulumi.Aws.Quicksight
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
+        /// <summary>
+        /// AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
+        /// </summary>
         [Output("awsAccountId")]
         public Output<string> AwsAccountId { get; private set; } = null!;
 
@@ -408,6 +455,12 @@ namespace Pulumi.Aws.Quicksight
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
+        /// <summary>
+        /// Specifies the purpose of the data set. The only valid value is `RLS_RULES`, which designates this data set as a Row Level Security (RLS) rules dataset. An RLS rules dataset is used to control access to data at the row level in QuickSight analyses and dashboards. See the [AWS documentation](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_CreateDataSet.html#API_CreateDataSet_RequestSyntax) for details.
+        /// </summary>
+        [Output("useAs")]
+        public Output<string?> UseAs { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a DataSet resource with the given unique name, arguments, and options.
@@ -454,6 +507,9 @@ namespace Pulumi.Aws.Quicksight
 
     public sealed class DataSetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
+        /// </summary>
         [Input("awsAccountId")]
         public Input<string>? AwsAccountId { get; set; }
 
@@ -591,6 +647,12 @@ namespace Pulumi.Aws.Quicksight
             set => _tags = value;
         }
 
+        /// <summary>
+        /// Specifies the purpose of the data set. The only valid value is `RLS_RULES`, which designates this data set as a Row Level Security (RLS) rules dataset. An RLS rules dataset is used to control access to data at the row level in QuickSight analyses and dashboards. See the [AWS documentation](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_CreateDataSet.html#API_CreateDataSet_RequestSyntax) for details.
+        /// </summary>
+        [Input("useAs")]
+        public Input<string>? UseAs { get; set; }
+
         public DataSetArgs()
         {
         }
@@ -605,6 +667,9 @@ namespace Pulumi.Aws.Quicksight
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
+        /// <summary>
+        /// AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
+        /// </summary>
         [Input("awsAccountId")]
         public Input<string>? AwsAccountId { get; set; }
 
@@ -765,6 +830,12 @@ namespace Pulumi.Aws.Quicksight
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
             set => _tagsAll = value;
         }
+
+        /// <summary>
+        /// Specifies the purpose of the data set. The only valid value is `RLS_RULES`, which designates this data set as a Row Level Security (RLS) rules dataset. An RLS rules dataset is used to control access to data at the row level in QuickSight analyses and dashboards. See the [AWS documentation](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_CreateDataSet.html#API_CreateDataSet_RequestSyntax) for details.
+        /// </summary>
+        [Input("useAs")]
+        public Input<string>? UseAs { get; set; }
 
         public DataSetState()
         {

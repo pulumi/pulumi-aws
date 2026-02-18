@@ -151,10 +151,11 @@ func (o AliasRoutingConfigPtrOutput) AdditionalVersionWeights() pulumi.Float64Ma
 }
 
 type CapacityProviderCapacityProviderScalingConfig struct {
+	// The maximum number of VCPUs for the Capacity Provider.
 	MaxVcpuCount int `pulumi:"maxVcpuCount"`
-	// The scaling mode for the Capacity Provider. Valid values are `AUTO` and `MANUAL`. Defaults to `AUTO`.
+	// The scaling mode for the Capacity Provider. Valid values are `"Auto"` and `"Manual"`. Defaults to `"Auto"`.
 	ScalingMode string `pulumi:"scalingMode"`
-	// List of scaling policies. See Scaling Policies below.
+	// List of scaling policies. Only required if `scalingMode` is set to `"Manual"`. See Scaling Policies below.
 	ScalingPolicies []CapacityProviderCapacityProviderScalingConfigScalingPolicy `pulumi:"scalingPolicies"`
 }
 
@@ -170,10 +171,11 @@ type CapacityProviderCapacityProviderScalingConfigInput interface {
 }
 
 type CapacityProviderCapacityProviderScalingConfigArgs struct {
+	// The maximum number of VCPUs for the Capacity Provider.
 	MaxVcpuCount pulumi.IntInput `pulumi:"maxVcpuCount"`
-	// The scaling mode for the Capacity Provider. Valid values are `AUTO` and `MANUAL`. Defaults to `AUTO`.
+	// The scaling mode for the Capacity Provider. Valid values are `"Auto"` and `"Manual"`. Defaults to `"Auto"`.
 	ScalingMode pulumi.StringInput `pulumi:"scalingMode"`
-	// List of scaling policies. See Scaling Policies below.
+	// List of scaling policies. Only required if `scalingMode` is set to `"Manual"`. See Scaling Policies below.
 	ScalingPolicies CapacityProviderCapacityProviderScalingConfigScalingPolicyArrayInput `pulumi:"scalingPolicies"`
 }
 
@@ -228,16 +230,17 @@ func (o CapacityProviderCapacityProviderScalingConfigOutput) ToCapacityProviderC
 	return o
 }
 
+// The maximum number of VCPUs for the Capacity Provider.
 func (o CapacityProviderCapacityProviderScalingConfigOutput) MaxVcpuCount() pulumi.IntOutput {
 	return o.ApplyT(func(v CapacityProviderCapacityProviderScalingConfig) int { return v.MaxVcpuCount }).(pulumi.IntOutput)
 }
 
-// The scaling mode for the Capacity Provider. Valid values are `AUTO` and `MANUAL`. Defaults to `AUTO`.
+// The scaling mode for the Capacity Provider. Valid values are `"Auto"` and `"Manual"`. Defaults to `"Auto"`.
 func (o CapacityProviderCapacityProviderScalingConfigOutput) ScalingMode() pulumi.StringOutput {
 	return o.ApplyT(func(v CapacityProviderCapacityProviderScalingConfig) string { return v.ScalingMode }).(pulumi.StringOutput)
 }
 
-// List of scaling policies. See Scaling Policies below.
+// List of scaling policies. Only required if `scalingMode` is set to `"Manual"`. See Scaling Policies below.
 func (o CapacityProviderCapacityProviderScalingConfigOutput) ScalingPolicies() CapacityProviderCapacityProviderScalingConfigScalingPolicyArrayOutput {
 	return o.ApplyT(func(v CapacityProviderCapacityProviderScalingConfig) []CapacityProviderCapacityProviderScalingConfigScalingPolicy {
 		return v.ScalingPolicies
@@ -265,7 +268,7 @@ func (o CapacityProviderCapacityProviderScalingConfigArrayOutput) Index(i pulumi
 }
 
 type CapacityProviderCapacityProviderScalingConfigScalingPolicy struct {
-	// The predefined metric type for the scaling policy. Valid values are `LAMBDA_PROVISIONED_CONCURRENCY_UTILIZATION`.
+	// The predefined metric type for the scaling policy. Valid values are `"LambdaCapacityProviderAverageCPUUtilization"`.
 	PredefinedMetricType string `pulumi:"predefinedMetricType"`
 	// The target value for the scaling policy.
 	TargetValue float64 `pulumi:"targetValue"`
@@ -283,7 +286,7 @@ type CapacityProviderCapacityProviderScalingConfigScalingPolicyInput interface {
 }
 
 type CapacityProviderCapacityProviderScalingConfigScalingPolicyArgs struct {
-	// The predefined metric type for the scaling policy. Valid values are `LAMBDA_PROVISIONED_CONCURRENCY_UTILIZATION`.
+	// The predefined metric type for the scaling policy. Valid values are `"LambdaCapacityProviderAverageCPUUtilization"`.
 	PredefinedMetricType pulumi.StringInput `pulumi:"predefinedMetricType"`
 	// The target value for the scaling policy.
 	TargetValue pulumi.Float64Input `pulumi:"targetValue"`
@@ -340,7 +343,7 @@ func (o CapacityProviderCapacityProviderScalingConfigScalingPolicyOutput) ToCapa
 	return o
 }
 
-// The predefined metric type for the scaling policy. Valid values are `LAMBDA_PROVISIONED_CONCURRENCY_UTILIZATION`.
+// The predefined metric type for the scaling policy. Valid values are `"LambdaCapacityProviderAverageCPUUtilization"`.
 func (o CapacityProviderCapacityProviderScalingConfigScalingPolicyOutput) PredefinedMetricType() pulumi.StringOutput {
 	return o.ApplyT(func(v CapacityProviderCapacityProviderScalingConfigScalingPolicy) string {
 		return v.PredefinedMetricType
@@ -373,11 +376,11 @@ func (o CapacityProviderCapacityProviderScalingConfigScalingPolicyArrayOutput) I
 }
 
 type CapacityProviderInstanceRequirement struct {
-	// List of allowed instance types.
+	// List of allowed instance types (e.g., `["m5.xlarge"]`).
 	AllowedInstanceTypes []string `pulumi:"allowedInstanceTypes"`
-	// List of CPU architectures. Valid values are `X86_64` and `ARM64`.
+	// List of CPU architectures. Valid values are `["x8664"]` and `["arm64"]`.
 	Architectures []string `pulumi:"architectures"`
-	// List of excluded instance types.
+	// List of excluded instance types. You can specify only one of `allowedInstanceTypes` or `excludedInstanceTypes`.
 	ExcludedInstanceTypes []string `pulumi:"excludedInstanceTypes"`
 }
 
@@ -393,11 +396,11 @@ type CapacityProviderInstanceRequirementInput interface {
 }
 
 type CapacityProviderInstanceRequirementArgs struct {
-	// List of allowed instance types.
+	// List of allowed instance types (e.g., `["m5.xlarge"]`).
 	AllowedInstanceTypes pulumi.StringArrayInput `pulumi:"allowedInstanceTypes"`
-	// List of CPU architectures. Valid values are `X86_64` and `ARM64`.
+	// List of CPU architectures. Valid values are `["x8664"]` and `["arm64"]`.
 	Architectures pulumi.StringArrayInput `pulumi:"architectures"`
-	// List of excluded instance types.
+	// List of excluded instance types. You can specify only one of `allowedInstanceTypes` or `excludedInstanceTypes`.
 	ExcludedInstanceTypes pulumi.StringArrayInput `pulumi:"excludedInstanceTypes"`
 }
 
@@ -452,17 +455,17 @@ func (o CapacityProviderInstanceRequirementOutput) ToCapacityProviderInstanceReq
 	return o
 }
 
-// List of allowed instance types.
+// List of allowed instance types (e.g., `["m5.xlarge"]`).
 func (o CapacityProviderInstanceRequirementOutput) AllowedInstanceTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v CapacityProviderInstanceRequirement) []string { return v.AllowedInstanceTypes }).(pulumi.StringArrayOutput)
 }
 
-// List of CPU architectures. Valid values are `X86_64` and `ARM64`.
+// List of CPU architectures. Valid values are `["x8664"]` and `["arm64"]`.
 func (o CapacityProviderInstanceRequirementOutput) Architectures() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v CapacityProviderInstanceRequirement) []string { return v.Architectures }).(pulumi.StringArrayOutput)
 }
 
-// List of excluded instance types.
+// List of excluded instance types. You can specify only one of `allowedInstanceTypes` or `excludedInstanceTypes`.
 func (o CapacityProviderInstanceRequirementOutput) ExcludedInstanceTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v CapacityProviderInstanceRequirement) []string { return v.ExcludedInstanceTypes }).(pulumi.StringArrayOutput)
 }

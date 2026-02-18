@@ -86,14 +86,14 @@ public final class WebAclRuleStatementRateBasedStatementArgs extends com.pulumi.
     }
 
     /**
-     * Limit on requests per 5-minute (or `evaluationWindowSec`) period for a single originating IP address (or for other aggregate key, depending on `aggregateKeyType` and `customKey`).
+     * Limit on requests during the specified evaluation window for a single aggregation instance.
      * 
      */
     @Import(name="limit", required=true)
     private Output<Integer> limit;
 
     /**
-     * @return Limit on requests per 5-minute (or `evaluationWindowSec`) period for a single originating IP address (or for other aggregate key, depending on `aggregateKeyType` and `customKey`).
+     * @return Limit on requests during the specified evaluation window for a single aggregation instance.
      * 
      */
     public Output<Integer> limit() {
@@ -243,7 +243,7 @@ public final class WebAclRuleStatementRateBasedStatementArgs extends com.pulumi.
         }
 
         /**
-         * @param limit Limit on requests per 5-minute (or `evaluationWindowSec`) period for a single originating IP address (or for other aggregate key, depending on `aggregateKeyType` and `customKey`).
+         * @param limit Limit on requests during the specified evaluation window for a single aggregation instance.
          * 
          * @return builder
          * 
@@ -254,7 +254,7 @@ public final class WebAclRuleStatementRateBasedStatementArgs extends com.pulumi.
         }
 
         /**
-         * @param limit Limit on requests per 5-minute (or `evaluationWindowSec`) period for a single originating IP address (or for other aggregate key, depending on `aggregateKeyType` and `customKey`).
+         * @param limit Limit on requests during the specified evaluation window for a single aggregation instance.
          * 
          * @return builder
          * 

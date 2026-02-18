@@ -53,7 +53,7 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import traffic mirror sessions using the `id`. For example:
+    /// Using `pulumi import`, import traffic mirror sessions using the `Id`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:ec2/trafficMirrorSession:TrafficMirrorSession session tms-0d8aa3ca35897b82e

@@ -43,7 +43,7 @@ import (
 //
 // ## Import
 //
-// Using `pulumi import`, import `aws_docdb_cluster_snapshot` using the cluster snapshot identifier. For example:
+// Using `pulumi import`, import `docdb.ClusterSnapshot` using the cluster snapshot identifier. For example:
 //
 // ```sh
 // $ pulumi import aws:docdb/clusterSnapshot:ClusterSnapshot example my-cluster-snapshot

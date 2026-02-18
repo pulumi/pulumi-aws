@@ -11,7 +11,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Using `pulumi import`, import Transfer Family Web App Customization using the `web_app_id`. For example:
+ * Using `pulumi import`, import Transfer Family Web App Customization using the `webAppId`. For example:
  *
  * ```sh
  * $ pulumi import aws:transfer/webAppCustomization:WebAppCustomization example webapp-12345678901234567890
@@ -45,7 +45,13 @@ export class WebAppCustomization extends pulumi.CustomResource {
         return obj['__pulumiType'] === WebAppCustomization.__pulumiType;
     }
 
+    /**
+     * Base64-encoded string representing the favicon image. Terraform will detect drift only if this argument is specified. To remove the favicon, recreate the resource.
+     */
     declare public readonly faviconFile: pulumi.Output<string>;
+    /**
+     * Base64-encoded string representing the logo image. Terraform will detect drift only if this argument is specified. To remove the logo, recreate the resource.
+     */
     declare public readonly logoFile: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -100,7 +106,13 @@ export class WebAppCustomization extends pulumi.CustomResource {
  * Input properties used for looking up and filtering WebAppCustomization resources.
  */
 export interface WebAppCustomizationState {
+    /**
+     * Base64-encoded string representing the favicon image. Terraform will detect drift only if this argument is specified. To remove the favicon, recreate the resource.
+     */
     faviconFile?: pulumi.Input<string>;
+    /**
+     * Base64-encoded string representing the logo image. Terraform will detect drift only if this argument is specified. To remove the logo, recreate the resource.
+     */
     logoFile?: pulumi.Input<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -122,7 +134,13 @@ export interface WebAppCustomizationState {
  * The set of arguments for constructing a WebAppCustomization resource.
  */
 export interface WebAppCustomizationArgs {
+    /**
+     * Base64-encoded string representing the favicon image. Terraform will detect drift only if this argument is specified. To remove the favicon, recreate the resource.
+     */
     faviconFile?: pulumi.Input<string>;
+    /**
+     * Base64-encoded string representing the logo image. Terraform will detect drift only if this argument is specified. To remove the logo, recreate the resource.
+     */
     logoFile?: pulumi.Input<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.

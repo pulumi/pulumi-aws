@@ -272,13 +272,13 @@ class User(pulumi.CustomResource):
         import pulumi_aws as aws
         import pulumi_random as random
 
-        example = random.index.Password("example", length=16)
+        example = random.RandomPassword("example", length=16)
         example_user = aws.memorydb.User("example",
             user_name="my-user",
             access_string="on ~* &* +@all",
             authentication_mode={
                 "type": "password",
-                "passwords": [example["result"]],
+                "passwords": [example.result],
             })
         ```
 
@@ -289,6 +289,7 @@ class User(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:memorydb/user:User example my-user
         ```
+
         The `passwords` are not available for imported resources, as this information cannot be read back from the MemoryDB API.
 
         :param str resource_name: The name of the resource.
@@ -320,13 +321,13 @@ class User(pulumi.CustomResource):
         import pulumi_aws as aws
         import pulumi_random as random
 
-        example = random.index.Password("example", length=16)
+        example = random.RandomPassword("example", length=16)
         example_user = aws.memorydb.User("example",
             user_name="my-user",
             access_string="on ~* &* +@all",
             authentication_mode={
                 "type": "password",
-                "passwords": [example["result"]],
+                "passwords": [example.result],
             })
         ```
 
@@ -337,6 +338,7 @@ class User(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:memorydb/user:User example my-user
         ```
+
         The `passwords` are not available for imported resources, as this information cannot be read back from the MemoryDB API.
 
         :param str resource_name: The name of the resource.

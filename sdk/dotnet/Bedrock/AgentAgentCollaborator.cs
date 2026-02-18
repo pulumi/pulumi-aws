@@ -163,7 +163,7 @@ namespace Pulumi.Aws.Bedrock
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import Bedrock Agents Agent Collaborator using a comma-delimited string combining `agent_id`, `agent_version`, and `collaborator_id`. For example:
+    /// Using `pulumi import`, import Bedrock Agents Agent Collaborator using a comma-delimited string combining `AgentId`, `AgentVersion`, and `CollaboratorId`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:bedrock/agentAgentCollaborator:AgentAgentCollaborator example 9LSJO0BFI8,DRAFT,AG3TN4RQIY

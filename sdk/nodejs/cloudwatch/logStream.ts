@@ -22,7 +22,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Using `pulumi import`, import Cloudwatch Log Stream using the stream's `log_group_name` and `name`. For example:
+ * Using `pulumi import`, import Cloudwatch Log Stream using the stream's `logGroupName` and `name`. For example:
  *
  * ```sh
  * $ pulumi import aws:cloudwatch/logStream:LogStream foo Yada:SampleLogStream1234

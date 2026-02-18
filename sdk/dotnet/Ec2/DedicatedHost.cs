@@ -37,7 +37,7 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import hosts using the host `id`. For example:
+    /// Using `pulumi import`, import hosts using the host `Id`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:ec2/dedicatedHost:DedicatedHost example h-0385a99d0e4b20cbb

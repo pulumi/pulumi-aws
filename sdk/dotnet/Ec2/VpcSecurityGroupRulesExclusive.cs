@@ -10,9 +10,98 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Ec2
 {
     /// <summary>
+    /// Resource for managing an exclusive set of AWS VPC (Virtual Private Cloud) Security Group Rules.
+    /// 
+    /// This resource manages the complete set of ingress and egress rules assigned to a security group. It provides exclusive control by removing any rules not explicitly defined in the configuration.
+    /// 
+    /// !&gt; This resource takes exclusive ownership over ingress and egress rules assigned to a security group. This includes removal of rules which are not explicitly configured. To prevent persistent drift, ensure any `aws.vpc.SecurityGroupIngressRule` and `aws.vpc.SecurityGroupEgressRule` resources managed alongside this resource are included in the `IngressRuleIds` and `EgressRuleIds` arguments.
+    /// 
+    /// &gt; Destruction of this resource means Terraform will no longer manage reconciliation of the configured security group rules. It **will not** revoke the configured rules from the security group.
+    /// 
+    /// &gt; When this resource detects a configured rule ID which must be created, a warning diagnostic is emitted. This is due to a limitation in the [`AuthorizeSecurityGroupEgress`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_AuthorizeSecurityGroupEgress.html) and [`AuthorizeSecurityGroupIngress`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_AuthorizeSecurityGroupIngress.html) APIs, which require the full rule definition to be provided rather than a reference to an existing rule ID.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ### Basic Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.Ec2.Vpc("example", new()
+    ///     {
+    ///         CidrBlock = "10.0.0.0/16",
+    ///     });
+    /// 
+    ///     var exampleSecurityGroup = new Aws.Ec2.SecurityGroup("example", new()
+    ///     {
+    ///         Name = "example",
+    ///         VpcId = example.Id,
+    ///     });
+    /// 
+    ///     var exampleSecurityGroupIngressRule = new Aws.Vpc.SecurityGroupIngressRule("example", new()
+    ///     {
+    ///         SecurityGroupId = exampleSecurityGroup.Id,
+    ///         CidrIpv4 = "10.0.0.0/8",
+    ///         FromPort = 80,
+    ///         ToPort = 80,
+    ///         IpProtocol = "tcp",
+    ///     });
+    /// 
+    ///     var exampleSecurityGroupEgressRule = new Aws.Vpc.SecurityGroupEgressRule("example", new()
+    ///     {
+    ///         SecurityGroupId = exampleSecurityGroup.Id,
+    ///         CidrIpv4 = "0.0.0.0/0",
+    ///         IpProtocol = "-1",
+    ///     });
+    /// 
+    ///     var exampleVpcSecurityGroupRulesExclusive = new Aws.Ec2.VpcSecurityGroupRulesExclusive("example", new()
+    ///     {
+    ///         SecurityGroupId = exampleSecurityGroup.Id,
+    ///         IngressRuleIds = new[]
+    ///         {
+    ///             exampleSecurityGroupIngressRule.Id,
+    ///         },
+    ///         EgressRuleIds = new[]
+    ///         {
+    ///             exampleSecurityGroupEgressRule.Id,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ### Disallow All Rules
+    /// 
+    /// To automatically remove any configured security group rules, set both `IngressRuleIds` and `EgressRuleIds` to empty lists.
+    /// 
+    /// &gt; This will not __prevent__ rules from being assigned to a security group via Terraform (or any other interface). This resource enables bringing security group rule assignments into a configured state, however, this reconciliation happens only when `Apply` is proactively run.
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.Ec2.VpcSecurityGroupRulesExclusive("example", new()
+    ///     {
+    ///         SecurityGroupId = exampleAwsSecurityGroup.Id,
+    ///         IngressRuleIds = new[] {},
+    ///         EgressRuleIds = new[] {},
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import exclusive management of security group rules using the `security_group_id`. For example:
+    /// Using `pulumi import`, import exclusive management of security group rules using the `SecurityGroupId`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:ec2/vpcSecurityGroupRulesExclusive:VpcSecurityGroupRulesExclusive example sg-1234567890abcdef0

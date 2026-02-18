@@ -29,16 +29,11 @@ __all__ = [
     'DbInstanceTimeoutsArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class DbClusterLogDeliveryConfigurationArgsDict(TypedDict):
-        s3_configuration: NotRequired[pulumi.Input['DbClusterLogDeliveryConfigurationS3ConfigurationArgsDict']]
-        """
-        Configuration for S3 bucket log delivery.
-        """
-elif False:
-    DbClusterLogDeliveryConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class DbClusterLogDeliveryConfigurationArgsDict(TypedDict):
+    s3_configuration: NotRequired[pulumi.Input['DbClusterLogDeliveryConfigurationS3ConfigurationArgsDict']]
+    """
+    Configuration for S3 bucket log delivery.
+    """
 
 @pulumi.input_type
 class DbClusterLogDeliveryConfigurationArgs:
@@ -63,20 +58,17 @@ class DbClusterLogDeliveryConfigurationArgs:
         pulumi.set(self, "s3_configuration", value)
 
 
-if not MYPY:
-    class DbClusterLogDeliveryConfigurationS3ConfigurationArgsDict(TypedDict):
-        bucket_name: pulumi.Input[_builtins.str]
-        """
-        Name of the S3 bucket to deliver logs to.
-        """
-        enabled: pulumi.Input[_builtins.bool]
-        """
-        Indicates whether log delivery to the S3 bucket is enabled.
+class DbClusterLogDeliveryConfigurationS3ConfigurationArgsDict(TypedDict):
+    bucket_name: pulumi.Input[_builtins.str]
+    """
+    Name of the S3 bucket to deliver logs to.
+    """
+    enabled: pulumi.Input[_builtins.bool]
+    """
+    Indicates whether log delivery to the S3 bucket is enabled.
 
-        **Note**: The following arguments do updates in-place: `db_parameter_group_identifier`, `log_delivery_configuration`, `port`, `db_instance_type`, `failover_mode`, and `tags`. Changes to any other argument after a cluster has been deployed will cause destruction and re-creation of the cluster. Additionally, when `db_parameter_group_identifier` is added to a cluster or modified, the cluster will be updated in-place but if `db_parameter_group_identifier` is removed from a cluster, the cluster will be destroyed and re-created.
-        """
-elif False:
-    DbClusterLogDeliveryConfigurationS3ConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+    **Note**: The following arguments do updates in-place: `db_parameter_group_identifier`, `log_delivery_configuration`, `port`, `db_instance_type`, `failover_mode`, and `tags`. Changes to any other argument after a cluster has been deployed will cause destruction and re-creation of the cluster. Additionally, when `db_parameter_group_identifier` is added to a cluster or modified, the cluster will be updated in-place but if `db_parameter_group_identifier` is removed from a cluster, the cluster will be destroyed and re-created.
+    """
 
 @pulumi.input_type
 class DbClusterLogDeliveryConfigurationS3ConfigurationArgs:
@@ -119,22 +111,19 @@ class DbClusterLogDeliveryConfigurationS3ConfigurationArgs:
         pulumi.set(self, "enabled", value)
 
 
-if not MYPY:
-    class DbClusterTimeoutsArgsDict(TypedDict):
-        create: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
-        """
-        delete: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
-        """
-        update: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
-        """
-elif False:
-    DbClusterTimeoutsArgsDict: TypeAlias = Mapping[str, Any]
+class DbClusterTimeoutsArgsDict(TypedDict):
+    create: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+    """
+    delete: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+    """
+    update: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+    """
 
 @pulumi.input_type
 class DbClusterTimeoutsArgs:
@@ -191,14 +180,11 @@ class DbClusterTimeoutsArgs:
         pulumi.set(self, "update", value)
 
 
-if not MYPY:
-    class DbInstanceLogDeliveryConfigurationArgsDict(TypedDict):
-        s3_configuration: NotRequired[pulumi.Input['DbInstanceLogDeliveryConfigurationS3ConfigurationArgsDict']]
-        """
-        Configuration for S3 bucket log delivery.
-        """
-elif False:
-    DbInstanceLogDeliveryConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class DbInstanceLogDeliveryConfigurationArgsDict(TypedDict):
+    s3_configuration: NotRequired[pulumi.Input['DbInstanceLogDeliveryConfigurationS3ConfigurationArgsDict']]
+    """
+    Configuration for S3 bucket log delivery.
+    """
 
 @pulumi.input_type
 class DbInstanceLogDeliveryConfigurationArgs:
@@ -223,20 +209,17 @@ class DbInstanceLogDeliveryConfigurationArgs:
         pulumi.set(self, "s3_configuration", value)
 
 
-if not MYPY:
-    class DbInstanceLogDeliveryConfigurationS3ConfigurationArgsDict(TypedDict):
-        bucket_name: pulumi.Input[_builtins.str]
-        """
-        Name of the S3 bucket to deliver logs to.
-        """
-        enabled: pulumi.Input[_builtins.bool]
-        """
-        Indicates whether log delivery to the S3 bucket is enabled.
+class DbInstanceLogDeliveryConfigurationS3ConfigurationArgsDict(TypedDict):
+    bucket_name: pulumi.Input[_builtins.str]
+    """
+    Name of the S3 bucket to deliver logs to.
+    """
+    enabled: pulumi.Input[_builtins.bool]
+    """
+    Indicates whether log delivery to the S3 bucket is enabled.
 
-        **Note**: The following arguments do updates in-place: `db_parameter_group_identifier`, `log_delivery_configuration`, `port`, `deployment_type`, `db_instance_type`, and `tags`. Changes to any other argument after a DB instance has been deployed will cause destruction and re-creation of the DB instance. Additionally, when `db_parameter_group_identifier` is added to a DB instance or modified, the DB instance will be updated in-place but if `db_parameter_group_identifier` is removed from a DB instance, the DB instance will be destroyed and re-created.
-        """
-elif False:
-    DbInstanceLogDeliveryConfigurationS3ConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+    **Note**: The following arguments do updates in-place: `db_parameter_group_identifier`, `log_delivery_configuration`, `port`, `deployment_type`, `db_instance_type`, and `tags`. Changes to any other argument after a DB instance has been deployed will cause destruction and re-creation of the DB instance. Additionally, when `db_parameter_group_identifier` is added to a DB instance or modified, the DB instance will be updated in-place but if `db_parameter_group_identifier` is removed from a DB instance, the DB instance will be destroyed and re-created.
+    """
 
 @pulumi.input_type
 class DbInstanceLogDeliveryConfigurationS3ConfigurationArgs:
@@ -279,22 +262,19 @@ class DbInstanceLogDeliveryConfigurationS3ConfigurationArgs:
         pulumi.set(self, "enabled", value)
 
 
-if not MYPY:
-    class DbInstanceTimeoutsArgsDict(TypedDict):
-        create: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
-        """
-        delete: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
-        """
-        update: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
-        """
-elif False:
-    DbInstanceTimeoutsArgsDict: TypeAlias = Mapping[str, Any]
+class DbInstanceTimeoutsArgsDict(TypedDict):
+    create: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+    """
+    delete: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+    """
+    update: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+    """
 
 @pulumi.input_type
 class DbInstanceTimeoutsArgs:

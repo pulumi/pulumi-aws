@@ -122,7 +122,7 @@ namespace Pulumi.Aws.Iot
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import IoT Topic Rules using the `name`. For example:
+    /// Using `pulumi import`, import IoT Topic Rules using the `Name`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:iot/topicRule:TopicRule rule &lt;name&gt;

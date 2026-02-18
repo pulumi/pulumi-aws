@@ -65,9 +65,11 @@ import javax.annotation.Nullable;
  * 
  * - `arn` (String) Amazon Resource Name (ARN) of the DataSync object storage location.
  * 
- * Using `pulumi import`, import `aws_datasync_location_object_storage` using the Amazon Resource Name (ARN). For example:
+ * Using `pulumi import`, import `aws.datasync.LocationObjectStorage` using the Amazon Resource Name (ARN). For example:
  * 
- * % pulumi import aws_datasync_location_object_storage.example arn:aws:datasync:us-east-1:123456789012:location/loc-12345678901234567
+ * ```sh
+ * $ pulumi import aws:datasync/locationObjectStorage:LocationObjectStorage example arn:aws:datasync:us-east-1:123456789012:location/loc-12345678901234567
+ * ```
  * 
  */
 @ResourceType(type="aws:datasync/locationObjectStorage:LocationObjectStorage")

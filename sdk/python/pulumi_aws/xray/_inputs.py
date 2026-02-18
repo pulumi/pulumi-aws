@@ -19,20 +19,15 @@ __all__ = [
     'GroupInsightsConfigurationArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class GroupInsightsConfigurationArgsDict(TypedDict):
-        insights_enabled: pulumi.Input[_builtins.bool]
-        """
-        Specifies whether insights are enabled.
-        """
-        notifications_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Specifies whether insight notifications are enabled.
-        """
-elif False:
-    GroupInsightsConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class GroupInsightsConfigurationArgsDict(TypedDict):
+    insights_enabled: pulumi.Input[_builtins.bool]
+    """
+    Specifies whether insights are enabled.
+    """
+    notifications_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Specifies whether insight notifications are enabled.
+    """
 
 @pulumi.input_type
 class GroupInsightsConfigurationArgs:

@@ -127,7 +127,7 @@ import (
 //
 // ## Import
 //
-// Using `pulumi import`, import replication subnet groups using the `replication_subnet_group_id`. For example:
+// Using `pulumi import`, import replication subnet groups using the `replicationSubnetGroupId`. For example:
 //
 // ```sh
 // $ pulumi import aws:dms/replicationSubnetGroup:ReplicationSubnetGroup test test-dms-replication-subnet-group-tf

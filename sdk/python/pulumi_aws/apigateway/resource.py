@@ -204,7 +204,7 @@ class Resource(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import `aws_api_gateway_resource` using `REST-API-ID/RESOURCE-ID`. For example:
+        Using `pulumi import`, import `apigateway.Resource` using `REST-API-ID/RESOURCE-ID`. For example:
 
         ```sh
         $ pulumi import aws:apigateway/resource:Resource example 12345abcde/67890fghij
@@ -243,7 +243,7 @@ class Resource(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import `aws_api_gateway_resource` using `REST-API-ID/RESOURCE-ID`. For example:
+        Using `pulumi import`, import `apigateway.Resource` using `REST-API-ID/RESOURCE-ID`. For example:
 
         ```sh
         $ pulumi import aws:apigateway/resource:Resource example 12345abcde/67890fghij

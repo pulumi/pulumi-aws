@@ -526,11 +526,12 @@ class TableGlobalSecondaryIndex(dict):
                  write_capacity: Optional[_builtins.int] = None):
         """
         :param _builtins.str name: Name of the index.
-        :param _builtins.str projection_type: One of `ALL`, `INCLUDE` or `KEYS_ONLY` where `ALL` projects every attribute into the index, `KEYS_ONLY` projects  into the index only the table and index hash_key and sort_key attributes ,  `INCLUDE` projects into the index all of the attributes that are defined in `non_key_attributes` in addition to the attributes that that`KEYS_ONLY` project.
-        :param _builtins.str hash_key: and `hash_keys` are `mutually exclusive`, but one is `required`. Refer to [AWS SDK Documentation](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GSI.DesignPattern.MultiAttributeKeys.html)
+        :param _builtins.str projection_type: One of `ALL`, `INCLUDE` or `KEYS_ONLY` where `ALL` projects every attribute into the index, `KEYS_ONLY` projects into the index only the table and index hash_key and sort_key attributes, `INCLUDE` projects into the index all of the attributes that are defined in `non_key_attributes` in addition to the attributes that `KEYS_ONLY` project.
+        :param _builtins.str hash_key: Name of the hash key in the index; must be defined as an attribute in the resource. Mutually exclusive with `key_schema`. Use `key_schema` instead.
+        :param Sequence['TableGlobalSecondaryIndexKeySchemaArgs'] key_schemas: Configuration block(s) for the key schema. Mutually exclusive with `hash_key` and `range_key`. Required if `hash_key` is not specified. Supports multi-attribute keys for the [Multi-Attribute Keys design pattern](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GSI.DesignPattern.MultiAttributeKeys.html). See below.
         :param Sequence[_builtins.str] non_key_attributes: Only required with `INCLUDE` as a projection type; a list of attributes to project into the index. These do not need to be defined as attributes on the table.
         :param 'TableGlobalSecondaryIndexOnDemandThroughputArgs' on_demand_throughput: Sets the maximum number of read and write units for the specified on-demand index. See below.
-        :param _builtins.str range_key: and `range_keys` are `mutually exclusive`, but are both `optional`. Refer to [AWS SDK Documentation](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GSI.DesignPattern.MultiAttributeKeys.html)
+        :param _builtins.str range_key: Name of the range key; must be defined as an attribute in the resource. Mutually exclusive with `key_schema`. Use `key_schema` instead.
         :param _builtins.int read_capacity: Number of read units for this index. Must be set if billing_mode is set to PROVISIONED.
         :param 'TableGlobalSecondaryIndexWarmThroughputArgs' warm_throughput: Sets the number of warm read and write units for this index. See below.
         :param _builtins.int write_capacity: Number of write units for this index. Must be set if billing_mode is set to PROVISIONED.
@@ -566,7 +567,7 @@ class TableGlobalSecondaryIndex(dict):
     @pulumi.getter(name="projectionType")
     def projection_type(self) -> _builtins.str:
         """
-        One of `ALL`, `INCLUDE` or `KEYS_ONLY` where `ALL` projects every attribute into the index, `KEYS_ONLY` projects  into the index only the table and index hash_key and sort_key attributes ,  `INCLUDE` projects into the index all of the attributes that are defined in `non_key_attributes` in addition to the attributes that that`KEYS_ONLY` project.
+        One of `ALL`, `INCLUDE` or `KEYS_ONLY` where `ALL` projects every attribute into the index, `KEYS_ONLY` projects into the index only the table and index hash_key and sort_key attributes, `INCLUDE` projects into the index all of the attributes that are defined in `non_key_attributes` in addition to the attributes that `KEYS_ONLY` project.
         """
         return pulumi.get(self, "projection_type")
 
@@ -575,13 +576,16 @@ class TableGlobalSecondaryIndex(dict):
     @_utilities.deprecated("""hash_key is deprecated. Use key_schema instead.""")
     def hash_key(self) -> Optional[_builtins.str]:
         """
-        and `hash_keys` are `mutually exclusive`, but one is `required`. Refer to [AWS SDK Documentation](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GSI.DesignPattern.MultiAttributeKeys.html)
+        Name of the hash key in the index; must be defined as an attribute in the resource. Mutually exclusive with `key_schema`. Use `key_schema` instead.
         """
         return pulumi.get(self, "hash_key")
 
     @_builtins.property
     @pulumi.getter(name="keySchemas")
     def key_schemas(self) -> Optional[Sequence['outputs.TableGlobalSecondaryIndexKeySchema']]:
+        """
+        Configuration block(s) for the key schema. Mutually exclusive with `hash_key` and `range_key`. Required if `hash_key` is not specified. Supports multi-attribute keys for the [Multi-Attribute Keys design pattern](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GSI.DesignPattern.MultiAttributeKeys.html). See below.
+        """
         return pulumi.get(self, "key_schemas")
 
     @_builtins.property
@@ -605,7 +609,7 @@ class TableGlobalSecondaryIndex(dict):
     @_utilities.deprecated("""range_key is deprecated. Use key_schema instead.""")
     def range_key(self) -> Optional[_builtins.str]:
         """
-        and `range_keys` are `mutually exclusive`, but are both `optional`. Refer to [AWS SDK Documentation](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GSI.DesignPattern.MultiAttributeKeys.html)
+        Name of the range key; must be defined as an attribute in the resource. Mutually exclusive with `key_schema`. Use `key_schema` instead.
         """
         return pulumi.get(self, "range_key")
 
@@ -659,8 +663,8 @@ class TableGlobalSecondaryIndexKeySchema(dict):
                  attribute_name: _builtins.str,
                  key_type: _builtins.str):
         """
-        :param _builtins.str attribute_name: Name of the table attribute to store the TTL timestamp in.
-               Required if `enabled` is `true`, must not be set otherwise.
+        :param _builtins.str attribute_name: Name of the attribute; must be defined as an attribute in the resource.
+        :param _builtins.str key_type: The type of key. Valid values are `HASH` (partition key) or `RANGE` (sort key). You can specify up to 4 attributes with `key_type = "HASH"` and up to 4 attributes with `key_type = "RANGE"`.
         """
         pulumi.set(__self__, "attribute_name", attribute_name)
         pulumi.set(__self__, "key_type", key_type)
@@ -669,14 +673,16 @@ class TableGlobalSecondaryIndexKeySchema(dict):
     @pulumi.getter(name="attributeName")
     def attribute_name(self) -> _builtins.str:
         """
-        Name of the table attribute to store the TTL timestamp in.
-        Required if `enabled` is `true`, must not be set otherwise.
+        Name of the attribute; must be defined as an attribute in the resource.
         """
         return pulumi.get(self, "attribute_name")
 
     @_builtins.property
     @pulumi.getter(name="keyType")
     def key_type(self) -> _builtins.str:
+        """
+        The type of key. Valid values are `HASH` (partition key) or `RANGE` (sort key). You can specify up to 4 attributes with `key_type = "HASH"` and up to 4 attributes with `key_type = "RANGE"`.
+        """
         return pulumi.get(self, "key_type")
 
 

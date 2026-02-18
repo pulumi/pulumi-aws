@@ -11,22 +11,28 @@ import java.util.Objects;
 @CustomType
 public final class TableGlobalSecondaryIndexKeySchema {
     /**
-     * @return Name of the table attribute to store the TTL timestamp in.
-     * Required if `enabled` is `true`, must not be set otherwise.
+     * @return Name of the attribute; must be defined as an attribute in the resource.
      * 
      */
     private String attributeName;
+    /**
+     * @return The type of key. Valid values are `HASH` (partition key) or `RANGE` (sort key). You can specify up to 4 attributes with `keyType = &#34;HASH&#34;` and up to 4 attributes with `keyType = &#34;RANGE&#34;`.
+     * 
+     */
     private String keyType;
 
     private TableGlobalSecondaryIndexKeySchema() {}
     /**
-     * @return Name of the table attribute to store the TTL timestamp in.
-     * Required if `enabled` is `true`, must not be set otherwise.
+     * @return Name of the attribute; must be defined as an attribute in the resource.
      * 
      */
     public String attributeName() {
         return this.attributeName;
     }
+    /**
+     * @return The type of key. Valid values are `HASH` (partition key) or `RANGE` (sort key). You can specify up to 4 attributes with `keyType = &#34;HASH&#34;` and up to 4 attributes with `keyType = &#34;RANGE&#34;`.
+     * 
+     */
     public String keyType() {
         return this.keyType;
     }

@@ -126,7 +126,7 @@ import (
 //
 // ## Import
 //
-// Using `pulumi import`, import Transfer AS2 Connector using the `connector_id`. For example:
+// Using `pulumi import`, import Transfer AS2 Connector using the `connectorId`. For example:
 //
 // ```sh
 // $ pulumi import aws:transfer/connector:Connector example c-4221a88afd5f4362a

@@ -283,7 +283,7 @@ namespace Pulumi.Aws.ElasticSearch
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import Elasticsearch domains using the `domain_name`. For example:
+    /// Using `pulumi import`, import Elasticsearch domains using the `DomainName`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:elasticsearch/domain:Domain example domain_name

@@ -19,20 +19,15 @@ __all__ = [
     'AssessmentTemplateEventSubscriptionArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class AssessmentTemplateEventSubscriptionArgsDict(TypedDict):
-        event: pulumi.Input[_builtins.str]
-        """
-        The event for which you want to receive SNS notifications. Valid values are `ASSESSMENT_RUN_STARTED`, `ASSESSMENT_RUN_COMPLETED`, `ASSESSMENT_RUN_STATE_CHANGED`, and `FINDING_REPORTED`.
-        """
-        topic_arn: pulumi.Input[_builtins.str]
-        """
-        The ARN of the SNS topic to which notifications are sent.
-        """
-elif False:
-    AssessmentTemplateEventSubscriptionArgsDict: TypeAlias = Mapping[str, Any]
+class AssessmentTemplateEventSubscriptionArgsDict(TypedDict):
+    event: pulumi.Input[_builtins.str]
+    """
+    The event for which you want to receive SNS notifications. Valid values are `ASSESSMENT_RUN_STARTED`, `ASSESSMENT_RUN_COMPLETED`, `ASSESSMENT_RUN_STATE_CHANGED`, and `FINDING_REPORTED`.
+    """
+    topic_arn: pulumi.Input[_builtins.str]
+    """
+    The ARN of the SNS topic to which notifications are sent.
+    """
 
 @pulumi.input_type
 class AssessmentTemplateEventSubscriptionArgs:

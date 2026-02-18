@@ -22,25 +22,171 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * ## Import
+ * !&gt; The resource type `aws.dynamodb.GlobalSecondaryIndex` is an experimental feature. The schema or behavior may change without notice, and it is not subject to the backwards compatibility guarantee of the provider.
  * 
- * ### Identity Schema
+ * &gt; The resource type `aws.dynamodb.GlobalSecondaryIndex` can be enabled by setting the environment variable `TF_AWS_EXPERIMENT_dynamodb_global_secondary_index` to any value. If not enabled, use of `aws.dynamodb.GlobalSecondaryIndex` will result in an error when running Terraform.
  * 
- * #### Required
+ * &gt; Please provide feedback, positive or negative, at https://github.com/hashicorp/terraform-provider-aws/issues/45640. User feedback will determine if this experiment is a success.
  * 
- * * `index_name` (String) Name of the index.
+ * !&gt; **WARNING:** Do not combine `aws.dynamodb.GlobalSecondaryIndex` resources in conjunction with `globalSecondaryIndex` on `aws.dynamodb.Table`. Doing so may cause conflicts, perpertual differences, and Global Secondary Indexes being overwritten.
  * 
- * * `table_name` (String) Name of the table this index belongs to.
+ * ## Example Usage
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.dynamodb.Table;
+ * import com.pulumi.aws.dynamodb.TableArgs;
+ * import com.pulumi.aws.dynamodb.inputs.TableAttributeArgs;
+ * import com.pulumi.aws.dynamodb.GlobalSecondaryIndex;
+ * import com.pulumi.aws.dynamodb.GlobalSecondaryIndexArgs;
+ * import com.pulumi.aws.dynamodb.inputs.GlobalSecondaryIndexProjectionArgs;
+ * import com.pulumi.aws.dynamodb.inputs.GlobalSecondaryIndexProvisionedThroughputArgs;
+ * import com.pulumi.aws.dynamodb.inputs.GlobalSecondaryIndexKeySchemaArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var exampleTable = new Table("exampleTable", TableArgs.builder()
+ *             .name("example")
+ *             .billingMode("PROVISIONED")
+ *             .readCapacity(20)
+ *             .writeCapacity(20)
+ *             .hashKey("UserId")
+ *             .rangeKey("GameTitle")
+ *             .attributes(            
+ *                 TableAttributeArgs.builder()
+ *                     .name("UserId")
+ *                     .type("S")
+ *                     .build(),
+ *                 TableAttributeArgs.builder()
+ *                     .name("GameTitle")
+ *                     .type("S")
+ *                     .build())
+ *             .build());
+ * 
+ *         var example = new GlobalSecondaryIndex("example", GlobalSecondaryIndexArgs.builder()
+ *             .tableName(exampleTable.name())
+ *             .indexName("GameTitleIndex")
+ *             .projection(GlobalSecondaryIndexProjectionArgs.builder()
+ *                 .projectionType("INCLUDE")
+ *                 .nonKeyAttributes("UserId")
+ *                 .build())
+ *             .provisionedThroughput(GlobalSecondaryIndexProvisionedThroughputArgs.builder()
+ *                 .writeCapacityUnits(10)
+ *                 .readCapacityUnits(10)
+ *                 .build())
+ *             .keySchemas(GlobalSecondaryIndexKeySchemaArgs.builder()
+ *                 .attributeName("GameTitle")
+ *                 .attributeType("S")
+ *                 .keyType("HASH")
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
+ * ## Migrating
+ * 
+ * Use the following steps to migrate existing Global Secondary Indexes defined inline in `globalSecondaryIndex` on an `aws.dynamodb.Table`.
+ * 
+ * For each block `globalSecondaryIndex` create a new `aws.dynamodb.GlobalSecondaryIndex` resource with configuration corresponding to the existing block.
+ * 
+ * For example, starting with the following configuration:
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.dynamodb.Table;
+ * import com.pulumi.aws.dynamodb.TableArgs;
+ * import com.pulumi.aws.dynamodb.inputs.TableGlobalSecondaryIndexArgs;
+ * import com.pulumi.aws.dynamodb.inputs.TableAttributeArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new Table("example", TableArgs.builder()
+ *             .name("example-table")
+ *             .hashKey("example-key")
+ *             .readCapacity(1)
+ *             .writeCapacity(1)
+ *             .globalSecondaryIndexes(            
+ *                 TableGlobalSecondaryIndexArgs.builder()
+ *                     .name("example-index-1")
+ *                     .projectionType("ALL")
+ *                     .hashKey("example-gsi-key-1")
+ *                     .readCapacity(1)
+ *                     .writeCapacity(1)
+ *                     .build(),
+ *                 TableGlobalSecondaryIndexArgs.builder()
+ *                     .name("example-index-2")
+ *                     .projectionType("ALL")
+ *                     .hashKey("example-gsi-key-2")
+ *                     .readCapacity(1)
+ *                     .writeCapacity(1)
+ *                     .build())
+ *             .attributes(            
+ *                 TableAttributeArgs.builder()
+ *                     .name("example-key")
+ *                     .type("S")
+ *                     .build(),
+ *                 TableAttributeArgs.builder()
+ *                     .name("example-gsi-key-1")
+ *                     .type("S")
+ *                     .build(),
+ *                 TableAttributeArgs.builder()
+ *                     .name("example-gsi-key-2")
+ *                     .type("S")
+ *                     .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
+ * Update the configuration to the following. Note that the schema of `aws.dynamodb.GlobalSecondaryIndex` has some differences with `globalSecondaryIndex` on `aws.dynamodb.Table`.
+ * 
+ * If using Terraform versions prior to v1.5.0, remove the `import` blocks and use the `pulumi import` command.
  * 
  * #### Optional
  * 
- * * `account_id` (String) AWS Account where this resource is managed.
- * 
+ * * `accountId` (String) AWS Account where this resource is managed.
  * * `region` (String) Region where this resource is managed.
  * 
- * Using `pulumi import`, import DynamoDB tables using the `table_name` and `index_name`, separated by a comma. For example:
+ * Using `pulumi import`, import DynamoDB tables using the `tableName` and `indexName`, separated by a comma. For example:
  * 
- * % pulumi import aws_dynamodb_global_secondary_index.example &#39;example-table,example-index&#39;
+ * ```sh
+ * $ pulumi import aws:dynamodb/globalSecondaryIndex:GlobalSecondaryIndex example &#39;example-table,example-index&#39;
+ * ```
  * 
  */
 @ResourceType(type="aws:dynamodb/globalSecondaryIndex:GlobalSecondaryIndex")

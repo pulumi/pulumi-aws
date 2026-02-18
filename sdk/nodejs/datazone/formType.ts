@@ -99,7 +99,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Using `pulumi import`, import DataZone Form Type using a comma separated value of `domain_identifier`,`name`,`revision`. For example:
+ * Using `pulumi import`, import DataZone Form Type using a comma separated value of `domainIdentifier`,`name`,`revision`. For example:
  *
  * ```sh
  * $ pulumi import aws:datazone/formType:FormType example domain_identifier,name,revision
@@ -178,6 +178,9 @@ export class FormType extends pulumi.CustomResource {
      * Revision of the Form Type.
      */
     declare public /*out*/ readonly revision: pulumi.Output<string>;
+    /**
+     * Status of form type. Must be "ENABLED" or "DISABLED" If status is set to "ENABLED" terraform cannot delete the resource until it is manually changed in the AWS console.
+     */
     declare public readonly status: pulumi.Output<string>;
     declare public readonly timeouts: pulumi.Output<outputs.datazone.FormTypeTimeouts | undefined>;
 
@@ -288,6 +291,9 @@ export interface FormTypeState {
      * Revision of the Form Type.
      */
     revision?: pulumi.Input<string>;
+    /**
+     * Status of form type. Must be "ENABLED" or "DISABLED" If status is set to "ENABLED" terraform cannot delete the resource until it is manually changed in the AWS console.
+     */
     status?: pulumi.Input<string>;
     timeouts?: pulumi.Input<inputs.datazone.FormTypeTimeouts>;
 }
@@ -320,6 +326,9 @@ export interface FormTypeArgs {
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string>;
+    /**
+     * Status of form type. Must be "ENABLED" or "DISABLED" If status is set to "ENABLED" terraform cannot delete the resource until it is manually changed in the AWS console.
+     */
     status?: pulumi.Input<string>;
     timeouts?: pulumi.Input<inputs.datazone.FormTypeTimeouts>;
 }

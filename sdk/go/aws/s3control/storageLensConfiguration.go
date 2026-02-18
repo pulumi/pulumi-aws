@@ -85,7 +85,7 @@ import (
 //
 // ## Import
 //
-// Using `pulumi import`, import S3 Storage Lens configurations using the `account_id` and `config_id`, separated by a colon (`:`). For example:
+// Using `pulumi import`, import S3 Storage Lens configurations using the `accountId` and `configId`, separated by a colon (`:`). For example:
 //
 // ```sh
 // $ pulumi import aws:s3control/storageLensConfiguration:StorageLensConfiguration example 123456789012:example-1

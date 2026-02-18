@@ -31,7 +31,9 @@ import * as utilities from "../utilities";
  *
  * Using `pulumi import`, import IVS (Interactive Video) Playback Key Pair using the ARN. For example:
  *
- * % pulumi import aws_ivs_playback_key_pair.example arn:aws:ivs:us-west-2:326937407773:playback-key/KDJRJNQhiQzA
+ * ```sh
+ * $ pulumi import aws:ivs/playbackKeyPair:PlaybackKeyPair example arn:aws:ivs:us-west-2:326937407773:playback-key/KDJRJNQhiQzA
+ * ```
  */
 export class PlaybackKeyPair extends pulumi.CustomResource {
     /**

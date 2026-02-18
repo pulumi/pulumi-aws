@@ -43,7 +43,25 @@ namespace Pulumi.Aws.Athena
     /// ```sh
     /// $ pulumi import aws:athena/database:Database example example
     /// ```
-    /// Certain resource arguments, like `encryption_configuration` and `bucket`, do not have an API method for reading the information after creation. If the argument is set in the Pulumi program on an imported resource, Pulumi will always show a difference. To workaround this behavior, either omit the argument from the Pulumi program or use `ignore_changes` to hide the difference. For example:
+    /// 
+    /// Certain resource arguments, like `EncryptionConfiguration` and `Bucket`, do not have an API method for reading the information after creation. If the argument is set in the Pulumi program on an imported resource, Pulumi will always show a difference. To workaround this behavior, either omit the argument from the Pulumi program or use `IgnoreChanges` to hide the difference. For example:
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.Athena.Database("example", new()
+    ///     {
+    ///         Name = "database_name",
+    ///         Bucket = exampleAwsS3Bucket.Id,
+    ///     });
+    /// 
+    /// });
+    /// ```
     /// </summary>
     [AwsResourceType("aws:athena/database:Database")]
     public partial class Database : global::Pulumi.CustomResource

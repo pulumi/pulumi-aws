@@ -72,7 +72,7 @@ import (
 //
 // ## Import
 //
-// Using `pulumi import`, import EventBridge Schema Registry Policy using the `registry_name`. For example:
+// Using `pulumi import`, import EventBridge Schema Registry Policy using the `registryName`. For example:
 //
 // ```sh
 // $ pulumi import aws:schemas/registryPolicy:RegistryPolicy example example

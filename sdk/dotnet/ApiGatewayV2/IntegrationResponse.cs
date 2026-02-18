@@ -37,7 +37,7 @@ namespace Pulumi.Aws.ApiGatewayV2
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import `aws_apigatewayv2_integration_response` using the API identifier, integration identifier and integration response identifier. For example:
+    /// Using `pulumi import`, import `aws.apigatewayv2.IntegrationResponse` using the API identifier, integration identifier and integration response identifier. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:apigatewayv2/integrationResponse:IntegrationResponse example aabbccddee/1122334/998877

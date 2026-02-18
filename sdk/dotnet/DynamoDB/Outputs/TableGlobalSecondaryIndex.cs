@@ -14,9 +14,12 @@ namespace Pulumi.Aws.DynamoDB.Outputs
     public sealed class TableGlobalSecondaryIndex
     {
         /// <summary>
-        /// and `HashKeys` are `mutually exclusive`, but one is `Required`. Refer to [AWS SDK Documentation](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GSI.DesignPattern.MultiAttributeKeys.html)
+        /// Name of the hash key in the index; must be defined as an attribute in the resource. Mutually exclusive with `KeySchema`. Use `KeySchema` instead.
         /// </summary>
         public readonly string? HashKey;
+        /// <summary>
+        /// Configuration block(s) for the key schema. Mutually exclusive with `HashKey` and `RangeKey`. Required if `HashKey` is not specified. Supports multi-attribute keys for the [Multi-Attribute Keys design pattern](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GSI.DesignPattern.MultiAttributeKeys.html). See below.
+        /// </summary>
         public readonly ImmutableArray<Outputs.TableGlobalSecondaryIndexKeySchema> KeySchemas;
         /// <summary>
         /// Name of the index.
@@ -31,11 +34,11 @@ namespace Pulumi.Aws.DynamoDB.Outputs
         /// </summary>
         public readonly Outputs.TableGlobalSecondaryIndexOnDemandThroughput? OnDemandThroughput;
         /// <summary>
-        /// One of `ALL`, `INCLUDE` or `KEYS_ONLY` where `ALL` projects every attribute into the index, `KEYS_ONLY` projects  into the index only the table and index HashKey and SortKey attributes ,  `INCLUDE` projects into the index all of the attributes that are defined in `NonKeyAttributes` in addition to the attributes that that`KEYS_ONLY` project.
+        /// One of `ALL`, `INCLUDE` or `KEYS_ONLY` where `ALL` projects every attribute into the index, `KEYS_ONLY` projects into the index only the table and index HashKey and SortKey attributes, `INCLUDE` projects into the index all of the attributes that are defined in `NonKeyAttributes` in addition to the attributes that `KEYS_ONLY` project.
         /// </summary>
         public readonly string ProjectionType;
         /// <summary>
-        /// and `RangeKeys` are `mutually exclusive`, but are both `Optional`. Refer to [AWS SDK Documentation](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GSI.DesignPattern.MultiAttributeKeys.html)
+        /// Name of the range key; must be defined as an attribute in the resource. Mutually exclusive with `KeySchema`. Use `KeySchema` instead.
         /// </summary>
         public readonly string? RangeKey;
         /// <summary>

@@ -51,7 +51,7 @@ namespace Pulumi.Aws.Iot
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import IoT policies using the `name`. For example:
+    /// Using `pulumi import`, import IoT policies using the `Name`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:iot/policy:Policy pubsub PubSubToAnyTopic

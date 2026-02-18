@@ -44,7 +44,7 @@ namespace Pulumi.Aws.Macie2
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import `aws_macie2_member` using the account ID of the member account. For example:
+    /// Using `pulumi import`, import `aws.macie2.Member` using the account ID of the member account. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:macie2/member:Member example 123456789012

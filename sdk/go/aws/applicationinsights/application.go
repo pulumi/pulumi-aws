@@ -71,7 +71,7 @@ import (
 //
 // ## Import
 //
-// Using `pulumi import`, import ApplicationInsights Applications using the `resource_group_name`. For example:
+// Using `pulumi import`, import ApplicationInsights Applications using the `resourceGroupName`. For example:
 //
 // ```sh
 // $ pulumi import aws:applicationinsights/application:Application some some-application

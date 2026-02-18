@@ -60,7 +60,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Using `pulumi import`, import S3 Tables Namespace using the `table_bucket_arn` and the value of `namespace`, separated by a semicolon (`;`). For example:
+ * Using `pulumi import`, import S3 Tables Namespace using the `tableBucketArn` and the value of `namespace`, separated by a semicolon (`;`). For example:
  * 
  * ```sh
  * $ pulumi import aws:s3tables/namespace:Namespace example &#39;arn:aws:s3tables:us-west-2:123456789012:bucket/example-bucket;example-namespace&#39;

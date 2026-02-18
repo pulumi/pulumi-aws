@@ -29,6 +29,8 @@ class WebAppCustomizationArgs:
         :param pulumi.Input[_builtins.str] web_app_id: The identifier of the web app to be customized.
                
                The following arguments are optional:
+        :param pulumi.Input[_builtins.str] favicon_file: Base64-encoded string representing the favicon image. Terraform will detect drift only if this argument is specified. To remove the favicon, recreate the resource.
+        :param pulumi.Input[_builtins.str] logo_file: Base64-encoded string representing the logo image. Terraform will detect drift only if this argument is specified. To remove the logo, recreate the resource.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] title: Title of the web app. Must be between 1 and 100 characters in length (an empty string is not allowed). To remove the title, omit this argument from your configuration.
         """
@@ -59,6 +61,9 @@ class WebAppCustomizationArgs:
     @_builtins.property
     @pulumi.getter(name="faviconFile")
     def favicon_file(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Base64-encoded string representing the favicon image. Terraform will detect drift only if this argument is specified. To remove the favicon, recreate the resource.
+        """
         return pulumi.get(self, "favicon_file")
 
     @favicon_file.setter
@@ -68,6 +73,9 @@ class WebAppCustomizationArgs:
     @_builtins.property
     @pulumi.getter(name="logoFile")
     def logo_file(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Base64-encoded string representing the logo image. Terraform will detect drift only if this argument is specified. To remove the logo, recreate the resource.
+        """
         return pulumi.get(self, "logo_file")
 
     @logo_file.setter
@@ -109,6 +117,8 @@ class _WebAppCustomizationState:
                  web_app_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering WebAppCustomization resources.
+        :param pulumi.Input[_builtins.str] favicon_file: Base64-encoded string representing the favicon image. Terraform will detect drift only if this argument is specified. To remove the favicon, recreate the resource.
+        :param pulumi.Input[_builtins.str] logo_file: Base64-encoded string representing the logo image. Terraform will detect drift only if this argument is specified. To remove the logo, recreate the resource.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] title: Title of the web app. Must be between 1 and 100 characters in length (an empty string is not allowed). To remove the title, omit this argument from your configuration.
         :param pulumi.Input[_builtins.str] web_app_id: The identifier of the web app to be customized.
@@ -129,6 +139,9 @@ class _WebAppCustomizationState:
     @_builtins.property
     @pulumi.getter(name="faviconFile")
     def favicon_file(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Base64-encoded string representing the favicon image. Terraform will detect drift only if this argument is specified. To remove the favicon, recreate the resource.
+        """
         return pulumi.get(self, "favicon_file")
 
     @favicon_file.setter
@@ -138,6 +151,9 @@ class _WebAppCustomizationState:
     @_builtins.property
     @pulumi.getter(name="logoFile")
     def logo_file(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Base64-encoded string representing the logo image. Terraform will detect drift only if this argument is specified. To remove the logo, recreate the resource.
+        """
         return pulumi.get(self, "logo_file")
 
     @logo_file.setter
@@ -210,6 +226,8 @@ class WebAppCustomization(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[_builtins.str] favicon_file: Base64-encoded string representing the favicon image. Terraform will detect drift only if this argument is specified. To remove the favicon, recreate the resource.
+        :param pulumi.Input[_builtins.str] logo_file: Base64-encoded string representing the logo image. Terraform will detect drift only if this argument is specified. To remove the logo, recreate the resource.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] title: Title of the web app. Must be between 1 and 100 characters in length (an empty string is not allowed). To remove the title, omit this argument from your configuration.
         :param pulumi.Input[_builtins.str] web_app_id: The identifier of the web app to be customized.
@@ -293,6 +311,8 @@ class WebAppCustomization(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[_builtins.str] favicon_file: Base64-encoded string representing the favicon image. Terraform will detect drift only if this argument is specified. To remove the favicon, recreate the resource.
+        :param pulumi.Input[_builtins.str] logo_file: Base64-encoded string representing the logo image. Terraform will detect drift only if this argument is specified. To remove the logo, recreate the resource.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] title: Title of the web app. Must be between 1 and 100 characters in length (an empty string is not allowed). To remove the title, omit this argument from your configuration.
         :param pulumi.Input[_builtins.str] web_app_id: The identifier of the web app to be customized.
@@ -313,11 +333,17 @@ class WebAppCustomization(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="faviconFile")
     def favicon_file(self) -> pulumi.Output[_builtins.str]:
+        """
+        Base64-encoded string representing the favicon image. Terraform will detect drift only if this argument is specified. To remove the favicon, recreate the resource.
+        """
         return pulumi.get(self, "favicon_file")
 
     @_builtins.property
     @pulumi.getter(name="logoFile")
     def logo_file(self) -> pulumi.Output[_builtins.str]:
+        """
+        Base64-encoded string representing the logo image. Terraform will detect drift only if this argument is specified. To remove the logo, recreate the resource.
+        """
         return pulumi.get(self, "logo_file")
 
     @_builtins.property

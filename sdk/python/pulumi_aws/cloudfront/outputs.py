@@ -4369,8 +4369,8 @@ class MultitenantDistributionCustomErrorResponse(dict):
         """
         :param _builtins.int error_code: HTTP status code for which you want to specify a custom error page and/or a caching duration.
         :param _builtins.int error_caching_min_ttl: Minimum amount of time that you want CloudFront to cache the HTTP status code specified in ErrorCode.
-        :param _builtins.str response_code: HTTP status code that you want CloudFront to return to the viewer along with the custom error page.
-        :param _builtins.str response_page_path: Path to the custom error page that you want CloudFront to return to a viewer when your origin returns the HTTP status code specified by ErrorCode.
+        :param _builtins.str response_code: HTTP status code that you want CloudFront to return to the viewer along with the custom error page. Both `response_code` and `response_page_path` must be specified or both must be omitted.
+        :param _builtins.str response_page_path: Path to the custom error page that you want CloudFront to return to a viewer when your origin returns the HTTP status code specified by ErrorCode. Both `response_code` and `response_page_path` must be specified or both must be omitted.
         """
         pulumi.set(__self__, "error_code", error_code)
         if error_caching_min_ttl is not None:
@@ -4400,7 +4400,7 @@ class MultitenantDistributionCustomErrorResponse(dict):
     @pulumi.getter(name="responseCode")
     def response_code(self) -> Optional[_builtins.str]:
         """
-        HTTP status code that you want CloudFront to return to the viewer along with the custom error page.
+        HTTP status code that you want CloudFront to return to the viewer along with the custom error page. Both `response_code` and `response_page_path` must be specified or both must be omitted.
         """
         return pulumi.get(self, "response_code")
 
@@ -4408,7 +4408,7 @@ class MultitenantDistributionCustomErrorResponse(dict):
     @pulumi.getter(name="responsePagePath")
     def response_page_path(self) -> Optional[_builtins.str]:
         """
-        Path to the custom error page that you want CloudFront to return to a viewer when your origin returns the HTTP status code specified by ErrorCode.
+        Path to the custom error page that you want CloudFront to return to a viewer when your origin returns the HTTP status code specified by ErrorCode. Both `response_code` and `response_page_path` must be specified or both must be omitted.
         """
         return pulumi.get(self, "response_page_path")
 

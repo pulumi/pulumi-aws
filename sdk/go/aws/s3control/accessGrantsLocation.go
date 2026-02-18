@@ -52,7 +52,7 @@ import (
 //
 // ## Import
 //
-// Using `pulumi import`, import S3 Access Grants locations using the `account_id` and `access_grants_location_id`, separated by a comma (`,`). For example:
+// Using `pulumi import`, import S3 Access Grants locations using the `accountId` and `accessGrantsLocationId`, separated by a comma (`,`). For example:
 //
 // ```sh
 // $ pulumi import aws:s3control/accessGrantsLocation:AccessGrantsLocation example 123456789012,default
@@ -64,7 +64,8 @@ type AccessGrantsLocation struct {
 	AccessGrantsLocationArn pulumi.StringOutput `pulumi:"accessGrantsLocationArn"`
 	// Unique ID of the S3 Access Grants location.
 	AccessGrantsLocationId pulumi.StringOutput `pulumi:"accessGrantsLocationId"`
-	AccountId              pulumi.StringOutput `pulumi:"accountId"`
+	// The AWS account ID for the S3 Access Grants location. Defaults to automatically determined account ID of the Terraform AWS provider.
+	AccountId pulumi.StringOutput `pulumi:"accountId"`
 	// The ARN of the IAM role that S3 Access Grants should use when fulfilling runtime access
 	// requests to the location.
 	IamRoleArn pulumi.StringOutput `pulumi:"iamRoleArn"`
@@ -118,7 +119,8 @@ type accessGrantsLocationState struct {
 	AccessGrantsLocationArn *string `pulumi:"accessGrantsLocationArn"`
 	// Unique ID of the S3 Access Grants location.
 	AccessGrantsLocationId *string `pulumi:"accessGrantsLocationId"`
-	AccountId              *string `pulumi:"accountId"`
+	// The AWS account ID for the S3 Access Grants location. Defaults to automatically determined account ID of the Terraform AWS provider.
+	AccountId *string `pulumi:"accountId"`
 	// The ARN of the IAM role that S3 Access Grants should use when fulfilling runtime access
 	// requests to the location.
 	IamRoleArn *string `pulumi:"iamRoleArn"`
@@ -137,7 +139,8 @@ type AccessGrantsLocationState struct {
 	AccessGrantsLocationArn pulumi.StringPtrInput
 	// Unique ID of the S3 Access Grants location.
 	AccessGrantsLocationId pulumi.StringPtrInput
-	AccountId              pulumi.StringPtrInput
+	// The AWS account ID for the S3 Access Grants location. Defaults to automatically determined account ID of the Terraform AWS provider.
+	AccountId pulumi.StringPtrInput
 	// The ARN of the IAM role that S3 Access Grants should use when fulfilling runtime access
 	// requests to the location.
 	IamRoleArn pulumi.StringPtrInput
@@ -156,6 +159,7 @@ func (AccessGrantsLocationState) ElementType() reflect.Type {
 }
 
 type accessGrantsLocationArgs struct {
+	// The AWS account ID for the S3 Access Grants location. Defaults to automatically determined account ID of the Terraform AWS provider.
 	AccountId *string `pulumi:"accountId"`
 	// The ARN of the IAM role that S3 Access Grants should use when fulfilling runtime access
 	// requests to the location.
@@ -170,6 +174,7 @@ type accessGrantsLocationArgs struct {
 
 // The set of arguments for constructing a AccessGrantsLocation resource.
 type AccessGrantsLocationArgs struct {
+	// The AWS account ID for the S3 Access Grants location. Defaults to automatically determined account ID of the Terraform AWS provider.
 	AccountId pulumi.StringPtrInput
 	// The ARN of the IAM role that S3 Access Grants should use when fulfilling runtime access
 	// requests to the location.
@@ -279,6 +284,7 @@ func (o AccessGrantsLocationOutput) AccessGrantsLocationId() pulumi.StringOutput
 	return o.ApplyT(func(v *AccessGrantsLocation) pulumi.StringOutput { return v.AccessGrantsLocationId }).(pulumi.StringOutput)
 }
 
+// The AWS account ID for the S3 Access Grants location. Defaults to automatically determined account ID of the Terraform AWS provider.
 func (o AccessGrantsLocationOutput) AccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *AccessGrantsLocation) pulumi.StringOutput { return v.AccountId }).(pulumi.StringOutput)
 }

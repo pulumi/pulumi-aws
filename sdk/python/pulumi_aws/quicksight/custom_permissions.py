@@ -32,6 +32,7 @@ class CustomPermissionsArgs:
         :param pulumi.Input[_builtins.str] custom_permissions_name: Custom permissions profile name.
                
                The following arguments are optional:
+        :param pulumi.Input[_builtins.str] aws_account_id: AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -73,6 +74,9 @@ class CustomPermissionsArgs:
     @_builtins.property
     @pulumi.getter(name="awsAccountId")
     def aws_account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
+        """
         return pulumi.get(self, "aws_account_id")
 
     @aws_account_id.setter
@@ -117,6 +121,7 @@ class _CustomPermissionsState:
         """
         Input properties used for looking up and filtering CustomPermissions resources.
         :param pulumi.Input[_builtins.str] arn: ARN of the custom permissions profile.
+        :param pulumi.Input[_builtins.str] aws_account_id: AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
         :param pulumi.Input['CustomPermissionsCapabilitiesArgs'] capabilities: Actions to include in the custom permissions profile. See capabilities.
         :param pulumi.Input[_builtins.str] custom_permissions_name: Custom permissions profile name.
                
@@ -155,6 +160,9 @@ class _CustomPermissionsState:
     @_builtins.property
     @pulumi.getter(name="awsAccountId")
     def aws_account_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
+        """
         return pulumi.get(self, "aws_account_id")
 
     @aws_account_id.setter
@@ -260,6 +268,7 @@ class CustomPermissions(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[_builtins.str] aws_account_id: AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
         :param pulumi.Input[Union['CustomPermissionsCapabilitiesArgs', 'CustomPermissionsCapabilitiesArgsDict']] capabilities: Actions to include in the custom permissions profile. See capabilities.
         :param pulumi.Input[_builtins.str] custom_permissions_name: Custom permissions profile name.
                
@@ -360,6 +369,7 @@ class CustomPermissions(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] arn: ARN of the custom permissions profile.
+        :param pulumi.Input[_builtins.str] aws_account_id: AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
         :param pulumi.Input[Union['CustomPermissionsCapabilitiesArgs', 'CustomPermissionsCapabilitiesArgsDict']] capabilities: Actions to include in the custom permissions profile. See capabilities.
         :param pulumi.Input[_builtins.str] custom_permissions_name: Custom permissions profile name.
                
@@ -392,6 +402,9 @@ class CustomPermissions(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="awsAccountId")
     def aws_account_id(self) -> pulumi.Output[_builtins.str]:
+        """
+        AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
+        """
         return pulumi.get(self, "aws_account_id")
 
     @_builtins.property

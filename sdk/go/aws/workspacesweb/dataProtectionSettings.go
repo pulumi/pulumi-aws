@@ -173,7 +173,7 @@ import (
 //
 // ## Import
 //
-// Using `pulumi import`, import WorkSpaces Web Data Protection Settings using the `data_protection_settings_arn`. For example:
+// Using `pulumi import`, import WorkSpaces Web Data Protection Settings using the `dataProtectionSettingsArn`. For example:
 //
 // ```sh
 // $ pulumi import aws:workspacesweb/dataProtectionSettings:DataProtectionSettings example arn:aws:workspaces-web:us-west-2:123456789012:dataprotectionsettings/abcdef12345

@@ -49,7 +49,7 @@ namespace Pulumi.Aws.Auditmanager
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import Audit Manager Account Registration resources using the `id`. For example:
+    /// Using `pulumi import`, import Audit Manager Account Registration resources using the `Id`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:auditmanager/accountRegistration:AccountRegistration example us-east-1

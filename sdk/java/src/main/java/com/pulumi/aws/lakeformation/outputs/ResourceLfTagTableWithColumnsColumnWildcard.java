@@ -11,9 +11,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class ResourceLfTagTableWithColumnsColumnWildcard {
+    /**
+     * @return Set of column names for the table to exclude. If `excludedColumnNames` is included, `wildcard` must be set to `true` to avoid Terraform reporting a difference.
+     * 
+     */
     private @Nullable List<String> excludedColumnNames;
 
     private ResourceLfTagTableWithColumnsColumnWildcard() {}
+    /**
+     * @return Set of column names for the table to exclude. If `excludedColumnNames` is included, `wildcard` must be set to `true` to avoid Terraform reporting a difference.
+     * 
+     */
     public List<String> excludedColumnNames() {
         return this.excludedColumnNames == null ? List.of() : this.excludedColumnNames;
     }

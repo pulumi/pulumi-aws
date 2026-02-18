@@ -29,30 +29,25 @@ __all__ = [
     'ResiliencyPolicyTimeoutsArgsDict',
 ]
 
-MYPY = False
+class ResiliencyPolicyPolicyArgsDict(TypedDict):
+    az: NotRequired[pulumi.Input['ResiliencyPolicyPolicyAzArgsDict']]
+    """
+    Specifies Availability Zone failure policy. See `policy.az`
+    """
+    hardware: NotRequired[pulumi.Input['ResiliencyPolicyPolicyHardwareArgsDict']]
+    """
+    Specifies Infrastructure failure policy. See `policy.hardware`
+    """
+    region: NotRequired[pulumi.Input['ResiliencyPolicyPolicyRegionArgsDict']]
+    """
+    Specifies Region failure policy. `policy.region`
+    """
+    software: NotRequired[pulumi.Input['ResiliencyPolicyPolicySoftwareArgsDict']]
+    """
+    Specifies Application failure policy. See `policy.software`
 
-if not MYPY:
-    class ResiliencyPolicyPolicyArgsDict(TypedDict):
-        az: NotRequired[pulumi.Input['ResiliencyPolicyPolicyAzArgsDict']]
-        """
-        Specifies Availability Zone failure policy. See `policy.az`
-        """
-        hardware: NotRequired[pulumi.Input['ResiliencyPolicyPolicyHardwareArgsDict']]
-        """
-        Specifies Infrastructure failure policy. See `policy.hardware`
-        """
-        region: NotRequired[pulumi.Input['ResiliencyPolicyPolicyRegionArgsDict']]
-        """
-        Specifies Region failure policy. `policy.region`
-        """
-        software: NotRequired[pulumi.Input['ResiliencyPolicyPolicySoftwareArgsDict']]
-        """
-        Specifies Application failure policy. See `policy.software`
-
-        The following arguments are optional:
-        """
-elif False:
-    ResiliencyPolicyPolicyArgsDict: TypeAlias = Mapping[str, Any]
+    The following arguments are optional:
+    """
 
 @pulumi.input_type
 class ResiliencyPolicyPolicyArgs:
@@ -129,18 +124,15 @@ class ResiliencyPolicyPolicyArgs:
         pulumi.set(self, "software", value)
 
 
-if not MYPY:
-    class ResiliencyPolicyPolicyAzArgsDict(TypedDict):
-        rpo: pulumi.Input[_builtins.str]
-        """
-        Recovery Point Objective (RPO) as a Go duration.
-        """
-        rto: pulumi.Input[_builtins.str]
-        """
-        Recovery Time Objective (RTO) as a Go duration.
-        """
-elif False:
-    ResiliencyPolicyPolicyAzArgsDict: TypeAlias = Mapping[str, Any]
+class ResiliencyPolicyPolicyAzArgsDict(TypedDict):
+    rpo: pulumi.Input[_builtins.str]
+    """
+    Recovery Point Objective (RPO) as a Go duration.
+    """
+    rto: pulumi.Input[_builtins.str]
+    """
+    Recovery Time Objective (RTO) as a Go duration.
+    """
 
 @pulumi.input_type
 class ResiliencyPolicyPolicyAzArgs:
@@ -179,18 +171,15 @@ class ResiliencyPolicyPolicyAzArgs:
         pulumi.set(self, "rto", value)
 
 
-if not MYPY:
-    class ResiliencyPolicyPolicyHardwareArgsDict(TypedDict):
-        rpo: pulumi.Input[_builtins.str]
-        """
-        Recovery Point Objective (RPO) as a Go duration.
-        """
-        rto: pulumi.Input[_builtins.str]
-        """
-        Recovery Time Objective (RTO) as a Go duration.
-        """
-elif False:
-    ResiliencyPolicyPolicyHardwareArgsDict: TypeAlias = Mapping[str, Any]
+class ResiliencyPolicyPolicyHardwareArgsDict(TypedDict):
+    rpo: pulumi.Input[_builtins.str]
+    """
+    Recovery Point Objective (RPO) as a Go duration.
+    """
+    rto: pulumi.Input[_builtins.str]
+    """
+    Recovery Time Objective (RTO) as a Go duration.
+    """
 
 @pulumi.input_type
 class ResiliencyPolicyPolicyHardwareArgs:
@@ -229,18 +218,15 @@ class ResiliencyPolicyPolicyHardwareArgs:
         pulumi.set(self, "rto", value)
 
 
-if not MYPY:
-    class ResiliencyPolicyPolicyRegionArgsDict(TypedDict):
-        rpo: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Recovery Point Objective (RPO) as a Go duration.
-        """
-        rto: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Recovery Time Objective (RTO) as a Go duration.
-        """
-elif False:
-    ResiliencyPolicyPolicyRegionArgsDict: TypeAlias = Mapping[str, Any]
+class ResiliencyPolicyPolicyRegionArgsDict(TypedDict):
+    rpo: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Recovery Point Objective (RPO) as a Go duration.
+    """
+    rto: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Recovery Time Objective (RTO) as a Go duration.
+    """
 
 @pulumi.input_type
 class ResiliencyPolicyPolicyRegionArgs:
@@ -281,18 +267,15 @@ class ResiliencyPolicyPolicyRegionArgs:
         pulumi.set(self, "rto", value)
 
 
-if not MYPY:
-    class ResiliencyPolicyPolicySoftwareArgsDict(TypedDict):
-        rpo: pulumi.Input[_builtins.str]
-        """
-        Recovery Point Objective (RPO) as a Go duration.
-        """
-        rto: pulumi.Input[_builtins.str]
-        """
-        Recovery Time Objective (RTO) as a Go duration.
-        """
-elif False:
-    ResiliencyPolicyPolicySoftwareArgsDict: TypeAlias = Mapping[str, Any]
+class ResiliencyPolicyPolicySoftwareArgsDict(TypedDict):
+    rpo: pulumi.Input[_builtins.str]
+    """
+    Recovery Point Objective (RPO) as a Go duration.
+    """
+    rto: pulumi.Input[_builtins.str]
+    """
+    Recovery Time Objective (RTO) as a Go duration.
+    """
 
 @pulumi.input_type
 class ResiliencyPolicyPolicySoftwareArgs:
@@ -331,22 +314,19 @@ class ResiliencyPolicyPolicySoftwareArgs:
         pulumi.set(self, "rto", value)
 
 
-if not MYPY:
-    class ResiliencyPolicyTimeoutsArgsDict(TypedDict):
-        create: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
-        """
-        delete: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
-        """
-        update: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
-        """
-elif False:
-    ResiliencyPolicyTimeoutsArgsDict: TypeAlias = Mapping[str, Any]
+class ResiliencyPolicyTimeoutsArgsDict(TypedDict):
+    create: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+    """
+    delete: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+    """
+    update: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+    """
 
 @pulumi.input_type
 class ResiliencyPolicyTimeoutsArgs:

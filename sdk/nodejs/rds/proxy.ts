@@ -8,6 +8,90 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
+ * Provides an RDS DB proxy resource. For additional information, see the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-proxy.html).
+ *
+ * > **Note:** Not all Availability Zones (AZs) support DB proxies. Specifying `vpcSubnetIds` for AZs that do not support proxies will not trigger an error as long as at least one `vpcSubnetId` is valid. However, this will cause Terraform to continuously detect differences between the configuration and the actual infrastructure. Refer to the Unsupported Availability Zones section below for potential workarounds.
+ *
+ * ## Example Usage
+ *
+ * ### Basic Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.rds.Proxy("example", {
+ *     name: "example",
+ *     debugLogging: false,
+ *     engineFamily: "MYSQL",
+ *     idleClientTimeout: 1800,
+ *     requireTls: true,
+ *     roleArn: exampleAwsIamRole.arn,
+ *     vpcSecurityGroupIds: [exampleAwsSecurityGroup.id],
+ *     vpcSubnetIds: [exampleAwsSubnet.id],
+ *     auths: [{
+ *         authScheme: "SECRETS",
+ *         description: "example",
+ *         iamAuth: "DISABLED",
+ *         secretArn: exampleAwsSecretsmanagerSecret.arn,
+ *     }],
+ *     tags: {
+ *         Name: "example",
+ *         Key: "value",
+ *     },
+ * });
+ * ```
+ *
+ * ### Unsupported Availability Zones
+ *
+ * Terraform may report constant differences if you use `vpcSubnetIds` that correspond to Availability Zones (AZs) that do not support a DB proxy. While this typically does not result in an error, AWS only returns `vpcSubnetIds` for AZs that support DB proxies. As a result, Terraform detects a mismatch between your configuration and the actual infrastructure, leading it to report that changes are required. Below are some ways to avoid this issue.
+ *
+ * One solution is to exclude AZs that do not support DB proxies by using the `aws.getAvailabilityZones` data source. The example below demonstrates how to configure this for the `us-east-1` region, excluding the `use1-az3` AZ. (Keep in mind that AZ names can vary between accounts, while AZ IDs remain consistent.) If the `us-east-1` region has six AZs in total and you aim to configure the maximum number of subnets, you would exclude one AZ and configure five subnets:
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ * import * as std from "@pulumi/std";
+ *
+ * const available = aws.getAvailabilityZones({
+ *     excludeZoneIds: ["use1-az3"],
+ *     state: "available",
+ *     filters: [{
+ *         name: "opt-in-status",
+ *         values: ["opt-in-not-required"],
+ *     }],
+ * });
+ * const example = new aws.ec2.Vpc("example", {cidrBlock: "10.0.0.0/16"});
+ * const exampleSubnet: aws.ec2.Subnet[] = [];
+ * for (const range = {value: 0}; range.value < 5; range.value++) {
+ *     exampleSubnet.push(new aws.ec2.Subnet(`example-${range.value}`, {
+ *         cidrBlock: example.cidrBlock.apply(cidrBlock => std.cidrsubnetOutput({
+ *             input: cidrBlock,
+ *             newbits: 8,
+ *             netnum: range.value,
+ *         })).apply(invoke => invoke.result),
+ *         availabilityZone: available.then(available => available.names[range.value]),
+ *         vpcId: example.id,
+ *     }));
+ * }
+ * const exampleProxy = new aws.rds.Proxy("example", {
+ *     name: "example",
+ *     vpcSubnetIds: [exampleSubnet.id],
+ * });
+ * ```
+ *
+ * Another approach is to use the `lifecycle` `ignoreChanges` meta-argument. With this method, Terraform will stop detecting differences for the `vpcSubnetIds` argument. However, note that this approach disables Terraform's ability to track and manage updates to `vpcSubnetIds`, so use it carefully to avoid unintended drift between your configuration and the actual infrastructure.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.rds.Proxy("example", {
+ *     name: "example",
+ *     vpcSubnetIds: [exampleAwsSubnet.id],
+ * });
+ * ```
+ *
  * ## Import
  *
  * Using `pulumi import`, import DB proxies using the `name`. For example:

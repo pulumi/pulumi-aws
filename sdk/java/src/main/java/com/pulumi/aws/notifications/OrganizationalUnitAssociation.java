@@ -33,8 +33,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.notifications.NotificationConfigurationArgs;
  * import com.pulumi.aws.organizations.OrganizationalUnit;
  * import com.pulumi.aws.organizations.OrganizationalUnitArgs;
- * import com.pulumi.time.Sleep;
- * import com.pulumi.time.SleepArgs;
+ * import com.pulumiverse.time.Sleep;
+ * import com.pulumiverse.time.SleepArgs;
  * import com.pulumi.aws.notifications.OrganizationalUnitAssociation;
  * import com.pulumi.aws.notifications.OrganizationalUnitAssociationArgs;
  * import com.pulumi.resources.CustomResourceOptions;
@@ -68,9 +68,9 @@ import javax.annotation.Nullable;
  *         var wait = new Sleep("wait", SleepArgs.builder()
  *             .createDuration("5s")
  *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(List.of(                
+ *                 .dependsOn(                
  *                     exampleOrganizationalUnit,
- *                     exampleNotificationConfiguration))
+ *                     exampleNotificationConfiguration)
  *                 .build());
  * 
  *         var exampleOrganizationalUnitAssociation = new OrganizationalUnitAssociation("exampleOrganizationalUnitAssociation", OrganizationalUnitAssociationArgs.builder()

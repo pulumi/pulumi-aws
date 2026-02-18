@@ -49,23 +49,18 @@ __all__ = [
     'GetUserAuthenticationModeArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class ClusterCacheNodeArgsDict(TypedDict):
-        address: NotRequired[pulumi.Input[_builtins.str]]
-        availability_zone: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Availability Zone for the cache cluster. If you want to create cache nodes in multi-az, use `preferred_availability_zones` instead. Default: System chosen Availability Zone. Changing this value will re-create the resource.
-        """
-        id: NotRequired[pulumi.Input[_builtins.str]]
-        outpost_arn: NotRequired[pulumi.Input[_builtins.str]]
-        port: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The port number on which each of the cache nodes will accept connections. For Memcached the default is 11211, and for Redis the default port is 6379. Cannot be provided with `replication_group_id`. Changing this value will re-create the resource.
-        """
-elif False:
-    ClusterCacheNodeArgsDict: TypeAlias = Mapping[str, Any]
+class ClusterCacheNodeArgsDict(TypedDict):
+    address: NotRequired[pulumi.Input[_builtins.str]]
+    availability_zone: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Availability Zone for the cache cluster. If you want to create cache nodes in multi-az, use `preferred_availability_zones` instead. Default: System chosen Availability Zone. Changing this value will re-create the resource.
+    """
+    id: NotRequired[pulumi.Input[_builtins.str]]
+    outpost_arn: NotRequired[pulumi.Input[_builtins.str]]
+    port: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The port number on which each of the cache nodes will accept connections. For Memcached the default is 11211, and for Redis the default port is 6379. Cannot be provided with `replication_group_id`. Changing this value will re-create the resource.
+    """
 
 @pulumi.input_type
 class ClusterCacheNodeArgs:
@@ -142,26 +137,23 @@ class ClusterCacheNodeArgs:
         pulumi.set(self, "port", value)
 
 
-if not MYPY:
-    class ClusterLogDeliveryConfigurationArgsDict(TypedDict):
-        destination: pulumi.Input[_builtins.str]
-        """
-        Name of either the CloudWatch Logs LogGroup or Kinesis Data Firehose resource.
-        """
-        destination_type: pulumi.Input[_builtins.str]
-        """
-        For CloudWatch Logs use `cloudwatch-logs` or for Kinesis Data Firehose use `kinesis-firehose`.
-        """
-        log_format: pulumi.Input[_builtins.str]
-        """
-        Valid values are `json` or `text`
-        """
-        log_type: pulumi.Input[_builtins.str]
-        """
-        Valid values are  `slow-log` or `engine-log`. Max 1 of each.
-        """
-elif False:
-    ClusterLogDeliveryConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class ClusterLogDeliveryConfigurationArgsDict(TypedDict):
+    destination: pulumi.Input[_builtins.str]
+    """
+    Name of either the CloudWatch Logs LogGroup or Kinesis Data Firehose resource.
+    """
+    destination_type: pulumi.Input[_builtins.str]
+    """
+    For CloudWatch Logs use `cloudwatch-logs` or for Kinesis Data Firehose use `kinesis-firehose`.
+    """
+    log_format: pulumi.Input[_builtins.str]
+    """
+    Valid values are `json` or `text`
+    """
+    log_type: pulumi.Input[_builtins.str]
+    """
+    Valid values are  `slow-log` or `engine-log`. Max 1 of each.
+    """
 
 @pulumi.input_type
 class ClusterLogDeliveryConfigurationArgs:
@@ -230,18 +222,15 @@ class ClusterLogDeliveryConfigurationArgs:
         pulumi.set(self, "log_type", value)
 
 
-if not MYPY:
-    class GlobalReplicationGroupGlobalNodeGroupArgsDict(TypedDict):
-        global_node_group_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ID of the global node group.
-        """
-        slots: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The keyspace for this node group.
-        """
-elif False:
-    GlobalReplicationGroupGlobalNodeGroupArgsDict: TypeAlias = Mapping[str, Any]
+class GlobalReplicationGroupGlobalNodeGroupArgsDict(TypedDict):
+    global_node_group_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ID of the global node group.
+    """
+    slots: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The keyspace for this node group.
+    """
 
 @pulumi.input_type
 class GlobalReplicationGroupGlobalNodeGroupArgs:
@@ -282,18 +271,15 @@ class GlobalReplicationGroupGlobalNodeGroupArgs:
         pulumi.set(self, "slots", value)
 
 
-if not MYPY:
-    class ParameterGroupParameterArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the ElastiCache parameter.
-        """
-        value: pulumi.Input[_builtins.str]
-        """
-        The value of the ElastiCache parameter.
-        """
-elif False:
-    ParameterGroupParameterArgsDict: TypeAlias = Mapping[str, Any]
+class ParameterGroupParameterArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the ElastiCache parameter.
+    """
+    value: pulumi.Input[_builtins.str]
+    """
+    The value of the ElastiCache parameter.
+    """
 
 @pulumi.input_type
 class ParameterGroupParameterArgs:
@@ -332,26 +318,23 @@ class ParameterGroupParameterArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class ReplicationGroupLogDeliveryConfigurationArgsDict(TypedDict):
-        destination: pulumi.Input[_builtins.str]
-        """
-        Name of either the CloudWatch Logs LogGroup or Kinesis Data Firehose resource.
-        """
-        destination_type: pulumi.Input[_builtins.str]
-        """
-        For CloudWatch Logs use `cloudwatch-logs` or for Kinesis Data Firehose use `kinesis-firehose`.
-        """
-        log_format: pulumi.Input[_builtins.str]
-        """
-        Valid values are `json` or `text`
-        """
-        log_type: pulumi.Input[_builtins.str]
-        """
-        Valid values are  `slow-log` or `engine-log`. Max 1 of each.
-        """
-elif False:
-    ReplicationGroupLogDeliveryConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class ReplicationGroupLogDeliveryConfigurationArgsDict(TypedDict):
+    destination: pulumi.Input[_builtins.str]
+    """
+    Name of either the CloudWatch Logs LogGroup or Kinesis Data Firehose resource.
+    """
+    destination_type: pulumi.Input[_builtins.str]
+    """
+    For CloudWatch Logs use `cloudwatch-logs` or for Kinesis Data Firehose use `kinesis-firehose`.
+    """
+    log_format: pulumi.Input[_builtins.str]
+    """
+    Valid values are `json` or `text`
+    """
+    log_type: pulumi.Input[_builtins.str]
+    """
+    Valid values are  `slow-log` or `engine-log`. Max 1 of each.
+    """
 
 @pulumi.input_type
 class ReplicationGroupLogDeliveryConfigurationArgs:
@@ -420,38 +403,35 @@ class ReplicationGroupLogDeliveryConfigurationArgs:
         pulumi.set(self, "log_type", value)
 
 
-if not MYPY:
-    class ReplicationGroupNodeGroupConfigurationArgsDict(TypedDict):
-        node_group_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        ID for the node group. Redis (cluster mode disabled) replication groups don't have node group IDs, so this value is ignored. For Redis (cluster mode enabled) replication groups, the node group ID is a 1 to 4 character alphanumeric string.
-        """
-        primary_availability_zone: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Availability zone for the primary node.
-        """
-        primary_outpost_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        ARN of the Outpost for the primary node.
-        """
-        replica_availability_zones: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        List of availability zones for the replica nodes.
-        """
-        replica_count: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Number of replica nodes in this node group.
-        """
-        replica_outpost_arns: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        List of ARNs of the Outposts for the replica nodes.
-        """
-        slots: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Keyspace for this node group. Format is `start-end` (e.g., `0-5460`). For Redis (cluster mode disabled) replication groups, this value is ignored.
-        """
-elif False:
-    ReplicationGroupNodeGroupConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class ReplicationGroupNodeGroupConfigurationArgsDict(TypedDict):
+    node_group_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    ID for the node group. Redis (cluster mode disabled) replication groups don't have node group IDs, so this value is ignored. For Redis (cluster mode enabled) replication groups, the node group ID is a 1 to 4 character alphanumeric string.
+    """
+    primary_availability_zone: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Availability zone for the primary node.
+    """
+    primary_outpost_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    ARN of the Outpost for the primary node.
+    """
+    replica_availability_zones: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    List of availability zones for the replica nodes.
+    """
+    replica_count: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Number of replica nodes in this node group.
+    """
+    replica_outpost_arns: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    List of ARNs of the Outposts for the replica nodes.
+    """
+    slots: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Keyspace for this node group. Format is `start-end` (e.g., `0-5460`). For Redis (cluster mode disabled) replication groups, this value is ignored.
+    """
 
 @pulumi.input_type
 class ReplicationGroupNodeGroupConfigurationArgs:
@@ -572,12 +552,9 @@ class ReplicationGroupNodeGroupConfigurationArgs:
         pulumi.set(self, "slots", value)
 
 
-if not MYPY:
-    class ReservedCacheNodeRecurringChargeArgsDict(TypedDict):
-        recurring_charge_amount: pulumi.Input[_builtins.float]
-        recurring_charge_frequency: pulumi.Input[_builtins.str]
-elif False:
-    ReservedCacheNodeRecurringChargeArgsDict: TypeAlias = Mapping[str, Any]
+class ReservedCacheNodeRecurringChargeArgsDict(TypedDict):
+    recurring_charge_amount: pulumi.Input[_builtins.float]
+    recurring_charge_frequency: pulumi.Input[_builtins.str]
 
 @pulumi.input_type
 class ReservedCacheNodeRecurringChargeArgs:
@@ -606,22 +583,19 @@ class ReservedCacheNodeRecurringChargeArgs:
         pulumi.set(self, "recurring_charge_frequency", value)
 
 
-if not MYPY:
-    class ReservedCacheNodeTimeoutsArgsDict(TypedDict):
-        create: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
-        """
-        delete: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
-        """
-        update: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
-        """
-elif False:
-    ReservedCacheNodeTimeoutsArgsDict: TypeAlias = Mapping[str, Any]
+class ReservedCacheNodeTimeoutsArgsDict(TypedDict):
+    create: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+    """
+    delete: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+    """
+    update: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+    """
 
 @pulumi.input_type
 class ReservedCacheNodeTimeoutsArgs:
@@ -678,18 +652,15 @@ class ReservedCacheNodeTimeoutsArgs:
         pulumi.set(self, "update", value)
 
 
-if not MYPY:
-    class ServerlessCacheCacheUsageLimitsArgsDict(TypedDict):
-        data_storage: NotRequired[pulumi.Input['ServerlessCacheCacheUsageLimitsDataStorageArgsDict']]
-        """
-        The maximum data storage limit in the cache, expressed in Gigabytes. See `data_storage` Block for details.
-        """
-        ecpu_per_seconds: NotRequired[pulumi.Input[Sequence[pulumi.Input['ServerlessCacheCacheUsageLimitsEcpuPerSecondArgsDict']]]]
-        """
-        The configuration for the number of ElastiCache Processing Units (ECPU) the cache can consume per second. See `ecpu_per_second` Block for details.
-        """
-elif False:
-    ServerlessCacheCacheUsageLimitsArgsDict: TypeAlias = Mapping[str, Any]
+class ServerlessCacheCacheUsageLimitsArgsDict(TypedDict):
+    data_storage: NotRequired[pulumi.Input['ServerlessCacheCacheUsageLimitsDataStorageArgsDict']]
+    """
+    The maximum data storage limit in the cache, expressed in Gigabytes. See `data_storage` Block for details.
+    """
+    ecpu_per_seconds: NotRequired[pulumi.Input[Sequence[pulumi.Input['ServerlessCacheCacheUsageLimitsEcpuPerSecondArgsDict']]]]
+    """
+    The configuration for the number of ElastiCache Processing Units (ECPU) the cache can consume per second. See `ecpu_per_second` Block for details.
+    """
 
 @pulumi.input_type
 class ServerlessCacheCacheUsageLimitsArgs:
@@ -730,22 +701,19 @@ class ServerlessCacheCacheUsageLimitsArgs:
         pulumi.set(self, "ecpu_per_seconds", value)
 
 
-if not MYPY:
-    class ServerlessCacheCacheUsageLimitsDataStorageArgsDict(TypedDict):
-        unit: pulumi.Input[_builtins.str]
-        """
-        The unit that the storage is measured in, in GB.
-        """
-        maximum: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The upper limit for data storage the cache is set to use. Must be between 1 and 5,000.
-        """
-        minimum: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The lower limit for data storage the cache is set to use. Must be between 1 and 5,000.
-        """
-elif False:
-    ServerlessCacheCacheUsageLimitsDataStorageArgsDict: TypeAlias = Mapping[str, Any]
+class ServerlessCacheCacheUsageLimitsDataStorageArgsDict(TypedDict):
+    unit: pulumi.Input[_builtins.str]
+    """
+    The unit that the storage is measured in, in GB.
+    """
+    maximum: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The upper limit for data storage the cache is set to use. Must be between 1 and 5,000.
+    """
+    minimum: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The lower limit for data storage the cache is set to use. Must be between 1 and 5,000.
+    """
 
 @pulumi.input_type
 class ServerlessCacheCacheUsageLimitsDataStorageArgs:
@@ -801,18 +769,15 @@ class ServerlessCacheCacheUsageLimitsDataStorageArgs:
         pulumi.set(self, "minimum", value)
 
 
-if not MYPY:
-    class ServerlessCacheCacheUsageLimitsEcpuPerSecondArgsDict(TypedDict):
-        maximum: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The maximum number of ECPUs the cache can consume per second. Must be between 1,000 and 15,000,000.
-        """
-        minimum: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The minimum number of ECPUs the cache can consume per second. Must be between 1,000 and 15,000,000.
-        """
-elif False:
-    ServerlessCacheCacheUsageLimitsEcpuPerSecondArgsDict: TypeAlias = Mapping[str, Any]
+class ServerlessCacheCacheUsageLimitsEcpuPerSecondArgsDict(TypedDict):
+    maximum: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The maximum number of ECPUs the cache can consume per second. Must be between 1,000 and 15,000,000.
+    """
+    minimum: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The minimum number of ECPUs the cache can consume per second. Must be between 1,000 and 15,000,000.
+    """
 
 @pulumi.input_type
 class ServerlessCacheCacheUsageLimitsEcpuPerSecondArgs:
@@ -853,18 +818,15 @@ class ServerlessCacheCacheUsageLimitsEcpuPerSecondArgs:
         pulumi.set(self, "minimum", value)
 
 
-if not MYPY:
-    class ServerlessCacheEndpointArgsDict(TypedDict):
-        address: pulumi.Input[_builtins.str]
-        """
-        The DNS hostname of the cache node.
-        """
-        port: pulumi.Input[_builtins.int]
-        """
-        The port number that the cache engine is listening on. Set as integer.
-        """
-elif False:
-    ServerlessCacheEndpointArgsDict: TypeAlias = Mapping[str, Any]
+class ServerlessCacheEndpointArgsDict(TypedDict):
+    address: pulumi.Input[_builtins.str]
+    """
+    The DNS hostname of the cache node.
+    """
+    port: pulumi.Input[_builtins.int]
+    """
+    The port number that the cache engine is listening on. Set as integer.
+    """
 
 @pulumi.input_type
 class ServerlessCacheEndpointArgs:
@@ -903,18 +865,15 @@ class ServerlessCacheEndpointArgs:
         pulumi.set(self, "port", value)
 
 
-if not MYPY:
-    class ServerlessCacheReaderEndpointArgsDict(TypedDict):
-        address: pulumi.Input[_builtins.str]
-        """
-        The DNS hostname of the cache node.
-        """
-        port: pulumi.Input[_builtins.int]
-        """
-        The port number that the cache engine is listening on. Set as integer.
-        """
-elif False:
-    ServerlessCacheReaderEndpointArgsDict: TypeAlias = Mapping[str, Any]
+class ServerlessCacheReaderEndpointArgsDict(TypedDict):
+    address: pulumi.Input[_builtins.str]
+    """
+    The DNS hostname of the cache node.
+    """
+    port: pulumi.Input[_builtins.int]
+    """
+    The port number that the cache engine is listening on. Set as integer.
+    """
 
 @pulumi.input_type
 class ServerlessCacheReaderEndpointArgs:
@@ -953,22 +912,19 @@ class ServerlessCacheReaderEndpointArgs:
         pulumi.set(self, "port", value)
 
 
-if not MYPY:
-    class ServerlessCacheTimeoutsArgsDict(TypedDict):
-        create: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
-        """
-        delete: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
-        """
-        update: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
-        """
-elif False:
-    ServerlessCacheTimeoutsArgsDict: TypeAlias = Mapping[str, Any]
+class ServerlessCacheTimeoutsArgsDict(TypedDict):
+    create: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+    """
+    delete: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+    """
+    update: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+    """
 
 @pulumi.input_type
 class ServerlessCacheTimeoutsArgs:
@@ -1025,19 +981,16 @@ class ServerlessCacheTimeoutsArgs:
         pulumi.set(self, "update", value)
 
 
-if not MYPY:
-    class UserAuthenticationModeArgsDict(TypedDict):
-        type: pulumi.Input[_builtins.str]
-        """
-        Specifies the authentication type. Possible options are: `password`, `no-password-required` or `iam`.
-        """
-        password_count: NotRequired[pulumi.Input[_builtins.int]]
-        passwords: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Specifies the passwords to use for authentication if `type` is set to `password`.
-        """
-elif False:
-    UserAuthenticationModeArgsDict: TypeAlias = Mapping[str, Any]
+class UserAuthenticationModeArgsDict(TypedDict):
+    type: pulumi.Input[_builtins.str]
+    """
+    Specifies the authentication type. Possible options are: `password`, `no-password-required` or `iam`.
+    """
+    password_count: NotRequired[pulumi.Input[_builtins.int]]
+    passwords: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Specifies the passwords to use for authentication if `type` is set to `password`.
+    """
 
 @pulumi.input_type
 class UserAuthenticationModeArgs:
@@ -1089,12 +1042,9 @@ class UserAuthenticationModeArgs:
         pulumi.set(self, "passwords", value)
 
 
-if not MYPY:
-    class GetUserAuthenticationModeArgsDict(TypedDict):
-        password_count: NotRequired[_builtins.int]
-        type: NotRequired[_builtins.str]
-elif False:
-    GetUserAuthenticationModeArgsDict: TypeAlias = Mapping[str, Any]
+class GetUserAuthenticationModeArgsDict(TypedDict):
+    password_count: NotRequired[_builtins.int]
+    type: NotRequired[_builtins.str]
 
 @pulumi.input_type
 class GetUserAuthenticationModeArgs:

@@ -432,7 +432,7 @@ namespace Pulumi.Aws.Eks
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import EKS Clusters using the `name`. For example:
+    /// Using `pulumi import`, import EKS Clusters using the `Name`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:eks/cluster:Cluster my_cluster my_cluster

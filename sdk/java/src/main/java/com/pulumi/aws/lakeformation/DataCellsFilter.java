@@ -49,10 +49,10 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new DataCellsFilter("example", DataCellsFilterArgs.builder()
  *             .tableData(DataCellsFilterTableDataArgs.builder()
- *                 .databaseName(test.name())
+ *                 .databaseName(exampleAwsGlueCatalogDatabase.name())
  *                 .name("example")
  *                 .tableCatalogId(current.accountId())
- *                 .tableName(testAwsGlueCatalogTable.name())
+ *                 .tableName(exampleAwsGlueCatalogTable.name())
  *                 .columnNames("my_column")
  *                 .rowFilter(DataCellsFilterTableDataRowFilterArgs.builder()
  *                     .filterExpression("my_column='example'")
@@ -65,9 +65,160 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * 
+ * ### Filter with Excluded Columns Only (No Row Filter)
+ * 
+ * When excluding columns without a row filter, you must include `allRowsWildcard {}`:
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.lakeformation.DataCellsFilter;
+ * import com.pulumi.aws.lakeformation.DataCellsFilterArgs;
+ * import com.pulumi.aws.lakeformation.inputs.DataCellsFilterTableDataArgs;
+ * import com.pulumi.aws.lakeformation.inputs.DataCellsFilterTableDataColumnWildcardArgs;
+ * import com.pulumi.aws.lakeformation.inputs.DataCellsFilterTableDataRowFilterArgs;
+ * import com.pulumi.aws.lakeformation.inputs.DataCellsFilterTableDataRowFilterAllRowsWildcardArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var excludedColumns = new DataCellsFilter("excludedColumns", DataCellsFilterArgs.builder()
+ *             .tableData(DataCellsFilterTableDataArgs.builder()
+ *                 .databaseName(example.name())
+ *                 .name("exclude-pii")
+ *                 .tableCatalogId(current.accountId())
+ *                 .tableName(exampleAwsGlueCatalogTable.name())
+ *                 .columnWildcard(DataCellsFilterTableDataColumnWildcardArgs.builder()
+ *                     .excludedColumnNames(                    
+ *                         "ssn",
+ *                         "credit_card")
+ *                     .build())
+ *                 .rowFilter(DataCellsFilterTableDataRowFilterArgs.builder()
+ *                     .allRowsWildcard(DataCellsFilterTableDataRowFilterAllRowsWildcardArgs.builder()
+ *                         .build())
+ *                     .build())
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
+ * ### Filter with Row Filter and Excluded Columns
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.lakeformation.DataCellsFilter;
+ * import com.pulumi.aws.lakeformation.DataCellsFilterArgs;
+ * import com.pulumi.aws.lakeformation.inputs.DataCellsFilterTableDataArgs;
+ * import com.pulumi.aws.lakeformation.inputs.DataCellsFilterTableDataColumnWildcardArgs;
+ * import com.pulumi.aws.lakeformation.inputs.DataCellsFilterTableDataRowFilterArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var rowAndColumn = new DataCellsFilter("rowAndColumn", DataCellsFilterArgs.builder()
+ *             .tableData(DataCellsFilterTableDataArgs.builder()
+ *                 .databaseName(example.name())
+ *                 .name("marketing-filtered")
+ *                 .tableCatalogId(current.accountId())
+ *                 .tableName(exampleAwsGlueCatalogTable.name())
+ *                 .columnWildcard(DataCellsFilterTableDataColumnWildcardArgs.builder()
+ *                     .excludedColumnNames(                    
+ *                         "salary",
+ *                         "bonus")
+ *                     .build())
+ *                 .rowFilter(DataCellsFilterTableDataRowFilterArgs.builder()
+ *                     .filterExpression("department = 'Marketing'")
+ *                     .build())
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
+ * ### Filter with Row Filter Only (All Columns Included)
+ * 
+ * To include all columns with a row filter, set `excludedColumnNames` to an empty list:
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.lakeformation.DataCellsFilter;
+ * import com.pulumi.aws.lakeformation.DataCellsFilterArgs;
+ * import com.pulumi.aws.lakeformation.inputs.DataCellsFilterTableDataArgs;
+ * import com.pulumi.aws.lakeformation.inputs.DataCellsFilterTableDataColumnWildcardArgs;
+ * import com.pulumi.aws.lakeformation.inputs.DataCellsFilterTableDataRowFilterArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var rowOnly = new DataCellsFilter("rowOnly", DataCellsFilterArgs.builder()
+ *             .tableData(DataCellsFilterTableDataArgs.builder()
+ *                 .databaseName(example.name())
+ *                 .name("regional-filter")
+ *                 .tableCatalogId(current.accountId())
+ *                 .tableName(exampleAwsGlueCatalogTable.name())
+ *                 .columnWildcard(DataCellsFilterTableDataColumnWildcardArgs.builder()
+ *                     .excludedColumnNames()
+ *                     .build())
+ *                 .rowFilter(DataCellsFilterTableDataRowFilterArgs.builder()
+ *                     .filterExpression("region = 'US-WEST'")
+ *                     .build())
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
  * ## Import
  * 
- * Using `pulumi import`, import Lake Formation Data Cells Filter using the `database_name`, `name`, `table_catalog_id`, and `table_name` separated by `,`. For example:
+ * Using `pulumi import`, import Lake Formation Data Cells Filter using the `databaseName`, `name`, `tableCatalogId`, and `tableName` separated by `,`. For example:
  * 
  * ```sh
  * $ pulumi import aws:lakeformation/dataCellsFilter:DataCellsFilter example database_name,name,table_catalog_id,table_name

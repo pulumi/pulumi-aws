@@ -21,7 +21,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Using `pulumi import`, import Transfer Family Web App Customization using the `web_app_id`. For example:
+ * Using `pulumi import`, import Transfer Family Web App Customization using the `webAppId`. For example:
  * 
  * ```sh
  * $ pulumi import aws:transfer/webAppCustomization:WebAppCustomization example webapp-12345678901234567890
@@ -30,15 +30,31 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="aws:transfer/webAppCustomization:WebAppCustomization")
 public class WebAppCustomization extends com.pulumi.resources.CustomResource {
+    /**
+     * Base64-encoded string representing the favicon image. Terraform will detect drift only if this argument is specified. To remove the favicon, recreate the resource.
+     * 
+     */
     @Export(name="faviconFile", refs={String.class}, tree="[0]")
     private Output<String> faviconFile;
 
+    /**
+     * @return Base64-encoded string representing the favicon image. Terraform will detect drift only if this argument is specified. To remove the favicon, recreate the resource.
+     * 
+     */
     public Output<String> faviconFile() {
         return this.faviconFile;
     }
+    /**
+     * Base64-encoded string representing the logo image. Terraform will detect drift only if this argument is specified. To remove the logo, recreate the resource.
+     * 
+     */
     @Export(name="logoFile", refs={String.class}, tree="[0]")
     private Output<String> logoFile;
 
+    /**
+     * @return Base64-encoded string representing the logo image. Terraform will detect drift only if this argument is specified. To remove the logo, recreate the resource.
+     * 
+     */
     public Output<String> logoFile() {
         return this.logoFile;
     }

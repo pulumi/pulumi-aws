@@ -67,7 +67,7 @@ namespace Pulumi.Aws.WafV2.Inputs
         public Input<Inputs.WebAclRuleStatementOrStatementGetArgs>? OrStatement { get; set; }
 
         /// <summary>
-        /// Rate-based rule tracks the rate of requests for each originating `IP address`, and triggers the rule action when the rate exceeds a limit that you specify on the number of requests in any `5-minute` time span. This statement can not be nested. See `RateBasedStatement` below for details.
+        /// Rate-based rule tracks the rate of requests for each originating `IP address`, and triggers the rule action when the rate exceeds a limit that you specify on the number of requests in any specified time span. This statement can not be nested. See `RateBasedStatement` below for details.
         /// </summary>
         [Input("rateBasedStatement")]
         public Input<Inputs.WebAclRuleStatementRateBasedStatementGetArgs>? RateBasedStatement { get; set; }

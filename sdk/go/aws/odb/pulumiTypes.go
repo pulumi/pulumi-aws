@@ -14,17 +14,17 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type CloudAutonomousVmClusterMaintenanceWindow struct {
-	// The days of the week when maintenance can be performed.
+	// The days of the week when maintenance can be performed. Changing this will force terraform to create new resource.
 	DaysOfWeeks []CloudAutonomousVmClusterMaintenanceWindowDaysOfWeek `pulumi:"daysOfWeeks"`
-	// The hours of the day when maintenance can be performed.
+	// The hours of the day when maintenance can be performed. Changing this will force terraform to create new resource.
 	HoursOfDays []int `pulumi:"hoursOfDays"`
-	// The lead time in weeks before the maintenance window.
+	// The lead time in weeks before the maintenance window. Changing this will force terraform to create new resource.
 	LeadTimeInWeeks *int `pulumi:"leadTimeInWeeks"`
-	// The months when maintenance can be performed.
+	// The months when maintenance can be performed. Changing this will force terraform to create new resource.
 	Months []CloudAutonomousVmClusterMaintenanceWindowMonth `pulumi:"months"`
-	// The preference for the maintenance window scheduling.
+	// The preference for the maintenance window scheduling. Changing this will force terraform to create new resource.
 	Preference string `pulumi:"preference"`
-	// Indicates whether to skip release updates during maintenance.
+	// Indicates whether to skip release updates during maintenance. Changing this will force terraform to create new resource.
 	WeeksOfMonths []int `pulumi:"weeksOfMonths"`
 }
 
@@ -40,17 +40,17 @@ type CloudAutonomousVmClusterMaintenanceWindowInput interface {
 }
 
 type CloudAutonomousVmClusterMaintenanceWindowArgs struct {
-	// The days of the week when maintenance can be performed.
+	// The days of the week when maintenance can be performed. Changing this will force terraform to create new resource.
 	DaysOfWeeks CloudAutonomousVmClusterMaintenanceWindowDaysOfWeekArrayInput `pulumi:"daysOfWeeks"`
-	// The hours of the day when maintenance can be performed.
+	// The hours of the day when maintenance can be performed. Changing this will force terraform to create new resource.
 	HoursOfDays pulumi.IntArrayInput `pulumi:"hoursOfDays"`
-	// The lead time in weeks before the maintenance window.
+	// The lead time in weeks before the maintenance window. Changing this will force terraform to create new resource.
 	LeadTimeInWeeks pulumi.IntPtrInput `pulumi:"leadTimeInWeeks"`
-	// The months when maintenance can be performed.
+	// The months when maintenance can be performed. Changing this will force terraform to create new resource.
 	Months CloudAutonomousVmClusterMaintenanceWindowMonthArrayInput `pulumi:"months"`
-	// The preference for the maintenance window scheduling.
+	// The preference for the maintenance window scheduling. Changing this will force terraform to create new resource.
 	Preference pulumi.StringInput `pulumi:"preference"`
-	// Indicates whether to skip release updates during maintenance.
+	// Indicates whether to skip release updates during maintenance. Changing this will force terraform to create new resource.
 	WeeksOfMonths pulumi.IntArrayInput `pulumi:"weeksOfMonths"`
 }
 
@@ -131,36 +131,36 @@ func (o CloudAutonomousVmClusterMaintenanceWindowOutput) ToCloudAutonomousVmClus
 	}).(CloudAutonomousVmClusterMaintenanceWindowPtrOutput)
 }
 
-// The days of the week when maintenance can be performed.
+// The days of the week when maintenance can be performed. Changing this will force terraform to create new resource.
 func (o CloudAutonomousVmClusterMaintenanceWindowOutput) DaysOfWeeks() CloudAutonomousVmClusterMaintenanceWindowDaysOfWeekArrayOutput {
 	return o.ApplyT(func(v CloudAutonomousVmClusterMaintenanceWindow) []CloudAutonomousVmClusterMaintenanceWindowDaysOfWeek {
 		return v.DaysOfWeeks
 	}).(CloudAutonomousVmClusterMaintenanceWindowDaysOfWeekArrayOutput)
 }
 
-// The hours of the day when maintenance can be performed.
+// The hours of the day when maintenance can be performed. Changing this will force terraform to create new resource.
 func (o CloudAutonomousVmClusterMaintenanceWindowOutput) HoursOfDays() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v CloudAutonomousVmClusterMaintenanceWindow) []int { return v.HoursOfDays }).(pulumi.IntArrayOutput)
 }
 
-// The lead time in weeks before the maintenance window.
+// The lead time in weeks before the maintenance window. Changing this will force terraform to create new resource.
 func (o CloudAutonomousVmClusterMaintenanceWindowOutput) LeadTimeInWeeks() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v CloudAutonomousVmClusterMaintenanceWindow) *int { return v.LeadTimeInWeeks }).(pulumi.IntPtrOutput)
 }
 
-// The months when maintenance can be performed.
+// The months when maintenance can be performed. Changing this will force terraform to create new resource.
 func (o CloudAutonomousVmClusterMaintenanceWindowOutput) Months() CloudAutonomousVmClusterMaintenanceWindowMonthArrayOutput {
 	return o.ApplyT(func(v CloudAutonomousVmClusterMaintenanceWindow) []CloudAutonomousVmClusterMaintenanceWindowMonth {
 		return v.Months
 	}).(CloudAutonomousVmClusterMaintenanceWindowMonthArrayOutput)
 }
 
-// The preference for the maintenance window scheduling.
+// The preference for the maintenance window scheduling. Changing this will force terraform to create new resource.
 func (o CloudAutonomousVmClusterMaintenanceWindowOutput) Preference() pulumi.StringOutput {
 	return o.ApplyT(func(v CloudAutonomousVmClusterMaintenanceWindow) string { return v.Preference }).(pulumi.StringOutput)
 }
 
-// Indicates whether to skip release updates during maintenance.
+// Indicates whether to skip release updates during maintenance. Changing this will force terraform to create new resource.
 func (o CloudAutonomousVmClusterMaintenanceWindowOutput) WeeksOfMonths() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v CloudAutonomousVmClusterMaintenanceWindow) []int { return v.WeeksOfMonths }).(pulumi.IntArrayOutput)
 }
@@ -189,7 +189,7 @@ func (o CloudAutonomousVmClusterMaintenanceWindowPtrOutput) Elem() CloudAutonomo
 	}).(CloudAutonomousVmClusterMaintenanceWindowOutput)
 }
 
-// The days of the week when maintenance can be performed.
+// The days of the week when maintenance can be performed. Changing this will force terraform to create new resource.
 func (o CloudAutonomousVmClusterMaintenanceWindowPtrOutput) DaysOfWeeks() CloudAutonomousVmClusterMaintenanceWindowDaysOfWeekArrayOutput {
 	return o.ApplyT(func(v *CloudAutonomousVmClusterMaintenanceWindow) []CloudAutonomousVmClusterMaintenanceWindowDaysOfWeek {
 		if v == nil {
@@ -199,7 +199,7 @@ func (o CloudAutonomousVmClusterMaintenanceWindowPtrOutput) DaysOfWeeks() CloudA
 	}).(CloudAutonomousVmClusterMaintenanceWindowDaysOfWeekArrayOutput)
 }
 
-// The hours of the day when maintenance can be performed.
+// The hours of the day when maintenance can be performed. Changing this will force terraform to create new resource.
 func (o CloudAutonomousVmClusterMaintenanceWindowPtrOutput) HoursOfDays() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *CloudAutonomousVmClusterMaintenanceWindow) []int {
 		if v == nil {
@@ -209,7 +209,7 @@ func (o CloudAutonomousVmClusterMaintenanceWindowPtrOutput) HoursOfDays() pulumi
 	}).(pulumi.IntArrayOutput)
 }
 
-// The lead time in weeks before the maintenance window.
+// The lead time in weeks before the maintenance window. Changing this will force terraform to create new resource.
 func (o CloudAutonomousVmClusterMaintenanceWindowPtrOutput) LeadTimeInWeeks() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *CloudAutonomousVmClusterMaintenanceWindow) *int {
 		if v == nil {
@@ -219,7 +219,7 @@ func (o CloudAutonomousVmClusterMaintenanceWindowPtrOutput) LeadTimeInWeeks() pu
 	}).(pulumi.IntPtrOutput)
 }
 
-// The months when maintenance can be performed.
+// The months when maintenance can be performed. Changing this will force terraform to create new resource.
 func (o CloudAutonomousVmClusterMaintenanceWindowPtrOutput) Months() CloudAutonomousVmClusterMaintenanceWindowMonthArrayOutput {
 	return o.ApplyT(func(v *CloudAutonomousVmClusterMaintenanceWindow) []CloudAutonomousVmClusterMaintenanceWindowMonth {
 		if v == nil {
@@ -229,7 +229,7 @@ func (o CloudAutonomousVmClusterMaintenanceWindowPtrOutput) Months() CloudAutono
 	}).(CloudAutonomousVmClusterMaintenanceWindowMonthArrayOutput)
 }
 
-// The preference for the maintenance window scheduling.
+// The preference for the maintenance window scheduling. Changing this will force terraform to create new resource.
 func (o CloudAutonomousVmClusterMaintenanceWindowPtrOutput) Preference() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CloudAutonomousVmClusterMaintenanceWindow) *string {
 		if v == nil {
@@ -239,7 +239,7 @@ func (o CloudAutonomousVmClusterMaintenanceWindowPtrOutput) Preference() pulumi.
 	}).(pulumi.StringPtrOutput)
 }
 
-// Indicates whether to skip release updates during maintenance.
+// Indicates whether to skip release updates during maintenance. Changing this will force terraform to create new resource.
 func (o CloudAutonomousVmClusterMaintenanceWindowPtrOutput) WeeksOfMonths() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *CloudAutonomousVmClusterMaintenanceWindow) []int {
 		if v == nil {

@@ -22,60 +22,96 @@ public final class CloudExadataInfrastructureArgs extends com.pulumi.resources.R
 
     public static final CloudExadataInfrastructureArgs Empty = new CloudExadataInfrastructureArgs();
 
+    /**
+     * The name of the Availability Zone (AZ) where the Exadata infrastructure is located. Changing this will force terraform to create new resource.
+     * 
+     */
     @Import(name="availabilityZone")
     private @Nullable Output<String> availabilityZone;
 
+    /**
+     * @return The name of the Availability Zone (AZ) where the Exadata infrastructure is located. Changing this will force terraform to create new resource.
+     * 
+     */
     public Optional<Output<String>> availabilityZone() {
         return Optional.ofNullable(this.availabilityZone);
     }
 
+    /**
+     * The AZ ID of the AZ where the Exadata infrastructure is located. Changing this will force terraform to create new resource.
+     * 
+     * The following arguments are optional:
+     * 
+     */
     @Import(name="availabilityZoneId", required=true)
     private Output<String> availabilityZoneId;
 
+    /**
+     * @return The AZ ID of the AZ where the Exadata infrastructure is located. Changing this will force terraform to create new resource.
+     * 
+     * The following arguments are optional:
+     * 
+     */
     public Output<String> availabilityZoneId() {
         return this.availabilityZoneId;
     }
 
     /**
-     * The number of compute instances that the Exadata infrastructure is located
+     * The number of compute instances that the Exadata infrastructure is located. Changing this will force terraform to create new resource.
      * 
      */
     @Import(name="computeCount")
     private @Nullable Output<Integer> computeCount;
 
     /**
-     * @return The number of compute instances that the Exadata infrastructure is located
+     * @return The number of compute instances that the Exadata infrastructure is located. Changing this will force terraform to create new resource.
      * 
      */
     public Optional<Output<Integer>> computeCount() {
         return Optional.ofNullable(this.computeCount);
     }
 
+    /**
+     * The email addresses of contacts to receive notification from Oracle about maintenance updates for the Exadata infrastructure. Changing this will force terraform to create new resource.
+     * 
+     */
     @Import(name="customerContactsToSendToOcis")
     private @Nullable Output<List<CloudExadataInfrastructureCustomerContactsToSendToOciArgs>> customerContactsToSendToOcis;
 
+    /**
+     * @return The email addresses of contacts to receive notification from Oracle about maintenance updates for the Exadata infrastructure. Changing this will force terraform to create new resource.
+     * 
+     */
     public Optional<Output<List<CloudExadataInfrastructureCustomerContactsToSendToOciArgs>>> customerContactsToSendToOcis() {
         return Optional.ofNullable(this.customerContactsToSendToOcis);
     }
 
     /**
-     * The database server model type of the Exadata infrastructure. For the list of valid model names, use the ListDbSystemShapes operation
+     * The database server model type of the Exadata infrastructure. For the list of valid model names, use the ListDbSystemShapes operation. This is a mandatory parameter for Exadata.X11M system shape. Changing this will force terraform to create new resource.
      * 
      */
     @Import(name="databaseServerType")
     private @Nullable Output<String> databaseServerType;
 
     /**
-     * @return The database server model type of the Exadata infrastructure. For the list of valid model names, use the ListDbSystemShapes operation
+     * @return The database server model type of the Exadata infrastructure. For the list of valid model names, use the ListDbSystemShapes operation. This is a mandatory parameter for Exadata.X11M system shape. Changing this will force terraform to create new resource.
      * 
      */
     public Optional<Output<String>> databaseServerType() {
         return Optional.ofNullable(this.databaseServerType);
     }
 
+    /**
+     * The user-friendly name for the Exadata infrastructure. Changing this will force terraform to create a new resource.
+     * 
+     */
     @Import(name="displayName", required=true)
     private Output<String> displayName;
 
+    /**
+     * @return The user-friendly name for the Exadata infrastructure. Changing this will force terraform to create a new resource.
+     * 
+     */
     public Output<String> displayName() {
         return this.displayName;
     }
@@ -110,22 +146,30 @@ public final class CloudExadataInfrastructureArgs extends com.pulumi.resources.R
         return Optional.ofNullable(this.region);
     }
 
+    /**
+     * The model name of the Exadata infrastructure. Changing this will force terraform to create new resource.
+     * 
+     */
     @Import(name="shape", required=true)
     private Output<String> shape;
 
+    /**
+     * @return The model name of the Exadata infrastructure. Changing this will force terraform to create new resource.
+     * 
+     */
     public Output<String> shape() {
         return this.shape;
     }
 
     /**
-     * TThe number of storage servers that are activated for the Exadata infrastructure
+     * The number of storage servers that are activated for the Exadata infrastructure. Changing this will force terraform to create new resource.
      * 
      */
     @Import(name="storageCount")
     private @Nullable Output<Integer> storageCount;
 
     /**
-     * @return TThe number of storage servers that are activated for the Exadata infrastructure
+     * @return The number of storage servers that are activated for the Exadata infrastructure. Changing this will force terraform to create new resource.
      * 
      */
     public Optional<Output<Integer>> storageCount() {
@@ -133,14 +177,14 @@ public final class CloudExadataInfrastructureArgs extends com.pulumi.resources.R
     }
 
     /**
-     * The storage server model type of the Exadata infrastructure. For the list of valid model names, use the ListDbSystemShapes operation
+     * The storage server model type of the Exadata infrastructure. For the list of valid model names, use the ListDbSystemShapes operation. This is a mandatory parameter for Exadata.X11M system shape. Changing this will force terraform to create new resource.
      * 
      */
     @Import(name="storageServerType")
     private @Nullable Output<String> storageServerType;
 
     /**
-     * @return The storage server model type of the Exadata infrastructure. For the list of valid model names, use the ListDbSystemShapes operation
+     * @return The storage server model type of the Exadata infrastructure. For the list of valid model names, use the ListDbSystemShapes operation. This is a mandatory parameter for Exadata.X11M system shape. Changing this will force terraform to create new resource.
      * 
      */
     public Optional<Output<String>> storageServerType() {
@@ -205,26 +249,54 @@ public final class CloudExadataInfrastructureArgs extends com.pulumi.resources.R
             $ = new CloudExadataInfrastructureArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param availabilityZone The name of the Availability Zone (AZ) where the Exadata infrastructure is located. Changing this will force terraform to create new resource.
+         * 
+         * @return builder
+         * 
+         */
         public Builder availabilityZone(@Nullable Output<String> availabilityZone) {
             $.availabilityZone = availabilityZone;
             return this;
         }
 
+        /**
+         * @param availabilityZone The name of the Availability Zone (AZ) where the Exadata infrastructure is located. Changing this will force terraform to create new resource.
+         * 
+         * @return builder
+         * 
+         */
         public Builder availabilityZone(String availabilityZone) {
             return availabilityZone(Output.of(availabilityZone));
         }
 
+        /**
+         * @param availabilityZoneId The AZ ID of the AZ where the Exadata infrastructure is located. Changing this will force terraform to create new resource.
+         * 
+         * The following arguments are optional:
+         * 
+         * @return builder
+         * 
+         */
         public Builder availabilityZoneId(Output<String> availabilityZoneId) {
             $.availabilityZoneId = availabilityZoneId;
             return this;
         }
 
+        /**
+         * @param availabilityZoneId The AZ ID of the AZ where the Exadata infrastructure is located. Changing this will force terraform to create new resource.
+         * 
+         * The following arguments are optional:
+         * 
+         * @return builder
+         * 
+         */
         public Builder availabilityZoneId(String availabilityZoneId) {
             return availabilityZoneId(Output.of(availabilityZoneId));
         }
 
         /**
-         * @param computeCount The number of compute instances that the Exadata infrastructure is located
+         * @param computeCount The number of compute instances that the Exadata infrastructure is located. Changing this will force terraform to create new resource.
          * 
          * @return builder
          * 
@@ -235,7 +307,7 @@ public final class CloudExadataInfrastructureArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param computeCount The number of compute instances that the Exadata infrastructure is located
+         * @param computeCount The number of compute instances that the Exadata infrastructure is located. Changing this will force terraform to create new resource.
          * 
          * @return builder
          * 
@@ -244,21 +316,39 @@ public final class CloudExadataInfrastructureArgs extends com.pulumi.resources.R
             return computeCount(Output.of(computeCount));
         }
 
+        /**
+         * @param customerContactsToSendToOcis The email addresses of contacts to receive notification from Oracle about maintenance updates for the Exadata infrastructure. Changing this will force terraform to create new resource.
+         * 
+         * @return builder
+         * 
+         */
         public Builder customerContactsToSendToOcis(@Nullable Output<List<CloudExadataInfrastructureCustomerContactsToSendToOciArgs>> customerContactsToSendToOcis) {
             $.customerContactsToSendToOcis = customerContactsToSendToOcis;
             return this;
         }
 
+        /**
+         * @param customerContactsToSendToOcis The email addresses of contacts to receive notification from Oracle about maintenance updates for the Exadata infrastructure. Changing this will force terraform to create new resource.
+         * 
+         * @return builder
+         * 
+         */
         public Builder customerContactsToSendToOcis(List<CloudExadataInfrastructureCustomerContactsToSendToOciArgs> customerContactsToSendToOcis) {
             return customerContactsToSendToOcis(Output.of(customerContactsToSendToOcis));
         }
 
+        /**
+         * @param customerContactsToSendToOcis The email addresses of contacts to receive notification from Oracle about maintenance updates for the Exadata infrastructure. Changing this will force terraform to create new resource.
+         * 
+         * @return builder
+         * 
+         */
         public Builder customerContactsToSendToOcis(CloudExadataInfrastructureCustomerContactsToSendToOciArgs... customerContactsToSendToOcis) {
             return customerContactsToSendToOcis(List.of(customerContactsToSendToOcis));
         }
 
         /**
-         * @param databaseServerType The database server model type of the Exadata infrastructure. For the list of valid model names, use the ListDbSystemShapes operation
+         * @param databaseServerType The database server model type of the Exadata infrastructure. For the list of valid model names, use the ListDbSystemShapes operation. This is a mandatory parameter for Exadata.X11M system shape. Changing this will force terraform to create new resource.
          * 
          * @return builder
          * 
@@ -269,7 +359,7 @@ public final class CloudExadataInfrastructureArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param databaseServerType The database server model type of the Exadata infrastructure. For the list of valid model names, use the ListDbSystemShapes operation
+         * @param databaseServerType The database server model type of the Exadata infrastructure. For the list of valid model names, use the ListDbSystemShapes operation. This is a mandatory parameter for Exadata.X11M system shape. Changing this will force terraform to create new resource.
          * 
          * @return builder
          * 
@@ -278,11 +368,23 @@ public final class CloudExadataInfrastructureArgs extends com.pulumi.resources.R
             return databaseServerType(Output.of(databaseServerType));
         }
 
+        /**
+         * @param displayName The user-friendly name for the Exadata infrastructure. Changing this will force terraform to create a new resource.
+         * 
+         * @return builder
+         * 
+         */
         public Builder displayName(Output<String> displayName) {
             $.displayName = displayName;
             return this;
         }
 
+        /**
+         * @param displayName The user-friendly name for the Exadata infrastructure. Changing this will force terraform to create a new resource.
+         * 
+         * @return builder
+         * 
+         */
         public Builder displayName(String displayName) {
             return displayName(Output.of(displayName));
         }
@@ -329,17 +431,29 @@ public final class CloudExadataInfrastructureArgs extends com.pulumi.resources.R
             return region(Output.of(region));
         }
 
+        /**
+         * @param shape The model name of the Exadata infrastructure. Changing this will force terraform to create new resource.
+         * 
+         * @return builder
+         * 
+         */
         public Builder shape(Output<String> shape) {
             $.shape = shape;
             return this;
         }
 
+        /**
+         * @param shape The model name of the Exadata infrastructure. Changing this will force terraform to create new resource.
+         * 
+         * @return builder
+         * 
+         */
         public Builder shape(String shape) {
             return shape(Output.of(shape));
         }
 
         /**
-         * @param storageCount TThe number of storage servers that are activated for the Exadata infrastructure
+         * @param storageCount The number of storage servers that are activated for the Exadata infrastructure. Changing this will force terraform to create new resource.
          * 
          * @return builder
          * 
@@ -350,7 +464,7 @@ public final class CloudExadataInfrastructureArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param storageCount TThe number of storage servers that are activated for the Exadata infrastructure
+         * @param storageCount The number of storage servers that are activated for the Exadata infrastructure. Changing this will force terraform to create new resource.
          * 
          * @return builder
          * 
@@ -360,7 +474,7 @@ public final class CloudExadataInfrastructureArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param storageServerType The storage server model type of the Exadata infrastructure. For the list of valid model names, use the ListDbSystemShapes operation
+         * @param storageServerType The storage server model type of the Exadata infrastructure. For the list of valid model names, use the ListDbSystemShapes operation. This is a mandatory parameter for Exadata.X11M system shape. Changing this will force terraform to create new resource.
          * 
          * @return builder
          * 
@@ -371,7 +485,7 @@ public final class CloudExadataInfrastructureArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param storageServerType The storage server model type of the Exadata infrastructure. For the list of valid model names, use the ListDbSystemShapes operation
+         * @param storageServerType The storage server model type of the Exadata infrastructure. For the list of valid model names, use the ListDbSystemShapes operation. This is a mandatory parameter for Exadata.X11M system shape. Changing this will force terraform to create new resource.
          * 
          * @return builder
          * 

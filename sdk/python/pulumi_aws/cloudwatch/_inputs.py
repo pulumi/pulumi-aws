@@ -213,24 +213,19 @@ __all__ = [
     'GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyMaskConfigArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class CompositeAlarmActionsSuppressorArgsDict(TypedDict):
-        alarm: pulumi.Input[_builtins.str]
-        """
-        Can be an AlarmName or an Amazon Resource Name (ARN) from an existing alarm.
-        """
-        extension_period: pulumi.Input[_builtins.int]
-        """
-        The maximum time in seconds that the composite alarm waits after suppressor alarm goes out of the `ALARM` state. After this time, the composite alarm performs its actions.
-        """
-        wait_period: pulumi.Input[_builtins.int]
-        """
-        The maximum time in seconds that the composite alarm waits for the suppressor alarm to go into the `ALARM` state. After this time, the composite alarm performs its actions.
-        """
-elif False:
-    CompositeAlarmActionsSuppressorArgsDict: TypeAlias = Mapping[str, Any]
+class CompositeAlarmActionsSuppressorArgsDict(TypedDict):
+    alarm: pulumi.Input[_builtins.str]
+    """
+    Can be an AlarmName or an Amazon Resource Name (ARN) from an existing alarm.
+    """
+    extension_period: pulumi.Input[_builtins.int]
+    """
+    The maximum time in seconds that the composite alarm waits after suppressor alarm goes out of the `ALARM` state. After this time, the composite alarm performs its actions.
+    """
+    wait_period: pulumi.Input[_builtins.int]
+    """
+    The maximum time in seconds that the composite alarm waits for the suppressor alarm to go into the `ALARM` state. After this time, the composite alarm performs its actions.
+    """
 
 @pulumi.input_type
 class CompositeAlarmActionsSuppressorArgs:
@@ -284,14 +279,11 @@ class CompositeAlarmActionsSuppressorArgs:
         pulumi.set(self, "wait_period", value)
 
 
-if not MYPY:
-    class EventBusDeadLetterConfigArgsDict(TypedDict):
-        arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ARN of the SQS queue specified as the target for the dead-letter queue.
-        """
-elif False:
-    EventBusDeadLetterConfigArgsDict: TypeAlias = Mapping[str, Any]
+class EventBusDeadLetterConfigArgsDict(TypedDict):
+    arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ARN of the SQS queue specified as the target for the dead-letter queue.
+    """
 
 @pulumi.input_type
 class EventBusDeadLetterConfigArgs:
@@ -316,18 +308,15 @@ class EventBusDeadLetterConfigArgs:
         pulumi.set(self, "arn", value)
 
 
-if not MYPY:
-    class EventBusLogConfigArgsDict(TypedDict):
-        include_detail: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Whether EventBridge include detailed event information in the records it generates. Valid values are `NONE` and `FULL`.
-        """
-        level: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Level of logging detail to include. Valid values are `OFF`, `ERROR`, `INFO`, and `TRACE`.
-        """
-elif False:
-    EventBusLogConfigArgsDict: TypeAlias = Mapping[str, Any]
+class EventBusLogConfigArgsDict(TypedDict):
+    include_detail: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Whether EventBridge include detailed event information in the records it generates. Valid values are `NONE` and `FULL`.
+    """
+    level: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Level of logging detail to include. Valid values are `OFF`, `ERROR`, `INFO`, and `TRACE`.
+    """
 
 @pulumi.input_type
 class EventBusLogConfigArgs:
@@ -368,26 +357,23 @@ class EventBusLogConfigArgs:
         pulumi.set(self, "level", value)
 
 
-if not MYPY:
-    class EventConnectionAuthParametersArgsDict(TypedDict):
-        api_key: NotRequired[pulumi.Input['EventConnectionAuthParametersApiKeyArgsDict']]
-        """
-        Parameters used for API_KEY authorization. An API key to include in the header for each authentication request. A maximum of 1 are allowed. Conflicts with `basic` and `oauth`. Documented below.
-        """
-        basic: NotRequired[pulumi.Input['EventConnectionAuthParametersBasicArgsDict']]
-        """
-        Parameters used for BASIC authorization. A maximum of 1 are allowed. Conflicts with `api_key` and `oauth`. Documented below.
-        """
-        invocation_http_parameters: NotRequired[pulumi.Input['EventConnectionAuthParametersInvocationHttpParametersArgsDict']]
-        """
-        Invocation Http Parameters are additional credentials used to sign each Invocation of the ApiDestination created from this Connection. If the ApiDestination Rule Target has additional HttpParameters, the values will be merged together, with the Connection Invocation Http Parameters taking precedence. Secret values are stored and managed by AWS Secrets Manager. A maximum of 1 are allowed. Documented below.
-        """
-        oauth: NotRequired[pulumi.Input['EventConnectionAuthParametersOauthArgsDict']]
-        """
-        Parameters used for OAUTH_CLIENT_CREDENTIALS authorization. A maximum of 1 are allowed. Conflicts with `basic` and `api_key`. Documented below.
-        """
-elif False:
-    EventConnectionAuthParametersArgsDict: TypeAlias = Mapping[str, Any]
+class EventConnectionAuthParametersArgsDict(TypedDict):
+    api_key: NotRequired[pulumi.Input['EventConnectionAuthParametersApiKeyArgsDict']]
+    """
+    Parameters used for API_KEY authorization. An API key to include in the header for each authentication request. A maximum of 1 are allowed. Conflicts with `basic` and `oauth`. Documented below.
+    """
+    basic: NotRequired[pulumi.Input['EventConnectionAuthParametersBasicArgsDict']]
+    """
+    Parameters used for BASIC authorization. A maximum of 1 are allowed. Conflicts with `api_key` and `oauth`. Documented below.
+    """
+    invocation_http_parameters: NotRequired[pulumi.Input['EventConnectionAuthParametersInvocationHttpParametersArgsDict']]
+    """
+    Invocation Http Parameters are additional credentials used to sign each Invocation of the ApiDestination created from this Connection. If the ApiDestination Rule Target has additional HttpParameters, the values will be merged together, with the Connection Invocation Http Parameters taking precedence. Secret values are stored and managed by AWS Secrets Manager. A maximum of 1 are allowed. Documented below.
+    """
+    oauth: NotRequired[pulumi.Input['EventConnectionAuthParametersOauthArgsDict']]
+    """
+    Parameters used for OAUTH_CLIENT_CREDENTIALS authorization. A maximum of 1 are allowed. Conflicts with `basic` and `api_key`. Documented below.
+    """
 
 @pulumi.input_type
 class EventConnectionAuthParametersArgs:
@@ -460,18 +446,15 @@ class EventConnectionAuthParametersArgs:
         pulumi.set(self, "oauth", value)
 
 
-if not MYPY:
-    class EventConnectionAuthParametersApiKeyArgsDict(TypedDict):
-        key: pulumi.Input[_builtins.str]
-        """
-        Header Name.
-        """
-        value: pulumi.Input[_builtins.str]
-        """
-        Header Value. Created and stored in AWS Secrets Manager.
-        """
-elif False:
-    EventConnectionAuthParametersApiKeyArgsDict: TypeAlias = Mapping[str, Any]
+class EventConnectionAuthParametersApiKeyArgsDict(TypedDict):
+    key: pulumi.Input[_builtins.str]
+    """
+    Header Name.
+    """
+    value: pulumi.Input[_builtins.str]
+    """
+    Header Value. Created and stored in AWS Secrets Manager.
+    """
 
 @pulumi.input_type
 class EventConnectionAuthParametersApiKeyArgs:
@@ -510,18 +493,15 @@ class EventConnectionAuthParametersApiKeyArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class EventConnectionAuthParametersBasicArgsDict(TypedDict):
-        password: pulumi.Input[_builtins.str]
-        """
-        A password for the authorization. Created and stored in AWS Secrets Manager.
-        """
-        username: pulumi.Input[_builtins.str]
-        """
-        A username for the authorization.
-        """
-elif False:
-    EventConnectionAuthParametersBasicArgsDict: TypeAlias = Mapping[str, Any]
+class EventConnectionAuthParametersBasicArgsDict(TypedDict):
+    password: pulumi.Input[_builtins.str]
+    """
+    A password for the authorization. Created and stored in AWS Secrets Manager.
+    """
+    username: pulumi.Input[_builtins.str]
+    """
+    A username for the authorization.
+    """
 
 @pulumi.input_type
 class EventConnectionAuthParametersBasicArgs:
@@ -560,22 +540,19 @@ class EventConnectionAuthParametersBasicArgs:
         pulumi.set(self, "username", value)
 
 
-if not MYPY:
-    class EventConnectionAuthParametersInvocationHttpParametersArgsDict(TypedDict):
-        bodies: NotRequired[pulumi.Input[Sequence[pulumi.Input['EventConnectionAuthParametersInvocationHttpParametersBodyArgsDict']]]]
-        """
-        Contains additional body string parameters for the connection. You can include up to 100 additional body string parameters per request. Each additional parameter counts towards the event payload size, which cannot exceed 64 KB. Each parameter can contain the following:
-        """
-        headers: NotRequired[pulumi.Input[Sequence[pulumi.Input['EventConnectionAuthParametersInvocationHttpParametersHeaderArgsDict']]]]
-        """
-        Contains additional header parameters for the connection. You can include up to 100 additional body string parameters per request. Each additional parameter counts towards the event payload size, which cannot exceed 64 KB. Each parameter can contain the following:
-        """
-        query_strings: NotRequired[pulumi.Input[Sequence[pulumi.Input['EventConnectionAuthParametersInvocationHttpParametersQueryStringArgsDict']]]]
-        """
-        Contains additional query string parameters for the connection. You can include up to 100 additional body string parameters per request. Each additional parameter counts towards the event payload size, which cannot exceed 64 KB. Each parameter can contain the following:
-        """
-elif False:
-    EventConnectionAuthParametersInvocationHttpParametersArgsDict: TypeAlias = Mapping[str, Any]
+class EventConnectionAuthParametersInvocationHttpParametersArgsDict(TypedDict):
+    bodies: NotRequired[pulumi.Input[Sequence[pulumi.Input['EventConnectionAuthParametersInvocationHttpParametersBodyArgsDict']]]]
+    """
+    Contains additional body string parameters for the connection. You can include up to 100 additional body string parameters per request. Each additional parameter counts towards the event payload size, which cannot exceed 64 KB. Each parameter can contain the following:
+    """
+    headers: NotRequired[pulumi.Input[Sequence[pulumi.Input['EventConnectionAuthParametersInvocationHttpParametersHeaderArgsDict']]]]
+    """
+    Contains additional header parameters for the connection. You can include up to 100 additional body string parameters per request. Each additional parameter counts towards the event payload size, which cannot exceed 64 KB. Each parameter can contain the following:
+    """
+    query_strings: NotRequired[pulumi.Input[Sequence[pulumi.Input['EventConnectionAuthParametersInvocationHttpParametersQueryStringArgsDict']]]]
+    """
+    Contains additional query string parameters for the connection. You can include up to 100 additional body string parameters per request. Each additional parameter counts towards the event payload size, which cannot exceed 64 KB. Each parameter can contain the following:
+    """
 
 @pulumi.input_type
 class EventConnectionAuthParametersInvocationHttpParametersArgs:
@@ -632,22 +609,19 @@ class EventConnectionAuthParametersInvocationHttpParametersArgs:
         pulumi.set(self, "query_strings", value)
 
 
-if not MYPY:
-    class EventConnectionAuthParametersInvocationHttpParametersBodyArgsDict(TypedDict):
-        is_value_secret: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Specified whether the value is secret.
-        """
-        key: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The key for the parameter.
-        """
-        value: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The value associated with the key. Created and stored in AWS Secrets Manager if is secret.
-        """
-elif False:
-    EventConnectionAuthParametersInvocationHttpParametersBodyArgsDict: TypeAlias = Mapping[str, Any]
+class EventConnectionAuthParametersInvocationHttpParametersBodyArgsDict(TypedDict):
+    is_value_secret: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Specified whether the value is secret.
+    """
+    key: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The key for the parameter.
+    """
+    value: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The value associated with the key. Created and stored in AWS Secrets Manager if is secret.
+    """
 
 @pulumi.input_type
 class EventConnectionAuthParametersInvocationHttpParametersBodyArgs:
@@ -704,22 +678,19 @@ class EventConnectionAuthParametersInvocationHttpParametersBodyArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class EventConnectionAuthParametersInvocationHttpParametersHeaderArgsDict(TypedDict):
-        is_value_secret: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Specified whether the value is secret.
-        """
-        key: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The key for the parameter.
-        """
-        value: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The value associated with the key. Created and stored in AWS Secrets Manager if is secret.
-        """
-elif False:
-    EventConnectionAuthParametersInvocationHttpParametersHeaderArgsDict: TypeAlias = Mapping[str, Any]
+class EventConnectionAuthParametersInvocationHttpParametersHeaderArgsDict(TypedDict):
+    is_value_secret: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Specified whether the value is secret.
+    """
+    key: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The key for the parameter.
+    """
+    value: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The value associated with the key. Created and stored in AWS Secrets Manager if is secret.
+    """
 
 @pulumi.input_type
 class EventConnectionAuthParametersInvocationHttpParametersHeaderArgs:
@@ -776,22 +747,19 @@ class EventConnectionAuthParametersInvocationHttpParametersHeaderArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class EventConnectionAuthParametersInvocationHttpParametersQueryStringArgsDict(TypedDict):
-        is_value_secret: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Specified whether the value is secret.
-        """
-        key: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The key for the parameter.
-        """
-        value: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The value associated with the key. Created and stored in AWS Secrets Manager if is secret.
-        """
-elif False:
-    EventConnectionAuthParametersInvocationHttpParametersQueryStringArgsDict: TypeAlias = Mapping[str, Any]
+class EventConnectionAuthParametersInvocationHttpParametersQueryStringArgsDict(TypedDict):
+    is_value_secret: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Specified whether the value is secret.
+    """
+    key: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The key for the parameter.
+    """
+    value: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The value associated with the key. Created and stored in AWS Secrets Manager if is secret.
+    """
 
 @pulumi.input_type
 class EventConnectionAuthParametersInvocationHttpParametersQueryStringArgs:
@@ -848,26 +816,23 @@ class EventConnectionAuthParametersInvocationHttpParametersQueryStringArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class EventConnectionAuthParametersOauthArgsDict(TypedDict):
-        authorization_endpoint: pulumi.Input[_builtins.str]
-        """
-        The URL to the authorization endpoint.
-        """
-        http_method: pulumi.Input[_builtins.str]
-        """
-        A password for the authorization. Created and stored in AWS Secrets Manager.
-        """
-        oauth_http_parameters: pulumi.Input['EventConnectionAuthParametersOauthOauthHttpParametersArgsDict']
-        """
-        OAuth Http Parameters are additional credentials used to sign the request to the authorization endpoint to exchange the OAuth Client information for an access token. Secret values are stored and managed by AWS Secrets Manager. A maximum of 1 are allowed. Documented below.
-        """
-        client_parameters: NotRequired[pulumi.Input['EventConnectionAuthParametersOauthClientParametersArgsDict']]
-        """
-        Contains the client parameters for OAuth authorization. Contains the following two parameters.
-        """
-elif False:
-    EventConnectionAuthParametersOauthArgsDict: TypeAlias = Mapping[str, Any]
+class EventConnectionAuthParametersOauthArgsDict(TypedDict):
+    authorization_endpoint: pulumi.Input[_builtins.str]
+    """
+    The URL to the authorization endpoint.
+    """
+    http_method: pulumi.Input[_builtins.str]
+    """
+    A password for the authorization. Created and stored in AWS Secrets Manager.
+    """
+    oauth_http_parameters: pulumi.Input['EventConnectionAuthParametersOauthOauthHttpParametersArgsDict']
+    """
+    OAuth Http Parameters are additional credentials used to sign the request to the authorization endpoint to exchange the OAuth Client information for an access token. Secret values are stored and managed by AWS Secrets Manager. A maximum of 1 are allowed. Documented below.
+    """
+    client_parameters: NotRequired[pulumi.Input['EventConnectionAuthParametersOauthClientParametersArgsDict']]
+    """
+    Contains the client parameters for OAuth authorization. Contains the following two parameters.
+    """
 
 @pulumi.input_type
 class EventConnectionAuthParametersOauthArgs:
@@ -937,18 +902,15 @@ class EventConnectionAuthParametersOauthArgs:
         pulumi.set(self, "client_parameters", value)
 
 
-if not MYPY:
-    class EventConnectionAuthParametersOauthClientParametersArgsDict(TypedDict):
-        client_id: pulumi.Input[_builtins.str]
-        """
-        The client ID for the credentials to use for authorization. Created and stored in AWS Secrets Manager.
-        """
-        client_secret: pulumi.Input[_builtins.str]
-        """
-        The client secret for the credentials to use for authorization. Created and stored in AWS Secrets Manager.
-        """
-elif False:
-    EventConnectionAuthParametersOauthClientParametersArgsDict: TypeAlias = Mapping[str, Any]
+class EventConnectionAuthParametersOauthClientParametersArgsDict(TypedDict):
+    client_id: pulumi.Input[_builtins.str]
+    """
+    The client ID for the credentials to use for authorization. Created and stored in AWS Secrets Manager.
+    """
+    client_secret: pulumi.Input[_builtins.str]
+    """
+    The client secret for the credentials to use for authorization. Created and stored in AWS Secrets Manager.
+    """
 
 @pulumi.input_type
 class EventConnectionAuthParametersOauthClientParametersArgs:
@@ -987,22 +949,19 @@ class EventConnectionAuthParametersOauthClientParametersArgs:
         pulumi.set(self, "client_secret", value)
 
 
-if not MYPY:
-    class EventConnectionAuthParametersOauthOauthHttpParametersArgsDict(TypedDict):
-        bodies: NotRequired[pulumi.Input[Sequence[pulumi.Input['EventConnectionAuthParametersOauthOauthHttpParametersBodyArgsDict']]]]
-        """
-        Contains additional body string parameters for the connection. You can include up to 100 additional body string parameters per request. Each additional parameter counts towards the event payload size, which cannot exceed 64 KB. Each parameter can contain the following:
-        """
-        headers: NotRequired[pulumi.Input[Sequence[pulumi.Input['EventConnectionAuthParametersOauthOauthHttpParametersHeaderArgsDict']]]]
-        """
-        Contains additional header parameters for the connection. You can include up to 100 additional body string parameters per request. Each additional parameter counts towards the event payload size, which cannot exceed 64 KB. Each parameter can contain the following:
-        """
-        query_strings: NotRequired[pulumi.Input[Sequence[pulumi.Input['EventConnectionAuthParametersOauthOauthHttpParametersQueryStringArgsDict']]]]
-        """
-        Contains additional query string parameters for the connection. You can include up to 100 additional body string parameters per request. Each additional parameter counts towards the event payload size, which cannot exceed 64 KB. Each parameter can contain the following:
-        """
-elif False:
-    EventConnectionAuthParametersOauthOauthHttpParametersArgsDict: TypeAlias = Mapping[str, Any]
+class EventConnectionAuthParametersOauthOauthHttpParametersArgsDict(TypedDict):
+    bodies: NotRequired[pulumi.Input[Sequence[pulumi.Input['EventConnectionAuthParametersOauthOauthHttpParametersBodyArgsDict']]]]
+    """
+    Contains additional body string parameters for the connection. You can include up to 100 additional body string parameters per request. Each additional parameter counts towards the event payload size, which cannot exceed 64 KB. Each parameter can contain the following:
+    """
+    headers: NotRequired[pulumi.Input[Sequence[pulumi.Input['EventConnectionAuthParametersOauthOauthHttpParametersHeaderArgsDict']]]]
+    """
+    Contains additional header parameters for the connection. You can include up to 100 additional body string parameters per request. Each additional parameter counts towards the event payload size, which cannot exceed 64 KB. Each parameter can contain the following:
+    """
+    query_strings: NotRequired[pulumi.Input[Sequence[pulumi.Input['EventConnectionAuthParametersOauthOauthHttpParametersQueryStringArgsDict']]]]
+    """
+    Contains additional query string parameters for the connection. You can include up to 100 additional body string parameters per request. Each additional parameter counts towards the event payload size, which cannot exceed 64 KB. Each parameter can contain the following:
+    """
 
 @pulumi.input_type
 class EventConnectionAuthParametersOauthOauthHttpParametersArgs:
@@ -1059,22 +1018,19 @@ class EventConnectionAuthParametersOauthOauthHttpParametersArgs:
         pulumi.set(self, "query_strings", value)
 
 
-if not MYPY:
-    class EventConnectionAuthParametersOauthOauthHttpParametersBodyArgsDict(TypedDict):
-        is_value_secret: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Specified whether the value is secret.
-        """
-        key: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The key for the parameter.
-        """
-        value: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The value associated with the key. Created and stored in AWS Secrets Manager if is secret.
-        """
-elif False:
-    EventConnectionAuthParametersOauthOauthHttpParametersBodyArgsDict: TypeAlias = Mapping[str, Any]
+class EventConnectionAuthParametersOauthOauthHttpParametersBodyArgsDict(TypedDict):
+    is_value_secret: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Specified whether the value is secret.
+    """
+    key: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The key for the parameter.
+    """
+    value: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The value associated with the key. Created and stored in AWS Secrets Manager if is secret.
+    """
 
 @pulumi.input_type
 class EventConnectionAuthParametersOauthOauthHttpParametersBodyArgs:
@@ -1131,22 +1087,19 @@ class EventConnectionAuthParametersOauthOauthHttpParametersBodyArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class EventConnectionAuthParametersOauthOauthHttpParametersHeaderArgsDict(TypedDict):
-        is_value_secret: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Specified whether the value is secret.
-        """
-        key: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The key for the parameter.
-        """
-        value: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The value associated with the key. Created and stored in AWS Secrets Manager if is secret.
-        """
-elif False:
-    EventConnectionAuthParametersOauthOauthHttpParametersHeaderArgsDict: TypeAlias = Mapping[str, Any]
+class EventConnectionAuthParametersOauthOauthHttpParametersHeaderArgsDict(TypedDict):
+    is_value_secret: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Specified whether the value is secret.
+    """
+    key: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The key for the parameter.
+    """
+    value: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The value associated with the key. Created and stored in AWS Secrets Manager if is secret.
+    """
 
 @pulumi.input_type
 class EventConnectionAuthParametersOauthOauthHttpParametersHeaderArgs:
@@ -1203,22 +1156,19 @@ class EventConnectionAuthParametersOauthOauthHttpParametersHeaderArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class EventConnectionAuthParametersOauthOauthHttpParametersQueryStringArgsDict(TypedDict):
-        is_value_secret: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Specified whether the value is secret.
-        """
-        key: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The key for the parameter.
-        """
-        value: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The value associated with the key. Created and stored in AWS Secrets Manager if is secret.
-        """
-elif False:
-    EventConnectionAuthParametersOauthOauthHttpParametersQueryStringArgsDict: TypeAlias = Mapping[str, Any]
+class EventConnectionAuthParametersOauthOauthHttpParametersQueryStringArgsDict(TypedDict):
+    is_value_secret: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Specified whether the value is secret.
+    """
+    key: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The key for the parameter.
+    """
+    value: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The value associated with the key. Created and stored in AWS Secrets Manager if is secret.
+    """
 
 @pulumi.input_type
 class EventConnectionAuthParametersOauthOauthHttpParametersQueryStringArgs:
@@ -1275,14 +1225,11 @@ class EventConnectionAuthParametersOauthOauthHttpParametersQueryStringArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class EventConnectionInvocationConnectivityParametersArgsDict(TypedDict):
-        resource_parameters: pulumi.Input['EventConnectionInvocationConnectivityParametersResourceParametersArgsDict']
-        """
-        The parameters for EventBridge to use when invoking the resource endpoint. Documented below.
-        """
-elif False:
-    EventConnectionInvocationConnectivityParametersArgsDict: TypeAlias = Mapping[str, Any]
+class EventConnectionInvocationConnectivityParametersArgsDict(TypedDict):
+    resource_parameters: pulumi.Input['EventConnectionInvocationConnectivityParametersResourceParametersArgsDict']
+    """
+    The parameters for EventBridge to use when invoking the resource endpoint. Documented below.
+    """
 
 @pulumi.input_type
 class EventConnectionInvocationConnectivityParametersArgs:
@@ -1306,15 +1253,12 @@ class EventConnectionInvocationConnectivityParametersArgs:
         pulumi.set(self, "resource_parameters", value)
 
 
-if not MYPY:
-    class EventConnectionInvocationConnectivityParametersResourceParametersArgsDict(TypedDict):
-        resource_configuration_arn: pulumi.Input[_builtins.str]
-        """
-        ARN of the Amazon VPC Lattice resource configuration for the resource endpoint.
-        """
-        resource_association_arn: NotRequired[pulumi.Input[_builtins.str]]
-elif False:
-    EventConnectionInvocationConnectivityParametersResourceParametersArgsDict: TypeAlias = Mapping[str, Any]
+class EventConnectionInvocationConnectivityParametersResourceParametersArgsDict(TypedDict):
+    resource_configuration_arn: pulumi.Input[_builtins.str]
+    """
+    ARN of the Amazon VPC Lattice resource configuration for the resource endpoint.
+    """
+    resource_association_arn: NotRequired[pulumi.Input[_builtins.str]]
 
 @pulumi.input_type
 class EventConnectionInvocationConnectivityParametersResourceParametersArgs:
@@ -1350,14 +1294,11 @@ class EventConnectionInvocationConnectivityParametersResourceParametersArgs:
         pulumi.set(self, "resource_association_arn", value)
 
 
-if not MYPY:
-    class EventEndpointEventBusArgsDict(TypedDict):
-        event_bus_arn: pulumi.Input[_builtins.str]
-        """
-        The ARN of the event bus the endpoint is associated with.
-        """
-elif False:
-    EventEndpointEventBusArgsDict: TypeAlias = Mapping[str, Any]
+class EventEndpointEventBusArgsDict(TypedDict):
+    event_bus_arn: pulumi.Input[_builtins.str]
+    """
+    The ARN of the event bus the endpoint is associated with.
+    """
 
 @pulumi.input_type
 class EventEndpointEventBusArgs:
@@ -1381,14 +1322,11 @@ class EventEndpointEventBusArgs:
         pulumi.set(self, "event_bus_arn", value)
 
 
-if not MYPY:
-    class EventEndpointReplicationConfigArgsDict(TypedDict):
-        state: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The state of event replication. Valid values: `ENABLED`, `DISABLED`. The default state is `ENABLED`, which means you must supply a `role_arn`. If you don't have a `role_arn` or you don't want event replication enabled, set `state` to `DISABLED`.
-        """
-elif False:
-    EventEndpointReplicationConfigArgsDict: TypeAlias = Mapping[str, Any]
+class EventEndpointReplicationConfigArgsDict(TypedDict):
+    state: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The state of event replication. Valid values: `ENABLED`, `DISABLED`. The default state is `ENABLED`, which means you must supply a `role_arn`. If you don't have a `role_arn` or you don't want event replication enabled, set `state` to `DISABLED`.
+    """
 
 @pulumi.input_type
 class EventEndpointReplicationConfigArgs:
@@ -1413,14 +1351,11 @@ class EventEndpointReplicationConfigArgs:
         pulumi.set(self, "state", value)
 
 
-if not MYPY:
-    class EventEndpointRoutingConfigArgsDict(TypedDict):
-        failover_config: pulumi.Input['EventEndpointRoutingConfigFailoverConfigArgsDict']
-        """
-        Parameters used for failover. This includes what triggers failover and what happens when it's triggered. Documented below.
-        """
-elif False:
-    EventEndpointRoutingConfigArgsDict: TypeAlias = Mapping[str, Any]
+class EventEndpointRoutingConfigArgsDict(TypedDict):
+    failover_config: pulumi.Input['EventEndpointRoutingConfigFailoverConfigArgsDict']
+    """
+    Parameters used for failover. This includes what triggers failover and what happens when it's triggered. Documented below.
+    """
 
 @pulumi.input_type
 class EventEndpointRoutingConfigArgs:
@@ -1444,18 +1379,15 @@ class EventEndpointRoutingConfigArgs:
         pulumi.set(self, "failover_config", value)
 
 
-if not MYPY:
-    class EventEndpointRoutingConfigFailoverConfigArgsDict(TypedDict):
-        primary: pulumi.Input['EventEndpointRoutingConfigFailoverConfigPrimaryArgsDict']
-        """
-        Parameters used for the primary Region. Documented below.
-        """
-        secondary: pulumi.Input['EventEndpointRoutingConfigFailoverConfigSecondaryArgsDict']
-        """
-        Parameters used for the secondary Region, the Region that events are routed to when failover is triggered or event replication is enabled. Documented below.
-        """
-elif False:
-    EventEndpointRoutingConfigFailoverConfigArgsDict: TypeAlias = Mapping[str, Any]
+class EventEndpointRoutingConfigFailoverConfigArgsDict(TypedDict):
+    primary: pulumi.Input['EventEndpointRoutingConfigFailoverConfigPrimaryArgsDict']
+    """
+    Parameters used for the primary Region. Documented below.
+    """
+    secondary: pulumi.Input['EventEndpointRoutingConfigFailoverConfigSecondaryArgsDict']
+    """
+    Parameters used for the secondary Region, the Region that events are routed to when failover is triggered or event replication is enabled. Documented below.
+    """
 
 @pulumi.input_type
 class EventEndpointRoutingConfigFailoverConfigArgs:
@@ -1494,14 +1426,11 @@ class EventEndpointRoutingConfigFailoverConfigArgs:
         pulumi.set(self, "secondary", value)
 
 
-if not MYPY:
-    class EventEndpointRoutingConfigFailoverConfigPrimaryArgsDict(TypedDict):
-        health_check: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ARN of the health check used by the endpoint to determine whether failover is triggered.
-        """
-elif False:
-    EventEndpointRoutingConfigFailoverConfigPrimaryArgsDict: TypeAlias = Mapping[str, Any]
+class EventEndpointRoutingConfigFailoverConfigPrimaryArgsDict(TypedDict):
+    health_check: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ARN of the health check used by the endpoint to determine whether failover is triggered.
+    """
 
 @pulumi.input_type
 class EventEndpointRoutingConfigFailoverConfigPrimaryArgs:
@@ -1526,14 +1455,11 @@ class EventEndpointRoutingConfigFailoverConfigPrimaryArgs:
         pulumi.set(self, "health_check", value)
 
 
-if not MYPY:
-    class EventEndpointRoutingConfigFailoverConfigSecondaryArgsDict(TypedDict):
-        route: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the secondary Region.
-        """
-elif False:
-    EventEndpointRoutingConfigFailoverConfigSecondaryArgsDict: TypeAlias = Mapping[str, Any]
+class EventEndpointRoutingConfigFailoverConfigSecondaryArgsDict(TypedDict):
+    route: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the secondary Region.
+    """
 
 @pulumi.input_type
 class EventEndpointRoutingConfigFailoverConfigSecondaryArgs:
@@ -1558,22 +1484,19 @@ class EventEndpointRoutingConfigFailoverConfigSecondaryArgs:
         pulumi.set(self, "route", value)
 
 
-if not MYPY:
-    class EventPermissionConditionArgsDict(TypedDict):
-        key: pulumi.Input[_builtins.str]
-        """
-        Key for the condition. Valid values: `aws:PrincipalOrgID`.
-        """
-        type: pulumi.Input[_builtins.str]
-        """
-        Type of condition. Value values: `StringEquals`.
-        """
-        value: pulumi.Input[_builtins.str]
-        """
-        Value for the key.
-        """
-elif False:
-    EventPermissionConditionArgsDict: TypeAlias = Mapping[str, Any]
+class EventPermissionConditionArgsDict(TypedDict):
+    key: pulumi.Input[_builtins.str]
+    """
+    Key for the condition. Valid values: `aws:PrincipalOrgID`.
+    """
+    type: pulumi.Input[_builtins.str]
+    """
+    Type of condition. Value values: `StringEquals`.
+    """
+    value: pulumi.Input[_builtins.str]
+    """
+    Value for the key.
+    """
 
 @pulumi.input_type
 class EventPermissionConditionArgs:
@@ -1627,14 +1550,11 @@ class EventPermissionConditionArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class EventTargetAppsyncTargetArgsDict(TypedDict):
-        graphql_operation: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Contains the GraphQL mutation to be parsed and executed.
-        """
-elif False:
-    EventTargetAppsyncTargetArgsDict: TypeAlias = Mapping[str, Any]
+class EventTargetAppsyncTargetArgsDict(TypedDict):
+    graphql_operation: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Contains the GraphQL mutation to be parsed and executed.
+    """
 
 @pulumi.input_type
 class EventTargetAppsyncTargetArgs:
@@ -1659,26 +1579,23 @@ class EventTargetAppsyncTargetArgs:
         pulumi.set(self, "graphql_operation", value)
 
 
-if not MYPY:
-    class EventTargetBatchTargetArgsDict(TypedDict):
-        job_definition: pulumi.Input[_builtins.str]
-        """
-        The ARN or name of the job definition to use if the event target is an AWS Batch job. This job definition must already exist.
-        """
-        job_name: pulumi.Input[_builtins.str]
-        """
-        The name to use for this execution of the job, if the target is an AWS Batch job.
-        """
-        array_size: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The size of the array, if this is an array batch job. Valid values are integers between 2 and 10,000.
-        """
-        job_attempts: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The number of times to attempt to retry, if the job fails. Valid values are 1 to 10.
-        """
-elif False:
-    EventTargetBatchTargetArgsDict: TypeAlias = Mapping[str, Any]
+class EventTargetBatchTargetArgsDict(TypedDict):
+    job_definition: pulumi.Input[_builtins.str]
+    """
+    The ARN or name of the job definition to use if the event target is an AWS Batch job. This job definition must already exist.
+    """
+    job_name: pulumi.Input[_builtins.str]
+    """
+    The name to use for this execution of the job, if the target is an AWS Batch job.
+    """
+    array_size: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The size of the array, if this is an array batch job. Valid values are integers between 2 and 10,000.
+    """
+    job_attempts: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The number of times to attempt to retry, if the job fails. Valid values are 1 to 10.
+    """
 
 @pulumi.input_type
 class EventTargetBatchTargetArgs:
@@ -1749,14 +1666,11 @@ class EventTargetBatchTargetArgs:
         pulumi.set(self, "job_attempts", value)
 
 
-if not MYPY:
-    class EventTargetDeadLetterConfigArgsDict(TypedDict):
-        arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        ARN of the SQS queue specified as the target for the dead-letter queue.
-        """
-elif False:
-    EventTargetDeadLetterConfigArgsDict: TypeAlias = Mapping[str, Any]
+class EventTargetDeadLetterConfigArgsDict(TypedDict):
+    arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    ARN of the SQS queue specified as the target for the dead-letter queue.
+    """
 
 @pulumi.input_type
 class EventTargetDeadLetterConfigArgs:
@@ -1781,62 +1695,59 @@ class EventTargetDeadLetterConfigArgs:
         pulumi.set(self, "arn", value)
 
 
-if not MYPY:
-    class EventTargetEcsTargetArgsDict(TypedDict):
-        task_definition_arn: pulumi.Input[_builtins.str]
-        """
-        The ARN of the task definition to use if the event target is an Amazon ECS cluster.
-        """
-        capacity_provider_strategies: NotRequired[pulumi.Input[Sequence[pulumi.Input['EventTargetEcsTargetCapacityProviderStrategyArgsDict']]]]
-        """
-        The capacity provider strategy to use for the task. If a `capacity_provider_strategy` specified, the `launch_type` parameter must be omitted. If no `capacity_provider_strategy` or `launch_type` is specified, the default capacity provider strategy for the cluster is used. Can be one or more. See below.
-        """
-        enable_ecs_managed_tags: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Specifies whether to enable Amazon ECS managed tags for the task.
-        """
-        enable_execute_command: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether or not to enable the execute command functionality for the containers in this task. If true, this enables execute command functionality on all containers in the task.
-        """
-        group: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specifies an ECS task group for the task. The maximum length is 255 characters.
-        """
-        launch_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specifies the launch type on which your task is running. The launch type that you specify here must match one of the launch type (compatibilities) of the target task. Valid values include: `EC2`, `EXTERNAL`, or `FARGATE`.
-        """
-        network_configuration: NotRequired[pulumi.Input['EventTargetEcsTargetNetworkConfigurationArgsDict']]
-        """
-        Use this if the ECS task uses the awsvpc network mode. This specifies the VPC subnets and security groups associated with the task, and whether a public IP address is to be used. Required if `launch_type` is `FARGATE` because the awsvpc mode is required for Fargate tasks.
-        """
-        ordered_placement_strategies: NotRequired[pulumi.Input[Sequence[pulumi.Input['EventTargetEcsTargetOrderedPlacementStrategyArgsDict']]]]
-        """
-        An array of placement strategy objects to use for the task. You can specify a maximum of five strategy rules per task.
-        """
-        placement_constraints: NotRequired[pulumi.Input[Sequence[pulumi.Input['EventTargetEcsTargetPlacementConstraintArgsDict']]]]
-        """
-        An array of placement constraint objects to use for the task. You can specify up to 10 constraints per task (including constraints in the task definition and those specified at runtime). See Below.
-        """
-        platform_version: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specifies the platform version for the task. Specify only the numeric portion of the platform version, such as `1.1.0`. This is used only if LaunchType is FARGATE. For more information about valid platform versions, see [AWS Fargate Platform Versions](http://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
-        """
-        propagate_tags: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specifies whether to propagate the tags from the task definition to the task. If no value is specified, the tags are not propagated. Tags can only be propagated to the task during task creation. The only valid value is: `TASK_DEFINITION`.
-        """
-        tags: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
-        """
-        A map of tags to assign to ecs resources.
-        """
-        task_count: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The number of tasks to create based on the TaskDefinition. Defaults to `1`.
-        """
-elif False:
-    EventTargetEcsTargetArgsDict: TypeAlias = Mapping[str, Any]
+class EventTargetEcsTargetArgsDict(TypedDict):
+    task_definition_arn: pulumi.Input[_builtins.str]
+    """
+    The ARN of the task definition to use if the event target is an Amazon ECS cluster.
+    """
+    capacity_provider_strategies: NotRequired[pulumi.Input[Sequence[pulumi.Input['EventTargetEcsTargetCapacityProviderStrategyArgsDict']]]]
+    """
+    The capacity provider strategy to use for the task. If a `capacity_provider_strategy` specified, the `launch_type` parameter must be omitted. If no `capacity_provider_strategy` or `launch_type` is specified, the default capacity provider strategy for the cluster is used. Can be one or more. See below.
+    """
+    enable_ecs_managed_tags: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Specifies whether to enable Amazon ECS managed tags for the task.
+    """
+    enable_execute_command: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether or not to enable the execute command functionality for the containers in this task. If true, this enables execute command functionality on all containers in the task.
+    """
+    group: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies an ECS task group for the task. The maximum length is 255 characters.
+    """
+    launch_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies the launch type on which your task is running. The launch type that you specify here must match one of the launch type (compatibilities) of the target task. Valid values include: `EC2`, `EXTERNAL`, or `FARGATE`.
+    """
+    network_configuration: NotRequired[pulumi.Input['EventTargetEcsTargetNetworkConfigurationArgsDict']]
+    """
+    Use this if the ECS task uses the awsvpc network mode. This specifies the VPC subnets and security groups associated with the task, and whether a public IP address is to be used. Required if `launch_type` is `FARGATE` because the awsvpc mode is required for Fargate tasks.
+    """
+    ordered_placement_strategies: NotRequired[pulumi.Input[Sequence[pulumi.Input['EventTargetEcsTargetOrderedPlacementStrategyArgsDict']]]]
+    """
+    An array of placement strategy objects to use for the task. You can specify a maximum of five strategy rules per task.
+    """
+    placement_constraints: NotRequired[pulumi.Input[Sequence[pulumi.Input['EventTargetEcsTargetPlacementConstraintArgsDict']]]]
+    """
+    An array of placement constraint objects to use for the task. You can specify up to 10 constraints per task (including constraints in the task definition and those specified at runtime). See Below.
+    """
+    platform_version: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies the platform version for the task. Specify only the numeric portion of the platform version, such as `1.1.0`. This is used only if LaunchType is FARGATE. For more information about valid platform versions, see [AWS Fargate Platform Versions](http://docs.aws.amazon.com/AmazonECS/latest/developerguide/platform_versions.html).
+    """
+    propagate_tags: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies whether to propagate the tags from the task definition to the task. If no value is specified, the tags are not propagated. Tags can only be propagated to the task during task creation. The only valid value is: `TASK_DEFINITION`.
+    """
+    tags: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    """
+    A map of tags to assign to ecs resources.
+    """
+    task_count: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The number of tasks to create based on the TaskDefinition. Defaults to `1`.
+    """
 
 @pulumi.input_type
 class EventTargetEcsTargetArgs:
@@ -2052,22 +1963,19 @@ class EventTargetEcsTargetArgs:
         pulumi.set(self, "task_count", value)
 
 
-if not MYPY:
-    class EventTargetEcsTargetCapacityProviderStrategyArgsDict(TypedDict):
-        capacity_provider: pulumi.Input[_builtins.str]
-        """
-        Short name of the capacity provider.
-        """
-        base: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The base value designates how many tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a base defined. Defaults to `0`.
-        """
-        weight: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The weight value designates the relative percentage of the total number of tasks launched that should use the specified capacity provider. The weight value is taken into consideration after the base value, if defined, is satisfied.
-        """
-elif False:
-    EventTargetEcsTargetCapacityProviderStrategyArgsDict: TypeAlias = Mapping[str, Any]
+class EventTargetEcsTargetCapacityProviderStrategyArgsDict(TypedDict):
+    capacity_provider: pulumi.Input[_builtins.str]
+    """
+    Short name of the capacity provider.
+    """
+    base: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The base value designates how many tasks, at a minimum, to run on the specified capacity provider. Only one capacity provider in a capacity provider strategy can have a base defined. Defaults to `0`.
+    """
+    weight: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The weight value designates the relative percentage of the total number of tasks launched that should use the specified capacity provider. The weight value is taken into consideration after the base value, if defined, is satisfied.
+    """
 
 @pulumi.input_type
 class EventTargetEcsTargetCapacityProviderStrategyArgs:
@@ -2123,24 +2031,21 @@ class EventTargetEcsTargetCapacityProviderStrategyArgs:
         pulumi.set(self, "weight", value)
 
 
-if not MYPY:
-    class EventTargetEcsTargetNetworkConfigurationArgsDict(TypedDict):
-        subnets: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        The subnets associated with the task or service.
-        """
-        assign_public_ip: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Assign a public IP address to the ENI (Fargate launch type only). Valid values are `true` or `false`. Defaults to `false`.
+class EventTargetEcsTargetNetworkConfigurationArgsDict(TypedDict):
+    subnets: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    The subnets associated with the task or service.
+    """
+    assign_public_ip: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Assign a public IP address to the ENI (Fargate launch type only). Valid values are `true` or `false`. Defaults to `false`.
 
-        For more information, see [Task Networking](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html)
-        """
-        security_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The security groups associated with the task or service. If you do not specify a security group, the default security group for the VPC is used.
-        """
-elif False:
-    EventTargetEcsTargetNetworkConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+    For more information, see [Task Networking](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-networking.html)
+    """
+    security_groups: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The security groups associated with the task or service. If you do not specify a security group, the default security group for the VPC is used.
+    """
 
 @pulumi.input_type
 class EventTargetEcsTargetNetworkConfigurationArgs:
@@ -2200,18 +2105,15 @@ class EventTargetEcsTargetNetworkConfigurationArgs:
         pulumi.set(self, "security_groups", value)
 
 
-if not MYPY:
-    class EventTargetEcsTargetOrderedPlacementStrategyArgsDict(TypedDict):
-        type: pulumi.Input[_builtins.str]
-        """
-        Type of placement strategy. The only valid values at this time are `binpack`, `random` and `spread`.
-        """
-        field: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The field to apply the placement strategy against. For the `spread` placement strategy, valid values are `instanceId` (or `host`, which has the same effect), or any platform or custom attribute that is applied to a container instance, such as `attribute:ecs.availability-zone`. For the `binpack` placement strategy, valid values are `cpu` and `memory`. For the `random` placement strategy, this field is not used. For more information, see [Amazon ECS task placement strategies](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-placement-strategies.html).
-        """
-elif False:
-    EventTargetEcsTargetOrderedPlacementStrategyArgsDict: TypeAlias = Mapping[str, Any]
+class EventTargetEcsTargetOrderedPlacementStrategyArgsDict(TypedDict):
+    type: pulumi.Input[_builtins.str]
+    """
+    Type of placement strategy. The only valid values at this time are `binpack`, `random` and `spread`.
+    """
+    field: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The field to apply the placement strategy against. For the `spread` placement strategy, valid values are `instanceId` (or `host`, which has the same effect), or any platform or custom attribute that is applied to a container instance, such as `attribute:ecs.availability-zone`. For the `binpack` placement strategy, valid values are `cpu` and `memory`. For the `random` placement strategy, this field is not used. For more information, see [Amazon ECS task placement strategies](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task-placement-strategies.html).
+    """
 
 @pulumi.input_type
 class EventTargetEcsTargetOrderedPlacementStrategyArgs:
@@ -2251,18 +2153,15 @@ class EventTargetEcsTargetOrderedPlacementStrategyArgs:
         pulumi.set(self, "field", value)
 
 
-if not MYPY:
-    class EventTargetEcsTargetPlacementConstraintArgsDict(TypedDict):
-        type: pulumi.Input[_builtins.str]
-        """
-        Type of constraint. The only valid values at this time are `memberOf` and `distinctInstance`.
-        """
-        expression: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Cluster Query Language expression to apply to the constraint. Does not need to be specified for the `distinctInstance` type. For more information, see [Cluster Query Language in the Amazon EC2 Container Service Developer Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-query-language.html).
-        """
-elif False:
-    EventTargetEcsTargetPlacementConstraintArgsDict: TypeAlias = Mapping[str, Any]
+class EventTargetEcsTargetPlacementConstraintArgsDict(TypedDict):
+    type: pulumi.Input[_builtins.str]
+    """
+    Type of constraint. The only valid values at this time are `memberOf` and `distinctInstance`.
+    """
+    expression: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Cluster Query Language expression to apply to the constraint. Does not need to be specified for the `distinctInstance` type. For more information, see [Cluster Query Language in the Amazon EC2 Container Service Developer Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-query-language.html).
+    """
 
 @pulumi.input_type
 class EventTargetEcsTargetPlacementConstraintArgs:
@@ -2302,22 +2201,19 @@ class EventTargetEcsTargetPlacementConstraintArgs:
         pulumi.set(self, "expression", value)
 
 
-if not MYPY:
-    class EventTargetHttpTargetArgsDict(TypedDict):
-        header_parameters: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
-        """
-        Enables you to specify HTTP headers to add to the request.
-        """
-        path_parameter_values: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        The list of values that correspond sequentially to any path variables in your endpoint ARN (for example `arn:aws:execute-api:us-east-1:123456:myapi/*/POST/pets/*`).
-        """
-        query_string_parameters: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
-        """
-        Represents keys/values of query string parameters that are appended to the invoked endpoint.
-        """
-elif False:
-    EventTargetHttpTargetArgsDict: TypeAlias = Mapping[str, Any]
+class EventTargetHttpTargetArgsDict(TypedDict):
+    header_parameters: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    """
+    Enables you to specify HTTP headers to add to the request.
+    """
+    path_parameter_values: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    The list of values that correspond sequentially to any path variables in your endpoint ARN (for example `arn:aws:execute-api:us-east-1:123456:myapi/*/POST/pets/*`).
+    """
+    query_string_parameters: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    """
+    Represents keys/values of query string parameters that are appended to the invoked endpoint.
+    """
 
 @pulumi.input_type
 class EventTargetHttpTargetArgs:
@@ -2374,21 +2270,18 @@ class EventTargetHttpTargetArgs:
         pulumi.set(self, "query_string_parameters", value)
 
 
-if not MYPY:
-    class EventTargetInputTransformerArgsDict(TypedDict):
-        input_template: pulumi.Input[_builtins.str]
-        """
-        Template to customize data sent to the target. Must be valid JSON. To send a string value, the string value must include double quotes.
-        """
-        input_paths: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
-        """
-        Key value pairs specified in the form of JSONPath (for example, time = $.time)
-        * You can have as many as 100 key-value pairs.
-        * You must use JSON dot notation, not bracket notation.
-        * The keys can't start with "AWS".
-        """
-elif False:
-    EventTargetInputTransformerArgsDict: TypeAlias = Mapping[str, Any]
+class EventTargetInputTransformerArgsDict(TypedDict):
+    input_template: pulumi.Input[_builtins.str]
+    """
+    Template to customize data sent to the target. Must be valid JSON. To send a string value, the string value must include double quotes.
+    """
+    input_paths: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    """
+    Key value pairs specified in the form of JSONPath (for example, time = $.time)
+    * You can have as many as 100 key-value pairs.
+    * You must use JSON dot notation, not bracket notation.
+    * The keys can't start with "AWS".
+    """
 
 @pulumi.input_type
 class EventTargetInputTransformerArgs:
@@ -2434,14 +2327,11 @@ class EventTargetInputTransformerArgs:
         pulumi.set(self, "input_paths", value)
 
 
-if not MYPY:
-    class EventTargetKinesisTargetArgsDict(TypedDict):
-        partition_key_path: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The JSON path to be extracted from the event and used as the partition key.
-        """
-elif False:
-    EventTargetKinesisTargetArgsDict: TypeAlias = Mapping[str, Any]
+class EventTargetKinesisTargetArgsDict(TypedDict):
+    partition_key_path: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The JSON path to be extracted from the event and used as the partition key.
+    """
 
 @pulumi.input_type
 class EventTargetKinesisTargetArgs:
@@ -2466,34 +2356,31 @@ class EventTargetKinesisTargetArgs:
         pulumi.set(self, "partition_key_path", value)
 
 
-if not MYPY:
-    class EventTargetRedshiftTargetArgsDict(TypedDict):
-        database: pulumi.Input[_builtins.str]
-        """
-        The name of the database.
-        """
-        db_user: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The database user name.
-        """
-        secrets_manager_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name or ARN of the secret that enables access to the database.
-        """
-        sql: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The SQL statement text to run.
-        """
-        statement_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the SQL statement.
-        """
-        with_event: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Indicates whether to send an event back to EventBridge after the SQL statement runs.
-        """
-elif False:
-    EventTargetRedshiftTargetArgsDict: TypeAlias = Mapping[str, Any]
+class EventTargetRedshiftTargetArgsDict(TypedDict):
+    database: pulumi.Input[_builtins.str]
+    """
+    The name of the database.
+    """
+    db_user: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The database user name.
+    """
+    secrets_manager_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name or ARN of the secret that enables access to the database.
+    """
+    sql: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The SQL statement text to run.
+    """
+    statement_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the SQL statement.
+    """
+    with_event: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Indicates whether to send an event back to EventBridge after the SQL statement runs.
+    """
 
 @pulumi.input_type
 class EventTargetRedshiftTargetArgs:
@@ -2597,18 +2484,15 @@ class EventTargetRedshiftTargetArgs:
         pulumi.set(self, "with_event", value)
 
 
-if not MYPY:
-    class EventTargetRetryPolicyArgsDict(TypedDict):
-        maximum_event_age_in_seconds: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The age in seconds to continue to make retry attempts.
-        """
-        maximum_retry_attempts: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        maximum number of retry attempts to make before the request fails
-        """
-elif False:
-    EventTargetRetryPolicyArgsDict: TypeAlias = Mapping[str, Any]
+class EventTargetRetryPolicyArgsDict(TypedDict):
+    maximum_event_age_in_seconds: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The age in seconds to continue to make retry attempts.
+    """
+    maximum_retry_attempts: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    maximum number of retry attempts to make before the request fails
+    """
 
 @pulumi.input_type
 class EventTargetRetryPolicyArgs:
@@ -2649,18 +2533,15 @@ class EventTargetRetryPolicyArgs:
         pulumi.set(self, "maximum_retry_attempts", value)
 
 
-if not MYPY:
-    class EventTargetRunCommandTargetArgsDict(TypedDict):
-        key: pulumi.Input[_builtins.str]
-        """
-        Can be either `tag:tag-key` or `InstanceIds`.
-        """
-        values: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        If Key is `tag:tag-key`, Values is a list of tag values. If Key is `InstanceIds`, Values is a list of Amazon EC2 instance IDs.
-        """
-elif False:
-    EventTargetRunCommandTargetArgsDict: TypeAlias = Mapping[str, Any]
+class EventTargetRunCommandTargetArgsDict(TypedDict):
+    key: pulumi.Input[_builtins.str]
+    """
+    Can be either `tag:tag-key` or `InstanceIds`.
+    """
+    values: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    If Key is `tag:tag-key`, Values is a list of tag values. If Key is `InstanceIds`, Values is a list of Amazon EC2 instance IDs.
+    """
 
 @pulumi.input_type
 class EventTargetRunCommandTargetArgs:
@@ -2699,14 +2580,11 @@ class EventTargetRunCommandTargetArgs:
         pulumi.set(self, "values", value)
 
 
-if not MYPY:
-    class EventTargetSagemakerPipelineTargetArgsDict(TypedDict):
-        pipeline_parameter_lists: NotRequired[pulumi.Input[Sequence[pulumi.Input['EventTargetSagemakerPipelineTargetPipelineParameterListArgsDict']]]]
-        """
-        List of Parameter names and values for SageMaker AI Model Building Pipeline execution.
-        """
-elif False:
-    EventTargetSagemakerPipelineTargetArgsDict: TypeAlias = Mapping[str, Any]
+class EventTargetSagemakerPipelineTargetArgsDict(TypedDict):
+    pipeline_parameter_lists: NotRequired[pulumi.Input[Sequence[pulumi.Input['EventTargetSagemakerPipelineTargetPipelineParameterListArgsDict']]]]
+    """
+    List of Parameter names and values for SageMaker AI Model Building Pipeline execution.
+    """
 
 @pulumi.input_type
 class EventTargetSagemakerPipelineTargetArgs:
@@ -2731,18 +2609,15 @@ class EventTargetSagemakerPipelineTargetArgs:
         pulumi.set(self, "pipeline_parameter_lists", value)
 
 
-if not MYPY:
-    class EventTargetSagemakerPipelineTargetPipelineParameterListArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        """
-        Name of parameter to start execution of a SageMaker AI Model Building Pipeline.
-        """
-        value: pulumi.Input[_builtins.str]
-        """
-        Value of parameter to start execution of a SageMaker AI Model Building Pipeline.
-        """
-elif False:
-    EventTargetSagemakerPipelineTargetPipelineParameterListArgsDict: TypeAlias = Mapping[str, Any]
+class EventTargetSagemakerPipelineTargetPipelineParameterListArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    Name of parameter to start execution of a SageMaker AI Model Building Pipeline.
+    """
+    value: pulumi.Input[_builtins.str]
+    """
+    Value of parameter to start execution of a SageMaker AI Model Building Pipeline.
+    """
 
 @pulumi.input_type
 class EventTargetSagemakerPipelineTargetPipelineParameterListArgs:
@@ -2781,14 +2656,11 @@ class EventTargetSagemakerPipelineTargetPipelineParameterListArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class EventTargetSqsTargetArgsDict(TypedDict):
-        message_group_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The FIFO message group ID to use as the target.
-        """
-elif False:
-    EventTargetSqsTargetArgsDict: TypeAlias = Mapping[str, Any]
+class EventTargetSqsTargetArgsDict(TypedDict):
+    message_group_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The FIFO message group ID to use as the target.
+    """
 
 @pulumi.input_type
 class EventTargetSqsTargetArgs:
@@ -2813,18 +2685,15 @@ class EventTargetSqsTargetArgs:
         pulumi.set(self, "message_group_id", value)
 
 
-if not MYPY:
-    class InternetMonitorHealthEventsConfigArgsDict(TypedDict):
-        availability_score_threshold: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        The health event threshold percentage set for availability scores.
-        """
-        performance_score_threshold: NotRequired[pulumi.Input[_builtins.float]]
-        """
-        The health event threshold percentage set for performance scores.
-        """
-elif False:
-    InternetMonitorHealthEventsConfigArgsDict: TypeAlias = Mapping[str, Any]
+class InternetMonitorHealthEventsConfigArgsDict(TypedDict):
+    availability_score_threshold: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    The health event threshold percentage set for availability scores.
+    """
+    performance_score_threshold: NotRequired[pulumi.Input[_builtins.float]]
+    """
+    The health event threshold percentage set for performance scores.
+    """
 
 @pulumi.input_type
 class InternetMonitorHealthEventsConfigArgs:
@@ -2865,11 +2734,8 @@ class InternetMonitorHealthEventsConfigArgs:
         pulumi.set(self, "performance_score_threshold", value)
 
 
-if not MYPY:
-    class InternetMonitorInternetMeasurementsLogDeliveryArgsDict(TypedDict):
-        s3_config: NotRequired[pulumi.Input['InternetMonitorInternetMeasurementsLogDeliveryS3ConfigArgsDict']]
-elif False:
-    InternetMonitorInternetMeasurementsLogDeliveryArgsDict: TypeAlias = Mapping[str, Any]
+class InternetMonitorInternetMeasurementsLogDeliveryArgsDict(TypedDict):
+    s3_config: NotRequired[pulumi.Input['InternetMonitorInternetMeasurementsLogDeliveryS3ConfigArgsDict']]
 
 @pulumi.input_type
 class InternetMonitorInternetMeasurementsLogDeliveryArgs:
@@ -2888,13 +2754,10 @@ class InternetMonitorInternetMeasurementsLogDeliveryArgs:
         pulumi.set(self, "s3_config", value)
 
 
-if not MYPY:
-    class InternetMonitorInternetMeasurementsLogDeliveryS3ConfigArgsDict(TypedDict):
-        bucket_name: pulumi.Input[_builtins.str]
-        bucket_prefix: NotRequired[pulumi.Input[_builtins.str]]
-        log_delivery_status: NotRequired[pulumi.Input[_builtins.str]]
-elif False:
-    InternetMonitorInternetMeasurementsLogDeliveryS3ConfigArgsDict: TypeAlias = Mapping[str, Any]
+class InternetMonitorInternetMeasurementsLogDeliveryS3ConfigArgsDict(TypedDict):
+    bucket_name: pulumi.Input[_builtins.str]
+    bucket_prefix: NotRequired[pulumi.Input[_builtins.str]]
+    log_delivery_status: NotRequired[pulumi.Input[_builtins.str]]
 
 @pulumi.input_type
 class InternetMonitorInternetMeasurementsLogDeliveryS3ConfigArgs:
@@ -2936,14 +2799,11 @@ class InternetMonitorInternetMeasurementsLogDeliveryS3ConfigArgs:
         pulumi.set(self, "log_delivery_status", value)
 
 
-if not MYPY:
-    class LogDeliveryDestinationDeliveryDestinationConfigurationArgsDict(TypedDict):
-        destination_resource_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ARN of the AWS destination that this delivery destination represents. Required when `delivery_destination_configuration` is specified.
-        """
-elif False:
-    LogDeliveryDestinationDeliveryDestinationConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class LogDeliveryDestinationDeliveryDestinationConfigurationArgsDict(TypedDict):
+    destination_resource_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ARN of the AWS destination that this delivery destination represents. Required when `delivery_destination_configuration` is specified.
+    """
 
 @pulumi.input_type
 class LogDeliveryDestinationDeliveryDestinationConfigurationArgs:
@@ -2968,18 +2828,15 @@ class LogDeliveryDestinationDeliveryDestinationConfigurationArgs:
         pulumi.set(self, "destination_resource_arn", value)
 
 
-if not MYPY:
-    class LogDeliveryS3DeliveryConfigurationArgsDict(TypedDict):
-        enable_hive_compatible_path: pulumi.Input[_builtins.bool]
-        """
-        This parameter causes the S3 objects that contain delivered logs to use a prefix structure that allows for integration with Apache Hive.
-        """
-        suffix_path: pulumi.Input[_builtins.str]
-        """
-        This string allows re-configuring the S3 object prefix to contain either static or variable sections. The valid variables to use in the suffix path will vary by each log source.
-        """
-elif False:
-    LogDeliveryS3DeliveryConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class LogDeliveryS3DeliveryConfigurationArgsDict(TypedDict):
+    enable_hive_compatible_path: pulumi.Input[_builtins.bool]
+    """
+    This parameter causes the S3 objects that contain delivered logs to use a prefix structure that allows for integration with Apache Hive.
+    """
+    suffix_path: pulumi.Input[_builtins.str]
+    """
+    This string allows re-configuring the S3 object prefix to contain either static or variable sections. The valid variables to use in the suffix path will vary by each log source. **Note:** AWS automatically prepends account and service-specific prefixes (e.g., `AWSLogs/{account-id}/CloudFront/` for CloudFront sources) to the configured value. Specify only your custom suffix path without these AWS-managed prefixes.
+    """
 
 @pulumi.input_type
 class LogDeliveryS3DeliveryConfigurationArgs:
@@ -2988,7 +2845,7 @@ class LogDeliveryS3DeliveryConfigurationArgs:
                  suffix_path: pulumi.Input[_builtins.str]):
         """
         :param pulumi.Input[_builtins.bool] enable_hive_compatible_path: This parameter causes the S3 objects that contain delivered logs to use a prefix structure that allows for integration with Apache Hive.
-        :param pulumi.Input[_builtins.str] suffix_path: This string allows re-configuring the S3 object prefix to contain either static or variable sections. The valid variables to use in the suffix path will vary by each log source.
+        :param pulumi.Input[_builtins.str] suffix_path: This string allows re-configuring the S3 object prefix to contain either static or variable sections. The valid variables to use in the suffix path will vary by each log source. **Note:** AWS automatically prepends account and service-specific prefixes (e.g., `AWSLogs/{account-id}/CloudFront/` for CloudFront sources) to the configured value. Specify only your custom suffix path without these AWS-managed prefixes.
         """
         pulumi.set(__self__, "enable_hive_compatible_path", enable_hive_compatible_path)
         pulumi.set(__self__, "suffix_path", suffix_path)
@@ -3009,7 +2866,7 @@ class LogDeliveryS3DeliveryConfigurationArgs:
     @pulumi.getter(name="suffixPath")
     def suffix_path(self) -> pulumi.Input[_builtins.str]:
         """
-        This string allows re-configuring the S3 object prefix to contain either static or variable sections. The valid variables to use in the suffix path will vary by each log source.
+        This string allows re-configuring the S3 object prefix to contain either static or variable sections. The valid variables to use in the suffix path will vary by each log source. **Note:** AWS automatically prepends account and service-specific prefixes (e.g., `AWSLogs/{account-id}/CloudFront/` for CloudFront sources) to the configured value. Specify only your custom suffix path without these AWS-managed prefixes.
         """
         return pulumi.get(self, "suffix_path")
 
@@ -3018,34 +2875,31 @@ class LogDeliveryS3DeliveryConfigurationArgs:
         pulumi.set(self, "suffix_path", value)
 
 
-if not MYPY:
-    class LogMetricFilterMetricTransformationArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the CloudWatch metric to which the monitored log information should be published (e.g., `ErrorCount`)
-        """
-        namespace: pulumi.Input[_builtins.str]
-        """
-        The destination namespace of the CloudWatch metric.
-        """
-        value: pulumi.Input[_builtins.str]
-        """
-        What to publish to the metric. For example, if you're counting the occurrences of a particular term like "Error", the value will be "1" for each occurrence. If you're counting the bytes transferred the published value will be the value in the log event.
-        """
-        default_value: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The value to emit when a filter pattern does not match a log event. Conflicts with `dimensions`.
-        """
-        dimensions: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
-        """
-        Map of fields to use as dimensions for the metric. Up to 3 dimensions are allowed. Conflicts with `default_value`.
-        """
-        unit: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The unit to assign to the metric. If you omit this, the unit is set as `None`.
-        """
-elif False:
-    LogMetricFilterMetricTransformationArgsDict: TypeAlias = Mapping[str, Any]
+class LogMetricFilterMetricTransformationArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the CloudWatch metric to which the monitored log information should be published (e.g., `ErrorCount`)
+    """
+    namespace: pulumi.Input[_builtins.str]
+    """
+    The destination namespace of the CloudWatch metric.
+    """
+    value: pulumi.Input[_builtins.str]
+    """
+    What to publish to the metric. For example, if you're counting the occurrences of a particular term like "Error", the value will be "1" for each occurrence. If you're counting the bytes transferred the published value will be the value in the log event.
+    """
+    default_value: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The value to emit when a filter pattern does not match a log event. Conflicts with `dimensions`.
+    """
+    dimensions: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    """
+    Map of fields to use as dimensions for the metric. Up to 3 dimensions are allowed. Conflicts with `default_value`.
+    """
+    unit: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The unit to assign to the metric. If you omit this, the unit is set as `None`.
+    """
 
 @pulumi.input_type
 class LogMetricFilterMetricTransformationArgs:
@@ -3147,102 +3001,99 @@ class LogMetricFilterMetricTransformationArgs:
         pulumi.set(self, "unit", value)
 
 
-if not MYPY:
-    class LogTransformerTransformerConfigArgsDict(TypedDict):
-        add_keys: NotRequired[pulumi.Input['LogTransformerTransformerConfigAddKeysArgsDict']]
-        """
-        Adds new key-value pairs to the log event. See `add_keys` below for details.
-        """
-        copy_value: NotRequired[pulumi.Input['LogTransformerTransformerConfigCopyValueArgsDict']]
-        """
-        Copies values within a log event. See `copy_value` below for details.
-        """
-        csvs: NotRequired[pulumi.Input[Sequence[pulumi.Input['LogTransformerTransformerConfigCsvArgsDict']]]]
-        """
-        Parses comma-separated values (CSV) from the log events into columns. See `csv` below for details.
-        """
-        date_time_converters: NotRequired[pulumi.Input[Sequence[pulumi.Input['LogTransformerTransformerConfigDateTimeConverterArgsDict']]]]
-        """
-        Converts a datetime string into a format that you specify. See `date_time_converter` below for details.
-        """
-        delete_keys: NotRequired[pulumi.Input[Sequence[pulumi.Input['LogTransformerTransformerConfigDeleteKeyArgsDict']]]]
-        """
-        Deletes entry from a log event. See `delete_keys` below for details.
-        """
-        grok: NotRequired[pulumi.Input['LogTransformerTransformerConfigGrokArgsDict']]
-        """
-        Parses and structures unstructured data by using pattern matching. See `grok` below for details.
-        """
-        list_to_maps: NotRequired[pulumi.Input[Sequence[pulumi.Input['LogTransformerTransformerConfigListToMapArgsDict']]]]
-        """
-        Converts list of objects that contain key fields into a map of target keys. See `list_to_map` below for details.
-        """
-        lower_case_strings: NotRequired[pulumi.Input[Sequence[pulumi.Input['LogTransformerTransformerConfigLowerCaseStringArgsDict']]]]
-        """
-        Converts a string to lowercase. See `lower_case_string` below for details.
-        """
-        move_keys: NotRequired[pulumi.Input[Sequence[pulumi.Input['LogTransformerTransformerConfigMoveKeyArgsDict']]]]
-        """
-        Moves a key from one field to another. See `move_keys` below for details.
-        """
-        parse_cloudfront: NotRequired[pulumi.Input['LogTransformerTransformerConfigParseCloudfrontArgsDict']]
-        """
-        Parses CloudFront vended logs, extracts fields, and converts them into JSON format. See `parse_cloudfront` below for details.
-        """
-        parse_jsons: NotRequired[pulumi.Input[Sequence[pulumi.Input['LogTransformerTransformerConfigParseJsonArgsDict']]]]
-        """
-        Parses log events that are in JSON format. See `parse_json` below for details.
-        """
-        parse_key_values: NotRequired[pulumi.Input[Sequence[pulumi.Input['LogTransformerTransformerConfigParseKeyValueArgsDict']]]]
-        """
-        Parses a specified field in the original log event into key-value pairs. See `parse_key_value` below for details.
-        """
-        parse_postgres: NotRequired[pulumi.Input['LogTransformerTransformerConfigParsePostgresArgsDict']]
-        """
-        Parses RDS for PostgreSQL vended logs, extracts fields, and and convert them into a JSON format. See `parse_postgres` below for details.
-        """
-        parse_route53: NotRequired[pulumi.Input['LogTransformerTransformerConfigParseRoute53ArgsDict']]
-        """
-        Parses Route 53 vended logs, extracts fields, and converts them into JSON format. See `parse_route53` below for details.
-        """
-        parse_to_ocsf: NotRequired[pulumi.Input['LogTransformerTransformerConfigParseToOcsfArgsDict']]
-        """
-        Parses logs events and converts them into Open Cybersecurity Schema Framework (OCSF) events. See `parse_to_ocsf` below for details.
-        """
-        parse_vpc: NotRequired[pulumi.Input['LogTransformerTransformerConfigParseVpcArgsDict']]
-        """
-        Parses Amazon VPC vended logs, extracts fields, and converts them into JSON format. See `parse_vpc` below for details.
-        """
-        parse_waf: NotRequired[pulumi.Input['LogTransformerTransformerConfigParseWafArgsDict']]
-        """
-        Parses AWS WAF vended logs, extracts fields, and converts them into JSON format. See `parse_waf` below for details.
-        """
-        rename_keys: NotRequired[pulumi.Input[Sequence[pulumi.Input['LogTransformerTransformerConfigRenameKeyArgsDict']]]]
-        """
-        Renames keys in a log event. See `rename_keys` below for details.
-        """
-        split_strings: NotRequired[pulumi.Input[Sequence[pulumi.Input['LogTransformerTransformerConfigSplitStringArgsDict']]]]
-        """
-        Splits a field into an array of strings using a delimiting character. See `split_string` below for details.
-        """
-        substitute_strings: NotRequired[pulumi.Input[Sequence[pulumi.Input['LogTransformerTransformerConfigSubstituteStringArgsDict']]]]
-        """
-        Matches a key’s value against a regular expression and replaces all matches with a replacement string. See `substitute_string` below for details.
-        """
-        trim_strings: NotRequired[pulumi.Input[Sequence[pulumi.Input['LogTransformerTransformerConfigTrimStringArgsDict']]]]
-        """
-        Removes leading and trailing whitespace from a string. See `trim_string` below for details.
-        """
-        type_converters: NotRequired[pulumi.Input[Sequence[pulumi.Input['LogTransformerTransformerConfigTypeConverterArgsDict']]]]
-        """
-        Converts a value type associated with the specified key to the specified type. See `type_converter` below for details.
-        """
-        upper_case_strings: NotRequired[pulumi.Input[Sequence[pulumi.Input['LogTransformerTransformerConfigUpperCaseStringArgsDict']]]]
-        """
-        Converts a string to uppercase. See `upper_case_string` below for details.
-        """
-elif False:
-    LogTransformerTransformerConfigArgsDict: TypeAlias = Mapping[str, Any]
+class LogTransformerTransformerConfigArgsDict(TypedDict):
+    add_keys: NotRequired[pulumi.Input['LogTransformerTransformerConfigAddKeysArgsDict']]
+    """
+    Adds new key-value pairs to the log event. See `add_keys` below for details.
+    """
+    copy_value: NotRequired[pulumi.Input['LogTransformerTransformerConfigCopyValueArgsDict']]
+    """
+    Copies values within a log event. See `copy_value` below for details.
+    """
+    csvs: NotRequired[pulumi.Input[Sequence[pulumi.Input['LogTransformerTransformerConfigCsvArgsDict']]]]
+    """
+    Parses comma-separated values (CSV) from the log events into columns. See `csv` below for details.
+    """
+    date_time_converters: NotRequired[pulumi.Input[Sequence[pulumi.Input['LogTransformerTransformerConfigDateTimeConverterArgsDict']]]]
+    """
+    Converts a datetime string into a format that you specify. See `date_time_converter` below for details.
+    """
+    delete_keys: NotRequired[pulumi.Input[Sequence[pulumi.Input['LogTransformerTransformerConfigDeleteKeyArgsDict']]]]
+    """
+    Deletes entry from a log event. See `delete_keys` below for details.
+    """
+    grok: NotRequired[pulumi.Input['LogTransformerTransformerConfigGrokArgsDict']]
+    """
+    Parses and structures unstructured data by using pattern matching. See `grok` below for details.
+    """
+    list_to_maps: NotRequired[pulumi.Input[Sequence[pulumi.Input['LogTransformerTransformerConfigListToMapArgsDict']]]]
+    """
+    Converts list of objects that contain key fields into a map of target keys. See `list_to_map` below for details.
+    """
+    lower_case_strings: NotRequired[pulumi.Input[Sequence[pulumi.Input['LogTransformerTransformerConfigLowerCaseStringArgsDict']]]]
+    """
+    Converts a string to lowercase. See `lower_case_string` below for details.
+    """
+    move_keys: NotRequired[pulumi.Input[Sequence[pulumi.Input['LogTransformerTransformerConfigMoveKeyArgsDict']]]]
+    """
+    Moves a key from one field to another. See `move_keys` below for details.
+    """
+    parse_cloudfront: NotRequired[pulumi.Input['LogTransformerTransformerConfigParseCloudfrontArgsDict']]
+    """
+    Parses CloudFront vended logs, extracts fields, and converts them into JSON format. See `parse_cloudfront` below for details.
+    """
+    parse_jsons: NotRequired[pulumi.Input[Sequence[pulumi.Input['LogTransformerTransformerConfigParseJsonArgsDict']]]]
+    """
+    Parses log events that are in JSON format. See `parse_json` below for details.
+    """
+    parse_key_values: NotRequired[pulumi.Input[Sequence[pulumi.Input['LogTransformerTransformerConfigParseKeyValueArgsDict']]]]
+    """
+    Parses a specified field in the original log event into key-value pairs. See `parse_key_value` below for details.
+    """
+    parse_postgres: NotRequired[pulumi.Input['LogTransformerTransformerConfigParsePostgresArgsDict']]
+    """
+    Parses RDS for PostgreSQL vended logs, extracts fields, and and convert them into a JSON format. See `parse_postgres` below for details.
+    """
+    parse_route53: NotRequired[pulumi.Input['LogTransformerTransformerConfigParseRoute53ArgsDict']]
+    """
+    Parses Route 53 vended logs, extracts fields, and converts them into JSON format. See `parse_route53` below for details.
+    """
+    parse_to_ocsf: NotRequired[pulumi.Input['LogTransformerTransformerConfigParseToOcsfArgsDict']]
+    """
+    Parses logs events and converts them into Open Cybersecurity Schema Framework (OCSF) events. See `parse_to_ocsf` below for details.
+    """
+    parse_vpc: NotRequired[pulumi.Input['LogTransformerTransformerConfigParseVpcArgsDict']]
+    """
+    Parses Amazon VPC vended logs, extracts fields, and converts them into JSON format. See `parse_vpc` below for details.
+    """
+    parse_waf: NotRequired[pulumi.Input['LogTransformerTransformerConfigParseWafArgsDict']]
+    """
+    Parses AWS WAF vended logs, extracts fields, and converts them into JSON format. See `parse_waf` below for details.
+    """
+    rename_keys: NotRequired[pulumi.Input[Sequence[pulumi.Input['LogTransformerTransformerConfigRenameKeyArgsDict']]]]
+    """
+    Renames keys in a log event. See `rename_keys` below for details.
+    """
+    split_strings: NotRequired[pulumi.Input[Sequence[pulumi.Input['LogTransformerTransformerConfigSplitStringArgsDict']]]]
+    """
+    Splits a field into an array of strings using a delimiting character. See `split_string` below for details.
+    """
+    substitute_strings: NotRequired[pulumi.Input[Sequence[pulumi.Input['LogTransformerTransformerConfigSubstituteStringArgsDict']]]]
+    """
+    Matches a key’s value against a regular expression and replaces all matches with a replacement string. See `substitute_string` below for details.
+    """
+    trim_strings: NotRequired[pulumi.Input[Sequence[pulumi.Input['LogTransformerTransformerConfigTrimStringArgsDict']]]]
+    """
+    Removes leading and trailing whitespace from a string. See `trim_string` below for details.
+    """
+    type_converters: NotRequired[pulumi.Input[Sequence[pulumi.Input['LogTransformerTransformerConfigTypeConverterArgsDict']]]]
+    """
+    Converts a value type associated with the specified key to the specified type. See `type_converter` below for details.
+    """
+    upper_case_strings: NotRequired[pulumi.Input[Sequence[pulumi.Input['LogTransformerTransformerConfigUpperCaseStringArgsDict']]]]
+    """
+    Converts a string to uppercase. See `upper_case_string` below for details.
+    """
 
 @pulumi.input_type
 class LogTransformerTransformerConfigArgs:
@@ -3619,14 +3470,11 @@ class LogTransformerTransformerConfigArgs:
         pulumi.set(self, "upper_case_strings", value)
 
 
-if not MYPY:
-    class LogTransformerTransformerConfigAddKeysArgsDict(TypedDict):
-        entries: pulumi.Input[Sequence[pulumi.Input['LogTransformerTransformerConfigAddKeysEntryArgsDict']]]
-        """
-        Objects containing the information about the keys to add to the log event. You must include at least one entry, and five at most. See `add_keys` `entry` below for details.
-        """
-elif False:
-    LogTransformerTransformerConfigAddKeysArgsDict: TypeAlias = Mapping[str, Any]
+class LogTransformerTransformerConfigAddKeysArgsDict(TypedDict):
+    entries: pulumi.Input[Sequence[pulumi.Input['LogTransformerTransformerConfigAddKeysEntryArgsDict']]]
+    """
+    Objects containing the information about the keys to add to the log event. You must include at least one entry, and five at most. See `add_keys` `entry` below for details.
+    """
 
 @pulumi.input_type
 class LogTransformerTransformerConfigAddKeysArgs:
@@ -3650,23 +3498,20 @@ class LogTransformerTransformerConfigAddKeysArgs:
         pulumi.set(self, "entries", value)
 
 
-if not MYPY:
-    class LogTransformerTransformerConfigAddKeysEntryArgsDict(TypedDict):
-        key: pulumi.Input[_builtins.str]
-        """
-        Specifies the key with the value that will be converted to a different type.
-        """
-        value: pulumi.Input[_builtins.str]
-        """
-        Specifies the value of the new entry to be added to the log event.
-        """
-        overwrite_if_exists: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Specifies whether to overwrite the value if the destination key already exists. Defaults to `false`.
-        * `renameTo` - (Required) Specifies the new name of the key.
-        """
-elif False:
-    LogTransformerTransformerConfigAddKeysEntryArgsDict: TypeAlias = Mapping[str, Any]
+class LogTransformerTransformerConfigAddKeysEntryArgsDict(TypedDict):
+    key: pulumi.Input[_builtins.str]
+    """
+    Specifies the key with the value that will be converted to a different type.
+    """
+    value: pulumi.Input[_builtins.str]
+    """
+    Specifies the value of the new entry to be added to the log event.
+    """
+    overwrite_if_exists: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Specifies whether to overwrite the value if the destination key already exists. Defaults to `false`.
+    * `renameTo` - (Required) Specifies the new name of the key.
+    """
 
 @pulumi.input_type
 class LogTransformerTransformerConfigAddKeysEntryArgs:
@@ -3723,14 +3568,11 @@ class LogTransformerTransformerConfigAddKeysEntryArgs:
         pulumi.set(self, "overwrite_if_exists", value)
 
 
-if not MYPY:
-    class LogTransformerTransformerConfigCopyValueArgsDict(TypedDict):
-        entries: pulumi.Input[Sequence[pulumi.Input['LogTransformerTransformerConfigCopyValueEntryArgsDict']]]
-        """
-        Objects containing the information about the values to copy to the log event. You must include at least one entry, and five at most. See `copy_value` `entry` below for details.
-        """
-elif False:
-    LogTransformerTransformerConfigCopyValueArgsDict: TypeAlias = Mapping[str, Any]
+class LogTransformerTransformerConfigCopyValueArgsDict(TypedDict):
+    entries: pulumi.Input[Sequence[pulumi.Input['LogTransformerTransformerConfigCopyValueEntryArgsDict']]]
+    """
+    Objects containing the information about the values to copy to the log event. You must include at least one entry, and five at most. See `copy_value` `entry` below for details.
+    """
 
 @pulumi.input_type
 class LogTransformerTransformerConfigCopyValueArgs:
@@ -3754,23 +3596,20 @@ class LogTransformerTransformerConfigCopyValueArgs:
         pulumi.set(self, "entries", value)
 
 
-if not MYPY:
-    class LogTransformerTransformerConfigCopyValueEntryArgsDict(TypedDict):
-        source: pulumi.Input[_builtins.str]
-        """
-        Specifies the key to modify.
-        """
-        target: pulumi.Input[_builtins.str]
-        """
-        Specifies the key to move to.
-        """
-        overwrite_if_exists: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Specifies whether to overwrite the value if the destination key already exists. Defaults to `false`.
-        * `renameTo` - (Required) Specifies the new name of the key.
-        """
-elif False:
-    LogTransformerTransformerConfigCopyValueEntryArgsDict: TypeAlias = Mapping[str, Any]
+class LogTransformerTransformerConfigCopyValueEntryArgsDict(TypedDict):
+    source: pulumi.Input[_builtins.str]
+    """
+    Specifies the key to modify.
+    """
+    target: pulumi.Input[_builtins.str]
+    """
+    Specifies the key to move to.
+    """
+    overwrite_if_exists: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Specifies whether to overwrite the value if the destination key already exists. Defaults to `false`.
+    * `renameTo` - (Required) Specifies the new name of the key.
+    """
 
 @pulumi.input_type
 class LogTransformerTransformerConfigCopyValueEntryArgs:
@@ -3827,26 +3666,23 @@ class LogTransformerTransformerConfigCopyValueEntryArgs:
         pulumi.set(self, "overwrite_if_exists", value)
 
 
-if not MYPY:
-    class LogTransformerTransformerConfigCsvArgsDict(TypedDict):
-        columns: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        Specifies the names to use for the columns in the transformed log event. If not specified, default column names (`[column_1, column_2 ...]`) are used.
-        """
-        delimiter: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specifies the character used to separate each column in the original comma-separated value log event. Defaults to the comma `,` character.
-        """
-        quote_character: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specifies the character used as a text qualifier for a single column of data. Defaults to the double quotation mark `"` character.
-        """
-        source: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specifies the path to the field in the log event that has the comma separated values to be parsed. If omitted, the whole log message is processed.
-        """
-elif False:
-    LogTransformerTransformerConfigCsvArgsDict: TypeAlias = Mapping[str, Any]
+class LogTransformerTransformerConfigCsvArgsDict(TypedDict):
+    columns: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    Specifies the names to use for the columns in the transformed log event. If not specified, default column names (`[column_1, column_2 ...]`) are used.
+    """
+    delimiter: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies the character used to separate each column in the original comma-separated value log event. Defaults to the comma `,` character.
+    """
+    quote_character: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies the character used as a text qualifier for a single column of data. Defaults to the double quotation mark `"` character.
+    """
+    source: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies the path to the field in the log event that has the comma separated values to be parsed. If omitted, the whole log message is processed.
+    """
 
 @pulumi.input_type
 class LogTransformerTransformerConfigCsvArgs:
@@ -3919,38 +3755,35 @@ class LogTransformerTransformerConfigCsvArgs:
         pulumi.set(self, "source", value)
 
 
-if not MYPY:
-    class LogTransformerTransformerConfigDateTimeConverterArgsDict(TypedDict):
-        match_patterns: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        Specifies the list of patterns to match against the `source` field.
-        """
-        source: pulumi.Input[_builtins.str]
-        """
-        Specifies the key to apply the date conversion to.
-        """
-        target: pulumi.Input[_builtins.str]
-        """
-        Specifies the JSON field to store the result in.
-        """
-        locale: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specifies the locale of the source field. Defaults to `locale.ROOT`.
-        """
-        source_timezone: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specifies the time zone of the source field. Defaults to `UTC`.
-        """
-        target_format: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specifies the datetime format to use for the converted data in the target field. Defaults to `yyyy-MM-dd'T'HH:mm:ss.SSS'Z`.
-        """
-        target_timezone: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specifies the time zone of the target field. Defaults to `UTC`.
-        """
-elif False:
-    LogTransformerTransformerConfigDateTimeConverterArgsDict: TypeAlias = Mapping[str, Any]
+class LogTransformerTransformerConfigDateTimeConverterArgsDict(TypedDict):
+    match_patterns: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    Specifies the list of patterns to match against the `source` field.
+    """
+    source: pulumi.Input[_builtins.str]
+    """
+    Specifies the key to apply the date conversion to.
+    """
+    target: pulumi.Input[_builtins.str]
+    """
+    Specifies the JSON field to store the result in.
+    """
+    locale: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies the locale of the source field. Defaults to `locale.ROOT`.
+    """
+    source_timezone: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies the time zone of the source field. Defaults to `UTC`.
+    """
+    target_format: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies the datetime format to use for the converted data in the target field. Defaults to `yyyy-MM-dd'T'HH:mm:ss.SSS'Z`.
+    """
+    target_timezone: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies the time zone of the target field. Defaults to `UTC`.
+    """
 
 @pulumi.input_type
 class LogTransformerTransformerConfigDateTimeConverterArgs:
@@ -4068,14 +3901,11 @@ class LogTransformerTransformerConfigDateTimeConverterArgs:
         pulumi.set(self, "target_timezone", value)
 
 
-if not MYPY:
-    class LogTransformerTransformerConfigDeleteKeyArgsDict(TypedDict):
-        with_keys: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        Specifies the keys to be deleted.
-        """
-elif False:
-    LogTransformerTransformerConfigDeleteKeyArgsDict: TypeAlias = Mapping[str, Any]
+class LogTransformerTransformerConfigDeleteKeyArgsDict(TypedDict):
+    with_keys: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    Specifies the keys to be deleted.
+    """
 
 @pulumi.input_type
 class LogTransformerTransformerConfigDeleteKeyArgs:
@@ -4099,18 +3929,15 @@ class LogTransformerTransformerConfigDeleteKeyArgs:
         pulumi.set(self, "with_keys", value)
 
 
-if not MYPY:
-    class LogTransformerTransformerConfigGrokArgsDict(TypedDict):
-        match: pulumi.Input[_builtins.str]
-        """
-        Specifies the grok pattern to match against the log event.
-        """
-        source: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specifies the path to the field in the log event that has the comma separated values to be parsed. If omitted, the whole log message is processed.
-        """
-elif False:
-    LogTransformerTransformerConfigGrokArgsDict: TypeAlias = Mapping[str, Any]
+class LogTransformerTransformerConfigGrokArgsDict(TypedDict):
+    match: pulumi.Input[_builtins.str]
+    """
+    Specifies the grok pattern to match against the log event.
+    """
+    source: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies the path to the field in the log event that has the comma separated values to be parsed. If omitted, the whole log message is processed.
+    """
 
 @pulumi.input_type
 class LogTransformerTransformerConfigGrokArgs:
@@ -4150,34 +3977,31 @@ class LogTransformerTransformerConfigGrokArgs:
         pulumi.set(self, "source", value)
 
 
-if not MYPY:
-    class LogTransformerTransformerConfigListToMapArgsDict(TypedDict):
-        key: pulumi.Input[_builtins.str]
-        """
-        Specifies the key of the field to be extracted as keys in the generated map.
-        """
-        source: pulumi.Input[_builtins.str]
-        """
-        Specifies the key in the log event that has a list of objects that will be converted to a map.
-        """
-        flatten: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Specifies whether the list will be flattened into single items. Defaults to `false`.
-        """
-        flattened_element: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Required if `flatten` is set to true. Specifies the element to keep. Allowed values are `first` and `last`.
-        """
-        target: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specifies the key of the field that will hold the generated map.
-        """
-        value_key: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specifies the values that will be extracted from the source objects and put into the values of the generated map. If omitted, original objects in the source list will be put into the values of the generated map.
-        """
-elif False:
-    LogTransformerTransformerConfigListToMapArgsDict: TypeAlias = Mapping[str, Any]
+class LogTransformerTransformerConfigListToMapArgsDict(TypedDict):
+    key: pulumi.Input[_builtins.str]
+    """
+    Specifies the key of the field to be extracted as keys in the generated map.
+    """
+    source: pulumi.Input[_builtins.str]
+    """
+    Specifies the key in the log event that has a list of objects that will be converted to a map.
+    """
+    flatten: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Specifies whether the list will be flattened into single items. Defaults to `false`.
+    """
+    flattened_element: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Required if `flatten` is set to true. Specifies the element to keep. Allowed values are `first` and `last`.
+    """
+    target: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies the key of the field that will hold the generated map.
+    """
+    value_key: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies the values that will be extracted from the source objects and put into the values of the generated map. If omitted, original objects in the source list will be put into the values of the generated map.
+    """
 
 @pulumi.input_type
 class LogTransformerTransformerConfigListToMapArgs:
@@ -4280,14 +4104,11 @@ class LogTransformerTransformerConfigListToMapArgs:
         pulumi.set(self, "value_key", value)
 
 
-if not MYPY:
-    class LogTransformerTransformerConfigLowerCaseStringArgsDict(TypedDict):
-        with_keys: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        Specifies the keys of the fields to convert to lowercase.
-        """
-elif False:
-    LogTransformerTransformerConfigLowerCaseStringArgsDict: TypeAlias = Mapping[str, Any]
+class LogTransformerTransformerConfigLowerCaseStringArgsDict(TypedDict):
+    with_keys: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    Specifies the keys of the fields to convert to lowercase.
+    """
 
 @pulumi.input_type
 class LogTransformerTransformerConfigLowerCaseStringArgs:
@@ -4311,14 +4132,11 @@ class LogTransformerTransformerConfigLowerCaseStringArgs:
         pulumi.set(self, "with_keys", value)
 
 
-if not MYPY:
-    class LogTransformerTransformerConfigMoveKeyArgsDict(TypedDict):
-        entries: pulumi.Input[Sequence[pulumi.Input['LogTransformerTransformerConfigMoveKeyEntryArgsDict']]]
-        """
-        Objects containing the information about the keys to move to the log event. You must include at least one entry, and five at most. See `move_keys` `entry` below for details.
-        """
-elif False:
-    LogTransformerTransformerConfigMoveKeyArgsDict: TypeAlias = Mapping[str, Any]
+class LogTransformerTransformerConfigMoveKeyArgsDict(TypedDict):
+    entries: pulumi.Input[Sequence[pulumi.Input['LogTransformerTransformerConfigMoveKeyEntryArgsDict']]]
+    """
+    Objects containing the information about the keys to move to the log event. You must include at least one entry, and five at most. See `move_keys` `entry` below for details.
+    """
 
 @pulumi.input_type
 class LogTransformerTransformerConfigMoveKeyArgs:
@@ -4342,23 +4160,20 @@ class LogTransformerTransformerConfigMoveKeyArgs:
         pulumi.set(self, "entries", value)
 
 
-if not MYPY:
-    class LogTransformerTransformerConfigMoveKeyEntryArgsDict(TypedDict):
-        source: pulumi.Input[_builtins.str]
-        """
-        Specifies the key to modify.
-        """
-        target: pulumi.Input[_builtins.str]
-        """
-        Specifies the key to move to.
-        """
-        overwrite_if_exists: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Specifies whether to overwrite the value if the destination key already exists. Defaults to `false`.
-        * `renameTo` - (Required) Specifies the new name of the key.
-        """
-elif False:
-    LogTransformerTransformerConfigMoveKeyEntryArgsDict: TypeAlias = Mapping[str, Any]
+class LogTransformerTransformerConfigMoveKeyEntryArgsDict(TypedDict):
+    source: pulumi.Input[_builtins.str]
+    """
+    Specifies the key to modify.
+    """
+    target: pulumi.Input[_builtins.str]
+    """
+    Specifies the key to move to.
+    """
+    overwrite_if_exists: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Specifies whether to overwrite the value if the destination key already exists. Defaults to `false`.
+    * `renameTo` - (Required) Specifies the new name of the key.
+    """
 
 @pulumi.input_type
 class LogTransformerTransformerConfigMoveKeyEntryArgs:
@@ -4415,14 +4230,11 @@ class LogTransformerTransformerConfigMoveKeyEntryArgs:
         pulumi.set(self, "overwrite_if_exists", value)
 
 
-if not MYPY:
-    class LogTransformerTransformerConfigParseCloudfrontArgsDict(TypedDict):
-        source: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specifies the source field to be parsed. The only allowed value is `@message`. If omitted, the whole log message is processed.
-        """
-elif False:
-    LogTransformerTransformerConfigParseCloudfrontArgsDict: TypeAlias = Mapping[str, Any]
+class LogTransformerTransformerConfigParseCloudfrontArgsDict(TypedDict):
+    source: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies the source field to be parsed. The only allowed value is `@message`. If omitted, the whole log message is processed.
+    """
 
 @pulumi.input_type
 class LogTransformerTransformerConfigParseCloudfrontArgs:
@@ -4447,18 +4259,15 @@ class LogTransformerTransformerConfigParseCloudfrontArgs:
         pulumi.set(self, "source", value)
 
 
-if not MYPY:
-    class LogTransformerTransformerConfigParseJsonArgsDict(TypedDict):
-        destination: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specifies the location to put the parsed key value pair into. If omitted, it will be placed under the root node.
-        """
-        source: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specifies the path to the field in the log event that will be parsed. Defaults to `@message`.
-        """
-elif False:
-    LogTransformerTransformerConfigParseJsonArgsDict: TypeAlias = Mapping[str, Any]
+class LogTransformerTransformerConfigParseJsonArgsDict(TypedDict):
+    destination: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies the location to put the parsed key value pair into. If omitted, it will be placed under the root node.
+    """
+    source: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies the path to the field in the log event that will be parsed. Defaults to `@message`.
+    """
 
 @pulumi.input_type
 class LogTransformerTransformerConfigParseJsonArgs:
@@ -4499,38 +4308,35 @@ class LogTransformerTransformerConfigParseJsonArgs:
         pulumi.set(self, "source", value)
 
 
-if not MYPY:
-    class LogTransformerTransformerConfigParseKeyValueArgsDict(TypedDict):
-        destination: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specifies the destination field to put the extracted key-value pairs into.
-        """
-        field_delimiter: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specifies the field delimiter string that is used between key-value pairs in the original log events. Defaults to the ampersand `&` character.
-        """
-        key_prefix: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specifies a prefix that will be added to all transformed keys.
-        """
-        key_value_delimiter: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specifies the delimiter string to use between the key and value in each pair in the transformed log event. Defaults to the equal `=` character.
-        """
-        non_match_value: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specifies a value to insert into the value field in the result if a key-value pair is not successfully split.
-        """
-        overwrite_if_exists: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Specifies whether to overwrite the value if the destination key already exists. Defaults to `false`.
-        """
-        source: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specifies the path to the field in the log event that will be parsed. Defaults to `@message`.
-        """
-elif False:
-    LogTransformerTransformerConfigParseKeyValueArgsDict: TypeAlias = Mapping[str, Any]
+class LogTransformerTransformerConfigParseKeyValueArgsDict(TypedDict):
+    destination: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies the destination field to put the extracted key-value pairs into.
+    """
+    field_delimiter: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies the field delimiter string that is used between key-value pairs in the original log events. Defaults to the ampersand `&` character.
+    """
+    key_prefix: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies a prefix that will be added to all transformed keys.
+    """
+    key_value_delimiter: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies the delimiter string to use between the key and value in each pair in the transformed log event. Defaults to the equal `=` character.
+    """
+    non_match_value: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies a value to insert into the value field in the result if a key-value pair is not successfully split.
+    """
+    overwrite_if_exists: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Specifies whether to overwrite the value if the destination key already exists. Defaults to `false`.
+    """
+    source: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies the path to the field in the log event that will be parsed. Defaults to `@message`.
+    """
 
 @pulumi.input_type
 class LogTransformerTransformerConfigParseKeyValueArgs:
@@ -4651,14 +4457,11 @@ class LogTransformerTransformerConfigParseKeyValueArgs:
         pulumi.set(self, "source", value)
 
 
-if not MYPY:
-    class LogTransformerTransformerConfigParsePostgresArgsDict(TypedDict):
-        source: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specifies the source field to be parsed. The only allowed value is `@message`. If omitted, the whole log message is processed.
-        """
-elif False:
-    LogTransformerTransformerConfigParsePostgresArgsDict: TypeAlias = Mapping[str, Any]
+class LogTransformerTransformerConfigParsePostgresArgsDict(TypedDict):
+    source: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies the source field to be parsed. The only allowed value is `@message`. If omitted, the whole log message is processed.
+    """
 
 @pulumi.input_type
 class LogTransformerTransformerConfigParsePostgresArgs:
@@ -4683,14 +4486,11 @@ class LogTransformerTransformerConfigParsePostgresArgs:
         pulumi.set(self, "source", value)
 
 
-if not MYPY:
-    class LogTransformerTransformerConfigParseRoute53ArgsDict(TypedDict):
-        source: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specifies the source field to be parsed. The only allowed value is `@message`. If omitted, the whole log message is processed.
-        """
-elif False:
-    LogTransformerTransformerConfigParseRoute53ArgsDict: TypeAlias = Mapping[str, Any]
+class LogTransformerTransformerConfigParseRoute53ArgsDict(TypedDict):
+    source: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies the source field to be parsed. The only allowed value is `@message`. If omitted, the whole log message is processed.
+    """
 
 @pulumi.input_type
 class LogTransformerTransformerConfigParseRoute53Args:
@@ -4715,19 +4515,16 @@ class LogTransformerTransformerConfigParseRoute53Args:
         pulumi.set(self, "source", value)
 
 
-if not MYPY:
-    class LogTransformerTransformerConfigParseToOcsfArgsDict(TypedDict):
-        event_source: pulumi.Input[_builtins.str]
-        ocsf_version: pulumi.Input[_builtins.str]
-        """
-        Specifies the version of the OCSF schema to use for the transformed log events. The only allowed value is `V1.1`.
-        """
-        source: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specifies the source field to be parsed. The only allowed value is `@message`. If omitted, the whole log message is processed.
-        """
-elif False:
-    LogTransformerTransformerConfigParseToOcsfArgsDict: TypeAlias = Mapping[str, Any]
+class LogTransformerTransformerConfigParseToOcsfArgsDict(TypedDict):
+    event_source: pulumi.Input[_builtins.str]
+    ocsf_version: pulumi.Input[_builtins.str]
+    """
+    Specifies the version of the OCSF schema to use for the transformed log events. The only allowed value is `V1.1`.
+    """
+    source: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies the source field to be parsed. The only allowed value is `@message`. If omitted, the whole log message is processed.
+    """
 
 @pulumi.input_type
 class LogTransformerTransformerConfigParseToOcsfArgs:
@@ -4778,14 +4575,11 @@ class LogTransformerTransformerConfigParseToOcsfArgs:
         pulumi.set(self, "source", value)
 
 
-if not MYPY:
-    class LogTransformerTransformerConfigParseVpcArgsDict(TypedDict):
-        source: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specifies the source field to be parsed. The only allowed value is `@message`. If omitted, the whole log message is processed.
-        """
-elif False:
-    LogTransformerTransformerConfigParseVpcArgsDict: TypeAlias = Mapping[str, Any]
+class LogTransformerTransformerConfigParseVpcArgsDict(TypedDict):
+    source: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies the source field to be parsed. The only allowed value is `@message`. If omitted, the whole log message is processed.
+    """
 
 @pulumi.input_type
 class LogTransformerTransformerConfigParseVpcArgs:
@@ -4810,14 +4604,11 @@ class LogTransformerTransformerConfigParseVpcArgs:
         pulumi.set(self, "source", value)
 
 
-if not MYPY:
-    class LogTransformerTransformerConfigParseWafArgsDict(TypedDict):
-        source: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specifies the source field to be parsed. The only allowed value is `@message`. If omitted, the whole log message is processed.
-        """
-elif False:
-    LogTransformerTransformerConfigParseWafArgsDict: TypeAlias = Mapping[str, Any]
+class LogTransformerTransformerConfigParseWafArgsDict(TypedDict):
+    source: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies the source field to be parsed. The only allowed value is `@message`. If omitted, the whole log message is processed.
+    """
 
 @pulumi.input_type
 class LogTransformerTransformerConfigParseWafArgs:
@@ -4842,14 +4633,11 @@ class LogTransformerTransformerConfigParseWafArgs:
         pulumi.set(self, "source", value)
 
 
-if not MYPY:
-    class LogTransformerTransformerConfigRenameKeyArgsDict(TypedDict):
-        entries: pulumi.Input[Sequence[pulumi.Input['LogTransformerTransformerConfigRenameKeyEntryArgsDict']]]
-        """
-        Objects containing the information about the keys to rename. You must include at least one entry, and five at most. See `rename_keys` `entry` below for details.
-        """
-elif False:
-    LogTransformerTransformerConfigRenameKeyArgsDict: TypeAlias = Mapping[str, Any]
+class LogTransformerTransformerConfigRenameKeyArgsDict(TypedDict):
+    entries: pulumi.Input[Sequence[pulumi.Input['LogTransformerTransformerConfigRenameKeyEntryArgsDict']]]
+    """
+    Objects containing the information about the keys to rename. You must include at least one entry, and five at most. See `rename_keys` `entry` below for details.
+    """
 
 @pulumi.input_type
 class LogTransformerTransformerConfigRenameKeyArgs:
@@ -4873,20 +4661,17 @@ class LogTransformerTransformerConfigRenameKeyArgs:
         pulumi.set(self, "entries", value)
 
 
-if not MYPY:
-    class LogTransformerTransformerConfigRenameKeyEntryArgsDict(TypedDict):
-        key: pulumi.Input[_builtins.str]
-        """
-        Specifies the key with the value that will be converted to a different type.
-        """
-        rename_to: pulumi.Input[_builtins.str]
-        overwrite_if_exists: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Specifies whether to overwrite the value if the destination key already exists. Defaults to `false`.
-        * `renameTo` - (Required) Specifies the new name of the key.
-        """
-elif False:
-    LogTransformerTransformerConfigRenameKeyEntryArgsDict: TypeAlias = Mapping[str, Any]
+class LogTransformerTransformerConfigRenameKeyEntryArgsDict(TypedDict):
+    key: pulumi.Input[_builtins.str]
+    """
+    Specifies the key with the value that will be converted to a different type.
+    """
+    rename_to: pulumi.Input[_builtins.str]
+    overwrite_if_exists: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Specifies whether to overwrite the value if the destination key already exists. Defaults to `false`.
+    * `renameTo` - (Required) Specifies the new name of the key.
+    """
 
 @pulumi.input_type
 class LogTransformerTransformerConfigRenameKeyEntryArgs:
@@ -4939,14 +4724,11 @@ class LogTransformerTransformerConfigRenameKeyEntryArgs:
         pulumi.set(self, "overwrite_if_exists", value)
 
 
-if not MYPY:
-    class LogTransformerTransformerConfigSplitStringArgsDict(TypedDict):
-        entries: pulumi.Input[Sequence[pulumi.Input['LogTransformerTransformerConfigSplitStringEntryArgsDict']]]
-        """
-        Objects containing the information about the fields to split. You must include at least one entry, and ten at most. See `split_string` `entry` below for details.
-        """
-elif False:
-    LogTransformerTransformerConfigSplitStringArgsDict: TypeAlias = Mapping[str, Any]
+class LogTransformerTransformerConfigSplitStringArgsDict(TypedDict):
+    entries: pulumi.Input[Sequence[pulumi.Input['LogTransformerTransformerConfigSplitStringEntryArgsDict']]]
+    """
+    Objects containing the information about the fields to split. You must include at least one entry, and ten at most. See `split_string` `entry` below for details.
+    """
 
 @pulumi.input_type
 class LogTransformerTransformerConfigSplitStringArgs:
@@ -4970,18 +4752,15 @@ class LogTransformerTransformerConfigSplitStringArgs:
         pulumi.set(self, "entries", value)
 
 
-if not MYPY:
-    class LogTransformerTransformerConfigSplitStringEntryArgsDict(TypedDict):
-        delimiter: pulumi.Input[_builtins.str]
-        """
-        Specifies the separator characters to split the string entry on.
-        """
-        source: pulumi.Input[_builtins.str]
-        """
-        Specifies the key to modify.
-        """
-elif False:
-    LogTransformerTransformerConfigSplitStringEntryArgsDict: TypeAlias = Mapping[str, Any]
+class LogTransformerTransformerConfigSplitStringEntryArgsDict(TypedDict):
+    delimiter: pulumi.Input[_builtins.str]
+    """
+    Specifies the separator characters to split the string entry on.
+    """
+    source: pulumi.Input[_builtins.str]
+    """
+    Specifies the key to modify.
+    """
 
 @pulumi.input_type
 class LogTransformerTransformerConfigSplitStringEntryArgs:
@@ -5020,14 +4799,11 @@ class LogTransformerTransformerConfigSplitStringEntryArgs:
         pulumi.set(self, "source", value)
 
 
-if not MYPY:
-    class LogTransformerTransformerConfigSubstituteStringArgsDict(TypedDict):
-        entries: pulumi.Input[Sequence[pulumi.Input['LogTransformerTransformerConfigSubstituteStringEntryArgsDict']]]
-        """
-        Objects containing the information about the fields to substitute. You must include at least one entry, and ten at most. See `substitute_string` `entry` below for details.
-        """
-elif False:
-    LogTransformerTransformerConfigSubstituteStringArgsDict: TypeAlias = Mapping[str, Any]
+class LogTransformerTransformerConfigSubstituteStringArgsDict(TypedDict):
+    entries: pulumi.Input[Sequence[pulumi.Input['LogTransformerTransformerConfigSubstituteStringEntryArgsDict']]]
+    """
+    Objects containing the information about the fields to substitute. You must include at least one entry, and ten at most. See `substitute_string` `entry` below for details.
+    """
 
 @pulumi.input_type
 class LogTransformerTransformerConfigSubstituteStringArgs:
@@ -5051,22 +4827,19 @@ class LogTransformerTransformerConfigSubstituteStringArgs:
         pulumi.set(self, "entries", value)
 
 
-if not MYPY:
-    class LogTransformerTransformerConfigSubstituteStringEntryArgsDict(TypedDict):
-        from_: pulumi.Input[_builtins.str]
-        """
-        Specifies the regular expression string to be replaced.
-        """
-        source: pulumi.Input[_builtins.str]
-        """
-        Specifies the key to modify.
-        """
-        to: pulumi.Input[_builtins.str]
-        """
-        Specifies the string to be substituted for each match of `from`.
-        """
-elif False:
-    LogTransformerTransformerConfigSubstituteStringEntryArgsDict: TypeAlias = Mapping[str, Any]
+class LogTransformerTransformerConfigSubstituteStringEntryArgsDict(TypedDict):
+    from_: pulumi.Input[_builtins.str]
+    """
+    Specifies the regular expression string to be replaced.
+    """
+    source: pulumi.Input[_builtins.str]
+    """
+    Specifies the key to modify.
+    """
+    to: pulumi.Input[_builtins.str]
+    """
+    Specifies the string to be substituted for each match of `from`.
+    """
 
 @pulumi.input_type
 class LogTransformerTransformerConfigSubstituteStringEntryArgs:
@@ -5120,14 +4893,11 @@ class LogTransformerTransformerConfigSubstituteStringEntryArgs:
         pulumi.set(self, "to", value)
 
 
-if not MYPY:
-    class LogTransformerTransformerConfigTrimStringArgsDict(TypedDict):
-        with_keys: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        Specifies the keys of the fields to trim.
-        """
-elif False:
-    LogTransformerTransformerConfigTrimStringArgsDict: TypeAlias = Mapping[str, Any]
+class LogTransformerTransformerConfigTrimStringArgsDict(TypedDict):
+    with_keys: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    Specifies the keys of the fields to trim.
+    """
 
 @pulumi.input_type
 class LogTransformerTransformerConfigTrimStringArgs:
@@ -5151,14 +4921,11 @@ class LogTransformerTransformerConfigTrimStringArgs:
         pulumi.set(self, "with_keys", value)
 
 
-if not MYPY:
-    class LogTransformerTransformerConfigTypeConverterArgsDict(TypedDict):
-        entries: pulumi.Input[Sequence[pulumi.Input['LogTransformerTransformerConfigTypeConverterEntryArgsDict']]]
-        """
-        Objects containing the information about the fields to change the type of. You must include at least one entry, and five at most. See `type_converter` `entry` below for details.
-        """
-elif False:
-    LogTransformerTransformerConfigTypeConverterArgsDict: TypeAlias = Mapping[str, Any]
+class LogTransformerTransformerConfigTypeConverterArgsDict(TypedDict):
+    entries: pulumi.Input[Sequence[pulumi.Input['LogTransformerTransformerConfigTypeConverterEntryArgsDict']]]
+    """
+    Objects containing the information about the fields to change the type of. You must include at least one entry, and five at most. See `type_converter` `entry` below for details.
+    """
 
 @pulumi.input_type
 class LogTransformerTransformerConfigTypeConverterArgs:
@@ -5182,18 +4949,15 @@ class LogTransformerTransformerConfigTypeConverterArgs:
         pulumi.set(self, "entries", value)
 
 
-if not MYPY:
-    class LogTransformerTransformerConfigTypeConverterEntryArgsDict(TypedDict):
-        key: pulumi.Input[_builtins.str]
-        """
-        Specifies the key with the value that will be converted to a different type.
-        """
-        type: pulumi.Input[_builtins.str]
-        """
-        Specifies the type to convert the field value to. Allowed values are: `integer`, `double`, `string` and `boolean`.
-        """
-elif False:
-    LogTransformerTransformerConfigTypeConverterEntryArgsDict: TypeAlias = Mapping[str, Any]
+class LogTransformerTransformerConfigTypeConverterEntryArgsDict(TypedDict):
+    key: pulumi.Input[_builtins.str]
+    """
+    Specifies the key with the value that will be converted to a different type.
+    """
+    type: pulumi.Input[_builtins.str]
+    """
+    Specifies the type to convert the field value to. Allowed values are: `integer`, `double`, `string` and `boolean`.
+    """
 
 @pulumi.input_type
 class LogTransformerTransformerConfigTypeConverterEntryArgs:
@@ -5232,14 +4996,11 @@ class LogTransformerTransformerConfigTypeConverterEntryArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class LogTransformerTransformerConfigUpperCaseStringArgsDict(TypedDict):
-        with_keys: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        Specifies the keys of the fields to convert to uppercase.
-        """
-elif False:
-    LogTransformerTransformerConfigUpperCaseStringArgsDict: TypeAlias = Mapping[str, Any]
+class LogTransformerTransformerConfigUpperCaseStringArgsDict(TypedDict):
+    with_keys: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    Specifies the keys of the fields to convert to uppercase.
+    """
 
 @pulumi.input_type
 class LogTransformerTransformerConfigUpperCaseStringArgs:
@@ -5263,44 +5024,41 @@ class LogTransformerTransformerConfigUpperCaseStringArgs:
         pulumi.set(self, "with_keys", value)
 
 
-if not MYPY:
-    class MetricAlarmMetricQueryArgsDict(TypedDict):
-        id: pulumi.Input[_builtins.str]
-        """
-        A short name used to tie this object to the results in the response. If you are performing math expressions on this set of data, this name represents that data and can serve as a variable in the mathematical expression. The valid characters are letters, numbers, and underscore. The first character must be a lowercase letter.
-        """
-        account_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The ID of the account where the metrics are located, if this is a cross-account alarm.
-        """
-        expression: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A Metrics Insights query or a metric math expression to be evaluated on the returned data.
-        For details about Metrics Insights queries, see [Metrics Insights query components and syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch-metrics-insights-querylanguage) in the AWS documentation.
-        For details about metric math expressions, see [Metric Math Syntax and Functions](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/using-metric-math.html#metric-math-syntax) in the AWS documentation.
-        """
-        label: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A human-readable label for this metric or expression. This is especially useful if this is an expression, so that you know what the value represents.
-        """
-        metric: NotRequired[pulumi.Input['MetricAlarmMetricQueryMetricArgsDict']]
-        """
-        The metric to be returned, along with statistics, period, and units. Use this parameter only if this object is retrieving a metric and not performing a math expression on returned data.
-        """
-        period: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Granularity in seconds of returned data points.
-        For metrics with regular resolution, valid values are any multiple of `60`.
-        For high-resolution metrics, valid values are `1`, `5`, `10`, `20`, `30`, or any multiple of `60`.
-        """
-        return_data: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Specify exactly one `metric_query` to be `true` to use that `metric_query` result as the alarm.
+class MetricAlarmMetricQueryArgsDict(TypedDict):
+    id: pulumi.Input[_builtins.str]
+    """
+    A short name used to tie this object to the results in the response. If you are performing math expressions on this set of data, this name represents that data and can serve as a variable in the mathematical expression. The valid characters are letters, numbers, and underscore. The first character must be a lowercase letter.
+    """
+    account_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The ID of the account where the metrics are located, if this is a cross-account alarm.
+    """
+    expression: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A Metrics Insights query or a metric math expression to be evaluated on the returned data.
+    For details about Metrics Insights queries, see [Metrics Insights query components and syntax](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch-metrics-insights-querylanguage) in the AWS documentation.
+    For details about metric math expressions, see [Metric Math Syntax and Functions](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/using-metric-math.html#metric-math-syntax) in the AWS documentation.
+    """
+    label: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A human-readable label for this metric or expression. This is especially useful if this is an expression, so that you know what the value represents.
+    """
+    metric: NotRequired[pulumi.Input['MetricAlarmMetricQueryMetricArgsDict']]
+    """
+    The metric to be returned, along with statistics, period, and units. Use this parameter only if this object is retrieving a metric and not performing a math expression on returned data.
+    """
+    period: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Granularity in seconds of returned data points.
+    For metrics with regular resolution, valid values are any multiple of `60`.
+    For high-resolution metrics, valid values are `1`, `5`, `10`, `20`, `30`, or any multiple of `60`.
+    """
+    return_data: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Specify exactly one `metric_query` to be `true` to use that `metric_query` result as the alarm.
 
-        > **NOTE:**  You must specify either `metric` or `expression`. Not both.
-        """
-elif False:
-    MetricAlarmMetricQueryArgsDict: TypeAlias = Mapping[str, Any]
+    > **NOTE:**  You must specify either `metric` or `expression`. Not both.
+    """
 
 @pulumi.input_type
 class MetricAlarmMetricQueryArgs:
@@ -5432,39 +5190,36 @@ class MetricAlarmMetricQueryArgs:
         pulumi.set(self, "return_data", value)
 
 
-if not MYPY:
-    class MetricAlarmMetricQueryMetricArgsDict(TypedDict):
-        metric_name: pulumi.Input[_builtins.str]
-        """
-        The name for this metric.
-        See docs for [supported metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
-        """
-        period: pulumi.Input[_builtins.int]
-        """
-        Granularity in seconds of returned data points.
-        For metrics with regular resolution, valid values are any multiple of `60`.
-        For high-resolution metrics, valid values are `1`, `5`, `10`, `20`, `30`, or any multiple of `60`.
-        """
-        stat: pulumi.Input[_builtins.str]
-        """
-        The statistic to apply to this metric.
-        See docs for [supported statistics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Statistics-definitions.html).
-        """
-        dimensions: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
-        """
-        The dimensions for this metric.  For the list of available dimensions see the AWS documentation [here](http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
-        """
-        namespace: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The namespace for this metric. See docs for the [list of namespaces](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/aws-namespaces.html).
-        See docs for [supported metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
-        """
-        unit: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The unit for this metric.
-        """
-elif False:
-    MetricAlarmMetricQueryMetricArgsDict: TypeAlias = Mapping[str, Any]
+class MetricAlarmMetricQueryMetricArgsDict(TypedDict):
+    metric_name: pulumi.Input[_builtins.str]
+    """
+    The name for this metric.
+    See docs for [supported metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
+    """
+    period: pulumi.Input[_builtins.int]
+    """
+    Granularity in seconds of returned data points.
+    For metrics with regular resolution, valid values are any multiple of `60`.
+    For high-resolution metrics, valid values are `1`, `5`, `10`, `20`, `30`, or any multiple of `60`.
+    """
+    stat: pulumi.Input[_builtins.str]
+    """
+    The statistic to apply to this metric.
+    See docs for [supported statistics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/Statistics-definitions.html).
+    """
+    dimensions: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    """
+    The dimensions for this metric.  For the list of available dimensions see the AWS documentation [here](http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
+    """
+    namespace: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The namespace for this metric. See docs for the [list of namespaces](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/aws-namespaces.html).
+    See docs for [supported metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
+    """
+    unit: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The unit for this metric.
+    """
 
 @pulumi.input_type
 class MetricAlarmMetricQueryMetricArgs:
@@ -5576,18 +5331,15 @@ class MetricAlarmMetricQueryMetricArgs:
         pulumi.set(self, "unit", value)
 
 
-if not MYPY:
-    class MetricStreamExcludeFilterArgsDict(TypedDict):
-        namespace: pulumi.Input[_builtins.str]
-        """
-        Name of the metric namespace in the filter.
-        """
-        metric_names: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        An array that defines the metrics you want to exclude for this metric namespace
-        """
-elif False:
-    MetricStreamExcludeFilterArgsDict: TypeAlias = Mapping[str, Any]
+class MetricStreamExcludeFilterArgsDict(TypedDict):
+    namespace: pulumi.Input[_builtins.str]
+    """
+    Name of the metric namespace in the filter.
+    """
+    metric_names: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    An array that defines the metrics you want to exclude for this metric namespace
+    """
 
 @pulumi.input_type
 class MetricStreamExcludeFilterArgs:
@@ -5627,18 +5379,15 @@ class MetricStreamExcludeFilterArgs:
         pulumi.set(self, "metric_names", value)
 
 
-if not MYPY:
-    class MetricStreamIncludeFilterArgsDict(TypedDict):
-        namespace: pulumi.Input[_builtins.str]
-        """
-        Name of the metric namespace in the filter.
-        """
-        metric_names: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        An array that defines the metrics you want to include for this metric namespace
-        """
-elif False:
-    MetricStreamIncludeFilterArgsDict: TypeAlias = Mapping[str, Any]
+class MetricStreamIncludeFilterArgsDict(TypedDict):
+    namespace: pulumi.Input[_builtins.str]
+    """
+    Name of the metric namespace in the filter.
+    """
+    metric_names: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    An array that defines the metrics you want to include for this metric namespace
+    """
 
 @pulumi.input_type
 class MetricStreamIncludeFilterArgs:
@@ -5678,18 +5427,15 @@ class MetricStreamIncludeFilterArgs:
         pulumi.set(self, "metric_names", value)
 
 
-if not MYPY:
-    class MetricStreamStatisticsConfigurationArgsDict(TypedDict):
-        additional_statistics: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        The additional statistics to stream for the metrics listed in `include_metrics`.
-        """
-        include_metrics: pulumi.Input[Sequence[pulumi.Input['MetricStreamStatisticsConfigurationIncludeMetricArgsDict']]]
-        """
-        An array that defines the metrics that are to have additional statistics streamed. See details below.
-        """
-elif False:
-    MetricStreamStatisticsConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class MetricStreamStatisticsConfigurationArgsDict(TypedDict):
+    additional_statistics: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    The additional statistics to stream for the metrics listed in `include_metrics`.
+    """
+    include_metrics: pulumi.Input[Sequence[pulumi.Input['MetricStreamStatisticsConfigurationIncludeMetricArgsDict']]]
+    """
+    An array that defines the metrics that are to have additional statistics streamed. See details below.
+    """
 
 @pulumi.input_type
 class MetricStreamStatisticsConfigurationArgs:
@@ -5728,15 +5474,12 @@ class MetricStreamStatisticsConfigurationArgs:
         pulumi.set(self, "include_metrics", value)
 
 
-if not MYPY:
-    class MetricStreamStatisticsConfigurationIncludeMetricArgsDict(TypedDict):
-        metric_name: pulumi.Input[_builtins.str]
-        """
-        The name of the metric.
-        """
-        namespace: pulumi.Input[_builtins.str]
-elif False:
-    MetricStreamStatisticsConfigurationIncludeMetricArgsDict: TypeAlias = Mapping[str, Any]
+class MetricStreamStatisticsConfigurationIncludeMetricArgsDict(TypedDict):
+    metric_name: pulumi.Input[_builtins.str]
+    """
+    The name of the metric.
+    """
+    namespace: pulumi.Input[_builtins.str]
 
 @pulumi.input_type
 class MetricStreamStatisticsConfigurationIncludeMetricArgs:
@@ -5771,16 +5514,13 @@ class MetricStreamStatisticsConfigurationIncludeMetricArgs:
         pulumi.set(self, "namespace", value)
 
 
-if not MYPY:
-    class PolicyDocumentArgsDict(TypedDict):
-        """
-        Represents an AWS IAM policy document that defines permissions for AWS resources and actions.
-        """
-        statement: pulumi.Input[Sequence[pulumi.Input['_iam.PolicyStatementArgsDict']]]
-        version: pulumi.Input['iam.PolicyDocumentVersion']
-        id: NotRequired[pulumi.Input[_builtins.str]]
-elif False:
-    PolicyDocumentArgsDict: TypeAlias = Mapping[str, Any]
+class PolicyDocumentArgsDict(TypedDict):
+    """
+    Represents an AWS IAM policy document that defines permissions for AWS resources and actions.
+    """
+    statement: pulumi.Input[Sequence[pulumi.Input['_iam.PolicyStatementArgsDict']]]
+    version: pulumi.Input['iam.PolicyDocumentVersion']
+    id: NotRequired[pulumi.Input[_builtins.str]]
 
 @pulumi.input_type
 class PolicyDocumentArgs:
@@ -5824,14 +5564,11 @@ class PolicyDocumentArgs:
         pulumi.set(self, "id", value)
 
 
-if not MYPY:
-    class GetLogDataProtectionPolicyDocumentConfigurationArgsDict(TypedDict):
-        custom_data_identifiers: NotRequired[Sequence['GetLogDataProtectionPolicyDocumentConfigurationCustomDataIdentifierArgsDict']]
-        """
-        Configures custom regular expressions to detect sensitive data. Read more in [Custom data identifiers](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL-custom-data-identifiers.html).
-        """
-elif False:
-    GetLogDataProtectionPolicyDocumentConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class GetLogDataProtectionPolicyDocumentConfigurationArgsDict(TypedDict):
+    custom_data_identifiers: NotRequired[Sequence['GetLogDataProtectionPolicyDocumentConfigurationCustomDataIdentifierArgsDict']]
+    """
+    Configures custom regular expressions to detect sensitive data. Read more in [Custom data identifiers](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL-custom-data-identifiers.html).
+    """
 
 @pulumi.input_type
 class GetLogDataProtectionPolicyDocumentConfigurationArgs:
@@ -5856,18 +5593,15 @@ class GetLogDataProtectionPolicyDocumentConfigurationArgs:
         pulumi.set(self, "custom_data_identifiers", value)
 
 
-if not MYPY:
-    class GetLogDataProtectionPolicyDocumentConfigurationCustomDataIdentifierArgsDict(TypedDict):
-        name: _builtins.str
-        """
-        Name of the custom data idenfitier
-        """
-        regex: _builtins.str
-        """
-        Regular expression to match sensitive data
-        """
-elif False:
-    GetLogDataProtectionPolicyDocumentConfigurationCustomDataIdentifierArgsDict: TypeAlias = Mapping[str, Any]
+class GetLogDataProtectionPolicyDocumentConfigurationCustomDataIdentifierArgsDict(TypedDict):
+    name: _builtins.str
+    """
+    Name of the custom data idenfitier
+    """
+    regex: _builtins.str
+    """
+    Regular expression to match sensitive data
+    """
 
 @pulumi.input_type
 class GetLogDataProtectionPolicyDocumentConfigurationCustomDataIdentifierArgs:
@@ -5906,22 +5640,19 @@ class GetLogDataProtectionPolicyDocumentConfigurationCustomDataIdentifierArgs:
         pulumi.set(self, "regex", value)
 
 
-if not MYPY:
-    class GetLogDataProtectionPolicyDocumentStatementArgsDict(TypedDict):
-        data_identifiers: Sequence[_builtins.str]
-        """
-        Set of at least 1 sensitive data identifiers that you want to mask. Read more in [Types of data that you can protect](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/protect-sensitive-log-data-types.html).
-        """
-        operation: 'GetLogDataProtectionPolicyDocumentStatementOperationArgsDict'
-        """
-        Configures the data protection operation applied by this statement.
-        """
-        sid: NotRequired[_builtins.str]
-        """
-        Name of this statement.
-        """
-elif False:
-    GetLogDataProtectionPolicyDocumentStatementArgsDict: TypeAlias = Mapping[str, Any]
+class GetLogDataProtectionPolicyDocumentStatementArgsDict(TypedDict):
+    data_identifiers: Sequence[_builtins.str]
+    """
+    Set of at least 1 sensitive data identifiers that you want to mask. Read more in [Types of data that you can protect](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/protect-sensitive-log-data-types.html).
+    """
+    operation: 'GetLogDataProtectionPolicyDocumentStatementOperationArgsDict'
+    """
+    Configures the data protection operation applied by this statement.
+    """
+    sid: NotRequired[_builtins.str]
+    """
+    Name of this statement.
+    """
 
 @pulumi.input_type
 class GetLogDataProtectionPolicyDocumentStatementArgs:
@@ -5976,20 +5707,17 @@ class GetLogDataProtectionPolicyDocumentStatementArgs:
         pulumi.set(self, "sid", value)
 
 
-if not MYPY:
-    class GetLogDataProtectionPolicyDocumentStatementOperationArgsDict(TypedDict):
-        audit: NotRequired['GetLogDataProtectionPolicyDocumentStatementOperationAuditArgsDict']
-        """
-        Configures the detection of sensitive data.
-        """
-        deidentify: NotRequired['GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyArgsDict']
-        """
-        Configures the masking of sensitive data.
+class GetLogDataProtectionPolicyDocumentStatementOperationArgsDict(TypedDict):
+    audit: NotRequired['GetLogDataProtectionPolicyDocumentStatementOperationAuditArgsDict']
+    """
+    Configures the detection of sensitive data.
+    """
+    deidentify: NotRequired['GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyArgsDict']
+    """
+    Configures the masking of sensitive data.
 
-        > Every policy statement must specify exactly one operation.
-        """
-elif False:
-    GetLogDataProtectionPolicyDocumentStatementOperationArgsDict: TypeAlias = Mapping[str, Any]
+    > Every policy statement must specify exactly one operation.
+    """
 
 @pulumi.input_type
 class GetLogDataProtectionPolicyDocumentStatementOperationArgs:
@@ -6034,14 +5762,11 @@ class GetLogDataProtectionPolicyDocumentStatementOperationArgs:
         pulumi.set(self, "deidentify", value)
 
 
-if not MYPY:
-    class GetLogDataProtectionPolicyDocumentStatementOperationAuditArgsDict(TypedDict):
-        findings_destination: 'GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationArgsDict'
-        """
-        Configures destinations to send audit findings to.
-        """
-elif False:
-    GetLogDataProtectionPolicyDocumentStatementOperationAuditArgsDict: TypeAlias = Mapping[str, Any]
+class GetLogDataProtectionPolicyDocumentStatementOperationAuditArgsDict(TypedDict):
+    findings_destination: 'GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationArgsDict'
+    """
+    Configures destinations to send audit findings to.
+    """
 
 @pulumi.input_type
 class GetLogDataProtectionPolicyDocumentStatementOperationAuditArgs:
@@ -6065,22 +5790,19 @@ class GetLogDataProtectionPolicyDocumentStatementOperationAuditArgs:
         pulumi.set(self, "findings_destination", value)
 
 
-if not MYPY:
-    class GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationArgsDict(TypedDict):
-        cloudwatch_logs: NotRequired['GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationCloudwatchLogsArgsDict']
-        """
-        Configures CloudWatch Logs as a findings destination.
-        """
-        firehose: NotRequired['GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationFirehoseArgsDict']
-        """
-        Configures Kinesis Firehose as a findings destination.
-        """
-        s3: NotRequired['GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationS3ArgsDict']
-        """
-        Configures S3 as a findings destination.
-        """
-elif False:
-    GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationArgsDict: TypeAlias = Mapping[str, Any]
+class GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationArgsDict(TypedDict):
+    cloudwatch_logs: NotRequired['GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationCloudwatchLogsArgsDict']
+    """
+    Configures CloudWatch Logs as a findings destination.
+    """
+    firehose: NotRequired['GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationFirehoseArgsDict']
+    """
+    Configures Kinesis Firehose as a findings destination.
+    """
+    s3: NotRequired['GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationS3ArgsDict']
+    """
+    Configures S3 as a findings destination.
+    """
 
 @pulumi.input_type
 class GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationArgs:
@@ -6137,14 +5859,11 @@ class GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinati
         pulumi.set(self, "s3", value)
 
 
-if not MYPY:
-    class GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationCloudwatchLogsArgsDict(TypedDict):
-        log_group: _builtins.str
-        """
-        Name of the CloudWatch Log Group to send findings to.
-        """
-elif False:
-    GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationCloudwatchLogsArgsDict: TypeAlias = Mapping[str, Any]
+class GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationCloudwatchLogsArgsDict(TypedDict):
+    log_group: _builtins.str
+    """
+    Name of the CloudWatch Log Group to send findings to.
+    """
 
 @pulumi.input_type
 class GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationCloudwatchLogsArgs:
@@ -6168,14 +5887,11 @@ class GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinati
         pulumi.set(self, "log_group", value)
 
 
-if not MYPY:
-    class GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationFirehoseArgsDict(TypedDict):
-        delivery_stream: _builtins.str
-        """
-        Name of the Kinesis Firehose Delivery Stream to send findings to.
-        """
-elif False:
-    GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationFirehoseArgsDict: TypeAlias = Mapping[str, Any]
+class GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationFirehoseArgsDict(TypedDict):
+    delivery_stream: _builtins.str
+    """
+    Name of the Kinesis Firehose Delivery Stream to send findings to.
+    """
 
 @pulumi.input_type
 class GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationFirehoseArgs:
@@ -6199,14 +5915,11 @@ class GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinati
         pulumi.set(self, "delivery_stream", value)
 
 
-if not MYPY:
-    class GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationS3ArgsDict(TypedDict):
-        bucket: _builtins.str
-        """
-        Name of the S3 Bucket to send findings to.
-        """
-elif False:
-    GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationS3ArgsDict: TypeAlias = Mapping[str, Any]
+class GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationS3ArgsDict(TypedDict):
+    bucket: _builtins.str
+    """
+    Name of the S3 Bucket to send findings to.
+    """
 
 @pulumi.input_type
 class GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinationS3Args:
@@ -6230,14 +5943,11 @@ class GetLogDataProtectionPolicyDocumentStatementOperationAuditFindingsDestinati
         pulumi.set(self, "bucket", value)
 
 
-if not MYPY:
-    class GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyArgsDict(TypedDict):
-        mask_config: 'GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyMaskConfigArgsDict'
-        """
-        An empty object that configures masking.
-        """
-elif False:
-    GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyArgsDict: TypeAlias = Mapping[str, Any]
+class GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyArgsDict(TypedDict):
+    mask_config: 'GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyMaskConfigArgsDict'
+    """
+    An empty object that configures masking.
+    """
 
 @pulumi.input_type
 class GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyArgs:
@@ -6261,11 +5971,8 @@ class GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyArgs:
         pulumi.set(self, "mask_config", value)
 
 
-if not MYPY:
-    class GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyMaskConfigArgsDict(TypedDict):
-        pass
-elif False:
-    GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyMaskConfigArgsDict: TypeAlias = Mapping[str, Any]
+class GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyMaskConfigArgsDict(TypedDict):
+    pass
 
 @pulumi.input_type
 class GetLogDataProtectionPolicyDocumentStatementOperationDeidentifyMaskConfigArgs:

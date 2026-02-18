@@ -117,13 +117,14 @@ import * as utilities from "../utilities";
  *
  * #### Optional
  *
- * * `account_id` (String) AWS Account where this resource is managed.
- *
+ * * `accountId` (String) AWS Account where this resource is managed.
  * * `region` (String) Region where this resource is managed.
  *
  * Using `pulumi import`, import Route Tables using the route table `id`. For example:
  *
- * % pulumi import aws_route_table.public_rt rtb-4e616f6d69
+ * ```sh
+ * $ pulumi import aws:ec2/routeTable:RouteTable public_rt rtb-4e616f6d69
+ * ```
  */
 export class RouteTable extends pulumi.CustomResource {
     /**

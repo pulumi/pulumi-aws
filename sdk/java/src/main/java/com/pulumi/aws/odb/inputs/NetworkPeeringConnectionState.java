@@ -40,31 +40,51 @@ public final class NetworkPeeringConnectionState extends com.pulumi.resources.Re
         return Optional.ofNullable(this.createdAt);
     }
 
+    /**
+     * Display name of the ODB network peering connection. Changing this will force Terraform to create a new resource.
+     * 
+     * The following arguments are optional:
+     * 
+     */
     @Import(name="displayName")
     private @Nullable Output<String> displayName;
 
+    /**
+     * @return Display name of the ODB network peering connection. Changing this will force Terraform to create a new resource.
+     * 
+     * The following arguments are optional:
+     * 
+     */
     public Optional<Output<String>> displayName() {
         return Optional.ofNullable(this.displayName);
     }
 
     /**
-     * ARN of the odb network peering connection.
+     * ARN of the ODB network that initiates the peering connection. Changing this will force Terraform to create a new resource. Either odbNetworkId or odbNetworkArn should be used.
      * 
      */
     @Import(name="odbNetworkArn")
     private @Nullable Output<String> odbNetworkArn;
 
     /**
-     * @return ARN of the odb network peering connection.
+     * @return ARN of the ODB network that initiates the peering connection. Changing this will force Terraform to create a new resource. Either odbNetworkId or odbNetworkArn should be used.
      * 
      */
     public Optional<Output<String>> odbNetworkArn() {
         return Optional.ofNullable(this.odbNetworkArn);
     }
 
+    /**
+     * The unique identifier of the ODB network that initiates the peering connection. A sample ID is `odbpcx-abcdefgh12345678`. Changing this will force Terraform to create a new resource.
+     * 
+     */
     @Import(name="odbNetworkId")
     private @Nullable Output<String> odbNetworkId;
 
+    /**
+     * @return The unique identifier of the ODB network that initiates the peering connection. A sample ID is `odbpcx-abcdefgh12345678`. Changing this will force Terraform to create a new resource.
+     * 
+     */
     public Optional<Output<String>> odbNetworkId() {
         return Optional.ofNullable(this.odbNetworkId);
     }
@@ -99,9 +119,17 @@ public final class NetworkPeeringConnectionState extends com.pulumi.resources.Re
         return Optional.ofNullable(this.peerNetworkArn);
     }
 
+    /**
+     * The unique identifier of the ODB peering connection. Changing this will force Terraform to create a new resource. Either odbNetworkId or odbNetworkArn should be used.
+     * 
+     */
     @Import(name="peerNetworkId")
     private @Nullable Output<String> peerNetworkId;
 
+    /**
+     * @return The unique identifier of the ODB peering connection. Changing this will force Terraform to create a new resource. Either odbNetworkId or odbNetworkArn should be used.
+     * 
+     */
     public Optional<Output<String>> peerNetworkId() {
         return Optional.ofNullable(this.peerNetworkId);
     }
@@ -271,17 +299,33 @@ public final class NetworkPeeringConnectionState extends com.pulumi.resources.Re
             return createdAt(Output.of(createdAt));
         }
 
+        /**
+         * @param displayName Display name of the ODB network peering connection. Changing this will force Terraform to create a new resource.
+         * 
+         * The following arguments are optional:
+         * 
+         * @return builder
+         * 
+         */
         public Builder displayName(@Nullable Output<String> displayName) {
             $.displayName = displayName;
             return this;
         }
 
+        /**
+         * @param displayName Display name of the ODB network peering connection. Changing this will force Terraform to create a new resource.
+         * 
+         * The following arguments are optional:
+         * 
+         * @return builder
+         * 
+         */
         public Builder displayName(String displayName) {
             return displayName(Output.of(displayName));
         }
 
         /**
-         * @param odbNetworkArn ARN of the odb network peering connection.
+         * @param odbNetworkArn ARN of the ODB network that initiates the peering connection. Changing this will force Terraform to create a new resource. Either odbNetworkId or odbNetworkArn should be used.
          * 
          * @return builder
          * 
@@ -292,7 +336,7 @@ public final class NetworkPeeringConnectionState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param odbNetworkArn ARN of the odb network peering connection.
+         * @param odbNetworkArn ARN of the ODB network that initiates the peering connection. Changing this will force Terraform to create a new resource. Either odbNetworkId or odbNetworkArn should be used.
          * 
          * @return builder
          * 
@@ -301,11 +345,23 @@ public final class NetworkPeeringConnectionState extends com.pulumi.resources.Re
             return odbNetworkArn(Output.of(odbNetworkArn));
         }
 
+        /**
+         * @param odbNetworkId The unique identifier of the ODB network that initiates the peering connection. A sample ID is `odbpcx-abcdefgh12345678`. Changing this will force Terraform to create a new resource.
+         * 
+         * @return builder
+         * 
+         */
         public Builder odbNetworkId(@Nullable Output<String> odbNetworkId) {
             $.odbNetworkId = odbNetworkId;
             return this;
         }
 
+        /**
+         * @param odbNetworkId The unique identifier of the ODB network that initiates the peering connection. A sample ID is `odbpcx-abcdefgh12345678`. Changing this will force Terraform to create a new resource.
+         * 
+         * @return builder
+         * 
+         */
         public Builder odbNetworkId(String odbNetworkId) {
             return odbNetworkId(Output.of(odbNetworkId));
         }
@@ -352,11 +408,23 @@ public final class NetworkPeeringConnectionState extends com.pulumi.resources.Re
             return peerNetworkArn(Output.of(peerNetworkArn));
         }
 
+        /**
+         * @param peerNetworkId The unique identifier of the ODB peering connection. Changing this will force Terraform to create a new resource. Either odbNetworkId or odbNetworkArn should be used.
+         * 
+         * @return builder
+         * 
+         */
         public Builder peerNetworkId(@Nullable Output<String> peerNetworkId) {
             $.peerNetworkId = peerNetworkId;
             return this;
         }
 
+        /**
+         * @param peerNetworkId The unique identifier of the ODB peering connection. Changing this will force Terraform to create a new resource. Either odbNetworkId or odbNetworkArn should be used.
+         * 
+         * @return builder
+         * 
+         */
         public Builder peerNetworkId(String peerNetworkId) {
             return peerNetworkId(Output.of(peerNetworkId));
         }

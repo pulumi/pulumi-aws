@@ -47,7 +47,7 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import IPAMs using the IPAM resource discovery `id`. For example:
+    /// Using `pulumi import`, import IPAMs using the IPAM resource discovery `Id`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:ec2/vpcIpamResourceDiscovery:VpcIpamResourceDiscovery example ipam-res-disco-0178368ad2146a492

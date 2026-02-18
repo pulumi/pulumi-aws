@@ -134,7 +134,7 @@ namespace Pulumi.Aws.LightSail
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import Lightsail Container Service using the `name`. For example:
+    /// Using `pulumi import`, import Lightsail Container Service using the `Name`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:lightsail/containerService:ContainerService example container-service-1

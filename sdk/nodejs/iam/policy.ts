@@ -43,7 +43,9 @@ import * as utilities from "../utilities";
  *
  * Using `pulumi import`, import IAM Policies using the `arn`. For example:
  *
- * % pulumi import aws_iam_policy.administrator arn:aws:iam::123456789012:policy/UsersManageOwnCredentials
+ * ```sh
+ * $ pulumi import aws:iam/policy:Policy administrator arn:aws:iam::123456789012:policy/UsersManageOwnCredentials
+ * ```
  */
 export class Policy extends pulumi.CustomResource {
     /**
@@ -82,7 +84,7 @@ export class Policy extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly attachmentCount: pulumi.Output<number>;
     /**
-     * Number of ms to wait between creating the policy and settong its version as default. May be required in environments with very high S3 IO loads.
+     * Number of ms to wait between creating the policy and setting its version as default. May be required in environments with very high S3 IO loads.
      */
     declare public readonly delayAfterPolicyCreationInMs: pulumi.Output<number | undefined>;
     /**
@@ -177,7 +179,7 @@ export interface PolicyState {
      */
     attachmentCount?: pulumi.Input<number>;
     /**
-     * Number of ms to wait between creating the policy and settong its version as default. May be required in environments with very high S3 IO loads.
+     * Number of ms to wait between creating the policy and setting its version as default. May be required in environments with very high S3 IO loads.
      */
     delayAfterPolicyCreationInMs?: pulumi.Input<number>;
     /**
@@ -219,7 +221,7 @@ export interface PolicyState {
  */
 export interface PolicyArgs {
     /**
-     * Number of ms to wait between creating the policy and settong its version as default. May be required in environments with very high S3 IO loads.
+     * Number of ms to wait between creating the policy and setting its version as default. May be required in environments with very high S3 IO loads.
      */
     delayAfterPolicyCreationInMs?: pulumi.Input<number>;
     /**

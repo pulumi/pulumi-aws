@@ -849,7 +849,7 @@ class ClusterInstance(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import `aws_neptune_cluster_instance` using the instance identifier. For example:
+        Using `pulumi import`, import `neptune.ClusterInstance` using the instance identifier. For example:
 
         ```sh
         $ pulumi import aws:neptune/clusterInstance:ClusterInstance example my-instance
@@ -918,7 +918,7 @@ class ClusterInstance(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import `aws_neptune_cluster_instance` using the instance identifier. For example:
+        Using `pulumi import`, import `neptune.ClusterInstance` using the instance identifier. For example:
 
         ```sh
         $ pulumi import aws:neptune/clusterInstance:ClusterInstance example my-instance

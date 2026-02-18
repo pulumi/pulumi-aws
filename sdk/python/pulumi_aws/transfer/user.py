@@ -401,6 +401,10 @@ class User(pulumi.CustomResource):
                  user_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
+        Provides a AWS Transfer User resource. Managing SSH keys can be accomplished with the `transfer.SshKey` resource.
+
+        > **NOTE:** We suggest using `jsonencode()` or `iam_get_policy_document` when assigning a value to `policy`. They seamlessly translate Terraform language into JSON, enabling you to maintain consistency within your configuration without the need for context switches. Also, you can sidestep potential complications arising from formatting discrepancies, whitespace inconsistencies, and other nuances inherent to JSON.
+
         ## Example Usage
 
         ```python
@@ -472,6 +476,10 @@ class User(pulumi.CustomResource):
                  args: UserArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        Provides a AWS Transfer User resource. Managing SSH keys can be accomplished with the `transfer.SshKey` resource.
+
+        > **NOTE:** We suggest using `jsonencode()` or `iam_get_policy_document` when assigning a value to `policy`. They seamlessly translate Terraform language into JSON, enabling you to maintain consistency within your configuration without the need for context switches. Also, you can sidestep potential complications arising from formatting discrepancies, whitespace inconsistencies, and other nuances inherent to JSON.
+
         ## Example Usage
 
         ```python

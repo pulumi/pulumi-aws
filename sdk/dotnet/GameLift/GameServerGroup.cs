@@ -174,7 +174,7 @@ namespace Pulumi.Aws.GameLift
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import GameLift Game Server Group using the `name`. For example:
+    /// Using `pulumi import`, import GameLift Game Server Group using the `Name`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:gamelift/gameServerGroup:GameServerGroup example example

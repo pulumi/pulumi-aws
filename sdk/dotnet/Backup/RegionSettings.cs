@@ -58,7 +58,7 @@ namespace Pulumi.Aws.Backup
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import Backup Region Settings using the `region`. For example:
+    /// Using `pulumi import`, import Backup Region Settings using the `Region`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:backup/regionSettings:RegionSettings test us-west-2

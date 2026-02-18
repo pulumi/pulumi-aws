@@ -166,14 +166,14 @@ public final class WebAclRuleStatementArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * Rate-based rule tracks the rate of requests for each originating `IP address`, and triggers the rule action when the rate exceeds a limit that you specify on the number of requests in any `5-minute` time span. This statement can not be nested. See `rateBasedStatement` below for details.
+     * Rate-based rule tracks the rate of requests for each originating `IP address`, and triggers the rule action when the rate exceeds a limit that you specify on the number of requests in any specified time span. This statement can not be nested. See `rateBasedStatement` below for details.
      * 
      */
     @Import(name="rateBasedStatement")
     private @Nullable Output<WebAclRuleStatementRateBasedStatementArgs> rateBasedStatement;
 
     /**
-     * @return Rate-based rule tracks the rate of requests for each originating `IP address`, and triggers the rule action when the rate exceeds a limit that you specify on the number of requests in any `5-minute` time span. This statement can not be nested. See `rateBasedStatement` below for details.
+     * @return Rate-based rule tracks the rate of requests for each originating `IP address`, and triggers the rule action when the rate exceeds a limit that you specify on the number of requests in any specified time span. This statement can not be nested. See `rateBasedStatement` below for details.
      * 
      */
     public Optional<Output<WebAclRuleStatementRateBasedStatementArgs>> rateBasedStatement() {
@@ -499,7 +499,7 @@ public final class WebAclRuleStatementArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param rateBasedStatement Rate-based rule tracks the rate of requests for each originating `IP address`, and triggers the rule action when the rate exceeds a limit that you specify on the number of requests in any `5-minute` time span. This statement can not be nested. See `rateBasedStatement` below for details.
+         * @param rateBasedStatement Rate-based rule tracks the rate of requests for each originating `IP address`, and triggers the rule action when the rate exceeds a limit that you specify on the number of requests in any specified time span. This statement can not be nested. See `rateBasedStatement` below for details.
          * 
          * @return builder
          * 
@@ -510,7 +510,7 @@ public final class WebAclRuleStatementArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param rateBasedStatement Rate-based rule tracks the rate of requests for each originating `IP address`, and triggers the rule action when the rate exceeds a limit that you specify on the number of requests in any `5-minute` time span. This statement can not be nested. See `rateBasedStatement` below for details.
+         * @param rateBasedStatement Rate-based rule tracks the rate of requests for each originating `IP address`, and triggers the rule action when the rate exceeds a limit that you specify on the number of requests in any specified time span. This statement can not be nested. See `rateBasedStatement` below for details.
          * 
          * @return builder
          * 

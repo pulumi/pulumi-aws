@@ -45,7 +45,7 @@ import (
 //
 // ## Import
 //
-// Using `pulumi import`, import `aws_appstream_user` using the `user_name` and `authentication_type` separated by a slash (`/`). For example:
+// Using `pulumi import`, import `appstream.User` using the `userName` and `authenticationType` separated by a slash (`/`). For example:
 //
 // ```sh
 // $ pulumi import aws:appstream/user:User example UserName/AuthenticationType

@@ -153,7 +153,7 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import VPC Peering resources using the VPC peering `id`. For example:
+    /// Using `pulumi import`, import VPC Peering resources using the VPC peering `Id`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:ec2/vpcPeeringConnection:VpcPeeringConnection test_connection pcx-111aaa111

@@ -52,7 +52,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Using `pulumi import`, import Lightsail Container Service Deployment Version using the `service_name` and `version` separated by a slash (`/`). For example:
+ * Using `pulumi import`, import Lightsail Container Service Deployment Version using the `serviceName` and `version` separated by a slash (`/`). For example:
  *
  * ```sh
  * $ pulumi import aws:lightsail/containerServiceDeploymentVersion:ContainerServiceDeploymentVersion example container-service-1/1

@@ -62,9 +62,11 @@ import (
 //
 // - `arn` (String) Amazon Resource Name (ARN) of the Secrets Manager secret.
 //
-// Using `pulumi import`, import `aws_secretsmanager_secret_rotation` using the secret Amazon Resource Name (ARN). For example:
+// Using `pulumi import`, import `secretsmanager.SecretRotation` using the secret Amazon Resource Name (ARN). For example:
 //
-// % pulumi import aws_secretsmanager_secret_rotation.example arn:aws:secretsmanager:us-east-1:123456789012:secret:example-123456
+// ```sh
+// $ pulumi import aws:secretsmanager/secretRotation:SecretRotation example arn:aws:secretsmanager:us-east-1:123456789012:secret:example-123456
+// ```
 type SecretRotation struct {
 	pulumi.CustomResourceState
 

@@ -250,7 +250,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Using `pulumi import`, import App Mesh virtual routes using `mesh_name` and `virtual_router_name` together with the route&#39;s `name`. For example:
+ * Using `pulumi import`, import App Mesh virtual routes using `meshName` and `virtualRouterName` together with the route&#39;s `name`. For example:
  * 
  * ```sh
  * $ pulumi import aws:appmesh/route:Route serviceb simpleapp/serviceB/serviceB-route

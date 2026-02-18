@@ -25,6 +25,16 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
+ * Manages an AWS MQ broker. Use to create and manage message brokers for ActiveMQ and RabbitMQ engines.
+ * 
+ * &gt; For more information on Amazon MQ, see [Amazon MQ documentation](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/welcome.html).
+ * 
+ * &gt; **Note:** For RabbitMQ brokers, only one administrative user can be created during provisioning. Additional users must be created via the [RabbitMQ Management API](https://www.rabbitmq.com/management.html) or the Amazon MQ console after the broker is provisioned. Terraform cannot update or manage users after broker creation. Any changes to the `user` block will trigger full broker recreation. Amazon MQ does not return RabbitMQ user information via APIs, meaning drift of the `user` attribute can not be detected.
+ * 
+ * !&gt; **Warning:** Amazon MQ currently places limits on **RabbitMQ** brokers. For example, a RabbitMQ broker cannot have: instances with an associated IP address of an ENI attached to the broker, an associated LDAP server to authenticate and authorize broker connections, storage type `EFS`, or audit logging. Although this resource allows you to create RabbitMQ users, RabbitMQ users cannot have console access or groups.
+ * 
+ * !&gt; **Warning:** All arguments including the username and password will be stored in the raw state as plain-text. &gt; **Note:** Changes to an MQ Broker can occur when you change a parameter, such as `configuration` or `user`, and are reflected in the next maintenance window. Because of this, Terraform may report a difference in its planning phase because a modification has not yet taken place. You can use the `applyImmediately` flag to instruct the service to apply the change immediately (see documentation below). Using `applyImmediately` can result in a brief downtime as the broker reboots.
+ * 
  * ## Example Usage
  * 
  * ### Basic Example

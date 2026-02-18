@@ -19,20 +19,15 @@ __all__ = [
     'GetResourcesTagFilterArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class GetResourcesTagFilterArgsDict(TypedDict):
-        key: _builtins.str
-        """
-        One part of a key-value pair that makes up a tag.
-        """
-        values: NotRequired[Sequence[_builtins.str]]
-        """
-        Optional part of a key-value pair that make up a tag.
-        """
-elif False:
-    GetResourcesTagFilterArgsDict: TypeAlias = Mapping[str, Any]
+class GetResourcesTagFilterArgsDict(TypedDict):
+    key: _builtins.str
+    """
+    One part of a key-value pair that makes up a tag.
+    """
+    values: NotRequired[Sequence[_builtins.str]]
+    """
+    Optional part of a key-value pair that make up a tag.
+    """
 
 @pulumi.input_type
 class GetResourcesTagFilterArgs:

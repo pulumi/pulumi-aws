@@ -55,7 +55,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Using `pulumi import`, import `aws_networkmanager_global_network` using the global network ID. For example:
+ * Using `pulumi import`, import `aws.networkmanager.GlobalNetwork` using the global network ID. For example:
  * 
  * ```sh
  * $ pulumi import aws:networkmanager/globalNetwork:GlobalNetwork example global-network-0d47f6t230mz46dy4

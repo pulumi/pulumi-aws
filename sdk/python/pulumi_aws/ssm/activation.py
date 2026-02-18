@@ -371,7 +371,8 @@ class Activation(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:ssm/activation:Activation example e488f2f6-e686-4afb-8a04-ef6dfEXAMPLE
         ```
-        -> __Note:__ The `activation_code` attribute cannot be imported.
+
+        > **Note:** The `activation_code` attribute cannot be imported.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -427,7 +428,8 @@ class Activation(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:ssm/activation:Activation example e488f2f6-e686-4afb-8a04-ef6dfEXAMPLE
         ```
-        -> __Note:__ The `activation_code` attribute cannot be imported.
+
+        > **Note:** The `activation_code` attribute cannot be imported.
 
         :param str resource_name: The name of the resource.
         :param ActivationArgs args: The arguments to use to populate this resource's properties.

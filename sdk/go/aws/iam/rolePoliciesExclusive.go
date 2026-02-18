@@ -84,7 +84,7 @@ import (
 //
 // ## Import
 //
-// Using `pulumi import`, import exclusive management of inline policy assignments using the `role_name`. For example:
+// Using `pulumi import`, import exclusive management of inline policy assignments using the `roleName`. For example:
 //
 // ```sh
 // $ pulumi import aws:iam/rolePoliciesExclusive:RolePoliciesExclusive example MyRole

@@ -199,11 +199,13 @@ namespace Pulumi.Aws.Sfn
     /// 
     /// #### Required
     /// 
-    /// - `arn` (String) ARN of the state machine.
+    /// - `Arn` (String) ARN of the state machine.
     /// 
-    /// Using `pulumi import`, import State Machines using the `arn`. For example:
+    /// Using `pulumi import`, import State Machines using the `Arn`. For example:
     /// 
-    /// % pulumi import aws_sfn_state_machine.foo arn:aws:states:eu-west-1:123456789098:stateMachine:bar
+    /// ```sh
+    /// $ pulumi import aws:sfn/stateMachine:StateMachine foo arn:aws:states:eu-west-1:123456789098:stateMachine:bar
+    /// ```
     /// </summary>
     [AwsResourceType("aws:sfn/stateMachine:StateMachine")]
     public partial class StateMachine : global::Pulumi.CustomResource

@@ -44,7 +44,7 @@ namespace Pulumi.Aws.CodePipeline
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import CodeDeploy CustomActionType using the `id`. For example:
+    /// Using `pulumi import`, import CodeDeploy CustomActionType using the `Id`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:codepipeline/customActionType:CustomActionType example Build:pulumi:1

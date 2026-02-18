@@ -136,6 +136,9 @@ export class Template extends pulumi.CustomResource {
      * ARN of the template.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
+    /**
+     * AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
+     */
     declare public readonly awsAccountId: pulumi.Output<string>;
     /**
      * The time that the template was created.
@@ -257,6 +260,9 @@ export interface TemplateState {
      * ARN of the template.
      */
     arn?: pulumi.Input<string>;
+    /**
+     * AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
+     */
     awsAccountId?: pulumi.Input<string>;
     /**
      * The time that the template was created.
@@ -318,6 +324,9 @@ export interface TemplateState {
  * The set of arguments for constructing a Template resource.
  */
 export interface TemplateArgs {
+    /**
+     * AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
+     */
     awsAccountId?: pulumi.Input<string>;
     /**
      * Display name for the template.

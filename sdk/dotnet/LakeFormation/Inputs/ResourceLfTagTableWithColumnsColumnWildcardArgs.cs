@@ -14,6 +14,10 @@ namespace Pulumi.Aws.LakeFormation.Inputs
     {
         [Input("excludedColumnNames")]
         private InputList<string>? _excludedColumnNames;
+
+        /// <summary>
+        /// Set of column names for the table to exclude. If `ExcludedColumnNames` is included, `Wildcard` must be set to `True` to avoid Terraform reporting a difference.
+        /// </summary>
         public InputList<string> ExcludedColumnNames
         {
             get => _excludedColumnNames ?? (_excludedColumnNames = new InputList<string>());

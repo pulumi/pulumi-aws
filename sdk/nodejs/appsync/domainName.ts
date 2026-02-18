@@ -21,7 +21,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Using `pulumi import`, import `aws_appsync_domain_name` using the AppSync domain name. For example:
+ * Using `pulumi import`, import `aws.appsync.DomainName` using the AppSync domain name. For example:
  *
  * ```sh
  * $ pulumi import aws:appsync/domainName:DomainName example example.com

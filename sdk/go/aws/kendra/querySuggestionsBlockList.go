@@ -53,7 +53,7 @@ import (
 //
 // ## Import
 //
-// Using `pulumi import`, import the `aws_kendra_query_suggestions_block_list` resource using the unique identifiers of the block list and index separated by a slash (`/`). For example:
+// Using `pulumi import`, import the `kendra.QuerySuggestionsBlockList` resource using the unique identifiers of the block list and index separated by a slash (`/`). For example:
 //
 // ```sh
 // $ pulumi import aws:kendra/querySuggestionsBlockList:QuerySuggestionsBlockList example blocklist-123456780/idx-8012925589
@@ -70,7 +70,8 @@ type QuerySuggestionsBlockList struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Unique identifier of the block list.
 	QuerySuggestionsBlockListId pulumi.StringOutput `pulumi:"querySuggestionsBlockListId"`
-	Region                      pulumi.StringOutput `pulumi:"region"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
+	Region pulumi.StringOutput `pulumi:"region"`
 	// IAM (Identity and Access Management) role used to access the block list text file in S3.
 	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
 	// S3 path where your block list text file is located. See details below.
@@ -129,7 +130,8 @@ type querySuggestionsBlockListState struct {
 	Name *string `pulumi:"name"`
 	// Unique identifier of the block list.
 	QuerySuggestionsBlockListId *string `pulumi:"querySuggestionsBlockListId"`
-	Region                      *string `pulumi:"region"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
+	Region *string `pulumi:"region"`
 	// IAM (Identity and Access Management) role used to access the block list text file in S3.
 	RoleArn *string `pulumi:"roleArn"`
 	// S3 path where your block list text file is located. See details below.
@@ -150,7 +152,8 @@ type QuerySuggestionsBlockListState struct {
 	Name pulumi.StringPtrInput
 	// Unique identifier of the block list.
 	QuerySuggestionsBlockListId pulumi.StringPtrInput
-	Region                      pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
+	Region pulumi.StringPtrInput
 	// IAM (Identity and Access Management) role used to access the block list text file in S3.
 	RoleArn pulumi.StringPtrInput
 	// S3 path where your block list text file is located. See details below.
@@ -170,7 +173,8 @@ type querySuggestionsBlockListArgs struct {
 	// Identifier of the index for a block list.
 	IndexId string `pulumi:"indexId"`
 	// Name for the block list.
-	Name   *string `pulumi:"name"`
+	Name *string `pulumi:"name"`
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
 	Region *string `pulumi:"region"`
 	// IAM (Identity and Access Management) role used to access the block list text file in S3.
 	RoleArn string `pulumi:"roleArn"`
@@ -185,7 +189,8 @@ type QuerySuggestionsBlockListArgs struct {
 	// Identifier of the index for a block list.
 	IndexId pulumi.StringInput
 	// Name for the block list.
-	Name   pulumi.StringPtrInput
+	Name pulumi.StringPtrInput
+	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
 	Region pulumi.StringPtrInput
 	// IAM (Identity and Access Management) role used to access the block list text file in S3.
 	RoleArn pulumi.StringInput
@@ -305,6 +310,7 @@ func (o QuerySuggestionsBlockListOutput) QuerySuggestionsBlockListId() pulumi.St
 	return o.ApplyT(func(v *QuerySuggestionsBlockList) pulumi.StringOutput { return v.QuerySuggestionsBlockListId }).(pulumi.StringOutput)
 }
 
+// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
 func (o QuerySuggestionsBlockListOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *QuerySuggestionsBlockList) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }

@@ -37,12 +37,13 @@ namespace Pulumi.Aws.ImageBuilder
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import `aws_imagebuilder_components` resources using the Amazon Resource Name (ARN). For example:
+    /// Using `pulumi import`, import `aws.imagebuilder.getComponents` resources using the Amazon Resource Name (ARN). For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:imagebuilder/component:Component example arn:aws:imagebuilder:us-east-1:123456789012:component/example/1.0.0/1
     /// ```
-    /// Certain resource arguments, such as `uri`, cannot be read via the API and imported into the provider. The provider will display a difference for these arguments the first run after import if declared in the the provider configuration for an imported resource.
+    /// 
+    /// Certain resource arguments, such as `Uri`, cannot be read via the API and imported into the provider. The provider will display a difference for these arguments the first run after import if declared in the the provider configuration for an imported resource.
     /// </summary>
     [AwsResourceType("aws:imagebuilder/component:Component")]
     public partial class Component : global::Pulumi.CustomResource

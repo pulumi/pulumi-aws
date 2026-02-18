@@ -40,7 +40,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Using `pulumi import`, import `aws_neptune_cluster` using the cluster identifier. For example:
+ * Using `pulumi import`, import `aws.neptune.Cluster` using the cluster identifier. For example:
  *
  * ```sh
  * $ pulumi import aws:neptune/cluster:Cluster example my-cluster
@@ -94,6 +94,9 @@ export class Cluster extends pulumi.CustomResource {
      * Days to retain backups for. Default `1`
      */
     declare public readonly backupRetentionPeriod: pulumi.Output<number | undefined>;
+    /**
+     * Cluster identifier. If omitted, Terraform will assign a random, unique identifier.
+     */
     declare public readonly clusterIdentifier: pulumi.Output<string>;
     /**
      * Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `clusterIdentifier`.
@@ -345,6 +348,9 @@ export interface ClusterState {
      * Days to retain backups for. Default `1`
      */
     backupRetentionPeriod?: pulumi.Input<number>;
+    /**
+     * Cluster identifier. If omitted, Terraform will assign a random, unique identifier.
+     */
     clusterIdentifier?: pulumi.Input<string>;
     /**
      * Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `clusterIdentifier`.
@@ -496,6 +502,9 @@ export interface ClusterArgs {
      * Days to retain backups for. Default `1`
      */
     backupRetentionPeriod?: pulumi.Input<number>;
+    /**
+     * Cluster identifier. If omitted, Terraform will assign a random, unique identifier.
+     */
     clusterIdentifier?: pulumi.Input<string>;
     /**
      * Creates a unique cluster identifier beginning with the specified prefix. Conflicts with `clusterIdentifier`.

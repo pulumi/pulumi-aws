@@ -13,12 +13,14 @@ namespace Pulumi.Aws.DynamoDB.Inputs
     public sealed class TableGlobalSecondaryIndexKeySchemaGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Name of the table attribute to store the TTL timestamp in.
-        /// Required if `Enabled` is `True`, must not be set otherwise.
+        /// Name of the attribute; must be defined as an attribute in the resource.
         /// </summary>
         [Input("attributeName", required: true)]
         public Input<string> AttributeName { get; set; } = null!;
 
+        /// <summary>
+        /// The type of key. Valid values are `HASH` (partition key) or `RANGE` (sort key). You can specify up to 4 attributes with `KeyType = "HASH"` and up to 4 attributes with `KeyType = "RANGE"`.
+        /// </summary>
         [Input("keyType", required: true)]
         public Input<string> KeyType { get; set; } = null!;
 

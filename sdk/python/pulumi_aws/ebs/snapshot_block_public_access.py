@@ -105,6 +105,10 @@ class SnapshotBlockPublicAccess(pulumi.CustomResource):
                  state: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
+        Provides a resource to manage the state of the "Block public access for snapshots" setting on region level.
+
+        > **NOTE:** Removing this Terraform resource disables blocking.
+
         ## Example Usage
 
         ```python
@@ -134,6 +138,10 @@ class SnapshotBlockPublicAccess(pulumi.CustomResource):
                  args: SnapshotBlockPublicAccessArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        Provides a resource to manage the state of the "Block public access for snapshots" setting on region level.
+
+        > **NOTE:** Removing this Terraform resource disables blocking.
+
         ## Example Usage
 
         ```python

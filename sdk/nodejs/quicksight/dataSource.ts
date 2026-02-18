@@ -155,6 +155,9 @@ export class DataSource extends pulumi.CustomResource {
      * Amazon Resource Name (ARN) of the data source
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
+    /**
+     * AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
+     */
     declare public readonly awsAccountId: pulumi.Output<string>;
     /**
      * The credentials Amazon QuickSight uses to connect to your underlying source. See Credentials below for more details.
@@ -267,6 +270,9 @@ export interface DataSourceState {
      * Amazon Resource Name (ARN) of the data source
      */
     arn?: pulumi.Input<string>;
+    /**
+     * AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
+     */
     awsAccountId?: pulumi.Input<string>;
     /**
      * The credentials Amazon QuickSight uses to connect to your underlying source. See Credentials below for more details.
@@ -320,6 +326,9 @@ export interface DataSourceState {
  * The set of arguments for constructing a DataSource resource.
  */
 export interface DataSourceArgs {
+    /**
+     * AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
+     */
     awsAccountId?: pulumi.Input<string>;
     /**
      * The credentials Amazon QuickSight uses to connect to your underlying source. See Credentials below for more details.

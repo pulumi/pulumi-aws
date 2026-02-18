@@ -65,7 +65,7 @@ import (
 //
 // ## Import
 //
-// Using `pulumi import`, import pipelines using the `pipeline_name`. For example:
+// Using `pulumi import`, import pipelines using the `pipelineName`. For example:
 //
 // ```sh
 // $ pulumi import aws:sagemaker/pipeline:Pipeline test_pipeline pipeline

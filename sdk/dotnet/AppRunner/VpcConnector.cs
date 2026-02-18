@@ -46,11 +46,13 @@ namespace Pulumi.Aws.AppRunner
     /// 
     /// #### Required
     /// 
-    /// - `arn` (String) Amazon Resource Name (ARN) of the App Runner VPC connector.
+    /// - `Arn` (String) Amazon Resource Name (ARN) of the App Runner VPC connector.
     /// 
-    /// Using `pulumi import`, import App Runner vpc connector using the `arn`. For example:
+    /// Using `pulumi import`, import App Runner vpc connector using the `Arn`. For example:
     /// 
-    /// % pulumi import aws_apprunner_vpc_connector.example arn:aws:apprunner:us-east-1:1234567890:vpcconnector/example/1/0a03292a89764e5882c41d8f991c82fe
+    /// ```sh
+    /// $ pulumi import aws:apprunner/vpcConnector:VpcConnector example arn:aws:apprunner:us-east-1:1234567890:vpcconnector/example/1/0a03292a89764e5882c41d8f991c82fe
+    /// ```
     /// </summary>
     [AwsResourceType("aws:apprunner/vpcConnector:VpcConnector")]
     public partial class VpcConnector : global::Pulumi.CustomResource

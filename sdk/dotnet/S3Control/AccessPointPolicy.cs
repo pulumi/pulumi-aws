@@ -70,7 +70,7 @@ namespace Pulumi.Aws.S3Control
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import Access Point policies using the `access_point_arn`. For example:
+    /// Using `pulumi import`, import Access Point policies using the `AccessPointArn`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:s3control/accessPointPolicy:AccessPointPolicy example arn:aws:s3:us-west-2:123456789012:accesspoint/example

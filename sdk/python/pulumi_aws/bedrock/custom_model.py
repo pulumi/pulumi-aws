@@ -585,6 +585,21 @@ class CustomModel(pulumi.CustomResource):
                  vpc_config: Optional[pulumi.Input[Union['CustomModelVpcConfigArgs', 'CustomModelVpcConfigArgsDict']]] = None,
                  __props__=None):
         """
+        Manages an Amazon Bedrock custom model.
+        Model customization is the process of providing training data to a base model in order to improve its performance for specific use-cases.
+
+        This Terraform resource interacts with two Amazon Bedrock entities:
+
+        1. A Continued Pre-training or Fine-tuning job which is started when the Terraform resource is created. The customization job can take several hours to run to completion. The duration of the job depends on the size of the training data (number of records, input tokens, and output tokens), and [hyperparameters](https://docs.aws.amazon.com/bedrock/latest/userguide/custom-models-hp.html) (number of epochs, and batch size).
+        2. The custom model output on successful completion of the customization job.
+
+        This resource's behaviors correspond to operations on these Amazon Bedrock entities:
+
+        * _Create_ starts the customization job and immediately returns.
+        * _Read_ returns the status and results of the customization job. If the customization job has completed, the output model's properties are returned.
+        * _Update_ updates the customization job's [tags](https://docs.aws.amazon.com/bedrock/latest/userguide/tagging.html).
+        * _Delete_ stops the customization job if it is still active. If the customization job has completed, the custom model output by the job is deleted.
+
         ## Example Usage
 
         ```python
@@ -621,7 +636,9 @@ class CustomModel(pulumi.CustomResource):
 
         Using `pulumi import`, import Bedrock custom model using the `job_arn`. For example:
 
-        % pulumi import aws_bedrock_custom_model.example arn:aws:bedrock:us-west-2:123456789012:model-customization-job/amazon.titan-text-express-v1:0:8k/1y5n57gh5y2e
+        ```sh
+        $ pulumi import aws:bedrock/customModel:CustomModel example arn:aws:bedrock:us-west-2:123456789012:model-customization-job/amazon.titan-text-express-v1:0:8k/1y5n57gh5y2e
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -646,6 +663,21 @@ class CustomModel(pulumi.CustomResource):
                  args: CustomModelArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        Manages an Amazon Bedrock custom model.
+        Model customization is the process of providing training data to a base model in order to improve its performance for specific use-cases.
+
+        This Terraform resource interacts with two Amazon Bedrock entities:
+
+        1. A Continued Pre-training or Fine-tuning job which is started when the Terraform resource is created. The customization job can take several hours to run to completion. The duration of the job depends on the size of the training data (number of records, input tokens, and output tokens), and [hyperparameters](https://docs.aws.amazon.com/bedrock/latest/userguide/custom-models-hp.html) (number of epochs, and batch size).
+        2. The custom model output on successful completion of the customization job.
+
+        This resource's behaviors correspond to operations on these Amazon Bedrock entities:
+
+        * _Create_ starts the customization job and immediately returns.
+        * _Read_ returns the status and results of the customization job. If the customization job has completed, the output model's properties are returned.
+        * _Update_ updates the customization job's [tags](https://docs.aws.amazon.com/bedrock/latest/userguide/tagging.html).
+        * _Delete_ stops the customization job if it is still active. If the customization job has completed, the custom model output by the job is deleted.
+
         ## Example Usage
 
         ```python
@@ -682,7 +714,9 @@ class CustomModel(pulumi.CustomResource):
 
         Using `pulumi import`, import Bedrock custom model using the `job_arn`. For example:
 
-        % pulumi import aws_bedrock_custom_model.example arn:aws:bedrock:us-west-2:123456789012:model-customization-job/amazon.titan-text-express-v1:0:8k/1y5n57gh5y2e
+        ```sh
+        $ pulumi import aws:bedrock/customModel:CustomModel example arn:aws:bedrock:us-west-2:123456789012:model-customization-job/amazon.titan-text-express-v1:0:8k/1y5n57gh5y2e
+        ```
 
         :param str resource_name: The name of the resource.
         :param CustomModelArgs args: The arguments to use to populate this resource's properties.

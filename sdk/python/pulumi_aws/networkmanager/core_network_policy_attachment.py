@@ -371,7 +371,7 @@ class CoreNetworkPolicyAttachment(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import `aws_networkmanager_core_network_policy_attachment` using the core network ID. For example:
+        Using `pulumi import`, import `networkmanager.CoreNetworkPolicyAttachment` using the core network ID. For example:
 
         ```sh
         $ pulumi import aws:networkmanager/coreNetworkPolicyAttachment:CoreNetworkPolicyAttachment example core-network-0d47f6t230mz46dy4
@@ -640,7 +640,7 @@ class CoreNetworkPolicyAttachment(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import `aws_networkmanager_core_network_policy_attachment` using the core network ID. For example:
+        Using `pulumi import`, import `networkmanager.CoreNetworkPolicyAttachment` using the core network ID. For example:
 
         ```sh
         $ pulumi import aws:networkmanager/coreNetworkPolicyAttachment:CoreNetworkPolicyAttachment example core-network-0d47f6t230mz46dy4

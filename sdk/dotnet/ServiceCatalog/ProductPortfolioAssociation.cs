@@ -35,7 +35,7 @@ namespace Pulumi.Aws.ServiceCatalog
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import `aws_servicecatalog_product_portfolio_association` using the accept language, portfolio ID, and product ID. For example:
+    /// Using `pulumi import`, import `aws.servicecatalog.ProductPortfolioAssociation` using the accept language, portfolio ID, and product ID. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:servicecatalog/productPortfolioAssociation:ProductPortfolioAssociation example en:port-68656c6c6f:prod-dnigbtea24ste

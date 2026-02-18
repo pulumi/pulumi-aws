@@ -64,11 +64,13 @@ import javax.annotation.Nullable;
  * 
  * #### Optional
  * 
- * * `account_id` (String) AWS Account where this resource is managed.
+ * * `accountId` (String) AWS Account where this resource is managed.
  * 
  * Using `pulumi import`, import AWS Organizations Organizational Units using the `id`. For example:
  * 
- * % pulumi import aws_organizations_organizational_unit.example ou-1234567
+ * ```sh
+ * $ pulumi import aws:organizations/organizationalUnit:OrganizationalUnit example ou-1234567
+ * ```
  * 
  */
 @ResourceType(type="aws:organizations/organizationalUnit:OrganizationalUnit")

@@ -25,20 +25,15 @@ __all__ = [
     'LandingZoneDriftStatusArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class BaselineParametersArgsDict(TypedDict):
-        key: pulumi.Input[_builtins.str]
-        """
-        The key of the parameter.
-        """
-        value: pulumi.Input[_builtins.str]
-        """
-        The value of the parameter.
-        """
-elif False:
-    BaselineParametersArgsDict: TypeAlias = Mapping[str, Any]
+class BaselineParametersArgsDict(TypedDict):
+    key: pulumi.Input[_builtins.str]
+    """
+    The key of the parameter.
+    """
+    value: pulumi.Input[_builtins.str]
+    """
+    The value of the parameter.
+    """
 
 @pulumi.input_type
 class BaselineParametersArgs:
@@ -77,22 +72,19 @@ class BaselineParametersArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class BaselineTimeoutsArgsDict(TypedDict):
-        create: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
-        """
-        delete: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
-        """
-        update: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
-        """
-elif False:
-    BaselineTimeoutsArgsDict: TypeAlias = Mapping[str, Any]
+class BaselineTimeoutsArgsDict(TypedDict):
+    create: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+    """
+    delete: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+    """
+    update: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+    """
 
 @pulumi.input_type
 class BaselineTimeoutsArgs:
@@ -149,18 +141,15 @@ class BaselineTimeoutsArgs:
         pulumi.set(self, "update", value)
 
 
-if not MYPY:
-    class ControlTowerControlParameterArgsDict(TypedDict):
-        key: pulumi.Input[_builtins.str]
-        """
-        The name of the parameter.
-        """
-        value: pulumi.Input[_builtins.str]
-        """
-        The value of the parameter.
-        """
-elif False:
-    ControlTowerControlParameterArgsDict: TypeAlias = Mapping[str, Any]
+class ControlTowerControlParameterArgsDict(TypedDict):
+    key: pulumi.Input[_builtins.str]
+    """
+    The name of the parameter.
+    """
+    value: pulumi.Input[_builtins.str]
+    """
+    The value of the parameter.
+    """
 
 @pulumi.input_type
 class ControlTowerControlParameterArgs:
@@ -199,14 +188,11 @@ class ControlTowerControlParameterArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class LandingZoneDriftStatusArgsDict(TypedDict):
-        status: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The drift status of the landing zone.
-        """
-elif False:
-    LandingZoneDriftStatusArgsDict: TypeAlias = Mapping[str, Any]
+class LandingZoneDriftStatusArgsDict(TypedDict):
+    status: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The drift status of the landing zone.
+    """
 
 @pulumi.input_type
 class LandingZoneDriftStatusArgs:

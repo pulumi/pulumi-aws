@@ -43,20 +43,15 @@ __all__ = [
     'GetPrincipalApplicationAssignmentsApplicationAssignmentArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class ApplicationPortalOptionsArgsDict(TypedDict):
-        sign_in_options: NotRequired[pulumi.Input['ApplicationPortalOptionsSignInOptionsArgsDict']]
-        """
-        Sign-in options for the access portal. See `sign_in_options` below.
-        """
-        visibility: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Indicates whether this application is visible in the access portal. Valid values are `ENABLED` and `DISABLED`.
-        """
-elif False:
-    ApplicationPortalOptionsArgsDict: TypeAlias = Mapping[str, Any]
+class ApplicationPortalOptionsArgsDict(TypedDict):
+    sign_in_options: NotRequired[pulumi.Input['ApplicationPortalOptionsSignInOptionsArgsDict']]
+    """
+    Sign-in options for the access portal. See `sign_in_options` below.
+    """
+    visibility: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Indicates whether this application is visible in the access portal. Valid values are `ENABLED` and `DISABLED`.
+    """
 
 @pulumi.input_type
 class ApplicationPortalOptionsArgs:
@@ -97,21 +92,18 @@ class ApplicationPortalOptionsArgs:
         pulumi.set(self, "visibility", value)
 
 
-if not MYPY:
-    class ApplicationPortalOptionsSignInOptionsArgsDict(TypedDict):
-        origin: pulumi.Input[_builtins.str]
-        """
-        Determines how IAM Identity Center navigates the user to the target application.
-        Valid values are `APPLICATION` and `IDENTITY_CENTER`.
-        If `APPLICATION` is set, IAM Identity Center redirects the customer to the configured `application_url`.
-        If `IDENTITY_CENTER` is set, IAM Identity Center uses SAML identity-provider initiated authentication to sign the customer directly into a SAML-based application.
-        """
-        application_url: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        URL that accepts authentication requests for an application.
-        """
-elif False:
-    ApplicationPortalOptionsSignInOptionsArgsDict: TypeAlias = Mapping[str, Any]
+class ApplicationPortalOptionsSignInOptionsArgsDict(TypedDict):
+    origin: pulumi.Input[_builtins.str]
+    """
+    Determines how IAM Identity Center navigates the user to the target application.
+    Valid values are `APPLICATION` and `IDENTITY_CENTER`.
+    If `APPLICATION` is set, IAM Identity Center redirects the customer to the configured `application_url`.
+    If `IDENTITY_CENTER` is set, IAM Identity Center uses SAML identity-provider initiated authentication to sign the customer directly into a SAML-based application.
+    """
+    application_url: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    URL that accepts authentication requests for an application.
+    """
 
 @pulumi.input_type
 class ApplicationPortalOptionsSignInOptionsArgs:
@@ -157,18 +149,15 @@ class ApplicationPortalOptionsSignInOptionsArgs:
         pulumi.set(self, "application_url", value)
 
 
-if not MYPY:
-    class CustomerManagedPolicyAttachmentCustomerManagedPolicyReferenceArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        """
-        Name of the customer managed IAM Policy to be attached.
-        """
-        path: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The path to the IAM policy to be attached. The default is `/`. See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-friendly-names) for more information.
-        """
-elif False:
-    CustomerManagedPolicyAttachmentCustomerManagedPolicyReferenceArgsDict: TypeAlias = Mapping[str, Any]
+class CustomerManagedPolicyAttachmentCustomerManagedPolicyReferenceArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    Name of the customer managed IAM Policy to be attached.
+    """
+    path: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The path to the IAM policy to be attached. The default is `/`. See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-friendly-names) for more information.
+    """
 
 @pulumi.input_type
 class CustomerManagedPolicyAttachmentCustomerManagedPolicyReferenceArgs:
@@ -208,18 +197,15 @@ class CustomerManagedPolicyAttachmentCustomerManagedPolicyReferenceArgs:
         pulumi.set(self, "path", value)
 
 
-if not MYPY:
-    class CustomerManagedPolicyAttachmentsExclusiveCustomerManagedPolicyReferenceArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        """
-        Name of the customer managed IAM Policy to be attached.
-        """
-        path: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The path to the IAM policy to be attached. The default is `/`. See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-friendly-names) for more information.
-        """
-elif False:
-    CustomerManagedPolicyAttachmentsExclusiveCustomerManagedPolicyReferenceArgsDict: TypeAlias = Mapping[str, Any]
+class CustomerManagedPolicyAttachmentsExclusiveCustomerManagedPolicyReferenceArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    Name of the customer managed IAM Policy to be attached.
+    """
+    path: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The path to the IAM policy to be attached. The default is `/`. See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-friendly-names) for more information.
+    """
 
 @pulumi.input_type
 class CustomerManagedPolicyAttachmentsExclusiveCustomerManagedPolicyReferenceArgs:
@@ -259,18 +245,15 @@ class CustomerManagedPolicyAttachmentsExclusiveCustomerManagedPolicyReferenceArg
         pulumi.set(self, "path", value)
 
 
-if not MYPY:
-    class CustomerManagedPolicyAttachmentsExclusiveTimeoutsArgsDict(TypedDict):
-        create: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
-        """
-        update: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
-        """
-elif False:
-    CustomerManagedPolicyAttachmentsExclusiveTimeoutsArgsDict: TypeAlias = Mapping[str, Any]
+class CustomerManagedPolicyAttachmentsExclusiveTimeoutsArgsDict(TypedDict):
+    create: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+    """
+    update: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+    """
 
 @pulumi.input_type
 class CustomerManagedPolicyAttachmentsExclusiveTimeoutsArgs:
@@ -311,18 +294,15 @@ class CustomerManagedPolicyAttachmentsExclusiveTimeoutsArgs:
         pulumi.set(self, "update", value)
 
 
-if not MYPY:
-    class InstanceAccessControlAttributesAttributeArgsDict(TypedDict):
-        key: pulumi.Input[_builtins.str]
-        """
-        The name of the attribute associated with your identities in your identity source. This is used to map a specified attribute in your identity source with an attribute in AWS SSO.
-        """
-        values: pulumi.Input[Sequence[pulumi.Input['InstanceAccessControlAttributesAttributeValueArgsDict']]]
-        """
-        The value used for mapping a specified attribute to an identity source. See AccessControlAttributeValue
-        """
-elif False:
-    InstanceAccessControlAttributesAttributeArgsDict: TypeAlias = Mapping[str, Any]
+class InstanceAccessControlAttributesAttributeArgsDict(TypedDict):
+    key: pulumi.Input[_builtins.str]
+    """
+    The name of the attribute associated with your identities in your identity source. This is used to map a specified attribute in your identity source with an attribute in AWS SSO.
+    """
+    values: pulumi.Input[Sequence[pulumi.Input['InstanceAccessControlAttributesAttributeValueArgsDict']]]
+    """
+    The value used for mapping a specified attribute to an identity source. See AccessControlAttributeValue
+    """
 
 @pulumi.input_type
 class InstanceAccessControlAttributesAttributeArgs:
@@ -361,14 +341,11 @@ class InstanceAccessControlAttributesAttributeArgs:
         pulumi.set(self, "values", value)
 
 
-if not MYPY:
-    class InstanceAccessControlAttributesAttributeValueArgsDict(TypedDict):
-        sources: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        The identity source to use when mapping a specified attribute to AWS SSO.
-        """
-elif False:
-    InstanceAccessControlAttributesAttributeValueArgsDict: TypeAlias = Mapping[str, Any]
+class InstanceAccessControlAttributesAttributeValueArgsDict(TypedDict):
+    sources: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    The identity source to use when mapping a specified attribute to AWS SSO.
+    """
 
 @pulumi.input_type
 class InstanceAccessControlAttributesAttributeValueArgs:
@@ -392,18 +369,15 @@ class InstanceAccessControlAttributesAttributeValueArgs:
         pulumi.set(self, "sources", value)
 
 
-if not MYPY:
-    class ManagedPolicyAttachmentsExclusiveTimeoutsArgsDict(TypedDict):
-        create: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
-        """
-        update: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
-        """
-elif False:
-    ManagedPolicyAttachmentsExclusiveTimeoutsArgsDict: TypeAlias = Mapping[str, Any]
+class ManagedPolicyAttachmentsExclusiveTimeoutsArgsDict(TypedDict):
+    create: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+    """
+    update: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+    """
 
 @pulumi.input_type
 class ManagedPolicyAttachmentsExclusiveTimeoutsArgs:
@@ -444,18 +418,15 @@ class ManagedPolicyAttachmentsExclusiveTimeoutsArgs:
         pulumi.set(self, "update", value)
 
 
-if not MYPY:
-    class PermissionsBoundaryAttachmentPermissionsBoundaryArgsDict(TypedDict):
-        customer_managed_policy_reference: NotRequired[pulumi.Input['PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReferenceArgsDict']]
-        """
-        Specifies the name and path of a customer managed policy. See below.
-        """
-        managed_policy_arn: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        AWS-managed IAM policy ARN to use as the permissions boundary.
-        """
-elif False:
-    PermissionsBoundaryAttachmentPermissionsBoundaryArgsDict: TypeAlias = Mapping[str, Any]
+class PermissionsBoundaryAttachmentPermissionsBoundaryArgsDict(TypedDict):
+    customer_managed_policy_reference: NotRequired[pulumi.Input['PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReferenceArgsDict']]
+    """
+    Specifies the name and path of a customer managed policy. See below.
+    """
+    managed_policy_arn: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    AWS-managed IAM policy ARN to use as the permissions boundary.
+    """
 
 @pulumi.input_type
 class PermissionsBoundaryAttachmentPermissionsBoundaryArgs:
@@ -496,18 +467,15 @@ class PermissionsBoundaryAttachmentPermissionsBoundaryArgs:
         pulumi.set(self, "managed_policy_arn", value)
 
 
-if not MYPY:
-    class PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReferenceArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        """
-        Name of the customer managed IAM Policy to be attached.
-        """
-        path: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The path to the IAM policy to be attached. The default is `/`. See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-friendly-names) for more information.
-        """
-elif False:
-    PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReferenceArgsDict: TypeAlias = Mapping[str, Any]
+class PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReferenceArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    Name of the customer managed IAM Policy to be attached.
+    """
+    path: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The path to the IAM policy to be attached. The default is `/`. See [IAM Identifiers](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html#identifiers-friendly-names) for more information.
+    """
 
 @pulumi.input_type
 class PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReferenceArgs:
@@ -547,14 +515,11 @@ class PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyRefer
         pulumi.set(self, "path", value)
 
 
-if not MYPY:
-    class TrustedTokenIssuerTrustedTokenIssuerConfigurationArgsDict(TypedDict):
-        oidc_jwt_configuration: pulumi.Input['TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfigurationArgsDict']
-        """
-        A block that describes the settings for a trusted token issuer that works with OpenID Connect (OIDC) by using JSON Web Tokens (JWT). See Documented below below.
-        """
-elif False:
-    TrustedTokenIssuerTrustedTokenIssuerConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class TrustedTokenIssuerTrustedTokenIssuerConfigurationArgsDict(TypedDict):
+    oidc_jwt_configuration: pulumi.Input['TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfigurationArgsDict']
+    """
+    A block that describes the settings for a trusted token issuer that works with OpenID Connect (OIDC) by using JSON Web Tokens (JWT). See Documented below below.
+    """
 
 @pulumi.input_type
 class TrustedTokenIssuerTrustedTokenIssuerConfigurationArgs:
@@ -578,26 +543,23 @@ class TrustedTokenIssuerTrustedTokenIssuerConfigurationArgs:
         pulumi.set(self, "oidc_jwt_configuration", value)
 
 
-if not MYPY:
-    class TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfigurationArgsDict(TypedDict):
-        claim_attribute_path: pulumi.Input[_builtins.str]
-        """
-        Specifies the path of the source attribute in the JWT from the trusted token issuer.
-        """
-        identity_store_attribute_path: pulumi.Input[_builtins.str]
-        """
-        Specifies path of the destination attribute in a JWT from IAM Identity Center. The attribute mapped by this JMESPath expression is compared against the attribute mapped by `claim_attribute_path` when a trusted token issuer token is exchanged for an IAM Identity Center token.
-        """
-        issuer_url: pulumi.Input[_builtins.str]
-        """
-        Specifies the URL that IAM Identity Center uses for OpenID Discovery. OpenID Discovery is used to obtain the information required to verify the tokens that the trusted token issuer generates.
-        """
-        jwks_retrieval_option: pulumi.Input[_builtins.str]
-        """
-        The method that the trusted token issuer can use to retrieve the JSON Web Key Set used to verify a JWT. Valid values are `OPEN_ID_DISCOVERY`
-        """
-elif False:
-    TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfigurationArgsDict(TypedDict):
+    claim_attribute_path: pulumi.Input[_builtins.str]
+    """
+    Specifies the path of the source attribute in the JWT from the trusted token issuer.
+    """
+    identity_store_attribute_path: pulumi.Input[_builtins.str]
+    """
+    Specifies path of the destination attribute in a JWT from IAM Identity Center. The attribute mapped by this JMESPath expression is compared against the attribute mapped by `claim_attribute_path` when a trusted token issuer token is exchanged for an IAM Identity Center token.
+    """
+    issuer_url: pulumi.Input[_builtins.str]
+    """
+    Specifies the URL that IAM Identity Center uses for OpenID Discovery. OpenID Discovery is used to obtain the information required to verify the tokens that the trusted token issuer generates.
+    """
+    jwks_retrieval_option: pulumi.Input[_builtins.str]
+    """
+    The method that the trusted token issuer can use to retrieve the JSON Web Key Set used to verify a JWT. Valid values are `OPEN_ID_DISCOVERY`
+    """
 
 @pulumi.input_type
 class TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfigurationArgs:
@@ -666,22 +628,19 @@ class TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfigurationArgs:
         pulumi.set(self, "jwks_retrieval_option", value)
 
 
-if not MYPY:
-    class GetPrincipalApplicationAssignmentsApplicationAssignmentArgsDict(TypedDict):
-        application_arn: _builtins.str
-        """
-        ARN of the application.
-        """
-        principal_id: _builtins.str
-        """
-        An identifier for an object in IAM Identity Center, such as a user or group.
-        """
-        principal_type: _builtins.str
-        """
-        Entity type for which the assignment will be created. Valid values are `USER` or `GROUP`.
-        """
-elif False:
-    GetPrincipalApplicationAssignmentsApplicationAssignmentArgsDict: TypeAlias = Mapping[str, Any]
+class GetPrincipalApplicationAssignmentsApplicationAssignmentArgsDict(TypedDict):
+    application_arn: _builtins.str
+    """
+    ARN of the application.
+    """
+    principal_id: _builtins.str
+    """
+    An identifier for an object in IAM Identity Center, such as a user or group.
+    """
+    principal_type: _builtins.str
+    """
+    Entity type for which the assignment will be created. Valid values are `USER` or `GROUP`.
+    """
 
 @pulumi.input_type
 class GetPrincipalApplicationAssignmentsApplicationAssignmentArgs:

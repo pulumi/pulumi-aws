@@ -198,7 +198,9 @@ class AppBundle(pulumi.CustomResource):
 
         Using `pulumi import`, import AppFabric AppBundle using the `arn`. For example:
 
-        % pulumi import aws_appfabric_app_bundle.example arn:aws:appfabric:[region]:[account]:appbundle/ee5587b4-5765-4288-a202-xxxxxxxxxx
+        ```sh
+        $ pulumi import aws:appfabric/appBundle:AppBundle example arn:aws:appfabric:[region]:[account]:appbundle/ee5587b4-5765-4288-a202-xxxxxxxxxx
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -240,7 +242,9 @@ class AppBundle(pulumi.CustomResource):
 
         Using `pulumi import`, import AppFabric AppBundle using the `arn`. For example:
 
-        % pulumi import aws_appfabric_app_bundle.example arn:aws:appfabric:[region]:[account]:appbundle/ee5587b4-5765-4288-a202-xxxxxxxxxx
+        ```sh
+        $ pulumi import aws:appfabric/appBundle:AppBundle example arn:aws:appfabric:[region]:[account]:appbundle/ee5587b4-5765-4288-a202-xxxxxxxxxx
+        ```
 
         :param str resource_name: The name of the resource.
         :param AppBundleArgs args: The arguments to use to populate this resource's properties.

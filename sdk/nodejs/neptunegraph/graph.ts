@@ -40,7 +40,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Using `pulumi import`, import `aws_neptunegraph_graph` using the graph identifier. For example:
+ * Using `pulumi import`, import `aws.neptunegraph.Graph` using the graph identifier. For example:
  *
  * ```sh
  * $ pulumi import aws:neptunegraph/graph:Graph example "graph_id"
@@ -87,11 +87,7 @@ export class Graph extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly endpoint: pulumi.Output<string>;
     /**
-     * The graph name. For example: my-graph-1.
-     * 								The name must contain from 1 to 63 letters, numbers, or hyphens, 
-     * 								and its first character must be a letter. It cannot end with a hyphen or contain two consecutive hyphens.
-     * 								If you don't specify a graph name, a unique graph name is generated for you using the prefix graph-for, 
-     * 								followed by a combination of Stack Name and a UUID.
+     * Contains a user-supplied name for the Graph. If omitted, Terraform will assign a random, unique identifier.
      */
     declare public readonly graphName: pulumi.Output<string>;
     /**
@@ -203,11 +199,7 @@ export interface GraphState {
      */
     endpoint?: pulumi.Input<string>;
     /**
-     * The graph name. For example: my-graph-1.
-     * 								The name must contain from 1 to 63 letters, numbers, or hyphens, 
-     * 								and its first character must be a letter. It cannot end with a hyphen or contain two consecutive hyphens.
-     * 								If you don't specify a graph name, a unique graph name is generated for you using the prefix graph-for, 
-     * 								followed by a combination of Stack Name and a UUID.
+     * Contains a user-supplied name for the Graph. If omitted, Terraform will assign a random, unique identifier.
      */
     graphName?: pulumi.Input<string>;
     /**
@@ -260,11 +252,7 @@ export interface GraphArgs {
      */
     deletionProtection?: pulumi.Input<boolean>;
     /**
-     * The graph name. For example: my-graph-1.
-     * 								The name must contain from 1 to 63 letters, numbers, or hyphens, 
-     * 								and its first character must be a letter. It cannot end with a hyphen or contain two consecutive hyphens.
-     * 								If you don't specify a graph name, a unique graph name is generated for you using the prefix graph-for, 
-     * 								followed by a combination of Stack Name and a UUID.
+     * Contains a user-supplied name for the Graph. If omitted, Terraform will assign a random, unique identifier.
      */
     graphName?: pulumi.Input<string>;
     /**

@@ -43,20 +43,15 @@ __all__ = [
     'ProjectDataDeliveryS3DestinationArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class FeatureEvaluationRuleArgsDict(TypedDict):
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name for the new feature. Minimum length of `1`. Maximum length of `127`.
-        """
-        type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        This value is `aws.evidently.splits` if this is an evaluation rule for a launch, and it is `aws.evidently.onlineab` if this is an evaluation rule for an experiment.
-        """
-elif False:
-    FeatureEvaluationRuleArgsDict: TypeAlias = Mapping[str, Any]
+class FeatureEvaluationRuleArgsDict(TypedDict):
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name for the new feature. Minimum length of `1`. Maximum length of `127`.
+    """
+    type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    This value is `aws.evidently.splits` if this is an evaluation rule for a launch, and it is `aws.evidently.onlineab` if this is an evaluation rule for an experiment.
+    """
 
 @pulumi.input_type
 class FeatureEvaluationRuleArgs:
@@ -97,18 +92,15 @@ class FeatureEvaluationRuleArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class FeatureVariationArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        """
-        The name of the variation. Minimum length of `1`. Maximum length of `127`.
-        """
-        value: pulumi.Input['FeatureVariationValueArgsDict']
-        """
-        A block that specifies the value assigned to this variation. Detailed below
-        """
-elif False:
-    FeatureVariationArgsDict: TypeAlias = Mapping[str, Any]
+class FeatureVariationArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the variation. Minimum length of `1`. Maximum length of `127`.
+    """
+    value: pulumi.Input['FeatureVariationValueArgsDict']
+    """
+    A block that specifies the value assigned to this variation. Detailed below
+    """
 
 @pulumi.input_type
 class FeatureVariationArgs:
@@ -147,26 +139,23 @@ class FeatureVariationArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class FeatureVariationValueArgsDict(TypedDict):
-        bool_value: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        If this feature uses the Boolean variation type, this field contains the Boolean value of this variation.
-        """
-        double_value: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        If this feature uses the double integer variation type, this field contains the double integer value of this variation.
-        """
-        long_value: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        If this feature uses the long variation type, this field contains the long value of this variation. Minimum value of `-9007199254740991`. Maximum value of `9007199254740991`.
-        """
-        string_value: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        If this feature uses the string variation type, this field contains the string value of this variation. Minimum length of `0`. Maximum length of `512`.
-        """
-elif False:
-    FeatureVariationValueArgsDict: TypeAlias = Mapping[str, Any]
+class FeatureVariationValueArgsDict(TypedDict):
+    bool_value: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    If this feature uses the Boolean variation type, this field contains the Boolean value of this variation.
+    """
+    double_value: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    If this feature uses the double integer variation type, this field contains the double integer value of this variation.
+    """
+    long_value: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    If this feature uses the long variation type, this field contains the long value of this variation. Minimum value of `-9007199254740991`. Maximum value of `9007199254740991`.
+    """
+    string_value: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    If this feature uses the string variation type, this field contains the string value of this variation. Minimum length of `0`. Maximum length of `512`.
+    """
 
 @pulumi.input_type
 class FeatureVariationValueArgs:
@@ -239,18 +228,15 @@ class FeatureVariationValueArgs:
         pulumi.set(self, "string_value", value)
 
 
-if not MYPY:
-    class LaunchExecutionArgsDict(TypedDict):
-        ended_time: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The date and time that the launch ended.
-        """
-        started_time: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The date and time that the launch started.
-        """
-elif False:
-    LaunchExecutionArgsDict: TypeAlias = Mapping[str, Any]
+class LaunchExecutionArgsDict(TypedDict):
+    ended_time: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The date and time that the launch ended.
+    """
+    started_time: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The date and time that the launch started.
+    """
 
 @pulumi.input_type
 class LaunchExecutionArgs:
@@ -291,26 +277,23 @@ class LaunchExecutionArgs:
         pulumi.set(self, "started_time", value)
 
 
-if not MYPY:
-    class LaunchGroupArgsDict(TypedDict):
-        feature: pulumi.Input[_builtins.str]
-        """
-        Specifies the name of the feature that the launch is using.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        Specifies the name of the lahnch group.
-        """
-        variation: pulumi.Input[_builtins.str]
-        """
-        Specifies the feature variation to use for this launch group.
-        """
-        description: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specifies the description of the launch group.
-        """
-elif False:
-    LaunchGroupArgsDict: TypeAlias = Mapping[str, Any]
+class LaunchGroupArgsDict(TypedDict):
+    feature: pulumi.Input[_builtins.str]
+    """
+    Specifies the name of the feature that the launch is using.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    Specifies the name of the lahnch group.
+    """
+    variation: pulumi.Input[_builtins.str]
+    """
+    Specifies the feature variation to use for this launch group.
+    """
+    description: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies the description of the launch group.
+    """
 
 @pulumi.input_type
 class LaunchGroupArgs:
@@ -380,14 +363,11 @@ class LaunchGroupArgs:
         pulumi.set(self, "description", value)
 
 
-if not MYPY:
-    class LaunchMetricMonitorArgsDict(TypedDict):
-        metric_definition: pulumi.Input['LaunchMetricMonitorMetricDefinitionArgsDict']
-        """
-        A block that defines the metric. Detailed below.
-        """
-elif False:
-    LaunchMetricMonitorArgsDict: TypeAlias = Mapping[str, Any]
+class LaunchMetricMonitorArgsDict(TypedDict):
+    metric_definition: pulumi.Input['LaunchMetricMonitorMetricDefinitionArgsDict']
+    """
+    A block that defines the metric. Detailed below.
+    """
 
 @pulumi.input_type
 class LaunchMetricMonitorArgs:
@@ -411,30 +391,27 @@ class LaunchMetricMonitorArgs:
         pulumi.set(self, "metric_definition", value)
 
 
-if not MYPY:
-    class LaunchMetricMonitorMetricDefinitionArgsDict(TypedDict):
-        entity_id_key: pulumi.Input[_builtins.str]
-        """
-        Specifies the entity, such as a user or session, that does an action that causes a metric value to be recorded. An example is `userDetails.userID`.
-        """
-        name: pulumi.Input[_builtins.str]
-        """
-        Specifies the name for the metric.
-        """
-        value_key: pulumi.Input[_builtins.str]
-        """
-        Specifies the value that is tracked to produce the metric.
-        """
-        event_pattern: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specifies The EventBridge event pattern that defines how the metric is recorded.
-        """
-        unit_label: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specifies a label for the units that the metric is measuring.
-        """
-elif False:
-    LaunchMetricMonitorMetricDefinitionArgsDict: TypeAlias = Mapping[str, Any]
+class LaunchMetricMonitorMetricDefinitionArgsDict(TypedDict):
+    entity_id_key: pulumi.Input[_builtins.str]
+    """
+    Specifies the entity, such as a user or session, that does an action that causes a metric value to be recorded. An example is `userDetails.userID`.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    Specifies the name for the metric.
+    """
+    value_key: pulumi.Input[_builtins.str]
+    """
+    Specifies the value that is tracked to produce the metric.
+    """
+    event_pattern: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies The EventBridge event pattern that defines how the metric is recorded.
+    """
+    unit_label: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies a label for the units that the metric is measuring.
+    """
 
 @pulumi.input_type
 class LaunchMetricMonitorMetricDefinitionArgs:
@@ -520,14 +497,11 @@ class LaunchMetricMonitorMetricDefinitionArgs:
         pulumi.set(self, "unit_label", value)
 
 
-if not MYPY:
-    class LaunchScheduledSplitsConfigArgsDict(TypedDict):
-        steps: pulumi.Input[Sequence[pulumi.Input['LaunchScheduledSplitsConfigStepArgsDict']]]
-        """
-        One or up to six blocks that define the traffic allocation percentages among the feature variations during each step of the launch. This also defines the start time of each step. Detailed below.
-        """
-elif False:
-    LaunchScheduledSplitsConfigArgsDict: TypeAlias = Mapping[str, Any]
+class LaunchScheduledSplitsConfigArgsDict(TypedDict):
+    steps: pulumi.Input[Sequence[pulumi.Input['LaunchScheduledSplitsConfigStepArgsDict']]]
+    """
+    One or up to six blocks that define the traffic allocation percentages among the feature variations during each step of the launch. This also defines the start time of each step. Detailed below.
+    """
 
 @pulumi.input_type
 class LaunchScheduledSplitsConfigArgs:
@@ -551,22 +525,19 @@ class LaunchScheduledSplitsConfigArgs:
         pulumi.set(self, "steps", value)
 
 
-if not MYPY:
-    class LaunchScheduledSplitsConfigStepArgsDict(TypedDict):
-        group_weights: pulumi.Input[Mapping[str, pulumi.Input[_builtins.int]]]
-        """
-        The traffic allocation percentages among the feature variations during one step of a launch. This is a set of key-value pairs. The keys are variation names. The values represent the percentage of traffic to allocate to that variation during this step. For more information, refer to the [AWS documentation for ScheduledSplitConfig groupWeights](https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_ScheduledSplitConfig.html).
-        """
-        start_time: pulumi.Input[_builtins.str]
-        """
-        Specifies the date and time that this step of the launch starts.
-        """
-        segment_overrides: NotRequired[pulumi.Input[Sequence[pulumi.Input['LaunchScheduledSplitsConfigStepSegmentOverrideArgsDict']]]]
-        """
-        One or up to six blocks that specify different traffic splits for one or more audience segments. A segment is a portion of your audience that share one or more characteristics. Examples could be Chrome browser users, users in Europe, or Firefox browser users in Europe who also fit other criteria that your application collects, such as age. Detailed below.
-        """
-elif False:
-    LaunchScheduledSplitsConfigStepArgsDict: TypeAlias = Mapping[str, Any]
+class LaunchScheduledSplitsConfigStepArgsDict(TypedDict):
+    group_weights: pulumi.Input[Mapping[str, pulumi.Input[_builtins.int]]]
+    """
+    The traffic allocation percentages among the feature variations during one step of a launch. This is a set of key-value pairs. The keys are variation names. The values represent the percentage of traffic to allocate to that variation during this step. For more information, refer to the [AWS documentation for ScheduledSplitConfig groupWeights](https://docs.aws.amazon.com/cloudwatchevidently/latest/APIReference/API_ScheduledSplitConfig.html).
+    """
+    start_time: pulumi.Input[_builtins.str]
+    """
+    Specifies the date and time that this step of the launch starts.
+    """
+    segment_overrides: NotRequired[pulumi.Input[Sequence[pulumi.Input['LaunchScheduledSplitsConfigStepSegmentOverrideArgsDict']]]]
+    """
+    One or up to six blocks that specify different traffic splits for one or more audience segments. A segment is a portion of your audience that share one or more characteristics. Examples could be Chrome browser users, users in Europe, or Firefox browser users in Europe who also fit other criteria that your application collects, such as age. Detailed below.
+    """
 
 @pulumi.input_type
 class LaunchScheduledSplitsConfigStepArgs:
@@ -621,22 +592,19 @@ class LaunchScheduledSplitsConfigStepArgs:
         pulumi.set(self, "segment_overrides", value)
 
 
-if not MYPY:
-    class LaunchScheduledSplitsConfigStepSegmentOverrideArgsDict(TypedDict):
-        evaluation_order: pulumi.Input[_builtins.int]
-        """
-        Specifies a number indicating the order to use to evaluate segment overrides, if there are more than one. Segment overrides with lower numbers are evaluated first.
-        """
-        segment: pulumi.Input[_builtins.str]
-        """
-        The name or ARN of the segment to use.
-        """
-        weights: pulumi.Input[Mapping[str, pulumi.Input[_builtins.int]]]
-        """
-        The traffic allocation percentages among the feature variations to assign to this segment. This is a set of key-value pairs. The keys are variation names. The values represent the amount of traffic to allocate to that variation for this segment. This is expressed in thousandths of a percent, so a weight of 50000 represents 50% of traffic.
-        """
-elif False:
-    LaunchScheduledSplitsConfigStepSegmentOverrideArgsDict: TypeAlias = Mapping[str, Any]
+class LaunchScheduledSplitsConfigStepSegmentOverrideArgsDict(TypedDict):
+    evaluation_order: pulumi.Input[_builtins.int]
+    """
+    Specifies a number indicating the order to use to evaluate segment overrides, if there are more than one. Segment overrides with lower numbers are evaluated first.
+    """
+    segment: pulumi.Input[_builtins.str]
+    """
+    The name or ARN of the segment to use.
+    """
+    weights: pulumi.Input[Mapping[str, pulumi.Input[_builtins.int]]]
+    """
+    The traffic allocation percentages among the feature variations to assign to this segment. This is a set of key-value pairs. The keys are variation names. The values represent the amount of traffic to allocate to that variation for this segment. This is expressed in thousandths of a percent, so a weight of 50000 represents 50% of traffic.
+    """
 
 @pulumi.input_type
 class LaunchScheduledSplitsConfigStepSegmentOverrideArgs:
@@ -690,18 +658,15 @@ class LaunchScheduledSplitsConfigStepSegmentOverrideArgs:
         pulumi.set(self, "weights", value)
 
 
-if not MYPY:
-    class ProjectDataDeliveryArgsDict(TypedDict):
-        cloudwatch_logs: NotRequired[pulumi.Input['ProjectDataDeliveryCloudwatchLogsArgsDict']]
-        """
-        A block that defines the CloudWatch Log Group that stores the evaluation events. See below.
-        """
-        s3_destination: NotRequired[pulumi.Input['ProjectDataDeliveryS3DestinationArgsDict']]
-        """
-        A block that defines the S3 bucket and prefix that stores the evaluation events. See below.
-        """
-elif False:
-    ProjectDataDeliveryArgsDict: TypeAlias = Mapping[str, Any]
+class ProjectDataDeliveryArgsDict(TypedDict):
+    cloudwatch_logs: NotRequired[pulumi.Input['ProjectDataDeliveryCloudwatchLogsArgsDict']]
+    """
+    A block that defines the CloudWatch Log Group that stores the evaluation events. See below.
+    """
+    s3_destination: NotRequired[pulumi.Input['ProjectDataDeliveryS3DestinationArgsDict']]
+    """
+    A block that defines the S3 bucket and prefix that stores the evaluation events. See below.
+    """
 
 @pulumi.input_type
 class ProjectDataDeliveryArgs:
@@ -742,14 +707,11 @@ class ProjectDataDeliveryArgs:
         pulumi.set(self, "s3_destination", value)
 
 
-if not MYPY:
-    class ProjectDataDeliveryCloudwatchLogsArgsDict(TypedDict):
-        log_group: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the log group where the project stores evaluation events.
-        """
-elif False:
-    ProjectDataDeliveryCloudwatchLogsArgsDict: TypeAlias = Mapping[str, Any]
+class ProjectDataDeliveryCloudwatchLogsArgsDict(TypedDict):
+    log_group: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the log group where the project stores evaluation events.
+    """
 
 @pulumi.input_type
 class ProjectDataDeliveryCloudwatchLogsArgs:
@@ -774,18 +736,15 @@ class ProjectDataDeliveryCloudwatchLogsArgs:
         pulumi.set(self, "log_group", value)
 
 
-if not MYPY:
-    class ProjectDataDeliveryS3DestinationArgsDict(TypedDict):
-        bucket: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The name of the bucket in which Evidently stores evaluation events.
-        """
-        prefix: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The bucket prefix in which Evidently stores evaluation events.
-        """
-elif False:
-    ProjectDataDeliveryS3DestinationArgsDict: TypeAlias = Mapping[str, Any]
+class ProjectDataDeliveryS3DestinationArgsDict(TypedDict):
+    bucket: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The name of the bucket in which Evidently stores evaluation events.
+    """
+    prefix: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The bucket prefix in which Evidently stores evaluation events.
+    """
 
 @pulumi.input_type
 class ProjectDataDeliveryS3DestinationArgs:

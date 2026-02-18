@@ -68,6 +68,63 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * 
+ * ### Manual Scaling with Specific Instance Types
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.lambda.CapacityProvider;
+ * import com.pulumi.aws.lambda.CapacityProviderArgs;
+ * import com.pulumi.aws.lambda.inputs.CapacityProviderVpcConfigArgs;
+ * import com.pulumi.aws.lambda.inputs.CapacityProviderPermissionsConfigArgs;
+ * import com.pulumi.aws.lambda.inputs.CapacityProviderInstanceRequirementArgs;
+ * import com.pulumi.aws.lambda.inputs.CapacityProviderCapacityProviderScalingConfigArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new CapacityProvider("example", CapacityProviderArgs.builder()
+ *             .name("example")
+ *             .vpcConfig(CapacityProviderVpcConfigArgs.builder()
+ *                 .subnetIds(exampleAwsSubnet.stream().map(element -> element.id()).collect(toList()))
+ *                 .securityGroupIds(exampleAwsSecurityGroup.id())
+ *                 .build())
+ *             .permissionsConfig(CapacityProviderPermissionsConfigArgs.builder()
+ *                 .capacityProviderOperatorRoleArn(exampleAwsIamRole.arn())
+ *                 .build())
+ *             .instanceRequirements(CapacityProviderInstanceRequirementArgs.builder()
+ *                 .architectures("x86_64")
+ *                 .allowedInstanceTypes(                
+ *                     "c6i.2xlarge",
+ *                     "c7i.2xlarge")
+ *                 .build())
+ *             .capacityProviderScalingConfigs(CapacityProviderCapacityProviderScalingConfigArgs.builder()
+ *                 .scalingMode("Manual")
+ *                 .scalingPolicies(CapacityProviderCapacityProviderScalingConfigScalingPolicyArgs.builder()
+ *                     .predefinedMetricType("LambdaCapacityProviderAverageCPUUtilization")
+ *                     .targetValue(50.0)
+ *                     .build())
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
  * ## Import
  * 
  * Using `pulumi import`, import Lambda Capacity Provider using the `name`. For example:
@@ -93,9 +150,17 @@ public class CapacityProvider extends com.pulumi.resources.CustomResource {
     public Output<String> arn() {
         return this.arn;
     }
+    /**
+     * Configuration block for scaling policy settings. See Capacity Provider Scaling Config below.
+     * 
+     */
     @Export(name="capacityProviderScalingConfigs", refs={List.class,CapacityProviderCapacityProviderScalingConfig.class}, tree="[0,1]")
     private Output<List<CapacityProviderCapacityProviderScalingConfig>> capacityProviderScalingConfigs;
 
+    /**
+     * @return Configuration block for scaling policy settings. See Capacity Provider Scaling Config below.
+     * 
+     */
     public Output<List<CapacityProviderCapacityProviderScalingConfig>> capacityProviderScalingConfigs() {
         return this.capacityProviderScalingConfigs;
     }

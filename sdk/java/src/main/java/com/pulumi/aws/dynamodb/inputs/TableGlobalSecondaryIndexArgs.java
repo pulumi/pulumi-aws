@@ -22,7 +22,7 @@ public final class TableGlobalSecondaryIndexArgs extends com.pulumi.resources.Re
     public static final TableGlobalSecondaryIndexArgs Empty = new TableGlobalSecondaryIndexArgs();
 
     /**
-     * and `hashKeys` are `mutually exclusive`, but one is `required`. Refer to [AWS SDK Documentation](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GSI.DesignPattern.MultiAttributeKeys.html)
+     * Name of the hash key in the index; must be defined as an attribute in the resource. Mutually exclusive with `keySchema`. Use `keySchema` instead.
      * 
      * @deprecated
      * hash_key is deprecated. Use keySchema instead.
@@ -33,7 +33,7 @@ public final class TableGlobalSecondaryIndexArgs extends com.pulumi.resources.Re
     private @Nullable Output<String> hashKey;
 
     /**
-     * @return and `hashKeys` are `mutually exclusive`, but one is `required`. Refer to [AWS SDK Documentation](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GSI.DesignPattern.MultiAttributeKeys.html)
+     * @return Name of the hash key in the index; must be defined as an attribute in the resource. Mutually exclusive with `keySchema`. Use `keySchema` instead.
      * 
      * @deprecated
      * hash_key is deprecated. Use keySchema instead.
@@ -44,9 +44,17 @@ public final class TableGlobalSecondaryIndexArgs extends com.pulumi.resources.Re
         return Optional.ofNullable(this.hashKey);
     }
 
+    /**
+     * Configuration block(s) for the key schema. Mutually exclusive with `hashKey` and `rangeKey`. Required if `hashKey` is not specified. Supports multi-attribute keys for the [Multi-Attribute Keys design pattern](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GSI.DesignPattern.MultiAttributeKeys.html). See below.
+     * 
+     */
     @Import(name="keySchemas")
     private @Nullable Output<List<TableGlobalSecondaryIndexKeySchemaArgs>> keySchemas;
 
+    /**
+     * @return Configuration block(s) for the key schema. Mutually exclusive with `hashKey` and `rangeKey`. Required if `hashKey` is not specified. Supports multi-attribute keys for the [Multi-Attribute Keys design pattern](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GSI.DesignPattern.MultiAttributeKeys.html). See below.
+     * 
+     */
     public Optional<Output<List<TableGlobalSecondaryIndexKeySchemaArgs>>> keySchemas() {
         return Optional.ofNullable(this.keySchemas);
     }
@@ -97,14 +105,14 @@ public final class TableGlobalSecondaryIndexArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * One of `ALL`, `INCLUDE` or `KEYS_ONLY` where `ALL` projects every attribute into the index, `KEYS_ONLY` projects  into the index only the table and index hashKey and sortKey attributes ,  `INCLUDE` projects into the index all of the attributes that are defined in `nonKeyAttributes` in addition to the attributes that that`KEYS_ONLY` project.
+     * One of `ALL`, `INCLUDE` or `KEYS_ONLY` where `ALL` projects every attribute into the index, `KEYS_ONLY` projects into the index only the table and index hashKey and sortKey attributes, `INCLUDE` projects into the index all of the attributes that are defined in `nonKeyAttributes` in addition to the attributes that `KEYS_ONLY` project.
      * 
      */
     @Import(name="projectionType", required=true)
     private Output<String> projectionType;
 
     /**
-     * @return One of `ALL`, `INCLUDE` or `KEYS_ONLY` where `ALL` projects every attribute into the index, `KEYS_ONLY` projects  into the index only the table and index hashKey and sortKey attributes ,  `INCLUDE` projects into the index all of the attributes that are defined in `nonKeyAttributes` in addition to the attributes that that`KEYS_ONLY` project.
+     * @return One of `ALL`, `INCLUDE` or `KEYS_ONLY` where `ALL` projects every attribute into the index, `KEYS_ONLY` projects into the index only the table and index hashKey and sortKey attributes, `INCLUDE` projects into the index all of the attributes that are defined in `nonKeyAttributes` in addition to the attributes that `KEYS_ONLY` project.
      * 
      */
     public Output<String> projectionType() {
@@ -112,7 +120,7 @@ public final class TableGlobalSecondaryIndexArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * and `rangeKeys` are `mutually exclusive`, but are both `optional`. Refer to [AWS SDK Documentation](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GSI.DesignPattern.MultiAttributeKeys.html)
+     * Name of the range key; must be defined as an attribute in the resource. Mutually exclusive with `keySchema`. Use `keySchema` instead.
      * 
      * @deprecated
      * range_key is deprecated. Use keySchema instead.
@@ -123,7 +131,7 @@ public final class TableGlobalSecondaryIndexArgs extends com.pulumi.resources.Re
     private @Nullable Output<String> rangeKey;
 
     /**
-     * @return and `rangeKeys` are `mutually exclusive`, but are both `optional`. Refer to [AWS SDK Documentation](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GSI.DesignPattern.MultiAttributeKeys.html)
+     * @return Name of the range key; must be defined as an attribute in the resource. Mutually exclusive with `keySchema`. Use `keySchema` instead.
      * 
      * @deprecated
      * range_key is deprecated. Use keySchema instead.
@@ -213,7 +221,7 @@ public final class TableGlobalSecondaryIndexArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param hashKey and `hashKeys` are `mutually exclusive`, but one is `required`. Refer to [AWS SDK Documentation](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GSI.DesignPattern.MultiAttributeKeys.html)
+         * @param hashKey Name of the hash key in the index; must be defined as an attribute in the resource. Mutually exclusive with `keySchema`. Use `keySchema` instead.
          * 
          * @return builder
          * 
@@ -228,7 +236,7 @@ public final class TableGlobalSecondaryIndexArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param hashKey and `hashKeys` are `mutually exclusive`, but one is `required`. Refer to [AWS SDK Documentation](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GSI.DesignPattern.MultiAttributeKeys.html)
+         * @param hashKey Name of the hash key in the index; must be defined as an attribute in the resource. Mutually exclusive with `keySchema`. Use `keySchema` instead.
          * 
          * @return builder
          * 
@@ -241,15 +249,33 @@ public final class TableGlobalSecondaryIndexArgs extends com.pulumi.resources.Re
             return hashKey(Output.of(hashKey));
         }
 
+        /**
+         * @param keySchemas Configuration block(s) for the key schema. Mutually exclusive with `hashKey` and `rangeKey`. Required if `hashKey` is not specified. Supports multi-attribute keys for the [Multi-Attribute Keys design pattern](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GSI.DesignPattern.MultiAttributeKeys.html). See below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder keySchemas(@Nullable Output<List<TableGlobalSecondaryIndexKeySchemaArgs>> keySchemas) {
             $.keySchemas = keySchemas;
             return this;
         }
 
+        /**
+         * @param keySchemas Configuration block(s) for the key schema. Mutually exclusive with `hashKey` and `rangeKey`. Required if `hashKey` is not specified. Supports multi-attribute keys for the [Multi-Attribute Keys design pattern](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GSI.DesignPattern.MultiAttributeKeys.html). See below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder keySchemas(List<TableGlobalSecondaryIndexKeySchemaArgs> keySchemas) {
             return keySchemas(Output.of(keySchemas));
         }
 
+        /**
+         * @param keySchemas Configuration block(s) for the key schema. Mutually exclusive with `hashKey` and `rangeKey`. Required if `hashKey` is not specified. Supports multi-attribute keys for the [Multi-Attribute Keys design pattern](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GSI.DesignPattern.MultiAttributeKeys.html). See below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder keySchemas(TableGlobalSecondaryIndexKeySchemaArgs... keySchemas) {
             return keySchemas(List.of(keySchemas));
         }
@@ -328,7 +354,7 @@ public final class TableGlobalSecondaryIndexArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param projectionType One of `ALL`, `INCLUDE` or `KEYS_ONLY` where `ALL` projects every attribute into the index, `KEYS_ONLY` projects  into the index only the table and index hashKey and sortKey attributes ,  `INCLUDE` projects into the index all of the attributes that are defined in `nonKeyAttributes` in addition to the attributes that that`KEYS_ONLY` project.
+         * @param projectionType One of `ALL`, `INCLUDE` or `KEYS_ONLY` where `ALL` projects every attribute into the index, `KEYS_ONLY` projects into the index only the table and index hashKey and sortKey attributes, `INCLUDE` projects into the index all of the attributes that are defined in `nonKeyAttributes` in addition to the attributes that `KEYS_ONLY` project.
          * 
          * @return builder
          * 
@@ -339,7 +365,7 @@ public final class TableGlobalSecondaryIndexArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param projectionType One of `ALL`, `INCLUDE` or `KEYS_ONLY` where `ALL` projects every attribute into the index, `KEYS_ONLY` projects  into the index only the table and index hashKey and sortKey attributes ,  `INCLUDE` projects into the index all of the attributes that are defined in `nonKeyAttributes` in addition to the attributes that that`KEYS_ONLY` project.
+         * @param projectionType One of `ALL`, `INCLUDE` or `KEYS_ONLY` where `ALL` projects every attribute into the index, `KEYS_ONLY` projects into the index only the table and index hashKey and sortKey attributes, `INCLUDE` projects into the index all of the attributes that are defined in `nonKeyAttributes` in addition to the attributes that `KEYS_ONLY` project.
          * 
          * @return builder
          * 
@@ -349,7 +375,7 @@ public final class TableGlobalSecondaryIndexArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param rangeKey and `rangeKeys` are `mutually exclusive`, but are both `optional`. Refer to [AWS SDK Documentation](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GSI.DesignPattern.MultiAttributeKeys.html)
+         * @param rangeKey Name of the range key; must be defined as an attribute in the resource. Mutually exclusive with `keySchema`. Use `keySchema` instead.
          * 
          * @return builder
          * 
@@ -364,7 +390,7 @@ public final class TableGlobalSecondaryIndexArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param rangeKey and `rangeKeys` are `mutually exclusive`, but are both `optional`. Refer to [AWS SDK Documentation](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GSI.DesignPattern.MultiAttributeKeys.html)
+         * @param rangeKey Name of the range key; must be defined as an attribute in the resource. Mutually exclusive with `keySchema`. Use `keySchema` instead.
          * 
          * @return builder
          * 

@@ -32,7 +32,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Using `pulumi import`, import ECS cluster capacity providers using the `cluster_name` attribute. For example:
+ * Using `pulumi import`, import ECS cluster capacity providers using the `clusterName` attribute. For example:
  *
  * ```sh
  * $ pulumi import aws:ecs/clusterCapacityProviders:ClusterCapacityProviders example my-cluster

@@ -96,7 +96,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Using `pulumi import`, import Lambda Runtime Management Config using a comma-delimited string combining `function_name` and `qualifier`. For example:
+ * Using `pulumi import`, import Lambda Runtime Management Config using a comma-delimited string combining `functionName` and `qualifier`. For example:
  * 
  * ```sh
  * $ pulumi import aws:lambda/runtimeManagementConfig:RuntimeManagementConfig example example,$LATEST

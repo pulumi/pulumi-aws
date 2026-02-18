@@ -75,7 +75,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Using `pulumi import`, import `aws_neptunegraph_graph` using the graph identifier. For example:
+ * Using `pulumi import`, import `aws.neptunegraph.Graph` using the graph identifier. For example:
  * 
  * ```sh
  * $ pulumi import aws:neptunegraph/graph:Graph example &#34;graph_id&#34;
@@ -127,22 +127,14 @@ public class Graph extends com.pulumi.resources.CustomResource {
         return this.endpoint;
     }
     /**
-     * The graph name. For example: my-graph-1.
-     * 								The name must contain from 1 to 63 letters, numbers, or hyphens,
-     * 								and its first character must be a letter. It cannot end with a hyphen or contain two consecutive hyphens.
-     * 								If you don&#39;t specify a graph name, a unique graph name is generated for you using the prefix graph-for,
-     * 								followed by a combination of Stack Name and a UUID.
+     * Contains a user-supplied name for the Graph. If omitted, Terraform will assign a random, unique identifier.
      * 
      */
     @Export(name="graphName", refs={String.class}, tree="[0]")
     private Output<String> graphName;
 
     /**
-     * @return The graph name. For example: my-graph-1.
-     * 								The name must contain from 1 to 63 letters, numbers, or hyphens,
-     * 								and its first character must be a letter. It cannot end with a hyphen or contain two consecutive hyphens.
-     * 								If you don&#39;t specify a graph name, a unique graph name is generated for you using the prefix graph-for,
-     * 								followed by a combination of Stack Name and a UUID.
+     * @return Contains a user-supplied name for the Graph. If omitted, Terraform will assign a random, unique identifier.
      * 
      */
     public Output<String> graphName() {

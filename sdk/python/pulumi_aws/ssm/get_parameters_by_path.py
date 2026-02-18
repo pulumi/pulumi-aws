@@ -139,7 +139,19 @@ def get_parameters_by_path(path: Optional[_builtins.str] = None,
                            with_decryption: Optional[_builtins.bool] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetParametersByPathResult:
     """
-    Use this data source to access information about an existing resource.
+    Use this data source to get information about one or more System Manager parameters in a specific hierarchy.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.ssm.get_parameters_by_path(path="/site/newyork/department/")
+    ```
+
+    > **Note:** When the `with_decryption` argument is set to `true`, the unencrypted values of `SecureString` parameters will be stored in the raw state as plain-text as per normal Terraform behavior. > **Note:** The data source follows the behavior of the [SSM API](https://docs.aws.amazon.com/sdk-for-go/api/service/ssm/#Parameter) to return a string value, regardless of parameter type. For `StringList` type where the value is returned as a comma-separated string with no spaces between comma, you may use the built-in split function to get values in a list. Example: `split(",", data.aws_ssm_parameter.subnets.value)`
+
 
     :param _builtins.str path: The hierarchy for the parameter. Hierarchies start with a forward slash (/). The hierarchy is the parameter name except the last part of the parameter. The last part of the parameter name can't be in the path. A parameter name hierarchy can have a maximum of 15 levels. **Note:** If the parameter name (e.g., `/my-app/my-param`) is specified, the data source will not retrieve any value as designed, unless there are other parameters that happen to use the former path in their hierarchy (e.g., `/my-app/my-param/my-actual-param`).
     :param _builtins.bool recursive: Whether to retrieve all parameters within the hirerachy. Defaults to `false`.
@@ -170,7 +182,19 @@ def get_parameters_by_path_output(path: Optional[pulumi.Input[_builtins.str]] = 
                                   with_decryption: Optional[pulumi.Input[Optional[_builtins.bool]]] = None,
                                   opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetParametersByPathResult]:
     """
-    Use this data source to access information about an existing resource.
+    Use this data source to get information about one or more System Manager parameters in a specific hierarchy.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.ssm.get_parameters_by_path(path="/site/newyork/department/")
+    ```
+
+    > **Note:** When the `with_decryption` argument is set to `true`, the unencrypted values of `SecureString` parameters will be stored in the raw state as plain-text as per normal Terraform behavior. > **Note:** The data source follows the behavior of the [SSM API](https://docs.aws.amazon.com/sdk-for-go/api/service/ssm/#Parameter) to return a string value, regardless of parameter type. For `StringList` type where the value is returned as a comma-separated string with no spaces between comma, you may use the built-in split function to get values in a list. Example: `split(",", data.aws_ssm_parameter.subnets.value)`
+
 
     :param _builtins.str path: The hierarchy for the parameter. Hierarchies start with a forward slash (/). The hierarchy is the parameter name except the last part of the parameter. The last part of the parameter name can't be in the path. A parameter name hierarchy can have a maximum of 15 levels. **Note:** If the parameter name (e.g., `/my-app/my-param`) is specified, the data source will not retrieve any value as designed, unless there are other parameters that happen to use the former path in their hierarchy (e.g., `/my-app/my-param/my-actual-param`).
     :param _builtins.bool recursive: Whether to retrieve all parameters within the hirerachy. Defaults to `false`.

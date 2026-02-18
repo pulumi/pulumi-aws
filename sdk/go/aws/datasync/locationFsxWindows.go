@@ -47,7 +47,7 @@ import (
 //
 // ## Import
 //
-// Using `pulumi import`, import `aws_datasync_location_fsx_windows_file_system` using the `DataSync-ARN#FSx-Windows-ARN`. For example:
+// Using `pulumi import`, import `datasync.LocationFsxWindows` using the `DataSync-ARN#FSx-Windows-ARN`. For example:
 //
 // ```sh
 // $ pulumi import aws:datasync/locationFsxWindows:LocationFsxWindows example arn:aws:datasync:us-west-2:123456789012:location/loc-12345678901234567#arn:aws:fsx:us-west-2:476956259333:file-system/fs-08e04cd442c1bb94a

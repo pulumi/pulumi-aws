@@ -45,7 +45,7 @@ namespace Pulumi.Aws.MemoryDb
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import a cluster using the `name`. For example:
+    /// Using `pulumi import`, import a cluster using the `Name`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:memorydb/cluster:Cluster example my-cluster

@@ -38,7 +38,7 @@ namespace Pulumi.Aws.CustomerProfiles
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import Amazon Customer Profiles Profile using the resource `id`. For example:
+    /// Using `pulumi import`, import Amazon Customer Profiles Profile using the resource `Id`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:customerprofiles/profile:Profile example domain-name/5f2f473dfbe841eb8d05cfc2a4c926df

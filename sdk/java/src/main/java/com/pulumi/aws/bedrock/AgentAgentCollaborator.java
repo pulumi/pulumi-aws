@@ -158,7 +158,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Using `pulumi import`, import Bedrock Agents Agent Collaborator using a comma-delimited string combining `agent_id`, `agent_version`, and `collaborator_id`. For example:
+ * Using `pulumi import`, import Bedrock Agents Agent Collaborator using a comma-delimited string combining `agentId`, `agentVersion`, and `collaboratorId`. For example:
  * 
  * ```sh
  * $ pulumi import aws:bedrock/agentAgentCollaborator:AgentAgentCollaborator example 9LSJO0BFI8,DRAFT,AG3TN4RQIY

@@ -114,13 +114,14 @@ namespace Pulumi.Aws.S3
     /// 
     /// Import using the ARN for Access Points associated with an S3 on Outposts Bucket:
     /// 
-    /// __Using `pulumi import` to import.__ For example:
+    /// **Using `pulumi import` to import.** For example:
     /// 
-    /// Import using the `account_id` and `name` separated by a colon (`:`) for Access Points associated with an AWS Partition S3 Bucket:
+    /// Import using the `AccountId` and `Name` separated by a colon (`:`) for Access Points associated with an AWS Partition S3 Bucket:
     /// 
     /// ```sh
     /// $ pulumi import aws:s3/accessPoint:AccessPoint example 123456789012:example
     /// ```
+    /// 
     /// Import using the ARN for Access Points associated with an S3 on Outposts Bucket:
     /// 
     /// ```sh

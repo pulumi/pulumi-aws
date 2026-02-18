@@ -40,7 +40,7 @@ public final class WebAclRuleStatementRateBasedStatement {
      */
     private @Nullable WebAclRuleStatementRateBasedStatementForwardedIpConfig forwardedIpConfig;
     /**
-     * @return Limit on requests per 5-minute (or `evaluationWindowSec`) period for a single originating IP address (or for other aggregate key, depending on `aggregateKeyType` and `customKey`).
+     * @return Limit on requests during the specified evaluation window for a single aggregation instance.
      * 
      */
     private Integer limit;
@@ -82,7 +82,7 @@ public final class WebAclRuleStatementRateBasedStatement {
         return Optional.ofNullable(this.forwardedIpConfig);
     }
     /**
-     * @return Limit on requests per 5-minute (or `evaluationWindowSec`) period for a single originating IP address (or for other aggregate key, depending on `aggregateKeyType` and `customKey`).
+     * @return Limit on requests during the specified evaluation window for a single aggregation instance.
      * 
      */
     public Integer limit() {

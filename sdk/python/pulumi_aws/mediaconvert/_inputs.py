@@ -19,24 +19,19 @@ __all__ = [
     'QueueReservationPlanSettingsArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class QueueReservationPlanSettingsArgsDict(TypedDict):
-        commitment: pulumi.Input[_builtins.str]
-        """
-        The length of the term of your reserved queue pricing plan commitment. Valid value is `ONE_YEAR`.
-        """
-        renewal_type: pulumi.Input[_builtins.str]
-        """
-        Specifies whether the term of your reserved queue pricing plan. Valid values are `AUTO_RENEW` or `EXPIRE`.
-        """
-        reserved_slots: pulumi.Input[_builtins.int]
-        """
-        Specifies the number of reserved transcode slots (RTS) for queue.
-        """
-elif False:
-    QueueReservationPlanSettingsArgsDict: TypeAlias = Mapping[str, Any]
+class QueueReservationPlanSettingsArgsDict(TypedDict):
+    commitment: pulumi.Input[_builtins.str]
+    """
+    The length of the term of your reserved queue pricing plan commitment. Valid value is `ONE_YEAR`.
+    """
+    renewal_type: pulumi.Input[_builtins.str]
+    """
+    Specifies whether the term of your reserved queue pricing plan. Valid values are `AUTO_RENEW` or `EXPIRE`.
+    """
+    reserved_slots: pulumi.Input[_builtins.int]
+    """
+    Specifies the number of reserved transcode slots (RTS) for queue.
+    """
 
 @pulumi.input_type
 class QueueReservationPlanSettingsArgs:

@@ -59,6 +59,9 @@ class GetRegionResult:
     @_builtins.property
     @pulumi.getter
     def id(self) -> _builtins.str:
+        """
+        Region's name (e.g. `us-east-1`).
+        """
         return pulumi.get(self, "id")
 
     @_builtins.property
@@ -113,6 +116,7 @@ def get_region(endpoint: Optional[_builtins.str] = None,
 
 
     :param _builtins.str endpoint: EC2 endpoint of the region to select.
+    :param _builtins.str id: Region's name (e.g. `us-east-1`).
     :param _builtins.str name: Full name of the region to select. Use `region` instead.
     :param _builtins.str region: Full name of the region to select (e.g. `us-east-1`), and the region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """
@@ -157,6 +161,7 @@ def get_region_output(endpoint: Optional[pulumi.Input[Optional[_builtins.str]]] 
 
 
     :param _builtins.str endpoint: EC2 endpoint of the region to select.
+    :param _builtins.str id: Region's name (e.g. `us-east-1`).
     :param _builtins.str name: Full name of the region to select. Use `region` instead.
     :param _builtins.str region: Full name of the region to select (e.g. `us-east-1`), and the region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     """

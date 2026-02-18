@@ -425,28 +425,23 @@ __all__ = [
     'VirtualServiceSpecProviderVirtualRouterArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class GatewayRouteSpecArgsDict(TypedDict):
-        grpc_route: NotRequired[pulumi.Input['GatewayRouteSpecGrpcRouteArgsDict']]
-        """
-        Specification of a gRPC gateway route.
-        """
-        http2_route: NotRequired[pulumi.Input['GatewayRouteSpecHttp2RouteArgsDict']]
-        """
-        Specification of an HTTP/2 gateway route.
-        """
-        http_route: NotRequired[pulumi.Input['GatewayRouteSpecHttpRouteArgsDict']]
-        """
-        Specification of an HTTP gateway route.
-        """
-        priority: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Priority for the gateway route, between `0` and `1000`.
-        """
-elif False:
-    GatewayRouteSpecArgsDict: TypeAlias = Mapping[str, Any]
+class GatewayRouteSpecArgsDict(TypedDict):
+    grpc_route: NotRequired[pulumi.Input['GatewayRouteSpecGrpcRouteArgsDict']]
+    """
+    Specification of a gRPC gateway route.
+    """
+    http2_route: NotRequired[pulumi.Input['GatewayRouteSpecHttp2RouteArgsDict']]
+    """
+    Specification of an HTTP/2 gateway route.
+    """
+    http_route: NotRequired[pulumi.Input['GatewayRouteSpecHttpRouteArgsDict']]
+    """
+    Specification of an HTTP gateway route.
+    """
+    priority: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Priority for the gateway route, between `0` and `1000`.
+    """
 
 @pulumi.input_type
 class GatewayRouteSpecArgs:
@@ -519,18 +514,15 @@ class GatewayRouteSpecArgs:
         pulumi.set(self, "priority", value)
 
 
-if not MYPY:
-    class GatewayRouteSpecGrpcRouteArgsDict(TypedDict):
-        action: pulumi.Input['GatewayRouteSpecGrpcRouteActionArgsDict']
-        """
-        Action to take if a match is determined.
-        """
-        match: pulumi.Input['GatewayRouteSpecGrpcRouteMatchArgsDict']
-        """
-        Criteria for determining a request match.
-        """
-elif False:
-    GatewayRouteSpecGrpcRouteArgsDict: TypeAlias = Mapping[str, Any]
+class GatewayRouteSpecGrpcRouteArgsDict(TypedDict):
+    action: pulumi.Input['GatewayRouteSpecGrpcRouteActionArgsDict']
+    """
+    Action to take if a match is determined.
+    """
+    match: pulumi.Input['GatewayRouteSpecGrpcRouteMatchArgsDict']
+    """
+    Criteria for determining a request match.
+    """
 
 @pulumi.input_type
 class GatewayRouteSpecGrpcRouteArgs:
@@ -569,14 +561,11 @@ class GatewayRouteSpecGrpcRouteArgs:
         pulumi.set(self, "match", value)
 
 
-if not MYPY:
-    class GatewayRouteSpecGrpcRouteActionArgsDict(TypedDict):
-        target: pulumi.Input['GatewayRouteSpecGrpcRouteActionTargetArgsDict']
-        """
-        Target that traffic is routed to when a request matches the gateway route.
-        """
-elif False:
-    GatewayRouteSpecGrpcRouteActionArgsDict: TypeAlias = Mapping[str, Any]
+class GatewayRouteSpecGrpcRouteActionArgsDict(TypedDict):
+    target: pulumi.Input['GatewayRouteSpecGrpcRouteActionTargetArgsDict']
+    """
+    Target that traffic is routed to when a request matches the gateway route.
+    """
 
 @pulumi.input_type
 class GatewayRouteSpecGrpcRouteActionArgs:
@@ -600,18 +589,15 @@ class GatewayRouteSpecGrpcRouteActionArgs:
         pulumi.set(self, "target", value)
 
 
-if not MYPY:
-    class GatewayRouteSpecGrpcRouteActionTargetArgsDict(TypedDict):
-        virtual_service: pulumi.Input['GatewayRouteSpecGrpcRouteActionTargetVirtualServiceArgsDict']
-        """
-        Virtual service gateway route target.
-        """
-        port: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The port number that corresponds to the target for Virtual Service provider port. This is required when the provider (router or node) of the Virtual Service has multiple listeners.
-        """
-elif False:
-    GatewayRouteSpecGrpcRouteActionTargetArgsDict: TypeAlias = Mapping[str, Any]
+class GatewayRouteSpecGrpcRouteActionTargetArgsDict(TypedDict):
+    virtual_service: pulumi.Input['GatewayRouteSpecGrpcRouteActionTargetVirtualServiceArgsDict']
+    """
+    Virtual service gateway route target.
+    """
+    port: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The port number that corresponds to the target for Virtual Service provider port. This is required when the provider (router or node) of the Virtual Service has multiple listeners.
+    """
 
 @pulumi.input_type
 class GatewayRouteSpecGrpcRouteActionTargetArgs:
@@ -651,14 +637,11 @@ class GatewayRouteSpecGrpcRouteActionTargetArgs:
         pulumi.set(self, "port", value)
 
 
-if not MYPY:
-    class GatewayRouteSpecGrpcRouteActionTargetVirtualServiceArgsDict(TypedDict):
-        virtual_service_name: pulumi.Input[_builtins.str]
-        """
-        Name of the virtual service that traffic is routed to. Must be between 1 and 255 characters in length.
-        """
-elif False:
-    GatewayRouteSpecGrpcRouteActionTargetVirtualServiceArgsDict: TypeAlias = Mapping[str, Any]
+class GatewayRouteSpecGrpcRouteActionTargetVirtualServiceArgsDict(TypedDict):
+    virtual_service_name: pulumi.Input[_builtins.str]
+    """
+    Name of the virtual service that traffic is routed to. Must be between 1 and 255 characters in length.
+    """
 
 @pulumi.input_type
 class GatewayRouteSpecGrpcRouteActionTargetVirtualServiceArgs:
@@ -682,18 +665,15 @@ class GatewayRouteSpecGrpcRouteActionTargetVirtualServiceArgs:
         pulumi.set(self, "virtual_service_name", value)
 
 
-if not MYPY:
-    class GatewayRouteSpecGrpcRouteMatchArgsDict(TypedDict):
-        service_name: pulumi.Input[_builtins.str]
-        """
-        Fully qualified domain name for the service to match from the request.
-        """
-        port: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The port number to match from the request.
-        """
-elif False:
-    GatewayRouteSpecGrpcRouteMatchArgsDict: TypeAlias = Mapping[str, Any]
+class GatewayRouteSpecGrpcRouteMatchArgsDict(TypedDict):
+    service_name: pulumi.Input[_builtins.str]
+    """
+    Fully qualified domain name for the service to match from the request.
+    """
+    port: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The port number to match from the request.
+    """
 
 @pulumi.input_type
 class GatewayRouteSpecGrpcRouteMatchArgs:
@@ -733,18 +713,15 @@ class GatewayRouteSpecGrpcRouteMatchArgs:
         pulumi.set(self, "port", value)
 
 
-if not MYPY:
-    class GatewayRouteSpecHttp2RouteArgsDict(TypedDict):
-        action: pulumi.Input['GatewayRouteSpecHttp2RouteActionArgsDict']
-        """
-        Action to take if a match is determined.
-        """
-        match: pulumi.Input['GatewayRouteSpecHttp2RouteMatchArgsDict']
-        """
-        Criteria for determining a request match.
-        """
-elif False:
-    GatewayRouteSpecHttp2RouteArgsDict: TypeAlias = Mapping[str, Any]
+class GatewayRouteSpecHttp2RouteArgsDict(TypedDict):
+    action: pulumi.Input['GatewayRouteSpecHttp2RouteActionArgsDict']
+    """
+    Action to take if a match is determined.
+    """
+    match: pulumi.Input['GatewayRouteSpecHttp2RouteMatchArgsDict']
+    """
+    Criteria for determining a request match.
+    """
 
 @pulumi.input_type
 class GatewayRouteSpecHttp2RouteArgs:
@@ -783,18 +760,15 @@ class GatewayRouteSpecHttp2RouteArgs:
         pulumi.set(self, "match", value)
 
 
-if not MYPY:
-    class GatewayRouteSpecHttp2RouteActionArgsDict(TypedDict):
-        target: pulumi.Input['GatewayRouteSpecHttp2RouteActionTargetArgsDict']
-        """
-        Target that traffic is routed to when a request matches the gateway route.
-        """
-        rewrite: NotRequired[pulumi.Input['GatewayRouteSpecHttp2RouteActionRewriteArgsDict']]
-        """
-        Gateway route action to rewrite.
-        """
-elif False:
-    GatewayRouteSpecHttp2RouteActionArgsDict: TypeAlias = Mapping[str, Any]
+class GatewayRouteSpecHttp2RouteActionArgsDict(TypedDict):
+    target: pulumi.Input['GatewayRouteSpecHttp2RouteActionTargetArgsDict']
+    """
+    Target that traffic is routed to when a request matches the gateway route.
+    """
+    rewrite: NotRequired[pulumi.Input['GatewayRouteSpecHttp2RouteActionRewriteArgsDict']]
+    """
+    Gateway route action to rewrite.
+    """
 
 @pulumi.input_type
 class GatewayRouteSpecHttp2RouteActionArgs:
@@ -834,22 +808,19 @@ class GatewayRouteSpecHttp2RouteActionArgs:
         pulumi.set(self, "rewrite", value)
 
 
-if not MYPY:
-    class GatewayRouteSpecHttp2RouteActionRewriteArgsDict(TypedDict):
-        hostname: NotRequired[pulumi.Input['GatewayRouteSpecHttp2RouteActionRewriteHostnameArgsDict']]
-        """
-        Host name to rewrite.
-        """
-        path: NotRequired[pulumi.Input['GatewayRouteSpecHttp2RouteActionRewritePathArgsDict']]
-        """
-        Exact path to rewrite.
-        """
-        prefix: NotRequired[pulumi.Input['GatewayRouteSpecHttp2RouteActionRewritePrefixArgsDict']]
-        """
-        Specified beginning characters to rewrite.
-        """
-elif False:
-    GatewayRouteSpecHttp2RouteActionRewriteArgsDict: TypeAlias = Mapping[str, Any]
+class GatewayRouteSpecHttp2RouteActionRewriteArgsDict(TypedDict):
+    hostname: NotRequired[pulumi.Input['GatewayRouteSpecHttp2RouteActionRewriteHostnameArgsDict']]
+    """
+    Host name to rewrite.
+    """
+    path: NotRequired[pulumi.Input['GatewayRouteSpecHttp2RouteActionRewritePathArgsDict']]
+    """
+    Exact path to rewrite.
+    """
+    prefix: NotRequired[pulumi.Input['GatewayRouteSpecHttp2RouteActionRewritePrefixArgsDict']]
+    """
+    Specified beginning characters to rewrite.
+    """
 
 @pulumi.input_type
 class GatewayRouteSpecHttp2RouteActionRewriteArgs:
@@ -906,14 +877,11 @@ class GatewayRouteSpecHttp2RouteActionRewriteArgs:
         pulumi.set(self, "prefix", value)
 
 
-if not MYPY:
-    class GatewayRouteSpecHttp2RouteActionRewriteHostnameArgsDict(TypedDict):
-        default_target_hostname: pulumi.Input[_builtins.str]
-        """
-        Default target host name to write to. Valid values: `ENABLED`, `DISABLED`.
-        """
-elif False:
-    GatewayRouteSpecHttp2RouteActionRewriteHostnameArgsDict: TypeAlias = Mapping[str, Any]
+class GatewayRouteSpecHttp2RouteActionRewriteHostnameArgsDict(TypedDict):
+    default_target_hostname: pulumi.Input[_builtins.str]
+    """
+    Default target host name to write to. Valid values: `ENABLED`, `DISABLED`.
+    """
 
 @pulumi.input_type
 class GatewayRouteSpecHttp2RouteActionRewriteHostnameArgs:
@@ -937,14 +905,11 @@ class GatewayRouteSpecHttp2RouteActionRewriteHostnameArgs:
         pulumi.set(self, "default_target_hostname", value)
 
 
-if not MYPY:
-    class GatewayRouteSpecHttp2RouteActionRewritePathArgsDict(TypedDict):
-        exact: pulumi.Input[_builtins.str]
-        """
-        The exact path to match on.
-        """
-elif False:
-    GatewayRouteSpecHttp2RouteActionRewritePathArgsDict: TypeAlias = Mapping[str, Any]
+class GatewayRouteSpecHttp2RouteActionRewritePathArgsDict(TypedDict):
+    exact: pulumi.Input[_builtins.str]
+    """
+    The exact path to match on.
+    """
 
 @pulumi.input_type
 class GatewayRouteSpecHttp2RouteActionRewritePathArgs:
@@ -968,18 +933,15 @@ class GatewayRouteSpecHttp2RouteActionRewritePathArgs:
         pulumi.set(self, "exact", value)
 
 
-if not MYPY:
-    class GatewayRouteSpecHttp2RouteActionRewritePrefixArgsDict(TypedDict):
-        default_prefix: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Default prefix used to replace the incoming route prefix when rewritten. Valid values: `ENABLED`, `DISABLED`.
-        """
-        value: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Value used to replace the incoming route prefix when rewritten.
-        """
-elif False:
-    GatewayRouteSpecHttp2RouteActionRewritePrefixArgsDict: TypeAlias = Mapping[str, Any]
+class GatewayRouteSpecHttp2RouteActionRewritePrefixArgsDict(TypedDict):
+    default_prefix: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Default prefix used to replace the incoming route prefix when rewritten. Valid values: `ENABLED`, `DISABLED`.
+    """
+    value: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Value used to replace the incoming route prefix when rewritten.
+    """
 
 @pulumi.input_type
 class GatewayRouteSpecHttp2RouteActionRewritePrefixArgs:
@@ -1020,18 +982,15 @@ class GatewayRouteSpecHttp2RouteActionRewritePrefixArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class GatewayRouteSpecHttp2RouteActionTargetArgsDict(TypedDict):
-        virtual_service: pulumi.Input['GatewayRouteSpecHttp2RouteActionTargetVirtualServiceArgsDict']
-        """
-        Virtual service gateway route target.
-        """
-        port: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The port number that corresponds to the target for Virtual Service provider port. This is required when the provider (router or node) of the Virtual Service has multiple listeners.
-        """
-elif False:
-    GatewayRouteSpecHttp2RouteActionTargetArgsDict: TypeAlias = Mapping[str, Any]
+class GatewayRouteSpecHttp2RouteActionTargetArgsDict(TypedDict):
+    virtual_service: pulumi.Input['GatewayRouteSpecHttp2RouteActionTargetVirtualServiceArgsDict']
+    """
+    Virtual service gateway route target.
+    """
+    port: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The port number that corresponds to the target for Virtual Service provider port. This is required when the provider (router or node) of the Virtual Service has multiple listeners.
+    """
 
 @pulumi.input_type
 class GatewayRouteSpecHttp2RouteActionTargetArgs:
@@ -1071,14 +1030,11 @@ class GatewayRouteSpecHttp2RouteActionTargetArgs:
         pulumi.set(self, "port", value)
 
 
-if not MYPY:
-    class GatewayRouteSpecHttp2RouteActionTargetVirtualServiceArgsDict(TypedDict):
-        virtual_service_name: pulumi.Input[_builtins.str]
-        """
-        Name of the virtual service that traffic is routed to. Must be between 1 and 255 characters in length.
-        """
-elif False:
-    GatewayRouteSpecHttp2RouteActionTargetVirtualServiceArgsDict: TypeAlias = Mapping[str, Any]
+class GatewayRouteSpecHttp2RouteActionTargetVirtualServiceArgsDict(TypedDict):
+    virtual_service_name: pulumi.Input[_builtins.str]
+    """
+    Name of the virtual service that traffic is routed to. Must be between 1 and 255 characters in length.
+    """
 
 @pulumi.input_type
 class GatewayRouteSpecHttp2RouteActionTargetVirtualServiceArgs:
@@ -1102,34 +1058,31 @@ class GatewayRouteSpecHttp2RouteActionTargetVirtualServiceArgs:
         pulumi.set(self, "virtual_service_name", value)
 
 
-if not MYPY:
-    class GatewayRouteSpecHttp2RouteMatchArgsDict(TypedDict):
-        headers: NotRequired[pulumi.Input[Sequence[pulumi.Input['GatewayRouteSpecHttp2RouteMatchHeaderArgsDict']]]]
-        """
-        Client request headers to match on.
-        """
-        hostname: NotRequired[pulumi.Input['GatewayRouteSpecHttp2RouteMatchHostnameArgsDict']]
-        """
-        Host name to match on.
-        """
-        path: NotRequired[pulumi.Input['GatewayRouteSpecHttp2RouteMatchPathArgsDict']]
-        """
-        Client request path to match on.
-        """
-        port: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The port number to match from the request.
-        """
-        prefix: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Path to match requests with. This parameter must always start with `/`, which by itself matches all requests to the virtual service name.
-        """
-        query_parameters: NotRequired[pulumi.Input[Sequence[pulumi.Input['GatewayRouteSpecHttp2RouteMatchQueryParameterArgsDict']]]]
-        """
-        Client request query parameters to match on.
-        """
-elif False:
-    GatewayRouteSpecHttp2RouteMatchArgsDict: TypeAlias = Mapping[str, Any]
+class GatewayRouteSpecHttp2RouteMatchArgsDict(TypedDict):
+    headers: NotRequired[pulumi.Input[Sequence[pulumi.Input['GatewayRouteSpecHttp2RouteMatchHeaderArgsDict']]]]
+    """
+    Client request headers to match on.
+    """
+    hostname: NotRequired[pulumi.Input['GatewayRouteSpecHttp2RouteMatchHostnameArgsDict']]
+    """
+    Host name to match on.
+    """
+    path: NotRequired[pulumi.Input['GatewayRouteSpecHttp2RouteMatchPathArgsDict']]
+    """
+    Client request path to match on.
+    """
+    port: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The port number to match from the request.
+    """
+    prefix: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Path to match requests with. This parameter must always start with `/`, which by itself matches all requests to the virtual service name.
+    """
+    query_parameters: NotRequired[pulumi.Input[Sequence[pulumi.Input['GatewayRouteSpecHttp2RouteMatchQueryParameterArgsDict']]]]
+    """
+    Client request query parameters to match on.
+    """
 
 @pulumi.input_type
 class GatewayRouteSpecHttp2RouteMatchArgs:
@@ -1234,22 +1187,19 @@ class GatewayRouteSpecHttp2RouteMatchArgs:
         pulumi.set(self, "query_parameters", value)
 
 
-if not MYPY:
-    class GatewayRouteSpecHttp2RouteMatchHeaderArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        """
-        Name for the HTTP header in the client request that will be matched on.
-        """
-        invert: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        If `true`, the match is on the opposite of the `match` method and value. Default is `false`.
-        """
-        match: NotRequired[pulumi.Input['GatewayRouteSpecHttp2RouteMatchHeaderMatchArgsDict']]
-        """
-        Method and value to match the header value sent with a request. Specify one match method.
-        """
-elif False:
-    GatewayRouteSpecHttp2RouteMatchHeaderArgsDict: TypeAlias = Mapping[str, Any]
+class GatewayRouteSpecHttp2RouteMatchHeaderArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    Name for the HTTP header in the client request that will be matched on.
+    """
+    invert: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    If `true`, the match is on the opposite of the `match` method and value. Default is `false`.
+    """
+    match: NotRequired[pulumi.Input['GatewayRouteSpecHttp2RouteMatchHeaderMatchArgsDict']]
+    """
+    Method and value to match the header value sent with a request. Specify one match method.
+    """
 
 @pulumi.input_type
 class GatewayRouteSpecHttp2RouteMatchHeaderArgs:
@@ -1305,30 +1255,27 @@ class GatewayRouteSpecHttp2RouteMatchHeaderArgs:
         pulumi.set(self, "match", value)
 
 
-if not MYPY:
-    class GatewayRouteSpecHttp2RouteMatchHeaderMatchArgsDict(TypedDict):
-        exact: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Header value sent by the client must match the specified value exactly.
-        """
-        prefix: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Header value sent by the client must begin with the specified characters.
-        """
-        range: NotRequired[pulumi.Input['GatewayRouteSpecHttp2RouteMatchHeaderMatchRangeArgsDict']]
-        """
-        Object that specifies the range of numbers that the header value sent by the client must be included in.
-        """
-        regex: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Header value sent by the client must include the specified characters.
-        """
-        suffix: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Header value sent by the client must end with the specified characters.
-        """
-elif False:
-    GatewayRouteSpecHttp2RouteMatchHeaderMatchArgsDict: TypeAlias = Mapping[str, Any]
+class GatewayRouteSpecHttp2RouteMatchHeaderMatchArgsDict(TypedDict):
+    exact: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Header value sent by the client must match the specified value exactly.
+    """
+    prefix: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Header value sent by the client must begin with the specified characters.
+    """
+    range: NotRequired[pulumi.Input['GatewayRouteSpecHttp2RouteMatchHeaderMatchRangeArgsDict']]
+    """
+    Object that specifies the range of numbers that the header value sent by the client must be included in.
+    """
+    regex: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Header value sent by the client must include the specified characters.
+    """
+    suffix: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Header value sent by the client must end with the specified characters.
+    """
 
 @pulumi.input_type
 class GatewayRouteSpecHttp2RouteMatchHeaderMatchArgs:
@@ -1417,18 +1364,15 @@ class GatewayRouteSpecHttp2RouteMatchHeaderMatchArgs:
         pulumi.set(self, "suffix", value)
 
 
-if not MYPY:
-    class GatewayRouteSpecHttp2RouteMatchHeaderMatchRangeArgsDict(TypedDict):
-        end: pulumi.Input[_builtins.int]
-        """
-        End of the range.
-        """
-        start: pulumi.Input[_builtins.int]
-        """
-        Start of the range.
-        """
-elif False:
-    GatewayRouteSpecHttp2RouteMatchHeaderMatchRangeArgsDict: TypeAlias = Mapping[str, Any]
+class GatewayRouteSpecHttp2RouteMatchHeaderMatchRangeArgsDict(TypedDict):
+    end: pulumi.Input[_builtins.int]
+    """
+    End of the range.
+    """
+    start: pulumi.Input[_builtins.int]
+    """
+    Start of the range.
+    """
 
 @pulumi.input_type
 class GatewayRouteSpecHttp2RouteMatchHeaderMatchRangeArgs:
@@ -1467,18 +1411,15 @@ class GatewayRouteSpecHttp2RouteMatchHeaderMatchRangeArgs:
         pulumi.set(self, "start", value)
 
 
-if not MYPY:
-    class GatewayRouteSpecHttp2RouteMatchHostnameArgsDict(TypedDict):
-        exact: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Exact host name to match on.
-        """
-        suffix: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specified ending characters of the host name to match on.
-        """
-elif False:
-    GatewayRouteSpecHttp2RouteMatchHostnameArgsDict: TypeAlias = Mapping[str, Any]
+class GatewayRouteSpecHttp2RouteMatchHostnameArgsDict(TypedDict):
+    exact: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Exact host name to match on.
+    """
+    suffix: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specified ending characters of the host name to match on.
+    """
 
 @pulumi.input_type
 class GatewayRouteSpecHttp2RouteMatchHostnameArgs:
@@ -1519,18 +1460,15 @@ class GatewayRouteSpecHttp2RouteMatchHostnameArgs:
         pulumi.set(self, "suffix", value)
 
 
-if not MYPY:
-    class GatewayRouteSpecHttp2RouteMatchPathArgsDict(TypedDict):
-        exact: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The exact path to match on.
-        """
-        regex: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The regex used to match the path.
-        """
-elif False:
-    GatewayRouteSpecHttp2RouteMatchPathArgsDict: TypeAlias = Mapping[str, Any]
+class GatewayRouteSpecHttp2RouteMatchPathArgsDict(TypedDict):
+    exact: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The exact path to match on.
+    """
+    regex: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The regex used to match the path.
+    """
 
 @pulumi.input_type
 class GatewayRouteSpecHttp2RouteMatchPathArgs:
@@ -1571,18 +1509,15 @@ class GatewayRouteSpecHttp2RouteMatchPathArgs:
         pulumi.set(self, "regex", value)
 
 
-if not MYPY:
-    class GatewayRouteSpecHttp2RouteMatchQueryParameterArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        """
-        Name for the query parameter that will be matched on.
-        """
-        match: NotRequired[pulumi.Input['GatewayRouteSpecHttp2RouteMatchQueryParameterMatchArgsDict']]
-        """
-        The query parameter to match on.
-        """
-elif False:
-    GatewayRouteSpecHttp2RouteMatchQueryParameterArgsDict: TypeAlias = Mapping[str, Any]
+class GatewayRouteSpecHttp2RouteMatchQueryParameterArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    Name for the query parameter that will be matched on.
+    """
+    match: NotRequired[pulumi.Input['GatewayRouteSpecHttp2RouteMatchQueryParameterMatchArgsDict']]
+    """
+    The query parameter to match on.
+    """
 
 @pulumi.input_type
 class GatewayRouteSpecHttp2RouteMatchQueryParameterArgs:
@@ -1622,14 +1557,11 @@ class GatewayRouteSpecHttp2RouteMatchQueryParameterArgs:
         pulumi.set(self, "match", value)
 
 
-if not MYPY:
-    class GatewayRouteSpecHttp2RouteMatchQueryParameterMatchArgsDict(TypedDict):
-        exact: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The exact query parameter to match on.
-        """
-elif False:
-    GatewayRouteSpecHttp2RouteMatchQueryParameterMatchArgsDict: TypeAlias = Mapping[str, Any]
+class GatewayRouteSpecHttp2RouteMatchQueryParameterMatchArgsDict(TypedDict):
+    exact: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The exact query parameter to match on.
+    """
 
 @pulumi.input_type
 class GatewayRouteSpecHttp2RouteMatchQueryParameterMatchArgs:
@@ -1654,18 +1586,15 @@ class GatewayRouteSpecHttp2RouteMatchQueryParameterMatchArgs:
         pulumi.set(self, "exact", value)
 
 
-if not MYPY:
-    class GatewayRouteSpecHttpRouteArgsDict(TypedDict):
-        action: pulumi.Input['GatewayRouteSpecHttpRouteActionArgsDict']
-        """
-        Action to take if a match is determined.
-        """
-        match: pulumi.Input['GatewayRouteSpecHttpRouteMatchArgsDict']
-        """
-        Criteria for determining a request match.
-        """
-elif False:
-    GatewayRouteSpecHttpRouteArgsDict: TypeAlias = Mapping[str, Any]
+class GatewayRouteSpecHttpRouteArgsDict(TypedDict):
+    action: pulumi.Input['GatewayRouteSpecHttpRouteActionArgsDict']
+    """
+    Action to take if a match is determined.
+    """
+    match: pulumi.Input['GatewayRouteSpecHttpRouteMatchArgsDict']
+    """
+    Criteria for determining a request match.
+    """
 
 @pulumi.input_type
 class GatewayRouteSpecHttpRouteArgs:
@@ -1704,18 +1633,15 @@ class GatewayRouteSpecHttpRouteArgs:
         pulumi.set(self, "match", value)
 
 
-if not MYPY:
-    class GatewayRouteSpecHttpRouteActionArgsDict(TypedDict):
-        target: pulumi.Input['GatewayRouteSpecHttpRouteActionTargetArgsDict']
-        """
-        Target that traffic is routed to when a request matches the gateway route.
-        """
-        rewrite: NotRequired[pulumi.Input['GatewayRouteSpecHttpRouteActionRewriteArgsDict']]
-        """
-        Gateway route action to rewrite.
-        """
-elif False:
-    GatewayRouteSpecHttpRouteActionArgsDict: TypeAlias = Mapping[str, Any]
+class GatewayRouteSpecHttpRouteActionArgsDict(TypedDict):
+    target: pulumi.Input['GatewayRouteSpecHttpRouteActionTargetArgsDict']
+    """
+    Target that traffic is routed to when a request matches the gateway route.
+    """
+    rewrite: NotRequired[pulumi.Input['GatewayRouteSpecHttpRouteActionRewriteArgsDict']]
+    """
+    Gateway route action to rewrite.
+    """
 
 @pulumi.input_type
 class GatewayRouteSpecHttpRouteActionArgs:
@@ -1755,22 +1681,19 @@ class GatewayRouteSpecHttpRouteActionArgs:
         pulumi.set(self, "rewrite", value)
 
 
-if not MYPY:
-    class GatewayRouteSpecHttpRouteActionRewriteArgsDict(TypedDict):
-        hostname: NotRequired[pulumi.Input['GatewayRouteSpecHttpRouteActionRewriteHostnameArgsDict']]
-        """
-        Host name to rewrite.
-        """
-        path: NotRequired[pulumi.Input['GatewayRouteSpecHttpRouteActionRewritePathArgsDict']]
-        """
-        Exact path to rewrite.
-        """
-        prefix: NotRequired[pulumi.Input['GatewayRouteSpecHttpRouteActionRewritePrefixArgsDict']]
-        """
-        Specified beginning characters to rewrite.
-        """
-elif False:
-    GatewayRouteSpecHttpRouteActionRewriteArgsDict: TypeAlias = Mapping[str, Any]
+class GatewayRouteSpecHttpRouteActionRewriteArgsDict(TypedDict):
+    hostname: NotRequired[pulumi.Input['GatewayRouteSpecHttpRouteActionRewriteHostnameArgsDict']]
+    """
+    Host name to rewrite.
+    """
+    path: NotRequired[pulumi.Input['GatewayRouteSpecHttpRouteActionRewritePathArgsDict']]
+    """
+    Exact path to rewrite.
+    """
+    prefix: NotRequired[pulumi.Input['GatewayRouteSpecHttpRouteActionRewritePrefixArgsDict']]
+    """
+    Specified beginning characters to rewrite.
+    """
 
 @pulumi.input_type
 class GatewayRouteSpecHttpRouteActionRewriteArgs:
@@ -1827,14 +1750,11 @@ class GatewayRouteSpecHttpRouteActionRewriteArgs:
         pulumi.set(self, "prefix", value)
 
 
-if not MYPY:
-    class GatewayRouteSpecHttpRouteActionRewriteHostnameArgsDict(TypedDict):
-        default_target_hostname: pulumi.Input[_builtins.str]
-        """
-        Default target host name to write to. Valid values: `ENABLED`, `DISABLED`.
-        """
-elif False:
-    GatewayRouteSpecHttpRouteActionRewriteHostnameArgsDict: TypeAlias = Mapping[str, Any]
+class GatewayRouteSpecHttpRouteActionRewriteHostnameArgsDict(TypedDict):
+    default_target_hostname: pulumi.Input[_builtins.str]
+    """
+    Default target host name to write to. Valid values: `ENABLED`, `DISABLED`.
+    """
 
 @pulumi.input_type
 class GatewayRouteSpecHttpRouteActionRewriteHostnameArgs:
@@ -1858,14 +1778,11 @@ class GatewayRouteSpecHttpRouteActionRewriteHostnameArgs:
         pulumi.set(self, "default_target_hostname", value)
 
 
-if not MYPY:
-    class GatewayRouteSpecHttpRouteActionRewritePathArgsDict(TypedDict):
-        exact: pulumi.Input[_builtins.str]
-        """
-        The exact path to match on.
-        """
-elif False:
-    GatewayRouteSpecHttpRouteActionRewritePathArgsDict: TypeAlias = Mapping[str, Any]
+class GatewayRouteSpecHttpRouteActionRewritePathArgsDict(TypedDict):
+    exact: pulumi.Input[_builtins.str]
+    """
+    The exact path to match on.
+    """
 
 @pulumi.input_type
 class GatewayRouteSpecHttpRouteActionRewritePathArgs:
@@ -1889,18 +1806,15 @@ class GatewayRouteSpecHttpRouteActionRewritePathArgs:
         pulumi.set(self, "exact", value)
 
 
-if not MYPY:
-    class GatewayRouteSpecHttpRouteActionRewritePrefixArgsDict(TypedDict):
-        default_prefix: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Default prefix used to replace the incoming route prefix when rewritten. Valid values: `ENABLED`, `DISABLED`.
-        """
-        value: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Value used to replace the incoming route prefix when rewritten.
-        """
-elif False:
-    GatewayRouteSpecHttpRouteActionRewritePrefixArgsDict: TypeAlias = Mapping[str, Any]
+class GatewayRouteSpecHttpRouteActionRewritePrefixArgsDict(TypedDict):
+    default_prefix: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Default prefix used to replace the incoming route prefix when rewritten. Valid values: `ENABLED`, `DISABLED`.
+    """
+    value: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Value used to replace the incoming route prefix when rewritten.
+    """
 
 @pulumi.input_type
 class GatewayRouteSpecHttpRouteActionRewritePrefixArgs:
@@ -1941,18 +1855,15 @@ class GatewayRouteSpecHttpRouteActionRewritePrefixArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class GatewayRouteSpecHttpRouteActionTargetArgsDict(TypedDict):
-        virtual_service: pulumi.Input['GatewayRouteSpecHttpRouteActionTargetVirtualServiceArgsDict']
-        """
-        Virtual service gateway route target.
-        """
-        port: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The port number that corresponds to the target for Virtual Service provider port. This is required when the provider (router or node) of the Virtual Service has multiple listeners.
-        """
-elif False:
-    GatewayRouteSpecHttpRouteActionTargetArgsDict: TypeAlias = Mapping[str, Any]
+class GatewayRouteSpecHttpRouteActionTargetArgsDict(TypedDict):
+    virtual_service: pulumi.Input['GatewayRouteSpecHttpRouteActionTargetVirtualServiceArgsDict']
+    """
+    Virtual service gateway route target.
+    """
+    port: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The port number that corresponds to the target for Virtual Service provider port. This is required when the provider (router or node) of the Virtual Service has multiple listeners.
+    """
 
 @pulumi.input_type
 class GatewayRouteSpecHttpRouteActionTargetArgs:
@@ -1992,14 +1903,11 @@ class GatewayRouteSpecHttpRouteActionTargetArgs:
         pulumi.set(self, "port", value)
 
 
-if not MYPY:
-    class GatewayRouteSpecHttpRouteActionTargetVirtualServiceArgsDict(TypedDict):
-        virtual_service_name: pulumi.Input[_builtins.str]
-        """
-        Name of the virtual service that traffic is routed to. Must be between 1 and 255 characters in length.
-        """
-elif False:
-    GatewayRouteSpecHttpRouteActionTargetVirtualServiceArgsDict: TypeAlias = Mapping[str, Any]
+class GatewayRouteSpecHttpRouteActionTargetVirtualServiceArgsDict(TypedDict):
+    virtual_service_name: pulumi.Input[_builtins.str]
+    """
+    Name of the virtual service that traffic is routed to. Must be between 1 and 255 characters in length.
+    """
 
 @pulumi.input_type
 class GatewayRouteSpecHttpRouteActionTargetVirtualServiceArgs:
@@ -2023,34 +1931,31 @@ class GatewayRouteSpecHttpRouteActionTargetVirtualServiceArgs:
         pulumi.set(self, "virtual_service_name", value)
 
 
-if not MYPY:
-    class GatewayRouteSpecHttpRouteMatchArgsDict(TypedDict):
-        headers: NotRequired[pulumi.Input[Sequence[pulumi.Input['GatewayRouteSpecHttpRouteMatchHeaderArgsDict']]]]
-        """
-        Client request headers to match on.
-        """
-        hostname: NotRequired[pulumi.Input['GatewayRouteSpecHttpRouteMatchHostnameArgsDict']]
-        """
-        Host name to match on.
-        """
-        path: NotRequired[pulumi.Input['GatewayRouteSpecHttpRouteMatchPathArgsDict']]
-        """
-        Client request path to match on.
-        """
-        port: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The port number to match from the request.
-        """
-        prefix: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Path to match requests with. This parameter must always start with `/`, which by itself matches all requests to the virtual service name.
-        """
-        query_parameters: NotRequired[pulumi.Input[Sequence[pulumi.Input['GatewayRouteSpecHttpRouteMatchQueryParameterArgsDict']]]]
-        """
-        Client request query parameters to match on.
-        """
-elif False:
-    GatewayRouteSpecHttpRouteMatchArgsDict: TypeAlias = Mapping[str, Any]
+class GatewayRouteSpecHttpRouteMatchArgsDict(TypedDict):
+    headers: NotRequired[pulumi.Input[Sequence[pulumi.Input['GatewayRouteSpecHttpRouteMatchHeaderArgsDict']]]]
+    """
+    Client request headers to match on.
+    """
+    hostname: NotRequired[pulumi.Input['GatewayRouteSpecHttpRouteMatchHostnameArgsDict']]
+    """
+    Host name to match on.
+    """
+    path: NotRequired[pulumi.Input['GatewayRouteSpecHttpRouteMatchPathArgsDict']]
+    """
+    Client request path to match on.
+    """
+    port: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The port number to match from the request.
+    """
+    prefix: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Path to match requests with. This parameter must always start with `/`, which by itself matches all requests to the virtual service name.
+    """
+    query_parameters: NotRequired[pulumi.Input[Sequence[pulumi.Input['GatewayRouteSpecHttpRouteMatchQueryParameterArgsDict']]]]
+    """
+    Client request query parameters to match on.
+    """
 
 @pulumi.input_type
 class GatewayRouteSpecHttpRouteMatchArgs:
@@ -2155,22 +2060,19 @@ class GatewayRouteSpecHttpRouteMatchArgs:
         pulumi.set(self, "query_parameters", value)
 
 
-if not MYPY:
-    class GatewayRouteSpecHttpRouteMatchHeaderArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        """
-        Name for the HTTP header in the client request that will be matched on.
-        """
-        invert: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        If `true`, the match is on the opposite of the `match` method and value. Default is `false`.
-        """
-        match: NotRequired[pulumi.Input['GatewayRouteSpecHttpRouteMatchHeaderMatchArgsDict']]
-        """
-        Method and value to match the header value sent with a request. Specify one match method.
-        """
-elif False:
-    GatewayRouteSpecHttpRouteMatchHeaderArgsDict: TypeAlias = Mapping[str, Any]
+class GatewayRouteSpecHttpRouteMatchHeaderArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    Name for the HTTP header in the client request that will be matched on.
+    """
+    invert: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    If `true`, the match is on the opposite of the `match` method and value. Default is `false`.
+    """
+    match: NotRequired[pulumi.Input['GatewayRouteSpecHttpRouteMatchHeaderMatchArgsDict']]
+    """
+    Method and value to match the header value sent with a request. Specify one match method.
+    """
 
 @pulumi.input_type
 class GatewayRouteSpecHttpRouteMatchHeaderArgs:
@@ -2226,30 +2128,27 @@ class GatewayRouteSpecHttpRouteMatchHeaderArgs:
         pulumi.set(self, "match", value)
 
 
-if not MYPY:
-    class GatewayRouteSpecHttpRouteMatchHeaderMatchArgsDict(TypedDict):
-        exact: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Header value sent by the client must match the specified value exactly.
-        """
-        prefix: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Header value sent by the client must begin with the specified characters.
-        """
-        range: NotRequired[pulumi.Input['GatewayRouteSpecHttpRouteMatchHeaderMatchRangeArgsDict']]
-        """
-        Object that specifies the range of numbers that the header value sent by the client must be included in.
-        """
-        regex: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Header value sent by the client must include the specified characters.
-        """
-        suffix: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Header value sent by the client must end with the specified characters.
-        """
-elif False:
-    GatewayRouteSpecHttpRouteMatchHeaderMatchArgsDict: TypeAlias = Mapping[str, Any]
+class GatewayRouteSpecHttpRouteMatchHeaderMatchArgsDict(TypedDict):
+    exact: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Header value sent by the client must match the specified value exactly.
+    """
+    prefix: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Header value sent by the client must begin with the specified characters.
+    """
+    range: NotRequired[pulumi.Input['GatewayRouteSpecHttpRouteMatchHeaderMatchRangeArgsDict']]
+    """
+    Object that specifies the range of numbers that the header value sent by the client must be included in.
+    """
+    regex: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Header value sent by the client must include the specified characters.
+    """
+    suffix: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Header value sent by the client must end with the specified characters.
+    """
 
 @pulumi.input_type
 class GatewayRouteSpecHttpRouteMatchHeaderMatchArgs:
@@ -2338,18 +2237,15 @@ class GatewayRouteSpecHttpRouteMatchHeaderMatchArgs:
         pulumi.set(self, "suffix", value)
 
 
-if not MYPY:
-    class GatewayRouteSpecHttpRouteMatchHeaderMatchRangeArgsDict(TypedDict):
-        end: pulumi.Input[_builtins.int]
-        """
-        End of the range.
-        """
-        start: pulumi.Input[_builtins.int]
-        """
-        Start of the range.
-        """
-elif False:
-    GatewayRouteSpecHttpRouteMatchHeaderMatchRangeArgsDict: TypeAlias = Mapping[str, Any]
+class GatewayRouteSpecHttpRouteMatchHeaderMatchRangeArgsDict(TypedDict):
+    end: pulumi.Input[_builtins.int]
+    """
+    End of the range.
+    """
+    start: pulumi.Input[_builtins.int]
+    """
+    Start of the range.
+    """
 
 @pulumi.input_type
 class GatewayRouteSpecHttpRouteMatchHeaderMatchRangeArgs:
@@ -2388,18 +2284,15 @@ class GatewayRouteSpecHttpRouteMatchHeaderMatchRangeArgs:
         pulumi.set(self, "start", value)
 
 
-if not MYPY:
-    class GatewayRouteSpecHttpRouteMatchHostnameArgsDict(TypedDict):
-        exact: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Exact host name to match on.
-        """
-        suffix: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specified ending characters of the host name to match on.
-        """
-elif False:
-    GatewayRouteSpecHttpRouteMatchHostnameArgsDict: TypeAlias = Mapping[str, Any]
+class GatewayRouteSpecHttpRouteMatchHostnameArgsDict(TypedDict):
+    exact: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Exact host name to match on.
+    """
+    suffix: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specified ending characters of the host name to match on.
+    """
 
 @pulumi.input_type
 class GatewayRouteSpecHttpRouteMatchHostnameArgs:
@@ -2440,18 +2333,15 @@ class GatewayRouteSpecHttpRouteMatchHostnameArgs:
         pulumi.set(self, "suffix", value)
 
 
-if not MYPY:
-    class GatewayRouteSpecHttpRouteMatchPathArgsDict(TypedDict):
-        exact: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The exact path to match on.
-        """
-        regex: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The regex used to match the path.
-        """
-elif False:
-    GatewayRouteSpecHttpRouteMatchPathArgsDict: TypeAlias = Mapping[str, Any]
+class GatewayRouteSpecHttpRouteMatchPathArgsDict(TypedDict):
+    exact: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The exact path to match on.
+    """
+    regex: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The regex used to match the path.
+    """
 
 @pulumi.input_type
 class GatewayRouteSpecHttpRouteMatchPathArgs:
@@ -2492,18 +2382,15 @@ class GatewayRouteSpecHttpRouteMatchPathArgs:
         pulumi.set(self, "regex", value)
 
 
-if not MYPY:
-    class GatewayRouteSpecHttpRouteMatchQueryParameterArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        """
-        Name for the query parameter that will be matched on.
-        """
-        match: NotRequired[pulumi.Input['GatewayRouteSpecHttpRouteMatchQueryParameterMatchArgsDict']]
-        """
-        The query parameter to match on.
-        """
-elif False:
-    GatewayRouteSpecHttpRouteMatchQueryParameterArgsDict: TypeAlias = Mapping[str, Any]
+class GatewayRouteSpecHttpRouteMatchQueryParameterArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    Name for the query parameter that will be matched on.
+    """
+    match: NotRequired[pulumi.Input['GatewayRouteSpecHttpRouteMatchQueryParameterMatchArgsDict']]
+    """
+    The query parameter to match on.
+    """
 
 @pulumi.input_type
 class GatewayRouteSpecHttpRouteMatchQueryParameterArgs:
@@ -2543,14 +2430,11 @@ class GatewayRouteSpecHttpRouteMatchQueryParameterArgs:
         pulumi.set(self, "match", value)
 
 
-if not MYPY:
-    class GatewayRouteSpecHttpRouteMatchQueryParameterMatchArgsDict(TypedDict):
-        exact: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The exact query parameter to match on.
-        """
-elif False:
-    GatewayRouteSpecHttpRouteMatchQueryParameterMatchArgsDict: TypeAlias = Mapping[str, Any]
+class GatewayRouteSpecHttpRouteMatchQueryParameterMatchArgsDict(TypedDict):
+    exact: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The exact query parameter to match on.
+    """
 
 @pulumi.input_type
 class GatewayRouteSpecHttpRouteMatchQueryParameterMatchArgs:
@@ -2575,18 +2459,15 @@ class GatewayRouteSpecHttpRouteMatchQueryParameterMatchArgs:
         pulumi.set(self, "exact", value)
 
 
-if not MYPY:
-    class MeshSpecArgsDict(TypedDict):
-        egress_filter: NotRequired[pulumi.Input['MeshSpecEgressFilterArgsDict']]
-        """
-        Egress filter rules for the service mesh.
-        """
-        service_discovery: NotRequired[pulumi.Input['MeshSpecServiceDiscoveryArgsDict']]
-        """
-        The service discovery information for the service mesh.
-        """
-elif False:
-    MeshSpecArgsDict: TypeAlias = Mapping[str, Any]
+class MeshSpecArgsDict(TypedDict):
+    egress_filter: NotRequired[pulumi.Input['MeshSpecEgressFilterArgsDict']]
+    """
+    Egress filter rules for the service mesh.
+    """
+    service_discovery: NotRequired[pulumi.Input['MeshSpecServiceDiscoveryArgsDict']]
+    """
+    The service discovery information for the service mesh.
+    """
 
 @pulumi.input_type
 class MeshSpecArgs:
@@ -2627,14 +2508,11 @@ class MeshSpecArgs:
         pulumi.set(self, "service_discovery", value)
 
 
-if not MYPY:
-    class MeshSpecEgressFilterArgsDict(TypedDict):
-        type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Egress filter type. By default, the type is `DROP_ALL`. Valid values are `ALLOW_ALL` and `DROP_ALL`.
-        """
-elif False:
-    MeshSpecEgressFilterArgsDict: TypeAlias = Mapping[str, Any]
+class MeshSpecEgressFilterArgsDict(TypedDict):
+    type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Egress filter type. By default, the type is `DROP_ALL`. Valid values are `ALLOW_ALL` and `DROP_ALL`.
+    """
 
 @pulumi.input_type
 class MeshSpecEgressFilterArgs:
@@ -2659,14 +2537,11 @@ class MeshSpecEgressFilterArgs:
         pulumi.set(self, "type", value)
 
 
-if not MYPY:
-    class MeshSpecServiceDiscoveryArgsDict(TypedDict):
-        ip_preference: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The IP version to use to control traffic within the mesh. Valid values are `IPv6_PREFERRED`, `IPv4_PREFERRED`, `IPv4_ONLY`, and `IPv6_ONLY`.
-        """
-elif False:
-    MeshSpecServiceDiscoveryArgsDict: TypeAlias = Mapping[str, Any]
+class MeshSpecServiceDiscoveryArgsDict(TypedDict):
+    ip_preference: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The IP version to use to control traffic within the mesh. Valid values are `IPv6_PREFERRED`, `IPv4_PREFERRED`, `IPv4_ONLY`, and `IPv6_ONLY`.
+    """
 
 @pulumi.input_type
 class MeshSpecServiceDiscoveryArgs:
@@ -2691,31 +2566,28 @@ class MeshSpecServiceDiscoveryArgs:
         pulumi.set(self, "ip_preference", value)
 
 
-if not MYPY:
-    class RouteSpecArgsDict(TypedDict):
-        grpc_route: NotRequired[pulumi.Input['RouteSpecGrpcRouteArgsDict']]
-        """
-        GRPC routing information for the route.
-        """
-        http2_route: NotRequired[pulumi.Input['RouteSpecHttp2RouteArgsDict']]
-        """
-        HTTP/2 routing information for the route.
-        """
-        http_route: NotRequired[pulumi.Input['RouteSpecHttpRouteArgsDict']]
-        """
-        HTTP routing information for the route.
-        """
-        priority: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Priority for the route, between `0` and `1000`.
-        Routes are matched based on the specified value, where `0` is the highest priority.
-        """
-        tcp_route: NotRequired[pulumi.Input['RouteSpecTcpRouteArgsDict']]
-        """
-        TCP routing information for the route.
-        """
-elif False:
-    RouteSpecArgsDict: TypeAlias = Mapping[str, Any]
+class RouteSpecArgsDict(TypedDict):
+    grpc_route: NotRequired[pulumi.Input['RouteSpecGrpcRouteArgsDict']]
+    """
+    GRPC routing information for the route.
+    """
+    http2_route: NotRequired[pulumi.Input['RouteSpecHttp2RouteArgsDict']]
+    """
+    HTTP/2 routing information for the route.
+    """
+    http_route: NotRequired[pulumi.Input['RouteSpecHttpRouteArgsDict']]
+    """
+    HTTP routing information for the route.
+    """
+    priority: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Priority for the route, between `0` and `1000`.
+    Routes are matched based on the specified value, where `0` is the highest priority.
+    """
+    tcp_route: NotRequired[pulumi.Input['RouteSpecTcpRouteArgsDict']]
+    """
+    TCP routing information for the route.
+    """
 
 @pulumi.input_type
 class RouteSpecArgs:
@@ -2806,26 +2678,23 @@ class RouteSpecArgs:
         pulumi.set(self, "tcp_route", value)
 
 
-if not MYPY:
-    class RouteSpecGrpcRouteArgsDict(TypedDict):
-        action: pulumi.Input['RouteSpecGrpcRouteActionArgsDict']
-        """
-        Action to take if a match is determined.
-        """
-        match: NotRequired[pulumi.Input['RouteSpecGrpcRouteMatchArgsDict']]
-        """
-        Criteria for determining an gRPC request match.
-        """
-        retry_policy: NotRequired[pulumi.Input['RouteSpecGrpcRouteRetryPolicyArgsDict']]
-        """
-        Retry policy.
-        """
-        timeout: NotRequired[pulumi.Input['RouteSpecGrpcRouteTimeoutArgsDict']]
-        """
-        Types of timeouts.
-        """
-elif False:
-    RouteSpecGrpcRouteArgsDict: TypeAlias = Mapping[str, Any]
+class RouteSpecGrpcRouteArgsDict(TypedDict):
+    action: pulumi.Input['RouteSpecGrpcRouteActionArgsDict']
+    """
+    Action to take if a match is determined.
+    """
+    match: NotRequired[pulumi.Input['RouteSpecGrpcRouteMatchArgsDict']]
+    """
+    Criteria for determining an gRPC request match.
+    """
+    retry_policy: NotRequired[pulumi.Input['RouteSpecGrpcRouteRetryPolicyArgsDict']]
+    """
+    Retry policy.
+    """
+    timeout: NotRequired[pulumi.Input['RouteSpecGrpcRouteTimeoutArgsDict']]
+    """
+    Types of timeouts.
+    """
 
 @pulumi.input_type
 class RouteSpecGrpcRouteArgs:
@@ -2897,15 +2766,12 @@ class RouteSpecGrpcRouteArgs:
         pulumi.set(self, "timeout", value)
 
 
-if not MYPY:
-    class RouteSpecGrpcRouteActionArgsDict(TypedDict):
-        weighted_targets: pulumi.Input[Sequence[pulumi.Input['RouteSpecGrpcRouteActionWeightedTargetArgsDict']]]
-        """
-        Targets that traffic is routed to when a request matches the route.
-        You can specify one or more targets and their relative weights with which to distribute traffic.
-        """
-elif False:
-    RouteSpecGrpcRouteActionArgsDict: TypeAlias = Mapping[str, Any]
+class RouteSpecGrpcRouteActionArgsDict(TypedDict):
+    weighted_targets: pulumi.Input[Sequence[pulumi.Input['RouteSpecGrpcRouteActionWeightedTargetArgsDict']]]
+    """
+    Targets that traffic is routed to when a request matches the route.
+    You can specify one or more targets and their relative weights with which to distribute traffic.
+    """
 
 @pulumi.input_type
 class RouteSpecGrpcRouteActionArgs:
@@ -2931,22 +2797,19 @@ class RouteSpecGrpcRouteActionArgs:
         pulumi.set(self, "weighted_targets", value)
 
 
-if not MYPY:
-    class RouteSpecGrpcRouteActionWeightedTargetArgsDict(TypedDict):
-        virtual_node: pulumi.Input[_builtins.str]
-        """
-        Virtual node to associate with the weighted target. Must be between 1 and 255 characters in length.
-        """
-        weight: pulumi.Input[_builtins.int]
-        """
-        Relative weight of the weighted target. An integer between 0 and 100.
-        """
-        port: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The targeted port of the weighted object.
-        """
-elif False:
-    RouteSpecGrpcRouteActionWeightedTargetArgsDict: TypeAlias = Mapping[str, Any]
+class RouteSpecGrpcRouteActionWeightedTargetArgsDict(TypedDict):
+    virtual_node: pulumi.Input[_builtins.str]
+    """
+    Virtual node to associate with the weighted target. Must be between 1 and 255 characters in length.
+    """
+    weight: pulumi.Input[_builtins.int]
+    """
+    Relative weight of the weighted target. An integer between 0 and 100.
+    """
+    port: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The targeted port of the weighted object.
+    """
 
 @pulumi.input_type
 class RouteSpecGrpcRouteActionWeightedTargetArgs:
@@ -3001,27 +2864,24 @@ class RouteSpecGrpcRouteActionWeightedTargetArgs:
         pulumi.set(self, "port", value)
 
 
-if not MYPY:
-    class RouteSpecGrpcRouteMatchArgsDict(TypedDict):
-        metadatas: NotRequired[pulumi.Input[Sequence[pulumi.Input['RouteSpecGrpcRouteMatchMetadataArgsDict']]]]
-        """
-        Data to match from the gRPC request.
-        """
-        method_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Method name to match from the request. If you specify a name, you must also specify a `service_name`.
-        """
-        port: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The port number to match from the request.
-        """
-        prefix: NotRequired[pulumi.Input[_builtins.str]]
-        service_name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Fully qualified domain name for the service to match from the request.
-        """
-elif False:
-    RouteSpecGrpcRouteMatchArgsDict: TypeAlias = Mapping[str, Any]
+class RouteSpecGrpcRouteMatchArgsDict(TypedDict):
+    metadatas: NotRequired[pulumi.Input[Sequence[pulumi.Input['RouteSpecGrpcRouteMatchMetadataArgsDict']]]]
+    """
+    Data to match from the gRPC request.
+    """
+    method_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Method name to match from the request. If you specify a name, you must also specify a `service_name`.
+    """
+    port: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The port number to match from the request.
+    """
+    prefix: NotRequired[pulumi.Input[_builtins.str]]
+    service_name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Fully qualified domain name for the service to match from the request.
+    """
 
 @pulumi.input_type
 class RouteSpecGrpcRouteMatchArgs:
@@ -3106,22 +2966,19 @@ class RouteSpecGrpcRouteMatchArgs:
         pulumi.set(self, "service_name", value)
 
 
-if not MYPY:
-    class RouteSpecGrpcRouteMatchMetadataArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        """
-        Name of the route. Must be between 1 and 50 characters in length.
-        """
-        invert: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        If `true`, the match is on the opposite of the `match` criteria. Default is `false`.
-        """
-        match: NotRequired[pulumi.Input['RouteSpecGrpcRouteMatchMetadataMatchArgsDict']]
-        """
-        Data to match from the request.
-        """
-elif False:
-    RouteSpecGrpcRouteMatchMetadataArgsDict: TypeAlias = Mapping[str, Any]
+class RouteSpecGrpcRouteMatchMetadataArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    Name of the route. Must be between 1 and 50 characters in length.
+    """
+    invert: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    If `true`, the match is on the opposite of the `match` criteria. Default is `false`.
+    """
+    match: NotRequired[pulumi.Input['RouteSpecGrpcRouteMatchMetadataMatchArgsDict']]
+    """
+    Data to match from the request.
+    """
 
 @pulumi.input_type
 class RouteSpecGrpcRouteMatchMetadataArgs:
@@ -3177,30 +3034,27 @@ class RouteSpecGrpcRouteMatchMetadataArgs:
         pulumi.set(self, "match", value)
 
 
-if not MYPY:
-    class RouteSpecGrpcRouteMatchMetadataMatchArgsDict(TypedDict):
-        exact: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Value sent by the client must match the specified value exactly. Must be between 1 and 255 characters in length.
-        """
-        prefix: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Value sent by the client must begin with the specified characters. Must be between 1 and 255 characters in length.
-        """
-        range: NotRequired[pulumi.Input['RouteSpecGrpcRouteMatchMetadataMatchRangeArgsDict']]
-        """
-        Object that specifies the range of numbers that the value sent by the client must be included in.
-        """
-        regex: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Value sent by the client must include the specified characters. Must be between 1 and 255 characters in length.
-        """
-        suffix: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Value sent by the client must end with the specified characters. Must be between 1 and 255 characters in length.
-        """
-elif False:
-    RouteSpecGrpcRouteMatchMetadataMatchArgsDict: TypeAlias = Mapping[str, Any]
+class RouteSpecGrpcRouteMatchMetadataMatchArgsDict(TypedDict):
+    exact: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Value sent by the client must match the specified value exactly. Must be between 1 and 255 characters in length.
+    """
+    prefix: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Value sent by the client must begin with the specified characters. Must be between 1 and 255 characters in length.
+    """
+    range: NotRequired[pulumi.Input['RouteSpecGrpcRouteMatchMetadataMatchRangeArgsDict']]
+    """
+    Object that specifies the range of numbers that the value sent by the client must be included in.
+    """
+    regex: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Value sent by the client must include the specified characters. Must be between 1 and 255 characters in length.
+    """
+    suffix: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Value sent by the client must end with the specified characters. Must be between 1 and 255 characters in length.
+    """
 
 @pulumi.input_type
 class RouteSpecGrpcRouteMatchMetadataMatchArgs:
@@ -3289,18 +3143,15 @@ class RouteSpecGrpcRouteMatchMetadataMatchArgs:
         pulumi.set(self, "suffix", value)
 
 
-if not MYPY:
-    class RouteSpecGrpcRouteMatchMetadataMatchRangeArgsDict(TypedDict):
-        end: pulumi.Input[_builtins.int]
-        """
-        End of the range.
-        """
-        start: pulumi.Input[_builtins.int]
-        """
-        Start of the range.
-        """
-elif False:
-    RouteSpecGrpcRouteMatchMetadataMatchRangeArgsDict: TypeAlias = Mapping[str, Any]
+class RouteSpecGrpcRouteMatchMetadataMatchRangeArgsDict(TypedDict):
+    end: pulumi.Input[_builtins.int]
+    """
+    End of the range.
+    """
+    start: pulumi.Input[_builtins.int]
+    """
+    Start of the range.
+    """
 
 @pulumi.input_type
 class RouteSpecGrpcRouteMatchMetadataMatchRangeArgs:
@@ -3339,32 +3190,29 @@ class RouteSpecGrpcRouteMatchMetadataMatchRangeArgs:
         pulumi.set(self, "start", value)
 
 
-if not MYPY:
-    class RouteSpecGrpcRouteRetryPolicyArgsDict(TypedDict):
-        max_retries: pulumi.Input[_builtins.int]
-        """
-        Maximum number of retries.
-        """
-        per_retry_timeout: pulumi.Input['RouteSpecGrpcRouteRetryPolicyPerRetryTimeoutArgsDict']
-        """
-        Per-retry timeout.
-        """
-        grpc_retry_events: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        List of gRPC retry events.
-        Valid values: `cancelled`, `deadline-exceeded`, `internal`, `resource-exhausted`, `unavailable`.
-        """
-        http_retry_events: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        List of HTTP retry events.
-        Valid values: `client-error` (HTTP status code 409), `gateway-error` (HTTP status codes 502, 503, and 504), `server-error` (HTTP status codes 500, 501, 502, 503, 504, 505, 506, 507, 508, 510, and 511), `stream-error` (retry on refused stream).
-        """
-        tcp_retry_events: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        List of TCP retry events. The only valid value is `connection-error`.
-        """
-elif False:
-    RouteSpecGrpcRouteRetryPolicyArgsDict: TypeAlias = Mapping[str, Any]
+class RouteSpecGrpcRouteRetryPolicyArgsDict(TypedDict):
+    max_retries: pulumi.Input[_builtins.int]
+    """
+    Maximum number of retries.
+    """
+    per_retry_timeout: pulumi.Input['RouteSpecGrpcRouteRetryPolicyPerRetryTimeoutArgsDict']
+    """
+    Per-retry timeout.
+    """
+    grpc_retry_events: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    List of gRPC retry events.
+    Valid values: `cancelled`, `deadline-exceeded`, `internal`, `resource-exhausted`, `unavailable`.
+    """
+    http_retry_events: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    List of HTTP retry events.
+    Valid values: `client-error` (HTTP status code 409), `gateway-error` (HTTP status codes 502, 503, and 504), `server-error` (HTTP status codes 500, 501, 502, 503, 504, 505, 506, 507, 508, 510, and 511), `stream-error` (retry on refused stream).
+    """
+    tcp_retry_events: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    List of TCP retry events. The only valid value is `connection-error`.
+    """
 
 @pulumi.input_type
 class RouteSpecGrpcRouteRetryPolicyArgs:
@@ -3455,18 +3303,15 @@ class RouteSpecGrpcRouteRetryPolicyArgs:
         pulumi.set(self, "tcp_retry_events", value)
 
 
-if not MYPY:
-    class RouteSpecGrpcRouteRetryPolicyPerRetryTimeoutArgsDict(TypedDict):
-        unit: pulumi.Input[_builtins.str]
-        """
-        Retry unit. Valid values: `ms`, `s`.
-        """
-        value: pulumi.Input[_builtins.int]
-        """
-        Retry value.
-        """
-elif False:
-    RouteSpecGrpcRouteRetryPolicyPerRetryTimeoutArgsDict: TypeAlias = Mapping[str, Any]
+class RouteSpecGrpcRouteRetryPolicyPerRetryTimeoutArgsDict(TypedDict):
+    unit: pulumi.Input[_builtins.str]
+    """
+    Retry unit. Valid values: `ms`, `s`.
+    """
+    value: pulumi.Input[_builtins.int]
+    """
+    Retry value.
+    """
 
 @pulumi.input_type
 class RouteSpecGrpcRouteRetryPolicyPerRetryTimeoutArgs:
@@ -3505,18 +3350,15 @@ class RouteSpecGrpcRouteRetryPolicyPerRetryTimeoutArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class RouteSpecGrpcRouteTimeoutArgsDict(TypedDict):
-        idle: NotRequired[pulumi.Input['RouteSpecGrpcRouteTimeoutIdleArgsDict']]
-        """
-        Idle timeout. An idle timeout bounds the amount of time that a connection may be idle.
-        """
-        per_request: NotRequired[pulumi.Input['RouteSpecGrpcRouteTimeoutPerRequestArgsDict']]
-        """
-        Per request timeout.
-        """
-elif False:
-    RouteSpecGrpcRouteTimeoutArgsDict: TypeAlias = Mapping[str, Any]
+class RouteSpecGrpcRouteTimeoutArgsDict(TypedDict):
+    idle: NotRequired[pulumi.Input['RouteSpecGrpcRouteTimeoutIdleArgsDict']]
+    """
+    Idle timeout. An idle timeout bounds the amount of time that a connection may be idle.
+    """
+    per_request: NotRequired[pulumi.Input['RouteSpecGrpcRouteTimeoutPerRequestArgsDict']]
+    """
+    Per request timeout.
+    """
 
 @pulumi.input_type
 class RouteSpecGrpcRouteTimeoutArgs:
@@ -3557,18 +3399,15 @@ class RouteSpecGrpcRouteTimeoutArgs:
         pulumi.set(self, "per_request", value)
 
 
-if not MYPY:
-    class RouteSpecGrpcRouteTimeoutIdleArgsDict(TypedDict):
-        unit: pulumi.Input[_builtins.str]
-        """
-        Unit of time. Valid values: `ms`, `s`.
-        """
-        value: pulumi.Input[_builtins.int]
-        """
-        Number of time units. Minimum value of `0`.
-        """
-elif False:
-    RouteSpecGrpcRouteTimeoutIdleArgsDict: TypeAlias = Mapping[str, Any]
+class RouteSpecGrpcRouteTimeoutIdleArgsDict(TypedDict):
+    unit: pulumi.Input[_builtins.str]
+    """
+    Unit of time. Valid values: `ms`, `s`.
+    """
+    value: pulumi.Input[_builtins.int]
+    """
+    Number of time units. Minimum value of `0`.
+    """
 
 @pulumi.input_type
 class RouteSpecGrpcRouteTimeoutIdleArgs:
@@ -3607,18 +3446,15 @@ class RouteSpecGrpcRouteTimeoutIdleArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class RouteSpecGrpcRouteTimeoutPerRequestArgsDict(TypedDict):
-        unit: pulumi.Input[_builtins.str]
-        """
-        Unit of time. Valid values: `ms`, `s`.
-        """
-        value: pulumi.Input[_builtins.int]
-        """
-        Number of time units. Minimum value of `0`.
-        """
-elif False:
-    RouteSpecGrpcRouteTimeoutPerRequestArgsDict: TypeAlias = Mapping[str, Any]
+class RouteSpecGrpcRouteTimeoutPerRequestArgsDict(TypedDict):
+    unit: pulumi.Input[_builtins.str]
+    """
+    Unit of time. Valid values: `ms`, `s`.
+    """
+    value: pulumi.Input[_builtins.int]
+    """
+    Number of time units. Minimum value of `0`.
+    """
 
 @pulumi.input_type
 class RouteSpecGrpcRouteTimeoutPerRequestArgs:
@@ -3657,26 +3493,23 @@ class RouteSpecGrpcRouteTimeoutPerRequestArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class RouteSpecHttp2RouteArgsDict(TypedDict):
-        action: pulumi.Input['RouteSpecHttp2RouteActionArgsDict']
-        """
-        Action to take if a match is determined.
-        """
-        match: pulumi.Input['RouteSpecHttp2RouteMatchArgsDict']
-        """
-        Criteria for determining an HTTP request match.
-        """
-        retry_policy: NotRequired[pulumi.Input['RouteSpecHttp2RouteRetryPolicyArgsDict']]
-        """
-        Retry policy.
-        """
-        timeout: NotRequired[pulumi.Input['RouteSpecHttp2RouteTimeoutArgsDict']]
-        """
-        Types of timeouts.
-        """
-elif False:
-    RouteSpecHttp2RouteArgsDict: TypeAlias = Mapping[str, Any]
+class RouteSpecHttp2RouteArgsDict(TypedDict):
+    action: pulumi.Input['RouteSpecHttp2RouteActionArgsDict']
+    """
+    Action to take if a match is determined.
+    """
+    match: pulumi.Input['RouteSpecHttp2RouteMatchArgsDict']
+    """
+    Criteria for determining an HTTP request match.
+    """
+    retry_policy: NotRequired[pulumi.Input['RouteSpecHttp2RouteRetryPolicyArgsDict']]
+    """
+    Retry policy.
+    """
+    timeout: NotRequired[pulumi.Input['RouteSpecHttp2RouteTimeoutArgsDict']]
+    """
+    Types of timeouts.
+    """
 
 @pulumi.input_type
 class RouteSpecHttp2RouteArgs:
@@ -3747,15 +3580,12 @@ class RouteSpecHttp2RouteArgs:
         pulumi.set(self, "timeout", value)
 
 
-if not MYPY:
-    class RouteSpecHttp2RouteActionArgsDict(TypedDict):
-        weighted_targets: pulumi.Input[Sequence[pulumi.Input['RouteSpecHttp2RouteActionWeightedTargetArgsDict']]]
-        """
-        Targets that traffic is routed to when a request matches the route.
-        You can specify one or more targets and their relative weights with which to distribute traffic.
-        """
-elif False:
-    RouteSpecHttp2RouteActionArgsDict: TypeAlias = Mapping[str, Any]
+class RouteSpecHttp2RouteActionArgsDict(TypedDict):
+    weighted_targets: pulumi.Input[Sequence[pulumi.Input['RouteSpecHttp2RouteActionWeightedTargetArgsDict']]]
+    """
+    Targets that traffic is routed to when a request matches the route.
+    You can specify one or more targets and their relative weights with which to distribute traffic.
+    """
 
 @pulumi.input_type
 class RouteSpecHttp2RouteActionArgs:
@@ -3781,22 +3611,19 @@ class RouteSpecHttp2RouteActionArgs:
         pulumi.set(self, "weighted_targets", value)
 
 
-if not MYPY:
-    class RouteSpecHttp2RouteActionWeightedTargetArgsDict(TypedDict):
-        virtual_node: pulumi.Input[_builtins.str]
-        """
-        Virtual node to associate with the weighted target. Must be between 1 and 255 characters in length.
-        """
-        weight: pulumi.Input[_builtins.int]
-        """
-        Relative weight of the weighted target. An integer between 0 and 100.
-        """
-        port: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The targeted port of the weighted object.
-        """
-elif False:
-    RouteSpecHttp2RouteActionWeightedTargetArgsDict: TypeAlias = Mapping[str, Any]
+class RouteSpecHttp2RouteActionWeightedTargetArgsDict(TypedDict):
+    virtual_node: pulumi.Input[_builtins.str]
+    """
+    Virtual node to associate with the weighted target. Must be between 1 and 255 characters in length.
+    """
+    weight: pulumi.Input[_builtins.int]
+    """
+    Relative weight of the weighted target. An integer between 0 and 100.
+    """
+    port: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The targeted port of the weighted object.
+    """
 
 @pulumi.input_type
 class RouteSpecHttp2RouteActionWeightedTargetArgs:
@@ -3851,39 +3678,36 @@ class RouteSpecHttp2RouteActionWeightedTargetArgs:
         pulumi.set(self, "port", value)
 
 
-if not MYPY:
-    class RouteSpecHttp2RouteMatchArgsDict(TypedDict):
-        headers: NotRequired[pulumi.Input[Sequence[pulumi.Input['RouteSpecHttp2RouteMatchHeaderArgsDict']]]]
-        """
-        Client request headers to match on.
-        """
-        method: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Client request header method to match on. Valid values: `GET`, `HEAD`, `POST`, `PUT`, `DELETE`, `CONNECT`, `OPTIONS`, `TRACE`, `PATCH`.
-        """
-        path: NotRequired[pulumi.Input['RouteSpecHttp2RouteMatchPathArgsDict']]
-        """
-        Client request path to match on.
-        """
-        port: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The port number to match from the request.
-        """
-        prefix: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Path with which to match requests.
-        This parameter must always start with /, which by itself matches all requests to the virtual router service name.
-        """
-        query_parameters: NotRequired[pulumi.Input[Sequence[pulumi.Input['RouteSpecHttp2RouteMatchQueryParameterArgsDict']]]]
-        """
-        Client request query parameters to match on.
-        """
-        scheme: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Client request header scheme to match on. Valid values: `http`, `https`.
-        """
-elif False:
-    RouteSpecHttp2RouteMatchArgsDict: TypeAlias = Mapping[str, Any]
+class RouteSpecHttp2RouteMatchArgsDict(TypedDict):
+    headers: NotRequired[pulumi.Input[Sequence[pulumi.Input['RouteSpecHttp2RouteMatchHeaderArgsDict']]]]
+    """
+    Client request headers to match on.
+    """
+    method: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Client request header method to match on. Valid values: `GET`, `HEAD`, `POST`, `PUT`, `DELETE`, `CONNECT`, `OPTIONS`, `TRACE`, `PATCH`.
+    """
+    path: NotRequired[pulumi.Input['RouteSpecHttp2RouteMatchPathArgsDict']]
+    """
+    Client request path to match on.
+    """
+    port: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The port number to match from the request.
+    """
+    prefix: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Path with which to match requests.
+    This parameter must always start with /, which by itself matches all requests to the virtual router service name.
+    """
+    query_parameters: NotRequired[pulumi.Input[Sequence[pulumi.Input['RouteSpecHttp2RouteMatchQueryParameterArgsDict']]]]
+    """
+    Client request query parameters to match on.
+    """
+    scheme: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Client request header scheme to match on. Valid values: `http`, `https`.
+    """
 
 @pulumi.input_type
 class RouteSpecHttp2RouteMatchArgs:
@@ -4006,22 +3830,19 @@ class RouteSpecHttp2RouteMatchArgs:
         pulumi.set(self, "scheme", value)
 
 
-if not MYPY:
-    class RouteSpecHttp2RouteMatchHeaderArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        """
-        Name for the HTTP header in the client request that will be matched on.
-        """
-        invert: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        If `true`, the match is on the opposite of the `match` method and value. Default is `false`.
-        """
-        match: NotRequired[pulumi.Input['RouteSpecHttp2RouteMatchHeaderMatchArgsDict']]
-        """
-        Method and value to match the header value sent with a request. Specify one match method.
-        """
-elif False:
-    RouteSpecHttp2RouteMatchHeaderArgsDict: TypeAlias = Mapping[str, Any]
+class RouteSpecHttp2RouteMatchHeaderArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    Name for the HTTP header in the client request that will be matched on.
+    """
+    invert: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    If `true`, the match is on the opposite of the `match` method and value. Default is `false`.
+    """
+    match: NotRequired[pulumi.Input['RouteSpecHttp2RouteMatchHeaderMatchArgsDict']]
+    """
+    Method and value to match the header value sent with a request. Specify one match method.
+    """
 
 @pulumi.input_type
 class RouteSpecHttp2RouteMatchHeaderArgs:
@@ -4077,30 +3898,27 @@ class RouteSpecHttp2RouteMatchHeaderArgs:
         pulumi.set(self, "match", value)
 
 
-if not MYPY:
-    class RouteSpecHttp2RouteMatchHeaderMatchArgsDict(TypedDict):
-        exact: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Header value sent by the client must match the specified value exactly.
-        """
-        prefix: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Header value sent by the client must begin with the specified characters.
-        """
-        range: NotRequired[pulumi.Input['RouteSpecHttp2RouteMatchHeaderMatchRangeArgsDict']]
-        """
-        Object that specifies the range of numbers that the header value sent by the client must be included in.
-        """
-        regex: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Header value sent by the client must include the specified characters.
-        """
-        suffix: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Header value sent by the client must end with the specified characters.
-        """
-elif False:
-    RouteSpecHttp2RouteMatchHeaderMatchArgsDict: TypeAlias = Mapping[str, Any]
+class RouteSpecHttp2RouteMatchHeaderMatchArgsDict(TypedDict):
+    exact: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Header value sent by the client must match the specified value exactly.
+    """
+    prefix: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Header value sent by the client must begin with the specified characters.
+    """
+    range: NotRequired[pulumi.Input['RouteSpecHttp2RouteMatchHeaderMatchRangeArgsDict']]
+    """
+    Object that specifies the range of numbers that the header value sent by the client must be included in.
+    """
+    regex: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Header value sent by the client must include the specified characters.
+    """
+    suffix: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Header value sent by the client must end with the specified characters.
+    """
 
 @pulumi.input_type
 class RouteSpecHttp2RouteMatchHeaderMatchArgs:
@@ -4189,18 +4007,15 @@ class RouteSpecHttp2RouteMatchHeaderMatchArgs:
         pulumi.set(self, "suffix", value)
 
 
-if not MYPY:
-    class RouteSpecHttp2RouteMatchHeaderMatchRangeArgsDict(TypedDict):
-        end: pulumi.Input[_builtins.int]
-        """
-        End of the range.
-        """
-        start: pulumi.Input[_builtins.int]
-        """
-        Start of the range.
-        """
-elif False:
-    RouteSpecHttp2RouteMatchHeaderMatchRangeArgsDict: TypeAlias = Mapping[str, Any]
+class RouteSpecHttp2RouteMatchHeaderMatchRangeArgsDict(TypedDict):
+    end: pulumi.Input[_builtins.int]
+    """
+    End of the range.
+    """
+    start: pulumi.Input[_builtins.int]
+    """
+    Start of the range.
+    """
 
 @pulumi.input_type
 class RouteSpecHttp2RouteMatchHeaderMatchRangeArgs:
@@ -4239,18 +4054,15 @@ class RouteSpecHttp2RouteMatchHeaderMatchRangeArgs:
         pulumi.set(self, "start", value)
 
 
-if not MYPY:
-    class RouteSpecHttp2RouteMatchPathArgsDict(TypedDict):
-        exact: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The exact path to match on.
-        """
-        regex: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The regex used to match the path.
-        """
-elif False:
-    RouteSpecHttp2RouteMatchPathArgsDict: TypeAlias = Mapping[str, Any]
+class RouteSpecHttp2RouteMatchPathArgsDict(TypedDict):
+    exact: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The exact path to match on.
+    """
+    regex: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The regex used to match the path.
+    """
 
 @pulumi.input_type
 class RouteSpecHttp2RouteMatchPathArgs:
@@ -4291,18 +4103,15 @@ class RouteSpecHttp2RouteMatchPathArgs:
         pulumi.set(self, "regex", value)
 
 
-if not MYPY:
-    class RouteSpecHttp2RouteMatchQueryParameterArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        """
-        Name for the query parameter that will be matched on.
-        """
-        match: NotRequired[pulumi.Input['RouteSpecHttp2RouteMatchQueryParameterMatchArgsDict']]
-        """
-        The query parameter to match on.
-        """
-elif False:
-    RouteSpecHttp2RouteMatchQueryParameterArgsDict: TypeAlias = Mapping[str, Any]
+class RouteSpecHttp2RouteMatchQueryParameterArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    Name for the query parameter that will be matched on.
+    """
+    match: NotRequired[pulumi.Input['RouteSpecHttp2RouteMatchQueryParameterMatchArgsDict']]
+    """
+    The query parameter to match on.
+    """
 
 @pulumi.input_type
 class RouteSpecHttp2RouteMatchQueryParameterArgs:
@@ -4342,14 +4151,11 @@ class RouteSpecHttp2RouteMatchQueryParameterArgs:
         pulumi.set(self, "match", value)
 
 
-if not MYPY:
-    class RouteSpecHttp2RouteMatchQueryParameterMatchArgsDict(TypedDict):
-        exact: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The exact query parameter to match on.
-        """
-elif False:
-    RouteSpecHttp2RouteMatchQueryParameterMatchArgsDict: TypeAlias = Mapping[str, Any]
+class RouteSpecHttp2RouteMatchQueryParameterMatchArgsDict(TypedDict):
+    exact: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The exact query parameter to match on.
+    """
 
 @pulumi.input_type
 class RouteSpecHttp2RouteMatchQueryParameterMatchArgs:
@@ -4374,29 +4180,26 @@ class RouteSpecHttp2RouteMatchQueryParameterMatchArgs:
         pulumi.set(self, "exact", value)
 
 
-if not MYPY:
-    class RouteSpecHttp2RouteRetryPolicyArgsDict(TypedDict):
-        max_retries: pulumi.Input[_builtins.int]
-        """
-        Maximum number of retries.
-        """
-        per_retry_timeout: pulumi.Input['RouteSpecHttp2RouteRetryPolicyPerRetryTimeoutArgsDict']
-        """
-        Per-retry timeout.
-        """
-        http_retry_events: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        List of HTTP retry events.
-        Valid values: `client-error` (HTTP status code 409), `gateway-error` (HTTP status codes 502, 503, and 504), `server-error` (HTTP status codes 500, 501, 502, 503, 504, 505, 506, 507, 508, 510, and 511), `stream-error` (retry on refused stream).
-        """
-        tcp_retry_events: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        List of TCP retry events. The only valid value is `connection-error`.
+class RouteSpecHttp2RouteRetryPolicyArgsDict(TypedDict):
+    max_retries: pulumi.Input[_builtins.int]
+    """
+    Maximum number of retries.
+    """
+    per_retry_timeout: pulumi.Input['RouteSpecHttp2RouteRetryPolicyPerRetryTimeoutArgsDict']
+    """
+    Per-retry timeout.
+    """
+    http_retry_events: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    List of HTTP retry events.
+    Valid values: `client-error` (HTTP status code 409), `gateway-error` (HTTP status codes 502, 503, and 504), `server-error` (HTTP status codes 500, 501, 502, 503, 504, 505, 506, 507, 508, 510, and 511), `stream-error` (retry on refused stream).
+    """
+    tcp_retry_events: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    List of TCP retry events. The only valid value is `connection-error`.
 
-        You must specify at least one value for `http_retry_events`, or at least one value for `tcp_retry_events`.
-        """
-elif False:
-    RouteSpecHttp2RouteRetryPolicyArgsDict: TypeAlias = Mapping[str, Any]
+    You must specify at least one value for `http_retry_events`, or at least one value for `tcp_retry_events`.
+    """
 
 @pulumi.input_type
 class RouteSpecHttp2RouteRetryPolicyArgs:
@@ -4473,18 +4276,15 @@ class RouteSpecHttp2RouteRetryPolicyArgs:
         pulumi.set(self, "tcp_retry_events", value)
 
 
-if not MYPY:
-    class RouteSpecHttp2RouteRetryPolicyPerRetryTimeoutArgsDict(TypedDict):
-        unit: pulumi.Input[_builtins.str]
-        """
-        Retry unit. Valid values: `ms`, `s`.
-        """
-        value: pulumi.Input[_builtins.int]
-        """
-        Retry value.
-        """
-elif False:
-    RouteSpecHttp2RouteRetryPolicyPerRetryTimeoutArgsDict: TypeAlias = Mapping[str, Any]
+class RouteSpecHttp2RouteRetryPolicyPerRetryTimeoutArgsDict(TypedDict):
+    unit: pulumi.Input[_builtins.str]
+    """
+    Retry unit. Valid values: `ms`, `s`.
+    """
+    value: pulumi.Input[_builtins.int]
+    """
+    Retry value.
+    """
 
 @pulumi.input_type
 class RouteSpecHttp2RouteRetryPolicyPerRetryTimeoutArgs:
@@ -4523,18 +4323,15 @@ class RouteSpecHttp2RouteRetryPolicyPerRetryTimeoutArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class RouteSpecHttp2RouteTimeoutArgsDict(TypedDict):
-        idle: NotRequired[pulumi.Input['RouteSpecHttp2RouteTimeoutIdleArgsDict']]
-        """
-        Idle timeout. An idle timeout bounds the amount of time that a connection may be idle.
-        """
-        per_request: NotRequired[pulumi.Input['RouteSpecHttp2RouteTimeoutPerRequestArgsDict']]
-        """
-        Per request timeout.
-        """
-elif False:
-    RouteSpecHttp2RouteTimeoutArgsDict: TypeAlias = Mapping[str, Any]
+class RouteSpecHttp2RouteTimeoutArgsDict(TypedDict):
+    idle: NotRequired[pulumi.Input['RouteSpecHttp2RouteTimeoutIdleArgsDict']]
+    """
+    Idle timeout. An idle timeout bounds the amount of time that a connection may be idle.
+    """
+    per_request: NotRequired[pulumi.Input['RouteSpecHttp2RouteTimeoutPerRequestArgsDict']]
+    """
+    Per request timeout.
+    """
 
 @pulumi.input_type
 class RouteSpecHttp2RouteTimeoutArgs:
@@ -4575,18 +4372,15 @@ class RouteSpecHttp2RouteTimeoutArgs:
         pulumi.set(self, "per_request", value)
 
 
-if not MYPY:
-    class RouteSpecHttp2RouteTimeoutIdleArgsDict(TypedDict):
-        unit: pulumi.Input[_builtins.str]
-        """
-        Unit of time. Valid values: `ms`, `s`.
-        """
-        value: pulumi.Input[_builtins.int]
-        """
-        Number of time units. Minimum value of `0`.
-        """
-elif False:
-    RouteSpecHttp2RouteTimeoutIdleArgsDict: TypeAlias = Mapping[str, Any]
+class RouteSpecHttp2RouteTimeoutIdleArgsDict(TypedDict):
+    unit: pulumi.Input[_builtins.str]
+    """
+    Unit of time. Valid values: `ms`, `s`.
+    """
+    value: pulumi.Input[_builtins.int]
+    """
+    Number of time units. Minimum value of `0`.
+    """
 
 @pulumi.input_type
 class RouteSpecHttp2RouteTimeoutIdleArgs:
@@ -4625,18 +4419,15 @@ class RouteSpecHttp2RouteTimeoutIdleArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class RouteSpecHttp2RouteTimeoutPerRequestArgsDict(TypedDict):
-        unit: pulumi.Input[_builtins.str]
-        """
-        Unit of time. Valid values: `ms`, `s`.
-        """
-        value: pulumi.Input[_builtins.int]
-        """
-        Number of time units. Minimum value of `0`.
-        """
-elif False:
-    RouteSpecHttp2RouteTimeoutPerRequestArgsDict: TypeAlias = Mapping[str, Any]
+class RouteSpecHttp2RouteTimeoutPerRequestArgsDict(TypedDict):
+    unit: pulumi.Input[_builtins.str]
+    """
+    Unit of time. Valid values: `ms`, `s`.
+    """
+    value: pulumi.Input[_builtins.int]
+    """
+    Number of time units. Minimum value of `0`.
+    """
 
 @pulumi.input_type
 class RouteSpecHttp2RouteTimeoutPerRequestArgs:
@@ -4675,26 +4466,23 @@ class RouteSpecHttp2RouteTimeoutPerRequestArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class RouteSpecHttpRouteArgsDict(TypedDict):
-        action: pulumi.Input['RouteSpecHttpRouteActionArgsDict']
-        """
-        Action to take if a match is determined.
-        """
-        match: pulumi.Input['RouteSpecHttpRouteMatchArgsDict']
-        """
-        Criteria for determining an HTTP request match.
-        """
-        retry_policy: NotRequired[pulumi.Input['RouteSpecHttpRouteRetryPolicyArgsDict']]
-        """
-        Retry policy.
-        """
-        timeout: NotRequired[pulumi.Input['RouteSpecHttpRouteTimeoutArgsDict']]
-        """
-        Types of timeouts.
-        """
-elif False:
-    RouteSpecHttpRouteArgsDict: TypeAlias = Mapping[str, Any]
+class RouteSpecHttpRouteArgsDict(TypedDict):
+    action: pulumi.Input['RouteSpecHttpRouteActionArgsDict']
+    """
+    Action to take if a match is determined.
+    """
+    match: pulumi.Input['RouteSpecHttpRouteMatchArgsDict']
+    """
+    Criteria for determining an HTTP request match.
+    """
+    retry_policy: NotRequired[pulumi.Input['RouteSpecHttpRouteRetryPolicyArgsDict']]
+    """
+    Retry policy.
+    """
+    timeout: NotRequired[pulumi.Input['RouteSpecHttpRouteTimeoutArgsDict']]
+    """
+    Types of timeouts.
+    """
 
 @pulumi.input_type
 class RouteSpecHttpRouteArgs:
@@ -4765,15 +4553,12 @@ class RouteSpecHttpRouteArgs:
         pulumi.set(self, "timeout", value)
 
 
-if not MYPY:
-    class RouteSpecHttpRouteActionArgsDict(TypedDict):
-        weighted_targets: pulumi.Input[Sequence[pulumi.Input['RouteSpecHttpRouteActionWeightedTargetArgsDict']]]
-        """
-        Targets that traffic is routed to when a request matches the route.
-        You can specify one or more targets and their relative weights with which to distribute traffic.
-        """
-elif False:
-    RouteSpecHttpRouteActionArgsDict: TypeAlias = Mapping[str, Any]
+class RouteSpecHttpRouteActionArgsDict(TypedDict):
+    weighted_targets: pulumi.Input[Sequence[pulumi.Input['RouteSpecHttpRouteActionWeightedTargetArgsDict']]]
+    """
+    Targets that traffic is routed to when a request matches the route.
+    You can specify one or more targets and their relative weights with which to distribute traffic.
+    """
 
 @pulumi.input_type
 class RouteSpecHttpRouteActionArgs:
@@ -4799,22 +4584,19 @@ class RouteSpecHttpRouteActionArgs:
         pulumi.set(self, "weighted_targets", value)
 
 
-if not MYPY:
-    class RouteSpecHttpRouteActionWeightedTargetArgsDict(TypedDict):
-        virtual_node: pulumi.Input[_builtins.str]
-        """
-        Virtual node to associate with the weighted target. Must be between 1 and 255 characters in length.
-        """
-        weight: pulumi.Input[_builtins.int]
-        """
-        Relative weight of the weighted target. An integer between 0 and 100.
-        """
-        port: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The targeted port of the weighted object.
-        """
-elif False:
-    RouteSpecHttpRouteActionWeightedTargetArgsDict: TypeAlias = Mapping[str, Any]
+class RouteSpecHttpRouteActionWeightedTargetArgsDict(TypedDict):
+    virtual_node: pulumi.Input[_builtins.str]
+    """
+    Virtual node to associate with the weighted target. Must be between 1 and 255 characters in length.
+    """
+    weight: pulumi.Input[_builtins.int]
+    """
+    Relative weight of the weighted target. An integer between 0 and 100.
+    """
+    port: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The targeted port of the weighted object.
+    """
 
 @pulumi.input_type
 class RouteSpecHttpRouteActionWeightedTargetArgs:
@@ -4869,39 +4651,36 @@ class RouteSpecHttpRouteActionWeightedTargetArgs:
         pulumi.set(self, "port", value)
 
 
-if not MYPY:
-    class RouteSpecHttpRouteMatchArgsDict(TypedDict):
-        headers: NotRequired[pulumi.Input[Sequence[pulumi.Input['RouteSpecHttpRouteMatchHeaderArgsDict']]]]
-        """
-        Client request headers to match on.
-        """
-        method: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Client request header method to match on. Valid values: `GET`, `HEAD`, `POST`, `PUT`, `DELETE`, `CONNECT`, `OPTIONS`, `TRACE`, `PATCH`.
-        """
-        path: NotRequired[pulumi.Input['RouteSpecHttpRouteMatchPathArgsDict']]
-        """
-        Client request path to match on.
-        """
-        port: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The port number to match from the request.
-        """
-        prefix: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Path with which to match requests.
-        This parameter must always start with /, which by itself matches all requests to the virtual router service name.
-        """
-        query_parameters: NotRequired[pulumi.Input[Sequence[pulumi.Input['RouteSpecHttpRouteMatchQueryParameterArgsDict']]]]
-        """
-        Client request query parameters to match on.
-        """
-        scheme: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Client request header scheme to match on. Valid values: `http`, `https`.
-        """
-elif False:
-    RouteSpecHttpRouteMatchArgsDict: TypeAlias = Mapping[str, Any]
+class RouteSpecHttpRouteMatchArgsDict(TypedDict):
+    headers: NotRequired[pulumi.Input[Sequence[pulumi.Input['RouteSpecHttpRouteMatchHeaderArgsDict']]]]
+    """
+    Client request headers to match on.
+    """
+    method: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Client request header method to match on. Valid values: `GET`, `HEAD`, `POST`, `PUT`, `DELETE`, `CONNECT`, `OPTIONS`, `TRACE`, `PATCH`.
+    """
+    path: NotRequired[pulumi.Input['RouteSpecHttpRouteMatchPathArgsDict']]
+    """
+    Client request path to match on.
+    """
+    port: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The port number to match from the request.
+    """
+    prefix: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Path with which to match requests.
+    This parameter must always start with /, which by itself matches all requests to the virtual router service name.
+    """
+    query_parameters: NotRequired[pulumi.Input[Sequence[pulumi.Input['RouteSpecHttpRouteMatchQueryParameterArgsDict']]]]
+    """
+    Client request query parameters to match on.
+    """
+    scheme: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Client request header scheme to match on. Valid values: `http`, `https`.
+    """
 
 @pulumi.input_type
 class RouteSpecHttpRouteMatchArgs:
@@ -5024,22 +4803,19 @@ class RouteSpecHttpRouteMatchArgs:
         pulumi.set(self, "scheme", value)
 
 
-if not MYPY:
-    class RouteSpecHttpRouteMatchHeaderArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        """
-        Name for the HTTP header in the client request that will be matched on.
-        """
-        invert: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        If `true`, the match is on the opposite of the `match` method and value. Default is `false`.
-        """
-        match: NotRequired[pulumi.Input['RouteSpecHttpRouteMatchHeaderMatchArgsDict']]
-        """
-        Method and value to match the header value sent with a request. Specify one match method.
-        """
-elif False:
-    RouteSpecHttpRouteMatchHeaderArgsDict: TypeAlias = Mapping[str, Any]
+class RouteSpecHttpRouteMatchHeaderArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    Name for the HTTP header in the client request that will be matched on.
+    """
+    invert: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    If `true`, the match is on the opposite of the `match` method and value. Default is `false`.
+    """
+    match: NotRequired[pulumi.Input['RouteSpecHttpRouteMatchHeaderMatchArgsDict']]
+    """
+    Method and value to match the header value sent with a request. Specify one match method.
+    """
 
 @pulumi.input_type
 class RouteSpecHttpRouteMatchHeaderArgs:
@@ -5095,30 +4871,27 @@ class RouteSpecHttpRouteMatchHeaderArgs:
         pulumi.set(self, "match", value)
 
 
-if not MYPY:
-    class RouteSpecHttpRouteMatchHeaderMatchArgsDict(TypedDict):
-        exact: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Header value sent by the client must match the specified value exactly.
-        """
-        prefix: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Header value sent by the client must begin with the specified characters.
-        """
-        range: NotRequired[pulumi.Input['RouteSpecHttpRouteMatchHeaderMatchRangeArgsDict']]
-        """
-        Object that specifies the range of numbers that the header value sent by the client must be included in.
-        """
-        regex: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Header value sent by the client must include the specified characters.
-        """
-        suffix: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Header value sent by the client must end with the specified characters.
-        """
-elif False:
-    RouteSpecHttpRouteMatchHeaderMatchArgsDict: TypeAlias = Mapping[str, Any]
+class RouteSpecHttpRouteMatchHeaderMatchArgsDict(TypedDict):
+    exact: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Header value sent by the client must match the specified value exactly.
+    """
+    prefix: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Header value sent by the client must begin with the specified characters.
+    """
+    range: NotRequired[pulumi.Input['RouteSpecHttpRouteMatchHeaderMatchRangeArgsDict']]
+    """
+    Object that specifies the range of numbers that the header value sent by the client must be included in.
+    """
+    regex: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Header value sent by the client must include the specified characters.
+    """
+    suffix: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Header value sent by the client must end with the specified characters.
+    """
 
 @pulumi.input_type
 class RouteSpecHttpRouteMatchHeaderMatchArgs:
@@ -5207,18 +4980,15 @@ class RouteSpecHttpRouteMatchHeaderMatchArgs:
         pulumi.set(self, "suffix", value)
 
 
-if not MYPY:
-    class RouteSpecHttpRouteMatchHeaderMatchRangeArgsDict(TypedDict):
-        end: pulumi.Input[_builtins.int]
-        """
-        End of the range.
-        """
-        start: pulumi.Input[_builtins.int]
-        """
-        Start of the range.
-        """
-elif False:
-    RouteSpecHttpRouteMatchHeaderMatchRangeArgsDict: TypeAlias = Mapping[str, Any]
+class RouteSpecHttpRouteMatchHeaderMatchRangeArgsDict(TypedDict):
+    end: pulumi.Input[_builtins.int]
+    """
+    End of the range.
+    """
+    start: pulumi.Input[_builtins.int]
+    """
+    Start of the range.
+    """
 
 @pulumi.input_type
 class RouteSpecHttpRouteMatchHeaderMatchRangeArgs:
@@ -5257,18 +5027,15 @@ class RouteSpecHttpRouteMatchHeaderMatchRangeArgs:
         pulumi.set(self, "start", value)
 
 
-if not MYPY:
-    class RouteSpecHttpRouteMatchPathArgsDict(TypedDict):
-        exact: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The exact path to match on.
-        """
-        regex: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The regex used to match the path.
-        """
-elif False:
-    RouteSpecHttpRouteMatchPathArgsDict: TypeAlias = Mapping[str, Any]
+class RouteSpecHttpRouteMatchPathArgsDict(TypedDict):
+    exact: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The exact path to match on.
+    """
+    regex: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The regex used to match the path.
+    """
 
 @pulumi.input_type
 class RouteSpecHttpRouteMatchPathArgs:
@@ -5309,18 +5076,15 @@ class RouteSpecHttpRouteMatchPathArgs:
         pulumi.set(self, "regex", value)
 
 
-if not MYPY:
-    class RouteSpecHttpRouteMatchQueryParameterArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        """
-        Name for the query parameter that will be matched on.
-        """
-        match: NotRequired[pulumi.Input['RouteSpecHttpRouteMatchQueryParameterMatchArgsDict']]
-        """
-        The query parameter to match on.
-        """
-elif False:
-    RouteSpecHttpRouteMatchQueryParameterArgsDict: TypeAlias = Mapping[str, Any]
+class RouteSpecHttpRouteMatchQueryParameterArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    Name for the query parameter that will be matched on.
+    """
+    match: NotRequired[pulumi.Input['RouteSpecHttpRouteMatchQueryParameterMatchArgsDict']]
+    """
+    The query parameter to match on.
+    """
 
 @pulumi.input_type
 class RouteSpecHttpRouteMatchQueryParameterArgs:
@@ -5360,14 +5124,11 @@ class RouteSpecHttpRouteMatchQueryParameterArgs:
         pulumi.set(self, "match", value)
 
 
-if not MYPY:
-    class RouteSpecHttpRouteMatchQueryParameterMatchArgsDict(TypedDict):
-        exact: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The exact query parameter to match on.
-        """
-elif False:
-    RouteSpecHttpRouteMatchQueryParameterMatchArgsDict: TypeAlias = Mapping[str, Any]
+class RouteSpecHttpRouteMatchQueryParameterMatchArgsDict(TypedDict):
+    exact: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The exact query parameter to match on.
+    """
 
 @pulumi.input_type
 class RouteSpecHttpRouteMatchQueryParameterMatchArgs:
@@ -5392,29 +5153,26 @@ class RouteSpecHttpRouteMatchQueryParameterMatchArgs:
         pulumi.set(self, "exact", value)
 
 
-if not MYPY:
-    class RouteSpecHttpRouteRetryPolicyArgsDict(TypedDict):
-        max_retries: pulumi.Input[_builtins.int]
-        """
-        Maximum number of retries.
-        """
-        per_retry_timeout: pulumi.Input['RouteSpecHttpRouteRetryPolicyPerRetryTimeoutArgsDict']
-        """
-        Per-retry timeout.
-        """
-        http_retry_events: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        List of HTTP retry events.
-        Valid values: `client-error` (HTTP status code 409), `gateway-error` (HTTP status codes 502, 503, and 504), `server-error` (HTTP status codes 500, 501, 502, 503, 504, 505, 506, 507, 508, 510, and 511), `stream-error` (retry on refused stream).
-        """
-        tcp_retry_events: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        List of TCP retry events. The only valid value is `connection-error`.
+class RouteSpecHttpRouteRetryPolicyArgsDict(TypedDict):
+    max_retries: pulumi.Input[_builtins.int]
+    """
+    Maximum number of retries.
+    """
+    per_retry_timeout: pulumi.Input['RouteSpecHttpRouteRetryPolicyPerRetryTimeoutArgsDict']
+    """
+    Per-retry timeout.
+    """
+    http_retry_events: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    List of HTTP retry events.
+    Valid values: `client-error` (HTTP status code 409), `gateway-error` (HTTP status codes 502, 503, and 504), `server-error` (HTTP status codes 500, 501, 502, 503, 504, 505, 506, 507, 508, 510, and 511), `stream-error` (retry on refused stream).
+    """
+    tcp_retry_events: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    List of TCP retry events. The only valid value is `connection-error`.
 
-        You must specify at least one value for `http_retry_events`, or at least one value for `tcp_retry_events`.
-        """
-elif False:
-    RouteSpecHttpRouteRetryPolicyArgsDict: TypeAlias = Mapping[str, Any]
+    You must specify at least one value for `http_retry_events`, or at least one value for `tcp_retry_events`.
+    """
 
 @pulumi.input_type
 class RouteSpecHttpRouteRetryPolicyArgs:
@@ -5491,18 +5249,15 @@ class RouteSpecHttpRouteRetryPolicyArgs:
         pulumi.set(self, "tcp_retry_events", value)
 
 
-if not MYPY:
-    class RouteSpecHttpRouteRetryPolicyPerRetryTimeoutArgsDict(TypedDict):
-        unit: pulumi.Input[_builtins.str]
-        """
-        Retry unit. Valid values: `ms`, `s`.
-        """
-        value: pulumi.Input[_builtins.int]
-        """
-        Retry value.
-        """
-elif False:
-    RouteSpecHttpRouteRetryPolicyPerRetryTimeoutArgsDict: TypeAlias = Mapping[str, Any]
+class RouteSpecHttpRouteRetryPolicyPerRetryTimeoutArgsDict(TypedDict):
+    unit: pulumi.Input[_builtins.str]
+    """
+    Retry unit. Valid values: `ms`, `s`.
+    """
+    value: pulumi.Input[_builtins.int]
+    """
+    Retry value.
+    """
 
 @pulumi.input_type
 class RouteSpecHttpRouteRetryPolicyPerRetryTimeoutArgs:
@@ -5541,18 +5296,15 @@ class RouteSpecHttpRouteRetryPolicyPerRetryTimeoutArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class RouteSpecHttpRouteTimeoutArgsDict(TypedDict):
-        idle: NotRequired[pulumi.Input['RouteSpecHttpRouteTimeoutIdleArgsDict']]
-        """
-        Idle timeout. An idle timeout bounds the amount of time that a connection may be idle.
-        """
-        per_request: NotRequired[pulumi.Input['RouteSpecHttpRouteTimeoutPerRequestArgsDict']]
-        """
-        Per request timeout.
-        """
-elif False:
-    RouteSpecHttpRouteTimeoutArgsDict: TypeAlias = Mapping[str, Any]
+class RouteSpecHttpRouteTimeoutArgsDict(TypedDict):
+    idle: NotRequired[pulumi.Input['RouteSpecHttpRouteTimeoutIdleArgsDict']]
+    """
+    Idle timeout. An idle timeout bounds the amount of time that a connection may be idle.
+    """
+    per_request: NotRequired[pulumi.Input['RouteSpecHttpRouteTimeoutPerRequestArgsDict']]
+    """
+    Per request timeout.
+    """
 
 @pulumi.input_type
 class RouteSpecHttpRouteTimeoutArgs:
@@ -5593,18 +5345,15 @@ class RouteSpecHttpRouteTimeoutArgs:
         pulumi.set(self, "per_request", value)
 
 
-if not MYPY:
-    class RouteSpecHttpRouteTimeoutIdleArgsDict(TypedDict):
-        unit: pulumi.Input[_builtins.str]
-        """
-        Unit of time. Valid values: `ms`, `s`.
-        """
-        value: pulumi.Input[_builtins.int]
-        """
-        Number of time units. Minimum value of `0`.
-        """
-elif False:
-    RouteSpecHttpRouteTimeoutIdleArgsDict: TypeAlias = Mapping[str, Any]
+class RouteSpecHttpRouteTimeoutIdleArgsDict(TypedDict):
+    unit: pulumi.Input[_builtins.str]
+    """
+    Unit of time. Valid values: `ms`, `s`.
+    """
+    value: pulumi.Input[_builtins.int]
+    """
+    Number of time units. Minimum value of `0`.
+    """
 
 @pulumi.input_type
 class RouteSpecHttpRouteTimeoutIdleArgs:
@@ -5643,18 +5392,15 @@ class RouteSpecHttpRouteTimeoutIdleArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class RouteSpecHttpRouteTimeoutPerRequestArgsDict(TypedDict):
-        unit: pulumi.Input[_builtins.str]
-        """
-        Unit of time. Valid values: `ms`, `s`.
-        """
-        value: pulumi.Input[_builtins.int]
-        """
-        Number of time units. Minimum value of `0`.
-        """
-elif False:
-    RouteSpecHttpRouteTimeoutPerRequestArgsDict: TypeAlias = Mapping[str, Any]
+class RouteSpecHttpRouteTimeoutPerRequestArgsDict(TypedDict):
+    unit: pulumi.Input[_builtins.str]
+    """
+    Unit of time. Valid values: `ms`, `s`.
+    """
+    value: pulumi.Input[_builtins.int]
+    """
+    Number of time units. Minimum value of `0`.
+    """
 
 @pulumi.input_type
 class RouteSpecHttpRouteTimeoutPerRequestArgs:
@@ -5693,19 +5439,16 @@ class RouteSpecHttpRouteTimeoutPerRequestArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class RouteSpecTcpRouteArgsDict(TypedDict):
-        action: pulumi.Input['RouteSpecTcpRouteActionArgsDict']
-        """
-        Action to take if a match is determined.
-        """
-        match: NotRequired[pulumi.Input['RouteSpecTcpRouteMatchArgsDict']]
-        timeout: NotRequired[pulumi.Input['RouteSpecTcpRouteTimeoutArgsDict']]
-        """
-        Types of timeouts.
-        """
-elif False:
-    RouteSpecTcpRouteArgsDict: TypeAlias = Mapping[str, Any]
+class RouteSpecTcpRouteArgsDict(TypedDict):
+    action: pulumi.Input['RouteSpecTcpRouteActionArgsDict']
+    """
+    Action to take if a match is determined.
+    """
+    match: NotRequired[pulumi.Input['RouteSpecTcpRouteMatchArgsDict']]
+    timeout: NotRequired[pulumi.Input['RouteSpecTcpRouteTimeoutArgsDict']]
+    """
+    Types of timeouts.
+    """
 
 @pulumi.input_type
 class RouteSpecTcpRouteArgs:
@@ -5757,15 +5500,12 @@ class RouteSpecTcpRouteArgs:
         pulumi.set(self, "timeout", value)
 
 
-if not MYPY:
-    class RouteSpecTcpRouteActionArgsDict(TypedDict):
-        weighted_targets: pulumi.Input[Sequence[pulumi.Input['RouteSpecTcpRouteActionWeightedTargetArgsDict']]]
-        """
-        Targets that traffic is routed to when a request matches the route.
-        You can specify one or more targets and their relative weights with which to distribute traffic.
-        """
-elif False:
-    RouteSpecTcpRouteActionArgsDict: TypeAlias = Mapping[str, Any]
+class RouteSpecTcpRouteActionArgsDict(TypedDict):
+    weighted_targets: pulumi.Input[Sequence[pulumi.Input['RouteSpecTcpRouteActionWeightedTargetArgsDict']]]
+    """
+    Targets that traffic is routed to when a request matches the route.
+    You can specify one or more targets and their relative weights with which to distribute traffic.
+    """
 
 @pulumi.input_type
 class RouteSpecTcpRouteActionArgs:
@@ -5791,22 +5531,19 @@ class RouteSpecTcpRouteActionArgs:
         pulumi.set(self, "weighted_targets", value)
 
 
-if not MYPY:
-    class RouteSpecTcpRouteActionWeightedTargetArgsDict(TypedDict):
-        virtual_node: pulumi.Input[_builtins.str]
-        """
-        Virtual node to associate with the weighted target. Must be between 1 and 255 characters in length.
-        """
-        weight: pulumi.Input[_builtins.int]
-        """
-        Relative weight of the weighted target. An integer between 0 and 100.
-        """
-        port: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        The targeted port of the weighted object.
-        """
-elif False:
-    RouteSpecTcpRouteActionWeightedTargetArgsDict: TypeAlias = Mapping[str, Any]
+class RouteSpecTcpRouteActionWeightedTargetArgsDict(TypedDict):
+    virtual_node: pulumi.Input[_builtins.str]
+    """
+    Virtual node to associate with the weighted target. Must be between 1 and 255 characters in length.
+    """
+    weight: pulumi.Input[_builtins.int]
+    """
+    Relative weight of the weighted target. An integer between 0 and 100.
+    """
+    port: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    The targeted port of the weighted object.
+    """
 
 @pulumi.input_type
 class RouteSpecTcpRouteActionWeightedTargetArgs:
@@ -5861,11 +5598,8 @@ class RouteSpecTcpRouteActionWeightedTargetArgs:
         pulumi.set(self, "port", value)
 
 
-if not MYPY:
-    class RouteSpecTcpRouteMatchArgsDict(TypedDict):
-        port: NotRequired[pulumi.Input[_builtins.int]]
-elif False:
-    RouteSpecTcpRouteMatchArgsDict: TypeAlias = Mapping[str, Any]
+class RouteSpecTcpRouteMatchArgsDict(TypedDict):
+    port: NotRequired[pulumi.Input[_builtins.int]]
 
 @pulumi.input_type
 class RouteSpecTcpRouteMatchArgs:
@@ -5884,14 +5618,11 @@ class RouteSpecTcpRouteMatchArgs:
         pulumi.set(self, "port", value)
 
 
-if not MYPY:
-    class RouteSpecTcpRouteTimeoutArgsDict(TypedDict):
-        idle: NotRequired[pulumi.Input['RouteSpecTcpRouteTimeoutIdleArgsDict']]
-        """
-        Idle timeout. An idle timeout bounds the amount of time that a connection may be idle.
-        """
-elif False:
-    RouteSpecTcpRouteTimeoutArgsDict: TypeAlias = Mapping[str, Any]
+class RouteSpecTcpRouteTimeoutArgsDict(TypedDict):
+    idle: NotRequired[pulumi.Input['RouteSpecTcpRouteTimeoutIdleArgsDict']]
+    """
+    Idle timeout. An idle timeout bounds the amount of time that a connection may be idle.
+    """
 
 @pulumi.input_type
 class RouteSpecTcpRouteTimeoutArgs:
@@ -5916,18 +5647,15 @@ class RouteSpecTcpRouteTimeoutArgs:
         pulumi.set(self, "idle", value)
 
 
-if not MYPY:
-    class RouteSpecTcpRouteTimeoutIdleArgsDict(TypedDict):
-        unit: pulumi.Input[_builtins.str]
-        """
-        Unit of time. Valid values: `ms`, `s`.
-        """
-        value: pulumi.Input[_builtins.int]
-        """
-        Number of time units. Minimum value of `0`.
-        """
-elif False:
-    RouteSpecTcpRouteTimeoutIdleArgsDict: TypeAlias = Mapping[str, Any]
+class RouteSpecTcpRouteTimeoutIdleArgsDict(TypedDict):
+    unit: pulumi.Input[_builtins.str]
+    """
+    Unit of time. Valid values: `ms`, `s`.
+    """
+    value: pulumi.Input[_builtins.int]
+    """
+    Number of time units. Minimum value of `0`.
+    """
 
 @pulumi.input_type
 class RouteSpecTcpRouteTimeoutIdleArgs:
@@ -5966,22 +5694,19 @@ class RouteSpecTcpRouteTimeoutIdleArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class VirtualGatewaySpecArgsDict(TypedDict):
-        listeners: pulumi.Input[Sequence[pulumi.Input['VirtualGatewaySpecListenerArgsDict']]]
-        """
-        Listeners that the mesh endpoint is expected to receive inbound traffic from. You can specify one listener.
-        """
-        backend_defaults: NotRequired[pulumi.Input['VirtualGatewaySpecBackendDefaultsArgsDict']]
-        """
-        Defaults for backends.
-        """
-        logging: NotRequired[pulumi.Input['VirtualGatewaySpecLoggingArgsDict']]
-        """
-        Inbound and outbound access logging information for the virtual gateway.
-        """
-elif False:
-    VirtualGatewaySpecArgsDict: TypeAlias = Mapping[str, Any]
+class VirtualGatewaySpecArgsDict(TypedDict):
+    listeners: pulumi.Input[Sequence[pulumi.Input['VirtualGatewaySpecListenerArgsDict']]]
+    """
+    Listeners that the mesh endpoint is expected to receive inbound traffic from. You can specify one listener.
+    """
+    backend_defaults: NotRequired[pulumi.Input['VirtualGatewaySpecBackendDefaultsArgsDict']]
+    """
+    Defaults for backends.
+    """
+    logging: NotRequired[pulumi.Input['VirtualGatewaySpecLoggingArgsDict']]
+    """
+    Inbound and outbound access logging information for the virtual gateway.
+    """
 
 @pulumi.input_type
 class VirtualGatewaySpecArgs:
@@ -6037,14 +5762,11 @@ class VirtualGatewaySpecArgs:
         pulumi.set(self, "logging", value)
 
 
-if not MYPY:
-    class VirtualGatewaySpecBackendDefaultsArgsDict(TypedDict):
-        client_policy: NotRequired[pulumi.Input['VirtualGatewaySpecBackendDefaultsClientPolicyArgsDict']]
-        """
-        Default client policy for virtual gateway backends.
-        """
-elif False:
-    VirtualGatewaySpecBackendDefaultsArgsDict: TypeAlias = Mapping[str, Any]
+class VirtualGatewaySpecBackendDefaultsArgsDict(TypedDict):
+    client_policy: NotRequired[pulumi.Input['VirtualGatewaySpecBackendDefaultsClientPolicyArgsDict']]
+    """
+    Default client policy for virtual gateway backends.
+    """
 
 @pulumi.input_type
 class VirtualGatewaySpecBackendDefaultsArgs:
@@ -6069,14 +5791,11 @@ class VirtualGatewaySpecBackendDefaultsArgs:
         pulumi.set(self, "client_policy", value)
 
 
-if not MYPY:
-    class VirtualGatewaySpecBackendDefaultsClientPolicyArgsDict(TypedDict):
-        tls: NotRequired[pulumi.Input['VirtualGatewaySpecBackendDefaultsClientPolicyTlsArgsDict']]
-        """
-        Transport Layer Security (TLS) client policy.
-        """
-elif False:
-    VirtualGatewaySpecBackendDefaultsClientPolicyArgsDict: TypeAlias = Mapping[str, Any]
+class VirtualGatewaySpecBackendDefaultsClientPolicyArgsDict(TypedDict):
+    tls: NotRequired[pulumi.Input['VirtualGatewaySpecBackendDefaultsClientPolicyTlsArgsDict']]
+    """
+    Transport Layer Security (TLS) client policy.
+    """
 
 @pulumi.input_type
 class VirtualGatewaySpecBackendDefaultsClientPolicyArgs:
@@ -6101,26 +5820,23 @@ class VirtualGatewaySpecBackendDefaultsClientPolicyArgs:
         pulumi.set(self, "tls", value)
 
 
-if not MYPY:
-    class VirtualGatewaySpecBackendDefaultsClientPolicyTlsArgsDict(TypedDict):
-        validation: pulumi.Input['VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationArgsDict']
-        """
-        Listener's Transport Layer Security (TLS) validation context.
-        """
-        certificate: NotRequired[pulumi.Input['VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateArgsDict']]
-        """
-        Listener's TLS certificate.
-        """
-        enforce: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether the policy is enforced. Default is `true`.
-        """
-        ports: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]
-        """
-        One or more ports that the policy is enforced for.
-        """
-elif False:
-    VirtualGatewaySpecBackendDefaultsClientPolicyTlsArgsDict: TypeAlias = Mapping[str, Any]
+class VirtualGatewaySpecBackendDefaultsClientPolicyTlsArgsDict(TypedDict):
+    validation: pulumi.Input['VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationArgsDict']
+    """
+    Listener's Transport Layer Security (TLS) validation context.
+    """
+    certificate: NotRequired[pulumi.Input['VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateArgsDict']]
+    """
+    Listener's TLS certificate.
+    """
+    enforce: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether the policy is enforced. Default is `true`.
+    """
+    ports: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]
+    """
+    One or more ports that the policy is enforced for.
+    """
 
 @pulumi.input_type
 class VirtualGatewaySpecBackendDefaultsClientPolicyTlsArgs:
@@ -6192,18 +5908,15 @@ class VirtualGatewaySpecBackendDefaultsClientPolicyTlsArgs:
         pulumi.set(self, "ports", value)
 
 
-if not MYPY:
-    class VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateArgsDict(TypedDict):
-        file: NotRequired[pulumi.Input['VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateFileArgsDict']]
-        """
-        Local file certificate.
-        """
-        sds: NotRequired[pulumi.Input['VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateSdsArgsDict']]
-        """
-        A [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
-        """
-elif False:
-    VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateArgsDict: TypeAlias = Mapping[str, Any]
+class VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateArgsDict(TypedDict):
+    file: NotRequired[pulumi.Input['VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateFileArgsDict']]
+    """
+    Local file certificate.
+    """
+    sds: NotRequired[pulumi.Input['VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateSdsArgsDict']]
+    """
+    A [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
+    """
 
 @pulumi.input_type
 class VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateArgs:
@@ -6244,18 +5957,15 @@ class VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateArgs:
         pulumi.set(self, "sds", value)
 
 
-if not MYPY:
-    class VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateFileArgsDict(TypedDict):
-        certificate_chain: pulumi.Input[_builtins.str]
-        """
-        Certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
-        """
-        private_key: pulumi.Input[_builtins.str]
-        """
-        Private key for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
-        """
-elif False:
-    VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateFileArgsDict: TypeAlias = Mapping[str, Any]
+class VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateFileArgsDict(TypedDict):
+    certificate_chain: pulumi.Input[_builtins.str]
+    """
+    Certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
+    """
+    private_key: pulumi.Input[_builtins.str]
+    """
+    Private key for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
+    """
 
 @pulumi.input_type
 class VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateFileArgs:
@@ -6294,14 +6004,11 @@ class VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateFileArgs:
         pulumi.set(self, "private_key", value)
 
 
-if not MYPY:
-    class VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateSdsArgsDict(TypedDict):
-        secret_name: pulumi.Input[_builtins.str]
-        """
-        Name of the secret for a virtual gateway's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
-        """
-elif False:
-    VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateSdsArgsDict: TypeAlias = Mapping[str, Any]
+class VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateSdsArgsDict(TypedDict):
+    secret_name: pulumi.Input[_builtins.str]
+    """
+    Name of the secret for a virtual gateway's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
+    """
 
 @pulumi.input_type
 class VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateSdsArgs:
@@ -6325,18 +6032,15 @@ class VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateSdsArgs:
         pulumi.set(self, "secret_name", value)
 
 
-if not MYPY:
-    class VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationArgsDict(TypedDict):
-        trust: pulumi.Input['VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustArgsDict']
-        """
-        TLS validation context trust.
-        """
-        subject_alternative_names: NotRequired[pulumi.Input['VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesArgsDict']]
-        """
-        SANs for a virtual gateway's listener's Transport Layer Security (TLS) validation context.
-        """
-elif False:
-    VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationArgsDict: TypeAlias = Mapping[str, Any]
+class VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationArgsDict(TypedDict):
+    trust: pulumi.Input['VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustArgsDict']
+    """
+    TLS validation context trust.
+    """
+    subject_alternative_names: NotRequired[pulumi.Input['VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesArgsDict']]
+    """
+    SANs for a virtual gateway's listener's Transport Layer Security (TLS) validation context.
+    """
 
 @pulumi.input_type
 class VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationArgs:
@@ -6376,14 +6080,11 @@ class VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationArgs:
         pulumi.set(self, "subject_alternative_names", value)
 
 
-if not MYPY:
-    class VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesArgsDict(TypedDict):
-        match: pulumi.Input['VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatchArgsDict']
-        """
-        Criteria for determining a SAN's match.
-        """
-elif False:
-    VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesArgsDict: TypeAlias = Mapping[str, Any]
+class VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesArgsDict(TypedDict):
+    match: pulumi.Input['VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatchArgsDict']
+    """
+    Criteria for determining a SAN's match.
+    """
 
 @pulumi.input_type
 class VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesArgs:
@@ -6407,14 +6108,11 @@ class VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternati
         pulumi.set(self, "match", value)
 
 
-if not MYPY:
-    class VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatchArgsDict(TypedDict):
-        exacts: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        Values sent must match the specified values exactly.
-        """
-elif False:
-    VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatchArgsDict: TypeAlias = Mapping[str, Any]
+class VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatchArgsDict(TypedDict):
+    exacts: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    Values sent must match the specified values exactly.
+    """
 
 @pulumi.input_type
 class VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatchArgs:
@@ -6438,22 +6136,19 @@ class VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternati
         pulumi.set(self, "exacts", value)
 
 
-if not MYPY:
-    class VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustArgsDict(TypedDict):
-        acm: NotRequired[pulumi.Input['VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustAcmArgsDict']]
-        """
-        TLS validation context trust for an AWS Certificate Manager (ACM) certificate.
-        """
-        file: NotRequired[pulumi.Input['VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustFileArgsDict']]
-        """
-        TLS validation context trust for a local file certificate.
-        """
-        sds: NotRequired[pulumi.Input['VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustSdsArgsDict']]
-        """
-        TLS validation context trust for a [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
-        """
-elif False:
-    VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustArgsDict: TypeAlias = Mapping[str, Any]
+class VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustArgsDict(TypedDict):
+    acm: NotRequired[pulumi.Input['VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustAcmArgsDict']]
+    """
+    TLS validation context trust for an AWS Certificate Manager (ACM) certificate.
+    """
+    file: NotRequired[pulumi.Input['VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustFileArgsDict']]
+    """
+    TLS validation context trust for a local file certificate.
+    """
+    sds: NotRequired[pulumi.Input['VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustSdsArgsDict']]
+    """
+    TLS validation context trust for a [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
+    """
 
 @pulumi.input_type
 class VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustArgs:
@@ -6510,14 +6205,11 @@ class VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustArgs:
         pulumi.set(self, "sds", value)
 
 
-if not MYPY:
-    class VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustAcmArgsDict(TypedDict):
-        certificate_authority_arns: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        One or more ACM ARNs.
-        """
-elif False:
-    VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustAcmArgsDict: TypeAlias = Mapping[str, Any]
+class VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustAcmArgsDict(TypedDict):
+    certificate_authority_arns: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    One or more ACM ARNs.
+    """
 
 @pulumi.input_type
 class VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustAcmArgs:
@@ -6541,14 +6233,11 @@ class VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustAcmArgs:
         pulumi.set(self, "certificate_authority_arns", value)
 
 
-if not MYPY:
-    class VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustFileArgsDict(TypedDict):
-        certificate_chain: pulumi.Input[_builtins.str]
-        """
-        Certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
-        """
-elif False:
-    VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustFileArgsDict: TypeAlias = Mapping[str, Any]
+class VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustFileArgsDict(TypedDict):
+    certificate_chain: pulumi.Input[_builtins.str]
+    """
+    Certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
+    """
 
 @pulumi.input_type
 class VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustFileArgs:
@@ -6572,14 +6261,11 @@ class VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustFileArgs:
         pulumi.set(self, "certificate_chain", value)
 
 
-if not MYPY:
-    class VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustSdsArgsDict(TypedDict):
-        secret_name: pulumi.Input[_builtins.str]
-        """
-        Name of the secret for a virtual gateway's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
-        """
-elif False:
-    VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustSdsArgsDict: TypeAlias = Mapping[str, Any]
+class VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustSdsArgsDict(TypedDict):
+    secret_name: pulumi.Input[_builtins.str]
+    """
+    Name of the secret for a virtual gateway's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
+    """
 
 @pulumi.input_type
 class VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustSdsArgs:
@@ -6603,26 +6289,23 @@ class VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustSdsArgs:
         pulumi.set(self, "secret_name", value)
 
 
-if not MYPY:
-    class VirtualGatewaySpecListenerArgsDict(TypedDict):
-        port_mapping: pulumi.Input['VirtualGatewaySpecListenerPortMappingArgsDict']
-        """
-        Port mapping information for the listener.
-        """
-        connection_pool: NotRequired[pulumi.Input['VirtualGatewaySpecListenerConnectionPoolArgsDict']]
-        """
-        Connection pool information for the listener.
-        """
-        health_check: NotRequired[pulumi.Input['VirtualGatewaySpecListenerHealthCheckArgsDict']]
-        """
-        Health check information for the listener.
-        """
-        tls: NotRequired[pulumi.Input['VirtualGatewaySpecListenerTlsArgsDict']]
-        """
-        Transport Layer Security (TLS) properties for the listener
-        """
-elif False:
-    VirtualGatewaySpecListenerArgsDict: TypeAlias = Mapping[str, Any]
+class VirtualGatewaySpecListenerArgsDict(TypedDict):
+    port_mapping: pulumi.Input['VirtualGatewaySpecListenerPortMappingArgsDict']
+    """
+    Port mapping information for the listener.
+    """
+    connection_pool: NotRequired[pulumi.Input['VirtualGatewaySpecListenerConnectionPoolArgsDict']]
+    """
+    Connection pool information for the listener.
+    """
+    health_check: NotRequired[pulumi.Input['VirtualGatewaySpecListenerHealthCheckArgsDict']]
+    """
+    Health check information for the listener.
+    """
+    tls: NotRequired[pulumi.Input['VirtualGatewaySpecListenerTlsArgsDict']]
+    """
+    Transport Layer Security (TLS) properties for the listener
+    """
 
 @pulumi.input_type
 class VirtualGatewaySpecListenerArgs:
@@ -6694,22 +6377,19 @@ class VirtualGatewaySpecListenerArgs:
         pulumi.set(self, "tls", value)
 
 
-if not MYPY:
-    class VirtualGatewaySpecListenerConnectionPoolArgsDict(TypedDict):
-        grpc: NotRequired[pulumi.Input['VirtualGatewaySpecListenerConnectionPoolGrpcArgsDict']]
-        """
-        Connection pool information for gRPC listeners.
-        """
-        http: NotRequired[pulumi.Input['VirtualGatewaySpecListenerConnectionPoolHttpArgsDict']]
-        """
-        Connection pool information for HTTP listeners.
-        """
-        http2: NotRequired[pulumi.Input['VirtualGatewaySpecListenerConnectionPoolHttp2ArgsDict']]
-        """
-        Connection pool information for HTTP2 listeners.
-        """
-elif False:
-    VirtualGatewaySpecListenerConnectionPoolArgsDict: TypeAlias = Mapping[str, Any]
+class VirtualGatewaySpecListenerConnectionPoolArgsDict(TypedDict):
+    grpc: NotRequired[pulumi.Input['VirtualGatewaySpecListenerConnectionPoolGrpcArgsDict']]
+    """
+    Connection pool information for gRPC listeners.
+    """
+    http: NotRequired[pulumi.Input['VirtualGatewaySpecListenerConnectionPoolHttpArgsDict']]
+    """
+    Connection pool information for HTTP listeners.
+    """
+    http2: NotRequired[pulumi.Input['VirtualGatewaySpecListenerConnectionPoolHttp2ArgsDict']]
+    """
+    Connection pool information for HTTP2 listeners.
+    """
 
 @pulumi.input_type
 class VirtualGatewaySpecListenerConnectionPoolArgs:
@@ -6766,14 +6446,11 @@ class VirtualGatewaySpecListenerConnectionPoolArgs:
         pulumi.set(self, "http2", value)
 
 
-if not MYPY:
-    class VirtualGatewaySpecListenerConnectionPoolGrpcArgsDict(TypedDict):
-        max_requests: pulumi.Input[_builtins.int]
-        """
-        Maximum number of inflight requests Envoy can concurrently support across hosts in upstream cluster. Minimum value of `1`.
-        """
-elif False:
-    VirtualGatewaySpecListenerConnectionPoolGrpcArgsDict: TypeAlias = Mapping[str, Any]
+class VirtualGatewaySpecListenerConnectionPoolGrpcArgsDict(TypedDict):
+    max_requests: pulumi.Input[_builtins.int]
+    """
+    Maximum number of inflight requests Envoy can concurrently support across hosts in upstream cluster. Minimum value of `1`.
+    """
 
 @pulumi.input_type
 class VirtualGatewaySpecListenerConnectionPoolGrpcArgs:
@@ -6797,14 +6474,11 @@ class VirtualGatewaySpecListenerConnectionPoolGrpcArgs:
         pulumi.set(self, "max_requests", value)
 
 
-if not MYPY:
-    class VirtualGatewaySpecListenerConnectionPoolHttp2ArgsDict(TypedDict):
-        max_requests: pulumi.Input[_builtins.int]
-        """
-        Maximum number of inflight requests Envoy can concurrently support across hosts in upstream cluster. Minimum value of `1`.
-        """
-elif False:
-    VirtualGatewaySpecListenerConnectionPoolHttp2ArgsDict: TypeAlias = Mapping[str, Any]
+class VirtualGatewaySpecListenerConnectionPoolHttp2ArgsDict(TypedDict):
+    max_requests: pulumi.Input[_builtins.int]
+    """
+    Maximum number of inflight requests Envoy can concurrently support across hosts in upstream cluster. Minimum value of `1`.
+    """
 
 @pulumi.input_type
 class VirtualGatewaySpecListenerConnectionPoolHttp2Args:
@@ -6828,18 +6502,15 @@ class VirtualGatewaySpecListenerConnectionPoolHttp2Args:
         pulumi.set(self, "max_requests", value)
 
 
-if not MYPY:
-    class VirtualGatewaySpecListenerConnectionPoolHttpArgsDict(TypedDict):
-        max_connections: pulumi.Input[_builtins.int]
-        """
-        Maximum number of outbound TCP connections Envoy can establish concurrently with all hosts in upstream cluster. Minimum value of `1`.
-        """
-        max_pending_requests: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Number of overflowing requests after `max_connections` Envoy will queue to upstream cluster. Minimum value of `1`.
-        """
-elif False:
-    VirtualGatewaySpecListenerConnectionPoolHttpArgsDict: TypeAlias = Mapping[str, Any]
+class VirtualGatewaySpecListenerConnectionPoolHttpArgsDict(TypedDict):
+    max_connections: pulumi.Input[_builtins.int]
+    """
+    Maximum number of outbound TCP connections Envoy can establish concurrently with all hosts in upstream cluster. Minimum value of `1`.
+    """
+    max_pending_requests: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Number of overflowing requests after `max_connections` Envoy will queue to upstream cluster. Minimum value of `1`.
+    """
 
 @pulumi.input_type
 class VirtualGatewaySpecListenerConnectionPoolHttpArgs:
@@ -6879,38 +6550,35 @@ class VirtualGatewaySpecListenerConnectionPoolHttpArgs:
         pulumi.set(self, "max_pending_requests", value)
 
 
-if not MYPY:
-    class VirtualGatewaySpecListenerHealthCheckArgsDict(TypedDict):
-        healthy_threshold: pulumi.Input[_builtins.int]
-        """
-        Number of consecutive successful health checks that must occur before declaring listener healthy.
-        """
-        interval_millis: pulumi.Input[_builtins.int]
-        """
-        Time period in milliseconds between each health check execution.
-        """
-        protocol: pulumi.Input[_builtins.str]
-        """
-        Protocol for the health check request. Valid values are `http`, `http2`, and `grpc`.
-        """
-        timeout_millis: pulumi.Input[_builtins.int]
-        """
-        Amount of time to wait when receiving a response from the health check, in milliseconds.
-        """
-        unhealthy_threshold: pulumi.Input[_builtins.int]
-        """
-        Number of consecutive failed health checks that must occur before declaring a virtual gateway unhealthy.
-        """
-        path: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Destination path for the health check request. This is only required if the specified protocol is `http` or `http2`.
-        """
-        port: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Destination port for the health check request. This port must match the port defined in the `port_mapping` for the listener.
-        """
-elif False:
-    VirtualGatewaySpecListenerHealthCheckArgsDict: TypeAlias = Mapping[str, Any]
+class VirtualGatewaySpecListenerHealthCheckArgsDict(TypedDict):
+    healthy_threshold: pulumi.Input[_builtins.int]
+    """
+    Number of consecutive successful health checks that must occur before declaring listener healthy.
+    """
+    interval_millis: pulumi.Input[_builtins.int]
+    """
+    Time period in milliseconds between each health check execution.
+    """
+    protocol: pulumi.Input[_builtins.str]
+    """
+    Protocol for the health check request. Valid values are `http`, `http2`, and `grpc`.
+    """
+    timeout_millis: pulumi.Input[_builtins.int]
+    """
+    Amount of time to wait when receiving a response from the health check, in milliseconds.
+    """
+    unhealthy_threshold: pulumi.Input[_builtins.int]
+    """
+    Number of consecutive failed health checks that must occur before declaring a virtual gateway unhealthy.
+    """
+    path: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Destination path for the health check request. This is only required if the specified protocol is `http` or `http2`.
+    """
+    port: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Destination port for the health check request. This port must match the port defined in the `port_mapping` for the listener.
+    """
 
 @pulumi.input_type
 class VirtualGatewaySpecListenerHealthCheckArgs:
@@ -7026,18 +6694,15 @@ class VirtualGatewaySpecListenerHealthCheckArgs:
         pulumi.set(self, "port", value)
 
 
-if not MYPY:
-    class VirtualGatewaySpecListenerPortMappingArgsDict(TypedDict):
-        port: pulumi.Input[_builtins.int]
-        """
-        Port used for the port mapping.
-        """
-        protocol: pulumi.Input[_builtins.str]
-        """
-        Protocol used for the port mapping. Valid values are `http`, `http2`, `tcp` and `grpc`.
-        """
-elif False:
-    VirtualGatewaySpecListenerPortMappingArgsDict: TypeAlias = Mapping[str, Any]
+class VirtualGatewaySpecListenerPortMappingArgsDict(TypedDict):
+    port: pulumi.Input[_builtins.int]
+    """
+    Port used for the port mapping.
+    """
+    protocol: pulumi.Input[_builtins.str]
+    """
+    Protocol used for the port mapping. Valid values are `http`, `http2`, `tcp` and `grpc`.
+    """
 
 @pulumi.input_type
 class VirtualGatewaySpecListenerPortMappingArgs:
@@ -7076,22 +6741,19 @@ class VirtualGatewaySpecListenerPortMappingArgs:
         pulumi.set(self, "protocol", value)
 
 
-if not MYPY:
-    class VirtualGatewaySpecListenerTlsArgsDict(TypedDict):
-        certificate: pulumi.Input['VirtualGatewaySpecListenerTlsCertificateArgsDict']
-        """
-        Listener's TLS certificate.
-        """
-        mode: pulumi.Input[_builtins.str]
-        """
-        Listener's TLS mode. Valid values: `DISABLED`, `PERMISSIVE`, `STRICT`.
-        """
-        validation: NotRequired[pulumi.Input['VirtualGatewaySpecListenerTlsValidationArgsDict']]
-        """
-        Listener's Transport Layer Security (TLS) validation context.
-        """
-elif False:
-    VirtualGatewaySpecListenerTlsArgsDict: TypeAlias = Mapping[str, Any]
+class VirtualGatewaySpecListenerTlsArgsDict(TypedDict):
+    certificate: pulumi.Input['VirtualGatewaySpecListenerTlsCertificateArgsDict']
+    """
+    Listener's TLS certificate.
+    """
+    mode: pulumi.Input[_builtins.str]
+    """
+    Listener's TLS mode. Valid values: `DISABLED`, `PERMISSIVE`, `STRICT`.
+    """
+    validation: NotRequired[pulumi.Input['VirtualGatewaySpecListenerTlsValidationArgsDict']]
+    """
+    Listener's Transport Layer Security (TLS) validation context.
+    """
 
 @pulumi.input_type
 class VirtualGatewaySpecListenerTlsArgs:
@@ -7146,22 +6808,19 @@ class VirtualGatewaySpecListenerTlsArgs:
         pulumi.set(self, "validation", value)
 
 
-if not MYPY:
-    class VirtualGatewaySpecListenerTlsCertificateArgsDict(TypedDict):
-        acm: NotRequired[pulumi.Input['VirtualGatewaySpecListenerTlsCertificateAcmArgsDict']]
-        """
-        An AWS Certificate Manager (ACM) certificate.
-        """
-        file: NotRequired[pulumi.Input['VirtualGatewaySpecListenerTlsCertificateFileArgsDict']]
-        """
-        Local file certificate.
-        """
-        sds: NotRequired[pulumi.Input['VirtualGatewaySpecListenerTlsCertificateSdsArgsDict']]
-        """
-        A [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
-        """
-elif False:
-    VirtualGatewaySpecListenerTlsCertificateArgsDict: TypeAlias = Mapping[str, Any]
+class VirtualGatewaySpecListenerTlsCertificateArgsDict(TypedDict):
+    acm: NotRequired[pulumi.Input['VirtualGatewaySpecListenerTlsCertificateAcmArgsDict']]
+    """
+    An AWS Certificate Manager (ACM) certificate.
+    """
+    file: NotRequired[pulumi.Input['VirtualGatewaySpecListenerTlsCertificateFileArgsDict']]
+    """
+    Local file certificate.
+    """
+    sds: NotRequired[pulumi.Input['VirtualGatewaySpecListenerTlsCertificateSdsArgsDict']]
+    """
+    A [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
+    """
 
 @pulumi.input_type
 class VirtualGatewaySpecListenerTlsCertificateArgs:
@@ -7218,14 +6877,11 @@ class VirtualGatewaySpecListenerTlsCertificateArgs:
         pulumi.set(self, "sds", value)
 
 
-if not MYPY:
-    class VirtualGatewaySpecListenerTlsCertificateAcmArgsDict(TypedDict):
-        certificate_arn: pulumi.Input[_builtins.str]
-        """
-        ARN for the certificate.
-        """
-elif False:
-    VirtualGatewaySpecListenerTlsCertificateAcmArgsDict: TypeAlias = Mapping[str, Any]
+class VirtualGatewaySpecListenerTlsCertificateAcmArgsDict(TypedDict):
+    certificate_arn: pulumi.Input[_builtins.str]
+    """
+    ARN for the certificate.
+    """
 
 @pulumi.input_type
 class VirtualGatewaySpecListenerTlsCertificateAcmArgs:
@@ -7249,18 +6905,15 @@ class VirtualGatewaySpecListenerTlsCertificateAcmArgs:
         pulumi.set(self, "certificate_arn", value)
 
 
-if not MYPY:
-    class VirtualGatewaySpecListenerTlsCertificateFileArgsDict(TypedDict):
-        certificate_chain: pulumi.Input[_builtins.str]
-        """
-        Certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
-        """
-        private_key: pulumi.Input[_builtins.str]
-        """
-        Private key for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
-        """
-elif False:
-    VirtualGatewaySpecListenerTlsCertificateFileArgsDict: TypeAlias = Mapping[str, Any]
+class VirtualGatewaySpecListenerTlsCertificateFileArgsDict(TypedDict):
+    certificate_chain: pulumi.Input[_builtins.str]
+    """
+    Certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
+    """
+    private_key: pulumi.Input[_builtins.str]
+    """
+    Private key for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
+    """
 
 @pulumi.input_type
 class VirtualGatewaySpecListenerTlsCertificateFileArgs:
@@ -7299,14 +6952,11 @@ class VirtualGatewaySpecListenerTlsCertificateFileArgs:
         pulumi.set(self, "private_key", value)
 
 
-if not MYPY:
-    class VirtualGatewaySpecListenerTlsCertificateSdsArgsDict(TypedDict):
-        secret_name: pulumi.Input[_builtins.str]
-        """
-        Name of the secret for a virtual gateway's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
-        """
-elif False:
-    VirtualGatewaySpecListenerTlsCertificateSdsArgsDict: TypeAlias = Mapping[str, Any]
+class VirtualGatewaySpecListenerTlsCertificateSdsArgsDict(TypedDict):
+    secret_name: pulumi.Input[_builtins.str]
+    """
+    Name of the secret for a virtual gateway's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
+    """
 
 @pulumi.input_type
 class VirtualGatewaySpecListenerTlsCertificateSdsArgs:
@@ -7330,18 +6980,15 @@ class VirtualGatewaySpecListenerTlsCertificateSdsArgs:
         pulumi.set(self, "secret_name", value)
 
 
-if not MYPY:
-    class VirtualGatewaySpecListenerTlsValidationArgsDict(TypedDict):
-        trust: pulumi.Input['VirtualGatewaySpecListenerTlsValidationTrustArgsDict']
-        """
-        TLS validation context trust.
-        """
-        subject_alternative_names: NotRequired[pulumi.Input['VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesArgsDict']]
-        """
-        SANs for a virtual gateway's listener's Transport Layer Security (TLS) validation context.
-        """
-elif False:
-    VirtualGatewaySpecListenerTlsValidationArgsDict: TypeAlias = Mapping[str, Any]
+class VirtualGatewaySpecListenerTlsValidationArgsDict(TypedDict):
+    trust: pulumi.Input['VirtualGatewaySpecListenerTlsValidationTrustArgsDict']
+    """
+    TLS validation context trust.
+    """
+    subject_alternative_names: NotRequired[pulumi.Input['VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesArgsDict']]
+    """
+    SANs for a virtual gateway's listener's Transport Layer Security (TLS) validation context.
+    """
 
 @pulumi.input_type
 class VirtualGatewaySpecListenerTlsValidationArgs:
@@ -7381,14 +7028,11 @@ class VirtualGatewaySpecListenerTlsValidationArgs:
         pulumi.set(self, "subject_alternative_names", value)
 
 
-if not MYPY:
-    class VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesArgsDict(TypedDict):
-        match: pulumi.Input['VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesMatchArgsDict']
-        """
-        Criteria for determining a SAN's match.
-        """
-elif False:
-    VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesArgsDict: TypeAlias = Mapping[str, Any]
+class VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesArgsDict(TypedDict):
+    match: pulumi.Input['VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesMatchArgsDict']
+    """
+    Criteria for determining a SAN's match.
+    """
 
 @pulumi.input_type
 class VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesArgs:
@@ -7412,14 +7056,11 @@ class VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesArgs:
         pulumi.set(self, "match", value)
 
 
-if not MYPY:
-    class VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesMatchArgsDict(TypedDict):
-        exacts: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        Values sent must match the specified values exactly.
-        """
-elif False:
-    VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesMatchArgsDict: TypeAlias = Mapping[str, Any]
+class VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesMatchArgsDict(TypedDict):
+    exacts: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    Values sent must match the specified values exactly.
+    """
 
 @pulumi.input_type
 class VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesMatchArgs:
@@ -7443,18 +7084,15 @@ class VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesMatchArgs:
         pulumi.set(self, "exacts", value)
 
 
-if not MYPY:
-    class VirtualGatewaySpecListenerTlsValidationTrustArgsDict(TypedDict):
-        file: NotRequired[pulumi.Input['VirtualGatewaySpecListenerTlsValidationTrustFileArgsDict']]
-        """
-        TLS validation context trust for a local file certificate.
-        """
-        sds: NotRequired[pulumi.Input['VirtualGatewaySpecListenerTlsValidationTrustSdsArgsDict']]
-        """
-        TLS validation context trust for a [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
-        """
-elif False:
-    VirtualGatewaySpecListenerTlsValidationTrustArgsDict: TypeAlias = Mapping[str, Any]
+class VirtualGatewaySpecListenerTlsValidationTrustArgsDict(TypedDict):
+    file: NotRequired[pulumi.Input['VirtualGatewaySpecListenerTlsValidationTrustFileArgsDict']]
+    """
+    TLS validation context trust for a local file certificate.
+    """
+    sds: NotRequired[pulumi.Input['VirtualGatewaySpecListenerTlsValidationTrustSdsArgsDict']]
+    """
+    TLS validation context trust for a [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
+    """
 
 @pulumi.input_type
 class VirtualGatewaySpecListenerTlsValidationTrustArgs:
@@ -7495,14 +7133,11 @@ class VirtualGatewaySpecListenerTlsValidationTrustArgs:
         pulumi.set(self, "sds", value)
 
 
-if not MYPY:
-    class VirtualGatewaySpecListenerTlsValidationTrustFileArgsDict(TypedDict):
-        certificate_chain: pulumi.Input[_builtins.str]
-        """
-        Certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
-        """
-elif False:
-    VirtualGatewaySpecListenerTlsValidationTrustFileArgsDict: TypeAlias = Mapping[str, Any]
+class VirtualGatewaySpecListenerTlsValidationTrustFileArgsDict(TypedDict):
+    certificate_chain: pulumi.Input[_builtins.str]
+    """
+    Certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
+    """
 
 @pulumi.input_type
 class VirtualGatewaySpecListenerTlsValidationTrustFileArgs:
@@ -7526,14 +7161,11 @@ class VirtualGatewaySpecListenerTlsValidationTrustFileArgs:
         pulumi.set(self, "certificate_chain", value)
 
 
-if not MYPY:
-    class VirtualGatewaySpecListenerTlsValidationTrustSdsArgsDict(TypedDict):
-        secret_name: pulumi.Input[_builtins.str]
-        """
-        Name of the secret for a virtual gateway's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
-        """
-elif False:
-    VirtualGatewaySpecListenerTlsValidationTrustSdsArgsDict: TypeAlias = Mapping[str, Any]
+class VirtualGatewaySpecListenerTlsValidationTrustSdsArgsDict(TypedDict):
+    secret_name: pulumi.Input[_builtins.str]
+    """
+    Name of the secret for a virtual gateway's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
+    """
 
 @pulumi.input_type
 class VirtualGatewaySpecListenerTlsValidationTrustSdsArgs:
@@ -7557,14 +7189,11 @@ class VirtualGatewaySpecListenerTlsValidationTrustSdsArgs:
         pulumi.set(self, "secret_name", value)
 
 
-if not MYPY:
-    class VirtualGatewaySpecLoggingArgsDict(TypedDict):
-        access_log: NotRequired[pulumi.Input['VirtualGatewaySpecLoggingAccessLogArgsDict']]
-        """
-        Access log configuration for a virtual gateway.
-        """
-elif False:
-    VirtualGatewaySpecLoggingArgsDict: TypeAlias = Mapping[str, Any]
+class VirtualGatewaySpecLoggingArgsDict(TypedDict):
+    access_log: NotRequired[pulumi.Input['VirtualGatewaySpecLoggingAccessLogArgsDict']]
+    """
+    Access log configuration for a virtual gateway.
+    """
 
 @pulumi.input_type
 class VirtualGatewaySpecLoggingArgs:
@@ -7589,14 +7218,11 @@ class VirtualGatewaySpecLoggingArgs:
         pulumi.set(self, "access_log", value)
 
 
-if not MYPY:
-    class VirtualGatewaySpecLoggingAccessLogArgsDict(TypedDict):
-        file: NotRequired[pulumi.Input['VirtualGatewaySpecLoggingAccessLogFileArgsDict']]
-        """
-        File object to send virtual gateway access logs to.
-        """
-elif False:
-    VirtualGatewaySpecLoggingAccessLogArgsDict: TypeAlias = Mapping[str, Any]
+class VirtualGatewaySpecLoggingAccessLogArgsDict(TypedDict):
+    file: NotRequired[pulumi.Input['VirtualGatewaySpecLoggingAccessLogFileArgsDict']]
+    """
+    File object to send virtual gateway access logs to.
+    """
 
 @pulumi.input_type
 class VirtualGatewaySpecLoggingAccessLogArgs:
@@ -7621,18 +7247,15 @@ class VirtualGatewaySpecLoggingAccessLogArgs:
         pulumi.set(self, "file", value)
 
 
-if not MYPY:
-    class VirtualGatewaySpecLoggingAccessLogFileArgsDict(TypedDict):
-        path: pulumi.Input[_builtins.str]
-        """
-        File path to write access logs to. You can use `/dev/stdout` to send access logs to standard out. Must be between 1 and 255 characters in length.
-        """
-        format: NotRequired[pulumi.Input['VirtualGatewaySpecLoggingAccessLogFileFormatArgsDict']]
-        """
-        The specified format for the logs.
-        """
-elif False:
-    VirtualGatewaySpecLoggingAccessLogFileArgsDict: TypeAlias = Mapping[str, Any]
+class VirtualGatewaySpecLoggingAccessLogFileArgsDict(TypedDict):
+    path: pulumi.Input[_builtins.str]
+    """
+    File path to write access logs to. You can use `/dev/stdout` to send access logs to standard out. Must be between 1 and 255 characters in length.
+    """
+    format: NotRequired[pulumi.Input['VirtualGatewaySpecLoggingAccessLogFileFormatArgsDict']]
+    """
+    The specified format for the logs.
+    """
 
 @pulumi.input_type
 class VirtualGatewaySpecLoggingAccessLogFileArgs:
@@ -7672,18 +7295,15 @@ class VirtualGatewaySpecLoggingAccessLogFileArgs:
         pulumi.set(self, "format", value)
 
 
-if not MYPY:
-    class VirtualGatewaySpecLoggingAccessLogFileFormatArgsDict(TypedDict):
-        jsons: NotRequired[pulumi.Input[Sequence[pulumi.Input['VirtualGatewaySpecLoggingAccessLogFileFormatJsonArgsDict']]]]
-        """
-        The logging format for JSON.
-        """
-        text: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The logging format for text. Must be between 1 and 1000 characters in length.
-        """
-elif False:
-    VirtualGatewaySpecLoggingAccessLogFileFormatArgsDict: TypeAlias = Mapping[str, Any]
+class VirtualGatewaySpecLoggingAccessLogFileFormatArgsDict(TypedDict):
+    jsons: NotRequired[pulumi.Input[Sequence[pulumi.Input['VirtualGatewaySpecLoggingAccessLogFileFormatJsonArgsDict']]]]
+    """
+    The logging format for JSON.
+    """
+    text: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The logging format for text. Must be between 1 and 1000 characters in length.
+    """
 
 @pulumi.input_type
 class VirtualGatewaySpecLoggingAccessLogFileFormatArgs:
@@ -7724,18 +7344,15 @@ class VirtualGatewaySpecLoggingAccessLogFileFormatArgs:
         pulumi.set(self, "text", value)
 
 
-if not MYPY:
-    class VirtualGatewaySpecLoggingAccessLogFileFormatJsonArgsDict(TypedDict):
-        key: pulumi.Input[_builtins.str]
-        """
-        The specified key for the JSON. Must be between 1 and 100 characters in length.
-        """
-        value: pulumi.Input[_builtins.str]
-        """
-        The specified value for the JSON. Must be between 1 and 100 characters in length.
-        """
-elif False:
-    VirtualGatewaySpecLoggingAccessLogFileFormatJsonArgsDict: TypeAlias = Mapping[str, Any]
+class VirtualGatewaySpecLoggingAccessLogFileFormatJsonArgsDict(TypedDict):
+    key: pulumi.Input[_builtins.str]
+    """
+    The specified key for the JSON. Must be between 1 and 100 characters in length.
+    """
+    value: pulumi.Input[_builtins.str]
+    """
+    The specified value for the JSON. Must be between 1 and 100 characters in length.
+    """
 
 @pulumi.input_type
 class VirtualGatewaySpecLoggingAccessLogFileFormatJsonArgs:
@@ -7774,30 +7391,27 @@ class VirtualGatewaySpecLoggingAccessLogFileFormatJsonArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class VirtualNodeSpecArgsDict(TypedDict):
-        backend_defaults: NotRequired[pulumi.Input['VirtualNodeSpecBackendDefaultsArgsDict']]
-        """
-        Defaults for backends.
-        """
-        backends: NotRequired[pulumi.Input[Sequence[pulumi.Input['VirtualNodeSpecBackendArgsDict']]]]
-        """
-        Backends to which the virtual node is expected to send outbound traffic.
-        """
-        listeners: NotRequired[pulumi.Input[Sequence[pulumi.Input['VirtualNodeSpecListenerArgsDict']]]]
-        """
-        Listeners from which the virtual node is expected to receive inbound traffic.
-        """
-        logging: NotRequired[pulumi.Input['VirtualNodeSpecLoggingArgsDict']]
-        """
-        Inbound and outbound access logging information for the virtual node.
-        """
-        service_discovery: NotRequired[pulumi.Input['VirtualNodeSpecServiceDiscoveryArgsDict']]
-        """
-        Service discovery information for the virtual node.
-        """
-elif False:
-    VirtualNodeSpecArgsDict: TypeAlias = Mapping[str, Any]
+class VirtualNodeSpecArgsDict(TypedDict):
+    backend_defaults: NotRequired[pulumi.Input['VirtualNodeSpecBackendDefaultsArgsDict']]
+    """
+    Defaults for backends.
+    """
+    backends: NotRequired[pulumi.Input[Sequence[pulumi.Input['VirtualNodeSpecBackendArgsDict']]]]
+    """
+    Backends to which the virtual node is expected to send outbound traffic.
+    """
+    listeners: NotRequired[pulumi.Input[Sequence[pulumi.Input['VirtualNodeSpecListenerArgsDict']]]]
+    """
+    Listeners from which the virtual node is expected to receive inbound traffic.
+    """
+    logging: NotRequired[pulumi.Input['VirtualNodeSpecLoggingArgsDict']]
+    """
+    Inbound and outbound access logging information for the virtual node.
+    """
+    service_discovery: NotRequired[pulumi.Input['VirtualNodeSpecServiceDiscoveryArgsDict']]
+    """
+    Service discovery information for the virtual node.
+    """
 
 @pulumi.input_type
 class VirtualNodeSpecArgs:
@@ -7886,14 +7500,11 @@ class VirtualNodeSpecArgs:
         pulumi.set(self, "service_discovery", value)
 
 
-if not MYPY:
-    class VirtualNodeSpecBackendArgsDict(TypedDict):
-        virtual_service: pulumi.Input['VirtualNodeSpecBackendVirtualServiceArgsDict']
-        """
-        Virtual service to use as a backend for a virtual node.
-        """
-elif False:
-    VirtualNodeSpecBackendArgsDict: TypeAlias = Mapping[str, Any]
+class VirtualNodeSpecBackendArgsDict(TypedDict):
+    virtual_service: pulumi.Input['VirtualNodeSpecBackendVirtualServiceArgsDict']
+    """
+    Virtual service to use as a backend for a virtual node.
+    """
 
 @pulumi.input_type
 class VirtualNodeSpecBackendArgs:
@@ -7917,14 +7528,11 @@ class VirtualNodeSpecBackendArgs:
         pulumi.set(self, "virtual_service", value)
 
 
-if not MYPY:
-    class VirtualNodeSpecBackendDefaultsArgsDict(TypedDict):
-        client_policy: NotRequired[pulumi.Input['VirtualNodeSpecBackendDefaultsClientPolicyArgsDict']]
-        """
-        Default client policy for virtual service backends. See above for details.
-        """
-elif False:
-    VirtualNodeSpecBackendDefaultsArgsDict: TypeAlias = Mapping[str, Any]
+class VirtualNodeSpecBackendDefaultsArgsDict(TypedDict):
+    client_policy: NotRequired[pulumi.Input['VirtualNodeSpecBackendDefaultsClientPolicyArgsDict']]
+    """
+    Default client policy for virtual service backends. See above for details.
+    """
 
 @pulumi.input_type
 class VirtualNodeSpecBackendDefaultsArgs:
@@ -7949,14 +7557,11 @@ class VirtualNodeSpecBackendDefaultsArgs:
         pulumi.set(self, "client_policy", value)
 
 
-if not MYPY:
-    class VirtualNodeSpecBackendDefaultsClientPolicyArgsDict(TypedDict):
-        tls: NotRequired[pulumi.Input['VirtualNodeSpecBackendDefaultsClientPolicyTlsArgsDict']]
-        """
-        Transport Layer Security (TLS) client policy.
-        """
-elif False:
-    VirtualNodeSpecBackendDefaultsClientPolicyArgsDict: TypeAlias = Mapping[str, Any]
+class VirtualNodeSpecBackendDefaultsClientPolicyArgsDict(TypedDict):
+    tls: NotRequired[pulumi.Input['VirtualNodeSpecBackendDefaultsClientPolicyTlsArgsDict']]
+    """
+    Transport Layer Security (TLS) client policy.
+    """
 
 @pulumi.input_type
 class VirtualNodeSpecBackendDefaultsClientPolicyArgs:
@@ -7981,26 +7586,23 @@ class VirtualNodeSpecBackendDefaultsClientPolicyArgs:
         pulumi.set(self, "tls", value)
 
 
-if not MYPY:
-    class VirtualNodeSpecBackendDefaultsClientPolicyTlsArgsDict(TypedDict):
-        validation: pulumi.Input['VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationArgsDict']
-        """
-        Listener's Transport Layer Security (TLS) validation context.
-        """
-        certificate: NotRequired[pulumi.Input['VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateArgsDict']]
-        """
-        Listener's TLS certificate.
-        """
-        enforce: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether the policy is enforced. Default is `true`.
-        """
-        ports: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]
-        """
-        One or more ports that the policy is enforced for.
-        """
-elif False:
-    VirtualNodeSpecBackendDefaultsClientPolicyTlsArgsDict: TypeAlias = Mapping[str, Any]
+class VirtualNodeSpecBackendDefaultsClientPolicyTlsArgsDict(TypedDict):
+    validation: pulumi.Input['VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationArgsDict']
+    """
+    Listener's Transport Layer Security (TLS) validation context.
+    """
+    certificate: NotRequired[pulumi.Input['VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateArgsDict']]
+    """
+    Listener's TLS certificate.
+    """
+    enforce: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether the policy is enforced. Default is `true`.
+    """
+    ports: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]
+    """
+    One or more ports that the policy is enforced for.
+    """
 
 @pulumi.input_type
 class VirtualNodeSpecBackendDefaultsClientPolicyTlsArgs:
@@ -8072,18 +7674,15 @@ class VirtualNodeSpecBackendDefaultsClientPolicyTlsArgs:
         pulumi.set(self, "ports", value)
 
 
-if not MYPY:
-    class VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateArgsDict(TypedDict):
-        file: NotRequired[pulumi.Input['VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateFileArgsDict']]
-        """
-        Local file certificate.
-        """
-        sds: NotRequired[pulumi.Input['VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateSdsArgsDict']]
-        """
-        A [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
-        """
-elif False:
-    VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateArgsDict: TypeAlias = Mapping[str, Any]
+class VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateArgsDict(TypedDict):
+    file: NotRequired[pulumi.Input['VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateFileArgsDict']]
+    """
+    Local file certificate.
+    """
+    sds: NotRequired[pulumi.Input['VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateSdsArgsDict']]
+    """
+    A [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
+    """
 
 @pulumi.input_type
 class VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateArgs:
@@ -8124,18 +7723,15 @@ class VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateArgs:
         pulumi.set(self, "sds", value)
 
 
-if not MYPY:
-    class VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateFileArgsDict(TypedDict):
-        certificate_chain: pulumi.Input[_builtins.str]
-        """
-        Certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
-        """
-        private_key: pulumi.Input[_builtins.str]
-        """
-        Private key for a certificate stored on the file system of the virtual node that the proxy is running on. Must be between 1 and 255 characters in length.
-        """
-elif False:
-    VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateFileArgsDict: TypeAlias = Mapping[str, Any]
+class VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateFileArgsDict(TypedDict):
+    certificate_chain: pulumi.Input[_builtins.str]
+    """
+    Certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
+    """
+    private_key: pulumi.Input[_builtins.str]
+    """
+    Private key for a certificate stored on the file system of the virtual node that the proxy is running on. Must be between 1 and 255 characters in length.
+    """
 
 @pulumi.input_type
 class VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateFileArgs:
@@ -8174,14 +7770,11 @@ class VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateFileArgs:
         pulumi.set(self, "private_key", value)
 
 
-if not MYPY:
-    class VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateSdsArgsDict(TypedDict):
-        secret_name: pulumi.Input[_builtins.str]
-        """
-        Name of the secret for a virtual node's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
-        """
-elif False:
-    VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateSdsArgsDict: TypeAlias = Mapping[str, Any]
+class VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateSdsArgsDict(TypedDict):
+    secret_name: pulumi.Input[_builtins.str]
+    """
+    Name of the secret for a virtual node's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
+    """
 
 @pulumi.input_type
 class VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateSdsArgs:
@@ -8205,18 +7798,15 @@ class VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateSdsArgs:
         pulumi.set(self, "secret_name", value)
 
 
-if not MYPY:
-    class VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationArgsDict(TypedDict):
-        trust: pulumi.Input['VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustArgsDict']
-        """
-        TLS validation context trust.
-        """
-        subject_alternative_names: NotRequired[pulumi.Input['VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesArgsDict']]
-        """
-        SANs for a TLS validation context.
-        """
-elif False:
-    VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationArgsDict: TypeAlias = Mapping[str, Any]
+class VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationArgsDict(TypedDict):
+    trust: pulumi.Input['VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustArgsDict']
+    """
+    TLS validation context trust.
+    """
+    subject_alternative_names: NotRequired[pulumi.Input['VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesArgsDict']]
+    """
+    SANs for a TLS validation context.
+    """
 
 @pulumi.input_type
 class VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationArgs:
@@ -8256,14 +7846,11 @@ class VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationArgs:
         pulumi.set(self, "subject_alternative_names", value)
 
 
-if not MYPY:
-    class VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesArgsDict(TypedDict):
-        match: pulumi.Input['VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatchArgsDict']
-        """
-        Criteria for determining a SAN's match.
-        """
-elif False:
-    VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesArgsDict: TypeAlias = Mapping[str, Any]
+class VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesArgsDict(TypedDict):
+    match: pulumi.Input['VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatchArgsDict']
+    """
+    Criteria for determining a SAN's match.
+    """
 
 @pulumi.input_type
 class VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesArgs:
@@ -8287,14 +7874,11 @@ class VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeN
         pulumi.set(self, "match", value)
 
 
-if not MYPY:
-    class VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatchArgsDict(TypedDict):
-        exacts: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        Values sent must match the specified values exactly.
-        """
-elif False:
-    VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatchArgsDict: TypeAlias = Mapping[str, Any]
+class VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatchArgsDict(TypedDict):
+    exacts: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    Values sent must match the specified values exactly.
+    """
 
 @pulumi.input_type
 class VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesMatchArgs:
@@ -8318,22 +7902,19 @@ class VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeN
         pulumi.set(self, "exacts", value)
 
 
-if not MYPY:
-    class VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustArgsDict(TypedDict):
-        acm: NotRequired[pulumi.Input['VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustAcmArgsDict']]
-        """
-        TLS validation context trust for an AWS Certificate Manager (ACM) certificate.
-        """
-        file: NotRequired[pulumi.Input['VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFileArgsDict']]
-        """
-        TLS validation context trust for a local file certificate.
-        """
-        sds: NotRequired[pulumi.Input['VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustSdsArgsDict']]
-        """
-        TLS validation context trust for a [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
-        """
-elif False:
-    VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustArgsDict: TypeAlias = Mapping[str, Any]
+class VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustArgsDict(TypedDict):
+    acm: NotRequired[pulumi.Input['VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustAcmArgsDict']]
+    """
+    TLS validation context trust for an AWS Certificate Manager (ACM) certificate.
+    """
+    file: NotRequired[pulumi.Input['VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFileArgsDict']]
+    """
+    TLS validation context trust for a local file certificate.
+    """
+    sds: NotRequired[pulumi.Input['VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustSdsArgsDict']]
+    """
+    TLS validation context trust for a [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
+    """
 
 @pulumi.input_type
 class VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustArgs:
@@ -8390,14 +7971,11 @@ class VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustArgs:
         pulumi.set(self, "sds", value)
 
 
-if not MYPY:
-    class VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustAcmArgsDict(TypedDict):
-        certificate_authority_arns: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        One or more ACM ARNs.
-        """
-elif False:
-    VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustAcmArgsDict: TypeAlias = Mapping[str, Any]
+class VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustAcmArgsDict(TypedDict):
+    certificate_authority_arns: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    One or more ACM ARNs.
+    """
 
 @pulumi.input_type
 class VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustAcmArgs:
@@ -8421,14 +7999,11 @@ class VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustAcmArgs:
         pulumi.set(self, "certificate_authority_arns", value)
 
 
-if not MYPY:
-    class VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFileArgsDict(TypedDict):
-        certificate_chain: pulumi.Input[_builtins.str]
-        """
-        Certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
-        """
-elif False:
-    VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFileArgsDict: TypeAlias = Mapping[str, Any]
+class VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFileArgsDict(TypedDict):
+    certificate_chain: pulumi.Input[_builtins.str]
+    """
+    Certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
+    """
 
 @pulumi.input_type
 class VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFileArgs:
@@ -8452,14 +8027,11 @@ class VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFileArgs:
         pulumi.set(self, "certificate_chain", value)
 
 
-if not MYPY:
-    class VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustSdsArgsDict(TypedDict):
-        secret_name: pulumi.Input[_builtins.str]
-        """
-        Name of the secret for a virtual node's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
-        """
-elif False:
-    VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustSdsArgsDict: TypeAlias = Mapping[str, Any]
+class VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustSdsArgsDict(TypedDict):
+    secret_name: pulumi.Input[_builtins.str]
+    """
+    Name of the secret for a virtual node's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
+    """
 
 @pulumi.input_type
 class VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustSdsArgs:
@@ -8483,18 +8055,15 @@ class VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustSdsArgs:
         pulumi.set(self, "secret_name", value)
 
 
-if not MYPY:
-    class VirtualNodeSpecBackendVirtualServiceArgsDict(TypedDict):
-        virtual_service_name: pulumi.Input[_builtins.str]
-        """
-        Name of the virtual service that is acting as a virtual node backend. Must be between 1 and 255 characters in length.
-        """
-        client_policy: NotRequired[pulumi.Input['VirtualNodeSpecBackendVirtualServiceClientPolicyArgsDict']]
-        """
-        Client policy for the backend.
-        """
-elif False:
-    VirtualNodeSpecBackendVirtualServiceArgsDict: TypeAlias = Mapping[str, Any]
+class VirtualNodeSpecBackendVirtualServiceArgsDict(TypedDict):
+    virtual_service_name: pulumi.Input[_builtins.str]
+    """
+    Name of the virtual service that is acting as a virtual node backend. Must be between 1 and 255 characters in length.
+    """
+    client_policy: NotRequired[pulumi.Input['VirtualNodeSpecBackendVirtualServiceClientPolicyArgsDict']]
+    """
+    Client policy for the backend.
+    """
 
 @pulumi.input_type
 class VirtualNodeSpecBackendVirtualServiceArgs:
@@ -8534,14 +8103,11 @@ class VirtualNodeSpecBackendVirtualServiceArgs:
         pulumi.set(self, "client_policy", value)
 
 
-if not MYPY:
-    class VirtualNodeSpecBackendVirtualServiceClientPolicyArgsDict(TypedDict):
-        tls: NotRequired[pulumi.Input['VirtualNodeSpecBackendVirtualServiceClientPolicyTlsArgsDict']]
-        """
-        Transport Layer Security (TLS) client policy.
-        """
-elif False:
-    VirtualNodeSpecBackendVirtualServiceClientPolicyArgsDict: TypeAlias = Mapping[str, Any]
+class VirtualNodeSpecBackendVirtualServiceClientPolicyArgsDict(TypedDict):
+    tls: NotRequired[pulumi.Input['VirtualNodeSpecBackendVirtualServiceClientPolicyTlsArgsDict']]
+    """
+    Transport Layer Security (TLS) client policy.
+    """
 
 @pulumi.input_type
 class VirtualNodeSpecBackendVirtualServiceClientPolicyArgs:
@@ -8566,26 +8132,23 @@ class VirtualNodeSpecBackendVirtualServiceClientPolicyArgs:
         pulumi.set(self, "tls", value)
 
 
-if not MYPY:
-    class VirtualNodeSpecBackendVirtualServiceClientPolicyTlsArgsDict(TypedDict):
-        validation: pulumi.Input['VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationArgsDict']
-        """
-        Listener's Transport Layer Security (TLS) validation context.
-        """
-        certificate: NotRequired[pulumi.Input['VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateArgsDict']]
-        """
-        Listener's TLS certificate.
-        """
-        enforce: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether the policy is enforced. Default is `true`.
-        """
-        ports: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]
-        """
-        One or more ports that the policy is enforced for.
-        """
-elif False:
-    VirtualNodeSpecBackendVirtualServiceClientPolicyTlsArgsDict: TypeAlias = Mapping[str, Any]
+class VirtualNodeSpecBackendVirtualServiceClientPolicyTlsArgsDict(TypedDict):
+    validation: pulumi.Input['VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationArgsDict']
+    """
+    Listener's Transport Layer Security (TLS) validation context.
+    """
+    certificate: NotRequired[pulumi.Input['VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateArgsDict']]
+    """
+    Listener's TLS certificate.
+    """
+    enforce: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether the policy is enforced. Default is `true`.
+    """
+    ports: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]]
+    """
+    One or more ports that the policy is enforced for.
+    """
 
 @pulumi.input_type
 class VirtualNodeSpecBackendVirtualServiceClientPolicyTlsArgs:
@@ -8657,18 +8220,15 @@ class VirtualNodeSpecBackendVirtualServiceClientPolicyTlsArgs:
         pulumi.set(self, "ports", value)
 
 
-if not MYPY:
-    class VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateArgsDict(TypedDict):
-        file: NotRequired[pulumi.Input['VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateFileArgsDict']]
-        """
-        Local file certificate.
-        """
-        sds: NotRequired[pulumi.Input['VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateSdsArgsDict']]
-        """
-        A [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
-        """
-elif False:
-    VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateArgsDict: TypeAlias = Mapping[str, Any]
+class VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateArgsDict(TypedDict):
+    file: NotRequired[pulumi.Input['VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateFileArgsDict']]
+    """
+    Local file certificate.
+    """
+    sds: NotRequired[pulumi.Input['VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateSdsArgsDict']]
+    """
+    A [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
+    """
 
 @pulumi.input_type
 class VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateArgs:
@@ -8709,18 +8269,15 @@ class VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateArgs:
         pulumi.set(self, "sds", value)
 
 
-if not MYPY:
-    class VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateFileArgsDict(TypedDict):
-        certificate_chain: pulumi.Input[_builtins.str]
-        """
-        Certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
-        """
-        private_key: pulumi.Input[_builtins.str]
-        """
-        Private key for a certificate stored on the file system of the virtual node that the proxy is running on. Must be between 1 and 255 characters in length.
-        """
-elif False:
-    VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateFileArgsDict: TypeAlias = Mapping[str, Any]
+class VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateFileArgsDict(TypedDict):
+    certificate_chain: pulumi.Input[_builtins.str]
+    """
+    Certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
+    """
+    private_key: pulumi.Input[_builtins.str]
+    """
+    Private key for a certificate stored on the file system of the virtual node that the proxy is running on. Must be between 1 and 255 characters in length.
+    """
 
 @pulumi.input_type
 class VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateFileArgs:
@@ -8759,14 +8316,11 @@ class VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateFileArgs:
         pulumi.set(self, "private_key", value)
 
 
-if not MYPY:
-    class VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateSdsArgsDict(TypedDict):
-        secret_name: pulumi.Input[_builtins.str]
-        """
-        Name of the secret for a virtual node's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
-        """
-elif False:
-    VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateSdsArgsDict: TypeAlias = Mapping[str, Any]
+class VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateSdsArgsDict(TypedDict):
+    secret_name: pulumi.Input[_builtins.str]
+    """
+    Name of the secret for a virtual node's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
+    """
 
 @pulumi.input_type
 class VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateSdsArgs:
@@ -8790,18 +8344,15 @@ class VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateSdsArgs:
         pulumi.set(self, "secret_name", value)
 
 
-if not MYPY:
-    class VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationArgsDict(TypedDict):
-        trust: pulumi.Input['VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustArgsDict']
-        """
-        TLS validation context trust.
-        """
-        subject_alternative_names: NotRequired[pulumi.Input['VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesArgsDict']]
-        """
-        SANs for a TLS validation context.
-        """
-elif False:
-    VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationArgsDict: TypeAlias = Mapping[str, Any]
+class VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationArgsDict(TypedDict):
+    trust: pulumi.Input['VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustArgsDict']
+    """
+    TLS validation context trust.
+    """
+    subject_alternative_names: NotRequired[pulumi.Input['VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesArgsDict']]
+    """
+    SANs for a TLS validation context.
+    """
 
 @pulumi.input_type
 class VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationArgs:
@@ -8841,14 +8392,11 @@ class VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationArgs:
         pulumi.set(self, "subject_alternative_names", value)
 
 
-if not MYPY:
-    class VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesArgsDict(TypedDict):
-        match: pulumi.Input['VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesMatchArgsDict']
-        """
-        Criteria for determining a SAN's match.
-        """
-elif False:
-    VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesArgsDict: TypeAlias = Mapping[str, Any]
+class VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesArgsDict(TypedDict):
+    match: pulumi.Input['VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesMatchArgsDict']
+    """
+    Criteria for determining a SAN's match.
+    """
 
 @pulumi.input_type
 class VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesArgs:
@@ -8872,14 +8420,11 @@ class VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAltern
         pulumi.set(self, "match", value)
 
 
-if not MYPY:
-    class VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesMatchArgsDict(TypedDict):
-        exacts: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        Values sent must match the specified values exactly.
-        """
-elif False:
-    VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesMatchArgsDict: TypeAlias = Mapping[str, Any]
+class VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesMatchArgsDict(TypedDict):
+    exacts: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    Values sent must match the specified values exactly.
+    """
 
 @pulumi.input_type
 class VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAlternativeNamesMatchArgs:
@@ -8903,22 +8448,19 @@ class VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationSubjectAltern
         pulumi.set(self, "exacts", value)
 
 
-if not MYPY:
-    class VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustArgsDict(TypedDict):
-        acm: NotRequired[pulumi.Input['VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustAcmArgsDict']]
-        """
-        TLS validation context trust for an AWS Certificate Manager (ACM) certificate.
-        """
-        file: NotRequired[pulumi.Input['VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFileArgsDict']]
-        """
-        TLS validation context trust for a local file certificate.
-        """
-        sds: NotRequired[pulumi.Input['VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustSdsArgsDict']]
-        """
-        TLS validation context trust for a [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
-        """
-elif False:
-    VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustArgsDict: TypeAlias = Mapping[str, Any]
+class VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustArgsDict(TypedDict):
+    acm: NotRequired[pulumi.Input['VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustAcmArgsDict']]
+    """
+    TLS validation context trust for an AWS Certificate Manager (ACM) certificate.
+    """
+    file: NotRequired[pulumi.Input['VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFileArgsDict']]
+    """
+    TLS validation context trust for a local file certificate.
+    """
+    sds: NotRequired[pulumi.Input['VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustSdsArgsDict']]
+    """
+    TLS validation context trust for a [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
+    """
 
 @pulumi.input_type
 class VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustArgs:
@@ -8975,14 +8517,11 @@ class VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustArgs:
         pulumi.set(self, "sds", value)
 
 
-if not MYPY:
-    class VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustAcmArgsDict(TypedDict):
-        certificate_authority_arns: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        One or more ACM ARNs.
-        """
-elif False:
-    VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustAcmArgsDict: TypeAlias = Mapping[str, Any]
+class VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustAcmArgsDict(TypedDict):
+    certificate_authority_arns: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    One or more ACM ARNs.
+    """
 
 @pulumi.input_type
 class VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustAcmArgs:
@@ -9006,14 +8545,11 @@ class VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustAcmArgs:
         pulumi.set(self, "certificate_authority_arns", value)
 
 
-if not MYPY:
-    class VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFileArgsDict(TypedDict):
-        certificate_chain: pulumi.Input[_builtins.str]
-        """
-        Certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
-        """
-elif False:
-    VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFileArgsDict: TypeAlias = Mapping[str, Any]
+class VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFileArgsDict(TypedDict):
+    certificate_chain: pulumi.Input[_builtins.str]
+    """
+    Certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
+    """
 
 @pulumi.input_type
 class VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFileArgs:
@@ -9037,14 +8573,11 @@ class VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFileArgs
         pulumi.set(self, "certificate_chain", value)
 
 
-if not MYPY:
-    class VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustSdsArgsDict(TypedDict):
-        secret_name: pulumi.Input[_builtins.str]
-        """
-        Name of the secret for a virtual node's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
-        """
-elif False:
-    VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustSdsArgsDict: TypeAlias = Mapping[str, Any]
+class VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustSdsArgsDict(TypedDict):
+    secret_name: pulumi.Input[_builtins.str]
+    """
+    Name of the secret for a virtual node's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
+    """
 
 @pulumi.input_type
 class VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustSdsArgs:
@@ -9068,34 +8601,31 @@ class VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustSdsArgs:
         pulumi.set(self, "secret_name", value)
 
 
-if not MYPY:
-    class VirtualNodeSpecListenerArgsDict(TypedDict):
-        port_mapping: pulumi.Input['VirtualNodeSpecListenerPortMappingArgsDict']
-        """
-        Port mapping information for the listener.
-        """
-        connection_pool: NotRequired[pulumi.Input['VirtualNodeSpecListenerConnectionPoolArgsDict']]
-        """
-        Connection pool information for the listener.
-        """
-        health_check: NotRequired[pulumi.Input['VirtualNodeSpecListenerHealthCheckArgsDict']]
-        """
-        Health check information for the listener.
-        """
-        outlier_detection: NotRequired[pulumi.Input['VirtualNodeSpecListenerOutlierDetectionArgsDict']]
-        """
-        Outlier detection information for the listener.
-        """
-        timeout: NotRequired[pulumi.Input['VirtualNodeSpecListenerTimeoutArgsDict']]
-        """
-        Timeouts for different protocols.
-        """
-        tls: NotRequired[pulumi.Input['VirtualNodeSpecListenerTlsArgsDict']]
-        """
-        Transport Layer Security (TLS) properties for the listener
-        """
-elif False:
-    VirtualNodeSpecListenerArgsDict: TypeAlias = Mapping[str, Any]
+class VirtualNodeSpecListenerArgsDict(TypedDict):
+    port_mapping: pulumi.Input['VirtualNodeSpecListenerPortMappingArgsDict']
+    """
+    Port mapping information for the listener.
+    """
+    connection_pool: NotRequired[pulumi.Input['VirtualNodeSpecListenerConnectionPoolArgsDict']]
+    """
+    Connection pool information for the listener.
+    """
+    health_check: NotRequired[pulumi.Input['VirtualNodeSpecListenerHealthCheckArgsDict']]
+    """
+    Health check information for the listener.
+    """
+    outlier_detection: NotRequired[pulumi.Input['VirtualNodeSpecListenerOutlierDetectionArgsDict']]
+    """
+    Outlier detection information for the listener.
+    """
+    timeout: NotRequired[pulumi.Input['VirtualNodeSpecListenerTimeoutArgsDict']]
+    """
+    Timeouts for different protocols.
+    """
+    tls: NotRequired[pulumi.Input['VirtualNodeSpecListenerTlsArgsDict']]
+    """
+    Transport Layer Security (TLS) properties for the listener
+    """
 
 @pulumi.input_type
 class VirtualNodeSpecListenerArgs:
@@ -9199,26 +8729,23 @@ class VirtualNodeSpecListenerArgs:
         pulumi.set(self, "tls", value)
 
 
-if not MYPY:
-    class VirtualNodeSpecListenerConnectionPoolArgsDict(TypedDict):
-        grpc: NotRequired[pulumi.Input['VirtualNodeSpecListenerConnectionPoolGrpcArgsDict']]
-        """
-        Connection pool information for gRPC listeners.
-        """
-        http2s: NotRequired[pulumi.Input[Sequence[pulumi.Input['VirtualNodeSpecListenerConnectionPoolHttp2ArgsDict']]]]
-        """
-        Connection pool information for HTTP2 listeners.
-        """
-        https: NotRequired[pulumi.Input[Sequence[pulumi.Input['VirtualNodeSpecListenerConnectionPoolHttpArgsDict']]]]
-        """
-        Connection pool information for HTTP listeners.
-        """
-        tcps: NotRequired[pulumi.Input[Sequence[pulumi.Input['VirtualNodeSpecListenerConnectionPoolTcpArgsDict']]]]
-        """
-        Connection pool information for TCP listeners.
-        """
-elif False:
-    VirtualNodeSpecListenerConnectionPoolArgsDict: TypeAlias = Mapping[str, Any]
+class VirtualNodeSpecListenerConnectionPoolArgsDict(TypedDict):
+    grpc: NotRequired[pulumi.Input['VirtualNodeSpecListenerConnectionPoolGrpcArgsDict']]
+    """
+    Connection pool information for gRPC listeners.
+    """
+    http2s: NotRequired[pulumi.Input[Sequence[pulumi.Input['VirtualNodeSpecListenerConnectionPoolHttp2ArgsDict']]]]
+    """
+    Connection pool information for HTTP2 listeners.
+    """
+    https: NotRequired[pulumi.Input[Sequence[pulumi.Input['VirtualNodeSpecListenerConnectionPoolHttpArgsDict']]]]
+    """
+    Connection pool information for HTTP listeners.
+    """
+    tcps: NotRequired[pulumi.Input[Sequence[pulumi.Input['VirtualNodeSpecListenerConnectionPoolTcpArgsDict']]]]
+    """
+    Connection pool information for TCP listeners.
+    """
 
 @pulumi.input_type
 class VirtualNodeSpecListenerConnectionPoolArgs:
@@ -9291,14 +8818,11 @@ class VirtualNodeSpecListenerConnectionPoolArgs:
         pulumi.set(self, "tcps", value)
 
 
-if not MYPY:
-    class VirtualNodeSpecListenerConnectionPoolGrpcArgsDict(TypedDict):
-        max_requests: pulumi.Input[_builtins.int]
-        """
-        Maximum number of inflight requests Envoy can concurrently support across hosts in upstream cluster. Minimum value of `1`.
-        """
-elif False:
-    VirtualNodeSpecListenerConnectionPoolGrpcArgsDict: TypeAlias = Mapping[str, Any]
+class VirtualNodeSpecListenerConnectionPoolGrpcArgsDict(TypedDict):
+    max_requests: pulumi.Input[_builtins.int]
+    """
+    Maximum number of inflight requests Envoy can concurrently support across hosts in upstream cluster. Minimum value of `1`.
+    """
 
 @pulumi.input_type
 class VirtualNodeSpecListenerConnectionPoolGrpcArgs:
@@ -9322,14 +8846,11 @@ class VirtualNodeSpecListenerConnectionPoolGrpcArgs:
         pulumi.set(self, "max_requests", value)
 
 
-if not MYPY:
-    class VirtualNodeSpecListenerConnectionPoolHttp2ArgsDict(TypedDict):
-        max_requests: pulumi.Input[_builtins.int]
-        """
-        Maximum number of inflight requests Envoy can concurrently support across hosts in upstream cluster. Minimum value of `1`.
-        """
-elif False:
-    VirtualNodeSpecListenerConnectionPoolHttp2ArgsDict: TypeAlias = Mapping[str, Any]
+class VirtualNodeSpecListenerConnectionPoolHttp2ArgsDict(TypedDict):
+    max_requests: pulumi.Input[_builtins.int]
+    """
+    Maximum number of inflight requests Envoy can concurrently support across hosts in upstream cluster. Minimum value of `1`.
+    """
 
 @pulumi.input_type
 class VirtualNodeSpecListenerConnectionPoolHttp2Args:
@@ -9353,18 +8874,15 @@ class VirtualNodeSpecListenerConnectionPoolHttp2Args:
         pulumi.set(self, "max_requests", value)
 
 
-if not MYPY:
-    class VirtualNodeSpecListenerConnectionPoolHttpArgsDict(TypedDict):
-        max_connections: pulumi.Input[_builtins.int]
-        """
-        Maximum number of outbound TCP connections Envoy can establish concurrently with all hosts in upstream cluster. Minimum value of `1`.
-        """
-        max_pending_requests: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Number of overflowing requests after `max_connections` Envoy will queue to upstream cluster. Minimum value of `1`.
-        """
-elif False:
-    VirtualNodeSpecListenerConnectionPoolHttpArgsDict: TypeAlias = Mapping[str, Any]
+class VirtualNodeSpecListenerConnectionPoolHttpArgsDict(TypedDict):
+    max_connections: pulumi.Input[_builtins.int]
+    """
+    Maximum number of outbound TCP connections Envoy can establish concurrently with all hosts in upstream cluster. Minimum value of `1`.
+    """
+    max_pending_requests: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Number of overflowing requests after `max_connections` Envoy will queue to upstream cluster. Minimum value of `1`.
+    """
 
 @pulumi.input_type
 class VirtualNodeSpecListenerConnectionPoolHttpArgs:
@@ -9404,14 +8922,11 @@ class VirtualNodeSpecListenerConnectionPoolHttpArgs:
         pulumi.set(self, "max_pending_requests", value)
 
 
-if not MYPY:
-    class VirtualNodeSpecListenerConnectionPoolTcpArgsDict(TypedDict):
-        max_connections: pulumi.Input[_builtins.int]
-        """
-        Maximum number of outbound TCP connections Envoy can establish concurrently with all hosts in upstream cluster. Minimum value of `1`.
-        """
-elif False:
-    VirtualNodeSpecListenerConnectionPoolTcpArgsDict: TypeAlias = Mapping[str, Any]
+class VirtualNodeSpecListenerConnectionPoolTcpArgsDict(TypedDict):
+    max_connections: pulumi.Input[_builtins.int]
+    """
+    Maximum number of outbound TCP connections Envoy can establish concurrently with all hosts in upstream cluster. Minimum value of `1`.
+    """
 
 @pulumi.input_type
 class VirtualNodeSpecListenerConnectionPoolTcpArgs:
@@ -9435,38 +8950,35 @@ class VirtualNodeSpecListenerConnectionPoolTcpArgs:
         pulumi.set(self, "max_connections", value)
 
 
-if not MYPY:
-    class VirtualNodeSpecListenerHealthCheckArgsDict(TypedDict):
-        healthy_threshold: pulumi.Input[_builtins.int]
-        """
-        Number of consecutive successful health checks that must occur before declaring listener healthy.
-        """
-        interval_millis: pulumi.Input[_builtins.int]
-        """
-        Time period in milliseconds between each health check execution.
-        """
-        protocol: pulumi.Input[_builtins.str]
-        """
-        Protocol for the health check request. Valid values are `http`, `http2`, `tcp` and `grpc`.
-        """
-        timeout_millis: pulumi.Input[_builtins.int]
-        """
-        Amount of time to wait when receiving a response from the health check, in milliseconds.
-        """
-        unhealthy_threshold: pulumi.Input[_builtins.int]
-        """
-        Number of consecutive failed health checks that must occur before declaring a virtual node unhealthy.
-        """
-        path: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Destination path for the health check request. This is only required if the specified protocol is `http` or `http2`.
-        """
-        port: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Destination port for the health check request. This port must match the port defined in the `port_mapping` for the listener.
-        """
-elif False:
-    VirtualNodeSpecListenerHealthCheckArgsDict: TypeAlias = Mapping[str, Any]
+class VirtualNodeSpecListenerHealthCheckArgsDict(TypedDict):
+    healthy_threshold: pulumi.Input[_builtins.int]
+    """
+    Number of consecutive successful health checks that must occur before declaring listener healthy.
+    """
+    interval_millis: pulumi.Input[_builtins.int]
+    """
+    Time period in milliseconds between each health check execution.
+    """
+    protocol: pulumi.Input[_builtins.str]
+    """
+    Protocol for the health check request. Valid values are `http`, `http2`, `tcp` and `grpc`.
+    """
+    timeout_millis: pulumi.Input[_builtins.int]
+    """
+    Amount of time to wait when receiving a response from the health check, in milliseconds.
+    """
+    unhealthy_threshold: pulumi.Input[_builtins.int]
+    """
+    Number of consecutive failed health checks that must occur before declaring a virtual node unhealthy.
+    """
+    path: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Destination path for the health check request. This is only required if the specified protocol is `http` or `http2`.
+    """
+    port: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Destination port for the health check request. This port must match the port defined in the `port_mapping` for the listener.
+    """
 
 @pulumi.input_type
 class VirtualNodeSpecListenerHealthCheckArgs:
@@ -9582,27 +9094,24 @@ class VirtualNodeSpecListenerHealthCheckArgs:
         pulumi.set(self, "port", value)
 
 
-if not MYPY:
-    class VirtualNodeSpecListenerOutlierDetectionArgsDict(TypedDict):
-        base_ejection_duration: pulumi.Input['VirtualNodeSpecListenerOutlierDetectionBaseEjectionDurationArgsDict']
-        """
-        Base amount of time for which a host is ejected.
-        """
-        interval: pulumi.Input['VirtualNodeSpecListenerOutlierDetectionIntervalArgsDict']
-        """
-        Time interval between ejection sweep analysis.
-        """
-        max_ejection_percent: pulumi.Input[_builtins.int]
-        """
-        Maximum percentage of hosts in load balancing pool for upstream service that can be ejected. Will eject at least one host regardless of the value.
-        Minimum value of `0`. Maximum value of `100`.
-        """
-        max_server_errors: pulumi.Input[_builtins.int]
-        """
-        Number of consecutive `5xx` errors required for ejection. Minimum value of `1`.
-        """
-elif False:
-    VirtualNodeSpecListenerOutlierDetectionArgsDict: TypeAlias = Mapping[str, Any]
+class VirtualNodeSpecListenerOutlierDetectionArgsDict(TypedDict):
+    base_ejection_duration: pulumi.Input['VirtualNodeSpecListenerOutlierDetectionBaseEjectionDurationArgsDict']
+    """
+    Base amount of time for which a host is ejected.
+    """
+    interval: pulumi.Input['VirtualNodeSpecListenerOutlierDetectionIntervalArgsDict']
+    """
+    Time interval between ejection sweep analysis.
+    """
+    max_ejection_percent: pulumi.Input[_builtins.int]
+    """
+    Maximum percentage of hosts in load balancing pool for upstream service that can be ejected. Will eject at least one host regardless of the value.
+    Minimum value of `0`. Maximum value of `100`.
+    """
+    max_server_errors: pulumi.Input[_builtins.int]
+    """
+    Number of consecutive `5xx` errors required for ejection. Minimum value of `1`.
+    """
 
 @pulumi.input_type
 class VirtualNodeSpecListenerOutlierDetectionArgs:
@@ -9673,18 +9182,15 @@ class VirtualNodeSpecListenerOutlierDetectionArgs:
         pulumi.set(self, "max_server_errors", value)
 
 
-if not MYPY:
-    class VirtualNodeSpecListenerOutlierDetectionBaseEjectionDurationArgsDict(TypedDict):
-        unit: pulumi.Input[_builtins.str]
-        """
-        Unit of time. Valid values: `ms`, `s`.
-        """
-        value: pulumi.Input[_builtins.int]
-        """
-        Number of time units. Minimum value of `0`.
-        """
-elif False:
-    VirtualNodeSpecListenerOutlierDetectionBaseEjectionDurationArgsDict: TypeAlias = Mapping[str, Any]
+class VirtualNodeSpecListenerOutlierDetectionBaseEjectionDurationArgsDict(TypedDict):
+    unit: pulumi.Input[_builtins.str]
+    """
+    Unit of time. Valid values: `ms`, `s`.
+    """
+    value: pulumi.Input[_builtins.int]
+    """
+    Number of time units. Minimum value of `0`.
+    """
 
 @pulumi.input_type
 class VirtualNodeSpecListenerOutlierDetectionBaseEjectionDurationArgs:
@@ -9723,18 +9229,15 @@ class VirtualNodeSpecListenerOutlierDetectionBaseEjectionDurationArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class VirtualNodeSpecListenerOutlierDetectionIntervalArgsDict(TypedDict):
-        unit: pulumi.Input[_builtins.str]
-        """
-        Unit of time. Valid values: `ms`, `s`.
-        """
-        value: pulumi.Input[_builtins.int]
-        """
-        Number of time units. Minimum value of `0`.
-        """
-elif False:
-    VirtualNodeSpecListenerOutlierDetectionIntervalArgsDict: TypeAlias = Mapping[str, Any]
+class VirtualNodeSpecListenerOutlierDetectionIntervalArgsDict(TypedDict):
+    unit: pulumi.Input[_builtins.str]
+    """
+    Unit of time. Valid values: `ms`, `s`.
+    """
+    value: pulumi.Input[_builtins.int]
+    """
+    Number of time units. Minimum value of `0`.
+    """
 
 @pulumi.input_type
 class VirtualNodeSpecListenerOutlierDetectionIntervalArgs:
@@ -9773,18 +9276,15 @@ class VirtualNodeSpecListenerOutlierDetectionIntervalArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class VirtualNodeSpecListenerPortMappingArgsDict(TypedDict):
-        port: pulumi.Input[_builtins.int]
-        """
-        Port used for the port mapping.
-        """
-        protocol: pulumi.Input[_builtins.str]
-        """
-        Protocol used for the port mapping. Valid values are `http`, `http2`, `tcp` and `grpc`.
-        """
-elif False:
-    VirtualNodeSpecListenerPortMappingArgsDict: TypeAlias = Mapping[str, Any]
+class VirtualNodeSpecListenerPortMappingArgsDict(TypedDict):
+    port: pulumi.Input[_builtins.int]
+    """
+    Port used for the port mapping.
+    """
+    protocol: pulumi.Input[_builtins.str]
+    """
+    Protocol used for the port mapping. Valid values are `http`, `http2`, `tcp` and `grpc`.
+    """
 
 @pulumi.input_type
 class VirtualNodeSpecListenerPortMappingArgs:
@@ -9823,26 +9323,23 @@ class VirtualNodeSpecListenerPortMappingArgs:
         pulumi.set(self, "protocol", value)
 
 
-if not MYPY:
-    class VirtualNodeSpecListenerTimeoutArgsDict(TypedDict):
-        grpc: NotRequired[pulumi.Input['VirtualNodeSpecListenerTimeoutGrpcArgsDict']]
-        """
-        Timeouts for gRPC listeners.
-        """
-        http: NotRequired[pulumi.Input['VirtualNodeSpecListenerTimeoutHttpArgsDict']]
-        """
-        Timeouts for HTTP listeners.
-        """
-        http2: NotRequired[pulumi.Input['VirtualNodeSpecListenerTimeoutHttp2ArgsDict']]
-        """
-        Timeouts for HTTP2 listeners.
-        """
-        tcp: NotRequired[pulumi.Input['VirtualNodeSpecListenerTimeoutTcpArgsDict']]
-        """
-        Timeouts for TCP listeners.
-        """
-elif False:
-    VirtualNodeSpecListenerTimeoutArgsDict: TypeAlias = Mapping[str, Any]
+class VirtualNodeSpecListenerTimeoutArgsDict(TypedDict):
+    grpc: NotRequired[pulumi.Input['VirtualNodeSpecListenerTimeoutGrpcArgsDict']]
+    """
+    Timeouts for gRPC listeners.
+    """
+    http: NotRequired[pulumi.Input['VirtualNodeSpecListenerTimeoutHttpArgsDict']]
+    """
+    Timeouts for HTTP listeners.
+    """
+    http2: NotRequired[pulumi.Input['VirtualNodeSpecListenerTimeoutHttp2ArgsDict']]
+    """
+    Timeouts for HTTP2 listeners.
+    """
+    tcp: NotRequired[pulumi.Input['VirtualNodeSpecListenerTimeoutTcpArgsDict']]
+    """
+    Timeouts for TCP listeners.
+    """
 
 @pulumi.input_type
 class VirtualNodeSpecListenerTimeoutArgs:
@@ -9915,18 +9412,15 @@ class VirtualNodeSpecListenerTimeoutArgs:
         pulumi.set(self, "tcp", value)
 
 
-if not MYPY:
-    class VirtualNodeSpecListenerTimeoutGrpcArgsDict(TypedDict):
-        idle: NotRequired[pulumi.Input['VirtualNodeSpecListenerTimeoutGrpcIdleArgsDict']]
-        """
-        Idle timeout. An idle timeout bounds the amount of time that a connection may be idle.
-        """
-        per_request: NotRequired[pulumi.Input['VirtualNodeSpecListenerTimeoutGrpcPerRequestArgsDict']]
-        """
-        Per request timeout.
-        """
-elif False:
-    VirtualNodeSpecListenerTimeoutGrpcArgsDict: TypeAlias = Mapping[str, Any]
+class VirtualNodeSpecListenerTimeoutGrpcArgsDict(TypedDict):
+    idle: NotRequired[pulumi.Input['VirtualNodeSpecListenerTimeoutGrpcIdleArgsDict']]
+    """
+    Idle timeout. An idle timeout bounds the amount of time that a connection may be idle.
+    """
+    per_request: NotRequired[pulumi.Input['VirtualNodeSpecListenerTimeoutGrpcPerRequestArgsDict']]
+    """
+    Per request timeout.
+    """
 
 @pulumi.input_type
 class VirtualNodeSpecListenerTimeoutGrpcArgs:
@@ -9967,18 +9461,15 @@ class VirtualNodeSpecListenerTimeoutGrpcArgs:
         pulumi.set(self, "per_request", value)
 
 
-if not MYPY:
-    class VirtualNodeSpecListenerTimeoutGrpcIdleArgsDict(TypedDict):
-        unit: pulumi.Input[_builtins.str]
-        """
-        Unit of time. Valid values: `ms`, `s`.
-        """
-        value: pulumi.Input[_builtins.int]
-        """
-        Number of time units. Minimum value of `0`.
-        """
-elif False:
-    VirtualNodeSpecListenerTimeoutGrpcIdleArgsDict: TypeAlias = Mapping[str, Any]
+class VirtualNodeSpecListenerTimeoutGrpcIdleArgsDict(TypedDict):
+    unit: pulumi.Input[_builtins.str]
+    """
+    Unit of time. Valid values: `ms`, `s`.
+    """
+    value: pulumi.Input[_builtins.int]
+    """
+    Number of time units. Minimum value of `0`.
+    """
 
 @pulumi.input_type
 class VirtualNodeSpecListenerTimeoutGrpcIdleArgs:
@@ -10017,18 +9508,15 @@ class VirtualNodeSpecListenerTimeoutGrpcIdleArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class VirtualNodeSpecListenerTimeoutGrpcPerRequestArgsDict(TypedDict):
-        unit: pulumi.Input[_builtins.str]
-        """
-        Unit of time. Valid values: `ms`, `s`.
-        """
-        value: pulumi.Input[_builtins.int]
-        """
-        Number of time units. Minimum value of `0`.
-        """
-elif False:
-    VirtualNodeSpecListenerTimeoutGrpcPerRequestArgsDict: TypeAlias = Mapping[str, Any]
+class VirtualNodeSpecListenerTimeoutGrpcPerRequestArgsDict(TypedDict):
+    unit: pulumi.Input[_builtins.str]
+    """
+    Unit of time. Valid values: `ms`, `s`.
+    """
+    value: pulumi.Input[_builtins.int]
+    """
+    Number of time units. Minimum value of `0`.
+    """
 
 @pulumi.input_type
 class VirtualNodeSpecListenerTimeoutGrpcPerRequestArgs:
@@ -10067,18 +9555,15 @@ class VirtualNodeSpecListenerTimeoutGrpcPerRequestArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class VirtualNodeSpecListenerTimeoutHttp2ArgsDict(TypedDict):
-        idle: NotRequired[pulumi.Input['VirtualNodeSpecListenerTimeoutHttp2IdleArgsDict']]
-        """
-        Idle timeout. An idle timeout bounds the amount of time that a connection may be idle.
-        """
-        per_request: NotRequired[pulumi.Input['VirtualNodeSpecListenerTimeoutHttp2PerRequestArgsDict']]
-        """
-        Per request timeout.
-        """
-elif False:
-    VirtualNodeSpecListenerTimeoutHttp2ArgsDict: TypeAlias = Mapping[str, Any]
+class VirtualNodeSpecListenerTimeoutHttp2ArgsDict(TypedDict):
+    idle: NotRequired[pulumi.Input['VirtualNodeSpecListenerTimeoutHttp2IdleArgsDict']]
+    """
+    Idle timeout. An idle timeout bounds the amount of time that a connection may be idle.
+    """
+    per_request: NotRequired[pulumi.Input['VirtualNodeSpecListenerTimeoutHttp2PerRequestArgsDict']]
+    """
+    Per request timeout.
+    """
 
 @pulumi.input_type
 class VirtualNodeSpecListenerTimeoutHttp2Args:
@@ -10119,18 +9604,15 @@ class VirtualNodeSpecListenerTimeoutHttp2Args:
         pulumi.set(self, "per_request", value)
 
 
-if not MYPY:
-    class VirtualNodeSpecListenerTimeoutHttp2IdleArgsDict(TypedDict):
-        unit: pulumi.Input[_builtins.str]
-        """
-        Unit of time. Valid values: `ms`, `s`.
-        """
-        value: pulumi.Input[_builtins.int]
-        """
-        Number of time units. Minimum value of `0`.
-        """
-elif False:
-    VirtualNodeSpecListenerTimeoutHttp2IdleArgsDict: TypeAlias = Mapping[str, Any]
+class VirtualNodeSpecListenerTimeoutHttp2IdleArgsDict(TypedDict):
+    unit: pulumi.Input[_builtins.str]
+    """
+    Unit of time. Valid values: `ms`, `s`.
+    """
+    value: pulumi.Input[_builtins.int]
+    """
+    Number of time units. Minimum value of `0`.
+    """
 
 @pulumi.input_type
 class VirtualNodeSpecListenerTimeoutHttp2IdleArgs:
@@ -10169,18 +9651,15 @@ class VirtualNodeSpecListenerTimeoutHttp2IdleArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class VirtualNodeSpecListenerTimeoutHttp2PerRequestArgsDict(TypedDict):
-        unit: pulumi.Input[_builtins.str]
-        """
-        Unit of time. Valid values: `ms`, `s`.
-        """
-        value: pulumi.Input[_builtins.int]
-        """
-        Number of time units. Minimum value of `0`.
-        """
-elif False:
-    VirtualNodeSpecListenerTimeoutHttp2PerRequestArgsDict: TypeAlias = Mapping[str, Any]
+class VirtualNodeSpecListenerTimeoutHttp2PerRequestArgsDict(TypedDict):
+    unit: pulumi.Input[_builtins.str]
+    """
+    Unit of time. Valid values: `ms`, `s`.
+    """
+    value: pulumi.Input[_builtins.int]
+    """
+    Number of time units. Minimum value of `0`.
+    """
 
 @pulumi.input_type
 class VirtualNodeSpecListenerTimeoutHttp2PerRequestArgs:
@@ -10219,18 +9698,15 @@ class VirtualNodeSpecListenerTimeoutHttp2PerRequestArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class VirtualNodeSpecListenerTimeoutHttpArgsDict(TypedDict):
-        idle: NotRequired[pulumi.Input['VirtualNodeSpecListenerTimeoutHttpIdleArgsDict']]
-        """
-        Idle timeout. An idle timeout bounds the amount of time that a connection may be idle.
-        """
-        per_request: NotRequired[pulumi.Input['VirtualNodeSpecListenerTimeoutHttpPerRequestArgsDict']]
-        """
-        Per request timeout.
-        """
-elif False:
-    VirtualNodeSpecListenerTimeoutHttpArgsDict: TypeAlias = Mapping[str, Any]
+class VirtualNodeSpecListenerTimeoutHttpArgsDict(TypedDict):
+    idle: NotRequired[pulumi.Input['VirtualNodeSpecListenerTimeoutHttpIdleArgsDict']]
+    """
+    Idle timeout. An idle timeout bounds the amount of time that a connection may be idle.
+    """
+    per_request: NotRequired[pulumi.Input['VirtualNodeSpecListenerTimeoutHttpPerRequestArgsDict']]
+    """
+    Per request timeout.
+    """
 
 @pulumi.input_type
 class VirtualNodeSpecListenerTimeoutHttpArgs:
@@ -10271,18 +9747,15 @@ class VirtualNodeSpecListenerTimeoutHttpArgs:
         pulumi.set(self, "per_request", value)
 
 
-if not MYPY:
-    class VirtualNodeSpecListenerTimeoutHttpIdleArgsDict(TypedDict):
-        unit: pulumi.Input[_builtins.str]
-        """
-        Unit of time. Valid values: `ms`, `s`.
-        """
-        value: pulumi.Input[_builtins.int]
-        """
-        Number of time units. Minimum value of `0`.
-        """
-elif False:
-    VirtualNodeSpecListenerTimeoutHttpIdleArgsDict: TypeAlias = Mapping[str, Any]
+class VirtualNodeSpecListenerTimeoutHttpIdleArgsDict(TypedDict):
+    unit: pulumi.Input[_builtins.str]
+    """
+    Unit of time. Valid values: `ms`, `s`.
+    """
+    value: pulumi.Input[_builtins.int]
+    """
+    Number of time units. Minimum value of `0`.
+    """
 
 @pulumi.input_type
 class VirtualNodeSpecListenerTimeoutHttpIdleArgs:
@@ -10321,18 +9794,15 @@ class VirtualNodeSpecListenerTimeoutHttpIdleArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class VirtualNodeSpecListenerTimeoutHttpPerRequestArgsDict(TypedDict):
-        unit: pulumi.Input[_builtins.str]
-        """
-        Unit of time. Valid values: `ms`, `s`.
-        """
-        value: pulumi.Input[_builtins.int]
-        """
-        Number of time units. Minimum value of `0`.
-        """
-elif False:
-    VirtualNodeSpecListenerTimeoutHttpPerRequestArgsDict: TypeAlias = Mapping[str, Any]
+class VirtualNodeSpecListenerTimeoutHttpPerRequestArgsDict(TypedDict):
+    unit: pulumi.Input[_builtins.str]
+    """
+    Unit of time. Valid values: `ms`, `s`.
+    """
+    value: pulumi.Input[_builtins.int]
+    """
+    Number of time units. Minimum value of `0`.
+    """
 
 @pulumi.input_type
 class VirtualNodeSpecListenerTimeoutHttpPerRequestArgs:
@@ -10371,14 +9841,11 @@ class VirtualNodeSpecListenerTimeoutHttpPerRequestArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class VirtualNodeSpecListenerTimeoutTcpArgsDict(TypedDict):
-        idle: NotRequired[pulumi.Input['VirtualNodeSpecListenerTimeoutTcpIdleArgsDict']]
-        """
-        Idle timeout. An idle timeout bounds the amount of time that a connection may be idle.
-        """
-elif False:
-    VirtualNodeSpecListenerTimeoutTcpArgsDict: TypeAlias = Mapping[str, Any]
+class VirtualNodeSpecListenerTimeoutTcpArgsDict(TypedDict):
+    idle: NotRequired[pulumi.Input['VirtualNodeSpecListenerTimeoutTcpIdleArgsDict']]
+    """
+    Idle timeout. An idle timeout bounds the amount of time that a connection may be idle.
+    """
 
 @pulumi.input_type
 class VirtualNodeSpecListenerTimeoutTcpArgs:
@@ -10403,18 +9870,15 @@ class VirtualNodeSpecListenerTimeoutTcpArgs:
         pulumi.set(self, "idle", value)
 
 
-if not MYPY:
-    class VirtualNodeSpecListenerTimeoutTcpIdleArgsDict(TypedDict):
-        unit: pulumi.Input[_builtins.str]
-        """
-        Unit of time. Valid values: `ms`, `s`.
-        """
-        value: pulumi.Input[_builtins.int]
-        """
-        Number of time units. Minimum value of `0`.
-        """
-elif False:
-    VirtualNodeSpecListenerTimeoutTcpIdleArgsDict: TypeAlias = Mapping[str, Any]
+class VirtualNodeSpecListenerTimeoutTcpIdleArgsDict(TypedDict):
+    unit: pulumi.Input[_builtins.str]
+    """
+    Unit of time. Valid values: `ms`, `s`.
+    """
+    value: pulumi.Input[_builtins.int]
+    """
+    Number of time units. Minimum value of `0`.
+    """
 
 @pulumi.input_type
 class VirtualNodeSpecListenerTimeoutTcpIdleArgs:
@@ -10453,22 +9917,19 @@ class VirtualNodeSpecListenerTimeoutTcpIdleArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class VirtualNodeSpecListenerTlsArgsDict(TypedDict):
-        certificate: pulumi.Input['VirtualNodeSpecListenerTlsCertificateArgsDict']
-        """
-        Listener's TLS certificate.
-        """
-        mode: pulumi.Input[_builtins.str]
-        """
-        Listener's TLS mode. Valid values: `DISABLED`, `PERMISSIVE`, `STRICT`.
-        """
-        validation: NotRequired[pulumi.Input['VirtualNodeSpecListenerTlsValidationArgsDict']]
-        """
-        Listener's Transport Layer Security (TLS) validation context.
-        """
-elif False:
-    VirtualNodeSpecListenerTlsArgsDict: TypeAlias = Mapping[str, Any]
+class VirtualNodeSpecListenerTlsArgsDict(TypedDict):
+    certificate: pulumi.Input['VirtualNodeSpecListenerTlsCertificateArgsDict']
+    """
+    Listener's TLS certificate.
+    """
+    mode: pulumi.Input[_builtins.str]
+    """
+    Listener's TLS mode. Valid values: `DISABLED`, `PERMISSIVE`, `STRICT`.
+    """
+    validation: NotRequired[pulumi.Input['VirtualNodeSpecListenerTlsValidationArgsDict']]
+    """
+    Listener's Transport Layer Security (TLS) validation context.
+    """
 
 @pulumi.input_type
 class VirtualNodeSpecListenerTlsArgs:
@@ -10523,22 +9984,19 @@ class VirtualNodeSpecListenerTlsArgs:
         pulumi.set(self, "validation", value)
 
 
-if not MYPY:
-    class VirtualNodeSpecListenerTlsCertificateArgsDict(TypedDict):
-        acm: NotRequired[pulumi.Input['VirtualNodeSpecListenerTlsCertificateAcmArgsDict']]
-        """
-        An AWS Certificate Manager (ACM) certificate.
-        """
-        file: NotRequired[pulumi.Input['VirtualNodeSpecListenerTlsCertificateFileArgsDict']]
-        """
-        Local file certificate.
-        """
-        sds: NotRequired[pulumi.Input['VirtualNodeSpecListenerTlsCertificateSdsArgsDict']]
-        """
-        A [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
-        """
-elif False:
-    VirtualNodeSpecListenerTlsCertificateArgsDict: TypeAlias = Mapping[str, Any]
+class VirtualNodeSpecListenerTlsCertificateArgsDict(TypedDict):
+    acm: NotRequired[pulumi.Input['VirtualNodeSpecListenerTlsCertificateAcmArgsDict']]
+    """
+    An AWS Certificate Manager (ACM) certificate.
+    """
+    file: NotRequired[pulumi.Input['VirtualNodeSpecListenerTlsCertificateFileArgsDict']]
+    """
+    Local file certificate.
+    """
+    sds: NotRequired[pulumi.Input['VirtualNodeSpecListenerTlsCertificateSdsArgsDict']]
+    """
+    A [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
+    """
 
 @pulumi.input_type
 class VirtualNodeSpecListenerTlsCertificateArgs:
@@ -10595,14 +10053,11 @@ class VirtualNodeSpecListenerTlsCertificateArgs:
         pulumi.set(self, "sds", value)
 
 
-if not MYPY:
-    class VirtualNodeSpecListenerTlsCertificateAcmArgsDict(TypedDict):
-        certificate_arn: pulumi.Input[_builtins.str]
-        """
-        ARN for the certificate.
-        """
-elif False:
-    VirtualNodeSpecListenerTlsCertificateAcmArgsDict: TypeAlias = Mapping[str, Any]
+class VirtualNodeSpecListenerTlsCertificateAcmArgsDict(TypedDict):
+    certificate_arn: pulumi.Input[_builtins.str]
+    """
+    ARN for the certificate.
+    """
 
 @pulumi.input_type
 class VirtualNodeSpecListenerTlsCertificateAcmArgs:
@@ -10626,18 +10081,15 @@ class VirtualNodeSpecListenerTlsCertificateAcmArgs:
         pulumi.set(self, "certificate_arn", value)
 
 
-if not MYPY:
-    class VirtualNodeSpecListenerTlsCertificateFileArgsDict(TypedDict):
-        certificate_chain: pulumi.Input[_builtins.str]
-        """
-        Certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
-        """
-        private_key: pulumi.Input[_builtins.str]
-        """
-        Private key for a certificate stored on the file system of the virtual node that the proxy is running on. Must be between 1 and 255 characters in length.
-        """
-elif False:
-    VirtualNodeSpecListenerTlsCertificateFileArgsDict: TypeAlias = Mapping[str, Any]
+class VirtualNodeSpecListenerTlsCertificateFileArgsDict(TypedDict):
+    certificate_chain: pulumi.Input[_builtins.str]
+    """
+    Certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
+    """
+    private_key: pulumi.Input[_builtins.str]
+    """
+    Private key for a certificate stored on the file system of the virtual node that the proxy is running on. Must be between 1 and 255 characters in length.
+    """
 
 @pulumi.input_type
 class VirtualNodeSpecListenerTlsCertificateFileArgs:
@@ -10676,14 +10128,11 @@ class VirtualNodeSpecListenerTlsCertificateFileArgs:
         pulumi.set(self, "private_key", value)
 
 
-if not MYPY:
-    class VirtualNodeSpecListenerTlsCertificateSdsArgsDict(TypedDict):
-        secret_name: pulumi.Input[_builtins.str]
-        """
-        Name of the secret for a virtual node's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
-        """
-elif False:
-    VirtualNodeSpecListenerTlsCertificateSdsArgsDict: TypeAlias = Mapping[str, Any]
+class VirtualNodeSpecListenerTlsCertificateSdsArgsDict(TypedDict):
+    secret_name: pulumi.Input[_builtins.str]
+    """
+    Name of the secret for a virtual node's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
+    """
 
 @pulumi.input_type
 class VirtualNodeSpecListenerTlsCertificateSdsArgs:
@@ -10707,18 +10156,15 @@ class VirtualNodeSpecListenerTlsCertificateSdsArgs:
         pulumi.set(self, "secret_name", value)
 
 
-if not MYPY:
-    class VirtualNodeSpecListenerTlsValidationArgsDict(TypedDict):
-        trust: pulumi.Input['VirtualNodeSpecListenerTlsValidationTrustArgsDict']
-        """
-        TLS validation context trust.
-        """
-        subject_alternative_names: NotRequired[pulumi.Input['VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesArgsDict']]
-        """
-        SANs for a TLS validation context.
-        """
-elif False:
-    VirtualNodeSpecListenerTlsValidationArgsDict: TypeAlias = Mapping[str, Any]
+class VirtualNodeSpecListenerTlsValidationArgsDict(TypedDict):
+    trust: pulumi.Input['VirtualNodeSpecListenerTlsValidationTrustArgsDict']
+    """
+    TLS validation context trust.
+    """
+    subject_alternative_names: NotRequired[pulumi.Input['VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesArgsDict']]
+    """
+    SANs for a TLS validation context.
+    """
 
 @pulumi.input_type
 class VirtualNodeSpecListenerTlsValidationArgs:
@@ -10758,14 +10204,11 @@ class VirtualNodeSpecListenerTlsValidationArgs:
         pulumi.set(self, "subject_alternative_names", value)
 
 
-if not MYPY:
-    class VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesArgsDict(TypedDict):
-        match: pulumi.Input['VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesMatchArgsDict']
-        """
-        Criteria for determining a SAN's match.
-        """
-elif False:
-    VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesArgsDict: TypeAlias = Mapping[str, Any]
+class VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesArgsDict(TypedDict):
+    match: pulumi.Input['VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesMatchArgsDict']
+    """
+    Criteria for determining a SAN's match.
+    """
 
 @pulumi.input_type
 class VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesArgs:
@@ -10789,14 +10232,11 @@ class VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesArgs:
         pulumi.set(self, "match", value)
 
 
-if not MYPY:
-    class VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesMatchArgsDict(TypedDict):
-        exacts: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        Values sent must match the specified values exactly.
-        """
-elif False:
-    VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesMatchArgsDict: TypeAlias = Mapping[str, Any]
+class VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesMatchArgsDict(TypedDict):
+    exacts: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    Values sent must match the specified values exactly.
+    """
 
 @pulumi.input_type
 class VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesMatchArgs:
@@ -10820,18 +10260,15 @@ class VirtualNodeSpecListenerTlsValidationSubjectAlternativeNamesMatchArgs:
         pulumi.set(self, "exacts", value)
 
 
-if not MYPY:
-    class VirtualNodeSpecListenerTlsValidationTrustArgsDict(TypedDict):
-        file: NotRequired[pulumi.Input['VirtualNodeSpecListenerTlsValidationTrustFileArgsDict']]
-        """
-        TLS validation context trust for a local file certificate.
-        """
-        sds: NotRequired[pulumi.Input['VirtualNodeSpecListenerTlsValidationTrustSdsArgsDict']]
-        """
-        TLS validation context trust for a [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
-        """
-elif False:
-    VirtualNodeSpecListenerTlsValidationTrustArgsDict: TypeAlias = Mapping[str, Any]
+class VirtualNodeSpecListenerTlsValidationTrustArgsDict(TypedDict):
+    file: NotRequired[pulumi.Input['VirtualNodeSpecListenerTlsValidationTrustFileArgsDict']]
+    """
+    TLS validation context trust for a local file certificate.
+    """
+    sds: NotRequired[pulumi.Input['VirtualNodeSpecListenerTlsValidationTrustSdsArgsDict']]
+    """
+    TLS validation context trust for a [Secret Discovery Service](https://www.envoyproxy.io/docs/envoy/latest/configuration/security/secret#secret-discovery-service-sds) certificate.
+    """
 
 @pulumi.input_type
 class VirtualNodeSpecListenerTlsValidationTrustArgs:
@@ -10872,14 +10309,11 @@ class VirtualNodeSpecListenerTlsValidationTrustArgs:
         pulumi.set(self, "sds", value)
 
 
-if not MYPY:
-    class VirtualNodeSpecListenerTlsValidationTrustFileArgsDict(TypedDict):
-        certificate_chain: pulumi.Input[_builtins.str]
-        """
-        Certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
-        """
-elif False:
-    VirtualNodeSpecListenerTlsValidationTrustFileArgsDict: TypeAlias = Mapping[str, Any]
+class VirtualNodeSpecListenerTlsValidationTrustFileArgsDict(TypedDict):
+    certificate_chain: pulumi.Input[_builtins.str]
+    """
+    Certificate trust chain for a certificate stored on the file system of the mesh endpoint that the proxy is running on. Must be between 1 and 255 characters in length.
+    """
 
 @pulumi.input_type
 class VirtualNodeSpecListenerTlsValidationTrustFileArgs:
@@ -10903,14 +10337,11 @@ class VirtualNodeSpecListenerTlsValidationTrustFileArgs:
         pulumi.set(self, "certificate_chain", value)
 
 
-if not MYPY:
-    class VirtualNodeSpecListenerTlsValidationTrustSdsArgsDict(TypedDict):
-        secret_name: pulumi.Input[_builtins.str]
-        """
-        Name of the secret for a virtual node's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
-        """
-elif False:
-    VirtualNodeSpecListenerTlsValidationTrustSdsArgsDict: TypeAlias = Mapping[str, Any]
+class VirtualNodeSpecListenerTlsValidationTrustSdsArgsDict(TypedDict):
+    secret_name: pulumi.Input[_builtins.str]
+    """
+    Name of the secret for a virtual node's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
+    """
 
 @pulumi.input_type
 class VirtualNodeSpecListenerTlsValidationTrustSdsArgs:
@@ -10934,14 +10365,11 @@ class VirtualNodeSpecListenerTlsValidationTrustSdsArgs:
         pulumi.set(self, "secret_name", value)
 
 
-if not MYPY:
-    class VirtualNodeSpecLoggingArgsDict(TypedDict):
-        access_log: NotRequired[pulumi.Input['VirtualNodeSpecLoggingAccessLogArgsDict']]
-        """
-        Access log configuration for a virtual node.
-        """
-elif False:
-    VirtualNodeSpecLoggingArgsDict: TypeAlias = Mapping[str, Any]
+class VirtualNodeSpecLoggingArgsDict(TypedDict):
+    access_log: NotRequired[pulumi.Input['VirtualNodeSpecLoggingAccessLogArgsDict']]
+    """
+    Access log configuration for a virtual node.
+    """
 
 @pulumi.input_type
 class VirtualNodeSpecLoggingArgs:
@@ -10966,14 +10394,11 @@ class VirtualNodeSpecLoggingArgs:
         pulumi.set(self, "access_log", value)
 
 
-if not MYPY:
-    class VirtualNodeSpecLoggingAccessLogArgsDict(TypedDict):
-        file: NotRequired[pulumi.Input['VirtualNodeSpecLoggingAccessLogFileArgsDict']]
-        """
-        File object to send virtual node access logs to.
-        """
-elif False:
-    VirtualNodeSpecLoggingAccessLogArgsDict: TypeAlias = Mapping[str, Any]
+class VirtualNodeSpecLoggingAccessLogArgsDict(TypedDict):
+    file: NotRequired[pulumi.Input['VirtualNodeSpecLoggingAccessLogFileArgsDict']]
+    """
+    File object to send virtual node access logs to.
+    """
 
 @pulumi.input_type
 class VirtualNodeSpecLoggingAccessLogArgs:
@@ -10998,18 +10423,15 @@ class VirtualNodeSpecLoggingAccessLogArgs:
         pulumi.set(self, "file", value)
 
 
-if not MYPY:
-    class VirtualNodeSpecLoggingAccessLogFileArgsDict(TypedDict):
-        path: pulumi.Input[_builtins.str]
-        """
-        File path to write access logs to. You can use `/dev/stdout` to send access logs to standard out. Must be between 1 and 255 characters in length.
-        """
-        format: NotRequired[pulumi.Input['VirtualNodeSpecLoggingAccessLogFileFormatArgsDict']]
-        """
-        The specified format for the logs.
-        """
-elif False:
-    VirtualNodeSpecLoggingAccessLogFileArgsDict: TypeAlias = Mapping[str, Any]
+class VirtualNodeSpecLoggingAccessLogFileArgsDict(TypedDict):
+    path: pulumi.Input[_builtins.str]
+    """
+    File path to write access logs to. You can use `/dev/stdout` to send access logs to standard out. Must be between 1 and 255 characters in length.
+    """
+    format: NotRequired[pulumi.Input['VirtualNodeSpecLoggingAccessLogFileFormatArgsDict']]
+    """
+    The specified format for the logs.
+    """
 
 @pulumi.input_type
 class VirtualNodeSpecLoggingAccessLogFileArgs:
@@ -11049,18 +10471,15 @@ class VirtualNodeSpecLoggingAccessLogFileArgs:
         pulumi.set(self, "format", value)
 
 
-if not MYPY:
-    class VirtualNodeSpecLoggingAccessLogFileFormatArgsDict(TypedDict):
-        jsons: NotRequired[pulumi.Input[Sequence[pulumi.Input['VirtualNodeSpecLoggingAccessLogFileFormatJsonArgsDict']]]]
-        """
-        The logging format for JSON.
-        """
-        text: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The logging format for text. Must be between 1 and 1000 characters in length.
-        """
-elif False:
-    VirtualNodeSpecLoggingAccessLogFileFormatArgsDict: TypeAlias = Mapping[str, Any]
+class VirtualNodeSpecLoggingAccessLogFileFormatArgsDict(TypedDict):
+    jsons: NotRequired[pulumi.Input[Sequence[pulumi.Input['VirtualNodeSpecLoggingAccessLogFileFormatJsonArgsDict']]]]
+    """
+    The logging format for JSON.
+    """
+    text: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The logging format for text. Must be between 1 and 1000 characters in length.
+    """
 
 @pulumi.input_type
 class VirtualNodeSpecLoggingAccessLogFileFormatArgs:
@@ -11101,18 +10520,15 @@ class VirtualNodeSpecLoggingAccessLogFileFormatArgs:
         pulumi.set(self, "text", value)
 
 
-if not MYPY:
-    class VirtualNodeSpecLoggingAccessLogFileFormatJsonArgsDict(TypedDict):
-        key: pulumi.Input[_builtins.str]
-        """
-        The specified key for the JSON. Must be between 1 and 100 characters in length.
-        """
-        value: pulumi.Input[_builtins.str]
-        """
-        The specified value for the JSON. Must be between 1 and 100 characters in length.
-        """
-elif False:
-    VirtualNodeSpecLoggingAccessLogFileFormatJsonArgsDict: TypeAlias = Mapping[str, Any]
+class VirtualNodeSpecLoggingAccessLogFileFormatJsonArgsDict(TypedDict):
+    key: pulumi.Input[_builtins.str]
+    """
+    The specified key for the JSON. Must be between 1 and 100 characters in length.
+    """
+    value: pulumi.Input[_builtins.str]
+    """
+    The specified value for the JSON. Must be between 1 and 100 characters in length.
+    """
 
 @pulumi.input_type
 class VirtualNodeSpecLoggingAccessLogFileFormatJsonArgs:
@@ -11151,18 +10567,15 @@ class VirtualNodeSpecLoggingAccessLogFileFormatJsonArgs:
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class VirtualNodeSpecServiceDiscoveryArgsDict(TypedDict):
-        aws_cloud_map: NotRequired[pulumi.Input['VirtualNodeSpecServiceDiscoveryAwsCloudMapArgsDict']]
-        """
-        Any AWS Cloud Map information for the virtual node.
-        """
-        dns: NotRequired[pulumi.Input['VirtualNodeSpecServiceDiscoveryDnsArgsDict']]
-        """
-        DNS service name for the virtual node.
-        """
-elif False:
-    VirtualNodeSpecServiceDiscoveryArgsDict: TypeAlias = Mapping[str, Any]
+class VirtualNodeSpecServiceDiscoveryArgsDict(TypedDict):
+    aws_cloud_map: NotRequired[pulumi.Input['VirtualNodeSpecServiceDiscoveryAwsCloudMapArgsDict']]
+    """
+    Any AWS Cloud Map information for the virtual node.
+    """
+    dns: NotRequired[pulumi.Input['VirtualNodeSpecServiceDiscoveryDnsArgsDict']]
+    """
+    DNS service name for the virtual node.
+    """
 
 @pulumi.input_type
 class VirtualNodeSpecServiceDiscoveryArgs:
@@ -11203,23 +10616,20 @@ class VirtualNodeSpecServiceDiscoveryArgs:
         pulumi.set(self, "dns", value)
 
 
-if not MYPY:
-    class VirtualNodeSpecServiceDiscoveryAwsCloudMapArgsDict(TypedDict):
-        namespace_name: pulumi.Input[_builtins.str]
-        """
-        Name of the AWS Cloud Map namespace to use.
-        Use the `servicediscovery.HttpNamespace` resource to configure a Cloud Map namespace. Must be between 1 and 1024 characters in length.
-        """
-        service_name: pulumi.Input[_builtins.str]
-        """
-        Name of the AWS Cloud Map service to use. Use the `servicediscovery.Service` resource to configure a Cloud Map service. Must be between 1 and 1024 characters in length.
-        """
-        attributes: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
-        """
-        String map that contains attributes with values that you can use to filter instances by any custom attribute that you specified when you registered the instance. Only instances that match all of the specified key/value pairs will be returned.
-        """
-elif False:
-    VirtualNodeSpecServiceDiscoveryAwsCloudMapArgsDict: TypeAlias = Mapping[str, Any]
+class VirtualNodeSpecServiceDiscoveryAwsCloudMapArgsDict(TypedDict):
+    namespace_name: pulumi.Input[_builtins.str]
+    """
+    Name of the AWS Cloud Map namespace to use.
+    Use the `servicediscovery.HttpNamespace` resource to configure a Cloud Map namespace. Must be between 1 and 1024 characters in length.
+    """
+    service_name: pulumi.Input[_builtins.str]
+    """
+    Name of the AWS Cloud Map service to use. Use the `servicediscovery.Service` resource to configure a Cloud Map service. Must be between 1 and 1024 characters in length.
+    """
+    attributes: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+    """
+    String map that contains attributes with values that you can use to filter instances by any custom attribute that you specified when you registered the instance. Only instances that match all of the specified key/value pairs will be returned.
+    """
 
 @pulumi.input_type
 class VirtualNodeSpecServiceDiscoveryAwsCloudMapArgs:
@@ -11276,22 +10686,19 @@ class VirtualNodeSpecServiceDiscoveryAwsCloudMapArgs:
         pulumi.set(self, "attributes", value)
 
 
-if not MYPY:
-    class VirtualNodeSpecServiceDiscoveryDnsArgsDict(TypedDict):
-        hostname: pulumi.Input[_builtins.str]
-        """
-        DNS host name for your virtual node.
-        """
-        ip_preference: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The preferred IP version that this virtual node uses. Valid values: `IPv6_PREFERRED`, `IPv4_PREFERRED`, `IPv4_ONLY`, `IPv6_ONLY`.
-        """
-        response_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The DNS response type for the virtual node. Valid values: `LOADBALANCER`, `ENDPOINTS`.
-        """
-elif False:
-    VirtualNodeSpecServiceDiscoveryDnsArgsDict: TypeAlias = Mapping[str, Any]
+class VirtualNodeSpecServiceDiscoveryDnsArgsDict(TypedDict):
+    hostname: pulumi.Input[_builtins.str]
+    """
+    DNS host name for your virtual node.
+    """
+    ip_preference: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The preferred IP version that this virtual node uses. Valid values: `IPv6_PREFERRED`, `IPv4_PREFERRED`, `IPv4_ONLY`, `IPv6_ONLY`.
+    """
+    response_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The DNS response type for the virtual node. Valid values: `LOADBALANCER`, `ENDPOINTS`.
+    """
 
 @pulumi.input_type
 class VirtualNodeSpecServiceDiscoveryDnsArgs:
@@ -11347,15 +10754,12 @@ class VirtualNodeSpecServiceDiscoveryDnsArgs:
         pulumi.set(self, "response_type", value)
 
 
-if not MYPY:
-    class VirtualRouterSpecArgsDict(TypedDict):
-        listeners: NotRequired[pulumi.Input[Sequence[pulumi.Input['VirtualRouterSpecListenerArgsDict']]]]
-        """
-        Listeners that the virtual router is expected to receive inbound traffic from.
-        Currently only one listener is supported per virtual router.
-        """
-elif False:
-    VirtualRouterSpecArgsDict: TypeAlias = Mapping[str, Any]
+class VirtualRouterSpecArgsDict(TypedDict):
+    listeners: NotRequired[pulumi.Input[Sequence[pulumi.Input['VirtualRouterSpecListenerArgsDict']]]]
+    """
+    Listeners that the virtual router is expected to receive inbound traffic from.
+    Currently only one listener is supported per virtual router.
+    """
 
 @pulumi.input_type
 class VirtualRouterSpecArgs:
@@ -11382,14 +10786,11 @@ class VirtualRouterSpecArgs:
         pulumi.set(self, "listeners", value)
 
 
-if not MYPY:
-    class VirtualRouterSpecListenerArgsDict(TypedDict):
-        port_mapping: pulumi.Input['VirtualRouterSpecListenerPortMappingArgsDict']
-        """
-        Port mapping information for the listener.
-        """
-elif False:
-    VirtualRouterSpecListenerArgsDict: TypeAlias = Mapping[str, Any]
+class VirtualRouterSpecListenerArgsDict(TypedDict):
+    port_mapping: pulumi.Input['VirtualRouterSpecListenerPortMappingArgsDict']
+    """
+    Port mapping information for the listener.
+    """
 
 @pulumi.input_type
 class VirtualRouterSpecListenerArgs:
@@ -11413,18 +10814,15 @@ class VirtualRouterSpecListenerArgs:
         pulumi.set(self, "port_mapping", value)
 
 
-if not MYPY:
-    class VirtualRouterSpecListenerPortMappingArgsDict(TypedDict):
-        port: pulumi.Input[_builtins.int]
-        """
-        Port used for the port mapping.
-        """
-        protocol: pulumi.Input[_builtins.str]
-        """
-        Protocol used for the port mapping. Valid values are `http`,`http2`, `tcp` and `grpc`.
-        """
-elif False:
-    VirtualRouterSpecListenerPortMappingArgsDict: TypeAlias = Mapping[str, Any]
+class VirtualRouterSpecListenerPortMappingArgsDict(TypedDict):
+    port: pulumi.Input[_builtins.int]
+    """
+    Port used for the port mapping.
+    """
+    protocol: pulumi.Input[_builtins.str]
+    """
+    Protocol used for the port mapping. Valid values are `http`,`http2`, `tcp` and `grpc`.
+    """
 
 @pulumi.input_type
 class VirtualRouterSpecListenerPortMappingArgs:
@@ -11463,14 +10861,11 @@ class VirtualRouterSpecListenerPortMappingArgs:
         pulumi.set(self, "protocol", value)
 
 
-if not MYPY:
-    class VirtualServiceSpecArgsDict(TypedDict):
-        provider: NotRequired[pulumi.Input['VirtualServiceSpecProviderArgsDict']]
-        """
-        App Mesh object that is acting as the provider for a virtual service. You can specify a single virtual node or virtual router.
-        """
-elif False:
-    VirtualServiceSpecArgsDict: TypeAlias = Mapping[str, Any]
+class VirtualServiceSpecArgsDict(TypedDict):
+    provider: NotRequired[pulumi.Input['VirtualServiceSpecProviderArgsDict']]
+    """
+    App Mesh object that is acting as the provider for a virtual service. You can specify a single virtual node or virtual router.
+    """
 
 @pulumi.input_type
 class VirtualServiceSpecArgs:
@@ -11495,18 +10890,15 @@ class VirtualServiceSpecArgs:
         pulumi.set(self, "provider", value)
 
 
-if not MYPY:
-    class VirtualServiceSpecProviderArgsDict(TypedDict):
-        virtual_node: NotRequired[pulumi.Input['VirtualServiceSpecProviderVirtualNodeArgsDict']]
-        """
-        Virtual node associated with a virtual service.
-        """
-        virtual_router: NotRequired[pulumi.Input['VirtualServiceSpecProviderVirtualRouterArgsDict']]
-        """
-        Virtual router associated with a virtual service.
-        """
-elif False:
-    VirtualServiceSpecProviderArgsDict: TypeAlias = Mapping[str, Any]
+class VirtualServiceSpecProviderArgsDict(TypedDict):
+    virtual_node: NotRequired[pulumi.Input['VirtualServiceSpecProviderVirtualNodeArgsDict']]
+    """
+    Virtual node associated with a virtual service.
+    """
+    virtual_router: NotRequired[pulumi.Input['VirtualServiceSpecProviderVirtualRouterArgsDict']]
+    """
+    Virtual router associated with a virtual service.
+    """
 
 @pulumi.input_type
 class VirtualServiceSpecProviderArgs:
@@ -11547,14 +10939,11 @@ class VirtualServiceSpecProviderArgs:
         pulumi.set(self, "virtual_router", value)
 
 
-if not MYPY:
-    class VirtualServiceSpecProviderVirtualNodeArgsDict(TypedDict):
-        virtual_node_name: pulumi.Input[_builtins.str]
-        """
-        Name of the virtual node that is acting as a service provider. Must be between 1 and 255 characters in length.
-        """
-elif False:
-    VirtualServiceSpecProviderVirtualNodeArgsDict: TypeAlias = Mapping[str, Any]
+class VirtualServiceSpecProviderVirtualNodeArgsDict(TypedDict):
+    virtual_node_name: pulumi.Input[_builtins.str]
+    """
+    Name of the virtual node that is acting as a service provider. Must be between 1 and 255 characters in length.
+    """
 
 @pulumi.input_type
 class VirtualServiceSpecProviderVirtualNodeArgs:
@@ -11578,14 +10967,11 @@ class VirtualServiceSpecProviderVirtualNodeArgs:
         pulumi.set(self, "virtual_node_name", value)
 
 
-if not MYPY:
-    class VirtualServiceSpecProviderVirtualRouterArgsDict(TypedDict):
-        virtual_router_name: pulumi.Input[_builtins.str]
-        """
-        Name of the virtual router that is acting as a service provider. Must be between 1 and 255 characters in length.
-        """
-elif False:
-    VirtualServiceSpecProviderVirtualRouterArgsDict: TypeAlias = Mapping[str, Any]
+class VirtualServiceSpecProviderVirtualRouterArgsDict(TypedDict):
+    virtual_router_name: pulumi.Input[_builtins.str]
+    """
+    Name of the virtual router that is acting as a service provider. Must be between 1 and 255 characters in length.
+    """
 
 @pulumi.input_type
 class VirtualServiceSpecProviderVirtualRouterArgs:

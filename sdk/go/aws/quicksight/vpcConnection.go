@@ -118,7 +118,8 @@ type VpcConnection struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The availability status of the VPC connection. Valid values are `AVAILABLE`, `UNAVAILABLE` or `PARTIALLY_AVAILABLE`.
 	AvailabilityStatus pulumi.StringOutput `pulumi:"availabilityStatus"`
-	AwsAccountId       pulumi.StringOutput `pulumi:"awsAccountId"`
+	// AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
+	AwsAccountId pulumi.StringOutput `pulumi:"awsAccountId"`
 	// A list of IP addresses of DNS resolver endpoints for the VPC connection.
 	DnsResolvers pulumi.StringArrayOutput `pulumi:"dnsResolvers"`
 	// The display name for the VPC connection.
@@ -188,7 +189,8 @@ type vpcConnectionState struct {
 	Arn *string `pulumi:"arn"`
 	// The availability status of the VPC connection. Valid values are `AVAILABLE`, `UNAVAILABLE` or `PARTIALLY_AVAILABLE`.
 	AvailabilityStatus *string `pulumi:"availabilityStatus"`
-	AwsAccountId       *string `pulumi:"awsAccountId"`
+	// AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
+	AwsAccountId *string `pulumi:"awsAccountId"`
 	// A list of IP addresses of DNS resolver endpoints for the VPC connection.
 	DnsResolvers []string `pulumi:"dnsResolvers"`
 	// The display name for the VPC connection.
@@ -217,7 +219,8 @@ type VpcConnectionState struct {
 	Arn pulumi.StringPtrInput
 	// The availability status of the VPC connection. Valid values are `AVAILABLE`, `UNAVAILABLE` or `PARTIALLY_AVAILABLE`.
 	AvailabilityStatus pulumi.StringPtrInput
-	AwsAccountId       pulumi.StringPtrInput
+	// AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
+	AwsAccountId pulumi.StringPtrInput
 	// A list of IP addresses of DNS resolver endpoints for the VPC connection.
 	DnsResolvers pulumi.StringArrayInput
 	// The display name for the VPC connection.
@@ -246,6 +249,7 @@ func (VpcConnectionState) ElementType() reflect.Type {
 }
 
 type vpcConnectionArgs struct {
+	// AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
 	AwsAccountId *string `pulumi:"awsAccountId"`
 	// A list of IP addresses of DNS resolver endpoints for the VPC connection.
 	DnsResolvers []string `pulumi:"dnsResolvers"`
@@ -270,6 +274,7 @@ type vpcConnectionArgs struct {
 
 // The set of arguments for constructing a VpcConnection resource.
 type VpcConnectionArgs struct {
+	// AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
 	AwsAccountId pulumi.StringPtrInput
 	// A list of IP addresses of DNS resolver endpoints for the VPC connection.
 	DnsResolvers pulumi.StringArrayInput
@@ -389,6 +394,7 @@ func (o VpcConnectionOutput) AvailabilityStatus() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcConnection) pulumi.StringOutput { return v.AvailabilityStatus }).(pulumi.StringOutput)
 }
 
+// AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
 func (o VpcConnectionOutput) AwsAccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcConnection) pulumi.StringOutput { return v.AwsAccountId }).(pulumi.StringOutput)
 }

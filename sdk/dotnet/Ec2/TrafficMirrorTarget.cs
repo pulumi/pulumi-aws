@@ -48,7 +48,7 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import traffic mirror targets using the `id`. For example:
+    /// Using `pulumi import`, import traffic mirror targets using the `Id`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:ec2/trafficMirrorTarget:TrafficMirrorTarget target tmt-0c13a005422b86606

@@ -78,7 +78,7 @@ import (
 //
 // ## Import
 //
-// Using `pulumi import`, import `aws_lightsail_lb_attachment` using the name attribute. For example:
+// Using `pulumi import`, import `lightsail.LbAttachment` using the name attribute. For example:
 //
 // ```sh
 // $ pulumi import aws:lightsail/lbAttachment:LbAttachment example example-load-balancer,example-instance

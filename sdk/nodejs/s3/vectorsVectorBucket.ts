@@ -38,7 +38,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Using `pulumi import`, import S3 Vectors Vector Bucket using the `vector_bucket_arn`. For example:
+ * Using `pulumi import`, import S3 Vectors Vector Bucket using the `vectorBucketArn`. For example:
  *
  * ```sh
  * $ pulumi import aws:s3/vectorsVectorBucket:VectorsVectorBucket example arn:aws:s3vectors:us-west-2:123456789012:bucket/example-bucket

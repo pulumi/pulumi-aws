@@ -49,20 +49,15 @@ __all__ = [
     'IngestionDestinationTimeoutsArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class AppAuthorizationConnectionAuthRequestArgsDict(TypedDict):
-        code: pulumi.Input[_builtins.str]
-        """
-        The authorization code returned by the application after permission is granted in the application OAuth page (after clicking on the AuthURL)..
-        """
-        redirect_uri: pulumi.Input[_builtins.str]
-        """
-        The redirect URL that is specified in the AuthURL and the application client.
-        """
-elif False:
-    AppAuthorizationConnectionAuthRequestArgsDict: TypeAlias = Mapping[str, Any]
+class AppAuthorizationConnectionAuthRequestArgsDict(TypedDict):
+    code: pulumi.Input[_builtins.str]
+    """
+    The authorization code returned by the application after permission is granted in the application OAuth page (after clicking on the AuthURL)..
+    """
+    redirect_uri: pulumi.Input[_builtins.str]
+    """
+    The redirect URL that is specified in the AuthURL and the application client.
+    """
 
 @pulumi.input_type
 class AppAuthorizationConnectionAuthRequestArgs:
@@ -101,12 +96,9 @@ class AppAuthorizationConnectionAuthRequestArgs:
         pulumi.set(self, "redirect_uri", value)
 
 
-if not MYPY:
-    class AppAuthorizationConnectionTenantArgsDict(TypedDict):
-        tenant_display_name: pulumi.Input[_builtins.str]
-        tenant_identifier: pulumi.Input[_builtins.str]
-elif False:
-    AppAuthorizationConnectionTenantArgsDict: TypeAlias = Mapping[str, Any]
+class AppAuthorizationConnectionTenantArgsDict(TypedDict):
+    tenant_display_name: pulumi.Input[_builtins.str]
+    tenant_identifier: pulumi.Input[_builtins.str]
 
 @pulumi.input_type
 class AppAuthorizationConnectionTenantArgs:
@@ -135,14 +127,11 @@ class AppAuthorizationConnectionTenantArgs:
         pulumi.set(self, "tenant_identifier", value)
 
 
-if not MYPY:
-    class AppAuthorizationConnectionTimeoutsArgsDict(TypedDict):
-        create: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
-        """
-elif False:
-    AppAuthorizationConnectionTimeoutsArgsDict: TypeAlias = Mapping[str, Any]
+class AppAuthorizationConnectionTimeoutsArgsDict(TypedDict):
+    create: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+    """
 
 @pulumi.input_type
 class AppAuthorizationConnectionTimeoutsArgs:
@@ -167,18 +156,15 @@ class AppAuthorizationConnectionTimeoutsArgs:
         pulumi.set(self, "create", value)
 
 
-if not MYPY:
-    class AppAuthorizationCredentialArgsDict(TypedDict):
-        api_key_credentials: NotRequired[pulumi.Input[Sequence[pulumi.Input['AppAuthorizationCredentialApiKeyCredentialArgsDict']]]]
-        """
-        Contains API key credential information.
-        """
-        oauth2_credential: NotRequired[pulumi.Input['AppAuthorizationCredentialOauth2CredentialArgsDict']]
-        """
-        Contains OAuth2 client credential information.
-        """
-elif False:
-    AppAuthorizationCredentialArgsDict: TypeAlias = Mapping[str, Any]
+class AppAuthorizationCredentialArgsDict(TypedDict):
+    api_key_credentials: NotRequired[pulumi.Input[Sequence[pulumi.Input['AppAuthorizationCredentialApiKeyCredentialArgsDict']]]]
+    """
+    Contains API key credential information.
+    """
+    oauth2_credential: NotRequired[pulumi.Input['AppAuthorizationCredentialOauth2CredentialArgsDict']]
+    """
+    Contains OAuth2 client credential information.
+    """
 
 @pulumi.input_type
 class AppAuthorizationCredentialArgs:
@@ -219,14 +205,11 @@ class AppAuthorizationCredentialArgs:
         pulumi.set(self, "oauth2_credential", value)
 
 
-if not MYPY:
-    class AppAuthorizationCredentialApiKeyCredentialArgsDict(TypedDict):
-        api_key: pulumi.Input[_builtins.str]
-        """
-        Contains API key credential information.
-        """
-elif False:
-    AppAuthorizationCredentialApiKeyCredentialArgsDict: TypeAlias = Mapping[str, Any]
+class AppAuthorizationCredentialApiKeyCredentialArgsDict(TypedDict):
+    api_key: pulumi.Input[_builtins.str]
+    """
+    Contains API key credential information.
+    """
 
 @pulumi.input_type
 class AppAuthorizationCredentialApiKeyCredentialArgs:
@@ -250,18 +233,15 @@ class AppAuthorizationCredentialApiKeyCredentialArgs:
         pulumi.set(self, "api_key", value)
 
 
-if not MYPY:
-    class AppAuthorizationCredentialOauth2CredentialArgsDict(TypedDict):
-        client_id: pulumi.Input[_builtins.str]
-        """
-        The client ID of the client application.
-        """
-        client_secret: pulumi.Input[_builtins.str]
-        """
-        The client secret of the client application.
-        """
-elif False:
-    AppAuthorizationCredentialOauth2CredentialArgsDict: TypeAlias = Mapping[str, Any]
+class AppAuthorizationCredentialOauth2CredentialArgsDict(TypedDict):
+    client_id: pulumi.Input[_builtins.str]
+    """
+    The client ID of the client application.
+    """
+    client_secret: pulumi.Input[_builtins.str]
+    """
+    The client secret of the client application.
+    """
 
 @pulumi.input_type
 class AppAuthorizationCredentialOauth2CredentialArgs:
@@ -300,18 +280,15 @@ class AppAuthorizationCredentialOauth2CredentialArgs:
         pulumi.set(self, "client_secret", value)
 
 
-if not MYPY:
-    class AppAuthorizationTenantArgsDict(TypedDict):
-        tenant_display_name: pulumi.Input[_builtins.str]
-        """
-        The display name of the tenant.
-        """
-        tenant_identifier: pulumi.Input[_builtins.str]
-        """
-        The ID of the application tenant.
-        """
-elif False:
-    AppAuthorizationTenantArgsDict: TypeAlias = Mapping[str, Any]
+class AppAuthorizationTenantArgsDict(TypedDict):
+    tenant_display_name: pulumi.Input[_builtins.str]
+    """
+    The display name of the tenant.
+    """
+    tenant_identifier: pulumi.Input[_builtins.str]
+    """
+    The ID of the application tenant.
+    """
 
 @pulumi.input_type
 class AppAuthorizationTenantArgs:
@@ -350,22 +327,19 @@ class AppAuthorizationTenantArgs:
         pulumi.set(self, "tenant_identifier", value)
 
 
-if not MYPY:
-    class AppAuthorizationTimeoutsArgsDict(TypedDict):
-        create: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
-        """
-        delete: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
-        """
-        update: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
-        """
-elif False:
-    AppAuthorizationTimeoutsArgsDict: TypeAlias = Mapping[str, Any]
+class AppAuthorizationTimeoutsArgsDict(TypedDict):
+    create: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+    """
+    delete: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+    """
+    update: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+    """
 
 @pulumi.input_type
 class AppAuthorizationTimeoutsArgs:
@@ -422,14 +396,11 @@ class AppAuthorizationTimeoutsArgs:
         pulumi.set(self, "update", value)
 
 
-if not MYPY:
-    class IngestionDestinationDestinationConfigurationArgsDict(TypedDict):
-        audit_log: pulumi.Input['IngestionDestinationDestinationConfigurationAuditLogArgsDict']
-        """
-        Contains information about an audit log processing configuration.
-        """
-elif False:
-    IngestionDestinationDestinationConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class IngestionDestinationDestinationConfigurationArgsDict(TypedDict):
+    audit_log: pulumi.Input['IngestionDestinationDestinationConfigurationAuditLogArgsDict']
+    """
+    Contains information about an audit log processing configuration.
+    """
 
 @pulumi.input_type
 class IngestionDestinationDestinationConfigurationArgs:
@@ -453,14 +424,11 @@ class IngestionDestinationDestinationConfigurationArgs:
         pulumi.set(self, "audit_log", value)
 
 
-if not MYPY:
-    class IngestionDestinationDestinationConfigurationAuditLogArgsDict(TypedDict):
-        destination: pulumi.Input['IngestionDestinationDestinationConfigurationAuditLogDestinationArgsDict']
-        """
-        Contains information about an audit log destination. Only one destination (Firehose Stream) or (S3 Bucket) can be specified.
-        """
-elif False:
-    IngestionDestinationDestinationConfigurationAuditLogArgsDict: TypeAlias = Mapping[str, Any]
+class IngestionDestinationDestinationConfigurationAuditLogArgsDict(TypedDict):
+    destination: pulumi.Input['IngestionDestinationDestinationConfigurationAuditLogDestinationArgsDict']
+    """
+    Contains information about an audit log destination. Only one destination (Firehose Stream) or (S3 Bucket) can be specified.
+    """
 
 @pulumi.input_type
 class IngestionDestinationDestinationConfigurationAuditLogArgs:
@@ -484,18 +452,15 @@ class IngestionDestinationDestinationConfigurationAuditLogArgs:
         pulumi.set(self, "destination", value)
 
 
-if not MYPY:
-    class IngestionDestinationDestinationConfigurationAuditLogDestinationArgsDict(TypedDict):
-        firehose_stream: NotRequired[pulumi.Input['IngestionDestinationDestinationConfigurationAuditLogDestinationFirehoseStreamArgsDict']]
-        """
-        Contains information about an Amazon Data Firehose delivery stream.
-        """
-        s3_bucket: NotRequired[pulumi.Input['IngestionDestinationDestinationConfigurationAuditLogDestinationS3BucketArgsDict']]
-        """
-        Contains information about an Amazon S3 bucket.
-        """
-elif False:
-    IngestionDestinationDestinationConfigurationAuditLogDestinationArgsDict: TypeAlias = Mapping[str, Any]
+class IngestionDestinationDestinationConfigurationAuditLogDestinationArgsDict(TypedDict):
+    firehose_stream: NotRequired[pulumi.Input['IngestionDestinationDestinationConfigurationAuditLogDestinationFirehoseStreamArgsDict']]
+    """
+    Contains information about an Amazon Data Firehose delivery stream.
+    """
+    s3_bucket: NotRequired[pulumi.Input['IngestionDestinationDestinationConfigurationAuditLogDestinationS3BucketArgsDict']]
+    """
+    Contains information about an Amazon S3 bucket.
+    """
 
 @pulumi.input_type
 class IngestionDestinationDestinationConfigurationAuditLogDestinationArgs:
@@ -536,11 +501,8 @@ class IngestionDestinationDestinationConfigurationAuditLogDestinationArgs:
         pulumi.set(self, "s3_bucket", value)
 
 
-if not MYPY:
-    class IngestionDestinationDestinationConfigurationAuditLogDestinationFirehoseStreamArgsDict(TypedDict):
-        stream_name: pulumi.Input[_builtins.str]
-elif False:
-    IngestionDestinationDestinationConfigurationAuditLogDestinationFirehoseStreamArgsDict: TypeAlias = Mapping[str, Any]
+class IngestionDestinationDestinationConfigurationAuditLogDestinationFirehoseStreamArgsDict(TypedDict):
+    stream_name: pulumi.Input[_builtins.str]
 
 @pulumi.input_type
 class IngestionDestinationDestinationConfigurationAuditLogDestinationFirehoseStreamArgs:
@@ -558,15 +520,12 @@ class IngestionDestinationDestinationConfigurationAuditLogDestinationFirehoseStr
         pulumi.set(self, "stream_name", value)
 
 
-if not MYPY:
-    class IngestionDestinationDestinationConfigurationAuditLogDestinationS3BucketArgsDict(TypedDict):
-        bucket_name: pulumi.Input[_builtins.str]
-        prefix: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The object key to use.
-        """
-elif False:
-    IngestionDestinationDestinationConfigurationAuditLogDestinationS3BucketArgsDict: TypeAlias = Mapping[str, Any]
+class IngestionDestinationDestinationConfigurationAuditLogDestinationS3BucketArgsDict(TypedDict):
+    bucket_name: pulumi.Input[_builtins.str]
+    prefix: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The object key to use.
+    """
 
 @pulumi.input_type
 class IngestionDestinationDestinationConfigurationAuditLogDestinationS3BucketArgs:
@@ -602,14 +561,11 @@ class IngestionDestinationDestinationConfigurationAuditLogDestinationS3BucketArg
         pulumi.set(self, "prefix", value)
 
 
-if not MYPY:
-    class IngestionDestinationProcessingConfigurationArgsDict(TypedDict):
-        audit_log: pulumi.Input['IngestionDestinationProcessingConfigurationAuditLogArgsDict']
-        """
-        Contains information about an audit log processing configuration.
-        """
-elif False:
-    IngestionDestinationProcessingConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class IngestionDestinationProcessingConfigurationArgsDict(TypedDict):
+    audit_log: pulumi.Input['IngestionDestinationProcessingConfigurationAuditLogArgsDict']
+    """
+    Contains information about an audit log processing configuration.
+    """
 
 @pulumi.input_type
 class IngestionDestinationProcessingConfigurationArgs:
@@ -633,18 +589,15 @@ class IngestionDestinationProcessingConfigurationArgs:
         pulumi.set(self, "audit_log", value)
 
 
-if not MYPY:
-    class IngestionDestinationProcessingConfigurationAuditLogArgsDict(TypedDict):
-        format: pulumi.Input[_builtins.str]
-        """
-        The format in which the audit logs need to be formatted. Valid values: `json`, `parquet`.
-        """
-        schema: pulumi.Input[_builtins.str]
-        """
-        The event schema in which the audit logs need to be formatted. Valid values: `ocsf`, `raw`.
-        """
-elif False:
-    IngestionDestinationProcessingConfigurationAuditLogArgsDict: TypeAlias = Mapping[str, Any]
+class IngestionDestinationProcessingConfigurationAuditLogArgsDict(TypedDict):
+    format: pulumi.Input[_builtins.str]
+    """
+    The format in which the audit logs need to be formatted. Valid values: `json`, `parquet`.
+    """
+    schema: pulumi.Input[_builtins.str]
+    """
+    The event schema in which the audit logs need to be formatted. Valid values: `ocsf`, `raw`.
+    """
 
 @pulumi.input_type
 class IngestionDestinationProcessingConfigurationAuditLogArgs:
@@ -683,22 +636,19 @@ class IngestionDestinationProcessingConfigurationAuditLogArgs:
         pulumi.set(self, "schema", value)
 
 
-if not MYPY:
-    class IngestionDestinationTimeoutsArgsDict(TypedDict):
-        create: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
-        """
-        delete: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
-        """
-        update: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
-        """
-elif False:
-    IngestionDestinationTimeoutsArgsDict: TypeAlias = Mapping[str, Any]
+class IngestionDestinationTimeoutsArgsDict(TypedDict):
+    create: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+    """
+    delete: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+    """
+    update: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+    """
 
 @pulumi.input_type
 class IngestionDestinationTimeoutsArgs:

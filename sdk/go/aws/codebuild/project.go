@@ -318,7 +318,9 @@ import (
 //
 // Using `pulumi import`, import CodeBuild Project using the `name`. For example:
 //
-// % pulumi import aws_codebuild_project.name project-name
+// ```sh
+// $ pulumi import aws:codebuild/project:Project name project-name
+// ```
 type Project struct {
 	pulumi.CustomResourceState
 

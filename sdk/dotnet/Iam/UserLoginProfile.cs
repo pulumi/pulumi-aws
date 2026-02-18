@@ -51,7 +51,21 @@ namespace Pulumi.Aws.Iam
     /// ```sh
     /// $ pulumi import aws:iam/userLoginProfile:UserLoginProfile example myusername
     /// ```
-    /// Since Pulumi has no method to read the PGP or password information during import, use the resource options `ignore_changes` argument to ignore them (unless you want to recreate a password). For example:
+    /// 
+    /// Since Pulumi has no method to read the PGP or password information during import, use the resource options `IgnoreChanges` argument to ignore them (unless you want to recreate a password). For example:
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.Iam.UserLoginProfile("example");
+    /// 
+    /// });
+    /// ```
     /// </summary>
     [AwsResourceType("aws:iam/userLoginProfile:UserLoginProfile")]
     public partial class UserLoginProfile : global::Pulumi.CustomResource

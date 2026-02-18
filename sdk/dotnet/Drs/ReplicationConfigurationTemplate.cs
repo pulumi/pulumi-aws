@@ -73,7 +73,7 @@ namespace Pulumi.Aws.Drs
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import DRS Replication Configuration Template using the `id`. For example:
+    /// Using `pulumi import`, import DRS Replication Configuration Template using the `Id`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:drs/replicationConfigurationTemplate:ReplicationConfigurationTemplate example templateid

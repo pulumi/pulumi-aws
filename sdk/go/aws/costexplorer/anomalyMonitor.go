@@ -102,9 +102,11 @@ import (
 //
 // - `arn` (String) Amazon Resource Name (ARN) of the Cost Explorer anomaly monitor.
 //
-// Using `pulumi import`, import `aws_ce_anomaly_monitor` using the `id`. For example:
+// Using `pulumi import`, import `costexplorer.AnomalyMonitor` using the `id`. For example:
 //
-// % pulumi import aws_ce_anomaly_monitor.example costAnomalyMonitorARN
+// ```sh
+// $ pulumi import aws:costexplorer/anomalyMonitor:AnomalyMonitor example costAnomalyMonitorARN
+// ```
 type AnomalyMonitor struct {
 	pulumi.CustomResourceState
 

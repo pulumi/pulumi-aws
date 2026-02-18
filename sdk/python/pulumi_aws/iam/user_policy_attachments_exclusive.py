@@ -104,6 +104,40 @@ class UserPolicyAttachmentsExclusive(pulumi.CustomResource):
                  user_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
+        Resource for maintaining exclusive management of managed IAM policies assigned to an AWS IAM (Identity & Access Management) user.
+
+        !> This resource takes exclusive ownership over managed IAM policies attached to a user. This includes removal of managed IAM policies which are not explicitly configured. To prevent persistent drift, ensure any `iam.UserPolicyAttachment` resources managed alongside this resource are included in the `policy_arns` argument.
+
+        > Destruction of this resource means Terraform will no longer manage reconciliation of the configured policy attachments. It **will not** detach the configured policies from the user.
+
+        ## Example Usage
+
+        ### Basic Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.iam.UserPolicyAttachmentsExclusive("example",
+            user_name=example_aws_iam_user["name"],
+            policy_arns=[example_aws_iam_policy["arn"]])
+        ```
+
+        ### Disallow Managed IAM Policies
+
+        To automatically remove any configured managed IAM policies, set the `policy_arns` argument to an empty list.
+
+        > This will not **prevent** managed IAM policies from being assigned to a user via Terraform (or any other interface). This resource enables bringing managed IAM policy assignments into a configured state, however, this reconciliation happens only when `apply` is proactively run.
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.iam.UserPolicyAttachmentsExclusive("example",
+            user_name=example_aws_iam_user["name"],
+            policy_arns=[])
+        ```
+
         ## Import
 
         Using `pulumi import`, import exclusive management of managed IAM policy assignments using the `user_name`. For example:
@@ -124,6 +158,40 @@ class UserPolicyAttachmentsExclusive(pulumi.CustomResource):
                  args: UserPolicyAttachmentsExclusiveArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        Resource for maintaining exclusive management of managed IAM policies assigned to an AWS IAM (Identity & Access Management) user.
+
+        !> This resource takes exclusive ownership over managed IAM policies attached to a user. This includes removal of managed IAM policies which are not explicitly configured. To prevent persistent drift, ensure any `iam.UserPolicyAttachment` resources managed alongside this resource are included in the `policy_arns` argument.
+
+        > Destruction of this resource means Terraform will no longer manage reconciliation of the configured policy attachments. It **will not** detach the configured policies from the user.
+
+        ## Example Usage
+
+        ### Basic Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.iam.UserPolicyAttachmentsExclusive("example",
+            user_name=example_aws_iam_user["name"],
+            policy_arns=[example_aws_iam_policy["arn"]])
+        ```
+
+        ### Disallow Managed IAM Policies
+
+        To automatically remove any configured managed IAM policies, set the `policy_arns` argument to an empty list.
+
+        > This will not **prevent** managed IAM policies from being assigned to a user via Terraform (or any other interface). This resource enables bringing managed IAM policy assignments into a configured state, however, this reconciliation happens only when `apply` is proactively run.
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.iam.UserPolicyAttachmentsExclusive("example",
+            user_name=example_aws_iam_user["name"],
+            policy_arns=[])
+        ```
+
         ## Import
 
         Using `pulumi import`, import exclusive management of managed IAM policy assignments using the `user_name`. For example:

@@ -37,9 +37,9 @@ import * as utilities from "../utilities";
  * const key = new tls.PrivateKey("key", {algorithm: "RSA"});
  * const csr = new tls.CertRequest("csr", {
  *     privateKeyPem: key.privateKeyPem,
- *     subject: [{
+ *     subject: {
  *         commonName: "example",
- *     }],
+ *     },
  * });
  * const example = new aws.acmpca.Certificate("example", {
  *     certificateAuthorityArn: exampleCertificateAuthority.arn,
@@ -62,7 +62,9 @@ import * as utilities from "../utilities";
  *
  * Using `pulumi import`, import ACM PCA Certificates using their ARN. For example:
  *
- * % pulumi import aws_acmpca_certificate.cert arn:aws:acm-pca:eu-west-1:675225743824:certificate-authority/08319ede-83g9-1400-8f21-c7d12b2b6edb/certificate/a4e9c2aa4bcfab625g1b9136464cd3a
+ * ```sh
+ * $ pulumi import aws:acmpca/certificate:Certificate cert arn:aws:acm-pca:eu-west-1:675225743824:certificate-authority/08319ede-83g9-1400-8f21-c7d12b2b6edb/certificate/a4e9c2aa4bcfab625g1b9136464cd3a
+ * ```
  */
 export class Certificate extends pulumi.CustomResource {
     /**

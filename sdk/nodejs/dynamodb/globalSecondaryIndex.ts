@@ -8,25 +8,121 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * ## Import
+ * !> The resource type `aws.dynamodb.GlobalSecondaryIndex` is an experimental feature. The schema or behavior may change without notice, and it is not subject to the backwards compatibility guarantee of the provider.
  *
- * ### Identity Schema
+ * > The resource type `aws.dynamodb.GlobalSecondaryIndex` can be enabled by setting the environment variable `TF_AWS_EXPERIMENT_dynamodb_global_secondary_index` to any value. If not enabled, use of `aws.dynamodb.GlobalSecondaryIndex` will result in an error when running Terraform.
  *
- * #### Required
+ * > Please provide feedback, positive or negative, at https://github.com/hashicorp/terraform-provider-aws/issues/45640. User feedback will determine if this experiment is a success.
  *
- * * `index_name` (String) Name of the index.
+ * !> **WARNING:** Do not combine `aws.dynamodb.GlobalSecondaryIndex` resources in conjunction with `globalSecondaryIndex` on `aws.dynamodb.Table`. Doing so may cause conflicts, perpertual differences, and Global Secondary Indexes being overwritten.
  *
- * * `table_name` (String) Name of the table this index belongs to.
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const exampleTable = new aws.dynamodb.Table("example", {
+ *     name: "example",
+ *     billingMode: "PROVISIONED",
+ *     readCapacity: 20,
+ *     writeCapacity: 20,
+ *     hashKey: "UserId",
+ *     rangeKey: "GameTitle",
+ *     attributes: [
+ *         {
+ *             name: "UserId",
+ *             type: "S",
+ *         },
+ *         {
+ *             name: "GameTitle",
+ *             type: "S",
+ *         },
+ *     ],
+ * });
+ * const example = new aws.dynamodb.GlobalSecondaryIndex("example", {
+ *     tableName: exampleTable.name,
+ *     indexName: "GameTitleIndex",
+ *     projection: {
+ *         projectionType: "INCLUDE",
+ *         nonKeyAttributes: ["UserId"],
+ *     },
+ *     provisionedThroughput: {
+ *         writeCapacityUnits: 10,
+ *         readCapacityUnits: 10,
+ *     },
+ *     keySchemas: [{
+ *         attributeName: "GameTitle",
+ *         attributeType: "S",
+ *         keyType: "HASH",
+ *     }],
+ * });
+ * ```
+ *
+ * ## Migrating
+ *
+ * Use the following steps to migrate existing Global Secondary Indexes defined inline in `globalSecondaryIndex` on an `aws.dynamodb.Table`.
+ *
+ * For each block `globalSecondaryIndex` create a new `aws.dynamodb.GlobalSecondaryIndex` resource with configuration corresponding to the existing block.
+ *
+ * For example, starting with the following configuration:
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.dynamodb.Table("example", {
+ *     name: "example-table",
+ *     hashKey: "example-key",
+ *     readCapacity: 1,
+ *     writeCapacity: 1,
+ *     globalSecondaryIndexes: [
+ *         {
+ *             name: "example-index-1",
+ *             projectionType: "ALL",
+ *             hashKey: "example-gsi-key-1",
+ *             readCapacity: 1,
+ *             writeCapacity: 1,
+ *         },
+ *         {
+ *             name: "example-index-2",
+ *             projectionType: "ALL",
+ *             hashKey: "example-gsi-key-2",
+ *             readCapacity: 1,
+ *             writeCapacity: 1,
+ *         },
+ *     ],
+ *     attributes: [
+ *         {
+ *             name: "example-key",
+ *             type: "S",
+ *         },
+ *         {
+ *             name: "example-gsi-key-1",
+ *             type: "S",
+ *         },
+ *         {
+ *             name: "example-gsi-key-2",
+ *             type: "S",
+ *         },
+ *     ],
+ * });
+ * ```
+ *
+ * Update the configuration to the following. Note that the schema of `aws.dynamodb.GlobalSecondaryIndex` has some differences with `globalSecondaryIndex` on `aws.dynamodb.Table`.
+ *
+ * If using Terraform versions prior to v1.5.0, remove the `import` blocks and use the `pulumi import` command.
  *
  * #### Optional
  *
- * * `account_id` (String) AWS Account where this resource is managed.
- *
+ * * `accountId` (String) AWS Account where this resource is managed.
  * * `region` (String) Region where this resource is managed.
  *
- * Using `pulumi import`, import DynamoDB tables using the `table_name` and `index_name`, separated by a comma. For example:
+ * Using `pulumi import`, import DynamoDB tables using the `tableName` and `indexName`, separated by a comma. For example:
  *
- * % pulumi import aws_dynamodb_global_secondary_index.example 'example-table,example-index'
+ * ```sh
+ * $ pulumi import aws:dynamodb/globalSecondaryIndex:GlobalSecondaryIndex example 'example-table,example-index'
+ * ```
  */
 export class GlobalSecondaryIndex extends pulumi.CustomResource {
     /**

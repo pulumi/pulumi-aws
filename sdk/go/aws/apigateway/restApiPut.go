@@ -12,6 +12,10 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Resource for updating an AWS API Gateway REST API with a new API description.
+//
+// > **NOTE:** When importing an OpenAPI specification using the `body` argument, the `info.title` field updates the `name` of the `apigateway.RestApi`. If the imported `title` differs from the configured `name`, Terraform will report the difference.
+//
 // ## Example Usage
 //
 // ### Basic Usage
@@ -81,7 +85,7 @@ import (
 //
 // ## Import
 //
-// Using `pulumi import`, import API Gateway REST API Put using the `rest_api_id`. For example:
+// Using `pulumi import`, import API Gateway REST API Put using the `restApiId`. For example:
 //
 // ```sh
 // $ pulumi import aws:apigateway/restApiPut:RestApiPut example import-id-12345678

@@ -57,11 +57,13 @@ namespace Pulumi.Aws.Iam
     /// 
     /// #### Required
     /// 
-    /// - `arn` (String) Amazon Resource Name (ARN) of the IAM policy.
+    /// - `Arn` (String) Amazon Resource Name (ARN) of the IAM policy.
     /// 
-    /// Using `pulumi import`, import IAM Policies using the `arn`. For example:
+    /// Using `pulumi import`, import IAM Policies using the `Arn`. For example:
     /// 
-    /// % pulumi import aws_iam_policy.administrator arn:aws:iam::123456789012:policy/UsersManageOwnCredentials
+    /// ```sh
+    /// $ pulumi import aws:iam/policy:Policy administrator arn:aws:iam::123456789012:policy/UsersManageOwnCredentials
+    /// ```
     /// </summary>
     [AwsResourceType("aws:iam/policy:Policy")]
     public partial class Policy : global::Pulumi.CustomResource
@@ -79,7 +81,7 @@ namespace Pulumi.Aws.Iam
         public Output<int> AttachmentCount { get; private set; } = null!;
 
         /// <summary>
-        /// Number of ms to wait between creating the policy and settong its version as default. May be required in environments with very high S3 IO loads.
+        /// Number of ms to wait between creating the policy and setting its version as default. May be required in environments with very high S3 IO loads.
         /// </summary>
         [Output("delayAfterPolicyCreationInMs")]
         public Output<int?> DelayAfterPolicyCreationInMs { get; private set; } = null!;
@@ -179,7 +181,7 @@ namespace Pulumi.Aws.Iam
     public sealed class PolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Number of ms to wait between creating the policy and settong its version as default. May be required in environments with very high S3 IO loads.
+        /// Number of ms to wait between creating the policy and setting its version as default. May be required in environments with very high S3 IO loads.
         /// </summary>
         [Input("delayAfterPolicyCreationInMs")]
         public Input<int>? DelayAfterPolicyCreationInMs { get; set; }
@@ -247,7 +249,7 @@ namespace Pulumi.Aws.Iam
         public Input<int>? AttachmentCount { get; set; }
 
         /// <summary>
-        /// Number of ms to wait between creating the policy and settong its version as default. May be required in environments with very high S3 IO loads.
+        /// Number of ms to wait between creating the policy and setting its version as default. May be required in environments with very high S3 IO loads.
         /// </summary>
         [Input("delayAfterPolicyCreationInMs")]
         public Input<int>? DelayAfterPolicyCreationInMs { get; set; }

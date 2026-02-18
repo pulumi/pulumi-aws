@@ -100,9 +100,11 @@ namespace Pulumi.Aws.DynamoDB
     /// });
     /// ```
     /// 
-    /// ### Basic Example containing Global Secondary Indexs using Multi-attribute keys pattern
+    /// ### Basic Example containing Global Secondary Indexes using Multi-attribute keys pattern
     /// 
     /// The following dynamodb table description models the table and GSIs shown in the [AWS SDK example documentation](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GSI.DesignPattern.MultiAttributeKeys.html)
+    /// 
+    /// &gt; **Note:** Multi-attribute keys for GSIs use the `KeySchema` block instead of `HashKey`/`RangeKey`. The `HashKey` and `RangeKey` arguments are deprecated in favor of `KeySchema`.
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -149,12 +151,12 @@ namespace Pulumi.Aws.DynamoDB
     ///             new Aws.DynamoDB.Inputs.TableAttributeArgs
     ///             {
     ///                 Name = "playerId",
-    ///                 Type = N,
+    ///                 Type = "N",
     ///             },
     ///             new Aws.DynamoDB.Inputs.TableAttributeArgs
     ///             {
     ///                 Name = "matchDate",
-    ///                 Type = S,
+    ///                 Type = "S",
     ///             },
     ///         },
     ///         Ttl = new Aws.DynamoDB.Inputs.TableTtlArgs
@@ -167,16 +169,33 @@ namespace Pulumi.Aws.DynamoDB
     ///             new Aws.DynamoDB.Inputs.TableGlobalSecondaryIndexArgs
     ///             {
     ///                 Name = "TournamentRegionIndex",
-    ///                 HashKeys = new[]
+    ///                 KeySchemas = new[]
     ///                 {
-    ///                     "tournamentId",
-    ///                     "region",
-    ///                 },
-    ///                 RangeKeys = new[]
-    ///                 {
-    ///                     "round",
-    ///                     "bracket",
-    ///                     "matchId",
+    ///                     new Aws.DynamoDB.Inputs.TableGlobalSecondaryIndexKeySchemaArgs
+    ///                     {
+    ///                         AttributeName = "tournamentId",
+    ///                         KeyType = "HASH",
+    ///                     },
+    ///                     new Aws.DynamoDB.Inputs.TableGlobalSecondaryIndexKeySchemaArgs
+    ///                     {
+    ///                         AttributeName = "region",
+    ///                         KeyType = "HASH",
+    ///                     },
+    ///                     new Aws.DynamoDB.Inputs.TableGlobalSecondaryIndexKeySchemaArgs
+    ///                     {
+    ///                         AttributeName = "round",
+    ///                         KeyType = "RANGE",
+    ///                     },
+    ///                     new Aws.DynamoDB.Inputs.TableGlobalSecondaryIndexKeySchemaArgs
+    ///                     {
+    ///                         AttributeName = "bracket",
+    ///                         KeyType = "RANGE",
+    ///                     },
+    ///                     new Aws.DynamoDB.Inputs.TableGlobalSecondaryIndexKeySchemaArgs
+    ///                     {
+    ///                         AttributeName = "matchId",
+    ///                         KeyType = "RANGE",
+    ///                     },
     ///                 },
     ///                 WriteCapacity = 10,
     ///                 ReadCapacity = 10,
@@ -185,11 +204,23 @@ namespace Pulumi.Aws.DynamoDB
     ///             new Aws.DynamoDB.Inputs.TableGlobalSecondaryIndexArgs
     ///             {
     ///                 Name = "PlayerMatchHistoryIndex",
-    ///                 HashKey = "playerId",
-    ///                 RangeKeys = new[]
+    ///                 KeySchemas = new[]
     ///                 {
-    ///                     "matchDate",
-    ///                     "round",
+    ///                     new Aws.DynamoDB.Inputs.TableGlobalSecondaryIndexKeySchemaArgs
+    ///                     {
+    ///                         AttributeName = "playerId",
+    ///                         KeyType = "HASH",
+    ///                     },
+    ///                     new Aws.DynamoDB.Inputs.TableGlobalSecondaryIndexKeySchemaArgs
+    ///                     {
+    ///                         AttributeName = "matchDate",
+    ///                         KeyType = "RANGE",
+    ///                     },
+    ///                     new Aws.DynamoDB.Inputs.TableGlobalSecondaryIndexKeySchemaArgs
+    ///                     {
+    ///                         AttributeName = "round",
+    ///                         KeyType = "RANGE",
+    ///                     },
     ///                 },
     ///                 WriteCapacity = 10,
     ///                 ReadCapacity = 10,
@@ -422,7 +453,7 @@ namespace Pulumi.Aws.DynamoDB
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import DynamoDB tables using the `name`. For example:
+    /// Using `pulumi import`, import DynamoDB tables using the `Name`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:dynamodb/table:Table basic-dynamodb-table GameScores

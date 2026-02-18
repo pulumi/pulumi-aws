@@ -581,6 +581,10 @@ class Namespace(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
+        Creates a new Amazon Redshift Serverless Namespace.
+
+        > **Note:** Write-Only argument `admin_password_wo` is available to use in place of `admin_password`. Write-Only arguments are supported in HashiCorp Terraform 1.11.0 and later. Learn more.
+
         ## Example Usage
 
         ```python
@@ -626,6 +630,10 @@ class Namespace(pulumi.CustomResource):
                  args: NamespaceArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        Creates a new Amazon Redshift Serverless Namespace.
+
+        > **Note:** Write-Only argument `admin_password_wo` is available to use in place of `admin_password`. Write-Only arguments are supported in HashiCorp Terraform 1.11.0 and later. Learn more.
+
         ## Example Usage
 
         ```python

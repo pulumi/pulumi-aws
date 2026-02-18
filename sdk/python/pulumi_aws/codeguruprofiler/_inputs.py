@@ -19,16 +19,11 @@ __all__ = [
     'ProfilingGroupAgentOrchestrationConfigArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class ProfilingGroupAgentOrchestrationConfigArgsDict(TypedDict):
-        profiling_enabled: pulumi.Input[_builtins.bool]
-        """
-        (Required) Boolean that specifies whether the profiling agent collects profiling data or
-        """
-elif False:
-    ProfilingGroupAgentOrchestrationConfigArgsDict: TypeAlias = Mapping[str, Any]
+class ProfilingGroupAgentOrchestrationConfigArgsDict(TypedDict):
+    profiling_enabled: pulumi.Input[_builtins.bool]
+    """
+    (Required) Boolean that specifies whether the profiling agent collects profiling data or
+    """
 
 @pulumi.input_type
 class ProfilingGroupAgentOrchestrationConfigArgs:

@@ -24,6 +24,7 @@ class TemplateAssociationArgs:
         """
         The set of arguments for constructing a TemplateAssociation resource.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        :param pulumi.Input[_builtins.bool] skip_destroy: Skip disassociating the quota increase template upon destruction. This will remove the resource from Terraform state, but leave the remote association in place.
         """
         if region is not None:
             pulumi.set(__self__, "region", region)
@@ -45,6 +46,9 @@ class TemplateAssociationArgs:
     @_builtins.property
     @pulumi.getter(name="skipDestroy")
     def skip_destroy(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Skip disassociating the quota increase template upon destruction. This will remove the resource from Terraform state, but leave the remote association in place.
+        """
         return pulumi.get(self, "skip_destroy")
 
     @skip_destroy.setter
@@ -61,6 +65,7 @@ class _TemplateAssociationState:
         """
         Input properties used for looking up and filtering TemplateAssociation resources.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        :param pulumi.Input[_builtins.bool] skip_destroy: Skip disassociating the quota increase template upon destruction. This will remove the resource from Terraform state, but leave the remote association in place.
         :param pulumi.Input[_builtins.str] status: Association status. Creating this resource will result in an `ASSOCIATED` status, and quota increase requests in the template are automatically applied to new AWS accounts in the organization.
         """
         if region is not None:
@@ -85,6 +90,9 @@ class _TemplateAssociationState:
     @_builtins.property
     @pulumi.getter(name="skipDestroy")
     def skip_destroy(self) -> Optional[pulumi.Input[_builtins.bool]]:
+        """
+        Skip disassociating the quota increase template upon destruction. This will remove the resource from Terraform state, but leave the remote association in place.
+        """
         return pulumi.get(self, "skip_destroy")
 
     @skip_destroy.setter
@@ -140,6 +148,7 @@ class TemplateAssociation(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        :param pulumi.Input[_builtins.bool] skip_destroy: Skip disassociating the quota increase template upon destruction. This will remove the resource from Terraform state, but leave the remote association in place.
         """
         ...
     @overload
@@ -221,6 +230,7 @@ class TemplateAssociation(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        :param pulumi.Input[_builtins.bool] skip_destroy: Skip disassociating the quota increase template upon destruction. This will remove the resource from Terraform state, but leave the remote association in place.
         :param pulumi.Input[_builtins.str] status: Association status. Creating this resource will result in an `ASSOCIATED` status, and quota increase requests in the template are automatically applied to new AWS accounts in the organization.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -243,6 +253,9 @@ class TemplateAssociation(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="skipDestroy")
     def skip_destroy(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        Skip disassociating the quota increase template upon destruction. This will remove the resource from Terraform state, but leave the remote association in place.
+        """
         return pulumi.get(self, "skip_destroy")
 
     @_builtins.property

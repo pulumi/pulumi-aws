@@ -57,7 +57,7 @@ namespace Pulumi.Aws.RedshiftData
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import Redshift Data Statements using the `id`. For example:
+    /// Using `pulumi import`, import Redshift Data Statements using the `Id`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:redshiftdata/statement:Statement example example

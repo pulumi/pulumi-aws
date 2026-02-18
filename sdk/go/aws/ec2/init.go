@@ -131,6 +131,10 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &RouteTable{}
 	case "aws:ec2/routeTableAssociation:RouteTableAssociation":
 		r = &RouteTableAssociation{}
+	case "aws:ec2/secondaryNetwork:SecondaryNetwork":
+		r = &SecondaryNetwork{}
+	case "aws:ec2/secondarySubnet:SecondarySubnet":
+		r = &SecondarySubnet{}
 	case "aws:ec2/securityGroup:SecurityGroup":
 		r = &SecurityGroup{}
 	case "aws:ec2/securityGroupAssociation:SecurityGroupAssociation":
@@ -519,6 +523,16 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"ec2/routeTableAssociation",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"ec2/secondaryNetwork",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"ec2/secondarySubnet",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

@@ -33,7 +33,7 @@ namespace Pulumi.Aws.RedshiftServerless
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import Redshift Serverless Workgroups using the `workgroup_name`. For example:
+    /// Using `pulumi import`, import Redshift Serverless Workgroups using the `WorkgroupName`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:redshiftserverless/workgroup:Workgroup example example

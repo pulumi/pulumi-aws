@@ -80,17 +80,18 @@ namespace Pulumi.Aws.Iam
     /// 
     /// #### Required
     /// 
-    /// * `role` (String) Name of the IAM role.
-    /// 
-    /// * `name` (String) Name of the role policy.
+    /// * `Role` (String) Name of the IAM role.
+    /// * `Name` (String) Name of the role policy.
     /// 
     /// #### Optional
     /// 
-    /// * `account_id` (String) AWS Account where this resource is managed.
+    /// * `AccountId` (String) AWS Account where this resource is managed.
     /// 
     /// Using `pulumi import`, import IAM Role Policies using the `role_name:role_policy_name`. For example:
     /// 
-    /// % pulumi import aws_iam_role_policy.example role_of_mypolicy_name:mypolicy_name
+    /// ```sh
+    /// $ pulumi import aws:iam/rolePolicy:RolePolicy example role_of_mypolicy_name:mypolicy_name
+    /// ```
     /// </summary>
     [AwsResourceType("aws:iam/rolePolicy:RolePolicy")]
     public partial class RolePolicy : global::Pulumi.CustomResource

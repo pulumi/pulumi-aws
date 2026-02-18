@@ -387,7 +387,30 @@ import (
 // ```sh
 // $ pulumi import aws:emr/cluster:Cluster cluster j-123456ABCDEF
 // ```
-// Since the API does not return the actual values for Kerberos configurations, environments with those options set will need to use the `lifecycle` configuration block `ignore_changes` argument available to all Pulumi resources to prevent perpetual differences. For example:
+//
+// Since the API does not return the actual values for Kerberos configurations, environments with those options set will need to use the `lifecycle` configuration block `ignoreChanges` argument available to all Pulumi resources to prevent perpetual differences. For example:
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/emr"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := emr.NewCluster(ctx, "example", nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 type Cluster struct {
 	pulumi.CustomResourceState
 

@@ -37,7 +37,7 @@ namespace Pulumi.Aws.MskConnect
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import MSK Connect Worker Configuration using the plugin's `arn`. For example:
+    /// Using `pulumi import`, import MSK Connect Worker Configuration using the plugin's `Arn`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:mskconnect/workerConfiguration:WorkerConfiguration example 'arn:aws:kafkaconnect:eu-central-1:123456789012:worker-configuration/example/8848493b-7fcc-478c-a646-4a52634e3378-4'

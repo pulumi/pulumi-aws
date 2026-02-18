@@ -57,7 +57,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Using `pulumi import`, import App Runner Connections using the `connection_name`. For example:
+ * Using `pulumi import`, import App Runner Connections using the `connectionName`. For example:
  * 
  * ```sh
  * $ pulumi import aws:apprunner/connection:Connection example example

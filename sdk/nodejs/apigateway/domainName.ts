@@ -109,11 +109,12 @@ import * as utilities from "../utilities";
  *
  * For a private custom domain name:
  *
- * Using `pulumi import`, import API Gateway domain names using their `name` or `name` and `domain_name_id` (for private custom domain names). For example:
+ * Using `pulumi import`, import API Gateway domain names using their `name` or `name` and `domainNameId` (for private custom domain names). For example:
  *
  * ```sh
  * $ pulumi import aws:apigateway/domainName:DomainName example dev.example.com
  * ```
+ *
  * For a private custom domain name:
  *
  * ```sh

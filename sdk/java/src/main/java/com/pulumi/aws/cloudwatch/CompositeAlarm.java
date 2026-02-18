@@ -71,7 +71,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Using `pulumi import`, import a CloudWatch Composite Alarm using the `alarm_name`. For example:
+ * Using `pulumi import`, import a CloudWatch Composite Alarm using the `alarmName`. For example:
  * 
  * ```sh
  * $ pulumi import aws:cloudwatch/compositeAlarm:CompositeAlarm test my-alarm

@@ -32,10 +32,10 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := lakeformation.NewDataCellsFilter(ctx, "example", &lakeformation.DataCellsFilterArgs{
 //				TableData: &lakeformation.DataCellsFilterTableDataArgs{
-//					DatabaseName:   pulumi.Any(test.Name),
+//					DatabaseName:   pulumi.Any(exampleAwsGlueCatalogDatabase.Name),
 //					Name:           pulumi.String("example"),
 //					TableCatalogId: pulumi.Any(current.AccountId),
-//					TableName:      pulumi.Any(testAwsGlueCatalogTable.Name),
+//					TableName:      pulumi.Any(exampleAwsGlueCatalogTable.Name),
 //					ColumnNames: pulumi.StringArray{
 //						pulumi.String("my_column"),
 //					},
@@ -53,9 +53,130 @@ import (
 //
 // ```
 //
+// ### Filter with Excluded Columns Only (No Row Filter)
+//
+// When excluding columns without a row filter, you must include `allRowsWildcard {}`:
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/lakeformation"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := lakeformation.NewDataCellsFilter(ctx, "excluded_columns", &lakeformation.DataCellsFilterArgs{
+//				TableData: &lakeformation.DataCellsFilterTableDataArgs{
+//					DatabaseName:   pulumi.Any(example.Name),
+//					Name:           pulumi.String("exclude-pii"),
+//					TableCatalogId: pulumi.Any(current.AccountId),
+//					TableName:      pulumi.Any(exampleAwsGlueCatalogTable.Name),
+//					ColumnWildcard: &lakeformation.DataCellsFilterTableDataColumnWildcardArgs{
+//						ExcludedColumnNames: pulumi.StringArray{
+//							pulumi.String("ssn"),
+//							pulumi.String("credit_card"),
+//						},
+//					},
+//					RowFilter: &lakeformation.DataCellsFilterTableDataRowFilterArgs{
+//						AllRowsWildcard: &lakeformation.DataCellsFilterTableDataRowFilterAllRowsWildcardArgs{},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ### Filter with Row Filter and Excluded Columns
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/lakeformation"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := lakeformation.NewDataCellsFilter(ctx, "row_and_column", &lakeformation.DataCellsFilterArgs{
+//				TableData: &lakeformation.DataCellsFilterTableDataArgs{
+//					DatabaseName:   pulumi.Any(example.Name),
+//					Name:           pulumi.String("marketing-filtered"),
+//					TableCatalogId: pulumi.Any(current.AccountId),
+//					TableName:      pulumi.Any(exampleAwsGlueCatalogTable.Name),
+//					ColumnWildcard: &lakeformation.DataCellsFilterTableDataColumnWildcardArgs{
+//						ExcludedColumnNames: pulumi.StringArray{
+//							pulumi.String("salary"),
+//							pulumi.String("bonus"),
+//						},
+//					},
+//					RowFilter: &lakeformation.DataCellsFilterTableDataRowFilterArgs{
+//						FilterExpression: pulumi.String("department = 'Marketing'"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ### Filter with Row Filter Only (All Columns Included)
+//
+// To include all columns with a row filter, set `excludedColumnNames` to an empty list:
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/lakeformation"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := lakeformation.NewDataCellsFilter(ctx, "row_only", &lakeformation.DataCellsFilterArgs{
+//				TableData: &lakeformation.DataCellsFilterTableDataArgs{
+//					DatabaseName:   pulumi.Any(example.Name),
+//					Name:           pulumi.String("regional-filter"),
+//					TableCatalogId: pulumi.Any(current.AccountId),
+//					TableName:      pulumi.Any(exampleAwsGlueCatalogTable.Name),
+//					ColumnWildcard: &lakeformation.DataCellsFilterTableDataColumnWildcardArgs{
+//						ExcludedColumnNames: pulumi.StringArray{},
+//					},
+//					RowFilter: &lakeformation.DataCellsFilterTableDataRowFilterArgs{
+//						FilterExpression: pulumi.String("region = 'US-WEST'"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
-// Using `pulumi import`, import Lake Formation Data Cells Filter using the `database_name`, `name`, `table_catalog_id`, and `table_name` separated by `,`. For example:
+// Using `pulumi import`, import Lake Formation Data Cells Filter using the `databaseName`, `name`, `tableCatalogId`, and `tableName` separated by `,`. For example:
 //
 // ```sh
 // $ pulumi import aws:lakeformation/dataCellsFilter:DataCellsFilter example database_name,name,table_catalog_id,table_name

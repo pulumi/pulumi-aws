@@ -231,7 +231,7 @@ class PeeringAttachmentAccepter(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import `aws_ec2_transit_gateway_peering_attachment_accepter` using the EC2 Transit Gateway Attachment identifier. For example:
+        Using `pulumi import`, import `ec2transitgateway.PeeringAttachmentAccepter` using the EC2 Transit Gateway Attachment identifier. For example:
 
         ```sh
         $ pulumi import aws:ec2transitgateway/peeringAttachmentAccepter:PeeringAttachmentAccepter example tgw-attach-12345678
@@ -267,7 +267,7 @@ class PeeringAttachmentAccepter(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import `aws_ec2_transit_gateway_peering_attachment_accepter` using the EC2 Transit Gateway Attachment identifier. For example:
+        Using `pulumi import`, import `ec2transitgateway.PeeringAttachmentAccepter` using the EC2 Transit Gateway Attachment identifier. For example:
 
         ```sh
         $ pulumi import aws:ec2transitgateway/peeringAttachmentAccepter:PeeringAttachmentAccepter example tgw-attach-12345678

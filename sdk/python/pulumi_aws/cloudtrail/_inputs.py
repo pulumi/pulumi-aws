@@ -31,20 +31,15 @@ __all__ = [
     'TrailInsightSelectorArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class EventDataStoreAdvancedEventSelectorArgsDict(TypedDict):
-        field_selectors: NotRequired[pulumi.Input[Sequence[pulumi.Input['EventDataStoreAdvancedEventSelectorFieldSelectorArgsDict']]]]
-        """
-        Specifies the selector statements in an advanced event selector. Fields documented below.
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specifies the name of the advanced event selector.
-        """
-elif False:
-    EventDataStoreAdvancedEventSelectorArgsDict: TypeAlias = Mapping[str, Any]
+class EventDataStoreAdvancedEventSelectorArgsDict(TypedDict):
+    field_selectors: NotRequired[pulumi.Input[Sequence[pulumi.Input['EventDataStoreAdvancedEventSelectorFieldSelectorArgsDict']]]]
+    """
+    Specifies the selector statements in an advanced event selector. Fields documented below.
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies the name of the advanced event selector.
+    """
 
 @pulumi.input_type
 class EventDataStoreAdvancedEventSelectorArgs:
@@ -85,38 +80,35 @@ class EventDataStoreAdvancedEventSelectorArgs:
         pulumi.set(self, "name", value)
 
 
-if not MYPY:
-    class EventDataStoreAdvancedEventSelectorFieldSelectorArgsDict(TypedDict):
-        ends_withs: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        A list of values that includes events that match the last few characters of the event record field specified as the value of `field`.
-        """
-        equals: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        A list of values that includes events that match the exact value of the event record field specified as the value of `field`. This is the only valid operator that you can use with the `readOnly`, `eventCategory`, and `resources.type` fields.
-        """
-        field: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specifies a field in an event record on which to filter events to be logged. You can specify only the following values: `readOnly`, `eventSource`, `eventName`, `eventCategory`, `resources.type`, `resources.ARN`.
-        """
-        not_ends_withs: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        A list of values that excludes events that match the last few characters of the event record field specified as the value of `field`.
-        """
-        not_equals: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        A list of values that excludes events that match the exact value of the event record field specified as the value of `field`.
-        """
-        not_starts_withs: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        A list of values that excludes events that match the first few characters of the event record field specified as the value of `field`.
-        """
-        starts_withs: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        A list of values that includes events that match the first few characters of the event record field specified as the value of `field`.
-        """
-elif False:
-    EventDataStoreAdvancedEventSelectorFieldSelectorArgsDict: TypeAlias = Mapping[str, Any]
+class EventDataStoreAdvancedEventSelectorFieldSelectorArgsDict(TypedDict):
+    ends_withs: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    A list of values that includes events that match the last few characters of the event record field specified as the value of `field`.
+    """
+    equals: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    A list of values that includes events that match the exact value of the event record field specified as the value of `field`. This is the only valid operator that you can use with the `readOnly`, `eventCategory`, and `resources.type` fields.
+    """
+    field: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies a field in an event record on which to filter events to be logged. You can specify only the following values: `readOnly`, `eventSource`, `eventName`, `eventCategory`, `resources.type`, `resources.ARN`.
+    """
+    not_ends_withs: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    A list of values that excludes events that match the last few characters of the event record field specified as the value of `field`.
+    """
+    not_equals: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    A list of values that excludes events that match the exact value of the event record field specified as the value of `field`.
+    """
+    not_starts_withs: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    A list of values that excludes events that match the first few characters of the event record field specified as the value of `field`.
+    """
+    starts_withs: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    A list of values that includes events that match the first few characters of the event record field specified as the value of `field`.
+    """
 
 @pulumi.input_type
 class EventDataStoreAdvancedEventSelectorFieldSelectorArgs:
@@ -237,18 +229,15 @@ class EventDataStoreAdvancedEventSelectorFieldSelectorArgs:
         pulumi.set(self, "starts_withs", value)
 
 
-if not MYPY:
-    class TrailAdvancedEventSelectorArgsDict(TypedDict):
-        field_selectors: pulumi.Input[Sequence[pulumi.Input['TrailAdvancedEventSelectorFieldSelectorArgsDict']]]
-        """
-        Specifies the selector statements in an advanced event selector. Fields documented below.
-        """
-        name: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Name of the trail.
-        """
-elif False:
-    TrailAdvancedEventSelectorArgsDict: TypeAlias = Mapping[str, Any]
+class TrailAdvancedEventSelectorArgsDict(TypedDict):
+    field_selectors: pulumi.Input[Sequence[pulumi.Input['TrailAdvancedEventSelectorFieldSelectorArgsDict']]]
+    """
+    Specifies the selector statements in an advanced event selector. Fields documented below.
+    """
+    name: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Name of the trail.
+    """
 
 @pulumi.input_type
 class TrailAdvancedEventSelectorArgs:
@@ -288,38 +277,35 @@ class TrailAdvancedEventSelectorArgs:
         pulumi.set(self, "name", value)
 
 
-if not MYPY:
-    class TrailAdvancedEventSelectorFieldSelectorArgsDict(TypedDict):
-        field: pulumi.Input[_builtins.str]
-        """
-        Field in an event record on which to filter events to be logged. You can specify only the following values: `readOnly`, `eventSource`, `eventName`, `eventCategory`, `resources.type`, `resources.ARN`.
-        """
-        ends_withs: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        A list of values that includes events that match the last few characters of the event record field specified as the value of `field`.
-        """
-        equals: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        A list of values that includes events that match the exact value of the event record field specified as the value of `field`. This is the only valid operator that you can use with the `readOnly`, `eventCategory`, and `resources.type` fields.
-        """
-        not_ends_withs: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        A list of values that excludes events that match the last few characters of the event record field specified as the value of `field`.
-        """
-        not_equals: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        A list of values that excludes events that match the exact value of the event record field specified as the value of `field`.
-        """
-        not_starts_withs: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        A list of values that excludes events that match the first few characters of the event record field specified as the value of `field`.
-        """
-        starts_withs: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        A list of values that includes events that match the first few characters of the event record field specified as the value of `field`.
-        """
-elif False:
-    TrailAdvancedEventSelectorFieldSelectorArgsDict: TypeAlias = Mapping[str, Any]
+class TrailAdvancedEventSelectorFieldSelectorArgsDict(TypedDict):
+    field: pulumi.Input[_builtins.str]
+    """
+    Field in an event record on which to filter events to be logged. You can specify only the following values: `readOnly`, `eventSource`, `eventName`, `eventCategory`, `resources.type`, `resources.ARN`.
+    """
+    ends_withs: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    A list of values that includes events that match the last few characters of the event record field specified as the value of `field`.
+    """
+    equals: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    A list of values that includes events that match the exact value of the event record field specified as the value of `field`. This is the only valid operator that you can use with the `readOnly`, `eventCategory`, and `resources.type` fields.
+    """
+    not_ends_withs: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    A list of values that excludes events that match the last few characters of the event record field specified as the value of `field`.
+    """
+    not_equals: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    A list of values that excludes events that match the exact value of the event record field specified as the value of `field`.
+    """
+    not_starts_withs: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    A list of values that excludes events that match the first few characters of the event record field specified as the value of `field`.
+    """
+    starts_withs: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    A list of values that includes events that match the first few characters of the event record field specified as the value of `field`.
+    """
 
 @pulumi.input_type
 class TrailAdvancedEventSelectorFieldSelectorArgs:
@@ -439,26 +425,23 @@ class TrailAdvancedEventSelectorFieldSelectorArgs:
         pulumi.set(self, "starts_withs", value)
 
 
-if not MYPY:
-    class TrailEventSelectorArgsDict(TypedDict):
-        data_resources: NotRequired[pulumi.Input[Sequence[pulumi.Input['TrailEventSelectorDataResourceArgsDict']]]]
-        """
-        Configuration block for data events. See details below.
-        """
-        exclude_management_event_sources: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        A set of event sources to exclude. Valid values include: `kms.amazonaws.com` and `rdsdata.amazonaws.com`. `include_management_events` must be set to`true` to allow this.
-        """
-        include_management_events: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Whether to include management events for your trail. Defaults to `true`.
-        """
-        read_write_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Type of events to log. Valid values are `ReadOnly`, `WriteOnly`, `All`. Default value is `All`.
-        """
-elif False:
-    TrailEventSelectorArgsDict: TypeAlias = Mapping[str, Any]
+class TrailEventSelectorArgsDict(TypedDict):
+    data_resources: NotRequired[pulumi.Input[Sequence[pulumi.Input['TrailEventSelectorDataResourceArgsDict']]]]
+    """
+    Configuration block for data events. See details below.
+    """
+    exclude_management_event_sources: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    A set of event sources to exclude. Valid values include: `kms.amazonaws.com` and `rdsdata.amazonaws.com`. `include_management_events` must be set to`true` to allow this.
+    """
+    include_management_events: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Whether to include management events for your trail. Defaults to `true`.
+    """
+    read_write_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Type of events to log. Valid values are `ReadOnly`, `WriteOnly`, `All`. Default value is `All`.
+    """
 
 @pulumi.input_type
 class TrailEventSelectorArgs:
@@ -531,18 +514,15 @@ class TrailEventSelectorArgs:
         pulumi.set(self, "read_write_type", value)
 
 
-if not MYPY:
-    class TrailEventSelectorDataResourceArgsDict(TypedDict):
-        type: pulumi.Input[_builtins.str]
-        """
-        Resource type in which you want to log data events. You can specify only the following value: "AWS::S3::Object", "AWS::Lambda::Function" and "AWS::DynamoDB::Table".
-        """
-        values: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        List of ARN strings or partial ARN strings to specify selectors for data audit events over data resources. ARN list is specific to single-valued `type`. For example, `arn:aws:s3:::<bucket name>/` for all objects in a bucket, `arn:aws:s3:::<bucket name>/key` for specific objects, `arn:aws:lambda` for all lambda events within an account, `arn:aws:lambda:<region>:<account number>:function:<function name>` for a specific Lambda function, `arn:aws:dynamodb` for all DDB events for all tables within an account, or `arn:aws:dynamodb:<region>:<account number>:table/<table name>` for a specific DynamoDB table.
-        """
-elif False:
-    TrailEventSelectorDataResourceArgsDict: TypeAlias = Mapping[str, Any]
+class TrailEventSelectorDataResourceArgsDict(TypedDict):
+    type: pulumi.Input[_builtins.str]
+    """
+    Resource type in which you want to log data events. You can specify only the following value: "AWS::S3::Object", "AWS::Lambda::Function" and "AWS::DynamoDB::Table".
+    """
+    values: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    List of ARN strings or partial ARN strings to specify selectors for data audit events over data resources. ARN list is specific to single-valued `type`. For example, `arn:aws:s3:::<bucket name>/` for all objects in a bucket, `arn:aws:s3:::<bucket name>/key` for specific objects, `arn:aws:lambda` for all lambda events within an account, `arn:aws:lambda:<region>:<account number>:function:<function name>` for a specific Lambda function, `arn:aws:dynamodb` for all DDB events for all tables within an account, or `arn:aws:dynamodb:<region>:<account number>:table/<table name>` for a specific DynamoDB table.
+    """
 
 @pulumi.input_type
 class TrailEventSelectorDataResourceArgs:
@@ -581,14 +561,11 @@ class TrailEventSelectorDataResourceArgs:
         pulumi.set(self, "values", value)
 
 
-if not MYPY:
-    class TrailInsightSelectorArgsDict(TypedDict):
-        insight_type: pulumi.Input[_builtins.str]
-        """
-        Type of insights to log on a trail. Valid values are: `ApiCallRateInsight` and `ApiErrorRateInsight`.
-        """
-elif False:
-    TrailInsightSelectorArgsDict: TypeAlias = Mapping[str, Any]
+class TrailInsightSelectorArgsDict(TypedDict):
+    insight_type: pulumi.Input[_builtins.str]
+    """
+    Type of insights to log on a trail. Valid values are: `ApiCallRateInsight` and `ApiErrorRateInsight`.
+    """
 
 @pulumi.input_type
 class TrailInsightSelectorArgs:

@@ -69,7 +69,7 @@ namespace Pulumi.Aws.WorkSpacesWeb
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import WorkSpaces Web User Access Logging Settings using the `user_access_logging_settings_arn`. For example:
+    /// Using `pulumi import`, import WorkSpaces Web User Access Logging Settings using the `UserAccessLoggingSettingsArn`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:workspacesweb/userAccessLoggingSettings:UserAccessLoggingSettings example arn:aws:workspaces-web:us-west-2:123456789012:userAccessLoggingSettings/abcdef12345

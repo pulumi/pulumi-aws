@@ -15,6 +15,7 @@ import com.pulumi.aws.ec2.inputs.SpotInstanceRequestMetadataOptionsArgs;
 import com.pulumi.aws.ec2.inputs.SpotInstanceRequestNetworkInterfaceArgs;
 import com.pulumi.aws.ec2.inputs.SpotInstanceRequestPrivateDnsNameOptionsArgs;
 import com.pulumi.aws.ec2.inputs.SpotInstanceRequestRootBlockDeviceArgs;
+import com.pulumi.aws.ec2.inputs.SpotInstanceRequestSecondaryNetworkInterfaceArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Boolean;
@@ -612,6 +613,21 @@ public final class SpotInstanceRequestArgs extends com.pulumi.resources.Resource
     }
 
     /**
+     * One or more secondary network interfaces to attach to the instance at launch time. See Secondary Network Interface below for more details.
+     * 
+     */
+    @Import(name="secondaryNetworkInterfaces")
+    private @Nullable Output<List<SpotInstanceRequestSecondaryNetworkInterfaceArgs>> secondaryNetworkInterfaces;
+
+    /**
+     * @return One or more secondary network interfaces to attach to the instance at launch time. See Secondary Network Interface below for more details.
+     * 
+     */
+    public Optional<Output<List<SpotInstanceRequestSecondaryNetworkInterfaceArgs>>> secondaryNetworkInterfaces() {
+        return Optional.ofNullable(this.secondaryNetworkInterfaces);
+    }
+
+    /**
      * List of secondary private IPv4 addresses to assign to the instance&#39;s primary network interface (eth0) in a VPC. Can only be assigned to the primary network interface (eth0) attached at instance creation, not a pre-existing network interface i.e., referenced in a `networkInterface` block. Refer to the [Elastic network interfaces documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html#AvailableIpPerENI) to see the maximum number of private IP addresses allowed per instance type.
      * 
      */
@@ -906,6 +922,7 @@ public final class SpotInstanceRequestArgs extends com.pulumi.resources.Resource
         this.privateIp = $.privateIp;
         this.region = $.region;
         this.rootBlockDevice = $.rootBlockDevice;
+        this.secondaryNetworkInterfaces = $.secondaryNetworkInterfaces;
         this.secondaryPrivateIps = $.secondaryPrivateIps;
         this.securityGroups = $.securityGroups;
         this.sourceDestCheck = $.sourceDestCheck;
@@ -1792,6 +1809,37 @@ public final class SpotInstanceRequestArgs extends com.pulumi.resources.Resource
          */
         public Builder rootBlockDevice(SpotInstanceRequestRootBlockDeviceArgs rootBlockDevice) {
             return rootBlockDevice(Output.of(rootBlockDevice));
+        }
+
+        /**
+         * @param secondaryNetworkInterfaces One or more secondary network interfaces to attach to the instance at launch time. See Secondary Network Interface below for more details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder secondaryNetworkInterfaces(@Nullable Output<List<SpotInstanceRequestSecondaryNetworkInterfaceArgs>> secondaryNetworkInterfaces) {
+            $.secondaryNetworkInterfaces = secondaryNetworkInterfaces;
+            return this;
+        }
+
+        /**
+         * @param secondaryNetworkInterfaces One or more secondary network interfaces to attach to the instance at launch time. See Secondary Network Interface below for more details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder secondaryNetworkInterfaces(List<SpotInstanceRequestSecondaryNetworkInterfaceArgs> secondaryNetworkInterfaces) {
+            return secondaryNetworkInterfaces(Output.of(secondaryNetworkInterfaces));
+        }
+
+        /**
+         * @param secondaryNetworkInterfaces One or more secondary network interfaces to attach to the instance at launch time. See Secondary Network Interface below for more details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder secondaryNetworkInterfaces(SpotInstanceRequestSecondaryNetworkInterfaceArgs... secondaryNetworkInterfaces) {
+            return secondaryNetworkInterfaces(List.of(secondaryNetworkInterfaces));
         }
 
         /**

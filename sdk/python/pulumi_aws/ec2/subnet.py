@@ -932,12 +932,13 @@ class Subnet(pulumi.CustomResource):
         #### Optional
 
         * `account_id` (String) AWS Account where this resource is managed.
-
         * `region` (String) Region where this resource is managed.
 
         Using `pulumi import`, import subnets using the subnet `id`. For example:
 
-        % pulumi import aws_subnet.example subnet-9d4a7b6c
+        ```sh
+        $ pulumi import aws:ec2/subnet:Subnet example subnet-9d4a7b6c
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -1065,12 +1066,13 @@ class Subnet(pulumi.CustomResource):
         #### Optional
 
         * `account_id` (String) AWS Account where this resource is managed.
-
         * `region` (String) Region where this resource is managed.
 
         Using `pulumi import`, import subnets using the subnet `id`. For example:
 
-        % pulumi import aws_subnet.example subnet-9d4a7b6c
+        ```sh
+        $ pulumi import aws:ec2/subnet:Subnet example subnet-9d4a7b6c
+        ```
 
         :param str resource_name: The name of the resource.
         :param SubnetArgs args: The arguments to use to populate this resource's properties.

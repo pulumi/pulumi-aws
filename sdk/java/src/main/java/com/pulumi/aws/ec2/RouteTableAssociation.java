@@ -88,13 +88,14 @@ import javax.annotation.Nullable;
  * 
  * With EC2 Internet Gateways:
  * 
- * __Using `pulumi import` to import__ EC2 Route Table Associations using the associated resource ID and Route Table ID separated by a forward slash (`/`). For example:
+ * **Using `pulumi import` to import** EC2 Route Table Associations using the associated resource ID and Route Table ID separated by a forward slash (`/`). For example:
  * 
  * With EC2 Subnets:
  * 
  * ```sh
  * $ pulumi import aws:ec2/routeTableAssociation:RouteTableAssociation assoc subnet-6777656e646f6c796e/rtb-656c65616e6f72
  * ```
+ * 
  * With EC2 Internet Gateways:
  * 
  * ```sh

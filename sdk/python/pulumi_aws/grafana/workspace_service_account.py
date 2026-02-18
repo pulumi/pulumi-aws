@@ -186,6 +186,11 @@ class WorkspaceServiceAccount(pulumi.CustomResource):
                  workspace_id: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
+        > **Note:** You cannot update a service account. If you change any attribute, Terraform
+        will delete the current and create a new one.
+
+        Read about Service Accounts in the [Amazon Managed Grafana user guide](https://docs.aws.amazon.com/grafana/latest/userguide/service-accounts.html).
+
         ## Example Usage
 
         ### Basic Usage
@@ -222,6 +227,11 @@ class WorkspaceServiceAccount(pulumi.CustomResource):
                  args: WorkspaceServiceAccountArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        > **Note:** You cannot update a service account. If you change any attribute, Terraform
+        will delete the current and create a new one.
+
+        Read about Service Accounts in the [Amazon Managed Grafana user guide](https://docs.aws.amazon.com/grafana/latest/userguide/service-accounts.html).
+
         ## Example Usage
 
         ### Basic Usage

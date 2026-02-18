@@ -1562,7 +1562,15 @@ class Cluster(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:emr/cluster:Cluster cluster j-123456ABCDEF
         ```
+
         Since the API does not return the actual values for Kerberos configurations, environments with those options set will need to use the `lifecycle` configuration block `ignore_changes` argument available to all Pulumi resources to prevent perpetual differences. For example:
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.emr.Cluster("example")
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -1899,7 +1907,15 @@ class Cluster(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:emr/cluster:Cluster cluster j-123456ABCDEF
         ```
+
         Since the API does not return the actual values for Kerberos configurations, environments with those options set will need to use the `lifecycle` configuration block `ignore_changes` argument available to all Pulumi resources to prevent perpetual differences. For example:
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.emr.Cluster("example")
+        ```
 
         :param str resource_name: The name of the resource.
         :param ClusterArgs args: The arguments to use to populate this resource's properties.

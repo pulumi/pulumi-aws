@@ -21,14 +21,14 @@ public final class CloudAutonomousVmClusterMaintenanceWindowArgs extends com.pul
     public static final CloudAutonomousVmClusterMaintenanceWindowArgs Empty = new CloudAutonomousVmClusterMaintenanceWindowArgs();
 
     /**
-     * The days of the week when maintenance can be performed.
+     * The days of the week when maintenance can be performed. Changing this will force terraform to create new resource.
      * 
      */
     @Import(name="daysOfWeeks")
     private @Nullable Output<List<CloudAutonomousVmClusterMaintenanceWindowDaysOfWeekArgs>> daysOfWeeks;
 
     /**
-     * @return The days of the week when maintenance can be performed.
+     * @return The days of the week when maintenance can be performed. Changing this will force terraform to create new resource.
      * 
      */
     public Optional<Output<List<CloudAutonomousVmClusterMaintenanceWindowDaysOfWeekArgs>>> daysOfWeeks() {
@@ -36,14 +36,14 @@ public final class CloudAutonomousVmClusterMaintenanceWindowArgs extends com.pul
     }
 
     /**
-     * The hours of the day when maintenance can be performed.
+     * The hours of the day when maintenance can be performed. Changing this will force terraform to create new resource.
      * 
      */
     @Import(name="hoursOfDays")
     private @Nullable Output<List<Integer>> hoursOfDays;
 
     /**
-     * @return The hours of the day when maintenance can be performed.
+     * @return The hours of the day when maintenance can be performed. Changing this will force terraform to create new resource.
      * 
      */
     public Optional<Output<List<Integer>>> hoursOfDays() {
@@ -51,14 +51,14 @@ public final class CloudAutonomousVmClusterMaintenanceWindowArgs extends com.pul
     }
 
     /**
-     * The lead time in weeks before the maintenance window.
+     * The lead time in weeks before the maintenance window. Changing this will force terraform to create new resource.
      * 
      */
     @Import(name="leadTimeInWeeks")
     private @Nullable Output<Integer> leadTimeInWeeks;
 
     /**
-     * @return The lead time in weeks before the maintenance window.
+     * @return The lead time in weeks before the maintenance window. Changing this will force terraform to create new resource.
      * 
      */
     public Optional<Output<Integer>> leadTimeInWeeks() {
@@ -66,14 +66,14 @@ public final class CloudAutonomousVmClusterMaintenanceWindowArgs extends com.pul
     }
 
     /**
-     * The months when maintenance can be performed.
+     * The months when maintenance can be performed. Changing this will force terraform to create new resource.
      * 
      */
     @Import(name="months")
     private @Nullable Output<List<CloudAutonomousVmClusterMaintenanceWindowMonthArgs>> months;
 
     /**
-     * @return The months when maintenance can be performed.
+     * @return The months when maintenance can be performed. Changing this will force terraform to create new resource.
      * 
      */
     public Optional<Output<List<CloudAutonomousVmClusterMaintenanceWindowMonthArgs>>> months() {
@@ -81,14 +81,14 @@ public final class CloudAutonomousVmClusterMaintenanceWindowArgs extends com.pul
     }
 
     /**
-     * The preference for the maintenance window scheduling.
+     * The preference for the maintenance window scheduling. Changing this will force terraform to create new resource.
      * 
      */
     @Import(name="preference", required=true)
     private Output<String> preference;
 
     /**
-     * @return The preference for the maintenance window scheduling.
+     * @return The preference for the maintenance window scheduling. Changing this will force terraform to create new resource.
      * 
      */
     public Output<String> preference() {
@@ -96,14 +96,14 @@ public final class CloudAutonomousVmClusterMaintenanceWindowArgs extends com.pul
     }
 
     /**
-     * Indicates whether to skip release updates during maintenance.
+     * Indicates whether to skip release updates during maintenance. Changing this will force terraform to create new resource.
      * 
      */
     @Import(name="weeksOfMonths")
     private @Nullable Output<List<Integer>> weeksOfMonths;
 
     /**
-     * @return Indicates whether to skip release updates during maintenance.
+     * @return Indicates whether to skip release updates during maintenance. Changing this will force terraform to create new resource.
      * 
      */
     public Optional<Output<List<Integer>>> weeksOfMonths() {
@@ -140,7 +140,7 @@ public final class CloudAutonomousVmClusterMaintenanceWindowArgs extends com.pul
         }
 
         /**
-         * @param daysOfWeeks The days of the week when maintenance can be performed.
+         * @param daysOfWeeks The days of the week when maintenance can be performed. Changing this will force terraform to create new resource.
          * 
          * @return builder
          * 
@@ -151,7 +151,7 @@ public final class CloudAutonomousVmClusterMaintenanceWindowArgs extends com.pul
         }
 
         /**
-         * @param daysOfWeeks The days of the week when maintenance can be performed.
+         * @param daysOfWeeks The days of the week when maintenance can be performed. Changing this will force terraform to create new resource.
          * 
          * @return builder
          * 
@@ -161,7 +161,7 @@ public final class CloudAutonomousVmClusterMaintenanceWindowArgs extends com.pul
         }
 
         /**
-         * @param daysOfWeeks The days of the week when maintenance can be performed.
+         * @param daysOfWeeks The days of the week when maintenance can be performed. Changing this will force terraform to create new resource.
          * 
          * @return builder
          * 
@@ -171,7 +171,7 @@ public final class CloudAutonomousVmClusterMaintenanceWindowArgs extends com.pul
         }
 
         /**
-         * @param hoursOfDays The hours of the day when maintenance can be performed.
+         * @param hoursOfDays The hours of the day when maintenance can be performed. Changing this will force terraform to create new resource.
          * 
          * @return builder
          * 
@@ -182,7 +182,7 @@ public final class CloudAutonomousVmClusterMaintenanceWindowArgs extends com.pul
         }
 
         /**
-         * @param hoursOfDays The hours of the day when maintenance can be performed.
+         * @param hoursOfDays The hours of the day when maintenance can be performed. Changing this will force terraform to create new resource.
          * 
          * @return builder
          * 
@@ -192,7 +192,7 @@ public final class CloudAutonomousVmClusterMaintenanceWindowArgs extends com.pul
         }
 
         /**
-         * @param hoursOfDays The hours of the day when maintenance can be performed.
+         * @param hoursOfDays The hours of the day when maintenance can be performed. Changing this will force terraform to create new resource.
          * 
          * @return builder
          * 
@@ -202,7 +202,7 @@ public final class CloudAutonomousVmClusterMaintenanceWindowArgs extends com.pul
         }
 
         /**
-         * @param leadTimeInWeeks The lead time in weeks before the maintenance window.
+         * @param leadTimeInWeeks The lead time in weeks before the maintenance window. Changing this will force terraform to create new resource.
          * 
          * @return builder
          * 
@@ -213,7 +213,7 @@ public final class CloudAutonomousVmClusterMaintenanceWindowArgs extends com.pul
         }
 
         /**
-         * @param leadTimeInWeeks The lead time in weeks before the maintenance window.
+         * @param leadTimeInWeeks The lead time in weeks before the maintenance window. Changing this will force terraform to create new resource.
          * 
          * @return builder
          * 
@@ -223,7 +223,7 @@ public final class CloudAutonomousVmClusterMaintenanceWindowArgs extends com.pul
         }
 
         /**
-         * @param months The months when maintenance can be performed.
+         * @param months The months when maintenance can be performed. Changing this will force terraform to create new resource.
          * 
          * @return builder
          * 
@@ -234,7 +234,7 @@ public final class CloudAutonomousVmClusterMaintenanceWindowArgs extends com.pul
         }
 
         /**
-         * @param months The months when maintenance can be performed.
+         * @param months The months when maintenance can be performed. Changing this will force terraform to create new resource.
          * 
          * @return builder
          * 
@@ -244,7 +244,7 @@ public final class CloudAutonomousVmClusterMaintenanceWindowArgs extends com.pul
         }
 
         /**
-         * @param months The months when maintenance can be performed.
+         * @param months The months when maintenance can be performed. Changing this will force terraform to create new resource.
          * 
          * @return builder
          * 
@@ -254,7 +254,7 @@ public final class CloudAutonomousVmClusterMaintenanceWindowArgs extends com.pul
         }
 
         /**
-         * @param preference The preference for the maintenance window scheduling.
+         * @param preference The preference for the maintenance window scheduling. Changing this will force terraform to create new resource.
          * 
          * @return builder
          * 
@@ -265,7 +265,7 @@ public final class CloudAutonomousVmClusterMaintenanceWindowArgs extends com.pul
         }
 
         /**
-         * @param preference The preference for the maintenance window scheduling.
+         * @param preference The preference for the maintenance window scheduling. Changing this will force terraform to create new resource.
          * 
          * @return builder
          * 
@@ -275,7 +275,7 @@ public final class CloudAutonomousVmClusterMaintenanceWindowArgs extends com.pul
         }
 
         /**
-         * @param weeksOfMonths Indicates whether to skip release updates during maintenance.
+         * @param weeksOfMonths Indicates whether to skip release updates during maintenance. Changing this will force terraform to create new resource.
          * 
          * @return builder
          * 
@@ -286,7 +286,7 @@ public final class CloudAutonomousVmClusterMaintenanceWindowArgs extends com.pul
         }
 
         /**
-         * @param weeksOfMonths Indicates whether to skip release updates during maintenance.
+         * @param weeksOfMonths Indicates whether to skip release updates during maintenance. Changing this will force terraform to create new resource.
          * 
          * @return builder
          * 
@@ -296,7 +296,7 @@ public final class CloudAutonomousVmClusterMaintenanceWindowArgs extends com.pul
         }
 
         /**
-         * @param weeksOfMonths Indicates whether to skip release updates during maintenance.
+         * @param weeksOfMonths Indicates whether to skip release updates during maintenance. Changing this will force terraform to create new resource.
          * 
          * @return builder
          * 

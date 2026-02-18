@@ -261,7 +261,7 @@ class ClusterActivityStream(pulumi.CustomResource):
         default_cluster_instance = aws.rds.ClusterInstance("default",
             identifier="aurora-instance-demo",
             cluster_identifier=default.cluster_identifier,
-            engine=default.engine,
+            engine=default.engine.apply(lambda x: aws.rds.EngineType(x)),
             instance_class=aws.rds.InstanceType.R6_G_LARGE)
         default_key = aws.kms.Key("default", description="AWS KMS Key to encrypt Database Activity Stream")
         default_cluster_activity_stream = aws.rds.ClusterActivityStream("default",
@@ -278,6 +278,10 @@ class ClusterActivityStream(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:rds/clusterActivityStream:ClusterActivityStream default arn:aws:rds:us-west-2:123456789012:cluster:aurora-cluster-demo
         ```
+
+        [1]: https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/DBActivityStreams.html
+        [2]: https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_StartActivityStream.html
+        [3]: https://docs.aws.amazon.com/cli/latest/reference/rds/start-activity-stream.html
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -328,7 +332,7 @@ class ClusterActivityStream(pulumi.CustomResource):
         default_cluster_instance = aws.rds.ClusterInstance("default",
             identifier="aurora-instance-demo",
             cluster_identifier=default.cluster_identifier,
-            engine=default.engine,
+            engine=default.engine.apply(lambda x: aws.rds.EngineType(x)),
             instance_class=aws.rds.InstanceType.R6_G_LARGE)
         default_key = aws.kms.Key("default", description="AWS KMS Key to encrypt Database Activity Stream")
         default_cluster_activity_stream = aws.rds.ClusterActivityStream("default",
@@ -345,6 +349,10 @@ class ClusterActivityStream(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:rds/clusterActivityStream:ClusterActivityStream default arn:aws:rds:us-west-2:123456789012:cluster:aurora-cluster-demo
         ```
+
+        [1]: https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/DBActivityStreams.html
+        [2]: https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_StartActivityStream.html
+        [3]: https://docs.aws.amazon.com/cli/latest/reference/rds/start-activity-stream.html
 
         :param str resource_name: The name of the resource.
         :param ClusterActivityStreamArgs args: The arguments to use to populate this resource's properties.

@@ -770,7 +770,7 @@ class ProvisionedProduct(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import `aws_servicecatalog_provisioned_product` using the provisioned product ID. For example:
+        Using `pulumi import`, import `servicecatalog.ProvisionedProduct` using the provisioned product ID. For example:
 
         ```sh
         $ pulumi import aws:servicecatalog/provisionedProduct:ProvisionedProduct example pp-dnigbtea24ste
@@ -836,7 +836,7 @@ class ProvisionedProduct(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import `aws_servicecatalog_provisioned_product` using the provisioned product ID. For example:
+        Using `pulumi import`, import `servicecatalog.ProvisionedProduct` using the provisioned product ID. For example:
 
         ```sh
         $ pulumi import aws:servicecatalog/provisionedProduct:ProvisionedProduct example pp-dnigbtea24ste

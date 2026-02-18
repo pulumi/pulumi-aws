@@ -127,7 +127,21 @@ namespace Pulumi.Aws.Ec2
     /// ```sh
     /// $ pulumi import aws:ec2/vpcPeeringConnectionAccepter:VpcPeeringConnectionAccepter example pcx-12345678
     /// ```
-    /// Certain resource arguments, like `auto_accept`, do not have an EC2 API method for reading the information after peering connection creation. If the argument is set in the Pulumi program on an imported resource, Pulumi will always show a difference. To workaround this behavior, either omit the argument from the Pulumi program or use `ignore_changes` to hide the difference. For example:
+    /// 
+    /// Certain resource arguments, like `AutoAccept`, do not have an EC2 API method for reading the information after peering connection creation. If the argument is set in the Pulumi program on an imported resource, Pulumi will always show a difference. To workaround this behavior, either omit the argument from the Pulumi program or use `IgnoreChanges` to hide the difference. For example:
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.Ec2.VpcPeeringConnectionAccepter("example");
+    /// 
+    /// });
+    /// ```
     /// </summary>
     [AwsResourceType("aws:ec2/vpcPeeringConnectionAccepter:VpcPeeringConnectionAccepter")]
     public partial class VpcPeeringConnectionAccepter : global::Pulumi.CustomResource

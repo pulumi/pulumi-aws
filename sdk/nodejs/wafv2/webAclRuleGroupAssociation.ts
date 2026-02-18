@@ -185,6 +185,7 @@ import * as utilities from "../utilities";
  * ```sh
  * $ pulumi import aws:wafv2/webAclRuleGroupAssociation:WebAclRuleGroupAssociation example "arn:aws:wafv2:us-east-1:123456789012:regional/webacl/example-web-acl/12345678-1234-1234-1234-123456789012,arn:aws:wafv2:us-east-1:123456789012:regional/rulegroup/example-rule-group/87654321-4321-4321-4321-210987654321,example-rule-group-rule"
  * ```
+ *
  * Using `pulumi import`, import WAFv2 web ACL managed rule group associations using `WebACLARN,VendorName:RuleGroupName[:Version],RuleName`. For example:
  *
  * ```sh

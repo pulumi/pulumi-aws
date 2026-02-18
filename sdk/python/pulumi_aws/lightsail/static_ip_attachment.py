@@ -186,7 +186,7 @@ class StaticIpAttachment(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import `aws_lightsail_static_ip_attachment` using the static IP name. For example:
+        Using `pulumi import`, import `lightsail.StaticIpAttachment` using the static IP name. For example:
 
         ```sh
         $ pulumi import aws:lightsail/staticIpAttachment:StaticIpAttachment example example-static-ip
@@ -232,7 +232,7 @@ class StaticIpAttachment(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import `aws_lightsail_static_ip_attachment` using the static IP name. For example:
+        Using `pulumi import`, import `lightsail.StaticIpAttachment` using the static IP name. For example:
 
         ```sh
         $ pulumi import aws:lightsail/staticIpAttachment:StaticIpAttachment example example-static-ip

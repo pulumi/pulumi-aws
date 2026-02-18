@@ -12,6 +12,176 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Provides an RDS DB proxy resource. For additional information, see the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-proxy.html).
+//
+// > **Note:** Not all Availability Zones (AZs) support DB proxies. Specifying `vpcSubnetIds` for AZs that do not support proxies will not trigger an error as long as at least one `vpcSubnetId` is valid. However, this will cause Terraform to continuously detect differences between the configuration and the actual infrastructure. Refer to the Unsupported Availability Zones section below for potential workarounds.
+//
+// ## Example Usage
+//
+// ### Basic Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/rds"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := rds.NewProxy(ctx, "example", &rds.ProxyArgs{
+//				Name:              pulumi.String("example"),
+//				DebugLogging:      pulumi.Bool(false),
+//				EngineFamily:      pulumi.String("MYSQL"),
+//				IdleClientTimeout: pulumi.Int(1800),
+//				RequireTls:        pulumi.Bool(true),
+//				RoleArn:           pulumi.Any(exampleAwsIamRole.Arn),
+//				VpcSecurityGroupIds: pulumi.StringArray{
+//					exampleAwsSecurityGroup.Id,
+//				},
+//				VpcSubnetIds: pulumi.StringArray{
+//					exampleAwsSubnet.Id,
+//				},
+//				Auths: rds.ProxyAuthArray{
+//					&rds.ProxyAuthArgs{
+//						AuthScheme:  pulumi.String("SECRETS"),
+//						Description: pulumi.String("example"),
+//						IamAuth:     pulumi.String("DISABLED"),
+//						SecretArn:   pulumi.Any(exampleAwsSecretsmanagerSecret.Arn),
+//					},
+//				},
+//				Tags: pulumi.StringMap{
+//					"Name": pulumi.String("example"),
+//					"Key":  pulumi.String("value"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ### Unsupported Availability Zones
+//
+// Terraform may report constant differences if you use `vpcSubnetIds` that correspond to Availability Zones (AZs) that do not support a DB proxy. While this typically does not result in an error, AWS only returns `vpcSubnetIds` for AZs that support DB proxies. As a result, Terraform detects a mismatch between your configuration and the actual infrastructure, leading it to report that changes are required. Below are some ways to avoid this issue.
+//
+// One solution is to exclude AZs that do not support DB proxies by using the `getAvailabilityZones` data source. The example below demonstrates how to configure this for the `us-east-1` region, excluding the `use1-az3` AZ. (Keep in mind that AZ names can vary between accounts, while AZ IDs remain consistent.) If the `us-east-1` region has six AZs in total and you aim to configure the maximum number of subnets, you would exclude one AZ and configure five subnets:
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/ec2"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/rds"
+//	"github.com/pulumi/pulumi-std/sdk/go/std"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+// func main() {
+// pulumi.Run(func(ctx *pulumi.Context) error {
+// available, err := aws.GetAvailabilityZones(ctx, &aws.GetAvailabilityZonesArgs{
+// ExcludeZoneIds: []string{
+// "use1-az3",
+// },
+// State: pulumi.StringRef("available"),
+// Filters: []aws.GetAvailabilityZonesFilter{
+// {
+// Name: "opt-in-status",
+// Values: []string{
+// "opt-in-not-required",
+// },
+// },
+// },
+// }, nil);
+// if err != nil {
+// return err
+// }
+// example, err := ec2.NewVpc(ctx, "example", &ec2.VpcArgs{
+// CidrBlock: pulumi.String("10.0.0.0/16"),
+// })
+// if err != nil {
+// return err
+// }
+// invokeCidrsubnet, err := std.Cidrsubnet(ctx, &std.CidrsubnetArgs{
+// Input: cidrBlock,
+// Newbits: 8,
+// Netnum: val0,
+// }, nil)
+// if err != nil {
+// return err
+// }
+// var exampleSubnet []*ec2.Subnet
+//
+//	for index := 0; index < 5; index++ {
+//	    key0 := index
+//	    val0 := index
+//
+// __res, err := ec2.NewSubnet(ctx, fmt.Sprintf("example-%v", key0), &ec2.SubnetArgs{
+// CidrBlock: pulumi.String(example.CidrBlock.ApplyT(func(cidrBlock string) (std.CidrsubnetResult, error) {
+// %!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference)).(std.CidrsubnetResultOutput).ApplyT(func(invoke std.CidrsubnetResult) (*string, error) {
+// return invoke.Result, nil
+// }).(pulumi.StringPtrOutput)),
+// AvailabilityZone: pulumi.String(available.Names[val0]),
+// VpcId: example.ID(),
+// })
+// if err != nil {
+// return err
+// }
+// exampleSubnet = append(exampleSubnet, __res)
+// }
+// _, err = rds.NewProxy(ctx, "example", &rds.ProxyArgs{
+// Name: pulumi.String("example"),
+// VpcSubnetIds: pulumi.StringArray{
+// exampleSubnet.ID(),
+// },
+// })
+// if err != nil {
+// return err
+// }
+// return nil
+// })
+// }
+// ```
+//
+// Another approach is to use the `lifecycle` `ignoreChanges` meta-argument. With this method, Terraform will stop detecting differences for the `vpcSubnetIds` argument. However, note that this approach disables Terraform's ability to track and manage updates to `vpcSubnetIds`, so use it carefully to avoid unintended drift between your configuration and the actual infrastructure.
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/rds"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := rds.NewProxy(ctx, "example", &rds.ProxyArgs{
+//				Name: pulumi.String("example"),
+//				VpcSubnetIds: pulumi.StringArray{
+//					exampleAwsSubnet.Id,
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Using `pulumi import`, import DB proxies using the `name`. For example:

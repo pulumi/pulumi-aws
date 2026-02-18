@@ -76,7 +76,7 @@ namespace Pulumi.Aws.Lex
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import Lex V2 Models Bot using the `id`. For example:
+    /// Using `pulumi import`, import Lex V2 Models Bot using the `Id`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:lex/v2modelsBot:V2modelsBot example bot-id-12345678

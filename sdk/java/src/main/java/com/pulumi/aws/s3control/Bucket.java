@@ -65,7 +65,9 @@ import javax.annotation.Nullable;
  * 
  * Using `pulumi import`, import S3 Control Buckets using Amazon Resource Name (ARN). For example:
  * 
- * % pulumi import aws_s3control_bucket.example arn:aws:s3-outposts:us-east-1:123456789012:outpost/op-12345678/bucket/example
+ * ```sh
+ * $ pulumi import aws:s3control/bucket:Bucket example arn:aws:s3-outposts:us-east-1:123456789012:outpost/op-12345678/bucket/example
+ * ```
  * 
  */
 @ResourceType(type="aws:s3control/bucket:Bucket")

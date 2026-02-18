@@ -198,7 +198,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Using `pulumi import`, import a RDS (Relational Database) Export Task using the `export_task_identifier`. For example:
+ * Using `pulumi import`, import a RDS (Relational Database) Export Task using the `exportTaskIdentifier`. For example:
  * 
  * ```sh
  * $ pulumi import aws:rds/exportTask:ExportTask example example

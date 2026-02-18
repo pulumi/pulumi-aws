@@ -16,6 +16,10 @@ public final class GetRegionResult {
      */
     private String description;
     private String endpoint;
+    /**
+     * @return Region&#39;s name (e.g. `us-east-1`).
+     * 
+     */
     private String id;
     /**
      * @deprecated
@@ -37,6 +41,10 @@ public final class GetRegionResult {
     public String endpoint() {
         return this.endpoint;
     }
+    /**
+     * @return Region&#39;s name (e.g. `us-east-1`).
+     * 
+     */
     public String id() {
         return this.id;
     }

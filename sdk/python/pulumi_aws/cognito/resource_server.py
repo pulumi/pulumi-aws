@@ -257,7 +257,7 @@ class ResourceServer(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import `aws_cognito_resource_server` using their User Pool ID and Identifier. For example:
+        Using `pulumi import`, import `cognito.ResourceServer` using their User Pool ID and Identifier. For example:
 
         ```sh
         $ pulumi import aws:cognito/resourceServer:ResourceServer example "us-west-2_abc123|https://example.com"
@@ -314,7 +314,7 @@ class ResourceServer(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import `aws_cognito_resource_server` using their User Pool ID and Identifier. For example:
+        Using `pulumi import`, import `cognito.ResourceServer` using their User Pool ID and Identifier. For example:
 
         ```sh
         $ pulumi import aws:cognito/resourceServer:ResourceServer example "us-west-2_abc123|https://example.com"

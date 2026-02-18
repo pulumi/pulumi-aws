@@ -19,20 +19,15 @@ __all__ = [
     'StreamKinesisConfigurationArgsDict',
 ]
 
-MYPY = False
-
-if not MYPY:
-    class StreamKinesisConfigurationArgsDict(TypedDict):
-        stream_arn: pulumi.Input[_builtins.str]
-        """
-        The Amazon Resource Name (ARN) of the Kinesis Data Streams resource.
-        """
-        aggregation_enabled: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Enables QLDB to publish multiple data records in a single Kinesis Data Streams record, increasing the number of records sent per API call. Default: `true`.
-        """
-elif False:
-    StreamKinesisConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+class StreamKinesisConfigurationArgsDict(TypedDict):
+    stream_arn: pulumi.Input[_builtins.str]
+    """
+    The Amazon Resource Name (ARN) of the Kinesis Data Streams resource.
+    """
+    aggregation_enabled: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Enables QLDB to publish multiple data records in a single Kinesis Data Streams record, increasing the number of records sent per API call. Default: `true`.
+    """
 
 @pulumi.input_type
 class StreamKinesisConfigurationArgs:

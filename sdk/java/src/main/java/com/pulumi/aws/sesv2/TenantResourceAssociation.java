@@ -54,7 +54,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Using `pulumi import`, import SESv2 (Simple Email V2) Tenant Resource Association using the `tenant_name` and `resource_arn` separated by `|`. For example:
+ * Using `pulumi import`, import SESv2 (Simple Email V2) Tenant Resource Association using the `tenantName` and `resourceArn` separated by `|`. For example:
  * 
  * ```sh
  * $ pulumi import aws:sesv2/tenantResourceAssociation:TenantResourceAssociation example &#34;example-tenant|arn:aws:ses:us-east-1:123456789012:configuration-set/example&#34;

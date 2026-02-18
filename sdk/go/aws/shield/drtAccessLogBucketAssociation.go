@@ -24,8 +24,6 @@ import (
 //
 // import (
 //
-//	"fmt"
-//
 //	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/shield"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
@@ -54,7 +52,7 @@ import (
 //
 // ## Import
 //
-// Using `pulumi import`, import Shield DRT access log bucket associations using the `log_bucket`. For example:
+// Using `pulumi import`, import Shield DRT access log bucket associations using the `logBucket`. For example:
 //
 // ```sh
 // $ pulumi import aws:shield/drtAccessLogBucketAssociation:DrtAccessLogBucketAssociation example example-bucket

@@ -8,6 +8,10 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
+ * Manages an AWS Bedrock AgentCore OAuth2 Credential Provider. OAuth2 credential providers enable secure authentication with external OAuth2/OpenID Connect identity providers for agent runtimes.
+ *
+ * > **Note:** Write-Only arguments `clientIdWo` and `clientSecretWo` are available to use in place of `clientId` and `clientSecret`. Write-Only arguments are supported in HashiCorp Terraform 1.11.0 and later. Learn more.
+ *
  * ## Example Usage
  *
  * ### GitHub OAuth Provider

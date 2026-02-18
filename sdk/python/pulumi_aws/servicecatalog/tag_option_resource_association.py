@@ -220,7 +220,7 @@ class TagOptionResourceAssociation(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import `aws_servicecatalog_tag_option_resource_association` using the tag option ID and resource ID. For example:
+        Using `pulumi import`, import `servicecatalog.TagOptionResourceAssociation` using the tag option ID and resource ID. For example:
 
         ```sh
         $ pulumi import aws:servicecatalog/tagOptionResourceAssociation:TagOptionResourceAssociation example tag-pjtvyakdlyo3m:prod-dnigbtea24ste
@@ -258,7 +258,7 @@ class TagOptionResourceAssociation(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import `aws_servicecatalog_tag_option_resource_association` using the tag option ID and resource ID. For example:
+        Using `pulumi import`, import `servicecatalog.TagOptionResourceAssociation` using the tag option ID and resource ID. For example:
 
         ```sh
         $ pulumi import aws:servicecatalog/tagOptionResourceAssociation:TagOptionResourceAssociation example tag-pjtvyakdlyo3m:prod-dnigbtea24ste

@@ -34,7 +34,7 @@ namespace Pulumi.Aws.S3Tables
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import S3 Tables Table Bucket using the `arn`. For example:
+    /// Using `pulumi import`, import S3 Tables Table Bucket using the `Arn`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:s3tables/tableBucket:TableBucket example arn:aws:s3tables:us-west-2:123456789012:bucket/example-bucket

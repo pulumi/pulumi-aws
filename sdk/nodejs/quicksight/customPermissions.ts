@@ -61,6 +61,9 @@ export class CustomPermissions extends pulumi.CustomResource {
      * ARN of the custom permissions profile.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
+    /**
+     * AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
+     */
     declare public readonly awsAccountId: pulumi.Output<string>;
     /**
      * Actions to include in the custom permissions profile. See capabilities.
@@ -134,6 +137,9 @@ export interface CustomPermissionsState {
      * ARN of the custom permissions profile.
      */
     arn?: pulumi.Input<string>;
+    /**
+     * AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
+     */
     awsAccountId?: pulumi.Input<string>;
     /**
      * Actions to include in the custom permissions profile. See capabilities.
@@ -163,6 +169,9 @@ export interface CustomPermissionsState {
  * The set of arguments for constructing a CustomPermissions resource.
  */
 export interface CustomPermissionsArgs {
+    /**
+     * AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
+     */
     awsAccountId?: pulumi.Input<string>;
     /**
      * Actions to include in the custom permissions profile. See capabilities.

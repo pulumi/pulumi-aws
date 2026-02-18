@@ -33,7 +33,7 @@ namespace Pulumi.Aws.Rum
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import Cloudwatch RUM App Monitor using the `name`. For example:
+    /// Using `pulumi import`, import Cloudwatch RUM App Monitor using the `Name`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:rum/appMonitor:AppMonitor example example

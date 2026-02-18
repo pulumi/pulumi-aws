@@ -393,7 +393,17 @@ class Database(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:athena/database:Database example example
         ```
+
         Certain resource arguments, like `encryption_configuration` and `bucket`, do not have an API method for reading the information after creation. If the argument is set in the Pulumi program on an imported resource, Pulumi will always show a difference. To workaround this behavior, either omit the argument from the Pulumi program or use `ignore_changes` to hide the difference. For example:
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.athena.Database("example",
+            name="database_name",
+            bucket=example_aws_s3_bucket["id"])
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -436,7 +446,17 @@ class Database(pulumi.CustomResource):
         ```sh
         $ pulumi import aws:athena/database:Database example example
         ```
+
         Certain resource arguments, like `encryption_configuration` and `bucket`, do not have an API method for reading the information after creation. If the argument is set in the Pulumi program on an imported resource, Pulumi will always show a difference. To workaround this behavior, either omit the argument from the Pulumi program or use `ignore_changes` to hide the difference. For example:
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.athena.Database("example",
+            name="database_name",
+            bucket=example_aws_s3_bucket["id"])
+        ```
 
         :param str resource_name: The name of the resource.
         :param DatabaseArgs args: The arguments to use to populate this resource's properties.

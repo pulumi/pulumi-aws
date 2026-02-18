@@ -27,7 +27,6 @@ export function getNetworkPeeringConnections(args?: GetNetworkPeeringConnections
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:odb/getNetworkPeeringConnections:getNetworkPeeringConnections", {
-        "odbPeeringConnections": args.odbPeeringConnections,
         "region": args.region,
     }, opts);
 }
@@ -36,10 +35,6 @@ export function getNetworkPeeringConnections(args?: GetNetworkPeeringConnections
  * A collection of arguments for invoking getNetworkPeeringConnections.
  */
 export interface GetNetworkPeeringConnectionsArgs {
-    /**
-     * The list of ODB peering connections. A summary of an ODB peering connection.
-     */
-    odbPeeringConnections?: inputs.odb.GetNetworkPeeringConnectionsOdbPeeringConnection[];
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
@@ -57,7 +52,7 @@ export interface GetNetworkPeeringConnectionsResult {
     /**
      * The list of ODB peering connections. A summary of an ODB peering connection.
      */
-    readonly odbPeeringConnections?: outputs.odb.GetNetworkPeeringConnectionsOdbPeeringConnection[];
+    readonly odbPeeringConnections: outputs.odb.GetNetworkPeeringConnectionsOdbPeeringConnection[];
     readonly region: string;
 }
 /**
@@ -80,7 +75,6 @@ export function getNetworkPeeringConnectionsOutput(args?: GetNetworkPeeringConne
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("aws:odb/getNetworkPeeringConnections:getNetworkPeeringConnections", {
-        "odbPeeringConnections": args.odbPeeringConnections,
         "region": args.region,
     }, opts);
 }
@@ -89,10 +83,6 @@ export function getNetworkPeeringConnectionsOutput(args?: GetNetworkPeeringConne
  * A collection of arguments for invoking getNetworkPeeringConnections.
  */
 export interface GetNetworkPeeringConnectionsOutputArgs {
-    /**
-     * The list of ODB peering connections. A summary of an ODB peering connection.
-     */
-    odbPeeringConnections?: pulumi.Input<pulumi.Input<inputs.odb.GetNetworkPeeringConnectionsOdbPeeringConnectionArgs>[]>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */

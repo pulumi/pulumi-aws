@@ -499,7 +499,7 @@ class ReplicaExternalKey(pulumi.CustomResource):
         replica = aws.kms.ReplicaExternalKey("replica",
             description="Multi-Region replica key",
             deletion_window_in_days=7,
-            primary_key_arn=primary_aws_kms_external["arn"],
+            primary_key_arn=primary.arn,
             key_material_base64="...")
         ```
 
@@ -553,7 +553,7 @@ class ReplicaExternalKey(pulumi.CustomResource):
         replica = aws.kms.ReplicaExternalKey("replica",
             description="Multi-Region replica key",
             deletion_window_in_days=7,
-            primary_key_arn=primary_aws_kms_external["arn"],
+            primary_key_arn=primary.arn,
             key_material_base64="...")
         ```
 

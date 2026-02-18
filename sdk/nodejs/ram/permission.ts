@@ -45,9 +45,11 @@ import * as utilities from "../utilities";
  *
  * * `arn` (String) Permission ARN.
  *
- * Using `pulumi import`, import RAM (Resource Access Manager) Permission using the `example_id_arg`. For example:
+ * Using `pulumi import`, import RAM (Resource Access Manager) Permission using the `exampleIdArg`. For example:
  *
- * % pulumi import aws_ram_permission.example arn:aws:ram:us-west-1:123456789012:permission/test-permission
+ * ```sh
+ * $ pulumi import aws:ram/permission:Permission example arn:aws:ram:us-west-1:123456789012:permission/test-permission
+ * ```
  */
 export class Permission extends pulumi.CustomResource {
     /**

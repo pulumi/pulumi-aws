@@ -109,7 +109,7 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import Security Groups using the security group `id`. For example:
+    /// Using `pulumi import`, import Security Groups using the security group `Id`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:ec2/defaultSecurityGroup:DefaultSecurityGroup default_sg sg-903004f8

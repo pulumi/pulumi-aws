@@ -95,7 +95,7 @@ namespace Pulumi.Aws.AppStream
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import `aws_appstream_stack` using the id. For example:
+    /// Using `pulumi import`, import `aws.appstream.Stack` using the id. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:appstream/stack:Stack example stackID

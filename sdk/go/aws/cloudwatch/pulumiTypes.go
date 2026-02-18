@@ -6970,7 +6970,7 @@ func (o LogDeliveryDestinationDeliveryDestinationConfigurationPtrOutput) Destina
 type LogDeliveryS3DeliveryConfiguration struct {
 	// This parameter causes the S3 objects that contain delivered logs to use a prefix structure that allows for integration with Apache Hive.
 	EnableHiveCompatiblePath bool `pulumi:"enableHiveCompatiblePath"`
-	// This string allows re-configuring the S3 object prefix to contain either static or variable sections. The valid variables to use in the suffix path will vary by each log source.
+	// This string allows re-configuring the S3 object prefix to contain either static or variable sections. The valid variables to use in the suffix path will vary by each log source. **Note:** AWS automatically prepends account and service-specific prefixes (e.g., `AWSLogs/{account-id}/CloudFront/` for CloudFront sources) to the configured value. Specify only your custom suffix path without these AWS-managed prefixes.
 	SuffixPath string `pulumi:"suffixPath"`
 }
 
@@ -6988,7 +6988,7 @@ type LogDeliveryS3DeliveryConfigurationInput interface {
 type LogDeliveryS3DeliveryConfigurationArgs struct {
 	// This parameter causes the S3 objects that contain delivered logs to use a prefix structure that allows for integration with Apache Hive.
 	EnableHiveCompatiblePath pulumi.BoolInput `pulumi:"enableHiveCompatiblePath"`
-	// This string allows re-configuring the S3 object prefix to contain either static or variable sections. The valid variables to use in the suffix path will vary by each log source.
+	// This string allows re-configuring the S3 object prefix to contain either static or variable sections. The valid variables to use in the suffix path will vary by each log source. **Note:** AWS automatically prepends account and service-specific prefixes (e.g., `AWSLogs/{account-id}/CloudFront/` for CloudFront sources) to the configured value. Specify only your custom suffix path without these AWS-managed prefixes.
 	SuffixPath pulumi.StringInput `pulumi:"suffixPath"`
 }
 
@@ -7048,7 +7048,7 @@ func (o LogDeliveryS3DeliveryConfigurationOutput) EnableHiveCompatiblePath() pul
 	return o.ApplyT(func(v LogDeliveryS3DeliveryConfiguration) bool { return v.EnableHiveCompatiblePath }).(pulumi.BoolOutput)
 }
 
-// This string allows re-configuring the S3 object prefix to contain either static or variable sections. The valid variables to use in the suffix path will vary by each log source.
+// This string allows re-configuring the S3 object prefix to contain either static or variable sections. The valid variables to use in the suffix path will vary by each log source. **Note:** AWS automatically prepends account and service-specific prefixes (e.g., `AWSLogs/{account-id}/CloudFront/` for CloudFront sources) to the configured value. Specify only your custom suffix path without these AWS-managed prefixes.
 func (o LogDeliveryS3DeliveryConfigurationOutput) SuffixPath() pulumi.StringOutput {
 	return o.ApplyT(func(v LogDeliveryS3DeliveryConfiguration) string { return v.SuffixPath }).(pulumi.StringOutput)
 }

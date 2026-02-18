@@ -63,7 +63,7 @@ namespace Pulumi.Aws.SesV2
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import SESv2 (Simple Email V2) Contact List using the `id`. For example:
+    /// Using `pulumi import`, import SESv2 (Simple Email V2) Contact List using the `Id`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:sesv2/contactList:ContactList example example

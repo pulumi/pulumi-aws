@@ -53,26 +53,21 @@ __all__ = [
     'RuleSourceSourceDetailArgsDict',
 ]
 
-MYPY = False
+class ConfigurationAggregatorAccountAggregationSourceArgsDict(TypedDict):
+    account_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    List of 12-digit account IDs of the account(s) being aggregated.
+    """
+    all_regions: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    If true, aggregate existing AWS Config regions and future regions.
+    """
+    regions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    List of source regions being aggregated.
 
-if not MYPY:
-    class ConfigurationAggregatorAccountAggregationSourceArgsDict(TypedDict):
-        account_ids: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        List of 12-digit account IDs of the account(s) being aggregated.
-        """
-        all_regions: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        If true, aggregate existing AWS Config regions and future regions.
-        """
-        regions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        List of source regions being aggregated.
-
-        Either `regions` or `all_regions` (as true) must be specified.
-        """
-elif False:
-    ConfigurationAggregatorAccountAggregationSourceArgsDict: TypeAlias = Mapping[str, Any]
+    Either `regions` or `all_regions` (as true) must be specified.
+    """
 
 @pulumi.input_type
 class ConfigurationAggregatorAccountAggregationSourceArgs:
@@ -132,24 +127,21 @@ class ConfigurationAggregatorAccountAggregationSourceArgs:
         pulumi.set(self, "regions", value)
 
 
-if not MYPY:
-    class ConfigurationAggregatorOrganizationAggregationSourceArgsDict(TypedDict):
-        role_arn: pulumi.Input[_builtins.str]
-        """
-        ARN of the IAM role used to retrieve AWS Organization details associated with the aggregator account.
+class ConfigurationAggregatorOrganizationAggregationSourceArgsDict(TypedDict):
+    role_arn: pulumi.Input[_builtins.str]
+    """
+    ARN of the IAM role used to retrieve AWS Organization details associated with the aggregator account.
 
-        Either `regions` or `all_regions` (as true) must be specified.
-        """
-        all_regions: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        If true, aggregate existing AWS Config regions and future regions.
-        """
-        regions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        List of source regions being aggregated.
-        """
-elif False:
-    ConfigurationAggregatorOrganizationAggregationSourceArgsDict: TypeAlias = Mapping[str, Any]
+    Either `regions` or `all_regions` (as true) must be specified.
+    """
+    all_regions: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    If true, aggregate existing AWS Config regions and future regions.
+    """
+    regions: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    List of source regions being aggregated.
+    """
 
 @pulumi.input_type
 class ConfigurationAggregatorOrganizationAggregationSourceArgs:
@@ -209,18 +201,15 @@ class ConfigurationAggregatorOrganizationAggregationSourceArgs:
         pulumi.set(self, "regions", value)
 
 
-if not MYPY:
-    class ConformancePackInputParameterArgsDict(TypedDict):
-        parameter_name: pulumi.Input[_builtins.str]
-        """
-        The input key.
-        """
-        parameter_value: pulumi.Input[_builtins.str]
-        """
-        The input value.
-        """
-elif False:
-    ConformancePackInputParameterArgsDict: TypeAlias = Mapping[str, Any]
+class ConformancePackInputParameterArgsDict(TypedDict):
+    parameter_name: pulumi.Input[_builtins.str]
+    """
+    The input key.
+    """
+    parameter_value: pulumi.Input[_builtins.str]
+    """
+    The input value.
+    """
 
 @pulumi.input_type
 class ConformancePackInputParameterArgs:
@@ -259,14 +248,11 @@ class ConformancePackInputParameterArgs:
         pulumi.set(self, "parameter_value", value)
 
 
-if not MYPY:
-    class DeliveryChannelSnapshotDeliveryPropertiesArgsDict(TypedDict):
-        delivery_frequency: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The frequency with which AWS Config recurringly delivers configuration snapshotsE.g., `One_Hour` or `Three_Hours`. Valid values are listed [here](https://docs.aws.amazon.com/config/latest/APIReference/API_ConfigSnapshotDeliveryProperties.html#API_ConfigSnapshotDeliveryProperties_Contents).
-        """
-elif False:
-    DeliveryChannelSnapshotDeliveryPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+class DeliveryChannelSnapshotDeliveryPropertiesArgsDict(TypedDict):
+    delivery_frequency: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The frequency with which AWS Config recurringly delivers configuration snapshotsE.g., `One_Hour` or `Three_Hours`. Valid values are listed [here](https://docs.aws.amazon.com/config/latest/APIReference/API_ConfigSnapshotDeliveryProperties.html#API_ConfigSnapshotDeliveryProperties_Contents).
+    """
 
 @pulumi.input_type
 class DeliveryChannelSnapshotDeliveryPropertiesArgs:
@@ -291,18 +277,15 @@ class DeliveryChannelSnapshotDeliveryPropertiesArgs:
         pulumi.set(self, "delivery_frequency", value)
 
 
-if not MYPY:
-    class OrganizationConformancePackInputParameterArgsDict(TypedDict):
-        parameter_name: pulumi.Input[_builtins.str]
-        """
-        The input key.
-        """
-        parameter_value: pulumi.Input[_builtins.str]
-        """
-        The input value.
-        """
-elif False:
-    OrganizationConformancePackInputParameterArgsDict: TypeAlias = Mapping[str, Any]
+class OrganizationConformancePackInputParameterArgsDict(TypedDict):
+    parameter_name: pulumi.Input[_builtins.str]
+    """
+    The input key.
+    """
+    parameter_value: pulumi.Input[_builtins.str]
+    """
+    The input value.
+    """
 
 @pulumi.input_type
 class OrganizationConformancePackInputParameterArgs:
@@ -341,30 +324,27 @@ class OrganizationConformancePackInputParameterArgs:
         pulumi.set(self, "parameter_value", value)
 
 
-if not MYPY:
-    class RecorderRecordingGroupArgsDict(TypedDict):
-        all_supported: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Specifies whether AWS Config records configuration changes for every supported type of regional resource (which includes any new type that will become supported in the future). Conflicts with `resource_types`. Defaults to `true`.
-        """
-        exclusion_by_resource_types: NotRequired[pulumi.Input[Sequence[pulumi.Input['RecorderRecordingGroupExclusionByResourceTypeArgsDict']]]]
-        """
-        An object that specifies how AWS Config excludes resource types from being recorded by the configuration recorder.To use this option, you must set the useOnly field of RecordingStrategy to `EXCLUSION_BY_RESOURCE_TYPES` Requires `all_supported = false`. Conflicts with `resource_types`.
-        """
-        include_global_resource_types: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Specifies whether AWS Config includes all supported types of _global resources_ with the resources that it records. Requires `all_supported = true`. Conflicts with `resource_types`.
-        """
-        recording_strategies: NotRequired[pulumi.Input[Sequence[pulumi.Input['RecorderRecordingGroupRecordingStrategyArgsDict']]]]
-        """
-        Recording Strategy. Detailed below.
-        """
-        resource_types: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        A list that specifies the types of AWS resources for which AWS Config records configuration changes (for example, `AWS::EC2::Instance` or `AWS::CloudTrail::Trail`). See [relevant part of AWS Docs](http://docs.aws.amazon.com/config/latest/APIReference/API_ResourceIdentifier.html#config-Type-ResourceIdentifier-resourceType) for available types. In order to use this attribute, `all_supported` must be set to false.
-        """
-elif False:
-    RecorderRecordingGroupArgsDict: TypeAlias = Mapping[str, Any]
+class RecorderRecordingGroupArgsDict(TypedDict):
+    all_supported: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Specifies whether AWS Config records configuration changes for every supported type of regional resource (which includes any new type that will become supported in the future). Conflicts with `resource_types`. Defaults to `true`.
+    """
+    exclusion_by_resource_types: NotRequired[pulumi.Input[Sequence[pulumi.Input['RecorderRecordingGroupExclusionByResourceTypeArgsDict']]]]
+    """
+    An object that specifies how AWS Config excludes resource types from being recorded by the configuration recorder.To use this option, you must set the useOnly field of RecordingStrategy to `EXCLUSION_BY_RESOURCE_TYPES` Requires `all_supported = false`. Conflicts with `resource_types`.
+    """
+    include_global_resource_types: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Specifies whether AWS Config includes all supported types of _global resources_ with the resources that it records. Requires `all_supported = true`. Conflicts with `resource_types`.
+    """
+    recording_strategies: NotRequired[pulumi.Input[Sequence[pulumi.Input['RecorderRecordingGroupRecordingStrategyArgsDict']]]]
+    """
+    Recording Strategy. Detailed below.
+    """
+    resource_types: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    A list that specifies the types of AWS resources for which AWS Config records configuration changes (for example, `AWS::EC2::Instance` or `AWS::CloudTrail::Trail`). See [relevant part of AWS Docs](http://docs.aws.amazon.com/config/latest/APIReference/API_ResourceIdentifier.html#config-Type-ResourceIdentifier-resourceType) for available types. In order to use this attribute, `all_supported` must be set to false.
+    """
 
 @pulumi.input_type
 class RecorderRecordingGroupArgs:
@@ -453,14 +433,11 @@ class RecorderRecordingGroupArgs:
         pulumi.set(self, "resource_types", value)
 
 
-if not MYPY:
-    class RecorderRecordingGroupExclusionByResourceTypeArgsDict(TypedDict):
-        resource_types: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        A list that specifies the types of AWS resources for which AWS Config excludes records configuration changes. See [relevant part of AWS Docs](http://docs.aws.amazon.com/config/latest/APIReference/API_ResourceIdentifier.html#config-Type-ResourceIdentifier-resourceType) for available types.
-        """
-elif False:
-    RecorderRecordingGroupExclusionByResourceTypeArgsDict: TypeAlias = Mapping[str, Any]
+class RecorderRecordingGroupExclusionByResourceTypeArgsDict(TypedDict):
+    resource_types: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    A list that specifies the types of AWS resources for which AWS Config excludes records configuration changes. See [relevant part of AWS Docs](http://docs.aws.amazon.com/config/latest/APIReference/API_ResourceIdentifier.html#config-Type-ResourceIdentifier-resourceType) for available types.
+    """
 
 @pulumi.input_type
 class RecorderRecordingGroupExclusionByResourceTypeArgs:
@@ -485,11 +462,8 @@ class RecorderRecordingGroupExclusionByResourceTypeArgs:
         pulumi.set(self, "resource_types", value)
 
 
-if not MYPY:
-    class RecorderRecordingGroupRecordingStrategyArgsDict(TypedDict):
-        use_only: NotRequired[pulumi.Input[_builtins.str]]
-elif False:
-    RecorderRecordingGroupRecordingStrategyArgsDict: TypeAlias = Mapping[str, Any]
+class RecorderRecordingGroupRecordingStrategyArgsDict(TypedDict):
+    use_only: NotRequired[pulumi.Input[_builtins.str]]
 
 @pulumi.input_type
 class RecorderRecordingGroupRecordingStrategyArgs:
@@ -508,18 +482,15 @@ class RecorderRecordingGroupRecordingStrategyArgs:
         pulumi.set(self, "use_only", value)
 
 
-if not MYPY:
-    class RecorderRecordingModeArgsDict(TypedDict):
-        recording_frequency: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Default recording frequency. `CONTINUOUS` or `DAILY`.
-        """
-        recording_mode_override: NotRequired[pulumi.Input['RecorderRecordingModeRecordingModeOverrideArgsDict']]
-        """
-        Recording mode overrides. Detailed below.
-        """
-elif False:
-    RecorderRecordingModeArgsDict: TypeAlias = Mapping[str, Any]
+class RecorderRecordingModeArgsDict(TypedDict):
+    recording_frequency: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Default recording frequency. `CONTINUOUS` or `DAILY`.
+    """
+    recording_mode_override: NotRequired[pulumi.Input['RecorderRecordingModeRecordingModeOverrideArgsDict']]
+    """
+    Recording mode overrides. Detailed below.
+    """
 
 @pulumi.input_type
 class RecorderRecordingModeArgs:
@@ -560,22 +531,19 @@ class RecorderRecordingModeArgs:
         pulumi.set(self, "recording_mode_override", value)
 
 
-if not MYPY:
-    class RecorderRecordingModeRecordingModeOverrideArgsDict(TypedDict):
-        recording_frequency: pulumi.Input[_builtins.str]
-        """
-        The recording frequency for the resources in the override block. `CONTINUOUS` or `DAILY`.
-        """
-        resource_types: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        A list that specifies the types of AWS resources for which the override applies to.  See [restrictions in the AWS Docs](https://docs.aws.amazon.com/config/latest/APIReference/API_RecordingModeOverride.html)
-        """
-        description: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        A description you provide of the override.
-        """
-elif False:
-    RecorderRecordingModeRecordingModeOverrideArgsDict: TypeAlias = Mapping[str, Any]
+class RecorderRecordingModeRecordingModeOverrideArgsDict(TypedDict):
+    recording_frequency: pulumi.Input[_builtins.str]
+    """
+    The recording frequency for the resources in the override block. `CONTINUOUS` or `DAILY`.
+    """
+    resource_types: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    A list that specifies the types of AWS resources for which the override applies to.  See [restrictions in the AWS Docs](https://docs.aws.amazon.com/config/latest/APIReference/API_RecordingModeOverride.html)
+    """
+    description: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    A description you provide of the override.
+    """
 
 @pulumi.input_type
 class RecorderRecordingModeRecordingModeOverrideArgs:
@@ -630,14 +598,11 @@ class RecorderRecordingModeRecordingModeOverrideArgs:
         pulumi.set(self, "description", value)
 
 
-if not MYPY:
-    class RemediationConfigurationExecutionControlsArgsDict(TypedDict):
-        ssm_controls: NotRequired[pulumi.Input['RemediationConfigurationExecutionControlsSsmControlsArgsDict']]
-        """
-        Configuration block for SSM controls. See below.
-        """
-elif False:
-    RemediationConfigurationExecutionControlsArgsDict: TypeAlias = Mapping[str, Any]
+class RemediationConfigurationExecutionControlsArgsDict(TypedDict):
+    ssm_controls: NotRequired[pulumi.Input['RemediationConfigurationExecutionControlsSsmControlsArgsDict']]
+    """
+    Configuration block for SSM controls. See below.
+    """
 
 @pulumi.input_type
 class RemediationConfigurationExecutionControlsArgs:
@@ -662,18 +627,15 @@ class RemediationConfigurationExecutionControlsArgs:
         pulumi.set(self, "ssm_controls", value)
 
 
-if not MYPY:
-    class RemediationConfigurationExecutionControlsSsmControlsArgsDict(TypedDict):
-        concurrent_execution_rate_percentage: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Maximum percentage of remediation actions allowed to run in parallel on the non-compliant resources for that specific rule. The default value is 10%.
-        """
-        error_percentage: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Percentage of errors that are allowed before SSM stops running automations on non-compliant resources for that specific rule. The default is 50%.
-        """
-elif False:
-    RemediationConfigurationExecutionControlsSsmControlsArgsDict: TypeAlias = Mapping[str, Any]
+class RemediationConfigurationExecutionControlsSsmControlsArgsDict(TypedDict):
+    concurrent_execution_rate_percentage: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Maximum percentage of remediation actions allowed to run in parallel on the non-compliant resources for that specific rule. The default value is 10%.
+    """
+    error_percentage: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Percentage of errors that are allowed before SSM stops running automations on non-compliant resources for that specific rule. The default is 50%.
+    """
 
 @pulumi.input_type
 class RemediationConfigurationExecutionControlsSsmControlsArgs:
@@ -714,26 +676,23 @@ class RemediationConfigurationExecutionControlsSsmControlsArgs:
         pulumi.set(self, "error_percentage", value)
 
 
-if not MYPY:
-    class RemediationConfigurationParameterArgsDict(TypedDict):
-        name: pulumi.Input[_builtins.str]
-        """
-        Name of the attribute.
-        """
-        resource_value: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Value is dynamic and changes at run-time.
-        """
-        static_value: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Value is static and does not change at run-time.
-        """
-        static_values: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        List of static values.
-        """
-elif False:
-    RemediationConfigurationParameterArgsDict: TypeAlias = Mapping[str, Any]
+class RemediationConfigurationParameterArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    Name of the attribute.
+    """
+    resource_value: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Value is dynamic and changes at run-time.
+    """
+    static_value: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Value is static and does not change at run-time.
+    """
+    static_values: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    List of static values.
+    """
 
 @pulumi.input_type
 class RemediationConfigurationParameterArgs:
@@ -805,14 +764,11 @@ class RemediationConfigurationParameterArgs:
         pulumi.set(self, "static_values", value)
 
 
-if not MYPY:
-    class RuleEvaluationModeArgsDict(TypedDict):
-        mode: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The mode of an evaluation.
-        """
-elif False:
-    RuleEvaluationModeArgsDict: TypeAlias = Mapping[str, Any]
+class RuleEvaluationModeArgsDict(TypedDict):
+    mode: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The mode of an evaluation.
+    """
 
 @pulumi.input_type
 class RuleEvaluationModeArgs:
@@ -837,26 +793,23 @@ class RuleEvaluationModeArgs:
         pulumi.set(self, "mode", value)
 
 
-if not MYPY:
-    class RuleScopeArgsDict(TypedDict):
-        compliance_resource_id: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The IDs of the only AWS resource that you want to trigger an evaluation for the rule. If you specify a resource ID, you must specify one resource type for `compliance_resource_types`.
-        """
-        compliance_resource_types: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        A list of resource types of only those AWS resources that you want to trigger an evaluation for the ruleE.g., `AWS::EC2::Instance`. You can only specify one type if you also specify a resource ID for `compliance_resource_id`. See [relevant part of AWS Docs](http://docs.aws.amazon.com/config/latest/APIReference/API_ResourceIdentifier.html#config-Type-ResourceIdentifier-resourceType) for available types.
-        """
-        tag_key: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The tag key that is applied to only those AWS resources that you want you want to trigger an evaluation for the rule.
-        """
-        tag_value: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The tag value applied to only those AWS resources that you want to trigger an evaluation for the rule.
-        """
-elif False:
-    RuleScopeArgsDict: TypeAlias = Mapping[str, Any]
+class RuleScopeArgsDict(TypedDict):
+    compliance_resource_id: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The IDs of the only AWS resource that you want to trigger an evaluation for the rule. If you specify a resource ID, you must specify one resource type for `compliance_resource_types`.
+    """
+    compliance_resource_types: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    A list of resource types of only those AWS resources that you want to trigger an evaluation for the ruleE.g., `AWS::EC2::Instance`. You can only specify one type if you also specify a resource ID for `compliance_resource_id`. See [relevant part of AWS Docs](http://docs.aws.amazon.com/config/latest/APIReference/API_ResourceIdentifier.html#config-Type-ResourceIdentifier-resourceType) for available types.
+    """
+    tag_key: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The tag key that is applied to only those AWS resources that you want you want to trigger an evaluation for the rule.
+    """
+    tag_value: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The tag value applied to only those AWS resources that you want to trigger an evaluation for the rule.
+    """
 
 @pulumi.input_type
 class RuleScopeArgs:
@@ -929,26 +882,23 @@ class RuleScopeArgs:
         pulumi.set(self, "tag_value", value)
 
 
-if not MYPY:
-    class RuleSourceArgsDict(TypedDict):
-        owner: pulumi.Input[_builtins.str]
-        """
-        Indicates whether AWS or the customer owns and manages the AWS Config rule. Valid values are `AWS`, `CUSTOM_LAMBDA` or `CUSTOM_POLICY`. For more information about managed rules, see the [AWS Config Managed Rules documentation](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_use-managed-rules.html). For more information about custom rules, see the [AWS Config Custom Rules documentation](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_develop-rules.html). Custom Lambda Functions require permissions to allow the AWS Config service to invoke them, e.g., via the `lambda.Permission` resource.
-        """
-        custom_policy_details: NotRequired[pulumi.Input['RuleSourceCustomPolicyDetailsArgsDict']]
-        """
-        Provides the runtime system, policy definition, and whether debug logging is enabled. Required when owner is set to `CUSTOM_POLICY`. See Custom Policy Details Below.
-        """
-        source_details: NotRequired[pulumi.Input[Sequence[pulumi.Input['RuleSourceSourceDetailArgsDict']]]]
-        """
-        Provides the source and type of the event that causes AWS Config to evaluate your AWS resources. Only valid if `owner` is `CUSTOM_LAMBDA` or `CUSTOM_POLICY`. See Source Detail Below.
-        """
-        source_identifier: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        For AWS Config managed rules, a predefined identifier, e.g `IAM_PASSWORD_POLICY`. For custom Lambda rules, the identifier is the ARN of the Lambda Function, such as `arn:aws:lambda:us-east-1:123456789012:function:custom_rule_name` or the `arn` attribute of the `lambda.Function` resource.
-        """
-elif False:
-    RuleSourceArgsDict: TypeAlias = Mapping[str, Any]
+class RuleSourceArgsDict(TypedDict):
+    owner: pulumi.Input[_builtins.str]
+    """
+    Indicates whether AWS or the customer owns and manages the AWS Config rule. Valid values are `AWS`, `CUSTOM_LAMBDA` or `CUSTOM_POLICY`. For more information about managed rules, see the [AWS Config Managed Rules documentation](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_use-managed-rules.html). For more information about custom rules, see the [AWS Config Custom Rules documentation](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_develop-rules.html). Custom Lambda Functions require permissions to allow the AWS Config service to invoke them, e.g., via the `lambda.Permission` resource.
+    """
+    custom_policy_details: NotRequired[pulumi.Input['RuleSourceCustomPolicyDetailsArgsDict']]
+    """
+    Provides the runtime system, policy definition, and whether debug logging is enabled. Required when owner is set to `CUSTOM_POLICY`. See Custom Policy Details Below.
+    """
+    source_details: NotRequired[pulumi.Input[Sequence[pulumi.Input['RuleSourceSourceDetailArgsDict']]]]
+    """
+    Provides the source and type of the event that causes AWS Config to evaluate your AWS resources. Only valid if `owner` is `CUSTOM_LAMBDA` or `CUSTOM_POLICY`. See Source Detail Below.
+    """
+    source_identifier: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    For AWS Config managed rules, a predefined identifier, e.g `IAM_PASSWORD_POLICY`. For custom Lambda rules, the identifier is the ARN of the Lambda Function, such as `arn:aws:lambda:us-east-1:123456789012:function:custom_rule_name` or the `arn` attribute of the `lambda.Function` resource.
+    """
 
 @pulumi.input_type
 class RuleSourceArgs:
@@ -1020,22 +970,19 @@ class RuleSourceArgs:
         pulumi.set(self, "source_identifier", value)
 
 
-if not MYPY:
-    class RuleSourceCustomPolicyDetailsArgsDict(TypedDict):
-        policy_runtime: pulumi.Input[_builtins.str]
-        """
-        The runtime system for your Config Custom Policy rule. Guard is a policy-as-code language that allows you to write policies that are enforced by Config Custom Policy rules. For more information about Guard, see the [Guard GitHub Repository](https://github.com/aws-cloudformation/cloudformation-guard).
-        """
-        policy_text: pulumi.Input[_builtins.str]
-        """
-        The policy definition containing the logic for your Config Custom Policy rule.
-        """
-        enable_debug_log_delivery: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        The boolean expression for enabling debug logging for your Config Custom Policy rule. The default value is `false`.
-        """
-elif False:
-    RuleSourceCustomPolicyDetailsArgsDict: TypeAlias = Mapping[str, Any]
+class RuleSourceCustomPolicyDetailsArgsDict(TypedDict):
+    policy_runtime: pulumi.Input[_builtins.str]
+    """
+    The runtime system for your Config Custom Policy rule. Guard is a policy-as-code language that allows you to write policies that are enforced by Config Custom Policy rules. For more information about Guard, see the [Guard GitHub Repository](https://github.com/aws-cloudformation/cloudformation-guard).
+    """
+    policy_text: pulumi.Input[_builtins.str]
+    """
+    The policy definition containing the logic for your Config Custom Policy rule.
+    """
+    enable_debug_log_delivery: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    The boolean expression for enabling debug logging for your Config Custom Policy rule. The default value is `false`.
+    """
 
 @pulumi.input_type
 class RuleSourceCustomPolicyDetailsArgs:
@@ -1090,26 +1037,23 @@ class RuleSourceCustomPolicyDetailsArgs:
         pulumi.set(self, "enable_debug_log_delivery", value)
 
 
-if not MYPY:
-    class RuleSourceSourceDetailArgsDict(TypedDict):
-        event_source: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The source of the event, such as an AWS service, that triggers AWS Config to evaluate your AWSresources. This defaults to `aws.config` and is the only valid value.
-        """
-        maximum_execution_frequency: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The frequency that you want AWS Config to run evaluations for a rule that istriggered periodically. If specified, requires `message_type` to be `ScheduledNotification`.
-        """
-        message_type: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The type of notification that triggers AWS Config to run an evaluation for a rule. You canspecify the following notification types:
-        * `ConfigurationItemChangeNotification` - Triggers an evaluation when AWS Config delivers a configuration item as a result of a resource change.
-        * `OversizedConfigurationItemChangeNotification` - Triggers an evaluation when AWS Config delivers an oversized configuration item. AWS Config may generate this notification type when a resource changes and the notification exceeds the maximum size allowed by Amazon SNS.
-        * `ScheduledNotification` - Triggers a periodic evaluation at the frequency specified for `maximum_execution_frequency`.
-        * `ConfigurationSnapshotDeliveryCompleted` - Triggers a periodic evaluation when AWS Config delivers a configuration snapshot.
-        """
-elif False:
-    RuleSourceSourceDetailArgsDict: TypeAlias = Mapping[str, Any]
+class RuleSourceSourceDetailArgsDict(TypedDict):
+    event_source: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The source of the event, such as an AWS service, that triggers AWS Config to evaluate your AWSresources. This defaults to `aws.config` and is the only valid value.
+    """
+    maximum_execution_frequency: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The frequency that you want AWS Config to run evaluations for a rule that istriggered periodically. If specified, requires `message_type` to be `ScheduledNotification`.
+    """
+    message_type: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The type of notification that triggers AWS Config to run an evaluation for a rule. You canspecify the following notification types:
+    * `ConfigurationItemChangeNotification` - Triggers an evaluation when AWS Config delivers a configuration item as a result of a resource change.
+    * `OversizedConfigurationItemChangeNotification` - Triggers an evaluation when AWS Config delivers an oversized configuration item. AWS Config may generate this notification type when a resource changes and the notification exceeds the maximum size allowed by Amazon SNS.
+    * `ScheduledNotification` - Triggers a periodic evaluation at the frequency specified for `maximum_execution_frequency`.
+    * `ConfigurationSnapshotDeliveryCompleted` - Triggers a periodic evaluation when AWS Config delivers a configuration snapshot.
+    """
 
 @pulumi.input_type
 class RuleSourceSourceDetailArgs:

@@ -60,13 +60,14 @@ import (
 //
 // #### Optional
 //
-// * `account_id` (String) AWS Account where this resource is managed.
-//
+// * `accountId` (String) AWS Account where this resource is managed.
 // * `region` (String) Region where this resource is managed.
 //
-// Using `pulumi import`, import security group egress rules using the `security_group_rule_id`. For example:
+// Using `pulumi import`, import security group egress rules using the `securityGroupRuleId`. For example:
 //
-// % pulumi import aws_vpc_security_group_egress_rule.example sgr-02108b27edd666983
+// ```sh
+// $ pulumi import aws:vpc/securityGroupEgressRule:SecurityGroupEgressRule example sgr-02108b27edd666983
+// ```
 type SecurityGroupEgressRule struct {
 	pulumi.CustomResourceState
 

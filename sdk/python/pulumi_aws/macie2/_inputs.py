@@ -71,26 +71,21 @@ __all__ = [
     'ClassificationJobUserPausedDetailArgsDict',
 ]
 
-MYPY = False
+class ClassificationExportConfigurationS3DestinationArgsDict(TypedDict):
+    bucket_name: pulumi.Input[_builtins.str]
+    """
+    The Amazon S3 bucket name in which Amazon Macie exports the data classification results.
+    """
+    kms_key_arn: pulumi.Input[_builtins.str]
+    """
+    Amazon Resource Name (ARN) of the KMS key to be used to encrypt the data.
 
-if not MYPY:
-    class ClassificationExportConfigurationS3DestinationArgsDict(TypedDict):
-        bucket_name: pulumi.Input[_builtins.str]
-        """
-        The Amazon S3 bucket name in which Amazon Macie exports the data classification results.
-        """
-        kms_key_arn: pulumi.Input[_builtins.str]
-        """
-        Amazon Resource Name (ARN) of the KMS key to be used to encrypt the data.
-
-        Additional information can be found in the [Storing and retaining sensitive data discovery results with Amazon Macie for AWS Macie documentation](https://docs.aws.amazon.com/macie/latest/user/discovery-results-repository-s3.html).
-        """
-        key_prefix: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The object key for the bucket in which Amazon Macie exports the data classification results.
-        """
-elif False:
-    ClassificationExportConfigurationS3DestinationArgsDict: TypeAlias = Mapping[str, Any]
+    Additional information can be found in the [Storing and retaining sensitive data discovery results with Amazon Macie for AWS Macie documentation](https://docs.aws.amazon.com/macie/latest/user/discovery-results-repository-s3.html).
+    """
+    key_prefix: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The object key for the bucket in which Amazon Macie exports the data classification results.
+    """
 
 @pulumi.input_type
 class ClassificationExportConfigurationS3DestinationArgs:
@@ -149,22 +144,19 @@ class ClassificationExportConfigurationS3DestinationArgs:
         pulumi.set(self, "key_prefix", value)
 
 
-if not MYPY:
-    class ClassificationJobS3JobDefinitionArgsDict(TypedDict):
-        bucket_criteria: NotRequired[pulumi.Input['ClassificationJobS3JobDefinitionBucketCriteriaArgsDict']]
-        """
-        The property- and tag-based conditions that determine which S3 buckets to include or exclude from the analysis. Conflicts with `bucket_definitions`. (documented below)
-        """
-        bucket_definitions: NotRequired[pulumi.Input[Sequence[pulumi.Input['ClassificationJobS3JobDefinitionBucketDefinitionArgsDict']]]]
-        """
-        An array of objects, one for each AWS account that owns buckets to analyze. Each object specifies the account ID for an account and one or more buckets to analyze for the account. Conflicts with `bucket_criteria`. (documented below)
-        """
-        scoping: NotRequired[pulumi.Input['ClassificationJobS3JobDefinitionScopingArgsDict']]
-        """
-        The property- and tag-based conditions that determine which objects to include or exclude from the analysis. (documented below)
-        """
-elif False:
-    ClassificationJobS3JobDefinitionArgsDict: TypeAlias = Mapping[str, Any]
+class ClassificationJobS3JobDefinitionArgsDict(TypedDict):
+    bucket_criteria: NotRequired[pulumi.Input['ClassificationJobS3JobDefinitionBucketCriteriaArgsDict']]
+    """
+    The property- and tag-based conditions that determine which S3 buckets to include or exclude from the analysis. Conflicts with `bucket_definitions`. (documented below)
+    """
+    bucket_definitions: NotRequired[pulumi.Input[Sequence[pulumi.Input['ClassificationJobS3JobDefinitionBucketDefinitionArgsDict']]]]
+    """
+    An array of objects, one for each AWS account that owns buckets to analyze. Each object specifies the account ID for an account and one or more buckets to analyze for the account. Conflicts with `bucket_criteria`. (documented below)
+    """
+    scoping: NotRequired[pulumi.Input['ClassificationJobS3JobDefinitionScopingArgsDict']]
+    """
+    The property- and tag-based conditions that determine which objects to include or exclude from the analysis. (documented below)
+    """
 
 @pulumi.input_type
 class ClassificationJobS3JobDefinitionArgs:
@@ -221,18 +213,15 @@ class ClassificationJobS3JobDefinitionArgs:
         pulumi.set(self, "scoping", value)
 
 
-if not MYPY:
-    class ClassificationJobS3JobDefinitionBucketCriteriaArgsDict(TypedDict):
-        excludes: NotRequired[pulumi.Input['ClassificationJobS3JobDefinitionBucketCriteriaExcludesArgsDict']]
-        """
-        The property- or tag-based conditions that determine which S3 buckets to exclude from the analysis. (documented below)
-        """
-        includes: NotRequired[pulumi.Input['ClassificationJobS3JobDefinitionBucketCriteriaIncludesArgsDict']]
-        """
-        The property- or tag-based conditions that determine which S3 buckets to include in the analysis. (documented below)
-        """
-elif False:
-    ClassificationJobS3JobDefinitionBucketCriteriaArgsDict: TypeAlias = Mapping[str, Any]
+class ClassificationJobS3JobDefinitionBucketCriteriaArgsDict(TypedDict):
+    excludes: NotRequired[pulumi.Input['ClassificationJobS3JobDefinitionBucketCriteriaExcludesArgsDict']]
+    """
+    The property- or tag-based conditions that determine which S3 buckets to exclude from the analysis. (documented below)
+    """
+    includes: NotRequired[pulumi.Input['ClassificationJobS3JobDefinitionBucketCriteriaIncludesArgsDict']]
+    """
+    The property- or tag-based conditions that determine which S3 buckets to include in the analysis. (documented below)
+    """
 
 @pulumi.input_type
 class ClassificationJobS3JobDefinitionBucketCriteriaArgs:
@@ -273,14 +262,11 @@ class ClassificationJobS3JobDefinitionBucketCriteriaArgs:
         pulumi.set(self, "includes", value)
 
 
-if not MYPY:
-    class ClassificationJobS3JobDefinitionBucketCriteriaExcludesArgsDict(TypedDict):
-        ands: NotRequired[pulumi.Input[Sequence[pulumi.Input['ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndArgsDict']]]]
-        """
-        An array of conditions, one for each condition that determines which objects to include or exclude from the job. (documented below)
-        """
-elif False:
-    ClassificationJobS3JobDefinitionBucketCriteriaExcludesArgsDict: TypeAlias = Mapping[str, Any]
+class ClassificationJobS3JobDefinitionBucketCriteriaExcludesArgsDict(TypedDict):
+    ands: NotRequired[pulumi.Input[Sequence[pulumi.Input['ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndArgsDict']]]]
+    """
+    An array of conditions, one for each condition that determines which objects to include or exclude from the job. (documented below)
+    """
 
 @pulumi.input_type
 class ClassificationJobS3JobDefinitionBucketCriteriaExcludesArgs:
@@ -305,18 +291,15 @@ class ClassificationJobS3JobDefinitionBucketCriteriaExcludesArgs:
         pulumi.set(self, "ands", value)
 
 
-if not MYPY:
-    class ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndArgsDict(TypedDict):
-        simple_criterion: NotRequired[pulumi.Input['ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndSimpleCriterionArgsDict']]
-        """
-        A property-based condition that defines a property, operator, and one or more values for including or excluding an S3 buckets from the job. (documented below)
-        """
-        tag_criterion: NotRequired[pulumi.Input['ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndTagCriterionArgsDict']]
-        """
-        A tag-based condition that defines the operator and tag keys or tag key and value pairs for including or excluding an S3 buckets from the job. (documented below)
-        """
-elif False:
-    ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndArgsDict: TypeAlias = Mapping[str, Any]
+class ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndArgsDict(TypedDict):
+    simple_criterion: NotRequired[pulumi.Input['ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndSimpleCriterionArgsDict']]
+    """
+    A property-based condition that defines a property, operator, and one or more values for including or excluding an S3 buckets from the job. (documented below)
+    """
+    tag_criterion: NotRequired[pulumi.Input['ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndTagCriterionArgsDict']]
+    """
+    A tag-based condition that defines the operator and tag keys or tag key and value pairs for including or excluding an S3 buckets from the job. (documented below)
+    """
 
 @pulumi.input_type
 class ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndArgs:
@@ -357,22 +340,19 @@ class ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndArgs:
         pulumi.set(self, "tag_criterion", value)
 
 
-if not MYPY:
-    class ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndSimpleCriterionArgsDict(TypedDict):
-        comparator: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The operator to use in a condition. Valid combination of values are available in the [AWS Documentation](https://docs.aws.amazon.com/macie/latest/APIReference/jobs.html#jobs-model-jobcomparator)
-        """
-        key: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The object property to use in the condition. Valid combination of values are available in the [AWS Documentation](https://docs.aws.amazon.com/macie/latest/APIReference/jobs.html#jobs-model-simplecriterionkeyforjob)
-        """
-        values: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        An array that lists the values to use in the condition. Valid combination of values are available in the [AWS Documentation](https://docs.aws.amazon.com/macie/latest/APIReference/jobs.html#jobs-model-simplecriterionforjob)
-        """
-elif False:
-    ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndSimpleCriterionArgsDict: TypeAlias = Mapping[str, Any]
+class ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndSimpleCriterionArgsDict(TypedDict):
+    comparator: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The operator to use in a condition. Valid combination of values are available in the [AWS Documentation](https://docs.aws.amazon.com/macie/latest/APIReference/jobs.html#jobs-model-jobcomparator)
+    """
+    key: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The object property to use in the condition. Valid combination of values are available in the [AWS Documentation](https://docs.aws.amazon.com/macie/latest/APIReference/jobs.html#jobs-model-simplecriterionkeyforjob)
+    """
+    values: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    An array that lists the values to use in the condition. Valid combination of values are available in the [AWS Documentation](https://docs.aws.amazon.com/macie/latest/APIReference/jobs.html#jobs-model-simplecriterionforjob)
+    """
 
 @pulumi.input_type
 class ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndSimpleCriterionArgs:
@@ -429,18 +409,15 @@ class ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndSimpleCriterionAr
         pulumi.set(self, "values", value)
 
 
-if not MYPY:
-    class ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndTagCriterionArgsDict(TypedDict):
-        comparator: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The operator to use in the condition. Valid combination and values are available in the [AWS Documentation](https://docs.aws.amazon.com/macie/latest/APIReference/jobs.html#jobs-model-jobcomparator)
-        """
-        tag_values: NotRequired[pulumi.Input[Sequence[pulumi.Input['ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndTagCriterionTagValueArgsDict']]]]
-        """
-        The  tag key and value pairs to use in the condition. One or more blocks are allowed. (documented below)
-        """
-elif False:
-    ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndTagCriterionArgsDict: TypeAlias = Mapping[str, Any]
+class ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndTagCriterionArgsDict(TypedDict):
+    comparator: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The operator to use in the condition. Valid combination and values are available in the [AWS Documentation](https://docs.aws.amazon.com/macie/latest/APIReference/jobs.html#jobs-model-jobcomparator)
+    """
+    tag_values: NotRequired[pulumi.Input[Sequence[pulumi.Input['ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndTagCriterionTagValueArgsDict']]]]
+    """
+    The  tag key and value pairs to use in the condition. One or more blocks are allowed. (documented below)
+    """
 
 @pulumi.input_type
 class ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndTagCriterionArgs:
@@ -481,18 +458,15 @@ class ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndTagCriterionArgs:
         pulumi.set(self, "tag_values", value)
 
 
-if not MYPY:
-    class ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndTagCriterionTagValueArgsDict(TypedDict):
-        key: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The tag key.
-        """
-        value: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The tag value.
-        """
-elif False:
-    ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndTagCriterionTagValueArgsDict: TypeAlias = Mapping[str, Any]
+class ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndTagCriterionTagValueArgsDict(TypedDict):
+    key: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The tag key.
+    """
+    value: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The tag value.
+    """
 
 @pulumi.input_type
 class ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndTagCriterionTagValueArgs:
@@ -533,14 +507,11 @@ class ClassificationJobS3JobDefinitionBucketCriteriaExcludesAndTagCriterionTagVa
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class ClassificationJobS3JobDefinitionBucketCriteriaIncludesArgsDict(TypedDict):
-        ands: NotRequired[pulumi.Input[Sequence[pulumi.Input['ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndArgsDict']]]]
-        """
-        An array of conditions, one for each condition that determines which objects to include or exclude from the job. (documented below)
-        """
-elif False:
-    ClassificationJobS3JobDefinitionBucketCriteriaIncludesArgsDict: TypeAlias = Mapping[str, Any]
+class ClassificationJobS3JobDefinitionBucketCriteriaIncludesArgsDict(TypedDict):
+    ands: NotRequired[pulumi.Input[Sequence[pulumi.Input['ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndArgsDict']]]]
+    """
+    An array of conditions, one for each condition that determines which objects to include or exclude from the job. (documented below)
+    """
 
 @pulumi.input_type
 class ClassificationJobS3JobDefinitionBucketCriteriaIncludesArgs:
@@ -565,18 +536,15 @@ class ClassificationJobS3JobDefinitionBucketCriteriaIncludesArgs:
         pulumi.set(self, "ands", value)
 
 
-if not MYPY:
-    class ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndArgsDict(TypedDict):
-        simple_criterion: NotRequired[pulumi.Input['ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndSimpleCriterionArgsDict']]
-        """
-        A property-based condition that defines a property, operator, and one or more values for including or excluding an S3 buckets from the job. (documented below)
-        """
-        tag_criterion: NotRequired[pulumi.Input['ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndTagCriterionArgsDict']]
-        """
-        A tag-based condition that defines the operator and tag keys or tag key and value pairs for including or excluding an S3 buckets from the job. (documented below)
-        """
-elif False:
-    ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndArgsDict: TypeAlias = Mapping[str, Any]
+class ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndArgsDict(TypedDict):
+    simple_criterion: NotRequired[pulumi.Input['ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndSimpleCriterionArgsDict']]
+    """
+    A property-based condition that defines a property, operator, and one or more values for including or excluding an S3 buckets from the job. (documented below)
+    """
+    tag_criterion: NotRequired[pulumi.Input['ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndTagCriterionArgsDict']]
+    """
+    A tag-based condition that defines the operator and tag keys or tag key and value pairs for including or excluding an S3 buckets from the job. (documented below)
+    """
 
 @pulumi.input_type
 class ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndArgs:
@@ -617,22 +585,19 @@ class ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndArgs:
         pulumi.set(self, "tag_criterion", value)
 
 
-if not MYPY:
-    class ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndSimpleCriterionArgsDict(TypedDict):
-        comparator: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The operator to use in a condition. Valid combination of values are available in the [AWS Documentation](https://docs.aws.amazon.com/macie/latest/APIReference/jobs.html#jobs-model-jobcomparator)
-        """
-        key: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The object property to use in the condition. Valid combination of values are available in the [AWS Documentation](https://docs.aws.amazon.com/macie/latest/APIReference/jobs.html#jobs-model-simplecriterionkeyforjob)
-        """
-        values: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        An array that lists the values to use in the condition. Valid combination of values are available in the [AWS Documentation](https://docs.aws.amazon.com/macie/latest/APIReference/jobs.html#jobs-model-simplecriterionforjob)
-        """
-elif False:
-    ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndSimpleCriterionArgsDict: TypeAlias = Mapping[str, Any]
+class ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndSimpleCriterionArgsDict(TypedDict):
+    comparator: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The operator to use in a condition. Valid combination of values are available in the [AWS Documentation](https://docs.aws.amazon.com/macie/latest/APIReference/jobs.html#jobs-model-jobcomparator)
+    """
+    key: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The object property to use in the condition. Valid combination of values are available in the [AWS Documentation](https://docs.aws.amazon.com/macie/latest/APIReference/jobs.html#jobs-model-simplecriterionkeyforjob)
+    """
+    values: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    An array that lists the values to use in the condition. Valid combination of values are available in the [AWS Documentation](https://docs.aws.amazon.com/macie/latest/APIReference/jobs.html#jobs-model-simplecriterionforjob)
+    """
 
 @pulumi.input_type
 class ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndSimpleCriterionArgs:
@@ -689,18 +654,15 @@ class ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndSimpleCriterionAr
         pulumi.set(self, "values", value)
 
 
-if not MYPY:
-    class ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndTagCriterionArgsDict(TypedDict):
-        comparator: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The operator to use in the condition. Valid combination and values are available in the [AWS Documentation](https://docs.aws.amazon.com/macie/latest/APIReference/jobs.html#jobs-model-jobcomparator)
-        """
-        tag_values: NotRequired[pulumi.Input[Sequence[pulumi.Input['ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndTagCriterionTagValueArgsDict']]]]
-        """
-        The  tag key and value pairs to use in the condition. One or more blocks are allowed. (documented below)
-        """
-elif False:
-    ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndTagCriterionArgsDict: TypeAlias = Mapping[str, Any]
+class ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndTagCriterionArgsDict(TypedDict):
+    comparator: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The operator to use in the condition. Valid combination and values are available in the [AWS Documentation](https://docs.aws.amazon.com/macie/latest/APIReference/jobs.html#jobs-model-jobcomparator)
+    """
+    tag_values: NotRequired[pulumi.Input[Sequence[pulumi.Input['ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndTagCriterionTagValueArgsDict']]]]
+    """
+    The  tag key and value pairs to use in the condition. One or more blocks are allowed. (documented below)
+    """
 
 @pulumi.input_type
 class ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndTagCriterionArgs:
@@ -741,18 +703,15 @@ class ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndTagCriterionArgs:
         pulumi.set(self, "tag_values", value)
 
 
-if not MYPY:
-    class ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndTagCriterionTagValueArgsDict(TypedDict):
-        key: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The tag key.
-        """
-        value: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The tag value.
-        """
-elif False:
-    ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndTagCriterionTagValueArgsDict: TypeAlias = Mapping[str, Any]
+class ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndTagCriterionTagValueArgsDict(TypedDict):
+    key: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The tag key.
+    """
+    value: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The tag value.
+    """
 
 @pulumi.input_type
 class ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndTagCriterionTagValueArgs:
@@ -793,18 +752,15 @@ class ClassificationJobS3JobDefinitionBucketCriteriaIncludesAndTagCriterionTagVa
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class ClassificationJobS3JobDefinitionBucketDefinitionArgsDict(TypedDict):
-        account_id: pulumi.Input[_builtins.str]
-        """
-        The unique identifier for the AWS account that owns the buckets.
-        """
-        buckets: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
-        """
-        An array that lists the names of the buckets.
-        """
-elif False:
-    ClassificationJobS3JobDefinitionBucketDefinitionArgsDict: TypeAlias = Mapping[str, Any]
+class ClassificationJobS3JobDefinitionBucketDefinitionArgsDict(TypedDict):
+    account_id: pulumi.Input[_builtins.str]
+    """
+    The unique identifier for the AWS account that owns the buckets.
+    """
+    buckets: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    An array that lists the names of the buckets.
+    """
 
 @pulumi.input_type
 class ClassificationJobS3JobDefinitionBucketDefinitionArgs:
@@ -843,18 +799,15 @@ class ClassificationJobS3JobDefinitionBucketDefinitionArgs:
         pulumi.set(self, "buckets", value)
 
 
-if not MYPY:
-    class ClassificationJobS3JobDefinitionScopingArgsDict(TypedDict):
-        excludes: NotRequired[pulumi.Input['ClassificationJobS3JobDefinitionScopingExcludesArgsDict']]
-        """
-        The property- or tag-based conditions that determine which objects to exclude from the analysis. (documented below)
-        """
-        includes: NotRequired[pulumi.Input['ClassificationJobS3JobDefinitionScopingIncludesArgsDict']]
-        """
-        The property- or tag-based conditions that determine which objects to include in the analysis. (documented below)
-        """
-elif False:
-    ClassificationJobS3JobDefinitionScopingArgsDict: TypeAlias = Mapping[str, Any]
+class ClassificationJobS3JobDefinitionScopingArgsDict(TypedDict):
+    excludes: NotRequired[pulumi.Input['ClassificationJobS3JobDefinitionScopingExcludesArgsDict']]
+    """
+    The property- or tag-based conditions that determine which objects to exclude from the analysis. (documented below)
+    """
+    includes: NotRequired[pulumi.Input['ClassificationJobS3JobDefinitionScopingIncludesArgsDict']]
+    """
+    The property- or tag-based conditions that determine which objects to include in the analysis. (documented below)
+    """
 
 @pulumi.input_type
 class ClassificationJobS3JobDefinitionScopingArgs:
@@ -895,14 +848,11 @@ class ClassificationJobS3JobDefinitionScopingArgs:
         pulumi.set(self, "includes", value)
 
 
-if not MYPY:
-    class ClassificationJobS3JobDefinitionScopingExcludesArgsDict(TypedDict):
-        ands: NotRequired[pulumi.Input[Sequence[pulumi.Input['ClassificationJobS3JobDefinitionScopingExcludesAndArgsDict']]]]
-        """
-        An array of conditions, one for each condition that determines which objects to include or exclude from the job. (documented below)
-        """
-elif False:
-    ClassificationJobS3JobDefinitionScopingExcludesArgsDict: TypeAlias = Mapping[str, Any]
+class ClassificationJobS3JobDefinitionScopingExcludesArgsDict(TypedDict):
+    ands: NotRequired[pulumi.Input[Sequence[pulumi.Input['ClassificationJobS3JobDefinitionScopingExcludesAndArgsDict']]]]
+    """
+    An array of conditions, one for each condition that determines which objects to include or exclude from the job. (documented below)
+    """
 
 @pulumi.input_type
 class ClassificationJobS3JobDefinitionScopingExcludesArgs:
@@ -927,18 +877,15 @@ class ClassificationJobS3JobDefinitionScopingExcludesArgs:
         pulumi.set(self, "ands", value)
 
 
-if not MYPY:
-    class ClassificationJobS3JobDefinitionScopingExcludesAndArgsDict(TypedDict):
-        simple_scope_term: NotRequired[pulumi.Input['ClassificationJobS3JobDefinitionScopingExcludesAndSimpleScopeTermArgsDict']]
-        """
-        A property-based condition that defines a property, operator, and one or more values for including or excluding an object from the job. (documented below)
-        """
-        tag_scope_term: NotRequired[pulumi.Input['ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTermArgsDict']]
-        """
-        A tag-based condition that defines the operator and tag keys or tag key and value pairs for including or excluding an object from the job. (documented below)
-        """
-elif False:
-    ClassificationJobS3JobDefinitionScopingExcludesAndArgsDict: TypeAlias = Mapping[str, Any]
+class ClassificationJobS3JobDefinitionScopingExcludesAndArgsDict(TypedDict):
+    simple_scope_term: NotRequired[pulumi.Input['ClassificationJobS3JobDefinitionScopingExcludesAndSimpleScopeTermArgsDict']]
+    """
+    A property-based condition that defines a property, operator, and one or more values for including or excluding an object from the job. (documented below)
+    """
+    tag_scope_term: NotRequired[pulumi.Input['ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTermArgsDict']]
+    """
+    A tag-based condition that defines the operator and tag keys or tag key and value pairs for including or excluding an object from the job. (documented below)
+    """
 
 @pulumi.input_type
 class ClassificationJobS3JobDefinitionScopingExcludesAndArgs:
@@ -979,22 +926,19 @@ class ClassificationJobS3JobDefinitionScopingExcludesAndArgs:
         pulumi.set(self, "tag_scope_term", value)
 
 
-if not MYPY:
-    class ClassificationJobS3JobDefinitionScopingExcludesAndSimpleScopeTermArgsDict(TypedDict):
-        comparator: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The operator to use in a condition. Valid values are: `EQ`, `GT`, `GTE`, `LT`, `LTE`, `NE`, `CONTAINS`, `STARTS_WITH`
-        """
-        key: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The object property to use in the condition.
-        """
-        values: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        An array that lists the values to use in the condition.
-        """
-elif False:
-    ClassificationJobS3JobDefinitionScopingExcludesAndSimpleScopeTermArgsDict: TypeAlias = Mapping[str, Any]
+class ClassificationJobS3JobDefinitionScopingExcludesAndSimpleScopeTermArgsDict(TypedDict):
+    comparator: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The operator to use in a condition. Valid values are: `EQ`, `GT`, `GTE`, `LT`, `LTE`, `NE`, `CONTAINS`, `STARTS_WITH`
+    """
+    key: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The object property to use in the condition.
+    """
+    values: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    An array that lists the values to use in the condition.
+    """
 
 @pulumi.input_type
 class ClassificationJobS3JobDefinitionScopingExcludesAndSimpleScopeTermArgs:
@@ -1051,26 +995,23 @@ class ClassificationJobS3JobDefinitionScopingExcludesAndSimpleScopeTermArgs:
         pulumi.set(self, "values", value)
 
 
-if not MYPY:
-    class ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTermArgsDict(TypedDict):
-        comparator: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The operator to use in the condition.
-        """
-        key: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The tag key to use in the condition. The only valid value is `TAG`.
-        """
-        tag_values: NotRequired[pulumi.Input[Sequence[pulumi.Input['ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTermTagValueArgsDict']]]]
-        """
-        The tag keys or tag key and value pairs to use in the condition.
-        """
-        target: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The type of object to apply the condition to. The only valid value is `S3_OBJECT`.
-        """
-elif False:
-    ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTermArgsDict: TypeAlias = Mapping[str, Any]
+class ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTermArgsDict(TypedDict):
+    comparator: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The operator to use in the condition.
+    """
+    key: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The tag key to use in the condition. The only valid value is `TAG`.
+    """
+    tag_values: NotRequired[pulumi.Input[Sequence[pulumi.Input['ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTermTagValueArgsDict']]]]
+    """
+    The tag keys or tag key and value pairs to use in the condition.
+    """
+    target: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The type of object to apply the condition to. The only valid value is `S3_OBJECT`.
+    """
 
 @pulumi.input_type
 class ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTermArgs:
@@ -1143,18 +1084,15 @@ class ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTermArgs:
         pulumi.set(self, "target", value)
 
 
-if not MYPY:
-    class ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTermTagValueArgsDict(TypedDict):
-        key: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The tag key.
-        """
-        value: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The tag value.
-        """
-elif False:
-    ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTermTagValueArgsDict: TypeAlias = Mapping[str, Any]
+class ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTermTagValueArgsDict(TypedDict):
+    key: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The tag key.
+    """
+    value: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The tag value.
+    """
 
 @pulumi.input_type
 class ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTermTagValueArgs:
@@ -1195,14 +1133,11 @@ class ClassificationJobS3JobDefinitionScopingExcludesAndTagScopeTermTagValueArgs
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class ClassificationJobS3JobDefinitionScopingIncludesArgsDict(TypedDict):
-        ands: NotRequired[pulumi.Input[Sequence[pulumi.Input['ClassificationJobS3JobDefinitionScopingIncludesAndArgsDict']]]]
-        """
-        An array of conditions, one for each condition that determines which objects to include or exclude from the job. (documented below)
-        """
-elif False:
-    ClassificationJobS3JobDefinitionScopingIncludesArgsDict: TypeAlias = Mapping[str, Any]
+class ClassificationJobS3JobDefinitionScopingIncludesArgsDict(TypedDict):
+    ands: NotRequired[pulumi.Input[Sequence[pulumi.Input['ClassificationJobS3JobDefinitionScopingIncludesAndArgsDict']]]]
+    """
+    An array of conditions, one for each condition that determines which objects to include or exclude from the job. (documented below)
+    """
 
 @pulumi.input_type
 class ClassificationJobS3JobDefinitionScopingIncludesArgs:
@@ -1227,18 +1162,15 @@ class ClassificationJobS3JobDefinitionScopingIncludesArgs:
         pulumi.set(self, "ands", value)
 
 
-if not MYPY:
-    class ClassificationJobS3JobDefinitionScopingIncludesAndArgsDict(TypedDict):
-        simple_scope_term: NotRequired[pulumi.Input['ClassificationJobS3JobDefinitionScopingIncludesAndSimpleScopeTermArgsDict']]
-        """
-        A property-based condition that defines a property, operator, and one or more values for including or excluding an object from the job. (documented below)
-        """
-        tag_scope_term: NotRequired[pulumi.Input['ClassificationJobS3JobDefinitionScopingIncludesAndTagScopeTermArgsDict']]
-        """
-        A tag-based condition that defines the operator and tag keys or tag key and value pairs for including or excluding an object from the job. (documented below)
-        """
-elif False:
-    ClassificationJobS3JobDefinitionScopingIncludesAndArgsDict: TypeAlias = Mapping[str, Any]
+class ClassificationJobS3JobDefinitionScopingIncludesAndArgsDict(TypedDict):
+    simple_scope_term: NotRequired[pulumi.Input['ClassificationJobS3JobDefinitionScopingIncludesAndSimpleScopeTermArgsDict']]
+    """
+    A property-based condition that defines a property, operator, and one or more values for including or excluding an object from the job. (documented below)
+    """
+    tag_scope_term: NotRequired[pulumi.Input['ClassificationJobS3JobDefinitionScopingIncludesAndTagScopeTermArgsDict']]
+    """
+    A tag-based condition that defines the operator and tag keys or tag key and value pairs for including or excluding an object from the job. (documented below)
+    """
 
 @pulumi.input_type
 class ClassificationJobS3JobDefinitionScopingIncludesAndArgs:
@@ -1279,22 +1211,19 @@ class ClassificationJobS3JobDefinitionScopingIncludesAndArgs:
         pulumi.set(self, "tag_scope_term", value)
 
 
-if not MYPY:
-    class ClassificationJobS3JobDefinitionScopingIncludesAndSimpleScopeTermArgsDict(TypedDict):
-        comparator: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The operator to use in a condition. Valid values are: `EQ`, `GT`, `GTE`, `LT`, `LTE`, `NE`, `CONTAINS`, `STARTS_WITH`
-        """
-        key: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The object property to use in the condition.
-        """
-        values: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
-        """
-        An array that lists the values to use in the condition.
-        """
-elif False:
-    ClassificationJobS3JobDefinitionScopingIncludesAndSimpleScopeTermArgsDict: TypeAlias = Mapping[str, Any]
+class ClassificationJobS3JobDefinitionScopingIncludesAndSimpleScopeTermArgsDict(TypedDict):
+    comparator: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The operator to use in a condition. Valid values are: `EQ`, `GT`, `GTE`, `LT`, `LTE`, `NE`, `CONTAINS`, `STARTS_WITH`
+    """
+    key: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The object property to use in the condition.
+    """
+    values: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+    """
+    An array that lists the values to use in the condition.
+    """
 
 @pulumi.input_type
 class ClassificationJobS3JobDefinitionScopingIncludesAndSimpleScopeTermArgs:
@@ -1351,26 +1280,23 @@ class ClassificationJobS3JobDefinitionScopingIncludesAndSimpleScopeTermArgs:
         pulumi.set(self, "values", value)
 
 
-if not MYPY:
-    class ClassificationJobS3JobDefinitionScopingIncludesAndTagScopeTermArgsDict(TypedDict):
-        comparator: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The operator to use in the condition.
-        """
-        key: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The tag key to use in the condition. The only valid value is `TAG`.
-        """
-        tag_values: NotRequired[pulumi.Input[Sequence[pulumi.Input['ClassificationJobS3JobDefinitionScopingIncludesAndTagScopeTermTagValueArgsDict']]]]
-        """
-        The tag keys or tag key and value pairs to use in the condition.
-        """
-        target: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The type of object to apply the condition to. The only valid value is `S3_OBJECT`.
-        """
-elif False:
-    ClassificationJobS3JobDefinitionScopingIncludesAndTagScopeTermArgsDict: TypeAlias = Mapping[str, Any]
+class ClassificationJobS3JobDefinitionScopingIncludesAndTagScopeTermArgsDict(TypedDict):
+    comparator: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The operator to use in the condition.
+    """
+    key: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The tag key to use in the condition. The only valid value is `TAG`.
+    """
+    tag_values: NotRequired[pulumi.Input[Sequence[pulumi.Input['ClassificationJobS3JobDefinitionScopingIncludesAndTagScopeTermTagValueArgsDict']]]]
+    """
+    The tag keys or tag key and value pairs to use in the condition.
+    """
+    target: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The type of object to apply the condition to. The only valid value is `S3_OBJECT`.
+    """
 
 @pulumi.input_type
 class ClassificationJobS3JobDefinitionScopingIncludesAndTagScopeTermArgs:
@@ -1443,18 +1369,15 @@ class ClassificationJobS3JobDefinitionScopingIncludesAndTagScopeTermArgs:
         pulumi.set(self, "target", value)
 
 
-if not MYPY:
-    class ClassificationJobS3JobDefinitionScopingIncludesAndTagScopeTermTagValueArgsDict(TypedDict):
-        key: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The tag key.
-        """
-        value: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        The tag value.
-        """
-elif False:
-    ClassificationJobS3JobDefinitionScopingIncludesAndTagScopeTermTagValueArgsDict: TypeAlias = Mapping[str, Any]
+class ClassificationJobS3JobDefinitionScopingIncludesAndTagScopeTermTagValueArgsDict(TypedDict):
+    key: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The tag key.
+    """
+    value: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    The tag value.
+    """
 
 @pulumi.input_type
 class ClassificationJobS3JobDefinitionScopingIncludesAndTagScopeTermTagValueArgs:
@@ -1495,22 +1418,19 @@ class ClassificationJobS3JobDefinitionScopingIncludesAndTagScopeTermTagValueArgs
         pulumi.set(self, "value", value)
 
 
-if not MYPY:
-    class ClassificationJobScheduleFrequencyArgsDict(TypedDict):
-        daily_schedule: NotRequired[pulumi.Input[_builtins.bool]]
-        """
-        Specifies a daily recurrence pattern for running the job.
-        """
-        monthly_schedule: NotRequired[pulumi.Input[_builtins.int]]
-        """
-        Specifies a monthly recurrence pattern for running the job.
-        """
-        weekly_schedule: NotRequired[pulumi.Input[_builtins.str]]
-        """
-        Specifies a weekly recurrence pattern for running the job.
-        """
-elif False:
-    ClassificationJobScheduleFrequencyArgsDict: TypeAlias = Mapping[str, Any]
+class ClassificationJobScheduleFrequencyArgsDict(TypedDict):
+    daily_schedule: NotRequired[pulumi.Input[_builtins.bool]]
+    """
+    Specifies a daily recurrence pattern for running the job.
+    """
+    monthly_schedule: NotRequired[pulumi.Input[_builtins.int]]
+    """
+    Specifies a monthly recurrence pattern for running the job.
+    """
+    weekly_schedule: NotRequired[pulumi.Input[_builtins.str]]
+    """
+    Specifies a weekly recurrence pattern for running the job.
+    """
 
 @pulumi.input_type
 class ClassificationJobScheduleFrequencyArgs:
@@ -1567,13 +1487,10 @@ class ClassificationJobScheduleFrequencyArgs:
         pulumi.set(self, "weekly_schedule", value)
 
 
-if not MYPY:
-    class ClassificationJobUserPausedDetailArgsDict(TypedDict):
-        job_expires_at: NotRequired[pulumi.Input[_builtins.str]]
-        job_imminent_expiration_health_event_arn: NotRequired[pulumi.Input[_builtins.str]]
-        job_paused_at: NotRequired[pulumi.Input[_builtins.str]]
-elif False:
-    ClassificationJobUserPausedDetailArgsDict: TypeAlias = Mapping[str, Any]
+class ClassificationJobUserPausedDetailArgsDict(TypedDict):
+    job_expires_at: NotRequired[pulumi.Input[_builtins.str]]
+    job_imminent_expiration_health_event_arn: NotRequired[pulumi.Input[_builtins.str]]
+    job_paused_at: NotRequired[pulumi.Input[_builtins.str]]
 
 @pulumi.input_type
 class ClassificationJobUserPausedDetailArgs:

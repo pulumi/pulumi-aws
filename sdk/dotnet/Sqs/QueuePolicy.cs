@@ -150,6 +150,9 @@ namespace Pulumi.Aws.Sqs
     [AwsResourceType("aws:sqs/queuePolicy:QueuePolicy")]
     public partial class QueuePolicy : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// JSON policy for the SQS queue. For more information about building AWS IAM policy documents with Terraform, see the AWS IAM Policy Document Guide. Ensure that `Version = "2012-10-17"` is set in the policy or AWS may hang in creating the queue.
+        /// </summary>
         [Output("policy")]
         public Output<string> Policy { get; private set; } = null!;
 
@@ -211,6 +214,9 @@ namespace Pulumi.Aws.Sqs
 
     public sealed class QueuePolicyArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// JSON policy for the SQS queue. For more information about building AWS IAM policy documents with Terraform, see the AWS IAM Policy Document Guide. Ensure that `Version = "2012-10-17"` is set in the policy or AWS may hang in creating the queue.
+        /// </summary>
         [Input("policy", required: true)]
         public InputUnion<string, Inputs.PolicyDocumentArgs> Policy { get; set; } = null!;
 
@@ -234,6 +240,9 @@ namespace Pulumi.Aws.Sqs
 
     public sealed class QueuePolicyState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// JSON policy for the SQS queue. For more information about building AWS IAM policy documents with Terraform, see the AWS IAM Policy Document Guide. Ensure that `Version = "2012-10-17"` is set in the policy or AWS may hang in creating the queue.
+        /// </summary>
         [Input("policy")]
         public InputUnion<string, Inputs.PolicyDocumentGetArgs>? Policy { get; set; }
 

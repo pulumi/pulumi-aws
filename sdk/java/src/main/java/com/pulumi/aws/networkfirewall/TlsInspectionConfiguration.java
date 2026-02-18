@@ -384,7 +384,9 @@ import javax.annotation.Nullable;
  * 
  * Using `pulumi import`, import Network Firewall TLS Inspection Configuration using the `arn`. For example:
  * 
- * % pulumi import aws_networkfirewall_tls_inspection_configuration.example arn:aws:network-firewall::&lt;region&gt;:&lt;account_id&gt;:tls-configuration/example
+ * ```sh
+ * $ pulumi import aws:networkfirewall/tlsInspectionConfiguration:TlsInspectionConfiguration example arn:aws:network-firewall::&lt;region&gt;:&lt;account_id&gt;:tls-configuration/example
+ * ```
  * 
  */
 @ResourceType(type="aws:networkfirewall/tlsInspectionConfiguration:TlsInspectionConfiguration")

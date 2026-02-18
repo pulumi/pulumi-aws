@@ -54,6 +54,7 @@ import (
 type FolderMembership struct {
 	pulumi.CustomResourceState
 
+	// AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
 	AwsAccountId pulumi.StringOutput `pulumi:"awsAccountId"`
 	// Identifier for the folder.
 	FolderId pulumi.StringOutput `pulumi:"folderId"`
@@ -106,6 +107,7 @@ func GetFolderMembership(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering FolderMembership resources.
 type folderMembershipState struct {
+	// AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
 	AwsAccountId *string `pulumi:"awsAccountId"`
 	// Identifier for the folder.
 	FolderId *string `pulumi:"folderId"`
@@ -120,6 +122,7 @@ type folderMembershipState struct {
 }
 
 type FolderMembershipState struct {
+	// AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
 	AwsAccountId pulumi.StringPtrInput
 	// Identifier for the folder.
 	FolderId pulumi.StringPtrInput
@@ -138,6 +141,7 @@ func (FolderMembershipState) ElementType() reflect.Type {
 }
 
 type folderMembershipArgs struct {
+	// AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
 	AwsAccountId *string `pulumi:"awsAccountId"`
 	// Identifier for the folder.
 	FolderId string `pulumi:"folderId"`
@@ -153,6 +157,7 @@ type folderMembershipArgs struct {
 
 // The set of arguments for constructing a FolderMembership resource.
 type FolderMembershipArgs struct {
+	// AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
 	AwsAccountId pulumi.StringPtrInput
 	// Identifier for the folder.
 	FolderId pulumi.StringInput
@@ -253,6 +258,7 @@ func (o FolderMembershipOutput) ToFolderMembershipOutputWithContext(ctx context.
 	return o
 }
 
+// AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
 func (o FolderMembershipOutput) AwsAccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *FolderMembership) pulumi.StringOutput { return v.AwsAccountId }).(pulumi.StringOutput)
 }

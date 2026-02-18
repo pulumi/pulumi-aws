@@ -151,7 +151,8 @@ type Template struct {
 	pulumi.CustomResourceState
 
 	// ARN of the template.
-	Arn          pulumi.StringOutput `pulumi:"arn"`
+	Arn pulumi.StringOutput `pulumi:"arn"`
+	// AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
 	AwsAccountId pulumi.StringOutput `pulumi:"awsAccountId"`
 	// The time that the template was created.
 	CreatedTime pulumi.StringOutput `pulumi:"createdTime"`
@@ -220,7 +221,8 @@ func GetTemplate(ctx *pulumi.Context,
 // Input properties used for looking up and filtering Template resources.
 type templateState struct {
 	// ARN of the template.
-	Arn          *string `pulumi:"arn"`
+	Arn *string `pulumi:"arn"`
+	// AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
 	AwsAccountId *string `pulumi:"awsAccountId"`
 	// The time that the template was created.
 	CreatedTime *string `pulumi:"createdTime"`
@@ -254,7 +256,8 @@ type templateState struct {
 
 type TemplateState struct {
 	// ARN of the template.
-	Arn          pulumi.StringPtrInput
+	Arn pulumi.StringPtrInput
+	// AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
 	AwsAccountId pulumi.StringPtrInput
 	// The time that the template was created.
 	CreatedTime pulumi.StringPtrInput
@@ -291,6 +294,7 @@ func (TemplateState) ElementType() reflect.Type {
 }
 
 type templateArgs struct {
+	// AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
 	AwsAccountId *string `pulumi:"awsAccountId"`
 	// Display name for the template.
 	Name *string `pulumi:"name"`
@@ -312,6 +316,7 @@ type templateArgs struct {
 
 // The set of arguments for constructing a Template resource.
 type TemplateArgs struct {
+	// AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
 	AwsAccountId pulumi.StringPtrInput
 	// Display name for the template.
 	Name pulumi.StringPtrInput
@@ -423,6 +428,7 @@ func (o TemplateOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Template) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
+// AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
 func (o TemplateOutput) AwsAccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Template) pulumi.StringOutput { return v.AwsAccountId }).(pulumi.StringOutput)
 }

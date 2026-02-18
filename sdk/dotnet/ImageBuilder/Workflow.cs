@@ -69,13 +69,15 @@ namespace Pulumi.Aws.ImageBuilder
     /// 
     /// #### Required
     /// 
-    /// - `arn` (String) Amazon Resource Name (ARN) of the Image Builder workflow.
+    /// - `Arn` (String) Amazon Resource Name (ARN) of the Image Builder workflow.
     /// 
-    /// Using `pulumi import`, import EC2 Image Builder Workflow using the `arn`. For example:
+    /// Using `pulumi import`, import EC2 Image Builder Workflow using the `Arn`. For example:
     /// 
-    /// % pulumi import aws_imagebuilder_workflow.example arn:aws:imagebuilder:us-east-1:aws:workflow/test/example/1.0.1/1
+    /// ```sh
+    /// $ pulumi import aws:imagebuilder/workflow:Workflow example arn:aws:imagebuilder:us-east-1:aws:workflow/test/example/1.0.1/1
+    /// ```
     /// 
-    /// Certain resource arguments, such as `uri`, cannot be read via the API and imported into Terraform. Terraform will display a difference for these arguments the first run after import if declared in the Terraform configuration for an imported resource.
+    /// Certain resource arguments, such as `Uri`, cannot be read via the API and imported into Terraform. Terraform will display a difference for these arguments the first run after import if declared in the Terraform configuration for an imported resource.
     /// </summary>
     [AwsResourceType("aws:imagebuilder/workflow:Workflow")]
     public partial class Workflow : global::Pulumi.CustomResource

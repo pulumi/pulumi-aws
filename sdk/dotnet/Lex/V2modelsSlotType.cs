@@ -116,7 +116,7 @@ namespace Pulumi.Aws.Lex
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import Lex V2 Models Slot Type using using a comma-delimited string concatenating `bot_id`, `bot_version`, `locale_id`, and `slot_type_id`. For example:
+    /// Using `pulumi import`, import Lex V2 Models Slot Type using using a comma-delimited string concatenating `BotId`, `BotVersion`, `LocaleId`, and `SlotTypeId`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:lex/v2modelsSlotType:V2modelsSlotType example bot-1234,DRAFT,en_US,slot_type-id-12345678

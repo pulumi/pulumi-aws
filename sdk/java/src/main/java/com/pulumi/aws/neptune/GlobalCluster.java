@@ -139,12 +139,41 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Using `pulumi import`, import `aws_neptune_global_cluster` using the Global Cluster identifier. For example:
+ * Using `pulumi import`, import `aws.neptune.GlobalCluster` using the Global Cluster identifier. For example:
  * 
  * ```sh
  * $ pulumi import aws:neptune/globalCluster:GlobalCluster example example
  * ```
- * Certain resource arguments, like `source_db_cluster_identifier`, do not have an API method for reading the information after creation. If the argument is set in the Pulumi program on an imported resource, Pulumi will always show a difference. To workaround this behavior, either omit the argument from the Pulumi program or use `ignore_changes` to hide the difference. For example:
+ * 
+ * Certain resource arguments, like `sourceDbClusterIdentifier`, do not have an API method for reading the information after creation. If the argument is set in the Pulumi program on an imported resource, Pulumi will always show a difference. To workaround this behavior, either omit the argument from the Pulumi program or use `ignoreChanges` to hide the difference. For example:
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.neptune.GlobalCluster;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new GlobalCluster("example");
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
  * 
  */
 @ResourceType(type="aws:neptune/globalCluster:GlobalCluster")

@@ -19,7 +19,7 @@ namespace Pulumi.Aws.CloudWatch.Inputs
         public Input<bool> EnableHiveCompatiblePath { get; set; } = null!;
 
         /// <summary>
-        /// This string allows re-configuring the S3 object prefix to contain either static or variable sections. The valid variables to use in the suffix path will vary by each log source.
+        /// This string allows re-configuring the S3 object prefix to contain either static or variable sections. The valid variables to use in the suffix path will vary by each log source. **Note:** AWS automatically prepends account and service-specific prefixes (e.g., `AWSLogs/{account-id}/CloudFront/` for CloudFront sources) to the configured value. Specify only your custom suffix path without these AWS-managed prefixes.
         /// </summary>
         [Input("suffixPath", required: true)]
         public Input<string> SuffixPath { get; set; } = null!;

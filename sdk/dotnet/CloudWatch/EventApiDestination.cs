@@ -39,7 +39,7 @@ namespace Pulumi.Aws.CloudWatch
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import EventBridge API Destinations using the `name`. For example:
+    /// Using `pulumi import`, import EventBridge API Destinations using the `Name`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:cloudwatch/eventApiDestination:EventApiDestination test api-destination
