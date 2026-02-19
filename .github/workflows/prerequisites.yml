@@ -98,7 +98,7 @@ jobs:
     - name: Prepare local workspace before restoring previously built files
       run: make prepare_local_workspace
       env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        GITHUB_TOKEN: ${{ steps.app-auth.outputs.token }}
     - name: Generate schema
       run: make schema
     - name: Build provider binary
