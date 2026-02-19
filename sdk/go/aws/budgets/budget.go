@@ -317,6 +317,267 @@ import (
 //
 // ```
 //
+// # Create a budget with a simple dimension filter
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/budgets"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := budgets.NewBudget(ctx, "simple", &budgets.BudgetArgs{
+//				Name:        pulumi.String("budget-ec2-filter"),
+//				BudgetType:  pulumi.String("COST"),
+//				LimitAmount: pulumi.String("500"),
+//				LimitUnit:   pulumi.String("USD"),
+//				TimeUnit:    pulumi.String("MONTHLY"),
+//				FilterExpression: &budgets.BudgetFilterExpressionArgs{
+//					Dimensions: &budgets.BudgetFilterExpressionDimensionsArgs{
+//						Key: pulumi.String("SERVICE"),
+//						Values: pulumi.StringArray{
+//							pulumi.String("Amazon Elastic Compute Cloud - Compute"),
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// # Create a budget with AND filter
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/budgets"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := budgets.NewBudget(ctx, "and_example", &budgets.BudgetArgs{
+//				Name:        pulumi.String("budget-and-filter"),
+//				BudgetType:  pulumi.String("COST"),
+//				LimitAmount: pulumi.String("1200"),
+//				LimitUnit:   pulumi.String("USD"),
+//				TimeUnit:    pulumi.String("MONTHLY"),
+//				FilterExpression: &budgets.BudgetFilterExpressionArgs{
+//					Ands: budgets.BudgetFilterExpressionAndArray{
+//						&budgets.BudgetFilterExpressionAndArgs{
+//							Dimensions: &budgets.BudgetFilterExpressionAndDimensionsArgs{
+//								Key: pulumi.String("SERVICE"),
+//								Values: pulumi.StringArray{
+//									pulumi.String("Amazon Elastic Compute Cloud - Compute"),
+//								},
+//							},
+//						},
+//						&budgets.BudgetFilterExpressionAndArgs{
+//							Tags: &budgets.BudgetFilterExpressionAndTagsArgs{
+//								Key: pulumi.String("Environment"),
+//								Values: pulumi.StringArray{
+//									pulumi.String("Production"),
+//								},
+//							},
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// # Create a budget with OR filter
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/budgets"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := budgets.NewBudget(ctx, "or_example", &budgets.BudgetArgs{
+//				Name:        pulumi.String("budget-or-filter"),
+//				BudgetType:  pulumi.String("COST"),
+//				LimitAmount: pulumi.String("2000"),
+//				LimitUnit:   pulumi.String("USD"),
+//				TimeUnit:    pulumi.String("MONTHLY"),
+//				FilterExpression: &budgets.BudgetFilterExpressionArgs{
+//					Ors: budgets.BudgetFilterExpressionOrArray{
+//						&budgets.BudgetFilterExpressionOrArgs{
+//							Dimensions: &budgets.BudgetFilterExpressionOrDimensionsArgs{
+//								Key: pulumi.String("SERVICE"),
+//								Values: pulumi.StringArray{
+//									pulumi.String("Amazon Elastic Compute Cloud - Compute"),
+//								},
+//							},
+//						},
+//						&budgets.BudgetFilterExpressionOrArgs{
+//							Dimensions: &budgets.BudgetFilterExpressionOrDimensionsArgs{
+//								Key: pulumi.String("SERVICE"),
+//								Values: pulumi.StringArray{
+//									pulumi.String("Amazon Relational Database Service"),
+//								},
+//							},
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// # Create a budget with NOT filter
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/budgets"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := budgets.NewBudget(ctx, "not_example", &budgets.BudgetArgs{
+//				Name:        pulumi.String("budget-not-filter"),
+//				BudgetType:  pulumi.String("COST"),
+//				LimitAmount: pulumi.String("1000"),
+//				LimitUnit:   pulumi.String("USD"),
+//				TimeUnit:    pulumi.String("MONTHLY"),
+//				FilterExpression: &budgets.BudgetFilterExpressionArgs{
+//					Not: &budgets.BudgetFilterExpressionNotArgs{
+//						Dimensions: &budgets.BudgetFilterExpressionNotDimensionsArgs{
+//							Key: pulumi.String("REGION"),
+//							Values: pulumi.StringArray{
+//								pulumi.String("us-west-2"),
+//							},
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// # Create a budget with a compound filter
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/budgets"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := budgets.NewBudget(ctx, "compound_example", &budgets.BudgetArgs{
+//				Name:        pulumi.String("budget-compound-filter"),
+//				BudgetType:  pulumi.String("COST"),
+//				LimitAmount: pulumi.String("1500"),
+//				LimitUnit:   pulumi.String("USD"),
+//				TimeUnit:    pulumi.String("MONTHLY"),
+//				FilterExpression: &budgets.BudgetFilterExpressionArgs{
+//					Ors: budgets.BudgetFilterExpressionOrArray{
+//						&budgets.BudgetFilterExpressionOrArgs{
+//							Ands: budgets.BudgetFilterExpressionOrAndArray{
+//								&budgets.BudgetFilterExpressionOrAndArgs{
+//									Dimensions: &budgets.BudgetFilterExpressionOrAndDimensionsArgs{
+//										Key: pulumi.String("SERVICE"),
+//										Values: pulumi.StringArray{
+//											pulumi.String("Amazon Elastic Compute Cloud - Compute"),
+//										},
+//									},
+//								},
+//								&budgets.BudgetFilterExpressionOrAndArgs{
+//									Tags: &budgets.BudgetFilterExpressionOrAndTagsArgs{
+//										Key: pulumi.String("Environment"),
+//										Values: pulumi.StringArray{
+//											pulumi.String("production"),
+//										},
+//									},
+//								},
+//								&budgets.BudgetFilterExpressionOrAndArgs{
+//									CostCategories: &budgets.BudgetFilterExpressionOrAndCostCategoriesArgs{
+//										Key: pulumi.String("Environment"),
+//										Values: pulumi.StringArray{
+//											pulumi.String("production"),
+//										},
+//									},
+//								},
+//							},
+//						},
+//						&budgets.BudgetFilterExpressionOrArgs{
+//							Not: &budgets.BudgetFilterExpressionOrNotArgs{
+//								Dimensions: &budgets.BudgetFilterExpressionOrNotDimensionsArgs{
+//									Key: pulumi.String("REGION"),
+//									Values: pulumi.StringArray{
+//										pulumi.String("us-west-2"),
+//									},
+//								},
+//							},
+//						},
+//					},
+//				},
+//				Notifications: budgets.BudgetNotificationArray{
+//					&budgets.BudgetNotificationArgs{
+//						ComparisonOperator: pulumi.String("GREATER_THAN"),
+//						Threshold:          pulumi.Float64(100),
+//						ThresholdType:      pulumi.String("PERCENTAGE"),
+//						NotificationType:   pulumi.String("FORECASTED"),
+//						SubscriberEmailAddresses: pulumi.StringArray{
+//							pulumi.String("test@example.com"),
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Using `pulumi import`, import budgets using `AccountID:BudgetName`. For example:
@@ -337,10 +598,12 @@ type Budget struct {
 	BillingViewArn pulumi.StringPtrOutput `pulumi:"billingViewArn"`
 	// Whether this budget tracks monetary cost or usage.
 	BudgetType pulumi.StringOutput `pulumi:"budgetType"`
-	// A list of CostFilter name/values pair to apply to budget.
+	// A list of CostFilter name/values pair to apply to budget. Conflicts with `filterExpression`.
 	CostFilters BudgetCostFilterArrayOutput `pulumi:"costFilters"`
 	// Object containing CostTypes The types of cost included in a budget, such as tax and subscriptions.
 	CostTypes BudgetCostTypesOutput `pulumi:"costTypes"`
+	// Object containing Filter Expression to apply to budget. Conflicts with `costFilter`.
+	FilterExpression BudgetFilterExpressionPtrOutput `pulumi:"filterExpression"`
 	// The amount of cost or usage being measured for a budget.
 	LimitAmount pulumi.StringOutput `pulumi:"limitAmount"`
 	// The unit of measurement used for the budget forecast, actual spend, or budget threshold, such as dollars or GB. See [Spend](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/data-type-spend.html) documentation.
@@ -416,10 +679,12 @@ type budgetState struct {
 	BillingViewArn *string `pulumi:"billingViewArn"`
 	// Whether this budget tracks monetary cost or usage.
 	BudgetType *string `pulumi:"budgetType"`
-	// A list of CostFilter name/values pair to apply to budget.
+	// A list of CostFilter name/values pair to apply to budget. Conflicts with `filterExpression`.
 	CostFilters []BudgetCostFilter `pulumi:"costFilters"`
 	// Object containing CostTypes The types of cost included in a budget, such as tax and subscriptions.
 	CostTypes *BudgetCostTypes `pulumi:"costTypes"`
+	// Object containing Filter Expression to apply to budget. Conflicts with `costFilter`.
+	FilterExpression *BudgetFilterExpression `pulumi:"filterExpression"`
 	// The amount of cost or usage being measured for a budget.
 	LimitAmount *string `pulumi:"limitAmount"`
 	// The unit of measurement used for the budget forecast, actual spend, or budget threshold, such as dollars or GB. See [Spend](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/data-type-spend.html) documentation.
@@ -460,10 +725,12 @@ type BudgetState struct {
 	BillingViewArn pulumi.StringPtrInput
 	// Whether this budget tracks monetary cost or usage.
 	BudgetType pulumi.StringPtrInput
-	// A list of CostFilter name/values pair to apply to budget.
+	// A list of CostFilter name/values pair to apply to budget. Conflicts with `filterExpression`.
 	CostFilters BudgetCostFilterArrayInput
 	// Object containing CostTypes The types of cost included in a budget, such as tax and subscriptions.
 	CostTypes BudgetCostTypesPtrInput
+	// Object containing Filter Expression to apply to budget. Conflicts with `costFilter`.
+	FilterExpression BudgetFilterExpressionPtrInput
 	// The amount of cost or usage being measured for a budget.
 	LimitAmount pulumi.StringPtrInput
 	// The unit of measurement used for the budget forecast, actual spend, or budget threshold, such as dollars or GB. See [Spend](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/data-type-spend.html) documentation.
@@ -506,10 +773,12 @@ type budgetArgs struct {
 	BillingViewArn *string `pulumi:"billingViewArn"`
 	// Whether this budget tracks monetary cost or usage.
 	BudgetType string `pulumi:"budgetType"`
-	// A list of CostFilter name/values pair to apply to budget.
+	// A list of CostFilter name/values pair to apply to budget. Conflicts with `filterExpression`.
 	CostFilters []BudgetCostFilter `pulumi:"costFilters"`
 	// Object containing CostTypes The types of cost included in a budget, such as tax and subscriptions.
 	CostTypes *BudgetCostTypes `pulumi:"costTypes"`
+	// Object containing Filter Expression to apply to budget. Conflicts with `costFilter`.
+	FilterExpression *BudgetFilterExpression `pulumi:"filterExpression"`
 	// The amount of cost or usage being measured for a budget.
 	LimitAmount *string `pulumi:"limitAmount"`
 	// The unit of measurement used for the budget forecast, actual spend, or budget threshold, such as dollars or GB. See [Spend](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/data-type-spend.html) documentation.
@@ -547,10 +816,12 @@ type BudgetArgs struct {
 	BillingViewArn pulumi.StringPtrInput
 	// Whether this budget tracks monetary cost or usage.
 	BudgetType pulumi.StringInput
-	// A list of CostFilter name/values pair to apply to budget.
+	// A list of CostFilter name/values pair to apply to budget. Conflicts with `filterExpression`.
 	CostFilters BudgetCostFilterArrayInput
 	// Object containing CostTypes The types of cost included in a budget, such as tax and subscriptions.
 	CostTypes BudgetCostTypesPtrInput
+	// Object containing Filter Expression to apply to budget. Conflicts with `costFilter`.
+	FilterExpression BudgetFilterExpressionPtrInput
 	// The amount of cost or usage being measured for a budget.
 	LimitAmount pulumi.StringPtrInput
 	// The unit of measurement used for the budget forecast, actual spend, or budget threshold, such as dollars or GB. See [Spend](http://docs.aws.amazon.com/awsaccountbilling/latest/aboutv2/data-type-spend.html) documentation.
@@ -690,7 +961,7 @@ func (o BudgetOutput) BudgetType() pulumi.StringOutput {
 	return o.ApplyT(func(v *Budget) pulumi.StringOutput { return v.BudgetType }).(pulumi.StringOutput)
 }
 
-// A list of CostFilter name/values pair to apply to budget.
+// A list of CostFilter name/values pair to apply to budget. Conflicts with `filterExpression`.
 func (o BudgetOutput) CostFilters() BudgetCostFilterArrayOutput {
 	return o.ApplyT(func(v *Budget) BudgetCostFilterArrayOutput { return v.CostFilters }).(BudgetCostFilterArrayOutput)
 }
@@ -698,6 +969,11 @@ func (o BudgetOutput) CostFilters() BudgetCostFilterArrayOutput {
 // Object containing CostTypes The types of cost included in a budget, such as tax and subscriptions.
 func (o BudgetOutput) CostTypes() BudgetCostTypesOutput {
 	return o.ApplyT(func(v *Budget) BudgetCostTypesOutput { return v.CostTypes }).(BudgetCostTypesOutput)
+}
+
+// Object containing Filter Expression to apply to budget. Conflicts with `costFilter`.
+func (o BudgetOutput) FilterExpression() BudgetFilterExpressionPtrOutput {
+	return o.ApplyT(func(v *Budget) BudgetFilterExpressionPtrOutput { return v.FilterExpression }).(BudgetFilterExpressionPtrOutput)
 }
 
 // The amount of cost or usage being measured for a budget.

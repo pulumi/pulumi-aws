@@ -111,6 +111,7 @@ __all__ = [
     'DomainDomainSettingsDockerSettings',
     'DomainDomainSettingsRStudioServerProDomainSettings',
     'DomainDomainSettingsRStudioServerProDomainSettingsDefaultResourceSpec',
+    'DomainDomainSettingsTrustedIdentityPropagationSettings',
     'DomainRetentionPolicy',
     'EndpointConfigurationAsyncInferenceConfig',
     'EndpointConfigurationAsyncInferenceConfigClientConfig',
@@ -5880,6 +5881,8 @@ class DomainDomainSettings(dict):
             suggest = "r_studio_server_pro_domain_settings"
         elif key == "securityGroupIds":
             suggest = "security_group_ids"
+        elif key == "trustedIdentityPropagationSettings":
+            suggest = "trusted_identity_propagation_settings"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in DomainDomainSettings. Access the value via the '{suggest}' property getter instead.")
@@ -5896,12 +5899,14 @@ class DomainDomainSettings(dict):
                  docker_settings: Optional['outputs.DomainDomainSettingsDockerSettings'] = None,
                  execution_role_identity_config: Optional[_builtins.str] = None,
                  r_studio_server_pro_domain_settings: Optional['outputs.DomainDomainSettingsRStudioServerProDomainSettings'] = None,
-                 security_group_ids: Optional[Sequence[_builtins.str]] = None):
+                 security_group_ids: Optional[Sequence[_builtins.str]] = None,
+                 trusted_identity_propagation_settings: Optional['outputs.DomainDomainSettingsTrustedIdentityPropagationSettings'] = None):
         """
         :param 'DomainDomainSettingsDockerSettingsArgs' docker_settings: A collection of settings that configure the domain’s Docker interaction. see `docker_settings` Block below.
         :param _builtins.str execution_role_identity_config: The configuration for attaching a SageMaker AI user profile name to the execution role as a sts:SourceIdentity key [AWS Docs](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_control-access_monitor.html). Valid values are `USER_PROFILE_NAME` and `DISABLED`.
         :param 'DomainDomainSettingsRStudioServerProDomainSettingsArgs' r_studio_server_pro_domain_settings: A collection of settings that configure the RStudioServerPro Domain-level app. see `r_studio_server_pro_domain_settings` Block below.
         :param Sequence[_builtins.str] security_group_ids: The security groups for the Amazon Virtual Private Cloud that the Domain uses for communication between Domain-level apps and user apps.
+        :param 'DomainDomainSettingsTrustedIdentityPropagationSettingsArgs' trusted_identity_propagation_settings: Configuration for trusted identity propagation. See the `trusted_identity_propagation_settings` Block below.
         """
         if docker_settings is not None:
             pulumi.set(__self__, "docker_settings", docker_settings)
@@ -5911,6 +5916,8 @@ class DomainDomainSettings(dict):
             pulumi.set(__self__, "r_studio_server_pro_domain_settings", r_studio_server_pro_domain_settings)
         if security_group_ids is not None:
             pulumi.set(__self__, "security_group_ids", security_group_ids)
+        if trusted_identity_propagation_settings is not None:
+            pulumi.set(__self__, "trusted_identity_propagation_settings", trusted_identity_propagation_settings)
 
     @_builtins.property
     @pulumi.getter(name="dockerSettings")
@@ -5943,6 +5950,14 @@ class DomainDomainSettings(dict):
         The security groups for the Amazon Virtual Private Cloud that the Domain uses for communication between Domain-level apps and user apps.
         """
         return pulumi.get(self, "security_group_ids")
+
+    @_builtins.property
+    @pulumi.getter(name="trustedIdentityPropagationSettings")
+    def trusted_identity_propagation_settings(self) -> Optional['outputs.DomainDomainSettingsTrustedIdentityPropagationSettings']:
+        """
+        Configuration for trusted identity propagation. See the `trusted_identity_propagation_settings` Block below.
+        """
+        return pulumi.get(self, "trusted_identity_propagation_settings")
 
 
 @pulumi.output_type
@@ -6162,6 +6177,24 @@ class DomainDomainSettingsRStudioServerProDomainSettingsDefaultResourceSpec(dict
         The ARN of the image version created on the instance.
         """
         return pulumi.get(self, "sagemaker_image_version_arn")
+
+
+@pulumi.output_type
+class DomainDomainSettingsTrustedIdentityPropagationSettings(dict):
+    def __init__(__self__, *,
+                 status: _builtins.str):
+        """
+        :param _builtins.str status: Whether to enable Trusted Identity Propagation (TIP) for the domain. Valid values are `ENABLED` and `DISABLED`. When enabled, user identities from IAM Identity Center are propagated through the domain to TIP enabled AWS services. Can only be `ENABLED` when `auth_mode` is `SSO`.
+        """
+        pulumi.set(__self__, "status", status)
+
+    @_builtins.property
+    @pulumi.getter
+    def status(self) -> _builtins.str:
+        """
+        Whether to enable Trusted Identity Propagation (TIP) for the domain. Valid values are `ENABLED` and `DISABLED`. When enabled, user identities from IAM Identity Center are propagated through the domain to TIP enabled AWS services. Can only be `ENABLED` when `auth_mode` is `SSO`.
+        """
+        return pulumi.get(self, "status")
 
 
 @pulumi.output_type

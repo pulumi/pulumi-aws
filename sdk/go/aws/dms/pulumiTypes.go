@@ -1026,6 +1026,8 @@ type EndpointMongodbSettings struct {
 	ExtractDocId *string `pulumi:"extractDocId"`
 	// Specifies either document or table mode. Default is `none`. Valid values are `one` (table mode) and `none` (document mode).
 	NestingLevel *string `pulumi:"nestingLevel"`
+	// If `true`, DMS retrieves the entire document from the MongoDB source during migration. Default is `false`.
+	UseUpdateLookup *bool `pulumi:"useUpdateLookup"`
 }
 
 // EndpointMongodbSettingsInput is an input type that accepts EndpointMongodbSettingsArgs and EndpointMongodbSettingsOutput values.
@@ -1052,6 +1054,8 @@ type EndpointMongodbSettingsArgs struct {
 	ExtractDocId pulumi.StringPtrInput `pulumi:"extractDocId"`
 	// Specifies either document or table mode. Default is `none`. Valid values are `one` (table mode) and `none` (document mode).
 	NestingLevel pulumi.StringPtrInput `pulumi:"nestingLevel"`
+	// If `true`, DMS retrieves the entire document from the MongoDB source during migration. Default is `false`.
+	UseUpdateLookup pulumi.BoolPtrInput `pulumi:"useUpdateLookup"`
 }
 
 func (EndpointMongodbSettingsArgs) ElementType() reflect.Type {
@@ -1161,6 +1165,11 @@ func (o EndpointMongodbSettingsOutput) NestingLevel() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointMongodbSettings) *string { return v.NestingLevel }).(pulumi.StringPtrOutput)
 }
 
+// If `true`, DMS retrieves the entire document from the MongoDB source during migration. Default is `false`.
+func (o EndpointMongodbSettingsOutput) UseUpdateLookup() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v EndpointMongodbSettings) *bool { return v.UseUpdateLookup }).(pulumi.BoolPtrOutput)
+}
+
 type EndpointMongodbSettingsPtrOutput struct{ *pulumi.OutputState }
 
 func (EndpointMongodbSettingsPtrOutput) ElementType() reflect.Type {
@@ -1243,6 +1252,16 @@ func (o EndpointMongodbSettingsPtrOutput) NestingLevel() pulumi.StringPtrOutput 
 		}
 		return v.NestingLevel
 	}).(pulumi.StringPtrOutput)
+}
+
+// If `true`, DMS retrieves the entire document from the MongoDB source during migration. Default is `false`.
+func (o EndpointMongodbSettingsPtrOutput) UseUpdateLookup() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *EndpointMongodbSettings) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.UseUpdateLookup
+	}).(pulumi.BoolPtrOutput)
 }
 
 type EndpointMysqlSettings struct {
@@ -1554,8 +1573,80 @@ func (o EndpointMysqlSettingsPtrOutput) TargetDbType() pulumi.StringPtrOutput {
 }
 
 type EndpointOracleSettings struct {
+	// Set this attribute to `false` in order to use the Binary Reader to capture change data for an Amazon RDS for Oracle as the source.
+	AccessAlternateDirectly *bool `pulumi:"accessAlternateDirectly"`
+	// Set this attribute to set up table-level supplemental logging for the Oracle database. This attribute enables PRIMARY KEY supplemental logging on all tables selected for a migration task.
+	AddSupplementalLogging *bool `pulumi:"addSupplementalLogging"`
+	// Set this attribute with `archivedLogDestId` in a primary/standby setup. This attribute is useful in the case of a switchover.
+	AdditionalArchivedLogDestId *int `pulumi:"additionalArchivedLogDestId"`
+	// Set this attribute to `true` to enable replication of Oracle tables containing columns that are nested tables or defined types.
+	AllowSelectedNestedTables *bool `pulumi:"allowSelectedNestedTables"`
+	// Specifies the ID of the destination for the archived redo logs. This value should be the same as a number in the destId column of the v$archived_log view.
+	ArchivedLogDestId *int `pulumi:"archivedLogDestId"`
+	// When this field is set to `true`, AWS DMS only accesses the archived redo logs.
+	ArchivedLogsOnly *bool `pulumi:"archivedLogsOnly"`
+	// For an Oracle source endpoint, your Oracle Automatic Storage Management (ASM) password.
+	AsmPassword *string `pulumi:"asmPassword"`
+	// For an Oracle source endpoint, your ASM server address.
+	AsmServer *string `pulumi:"asmServer"`
+	// For an Oracle source endpoint, your ASM user name.
+	AsmUser *string `pulumi:"asmUser"`
 	// Authentication mechanism to access the Oracle source endpoint. Default is `password`. Valid values are `password` and `kerberos`.
 	AuthenticationMethod *string `pulumi:"authenticationMethod"`
+	// Specifies whether the length of a character column is in bytes or in characters. Valid values are `default`, `char`, and `byte`.
+	CharLengthSemantics *string `pulumi:"charLengthSemantics"`
+	// When `true`, converts timestamps with the timezone datatype to their UTC value.
+	ConvertTimestampWithZoneToUtc *bool `pulumi:"convertTimestampWithZoneToUtc"`
+	// When set to `true`, this attribute helps to increase the commit rate on the Oracle target database by writing directly to tables and not writing a trail to database logs.
+	DirectPathNoLog *bool `pulumi:"directPathNoLog"`
+	// When set to `true`, this attribute specifies a parallel load when useDirectPathFullLoad is set to true.
+	DirectPathParallelLoad *bool `pulumi:"directPathParallelLoad"`
+	// Set this attribute to enable homogenous tablespace replication and create existing tables or indexes under the same tablespace on the target.
+	EnableHomogenousTablespace *bool `pulumi:"enableHomogenousTablespace"`
+	// Specifies the IDs of one more destinations for one or more archived redo logs. These IDs are the values of the destId column in the v$archived_log view.
+	ExtraArchivedLogDestIds []int `pulumi:"extraArchivedLogDestIds"`
+	// When set to `true`, this attribute causes a task to fail if the actual size of an LOB column is greater than the specified lob_max_size.
+	FailTaskOnLobTruncation *bool `pulumi:"failTaskOnLobTruncation"`
+	// Specifies the number scale.
+	NumberDatatypeScale *int `pulumi:"numberDatatypeScale"`
+	// The timeframe in minutes to check for open transactions for a CDC-only task. You can specify an integer value between 0 (the default) and 240 (the maximum).
+	OpenTransactionWindow *int `pulumi:"openTransactionWindow"`
+	// Set this string attribute to the required value in order to use the Binary Reader to capture change data for an Amazon RDS for Oracle as the source. This value specifies the default Oracle root used to access the redo logs.
+	OraclePathPrefix *string `pulumi:"oraclePathPrefix"`
+	// Set this attribute to change the number of threads that DMS configures to perform a change data capture (CDC) load using Oracle Automatic Storage Management (ASM). You can specify an integer value between 2 (the default) and 8 (the maximum).
+	ParallelAsmReadThreads *int `pulumi:"parallelAsmReadThreads"`
+	// Set this attribute to change the number of read-ahead blocks that DMS configures to perform a change data capture (CDC) load using Oracle Automatic Storage Management (ASM). You can specify an integer value between 1000 (the default) and 200,000 (the maximum).
+	ReadAheadBlocks *int `pulumi:"readAheadBlocks"`
+	// When set to `true`, this attribute supports tablespace replication.
+	ReadTableSpaceName *bool `pulumi:"readTableSpaceName"`
+	// Set this attribute to `true` in order to use the Binary Reader to capture change data for an Amazon RDS for Oracle as the source. This setting tells DMS instance to replace the default Oracle root with the specified `usePathPrefix` setting to access the redo logs.
+	ReplacePathPrefix *bool `pulumi:"replacePathPrefix"`
+	// Specifies the number of seconds that the system waits before resending a query.
+	RetryInterval *int `pulumi:"retryInterval"`
+	// Required only if your Oracle endpoint uses Automatic Storage Management (ASM). The full ARN of the IAM role that specifies AWS DMS as the trusted entity and grants the required permissions to access the `secretsManagerOracleAsmSecretId`.
+	SecretsManagerOracleAsmAccessRoleArn *string `pulumi:"secretsManagerOracleAsmAccessRoleArn"`
+	// Required only if your Oracle endpoint uses Automatic Storage Management (ASM). The full ARN, partial ARN, or friendly name of the secret that contains the Oracle ASM connection details for the Oracle endpoint.
+	SecretsManagerOracleAsmSecretId *string `pulumi:"secretsManagerOracleAsmSecretId"`
+	// For an Oracle source endpoint, the transparent data encryption (TDE) password required by AWM DMS to access Oracle redo logs encrypted by TDE using Binary Reader.
+	SecurityDbEncryption *string `pulumi:"securityDbEncryption"`
+	// For an Oracle source endpoint, the name of a key used for the transparent data encryption (TDE) of the columns and tablespaces in an Oracle source database that is encrypted using TDE.
+	SecurityDbEncryptionName *string `pulumi:"securityDbEncryptionName"`
+	// Use this attribute to convert SDO_GEOMETRY to GEOJSON format. By default, DMS calls the SDO2GEOJSON custom function if present and accessible.
+	SpatialDataOptionToGeoJsonFunctionName *string `pulumi:"spatialDataOptionToGeoJsonFunctionName"`
+	// Use this attribute to specify a time in minutes for the delay in standby sync. If the source is an Oracle Active Data Guard standby database, use this attribute to specify the time lag between primary and standby databases.
+	StandbyDelayTime *int `pulumi:"standbyDelayTime"`
+	// Use this attribute to trim data on CHAR and NCHAR data types during migration. The default value is `true`.
+	TrimSpaceInChar *bool `pulumi:"trimSpaceInChar"`
+	// Set this attribute to `true` in order to use the Binary Reader to capture change data for an Amazon RDS for Oracle as the source. This tells the DMS instance to use any specified prefix replacement to access all online redo logs.
+	UseAlternateFolderForOnline *bool `pulumi:"useAlternateFolderForOnline"`
+	// Set this attribute to `true` to capture change data using the Binary Reader utility. Set `useLogminerReader` to `false` to set this attribute to `true`.
+	UseBfile *bool `pulumi:"useBfile"`
+	// Set this attribute to `true` to have AWS DMS use a direct path full load. Specify this value to use the direct path protocol in the Oracle Call Interface (OCI).
+	UseDirectPathFullLoad *bool `pulumi:"useDirectPathFullLoad"`
+	// Set this attribute to `true` to capture change data using the Oracle LogMiner utility (the default). Set this attribute to `false` if you want to access the redo logs as a binary file.
+	UseLogminerReader *bool `pulumi:"useLogminerReader"`
+	// Set this string attribute to the required value in order to use the Binary Reader to capture change data for an Amazon RDS for Oracle as the source. This value specifies the path prefix used to replace the default Oracle root to access the redo logs.
+	UsePathPrefix *string `pulumi:"usePathPrefix"`
 }
 
 // EndpointOracleSettingsInput is an input type that accepts EndpointOracleSettingsArgs and EndpointOracleSettingsOutput values.
@@ -1570,8 +1661,80 @@ type EndpointOracleSettingsInput interface {
 }
 
 type EndpointOracleSettingsArgs struct {
+	// Set this attribute to `false` in order to use the Binary Reader to capture change data for an Amazon RDS for Oracle as the source.
+	AccessAlternateDirectly pulumi.BoolPtrInput `pulumi:"accessAlternateDirectly"`
+	// Set this attribute to set up table-level supplemental logging for the Oracle database. This attribute enables PRIMARY KEY supplemental logging on all tables selected for a migration task.
+	AddSupplementalLogging pulumi.BoolPtrInput `pulumi:"addSupplementalLogging"`
+	// Set this attribute with `archivedLogDestId` in a primary/standby setup. This attribute is useful in the case of a switchover.
+	AdditionalArchivedLogDestId pulumi.IntPtrInput `pulumi:"additionalArchivedLogDestId"`
+	// Set this attribute to `true` to enable replication of Oracle tables containing columns that are nested tables or defined types.
+	AllowSelectedNestedTables pulumi.BoolPtrInput `pulumi:"allowSelectedNestedTables"`
+	// Specifies the ID of the destination for the archived redo logs. This value should be the same as a number in the destId column of the v$archived_log view.
+	ArchivedLogDestId pulumi.IntPtrInput `pulumi:"archivedLogDestId"`
+	// When this field is set to `true`, AWS DMS only accesses the archived redo logs.
+	ArchivedLogsOnly pulumi.BoolPtrInput `pulumi:"archivedLogsOnly"`
+	// For an Oracle source endpoint, your Oracle Automatic Storage Management (ASM) password.
+	AsmPassword pulumi.StringPtrInput `pulumi:"asmPassword"`
+	// For an Oracle source endpoint, your ASM server address.
+	AsmServer pulumi.StringPtrInput `pulumi:"asmServer"`
+	// For an Oracle source endpoint, your ASM user name.
+	AsmUser pulumi.StringPtrInput `pulumi:"asmUser"`
 	// Authentication mechanism to access the Oracle source endpoint. Default is `password`. Valid values are `password` and `kerberos`.
 	AuthenticationMethod pulumi.StringPtrInput `pulumi:"authenticationMethod"`
+	// Specifies whether the length of a character column is in bytes or in characters. Valid values are `default`, `char`, and `byte`.
+	CharLengthSemantics pulumi.StringPtrInput `pulumi:"charLengthSemantics"`
+	// When `true`, converts timestamps with the timezone datatype to their UTC value.
+	ConvertTimestampWithZoneToUtc pulumi.BoolPtrInput `pulumi:"convertTimestampWithZoneToUtc"`
+	// When set to `true`, this attribute helps to increase the commit rate on the Oracle target database by writing directly to tables and not writing a trail to database logs.
+	DirectPathNoLog pulumi.BoolPtrInput `pulumi:"directPathNoLog"`
+	// When set to `true`, this attribute specifies a parallel load when useDirectPathFullLoad is set to true.
+	DirectPathParallelLoad pulumi.BoolPtrInput `pulumi:"directPathParallelLoad"`
+	// Set this attribute to enable homogenous tablespace replication and create existing tables or indexes under the same tablespace on the target.
+	EnableHomogenousTablespace pulumi.BoolPtrInput `pulumi:"enableHomogenousTablespace"`
+	// Specifies the IDs of one more destinations for one or more archived redo logs. These IDs are the values of the destId column in the v$archived_log view.
+	ExtraArchivedLogDestIds pulumi.IntArrayInput `pulumi:"extraArchivedLogDestIds"`
+	// When set to `true`, this attribute causes a task to fail if the actual size of an LOB column is greater than the specified lob_max_size.
+	FailTaskOnLobTruncation pulumi.BoolPtrInput `pulumi:"failTaskOnLobTruncation"`
+	// Specifies the number scale.
+	NumberDatatypeScale pulumi.IntPtrInput `pulumi:"numberDatatypeScale"`
+	// The timeframe in minutes to check for open transactions for a CDC-only task. You can specify an integer value between 0 (the default) and 240 (the maximum).
+	OpenTransactionWindow pulumi.IntPtrInput `pulumi:"openTransactionWindow"`
+	// Set this string attribute to the required value in order to use the Binary Reader to capture change data for an Amazon RDS for Oracle as the source. This value specifies the default Oracle root used to access the redo logs.
+	OraclePathPrefix pulumi.StringPtrInput `pulumi:"oraclePathPrefix"`
+	// Set this attribute to change the number of threads that DMS configures to perform a change data capture (CDC) load using Oracle Automatic Storage Management (ASM). You can specify an integer value between 2 (the default) and 8 (the maximum).
+	ParallelAsmReadThreads pulumi.IntPtrInput `pulumi:"parallelAsmReadThreads"`
+	// Set this attribute to change the number of read-ahead blocks that DMS configures to perform a change data capture (CDC) load using Oracle Automatic Storage Management (ASM). You can specify an integer value between 1000 (the default) and 200,000 (the maximum).
+	ReadAheadBlocks pulumi.IntPtrInput `pulumi:"readAheadBlocks"`
+	// When set to `true`, this attribute supports tablespace replication.
+	ReadTableSpaceName pulumi.BoolPtrInput `pulumi:"readTableSpaceName"`
+	// Set this attribute to `true` in order to use the Binary Reader to capture change data for an Amazon RDS for Oracle as the source. This setting tells DMS instance to replace the default Oracle root with the specified `usePathPrefix` setting to access the redo logs.
+	ReplacePathPrefix pulumi.BoolPtrInput `pulumi:"replacePathPrefix"`
+	// Specifies the number of seconds that the system waits before resending a query.
+	RetryInterval pulumi.IntPtrInput `pulumi:"retryInterval"`
+	// Required only if your Oracle endpoint uses Automatic Storage Management (ASM). The full ARN of the IAM role that specifies AWS DMS as the trusted entity and grants the required permissions to access the `secretsManagerOracleAsmSecretId`.
+	SecretsManagerOracleAsmAccessRoleArn pulumi.StringPtrInput `pulumi:"secretsManagerOracleAsmAccessRoleArn"`
+	// Required only if your Oracle endpoint uses Automatic Storage Management (ASM). The full ARN, partial ARN, or friendly name of the secret that contains the Oracle ASM connection details for the Oracle endpoint.
+	SecretsManagerOracleAsmSecretId pulumi.StringPtrInput `pulumi:"secretsManagerOracleAsmSecretId"`
+	// For an Oracle source endpoint, the transparent data encryption (TDE) password required by AWM DMS to access Oracle redo logs encrypted by TDE using Binary Reader.
+	SecurityDbEncryption pulumi.StringPtrInput `pulumi:"securityDbEncryption"`
+	// For an Oracle source endpoint, the name of a key used for the transparent data encryption (TDE) of the columns and tablespaces in an Oracle source database that is encrypted using TDE.
+	SecurityDbEncryptionName pulumi.StringPtrInput `pulumi:"securityDbEncryptionName"`
+	// Use this attribute to convert SDO_GEOMETRY to GEOJSON format. By default, DMS calls the SDO2GEOJSON custom function if present and accessible.
+	SpatialDataOptionToGeoJsonFunctionName pulumi.StringPtrInput `pulumi:"spatialDataOptionToGeoJsonFunctionName"`
+	// Use this attribute to specify a time in minutes for the delay in standby sync. If the source is an Oracle Active Data Guard standby database, use this attribute to specify the time lag between primary and standby databases.
+	StandbyDelayTime pulumi.IntPtrInput `pulumi:"standbyDelayTime"`
+	// Use this attribute to trim data on CHAR and NCHAR data types during migration. The default value is `true`.
+	TrimSpaceInChar pulumi.BoolPtrInput `pulumi:"trimSpaceInChar"`
+	// Set this attribute to `true` in order to use the Binary Reader to capture change data for an Amazon RDS for Oracle as the source. This tells the DMS instance to use any specified prefix replacement to access all online redo logs.
+	UseAlternateFolderForOnline pulumi.BoolPtrInput `pulumi:"useAlternateFolderForOnline"`
+	// Set this attribute to `true` to capture change data using the Binary Reader utility. Set `useLogminerReader` to `false` to set this attribute to `true`.
+	UseBfile pulumi.BoolPtrInput `pulumi:"useBfile"`
+	// Set this attribute to `true` to have AWS DMS use a direct path full load. Specify this value to use the direct path protocol in the Oracle Call Interface (OCI).
+	UseDirectPathFullLoad pulumi.BoolPtrInput `pulumi:"useDirectPathFullLoad"`
+	// Set this attribute to `true` to capture change data using the Oracle LogMiner utility (the default). Set this attribute to `false` if you want to access the redo logs as a binary file.
+	UseLogminerReader pulumi.BoolPtrInput `pulumi:"useLogminerReader"`
+	// Set this string attribute to the required value in order to use the Binary Reader to capture change data for an Amazon RDS for Oracle as the source. This value specifies the path prefix used to replace the default Oracle root to access the redo logs.
+	UsePathPrefix pulumi.StringPtrInput `pulumi:"usePathPrefix"`
 }
 
 func (EndpointOracleSettingsArgs) ElementType() reflect.Type {
@@ -1651,9 +1814,189 @@ func (o EndpointOracleSettingsOutput) ToEndpointOracleSettingsPtrOutputWithConte
 	}).(EndpointOracleSettingsPtrOutput)
 }
 
+// Set this attribute to `false` in order to use the Binary Reader to capture change data for an Amazon RDS for Oracle as the source.
+func (o EndpointOracleSettingsOutput) AccessAlternateDirectly() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v EndpointOracleSettings) *bool { return v.AccessAlternateDirectly }).(pulumi.BoolPtrOutput)
+}
+
+// Set this attribute to set up table-level supplemental logging for the Oracle database. This attribute enables PRIMARY KEY supplemental logging on all tables selected for a migration task.
+func (o EndpointOracleSettingsOutput) AddSupplementalLogging() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v EndpointOracleSettings) *bool { return v.AddSupplementalLogging }).(pulumi.BoolPtrOutput)
+}
+
+// Set this attribute with `archivedLogDestId` in a primary/standby setup. This attribute is useful in the case of a switchover.
+func (o EndpointOracleSettingsOutput) AdditionalArchivedLogDestId() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v EndpointOracleSettings) *int { return v.AdditionalArchivedLogDestId }).(pulumi.IntPtrOutput)
+}
+
+// Set this attribute to `true` to enable replication of Oracle tables containing columns that are nested tables or defined types.
+func (o EndpointOracleSettingsOutput) AllowSelectedNestedTables() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v EndpointOracleSettings) *bool { return v.AllowSelectedNestedTables }).(pulumi.BoolPtrOutput)
+}
+
+// Specifies the ID of the destination for the archived redo logs. This value should be the same as a number in the destId column of the v$archived_log view.
+func (o EndpointOracleSettingsOutput) ArchivedLogDestId() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v EndpointOracleSettings) *int { return v.ArchivedLogDestId }).(pulumi.IntPtrOutput)
+}
+
+// When this field is set to `true`, AWS DMS only accesses the archived redo logs.
+func (o EndpointOracleSettingsOutput) ArchivedLogsOnly() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v EndpointOracleSettings) *bool { return v.ArchivedLogsOnly }).(pulumi.BoolPtrOutput)
+}
+
+// For an Oracle source endpoint, your Oracle Automatic Storage Management (ASM) password.
+func (o EndpointOracleSettingsOutput) AsmPassword() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointOracleSettings) *string { return v.AsmPassword }).(pulumi.StringPtrOutput)
+}
+
+// For an Oracle source endpoint, your ASM server address.
+func (o EndpointOracleSettingsOutput) AsmServer() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointOracleSettings) *string { return v.AsmServer }).(pulumi.StringPtrOutput)
+}
+
+// For an Oracle source endpoint, your ASM user name.
+func (o EndpointOracleSettingsOutput) AsmUser() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointOracleSettings) *string { return v.AsmUser }).(pulumi.StringPtrOutput)
+}
+
 // Authentication mechanism to access the Oracle source endpoint. Default is `password`. Valid values are `password` and `kerberos`.
 func (o EndpointOracleSettingsOutput) AuthenticationMethod() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EndpointOracleSettings) *string { return v.AuthenticationMethod }).(pulumi.StringPtrOutput)
+}
+
+// Specifies whether the length of a character column is in bytes or in characters. Valid values are `default`, `char`, and `byte`.
+func (o EndpointOracleSettingsOutput) CharLengthSemantics() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointOracleSettings) *string { return v.CharLengthSemantics }).(pulumi.StringPtrOutput)
+}
+
+// When `true`, converts timestamps with the timezone datatype to their UTC value.
+func (o EndpointOracleSettingsOutput) ConvertTimestampWithZoneToUtc() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v EndpointOracleSettings) *bool { return v.ConvertTimestampWithZoneToUtc }).(pulumi.BoolPtrOutput)
+}
+
+// When set to `true`, this attribute helps to increase the commit rate on the Oracle target database by writing directly to tables and not writing a trail to database logs.
+func (o EndpointOracleSettingsOutput) DirectPathNoLog() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v EndpointOracleSettings) *bool { return v.DirectPathNoLog }).(pulumi.BoolPtrOutput)
+}
+
+// When set to `true`, this attribute specifies a parallel load when useDirectPathFullLoad is set to true.
+func (o EndpointOracleSettingsOutput) DirectPathParallelLoad() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v EndpointOracleSettings) *bool { return v.DirectPathParallelLoad }).(pulumi.BoolPtrOutput)
+}
+
+// Set this attribute to enable homogenous tablespace replication and create existing tables or indexes under the same tablespace on the target.
+func (o EndpointOracleSettingsOutput) EnableHomogenousTablespace() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v EndpointOracleSettings) *bool { return v.EnableHomogenousTablespace }).(pulumi.BoolPtrOutput)
+}
+
+// Specifies the IDs of one more destinations for one or more archived redo logs. These IDs are the values of the destId column in the v$archived_log view.
+func (o EndpointOracleSettingsOutput) ExtraArchivedLogDestIds() pulumi.IntArrayOutput {
+	return o.ApplyT(func(v EndpointOracleSettings) []int { return v.ExtraArchivedLogDestIds }).(pulumi.IntArrayOutput)
+}
+
+// When set to `true`, this attribute causes a task to fail if the actual size of an LOB column is greater than the specified lob_max_size.
+func (o EndpointOracleSettingsOutput) FailTaskOnLobTruncation() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v EndpointOracleSettings) *bool { return v.FailTaskOnLobTruncation }).(pulumi.BoolPtrOutput)
+}
+
+// Specifies the number scale.
+func (o EndpointOracleSettingsOutput) NumberDatatypeScale() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v EndpointOracleSettings) *int { return v.NumberDatatypeScale }).(pulumi.IntPtrOutput)
+}
+
+// The timeframe in minutes to check for open transactions for a CDC-only task. You can specify an integer value between 0 (the default) and 240 (the maximum).
+func (o EndpointOracleSettingsOutput) OpenTransactionWindow() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v EndpointOracleSettings) *int { return v.OpenTransactionWindow }).(pulumi.IntPtrOutput)
+}
+
+// Set this string attribute to the required value in order to use the Binary Reader to capture change data for an Amazon RDS for Oracle as the source. This value specifies the default Oracle root used to access the redo logs.
+func (o EndpointOracleSettingsOutput) OraclePathPrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointOracleSettings) *string { return v.OraclePathPrefix }).(pulumi.StringPtrOutput)
+}
+
+// Set this attribute to change the number of threads that DMS configures to perform a change data capture (CDC) load using Oracle Automatic Storage Management (ASM). You can specify an integer value between 2 (the default) and 8 (the maximum).
+func (o EndpointOracleSettingsOutput) ParallelAsmReadThreads() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v EndpointOracleSettings) *int { return v.ParallelAsmReadThreads }).(pulumi.IntPtrOutput)
+}
+
+// Set this attribute to change the number of read-ahead blocks that DMS configures to perform a change data capture (CDC) load using Oracle Automatic Storage Management (ASM). You can specify an integer value between 1000 (the default) and 200,000 (the maximum).
+func (o EndpointOracleSettingsOutput) ReadAheadBlocks() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v EndpointOracleSettings) *int { return v.ReadAheadBlocks }).(pulumi.IntPtrOutput)
+}
+
+// When set to `true`, this attribute supports tablespace replication.
+func (o EndpointOracleSettingsOutput) ReadTableSpaceName() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v EndpointOracleSettings) *bool { return v.ReadTableSpaceName }).(pulumi.BoolPtrOutput)
+}
+
+// Set this attribute to `true` in order to use the Binary Reader to capture change data for an Amazon RDS for Oracle as the source. This setting tells DMS instance to replace the default Oracle root with the specified `usePathPrefix` setting to access the redo logs.
+func (o EndpointOracleSettingsOutput) ReplacePathPrefix() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v EndpointOracleSettings) *bool { return v.ReplacePathPrefix }).(pulumi.BoolPtrOutput)
+}
+
+// Specifies the number of seconds that the system waits before resending a query.
+func (o EndpointOracleSettingsOutput) RetryInterval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v EndpointOracleSettings) *int { return v.RetryInterval }).(pulumi.IntPtrOutput)
+}
+
+// Required only if your Oracle endpoint uses Automatic Storage Management (ASM). The full ARN of the IAM role that specifies AWS DMS as the trusted entity and grants the required permissions to access the `secretsManagerOracleAsmSecretId`.
+func (o EndpointOracleSettingsOutput) SecretsManagerOracleAsmAccessRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointOracleSettings) *string { return v.SecretsManagerOracleAsmAccessRoleArn }).(pulumi.StringPtrOutput)
+}
+
+// Required only if your Oracle endpoint uses Automatic Storage Management (ASM). The full ARN, partial ARN, or friendly name of the secret that contains the Oracle ASM connection details for the Oracle endpoint.
+func (o EndpointOracleSettingsOutput) SecretsManagerOracleAsmSecretId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointOracleSettings) *string { return v.SecretsManagerOracleAsmSecretId }).(pulumi.StringPtrOutput)
+}
+
+// For an Oracle source endpoint, the transparent data encryption (TDE) password required by AWM DMS to access Oracle redo logs encrypted by TDE using Binary Reader.
+func (o EndpointOracleSettingsOutput) SecurityDbEncryption() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointOracleSettings) *string { return v.SecurityDbEncryption }).(pulumi.StringPtrOutput)
+}
+
+// For an Oracle source endpoint, the name of a key used for the transparent data encryption (TDE) of the columns and tablespaces in an Oracle source database that is encrypted using TDE.
+func (o EndpointOracleSettingsOutput) SecurityDbEncryptionName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointOracleSettings) *string { return v.SecurityDbEncryptionName }).(pulumi.StringPtrOutput)
+}
+
+// Use this attribute to convert SDO_GEOMETRY to GEOJSON format. By default, DMS calls the SDO2GEOJSON custom function if present and accessible.
+func (o EndpointOracleSettingsOutput) SpatialDataOptionToGeoJsonFunctionName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointOracleSettings) *string { return v.SpatialDataOptionToGeoJsonFunctionName }).(pulumi.StringPtrOutput)
+}
+
+// Use this attribute to specify a time in minutes for the delay in standby sync. If the source is an Oracle Active Data Guard standby database, use this attribute to specify the time lag between primary and standby databases.
+func (o EndpointOracleSettingsOutput) StandbyDelayTime() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v EndpointOracleSettings) *int { return v.StandbyDelayTime }).(pulumi.IntPtrOutput)
+}
+
+// Use this attribute to trim data on CHAR and NCHAR data types during migration. The default value is `true`.
+func (o EndpointOracleSettingsOutput) TrimSpaceInChar() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v EndpointOracleSettings) *bool { return v.TrimSpaceInChar }).(pulumi.BoolPtrOutput)
+}
+
+// Set this attribute to `true` in order to use the Binary Reader to capture change data for an Amazon RDS for Oracle as the source. This tells the DMS instance to use any specified prefix replacement to access all online redo logs.
+func (o EndpointOracleSettingsOutput) UseAlternateFolderForOnline() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v EndpointOracleSettings) *bool { return v.UseAlternateFolderForOnline }).(pulumi.BoolPtrOutput)
+}
+
+// Set this attribute to `true` to capture change data using the Binary Reader utility. Set `useLogminerReader` to `false` to set this attribute to `true`.
+func (o EndpointOracleSettingsOutput) UseBfile() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v EndpointOracleSettings) *bool { return v.UseBfile }).(pulumi.BoolPtrOutput)
+}
+
+// Set this attribute to `true` to have AWS DMS use a direct path full load. Specify this value to use the direct path protocol in the Oracle Call Interface (OCI).
+func (o EndpointOracleSettingsOutput) UseDirectPathFullLoad() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v EndpointOracleSettings) *bool { return v.UseDirectPathFullLoad }).(pulumi.BoolPtrOutput)
+}
+
+// Set this attribute to `true` to capture change data using the Oracle LogMiner utility (the default). Set this attribute to `false` if you want to access the redo logs as a binary file.
+func (o EndpointOracleSettingsOutput) UseLogminerReader() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v EndpointOracleSettings) *bool { return v.UseLogminerReader }).(pulumi.BoolPtrOutput)
+}
+
+// Set this string attribute to the required value in order to use the Binary Reader to capture change data for an Amazon RDS for Oracle as the source. This value specifies the path prefix used to replace the default Oracle root to access the redo logs.
+func (o EndpointOracleSettingsOutput) UsePathPrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EndpointOracleSettings) *string { return v.UsePathPrefix }).(pulumi.StringPtrOutput)
 }
 
 type EndpointOracleSettingsPtrOutput struct{ *pulumi.OutputState }
@@ -1680,6 +2023,96 @@ func (o EndpointOracleSettingsPtrOutput) Elem() EndpointOracleSettingsOutput {
 	}).(EndpointOracleSettingsOutput)
 }
 
+// Set this attribute to `false` in order to use the Binary Reader to capture change data for an Amazon RDS for Oracle as the source.
+func (o EndpointOracleSettingsPtrOutput) AccessAlternateDirectly() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *EndpointOracleSettings) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.AccessAlternateDirectly
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Set this attribute to set up table-level supplemental logging for the Oracle database. This attribute enables PRIMARY KEY supplemental logging on all tables selected for a migration task.
+func (o EndpointOracleSettingsPtrOutput) AddSupplementalLogging() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *EndpointOracleSettings) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.AddSupplementalLogging
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Set this attribute with `archivedLogDestId` in a primary/standby setup. This attribute is useful in the case of a switchover.
+func (o EndpointOracleSettingsPtrOutput) AdditionalArchivedLogDestId() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *EndpointOracleSettings) *int {
+		if v == nil {
+			return nil
+		}
+		return v.AdditionalArchivedLogDestId
+	}).(pulumi.IntPtrOutput)
+}
+
+// Set this attribute to `true` to enable replication of Oracle tables containing columns that are nested tables or defined types.
+func (o EndpointOracleSettingsPtrOutput) AllowSelectedNestedTables() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *EndpointOracleSettings) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.AllowSelectedNestedTables
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Specifies the ID of the destination for the archived redo logs. This value should be the same as a number in the destId column of the v$archived_log view.
+func (o EndpointOracleSettingsPtrOutput) ArchivedLogDestId() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *EndpointOracleSettings) *int {
+		if v == nil {
+			return nil
+		}
+		return v.ArchivedLogDestId
+	}).(pulumi.IntPtrOutput)
+}
+
+// When this field is set to `true`, AWS DMS only accesses the archived redo logs.
+func (o EndpointOracleSettingsPtrOutput) ArchivedLogsOnly() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *EndpointOracleSettings) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.ArchivedLogsOnly
+	}).(pulumi.BoolPtrOutput)
+}
+
+// For an Oracle source endpoint, your Oracle Automatic Storage Management (ASM) password.
+func (o EndpointOracleSettingsPtrOutput) AsmPassword() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointOracleSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AsmPassword
+	}).(pulumi.StringPtrOutput)
+}
+
+// For an Oracle source endpoint, your ASM server address.
+func (o EndpointOracleSettingsPtrOutput) AsmServer() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointOracleSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AsmServer
+	}).(pulumi.StringPtrOutput)
+}
+
+// For an Oracle source endpoint, your ASM user name.
+func (o EndpointOracleSettingsPtrOutput) AsmUser() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointOracleSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AsmUser
+	}).(pulumi.StringPtrOutput)
+}
+
 // Authentication mechanism to access the Oracle source endpoint. Default is `password`. Valid values are `password` and `kerberos`.
 func (o EndpointOracleSettingsPtrOutput) AuthenticationMethod() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EndpointOracleSettings) *string {
@@ -1687,6 +2120,276 @@ func (o EndpointOracleSettingsPtrOutput) AuthenticationMethod() pulumi.StringPtr
 			return nil
 		}
 		return v.AuthenticationMethod
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies whether the length of a character column is in bytes or in characters. Valid values are `default`, `char`, and `byte`.
+func (o EndpointOracleSettingsPtrOutput) CharLengthSemantics() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointOracleSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CharLengthSemantics
+	}).(pulumi.StringPtrOutput)
+}
+
+// When `true`, converts timestamps with the timezone datatype to their UTC value.
+func (o EndpointOracleSettingsPtrOutput) ConvertTimestampWithZoneToUtc() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *EndpointOracleSettings) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.ConvertTimestampWithZoneToUtc
+	}).(pulumi.BoolPtrOutput)
+}
+
+// When set to `true`, this attribute helps to increase the commit rate on the Oracle target database by writing directly to tables and not writing a trail to database logs.
+func (o EndpointOracleSettingsPtrOutput) DirectPathNoLog() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *EndpointOracleSettings) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.DirectPathNoLog
+	}).(pulumi.BoolPtrOutput)
+}
+
+// When set to `true`, this attribute specifies a parallel load when useDirectPathFullLoad is set to true.
+func (o EndpointOracleSettingsPtrOutput) DirectPathParallelLoad() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *EndpointOracleSettings) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.DirectPathParallelLoad
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Set this attribute to enable homogenous tablespace replication and create existing tables or indexes under the same tablespace on the target.
+func (o EndpointOracleSettingsPtrOutput) EnableHomogenousTablespace() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *EndpointOracleSettings) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.EnableHomogenousTablespace
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Specifies the IDs of one more destinations for one or more archived redo logs. These IDs are the values of the destId column in the v$archived_log view.
+func (o EndpointOracleSettingsPtrOutput) ExtraArchivedLogDestIds() pulumi.IntArrayOutput {
+	return o.ApplyT(func(v *EndpointOracleSettings) []int {
+		if v == nil {
+			return nil
+		}
+		return v.ExtraArchivedLogDestIds
+	}).(pulumi.IntArrayOutput)
+}
+
+// When set to `true`, this attribute causes a task to fail if the actual size of an LOB column is greater than the specified lob_max_size.
+func (o EndpointOracleSettingsPtrOutput) FailTaskOnLobTruncation() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *EndpointOracleSettings) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.FailTaskOnLobTruncation
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Specifies the number scale.
+func (o EndpointOracleSettingsPtrOutput) NumberDatatypeScale() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *EndpointOracleSettings) *int {
+		if v == nil {
+			return nil
+		}
+		return v.NumberDatatypeScale
+	}).(pulumi.IntPtrOutput)
+}
+
+// The timeframe in minutes to check for open transactions for a CDC-only task. You can specify an integer value between 0 (the default) and 240 (the maximum).
+func (o EndpointOracleSettingsPtrOutput) OpenTransactionWindow() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *EndpointOracleSettings) *int {
+		if v == nil {
+			return nil
+		}
+		return v.OpenTransactionWindow
+	}).(pulumi.IntPtrOutput)
+}
+
+// Set this string attribute to the required value in order to use the Binary Reader to capture change data for an Amazon RDS for Oracle as the source. This value specifies the default Oracle root used to access the redo logs.
+func (o EndpointOracleSettingsPtrOutput) OraclePathPrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointOracleSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.OraclePathPrefix
+	}).(pulumi.StringPtrOutput)
+}
+
+// Set this attribute to change the number of threads that DMS configures to perform a change data capture (CDC) load using Oracle Automatic Storage Management (ASM). You can specify an integer value between 2 (the default) and 8 (the maximum).
+func (o EndpointOracleSettingsPtrOutput) ParallelAsmReadThreads() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *EndpointOracleSettings) *int {
+		if v == nil {
+			return nil
+		}
+		return v.ParallelAsmReadThreads
+	}).(pulumi.IntPtrOutput)
+}
+
+// Set this attribute to change the number of read-ahead blocks that DMS configures to perform a change data capture (CDC) load using Oracle Automatic Storage Management (ASM). You can specify an integer value between 1000 (the default) and 200,000 (the maximum).
+func (o EndpointOracleSettingsPtrOutput) ReadAheadBlocks() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *EndpointOracleSettings) *int {
+		if v == nil {
+			return nil
+		}
+		return v.ReadAheadBlocks
+	}).(pulumi.IntPtrOutput)
+}
+
+// When set to `true`, this attribute supports tablespace replication.
+func (o EndpointOracleSettingsPtrOutput) ReadTableSpaceName() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *EndpointOracleSettings) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.ReadTableSpaceName
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Set this attribute to `true` in order to use the Binary Reader to capture change data for an Amazon RDS for Oracle as the source. This setting tells DMS instance to replace the default Oracle root with the specified `usePathPrefix` setting to access the redo logs.
+func (o EndpointOracleSettingsPtrOutput) ReplacePathPrefix() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *EndpointOracleSettings) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.ReplacePathPrefix
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Specifies the number of seconds that the system waits before resending a query.
+func (o EndpointOracleSettingsPtrOutput) RetryInterval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *EndpointOracleSettings) *int {
+		if v == nil {
+			return nil
+		}
+		return v.RetryInterval
+	}).(pulumi.IntPtrOutput)
+}
+
+// Required only if your Oracle endpoint uses Automatic Storage Management (ASM). The full ARN of the IAM role that specifies AWS DMS as the trusted entity and grants the required permissions to access the `secretsManagerOracleAsmSecretId`.
+func (o EndpointOracleSettingsPtrOutput) SecretsManagerOracleAsmAccessRoleArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointOracleSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SecretsManagerOracleAsmAccessRoleArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// Required only if your Oracle endpoint uses Automatic Storage Management (ASM). The full ARN, partial ARN, or friendly name of the secret that contains the Oracle ASM connection details for the Oracle endpoint.
+func (o EndpointOracleSettingsPtrOutput) SecretsManagerOracleAsmSecretId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointOracleSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SecretsManagerOracleAsmSecretId
+	}).(pulumi.StringPtrOutput)
+}
+
+// For an Oracle source endpoint, the transparent data encryption (TDE) password required by AWM DMS to access Oracle redo logs encrypted by TDE using Binary Reader.
+func (o EndpointOracleSettingsPtrOutput) SecurityDbEncryption() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointOracleSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SecurityDbEncryption
+	}).(pulumi.StringPtrOutput)
+}
+
+// For an Oracle source endpoint, the name of a key used for the transparent data encryption (TDE) of the columns and tablespaces in an Oracle source database that is encrypted using TDE.
+func (o EndpointOracleSettingsPtrOutput) SecurityDbEncryptionName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointOracleSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SecurityDbEncryptionName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Use this attribute to convert SDO_GEOMETRY to GEOJSON format. By default, DMS calls the SDO2GEOJSON custom function if present and accessible.
+func (o EndpointOracleSettingsPtrOutput) SpatialDataOptionToGeoJsonFunctionName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointOracleSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SpatialDataOptionToGeoJsonFunctionName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Use this attribute to specify a time in minutes for the delay in standby sync. If the source is an Oracle Active Data Guard standby database, use this attribute to specify the time lag between primary and standby databases.
+func (o EndpointOracleSettingsPtrOutput) StandbyDelayTime() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *EndpointOracleSettings) *int {
+		if v == nil {
+			return nil
+		}
+		return v.StandbyDelayTime
+	}).(pulumi.IntPtrOutput)
+}
+
+// Use this attribute to trim data on CHAR and NCHAR data types during migration. The default value is `true`.
+func (o EndpointOracleSettingsPtrOutput) TrimSpaceInChar() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *EndpointOracleSettings) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.TrimSpaceInChar
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Set this attribute to `true` in order to use the Binary Reader to capture change data for an Amazon RDS for Oracle as the source. This tells the DMS instance to use any specified prefix replacement to access all online redo logs.
+func (o EndpointOracleSettingsPtrOutput) UseAlternateFolderForOnline() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *EndpointOracleSettings) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.UseAlternateFolderForOnline
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Set this attribute to `true` to capture change data using the Binary Reader utility. Set `useLogminerReader` to `false` to set this attribute to `true`.
+func (o EndpointOracleSettingsPtrOutput) UseBfile() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *EndpointOracleSettings) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.UseBfile
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Set this attribute to `true` to have AWS DMS use a direct path full load. Specify this value to use the direct path protocol in the Oracle Call Interface (OCI).
+func (o EndpointOracleSettingsPtrOutput) UseDirectPathFullLoad() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *EndpointOracleSettings) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.UseDirectPathFullLoad
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Set this attribute to `true` to capture change data using the Oracle LogMiner utility (the default). Set this attribute to `false` if you want to access the redo logs as a binary file.
+func (o EndpointOracleSettingsPtrOutput) UseLogminerReader() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *EndpointOracleSettings) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.UseLogminerReader
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Set this string attribute to the required value in order to use the Binary Reader to capture change data for an Amazon RDS for Oracle as the source. This value specifies the path prefix used to replace the default Oracle root to access the redo logs.
+func (o EndpointOracleSettingsPtrOutput) UsePathPrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EndpointOracleSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.UsePathPrefix
 	}).(pulumi.StringPtrOutput)
 }
 

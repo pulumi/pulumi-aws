@@ -17,6 +17,9 @@ namespace Pulumi.Aws.Budgets.Outputs
         /// The name of a budget. Unique within accounts.
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// (Optional) A list of cost category values to match. At least one value is required.
+        /// </summary>
         public readonly ImmutableArray<string> Values;
 
         [OutputConstructor]

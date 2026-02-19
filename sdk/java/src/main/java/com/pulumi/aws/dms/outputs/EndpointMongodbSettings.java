@@ -4,6 +4,7 @@
 package com.pulumi.aws.dms.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -41,6 +42,11 @@ public final class EndpointMongodbSettings {
      * 
      */
     private @Nullable String nestingLevel;
+    /**
+     * @return If `true`, DMS retrieves the entire document from the MongoDB source during migration. Default is `false`.
+     * 
+     */
+    private @Nullable Boolean useUpdateLookup;
 
     private EndpointMongodbSettings() {}
     /**
@@ -85,6 +91,13 @@ public final class EndpointMongodbSettings {
     public Optional<String> nestingLevel() {
         return Optional.ofNullable(this.nestingLevel);
     }
+    /**
+     * @return If `true`, DMS retrieves the entire document from the MongoDB source during migration. Default is `false`.
+     * 
+     */
+    public Optional<Boolean> useUpdateLookup() {
+        return Optional.ofNullable(this.useUpdateLookup);
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -101,6 +114,7 @@ public final class EndpointMongodbSettings {
         private @Nullable String docsToInvestigate;
         private @Nullable String extractDocId;
         private @Nullable String nestingLevel;
+        private @Nullable Boolean useUpdateLookup;
         public Builder() {}
         public Builder(EndpointMongodbSettings defaults) {
     	      Objects.requireNonNull(defaults);
@@ -110,6 +124,7 @@ public final class EndpointMongodbSettings {
     	      this.docsToInvestigate = defaults.docsToInvestigate;
     	      this.extractDocId = defaults.extractDocId;
     	      this.nestingLevel = defaults.nestingLevel;
+    	      this.useUpdateLookup = defaults.useUpdateLookup;
         }
 
         @CustomType.Setter
@@ -148,6 +163,12 @@ public final class EndpointMongodbSettings {
             this.nestingLevel = nestingLevel;
             return this;
         }
+        @CustomType.Setter
+        public Builder useUpdateLookup(@Nullable Boolean useUpdateLookup) {
+
+            this.useUpdateLookup = useUpdateLookup;
+            return this;
+        }
         public EndpointMongodbSettings build() {
             final var _resultValue = new EndpointMongodbSettings();
             _resultValue.authMechanism = authMechanism;
@@ -156,6 +177,7 @@ public final class EndpointMongodbSettings {
             _resultValue.docsToInvestigate = docsToInvestigate;
             _resultValue.extractDocId = extractDocId;
             _resultValue.nestingLevel = nestingLevel;
+            _resultValue.useUpdateLookup = useUpdateLookup;
             return _resultValue;
         }
     }

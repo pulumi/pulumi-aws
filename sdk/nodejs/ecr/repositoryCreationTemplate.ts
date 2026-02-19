@@ -129,7 +129,7 @@ export class RepositoryCreationTemplate extends pulumi.CustomResource {
      */
     declare public readonly encryptionConfigurations: pulumi.Output<outputs.ecr.RepositoryCreationTemplateEncryptionConfiguration[] | undefined>;
     /**
-     * The tag mutability setting for any created repositories. Must be one of: `MUTABLE` or `IMMUTABLE`. Defaults to `MUTABLE`.
+     * The tag mutability setting for any created repositories. Must be one of: `MUTABLE`, `IMMUTABLE`, `IMMUTABLE_WITH_EXCLUSION`, or `MUTABLE_WITH_EXCLUSION`. Defaults to `MUTABLE`.
      */
     declare public readonly imageTagMutability: pulumi.Output<string | undefined>;
     /**
@@ -233,7 +233,7 @@ export interface RepositoryCreationTemplateState {
      */
     encryptionConfigurations?: pulumi.Input<pulumi.Input<inputs.ecr.RepositoryCreationTemplateEncryptionConfiguration>[]>;
     /**
-     * The tag mutability setting for any created repositories. Must be one of: `MUTABLE` or `IMMUTABLE`. Defaults to `MUTABLE`.
+     * The tag mutability setting for any created repositories. Must be one of: `MUTABLE`, `IMMUTABLE`, `IMMUTABLE_WITH_EXCLUSION`, or `MUTABLE_WITH_EXCLUSION`. Defaults to `MUTABLE`.
      */
     imageTagMutability?: pulumi.Input<string>;
     /**
@@ -287,7 +287,7 @@ export interface RepositoryCreationTemplateArgs {
      */
     encryptionConfigurations?: pulumi.Input<pulumi.Input<inputs.ecr.RepositoryCreationTemplateEncryptionConfiguration>[]>;
     /**
-     * The tag mutability setting for any created repositories. Must be one of: `MUTABLE` or `IMMUTABLE`. Defaults to `MUTABLE`.
+     * The tag mutability setting for any created repositories. Must be one of: `MUTABLE`, `IMMUTABLE`, `IMMUTABLE_WITH_EXCLUSION`, or `MUTABLE_WITH_EXCLUSION`. Defaults to `MUTABLE`.
      */
     imageTagMutability?: pulumi.Input<string>;
     /**

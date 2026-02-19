@@ -95,6 +95,9 @@ type LaunchTemplate struct {
 	RamDiskId pulumi.StringPtrOutput `pulumi:"ramDiskId"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
+	// Secondary interfaces to associate with instances launched from the template. See Secondary
+	// Interfaces below for more details.
+	SecondaryInterfaces LaunchTemplateSecondaryInterfaceArrayOutput `pulumi:"secondaryInterfaces"`
 	// A list of security group names to associate with. If you are creating Instances in a VPC, use
 	// `vpcSecurityGroupIds` instead.
 	SecurityGroupNames pulumi.StringArrayOutput `pulumi:"securityGroupNames"`
@@ -214,6 +217,9 @@ type launchTemplateState struct {
 	RamDiskId *string `pulumi:"ramDiskId"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
+	// Secondary interfaces to associate with instances launched from the template. See Secondary
+	// Interfaces below for more details.
+	SecondaryInterfaces []LaunchTemplateSecondaryInterface `pulumi:"secondaryInterfaces"`
 	// A list of security group names to associate with. If you are creating Instances in a VPC, use
 	// `vpcSecurityGroupIds` instead.
 	SecurityGroupNames []string `pulumi:"securityGroupNames"`
@@ -304,6 +310,9 @@ type LaunchTemplateState struct {
 	RamDiskId pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
+	// Secondary interfaces to associate with instances launched from the template. See Secondary
+	// Interfaces below for more details.
+	SecondaryInterfaces LaunchTemplateSecondaryInterfaceArrayInput
 	// A list of security group names to associate with. If you are creating Instances in a VPC, use
 	// `vpcSecurityGroupIds` instead.
 	SecurityGroupNames pulumi.StringArrayInput
@@ -394,6 +403,9 @@ type launchTemplateArgs struct {
 	RamDiskId *string `pulumi:"ramDiskId"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
+	// Secondary interfaces to associate with instances launched from the template. See Secondary
+	// Interfaces below for more details.
+	SecondaryInterfaces []LaunchTemplateSecondaryInterface `pulumi:"secondaryInterfaces"`
 	// A list of security group names to associate with. If you are creating Instances in a VPC, use
 	// `vpcSecurityGroupIds` instead.
 	SecurityGroupNames []string `pulumi:"securityGroupNames"`
@@ -479,6 +491,9 @@ type LaunchTemplateArgs struct {
 	RamDiskId pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
+	// Secondary interfaces to associate with instances launched from the template. See Secondary
+	// Interfaces below for more details.
+	SecondaryInterfaces LaunchTemplateSecondaryInterfaceArrayInput
 	// A list of security group names to associate with. If you are creating Instances in a VPC, use
 	// `vpcSecurityGroupIds` instead.
 	SecurityGroupNames pulumi.StringArrayInput
@@ -754,6 +769,12 @@ func (o LaunchTemplateOutput) RamDiskId() pulumi.StringPtrOutput {
 // Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o LaunchTemplateOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *LaunchTemplate) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
+}
+
+// Secondary interfaces to associate with instances launched from the template. See Secondary
+// Interfaces below for more details.
+func (o LaunchTemplateOutput) SecondaryInterfaces() LaunchTemplateSecondaryInterfaceArrayOutput {
+	return o.ApplyT(func(v *LaunchTemplate) LaunchTemplateSecondaryInterfaceArrayOutput { return v.SecondaryInterfaces }).(LaunchTemplateSecondaryInterfaceArrayOutput)
 }
 
 // A list of security group names to associate with. If you are creating Instances in a VPC, use

@@ -141,6 +141,33 @@ import * as utilities from "../utilities";
  * });
  * ```
  *
+ * ### QnA Intent Example
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const qnaExample = new aws.lex.V2modelsIntent("qna_example", {
+ *     botId: test.id,
+ *     botVersion: testAwsLexv2modelsBotLocale.botVersion,
+ *     name: "qna_intent",
+ *     localeId: testAwsLexv2modelsBotLocale.localeId,
+ *     parentIntentSignature: "AMAZON.QnAIntent",
+ *     qnaIntentConfiguration: {
+ *         dataSourceConfiguration: {
+ *             kendraConfiguration: {
+ *                 kendraIndex: example.arn,
+ *                 exactResponse: true,
+ *                 queryFilterStringEnabled: false,
+ *             },
+ *         },
+ *     },
+ *     sampleUtterances: [{
+ *         utterance: "What is the answer?",
+ *     }],
+ * });
+ * ```
+ *
  * ## Import
  *
  * Using `pulumi import`, import Lex V2 Models Intent using the `intent_id:bot_id:bot_version:locale_id`. For example:
@@ -222,7 +249,7 @@ export class V2modelsIntent extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly intentId: pulumi.Output<string>;
     /**
-     * Configuration block for information required to use the AMAZON.KendraSearchIntent intent to connect to an Amazon Kendra index. The AMAZON.KendraSearchIntent intent is called when Amazon Lex can't determine another intent to invoke. See `kendraConfiguration`.
+     * Configuration block for information required to use the AMAZON.KendraSearchIntent intent to connect to an Amazon Kendra index. The AMAZON.KendraSearchIntent intent is called when Amazon Lex can't determine another intent to invoke. Cannot be used with `qnaIntentConfiguration`. See `kendraConfiguration`.
      */
     declare public readonly kendraConfiguration: pulumi.Output<outputs.lex.V2modelsIntentKendraConfiguration | undefined>;
     /**
@@ -247,6 +274,10 @@ export class V2modelsIntent extends pulumi.CustomResource {
      * Identifier for the built-in intent to base this intent on.
      */
     declare public readonly parentIntentSignature: pulumi.Output<string | undefined>;
+    /**
+     * Configuration block for QnA intent settings. This is used when `parentIntentSignature` is set to `AMAZON.QnAIntent`. Cannot be used with `kendraConfiguration`. See `qnaIntentConfiguration`.
+     */
+    declare public readonly qnaIntentConfiguration: pulumi.Output<outputs.lex.V2modelsIntentQnaIntentConfiguration | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
@@ -291,6 +322,7 @@ export class V2modelsIntent extends pulumi.CustomResource {
             resourceInputs["name"] = state?.name;
             resourceInputs["outputContexts"] = state?.outputContexts;
             resourceInputs["parentIntentSignature"] = state?.parentIntentSignature;
+            resourceInputs["qnaIntentConfiguration"] = state?.qnaIntentConfiguration;
             resourceInputs["region"] = state?.region;
             resourceInputs["sampleUtterances"] = state?.sampleUtterances;
             resourceInputs["slotPriorities"] = state?.slotPriorities;
@@ -320,6 +352,7 @@ export class V2modelsIntent extends pulumi.CustomResource {
             resourceInputs["name"] = args?.name;
             resourceInputs["outputContexts"] = args?.outputContexts;
             resourceInputs["parentIntentSignature"] = args?.parentIntentSignature;
+            resourceInputs["qnaIntentConfiguration"] = args?.qnaIntentConfiguration;
             resourceInputs["region"] = args?.region;
             resourceInputs["sampleUtterances"] = args?.sampleUtterances;
             resourceInputs["slotPriorities"] = args?.slotPriorities;
@@ -382,7 +415,7 @@ export interface V2modelsIntentState {
      */
     intentId?: pulumi.Input<string>;
     /**
-     * Configuration block for information required to use the AMAZON.KendraSearchIntent intent to connect to an Amazon Kendra index. The AMAZON.KendraSearchIntent intent is called when Amazon Lex can't determine another intent to invoke. See `kendraConfiguration`.
+     * Configuration block for information required to use the AMAZON.KendraSearchIntent intent to connect to an Amazon Kendra index. The AMAZON.KendraSearchIntent intent is called when Amazon Lex can't determine another intent to invoke. Cannot be used with `qnaIntentConfiguration`. See `kendraConfiguration`.
      */
     kendraConfiguration?: pulumi.Input<inputs.lex.V2modelsIntentKendraConfiguration>;
     /**
@@ -407,6 +440,10 @@ export interface V2modelsIntentState {
      * Identifier for the built-in intent to base this intent on.
      */
     parentIntentSignature?: pulumi.Input<string>;
+    /**
+     * Configuration block for QnA intent settings. This is used when `parentIntentSignature` is set to `AMAZON.QnAIntent`. Cannot be used with `kendraConfiguration`. See `qnaIntentConfiguration`.
+     */
+    qnaIntentConfiguration?: pulumi.Input<inputs.lex.V2modelsIntentQnaIntentConfiguration>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
@@ -463,7 +500,7 @@ export interface V2modelsIntentArgs {
      */
     inputContexts?: pulumi.Input<pulumi.Input<inputs.lex.V2modelsIntentInputContext>[]>;
     /**
-     * Configuration block for information required to use the AMAZON.KendraSearchIntent intent to connect to an Amazon Kendra index. The AMAZON.KendraSearchIntent intent is called when Amazon Lex can't determine another intent to invoke. See `kendraConfiguration`.
+     * Configuration block for information required to use the AMAZON.KendraSearchIntent intent to connect to an Amazon Kendra index. The AMAZON.KendraSearchIntent intent is called when Amazon Lex can't determine another intent to invoke. Cannot be used with `qnaIntentConfiguration`. See `kendraConfiguration`.
      */
     kendraConfiguration?: pulumi.Input<inputs.lex.V2modelsIntentKendraConfiguration>;
     /**
@@ -484,6 +521,10 @@ export interface V2modelsIntentArgs {
      * Identifier for the built-in intent to base this intent on.
      */
     parentIntentSignature?: pulumi.Input<string>;
+    /**
+     * Configuration block for QnA intent settings. This is used when `parentIntentSignature` is set to `AMAZON.QnAIntent`. Cannot be used with `kendraConfiguration`. See `qnaIntentConfiguration`.
+     */
+    qnaIntentConfiguration?: pulumi.Input<inputs.lex.V2modelsIntentQnaIntentConfiguration>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */

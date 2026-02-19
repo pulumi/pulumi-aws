@@ -728,6 +728,8 @@ func (o CertificateAuthorityRevocationConfigurationPtrOutput) OcspConfiguration(
 type CertificateAuthorityRevocationConfigurationCrlConfiguration struct {
 	// Name inserted into the certificate CRL Distribution Points extension that enables the use of an alias for the CRL distribution point. Use this value if you don't want the name of your S3 bucket to be public. Must be less than or equal to 253 characters in length.
 	CustomCname *string `pulumi:"customCname"`
+	// Configures a custom path for the CRL in S3. If specified, the CRL will be written to `s3://<s3_bucket_name>/<custom_path>/<crl_file>`. Must conform to the pattern `[-a-zA-Z0-9;?:@&=+$,%_.!~*()']+(/[-a-zA-Z0-9;?:@&=+$,%_.!~*()']+)*` and be between 0 and 253 characters in length.
+	CustomPath *string `pulumi:"customPath"`
 	// Boolean value that specifies whether certificate revocation lists (CRLs) are enabled. Defaults to `false`.
 	Enabled *bool `pulumi:"enabled"`
 	// Number of days until a certificate expires. Must be between 1 and 5000.
@@ -752,6 +754,8 @@ type CertificateAuthorityRevocationConfigurationCrlConfigurationInput interface 
 type CertificateAuthorityRevocationConfigurationCrlConfigurationArgs struct {
 	// Name inserted into the certificate CRL Distribution Points extension that enables the use of an alias for the CRL distribution point. Use this value if you don't want the name of your S3 bucket to be public. Must be less than or equal to 253 characters in length.
 	CustomCname pulumi.StringPtrInput `pulumi:"customCname"`
+	// Configures a custom path for the CRL in S3. If specified, the CRL will be written to `s3://<s3_bucket_name>/<custom_path>/<crl_file>`. Must conform to the pattern `[-a-zA-Z0-9;?:@&=+$,%_.!~*()']+(/[-a-zA-Z0-9;?:@&=+$,%_.!~*()']+)*` and be between 0 and 253 characters in length.
+	CustomPath pulumi.StringPtrInput `pulumi:"customPath"`
 	// Boolean value that specifies whether certificate revocation lists (CRLs) are enabled. Defaults to `false`.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
 	// Number of days until a certificate expires. Must be between 1 and 5000.
@@ -844,6 +848,11 @@ func (o CertificateAuthorityRevocationConfigurationCrlConfigurationOutput) Custo
 	return o.ApplyT(func(v CertificateAuthorityRevocationConfigurationCrlConfiguration) *string { return v.CustomCname }).(pulumi.StringPtrOutput)
 }
 
+// Configures a custom path for the CRL in S3. If specified, the CRL will be written to `s3://<s3_bucket_name>/<custom_path>/<crl_file>`. Must conform to the pattern `[-a-zA-Z0-9;?:@&=+$,%_.!~*()']+(/[-a-zA-Z0-9;?:@&=+$,%_.!~*()']+)*` and be between 0 and 253 characters in length.
+func (o CertificateAuthorityRevocationConfigurationCrlConfigurationOutput) CustomPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CertificateAuthorityRevocationConfigurationCrlConfiguration) *string { return v.CustomPath }).(pulumi.StringPtrOutput)
+}
+
 // Boolean value that specifies whether certificate revocation lists (CRLs) are enabled. Defaults to `false`.
 func (o CertificateAuthorityRevocationConfigurationCrlConfigurationOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v CertificateAuthorityRevocationConfigurationCrlConfiguration) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
@@ -895,6 +904,16 @@ func (o CertificateAuthorityRevocationConfigurationCrlConfigurationPtrOutput) Cu
 			return nil
 		}
 		return v.CustomCname
+	}).(pulumi.StringPtrOutput)
+}
+
+// Configures a custom path for the CRL in S3. If specified, the CRL will be written to `s3://<s3_bucket_name>/<custom_path>/<crl_file>`. Must conform to the pattern `[-a-zA-Z0-9;?:@&=+$,%_.!~*()']+(/[-a-zA-Z0-9;?:@&=+$,%_.!~*()']+)*` and be between 0 and 253 characters in length.
+func (o CertificateAuthorityRevocationConfigurationCrlConfigurationPtrOutput) CustomPath() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CertificateAuthorityRevocationConfigurationCrlConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CustomPath
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -1360,6 +1379,8 @@ func (o GetCertificateAuthorityRevocationConfigurationArrayOutput) Index(i pulum
 type GetCertificateAuthorityRevocationConfigurationCrlConfiguration struct {
 	// Name inserted into the certificate CRL Distribution Points extension that enables the use of an alias for the CRL distribution point.
 	CustomCname string `pulumi:"customCname"`
+	// Custom path for the CRL in S3.
+	CustomPath string `pulumi:"customPath"`
 	// Boolean value that specifies whether certificate revocation lists (CRLs) are enabled.
 	Enabled bool `pulumi:"enabled"`
 	// Number of days until a certificate expires.
@@ -1384,6 +1405,8 @@ type GetCertificateAuthorityRevocationConfigurationCrlConfigurationInput interfa
 type GetCertificateAuthorityRevocationConfigurationCrlConfigurationArgs struct {
 	// Name inserted into the certificate CRL Distribution Points extension that enables the use of an alias for the CRL distribution point.
 	CustomCname pulumi.StringInput `pulumi:"customCname"`
+	// Custom path for the CRL in S3.
+	CustomPath pulumi.StringInput `pulumi:"customPath"`
 	// Boolean value that specifies whether certificate revocation lists (CRLs) are enabled.
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
 	// Number of days until a certificate expires.
@@ -1448,6 +1471,11 @@ func (o GetCertificateAuthorityRevocationConfigurationCrlConfigurationOutput) To
 // Name inserted into the certificate CRL Distribution Points extension that enables the use of an alias for the CRL distribution point.
 func (o GetCertificateAuthorityRevocationConfigurationCrlConfigurationOutput) CustomCname() pulumi.StringOutput {
 	return o.ApplyT(func(v GetCertificateAuthorityRevocationConfigurationCrlConfiguration) string { return v.CustomCname }).(pulumi.StringOutput)
+}
+
+// Custom path for the CRL in S3.
+func (o GetCertificateAuthorityRevocationConfigurationCrlConfigurationOutput) CustomPath() pulumi.StringOutput {
+	return o.ApplyT(func(v GetCertificateAuthorityRevocationConfigurationCrlConfiguration) string { return v.CustomPath }).(pulumi.StringOutput)
 }
 
 // Boolean value that specifies whether certificate revocation lists (CRLs) are enabled.

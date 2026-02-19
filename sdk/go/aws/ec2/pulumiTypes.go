@@ -8692,6 +8692,8 @@ type InstanceCpuOptions struct {
 	AmdSevSnp *string `pulumi:"amdSevSnp"`
 	// Sets the number of CPU cores for an instance. This option is only supported on creation of instance type that support CPU Options [CPU Cores and Threads Per CPU Core Per Instance Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html#cpu-options-supported-instances-values) - specifying this option for unsupported instance types will return an error from the EC2 API.
 	CoreCount *int `pulumi:"coreCount"`
+	// Indicates whether to enable the instance for nested virtualization. Nested virtualization is supported on 8th generation Intel-based instance types (C8i, M8i, R8i, and their flex variants) only. When nested virtualization is enabled, Virtual Secure Mode (VSM) is automatically disabled for the instance. Valid values are `enabled` and `disabled`.
+	NestedVirtualization *string `pulumi:"nestedVirtualization"`
 	// If set to 1, hyperthreading is disabled on the launched instance. Defaults to 2 if not set. See [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) for more information.
 	//
 	// For more information, see the documentation on [Optimizing CPU options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html).
@@ -8714,6 +8716,8 @@ type InstanceCpuOptionsArgs struct {
 	AmdSevSnp pulumi.StringPtrInput `pulumi:"amdSevSnp"`
 	// Sets the number of CPU cores for an instance. This option is only supported on creation of instance type that support CPU Options [CPU Cores and Threads Per CPU Core Per Instance Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html#cpu-options-supported-instances-values) - specifying this option for unsupported instance types will return an error from the EC2 API.
 	CoreCount pulumi.IntPtrInput `pulumi:"coreCount"`
+	// Indicates whether to enable the instance for nested virtualization. Nested virtualization is supported on 8th generation Intel-based instance types (C8i, M8i, R8i, and their flex variants) only. When nested virtualization is enabled, Virtual Secure Mode (VSM) is automatically disabled for the instance. Valid values are `enabled` and `disabled`.
+	NestedVirtualization pulumi.StringPtrInput `pulumi:"nestedVirtualization"`
 	// If set to 1, hyperthreading is disabled on the launched instance. Defaults to 2 if not set. See [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) for more information.
 	//
 	// For more information, see the documentation on [Optimizing CPU options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html).
@@ -8807,6 +8811,11 @@ func (o InstanceCpuOptionsOutput) CoreCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v InstanceCpuOptions) *int { return v.CoreCount }).(pulumi.IntPtrOutput)
 }
 
+// Indicates whether to enable the instance for nested virtualization. Nested virtualization is supported on 8th generation Intel-based instance types (C8i, M8i, R8i, and their flex variants) only. When nested virtualization is enabled, Virtual Secure Mode (VSM) is automatically disabled for the instance. Valid values are `enabled` and `disabled`.
+func (o InstanceCpuOptionsOutput) NestedVirtualization() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InstanceCpuOptions) *string { return v.NestedVirtualization }).(pulumi.StringPtrOutput)
+}
+
 // If set to 1, hyperthreading is disabled on the launched instance. Defaults to 2 if not set. See [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) for more information.
 //
 // For more information, see the documentation on [Optimizing CPU options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html).
@@ -8856,6 +8865,16 @@ func (o InstanceCpuOptionsPtrOutput) CoreCount() pulumi.IntPtrOutput {
 		}
 		return v.CoreCount
 	}).(pulumi.IntPtrOutput)
+}
+
+// Indicates whether to enable the instance for nested virtualization. Nested virtualization is supported on 8th generation Intel-based instance types (C8i, M8i, R8i, and their flex variants) only. When nested virtualization is enabled, Virtual Secure Mode (VSM) is automatically disabled for the instance. Valid values are `enabled` and `disabled`.
+func (o InstanceCpuOptionsPtrOutput) NestedVirtualization() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InstanceCpuOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.NestedVirtualization
+	}).(pulumi.StringPtrOutput)
 }
 
 // If set to 1, hyperthreading is disabled on the launched instance. Defaults to 2 if not set. See [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) for more information.
@@ -12725,6 +12744,8 @@ type LaunchTemplateCpuOptions struct {
 	AmdSevSnp *string `pulumi:"amdSevSnp"`
 	// The number of CPU cores for the instance.
 	CoreCount *int `pulumi:"coreCount"`
+	// Indicates whether to enable the instance for nested virtualization. Nested virtualization is supported on 8th generation Intel-based instance types (C8i, M8i, R8i, and their flex variants) only. When nested virtualization is enabled, Virtual Secure Mode (VSM) is automatically disabled for the instance. Valid values are `enabled` and `disabled`.
+	NestedVirtualization *string `pulumi:"nestedVirtualization"`
 	// The number of threads per CPU core.
 	// To disable Intel Hyper-Threading Technology for the instance, specify a value of 1.
 	// Otherwise, specify the default value of 2.
@@ -12749,6 +12770,8 @@ type LaunchTemplateCpuOptionsArgs struct {
 	AmdSevSnp pulumi.StringPtrInput `pulumi:"amdSevSnp"`
 	// The number of CPU cores for the instance.
 	CoreCount pulumi.IntPtrInput `pulumi:"coreCount"`
+	// Indicates whether to enable the instance for nested virtualization. Nested virtualization is supported on 8th generation Intel-based instance types (C8i, M8i, R8i, and their flex variants) only. When nested virtualization is enabled, Virtual Secure Mode (VSM) is automatically disabled for the instance. Valid values are `enabled` and `disabled`.
+	NestedVirtualization pulumi.StringPtrInput `pulumi:"nestedVirtualization"`
 	// The number of threads per CPU core.
 	// To disable Intel Hyper-Threading Technology for the instance, specify a value of 1.
 	// Otherwise, specify the default value of 2.
@@ -12844,6 +12867,11 @@ func (o LaunchTemplateCpuOptionsOutput) CoreCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v LaunchTemplateCpuOptions) *int { return v.CoreCount }).(pulumi.IntPtrOutput)
 }
 
+// Indicates whether to enable the instance for nested virtualization. Nested virtualization is supported on 8th generation Intel-based instance types (C8i, M8i, R8i, and their flex variants) only. When nested virtualization is enabled, Virtual Secure Mode (VSM) is automatically disabled for the instance. Valid values are `enabled` and `disabled`.
+func (o LaunchTemplateCpuOptionsOutput) NestedVirtualization() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateCpuOptions) *string { return v.NestedVirtualization }).(pulumi.StringPtrOutput)
+}
+
 // The number of threads per CPU core.
 // To disable Intel Hyper-Threading Technology for the instance, specify a value of 1.
 // Otherwise, specify the default value of 2.
@@ -12895,6 +12923,16 @@ func (o LaunchTemplateCpuOptionsPtrOutput) CoreCount() pulumi.IntPtrOutput {
 		}
 		return v.CoreCount
 	}).(pulumi.IntPtrOutput)
+}
+
+// Indicates whether to enable the instance for nested virtualization. Nested virtualization is supported on 8th generation Intel-based instance types (C8i, M8i, R8i, and their flex variants) only. When nested virtualization is enabled, Virtual Secure Mode (VSM) is automatically disabled for the instance. Valid values are `enabled` and `disabled`.
+func (o LaunchTemplateCpuOptionsPtrOutput) NestedVirtualization() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LaunchTemplateCpuOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.NestedVirtualization
+	}).(pulumi.StringPtrOutput)
 }
 
 // The number of threads per CPU core.
@@ -17874,6 +17912,157 @@ func (o LaunchTemplatePrivateDnsNameOptionsPtrOutput) HostnameType() pulumi.Stri
 		}
 		return v.HostnameType
 	}).(pulumi.StringPtrOutput)
+}
+
+type LaunchTemplateSecondaryInterface struct {
+	// Whether the secondary interface is deleted when the instance is terminated. The only supported value is `true`.
+	DeleteOnTermination *bool `pulumi:"deleteOnTermination"`
+	// Device index for the secondary interface attachment.
+	DeviceIndex *int `pulumi:"deviceIndex"`
+	// Type of secondary interface. The only supported value is: `secondary`.
+	InterfaceType *string `pulumi:"interfaceType"`
+	// Index of the network card.
+	NetworkCardIndex *int `pulumi:"networkCardIndex"`
+	// Number of private IPv4 addresses to assign to the secondary interface.
+	PrivateIpAddressCount *int `pulumi:"privateIpAddressCount"`
+	// Private IPv4 addresses to assign to the secondary interface.
+	PrivateIpAddresses []string `pulumi:"privateIpAddresses"`
+	// ID of the secondary subnet.
+	SecondarySubnetId *string `pulumi:"secondarySubnetId"`
+}
+
+// LaunchTemplateSecondaryInterfaceInput is an input type that accepts LaunchTemplateSecondaryInterfaceArgs and LaunchTemplateSecondaryInterfaceOutput values.
+// You can construct a concrete instance of `LaunchTemplateSecondaryInterfaceInput` via:
+//
+//	LaunchTemplateSecondaryInterfaceArgs{...}
+type LaunchTemplateSecondaryInterfaceInput interface {
+	pulumi.Input
+
+	ToLaunchTemplateSecondaryInterfaceOutput() LaunchTemplateSecondaryInterfaceOutput
+	ToLaunchTemplateSecondaryInterfaceOutputWithContext(context.Context) LaunchTemplateSecondaryInterfaceOutput
+}
+
+type LaunchTemplateSecondaryInterfaceArgs struct {
+	// Whether the secondary interface is deleted when the instance is terminated. The only supported value is `true`.
+	DeleteOnTermination pulumi.BoolPtrInput `pulumi:"deleteOnTermination"`
+	// Device index for the secondary interface attachment.
+	DeviceIndex pulumi.IntPtrInput `pulumi:"deviceIndex"`
+	// Type of secondary interface. The only supported value is: `secondary`.
+	InterfaceType pulumi.StringPtrInput `pulumi:"interfaceType"`
+	// Index of the network card.
+	NetworkCardIndex pulumi.IntPtrInput `pulumi:"networkCardIndex"`
+	// Number of private IPv4 addresses to assign to the secondary interface.
+	PrivateIpAddressCount pulumi.IntPtrInput `pulumi:"privateIpAddressCount"`
+	// Private IPv4 addresses to assign to the secondary interface.
+	PrivateIpAddresses pulumi.StringArrayInput `pulumi:"privateIpAddresses"`
+	// ID of the secondary subnet.
+	SecondarySubnetId pulumi.StringPtrInput `pulumi:"secondarySubnetId"`
+}
+
+func (LaunchTemplateSecondaryInterfaceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchTemplateSecondaryInterface)(nil)).Elem()
+}
+
+func (i LaunchTemplateSecondaryInterfaceArgs) ToLaunchTemplateSecondaryInterfaceOutput() LaunchTemplateSecondaryInterfaceOutput {
+	return i.ToLaunchTemplateSecondaryInterfaceOutputWithContext(context.Background())
+}
+
+func (i LaunchTemplateSecondaryInterfaceArgs) ToLaunchTemplateSecondaryInterfaceOutputWithContext(ctx context.Context) LaunchTemplateSecondaryInterfaceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateSecondaryInterfaceOutput)
+}
+
+// LaunchTemplateSecondaryInterfaceArrayInput is an input type that accepts LaunchTemplateSecondaryInterfaceArray and LaunchTemplateSecondaryInterfaceArrayOutput values.
+// You can construct a concrete instance of `LaunchTemplateSecondaryInterfaceArrayInput` via:
+//
+//	LaunchTemplateSecondaryInterfaceArray{ LaunchTemplateSecondaryInterfaceArgs{...} }
+type LaunchTemplateSecondaryInterfaceArrayInput interface {
+	pulumi.Input
+
+	ToLaunchTemplateSecondaryInterfaceArrayOutput() LaunchTemplateSecondaryInterfaceArrayOutput
+	ToLaunchTemplateSecondaryInterfaceArrayOutputWithContext(context.Context) LaunchTemplateSecondaryInterfaceArrayOutput
+}
+
+type LaunchTemplateSecondaryInterfaceArray []LaunchTemplateSecondaryInterfaceInput
+
+func (LaunchTemplateSecondaryInterfaceArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LaunchTemplateSecondaryInterface)(nil)).Elem()
+}
+
+func (i LaunchTemplateSecondaryInterfaceArray) ToLaunchTemplateSecondaryInterfaceArrayOutput() LaunchTemplateSecondaryInterfaceArrayOutput {
+	return i.ToLaunchTemplateSecondaryInterfaceArrayOutputWithContext(context.Background())
+}
+
+func (i LaunchTemplateSecondaryInterfaceArray) ToLaunchTemplateSecondaryInterfaceArrayOutputWithContext(ctx context.Context) LaunchTemplateSecondaryInterfaceArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(LaunchTemplateSecondaryInterfaceArrayOutput)
+}
+
+type LaunchTemplateSecondaryInterfaceOutput struct{ *pulumi.OutputState }
+
+func (LaunchTemplateSecondaryInterfaceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LaunchTemplateSecondaryInterface)(nil)).Elem()
+}
+
+func (o LaunchTemplateSecondaryInterfaceOutput) ToLaunchTemplateSecondaryInterfaceOutput() LaunchTemplateSecondaryInterfaceOutput {
+	return o
+}
+
+func (o LaunchTemplateSecondaryInterfaceOutput) ToLaunchTemplateSecondaryInterfaceOutputWithContext(ctx context.Context) LaunchTemplateSecondaryInterfaceOutput {
+	return o
+}
+
+// Whether the secondary interface is deleted when the instance is terminated. The only supported value is `true`.
+func (o LaunchTemplateSecondaryInterfaceOutput) DeleteOnTermination() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateSecondaryInterface) *bool { return v.DeleteOnTermination }).(pulumi.BoolPtrOutput)
+}
+
+// Device index for the secondary interface attachment.
+func (o LaunchTemplateSecondaryInterfaceOutput) DeviceIndex() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateSecondaryInterface) *int { return v.DeviceIndex }).(pulumi.IntPtrOutput)
+}
+
+// Type of secondary interface. The only supported value is: `secondary`.
+func (o LaunchTemplateSecondaryInterfaceOutput) InterfaceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateSecondaryInterface) *string { return v.InterfaceType }).(pulumi.StringPtrOutput)
+}
+
+// Index of the network card.
+func (o LaunchTemplateSecondaryInterfaceOutput) NetworkCardIndex() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateSecondaryInterface) *int { return v.NetworkCardIndex }).(pulumi.IntPtrOutput)
+}
+
+// Number of private IPv4 addresses to assign to the secondary interface.
+func (o LaunchTemplateSecondaryInterfaceOutput) PrivateIpAddressCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateSecondaryInterface) *int { return v.PrivateIpAddressCount }).(pulumi.IntPtrOutput)
+}
+
+// Private IPv4 addresses to assign to the secondary interface.
+func (o LaunchTemplateSecondaryInterfaceOutput) PrivateIpAddresses() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LaunchTemplateSecondaryInterface) []string { return v.PrivateIpAddresses }).(pulumi.StringArrayOutput)
+}
+
+// ID of the secondary subnet.
+func (o LaunchTemplateSecondaryInterfaceOutput) SecondarySubnetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LaunchTemplateSecondaryInterface) *string { return v.SecondarySubnetId }).(pulumi.StringPtrOutput)
+}
+
+type LaunchTemplateSecondaryInterfaceArrayOutput struct{ *pulumi.OutputState }
+
+func (LaunchTemplateSecondaryInterfaceArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]LaunchTemplateSecondaryInterface)(nil)).Elem()
+}
+
+func (o LaunchTemplateSecondaryInterfaceArrayOutput) ToLaunchTemplateSecondaryInterfaceArrayOutput() LaunchTemplateSecondaryInterfaceArrayOutput {
+	return o
+}
+
+func (o LaunchTemplateSecondaryInterfaceArrayOutput) ToLaunchTemplateSecondaryInterfaceArrayOutputWithContext(ctx context.Context) LaunchTemplateSecondaryInterfaceArrayOutput {
+	return o
+}
+
+func (o LaunchTemplateSecondaryInterfaceArrayOutput) Index(i pulumi.IntInput) LaunchTemplateSecondaryInterfaceOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LaunchTemplateSecondaryInterface {
+		return vs[0].([]LaunchTemplateSecondaryInterface)[vs[1].(int)]
+	}).(LaunchTemplateSecondaryInterfaceOutput)
 }
 
 type LaunchTemplateTagSpecification struct {
@@ -34845,6 +35034,8 @@ type SpotInstanceRequestCpuOptions struct {
 	AmdSevSnp *string `pulumi:"amdSevSnp"`
 	// Sets the number of CPU cores for an instance. This option is only supported on creation of instance type that support CPU Options [CPU Cores and Threads Per CPU Core Per Instance Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html#cpu-options-supported-instances-values) - specifying this option for unsupported instance types will return an error from the EC2 API.
 	CoreCount *int `pulumi:"coreCount"`
+	// Indicates whether to enable the instance for nested virtualization. Nested virtualization is supported on 8th generation Intel-based instance types (C8i, M8i, R8i, and their flex variants) only. When nested virtualization is enabled, Virtual Secure Mode (VSM) is automatically disabled for the instance. Valid values are `enabled` and `disabled`.
+	NestedVirtualization *string `pulumi:"nestedVirtualization"`
 	// If set to 1, hyperthreading is disabled on the launched instance. Defaults to 2 if not set. See [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) for more information.
 	//
 	// For more information, see the documentation on [Optimizing CPU options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html).
@@ -34867,6 +35058,8 @@ type SpotInstanceRequestCpuOptionsArgs struct {
 	AmdSevSnp pulumi.StringPtrInput `pulumi:"amdSevSnp"`
 	// Sets the number of CPU cores for an instance. This option is only supported on creation of instance type that support CPU Options [CPU Cores and Threads Per CPU Core Per Instance Type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html#cpu-options-supported-instances-values) - specifying this option for unsupported instance types will return an error from the EC2 API.
 	CoreCount pulumi.IntPtrInput `pulumi:"coreCount"`
+	// Indicates whether to enable the instance for nested virtualization. Nested virtualization is supported on 8th generation Intel-based instance types (C8i, M8i, R8i, and their flex variants) only. When nested virtualization is enabled, Virtual Secure Mode (VSM) is automatically disabled for the instance. Valid values are `enabled` and `disabled`.
+	NestedVirtualization pulumi.StringPtrInput `pulumi:"nestedVirtualization"`
 	// If set to 1, hyperthreading is disabled on the launched instance. Defaults to 2 if not set. See [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) for more information.
 	//
 	// For more information, see the documentation on [Optimizing CPU options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html).
@@ -34960,6 +35153,11 @@ func (o SpotInstanceRequestCpuOptionsOutput) CoreCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v SpotInstanceRequestCpuOptions) *int { return v.CoreCount }).(pulumi.IntPtrOutput)
 }
 
+// Indicates whether to enable the instance for nested virtualization. Nested virtualization is supported on 8th generation Intel-based instance types (C8i, M8i, R8i, and their flex variants) only. When nested virtualization is enabled, Virtual Secure Mode (VSM) is automatically disabled for the instance. Valid values are `enabled` and `disabled`.
+func (o SpotInstanceRequestCpuOptionsOutput) NestedVirtualization() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SpotInstanceRequestCpuOptions) *string { return v.NestedVirtualization }).(pulumi.StringPtrOutput)
+}
+
 // If set to 1, hyperthreading is disabled on the launched instance. Defaults to 2 if not set. See [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) for more information.
 //
 // For more information, see the documentation on [Optimizing CPU options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html).
@@ -35009,6 +35207,16 @@ func (o SpotInstanceRequestCpuOptionsPtrOutput) CoreCount() pulumi.IntPtrOutput 
 		}
 		return v.CoreCount
 	}).(pulumi.IntPtrOutput)
+}
+
+// Indicates whether to enable the instance for nested virtualization. Nested virtualization is supported on 8th generation Intel-based instance types (C8i, M8i, R8i, and their flex variants) only. When nested virtualization is enabled, Virtual Secure Mode (VSM) is automatically disabled for the instance. Valid values are `enabled` and `disabled`.
+func (o SpotInstanceRequestCpuOptionsPtrOutput) NestedVirtualization() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SpotInstanceRequestCpuOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.NestedVirtualization
+	}).(pulumi.StringPtrOutput)
 }
 
 // If set to 1, hyperthreading is disabled on the launched instance. Defaults to 2 if not set. See [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) for more information.
@@ -46918,9 +47126,10 @@ func (o GetLaunchTemplateCapacityReservationSpecificationCapacityReservationTarg
 }
 
 type GetLaunchTemplateCpuOption struct {
-	AmdSevSnp      string `pulumi:"amdSevSnp"`
-	CoreCount      int    `pulumi:"coreCount"`
-	ThreadsPerCore int    `pulumi:"threadsPerCore"`
+	AmdSevSnp            string `pulumi:"amdSevSnp"`
+	CoreCount            int    `pulumi:"coreCount"`
+	NestedVirtualization string `pulumi:"nestedVirtualization"`
+	ThreadsPerCore       int    `pulumi:"threadsPerCore"`
 }
 
 // GetLaunchTemplateCpuOptionInput is an input type that accepts GetLaunchTemplateCpuOptionArgs and GetLaunchTemplateCpuOptionOutput values.
@@ -46935,9 +47144,10 @@ type GetLaunchTemplateCpuOptionInput interface {
 }
 
 type GetLaunchTemplateCpuOptionArgs struct {
-	AmdSevSnp      pulumi.StringInput `pulumi:"amdSevSnp"`
-	CoreCount      pulumi.IntInput    `pulumi:"coreCount"`
-	ThreadsPerCore pulumi.IntInput    `pulumi:"threadsPerCore"`
+	AmdSevSnp            pulumi.StringInput `pulumi:"amdSevSnp"`
+	CoreCount            pulumi.IntInput    `pulumi:"coreCount"`
+	NestedVirtualization pulumi.StringInput `pulumi:"nestedVirtualization"`
+	ThreadsPerCore       pulumi.IntInput    `pulumi:"threadsPerCore"`
 }
 
 func (GetLaunchTemplateCpuOptionArgs) ElementType() reflect.Type {
@@ -46997,6 +47207,10 @@ func (o GetLaunchTemplateCpuOptionOutput) AmdSevSnp() pulumi.StringOutput {
 
 func (o GetLaunchTemplateCpuOptionOutput) CoreCount() pulumi.IntOutput {
 	return o.ApplyT(func(v GetLaunchTemplateCpuOption) int { return v.CoreCount }).(pulumi.IntOutput)
+}
+
+func (o GetLaunchTemplateCpuOptionOutput) NestedVirtualization() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLaunchTemplateCpuOption) string { return v.NestedVirtualization }).(pulumi.StringOutput)
 }
 
 func (o GetLaunchTemplateCpuOptionOutput) ThreadsPerCore() pulumi.IntOutput {
@@ -49612,6 +49826,100 @@ func (o GetLaunchTemplateNetworkInterfaceConnectionTrackingSpecificationArrayOut
 	}).(GetLaunchTemplateNetworkInterfaceConnectionTrackingSpecificationOutput)
 }
 
+type GetLaunchTemplateNetworkPerformanceOption struct {
+	BandwidthWeighting string `pulumi:"bandwidthWeighting"`
+}
+
+// GetLaunchTemplateNetworkPerformanceOptionInput is an input type that accepts GetLaunchTemplateNetworkPerformanceOptionArgs and GetLaunchTemplateNetworkPerformanceOptionOutput values.
+// You can construct a concrete instance of `GetLaunchTemplateNetworkPerformanceOptionInput` via:
+//
+//	GetLaunchTemplateNetworkPerformanceOptionArgs{...}
+type GetLaunchTemplateNetworkPerformanceOptionInput interface {
+	pulumi.Input
+
+	ToGetLaunchTemplateNetworkPerformanceOptionOutput() GetLaunchTemplateNetworkPerformanceOptionOutput
+	ToGetLaunchTemplateNetworkPerformanceOptionOutputWithContext(context.Context) GetLaunchTemplateNetworkPerformanceOptionOutput
+}
+
+type GetLaunchTemplateNetworkPerformanceOptionArgs struct {
+	BandwidthWeighting pulumi.StringInput `pulumi:"bandwidthWeighting"`
+}
+
+func (GetLaunchTemplateNetworkPerformanceOptionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLaunchTemplateNetworkPerformanceOption)(nil)).Elem()
+}
+
+func (i GetLaunchTemplateNetworkPerformanceOptionArgs) ToGetLaunchTemplateNetworkPerformanceOptionOutput() GetLaunchTemplateNetworkPerformanceOptionOutput {
+	return i.ToGetLaunchTemplateNetworkPerformanceOptionOutputWithContext(context.Background())
+}
+
+func (i GetLaunchTemplateNetworkPerformanceOptionArgs) ToGetLaunchTemplateNetworkPerformanceOptionOutputWithContext(ctx context.Context) GetLaunchTemplateNetworkPerformanceOptionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLaunchTemplateNetworkPerformanceOptionOutput)
+}
+
+// GetLaunchTemplateNetworkPerformanceOptionArrayInput is an input type that accepts GetLaunchTemplateNetworkPerformanceOptionArray and GetLaunchTemplateNetworkPerformanceOptionArrayOutput values.
+// You can construct a concrete instance of `GetLaunchTemplateNetworkPerformanceOptionArrayInput` via:
+//
+//	GetLaunchTemplateNetworkPerformanceOptionArray{ GetLaunchTemplateNetworkPerformanceOptionArgs{...} }
+type GetLaunchTemplateNetworkPerformanceOptionArrayInput interface {
+	pulumi.Input
+
+	ToGetLaunchTemplateNetworkPerformanceOptionArrayOutput() GetLaunchTemplateNetworkPerformanceOptionArrayOutput
+	ToGetLaunchTemplateNetworkPerformanceOptionArrayOutputWithContext(context.Context) GetLaunchTemplateNetworkPerformanceOptionArrayOutput
+}
+
+type GetLaunchTemplateNetworkPerformanceOptionArray []GetLaunchTemplateNetworkPerformanceOptionInput
+
+func (GetLaunchTemplateNetworkPerformanceOptionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetLaunchTemplateNetworkPerformanceOption)(nil)).Elem()
+}
+
+func (i GetLaunchTemplateNetworkPerformanceOptionArray) ToGetLaunchTemplateNetworkPerformanceOptionArrayOutput() GetLaunchTemplateNetworkPerformanceOptionArrayOutput {
+	return i.ToGetLaunchTemplateNetworkPerformanceOptionArrayOutputWithContext(context.Background())
+}
+
+func (i GetLaunchTemplateNetworkPerformanceOptionArray) ToGetLaunchTemplateNetworkPerformanceOptionArrayOutputWithContext(ctx context.Context) GetLaunchTemplateNetworkPerformanceOptionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLaunchTemplateNetworkPerformanceOptionArrayOutput)
+}
+
+type GetLaunchTemplateNetworkPerformanceOptionOutput struct{ *pulumi.OutputState }
+
+func (GetLaunchTemplateNetworkPerformanceOptionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLaunchTemplateNetworkPerformanceOption)(nil)).Elem()
+}
+
+func (o GetLaunchTemplateNetworkPerformanceOptionOutput) ToGetLaunchTemplateNetworkPerformanceOptionOutput() GetLaunchTemplateNetworkPerformanceOptionOutput {
+	return o
+}
+
+func (o GetLaunchTemplateNetworkPerformanceOptionOutput) ToGetLaunchTemplateNetworkPerformanceOptionOutputWithContext(ctx context.Context) GetLaunchTemplateNetworkPerformanceOptionOutput {
+	return o
+}
+
+func (o GetLaunchTemplateNetworkPerformanceOptionOutput) BandwidthWeighting() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLaunchTemplateNetworkPerformanceOption) string { return v.BandwidthWeighting }).(pulumi.StringOutput)
+}
+
+type GetLaunchTemplateNetworkPerformanceOptionArrayOutput struct{ *pulumi.OutputState }
+
+func (GetLaunchTemplateNetworkPerformanceOptionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetLaunchTemplateNetworkPerformanceOption)(nil)).Elem()
+}
+
+func (o GetLaunchTemplateNetworkPerformanceOptionArrayOutput) ToGetLaunchTemplateNetworkPerformanceOptionArrayOutput() GetLaunchTemplateNetworkPerformanceOptionArrayOutput {
+	return o
+}
+
+func (o GetLaunchTemplateNetworkPerformanceOptionArrayOutput) ToGetLaunchTemplateNetworkPerformanceOptionArrayOutputWithContext(ctx context.Context) GetLaunchTemplateNetworkPerformanceOptionArrayOutput {
+	return o
+}
+
+func (o GetLaunchTemplateNetworkPerformanceOptionArrayOutput) Index(i pulumi.IntInput) GetLaunchTemplateNetworkPerformanceOptionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetLaunchTemplateNetworkPerformanceOption {
+		return vs[0].([]GetLaunchTemplateNetworkPerformanceOption)[vs[1].(int)]
+	}).(GetLaunchTemplateNetworkPerformanceOptionOutput)
+}
+
 type GetLaunchTemplatePlacement struct {
 	Affinity             string `pulumi:"affinity"`
 	AvailabilityZone     string `pulumi:"availabilityZone"`
@@ -49858,6 +50166,136 @@ func (o GetLaunchTemplatePrivateDnsNameOptionArrayOutput) Index(i pulumi.IntInpu
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetLaunchTemplatePrivateDnsNameOption {
 		return vs[0].([]GetLaunchTemplatePrivateDnsNameOption)[vs[1].(int)]
 	}).(GetLaunchTemplatePrivateDnsNameOptionOutput)
+}
+
+type GetLaunchTemplateSecondaryInterface struct {
+	DeleteOnTermination   bool     `pulumi:"deleteOnTermination"`
+	DeviceIndex           int      `pulumi:"deviceIndex"`
+	InterfaceType         string   `pulumi:"interfaceType"`
+	NetworkCardIndex      int      `pulumi:"networkCardIndex"`
+	PrivateIpAddressCount int      `pulumi:"privateIpAddressCount"`
+	PrivateIpAddresses    []string `pulumi:"privateIpAddresses"`
+	SecondarySubnetId     string   `pulumi:"secondarySubnetId"`
+}
+
+// GetLaunchTemplateSecondaryInterfaceInput is an input type that accepts GetLaunchTemplateSecondaryInterfaceArgs and GetLaunchTemplateSecondaryInterfaceOutput values.
+// You can construct a concrete instance of `GetLaunchTemplateSecondaryInterfaceInput` via:
+//
+//	GetLaunchTemplateSecondaryInterfaceArgs{...}
+type GetLaunchTemplateSecondaryInterfaceInput interface {
+	pulumi.Input
+
+	ToGetLaunchTemplateSecondaryInterfaceOutput() GetLaunchTemplateSecondaryInterfaceOutput
+	ToGetLaunchTemplateSecondaryInterfaceOutputWithContext(context.Context) GetLaunchTemplateSecondaryInterfaceOutput
+}
+
+type GetLaunchTemplateSecondaryInterfaceArgs struct {
+	DeleteOnTermination   pulumi.BoolInput        `pulumi:"deleteOnTermination"`
+	DeviceIndex           pulumi.IntInput         `pulumi:"deviceIndex"`
+	InterfaceType         pulumi.StringInput      `pulumi:"interfaceType"`
+	NetworkCardIndex      pulumi.IntInput         `pulumi:"networkCardIndex"`
+	PrivateIpAddressCount pulumi.IntInput         `pulumi:"privateIpAddressCount"`
+	PrivateIpAddresses    pulumi.StringArrayInput `pulumi:"privateIpAddresses"`
+	SecondarySubnetId     pulumi.StringInput      `pulumi:"secondarySubnetId"`
+}
+
+func (GetLaunchTemplateSecondaryInterfaceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLaunchTemplateSecondaryInterface)(nil)).Elem()
+}
+
+func (i GetLaunchTemplateSecondaryInterfaceArgs) ToGetLaunchTemplateSecondaryInterfaceOutput() GetLaunchTemplateSecondaryInterfaceOutput {
+	return i.ToGetLaunchTemplateSecondaryInterfaceOutputWithContext(context.Background())
+}
+
+func (i GetLaunchTemplateSecondaryInterfaceArgs) ToGetLaunchTemplateSecondaryInterfaceOutputWithContext(ctx context.Context) GetLaunchTemplateSecondaryInterfaceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLaunchTemplateSecondaryInterfaceOutput)
+}
+
+// GetLaunchTemplateSecondaryInterfaceArrayInput is an input type that accepts GetLaunchTemplateSecondaryInterfaceArray and GetLaunchTemplateSecondaryInterfaceArrayOutput values.
+// You can construct a concrete instance of `GetLaunchTemplateSecondaryInterfaceArrayInput` via:
+//
+//	GetLaunchTemplateSecondaryInterfaceArray{ GetLaunchTemplateSecondaryInterfaceArgs{...} }
+type GetLaunchTemplateSecondaryInterfaceArrayInput interface {
+	pulumi.Input
+
+	ToGetLaunchTemplateSecondaryInterfaceArrayOutput() GetLaunchTemplateSecondaryInterfaceArrayOutput
+	ToGetLaunchTemplateSecondaryInterfaceArrayOutputWithContext(context.Context) GetLaunchTemplateSecondaryInterfaceArrayOutput
+}
+
+type GetLaunchTemplateSecondaryInterfaceArray []GetLaunchTemplateSecondaryInterfaceInput
+
+func (GetLaunchTemplateSecondaryInterfaceArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetLaunchTemplateSecondaryInterface)(nil)).Elem()
+}
+
+func (i GetLaunchTemplateSecondaryInterfaceArray) ToGetLaunchTemplateSecondaryInterfaceArrayOutput() GetLaunchTemplateSecondaryInterfaceArrayOutput {
+	return i.ToGetLaunchTemplateSecondaryInterfaceArrayOutputWithContext(context.Background())
+}
+
+func (i GetLaunchTemplateSecondaryInterfaceArray) ToGetLaunchTemplateSecondaryInterfaceArrayOutputWithContext(ctx context.Context) GetLaunchTemplateSecondaryInterfaceArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetLaunchTemplateSecondaryInterfaceArrayOutput)
+}
+
+type GetLaunchTemplateSecondaryInterfaceOutput struct{ *pulumi.OutputState }
+
+func (GetLaunchTemplateSecondaryInterfaceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetLaunchTemplateSecondaryInterface)(nil)).Elem()
+}
+
+func (o GetLaunchTemplateSecondaryInterfaceOutput) ToGetLaunchTemplateSecondaryInterfaceOutput() GetLaunchTemplateSecondaryInterfaceOutput {
+	return o
+}
+
+func (o GetLaunchTemplateSecondaryInterfaceOutput) ToGetLaunchTemplateSecondaryInterfaceOutputWithContext(ctx context.Context) GetLaunchTemplateSecondaryInterfaceOutput {
+	return o
+}
+
+func (o GetLaunchTemplateSecondaryInterfaceOutput) DeleteOnTermination() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetLaunchTemplateSecondaryInterface) bool { return v.DeleteOnTermination }).(pulumi.BoolOutput)
+}
+
+func (o GetLaunchTemplateSecondaryInterfaceOutput) DeviceIndex() pulumi.IntOutput {
+	return o.ApplyT(func(v GetLaunchTemplateSecondaryInterface) int { return v.DeviceIndex }).(pulumi.IntOutput)
+}
+
+func (o GetLaunchTemplateSecondaryInterfaceOutput) InterfaceType() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLaunchTemplateSecondaryInterface) string { return v.InterfaceType }).(pulumi.StringOutput)
+}
+
+func (o GetLaunchTemplateSecondaryInterfaceOutput) NetworkCardIndex() pulumi.IntOutput {
+	return o.ApplyT(func(v GetLaunchTemplateSecondaryInterface) int { return v.NetworkCardIndex }).(pulumi.IntOutput)
+}
+
+func (o GetLaunchTemplateSecondaryInterfaceOutput) PrivateIpAddressCount() pulumi.IntOutput {
+	return o.ApplyT(func(v GetLaunchTemplateSecondaryInterface) int { return v.PrivateIpAddressCount }).(pulumi.IntOutput)
+}
+
+func (o GetLaunchTemplateSecondaryInterfaceOutput) PrivateIpAddresses() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetLaunchTemplateSecondaryInterface) []string { return v.PrivateIpAddresses }).(pulumi.StringArrayOutput)
+}
+
+func (o GetLaunchTemplateSecondaryInterfaceOutput) SecondarySubnetId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetLaunchTemplateSecondaryInterface) string { return v.SecondarySubnetId }).(pulumi.StringOutput)
+}
+
+type GetLaunchTemplateSecondaryInterfaceArrayOutput struct{ *pulumi.OutputState }
+
+func (GetLaunchTemplateSecondaryInterfaceArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetLaunchTemplateSecondaryInterface)(nil)).Elem()
+}
+
+func (o GetLaunchTemplateSecondaryInterfaceArrayOutput) ToGetLaunchTemplateSecondaryInterfaceArrayOutput() GetLaunchTemplateSecondaryInterfaceArrayOutput {
+	return o
+}
+
+func (o GetLaunchTemplateSecondaryInterfaceArrayOutput) ToGetLaunchTemplateSecondaryInterfaceArrayOutputWithContext(ctx context.Context) GetLaunchTemplateSecondaryInterfaceArrayOutput {
+	return o
+}
+
+func (o GetLaunchTemplateSecondaryInterfaceArrayOutput) Index(i pulumi.IntInput) GetLaunchTemplateSecondaryInterfaceOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetLaunchTemplateSecondaryInterface {
+		return vs[0].([]GetLaunchTemplateSecondaryInterface)[vs[1].(int)]
+	}).(GetLaunchTemplateSecondaryInterfaceOutput)
 }
 
 type GetLaunchTemplateTagSpecification struct {
@@ -67660,6 +68098,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplatePlacementPtrInput)(nil)).Elem(), LaunchTemplatePlacementArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplatePrivateDnsNameOptionsInput)(nil)).Elem(), LaunchTemplatePrivateDnsNameOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplatePrivateDnsNameOptionsPtrInput)(nil)).Elem(), LaunchTemplatePrivateDnsNameOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplateSecondaryInterfaceInput)(nil)).Elem(), LaunchTemplateSecondaryInterfaceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplateSecondaryInterfaceArrayInput)(nil)).Elem(), LaunchTemplateSecondaryInterfaceArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplateTagSpecificationInput)(nil)).Elem(), LaunchTemplateTagSpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*LaunchTemplateTagSpecificationArrayInput)(nil)).Elem(), LaunchTemplateTagSpecificationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ManagedPrefixListEntryTypeInput)(nil)).Elem(), ManagedPrefixListEntryTypeArgs{})
@@ -68131,10 +68571,14 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetLaunchTemplateNetworkInterfaceArrayInput)(nil)).Elem(), GetLaunchTemplateNetworkInterfaceArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetLaunchTemplateNetworkInterfaceConnectionTrackingSpecificationInput)(nil)).Elem(), GetLaunchTemplateNetworkInterfaceConnectionTrackingSpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetLaunchTemplateNetworkInterfaceConnectionTrackingSpecificationArrayInput)(nil)).Elem(), GetLaunchTemplateNetworkInterfaceConnectionTrackingSpecificationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetLaunchTemplateNetworkPerformanceOptionInput)(nil)).Elem(), GetLaunchTemplateNetworkPerformanceOptionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetLaunchTemplateNetworkPerformanceOptionArrayInput)(nil)).Elem(), GetLaunchTemplateNetworkPerformanceOptionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetLaunchTemplatePlacementInput)(nil)).Elem(), GetLaunchTemplatePlacementArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetLaunchTemplatePlacementArrayInput)(nil)).Elem(), GetLaunchTemplatePlacementArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetLaunchTemplatePrivateDnsNameOptionInput)(nil)).Elem(), GetLaunchTemplatePrivateDnsNameOptionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetLaunchTemplatePrivateDnsNameOptionArrayInput)(nil)).Elem(), GetLaunchTemplatePrivateDnsNameOptionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetLaunchTemplateSecondaryInterfaceInput)(nil)).Elem(), GetLaunchTemplateSecondaryInterfaceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetLaunchTemplateSecondaryInterfaceArrayInput)(nil)).Elem(), GetLaunchTemplateSecondaryInterfaceArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetLaunchTemplateTagSpecificationInput)(nil)).Elem(), GetLaunchTemplateTagSpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetLaunchTemplateTagSpecificationArrayInput)(nil)).Elem(), GetLaunchTemplateTagSpecificationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetLocalGatewayFilterInput)(nil)).Elem(), GetLocalGatewayFilterArgs{})
@@ -68635,6 +69079,8 @@ func init() {
 	pulumi.RegisterOutputType(LaunchTemplatePlacementPtrOutput{})
 	pulumi.RegisterOutputType(LaunchTemplatePrivateDnsNameOptionsOutput{})
 	pulumi.RegisterOutputType(LaunchTemplatePrivateDnsNameOptionsPtrOutput{})
+	pulumi.RegisterOutputType(LaunchTemplateSecondaryInterfaceOutput{})
+	pulumi.RegisterOutputType(LaunchTemplateSecondaryInterfaceArrayOutput{})
 	pulumi.RegisterOutputType(LaunchTemplateTagSpecificationOutput{})
 	pulumi.RegisterOutputType(LaunchTemplateTagSpecificationArrayOutput{})
 	pulumi.RegisterOutputType(ManagedPrefixListEntryTypeOutput{})
@@ -69106,10 +69552,14 @@ func init() {
 	pulumi.RegisterOutputType(GetLaunchTemplateNetworkInterfaceArrayOutput{})
 	pulumi.RegisterOutputType(GetLaunchTemplateNetworkInterfaceConnectionTrackingSpecificationOutput{})
 	pulumi.RegisterOutputType(GetLaunchTemplateNetworkInterfaceConnectionTrackingSpecificationArrayOutput{})
+	pulumi.RegisterOutputType(GetLaunchTemplateNetworkPerformanceOptionOutput{})
+	pulumi.RegisterOutputType(GetLaunchTemplateNetworkPerformanceOptionArrayOutput{})
 	pulumi.RegisterOutputType(GetLaunchTemplatePlacementOutput{})
 	pulumi.RegisterOutputType(GetLaunchTemplatePlacementArrayOutput{})
 	pulumi.RegisterOutputType(GetLaunchTemplatePrivateDnsNameOptionOutput{})
 	pulumi.RegisterOutputType(GetLaunchTemplatePrivateDnsNameOptionArrayOutput{})
+	pulumi.RegisterOutputType(GetLaunchTemplateSecondaryInterfaceOutput{})
+	pulumi.RegisterOutputType(GetLaunchTemplateSecondaryInterfaceArrayOutput{})
 	pulumi.RegisterOutputType(GetLaunchTemplateTagSpecificationOutput{})
 	pulumi.RegisterOutputType(GetLaunchTemplateTagSpecificationArrayOutput{})
 	pulumi.RegisterOutputType(GetLocalGatewayFilterOutput{})

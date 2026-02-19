@@ -13,6 +13,7 @@ import java.util.Objects;
 public final class GetLaunchTemplateCpuOption {
     private String amdSevSnp;
     private Integer coreCount;
+    private String nestedVirtualization;
     private Integer threadsPerCore;
 
     private GetLaunchTemplateCpuOption() {}
@@ -21,6 +22,9 @@ public final class GetLaunchTemplateCpuOption {
     }
     public Integer coreCount() {
         return this.coreCount;
+    }
+    public String nestedVirtualization() {
+        return this.nestedVirtualization;
     }
     public Integer threadsPerCore() {
         return this.threadsPerCore;
@@ -37,12 +41,14 @@ public final class GetLaunchTemplateCpuOption {
     public static final class Builder {
         private String amdSevSnp;
         private Integer coreCount;
+        private String nestedVirtualization;
         private Integer threadsPerCore;
         public Builder() {}
         public Builder(GetLaunchTemplateCpuOption defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.amdSevSnp = defaults.amdSevSnp;
     	      this.coreCount = defaults.coreCount;
+    	      this.nestedVirtualization = defaults.nestedVirtualization;
     	      this.threadsPerCore = defaults.threadsPerCore;
         }
 
@@ -63,6 +69,14 @@ public final class GetLaunchTemplateCpuOption {
             return this;
         }
         @CustomType.Setter
+        public Builder nestedVirtualization(String nestedVirtualization) {
+            if (nestedVirtualization == null) {
+              throw new MissingRequiredPropertyException("GetLaunchTemplateCpuOption", "nestedVirtualization");
+            }
+            this.nestedVirtualization = nestedVirtualization;
+            return this;
+        }
+        @CustomType.Setter
         public Builder threadsPerCore(Integer threadsPerCore) {
             if (threadsPerCore == null) {
               throw new MissingRequiredPropertyException("GetLaunchTemplateCpuOption", "threadsPerCore");
@@ -74,6 +88,7 @@ public final class GetLaunchTemplateCpuOption {
             final var _resultValue = new GetLaunchTemplateCpuOption();
             _resultValue.amdSevSnp = amdSevSnp;
             _resultValue.coreCount = coreCount;
+            _resultValue.nestedVirtualization = nestedVirtualization;
             _resultValue.threadsPerCore = threadsPerCore;
             return _resultValue;
         }

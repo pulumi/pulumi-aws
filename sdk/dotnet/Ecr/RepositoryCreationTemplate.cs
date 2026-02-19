@@ -143,7 +143,7 @@ namespace Pulumi.Aws.Ecr
         public Output<ImmutableArray<Outputs.RepositoryCreationTemplateEncryptionConfiguration>> EncryptionConfigurations { get; private set; } = null!;
 
         /// <summary>
-        /// The tag mutability setting for any created repositories. Must be one of: `MUTABLE` or `IMMUTABLE`. Defaults to `MUTABLE`.
+        /// The tag mutability setting for any created repositories. Must be one of: `MUTABLE`, `IMMUTABLE`, `IMMUTABLE_WITH_EXCLUSION`, or `MUTABLE_WITH_EXCLUSION`. Defaults to `MUTABLE`.
         /// </summary>
         [Output("imageTagMutability")]
         public Output<string?> ImageTagMutability { get; private set; } = null!;
@@ -273,7 +273,7 @@ namespace Pulumi.Aws.Ecr
         }
 
         /// <summary>
-        /// The tag mutability setting for any created repositories. Must be one of: `MUTABLE` or `IMMUTABLE`. Defaults to `MUTABLE`.
+        /// The tag mutability setting for any created repositories. Must be one of: `MUTABLE`, `IMMUTABLE`, `IMMUTABLE_WITH_EXCLUSION`, or `MUTABLE_WITH_EXCLUSION`. Defaults to `MUTABLE`.
         /// </summary>
         [Input("imageTagMutability")]
         public Input<string>? ImageTagMutability { get; set; }
@@ -371,7 +371,7 @@ namespace Pulumi.Aws.Ecr
         }
 
         /// <summary>
-        /// The tag mutability setting for any created repositories. Must be one of: `MUTABLE` or `IMMUTABLE`. Defaults to `MUTABLE`.
+        /// The tag mutability setting for any created repositories. Must be one of: `MUTABLE`, `IMMUTABLE`, `IMMUTABLE_WITH_EXCLUSION`, or `MUTABLE_WITH_EXCLUSION`. Defaults to `MUTABLE`.
         /// </summary>
         [Input("imageTagMutability")]
         public Input<string>? ImageTagMutability { get; set; }

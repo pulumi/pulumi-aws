@@ -18,6 +18,11 @@ public final class GetCertificateAuthorityRevocationConfigurationCrlConfiguratio
      */
     private String customCname;
     /**
+     * @return Custom path for the CRL in S3.
+     * 
+     */
+    private String customPath;
+    /**
      * @return Boolean value that specifies whether certificate revocation lists (CRLs) are enabled.
      * 
      */
@@ -45,6 +50,13 @@ public final class GetCertificateAuthorityRevocationConfigurationCrlConfiguratio
      */
     public String customCname() {
         return this.customCname;
+    }
+    /**
+     * @return Custom path for the CRL in S3.
+     * 
+     */
+    public String customPath() {
+        return this.customPath;
     }
     /**
      * @return Boolean value that specifies whether certificate revocation lists (CRLs) are enabled.
@@ -85,6 +97,7 @@ public final class GetCertificateAuthorityRevocationConfigurationCrlConfiguratio
     @CustomType.Builder
     public static final class Builder {
         private String customCname;
+        private String customPath;
         private Boolean enabled;
         private Integer expirationInDays;
         private String s3BucketName;
@@ -93,6 +106,7 @@ public final class GetCertificateAuthorityRevocationConfigurationCrlConfiguratio
         public Builder(GetCertificateAuthorityRevocationConfigurationCrlConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.customCname = defaults.customCname;
+    	      this.customPath = defaults.customPath;
     	      this.enabled = defaults.enabled;
     	      this.expirationInDays = defaults.expirationInDays;
     	      this.s3BucketName = defaults.s3BucketName;
@@ -105,6 +119,14 @@ public final class GetCertificateAuthorityRevocationConfigurationCrlConfiguratio
               throw new MissingRequiredPropertyException("GetCertificateAuthorityRevocationConfigurationCrlConfiguration", "customCname");
             }
             this.customCname = customCname;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder customPath(String customPath) {
+            if (customPath == null) {
+              throw new MissingRequiredPropertyException("GetCertificateAuthorityRevocationConfigurationCrlConfiguration", "customPath");
+            }
+            this.customPath = customPath;
             return this;
         }
         @CustomType.Setter
@@ -142,6 +164,7 @@ public final class GetCertificateAuthorityRevocationConfigurationCrlConfiguratio
         public GetCertificateAuthorityRevocationConfigurationCrlConfiguration build() {
             final var _resultValue = new GetCertificateAuthorityRevocationConfigurationCrlConfiguration();
             _resultValue.customCname = customCname;
+            _resultValue.customPath = customPath;
             _resultValue.enabled = enabled;
             _resultValue.expirationInDays = expirationInDays;
             _resultValue.s3BucketName = s3BucketName;

@@ -48,6 +48,12 @@ namespace Pulumi.Aws.Dms.Inputs
         [Input("nestingLevel")]
         public Input<string>? NestingLevel { get; set; }
 
+        /// <summary>
+        /// If `True`, DMS retrieves the entire document from the MongoDB source during migration. Default is `False`.
+        /// </summary>
+        [Input("useUpdateLookup")]
+        public Input<bool>? UseUpdateLookup { get; set; }
+
         public EndpointMongodbSettingsGetArgs()
         {
         }

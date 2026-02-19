@@ -42,7 +42,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.tls.PrivateKeyArgs;
  * import com.pulumi.tls.CertRequest;
  * import com.pulumi.tls.CertRequestArgs;
- * import com.pulumi.tls.inputs.CertRequestSubjectArgs;
  * import com.pulumi.aws.acmpca.Certificate;
  * import com.pulumi.aws.acmpca.CertificateArgs;
  * import com.pulumi.aws.acmpca.inputs.CertificateValidityArgs;

@@ -14,15 +14,15 @@ namespace Pulumi.Aws.Lex.Outputs
     public sealed class V2modelsIntentKendraConfiguration
     {
         /// <summary>
-        /// ARN of the Amazon Kendra index that you want the AMAZON.KendraSearchIntent intent to search. The index must be in the same account and Region as the Amazon Lex bot.
+        /// ARN of the Kendra index.
         /// </summary>
         public readonly string KendraIndex;
         /// <summary>
-        /// Query filter that Amazon Lex sends to Amazon Kendra to filter the response from a query. The filter is in the format defined by Amazon Kendra. For more information, see [Filtering queries](https://docs.aws.amazon.com/kendra/latest/dg/filtering.html).
+        /// Query filter string for Kendra.
         /// </summary>
         public readonly string? QueryFilterString;
         /// <summary>
-        /// Whether the AMAZON.KendraSearchIntent intent uses a custom query string to query the Amazon Kendra index.
+        /// Whether the query filter string is enabled.
         /// </summary>
         public readonly bool? QueryFilterStringEnabled;
 

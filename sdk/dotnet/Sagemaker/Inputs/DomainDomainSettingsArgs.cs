@@ -42,6 +42,12 @@ namespace Pulumi.Aws.Sagemaker.Inputs
             set => _securityGroupIds = value;
         }
 
+        /// <summary>
+        /// Configuration for trusted identity propagation. See the `TrustedIdentityPropagationSettings` Block below.
+        /// </summary>
+        [Input("trustedIdentityPropagationSettings")]
+        public Input<Inputs.DomainDomainSettingsTrustedIdentityPropagationSettingsArgs>? TrustedIdentityPropagationSettings { get; set; }
+
         public DomainDomainSettingsArgs()
         {
         }

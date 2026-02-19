@@ -16,6 +16,10 @@ public final class BudgetCostFilter {
      * 
      */
     private String name;
+    /**
+     * @return (Optional) A list of cost category values to match. At least one value is required.
+     * 
+     */
     private List<String> values;
 
     private BudgetCostFilter() {}
@@ -26,6 +30,10 @@ public final class BudgetCostFilter {
     public String name() {
         return this.name;
     }
+    /**
+     * @return (Optional) A list of cost category values to match. At least one value is required.
+     * 
+     */
     public List<String> values() {
         return this.values;
     }

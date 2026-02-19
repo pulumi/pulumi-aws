@@ -15,6 +15,7 @@ namespace Pulumi.Aws.Ec2.Outputs
     {
         public readonly string AmdSevSnp;
         public readonly int CoreCount;
+        public readonly string NestedVirtualization;
         public readonly int ThreadsPerCore;
 
         [OutputConstructor]
@@ -23,10 +24,13 @@ namespace Pulumi.Aws.Ec2.Outputs
 
             int coreCount,
 
+            string nestedVirtualization,
+
             int threadsPerCore)
         {
             AmdSevSnp = amdSevSnp;
             CoreCount = coreCount;
+            NestedVirtualization = nestedVirtualization;
             ThreadsPerCore = threadsPerCore;
         }
     }

@@ -23,6 +23,11 @@ public final class SpotInstanceRequestCpuOptions {
      */
     private @Nullable Integer coreCount;
     /**
+     * @return Indicates whether to enable the instance for nested virtualization. Nested virtualization is supported on 8th generation Intel-based instance types (C8i, M8i, R8i, and their flex variants) only. When nested virtualization is enabled, Virtual Secure Mode (VSM) is automatically disabled for the instance. Valid values are `enabled` and `disabled`.
+     * 
+     */
+    private @Nullable String nestedVirtualization;
+    /**
      * @return If set to 1, hyperthreading is disabled on the launched instance. Defaults to 2 if not set. See [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) for more information.
      * 
      * For more information, see the documentation on [Optimizing CPU options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html).
@@ -46,6 +51,13 @@ public final class SpotInstanceRequestCpuOptions {
         return Optional.ofNullable(this.coreCount);
     }
     /**
+     * @return Indicates whether to enable the instance for nested virtualization. Nested virtualization is supported on 8th generation Intel-based instance types (C8i, M8i, R8i, and their flex variants) only. When nested virtualization is enabled, Virtual Secure Mode (VSM) is automatically disabled for the instance. Valid values are `enabled` and `disabled`.
+     * 
+     */
+    public Optional<String> nestedVirtualization() {
+        return Optional.ofNullable(this.nestedVirtualization);
+    }
+    /**
      * @return If set to 1, hyperthreading is disabled on the launched instance. Defaults to 2 if not set. See [Optimizing CPU Options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html) for more information.
      * 
      * For more information, see the documentation on [Optimizing CPU options](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-optimize-cpu.html).
@@ -66,12 +78,14 @@ public final class SpotInstanceRequestCpuOptions {
     public static final class Builder {
         private @Nullable String amdSevSnp;
         private @Nullable Integer coreCount;
+        private @Nullable String nestedVirtualization;
         private @Nullable Integer threadsPerCore;
         public Builder() {}
         public Builder(SpotInstanceRequestCpuOptions defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.amdSevSnp = defaults.amdSevSnp;
     	      this.coreCount = defaults.coreCount;
+    	      this.nestedVirtualization = defaults.nestedVirtualization;
     	      this.threadsPerCore = defaults.threadsPerCore;
         }
 
@@ -88,6 +102,12 @@ public final class SpotInstanceRequestCpuOptions {
             return this;
         }
         @CustomType.Setter
+        public Builder nestedVirtualization(@Nullable String nestedVirtualization) {
+
+            this.nestedVirtualization = nestedVirtualization;
+            return this;
+        }
+        @CustomType.Setter
         public Builder threadsPerCore(@Nullable Integer threadsPerCore) {
 
             this.threadsPerCore = threadsPerCore;
@@ -97,6 +117,7 @@ public final class SpotInstanceRequestCpuOptions {
             final var _resultValue = new SpotInstanceRequestCpuOptions();
             _resultValue.amdSevSnp = amdSevSnp;
             _resultValue.coreCount = coreCount;
+            _resultValue.nestedVirtualization = nestedVirtualization;
             _resultValue.threadsPerCore = threadsPerCore;
             return _resultValue;
         }

@@ -226,6 +226,13 @@ namespace Pulumi.Aws.Ec2
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
+        /// Secondary interfaces to associate with instances launched from the template. See Secondary
+        /// Interfaces below for more details.
+        /// </summary>
+        [Output("secondaryInterfaces")]
+        public Output<ImmutableArray<Outputs.LaunchTemplateSecondaryInterface>> SecondaryInterfaces { get; private set; } = null!;
+
+        /// <summary>
         /// A list of security group names to associate with. If you are creating Instances in a VPC, use
         /// `VpcSecurityGroupIds` instead.
         /// </summary>
@@ -522,6 +529,19 @@ namespace Pulumi.Aws.Ec2
         [Input("region")]
         public Input<string>? Region { get; set; }
 
+        [Input("secondaryInterfaces")]
+        private InputList<Inputs.LaunchTemplateSecondaryInterfaceArgs>? _secondaryInterfaces;
+
+        /// <summary>
+        /// Secondary interfaces to associate with instances launched from the template. See Secondary
+        /// Interfaces below for more details.
+        /// </summary>
+        public InputList<Inputs.LaunchTemplateSecondaryInterfaceArgs> SecondaryInterfaces
+        {
+            get => _secondaryInterfaces ?? (_secondaryInterfaces = new InputList<Inputs.LaunchTemplateSecondaryInterfaceArgs>());
+            set => _secondaryInterfaces = value;
+        }
+
         [Input("securityGroupNames")]
         private InputList<string>? _securityGroupNames;
 
@@ -810,6 +830,19 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
+
+        [Input("secondaryInterfaces")]
+        private InputList<Inputs.LaunchTemplateSecondaryInterfaceGetArgs>? _secondaryInterfaces;
+
+        /// <summary>
+        /// Secondary interfaces to associate with instances launched from the template. See Secondary
+        /// Interfaces below for more details.
+        /// </summary>
+        public InputList<Inputs.LaunchTemplateSecondaryInterfaceGetArgs> SecondaryInterfaces
+        {
+            get => _secondaryInterfaces ?? (_secondaryInterfaces = new InputList<Inputs.LaunchTemplateSecondaryInterfaceGetArgs>());
+            set => _secondaryInterfaces = value;
+        }
 
         [Input("securityGroupNames")]
         private InputList<string>? _securityGroupNames;

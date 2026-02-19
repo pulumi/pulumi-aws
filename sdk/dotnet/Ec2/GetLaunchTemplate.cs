@@ -305,10 +305,12 @@ namespace Pulumi.Aws.Ec2
         public readonly ImmutableArray<Outputs.GetLaunchTemplateMonitoringResult> Monitorings;
         public readonly string Name;
         public readonly ImmutableArray<Outputs.GetLaunchTemplateNetworkInterfaceResult> NetworkInterfaces;
+        public readonly ImmutableArray<Outputs.GetLaunchTemplateNetworkPerformanceOptionResult> NetworkPerformanceOptions;
         public readonly ImmutableArray<Outputs.GetLaunchTemplatePlacementResult> Placements;
         public readonly ImmutableArray<Outputs.GetLaunchTemplatePrivateDnsNameOptionResult> PrivateDnsNameOptions;
         public readonly string RamDiskId;
         public readonly string Region;
+        public readonly ImmutableArray<Outputs.GetLaunchTemplateSecondaryInterfaceResult> SecondaryInterfaces;
         public readonly ImmutableArray<string> SecurityGroupNames;
         public readonly ImmutableArray<Outputs.GetLaunchTemplateTagSpecificationResult> TagSpecifications;
         public readonly ImmutableDictionary<string, string> Tags;
@@ -375,6 +377,8 @@ namespace Pulumi.Aws.Ec2
 
             ImmutableArray<Outputs.GetLaunchTemplateNetworkInterfaceResult> networkInterfaces,
 
+            ImmutableArray<Outputs.GetLaunchTemplateNetworkPerformanceOptionResult> networkPerformanceOptions,
+
             ImmutableArray<Outputs.GetLaunchTemplatePlacementResult> placements,
 
             ImmutableArray<Outputs.GetLaunchTemplatePrivateDnsNameOptionResult> privateDnsNameOptions,
@@ -382,6 +386,8 @@ namespace Pulumi.Aws.Ec2
             string ramDiskId,
 
             string region,
+
+            ImmutableArray<Outputs.GetLaunchTemplateSecondaryInterfaceResult> secondaryInterfaces,
 
             ImmutableArray<string> securityGroupNames,
 
@@ -422,10 +428,12 @@ namespace Pulumi.Aws.Ec2
             Monitorings = monitorings;
             Name = name;
             NetworkInterfaces = networkInterfaces;
+            NetworkPerformanceOptions = networkPerformanceOptions;
             Placements = placements;
             PrivateDnsNameOptions = privateDnsNameOptions;
             RamDiskId = ramDiskId;
             Region = region;
+            SecondaryInterfaces = secondaryInterfaces;
             SecurityGroupNames = securityGroupNames;
             TagSpecifications = tagSpecifications;
             Tags = tags;

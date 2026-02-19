@@ -80,14 +80,14 @@ public final class RepositoryCreationTemplateState extends com.pulumi.resources.
     }
 
     /**
-     * The tag mutability setting for any created repositories. Must be one of: `MUTABLE` or `IMMUTABLE`. Defaults to `MUTABLE`.
+     * The tag mutability setting for any created repositories. Must be one of: `MUTABLE`, `IMMUTABLE`, `IMMUTABLE_WITH_EXCLUSION`, or `MUTABLE_WITH_EXCLUSION`. Defaults to `MUTABLE`.
      * 
      */
     @Import(name="imageTagMutability")
     private @Nullable Output<String> imageTagMutability;
 
     /**
-     * @return The tag mutability setting for any created repositories. Must be one of: `MUTABLE` or `IMMUTABLE`. Defaults to `MUTABLE`.
+     * @return The tag mutability setting for any created repositories. Must be one of: `MUTABLE`, `IMMUTABLE`, `IMMUTABLE_WITH_EXCLUSION`, or `MUTABLE_WITH_EXCLUSION`. Defaults to `MUTABLE`.
      * 
      */
     public Optional<Output<String>> imageTagMutability() {
@@ -339,7 +339,7 @@ public final class RepositoryCreationTemplateState extends com.pulumi.resources.
         }
 
         /**
-         * @param imageTagMutability The tag mutability setting for any created repositories. Must be one of: `MUTABLE` or `IMMUTABLE`. Defaults to `MUTABLE`.
+         * @param imageTagMutability The tag mutability setting for any created repositories. Must be one of: `MUTABLE`, `IMMUTABLE`, `IMMUTABLE_WITH_EXCLUSION`, or `MUTABLE_WITH_EXCLUSION`. Defaults to `MUTABLE`.
          * 
          * @return builder
          * 
@@ -350,7 +350,7 @@ public final class RepositoryCreationTemplateState extends com.pulumi.resources.
         }
 
         /**
-         * @param imageTagMutability The tag mutability setting for any created repositories. Must be one of: `MUTABLE` or `IMMUTABLE`. Defaults to `MUTABLE`.
+         * @param imageTagMutability The tag mutability setting for any created repositories. Must be one of: `MUTABLE`, `IMMUTABLE`, `IMMUTABLE_WITH_EXCLUSION`, or `MUTABLE_WITH_EXCLUSION`. Defaults to `MUTABLE`.
          * 
          * @return builder
          * 

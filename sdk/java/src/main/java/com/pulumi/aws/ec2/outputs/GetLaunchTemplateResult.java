@@ -18,8 +18,10 @@ import com.pulumi.aws.ec2.outputs.GetLaunchTemplateMaintenanceOption;
 import com.pulumi.aws.ec2.outputs.GetLaunchTemplateMetadataOption;
 import com.pulumi.aws.ec2.outputs.GetLaunchTemplateMonitoring;
 import com.pulumi.aws.ec2.outputs.GetLaunchTemplateNetworkInterface;
+import com.pulumi.aws.ec2.outputs.GetLaunchTemplateNetworkPerformanceOption;
 import com.pulumi.aws.ec2.outputs.GetLaunchTemplatePlacement;
 import com.pulumi.aws.ec2.outputs.GetLaunchTemplatePrivateDnsNameOption;
+import com.pulumi.aws.ec2.outputs.GetLaunchTemplateSecondaryInterface;
 import com.pulumi.aws.ec2.outputs.GetLaunchTemplateTagSpecification;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
@@ -66,10 +68,12 @@ public final class GetLaunchTemplateResult {
     private List<GetLaunchTemplateMonitoring> monitorings;
     private String name;
     private List<GetLaunchTemplateNetworkInterface> networkInterfaces;
+    private List<GetLaunchTemplateNetworkPerformanceOption> networkPerformanceOptions;
     private List<GetLaunchTemplatePlacement> placements;
     private List<GetLaunchTemplatePrivateDnsNameOption> privateDnsNameOptions;
     private String ramDiskId;
     private String region;
+    private List<GetLaunchTemplateSecondaryInterface> secondaryInterfaces;
     private List<String> securityGroupNames;
     private List<GetLaunchTemplateTagSpecification> tagSpecifications;
     private Map<String,String> tags;
@@ -168,6 +172,9 @@ public final class GetLaunchTemplateResult {
     public List<GetLaunchTemplateNetworkInterface> networkInterfaces() {
         return this.networkInterfaces;
     }
+    public List<GetLaunchTemplateNetworkPerformanceOption> networkPerformanceOptions() {
+        return this.networkPerformanceOptions;
+    }
     public List<GetLaunchTemplatePlacement> placements() {
         return this.placements;
     }
@@ -179,6 +186,9 @@ public final class GetLaunchTemplateResult {
     }
     public String region() {
         return this.region;
+    }
+    public List<GetLaunchTemplateSecondaryInterface> secondaryInterfaces() {
+        return this.secondaryInterfaces;
     }
     public List<String> securityGroupNames() {
         return this.securityGroupNames;
@@ -234,10 +244,12 @@ public final class GetLaunchTemplateResult {
         private List<GetLaunchTemplateMonitoring> monitorings;
         private String name;
         private List<GetLaunchTemplateNetworkInterface> networkInterfaces;
+        private List<GetLaunchTemplateNetworkPerformanceOption> networkPerformanceOptions;
         private List<GetLaunchTemplatePlacement> placements;
         private List<GetLaunchTemplatePrivateDnsNameOption> privateDnsNameOptions;
         private String ramDiskId;
         private String region;
+        private List<GetLaunchTemplateSecondaryInterface> secondaryInterfaces;
         private List<String> securityGroupNames;
         private List<GetLaunchTemplateTagSpecification> tagSpecifications;
         private Map<String,String> tags;
@@ -275,10 +287,12 @@ public final class GetLaunchTemplateResult {
     	      this.monitorings = defaults.monitorings;
     	      this.name = defaults.name;
     	      this.networkInterfaces = defaults.networkInterfaces;
+    	      this.networkPerformanceOptions = defaults.networkPerformanceOptions;
     	      this.placements = defaults.placements;
     	      this.privateDnsNameOptions = defaults.privateDnsNameOptions;
     	      this.ramDiskId = defaults.ramDiskId;
     	      this.region = defaults.region;
+    	      this.secondaryInterfaces = defaults.secondaryInterfaces;
     	      this.securityGroupNames = defaults.securityGroupNames;
     	      this.tagSpecifications = defaults.tagSpecifications;
     	      this.tags = defaults.tags;
@@ -562,6 +576,17 @@ public final class GetLaunchTemplateResult {
             return networkInterfaces(List.of(networkInterfaces));
         }
         @CustomType.Setter
+        public Builder networkPerformanceOptions(List<GetLaunchTemplateNetworkPerformanceOption> networkPerformanceOptions) {
+            if (networkPerformanceOptions == null) {
+              throw new MissingRequiredPropertyException("GetLaunchTemplateResult", "networkPerformanceOptions");
+            }
+            this.networkPerformanceOptions = networkPerformanceOptions;
+            return this;
+        }
+        public Builder networkPerformanceOptions(GetLaunchTemplateNetworkPerformanceOption... networkPerformanceOptions) {
+            return networkPerformanceOptions(List.of(networkPerformanceOptions));
+        }
+        @CustomType.Setter
         public Builder placements(List<GetLaunchTemplatePlacement> placements) {
             if (placements == null) {
               throw new MissingRequiredPropertyException("GetLaunchTemplateResult", "placements");
@@ -598,6 +623,17 @@ public final class GetLaunchTemplateResult {
             }
             this.region = region;
             return this;
+        }
+        @CustomType.Setter
+        public Builder secondaryInterfaces(List<GetLaunchTemplateSecondaryInterface> secondaryInterfaces) {
+            if (secondaryInterfaces == null) {
+              throw new MissingRequiredPropertyException("GetLaunchTemplateResult", "secondaryInterfaces");
+            }
+            this.secondaryInterfaces = secondaryInterfaces;
+            return this;
+        }
+        public Builder secondaryInterfaces(GetLaunchTemplateSecondaryInterface... secondaryInterfaces) {
+            return secondaryInterfaces(List.of(secondaryInterfaces));
         }
         @CustomType.Setter
         public Builder securityGroupNames(List<String> securityGroupNames) {
@@ -679,10 +715,12 @@ public final class GetLaunchTemplateResult {
             _resultValue.monitorings = monitorings;
             _resultValue.name = name;
             _resultValue.networkInterfaces = networkInterfaces;
+            _resultValue.networkPerformanceOptions = networkPerformanceOptions;
             _resultValue.placements = placements;
             _resultValue.privateDnsNameOptions = privateDnsNameOptions;
             _resultValue.ramDiskId = ramDiskId;
             _resultValue.region = region;
+            _resultValue.secondaryInterfaces = secondaryInterfaces;
             _resultValue.securityGroupNames = securityGroupNames;
             _resultValue.tagSpecifications = tagSpecifications;
             _resultValue.tags = tags;

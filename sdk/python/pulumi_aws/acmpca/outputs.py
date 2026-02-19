@@ -333,6 +333,8 @@ class CertificateAuthorityRevocationConfigurationCrlConfiguration(dict):
         suggest = None
         if key == "customCname":
             suggest = "custom_cname"
+        elif key == "customPath":
+            suggest = "custom_path"
         elif key == "expirationInDays":
             suggest = "expiration_in_days"
         elif key == "s3BucketName":
@@ -353,12 +355,14 @@ class CertificateAuthorityRevocationConfigurationCrlConfiguration(dict):
 
     def __init__(__self__, *,
                  custom_cname: Optional[_builtins.str] = None,
+                 custom_path: Optional[_builtins.str] = None,
                  enabled: Optional[_builtins.bool] = None,
                  expiration_in_days: Optional[_builtins.int] = None,
                  s3_bucket_name: Optional[_builtins.str] = None,
                  s3_object_acl: Optional[_builtins.str] = None):
         """
         :param _builtins.str custom_cname: Name inserted into the certificate CRL Distribution Points extension that enables the use of an alias for the CRL distribution point. Use this value if you don't want the name of your S3 bucket to be public. Must be less than or equal to 253 characters in length.
+        :param _builtins.str custom_path: Configures a custom path for the CRL in S3. If specified, the CRL will be written to `s3://<s3_bucket_name>/<custom_path>/<crl_file>`. Must conform to the pattern `[-a-zA-Z0-9;?:@&=+$,%_.!~*()']+(/[-a-zA-Z0-9;?:@&=+$,%_.!~*()']+)*` and be between 0 and 253 characters in length.
         :param _builtins.bool enabled: Boolean value that specifies whether certificate revocation lists (CRLs) are enabled. Defaults to `false`.
         :param _builtins.int expiration_in_days: Number of days until a certificate expires. Must be between 1 and 5000.
         :param _builtins.str s3_bucket_name: Name of the S3 bucket that contains the CRL. If you do not provide a value for the `custom_cname` argument, the name of your S3 bucket is placed into the CRL Distribution Points extension of the issued certificate. You must specify a bucket policy that allows ACM PCA to write the CRL to your bucket. Must be between 3 and 255 characters in length.
@@ -366,6 +370,8 @@ class CertificateAuthorityRevocationConfigurationCrlConfiguration(dict):
         """
         if custom_cname is not None:
             pulumi.set(__self__, "custom_cname", custom_cname)
+        if custom_path is not None:
+            pulumi.set(__self__, "custom_path", custom_path)
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
         if expiration_in_days is not None:
@@ -382,6 +388,14 @@ class CertificateAuthorityRevocationConfigurationCrlConfiguration(dict):
         Name inserted into the certificate CRL Distribution Points extension that enables the use of an alias for the CRL distribution point. Use this value if you don't want the name of your S3 bucket to be public. Must be less than or equal to 253 characters in length.
         """
         return pulumi.get(self, "custom_cname")
+
+    @_builtins.property
+    @pulumi.getter(name="customPath")
+    def custom_path(self) -> Optional[_builtins.str]:
+        """
+        Configures a custom path for the CRL in S3. If specified, the CRL will be written to `s3://<s3_bucket_name>/<custom_path>/<crl_file>`. Must conform to the pattern `[-a-zA-Z0-9;?:@&=+$,%_.!~*()']+(/[-a-zA-Z0-9;?:@&=+$,%_.!~*()']+)*` and be between 0 and 253 characters in length.
+        """
+        return pulumi.get(self, "custom_path")
 
     @_builtins.property
     @pulumi.getter
@@ -521,18 +535,21 @@ class GetCertificateAuthorityRevocationConfigurationResult(dict):
 class GetCertificateAuthorityRevocationConfigurationCrlConfigurationResult(dict):
     def __init__(__self__, *,
                  custom_cname: _builtins.str,
+                 custom_path: _builtins.str,
                  enabled: _builtins.bool,
                  expiration_in_days: _builtins.int,
                  s3_bucket_name: _builtins.str,
                  s3_object_acl: _builtins.str):
         """
         :param _builtins.str custom_cname: Name inserted into the certificate CRL Distribution Points extension that enables the use of an alias for the CRL distribution point.
+        :param _builtins.str custom_path: Custom path for the CRL in S3.
         :param _builtins.bool enabled: Boolean value that specifies whether certificate revocation lists (CRLs) are enabled.
         :param _builtins.int expiration_in_days: Number of days until a certificate expires.
         :param _builtins.str s3_bucket_name: Name of the S3 bucket that contains the CRL.
         :param _builtins.str s3_object_acl: Whether the CRL is publicly readable or privately held in the CRL Amazon S3 bucket.
         """
         pulumi.set(__self__, "custom_cname", custom_cname)
+        pulumi.set(__self__, "custom_path", custom_path)
         pulumi.set(__self__, "enabled", enabled)
         pulumi.set(__self__, "expiration_in_days", expiration_in_days)
         pulumi.set(__self__, "s3_bucket_name", s3_bucket_name)
@@ -545,6 +562,14 @@ class GetCertificateAuthorityRevocationConfigurationCrlConfigurationResult(dict)
         Name inserted into the certificate CRL Distribution Points extension that enables the use of an alias for the CRL distribution point.
         """
         return pulumi.get(self, "custom_cname")
+
+    @_builtins.property
+    @pulumi.getter(name="customPath")
+    def custom_path(self) -> _builtins.str:
+        """
+        Custom path for the CRL in S3.
+        """
+        return pulumi.get(self, "custom_path")
 
     @_builtins.property
     @pulumi.getter

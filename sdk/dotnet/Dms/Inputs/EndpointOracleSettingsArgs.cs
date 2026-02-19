@@ -13,10 +13,252 @@ namespace Pulumi.Aws.Dms.Inputs
     public sealed class EndpointOracleSettingsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Set this attribute to `False` in order to use the Binary Reader to capture change data for an Amazon RDS for Oracle as the source.
+        /// </summary>
+        [Input("accessAlternateDirectly")]
+        public Input<bool>? AccessAlternateDirectly { get; set; }
+
+        /// <summary>
+        /// Set this attribute to set up table-level supplemental logging for the Oracle database. This attribute enables PRIMARY KEY supplemental logging on all tables selected for a migration task.
+        /// </summary>
+        [Input("addSupplementalLogging")]
+        public Input<bool>? AddSupplementalLogging { get; set; }
+
+        /// <summary>
+        /// Set this attribute with `ArchivedLogDestId` in a primary/standby setup. This attribute is useful in the case of a switchover.
+        /// </summary>
+        [Input("additionalArchivedLogDestId")]
+        public Input<int>? AdditionalArchivedLogDestId { get; set; }
+
+        /// <summary>
+        /// Set this attribute to `True` to enable replication of Oracle tables containing columns that are nested tables or defined types.
+        /// </summary>
+        [Input("allowSelectedNestedTables")]
+        public Input<bool>? AllowSelectedNestedTables { get; set; }
+
+        /// <summary>
+        /// Specifies the ID of the destination for the archived redo logs. This value should be the same as a number in the DestId column of the v$archived_log view.
+        /// </summary>
+        [Input("archivedLogDestId")]
+        public Input<int>? ArchivedLogDestId { get; set; }
+
+        /// <summary>
+        /// When this field is set to `True`, AWS DMS only accesses the archived redo logs.
+        /// </summary>
+        [Input("archivedLogsOnly")]
+        public Input<bool>? ArchivedLogsOnly { get; set; }
+
+        [Input("asmPassword")]
+        private Input<string>? _asmPassword;
+
+        /// <summary>
+        /// For an Oracle source endpoint, your Oracle Automatic Storage Management (ASM) password.
+        /// </summary>
+        public Input<string>? AsmPassword
+        {
+            get => _asmPassword;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _asmPassword = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        /// <summary>
+        /// For an Oracle source endpoint, your ASM server address.
+        /// </summary>
+        [Input("asmServer")]
+        public Input<string>? AsmServer { get; set; }
+
+        /// <summary>
+        /// For an Oracle source endpoint, your ASM user name.
+        /// </summary>
+        [Input("asmUser")]
+        public Input<string>? AsmUser { get; set; }
+
+        /// <summary>
         /// Authentication mechanism to access the Oracle source endpoint. Default is `Password`. Valid values are `Password` and `Kerberos`.
         /// </summary>
         [Input("authenticationMethod")]
         public Input<string>? AuthenticationMethod { get; set; }
+
+        /// <summary>
+        /// Specifies whether the length of a character column is in bytes or in characters. Valid values are `Default`, `Char`, and `Byte`.
+        /// </summary>
+        [Input("charLengthSemantics")]
+        public Input<string>? CharLengthSemantics { get; set; }
+
+        /// <summary>
+        /// When `True`, converts timestamps with the timezone datatype to their UTC value.
+        /// </summary>
+        [Input("convertTimestampWithZoneToUtc")]
+        public Input<bool>? ConvertTimestampWithZoneToUtc { get; set; }
+
+        /// <summary>
+        /// When set to `True`, this attribute helps to increase the commit rate on the Oracle target database by writing directly to tables and not writing a trail to database logs.
+        /// </summary>
+        [Input("directPathNoLog")]
+        public Input<bool>? DirectPathNoLog { get; set; }
+
+        /// <summary>
+        /// When set to `True`, this attribute specifies a parallel load when UseDirectPathFullLoad is set to true.
+        /// </summary>
+        [Input("directPathParallelLoad")]
+        public Input<bool>? DirectPathParallelLoad { get; set; }
+
+        /// <summary>
+        /// Set this attribute to enable homogenous tablespace replication and create existing tables or indexes under the same tablespace on the target.
+        /// </summary>
+        [Input("enableHomogenousTablespace")]
+        public Input<bool>? EnableHomogenousTablespace { get; set; }
+
+        [Input("extraArchivedLogDestIds")]
+        private InputList<int>? _extraArchivedLogDestIds;
+
+        /// <summary>
+        /// Specifies the IDs of one more destinations for one or more archived redo logs. These IDs are the values of the DestId column in the v$archived_log view.
+        /// </summary>
+        public InputList<int> ExtraArchivedLogDestIds
+        {
+            get => _extraArchivedLogDestIds ?? (_extraArchivedLogDestIds = new InputList<int>());
+            set => _extraArchivedLogDestIds = value;
+        }
+
+        /// <summary>
+        /// When set to `True`, this attribute causes a task to fail if the actual size of an LOB column is greater than the specified lob_max_size.
+        /// </summary>
+        [Input("failTaskOnLobTruncation")]
+        public Input<bool>? FailTaskOnLobTruncation { get; set; }
+
+        /// <summary>
+        /// Specifies the number scale.
+        /// </summary>
+        [Input("numberDatatypeScale")]
+        public Input<int>? NumberDatatypeScale { get; set; }
+
+        /// <summary>
+        /// The timeframe in minutes to check for open transactions for a CDC-only task. You can specify an integer value between 0 (the default) and 240 (the maximum).
+        /// </summary>
+        [Input("openTransactionWindow")]
+        public Input<int>? OpenTransactionWindow { get; set; }
+
+        /// <summary>
+        /// Set this string attribute to the required value in order to use the Binary Reader to capture change data for an Amazon RDS for Oracle as the source. This value specifies the default Oracle root used to access the redo logs.
+        /// </summary>
+        [Input("oraclePathPrefix")]
+        public Input<string>? OraclePathPrefix { get; set; }
+
+        /// <summary>
+        /// Set this attribute to change the number of threads that DMS configures to perform a change data capture (CDC) load using Oracle Automatic Storage Management (ASM). You can specify an integer value between 2 (the default) and 8 (the maximum).
+        /// </summary>
+        [Input("parallelAsmReadThreads")]
+        public Input<int>? ParallelAsmReadThreads { get; set; }
+
+        /// <summary>
+        /// Set this attribute to change the number of read-ahead blocks that DMS configures to perform a change data capture (CDC) load using Oracle Automatic Storage Management (ASM). You can specify an integer value between 1000 (the default) and 200,000 (the maximum).
+        /// </summary>
+        [Input("readAheadBlocks")]
+        public Input<int>? ReadAheadBlocks { get; set; }
+
+        /// <summary>
+        /// When set to `True`, this attribute supports tablespace replication.
+        /// </summary>
+        [Input("readTableSpaceName")]
+        public Input<bool>? ReadTableSpaceName { get; set; }
+
+        /// <summary>
+        /// Set this attribute to `True` in order to use the Binary Reader to capture change data for an Amazon RDS for Oracle as the source. This setting tells DMS instance to replace the default Oracle root with the specified `UsePathPrefix` setting to access the redo logs.
+        /// </summary>
+        [Input("replacePathPrefix")]
+        public Input<bool>? ReplacePathPrefix { get; set; }
+
+        /// <summary>
+        /// Specifies the number of seconds that the system waits before resending a query.
+        /// </summary>
+        [Input("retryInterval")]
+        public Input<int>? RetryInterval { get; set; }
+
+        /// <summary>
+        /// Required only if your Oracle endpoint uses Automatic Storage Management (ASM). The full ARN of the IAM role that specifies AWS DMS as the trusted entity and grants the required permissions to access the `SecretsManagerOracleAsmSecretId`.
+        /// </summary>
+        [Input("secretsManagerOracleAsmAccessRoleArn")]
+        public Input<string>? SecretsManagerOracleAsmAccessRoleArn { get; set; }
+
+        /// <summary>
+        /// Required only if your Oracle endpoint uses Automatic Storage Management (ASM). The full ARN, partial ARN, or friendly name of the secret that contains the Oracle ASM connection details for the Oracle endpoint.
+        /// </summary>
+        [Input("secretsManagerOracleAsmSecretId")]
+        public Input<string>? SecretsManagerOracleAsmSecretId { get; set; }
+
+        [Input("securityDbEncryption")]
+        private Input<string>? _securityDbEncryption;
+
+        /// <summary>
+        /// For an Oracle source endpoint, the transparent data encryption (TDE) password required by AWM DMS to access Oracle redo logs encrypted by TDE using Binary Reader.
+        /// </summary>
+        public Input<string>? SecurityDbEncryption
+        {
+            get => _securityDbEncryption;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _securityDbEncryption = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        /// <summary>
+        /// For an Oracle source endpoint, the name of a key used for the transparent data encryption (TDE) of the columns and tablespaces in an Oracle source database that is encrypted using TDE.
+        /// </summary>
+        [Input("securityDbEncryptionName")]
+        public Input<string>? SecurityDbEncryptionName { get; set; }
+
+        /// <summary>
+        /// Use this attribute to convert SDO_GEOMETRY to GEOJSON format. By default, DMS calls the SDO2GEOJSON custom function if present and accessible.
+        /// </summary>
+        [Input("spatialDataOptionToGeoJsonFunctionName")]
+        public Input<string>? SpatialDataOptionToGeoJsonFunctionName { get; set; }
+
+        /// <summary>
+        /// Use this attribute to specify a time in minutes for the delay in standby sync. If the source is an Oracle Active Data Guard standby database, use this attribute to specify the time lag between primary and standby databases.
+        /// </summary>
+        [Input("standbyDelayTime")]
+        public Input<int>? StandbyDelayTime { get; set; }
+
+        /// <summary>
+        /// Use this attribute to trim data on CHAR and NCHAR data types during migration. The default value is `True`.
+        /// </summary>
+        [Input("trimSpaceInChar")]
+        public Input<bool>? TrimSpaceInChar { get; set; }
+
+        /// <summary>
+        /// Set this attribute to `True` in order to use the Binary Reader to capture change data for an Amazon RDS for Oracle as the source. This tells the DMS instance to use any specified prefix replacement to access all online redo logs.
+        /// </summary>
+        [Input("useAlternateFolderForOnline")]
+        public Input<bool>? UseAlternateFolderForOnline { get; set; }
+
+        /// <summary>
+        /// Set this attribute to `True` to capture change data using the Binary Reader utility. Set `UseLogminerReader` to `False` to set this attribute to `True`.
+        /// </summary>
+        [Input("useBfile")]
+        public Input<bool>? UseBfile { get; set; }
+
+        /// <summary>
+        /// Set this attribute to `True` to have AWS DMS use a direct path full load. Specify this value to use the direct path protocol in the Oracle Call Interface (OCI).
+        /// </summary>
+        [Input("useDirectPathFullLoad")]
+        public Input<bool>? UseDirectPathFullLoad { get; set; }
+
+        /// <summary>
+        /// Set this attribute to `True` to capture change data using the Oracle LogMiner utility (the default). Set this attribute to `False` if you want to access the redo logs as a binary file.
+        /// </summary>
+        [Input("useLogminerReader")]
+        public Input<bool>? UseLogminerReader { get; set; }
+
+        /// <summary>
+        /// Set this string attribute to the required value in order to use the Binary Reader to capture change data for an Amazon RDS for Oracle as the source. This value specifies the path prefix used to replace the default Oracle root to access the redo logs.
+        /// </summary>
+        [Input("usePathPrefix")]
+        public Input<string>? UsePathPrefix { get; set; }
 
         public EndpointOracleSettingsArgs()
         {

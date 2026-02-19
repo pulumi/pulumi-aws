@@ -49,20 +49,21 @@ namespace Pulumi.Aws.S3
     /// 
     /// ## Import
     /// 
-    /// If the owner (account ID) of the source bucket differs from the account used to configure the Terraform AWS Provider, import using the `Bucket` and `ExpectedBucketOwner` separated by a comma (`,`):
+    /// ### Identity Schema
     /// 
-    /// **Using `pulumi import` to import** S3 bucket metadata configuration using the `Bucket` or using the `Bucket` and `ExpectedBucketOwner` separated by a comma (`,`). For example:
+    /// #### Required
     /// 
-    /// If the owner (account ID) of the source bucket is the same account used to configure the Terraform AWS Provider, import using the `Bucket`:
+    /// * `Bucket` (String) S3 bucket name.
+    /// 
+    /// #### Optional
+    /// 
+    /// * `AccountId` (String) AWS Account where this resource is managed.
+    /// * `Region` (String) Region where this resource is managed.
+    /// 
+    /// **Using `pulumi import` to import** S3 bucket metadata configuration using the `Bucket`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:s3/bucketMetadataConfiguration:BucketMetadataConfiguration example bucket-name
-    /// ```
-    /// 
-    /// If the owner (account ID) of the source bucket differs from the account used to configure the Terraform AWS Provider, import using the `Bucket` and `ExpectedBucketOwner` separated by a comma (`,`):
-    /// 
-    /// ```sh
-    /// $ pulumi import aws:s3/bucketMetadataConfiguration:BucketMetadataConfiguration example bucket-name,123456789012
     /// ```
     /// </summary>
     [AwsResourceType("aws:s3/bucketMetadataConfiguration:BucketMetadataConfiguration")]

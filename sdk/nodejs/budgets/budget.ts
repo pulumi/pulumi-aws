@@ -169,6 +169,168 @@ import * as utilities from "../utilities";
  * }]});
  * ```
  *
+ * Create a budget with a simple dimension filter
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const simple = new aws.budgets.Budget("simple", {
+ *     name: "budget-ec2-filter",
+ *     budgetType: "COST",
+ *     limitAmount: "500",
+ *     limitUnit: "USD",
+ *     timeUnit: "MONTHLY",
+ *     filterExpression: {
+ *         dimensions: {
+ *             key: "SERVICE",
+ *             values: ["Amazon Elastic Compute Cloud - Compute"],
+ *         },
+ *     },
+ * });
+ * ```
+ *
+ * Create a budget with AND filter
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const andExample = new aws.budgets.Budget("and_example", {
+ *     name: "budget-and-filter",
+ *     budgetType: "COST",
+ *     limitAmount: "1200",
+ *     limitUnit: "USD",
+ *     timeUnit: "MONTHLY",
+ *     filterExpression: {
+ *         ands: [
+ *             {
+ *                 dimensions: {
+ *                     key: "SERVICE",
+ *                     values: ["Amazon Elastic Compute Cloud - Compute"],
+ *                 },
+ *             },
+ *             {
+ *                 tags: {
+ *                     key: "Environment",
+ *                     values: ["Production"],
+ *                 },
+ *             },
+ *         ],
+ *     },
+ * });
+ * ```
+ *
+ * Create a budget with OR filter
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const orExample = new aws.budgets.Budget("or_example", {
+ *     name: "budget-or-filter",
+ *     budgetType: "COST",
+ *     limitAmount: "2000",
+ *     limitUnit: "USD",
+ *     timeUnit: "MONTHLY",
+ *     filterExpression: {
+ *         ors: [
+ *             {
+ *                 dimensions: {
+ *                     key: "SERVICE",
+ *                     values: ["Amazon Elastic Compute Cloud - Compute"],
+ *                 },
+ *             },
+ *             {
+ *                 dimensions: {
+ *                     key: "SERVICE",
+ *                     values: ["Amazon Relational Database Service"],
+ *                 },
+ *             },
+ *         ],
+ *     },
+ * });
+ * ```
+ *
+ * Create a budget with NOT filter
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const notExample = new aws.budgets.Budget("not_example", {
+ *     name: "budget-not-filter",
+ *     budgetType: "COST",
+ *     limitAmount: "1000",
+ *     limitUnit: "USD",
+ *     timeUnit: "MONTHLY",
+ *     filterExpression: {
+ *         not: {
+ *             dimensions: {
+ *                 key: "REGION",
+ *                 values: ["us-west-2"],
+ *             },
+ *         },
+ *     },
+ * });
+ * ```
+ *
+ * Create a budget with a compound filter
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const compoundExample = new aws.budgets.Budget("compound_example", {
+ *     name: "budget-compound-filter",
+ *     budgetType: "COST",
+ *     limitAmount: "1500",
+ *     limitUnit: "USD",
+ *     timeUnit: "MONTHLY",
+ *     filterExpression: {
+ *         ors: [
+ *             {
+ *                 ands: [
+ *                     {
+ *                         dimensions: {
+ *                             key: "SERVICE",
+ *                             values: ["Amazon Elastic Compute Cloud - Compute"],
+ *                         },
+ *                     },
+ *                     {
+ *                         tags: {
+ *                             key: "Environment",
+ *                             values: ["production"],
+ *                         },
+ *                     },
+ *                     {
+ *                         costCategories: {
+ *                             key: "Environment",
+ *                             values: ["production"],
+ *                         },
+ *                     },
+ *                 ],
+ *             },
+ *             {
+ *                 not: {
+ *                     dimensions: {
+ *                         key: "REGION",
+ *                         values: ["us-west-2"],
+ *                     },
+ *                 },
+ *             },
+ *         ],
+ *     },
+ *     notifications: [{
+ *         comparisonOperator: "GREATER_THAN",
+ *         threshold: 100,
+ *         thresholdType: "PERCENTAGE",
+ *         notificationType: "FORECASTED",
+ *         subscriberEmailAddresses: ["test@example.com"],
+ *     }],
+ * });
+ * ```
+ *
  * ## Import
  *
  * Using `pulumi import`, import budgets using `AccountID:BudgetName`. For example:
@@ -226,13 +388,17 @@ export class Budget extends pulumi.CustomResource {
      */
     declare public readonly budgetType: pulumi.Output<string>;
     /**
-     * A list of CostFilter name/values pair to apply to budget.
+     * A list of CostFilter name/values pair to apply to budget. Conflicts with `filterExpression`.
      */
     declare public readonly costFilters: pulumi.Output<outputs.budgets.BudgetCostFilter[]>;
     /**
      * Object containing CostTypes The types of cost included in a budget, such as tax and subscriptions.
      */
     declare public readonly costTypes: pulumi.Output<outputs.budgets.BudgetCostTypes>;
+    /**
+     * Object containing Filter Expression to apply to budget. Conflicts with `costFilter`.
+     */
+    declare public readonly filterExpression: pulumi.Output<outputs.budgets.BudgetFilterExpression | undefined>;
     /**
      * The amount of cost or usage being measured for a budget.
      */
@@ -303,6 +469,7 @@ export class Budget extends pulumi.CustomResource {
             resourceInputs["budgetType"] = state?.budgetType;
             resourceInputs["costFilters"] = state?.costFilters;
             resourceInputs["costTypes"] = state?.costTypes;
+            resourceInputs["filterExpression"] = state?.filterExpression;
             resourceInputs["limitAmount"] = state?.limitAmount;
             resourceInputs["limitUnit"] = state?.limitUnit;
             resourceInputs["name"] = state?.name;
@@ -328,6 +495,7 @@ export class Budget extends pulumi.CustomResource {
             resourceInputs["budgetType"] = args?.budgetType;
             resourceInputs["costFilters"] = args?.costFilters;
             resourceInputs["costTypes"] = args?.costTypes;
+            resourceInputs["filterExpression"] = args?.filterExpression;
             resourceInputs["limitAmount"] = args?.limitAmount;
             resourceInputs["limitUnit"] = args?.limitUnit;
             resourceInputs["name"] = args?.name;
@@ -371,13 +539,17 @@ export interface BudgetState {
      */
     budgetType?: pulumi.Input<string>;
     /**
-     * A list of CostFilter name/values pair to apply to budget.
+     * A list of CostFilter name/values pair to apply to budget. Conflicts with `filterExpression`.
      */
     costFilters?: pulumi.Input<pulumi.Input<inputs.budgets.BudgetCostFilter>[]>;
     /**
      * Object containing CostTypes The types of cost included in a budget, such as tax and subscriptions.
      */
     costTypes?: pulumi.Input<inputs.budgets.BudgetCostTypes>;
+    /**
+     * Object containing Filter Expression to apply to budget. Conflicts with `costFilter`.
+     */
+    filterExpression?: pulumi.Input<inputs.budgets.BudgetFilterExpression>;
     /**
      * The amount of cost or usage being measured for a budget.
      */
@@ -450,13 +622,17 @@ export interface BudgetArgs {
      */
     budgetType: pulumi.Input<string>;
     /**
-     * A list of CostFilter name/values pair to apply to budget.
+     * A list of CostFilter name/values pair to apply to budget. Conflicts with `filterExpression`.
      */
     costFilters?: pulumi.Input<pulumi.Input<inputs.budgets.BudgetCostFilter>[]>;
     /**
      * Object containing CostTypes The types of cost included in a budget, such as tax and subscriptions.
      */
     costTypes?: pulumi.Input<inputs.budgets.BudgetCostTypes>;
+    /**
+     * Object containing Filter Expression to apply to budget. Conflicts with `costFilter`.
+     */
+    filterExpression?: pulumi.Input<inputs.budgets.BudgetFilterExpression>;
     /**
      * The amount of cost or usage being measured for a budget.
      */

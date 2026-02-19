@@ -19,6 +19,11 @@ public final class CertificateAuthorityRevocationConfigurationCrlConfiguration {
      */
     private @Nullable String customCname;
     /**
+     * @return Configures a custom path for the CRL in S3. If specified, the CRL will be written to `s3://&lt;s3_bucket_name&gt;/&lt;custom_path&gt;/&lt;crl_file&gt;`. Must conform to the pattern `[-a-zA-Z0-9;?:{@literal @}&amp;=+$,%_.!~*()&#39;]+(/[-a-zA-Z0-9;?:{@literal @}&amp;=+$,%_.!~*()&#39;]+)*` and be between 0 and 253 characters in length.
+     * 
+     */
+    private @Nullable String customPath;
+    /**
      * @return Boolean value that specifies whether certificate revocation lists (CRLs) are enabled. Defaults to `false`.
      * 
      */
@@ -46,6 +51,13 @@ public final class CertificateAuthorityRevocationConfigurationCrlConfiguration {
      */
     public Optional<String> customCname() {
         return Optional.ofNullable(this.customCname);
+    }
+    /**
+     * @return Configures a custom path for the CRL in S3. If specified, the CRL will be written to `s3://&lt;s3_bucket_name&gt;/&lt;custom_path&gt;/&lt;crl_file&gt;`. Must conform to the pattern `[-a-zA-Z0-9;?:{@literal @}&amp;=+$,%_.!~*()&#39;]+(/[-a-zA-Z0-9;?:{@literal @}&amp;=+$,%_.!~*()&#39;]+)*` and be between 0 and 253 characters in length.
+     * 
+     */
+    public Optional<String> customPath() {
+        return Optional.ofNullable(this.customPath);
     }
     /**
      * @return Boolean value that specifies whether certificate revocation lists (CRLs) are enabled. Defaults to `false`.
@@ -86,6 +98,7 @@ public final class CertificateAuthorityRevocationConfigurationCrlConfiguration {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable String customCname;
+        private @Nullable String customPath;
         private @Nullable Boolean enabled;
         private @Nullable Integer expirationInDays;
         private @Nullable String s3BucketName;
@@ -94,6 +107,7 @@ public final class CertificateAuthorityRevocationConfigurationCrlConfiguration {
         public Builder(CertificateAuthorityRevocationConfigurationCrlConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.customCname = defaults.customCname;
+    	      this.customPath = defaults.customPath;
     	      this.enabled = defaults.enabled;
     	      this.expirationInDays = defaults.expirationInDays;
     	      this.s3BucketName = defaults.s3BucketName;
@@ -104,6 +118,12 @@ public final class CertificateAuthorityRevocationConfigurationCrlConfiguration {
         public Builder customCname(@Nullable String customCname) {
 
             this.customCname = customCname;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder customPath(@Nullable String customPath) {
+
+            this.customPath = customPath;
             return this;
         }
         @CustomType.Setter
@@ -133,6 +153,7 @@ public final class CertificateAuthorityRevocationConfigurationCrlConfiguration {
         public CertificateAuthorityRevocationConfigurationCrlConfiguration build() {
             final var _resultValue = new CertificateAuthorityRevocationConfigurationCrlConfiguration();
             _resultValue.customCname = customCname;
+            _resultValue.customPath = customPath;
             _resultValue.enabled = enabled;
             _resultValue.expirationInDays = expirationInDays;
             _resultValue.s3BucketName = s3BucketName;

@@ -23,6 +23,7 @@ import com.pulumi.aws.ec2.outputs.LaunchTemplateNetworkInterface;
 import com.pulumi.aws.ec2.outputs.LaunchTemplateNetworkPerformanceOptions;
 import com.pulumi.aws.ec2.outputs.LaunchTemplatePlacement;
 import com.pulumi.aws.ec2.outputs.LaunchTemplatePrivateDnsNameOptions;
+import com.pulumi.aws.ec2.outputs.LaunchTemplateSecondaryInterface;
 import com.pulumi.aws.ec2.outputs.LaunchTemplateTagSpecification;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
@@ -517,6 +518,22 @@ public class LaunchTemplate extends com.pulumi.resources.CustomResource {
      */
     public Output<String> region() {
         return this.region;
+    }
+    /**
+     * Secondary interfaces to associate with instances launched from the template. See Secondary
+     * Interfaces below for more details.
+     * 
+     */
+    @Export(name="secondaryInterfaces", refs={List.class,LaunchTemplateSecondaryInterface.class}, tree="[0,1]")
+    private Output</* @Nullable */ List<LaunchTemplateSecondaryInterface>> secondaryInterfaces;
+
+    /**
+     * @return Secondary interfaces to associate with instances launched from the template. See Secondary
+     * Interfaces below for more details.
+     * 
+     */
+    public Output<Optional<List<LaunchTemplateSecondaryInterface>>> secondaryInterfaces() {
+        return Codegen.optional(this.secondaryInterfaces);
     }
     /**
      * A list of security group names to associate with. If you are creating Instances in a VPC, use

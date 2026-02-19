@@ -183,6 +183,11 @@ export class LaunchTemplate extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
+     * Secondary interfaces to associate with instances launched from the template. See Secondary
+     * Interfaces below for more details.
+     */
+    declare public readonly secondaryInterfaces: pulumi.Output<outputs.ec2.LaunchTemplateSecondaryInterface[] | undefined>;
+    /**
      * A list of security group names to associate with. If you are creating Instances in a VPC, use
      * `vpcSecurityGroupIds` instead.
      */
@@ -258,6 +263,7 @@ export class LaunchTemplate extends pulumi.CustomResource {
             resourceInputs["privateDnsNameOptions"] = state?.privateDnsNameOptions;
             resourceInputs["ramDiskId"] = state?.ramDiskId;
             resourceInputs["region"] = state?.region;
+            resourceInputs["secondaryInterfaces"] = state?.secondaryInterfaces;
             resourceInputs["securityGroupNames"] = state?.securityGroupNames;
             resourceInputs["tagSpecifications"] = state?.tagSpecifications;
             resourceInputs["tags"] = state?.tags;
@@ -298,6 +304,7 @@ export class LaunchTemplate extends pulumi.CustomResource {
             resourceInputs["privateDnsNameOptions"] = args?.privateDnsNameOptions;
             resourceInputs["ramDiskId"] = args?.ramDiskId;
             resourceInputs["region"] = args?.region;
+            resourceInputs["secondaryInterfaces"] = args?.secondaryInterfaces;
             resourceInputs["securityGroupNames"] = args?.securityGroupNames;
             resourceInputs["tagSpecifications"] = args?.tagSpecifications;
             resourceInputs["tags"] = args?.tags;
@@ -453,6 +460,11 @@ export interface LaunchTemplateState {
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string>;
+    /**
+     * Secondary interfaces to associate with instances launched from the template. See Secondary
+     * Interfaces below for more details.
+     */
+    secondaryInterfaces?: pulumi.Input<pulumi.Input<inputs.ec2.LaunchTemplateSecondaryInterface>[]>;
     /**
      * A list of security group names to associate with. If you are creating Instances in a VPC, use
      * `vpcSecurityGroupIds` instead.
@@ -616,6 +628,11 @@ export interface LaunchTemplateArgs {
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
     region?: pulumi.Input<string>;
+    /**
+     * Secondary interfaces to associate with instances launched from the template. See Secondary
+     * Interfaces below for more details.
+     */
+    secondaryInterfaces?: pulumi.Input<pulumi.Input<inputs.ec2.LaunchTemplateSecondaryInterface>[]>;
     /**
      * A list of security group names to associate with. If you are creating Instances in a VPC, use
      * `vpcSecurityGroupIds` instead.

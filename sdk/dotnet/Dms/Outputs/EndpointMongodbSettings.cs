@@ -37,6 +37,10 @@ namespace Pulumi.Aws.Dms.Outputs
         /// Specifies either document or table mode. Default is `None`. Valid values are `One` (table mode) and `None` (document mode).
         /// </summary>
         public readonly string? NestingLevel;
+        /// <summary>
+        /// If `True`, DMS retrieves the entire document from the MongoDB source during migration. Default is `False`.
+        /// </summary>
+        public readonly bool? UseUpdateLookup;
 
         [OutputConstructor]
         private EndpointMongodbSettings(
@@ -50,7 +54,9 @@ namespace Pulumi.Aws.Dms.Outputs
 
             string? extractDocId,
 
-            string? nestingLevel)
+            string? nestingLevel,
+
+            bool? useUpdateLookup)
         {
             AuthMechanism = authMechanism;
             AuthSource = authSource;
@@ -58,6 +64,7 @@ namespace Pulumi.Aws.Dms.Outputs
             DocsToInvestigate = docsToInvestigate;
             ExtractDocId = extractDocId;
             NestingLevel = nestingLevel;
+            UseUpdateLookup = useUpdateLookup;
         }
     }
 }

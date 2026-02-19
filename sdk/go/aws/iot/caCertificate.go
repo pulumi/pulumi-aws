@@ -37,9 +37,11 @@ import (
 //			}
 //			ca, err := tls.NewSelfSignedCert(ctx, "ca", &tls.SelfSignedCertArgs{
 //				PrivateKeyPem: caPrivateKey.PrivateKeyPem,
-//				Subject: &tls.SelfSignedCertSubjectArgs{
-//					CommonName:   pulumi.String("example.com"),
-//					Organization: pulumi.String("ACME Examples, Inc"),
+//				Subject: tls.SelfSignedCertSubjectArgs{
+//					map[string]interface{}{
+//						"commonName":   "example.com",
+//						"organization": "ACME Examples, Inc",
+//					},
 //				},
 //				ValidityPeriodHours: pulumi.Int(12),
 //				AllowedUses: pulumi.StringArray{
@@ -64,8 +66,10 @@ import (
 //			}
 //			verification, err := tls.NewCertRequest(ctx, "verification", &tls.CertRequestArgs{
 //				PrivateKeyPem: verificationPrivateKey.PrivateKeyPem,
-//				Subject: &tls.CertRequestSubjectArgs{
-//					CommonName: pulumi.String(example.RegistrationCode),
+//				Subject: tls.CertRequestSubjectArgs{
+//					map[string]interface{}{
+//						"commonName": example.RegistrationCode,
+//					},
 //				},
 //			})
 //			if err != nil {

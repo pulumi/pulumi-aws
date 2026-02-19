@@ -112,30 +112,32 @@ type LookupLaunchTemplateResult struct {
 	HibernationOptions                []GetLaunchTemplateHibernationOption                `pulumi:"hibernationOptions"`
 	IamInstanceProfiles               []GetLaunchTemplateIamInstanceProfile               `pulumi:"iamInstanceProfiles"`
 	// ID of the launch template.
-	Id                                string                                  `pulumi:"id"`
-	ImageId                           string                                  `pulumi:"imageId"`
-	InstanceInitiatedShutdownBehavior string                                  `pulumi:"instanceInitiatedShutdownBehavior"`
-	InstanceMarketOptions             []GetLaunchTemplateInstanceMarketOption `pulumi:"instanceMarketOptions"`
-	InstanceRequirements              []GetLaunchTemplateInstanceRequirement  `pulumi:"instanceRequirements"`
-	InstanceType                      string                                  `pulumi:"instanceType"`
-	KernelId                          string                                  `pulumi:"kernelId"`
-	KeyName                           string                                  `pulumi:"keyName"`
-	LatestVersion                     int                                     `pulumi:"latestVersion"`
-	LicenseSpecifications             []GetLaunchTemplateLicenseSpecification `pulumi:"licenseSpecifications"`
-	MaintenanceOptions                []GetLaunchTemplateMaintenanceOption    `pulumi:"maintenanceOptions"`
-	MetadataOptions                   []GetLaunchTemplateMetadataOption       `pulumi:"metadataOptions"`
-	Monitorings                       []GetLaunchTemplateMonitoring           `pulumi:"monitorings"`
-	Name                              string                                  `pulumi:"name"`
-	NetworkInterfaces                 []GetLaunchTemplateNetworkInterface     `pulumi:"networkInterfaces"`
-	Placements                        []GetLaunchTemplatePlacement            `pulumi:"placements"`
-	PrivateDnsNameOptions             []GetLaunchTemplatePrivateDnsNameOption `pulumi:"privateDnsNameOptions"`
-	RamDiskId                         string                                  `pulumi:"ramDiskId"`
-	Region                            string                                  `pulumi:"region"`
-	SecurityGroupNames                []string                                `pulumi:"securityGroupNames"`
-	TagSpecifications                 []GetLaunchTemplateTagSpecification     `pulumi:"tagSpecifications"`
-	Tags                              map[string]string                       `pulumi:"tags"`
-	UserData                          string                                  `pulumi:"userData"`
-	VpcSecurityGroupIds               []string                                `pulumi:"vpcSecurityGroupIds"`
+	Id                                string                                      `pulumi:"id"`
+	ImageId                           string                                      `pulumi:"imageId"`
+	InstanceInitiatedShutdownBehavior string                                      `pulumi:"instanceInitiatedShutdownBehavior"`
+	InstanceMarketOptions             []GetLaunchTemplateInstanceMarketOption     `pulumi:"instanceMarketOptions"`
+	InstanceRequirements              []GetLaunchTemplateInstanceRequirement      `pulumi:"instanceRequirements"`
+	InstanceType                      string                                      `pulumi:"instanceType"`
+	KernelId                          string                                      `pulumi:"kernelId"`
+	KeyName                           string                                      `pulumi:"keyName"`
+	LatestVersion                     int                                         `pulumi:"latestVersion"`
+	LicenseSpecifications             []GetLaunchTemplateLicenseSpecification     `pulumi:"licenseSpecifications"`
+	MaintenanceOptions                []GetLaunchTemplateMaintenanceOption        `pulumi:"maintenanceOptions"`
+	MetadataOptions                   []GetLaunchTemplateMetadataOption           `pulumi:"metadataOptions"`
+	Monitorings                       []GetLaunchTemplateMonitoring               `pulumi:"monitorings"`
+	Name                              string                                      `pulumi:"name"`
+	NetworkInterfaces                 []GetLaunchTemplateNetworkInterface         `pulumi:"networkInterfaces"`
+	NetworkPerformanceOptions         []GetLaunchTemplateNetworkPerformanceOption `pulumi:"networkPerformanceOptions"`
+	Placements                        []GetLaunchTemplatePlacement                `pulumi:"placements"`
+	PrivateDnsNameOptions             []GetLaunchTemplatePrivateDnsNameOption     `pulumi:"privateDnsNameOptions"`
+	RamDiskId                         string                                      `pulumi:"ramDiskId"`
+	Region                            string                                      `pulumi:"region"`
+	SecondaryInterfaces               []GetLaunchTemplateSecondaryInterface       `pulumi:"secondaryInterfaces"`
+	SecurityGroupNames                []string                                    `pulumi:"securityGroupNames"`
+	TagSpecifications                 []GetLaunchTemplateTagSpecification         `pulumi:"tagSpecifications"`
+	Tags                              map[string]string                           `pulumi:"tags"`
+	UserData                          string                                      `pulumi:"userData"`
+	VpcSecurityGroupIds               []string                                    `pulumi:"vpcSecurityGroupIds"`
 }
 
 func LookupLaunchTemplateOutput(ctx *pulumi.Context, args LookupLaunchTemplateOutputArgs, opts ...pulumi.InvokeOption) LookupLaunchTemplateResultOutput {
@@ -307,6 +309,12 @@ func (o LookupLaunchTemplateResultOutput) NetworkInterfaces() GetLaunchTemplateN
 	return o.ApplyT(func(v LookupLaunchTemplateResult) []GetLaunchTemplateNetworkInterface { return v.NetworkInterfaces }).(GetLaunchTemplateNetworkInterfaceArrayOutput)
 }
 
+func (o LookupLaunchTemplateResultOutput) NetworkPerformanceOptions() GetLaunchTemplateNetworkPerformanceOptionArrayOutput {
+	return o.ApplyT(func(v LookupLaunchTemplateResult) []GetLaunchTemplateNetworkPerformanceOption {
+		return v.NetworkPerformanceOptions
+	}).(GetLaunchTemplateNetworkPerformanceOptionArrayOutput)
+}
+
 func (o LookupLaunchTemplateResultOutput) Placements() GetLaunchTemplatePlacementArrayOutput {
 	return o.ApplyT(func(v LookupLaunchTemplateResult) []GetLaunchTemplatePlacement { return v.Placements }).(GetLaunchTemplatePlacementArrayOutput)
 }
@@ -323,6 +331,10 @@ func (o LookupLaunchTemplateResultOutput) RamDiskId() pulumi.StringOutput {
 
 func (o LookupLaunchTemplateResultOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupLaunchTemplateResult) string { return v.Region }).(pulumi.StringOutput)
+}
+
+func (o LookupLaunchTemplateResultOutput) SecondaryInterfaces() GetLaunchTemplateSecondaryInterfaceArrayOutput {
+	return o.ApplyT(func(v LookupLaunchTemplateResult) []GetLaunchTemplateSecondaryInterface { return v.SecondaryInterfaces }).(GetLaunchTemplateSecondaryInterfaceArrayOutput)
 }
 
 func (o LookupLaunchTemplateResultOutput) SecurityGroupNames() pulumi.StringArrayOutput {

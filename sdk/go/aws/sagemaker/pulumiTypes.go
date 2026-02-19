@@ -15486,6 +15486,8 @@ type DomainDomainSettings struct {
 	RStudioServerProDomainSettings *DomainDomainSettingsRStudioServerProDomainSettings `pulumi:"rStudioServerProDomainSettings"`
 	// The security groups for the Amazon Virtual Private Cloud that the Domain uses for communication between Domain-level apps and user apps.
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
+	// Configuration for trusted identity propagation. See the `trustedIdentityPropagationSettings` Block below.
+	TrustedIdentityPropagationSettings *DomainDomainSettingsTrustedIdentityPropagationSettings `pulumi:"trustedIdentityPropagationSettings"`
 }
 
 // DomainDomainSettingsInput is an input type that accepts DomainDomainSettingsArgs and DomainDomainSettingsOutput values.
@@ -15508,6 +15510,8 @@ type DomainDomainSettingsArgs struct {
 	RStudioServerProDomainSettings DomainDomainSettingsRStudioServerProDomainSettingsPtrInput `pulumi:"rStudioServerProDomainSettings"`
 	// The security groups for the Amazon Virtual Private Cloud that the Domain uses for communication between Domain-level apps and user apps.
 	SecurityGroupIds pulumi.StringArrayInput `pulumi:"securityGroupIds"`
+	// Configuration for trusted identity propagation. See the `trustedIdentityPropagationSettings` Block below.
+	TrustedIdentityPropagationSettings DomainDomainSettingsTrustedIdentityPropagationSettingsPtrInput `pulumi:"trustedIdentityPropagationSettings"`
 }
 
 func (DomainDomainSettingsArgs) ElementType() reflect.Type {
@@ -15609,6 +15613,13 @@ func (o DomainDomainSettingsOutput) SecurityGroupIds() pulumi.StringArrayOutput 
 	return o.ApplyT(func(v DomainDomainSettings) []string { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
 }
 
+// Configuration for trusted identity propagation. See the `trustedIdentityPropagationSettings` Block below.
+func (o DomainDomainSettingsOutput) TrustedIdentityPropagationSettings() DomainDomainSettingsTrustedIdentityPropagationSettingsPtrOutput {
+	return o.ApplyT(func(v DomainDomainSettings) *DomainDomainSettingsTrustedIdentityPropagationSettings {
+		return v.TrustedIdentityPropagationSettings
+	}).(DomainDomainSettingsTrustedIdentityPropagationSettingsPtrOutput)
+}
+
 type DomainDomainSettingsPtrOutput struct{ *pulumi.OutputState }
 
 func (DomainDomainSettingsPtrOutput) ElementType() reflect.Type {
@@ -15671,6 +15682,16 @@ func (o DomainDomainSettingsPtrOutput) SecurityGroupIds() pulumi.StringArrayOutp
 		}
 		return v.SecurityGroupIds
 	}).(pulumi.StringArrayOutput)
+}
+
+// Configuration for trusted identity propagation. See the `trustedIdentityPropagationSettings` Block below.
+func (o DomainDomainSettingsPtrOutput) TrustedIdentityPropagationSettings() DomainDomainSettingsTrustedIdentityPropagationSettingsPtrOutput {
+	return o.ApplyT(func(v *DomainDomainSettings) *DomainDomainSettingsTrustedIdentityPropagationSettings {
+		if v == nil {
+			return nil
+		}
+		return v.TrustedIdentityPropagationSettings
+	}).(DomainDomainSettingsTrustedIdentityPropagationSettingsPtrOutput)
 }
 
 type DomainDomainSettingsDockerSettings struct {
@@ -16245,6 +16266,143 @@ func (o DomainDomainSettingsRStudioServerProDomainSettingsDefaultResourceSpecPtr
 			return nil
 		}
 		return v.SagemakerImageVersionArn
+	}).(pulumi.StringPtrOutput)
+}
+
+type DomainDomainSettingsTrustedIdentityPropagationSettings struct {
+	// Whether to enable Trusted Identity Propagation (TIP) for the domain. Valid values are `ENABLED` and `DISABLED`. When enabled, user identities from IAM Identity Center are propagated through the domain to TIP enabled AWS services. Can only be `ENABLED` when `authMode` is `SSO`.
+	Status string `pulumi:"status"`
+}
+
+// DomainDomainSettingsTrustedIdentityPropagationSettingsInput is an input type that accepts DomainDomainSettingsTrustedIdentityPropagationSettingsArgs and DomainDomainSettingsTrustedIdentityPropagationSettingsOutput values.
+// You can construct a concrete instance of `DomainDomainSettingsTrustedIdentityPropagationSettingsInput` via:
+//
+//	DomainDomainSettingsTrustedIdentityPropagationSettingsArgs{...}
+type DomainDomainSettingsTrustedIdentityPropagationSettingsInput interface {
+	pulumi.Input
+
+	ToDomainDomainSettingsTrustedIdentityPropagationSettingsOutput() DomainDomainSettingsTrustedIdentityPropagationSettingsOutput
+	ToDomainDomainSettingsTrustedIdentityPropagationSettingsOutputWithContext(context.Context) DomainDomainSettingsTrustedIdentityPropagationSettingsOutput
+}
+
+type DomainDomainSettingsTrustedIdentityPropagationSettingsArgs struct {
+	// Whether to enable Trusted Identity Propagation (TIP) for the domain. Valid values are `ENABLED` and `DISABLED`. When enabled, user identities from IAM Identity Center are propagated through the domain to TIP enabled AWS services. Can only be `ENABLED` when `authMode` is `SSO`.
+	Status pulumi.StringInput `pulumi:"status"`
+}
+
+func (DomainDomainSettingsTrustedIdentityPropagationSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainDomainSettingsTrustedIdentityPropagationSettings)(nil)).Elem()
+}
+
+func (i DomainDomainSettingsTrustedIdentityPropagationSettingsArgs) ToDomainDomainSettingsTrustedIdentityPropagationSettingsOutput() DomainDomainSettingsTrustedIdentityPropagationSettingsOutput {
+	return i.ToDomainDomainSettingsTrustedIdentityPropagationSettingsOutputWithContext(context.Background())
+}
+
+func (i DomainDomainSettingsTrustedIdentityPropagationSettingsArgs) ToDomainDomainSettingsTrustedIdentityPropagationSettingsOutputWithContext(ctx context.Context) DomainDomainSettingsTrustedIdentityPropagationSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainDomainSettingsTrustedIdentityPropagationSettingsOutput)
+}
+
+func (i DomainDomainSettingsTrustedIdentityPropagationSettingsArgs) ToDomainDomainSettingsTrustedIdentityPropagationSettingsPtrOutput() DomainDomainSettingsTrustedIdentityPropagationSettingsPtrOutput {
+	return i.ToDomainDomainSettingsTrustedIdentityPropagationSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i DomainDomainSettingsTrustedIdentityPropagationSettingsArgs) ToDomainDomainSettingsTrustedIdentityPropagationSettingsPtrOutputWithContext(ctx context.Context) DomainDomainSettingsTrustedIdentityPropagationSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainDomainSettingsTrustedIdentityPropagationSettingsOutput).ToDomainDomainSettingsTrustedIdentityPropagationSettingsPtrOutputWithContext(ctx)
+}
+
+// DomainDomainSettingsTrustedIdentityPropagationSettingsPtrInput is an input type that accepts DomainDomainSettingsTrustedIdentityPropagationSettingsArgs, DomainDomainSettingsTrustedIdentityPropagationSettingsPtr and DomainDomainSettingsTrustedIdentityPropagationSettingsPtrOutput values.
+// You can construct a concrete instance of `DomainDomainSettingsTrustedIdentityPropagationSettingsPtrInput` via:
+//
+//	        DomainDomainSettingsTrustedIdentityPropagationSettingsArgs{...}
+//
+//	or:
+//
+//	        nil
+type DomainDomainSettingsTrustedIdentityPropagationSettingsPtrInput interface {
+	pulumi.Input
+
+	ToDomainDomainSettingsTrustedIdentityPropagationSettingsPtrOutput() DomainDomainSettingsTrustedIdentityPropagationSettingsPtrOutput
+	ToDomainDomainSettingsTrustedIdentityPropagationSettingsPtrOutputWithContext(context.Context) DomainDomainSettingsTrustedIdentityPropagationSettingsPtrOutput
+}
+
+type domainDomainSettingsTrustedIdentityPropagationSettingsPtrType DomainDomainSettingsTrustedIdentityPropagationSettingsArgs
+
+func DomainDomainSettingsTrustedIdentityPropagationSettingsPtr(v *DomainDomainSettingsTrustedIdentityPropagationSettingsArgs) DomainDomainSettingsTrustedIdentityPropagationSettingsPtrInput {
+	return (*domainDomainSettingsTrustedIdentityPropagationSettingsPtrType)(v)
+}
+
+func (*domainDomainSettingsTrustedIdentityPropagationSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainDomainSettingsTrustedIdentityPropagationSettings)(nil)).Elem()
+}
+
+func (i *domainDomainSettingsTrustedIdentityPropagationSettingsPtrType) ToDomainDomainSettingsTrustedIdentityPropagationSettingsPtrOutput() DomainDomainSettingsTrustedIdentityPropagationSettingsPtrOutput {
+	return i.ToDomainDomainSettingsTrustedIdentityPropagationSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *domainDomainSettingsTrustedIdentityPropagationSettingsPtrType) ToDomainDomainSettingsTrustedIdentityPropagationSettingsPtrOutputWithContext(ctx context.Context) DomainDomainSettingsTrustedIdentityPropagationSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DomainDomainSettingsTrustedIdentityPropagationSettingsPtrOutput)
+}
+
+type DomainDomainSettingsTrustedIdentityPropagationSettingsOutput struct{ *pulumi.OutputState }
+
+func (DomainDomainSettingsTrustedIdentityPropagationSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DomainDomainSettingsTrustedIdentityPropagationSettings)(nil)).Elem()
+}
+
+func (o DomainDomainSettingsTrustedIdentityPropagationSettingsOutput) ToDomainDomainSettingsTrustedIdentityPropagationSettingsOutput() DomainDomainSettingsTrustedIdentityPropagationSettingsOutput {
+	return o
+}
+
+func (o DomainDomainSettingsTrustedIdentityPropagationSettingsOutput) ToDomainDomainSettingsTrustedIdentityPropagationSettingsOutputWithContext(ctx context.Context) DomainDomainSettingsTrustedIdentityPropagationSettingsOutput {
+	return o
+}
+
+func (o DomainDomainSettingsTrustedIdentityPropagationSettingsOutput) ToDomainDomainSettingsTrustedIdentityPropagationSettingsPtrOutput() DomainDomainSettingsTrustedIdentityPropagationSettingsPtrOutput {
+	return o.ToDomainDomainSettingsTrustedIdentityPropagationSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o DomainDomainSettingsTrustedIdentityPropagationSettingsOutput) ToDomainDomainSettingsTrustedIdentityPropagationSettingsPtrOutputWithContext(ctx context.Context) DomainDomainSettingsTrustedIdentityPropagationSettingsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DomainDomainSettingsTrustedIdentityPropagationSettings) *DomainDomainSettingsTrustedIdentityPropagationSettings {
+		return &v
+	}).(DomainDomainSettingsTrustedIdentityPropagationSettingsPtrOutput)
+}
+
+// Whether to enable Trusted Identity Propagation (TIP) for the domain. Valid values are `ENABLED` and `DISABLED`. When enabled, user identities from IAM Identity Center are propagated through the domain to TIP enabled AWS services. Can only be `ENABLED` when `authMode` is `SSO`.
+func (o DomainDomainSettingsTrustedIdentityPropagationSettingsOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v DomainDomainSettingsTrustedIdentityPropagationSettings) string { return v.Status }).(pulumi.StringOutput)
+}
+
+type DomainDomainSettingsTrustedIdentityPropagationSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (DomainDomainSettingsTrustedIdentityPropagationSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DomainDomainSettingsTrustedIdentityPropagationSettings)(nil)).Elem()
+}
+
+func (o DomainDomainSettingsTrustedIdentityPropagationSettingsPtrOutput) ToDomainDomainSettingsTrustedIdentityPropagationSettingsPtrOutput() DomainDomainSettingsTrustedIdentityPropagationSettingsPtrOutput {
+	return o
+}
+
+func (o DomainDomainSettingsTrustedIdentityPropagationSettingsPtrOutput) ToDomainDomainSettingsTrustedIdentityPropagationSettingsPtrOutputWithContext(ctx context.Context) DomainDomainSettingsTrustedIdentityPropagationSettingsPtrOutput {
+	return o
+}
+
+func (o DomainDomainSettingsTrustedIdentityPropagationSettingsPtrOutput) Elem() DomainDomainSettingsTrustedIdentityPropagationSettingsOutput {
+	return o.ApplyT(func(v *DomainDomainSettingsTrustedIdentityPropagationSettings) DomainDomainSettingsTrustedIdentityPropagationSettings {
+		if v != nil {
+			return *v
+		}
+		var ret DomainDomainSettingsTrustedIdentityPropagationSettings
+		return ret
+	}).(DomainDomainSettingsTrustedIdentityPropagationSettingsOutput)
+}
+
+// Whether to enable Trusted Identity Propagation (TIP) for the domain. Valid values are `ENABLED` and `DISABLED`. When enabled, user identities from IAM Identity Center are propagated through the domain to TIP enabled AWS services. Can only be `ENABLED` when `authMode` is `SSO`.
+func (o DomainDomainSettingsTrustedIdentityPropagationSettingsPtrOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DomainDomainSettingsTrustedIdentityPropagationSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Status
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -47469,6 +47627,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainDomainSettingsRStudioServerProDomainSettingsPtrInput)(nil)).Elem(), DomainDomainSettingsRStudioServerProDomainSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainDomainSettingsRStudioServerProDomainSettingsDefaultResourceSpecInput)(nil)).Elem(), DomainDomainSettingsRStudioServerProDomainSettingsDefaultResourceSpecArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainDomainSettingsRStudioServerProDomainSettingsDefaultResourceSpecPtrInput)(nil)).Elem(), DomainDomainSettingsRStudioServerProDomainSettingsDefaultResourceSpecArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainDomainSettingsTrustedIdentityPropagationSettingsInput)(nil)).Elem(), DomainDomainSettingsTrustedIdentityPropagationSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DomainDomainSettingsTrustedIdentityPropagationSettingsPtrInput)(nil)).Elem(), DomainDomainSettingsTrustedIdentityPropagationSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainRetentionPolicyInput)(nil)).Elem(), DomainRetentionPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DomainRetentionPolicyPtrInput)(nil)).Elem(), DomainRetentionPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*EndpointConfigurationAsyncInferenceConfigInput)(nil)).Elem(), EndpointConfigurationAsyncInferenceConfigArgs{})
@@ -48038,6 +48198,8 @@ func init() {
 	pulumi.RegisterOutputType(DomainDomainSettingsRStudioServerProDomainSettingsPtrOutput{})
 	pulumi.RegisterOutputType(DomainDomainSettingsRStudioServerProDomainSettingsDefaultResourceSpecOutput{})
 	pulumi.RegisterOutputType(DomainDomainSettingsRStudioServerProDomainSettingsDefaultResourceSpecPtrOutput{})
+	pulumi.RegisterOutputType(DomainDomainSettingsTrustedIdentityPropagationSettingsOutput{})
+	pulumi.RegisterOutputType(DomainDomainSettingsTrustedIdentityPropagationSettingsPtrOutput{})
 	pulumi.RegisterOutputType(DomainRetentionPolicyOutput{})
 	pulumi.RegisterOutputType(DomainRetentionPolicyPtrOutput{})
 	pulumi.RegisterOutputType(EndpointConfigurationAsyncInferenceConfigOutput{})

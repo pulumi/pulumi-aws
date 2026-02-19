@@ -35,6 +35,7 @@ class V2modelsIntentArgs:
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  output_contexts: Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsIntentOutputContextArgs']]]] = None,
                  parent_intent_signature: Optional[pulumi.Input[_builtins.str]] = None,
+                 qna_intent_configuration: Optional[pulumi.Input['V2modelsIntentQnaIntentConfigurationArgs']] = None,
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  sample_utterances: Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsIntentSampleUtteranceArgs']]]] = None,
                  slot_priorities: Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsIntentSlotPriorityArgs']]]] = None,
@@ -51,12 +52,13 @@ class V2modelsIntentArgs:
         :param pulumi.Input['V2modelsIntentFulfillmentCodeHookArgs'] fulfillment_code_hook: Configuration block for invoking the alias Lambda function when the intent is ready for fulfillment. You can invoke this function to complete the bot's transaction with the user. See `fulfillment_code_hook`.
         :param pulumi.Input['V2modelsIntentInitialResponseSettingArgs'] initial_response_setting: Configuration block for the response that is sent to the user at the beginning of a conversation, before eliciting slot values. See `initial_response_setting`.
         :param pulumi.Input[Sequence[pulumi.Input['V2modelsIntentInputContextArgs']]] input_contexts: Configuration blocks for contexts that must be active for this intent to be considered by Amazon Lex. When an intent has an input context list, Amazon Lex only considers using the intent in an interaction with the user when the specified contexts are included in the active context list for the session. If the contexts are not active, then Amazon Lex will not use the intent. A context can be automatically activated using the outputContexts property or it can be set at runtime. See `input_context`.
-        :param pulumi.Input['V2modelsIntentKendraConfigurationArgs'] kendra_configuration: Configuration block for information required to use the AMAZON.KendraSearchIntent intent to connect to an Amazon Kendra index. The AMAZON.KendraSearchIntent intent is called when Amazon Lex can't determine another intent to invoke. See `kendra_configuration`.
+        :param pulumi.Input['V2modelsIntentKendraConfigurationArgs'] kendra_configuration: Configuration block for information required to use the AMAZON.KendraSearchIntent intent to connect to an Amazon Kendra index. The AMAZON.KendraSearchIntent intent is called when Amazon Lex can't determine another intent to invoke. Cannot be used with `qna_intent_configuration`. See `kendra_configuration`.
         :param pulumi.Input[_builtins.str] name: Name of the intent. Intent names must be unique in the locale that contains the intent and cannot match the name of any built-in intent.
                
                The following arguments are optional:
         :param pulumi.Input[Sequence[pulumi.Input['V2modelsIntentOutputContextArgs']]] output_contexts: Configuration blocks for contexts that the intent activates when it is fulfilled. You can use an output context to indicate the intents that Amazon Lex should consider for the next turn of the conversation with a customer. When you use the outputContextsList property, all of the contexts specified in the list are activated when the intent is fulfilled. You can set up to 10 output contexts. You can also set the number of conversation turns that the context should be active, or the length of time that the context should be active. See `output_context`.
         :param pulumi.Input[_builtins.str] parent_intent_signature: Identifier for the built-in intent to base this intent on.
+        :param pulumi.Input['V2modelsIntentQnaIntentConfigurationArgs'] qna_intent_configuration: Configuration block for QnA intent settings. This is used when `parent_intent_signature` is set to `AMAZON.QnAIntent`. Cannot be used with `kendra_configuration`. See `qna_intent_configuration`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input['V2modelsIntentSampleUtteranceArgs']]] sample_utterances: Configuration block for strings that a user might say to signal the intent. See `sample_utterance`.
         :param pulumi.Input[Sequence[pulumi.Input['V2modelsIntentSlotPriorityArgs']]] slot_priorities: Configuration block for a new list of slots and their priorities that are contained by the intent. This is ignored on create and only valid for updates. See `slot_priority`.
@@ -86,6 +88,8 @@ class V2modelsIntentArgs:
             pulumi.set(__self__, "output_contexts", output_contexts)
         if parent_intent_signature is not None:
             pulumi.set(__self__, "parent_intent_signature", parent_intent_signature)
+        if qna_intent_configuration is not None:
+            pulumi.set(__self__, "qna_intent_configuration", qna_intent_configuration)
         if region is not None:
             pulumi.set(__self__, "region", region)
         if sample_utterances is not None:
@@ -219,7 +223,7 @@ class V2modelsIntentArgs:
     @pulumi.getter(name="kendraConfiguration")
     def kendra_configuration(self) -> Optional[pulumi.Input['V2modelsIntentKendraConfigurationArgs']]:
         """
-        Configuration block for information required to use the AMAZON.KendraSearchIntent intent to connect to an Amazon Kendra index. The AMAZON.KendraSearchIntent intent is called when Amazon Lex can't determine another intent to invoke. See `kendra_configuration`.
+        Configuration block for information required to use the AMAZON.KendraSearchIntent intent to connect to an Amazon Kendra index. The AMAZON.KendraSearchIntent intent is called when Amazon Lex can't determine another intent to invoke. Cannot be used with `qna_intent_configuration`. See `kendra_configuration`.
         """
         return pulumi.get(self, "kendra_configuration")
 
@@ -264,6 +268,18 @@ class V2modelsIntentArgs:
     @parent_intent_signature.setter
     def parent_intent_signature(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "parent_intent_signature", value)
+
+    @_builtins.property
+    @pulumi.getter(name="qnaIntentConfiguration")
+    def qna_intent_configuration(self) -> Optional[pulumi.Input['V2modelsIntentQnaIntentConfigurationArgs']]:
+        """
+        Configuration block for QnA intent settings. This is used when `parent_intent_signature` is set to `AMAZON.QnAIntent`. Cannot be used with `kendra_configuration`. See `qna_intent_configuration`.
+        """
+        return pulumi.get(self, "qna_intent_configuration")
+
+    @qna_intent_configuration.setter
+    def qna_intent_configuration(self, value: Optional[pulumi.Input['V2modelsIntentQnaIntentConfigurationArgs']]):
+        pulumi.set(self, "qna_intent_configuration", value)
 
     @_builtins.property
     @pulumi.getter
@@ -331,6 +347,7 @@ class _V2modelsIntentState:
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  output_contexts: Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsIntentOutputContextArgs']]]] = None,
                  parent_intent_signature: Optional[pulumi.Input[_builtins.str]] = None,
+                 qna_intent_configuration: Optional[pulumi.Input['V2modelsIntentQnaIntentConfigurationArgs']] = None,
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  sample_utterances: Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsIntentSampleUtteranceArgs']]]] = None,
                  slot_priorities: Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsIntentSlotPriorityArgs']]]] = None,
@@ -348,7 +365,7 @@ class _V2modelsIntentState:
         :param pulumi.Input['V2modelsIntentInitialResponseSettingArgs'] initial_response_setting: Configuration block for the response that is sent to the user at the beginning of a conversation, before eliciting slot values. See `initial_response_setting`.
         :param pulumi.Input[Sequence[pulumi.Input['V2modelsIntentInputContextArgs']]] input_contexts: Configuration blocks for contexts that must be active for this intent to be considered by Amazon Lex. When an intent has an input context list, Amazon Lex only considers using the intent in an interaction with the user when the specified contexts are included in the active context list for the session. If the contexts are not active, then Amazon Lex will not use the intent. A context can be automatically activated using the outputContexts property or it can be set at runtime. See `input_context`.
         :param pulumi.Input[_builtins.str] intent_id: Unique identifier for the intent.
-        :param pulumi.Input['V2modelsIntentKendraConfigurationArgs'] kendra_configuration: Configuration block for information required to use the AMAZON.KendraSearchIntent intent to connect to an Amazon Kendra index. The AMAZON.KendraSearchIntent intent is called when Amazon Lex can't determine another intent to invoke. See `kendra_configuration`.
+        :param pulumi.Input['V2modelsIntentKendraConfigurationArgs'] kendra_configuration: Configuration block for information required to use the AMAZON.KendraSearchIntent intent to connect to an Amazon Kendra index. The AMAZON.KendraSearchIntent intent is called when Amazon Lex can't determine another intent to invoke. Cannot be used with `qna_intent_configuration`. See `kendra_configuration`.
         :param pulumi.Input[_builtins.str] last_updated_date_time: Timestamp of the last time that the intent was modified.
         :param pulumi.Input[_builtins.str] locale_id: Identifier of the language and locale where this intent is used. All of the bots, slot types, and slots used by the intent must have the same locale.
         :param pulumi.Input[_builtins.str] name: Name of the intent. Intent names must be unique in the locale that contains the intent and cannot match the name of any built-in intent.
@@ -356,6 +373,7 @@ class _V2modelsIntentState:
                The following arguments are optional:
         :param pulumi.Input[Sequence[pulumi.Input['V2modelsIntentOutputContextArgs']]] output_contexts: Configuration blocks for contexts that the intent activates when it is fulfilled. You can use an output context to indicate the intents that Amazon Lex should consider for the next turn of the conversation with a customer. When you use the outputContextsList property, all of the contexts specified in the list are activated when the intent is fulfilled. You can set up to 10 output contexts. You can also set the number of conversation turns that the context should be active, or the length of time that the context should be active. See `output_context`.
         :param pulumi.Input[_builtins.str] parent_intent_signature: Identifier for the built-in intent to base this intent on.
+        :param pulumi.Input['V2modelsIntentQnaIntentConfigurationArgs'] qna_intent_configuration: Configuration block for QnA intent settings. This is used when `parent_intent_signature` is set to `AMAZON.QnAIntent`. Cannot be used with `kendra_configuration`. See `qna_intent_configuration`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input['V2modelsIntentSampleUtteranceArgs']]] sample_utterances: Configuration block for strings that a user might say to signal the intent. See `sample_utterance`.
         :param pulumi.Input[Sequence[pulumi.Input['V2modelsIntentSlotPriorityArgs']]] slot_priorities: Configuration block for a new list of slots and their priorities that are contained by the intent. This is ignored on create and only valid for updates. See `slot_priority`.
@@ -394,6 +412,8 @@ class _V2modelsIntentState:
             pulumi.set(__self__, "output_contexts", output_contexts)
         if parent_intent_signature is not None:
             pulumi.set(__self__, "parent_intent_signature", parent_intent_signature)
+        if qna_intent_configuration is not None:
+            pulumi.set(__self__, "qna_intent_configuration", qna_intent_configuration)
         if region is not None:
             pulumi.set(__self__, "region", region)
         if sample_utterances is not None:
@@ -539,7 +559,7 @@ class _V2modelsIntentState:
     @pulumi.getter(name="kendraConfiguration")
     def kendra_configuration(self) -> Optional[pulumi.Input['V2modelsIntentKendraConfigurationArgs']]:
         """
-        Configuration block for information required to use the AMAZON.KendraSearchIntent intent to connect to an Amazon Kendra index. The AMAZON.KendraSearchIntent intent is called when Amazon Lex can't determine another intent to invoke. See `kendra_configuration`.
+        Configuration block for information required to use the AMAZON.KendraSearchIntent intent to connect to an Amazon Kendra index. The AMAZON.KendraSearchIntent intent is called when Amazon Lex can't determine another intent to invoke. Cannot be used with `qna_intent_configuration`. See `kendra_configuration`.
         """
         return pulumi.get(self, "kendra_configuration")
 
@@ -610,6 +630,18 @@ class _V2modelsIntentState:
         pulumi.set(self, "parent_intent_signature", value)
 
     @_builtins.property
+    @pulumi.getter(name="qnaIntentConfiguration")
+    def qna_intent_configuration(self) -> Optional[pulumi.Input['V2modelsIntentQnaIntentConfigurationArgs']]:
+        """
+        Configuration block for QnA intent settings. This is used when `parent_intent_signature` is set to `AMAZON.QnAIntent`. Cannot be used with `kendra_configuration`. See `qna_intent_configuration`.
+        """
+        return pulumi.get(self, "qna_intent_configuration")
+
+    @qna_intent_configuration.setter
+    def qna_intent_configuration(self, value: Optional[pulumi.Input['V2modelsIntentQnaIntentConfigurationArgs']]):
+        pulumi.set(self, "qna_intent_configuration", value)
+
+    @_builtins.property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
@@ -675,6 +707,7 @@ class V2modelsIntent(pulumi.CustomResource):
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  output_contexts: Optional[pulumi.Input[Sequence[pulumi.Input[Union['V2modelsIntentOutputContextArgs', 'V2modelsIntentOutputContextArgsDict']]]]] = None,
                  parent_intent_signature: Optional[pulumi.Input[_builtins.str]] = None,
+                 qna_intent_configuration: Optional[pulumi.Input[Union['V2modelsIntentQnaIntentConfigurationArgs', 'V2modelsIntentQnaIntentConfigurationArgsDict']]] = None,
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  sample_utterances: Optional[pulumi.Input[Sequence[pulumi.Input[Union['V2modelsIntentSampleUtteranceArgs', 'V2modelsIntentSampleUtteranceArgsDict']]]]] = None,
                  slot_priorities: Optional[pulumi.Input[Sequence[pulumi.Input[Union['V2modelsIntentSlotPriorityArgs', 'V2modelsIntentSlotPriorityArgsDict']]]]] = None,
@@ -808,6 +841,32 @@ class V2modelsIntent(pulumi.CustomResource):
             })
         ```
 
+        ### QnA Intent Example
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        qna_example = aws.lex.V2modelsIntent("qna_example",
+            bot_id=test["id"],
+            bot_version=test_aws_lexv2models_bot_locale["botVersion"],
+            name="qna_intent",
+            locale_id=test_aws_lexv2models_bot_locale["localeId"],
+            parent_intent_signature="AMAZON.QnAIntent",
+            qna_intent_configuration={
+                "data_source_configuration": {
+                    "kendra_configuration": {
+                        "kendra_index": example["arn"],
+                        "exact_response": True,
+                        "query_filter_string_enabled": False,
+                    },
+                },
+            },
+            sample_utterances=[{
+                "utterance": "What is the answer?",
+            }])
+        ```
+
         ## Import
 
         Using `pulumi import`, import Lex V2 Models Intent using the `intent_id:bot_id:bot_version:locale_id`. For example:
@@ -827,13 +886,14 @@ class V2modelsIntent(pulumi.CustomResource):
         :param pulumi.Input[Union['V2modelsIntentFulfillmentCodeHookArgs', 'V2modelsIntentFulfillmentCodeHookArgsDict']] fulfillment_code_hook: Configuration block for invoking the alias Lambda function when the intent is ready for fulfillment. You can invoke this function to complete the bot's transaction with the user. See `fulfillment_code_hook`.
         :param pulumi.Input[Union['V2modelsIntentInitialResponseSettingArgs', 'V2modelsIntentInitialResponseSettingArgsDict']] initial_response_setting: Configuration block for the response that is sent to the user at the beginning of a conversation, before eliciting slot values. See `initial_response_setting`.
         :param pulumi.Input[Sequence[pulumi.Input[Union['V2modelsIntentInputContextArgs', 'V2modelsIntentInputContextArgsDict']]]] input_contexts: Configuration blocks for contexts that must be active for this intent to be considered by Amazon Lex. When an intent has an input context list, Amazon Lex only considers using the intent in an interaction with the user when the specified contexts are included in the active context list for the session. If the contexts are not active, then Amazon Lex will not use the intent. A context can be automatically activated using the outputContexts property or it can be set at runtime. See `input_context`.
-        :param pulumi.Input[Union['V2modelsIntentKendraConfigurationArgs', 'V2modelsIntentKendraConfigurationArgsDict']] kendra_configuration: Configuration block for information required to use the AMAZON.KendraSearchIntent intent to connect to an Amazon Kendra index. The AMAZON.KendraSearchIntent intent is called when Amazon Lex can't determine another intent to invoke. See `kendra_configuration`.
+        :param pulumi.Input[Union['V2modelsIntentKendraConfigurationArgs', 'V2modelsIntentKendraConfigurationArgsDict']] kendra_configuration: Configuration block for information required to use the AMAZON.KendraSearchIntent intent to connect to an Amazon Kendra index. The AMAZON.KendraSearchIntent intent is called when Amazon Lex can't determine another intent to invoke. Cannot be used with `qna_intent_configuration`. See `kendra_configuration`.
         :param pulumi.Input[_builtins.str] locale_id: Identifier of the language and locale where this intent is used. All of the bots, slot types, and slots used by the intent must have the same locale.
         :param pulumi.Input[_builtins.str] name: Name of the intent. Intent names must be unique in the locale that contains the intent and cannot match the name of any built-in intent.
                
                The following arguments are optional:
         :param pulumi.Input[Sequence[pulumi.Input[Union['V2modelsIntentOutputContextArgs', 'V2modelsIntentOutputContextArgsDict']]]] output_contexts: Configuration blocks for contexts that the intent activates when it is fulfilled. You can use an output context to indicate the intents that Amazon Lex should consider for the next turn of the conversation with a customer. When you use the outputContextsList property, all of the contexts specified in the list are activated when the intent is fulfilled. You can set up to 10 output contexts. You can also set the number of conversation turns that the context should be active, or the length of time that the context should be active. See `output_context`.
         :param pulumi.Input[_builtins.str] parent_intent_signature: Identifier for the built-in intent to base this intent on.
+        :param pulumi.Input[Union['V2modelsIntentQnaIntentConfigurationArgs', 'V2modelsIntentQnaIntentConfigurationArgsDict']] qna_intent_configuration: Configuration block for QnA intent settings. This is used when `parent_intent_signature` is set to `AMAZON.QnAIntent`. Cannot be used with `kendra_configuration`. See `qna_intent_configuration`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[Union['V2modelsIntentSampleUtteranceArgs', 'V2modelsIntentSampleUtteranceArgsDict']]]] sample_utterances: Configuration block for strings that a user might say to signal the intent. See `sample_utterance`.
         :param pulumi.Input[Sequence[pulumi.Input[Union['V2modelsIntentSlotPriorityArgs', 'V2modelsIntentSlotPriorityArgsDict']]]] slot_priorities: Configuration block for a new list of slots and their priorities that are contained by the intent. This is ignored on create and only valid for updates. See `slot_priority`.
@@ -972,6 +1032,32 @@ class V2modelsIntent(pulumi.CustomResource):
             })
         ```
 
+        ### QnA Intent Example
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        qna_example = aws.lex.V2modelsIntent("qna_example",
+            bot_id=test["id"],
+            bot_version=test_aws_lexv2models_bot_locale["botVersion"],
+            name="qna_intent",
+            locale_id=test_aws_lexv2models_bot_locale["localeId"],
+            parent_intent_signature="AMAZON.QnAIntent",
+            qna_intent_configuration={
+                "data_source_configuration": {
+                    "kendra_configuration": {
+                        "kendra_index": example["arn"],
+                        "exact_response": True,
+                        "query_filter_string_enabled": False,
+                    },
+                },
+            },
+            sample_utterances=[{
+                "utterance": "What is the answer?",
+            }])
+        ```
+
         ## Import
 
         Using `pulumi import`, import Lex V2 Models Intent using the `intent_id:bot_id:bot_version:locale_id`. For example:
@@ -1009,6 +1095,7 @@ class V2modelsIntent(pulumi.CustomResource):
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  output_contexts: Optional[pulumi.Input[Sequence[pulumi.Input[Union['V2modelsIntentOutputContextArgs', 'V2modelsIntentOutputContextArgsDict']]]]] = None,
                  parent_intent_signature: Optional[pulumi.Input[_builtins.str]] = None,
+                 qna_intent_configuration: Optional[pulumi.Input[Union['V2modelsIntentQnaIntentConfigurationArgs', 'V2modelsIntentQnaIntentConfigurationArgsDict']]] = None,
                  region: Optional[pulumi.Input[_builtins.str]] = None,
                  sample_utterances: Optional[pulumi.Input[Sequence[pulumi.Input[Union['V2modelsIntentSampleUtteranceArgs', 'V2modelsIntentSampleUtteranceArgsDict']]]]] = None,
                  slot_priorities: Optional[pulumi.Input[Sequence[pulumi.Input[Union['V2modelsIntentSlotPriorityArgs', 'V2modelsIntentSlotPriorityArgsDict']]]]] = None,
@@ -1042,6 +1129,7 @@ class V2modelsIntent(pulumi.CustomResource):
             __props__.__dict__["name"] = name
             __props__.__dict__["output_contexts"] = output_contexts
             __props__.__dict__["parent_intent_signature"] = parent_intent_signature
+            __props__.__dict__["qna_intent_configuration"] = qna_intent_configuration
             __props__.__dict__["region"] = region
             __props__.__dict__["sample_utterances"] = sample_utterances
             __props__.__dict__["slot_priorities"] = slot_priorities
@@ -1076,6 +1164,7 @@ class V2modelsIntent(pulumi.CustomResource):
             name: Optional[pulumi.Input[_builtins.str]] = None,
             output_contexts: Optional[pulumi.Input[Sequence[pulumi.Input[Union['V2modelsIntentOutputContextArgs', 'V2modelsIntentOutputContextArgsDict']]]]] = None,
             parent_intent_signature: Optional[pulumi.Input[_builtins.str]] = None,
+            qna_intent_configuration: Optional[pulumi.Input[Union['V2modelsIntentQnaIntentConfigurationArgs', 'V2modelsIntentQnaIntentConfigurationArgsDict']]] = None,
             region: Optional[pulumi.Input[_builtins.str]] = None,
             sample_utterances: Optional[pulumi.Input[Sequence[pulumi.Input[Union['V2modelsIntentSampleUtteranceArgs', 'V2modelsIntentSampleUtteranceArgsDict']]]]] = None,
             slot_priorities: Optional[pulumi.Input[Sequence[pulumi.Input[Union['V2modelsIntentSlotPriorityArgs', 'V2modelsIntentSlotPriorityArgsDict']]]]] = None,
@@ -1098,7 +1187,7 @@ class V2modelsIntent(pulumi.CustomResource):
         :param pulumi.Input[Union['V2modelsIntentInitialResponseSettingArgs', 'V2modelsIntentInitialResponseSettingArgsDict']] initial_response_setting: Configuration block for the response that is sent to the user at the beginning of a conversation, before eliciting slot values. See `initial_response_setting`.
         :param pulumi.Input[Sequence[pulumi.Input[Union['V2modelsIntentInputContextArgs', 'V2modelsIntentInputContextArgsDict']]]] input_contexts: Configuration blocks for contexts that must be active for this intent to be considered by Amazon Lex. When an intent has an input context list, Amazon Lex only considers using the intent in an interaction with the user when the specified contexts are included in the active context list for the session. If the contexts are not active, then Amazon Lex will not use the intent. A context can be automatically activated using the outputContexts property or it can be set at runtime. See `input_context`.
         :param pulumi.Input[_builtins.str] intent_id: Unique identifier for the intent.
-        :param pulumi.Input[Union['V2modelsIntentKendraConfigurationArgs', 'V2modelsIntentKendraConfigurationArgsDict']] kendra_configuration: Configuration block for information required to use the AMAZON.KendraSearchIntent intent to connect to an Amazon Kendra index. The AMAZON.KendraSearchIntent intent is called when Amazon Lex can't determine another intent to invoke. See `kendra_configuration`.
+        :param pulumi.Input[Union['V2modelsIntentKendraConfigurationArgs', 'V2modelsIntentKendraConfigurationArgsDict']] kendra_configuration: Configuration block for information required to use the AMAZON.KendraSearchIntent intent to connect to an Amazon Kendra index. The AMAZON.KendraSearchIntent intent is called when Amazon Lex can't determine another intent to invoke. Cannot be used with `qna_intent_configuration`. See `kendra_configuration`.
         :param pulumi.Input[_builtins.str] last_updated_date_time: Timestamp of the last time that the intent was modified.
         :param pulumi.Input[_builtins.str] locale_id: Identifier of the language and locale where this intent is used. All of the bots, slot types, and slots used by the intent must have the same locale.
         :param pulumi.Input[_builtins.str] name: Name of the intent. Intent names must be unique in the locale that contains the intent and cannot match the name of any built-in intent.
@@ -1106,6 +1195,7 @@ class V2modelsIntent(pulumi.CustomResource):
                The following arguments are optional:
         :param pulumi.Input[Sequence[pulumi.Input[Union['V2modelsIntentOutputContextArgs', 'V2modelsIntentOutputContextArgsDict']]]] output_contexts: Configuration blocks for contexts that the intent activates when it is fulfilled. You can use an output context to indicate the intents that Amazon Lex should consider for the next turn of the conversation with a customer. When you use the outputContextsList property, all of the contexts specified in the list are activated when the intent is fulfilled. You can set up to 10 output contexts. You can also set the number of conversation turns that the context should be active, or the length of time that the context should be active. See `output_context`.
         :param pulumi.Input[_builtins.str] parent_intent_signature: Identifier for the built-in intent to base this intent on.
+        :param pulumi.Input[Union['V2modelsIntentQnaIntentConfigurationArgs', 'V2modelsIntentQnaIntentConfigurationArgsDict']] qna_intent_configuration: Configuration block for QnA intent settings. This is used when `parent_intent_signature` is set to `AMAZON.QnAIntent`. Cannot be used with `kendra_configuration`. See `qna_intent_configuration`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[Union['V2modelsIntentSampleUtteranceArgs', 'V2modelsIntentSampleUtteranceArgsDict']]]] sample_utterances: Configuration block for strings that a user might say to signal the intent. See `sample_utterance`.
         :param pulumi.Input[Sequence[pulumi.Input[Union['V2modelsIntentSlotPriorityArgs', 'V2modelsIntentSlotPriorityArgsDict']]]] slot_priorities: Configuration block for a new list of slots and their priorities that are contained by the intent. This is ignored on create and only valid for updates. See `slot_priority`.
@@ -1131,6 +1221,7 @@ class V2modelsIntent(pulumi.CustomResource):
         __props__.__dict__["name"] = name
         __props__.__dict__["output_contexts"] = output_contexts
         __props__.__dict__["parent_intent_signature"] = parent_intent_signature
+        __props__.__dict__["qna_intent_configuration"] = qna_intent_configuration
         __props__.__dict__["region"] = region
         __props__.__dict__["sample_utterances"] = sample_utterances
         __props__.__dict__["slot_priorities"] = slot_priorities
@@ -1229,7 +1320,7 @@ class V2modelsIntent(pulumi.CustomResource):
     @pulumi.getter(name="kendraConfiguration")
     def kendra_configuration(self) -> pulumi.Output[Optional['outputs.V2modelsIntentKendraConfiguration']]:
         """
-        Configuration block for information required to use the AMAZON.KendraSearchIntent intent to connect to an Amazon Kendra index. The AMAZON.KendraSearchIntent intent is called when Amazon Lex can't determine another intent to invoke. See `kendra_configuration`.
+        Configuration block for information required to use the AMAZON.KendraSearchIntent intent to connect to an Amazon Kendra index. The AMAZON.KendraSearchIntent intent is called when Amazon Lex can't determine another intent to invoke. Cannot be used with `qna_intent_configuration`. See `kendra_configuration`.
         """
         return pulumi.get(self, "kendra_configuration")
 
@@ -1274,6 +1365,14 @@ class V2modelsIntent(pulumi.CustomResource):
         Identifier for the built-in intent to base this intent on.
         """
         return pulumi.get(self, "parent_intent_signature")
+
+    @_builtins.property
+    @pulumi.getter(name="qnaIntentConfiguration")
+    def qna_intent_configuration(self) -> pulumi.Output[Optional['outputs.V2modelsIntentQnaIntentConfiguration']]:
+        """
+        Configuration block for QnA intent settings. This is used when `parent_intent_signature` is set to `AMAZON.QnAIntent`. Cannot be used with `kendra_configuration`. See `qna_intent_configuration`.
+        """
+        return pulumi.get(self, "qna_intent_configuration")
 
     @_builtins.property
     @pulumi.getter

@@ -5,6 +5,7 @@ package com.pulumi.aws.sagemaker.inputs;
 
 import com.pulumi.aws.sagemaker.inputs.DomainDomainSettingsDockerSettingsArgs;
 import com.pulumi.aws.sagemaker.inputs.DomainDomainSettingsRStudioServerProDomainSettingsArgs;
+import com.pulumi.aws.sagemaker.inputs.DomainDomainSettingsTrustedIdentityPropagationSettingsArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
@@ -78,6 +79,21 @@ public final class DomainDomainSettingsArgs extends com.pulumi.resources.Resourc
         return Optional.ofNullable(this.securityGroupIds);
     }
 
+    /**
+     * Configuration for trusted identity propagation. See the `trustedIdentityPropagationSettings` Block below.
+     * 
+     */
+    @Import(name="trustedIdentityPropagationSettings")
+    private @Nullable Output<DomainDomainSettingsTrustedIdentityPropagationSettingsArgs> trustedIdentityPropagationSettings;
+
+    /**
+     * @return Configuration for trusted identity propagation. See the `trustedIdentityPropagationSettings` Block below.
+     * 
+     */
+    public Optional<Output<DomainDomainSettingsTrustedIdentityPropagationSettingsArgs>> trustedIdentityPropagationSettings() {
+        return Optional.ofNullable(this.trustedIdentityPropagationSettings);
+    }
+
     private DomainDomainSettingsArgs() {}
 
     private DomainDomainSettingsArgs(DomainDomainSettingsArgs $) {
@@ -85,6 +101,7 @@ public final class DomainDomainSettingsArgs extends com.pulumi.resources.Resourc
         this.executionRoleIdentityConfig = $.executionRoleIdentityConfig;
         this.rStudioServerProDomainSettings = $.rStudioServerProDomainSettings;
         this.securityGroupIds = $.securityGroupIds;
+        this.trustedIdentityPropagationSettings = $.trustedIdentityPropagationSettings;
     }
 
     public static Builder builder() {
@@ -197,6 +214,27 @@ public final class DomainDomainSettingsArgs extends com.pulumi.resources.Resourc
          */
         public Builder securityGroupIds(String... securityGroupIds) {
             return securityGroupIds(List.of(securityGroupIds));
+        }
+
+        /**
+         * @param trustedIdentityPropagationSettings Configuration for trusted identity propagation. See the `trustedIdentityPropagationSettings` Block below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder trustedIdentityPropagationSettings(@Nullable Output<DomainDomainSettingsTrustedIdentityPropagationSettingsArgs> trustedIdentityPropagationSettings) {
+            $.trustedIdentityPropagationSettings = trustedIdentityPropagationSettings;
+            return this;
+        }
+
+        /**
+         * @param trustedIdentityPropagationSettings Configuration for trusted identity propagation. See the `trustedIdentityPropagationSettings` Block below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder trustedIdentityPropagationSettings(DomainDomainSettingsTrustedIdentityPropagationSettingsArgs trustedIdentityPropagationSettings) {
+            return trustedIdentityPropagationSettings(Output.of(trustedIdentityPropagationSettings));
         }
 
         public DomainDomainSettingsArgs build() {

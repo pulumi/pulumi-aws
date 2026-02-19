@@ -23,6 +23,11 @@ public final class LaunchTemplateCpuOptions {
      */
     private @Nullable Integer coreCount;
     /**
+     * @return Indicates whether to enable the instance for nested virtualization. Nested virtualization is supported on 8th generation Intel-based instance types (C8i, M8i, R8i, and their flex variants) only. When nested virtualization is enabled, Virtual Secure Mode (VSM) is automatically disabled for the instance. Valid values are `enabled` and `disabled`.
+     * 
+     */
+    private @Nullable String nestedVirtualization;
+    /**
      * @return The number of threads per CPU core.
      * To disable Intel Hyper-Threading Technology for the instance, specify a value of 1.
      * Otherwise, specify the default value of 2.
@@ -48,6 +53,13 @@ public final class LaunchTemplateCpuOptions {
         return Optional.ofNullable(this.coreCount);
     }
     /**
+     * @return Indicates whether to enable the instance for nested virtualization. Nested virtualization is supported on 8th generation Intel-based instance types (C8i, M8i, R8i, and their flex variants) only. When nested virtualization is enabled, Virtual Secure Mode (VSM) is automatically disabled for the instance. Valid values are `enabled` and `disabled`.
+     * 
+     */
+    public Optional<String> nestedVirtualization() {
+        return Optional.ofNullable(this.nestedVirtualization);
+    }
+    /**
      * @return The number of threads per CPU core.
      * To disable Intel Hyper-Threading Technology for the instance, specify a value of 1.
      * Otherwise, specify the default value of 2.
@@ -70,12 +82,14 @@ public final class LaunchTemplateCpuOptions {
     public static final class Builder {
         private @Nullable String amdSevSnp;
         private @Nullable Integer coreCount;
+        private @Nullable String nestedVirtualization;
         private @Nullable Integer threadsPerCore;
         public Builder() {}
         public Builder(LaunchTemplateCpuOptions defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.amdSevSnp = defaults.amdSevSnp;
     	      this.coreCount = defaults.coreCount;
+    	      this.nestedVirtualization = defaults.nestedVirtualization;
     	      this.threadsPerCore = defaults.threadsPerCore;
         }
 
@@ -92,6 +106,12 @@ public final class LaunchTemplateCpuOptions {
             return this;
         }
         @CustomType.Setter
+        public Builder nestedVirtualization(@Nullable String nestedVirtualization) {
+
+            this.nestedVirtualization = nestedVirtualization;
+            return this;
+        }
+        @CustomType.Setter
         public Builder threadsPerCore(@Nullable Integer threadsPerCore) {
 
             this.threadsPerCore = threadsPerCore;
@@ -101,6 +121,7 @@ public final class LaunchTemplateCpuOptions {
             final var _resultValue = new LaunchTemplateCpuOptions();
             _resultValue.amdSevSnp = amdSevSnp;
             _resultValue.coreCount = coreCount;
+            _resultValue.nestedVirtualization = nestedVirtualization;
             _resultValue.threadsPerCore = threadsPerCore;
             return _resultValue;
         }

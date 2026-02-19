@@ -207,6 +207,50 @@ import (
 //
 // ```
 //
+// ### QnA Intent Example
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/lex"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := lex.NewV2modelsIntent(ctx, "qna_example", &lex.V2modelsIntentArgs{
+//				BotId:                 pulumi.Any(test.Id),
+//				BotVersion:            pulumi.Any(testAwsLexv2modelsBotLocale.BotVersion),
+//				Name:                  pulumi.String("qna_intent"),
+//				LocaleId:              pulumi.Any(testAwsLexv2modelsBotLocale.LocaleId),
+//				ParentIntentSignature: pulumi.String("AMAZON.QnAIntent"),
+//				QnaIntentConfiguration: &lex.V2modelsIntentQnaIntentConfigurationArgs{
+//					DataSourceConfiguration: &lex.V2modelsIntentQnaIntentConfigurationDataSourceConfigurationArgs{
+//						KendraConfiguration: &lex.V2modelsIntentQnaIntentConfigurationDataSourceConfigurationKendraConfigurationArgs{
+//							KendraIndex:              pulumi.Any(example.Arn),
+//							ExactResponse:            pulumi.Bool(true),
+//							QueryFilterStringEnabled: pulumi.Bool(false),
+//						},
+//					},
+//				},
+//				SampleUtterances: lex.V2modelsIntentSampleUtteranceArray{
+//					&lex.V2modelsIntentSampleUtteranceArgs{
+//						Utterance: pulumi.String("What is the answer?"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Using `pulumi import`, import Lex V2 Models Intent using the `intent_id:bot_id:bot_version:locale_id`. For example:
@@ -239,7 +283,7 @@ type V2modelsIntent struct {
 	InputContexts V2modelsIntentInputContextArrayOutput `pulumi:"inputContexts"`
 	// Unique identifier for the intent.
 	IntentId pulumi.StringOutput `pulumi:"intentId"`
-	// Configuration block for information required to use the AMAZON.KendraSearchIntent intent to connect to an Amazon Kendra index. The AMAZON.KendraSearchIntent intent is called when Amazon Lex can't determine another intent to invoke. See `kendraConfiguration`.
+	// Configuration block for information required to use the AMAZON.KendraSearchIntent intent to connect to an Amazon Kendra index. The AMAZON.KendraSearchIntent intent is called when Amazon Lex can't determine another intent to invoke. Cannot be used with `qnaIntentConfiguration`. See `kendraConfiguration`.
 	KendraConfiguration V2modelsIntentKendraConfigurationPtrOutput `pulumi:"kendraConfiguration"`
 	// Timestamp of the last time that the intent was modified.
 	LastUpdatedDateTime pulumi.StringOutput `pulumi:"lastUpdatedDateTime"`
@@ -253,6 +297,8 @@ type V2modelsIntent struct {
 	OutputContexts V2modelsIntentOutputContextArrayOutput `pulumi:"outputContexts"`
 	// Identifier for the built-in intent to base this intent on.
 	ParentIntentSignature pulumi.StringPtrOutput `pulumi:"parentIntentSignature"`
+	// Configuration block for QnA intent settings. This is used when `parentIntentSignature` is set to `AMAZON.QnAIntent`. Cannot be used with `kendraConfiguration`. See `qnaIntentConfiguration`.
+	QnaIntentConfiguration V2modelsIntentQnaIntentConfigurationPtrOutput `pulumi:"qnaIntentConfiguration"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Configuration block for strings that a user might say to signal the intent. See `sampleUtterance`.
@@ -323,7 +369,7 @@ type v2modelsIntentState struct {
 	InputContexts []V2modelsIntentInputContext `pulumi:"inputContexts"`
 	// Unique identifier for the intent.
 	IntentId *string `pulumi:"intentId"`
-	// Configuration block for information required to use the AMAZON.KendraSearchIntent intent to connect to an Amazon Kendra index. The AMAZON.KendraSearchIntent intent is called when Amazon Lex can't determine another intent to invoke. See `kendraConfiguration`.
+	// Configuration block for information required to use the AMAZON.KendraSearchIntent intent to connect to an Amazon Kendra index. The AMAZON.KendraSearchIntent intent is called when Amazon Lex can't determine another intent to invoke. Cannot be used with `qnaIntentConfiguration`. See `kendraConfiguration`.
 	KendraConfiguration *V2modelsIntentKendraConfiguration `pulumi:"kendraConfiguration"`
 	// Timestamp of the last time that the intent was modified.
 	LastUpdatedDateTime *string `pulumi:"lastUpdatedDateTime"`
@@ -337,6 +383,8 @@ type v2modelsIntentState struct {
 	OutputContexts []V2modelsIntentOutputContext `pulumi:"outputContexts"`
 	// Identifier for the built-in intent to base this intent on.
 	ParentIntentSignature *string `pulumi:"parentIntentSignature"`
+	// Configuration block for QnA intent settings. This is used when `parentIntentSignature` is set to `AMAZON.QnAIntent`. Cannot be used with `kendraConfiguration`. See `qnaIntentConfiguration`.
+	QnaIntentConfiguration *V2modelsIntentQnaIntentConfiguration `pulumi:"qnaIntentConfiguration"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Configuration block for strings that a user might say to signal the intent. See `sampleUtterance`.
@@ -369,7 +417,7 @@ type V2modelsIntentState struct {
 	InputContexts V2modelsIntentInputContextArrayInput
 	// Unique identifier for the intent.
 	IntentId pulumi.StringPtrInput
-	// Configuration block for information required to use the AMAZON.KendraSearchIntent intent to connect to an Amazon Kendra index. The AMAZON.KendraSearchIntent intent is called when Amazon Lex can't determine another intent to invoke. See `kendraConfiguration`.
+	// Configuration block for information required to use the AMAZON.KendraSearchIntent intent to connect to an Amazon Kendra index. The AMAZON.KendraSearchIntent intent is called when Amazon Lex can't determine another intent to invoke. Cannot be used with `qnaIntentConfiguration`. See `kendraConfiguration`.
 	KendraConfiguration V2modelsIntentKendraConfigurationPtrInput
 	// Timestamp of the last time that the intent was modified.
 	LastUpdatedDateTime pulumi.StringPtrInput
@@ -383,6 +431,8 @@ type V2modelsIntentState struct {
 	OutputContexts V2modelsIntentOutputContextArrayInput
 	// Identifier for the built-in intent to base this intent on.
 	ParentIntentSignature pulumi.StringPtrInput
+	// Configuration block for QnA intent settings. This is used when `parentIntentSignature` is set to `AMAZON.QnAIntent`. Cannot be used with `kendraConfiguration`. See `qnaIntentConfiguration`.
+	QnaIntentConfiguration V2modelsIntentQnaIntentConfigurationPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Configuration block for strings that a user might say to signal the intent. See `sampleUtterance`.
@@ -415,7 +465,7 @@ type v2modelsIntentArgs struct {
 	InitialResponseSetting *V2modelsIntentInitialResponseSetting `pulumi:"initialResponseSetting"`
 	// Configuration blocks for contexts that must be active for this intent to be considered by Amazon Lex. When an intent has an input context list, Amazon Lex only considers using the intent in an interaction with the user when the specified contexts are included in the active context list for the session. If the contexts are not active, then Amazon Lex will not use the intent. A context can be automatically activated using the outputContexts property or it can be set at runtime. See `inputContext`.
 	InputContexts []V2modelsIntentInputContext `pulumi:"inputContexts"`
-	// Configuration block for information required to use the AMAZON.KendraSearchIntent intent to connect to an Amazon Kendra index. The AMAZON.KendraSearchIntent intent is called when Amazon Lex can't determine another intent to invoke. See `kendraConfiguration`.
+	// Configuration block for information required to use the AMAZON.KendraSearchIntent intent to connect to an Amazon Kendra index. The AMAZON.KendraSearchIntent intent is called when Amazon Lex can't determine another intent to invoke. Cannot be used with `qnaIntentConfiguration`. See `kendraConfiguration`.
 	KendraConfiguration *V2modelsIntentKendraConfiguration `pulumi:"kendraConfiguration"`
 	// Identifier of the language and locale where this intent is used. All of the bots, slot types, and slots used by the intent must have the same locale.
 	LocaleId string `pulumi:"localeId"`
@@ -427,6 +477,8 @@ type v2modelsIntentArgs struct {
 	OutputContexts []V2modelsIntentOutputContext `pulumi:"outputContexts"`
 	// Identifier for the built-in intent to base this intent on.
 	ParentIntentSignature *string `pulumi:"parentIntentSignature"`
+	// Configuration block for QnA intent settings. This is used when `parentIntentSignature` is set to `AMAZON.QnAIntent`. Cannot be used with `kendraConfiguration`. See `qnaIntentConfiguration`.
+	QnaIntentConfiguration *V2modelsIntentQnaIntentConfiguration `pulumi:"qnaIntentConfiguration"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Configuration block for strings that a user might say to signal the intent. See `sampleUtterance`.
@@ -456,7 +508,7 @@ type V2modelsIntentArgs struct {
 	InitialResponseSetting V2modelsIntentInitialResponseSettingPtrInput
 	// Configuration blocks for contexts that must be active for this intent to be considered by Amazon Lex. When an intent has an input context list, Amazon Lex only considers using the intent in an interaction with the user when the specified contexts are included in the active context list for the session. If the contexts are not active, then Amazon Lex will not use the intent. A context can be automatically activated using the outputContexts property or it can be set at runtime. See `inputContext`.
 	InputContexts V2modelsIntentInputContextArrayInput
-	// Configuration block for information required to use the AMAZON.KendraSearchIntent intent to connect to an Amazon Kendra index. The AMAZON.KendraSearchIntent intent is called when Amazon Lex can't determine another intent to invoke. See `kendraConfiguration`.
+	// Configuration block for information required to use the AMAZON.KendraSearchIntent intent to connect to an Amazon Kendra index. The AMAZON.KendraSearchIntent intent is called when Amazon Lex can't determine another intent to invoke. Cannot be used with `qnaIntentConfiguration`. See `kendraConfiguration`.
 	KendraConfiguration V2modelsIntentKendraConfigurationPtrInput
 	// Identifier of the language and locale where this intent is used. All of the bots, slot types, and slots used by the intent must have the same locale.
 	LocaleId pulumi.StringInput
@@ -468,6 +520,8 @@ type V2modelsIntentArgs struct {
 	OutputContexts V2modelsIntentOutputContextArrayInput
 	// Identifier for the built-in intent to base this intent on.
 	ParentIntentSignature pulumi.StringPtrInput
+	// Configuration block for QnA intent settings. This is used when `parentIntentSignature` is set to `AMAZON.QnAIntent`. Cannot be used with `kendraConfiguration`. See `qnaIntentConfiguration`.
+	QnaIntentConfiguration V2modelsIntentQnaIntentConfigurationPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Configuration block for strings that a user might say to signal the intent. See `sampleUtterance`.
@@ -619,7 +673,7 @@ func (o V2modelsIntentOutput) IntentId() pulumi.StringOutput {
 	return o.ApplyT(func(v *V2modelsIntent) pulumi.StringOutput { return v.IntentId }).(pulumi.StringOutput)
 }
 
-// Configuration block for information required to use the AMAZON.KendraSearchIntent intent to connect to an Amazon Kendra index. The AMAZON.KendraSearchIntent intent is called when Amazon Lex can't determine another intent to invoke. See `kendraConfiguration`.
+// Configuration block for information required to use the AMAZON.KendraSearchIntent intent to connect to an Amazon Kendra index. The AMAZON.KendraSearchIntent intent is called when Amazon Lex can't determine another intent to invoke. Cannot be used with `qnaIntentConfiguration`. See `kendraConfiguration`.
 func (o V2modelsIntentOutput) KendraConfiguration() V2modelsIntentKendraConfigurationPtrOutput {
 	return o.ApplyT(func(v *V2modelsIntent) V2modelsIntentKendraConfigurationPtrOutput { return v.KendraConfiguration }).(V2modelsIntentKendraConfigurationPtrOutput)
 }
@@ -649,6 +703,11 @@ func (o V2modelsIntentOutput) OutputContexts() V2modelsIntentOutputContextArrayO
 // Identifier for the built-in intent to base this intent on.
 func (o V2modelsIntentOutput) ParentIntentSignature() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *V2modelsIntent) pulumi.StringPtrOutput { return v.ParentIntentSignature }).(pulumi.StringPtrOutput)
+}
+
+// Configuration block for QnA intent settings. This is used when `parentIntentSignature` is set to `AMAZON.QnAIntent`. Cannot be used with `kendraConfiguration`. See `qnaIntentConfiguration`.
+func (o V2modelsIntentOutput) QnaIntentConfiguration() V2modelsIntentQnaIntentConfigurationPtrOutput {
+	return o.ApplyT(func(v *V2modelsIntent) V2modelsIntentQnaIntentConfigurationPtrOutput { return v.QnaIntentConfiguration }).(V2modelsIntentQnaIntentConfigurationPtrOutput)
 }
 
 // Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.

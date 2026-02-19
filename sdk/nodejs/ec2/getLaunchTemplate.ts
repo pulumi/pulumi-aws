@@ -109,10 +109,12 @@ export interface GetLaunchTemplateResult {
     readonly monitorings: outputs.ec2.GetLaunchTemplateMonitoring[];
     readonly name: string;
     readonly networkInterfaces: outputs.ec2.GetLaunchTemplateNetworkInterface[];
+    readonly networkPerformanceOptions: outputs.ec2.GetLaunchTemplateNetworkPerformanceOption[];
     readonly placements: outputs.ec2.GetLaunchTemplatePlacement[];
     readonly privateDnsNameOptions: outputs.ec2.GetLaunchTemplatePrivateDnsNameOption[];
     readonly ramDiskId: string;
     readonly region: string;
+    readonly secondaryInterfaces: outputs.ec2.GetLaunchTemplateSecondaryInterface[];
     readonly securityGroupNames: string[];
     readonly tagSpecifications: outputs.ec2.GetLaunchTemplateTagSpecification[];
     readonly tags: {[key: string]: string};

@@ -33,6 +33,21 @@ public final class CertificateAuthorityRevocationConfigurationCrlConfigurationAr
     }
 
     /**
+     * Configures a custom path for the CRL in S3. If specified, the CRL will be written to `s3://&lt;s3_bucket_name&gt;/&lt;custom_path&gt;/&lt;crl_file&gt;`. Must conform to the pattern `[-a-zA-Z0-9;?:{@literal @}&amp;=+$,%_.!~*()&#39;]+(/[-a-zA-Z0-9;?:{@literal @}&amp;=+$,%_.!~*()&#39;]+)*` and be between 0 and 253 characters in length.
+     * 
+     */
+    @Import(name="customPath")
+    private @Nullable Output<String> customPath;
+
+    /**
+     * @return Configures a custom path for the CRL in S3. If specified, the CRL will be written to `s3://&lt;s3_bucket_name&gt;/&lt;custom_path&gt;/&lt;crl_file&gt;`. Must conform to the pattern `[-a-zA-Z0-9;?:{@literal @}&amp;=+$,%_.!~*()&#39;]+(/[-a-zA-Z0-9;?:{@literal @}&amp;=+$,%_.!~*()&#39;]+)*` and be between 0 and 253 characters in length.
+     * 
+     */
+    public Optional<Output<String>> customPath() {
+        return Optional.ofNullable(this.customPath);
+    }
+
+    /**
      * Boolean value that specifies whether certificate revocation lists (CRLs) are enabled. Defaults to `false`.
      * 
      */
@@ -96,6 +111,7 @@ public final class CertificateAuthorityRevocationConfigurationCrlConfigurationAr
 
     private CertificateAuthorityRevocationConfigurationCrlConfigurationArgs(CertificateAuthorityRevocationConfigurationCrlConfigurationArgs $) {
         this.customCname = $.customCname;
+        this.customPath = $.customPath;
         this.enabled = $.enabled;
         this.expirationInDays = $.expirationInDays;
         this.s3BucketName = $.s3BucketName;
@@ -139,6 +155,27 @@ public final class CertificateAuthorityRevocationConfigurationCrlConfigurationAr
          */
         public Builder customCname(String customCname) {
             return customCname(Output.of(customCname));
+        }
+
+        /**
+         * @param customPath Configures a custom path for the CRL in S3. If specified, the CRL will be written to `s3://&lt;s3_bucket_name&gt;/&lt;custom_path&gt;/&lt;crl_file&gt;`. Must conform to the pattern `[-a-zA-Z0-9;?:{@literal @}&amp;=+$,%_.!~*()&#39;]+(/[-a-zA-Z0-9;?:{@literal @}&amp;=+$,%_.!~*()&#39;]+)*` and be between 0 and 253 characters in length.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder customPath(@Nullable Output<String> customPath) {
+            $.customPath = customPath;
+            return this;
+        }
+
+        /**
+         * @param customPath Configures a custom path for the CRL in S3. If specified, the CRL will be written to `s3://&lt;s3_bucket_name&gt;/&lt;custom_path&gt;/&lt;crl_file&gt;`. Must conform to the pattern `[-a-zA-Z0-9;?:{@literal @}&amp;=+$,%_.!~*()&#39;]+(/[-a-zA-Z0-9;?:{@literal @}&amp;=+$,%_.!~*()&#39;]+)*` and be between 0 and 253 characters in length.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder customPath(String customPath) {
+            return customPath(Output.of(customPath));
         }
 
         /**

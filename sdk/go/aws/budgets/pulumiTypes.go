@@ -1314,7 +1314,8 @@ func (o BudgetAutoAdjustDataHistoricalOptionsPtrOutput) LookbackAvailablePeriods
 
 type BudgetCostFilter struct {
 	// The name of a budget. Unique within accounts.
-	Name   string   `pulumi:"name"`
+	Name string `pulumi:"name"`
+	// (Optional) A list of cost category values to match. At least one value is required.
 	Values []string `pulumi:"values"`
 }
 
@@ -1331,7 +1332,8 @@ type BudgetCostFilterInput interface {
 
 type BudgetCostFilterArgs struct {
 	// The name of a budget. Unique within accounts.
-	Name   pulumi.StringInput      `pulumi:"name"`
+	Name pulumi.StringInput `pulumi:"name"`
+	// (Optional) A list of cost category values to match. At least one value is required.
 	Values pulumi.StringArrayInput `pulumi:"values"`
 }
 
@@ -1391,6 +1393,7 @@ func (o BudgetCostFilterOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v BudgetCostFilter) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// (Optional) A list of cost category values to match. At least one value is required.
 func (o BudgetCostFilterOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v BudgetCostFilter) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
@@ -1740,6 +1743,8810 @@ func (o BudgetCostTypesPtrOutput) UseBlended() pulumi.BoolPtrOutput {
 		}
 		return v.UseBlended
 	}).(pulumi.BoolPtrOutput)
+}
+
+type BudgetFilterExpression struct {
+	// (Optional) A list of filter expressions to combine with AND logic. Each `and` block is one operand and must itself contain exactly one root.
+	Ands []BudgetFilterExpressionAnd `pulumi:"ands"`
+	// (Optional) A Cost Category Filter block.
+	CostCategories *BudgetFilterExpressionCostCategories `pulumi:"costCategories"`
+	// (Optional) A Dimension Filter block.
+	Dimensions *BudgetFilterExpressionDimensions `pulumi:"dimensions"`
+	// (Optional) A single filter expression to negate. Must contain exactly one root.
+	Not *BudgetFilterExpressionNot `pulumi:"not"`
+	// (Optional) A list of filter expressions to combine with OR logic. Each `or` block is one operand and must itself contain exactly one root.
+	Ors []BudgetFilterExpressionOr `pulumi:"ors"`
+	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags *BudgetFilterExpressionTags `pulumi:"tags"`
+}
+
+// BudgetFilterExpressionInput is an input type that accepts BudgetFilterExpressionArgs and BudgetFilterExpressionOutput values.
+// You can construct a concrete instance of `BudgetFilterExpressionInput` via:
+//
+//	BudgetFilterExpressionArgs{...}
+type BudgetFilterExpressionInput interface {
+	pulumi.Input
+
+	ToBudgetFilterExpressionOutput() BudgetFilterExpressionOutput
+	ToBudgetFilterExpressionOutputWithContext(context.Context) BudgetFilterExpressionOutput
+}
+
+type BudgetFilterExpressionArgs struct {
+	// (Optional) A list of filter expressions to combine with AND logic. Each `and` block is one operand and must itself contain exactly one root.
+	Ands BudgetFilterExpressionAndArrayInput `pulumi:"ands"`
+	// (Optional) A Cost Category Filter block.
+	CostCategories BudgetFilterExpressionCostCategoriesPtrInput `pulumi:"costCategories"`
+	// (Optional) A Dimension Filter block.
+	Dimensions BudgetFilterExpressionDimensionsPtrInput `pulumi:"dimensions"`
+	// (Optional) A single filter expression to negate. Must contain exactly one root.
+	Not BudgetFilterExpressionNotPtrInput `pulumi:"not"`
+	// (Optional) A list of filter expressions to combine with OR logic. Each `or` block is one operand and must itself contain exactly one root.
+	Ors BudgetFilterExpressionOrArrayInput `pulumi:"ors"`
+	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags BudgetFilterExpressionTagsPtrInput `pulumi:"tags"`
+}
+
+func (BudgetFilterExpressionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BudgetFilterExpression)(nil)).Elem()
+}
+
+func (i BudgetFilterExpressionArgs) ToBudgetFilterExpressionOutput() BudgetFilterExpressionOutput {
+	return i.ToBudgetFilterExpressionOutputWithContext(context.Background())
+}
+
+func (i BudgetFilterExpressionArgs) ToBudgetFilterExpressionOutputWithContext(ctx context.Context) BudgetFilterExpressionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetFilterExpressionOutput)
+}
+
+func (i BudgetFilterExpressionArgs) ToBudgetFilterExpressionPtrOutput() BudgetFilterExpressionPtrOutput {
+	return i.ToBudgetFilterExpressionPtrOutputWithContext(context.Background())
+}
+
+func (i BudgetFilterExpressionArgs) ToBudgetFilterExpressionPtrOutputWithContext(ctx context.Context) BudgetFilterExpressionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetFilterExpressionOutput).ToBudgetFilterExpressionPtrOutputWithContext(ctx)
+}
+
+// BudgetFilterExpressionPtrInput is an input type that accepts BudgetFilterExpressionArgs, BudgetFilterExpressionPtr and BudgetFilterExpressionPtrOutput values.
+// You can construct a concrete instance of `BudgetFilterExpressionPtrInput` via:
+//
+//	        BudgetFilterExpressionArgs{...}
+//
+//	or:
+//
+//	        nil
+type BudgetFilterExpressionPtrInput interface {
+	pulumi.Input
+
+	ToBudgetFilterExpressionPtrOutput() BudgetFilterExpressionPtrOutput
+	ToBudgetFilterExpressionPtrOutputWithContext(context.Context) BudgetFilterExpressionPtrOutput
+}
+
+type budgetFilterExpressionPtrType BudgetFilterExpressionArgs
+
+func BudgetFilterExpressionPtr(v *BudgetFilterExpressionArgs) BudgetFilterExpressionPtrInput {
+	return (*budgetFilterExpressionPtrType)(v)
+}
+
+func (*budgetFilterExpressionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BudgetFilterExpression)(nil)).Elem()
+}
+
+func (i *budgetFilterExpressionPtrType) ToBudgetFilterExpressionPtrOutput() BudgetFilterExpressionPtrOutput {
+	return i.ToBudgetFilterExpressionPtrOutputWithContext(context.Background())
+}
+
+func (i *budgetFilterExpressionPtrType) ToBudgetFilterExpressionPtrOutputWithContext(ctx context.Context) BudgetFilterExpressionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetFilterExpressionPtrOutput)
+}
+
+type BudgetFilterExpressionOutput struct{ *pulumi.OutputState }
+
+func (BudgetFilterExpressionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BudgetFilterExpression)(nil)).Elem()
+}
+
+func (o BudgetFilterExpressionOutput) ToBudgetFilterExpressionOutput() BudgetFilterExpressionOutput {
+	return o
+}
+
+func (o BudgetFilterExpressionOutput) ToBudgetFilterExpressionOutputWithContext(ctx context.Context) BudgetFilterExpressionOutput {
+	return o
+}
+
+func (o BudgetFilterExpressionOutput) ToBudgetFilterExpressionPtrOutput() BudgetFilterExpressionPtrOutput {
+	return o.ToBudgetFilterExpressionPtrOutputWithContext(context.Background())
+}
+
+func (o BudgetFilterExpressionOutput) ToBudgetFilterExpressionPtrOutputWithContext(ctx context.Context) BudgetFilterExpressionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BudgetFilterExpression) *BudgetFilterExpression {
+		return &v
+	}).(BudgetFilterExpressionPtrOutput)
+}
+
+// (Optional) A list of filter expressions to combine with AND logic. Each `and` block is one operand and must itself contain exactly one root.
+func (o BudgetFilterExpressionOutput) Ands() BudgetFilterExpressionAndArrayOutput {
+	return o.ApplyT(func(v BudgetFilterExpression) []BudgetFilterExpressionAnd { return v.Ands }).(BudgetFilterExpressionAndArrayOutput)
+}
+
+// (Optional) A Cost Category Filter block.
+func (o BudgetFilterExpressionOutput) CostCategories() BudgetFilterExpressionCostCategoriesPtrOutput {
+	return o.ApplyT(func(v BudgetFilterExpression) *BudgetFilterExpressionCostCategories { return v.CostCategories }).(BudgetFilterExpressionCostCategoriesPtrOutput)
+}
+
+// (Optional) A Dimension Filter block.
+func (o BudgetFilterExpressionOutput) Dimensions() BudgetFilterExpressionDimensionsPtrOutput {
+	return o.ApplyT(func(v BudgetFilterExpression) *BudgetFilterExpressionDimensions { return v.Dimensions }).(BudgetFilterExpressionDimensionsPtrOutput)
+}
+
+// (Optional) A single filter expression to negate. Must contain exactly one root.
+func (o BudgetFilterExpressionOutput) Not() BudgetFilterExpressionNotPtrOutput {
+	return o.ApplyT(func(v BudgetFilterExpression) *BudgetFilterExpressionNot { return v.Not }).(BudgetFilterExpressionNotPtrOutput)
+}
+
+// (Optional) A list of filter expressions to combine with OR logic. Each `or` block is one operand and must itself contain exactly one root.
+func (o BudgetFilterExpressionOutput) Ors() BudgetFilterExpressionOrArrayOutput {
+	return o.ApplyT(func(v BudgetFilterExpression) []BudgetFilterExpressionOr { return v.Ors }).(BudgetFilterExpressionOrArrayOutput)
+}
+
+// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+func (o BudgetFilterExpressionOutput) Tags() BudgetFilterExpressionTagsPtrOutput {
+	return o.ApplyT(func(v BudgetFilterExpression) *BudgetFilterExpressionTags { return v.Tags }).(BudgetFilterExpressionTagsPtrOutput)
+}
+
+type BudgetFilterExpressionPtrOutput struct{ *pulumi.OutputState }
+
+func (BudgetFilterExpressionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BudgetFilterExpression)(nil)).Elem()
+}
+
+func (o BudgetFilterExpressionPtrOutput) ToBudgetFilterExpressionPtrOutput() BudgetFilterExpressionPtrOutput {
+	return o
+}
+
+func (o BudgetFilterExpressionPtrOutput) ToBudgetFilterExpressionPtrOutputWithContext(ctx context.Context) BudgetFilterExpressionPtrOutput {
+	return o
+}
+
+func (o BudgetFilterExpressionPtrOutput) Elem() BudgetFilterExpressionOutput {
+	return o.ApplyT(func(v *BudgetFilterExpression) BudgetFilterExpression {
+		if v != nil {
+			return *v
+		}
+		var ret BudgetFilterExpression
+		return ret
+	}).(BudgetFilterExpressionOutput)
+}
+
+// (Optional) A list of filter expressions to combine with AND logic. Each `and` block is one operand and must itself contain exactly one root.
+func (o BudgetFilterExpressionPtrOutput) Ands() BudgetFilterExpressionAndArrayOutput {
+	return o.ApplyT(func(v *BudgetFilterExpression) []BudgetFilterExpressionAnd {
+		if v == nil {
+			return nil
+		}
+		return v.Ands
+	}).(BudgetFilterExpressionAndArrayOutput)
+}
+
+// (Optional) A Cost Category Filter block.
+func (o BudgetFilterExpressionPtrOutput) CostCategories() BudgetFilterExpressionCostCategoriesPtrOutput {
+	return o.ApplyT(func(v *BudgetFilterExpression) *BudgetFilterExpressionCostCategories {
+		if v == nil {
+			return nil
+		}
+		return v.CostCategories
+	}).(BudgetFilterExpressionCostCategoriesPtrOutput)
+}
+
+// (Optional) A Dimension Filter block.
+func (o BudgetFilterExpressionPtrOutput) Dimensions() BudgetFilterExpressionDimensionsPtrOutput {
+	return o.ApplyT(func(v *BudgetFilterExpression) *BudgetFilterExpressionDimensions {
+		if v == nil {
+			return nil
+		}
+		return v.Dimensions
+	}).(BudgetFilterExpressionDimensionsPtrOutput)
+}
+
+// (Optional) A single filter expression to negate. Must contain exactly one root.
+func (o BudgetFilterExpressionPtrOutput) Not() BudgetFilterExpressionNotPtrOutput {
+	return o.ApplyT(func(v *BudgetFilterExpression) *BudgetFilterExpressionNot {
+		if v == nil {
+			return nil
+		}
+		return v.Not
+	}).(BudgetFilterExpressionNotPtrOutput)
+}
+
+// (Optional) A list of filter expressions to combine with OR logic. Each `or` block is one operand and must itself contain exactly one root.
+func (o BudgetFilterExpressionPtrOutput) Ors() BudgetFilterExpressionOrArrayOutput {
+	return o.ApplyT(func(v *BudgetFilterExpression) []BudgetFilterExpressionOr {
+		if v == nil {
+			return nil
+		}
+		return v.Ors
+	}).(BudgetFilterExpressionOrArrayOutput)
+}
+
+// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+func (o BudgetFilterExpressionPtrOutput) Tags() BudgetFilterExpressionTagsPtrOutput {
+	return o.ApplyT(func(v *BudgetFilterExpression) *BudgetFilterExpressionTags {
+		if v == nil {
+			return nil
+		}
+		return v.Tags
+	}).(BudgetFilterExpressionTagsPtrOutput)
+}
+
+type BudgetFilterExpressionAnd struct {
+	// (Optional) A list of filter expressions to combine with AND logic. Each `and` block is one operand and must itself contain exactly one root.
+	Ands []BudgetFilterExpressionAndAnd `pulumi:"ands"`
+	// (Optional) A Cost Category Filter block.
+	CostCategories *BudgetFilterExpressionAndCostCategories `pulumi:"costCategories"`
+	// (Optional) A Dimension Filter block.
+	Dimensions *BudgetFilterExpressionAndDimensions `pulumi:"dimensions"`
+	// (Optional) A single filter expression to negate. Must contain exactly one root.
+	Not *BudgetFilterExpressionAndNot `pulumi:"not"`
+	// (Optional) A list of filter expressions to combine with OR logic. Each `or` block is one operand and must itself contain exactly one root.
+	Ors []BudgetFilterExpressionAndOr `pulumi:"ors"`
+	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags *BudgetFilterExpressionAndTags `pulumi:"tags"`
+}
+
+// BudgetFilterExpressionAndInput is an input type that accepts BudgetFilterExpressionAndArgs and BudgetFilterExpressionAndOutput values.
+// You can construct a concrete instance of `BudgetFilterExpressionAndInput` via:
+//
+//	BudgetFilterExpressionAndArgs{...}
+type BudgetFilterExpressionAndInput interface {
+	pulumi.Input
+
+	ToBudgetFilterExpressionAndOutput() BudgetFilterExpressionAndOutput
+	ToBudgetFilterExpressionAndOutputWithContext(context.Context) BudgetFilterExpressionAndOutput
+}
+
+type BudgetFilterExpressionAndArgs struct {
+	// (Optional) A list of filter expressions to combine with AND logic. Each `and` block is one operand and must itself contain exactly one root.
+	Ands BudgetFilterExpressionAndAndArrayInput `pulumi:"ands"`
+	// (Optional) A Cost Category Filter block.
+	CostCategories BudgetFilterExpressionAndCostCategoriesPtrInput `pulumi:"costCategories"`
+	// (Optional) A Dimension Filter block.
+	Dimensions BudgetFilterExpressionAndDimensionsPtrInput `pulumi:"dimensions"`
+	// (Optional) A single filter expression to negate. Must contain exactly one root.
+	Not BudgetFilterExpressionAndNotPtrInput `pulumi:"not"`
+	// (Optional) A list of filter expressions to combine with OR logic. Each `or` block is one operand and must itself contain exactly one root.
+	Ors BudgetFilterExpressionAndOrArrayInput `pulumi:"ors"`
+	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags BudgetFilterExpressionAndTagsPtrInput `pulumi:"tags"`
+}
+
+func (BudgetFilterExpressionAndArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BudgetFilterExpressionAnd)(nil)).Elem()
+}
+
+func (i BudgetFilterExpressionAndArgs) ToBudgetFilterExpressionAndOutput() BudgetFilterExpressionAndOutput {
+	return i.ToBudgetFilterExpressionAndOutputWithContext(context.Background())
+}
+
+func (i BudgetFilterExpressionAndArgs) ToBudgetFilterExpressionAndOutputWithContext(ctx context.Context) BudgetFilterExpressionAndOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetFilterExpressionAndOutput)
+}
+
+// BudgetFilterExpressionAndArrayInput is an input type that accepts BudgetFilterExpressionAndArray and BudgetFilterExpressionAndArrayOutput values.
+// You can construct a concrete instance of `BudgetFilterExpressionAndArrayInput` via:
+//
+//	BudgetFilterExpressionAndArray{ BudgetFilterExpressionAndArgs{...} }
+type BudgetFilterExpressionAndArrayInput interface {
+	pulumi.Input
+
+	ToBudgetFilterExpressionAndArrayOutput() BudgetFilterExpressionAndArrayOutput
+	ToBudgetFilterExpressionAndArrayOutputWithContext(context.Context) BudgetFilterExpressionAndArrayOutput
+}
+
+type BudgetFilterExpressionAndArray []BudgetFilterExpressionAndInput
+
+func (BudgetFilterExpressionAndArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BudgetFilterExpressionAnd)(nil)).Elem()
+}
+
+func (i BudgetFilterExpressionAndArray) ToBudgetFilterExpressionAndArrayOutput() BudgetFilterExpressionAndArrayOutput {
+	return i.ToBudgetFilterExpressionAndArrayOutputWithContext(context.Background())
+}
+
+func (i BudgetFilterExpressionAndArray) ToBudgetFilterExpressionAndArrayOutputWithContext(ctx context.Context) BudgetFilterExpressionAndArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetFilterExpressionAndArrayOutput)
+}
+
+type BudgetFilterExpressionAndOutput struct{ *pulumi.OutputState }
+
+func (BudgetFilterExpressionAndOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BudgetFilterExpressionAnd)(nil)).Elem()
+}
+
+func (o BudgetFilterExpressionAndOutput) ToBudgetFilterExpressionAndOutput() BudgetFilterExpressionAndOutput {
+	return o
+}
+
+func (o BudgetFilterExpressionAndOutput) ToBudgetFilterExpressionAndOutputWithContext(ctx context.Context) BudgetFilterExpressionAndOutput {
+	return o
+}
+
+// (Optional) A list of filter expressions to combine with AND logic. Each `and` block is one operand and must itself contain exactly one root.
+func (o BudgetFilterExpressionAndOutput) Ands() BudgetFilterExpressionAndAndArrayOutput {
+	return o.ApplyT(func(v BudgetFilterExpressionAnd) []BudgetFilterExpressionAndAnd { return v.Ands }).(BudgetFilterExpressionAndAndArrayOutput)
+}
+
+// (Optional) A Cost Category Filter block.
+func (o BudgetFilterExpressionAndOutput) CostCategories() BudgetFilterExpressionAndCostCategoriesPtrOutput {
+	return o.ApplyT(func(v BudgetFilterExpressionAnd) *BudgetFilterExpressionAndCostCategories { return v.CostCategories }).(BudgetFilterExpressionAndCostCategoriesPtrOutput)
+}
+
+// (Optional) A Dimension Filter block.
+func (o BudgetFilterExpressionAndOutput) Dimensions() BudgetFilterExpressionAndDimensionsPtrOutput {
+	return o.ApplyT(func(v BudgetFilterExpressionAnd) *BudgetFilterExpressionAndDimensions { return v.Dimensions }).(BudgetFilterExpressionAndDimensionsPtrOutput)
+}
+
+// (Optional) A single filter expression to negate. Must contain exactly one root.
+func (o BudgetFilterExpressionAndOutput) Not() BudgetFilterExpressionAndNotPtrOutput {
+	return o.ApplyT(func(v BudgetFilterExpressionAnd) *BudgetFilterExpressionAndNot { return v.Not }).(BudgetFilterExpressionAndNotPtrOutput)
+}
+
+// (Optional) A list of filter expressions to combine with OR logic. Each `or` block is one operand and must itself contain exactly one root.
+func (o BudgetFilterExpressionAndOutput) Ors() BudgetFilterExpressionAndOrArrayOutput {
+	return o.ApplyT(func(v BudgetFilterExpressionAnd) []BudgetFilterExpressionAndOr { return v.Ors }).(BudgetFilterExpressionAndOrArrayOutput)
+}
+
+// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+func (o BudgetFilterExpressionAndOutput) Tags() BudgetFilterExpressionAndTagsPtrOutput {
+	return o.ApplyT(func(v BudgetFilterExpressionAnd) *BudgetFilterExpressionAndTags { return v.Tags }).(BudgetFilterExpressionAndTagsPtrOutput)
+}
+
+type BudgetFilterExpressionAndArrayOutput struct{ *pulumi.OutputState }
+
+func (BudgetFilterExpressionAndArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BudgetFilterExpressionAnd)(nil)).Elem()
+}
+
+func (o BudgetFilterExpressionAndArrayOutput) ToBudgetFilterExpressionAndArrayOutput() BudgetFilterExpressionAndArrayOutput {
+	return o
+}
+
+func (o BudgetFilterExpressionAndArrayOutput) ToBudgetFilterExpressionAndArrayOutputWithContext(ctx context.Context) BudgetFilterExpressionAndArrayOutput {
+	return o
+}
+
+func (o BudgetFilterExpressionAndArrayOutput) Index(i pulumi.IntInput) BudgetFilterExpressionAndOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BudgetFilterExpressionAnd {
+		return vs[0].([]BudgetFilterExpressionAnd)[vs[1].(int)]
+	}).(BudgetFilterExpressionAndOutput)
+}
+
+type BudgetFilterExpressionAndAnd struct {
+	// (Optional) A Cost Category Filter block.
+	CostCategories *BudgetFilterExpressionAndAndCostCategories `pulumi:"costCategories"`
+	// (Optional) A Dimension Filter block.
+	Dimensions *BudgetFilterExpressionAndAndDimensions `pulumi:"dimensions"`
+	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags *BudgetFilterExpressionAndAndTags `pulumi:"tags"`
+}
+
+// BudgetFilterExpressionAndAndInput is an input type that accepts BudgetFilterExpressionAndAndArgs and BudgetFilterExpressionAndAndOutput values.
+// You can construct a concrete instance of `BudgetFilterExpressionAndAndInput` via:
+//
+//	BudgetFilterExpressionAndAndArgs{...}
+type BudgetFilterExpressionAndAndInput interface {
+	pulumi.Input
+
+	ToBudgetFilterExpressionAndAndOutput() BudgetFilterExpressionAndAndOutput
+	ToBudgetFilterExpressionAndAndOutputWithContext(context.Context) BudgetFilterExpressionAndAndOutput
+}
+
+type BudgetFilterExpressionAndAndArgs struct {
+	// (Optional) A Cost Category Filter block.
+	CostCategories BudgetFilterExpressionAndAndCostCategoriesPtrInput `pulumi:"costCategories"`
+	// (Optional) A Dimension Filter block.
+	Dimensions BudgetFilterExpressionAndAndDimensionsPtrInput `pulumi:"dimensions"`
+	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags BudgetFilterExpressionAndAndTagsPtrInput `pulumi:"tags"`
+}
+
+func (BudgetFilterExpressionAndAndArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BudgetFilterExpressionAndAnd)(nil)).Elem()
+}
+
+func (i BudgetFilterExpressionAndAndArgs) ToBudgetFilterExpressionAndAndOutput() BudgetFilterExpressionAndAndOutput {
+	return i.ToBudgetFilterExpressionAndAndOutputWithContext(context.Background())
+}
+
+func (i BudgetFilterExpressionAndAndArgs) ToBudgetFilterExpressionAndAndOutputWithContext(ctx context.Context) BudgetFilterExpressionAndAndOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetFilterExpressionAndAndOutput)
+}
+
+// BudgetFilterExpressionAndAndArrayInput is an input type that accepts BudgetFilterExpressionAndAndArray and BudgetFilterExpressionAndAndArrayOutput values.
+// You can construct a concrete instance of `BudgetFilterExpressionAndAndArrayInput` via:
+//
+//	BudgetFilterExpressionAndAndArray{ BudgetFilterExpressionAndAndArgs{...} }
+type BudgetFilterExpressionAndAndArrayInput interface {
+	pulumi.Input
+
+	ToBudgetFilterExpressionAndAndArrayOutput() BudgetFilterExpressionAndAndArrayOutput
+	ToBudgetFilterExpressionAndAndArrayOutputWithContext(context.Context) BudgetFilterExpressionAndAndArrayOutput
+}
+
+type BudgetFilterExpressionAndAndArray []BudgetFilterExpressionAndAndInput
+
+func (BudgetFilterExpressionAndAndArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BudgetFilterExpressionAndAnd)(nil)).Elem()
+}
+
+func (i BudgetFilterExpressionAndAndArray) ToBudgetFilterExpressionAndAndArrayOutput() BudgetFilterExpressionAndAndArrayOutput {
+	return i.ToBudgetFilterExpressionAndAndArrayOutputWithContext(context.Background())
+}
+
+func (i BudgetFilterExpressionAndAndArray) ToBudgetFilterExpressionAndAndArrayOutputWithContext(ctx context.Context) BudgetFilterExpressionAndAndArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetFilterExpressionAndAndArrayOutput)
+}
+
+type BudgetFilterExpressionAndAndOutput struct{ *pulumi.OutputState }
+
+func (BudgetFilterExpressionAndAndOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BudgetFilterExpressionAndAnd)(nil)).Elem()
+}
+
+func (o BudgetFilterExpressionAndAndOutput) ToBudgetFilterExpressionAndAndOutput() BudgetFilterExpressionAndAndOutput {
+	return o
+}
+
+func (o BudgetFilterExpressionAndAndOutput) ToBudgetFilterExpressionAndAndOutputWithContext(ctx context.Context) BudgetFilterExpressionAndAndOutput {
+	return o
+}
+
+// (Optional) A Cost Category Filter block.
+func (o BudgetFilterExpressionAndAndOutput) CostCategories() BudgetFilterExpressionAndAndCostCategoriesPtrOutput {
+	return o.ApplyT(func(v BudgetFilterExpressionAndAnd) *BudgetFilterExpressionAndAndCostCategories {
+		return v.CostCategories
+	}).(BudgetFilterExpressionAndAndCostCategoriesPtrOutput)
+}
+
+// (Optional) A Dimension Filter block.
+func (o BudgetFilterExpressionAndAndOutput) Dimensions() BudgetFilterExpressionAndAndDimensionsPtrOutput {
+	return o.ApplyT(func(v BudgetFilterExpressionAndAnd) *BudgetFilterExpressionAndAndDimensions { return v.Dimensions }).(BudgetFilterExpressionAndAndDimensionsPtrOutput)
+}
+
+// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+func (o BudgetFilterExpressionAndAndOutput) Tags() BudgetFilterExpressionAndAndTagsPtrOutput {
+	return o.ApplyT(func(v BudgetFilterExpressionAndAnd) *BudgetFilterExpressionAndAndTags { return v.Tags }).(BudgetFilterExpressionAndAndTagsPtrOutput)
+}
+
+type BudgetFilterExpressionAndAndArrayOutput struct{ *pulumi.OutputState }
+
+func (BudgetFilterExpressionAndAndArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BudgetFilterExpressionAndAnd)(nil)).Elem()
+}
+
+func (o BudgetFilterExpressionAndAndArrayOutput) ToBudgetFilterExpressionAndAndArrayOutput() BudgetFilterExpressionAndAndArrayOutput {
+	return o
+}
+
+func (o BudgetFilterExpressionAndAndArrayOutput) ToBudgetFilterExpressionAndAndArrayOutputWithContext(ctx context.Context) BudgetFilterExpressionAndAndArrayOutput {
+	return o
+}
+
+func (o BudgetFilterExpressionAndAndArrayOutput) Index(i pulumi.IntInput) BudgetFilterExpressionAndAndOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BudgetFilterExpressionAndAnd {
+		return vs[0].([]BudgetFilterExpressionAndAnd)[vs[1].(int)]
+	}).(BudgetFilterExpressionAndAndOutput)
+}
+
+type BudgetFilterExpressionAndAndCostCategories struct {
+	// (Optional) The cost category key to filter on.
+	Key *string `pulumi:"key"`
+	// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+	MatchOptions []string `pulumi:"matchOptions"`
+	// (Optional) A list of cost category values to match. At least one value is required.
+	Values []string `pulumi:"values"`
+}
+
+// BudgetFilterExpressionAndAndCostCategoriesInput is an input type that accepts BudgetFilterExpressionAndAndCostCategoriesArgs and BudgetFilterExpressionAndAndCostCategoriesOutput values.
+// You can construct a concrete instance of `BudgetFilterExpressionAndAndCostCategoriesInput` via:
+//
+//	BudgetFilterExpressionAndAndCostCategoriesArgs{...}
+type BudgetFilterExpressionAndAndCostCategoriesInput interface {
+	pulumi.Input
+
+	ToBudgetFilterExpressionAndAndCostCategoriesOutput() BudgetFilterExpressionAndAndCostCategoriesOutput
+	ToBudgetFilterExpressionAndAndCostCategoriesOutputWithContext(context.Context) BudgetFilterExpressionAndAndCostCategoriesOutput
+}
+
+type BudgetFilterExpressionAndAndCostCategoriesArgs struct {
+	// (Optional) The cost category key to filter on.
+	Key pulumi.StringPtrInput `pulumi:"key"`
+	// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+	MatchOptions pulumi.StringArrayInput `pulumi:"matchOptions"`
+	// (Optional) A list of cost category values to match. At least one value is required.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (BudgetFilterExpressionAndAndCostCategoriesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BudgetFilterExpressionAndAndCostCategories)(nil)).Elem()
+}
+
+func (i BudgetFilterExpressionAndAndCostCategoriesArgs) ToBudgetFilterExpressionAndAndCostCategoriesOutput() BudgetFilterExpressionAndAndCostCategoriesOutput {
+	return i.ToBudgetFilterExpressionAndAndCostCategoriesOutputWithContext(context.Background())
+}
+
+func (i BudgetFilterExpressionAndAndCostCategoriesArgs) ToBudgetFilterExpressionAndAndCostCategoriesOutputWithContext(ctx context.Context) BudgetFilterExpressionAndAndCostCategoriesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetFilterExpressionAndAndCostCategoriesOutput)
+}
+
+func (i BudgetFilterExpressionAndAndCostCategoriesArgs) ToBudgetFilterExpressionAndAndCostCategoriesPtrOutput() BudgetFilterExpressionAndAndCostCategoriesPtrOutput {
+	return i.ToBudgetFilterExpressionAndAndCostCategoriesPtrOutputWithContext(context.Background())
+}
+
+func (i BudgetFilterExpressionAndAndCostCategoriesArgs) ToBudgetFilterExpressionAndAndCostCategoriesPtrOutputWithContext(ctx context.Context) BudgetFilterExpressionAndAndCostCategoriesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetFilterExpressionAndAndCostCategoriesOutput).ToBudgetFilterExpressionAndAndCostCategoriesPtrOutputWithContext(ctx)
+}
+
+// BudgetFilterExpressionAndAndCostCategoriesPtrInput is an input type that accepts BudgetFilterExpressionAndAndCostCategoriesArgs, BudgetFilterExpressionAndAndCostCategoriesPtr and BudgetFilterExpressionAndAndCostCategoriesPtrOutput values.
+// You can construct a concrete instance of `BudgetFilterExpressionAndAndCostCategoriesPtrInput` via:
+//
+//	        BudgetFilterExpressionAndAndCostCategoriesArgs{...}
+//
+//	or:
+//
+//	        nil
+type BudgetFilterExpressionAndAndCostCategoriesPtrInput interface {
+	pulumi.Input
+
+	ToBudgetFilterExpressionAndAndCostCategoriesPtrOutput() BudgetFilterExpressionAndAndCostCategoriesPtrOutput
+	ToBudgetFilterExpressionAndAndCostCategoriesPtrOutputWithContext(context.Context) BudgetFilterExpressionAndAndCostCategoriesPtrOutput
+}
+
+type budgetFilterExpressionAndAndCostCategoriesPtrType BudgetFilterExpressionAndAndCostCategoriesArgs
+
+func BudgetFilterExpressionAndAndCostCategoriesPtr(v *BudgetFilterExpressionAndAndCostCategoriesArgs) BudgetFilterExpressionAndAndCostCategoriesPtrInput {
+	return (*budgetFilterExpressionAndAndCostCategoriesPtrType)(v)
+}
+
+func (*budgetFilterExpressionAndAndCostCategoriesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BudgetFilterExpressionAndAndCostCategories)(nil)).Elem()
+}
+
+func (i *budgetFilterExpressionAndAndCostCategoriesPtrType) ToBudgetFilterExpressionAndAndCostCategoriesPtrOutput() BudgetFilterExpressionAndAndCostCategoriesPtrOutput {
+	return i.ToBudgetFilterExpressionAndAndCostCategoriesPtrOutputWithContext(context.Background())
+}
+
+func (i *budgetFilterExpressionAndAndCostCategoriesPtrType) ToBudgetFilterExpressionAndAndCostCategoriesPtrOutputWithContext(ctx context.Context) BudgetFilterExpressionAndAndCostCategoriesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetFilterExpressionAndAndCostCategoriesPtrOutput)
+}
+
+type BudgetFilterExpressionAndAndCostCategoriesOutput struct{ *pulumi.OutputState }
+
+func (BudgetFilterExpressionAndAndCostCategoriesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BudgetFilterExpressionAndAndCostCategories)(nil)).Elem()
+}
+
+func (o BudgetFilterExpressionAndAndCostCategoriesOutput) ToBudgetFilterExpressionAndAndCostCategoriesOutput() BudgetFilterExpressionAndAndCostCategoriesOutput {
+	return o
+}
+
+func (o BudgetFilterExpressionAndAndCostCategoriesOutput) ToBudgetFilterExpressionAndAndCostCategoriesOutputWithContext(ctx context.Context) BudgetFilterExpressionAndAndCostCategoriesOutput {
+	return o
+}
+
+func (o BudgetFilterExpressionAndAndCostCategoriesOutput) ToBudgetFilterExpressionAndAndCostCategoriesPtrOutput() BudgetFilterExpressionAndAndCostCategoriesPtrOutput {
+	return o.ToBudgetFilterExpressionAndAndCostCategoriesPtrOutputWithContext(context.Background())
+}
+
+func (o BudgetFilterExpressionAndAndCostCategoriesOutput) ToBudgetFilterExpressionAndAndCostCategoriesPtrOutputWithContext(ctx context.Context) BudgetFilterExpressionAndAndCostCategoriesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BudgetFilterExpressionAndAndCostCategories) *BudgetFilterExpressionAndAndCostCategories {
+		return &v
+	}).(BudgetFilterExpressionAndAndCostCategoriesPtrOutput)
+}
+
+// (Optional) The cost category key to filter on.
+func (o BudgetFilterExpressionAndAndCostCategoriesOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BudgetFilterExpressionAndAndCostCategories) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+func (o BudgetFilterExpressionAndAndCostCategoriesOutput) MatchOptions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v BudgetFilterExpressionAndAndCostCategories) []string { return v.MatchOptions }).(pulumi.StringArrayOutput)
+}
+
+// (Optional) A list of cost category values to match. At least one value is required.
+func (o BudgetFilterExpressionAndAndCostCategoriesOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v BudgetFilterExpressionAndAndCostCategories) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type BudgetFilterExpressionAndAndCostCategoriesPtrOutput struct{ *pulumi.OutputState }
+
+func (BudgetFilterExpressionAndAndCostCategoriesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BudgetFilterExpressionAndAndCostCategories)(nil)).Elem()
+}
+
+func (o BudgetFilterExpressionAndAndCostCategoriesPtrOutput) ToBudgetFilterExpressionAndAndCostCategoriesPtrOutput() BudgetFilterExpressionAndAndCostCategoriesPtrOutput {
+	return o
+}
+
+func (o BudgetFilterExpressionAndAndCostCategoriesPtrOutput) ToBudgetFilterExpressionAndAndCostCategoriesPtrOutputWithContext(ctx context.Context) BudgetFilterExpressionAndAndCostCategoriesPtrOutput {
+	return o
+}
+
+func (o BudgetFilterExpressionAndAndCostCategoriesPtrOutput) Elem() BudgetFilterExpressionAndAndCostCategoriesOutput {
+	return o.ApplyT(func(v *BudgetFilterExpressionAndAndCostCategories) BudgetFilterExpressionAndAndCostCategories {
+		if v != nil {
+			return *v
+		}
+		var ret BudgetFilterExpressionAndAndCostCategories
+		return ret
+	}).(BudgetFilterExpressionAndAndCostCategoriesOutput)
+}
+
+// (Optional) The cost category key to filter on.
+func (o BudgetFilterExpressionAndAndCostCategoriesPtrOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BudgetFilterExpressionAndAndCostCategories) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Key
+	}).(pulumi.StringPtrOutput)
+}
+
+// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+func (o BudgetFilterExpressionAndAndCostCategoriesPtrOutput) MatchOptions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *BudgetFilterExpressionAndAndCostCategories) []string {
+		if v == nil {
+			return nil
+		}
+		return v.MatchOptions
+	}).(pulumi.StringArrayOutput)
+}
+
+// (Optional) A list of cost category values to match. At least one value is required.
+func (o BudgetFilterExpressionAndAndCostCategoriesPtrOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *BudgetFilterExpressionAndAndCostCategories) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Values
+	}).(pulumi.StringArrayOutput)
+}
+
+type BudgetFilterExpressionAndAndDimensions struct {
+	// (Optional) The cost category key to filter on.
+	Key string `pulumi:"key"`
+	// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+	MatchOptions []string `pulumi:"matchOptions"`
+	// (Optional) A list of cost category values to match. At least one value is required.
+	Values []string `pulumi:"values"`
+}
+
+// BudgetFilterExpressionAndAndDimensionsInput is an input type that accepts BudgetFilterExpressionAndAndDimensionsArgs and BudgetFilterExpressionAndAndDimensionsOutput values.
+// You can construct a concrete instance of `BudgetFilterExpressionAndAndDimensionsInput` via:
+//
+//	BudgetFilterExpressionAndAndDimensionsArgs{...}
+type BudgetFilterExpressionAndAndDimensionsInput interface {
+	pulumi.Input
+
+	ToBudgetFilterExpressionAndAndDimensionsOutput() BudgetFilterExpressionAndAndDimensionsOutput
+	ToBudgetFilterExpressionAndAndDimensionsOutputWithContext(context.Context) BudgetFilterExpressionAndAndDimensionsOutput
+}
+
+type BudgetFilterExpressionAndAndDimensionsArgs struct {
+	// (Optional) The cost category key to filter on.
+	Key pulumi.StringInput `pulumi:"key"`
+	// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+	MatchOptions pulumi.StringArrayInput `pulumi:"matchOptions"`
+	// (Optional) A list of cost category values to match. At least one value is required.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (BudgetFilterExpressionAndAndDimensionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BudgetFilterExpressionAndAndDimensions)(nil)).Elem()
+}
+
+func (i BudgetFilterExpressionAndAndDimensionsArgs) ToBudgetFilterExpressionAndAndDimensionsOutput() BudgetFilterExpressionAndAndDimensionsOutput {
+	return i.ToBudgetFilterExpressionAndAndDimensionsOutputWithContext(context.Background())
+}
+
+func (i BudgetFilterExpressionAndAndDimensionsArgs) ToBudgetFilterExpressionAndAndDimensionsOutputWithContext(ctx context.Context) BudgetFilterExpressionAndAndDimensionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetFilterExpressionAndAndDimensionsOutput)
+}
+
+func (i BudgetFilterExpressionAndAndDimensionsArgs) ToBudgetFilterExpressionAndAndDimensionsPtrOutput() BudgetFilterExpressionAndAndDimensionsPtrOutput {
+	return i.ToBudgetFilterExpressionAndAndDimensionsPtrOutputWithContext(context.Background())
+}
+
+func (i BudgetFilterExpressionAndAndDimensionsArgs) ToBudgetFilterExpressionAndAndDimensionsPtrOutputWithContext(ctx context.Context) BudgetFilterExpressionAndAndDimensionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetFilterExpressionAndAndDimensionsOutput).ToBudgetFilterExpressionAndAndDimensionsPtrOutputWithContext(ctx)
+}
+
+// BudgetFilterExpressionAndAndDimensionsPtrInput is an input type that accepts BudgetFilterExpressionAndAndDimensionsArgs, BudgetFilterExpressionAndAndDimensionsPtr and BudgetFilterExpressionAndAndDimensionsPtrOutput values.
+// You can construct a concrete instance of `BudgetFilterExpressionAndAndDimensionsPtrInput` via:
+//
+//	        BudgetFilterExpressionAndAndDimensionsArgs{...}
+//
+//	or:
+//
+//	        nil
+type BudgetFilterExpressionAndAndDimensionsPtrInput interface {
+	pulumi.Input
+
+	ToBudgetFilterExpressionAndAndDimensionsPtrOutput() BudgetFilterExpressionAndAndDimensionsPtrOutput
+	ToBudgetFilterExpressionAndAndDimensionsPtrOutputWithContext(context.Context) BudgetFilterExpressionAndAndDimensionsPtrOutput
+}
+
+type budgetFilterExpressionAndAndDimensionsPtrType BudgetFilterExpressionAndAndDimensionsArgs
+
+func BudgetFilterExpressionAndAndDimensionsPtr(v *BudgetFilterExpressionAndAndDimensionsArgs) BudgetFilterExpressionAndAndDimensionsPtrInput {
+	return (*budgetFilterExpressionAndAndDimensionsPtrType)(v)
+}
+
+func (*budgetFilterExpressionAndAndDimensionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BudgetFilterExpressionAndAndDimensions)(nil)).Elem()
+}
+
+func (i *budgetFilterExpressionAndAndDimensionsPtrType) ToBudgetFilterExpressionAndAndDimensionsPtrOutput() BudgetFilterExpressionAndAndDimensionsPtrOutput {
+	return i.ToBudgetFilterExpressionAndAndDimensionsPtrOutputWithContext(context.Background())
+}
+
+func (i *budgetFilterExpressionAndAndDimensionsPtrType) ToBudgetFilterExpressionAndAndDimensionsPtrOutputWithContext(ctx context.Context) BudgetFilterExpressionAndAndDimensionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetFilterExpressionAndAndDimensionsPtrOutput)
+}
+
+type BudgetFilterExpressionAndAndDimensionsOutput struct{ *pulumi.OutputState }
+
+func (BudgetFilterExpressionAndAndDimensionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BudgetFilterExpressionAndAndDimensions)(nil)).Elem()
+}
+
+func (o BudgetFilterExpressionAndAndDimensionsOutput) ToBudgetFilterExpressionAndAndDimensionsOutput() BudgetFilterExpressionAndAndDimensionsOutput {
+	return o
+}
+
+func (o BudgetFilterExpressionAndAndDimensionsOutput) ToBudgetFilterExpressionAndAndDimensionsOutputWithContext(ctx context.Context) BudgetFilterExpressionAndAndDimensionsOutput {
+	return o
+}
+
+func (o BudgetFilterExpressionAndAndDimensionsOutput) ToBudgetFilterExpressionAndAndDimensionsPtrOutput() BudgetFilterExpressionAndAndDimensionsPtrOutput {
+	return o.ToBudgetFilterExpressionAndAndDimensionsPtrOutputWithContext(context.Background())
+}
+
+func (o BudgetFilterExpressionAndAndDimensionsOutput) ToBudgetFilterExpressionAndAndDimensionsPtrOutputWithContext(ctx context.Context) BudgetFilterExpressionAndAndDimensionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BudgetFilterExpressionAndAndDimensions) *BudgetFilterExpressionAndAndDimensions {
+		return &v
+	}).(BudgetFilterExpressionAndAndDimensionsPtrOutput)
+}
+
+// (Optional) The cost category key to filter on.
+func (o BudgetFilterExpressionAndAndDimensionsOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v BudgetFilterExpressionAndAndDimensions) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+func (o BudgetFilterExpressionAndAndDimensionsOutput) MatchOptions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v BudgetFilterExpressionAndAndDimensions) []string { return v.MatchOptions }).(pulumi.StringArrayOutput)
+}
+
+// (Optional) A list of cost category values to match. At least one value is required.
+func (o BudgetFilterExpressionAndAndDimensionsOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v BudgetFilterExpressionAndAndDimensions) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type BudgetFilterExpressionAndAndDimensionsPtrOutput struct{ *pulumi.OutputState }
+
+func (BudgetFilterExpressionAndAndDimensionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BudgetFilterExpressionAndAndDimensions)(nil)).Elem()
+}
+
+func (o BudgetFilterExpressionAndAndDimensionsPtrOutput) ToBudgetFilterExpressionAndAndDimensionsPtrOutput() BudgetFilterExpressionAndAndDimensionsPtrOutput {
+	return o
+}
+
+func (o BudgetFilterExpressionAndAndDimensionsPtrOutput) ToBudgetFilterExpressionAndAndDimensionsPtrOutputWithContext(ctx context.Context) BudgetFilterExpressionAndAndDimensionsPtrOutput {
+	return o
+}
+
+func (o BudgetFilterExpressionAndAndDimensionsPtrOutput) Elem() BudgetFilterExpressionAndAndDimensionsOutput {
+	return o.ApplyT(func(v *BudgetFilterExpressionAndAndDimensions) BudgetFilterExpressionAndAndDimensions {
+		if v != nil {
+			return *v
+		}
+		var ret BudgetFilterExpressionAndAndDimensions
+		return ret
+	}).(BudgetFilterExpressionAndAndDimensionsOutput)
+}
+
+// (Optional) The cost category key to filter on.
+func (o BudgetFilterExpressionAndAndDimensionsPtrOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BudgetFilterExpressionAndAndDimensions) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Key
+	}).(pulumi.StringPtrOutput)
+}
+
+// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+func (o BudgetFilterExpressionAndAndDimensionsPtrOutput) MatchOptions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *BudgetFilterExpressionAndAndDimensions) []string {
+		if v == nil {
+			return nil
+		}
+		return v.MatchOptions
+	}).(pulumi.StringArrayOutput)
+}
+
+// (Optional) A list of cost category values to match. At least one value is required.
+func (o BudgetFilterExpressionAndAndDimensionsPtrOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *BudgetFilterExpressionAndAndDimensions) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Values
+	}).(pulumi.StringArrayOutput)
+}
+
+type BudgetFilterExpressionAndAndTags struct {
+	// (Optional) The cost category key to filter on.
+	Key *string `pulumi:"key"`
+	// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+	MatchOptions []string `pulumi:"matchOptions"`
+	// (Optional) A list of cost category values to match. At least one value is required.
+	Values []string `pulumi:"values"`
+}
+
+// BudgetFilterExpressionAndAndTagsInput is an input type that accepts BudgetFilterExpressionAndAndTagsArgs and BudgetFilterExpressionAndAndTagsOutput values.
+// You can construct a concrete instance of `BudgetFilterExpressionAndAndTagsInput` via:
+//
+//	BudgetFilterExpressionAndAndTagsArgs{...}
+type BudgetFilterExpressionAndAndTagsInput interface {
+	pulumi.Input
+
+	ToBudgetFilterExpressionAndAndTagsOutput() BudgetFilterExpressionAndAndTagsOutput
+	ToBudgetFilterExpressionAndAndTagsOutputWithContext(context.Context) BudgetFilterExpressionAndAndTagsOutput
+}
+
+type BudgetFilterExpressionAndAndTagsArgs struct {
+	// (Optional) The cost category key to filter on.
+	Key pulumi.StringPtrInput `pulumi:"key"`
+	// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+	MatchOptions pulumi.StringArrayInput `pulumi:"matchOptions"`
+	// (Optional) A list of cost category values to match. At least one value is required.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (BudgetFilterExpressionAndAndTagsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BudgetFilterExpressionAndAndTags)(nil)).Elem()
+}
+
+func (i BudgetFilterExpressionAndAndTagsArgs) ToBudgetFilterExpressionAndAndTagsOutput() BudgetFilterExpressionAndAndTagsOutput {
+	return i.ToBudgetFilterExpressionAndAndTagsOutputWithContext(context.Background())
+}
+
+func (i BudgetFilterExpressionAndAndTagsArgs) ToBudgetFilterExpressionAndAndTagsOutputWithContext(ctx context.Context) BudgetFilterExpressionAndAndTagsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetFilterExpressionAndAndTagsOutput)
+}
+
+func (i BudgetFilterExpressionAndAndTagsArgs) ToBudgetFilterExpressionAndAndTagsPtrOutput() BudgetFilterExpressionAndAndTagsPtrOutput {
+	return i.ToBudgetFilterExpressionAndAndTagsPtrOutputWithContext(context.Background())
+}
+
+func (i BudgetFilterExpressionAndAndTagsArgs) ToBudgetFilterExpressionAndAndTagsPtrOutputWithContext(ctx context.Context) BudgetFilterExpressionAndAndTagsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetFilterExpressionAndAndTagsOutput).ToBudgetFilterExpressionAndAndTagsPtrOutputWithContext(ctx)
+}
+
+// BudgetFilterExpressionAndAndTagsPtrInput is an input type that accepts BudgetFilterExpressionAndAndTagsArgs, BudgetFilterExpressionAndAndTagsPtr and BudgetFilterExpressionAndAndTagsPtrOutput values.
+// You can construct a concrete instance of `BudgetFilterExpressionAndAndTagsPtrInput` via:
+//
+//	        BudgetFilterExpressionAndAndTagsArgs{...}
+//
+//	or:
+//
+//	        nil
+type BudgetFilterExpressionAndAndTagsPtrInput interface {
+	pulumi.Input
+
+	ToBudgetFilterExpressionAndAndTagsPtrOutput() BudgetFilterExpressionAndAndTagsPtrOutput
+	ToBudgetFilterExpressionAndAndTagsPtrOutputWithContext(context.Context) BudgetFilterExpressionAndAndTagsPtrOutput
+}
+
+type budgetFilterExpressionAndAndTagsPtrType BudgetFilterExpressionAndAndTagsArgs
+
+func BudgetFilterExpressionAndAndTagsPtr(v *BudgetFilterExpressionAndAndTagsArgs) BudgetFilterExpressionAndAndTagsPtrInput {
+	return (*budgetFilterExpressionAndAndTagsPtrType)(v)
+}
+
+func (*budgetFilterExpressionAndAndTagsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BudgetFilterExpressionAndAndTags)(nil)).Elem()
+}
+
+func (i *budgetFilterExpressionAndAndTagsPtrType) ToBudgetFilterExpressionAndAndTagsPtrOutput() BudgetFilterExpressionAndAndTagsPtrOutput {
+	return i.ToBudgetFilterExpressionAndAndTagsPtrOutputWithContext(context.Background())
+}
+
+func (i *budgetFilterExpressionAndAndTagsPtrType) ToBudgetFilterExpressionAndAndTagsPtrOutputWithContext(ctx context.Context) BudgetFilterExpressionAndAndTagsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetFilterExpressionAndAndTagsPtrOutput)
+}
+
+type BudgetFilterExpressionAndAndTagsOutput struct{ *pulumi.OutputState }
+
+func (BudgetFilterExpressionAndAndTagsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BudgetFilterExpressionAndAndTags)(nil)).Elem()
+}
+
+func (o BudgetFilterExpressionAndAndTagsOutput) ToBudgetFilterExpressionAndAndTagsOutput() BudgetFilterExpressionAndAndTagsOutput {
+	return o
+}
+
+func (o BudgetFilterExpressionAndAndTagsOutput) ToBudgetFilterExpressionAndAndTagsOutputWithContext(ctx context.Context) BudgetFilterExpressionAndAndTagsOutput {
+	return o
+}
+
+func (o BudgetFilterExpressionAndAndTagsOutput) ToBudgetFilterExpressionAndAndTagsPtrOutput() BudgetFilterExpressionAndAndTagsPtrOutput {
+	return o.ToBudgetFilterExpressionAndAndTagsPtrOutputWithContext(context.Background())
+}
+
+func (o BudgetFilterExpressionAndAndTagsOutput) ToBudgetFilterExpressionAndAndTagsPtrOutputWithContext(ctx context.Context) BudgetFilterExpressionAndAndTagsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BudgetFilterExpressionAndAndTags) *BudgetFilterExpressionAndAndTags {
+		return &v
+	}).(BudgetFilterExpressionAndAndTagsPtrOutput)
+}
+
+// (Optional) The cost category key to filter on.
+func (o BudgetFilterExpressionAndAndTagsOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BudgetFilterExpressionAndAndTags) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+func (o BudgetFilterExpressionAndAndTagsOutput) MatchOptions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v BudgetFilterExpressionAndAndTags) []string { return v.MatchOptions }).(pulumi.StringArrayOutput)
+}
+
+// (Optional) A list of cost category values to match. At least one value is required.
+func (o BudgetFilterExpressionAndAndTagsOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v BudgetFilterExpressionAndAndTags) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type BudgetFilterExpressionAndAndTagsPtrOutput struct{ *pulumi.OutputState }
+
+func (BudgetFilterExpressionAndAndTagsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BudgetFilterExpressionAndAndTags)(nil)).Elem()
+}
+
+func (o BudgetFilterExpressionAndAndTagsPtrOutput) ToBudgetFilterExpressionAndAndTagsPtrOutput() BudgetFilterExpressionAndAndTagsPtrOutput {
+	return o
+}
+
+func (o BudgetFilterExpressionAndAndTagsPtrOutput) ToBudgetFilterExpressionAndAndTagsPtrOutputWithContext(ctx context.Context) BudgetFilterExpressionAndAndTagsPtrOutput {
+	return o
+}
+
+func (o BudgetFilterExpressionAndAndTagsPtrOutput) Elem() BudgetFilterExpressionAndAndTagsOutput {
+	return o.ApplyT(func(v *BudgetFilterExpressionAndAndTags) BudgetFilterExpressionAndAndTags {
+		if v != nil {
+			return *v
+		}
+		var ret BudgetFilterExpressionAndAndTags
+		return ret
+	}).(BudgetFilterExpressionAndAndTagsOutput)
+}
+
+// (Optional) The cost category key to filter on.
+func (o BudgetFilterExpressionAndAndTagsPtrOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BudgetFilterExpressionAndAndTags) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Key
+	}).(pulumi.StringPtrOutput)
+}
+
+// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+func (o BudgetFilterExpressionAndAndTagsPtrOutput) MatchOptions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *BudgetFilterExpressionAndAndTags) []string {
+		if v == nil {
+			return nil
+		}
+		return v.MatchOptions
+	}).(pulumi.StringArrayOutput)
+}
+
+// (Optional) A list of cost category values to match. At least one value is required.
+func (o BudgetFilterExpressionAndAndTagsPtrOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *BudgetFilterExpressionAndAndTags) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Values
+	}).(pulumi.StringArrayOutput)
+}
+
+type BudgetFilterExpressionAndCostCategories struct {
+	// (Optional) The cost category key to filter on.
+	Key *string `pulumi:"key"`
+	// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+	MatchOptions []string `pulumi:"matchOptions"`
+	// (Optional) A list of cost category values to match. At least one value is required.
+	Values []string `pulumi:"values"`
+}
+
+// BudgetFilterExpressionAndCostCategoriesInput is an input type that accepts BudgetFilterExpressionAndCostCategoriesArgs and BudgetFilterExpressionAndCostCategoriesOutput values.
+// You can construct a concrete instance of `BudgetFilterExpressionAndCostCategoriesInput` via:
+//
+//	BudgetFilterExpressionAndCostCategoriesArgs{...}
+type BudgetFilterExpressionAndCostCategoriesInput interface {
+	pulumi.Input
+
+	ToBudgetFilterExpressionAndCostCategoriesOutput() BudgetFilterExpressionAndCostCategoriesOutput
+	ToBudgetFilterExpressionAndCostCategoriesOutputWithContext(context.Context) BudgetFilterExpressionAndCostCategoriesOutput
+}
+
+type BudgetFilterExpressionAndCostCategoriesArgs struct {
+	// (Optional) The cost category key to filter on.
+	Key pulumi.StringPtrInput `pulumi:"key"`
+	// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+	MatchOptions pulumi.StringArrayInput `pulumi:"matchOptions"`
+	// (Optional) A list of cost category values to match. At least one value is required.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (BudgetFilterExpressionAndCostCategoriesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BudgetFilterExpressionAndCostCategories)(nil)).Elem()
+}
+
+func (i BudgetFilterExpressionAndCostCategoriesArgs) ToBudgetFilterExpressionAndCostCategoriesOutput() BudgetFilterExpressionAndCostCategoriesOutput {
+	return i.ToBudgetFilterExpressionAndCostCategoriesOutputWithContext(context.Background())
+}
+
+func (i BudgetFilterExpressionAndCostCategoriesArgs) ToBudgetFilterExpressionAndCostCategoriesOutputWithContext(ctx context.Context) BudgetFilterExpressionAndCostCategoriesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetFilterExpressionAndCostCategoriesOutput)
+}
+
+func (i BudgetFilterExpressionAndCostCategoriesArgs) ToBudgetFilterExpressionAndCostCategoriesPtrOutput() BudgetFilterExpressionAndCostCategoriesPtrOutput {
+	return i.ToBudgetFilterExpressionAndCostCategoriesPtrOutputWithContext(context.Background())
+}
+
+func (i BudgetFilterExpressionAndCostCategoriesArgs) ToBudgetFilterExpressionAndCostCategoriesPtrOutputWithContext(ctx context.Context) BudgetFilterExpressionAndCostCategoriesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetFilterExpressionAndCostCategoriesOutput).ToBudgetFilterExpressionAndCostCategoriesPtrOutputWithContext(ctx)
+}
+
+// BudgetFilterExpressionAndCostCategoriesPtrInput is an input type that accepts BudgetFilterExpressionAndCostCategoriesArgs, BudgetFilterExpressionAndCostCategoriesPtr and BudgetFilterExpressionAndCostCategoriesPtrOutput values.
+// You can construct a concrete instance of `BudgetFilterExpressionAndCostCategoriesPtrInput` via:
+//
+//	        BudgetFilterExpressionAndCostCategoriesArgs{...}
+//
+//	or:
+//
+//	        nil
+type BudgetFilterExpressionAndCostCategoriesPtrInput interface {
+	pulumi.Input
+
+	ToBudgetFilterExpressionAndCostCategoriesPtrOutput() BudgetFilterExpressionAndCostCategoriesPtrOutput
+	ToBudgetFilterExpressionAndCostCategoriesPtrOutputWithContext(context.Context) BudgetFilterExpressionAndCostCategoriesPtrOutput
+}
+
+type budgetFilterExpressionAndCostCategoriesPtrType BudgetFilterExpressionAndCostCategoriesArgs
+
+func BudgetFilterExpressionAndCostCategoriesPtr(v *BudgetFilterExpressionAndCostCategoriesArgs) BudgetFilterExpressionAndCostCategoriesPtrInput {
+	return (*budgetFilterExpressionAndCostCategoriesPtrType)(v)
+}
+
+func (*budgetFilterExpressionAndCostCategoriesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BudgetFilterExpressionAndCostCategories)(nil)).Elem()
+}
+
+func (i *budgetFilterExpressionAndCostCategoriesPtrType) ToBudgetFilterExpressionAndCostCategoriesPtrOutput() BudgetFilterExpressionAndCostCategoriesPtrOutput {
+	return i.ToBudgetFilterExpressionAndCostCategoriesPtrOutputWithContext(context.Background())
+}
+
+func (i *budgetFilterExpressionAndCostCategoriesPtrType) ToBudgetFilterExpressionAndCostCategoriesPtrOutputWithContext(ctx context.Context) BudgetFilterExpressionAndCostCategoriesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetFilterExpressionAndCostCategoriesPtrOutput)
+}
+
+type BudgetFilterExpressionAndCostCategoriesOutput struct{ *pulumi.OutputState }
+
+func (BudgetFilterExpressionAndCostCategoriesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BudgetFilterExpressionAndCostCategories)(nil)).Elem()
+}
+
+func (o BudgetFilterExpressionAndCostCategoriesOutput) ToBudgetFilterExpressionAndCostCategoriesOutput() BudgetFilterExpressionAndCostCategoriesOutput {
+	return o
+}
+
+func (o BudgetFilterExpressionAndCostCategoriesOutput) ToBudgetFilterExpressionAndCostCategoriesOutputWithContext(ctx context.Context) BudgetFilterExpressionAndCostCategoriesOutput {
+	return o
+}
+
+func (o BudgetFilterExpressionAndCostCategoriesOutput) ToBudgetFilterExpressionAndCostCategoriesPtrOutput() BudgetFilterExpressionAndCostCategoriesPtrOutput {
+	return o.ToBudgetFilterExpressionAndCostCategoriesPtrOutputWithContext(context.Background())
+}
+
+func (o BudgetFilterExpressionAndCostCategoriesOutput) ToBudgetFilterExpressionAndCostCategoriesPtrOutputWithContext(ctx context.Context) BudgetFilterExpressionAndCostCategoriesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BudgetFilterExpressionAndCostCategories) *BudgetFilterExpressionAndCostCategories {
+		return &v
+	}).(BudgetFilterExpressionAndCostCategoriesPtrOutput)
+}
+
+// (Optional) The cost category key to filter on.
+func (o BudgetFilterExpressionAndCostCategoriesOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BudgetFilterExpressionAndCostCategories) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+func (o BudgetFilterExpressionAndCostCategoriesOutput) MatchOptions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v BudgetFilterExpressionAndCostCategories) []string { return v.MatchOptions }).(pulumi.StringArrayOutput)
+}
+
+// (Optional) A list of cost category values to match. At least one value is required.
+func (o BudgetFilterExpressionAndCostCategoriesOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v BudgetFilterExpressionAndCostCategories) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type BudgetFilterExpressionAndCostCategoriesPtrOutput struct{ *pulumi.OutputState }
+
+func (BudgetFilterExpressionAndCostCategoriesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BudgetFilterExpressionAndCostCategories)(nil)).Elem()
+}
+
+func (o BudgetFilterExpressionAndCostCategoriesPtrOutput) ToBudgetFilterExpressionAndCostCategoriesPtrOutput() BudgetFilterExpressionAndCostCategoriesPtrOutput {
+	return o
+}
+
+func (o BudgetFilterExpressionAndCostCategoriesPtrOutput) ToBudgetFilterExpressionAndCostCategoriesPtrOutputWithContext(ctx context.Context) BudgetFilterExpressionAndCostCategoriesPtrOutput {
+	return o
+}
+
+func (o BudgetFilterExpressionAndCostCategoriesPtrOutput) Elem() BudgetFilterExpressionAndCostCategoriesOutput {
+	return o.ApplyT(func(v *BudgetFilterExpressionAndCostCategories) BudgetFilterExpressionAndCostCategories {
+		if v != nil {
+			return *v
+		}
+		var ret BudgetFilterExpressionAndCostCategories
+		return ret
+	}).(BudgetFilterExpressionAndCostCategoriesOutput)
+}
+
+// (Optional) The cost category key to filter on.
+func (o BudgetFilterExpressionAndCostCategoriesPtrOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BudgetFilterExpressionAndCostCategories) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Key
+	}).(pulumi.StringPtrOutput)
+}
+
+// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+func (o BudgetFilterExpressionAndCostCategoriesPtrOutput) MatchOptions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *BudgetFilterExpressionAndCostCategories) []string {
+		if v == nil {
+			return nil
+		}
+		return v.MatchOptions
+	}).(pulumi.StringArrayOutput)
+}
+
+// (Optional) A list of cost category values to match. At least one value is required.
+func (o BudgetFilterExpressionAndCostCategoriesPtrOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *BudgetFilterExpressionAndCostCategories) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Values
+	}).(pulumi.StringArrayOutput)
+}
+
+type BudgetFilterExpressionAndDimensions struct {
+	// (Optional) The cost category key to filter on.
+	Key string `pulumi:"key"`
+	// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+	MatchOptions []string `pulumi:"matchOptions"`
+	// (Optional) A list of cost category values to match. At least one value is required.
+	Values []string `pulumi:"values"`
+}
+
+// BudgetFilterExpressionAndDimensionsInput is an input type that accepts BudgetFilterExpressionAndDimensionsArgs and BudgetFilterExpressionAndDimensionsOutput values.
+// You can construct a concrete instance of `BudgetFilterExpressionAndDimensionsInput` via:
+//
+//	BudgetFilterExpressionAndDimensionsArgs{...}
+type BudgetFilterExpressionAndDimensionsInput interface {
+	pulumi.Input
+
+	ToBudgetFilterExpressionAndDimensionsOutput() BudgetFilterExpressionAndDimensionsOutput
+	ToBudgetFilterExpressionAndDimensionsOutputWithContext(context.Context) BudgetFilterExpressionAndDimensionsOutput
+}
+
+type BudgetFilterExpressionAndDimensionsArgs struct {
+	// (Optional) The cost category key to filter on.
+	Key pulumi.StringInput `pulumi:"key"`
+	// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+	MatchOptions pulumi.StringArrayInput `pulumi:"matchOptions"`
+	// (Optional) A list of cost category values to match. At least one value is required.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (BudgetFilterExpressionAndDimensionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BudgetFilterExpressionAndDimensions)(nil)).Elem()
+}
+
+func (i BudgetFilterExpressionAndDimensionsArgs) ToBudgetFilterExpressionAndDimensionsOutput() BudgetFilterExpressionAndDimensionsOutput {
+	return i.ToBudgetFilterExpressionAndDimensionsOutputWithContext(context.Background())
+}
+
+func (i BudgetFilterExpressionAndDimensionsArgs) ToBudgetFilterExpressionAndDimensionsOutputWithContext(ctx context.Context) BudgetFilterExpressionAndDimensionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetFilterExpressionAndDimensionsOutput)
+}
+
+func (i BudgetFilterExpressionAndDimensionsArgs) ToBudgetFilterExpressionAndDimensionsPtrOutput() BudgetFilterExpressionAndDimensionsPtrOutput {
+	return i.ToBudgetFilterExpressionAndDimensionsPtrOutputWithContext(context.Background())
+}
+
+func (i BudgetFilterExpressionAndDimensionsArgs) ToBudgetFilterExpressionAndDimensionsPtrOutputWithContext(ctx context.Context) BudgetFilterExpressionAndDimensionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetFilterExpressionAndDimensionsOutput).ToBudgetFilterExpressionAndDimensionsPtrOutputWithContext(ctx)
+}
+
+// BudgetFilterExpressionAndDimensionsPtrInput is an input type that accepts BudgetFilterExpressionAndDimensionsArgs, BudgetFilterExpressionAndDimensionsPtr and BudgetFilterExpressionAndDimensionsPtrOutput values.
+// You can construct a concrete instance of `BudgetFilterExpressionAndDimensionsPtrInput` via:
+//
+//	        BudgetFilterExpressionAndDimensionsArgs{...}
+//
+//	or:
+//
+//	        nil
+type BudgetFilterExpressionAndDimensionsPtrInput interface {
+	pulumi.Input
+
+	ToBudgetFilterExpressionAndDimensionsPtrOutput() BudgetFilterExpressionAndDimensionsPtrOutput
+	ToBudgetFilterExpressionAndDimensionsPtrOutputWithContext(context.Context) BudgetFilterExpressionAndDimensionsPtrOutput
+}
+
+type budgetFilterExpressionAndDimensionsPtrType BudgetFilterExpressionAndDimensionsArgs
+
+func BudgetFilterExpressionAndDimensionsPtr(v *BudgetFilterExpressionAndDimensionsArgs) BudgetFilterExpressionAndDimensionsPtrInput {
+	return (*budgetFilterExpressionAndDimensionsPtrType)(v)
+}
+
+func (*budgetFilterExpressionAndDimensionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BudgetFilterExpressionAndDimensions)(nil)).Elem()
+}
+
+func (i *budgetFilterExpressionAndDimensionsPtrType) ToBudgetFilterExpressionAndDimensionsPtrOutput() BudgetFilterExpressionAndDimensionsPtrOutput {
+	return i.ToBudgetFilterExpressionAndDimensionsPtrOutputWithContext(context.Background())
+}
+
+func (i *budgetFilterExpressionAndDimensionsPtrType) ToBudgetFilterExpressionAndDimensionsPtrOutputWithContext(ctx context.Context) BudgetFilterExpressionAndDimensionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetFilterExpressionAndDimensionsPtrOutput)
+}
+
+type BudgetFilterExpressionAndDimensionsOutput struct{ *pulumi.OutputState }
+
+func (BudgetFilterExpressionAndDimensionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BudgetFilterExpressionAndDimensions)(nil)).Elem()
+}
+
+func (o BudgetFilterExpressionAndDimensionsOutput) ToBudgetFilterExpressionAndDimensionsOutput() BudgetFilterExpressionAndDimensionsOutput {
+	return o
+}
+
+func (o BudgetFilterExpressionAndDimensionsOutput) ToBudgetFilterExpressionAndDimensionsOutputWithContext(ctx context.Context) BudgetFilterExpressionAndDimensionsOutput {
+	return o
+}
+
+func (o BudgetFilterExpressionAndDimensionsOutput) ToBudgetFilterExpressionAndDimensionsPtrOutput() BudgetFilterExpressionAndDimensionsPtrOutput {
+	return o.ToBudgetFilterExpressionAndDimensionsPtrOutputWithContext(context.Background())
+}
+
+func (o BudgetFilterExpressionAndDimensionsOutput) ToBudgetFilterExpressionAndDimensionsPtrOutputWithContext(ctx context.Context) BudgetFilterExpressionAndDimensionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BudgetFilterExpressionAndDimensions) *BudgetFilterExpressionAndDimensions {
+		return &v
+	}).(BudgetFilterExpressionAndDimensionsPtrOutput)
+}
+
+// (Optional) The cost category key to filter on.
+func (o BudgetFilterExpressionAndDimensionsOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v BudgetFilterExpressionAndDimensions) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+func (o BudgetFilterExpressionAndDimensionsOutput) MatchOptions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v BudgetFilterExpressionAndDimensions) []string { return v.MatchOptions }).(pulumi.StringArrayOutput)
+}
+
+// (Optional) A list of cost category values to match. At least one value is required.
+func (o BudgetFilterExpressionAndDimensionsOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v BudgetFilterExpressionAndDimensions) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type BudgetFilterExpressionAndDimensionsPtrOutput struct{ *pulumi.OutputState }
+
+func (BudgetFilterExpressionAndDimensionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BudgetFilterExpressionAndDimensions)(nil)).Elem()
+}
+
+func (o BudgetFilterExpressionAndDimensionsPtrOutput) ToBudgetFilterExpressionAndDimensionsPtrOutput() BudgetFilterExpressionAndDimensionsPtrOutput {
+	return o
+}
+
+func (o BudgetFilterExpressionAndDimensionsPtrOutput) ToBudgetFilterExpressionAndDimensionsPtrOutputWithContext(ctx context.Context) BudgetFilterExpressionAndDimensionsPtrOutput {
+	return o
+}
+
+func (o BudgetFilterExpressionAndDimensionsPtrOutput) Elem() BudgetFilterExpressionAndDimensionsOutput {
+	return o.ApplyT(func(v *BudgetFilterExpressionAndDimensions) BudgetFilterExpressionAndDimensions {
+		if v != nil {
+			return *v
+		}
+		var ret BudgetFilterExpressionAndDimensions
+		return ret
+	}).(BudgetFilterExpressionAndDimensionsOutput)
+}
+
+// (Optional) The cost category key to filter on.
+func (o BudgetFilterExpressionAndDimensionsPtrOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BudgetFilterExpressionAndDimensions) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Key
+	}).(pulumi.StringPtrOutput)
+}
+
+// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+func (o BudgetFilterExpressionAndDimensionsPtrOutput) MatchOptions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *BudgetFilterExpressionAndDimensions) []string {
+		if v == nil {
+			return nil
+		}
+		return v.MatchOptions
+	}).(pulumi.StringArrayOutput)
+}
+
+// (Optional) A list of cost category values to match. At least one value is required.
+func (o BudgetFilterExpressionAndDimensionsPtrOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *BudgetFilterExpressionAndDimensions) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Values
+	}).(pulumi.StringArrayOutput)
+}
+
+type BudgetFilterExpressionAndNot struct {
+	// (Optional) A Cost Category Filter block.
+	CostCategories *BudgetFilterExpressionAndNotCostCategories `pulumi:"costCategories"`
+	// (Optional) A Dimension Filter block.
+	Dimensions *BudgetFilterExpressionAndNotDimensions `pulumi:"dimensions"`
+	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags *BudgetFilterExpressionAndNotTags `pulumi:"tags"`
+}
+
+// BudgetFilterExpressionAndNotInput is an input type that accepts BudgetFilterExpressionAndNotArgs and BudgetFilterExpressionAndNotOutput values.
+// You can construct a concrete instance of `BudgetFilterExpressionAndNotInput` via:
+//
+//	BudgetFilterExpressionAndNotArgs{...}
+type BudgetFilterExpressionAndNotInput interface {
+	pulumi.Input
+
+	ToBudgetFilterExpressionAndNotOutput() BudgetFilterExpressionAndNotOutput
+	ToBudgetFilterExpressionAndNotOutputWithContext(context.Context) BudgetFilterExpressionAndNotOutput
+}
+
+type BudgetFilterExpressionAndNotArgs struct {
+	// (Optional) A Cost Category Filter block.
+	CostCategories BudgetFilterExpressionAndNotCostCategoriesPtrInput `pulumi:"costCategories"`
+	// (Optional) A Dimension Filter block.
+	Dimensions BudgetFilterExpressionAndNotDimensionsPtrInput `pulumi:"dimensions"`
+	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags BudgetFilterExpressionAndNotTagsPtrInput `pulumi:"tags"`
+}
+
+func (BudgetFilterExpressionAndNotArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BudgetFilterExpressionAndNot)(nil)).Elem()
+}
+
+func (i BudgetFilterExpressionAndNotArgs) ToBudgetFilterExpressionAndNotOutput() BudgetFilterExpressionAndNotOutput {
+	return i.ToBudgetFilterExpressionAndNotOutputWithContext(context.Background())
+}
+
+func (i BudgetFilterExpressionAndNotArgs) ToBudgetFilterExpressionAndNotOutputWithContext(ctx context.Context) BudgetFilterExpressionAndNotOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetFilterExpressionAndNotOutput)
+}
+
+func (i BudgetFilterExpressionAndNotArgs) ToBudgetFilterExpressionAndNotPtrOutput() BudgetFilterExpressionAndNotPtrOutput {
+	return i.ToBudgetFilterExpressionAndNotPtrOutputWithContext(context.Background())
+}
+
+func (i BudgetFilterExpressionAndNotArgs) ToBudgetFilterExpressionAndNotPtrOutputWithContext(ctx context.Context) BudgetFilterExpressionAndNotPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetFilterExpressionAndNotOutput).ToBudgetFilterExpressionAndNotPtrOutputWithContext(ctx)
+}
+
+// BudgetFilterExpressionAndNotPtrInput is an input type that accepts BudgetFilterExpressionAndNotArgs, BudgetFilterExpressionAndNotPtr and BudgetFilterExpressionAndNotPtrOutput values.
+// You can construct a concrete instance of `BudgetFilterExpressionAndNotPtrInput` via:
+//
+//	        BudgetFilterExpressionAndNotArgs{...}
+//
+//	or:
+//
+//	        nil
+type BudgetFilterExpressionAndNotPtrInput interface {
+	pulumi.Input
+
+	ToBudgetFilterExpressionAndNotPtrOutput() BudgetFilterExpressionAndNotPtrOutput
+	ToBudgetFilterExpressionAndNotPtrOutputWithContext(context.Context) BudgetFilterExpressionAndNotPtrOutput
+}
+
+type budgetFilterExpressionAndNotPtrType BudgetFilterExpressionAndNotArgs
+
+func BudgetFilterExpressionAndNotPtr(v *BudgetFilterExpressionAndNotArgs) BudgetFilterExpressionAndNotPtrInput {
+	return (*budgetFilterExpressionAndNotPtrType)(v)
+}
+
+func (*budgetFilterExpressionAndNotPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BudgetFilterExpressionAndNot)(nil)).Elem()
+}
+
+func (i *budgetFilterExpressionAndNotPtrType) ToBudgetFilterExpressionAndNotPtrOutput() BudgetFilterExpressionAndNotPtrOutput {
+	return i.ToBudgetFilterExpressionAndNotPtrOutputWithContext(context.Background())
+}
+
+func (i *budgetFilterExpressionAndNotPtrType) ToBudgetFilterExpressionAndNotPtrOutputWithContext(ctx context.Context) BudgetFilterExpressionAndNotPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetFilterExpressionAndNotPtrOutput)
+}
+
+type BudgetFilterExpressionAndNotOutput struct{ *pulumi.OutputState }
+
+func (BudgetFilterExpressionAndNotOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BudgetFilterExpressionAndNot)(nil)).Elem()
+}
+
+func (o BudgetFilterExpressionAndNotOutput) ToBudgetFilterExpressionAndNotOutput() BudgetFilterExpressionAndNotOutput {
+	return o
+}
+
+func (o BudgetFilterExpressionAndNotOutput) ToBudgetFilterExpressionAndNotOutputWithContext(ctx context.Context) BudgetFilterExpressionAndNotOutput {
+	return o
+}
+
+func (o BudgetFilterExpressionAndNotOutput) ToBudgetFilterExpressionAndNotPtrOutput() BudgetFilterExpressionAndNotPtrOutput {
+	return o.ToBudgetFilterExpressionAndNotPtrOutputWithContext(context.Background())
+}
+
+func (o BudgetFilterExpressionAndNotOutput) ToBudgetFilterExpressionAndNotPtrOutputWithContext(ctx context.Context) BudgetFilterExpressionAndNotPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BudgetFilterExpressionAndNot) *BudgetFilterExpressionAndNot {
+		return &v
+	}).(BudgetFilterExpressionAndNotPtrOutput)
+}
+
+// (Optional) A Cost Category Filter block.
+func (o BudgetFilterExpressionAndNotOutput) CostCategories() BudgetFilterExpressionAndNotCostCategoriesPtrOutput {
+	return o.ApplyT(func(v BudgetFilterExpressionAndNot) *BudgetFilterExpressionAndNotCostCategories {
+		return v.CostCategories
+	}).(BudgetFilterExpressionAndNotCostCategoriesPtrOutput)
+}
+
+// (Optional) A Dimension Filter block.
+func (o BudgetFilterExpressionAndNotOutput) Dimensions() BudgetFilterExpressionAndNotDimensionsPtrOutput {
+	return o.ApplyT(func(v BudgetFilterExpressionAndNot) *BudgetFilterExpressionAndNotDimensions { return v.Dimensions }).(BudgetFilterExpressionAndNotDimensionsPtrOutput)
+}
+
+// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+func (o BudgetFilterExpressionAndNotOutput) Tags() BudgetFilterExpressionAndNotTagsPtrOutput {
+	return o.ApplyT(func(v BudgetFilterExpressionAndNot) *BudgetFilterExpressionAndNotTags { return v.Tags }).(BudgetFilterExpressionAndNotTagsPtrOutput)
+}
+
+type BudgetFilterExpressionAndNotPtrOutput struct{ *pulumi.OutputState }
+
+func (BudgetFilterExpressionAndNotPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BudgetFilterExpressionAndNot)(nil)).Elem()
+}
+
+func (o BudgetFilterExpressionAndNotPtrOutput) ToBudgetFilterExpressionAndNotPtrOutput() BudgetFilterExpressionAndNotPtrOutput {
+	return o
+}
+
+func (o BudgetFilterExpressionAndNotPtrOutput) ToBudgetFilterExpressionAndNotPtrOutputWithContext(ctx context.Context) BudgetFilterExpressionAndNotPtrOutput {
+	return o
+}
+
+func (o BudgetFilterExpressionAndNotPtrOutput) Elem() BudgetFilterExpressionAndNotOutput {
+	return o.ApplyT(func(v *BudgetFilterExpressionAndNot) BudgetFilterExpressionAndNot {
+		if v != nil {
+			return *v
+		}
+		var ret BudgetFilterExpressionAndNot
+		return ret
+	}).(BudgetFilterExpressionAndNotOutput)
+}
+
+// (Optional) A Cost Category Filter block.
+func (o BudgetFilterExpressionAndNotPtrOutput) CostCategories() BudgetFilterExpressionAndNotCostCategoriesPtrOutput {
+	return o.ApplyT(func(v *BudgetFilterExpressionAndNot) *BudgetFilterExpressionAndNotCostCategories {
+		if v == nil {
+			return nil
+		}
+		return v.CostCategories
+	}).(BudgetFilterExpressionAndNotCostCategoriesPtrOutput)
+}
+
+// (Optional) A Dimension Filter block.
+func (o BudgetFilterExpressionAndNotPtrOutput) Dimensions() BudgetFilterExpressionAndNotDimensionsPtrOutput {
+	return o.ApplyT(func(v *BudgetFilterExpressionAndNot) *BudgetFilterExpressionAndNotDimensions {
+		if v == nil {
+			return nil
+		}
+		return v.Dimensions
+	}).(BudgetFilterExpressionAndNotDimensionsPtrOutput)
+}
+
+// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+func (o BudgetFilterExpressionAndNotPtrOutput) Tags() BudgetFilterExpressionAndNotTagsPtrOutput {
+	return o.ApplyT(func(v *BudgetFilterExpressionAndNot) *BudgetFilterExpressionAndNotTags {
+		if v == nil {
+			return nil
+		}
+		return v.Tags
+	}).(BudgetFilterExpressionAndNotTagsPtrOutput)
+}
+
+type BudgetFilterExpressionAndNotCostCategories struct {
+	// (Optional) The cost category key to filter on.
+	Key *string `pulumi:"key"`
+	// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+	MatchOptions []string `pulumi:"matchOptions"`
+	// (Optional) A list of cost category values to match. At least one value is required.
+	Values []string `pulumi:"values"`
+}
+
+// BudgetFilterExpressionAndNotCostCategoriesInput is an input type that accepts BudgetFilterExpressionAndNotCostCategoriesArgs and BudgetFilterExpressionAndNotCostCategoriesOutput values.
+// You can construct a concrete instance of `BudgetFilterExpressionAndNotCostCategoriesInput` via:
+//
+//	BudgetFilterExpressionAndNotCostCategoriesArgs{...}
+type BudgetFilterExpressionAndNotCostCategoriesInput interface {
+	pulumi.Input
+
+	ToBudgetFilterExpressionAndNotCostCategoriesOutput() BudgetFilterExpressionAndNotCostCategoriesOutput
+	ToBudgetFilterExpressionAndNotCostCategoriesOutputWithContext(context.Context) BudgetFilterExpressionAndNotCostCategoriesOutput
+}
+
+type BudgetFilterExpressionAndNotCostCategoriesArgs struct {
+	// (Optional) The cost category key to filter on.
+	Key pulumi.StringPtrInput `pulumi:"key"`
+	// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+	MatchOptions pulumi.StringArrayInput `pulumi:"matchOptions"`
+	// (Optional) A list of cost category values to match. At least one value is required.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (BudgetFilterExpressionAndNotCostCategoriesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BudgetFilterExpressionAndNotCostCategories)(nil)).Elem()
+}
+
+func (i BudgetFilterExpressionAndNotCostCategoriesArgs) ToBudgetFilterExpressionAndNotCostCategoriesOutput() BudgetFilterExpressionAndNotCostCategoriesOutput {
+	return i.ToBudgetFilterExpressionAndNotCostCategoriesOutputWithContext(context.Background())
+}
+
+func (i BudgetFilterExpressionAndNotCostCategoriesArgs) ToBudgetFilterExpressionAndNotCostCategoriesOutputWithContext(ctx context.Context) BudgetFilterExpressionAndNotCostCategoriesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetFilterExpressionAndNotCostCategoriesOutput)
+}
+
+func (i BudgetFilterExpressionAndNotCostCategoriesArgs) ToBudgetFilterExpressionAndNotCostCategoriesPtrOutput() BudgetFilterExpressionAndNotCostCategoriesPtrOutput {
+	return i.ToBudgetFilterExpressionAndNotCostCategoriesPtrOutputWithContext(context.Background())
+}
+
+func (i BudgetFilterExpressionAndNotCostCategoriesArgs) ToBudgetFilterExpressionAndNotCostCategoriesPtrOutputWithContext(ctx context.Context) BudgetFilterExpressionAndNotCostCategoriesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetFilterExpressionAndNotCostCategoriesOutput).ToBudgetFilterExpressionAndNotCostCategoriesPtrOutputWithContext(ctx)
+}
+
+// BudgetFilterExpressionAndNotCostCategoriesPtrInput is an input type that accepts BudgetFilterExpressionAndNotCostCategoriesArgs, BudgetFilterExpressionAndNotCostCategoriesPtr and BudgetFilterExpressionAndNotCostCategoriesPtrOutput values.
+// You can construct a concrete instance of `BudgetFilterExpressionAndNotCostCategoriesPtrInput` via:
+//
+//	        BudgetFilterExpressionAndNotCostCategoriesArgs{...}
+//
+//	or:
+//
+//	        nil
+type BudgetFilterExpressionAndNotCostCategoriesPtrInput interface {
+	pulumi.Input
+
+	ToBudgetFilterExpressionAndNotCostCategoriesPtrOutput() BudgetFilterExpressionAndNotCostCategoriesPtrOutput
+	ToBudgetFilterExpressionAndNotCostCategoriesPtrOutputWithContext(context.Context) BudgetFilterExpressionAndNotCostCategoriesPtrOutput
+}
+
+type budgetFilterExpressionAndNotCostCategoriesPtrType BudgetFilterExpressionAndNotCostCategoriesArgs
+
+func BudgetFilterExpressionAndNotCostCategoriesPtr(v *BudgetFilterExpressionAndNotCostCategoriesArgs) BudgetFilterExpressionAndNotCostCategoriesPtrInput {
+	return (*budgetFilterExpressionAndNotCostCategoriesPtrType)(v)
+}
+
+func (*budgetFilterExpressionAndNotCostCategoriesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BudgetFilterExpressionAndNotCostCategories)(nil)).Elem()
+}
+
+func (i *budgetFilterExpressionAndNotCostCategoriesPtrType) ToBudgetFilterExpressionAndNotCostCategoriesPtrOutput() BudgetFilterExpressionAndNotCostCategoriesPtrOutput {
+	return i.ToBudgetFilterExpressionAndNotCostCategoriesPtrOutputWithContext(context.Background())
+}
+
+func (i *budgetFilterExpressionAndNotCostCategoriesPtrType) ToBudgetFilterExpressionAndNotCostCategoriesPtrOutputWithContext(ctx context.Context) BudgetFilterExpressionAndNotCostCategoriesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetFilterExpressionAndNotCostCategoriesPtrOutput)
+}
+
+type BudgetFilterExpressionAndNotCostCategoriesOutput struct{ *pulumi.OutputState }
+
+func (BudgetFilterExpressionAndNotCostCategoriesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BudgetFilterExpressionAndNotCostCategories)(nil)).Elem()
+}
+
+func (o BudgetFilterExpressionAndNotCostCategoriesOutput) ToBudgetFilterExpressionAndNotCostCategoriesOutput() BudgetFilterExpressionAndNotCostCategoriesOutput {
+	return o
+}
+
+func (o BudgetFilterExpressionAndNotCostCategoriesOutput) ToBudgetFilterExpressionAndNotCostCategoriesOutputWithContext(ctx context.Context) BudgetFilterExpressionAndNotCostCategoriesOutput {
+	return o
+}
+
+func (o BudgetFilterExpressionAndNotCostCategoriesOutput) ToBudgetFilterExpressionAndNotCostCategoriesPtrOutput() BudgetFilterExpressionAndNotCostCategoriesPtrOutput {
+	return o.ToBudgetFilterExpressionAndNotCostCategoriesPtrOutputWithContext(context.Background())
+}
+
+func (o BudgetFilterExpressionAndNotCostCategoriesOutput) ToBudgetFilterExpressionAndNotCostCategoriesPtrOutputWithContext(ctx context.Context) BudgetFilterExpressionAndNotCostCategoriesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BudgetFilterExpressionAndNotCostCategories) *BudgetFilterExpressionAndNotCostCategories {
+		return &v
+	}).(BudgetFilterExpressionAndNotCostCategoriesPtrOutput)
+}
+
+// (Optional) The cost category key to filter on.
+func (o BudgetFilterExpressionAndNotCostCategoriesOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BudgetFilterExpressionAndNotCostCategories) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+func (o BudgetFilterExpressionAndNotCostCategoriesOutput) MatchOptions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v BudgetFilterExpressionAndNotCostCategories) []string { return v.MatchOptions }).(pulumi.StringArrayOutput)
+}
+
+// (Optional) A list of cost category values to match. At least one value is required.
+func (o BudgetFilterExpressionAndNotCostCategoriesOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v BudgetFilterExpressionAndNotCostCategories) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type BudgetFilterExpressionAndNotCostCategoriesPtrOutput struct{ *pulumi.OutputState }
+
+func (BudgetFilterExpressionAndNotCostCategoriesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BudgetFilterExpressionAndNotCostCategories)(nil)).Elem()
+}
+
+func (o BudgetFilterExpressionAndNotCostCategoriesPtrOutput) ToBudgetFilterExpressionAndNotCostCategoriesPtrOutput() BudgetFilterExpressionAndNotCostCategoriesPtrOutput {
+	return o
+}
+
+func (o BudgetFilterExpressionAndNotCostCategoriesPtrOutput) ToBudgetFilterExpressionAndNotCostCategoriesPtrOutputWithContext(ctx context.Context) BudgetFilterExpressionAndNotCostCategoriesPtrOutput {
+	return o
+}
+
+func (o BudgetFilterExpressionAndNotCostCategoriesPtrOutput) Elem() BudgetFilterExpressionAndNotCostCategoriesOutput {
+	return o.ApplyT(func(v *BudgetFilterExpressionAndNotCostCategories) BudgetFilterExpressionAndNotCostCategories {
+		if v != nil {
+			return *v
+		}
+		var ret BudgetFilterExpressionAndNotCostCategories
+		return ret
+	}).(BudgetFilterExpressionAndNotCostCategoriesOutput)
+}
+
+// (Optional) The cost category key to filter on.
+func (o BudgetFilterExpressionAndNotCostCategoriesPtrOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BudgetFilterExpressionAndNotCostCategories) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Key
+	}).(pulumi.StringPtrOutput)
+}
+
+// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+func (o BudgetFilterExpressionAndNotCostCategoriesPtrOutput) MatchOptions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *BudgetFilterExpressionAndNotCostCategories) []string {
+		if v == nil {
+			return nil
+		}
+		return v.MatchOptions
+	}).(pulumi.StringArrayOutput)
+}
+
+// (Optional) A list of cost category values to match. At least one value is required.
+func (o BudgetFilterExpressionAndNotCostCategoriesPtrOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *BudgetFilterExpressionAndNotCostCategories) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Values
+	}).(pulumi.StringArrayOutput)
+}
+
+type BudgetFilterExpressionAndNotDimensions struct {
+	// (Optional) The cost category key to filter on.
+	Key string `pulumi:"key"`
+	// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+	MatchOptions []string `pulumi:"matchOptions"`
+	// (Optional) A list of cost category values to match. At least one value is required.
+	Values []string `pulumi:"values"`
+}
+
+// BudgetFilterExpressionAndNotDimensionsInput is an input type that accepts BudgetFilterExpressionAndNotDimensionsArgs and BudgetFilterExpressionAndNotDimensionsOutput values.
+// You can construct a concrete instance of `BudgetFilterExpressionAndNotDimensionsInput` via:
+//
+//	BudgetFilterExpressionAndNotDimensionsArgs{...}
+type BudgetFilterExpressionAndNotDimensionsInput interface {
+	pulumi.Input
+
+	ToBudgetFilterExpressionAndNotDimensionsOutput() BudgetFilterExpressionAndNotDimensionsOutput
+	ToBudgetFilterExpressionAndNotDimensionsOutputWithContext(context.Context) BudgetFilterExpressionAndNotDimensionsOutput
+}
+
+type BudgetFilterExpressionAndNotDimensionsArgs struct {
+	// (Optional) The cost category key to filter on.
+	Key pulumi.StringInput `pulumi:"key"`
+	// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+	MatchOptions pulumi.StringArrayInput `pulumi:"matchOptions"`
+	// (Optional) A list of cost category values to match. At least one value is required.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (BudgetFilterExpressionAndNotDimensionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BudgetFilterExpressionAndNotDimensions)(nil)).Elem()
+}
+
+func (i BudgetFilterExpressionAndNotDimensionsArgs) ToBudgetFilterExpressionAndNotDimensionsOutput() BudgetFilterExpressionAndNotDimensionsOutput {
+	return i.ToBudgetFilterExpressionAndNotDimensionsOutputWithContext(context.Background())
+}
+
+func (i BudgetFilterExpressionAndNotDimensionsArgs) ToBudgetFilterExpressionAndNotDimensionsOutputWithContext(ctx context.Context) BudgetFilterExpressionAndNotDimensionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetFilterExpressionAndNotDimensionsOutput)
+}
+
+func (i BudgetFilterExpressionAndNotDimensionsArgs) ToBudgetFilterExpressionAndNotDimensionsPtrOutput() BudgetFilterExpressionAndNotDimensionsPtrOutput {
+	return i.ToBudgetFilterExpressionAndNotDimensionsPtrOutputWithContext(context.Background())
+}
+
+func (i BudgetFilterExpressionAndNotDimensionsArgs) ToBudgetFilterExpressionAndNotDimensionsPtrOutputWithContext(ctx context.Context) BudgetFilterExpressionAndNotDimensionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetFilterExpressionAndNotDimensionsOutput).ToBudgetFilterExpressionAndNotDimensionsPtrOutputWithContext(ctx)
+}
+
+// BudgetFilterExpressionAndNotDimensionsPtrInput is an input type that accepts BudgetFilterExpressionAndNotDimensionsArgs, BudgetFilterExpressionAndNotDimensionsPtr and BudgetFilterExpressionAndNotDimensionsPtrOutput values.
+// You can construct a concrete instance of `BudgetFilterExpressionAndNotDimensionsPtrInput` via:
+//
+//	        BudgetFilterExpressionAndNotDimensionsArgs{...}
+//
+//	or:
+//
+//	        nil
+type BudgetFilterExpressionAndNotDimensionsPtrInput interface {
+	pulumi.Input
+
+	ToBudgetFilterExpressionAndNotDimensionsPtrOutput() BudgetFilterExpressionAndNotDimensionsPtrOutput
+	ToBudgetFilterExpressionAndNotDimensionsPtrOutputWithContext(context.Context) BudgetFilterExpressionAndNotDimensionsPtrOutput
+}
+
+type budgetFilterExpressionAndNotDimensionsPtrType BudgetFilterExpressionAndNotDimensionsArgs
+
+func BudgetFilterExpressionAndNotDimensionsPtr(v *BudgetFilterExpressionAndNotDimensionsArgs) BudgetFilterExpressionAndNotDimensionsPtrInput {
+	return (*budgetFilterExpressionAndNotDimensionsPtrType)(v)
+}
+
+func (*budgetFilterExpressionAndNotDimensionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BudgetFilterExpressionAndNotDimensions)(nil)).Elem()
+}
+
+func (i *budgetFilterExpressionAndNotDimensionsPtrType) ToBudgetFilterExpressionAndNotDimensionsPtrOutput() BudgetFilterExpressionAndNotDimensionsPtrOutput {
+	return i.ToBudgetFilterExpressionAndNotDimensionsPtrOutputWithContext(context.Background())
+}
+
+func (i *budgetFilterExpressionAndNotDimensionsPtrType) ToBudgetFilterExpressionAndNotDimensionsPtrOutputWithContext(ctx context.Context) BudgetFilterExpressionAndNotDimensionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetFilterExpressionAndNotDimensionsPtrOutput)
+}
+
+type BudgetFilterExpressionAndNotDimensionsOutput struct{ *pulumi.OutputState }
+
+func (BudgetFilterExpressionAndNotDimensionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BudgetFilterExpressionAndNotDimensions)(nil)).Elem()
+}
+
+func (o BudgetFilterExpressionAndNotDimensionsOutput) ToBudgetFilterExpressionAndNotDimensionsOutput() BudgetFilterExpressionAndNotDimensionsOutput {
+	return o
+}
+
+func (o BudgetFilterExpressionAndNotDimensionsOutput) ToBudgetFilterExpressionAndNotDimensionsOutputWithContext(ctx context.Context) BudgetFilterExpressionAndNotDimensionsOutput {
+	return o
+}
+
+func (o BudgetFilterExpressionAndNotDimensionsOutput) ToBudgetFilterExpressionAndNotDimensionsPtrOutput() BudgetFilterExpressionAndNotDimensionsPtrOutput {
+	return o.ToBudgetFilterExpressionAndNotDimensionsPtrOutputWithContext(context.Background())
+}
+
+func (o BudgetFilterExpressionAndNotDimensionsOutput) ToBudgetFilterExpressionAndNotDimensionsPtrOutputWithContext(ctx context.Context) BudgetFilterExpressionAndNotDimensionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BudgetFilterExpressionAndNotDimensions) *BudgetFilterExpressionAndNotDimensions {
+		return &v
+	}).(BudgetFilterExpressionAndNotDimensionsPtrOutput)
+}
+
+// (Optional) The cost category key to filter on.
+func (o BudgetFilterExpressionAndNotDimensionsOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v BudgetFilterExpressionAndNotDimensions) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+func (o BudgetFilterExpressionAndNotDimensionsOutput) MatchOptions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v BudgetFilterExpressionAndNotDimensions) []string { return v.MatchOptions }).(pulumi.StringArrayOutput)
+}
+
+// (Optional) A list of cost category values to match. At least one value is required.
+func (o BudgetFilterExpressionAndNotDimensionsOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v BudgetFilterExpressionAndNotDimensions) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type BudgetFilterExpressionAndNotDimensionsPtrOutput struct{ *pulumi.OutputState }
+
+func (BudgetFilterExpressionAndNotDimensionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BudgetFilterExpressionAndNotDimensions)(nil)).Elem()
+}
+
+func (o BudgetFilterExpressionAndNotDimensionsPtrOutput) ToBudgetFilterExpressionAndNotDimensionsPtrOutput() BudgetFilterExpressionAndNotDimensionsPtrOutput {
+	return o
+}
+
+func (o BudgetFilterExpressionAndNotDimensionsPtrOutput) ToBudgetFilterExpressionAndNotDimensionsPtrOutputWithContext(ctx context.Context) BudgetFilterExpressionAndNotDimensionsPtrOutput {
+	return o
+}
+
+func (o BudgetFilterExpressionAndNotDimensionsPtrOutput) Elem() BudgetFilterExpressionAndNotDimensionsOutput {
+	return o.ApplyT(func(v *BudgetFilterExpressionAndNotDimensions) BudgetFilterExpressionAndNotDimensions {
+		if v != nil {
+			return *v
+		}
+		var ret BudgetFilterExpressionAndNotDimensions
+		return ret
+	}).(BudgetFilterExpressionAndNotDimensionsOutput)
+}
+
+// (Optional) The cost category key to filter on.
+func (o BudgetFilterExpressionAndNotDimensionsPtrOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BudgetFilterExpressionAndNotDimensions) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Key
+	}).(pulumi.StringPtrOutput)
+}
+
+// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+func (o BudgetFilterExpressionAndNotDimensionsPtrOutput) MatchOptions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *BudgetFilterExpressionAndNotDimensions) []string {
+		if v == nil {
+			return nil
+		}
+		return v.MatchOptions
+	}).(pulumi.StringArrayOutput)
+}
+
+// (Optional) A list of cost category values to match. At least one value is required.
+func (o BudgetFilterExpressionAndNotDimensionsPtrOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *BudgetFilterExpressionAndNotDimensions) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Values
+	}).(pulumi.StringArrayOutput)
+}
+
+type BudgetFilterExpressionAndNotTags struct {
+	// (Optional) The cost category key to filter on.
+	Key *string `pulumi:"key"`
+	// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+	MatchOptions []string `pulumi:"matchOptions"`
+	// (Optional) A list of cost category values to match. At least one value is required.
+	Values []string `pulumi:"values"`
+}
+
+// BudgetFilterExpressionAndNotTagsInput is an input type that accepts BudgetFilterExpressionAndNotTagsArgs and BudgetFilterExpressionAndNotTagsOutput values.
+// You can construct a concrete instance of `BudgetFilterExpressionAndNotTagsInput` via:
+//
+//	BudgetFilterExpressionAndNotTagsArgs{...}
+type BudgetFilterExpressionAndNotTagsInput interface {
+	pulumi.Input
+
+	ToBudgetFilterExpressionAndNotTagsOutput() BudgetFilterExpressionAndNotTagsOutput
+	ToBudgetFilterExpressionAndNotTagsOutputWithContext(context.Context) BudgetFilterExpressionAndNotTagsOutput
+}
+
+type BudgetFilterExpressionAndNotTagsArgs struct {
+	// (Optional) The cost category key to filter on.
+	Key pulumi.StringPtrInput `pulumi:"key"`
+	// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+	MatchOptions pulumi.StringArrayInput `pulumi:"matchOptions"`
+	// (Optional) A list of cost category values to match. At least one value is required.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (BudgetFilterExpressionAndNotTagsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BudgetFilterExpressionAndNotTags)(nil)).Elem()
+}
+
+func (i BudgetFilterExpressionAndNotTagsArgs) ToBudgetFilterExpressionAndNotTagsOutput() BudgetFilterExpressionAndNotTagsOutput {
+	return i.ToBudgetFilterExpressionAndNotTagsOutputWithContext(context.Background())
+}
+
+func (i BudgetFilterExpressionAndNotTagsArgs) ToBudgetFilterExpressionAndNotTagsOutputWithContext(ctx context.Context) BudgetFilterExpressionAndNotTagsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetFilterExpressionAndNotTagsOutput)
+}
+
+func (i BudgetFilterExpressionAndNotTagsArgs) ToBudgetFilterExpressionAndNotTagsPtrOutput() BudgetFilterExpressionAndNotTagsPtrOutput {
+	return i.ToBudgetFilterExpressionAndNotTagsPtrOutputWithContext(context.Background())
+}
+
+func (i BudgetFilterExpressionAndNotTagsArgs) ToBudgetFilterExpressionAndNotTagsPtrOutputWithContext(ctx context.Context) BudgetFilterExpressionAndNotTagsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetFilterExpressionAndNotTagsOutput).ToBudgetFilterExpressionAndNotTagsPtrOutputWithContext(ctx)
+}
+
+// BudgetFilterExpressionAndNotTagsPtrInput is an input type that accepts BudgetFilterExpressionAndNotTagsArgs, BudgetFilterExpressionAndNotTagsPtr and BudgetFilterExpressionAndNotTagsPtrOutput values.
+// You can construct a concrete instance of `BudgetFilterExpressionAndNotTagsPtrInput` via:
+//
+//	        BudgetFilterExpressionAndNotTagsArgs{...}
+//
+//	or:
+//
+//	        nil
+type BudgetFilterExpressionAndNotTagsPtrInput interface {
+	pulumi.Input
+
+	ToBudgetFilterExpressionAndNotTagsPtrOutput() BudgetFilterExpressionAndNotTagsPtrOutput
+	ToBudgetFilterExpressionAndNotTagsPtrOutputWithContext(context.Context) BudgetFilterExpressionAndNotTagsPtrOutput
+}
+
+type budgetFilterExpressionAndNotTagsPtrType BudgetFilterExpressionAndNotTagsArgs
+
+func BudgetFilterExpressionAndNotTagsPtr(v *BudgetFilterExpressionAndNotTagsArgs) BudgetFilterExpressionAndNotTagsPtrInput {
+	return (*budgetFilterExpressionAndNotTagsPtrType)(v)
+}
+
+func (*budgetFilterExpressionAndNotTagsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BudgetFilterExpressionAndNotTags)(nil)).Elem()
+}
+
+func (i *budgetFilterExpressionAndNotTagsPtrType) ToBudgetFilterExpressionAndNotTagsPtrOutput() BudgetFilterExpressionAndNotTagsPtrOutput {
+	return i.ToBudgetFilterExpressionAndNotTagsPtrOutputWithContext(context.Background())
+}
+
+func (i *budgetFilterExpressionAndNotTagsPtrType) ToBudgetFilterExpressionAndNotTagsPtrOutputWithContext(ctx context.Context) BudgetFilterExpressionAndNotTagsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetFilterExpressionAndNotTagsPtrOutput)
+}
+
+type BudgetFilterExpressionAndNotTagsOutput struct{ *pulumi.OutputState }
+
+func (BudgetFilterExpressionAndNotTagsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BudgetFilterExpressionAndNotTags)(nil)).Elem()
+}
+
+func (o BudgetFilterExpressionAndNotTagsOutput) ToBudgetFilterExpressionAndNotTagsOutput() BudgetFilterExpressionAndNotTagsOutput {
+	return o
+}
+
+func (o BudgetFilterExpressionAndNotTagsOutput) ToBudgetFilterExpressionAndNotTagsOutputWithContext(ctx context.Context) BudgetFilterExpressionAndNotTagsOutput {
+	return o
+}
+
+func (o BudgetFilterExpressionAndNotTagsOutput) ToBudgetFilterExpressionAndNotTagsPtrOutput() BudgetFilterExpressionAndNotTagsPtrOutput {
+	return o.ToBudgetFilterExpressionAndNotTagsPtrOutputWithContext(context.Background())
+}
+
+func (o BudgetFilterExpressionAndNotTagsOutput) ToBudgetFilterExpressionAndNotTagsPtrOutputWithContext(ctx context.Context) BudgetFilterExpressionAndNotTagsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BudgetFilterExpressionAndNotTags) *BudgetFilterExpressionAndNotTags {
+		return &v
+	}).(BudgetFilterExpressionAndNotTagsPtrOutput)
+}
+
+// (Optional) The cost category key to filter on.
+func (o BudgetFilterExpressionAndNotTagsOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BudgetFilterExpressionAndNotTags) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+func (o BudgetFilterExpressionAndNotTagsOutput) MatchOptions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v BudgetFilterExpressionAndNotTags) []string { return v.MatchOptions }).(pulumi.StringArrayOutput)
+}
+
+// (Optional) A list of cost category values to match. At least one value is required.
+func (o BudgetFilterExpressionAndNotTagsOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v BudgetFilterExpressionAndNotTags) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type BudgetFilterExpressionAndNotTagsPtrOutput struct{ *pulumi.OutputState }
+
+func (BudgetFilterExpressionAndNotTagsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BudgetFilterExpressionAndNotTags)(nil)).Elem()
+}
+
+func (o BudgetFilterExpressionAndNotTagsPtrOutput) ToBudgetFilterExpressionAndNotTagsPtrOutput() BudgetFilterExpressionAndNotTagsPtrOutput {
+	return o
+}
+
+func (o BudgetFilterExpressionAndNotTagsPtrOutput) ToBudgetFilterExpressionAndNotTagsPtrOutputWithContext(ctx context.Context) BudgetFilterExpressionAndNotTagsPtrOutput {
+	return o
+}
+
+func (o BudgetFilterExpressionAndNotTagsPtrOutput) Elem() BudgetFilterExpressionAndNotTagsOutput {
+	return o.ApplyT(func(v *BudgetFilterExpressionAndNotTags) BudgetFilterExpressionAndNotTags {
+		if v != nil {
+			return *v
+		}
+		var ret BudgetFilterExpressionAndNotTags
+		return ret
+	}).(BudgetFilterExpressionAndNotTagsOutput)
+}
+
+// (Optional) The cost category key to filter on.
+func (o BudgetFilterExpressionAndNotTagsPtrOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BudgetFilterExpressionAndNotTags) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Key
+	}).(pulumi.StringPtrOutput)
+}
+
+// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+func (o BudgetFilterExpressionAndNotTagsPtrOutput) MatchOptions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *BudgetFilterExpressionAndNotTags) []string {
+		if v == nil {
+			return nil
+		}
+		return v.MatchOptions
+	}).(pulumi.StringArrayOutput)
+}
+
+// (Optional) A list of cost category values to match. At least one value is required.
+func (o BudgetFilterExpressionAndNotTagsPtrOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *BudgetFilterExpressionAndNotTags) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Values
+	}).(pulumi.StringArrayOutput)
+}
+
+type BudgetFilterExpressionAndOr struct {
+	// (Optional) A Cost Category Filter block.
+	CostCategories *BudgetFilterExpressionAndOrCostCategories `pulumi:"costCategories"`
+	// (Optional) A Dimension Filter block.
+	Dimensions *BudgetFilterExpressionAndOrDimensions `pulumi:"dimensions"`
+	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags *BudgetFilterExpressionAndOrTags `pulumi:"tags"`
+}
+
+// BudgetFilterExpressionAndOrInput is an input type that accepts BudgetFilterExpressionAndOrArgs and BudgetFilterExpressionAndOrOutput values.
+// You can construct a concrete instance of `BudgetFilterExpressionAndOrInput` via:
+//
+//	BudgetFilterExpressionAndOrArgs{...}
+type BudgetFilterExpressionAndOrInput interface {
+	pulumi.Input
+
+	ToBudgetFilterExpressionAndOrOutput() BudgetFilterExpressionAndOrOutput
+	ToBudgetFilterExpressionAndOrOutputWithContext(context.Context) BudgetFilterExpressionAndOrOutput
+}
+
+type BudgetFilterExpressionAndOrArgs struct {
+	// (Optional) A Cost Category Filter block.
+	CostCategories BudgetFilterExpressionAndOrCostCategoriesPtrInput `pulumi:"costCategories"`
+	// (Optional) A Dimension Filter block.
+	Dimensions BudgetFilterExpressionAndOrDimensionsPtrInput `pulumi:"dimensions"`
+	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags BudgetFilterExpressionAndOrTagsPtrInput `pulumi:"tags"`
+}
+
+func (BudgetFilterExpressionAndOrArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BudgetFilterExpressionAndOr)(nil)).Elem()
+}
+
+func (i BudgetFilterExpressionAndOrArgs) ToBudgetFilterExpressionAndOrOutput() BudgetFilterExpressionAndOrOutput {
+	return i.ToBudgetFilterExpressionAndOrOutputWithContext(context.Background())
+}
+
+func (i BudgetFilterExpressionAndOrArgs) ToBudgetFilterExpressionAndOrOutputWithContext(ctx context.Context) BudgetFilterExpressionAndOrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetFilterExpressionAndOrOutput)
+}
+
+// BudgetFilterExpressionAndOrArrayInput is an input type that accepts BudgetFilterExpressionAndOrArray and BudgetFilterExpressionAndOrArrayOutput values.
+// You can construct a concrete instance of `BudgetFilterExpressionAndOrArrayInput` via:
+//
+//	BudgetFilterExpressionAndOrArray{ BudgetFilterExpressionAndOrArgs{...} }
+type BudgetFilterExpressionAndOrArrayInput interface {
+	pulumi.Input
+
+	ToBudgetFilterExpressionAndOrArrayOutput() BudgetFilterExpressionAndOrArrayOutput
+	ToBudgetFilterExpressionAndOrArrayOutputWithContext(context.Context) BudgetFilterExpressionAndOrArrayOutput
+}
+
+type BudgetFilterExpressionAndOrArray []BudgetFilterExpressionAndOrInput
+
+func (BudgetFilterExpressionAndOrArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BudgetFilterExpressionAndOr)(nil)).Elem()
+}
+
+func (i BudgetFilterExpressionAndOrArray) ToBudgetFilterExpressionAndOrArrayOutput() BudgetFilterExpressionAndOrArrayOutput {
+	return i.ToBudgetFilterExpressionAndOrArrayOutputWithContext(context.Background())
+}
+
+func (i BudgetFilterExpressionAndOrArray) ToBudgetFilterExpressionAndOrArrayOutputWithContext(ctx context.Context) BudgetFilterExpressionAndOrArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetFilterExpressionAndOrArrayOutput)
+}
+
+type BudgetFilterExpressionAndOrOutput struct{ *pulumi.OutputState }
+
+func (BudgetFilterExpressionAndOrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BudgetFilterExpressionAndOr)(nil)).Elem()
+}
+
+func (o BudgetFilterExpressionAndOrOutput) ToBudgetFilterExpressionAndOrOutput() BudgetFilterExpressionAndOrOutput {
+	return o
+}
+
+func (o BudgetFilterExpressionAndOrOutput) ToBudgetFilterExpressionAndOrOutputWithContext(ctx context.Context) BudgetFilterExpressionAndOrOutput {
+	return o
+}
+
+// (Optional) A Cost Category Filter block.
+func (o BudgetFilterExpressionAndOrOutput) CostCategories() BudgetFilterExpressionAndOrCostCategoriesPtrOutput {
+	return o.ApplyT(func(v BudgetFilterExpressionAndOr) *BudgetFilterExpressionAndOrCostCategories {
+		return v.CostCategories
+	}).(BudgetFilterExpressionAndOrCostCategoriesPtrOutput)
+}
+
+// (Optional) A Dimension Filter block.
+func (o BudgetFilterExpressionAndOrOutput) Dimensions() BudgetFilterExpressionAndOrDimensionsPtrOutput {
+	return o.ApplyT(func(v BudgetFilterExpressionAndOr) *BudgetFilterExpressionAndOrDimensions { return v.Dimensions }).(BudgetFilterExpressionAndOrDimensionsPtrOutput)
+}
+
+// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+func (o BudgetFilterExpressionAndOrOutput) Tags() BudgetFilterExpressionAndOrTagsPtrOutput {
+	return o.ApplyT(func(v BudgetFilterExpressionAndOr) *BudgetFilterExpressionAndOrTags { return v.Tags }).(BudgetFilterExpressionAndOrTagsPtrOutput)
+}
+
+type BudgetFilterExpressionAndOrArrayOutput struct{ *pulumi.OutputState }
+
+func (BudgetFilterExpressionAndOrArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BudgetFilterExpressionAndOr)(nil)).Elem()
+}
+
+func (o BudgetFilterExpressionAndOrArrayOutput) ToBudgetFilterExpressionAndOrArrayOutput() BudgetFilterExpressionAndOrArrayOutput {
+	return o
+}
+
+func (o BudgetFilterExpressionAndOrArrayOutput) ToBudgetFilterExpressionAndOrArrayOutputWithContext(ctx context.Context) BudgetFilterExpressionAndOrArrayOutput {
+	return o
+}
+
+func (o BudgetFilterExpressionAndOrArrayOutput) Index(i pulumi.IntInput) BudgetFilterExpressionAndOrOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BudgetFilterExpressionAndOr {
+		return vs[0].([]BudgetFilterExpressionAndOr)[vs[1].(int)]
+	}).(BudgetFilterExpressionAndOrOutput)
+}
+
+type BudgetFilterExpressionAndOrCostCategories struct {
+	// (Optional) The cost category key to filter on.
+	Key *string `pulumi:"key"`
+	// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+	MatchOptions []string `pulumi:"matchOptions"`
+	// (Optional) A list of cost category values to match. At least one value is required.
+	Values []string `pulumi:"values"`
+}
+
+// BudgetFilterExpressionAndOrCostCategoriesInput is an input type that accepts BudgetFilterExpressionAndOrCostCategoriesArgs and BudgetFilterExpressionAndOrCostCategoriesOutput values.
+// You can construct a concrete instance of `BudgetFilterExpressionAndOrCostCategoriesInput` via:
+//
+//	BudgetFilterExpressionAndOrCostCategoriesArgs{...}
+type BudgetFilterExpressionAndOrCostCategoriesInput interface {
+	pulumi.Input
+
+	ToBudgetFilterExpressionAndOrCostCategoriesOutput() BudgetFilterExpressionAndOrCostCategoriesOutput
+	ToBudgetFilterExpressionAndOrCostCategoriesOutputWithContext(context.Context) BudgetFilterExpressionAndOrCostCategoriesOutput
+}
+
+type BudgetFilterExpressionAndOrCostCategoriesArgs struct {
+	// (Optional) The cost category key to filter on.
+	Key pulumi.StringPtrInput `pulumi:"key"`
+	// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+	MatchOptions pulumi.StringArrayInput `pulumi:"matchOptions"`
+	// (Optional) A list of cost category values to match. At least one value is required.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (BudgetFilterExpressionAndOrCostCategoriesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BudgetFilterExpressionAndOrCostCategories)(nil)).Elem()
+}
+
+func (i BudgetFilterExpressionAndOrCostCategoriesArgs) ToBudgetFilterExpressionAndOrCostCategoriesOutput() BudgetFilterExpressionAndOrCostCategoriesOutput {
+	return i.ToBudgetFilterExpressionAndOrCostCategoriesOutputWithContext(context.Background())
+}
+
+func (i BudgetFilterExpressionAndOrCostCategoriesArgs) ToBudgetFilterExpressionAndOrCostCategoriesOutputWithContext(ctx context.Context) BudgetFilterExpressionAndOrCostCategoriesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetFilterExpressionAndOrCostCategoriesOutput)
+}
+
+func (i BudgetFilterExpressionAndOrCostCategoriesArgs) ToBudgetFilterExpressionAndOrCostCategoriesPtrOutput() BudgetFilterExpressionAndOrCostCategoriesPtrOutput {
+	return i.ToBudgetFilterExpressionAndOrCostCategoriesPtrOutputWithContext(context.Background())
+}
+
+func (i BudgetFilterExpressionAndOrCostCategoriesArgs) ToBudgetFilterExpressionAndOrCostCategoriesPtrOutputWithContext(ctx context.Context) BudgetFilterExpressionAndOrCostCategoriesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetFilterExpressionAndOrCostCategoriesOutput).ToBudgetFilterExpressionAndOrCostCategoriesPtrOutputWithContext(ctx)
+}
+
+// BudgetFilterExpressionAndOrCostCategoriesPtrInput is an input type that accepts BudgetFilterExpressionAndOrCostCategoriesArgs, BudgetFilterExpressionAndOrCostCategoriesPtr and BudgetFilterExpressionAndOrCostCategoriesPtrOutput values.
+// You can construct a concrete instance of `BudgetFilterExpressionAndOrCostCategoriesPtrInput` via:
+//
+//	        BudgetFilterExpressionAndOrCostCategoriesArgs{...}
+//
+//	or:
+//
+//	        nil
+type BudgetFilterExpressionAndOrCostCategoriesPtrInput interface {
+	pulumi.Input
+
+	ToBudgetFilterExpressionAndOrCostCategoriesPtrOutput() BudgetFilterExpressionAndOrCostCategoriesPtrOutput
+	ToBudgetFilterExpressionAndOrCostCategoriesPtrOutputWithContext(context.Context) BudgetFilterExpressionAndOrCostCategoriesPtrOutput
+}
+
+type budgetFilterExpressionAndOrCostCategoriesPtrType BudgetFilterExpressionAndOrCostCategoriesArgs
+
+func BudgetFilterExpressionAndOrCostCategoriesPtr(v *BudgetFilterExpressionAndOrCostCategoriesArgs) BudgetFilterExpressionAndOrCostCategoriesPtrInput {
+	return (*budgetFilterExpressionAndOrCostCategoriesPtrType)(v)
+}
+
+func (*budgetFilterExpressionAndOrCostCategoriesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BudgetFilterExpressionAndOrCostCategories)(nil)).Elem()
+}
+
+func (i *budgetFilterExpressionAndOrCostCategoriesPtrType) ToBudgetFilterExpressionAndOrCostCategoriesPtrOutput() BudgetFilterExpressionAndOrCostCategoriesPtrOutput {
+	return i.ToBudgetFilterExpressionAndOrCostCategoriesPtrOutputWithContext(context.Background())
+}
+
+func (i *budgetFilterExpressionAndOrCostCategoriesPtrType) ToBudgetFilterExpressionAndOrCostCategoriesPtrOutputWithContext(ctx context.Context) BudgetFilterExpressionAndOrCostCategoriesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetFilterExpressionAndOrCostCategoriesPtrOutput)
+}
+
+type BudgetFilterExpressionAndOrCostCategoriesOutput struct{ *pulumi.OutputState }
+
+func (BudgetFilterExpressionAndOrCostCategoriesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BudgetFilterExpressionAndOrCostCategories)(nil)).Elem()
+}
+
+func (o BudgetFilterExpressionAndOrCostCategoriesOutput) ToBudgetFilterExpressionAndOrCostCategoriesOutput() BudgetFilterExpressionAndOrCostCategoriesOutput {
+	return o
+}
+
+func (o BudgetFilterExpressionAndOrCostCategoriesOutput) ToBudgetFilterExpressionAndOrCostCategoriesOutputWithContext(ctx context.Context) BudgetFilterExpressionAndOrCostCategoriesOutput {
+	return o
+}
+
+func (o BudgetFilterExpressionAndOrCostCategoriesOutput) ToBudgetFilterExpressionAndOrCostCategoriesPtrOutput() BudgetFilterExpressionAndOrCostCategoriesPtrOutput {
+	return o.ToBudgetFilterExpressionAndOrCostCategoriesPtrOutputWithContext(context.Background())
+}
+
+func (o BudgetFilterExpressionAndOrCostCategoriesOutput) ToBudgetFilterExpressionAndOrCostCategoriesPtrOutputWithContext(ctx context.Context) BudgetFilterExpressionAndOrCostCategoriesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BudgetFilterExpressionAndOrCostCategories) *BudgetFilterExpressionAndOrCostCategories {
+		return &v
+	}).(BudgetFilterExpressionAndOrCostCategoriesPtrOutput)
+}
+
+// (Optional) The cost category key to filter on.
+func (o BudgetFilterExpressionAndOrCostCategoriesOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BudgetFilterExpressionAndOrCostCategories) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+func (o BudgetFilterExpressionAndOrCostCategoriesOutput) MatchOptions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v BudgetFilterExpressionAndOrCostCategories) []string { return v.MatchOptions }).(pulumi.StringArrayOutput)
+}
+
+// (Optional) A list of cost category values to match. At least one value is required.
+func (o BudgetFilterExpressionAndOrCostCategoriesOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v BudgetFilterExpressionAndOrCostCategories) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type BudgetFilterExpressionAndOrCostCategoriesPtrOutput struct{ *pulumi.OutputState }
+
+func (BudgetFilterExpressionAndOrCostCategoriesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BudgetFilterExpressionAndOrCostCategories)(nil)).Elem()
+}
+
+func (o BudgetFilterExpressionAndOrCostCategoriesPtrOutput) ToBudgetFilterExpressionAndOrCostCategoriesPtrOutput() BudgetFilterExpressionAndOrCostCategoriesPtrOutput {
+	return o
+}
+
+func (o BudgetFilterExpressionAndOrCostCategoriesPtrOutput) ToBudgetFilterExpressionAndOrCostCategoriesPtrOutputWithContext(ctx context.Context) BudgetFilterExpressionAndOrCostCategoriesPtrOutput {
+	return o
+}
+
+func (o BudgetFilterExpressionAndOrCostCategoriesPtrOutput) Elem() BudgetFilterExpressionAndOrCostCategoriesOutput {
+	return o.ApplyT(func(v *BudgetFilterExpressionAndOrCostCategories) BudgetFilterExpressionAndOrCostCategories {
+		if v != nil {
+			return *v
+		}
+		var ret BudgetFilterExpressionAndOrCostCategories
+		return ret
+	}).(BudgetFilterExpressionAndOrCostCategoriesOutput)
+}
+
+// (Optional) The cost category key to filter on.
+func (o BudgetFilterExpressionAndOrCostCategoriesPtrOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BudgetFilterExpressionAndOrCostCategories) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Key
+	}).(pulumi.StringPtrOutput)
+}
+
+// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+func (o BudgetFilterExpressionAndOrCostCategoriesPtrOutput) MatchOptions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *BudgetFilterExpressionAndOrCostCategories) []string {
+		if v == nil {
+			return nil
+		}
+		return v.MatchOptions
+	}).(pulumi.StringArrayOutput)
+}
+
+// (Optional) A list of cost category values to match. At least one value is required.
+func (o BudgetFilterExpressionAndOrCostCategoriesPtrOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *BudgetFilterExpressionAndOrCostCategories) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Values
+	}).(pulumi.StringArrayOutput)
+}
+
+type BudgetFilterExpressionAndOrDimensions struct {
+	// (Optional) The cost category key to filter on.
+	Key string `pulumi:"key"`
+	// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+	MatchOptions []string `pulumi:"matchOptions"`
+	// (Optional) A list of cost category values to match. At least one value is required.
+	Values []string `pulumi:"values"`
+}
+
+// BudgetFilterExpressionAndOrDimensionsInput is an input type that accepts BudgetFilterExpressionAndOrDimensionsArgs and BudgetFilterExpressionAndOrDimensionsOutput values.
+// You can construct a concrete instance of `BudgetFilterExpressionAndOrDimensionsInput` via:
+//
+//	BudgetFilterExpressionAndOrDimensionsArgs{...}
+type BudgetFilterExpressionAndOrDimensionsInput interface {
+	pulumi.Input
+
+	ToBudgetFilterExpressionAndOrDimensionsOutput() BudgetFilterExpressionAndOrDimensionsOutput
+	ToBudgetFilterExpressionAndOrDimensionsOutputWithContext(context.Context) BudgetFilterExpressionAndOrDimensionsOutput
+}
+
+type BudgetFilterExpressionAndOrDimensionsArgs struct {
+	// (Optional) The cost category key to filter on.
+	Key pulumi.StringInput `pulumi:"key"`
+	// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+	MatchOptions pulumi.StringArrayInput `pulumi:"matchOptions"`
+	// (Optional) A list of cost category values to match. At least one value is required.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (BudgetFilterExpressionAndOrDimensionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BudgetFilterExpressionAndOrDimensions)(nil)).Elem()
+}
+
+func (i BudgetFilterExpressionAndOrDimensionsArgs) ToBudgetFilterExpressionAndOrDimensionsOutput() BudgetFilterExpressionAndOrDimensionsOutput {
+	return i.ToBudgetFilterExpressionAndOrDimensionsOutputWithContext(context.Background())
+}
+
+func (i BudgetFilterExpressionAndOrDimensionsArgs) ToBudgetFilterExpressionAndOrDimensionsOutputWithContext(ctx context.Context) BudgetFilterExpressionAndOrDimensionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetFilterExpressionAndOrDimensionsOutput)
+}
+
+func (i BudgetFilterExpressionAndOrDimensionsArgs) ToBudgetFilterExpressionAndOrDimensionsPtrOutput() BudgetFilterExpressionAndOrDimensionsPtrOutput {
+	return i.ToBudgetFilterExpressionAndOrDimensionsPtrOutputWithContext(context.Background())
+}
+
+func (i BudgetFilterExpressionAndOrDimensionsArgs) ToBudgetFilterExpressionAndOrDimensionsPtrOutputWithContext(ctx context.Context) BudgetFilterExpressionAndOrDimensionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetFilterExpressionAndOrDimensionsOutput).ToBudgetFilterExpressionAndOrDimensionsPtrOutputWithContext(ctx)
+}
+
+// BudgetFilterExpressionAndOrDimensionsPtrInput is an input type that accepts BudgetFilterExpressionAndOrDimensionsArgs, BudgetFilterExpressionAndOrDimensionsPtr and BudgetFilterExpressionAndOrDimensionsPtrOutput values.
+// You can construct a concrete instance of `BudgetFilterExpressionAndOrDimensionsPtrInput` via:
+//
+//	        BudgetFilterExpressionAndOrDimensionsArgs{...}
+//
+//	or:
+//
+//	        nil
+type BudgetFilterExpressionAndOrDimensionsPtrInput interface {
+	pulumi.Input
+
+	ToBudgetFilterExpressionAndOrDimensionsPtrOutput() BudgetFilterExpressionAndOrDimensionsPtrOutput
+	ToBudgetFilterExpressionAndOrDimensionsPtrOutputWithContext(context.Context) BudgetFilterExpressionAndOrDimensionsPtrOutput
+}
+
+type budgetFilterExpressionAndOrDimensionsPtrType BudgetFilterExpressionAndOrDimensionsArgs
+
+func BudgetFilterExpressionAndOrDimensionsPtr(v *BudgetFilterExpressionAndOrDimensionsArgs) BudgetFilterExpressionAndOrDimensionsPtrInput {
+	return (*budgetFilterExpressionAndOrDimensionsPtrType)(v)
+}
+
+func (*budgetFilterExpressionAndOrDimensionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BudgetFilterExpressionAndOrDimensions)(nil)).Elem()
+}
+
+func (i *budgetFilterExpressionAndOrDimensionsPtrType) ToBudgetFilterExpressionAndOrDimensionsPtrOutput() BudgetFilterExpressionAndOrDimensionsPtrOutput {
+	return i.ToBudgetFilterExpressionAndOrDimensionsPtrOutputWithContext(context.Background())
+}
+
+func (i *budgetFilterExpressionAndOrDimensionsPtrType) ToBudgetFilterExpressionAndOrDimensionsPtrOutputWithContext(ctx context.Context) BudgetFilterExpressionAndOrDimensionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetFilterExpressionAndOrDimensionsPtrOutput)
+}
+
+type BudgetFilterExpressionAndOrDimensionsOutput struct{ *pulumi.OutputState }
+
+func (BudgetFilterExpressionAndOrDimensionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BudgetFilterExpressionAndOrDimensions)(nil)).Elem()
+}
+
+func (o BudgetFilterExpressionAndOrDimensionsOutput) ToBudgetFilterExpressionAndOrDimensionsOutput() BudgetFilterExpressionAndOrDimensionsOutput {
+	return o
+}
+
+func (o BudgetFilterExpressionAndOrDimensionsOutput) ToBudgetFilterExpressionAndOrDimensionsOutputWithContext(ctx context.Context) BudgetFilterExpressionAndOrDimensionsOutput {
+	return o
+}
+
+func (o BudgetFilterExpressionAndOrDimensionsOutput) ToBudgetFilterExpressionAndOrDimensionsPtrOutput() BudgetFilterExpressionAndOrDimensionsPtrOutput {
+	return o.ToBudgetFilterExpressionAndOrDimensionsPtrOutputWithContext(context.Background())
+}
+
+func (o BudgetFilterExpressionAndOrDimensionsOutput) ToBudgetFilterExpressionAndOrDimensionsPtrOutputWithContext(ctx context.Context) BudgetFilterExpressionAndOrDimensionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BudgetFilterExpressionAndOrDimensions) *BudgetFilterExpressionAndOrDimensions {
+		return &v
+	}).(BudgetFilterExpressionAndOrDimensionsPtrOutput)
+}
+
+// (Optional) The cost category key to filter on.
+func (o BudgetFilterExpressionAndOrDimensionsOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v BudgetFilterExpressionAndOrDimensions) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+func (o BudgetFilterExpressionAndOrDimensionsOutput) MatchOptions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v BudgetFilterExpressionAndOrDimensions) []string { return v.MatchOptions }).(pulumi.StringArrayOutput)
+}
+
+// (Optional) A list of cost category values to match. At least one value is required.
+func (o BudgetFilterExpressionAndOrDimensionsOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v BudgetFilterExpressionAndOrDimensions) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type BudgetFilterExpressionAndOrDimensionsPtrOutput struct{ *pulumi.OutputState }
+
+func (BudgetFilterExpressionAndOrDimensionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BudgetFilterExpressionAndOrDimensions)(nil)).Elem()
+}
+
+func (o BudgetFilterExpressionAndOrDimensionsPtrOutput) ToBudgetFilterExpressionAndOrDimensionsPtrOutput() BudgetFilterExpressionAndOrDimensionsPtrOutput {
+	return o
+}
+
+func (o BudgetFilterExpressionAndOrDimensionsPtrOutput) ToBudgetFilterExpressionAndOrDimensionsPtrOutputWithContext(ctx context.Context) BudgetFilterExpressionAndOrDimensionsPtrOutput {
+	return o
+}
+
+func (o BudgetFilterExpressionAndOrDimensionsPtrOutput) Elem() BudgetFilterExpressionAndOrDimensionsOutput {
+	return o.ApplyT(func(v *BudgetFilterExpressionAndOrDimensions) BudgetFilterExpressionAndOrDimensions {
+		if v != nil {
+			return *v
+		}
+		var ret BudgetFilterExpressionAndOrDimensions
+		return ret
+	}).(BudgetFilterExpressionAndOrDimensionsOutput)
+}
+
+// (Optional) The cost category key to filter on.
+func (o BudgetFilterExpressionAndOrDimensionsPtrOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BudgetFilterExpressionAndOrDimensions) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Key
+	}).(pulumi.StringPtrOutput)
+}
+
+// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+func (o BudgetFilterExpressionAndOrDimensionsPtrOutput) MatchOptions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *BudgetFilterExpressionAndOrDimensions) []string {
+		if v == nil {
+			return nil
+		}
+		return v.MatchOptions
+	}).(pulumi.StringArrayOutput)
+}
+
+// (Optional) A list of cost category values to match. At least one value is required.
+func (o BudgetFilterExpressionAndOrDimensionsPtrOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *BudgetFilterExpressionAndOrDimensions) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Values
+	}).(pulumi.StringArrayOutput)
+}
+
+type BudgetFilterExpressionAndOrTags struct {
+	// (Optional) The cost category key to filter on.
+	Key *string `pulumi:"key"`
+	// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+	MatchOptions []string `pulumi:"matchOptions"`
+	// (Optional) A list of cost category values to match. At least one value is required.
+	Values []string `pulumi:"values"`
+}
+
+// BudgetFilterExpressionAndOrTagsInput is an input type that accepts BudgetFilterExpressionAndOrTagsArgs and BudgetFilterExpressionAndOrTagsOutput values.
+// You can construct a concrete instance of `BudgetFilterExpressionAndOrTagsInput` via:
+//
+//	BudgetFilterExpressionAndOrTagsArgs{...}
+type BudgetFilterExpressionAndOrTagsInput interface {
+	pulumi.Input
+
+	ToBudgetFilterExpressionAndOrTagsOutput() BudgetFilterExpressionAndOrTagsOutput
+	ToBudgetFilterExpressionAndOrTagsOutputWithContext(context.Context) BudgetFilterExpressionAndOrTagsOutput
+}
+
+type BudgetFilterExpressionAndOrTagsArgs struct {
+	// (Optional) The cost category key to filter on.
+	Key pulumi.StringPtrInput `pulumi:"key"`
+	// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+	MatchOptions pulumi.StringArrayInput `pulumi:"matchOptions"`
+	// (Optional) A list of cost category values to match. At least one value is required.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (BudgetFilterExpressionAndOrTagsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BudgetFilterExpressionAndOrTags)(nil)).Elem()
+}
+
+func (i BudgetFilterExpressionAndOrTagsArgs) ToBudgetFilterExpressionAndOrTagsOutput() BudgetFilterExpressionAndOrTagsOutput {
+	return i.ToBudgetFilterExpressionAndOrTagsOutputWithContext(context.Background())
+}
+
+func (i BudgetFilterExpressionAndOrTagsArgs) ToBudgetFilterExpressionAndOrTagsOutputWithContext(ctx context.Context) BudgetFilterExpressionAndOrTagsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetFilterExpressionAndOrTagsOutput)
+}
+
+func (i BudgetFilterExpressionAndOrTagsArgs) ToBudgetFilterExpressionAndOrTagsPtrOutput() BudgetFilterExpressionAndOrTagsPtrOutput {
+	return i.ToBudgetFilterExpressionAndOrTagsPtrOutputWithContext(context.Background())
+}
+
+func (i BudgetFilterExpressionAndOrTagsArgs) ToBudgetFilterExpressionAndOrTagsPtrOutputWithContext(ctx context.Context) BudgetFilterExpressionAndOrTagsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetFilterExpressionAndOrTagsOutput).ToBudgetFilterExpressionAndOrTagsPtrOutputWithContext(ctx)
+}
+
+// BudgetFilterExpressionAndOrTagsPtrInput is an input type that accepts BudgetFilterExpressionAndOrTagsArgs, BudgetFilterExpressionAndOrTagsPtr and BudgetFilterExpressionAndOrTagsPtrOutput values.
+// You can construct a concrete instance of `BudgetFilterExpressionAndOrTagsPtrInput` via:
+//
+//	        BudgetFilterExpressionAndOrTagsArgs{...}
+//
+//	or:
+//
+//	        nil
+type BudgetFilterExpressionAndOrTagsPtrInput interface {
+	pulumi.Input
+
+	ToBudgetFilterExpressionAndOrTagsPtrOutput() BudgetFilterExpressionAndOrTagsPtrOutput
+	ToBudgetFilterExpressionAndOrTagsPtrOutputWithContext(context.Context) BudgetFilterExpressionAndOrTagsPtrOutput
+}
+
+type budgetFilterExpressionAndOrTagsPtrType BudgetFilterExpressionAndOrTagsArgs
+
+func BudgetFilterExpressionAndOrTagsPtr(v *BudgetFilterExpressionAndOrTagsArgs) BudgetFilterExpressionAndOrTagsPtrInput {
+	return (*budgetFilterExpressionAndOrTagsPtrType)(v)
+}
+
+func (*budgetFilterExpressionAndOrTagsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BudgetFilterExpressionAndOrTags)(nil)).Elem()
+}
+
+func (i *budgetFilterExpressionAndOrTagsPtrType) ToBudgetFilterExpressionAndOrTagsPtrOutput() BudgetFilterExpressionAndOrTagsPtrOutput {
+	return i.ToBudgetFilterExpressionAndOrTagsPtrOutputWithContext(context.Background())
+}
+
+func (i *budgetFilterExpressionAndOrTagsPtrType) ToBudgetFilterExpressionAndOrTagsPtrOutputWithContext(ctx context.Context) BudgetFilterExpressionAndOrTagsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetFilterExpressionAndOrTagsPtrOutput)
+}
+
+type BudgetFilterExpressionAndOrTagsOutput struct{ *pulumi.OutputState }
+
+func (BudgetFilterExpressionAndOrTagsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BudgetFilterExpressionAndOrTags)(nil)).Elem()
+}
+
+func (o BudgetFilterExpressionAndOrTagsOutput) ToBudgetFilterExpressionAndOrTagsOutput() BudgetFilterExpressionAndOrTagsOutput {
+	return o
+}
+
+func (o BudgetFilterExpressionAndOrTagsOutput) ToBudgetFilterExpressionAndOrTagsOutputWithContext(ctx context.Context) BudgetFilterExpressionAndOrTagsOutput {
+	return o
+}
+
+func (o BudgetFilterExpressionAndOrTagsOutput) ToBudgetFilterExpressionAndOrTagsPtrOutput() BudgetFilterExpressionAndOrTagsPtrOutput {
+	return o.ToBudgetFilterExpressionAndOrTagsPtrOutputWithContext(context.Background())
+}
+
+func (o BudgetFilterExpressionAndOrTagsOutput) ToBudgetFilterExpressionAndOrTagsPtrOutputWithContext(ctx context.Context) BudgetFilterExpressionAndOrTagsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BudgetFilterExpressionAndOrTags) *BudgetFilterExpressionAndOrTags {
+		return &v
+	}).(BudgetFilterExpressionAndOrTagsPtrOutput)
+}
+
+// (Optional) The cost category key to filter on.
+func (o BudgetFilterExpressionAndOrTagsOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BudgetFilterExpressionAndOrTags) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+func (o BudgetFilterExpressionAndOrTagsOutput) MatchOptions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v BudgetFilterExpressionAndOrTags) []string { return v.MatchOptions }).(pulumi.StringArrayOutput)
+}
+
+// (Optional) A list of cost category values to match. At least one value is required.
+func (o BudgetFilterExpressionAndOrTagsOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v BudgetFilterExpressionAndOrTags) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type BudgetFilterExpressionAndOrTagsPtrOutput struct{ *pulumi.OutputState }
+
+func (BudgetFilterExpressionAndOrTagsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BudgetFilterExpressionAndOrTags)(nil)).Elem()
+}
+
+func (o BudgetFilterExpressionAndOrTagsPtrOutput) ToBudgetFilterExpressionAndOrTagsPtrOutput() BudgetFilterExpressionAndOrTagsPtrOutput {
+	return o
+}
+
+func (o BudgetFilterExpressionAndOrTagsPtrOutput) ToBudgetFilterExpressionAndOrTagsPtrOutputWithContext(ctx context.Context) BudgetFilterExpressionAndOrTagsPtrOutput {
+	return o
+}
+
+func (o BudgetFilterExpressionAndOrTagsPtrOutput) Elem() BudgetFilterExpressionAndOrTagsOutput {
+	return o.ApplyT(func(v *BudgetFilterExpressionAndOrTags) BudgetFilterExpressionAndOrTags {
+		if v != nil {
+			return *v
+		}
+		var ret BudgetFilterExpressionAndOrTags
+		return ret
+	}).(BudgetFilterExpressionAndOrTagsOutput)
+}
+
+// (Optional) The cost category key to filter on.
+func (o BudgetFilterExpressionAndOrTagsPtrOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BudgetFilterExpressionAndOrTags) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Key
+	}).(pulumi.StringPtrOutput)
+}
+
+// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+func (o BudgetFilterExpressionAndOrTagsPtrOutput) MatchOptions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *BudgetFilterExpressionAndOrTags) []string {
+		if v == nil {
+			return nil
+		}
+		return v.MatchOptions
+	}).(pulumi.StringArrayOutput)
+}
+
+// (Optional) A list of cost category values to match. At least one value is required.
+func (o BudgetFilterExpressionAndOrTagsPtrOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *BudgetFilterExpressionAndOrTags) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Values
+	}).(pulumi.StringArrayOutput)
+}
+
+type BudgetFilterExpressionAndTags struct {
+	// (Optional) The cost category key to filter on.
+	Key *string `pulumi:"key"`
+	// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+	MatchOptions []string `pulumi:"matchOptions"`
+	// (Optional) A list of cost category values to match. At least one value is required.
+	Values []string `pulumi:"values"`
+}
+
+// BudgetFilterExpressionAndTagsInput is an input type that accepts BudgetFilterExpressionAndTagsArgs and BudgetFilterExpressionAndTagsOutput values.
+// You can construct a concrete instance of `BudgetFilterExpressionAndTagsInput` via:
+//
+//	BudgetFilterExpressionAndTagsArgs{...}
+type BudgetFilterExpressionAndTagsInput interface {
+	pulumi.Input
+
+	ToBudgetFilterExpressionAndTagsOutput() BudgetFilterExpressionAndTagsOutput
+	ToBudgetFilterExpressionAndTagsOutputWithContext(context.Context) BudgetFilterExpressionAndTagsOutput
+}
+
+type BudgetFilterExpressionAndTagsArgs struct {
+	// (Optional) The cost category key to filter on.
+	Key pulumi.StringPtrInput `pulumi:"key"`
+	// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+	MatchOptions pulumi.StringArrayInput `pulumi:"matchOptions"`
+	// (Optional) A list of cost category values to match. At least one value is required.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (BudgetFilterExpressionAndTagsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BudgetFilterExpressionAndTags)(nil)).Elem()
+}
+
+func (i BudgetFilterExpressionAndTagsArgs) ToBudgetFilterExpressionAndTagsOutput() BudgetFilterExpressionAndTagsOutput {
+	return i.ToBudgetFilterExpressionAndTagsOutputWithContext(context.Background())
+}
+
+func (i BudgetFilterExpressionAndTagsArgs) ToBudgetFilterExpressionAndTagsOutputWithContext(ctx context.Context) BudgetFilterExpressionAndTagsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetFilterExpressionAndTagsOutput)
+}
+
+func (i BudgetFilterExpressionAndTagsArgs) ToBudgetFilterExpressionAndTagsPtrOutput() BudgetFilterExpressionAndTagsPtrOutput {
+	return i.ToBudgetFilterExpressionAndTagsPtrOutputWithContext(context.Background())
+}
+
+func (i BudgetFilterExpressionAndTagsArgs) ToBudgetFilterExpressionAndTagsPtrOutputWithContext(ctx context.Context) BudgetFilterExpressionAndTagsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetFilterExpressionAndTagsOutput).ToBudgetFilterExpressionAndTagsPtrOutputWithContext(ctx)
+}
+
+// BudgetFilterExpressionAndTagsPtrInput is an input type that accepts BudgetFilterExpressionAndTagsArgs, BudgetFilterExpressionAndTagsPtr and BudgetFilterExpressionAndTagsPtrOutput values.
+// You can construct a concrete instance of `BudgetFilterExpressionAndTagsPtrInput` via:
+//
+//	        BudgetFilterExpressionAndTagsArgs{...}
+//
+//	or:
+//
+//	        nil
+type BudgetFilterExpressionAndTagsPtrInput interface {
+	pulumi.Input
+
+	ToBudgetFilterExpressionAndTagsPtrOutput() BudgetFilterExpressionAndTagsPtrOutput
+	ToBudgetFilterExpressionAndTagsPtrOutputWithContext(context.Context) BudgetFilterExpressionAndTagsPtrOutput
+}
+
+type budgetFilterExpressionAndTagsPtrType BudgetFilterExpressionAndTagsArgs
+
+func BudgetFilterExpressionAndTagsPtr(v *BudgetFilterExpressionAndTagsArgs) BudgetFilterExpressionAndTagsPtrInput {
+	return (*budgetFilterExpressionAndTagsPtrType)(v)
+}
+
+func (*budgetFilterExpressionAndTagsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BudgetFilterExpressionAndTags)(nil)).Elem()
+}
+
+func (i *budgetFilterExpressionAndTagsPtrType) ToBudgetFilterExpressionAndTagsPtrOutput() BudgetFilterExpressionAndTagsPtrOutput {
+	return i.ToBudgetFilterExpressionAndTagsPtrOutputWithContext(context.Background())
+}
+
+func (i *budgetFilterExpressionAndTagsPtrType) ToBudgetFilterExpressionAndTagsPtrOutputWithContext(ctx context.Context) BudgetFilterExpressionAndTagsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetFilterExpressionAndTagsPtrOutput)
+}
+
+type BudgetFilterExpressionAndTagsOutput struct{ *pulumi.OutputState }
+
+func (BudgetFilterExpressionAndTagsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BudgetFilterExpressionAndTags)(nil)).Elem()
+}
+
+func (o BudgetFilterExpressionAndTagsOutput) ToBudgetFilterExpressionAndTagsOutput() BudgetFilterExpressionAndTagsOutput {
+	return o
+}
+
+func (o BudgetFilterExpressionAndTagsOutput) ToBudgetFilterExpressionAndTagsOutputWithContext(ctx context.Context) BudgetFilterExpressionAndTagsOutput {
+	return o
+}
+
+func (o BudgetFilterExpressionAndTagsOutput) ToBudgetFilterExpressionAndTagsPtrOutput() BudgetFilterExpressionAndTagsPtrOutput {
+	return o.ToBudgetFilterExpressionAndTagsPtrOutputWithContext(context.Background())
+}
+
+func (o BudgetFilterExpressionAndTagsOutput) ToBudgetFilterExpressionAndTagsPtrOutputWithContext(ctx context.Context) BudgetFilterExpressionAndTagsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BudgetFilterExpressionAndTags) *BudgetFilterExpressionAndTags {
+		return &v
+	}).(BudgetFilterExpressionAndTagsPtrOutput)
+}
+
+// (Optional) The cost category key to filter on.
+func (o BudgetFilterExpressionAndTagsOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BudgetFilterExpressionAndTags) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+func (o BudgetFilterExpressionAndTagsOutput) MatchOptions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v BudgetFilterExpressionAndTags) []string { return v.MatchOptions }).(pulumi.StringArrayOutput)
+}
+
+// (Optional) A list of cost category values to match. At least one value is required.
+func (o BudgetFilterExpressionAndTagsOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v BudgetFilterExpressionAndTags) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type BudgetFilterExpressionAndTagsPtrOutput struct{ *pulumi.OutputState }
+
+func (BudgetFilterExpressionAndTagsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BudgetFilterExpressionAndTags)(nil)).Elem()
+}
+
+func (o BudgetFilterExpressionAndTagsPtrOutput) ToBudgetFilterExpressionAndTagsPtrOutput() BudgetFilterExpressionAndTagsPtrOutput {
+	return o
+}
+
+func (o BudgetFilterExpressionAndTagsPtrOutput) ToBudgetFilterExpressionAndTagsPtrOutputWithContext(ctx context.Context) BudgetFilterExpressionAndTagsPtrOutput {
+	return o
+}
+
+func (o BudgetFilterExpressionAndTagsPtrOutput) Elem() BudgetFilterExpressionAndTagsOutput {
+	return o.ApplyT(func(v *BudgetFilterExpressionAndTags) BudgetFilterExpressionAndTags {
+		if v != nil {
+			return *v
+		}
+		var ret BudgetFilterExpressionAndTags
+		return ret
+	}).(BudgetFilterExpressionAndTagsOutput)
+}
+
+// (Optional) The cost category key to filter on.
+func (o BudgetFilterExpressionAndTagsPtrOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BudgetFilterExpressionAndTags) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Key
+	}).(pulumi.StringPtrOutput)
+}
+
+// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+func (o BudgetFilterExpressionAndTagsPtrOutput) MatchOptions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *BudgetFilterExpressionAndTags) []string {
+		if v == nil {
+			return nil
+		}
+		return v.MatchOptions
+	}).(pulumi.StringArrayOutput)
+}
+
+// (Optional) A list of cost category values to match. At least one value is required.
+func (o BudgetFilterExpressionAndTagsPtrOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *BudgetFilterExpressionAndTags) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Values
+	}).(pulumi.StringArrayOutput)
+}
+
+type BudgetFilterExpressionCostCategories struct {
+	// (Optional) The cost category key to filter on.
+	Key *string `pulumi:"key"`
+	// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+	MatchOptions []string `pulumi:"matchOptions"`
+	// (Optional) A list of cost category values to match. At least one value is required.
+	Values []string `pulumi:"values"`
+}
+
+// BudgetFilterExpressionCostCategoriesInput is an input type that accepts BudgetFilterExpressionCostCategoriesArgs and BudgetFilterExpressionCostCategoriesOutput values.
+// You can construct a concrete instance of `BudgetFilterExpressionCostCategoriesInput` via:
+//
+//	BudgetFilterExpressionCostCategoriesArgs{...}
+type BudgetFilterExpressionCostCategoriesInput interface {
+	pulumi.Input
+
+	ToBudgetFilterExpressionCostCategoriesOutput() BudgetFilterExpressionCostCategoriesOutput
+	ToBudgetFilterExpressionCostCategoriesOutputWithContext(context.Context) BudgetFilterExpressionCostCategoriesOutput
+}
+
+type BudgetFilterExpressionCostCategoriesArgs struct {
+	// (Optional) The cost category key to filter on.
+	Key pulumi.StringPtrInput `pulumi:"key"`
+	// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+	MatchOptions pulumi.StringArrayInput `pulumi:"matchOptions"`
+	// (Optional) A list of cost category values to match. At least one value is required.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (BudgetFilterExpressionCostCategoriesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BudgetFilterExpressionCostCategories)(nil)).Elem()
+}
+
+func (i BudgetFilterExpressionCostCategoriesArgs) ToBudgetFilterExpressionCostCategoriesOutput() BudgetFilterExpressionCostCategoriesOutput {
+	return i.ToBudgetFilterExpressionCostCategoriesOutputWithContext(context.Background())
+}
+
+func (i BudgetFilterExpressionCostCategoriesArgs) ToBudgetFilterExpressionCostCategoriesOutputWithContext(ctx context.Context) BudgetFilterExpressionCostCategoriesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetFilterExpressionCostCategoriesOutput)
+}
+
+func (i BudgetFilterExpressionCostCategoriesArgs) ToBudgetFilterExpressionCostCategoriesPtrOutput() BudgetFilterExpressionCostCategoriesPtrOutput {
+	return i.ToBudgetFilterExpressionCostCategoriesPtrOutputWithContext(context.Background())
+}
+
+func (i BudgetFilterExpressionCostCategoriesArgs) ToBudgetFilterExpressionCostCategoriesPtrOutputWithContext(ctx context.Context) BudgetFilterExpressionCostCategoriesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetFilterExpressionCostCategoriesOutput).ToBudgetFilterExpressionCostCategoriesPtrOutputWithContext(ctx)
+}
+
+// BudgetFilterExpressionCostCategoriesPtrInput is an input type that accepts BudgetFilterExpressionCostCategoriesArgs, BudgetFilterExpressionCostCategoriesPtr and BudgetFilterExpressionCostCategoriesPtrOutput values.
+// You can construct a concrete instance of `BudgetFilterExpressionCostCategoriesPtrInput` via:
+//
+//	        BudgetFilterExpressionCostCategoriesArgs{...}
+//
+//	or:
+//
+//	        nil
+type BudgetFilterExpressionCostCategoriesPtrInput interface {
+	pulumi.Input
+
+	ToBudgetFilterExpressionCostCategoriesPtrOutput() BudgetFilterExpressionCostCategoriesPtrOutput
+	ToBudgetFilterExpressionCostCategoriesPtrOutputWithContext(context.Context) BudgetFilterExpressionCostCategoriesPtrOutput
+}
+
+type budgetFilterExpressionCostCategoriesPtrType BudgetFilterExpressionCostCategoriesArgs
+
+func BudgetFilterExpressionCostCategoriesPtr(v *BudgetFilterExpressionCostCategoriesArgs) BudgetFilterExpressionCostCategoriesPtrInput {
+	return (*budgetFilterExpressionCostCategoriesPtrType)(v)
+}
+
+func (*budgetFilterExpressionCostCategoriesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BudgetFilterExpressionCostCategories)(nil)).Elem()
+}
+
+func (i *budgetFilterExpressionCostCategoriesPtrType) ToBudgetFilterExpressionCostCategoriesPtrOutput() BudgetFilterExpressionCostCategoriesPtrOutput {
+	return i.ToBudgetFilterExpressionCostCategoriesPtrOutputWithContext(context.Background())
+}
+
+func (i *budgetFilterExpressionCostCategoriesPtrType) ToBudgetFilterExpressionCostCategoriesPtrOutputWithContext(ctx context.Context) BudgetFilterExpressionCostCategoriesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetFilterExpressionCostCategoriesPtrOutput)
+}
+
+type BudgetFilterExpressionCostCategoriesOutput struct{ *pulumi.OutputState }
+
+func (BudgetFilterExpressionCostCategoriesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BudgetFilterExpressionCostCategories)(nil)).Elem()
+}
+
+func (o BudgetFilterExpressionCostCategoriesOutput) ToBudgetFilterExpressionCostCategoriesOutput() BudgetFilterExpressionCostCategoriesOutput {
+	return o
+}
+
+func (o BudgetFilterExpressionCostCategoriesOutput) ToBudgetFilterExpressionCostCategoriesOutputWithContext(ctx context.Context) BudgetFilterExpressionCostCategoriesOutput {
+	return o
+}
+
+func (o BudgetFilterExpressionCostCategoriesOutput) ToBudgetFilterExpressionCostCategoriesPtrOutput() BudgetFilterExpressionCostCategoriesPtrOutput {
+	return o.ToBudgetFilterExpressionCostCategoriesPtrOutputWithContext(context.Background())
+}
+
+func (o BudgetFilterExpressionCostCategoriesOutput) ToBudgetFilterExpressionCostCategoriesPtrOutputWithContext(ctx context.Context) BudgetFilterExpressionCostCategoriesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BudgetFilterExpressionCostCategories) *BudgetFilterExpressionCostCategories {
+		return &v
+	}).(BudgetFilterExpressionCostCategoriesPtrOutput)
+}
+
+// (Optional) The cost category key to filter on.
+func (o BudgetFilterExpressionCostCategoriesOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BudgetFilterExpressionCostCategories) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+func (o BudgetFilterExpressionCostCategoriesOutput) MatchOptions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v BudgetFilterExpressionCostCategories) []string { return v.MatchOptions }).(pulumi.StringArrayOutput)
+}
+
+// (Optional) A list of cost category values to match. At least one value is required.
+func (o BudgetFilterExpressionCostCategoriesOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v BudgetFilterExpressionCostCategories) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type BudgetFilterExpressionCostCategoriesPtrOutput struct{ *pulumi.OutputState }
+
+func (BudgetFilterExpressionCostCategoriesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BudgetFilterExpressionCostCategories)(nil)).Elem()
+}
+
+func (o BudgetFilterExpressionCostCategoriesPtrOutput) ToBudgetFilterExpressionCostCategoriesPtrOutput() BudgetFilterExpressionCostCategoriesPtrOutput {
+	return o
+}
+
+func (o BudgetFilterExpressionCostCategoriesPtrOutput) ToBudgetFilterExpressionCostCategoriesPtrOutputWithContext(ctx context.Context) BudgetFilterExpressionCostCategoriesPtrOutput {
+	return o
+}
+
+func (o BudgetFilterExpressionCostCategoriesPtrOutput) Elem() BudgetFilterExpressionCostCategoriesOutput {
+	return o.ApplyT(func(v *BudgetFilterExpressionCostCategories) BudgetFilterExpressionCostCategories {
+		if v != nil {
+			return *v
+		}
+		var ret BudgetFilterExpressionCostCategories
+		return ret
+	}).(BudgetFilterExpressionCostCategoriesOutput)
+}
+
+// (Optional) The cost category key to filter on.
+func (o BudgetFilterExpressionCostCategoriesPtrOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BudgetFilterExpressionCostCategories) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Key
+	}).(pulumi.StringPtrOutput)
+}
+
+// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+func (o BudgetFilterExpressionCostCategoriesPtrOutput) MatchOptions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *BudgetFilterExpressionCostCategories) []string {
+		if v == nil {
+			return nil
+		}
+		return v.MatchOptions
+	}).(pulumi.StringArrayOutput)
+}
+
+// (Optional) A list of cost category values to match. At least one value is required.
+func (o BudgetFilterExpressionCostCategoriesPtrOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *BudgetFilterExpressionCostCategories) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Values
+	}).(pulumi.StringArrayOutput)
+}
+
+type BudgetFilterExpressionDimensions struct {
+	// (Optional) The cost category key to filter on.
+	Key string `pulumi:"key"`
+	// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+	MatchOptions []string `pulumi:"matchOptions"`
+	// (Optional) A list of cost category values to match. At least one value is required.
+	Values []string `pulumi:"values"`
+}
+
+// BudgetFilterExpressionDimensionsInput is an input type that accepts BudgetFilterExpressionDimensionsArgs and BudgetFilterExpressionDimensionsOutput values.
+// You can construct a concrete instance of `BudgetFilterExpressionDimensionsInput` via:
+//
+//	BudgetFilterExpressionDimensionsArgs{...}
+type BudgetFilterExpressionDimensionsInput interface {
+	pulumi.Input
+
+	ToBudgetFilterExpressionDimensionsOutput() BudgetFilterExpressionDimensionsOutput
+	ToBudgetFilterExpressionDimensionsOutputWithContext(context.Context) BudgetFilterExpressionDimensionsOutput
+}
+
+type BudgetFilterExpressionDimensionsArgs struct {
+	// (Optional) The cost category key to filter on.
+	Key pulumi.StringInput `pulumi:"key"`
+	// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+	MatchOptions pulumi.StringArrayInput `pulumi:"matchOptions"`
+	// (Optional) A list of cost category values to match. At least one value is required.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (BudgetFilterExpressionDimensionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BudgetFilterExpressionDimensions)(nil)).Elem()
+}
+
+func (i BudgetFilterExpressionDimensionsArgs) ToBudgetFilterExpressionDimensionsOutput() BudgetFilterExpressionDimensionsOutput {
+	return i.ToBudgetFilterExpressionDimensionsOutputWithContext(context.Background())
+}
+
+func (i BudgetFilterExpressionDimensionsArgs) ToBudgetFilterExpressionDimensionsOutputWithContext(ctx context.Context) BudgetFilterExpressionDimensionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetFilterExpressionDimensionsOutput)
+}
+
+func (i BudgetFilterExpressionDimensionsArgs) ToBudgetFilterExpressionDimensionsPtrOutput() BudgetFilterExpressionDimensionsPtrOutput {
+	return i.ToBudgetFilterExpressionDimensionsPtrOutputWithContext(context.Background())
+}
+
+func (i BudgetFilterExpressionDimensionsArgs) ToBudgetFilterExpressionDimensionsPtrOutputWithContext(ctx context.Context) BudgetFilterExpressionDimensionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetFilterExpressionDimensionsOutput).ToBudgetFilterExpressionDimensionsPtrOutputWithContext(ctx)
+}
+
+// BudgetFilterExpressionDimensionsPtrInput is an input type that accepts BudgetFilterExpressionDimensionsArgs, BudgetFilterExpressionDimensionsPtr and BudgetFilterExpressionDimensionsPtrOutput values.
+// You can construct a concrete instance of `BudgetFilterExpressionDimensionsPtrInput` via:
+//
+//	        BudgetFilterExpressionDimensionsArgs{...}
+//
+//	or:
+//
+//	        nil
+type BudgetFilterExpressionDimensionsPtrInput interface {
+	pulumi.Input
+
+	ToBudgetFilterExpressionDimensionsPtrOutput() BudgetFilterExpressionDimensionsPtrOutput
+	ToBudgetFilterExpressionDimensionsPtrOutputWithContext(context.Context) BudgetFilterExpressionDimensionsPtrOutput
+}
+
+type budgetFilterExpressionDimensionsPtrType BudgetFilterExpressionDimensionsArgs
+
+func BudgetFilterExpressionDimensionsPtr(v *BudgetFilterExpressionDimensionsArgs) BudgetFilterExpressionDimensionsPtrInput {
+	return (*budgetFilterExpressionDimensionsPtrType)(v)
+}
+
+func (*budgetFilterExpressionDimensionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BudgetFilterExpressionDimensions)(nil)).Elem()
+}
+
+func (i *budgetFilterExpressionDimensionsPtrType) ToBudgetFilterExpressionDimensionsPtrOutput() BudgetFilterExpressionDimensionsPtrOutput {
+	return i.ToBudgetFilterExpressionDimensionsPtrOutputWithContext(context.Background())
+}
+
+func (i *budgetFilterExpressionDimensionsPtrType) ToBudgetFilterExpressionDimensionsPtrOutputWithContext(ctx context.Context) BudgetFilterExpressionDimensionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetFilterExpressionDimensionsPtrOutput)
+}
+
+type BudgetFilterExpressionDimensionsOutput struct{ *pulumi.OutputState }
+
+func (BudgetFilterExpressionDimensionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BudgetFilterExpressionDimensions)(nil)).Elem()
+}
+
+func (o BudgetFilterExpressionDimensionsOutput) ToBudgetFilterExpressionDimensionsOutput() BudgetFilterExpressionDimensionsOutput {
+	return o
+}
+
+func (o BudgetFilterExpressionDimensionsOutput) ToBudgetFilterExpressionDimensionsOutputWithContext(ctx context.Context) BudgetFilterExpressionDimensionsOutput {
+	return o
+}
+
+func (o BudgetFilterExpressionDimensionsOutput) ToBudgetFilterExpressionDimensionsPtrOutput() BudgetFilterExpressionDimensionsPtrOutput {
+	return o.ToBudgetFilterExpressionDimensionsPtrOutputWithContext(context.Background())
+}
+
+func (o BudgetFilterExpressionDimensionsOutput) ToBudgetFilterExpressionDimensionsPtrOutputWithContext(ctx context.Context) BudgetFilterExpressionDimensionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BudgetFilterExpressionDimensions) *BudgetFilterExpressionDimensions {
+		return &v
+	}).(BudgetFilterExpressionDimensionsPtrOutput)
+}
+
+// (Optional) The cost category key to filter on.
+func (o BudgetFilterExpressionDimensionsOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v BudgetFilterExpressionDimensions) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+func (o BudgetFilterExpressionDimensionsOutput) MatchOptions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v BudgetFilterExpressionDimensions) []string { return v.MatchOptions }).(pulumi.StringArrayOutput)
+}
+
+// (Optional) A list of cost category values to match. At least one value is required.
+func (o BudgetFilterExpressionDimensionsOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v BudgetFilterExpressionDimensions) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type BudgetFilterExpressionDimensionsPtrOutput struct{ *pulumi.OutputState }
+
+func (BudgetFilterExpressionDimensionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BudgetFilterExpressionDimensions)(nil)).Elem()
+}
+
+func (o BudgetFilterExpressionDimensionsPtrOutput) ToBudgetFilterExpressionDimensionsPtrOutput() BudgetFilterExpressionDimensionsPtrOutput {
+	return o
+}
+
+func (o BudgetFilterExpressionDimensionsPtrOutput) ToBudgetFilterExpressionDimensionsPtrOutputWithContext(ctx context.Context) BudgetFilterExpressionDimensionsPtrOutput {
+	return o
+}
+
+func (o BudgetFilterExpressionDimensionsPtrOutput) Elem() BudgetFilterExpressionDimensionsOutput {
+	return o.ApplyT(func(v *BudgetFilterExpressionDimensions) BudgetFilterExpressionDimensions {
+		if v != nil {
+			return *v
+		}
+		var ret BudgetFilterExpressionDimensions
+		return ret
+	}).(BudgetFilterExpressionDimensionsOutput)
+}
+
+// (Optional) The cost category key to filter on.
+func (o BudgetFilterExpressionDimensionsPtrOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BudgetFilterExpressionDimensions) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Key
+	}).(pulumi.StringPtrOutput)
+}
+
+// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+func (o BudgetFilterExpressionDimensionsPtrOutput) MatchOptions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *BudgetFilterExpressionDimensions) []string {
+		if v == nil {
+			return nil
+		}
+		return v.MatchOptions
+	}).(pulumi.StringArrayOutput)
+}
+
+// (Optional) A list of cost category values to match. At least one value is required.
+func (o BudgetFilterExpressionDimensionsPtrOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *BudgetFilterExpressionDimensions) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Values
+	}).(pulumi.StringArrayOutput)
+}
+
+type BudgetFilterExpressionNot struct {
+	// (Optional) A list of filter expressions to combine with AND logic. Each `and` block is one operand and must itself contain exactly one root.
+	Ands []BudgetFilterExpressionNotAnd `pulumi:"ands"`
+	// (Optional) A Cost Category Filter block.
+	CostCategories *BudgetFilterExpressionNotCostCategories `pulumi:"costCategories"`
+	// (Optional) A Dimension Filter block.
+	Dimensions *BudgetFilterExpressionNotDimensions `pulumi:"dimensions"`
+	// (Optional) A single filter expression to negate. Must contain exactly one root.
+	Not *BudgetFilterExpressionNotNot `pulumi:"not"`
+	// (Optional) A list of filter expressions to combine with OR logic. Each `or` block is one operand and must itself contain exactly one root.
+	Ors []BudgetFilterExpressionNotOr `pulumi:"ors"`
+	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags *BudgetFilterExpressionNotTags `pulumi:"tags"`
+}
+
+// BudgetFilterExpressionNotInput is an input type that accepts BudgetFilterExpressionNotArgs and BudgetFilterExpressionNotOutput values.
+// You can construct a concrete instance of `BudgetFilterExpressionNotInput` via:
+//
+//	BudgetFilterExpressionNotArgs{...}
+type BudgetFilterExpressionNotInput interface {
+	pulumi.Input
+
+	ToBudgetFilterExpressionNotOutput() BudgetFilterExpressionNotOutput
+	ToBudgetFilterExpressionNotOutputWithContext(context.Context) BudgetFilterExpressionNotOutput
+}
+
+type BudgetFilterExpressionNotArgs struct {
+	// (Optional) A list of filter expressions to combine with AND logic. Each `and` block is one operand and must itself contain exactly one root.
+	Ands BudgetFilterExpressionNotAndArrayInput `pulumi:"ands"`
+	// (Optional) A Cost Category Filter block.
+	CostCategories BudgetFilterExpressionNotCostCategoriesPtrInput `pulumi:"costCategories"`
+	// (Optional) A Dimension Filter block.
+	Dimensions BudgetFilterExpressionNotDimensionsPtrInput `pulumi:"dimensions"`
+	// (Optional) A single filter expression to negate. Must contain exactly one root.
+	Not BudgetFilterExpressionNotNotPtrInput `pulumi:"not"`
+	// (Optional) A list of filter expressions to combine with OR logic. Each `or` block is one operand and must itself contain exactly one root.
+	Ors BudgetFilterExpressionNotOrArrayInput `pulumi:"ors"`
+	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags BudgetFilterExpressionNotTagsPtrInput `pulumi:"tags"`
+}
+
+func (BudgetFilterExpressionNotArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BudgetFilterExpressionNot)(nil)).Elem()
+}
+
+func (i BudgetFilterExpressionNotArgs) ToBudgetFilterExpressionNotOutput() BudgetFilterExpressionNotOutput {
+	return i.ToBudgetFilterExpressionNotOutputWithContext(context.Background())
+}
+
+func (i BudgetFilterExpressionNotArgs) ToBudgetFilterExpressionNotOutputWithContext(ctx context.Context) BudgetFilterExpressionNotOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetFilterExpressionNotOutput)
+}
+
+func (i BudgetFilterExpressionNotArgs) ToBudgetFilterExpressionNotPtrOutput() BudgetFilterExpressionNotPtrOutput {
+	return i.ToBudgetFilterExpressionNotPtrOutputWithContext(context.Background())
+}
+
+func (i BudgetFilterExpressionNotArgs) ToBudgetFilterExpressionNotPtrOutputWithContext(ctx context.Context) BudgetFilterExpressionNotPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetFilterExpressionNotOutput).ToBudgetFilterExpressionNotPtrOutputWithContext(ctx)
+}
+
+// BudgetFilterExpressionNotPtrInput is an input type that accepts BudgetFilterExpressionNotArgs, BudgetFilterExpressionNotPtr and BudgetFilterExpressionNotPtrOutput values.
+// You can construct a concrete instance of `BudgetFilterExpressionNotPtrInput` via:
+//
+//	        BudgetFilterExpressionNotArgs{...}
+//
+//	or:
+//
+//	        nil
+type BudgetFilterExpressionNotPtrInput interface {
+	pulumi.Input
+
+	ToBudgetFilterExpressionNotPtrOutput() BudgetFilterExpressionNotPtrOutput
+	ToBudgetFilterExpressionNotPtrOutputWithContext(context.Context) BudgetFilterExpressionNotPtrOutput
+}
+
+type budgetFilterExpressionNotPtrType BudgetFilterExpressionNotArgs
+
+func BudgetFilterExpressionNotPtr(v *BudgetFilterExpressionNotArgs) BudgetFilterExpressionNotPtrInput {
+	return (*budgetFilterExpressionNotPtrType)(v)
+}
+
+func (*budgetFilterExpressionNotPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BudgetFilterExpressionNot)(nil)).Elem()
+}
+
+func (i *budgetFilterExpressionNotPtrType) ToBudgetFilterExpressionNotPtrOutput() BudgetFilterExpressionNotPtrOutput {
+	return i.ToBudgetFilterExpressionNotPtrOutputWithContext(context.Background())
+}
+
+func (i *budgetFilterExpressionNotPtrType) ToBudgetFilterExpressionNotPtrOutputWithContext(ctx context.Context) BudgetFilterExpressionNotPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetFilterExpressionNotPtrOutput)
+}
+
+type BudgetFilterExpressionNotOutput struct{ *pulumi.OutputState }
+
+func (BudgetFilterExpressionNotOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BudgetFilterExpressionNot)(nil)).Elem()
+}
+
+func (o BudgetFilterExpressionNotOutput) ToBudgetFilterExpressionNotOutput() BudgetFilterExpressionNotOutput {
+	return o
+}
+
+func (o BudgetFilterExpressionNotOutput) ToBudgetFilterExpressionNotOutputWithContext(ctx context.Context) BudgetFilterExpressionNotOutput {
+	return o
+}
+
+func (o BudgetFilterExpressionNotOutput) ToBudgetFilterExpressionNotPtrOutput() BudgetFilterExpressionNotPtrOutput {
+	return o.ToBudgetFilterExpressionNotPtrOutputWithContext(context.Background())
+}
+
+func (o BudgetFilterExpressionNotOutput) ToBudgetFilterExpressionNotPtrOutputWithContext(ctx context.Context) BudgetFilterExpressionNotPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BudgetFilterExpressionNot) *BudgetFilterExpressionNot {
+		return &v
+	}).(BudgetFilterExpressionNotPtrOutput)
+}
+
+// (Optional) A list of filter expressions to combine with AND logic. Each `and` block is one operand and must itself contain exactly one root.
+func (o BudgetFilterExpressionNotOutput) Ands() BudgetFilterExpressionNotAndArrayOutput {
+	return o.ApplyT(func(v BudgetFilterExpressionNot) []BudgetFilterExpressionNotAnd { return v.Ands }).(BudgetFilterExpressionNotAndArrayOutput)
+}
+
+// (Optional) A Cost Category Filter block.
+func (o BudgetFilterExpressionNotOutput) CostCategories() BudgetFilterExpressionNotCostCategoriesPtrOutput {
+	return o.ApplyT(func(v BudgetFilterExpressionNot) *BudgetFilterExpressionNotCostCategories { return v.CostCategories }).(BudgetFilterExpressionNotCostCategoriesPtrOutput)
+}
+
+// (Optional) A Dimension Filter block.
+func (o BudgetFilterExpressionNotOutput) Dimensions() BudgetFilterExpressionNotDimensionsPtrOutput {
+	return o.ApplyT(func(v BudgetFilterExpressionNot) *BudgetFilterExpressionNotDimensions { return v.Dimensions }).(BudgetFilterExpressionNotDimensionsPtrOutput)
+}
+
+// (Optional) A single filter expression to negate. Must contain exactly one root.
+func (o BudgetFilterExpressionNotOutput) Not() BudgetFilterExpressionNotNotPtrOutput {
+	return o.ApplyT(func(v BudgetFilterExpressionNot) *BudgetFilterExpressionNotNot { return v.Not }).(BudgetFilterExpressionNotNotPtrOutput)
+}
+
+// (Optional) A list of filter expressions to combine with OR logic. Each `or` block is one operand and must itself contain exactly one root.
+func (o BudgetFilterExpressionNotOutput) Ors() BudgetFilterExpressionNotOrArrayOutput {
+	return o.ApplyT(func(v BudgetFilterExpressionNot) []BudgetFilterExpressionNotOr { return v.Ors }).(BudgetFilterExpressionNotOrArrayOutput)
+}
+
+// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+func (o BudgetFilterExpressionNotOutput) Tags() BudgetFilterExpressionNotTagsPtrOutput {
+	return o.ApplyT(func(v BudgetFilterExpressionNot) *BudgetFilterExpressionNotTags { return v.Tags }).(BudgetFilterExpressionNotTagsPtrOutput)
+}
+
+type BudgetFilterExpressionNotPtrOutput struct{ *pulumi.OutputState }
+
+func (BudgetFilterExpressionNotPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BudgetFilterExpressionNot)(nil)).Elem()
+}
+
+func (o BudgetFilterExpressionNotPtrOutput) ToBudgetFilterExpressionNotPtrOutput() BudgetFilterExpressionNotPtrOutput {
+	return o
+}
+
+func (o BudgetFilterExpressionNotPtrOutput) ToBudgetFilterExpressionNotPtrOutputWithContext(ctx context.Context) BudgetFilterExpressionNotPtrOutput {
+	return o
+}
+
+func (o BudgetFilterExpressionNotPtrOutput) Elem() BudgetFilterExpressionNotOutput {
+	return o.ApplyT(func(v *BudgetFilterExpressionNot) BudgetFilterExpressionNot {
+		if v != nil {
+			return *v
+		}
+		var ret BudgetFilterExpressionNot
+		return ret
+	}).(BudgetFilterExpressionNotOutput)
+}
+
+// (Optional) A list of filter expressions to combine with AND logic. Each `and` block is one operand and must itself contain exactly one root.
+func (o BudgetFilterExpressionNotPtrOutput) Ands() BudgetFilterExpressionNotAndArrayOutput {
+	return o.ApplyT(func(v *BudgetFilterExpressionNot) []BudgetFilterExpressionNotAnd {
+		if v == nil {
+			return nil
+		}
+		return v.Ands
+	}).(BudgetFilterExpressionNotAndArrayOutput)
+}
+
+// (Optional) A Cost Category Filter block.
+func (o BudgetFilterExpressionNotPtrOutput) CostCategories() BudgetFilterExpressionNotCostCategoriesPtrOutput {
+	return o.ApplyT(func(v *BudgetFilterExpressionNot) *BudgetFilterExpressionNotCostCategories {
+		if v == nil {
+			return nil
+		}
+		return v.CostCategories
+	}).(BudgetFilterExpressionNotCostCategoriesPtrOutput)
+}
+
+// (Optional) A Dimension Filter block.
+func (o BudgetFilterExpressionNotPtrOutput) Dimensions() BudgetFilterExpressionNotDimensionsPtrOutput {
+	return o.ApplyT(func(v *BudgetFilterExpressionNot) *BudgetFilterExpressionNotDimensions {
+		if v == nil {
+			return nil
+		}
+		return v.Dimensions
+	}).(BudgetFilterExpressionNotDimensionsPtrOutput)
+}
+
+// (Optional) A single filter expression to negate. Must contain exactly one root.
+func (o BudgetFilterExpressionNotPtrOutput) Not() BudgetFilterExpressionNotNotPtrOutput {
+	return o.ApplyT(func(v *BudgetFilterExpressionNot) *BudgetFilterExpressionNotNot {
+		if v == nil {
+			return nil
+		}
+		return v.Not
+	}).(BudgetFilterExpressionNotNotPtrOutput)
+}
+
+// (Optional) A list of filter expressions to combine with OR logic. Each `or` block is one operand and must itself contain exactly one root.
+func (o BudgetFilterExpressionNotPtrOutput) Ors() BudgetFilterExpressionNotOrArrayOutput {
+	return o.ApplyT(func(v *BudgetFilterExpressionNot) []BudgetFilterExpressionNotOr {
+		if v == nil {
+			return nil
+		}
+		return v.Ors
+	}).(BudgetFilterExpressionNotOrArrayOutput)
+}
+
+// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+func (o BudgetFilterExpressionNotPtrOutput) Tags() BudgetFilterExpressionNotTagsPtrOutput {
+	return o.ApplyT(func(v *BudgetFilterExpressionNot) *BudgetFilterExpressionNotTags {
+		if v == nil {
+			return nil
+		}
+		return v.Tags
+	}).(BudgetFilterExpressionNotTagsPtrOutput)
+}
+
+type BudgetFilterExpressionNotAnd struct {
+	// (Optional) A Cost Category Filter block.
+	CostCategories *BudgetFilterExpressionNotAndCostCategories `pulumi:"costCategories"`
+	// (Optional) A Dimension Filter block.
+	Dimensions *BudgetFilterExpressionNotAndDimensions `pulumi:"dimensions"`
+	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags *BudgetFilterExpressionNotAndTags `pulumi:"tags"`
+}
+
+// BudgetFilterExpressionNotAndInput is an input type that accepts BudgetFilterExpressionNotAndArgs and BudgetFilterExpressionNotAndOutput values.
+// You can construct a concrete instance of `BudgetFilterExpressionNotAndInput` via:
+//
+//	BudgetFilterExpressionNotAndArgs{...}
+type BudgetFilterExpressionNotAndInput interface {
+	pulumi.Input
+
+	ToBudgetFilterExpressionNotAndOutput() BudgetFilterExpressionNotAndOutput
+	ToBudgetFilterExpressionNotAndOutputWithContext(context.Context) BudgetFilterExpressionNotAndOutput
+}
+
+type BudgetFilterExpressionNotAndArgs struct {
+	// (Optional) A Cost Category Filter block.
+	CostCategories BudgetFilterExpressionNotAndCostCategoriesPtrInput `pulumi:"costCategories"`
+	// (Optional) A Dimension Filter block.
+	Dimensions BudgetFilterExpressionNotAndDimensionsPtrInput `pulumi:"dimensions"`
+	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags BudgetFilterExpressionNotAndTagsPtrInput `pulumi:"tags"`
+}
+
+func (BudgetFilterExpressionNotAndArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BudgetFilterExpressionNotAnd)(nil)).Elem()
+}
+
+func (i BudgetFilterExpressionNotAndArgs) ToBudgetFilterExpressionNotAndOutput() BudgetFilterExpressionNotAndOutput {
+	return i.ToBudgetFilterExpressionNotAndOutputWithContext(context.Background())
+}
+
+func (i BudgetFilterExpressionNotAndArgs) ToBudgetFilterExpressionNotAndOutputWithContext(ctx context.Context) BudgetFilterExpressionNotAndOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetFilterExpressionNotAndOutput)
+}
+
+// BudgetFilterExpressionNotAndArrayInput is an input type that accepts BudgetFilterExpressionNotAndArray and BudgetFilterExpressionNotAndArrayOutput values.
+// You can construct a concrete instance of `BudgetFilterExpressionNotAndArrayInput` via:
+//
+//	BudgetFilterExpressionNotAndArray{ BudgetFilterExpressionNotAndArgs{...} }
+type BudgetFilterExpressionNotAndArrayInput interface {
+	pulumi.Input
+
+	ToBudgetFilterExpressionNotAndArrayOutput() BudgetFilterExpressionNotAndArrayOutput
+	ToBudgetFilterExpressionNotAndArrayOutputWithContext(context.Context) BudgetFilterExpressionNotAndArrayOutput
+}
+
+type BudgetFilterExpressionNotAndArray []BudgetFilterExpressionNotAndInput
+
+func (BudgetFilterExpressionNotAndArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BudgetFilterExpressionNotAnd)(nil)).Elem()
+}
+
+func (i BudgetFilterExpressionNotAndArray) ToBudgetFilterExpressionNotAndArrayOutput() BudgetFilterExpressionNotAndArrayOutput {
+	return i.ToBudgetFilterExpressionNotAndArrayOutputWithContext(context.Background())
+}
+
+func (i BudgetFilterExpressionNotAndArray) ToBudgetFilterExpressionNotAndArrayOutputWithContext(ctx context.Context) BudgetFilterExpressionNotAndArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetFilterExpressionNotAndArrayOutput)
+}
+
+type BudgetFilterExpressionNotAndOutput struct{ *pulumi.OutputState }
+
+func (BudgetFilterExpressionNotAndOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BudgetFilterExpressionNotAnd)(nil)).Elem()
+}
+
+func (o BudgetFilterExpressionNotAndOutput) ToBudgetFilterExpressionNotAndOutput() BudgetFilterExpressionNotAndOutput {
+	return o
+}
+
+func (o BudgetFilterExpressionNotAndOutput) ToBudgetFilterExpressionNotAndOutputWithContext(ctx context.Context) BudgetFilterExpressionNotAndOutput {
+	return o
+}
+
+// (Optional) A Cost Category Filter block.
+func (o BudgetFilterExpressionNotAndOutput) CostCategories() BudgetFilterExpressionNotAndCostCategoriesPtrOutput {
+	return o.ApplyT(func(v BudgetFilterExpressionNotAnd) *BudgetFilterExpressionNotAndCostCategories {
+		return v.CostCategories
+	}).(BudgetFilterExpressionNotAndCostCategoriesPtrOutput)
+}
+
+// (Optional) A Dimension Filter block.
+func (o BudgetFilterExpressionNotAndOutput) Dimensions() BudgetFilterExpressionNotAndDimensionsPtrOutput {
+	return o.ApplyT(func(v BudgetFilterExpressionNotAnd) *BudgetFilterExpressionNotAndDimensions { return v.Dimensions }).(BudgetFilterExpressionNotAndDimensionsPtrOutput)
+}
+
+// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+func (o BudgetFilterExpressionNotAndOutput) Tags() BudgetFilterExpressionNotAndTagsPtrOutput {
+	return o.ApplyT(func(v BudgetFilterExpressionNotAnd) *BudgetFilterExpressionNotAndTags { return v.Tags }).(BudgetFilterExpressionNotAndTagsPtrOutput)
+}
+
+type BudgetFilterExpressionNotAndArrayOutput struct{ *pulumi.OutputState }
+
+func (BudgetFilterExpressionNotAndArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BudgetFilterExpressionNotAnd)(nil)).Elem()
+}
+
+func (o BudgetFilterExpressionNotAndArrayOutput) ToBudgetFilterExpressionNotAndArrayOutput() BudgetFilterExpressionNotAndArrayOutput {
+	return o
+}
+
+func (o BudgetFilterExpressionNotAndArrayOutput) ToBudgetFilterExpressionNotAndArrayOutputWithContext(ctx context.Context) BudgetFilterExpressionNotAndArrayOutput {
+	return o
+}
+
+func (o BudgetFilterExpressionNotAndArrayOutput) Index(i pulumi.IntInput) BudgetFilterExpressionNotAndOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BudgetFilterExpressionNotAnd {
+		return vs[0].([]BudgetFilterExpressionNotAnd)[vs[1].(int)]
+	}).(BudgetFilterExpressionNotAndOutput)
+}
+
+type BudgetFilterExpressionNotAndCostCategories struct {
+	// (Optional) The cost category key to filter on.
+	Key *string `pulumi:"key"`
+	// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+	MatchOptions []string `pulumi:"matchOptions"`
+	// (Optional) A list of cost category values to match. At least one value is required.
+	Values []string `pulumi:"values"`
+}
+
+// BudgetFilterExpressionNotAndCostCategoriesInput is an input type that accepts BudgetFilterExpressionNotAndCostCategoriesArgs and BudgetFilterExpressionNotAndCostCategoriesOutput values.
+// You can construct a concrete instance of `BudgetFilterExpressionNotAndCostCategoriesInput` via:
+//
+//	BudgetFilterExpressionNotAndCostCategoriesArgs{...}
+type BudgetFilterExpressionNotAndCostCategoriesInput interface {
+	pulumi.Input
+
+	ToBudgetFilterExpressionNotAndCostCategoriesOutput() BudgetFilterExpressionNotAndCostCategoriesOutput
+	ToBudgetFilterExpressionNotAndCostCategoriesOutputWithContext(context.Context) BudgetFilterExpressionNotAndCostCategoriesOutput
+}
+
+type BudgetFilterExpressionNotAndCostCategoriesArgs struct {
+	// (Optional) The cost category key to filter on.
+	Key pulumi.StringPtrInput `pulumi:"key"`
+	// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+	MatchOptions pulumi.StringArrayInput `pulumi:"matchOptions"`
+	// (Optional) A list of cost category values to match. At least one value is required.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (BudgetFilterExpressionNotAndCostCategoriesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BudgetFilterExpressionNotAndCostCategories)(nil)).Elem()
+}
+
+func (i BudgetFilterExpressionNotAndCostCategoriesArgs) ToBudgetFilterExpressionNotAndCostCategoriesOutput() BudgetFilterExpressionNotAndCostCategoriesOutput {
+	return i.ToBudgetFilterExpressionNotAndCostCategoriesOutputWithContext(context.Background())
+}
+
+func (i BudgetFilterExpressionNotAndCostCategoriesArgs) ToBudgetFilterExpressionNotAndCostCategoriesOutputWithContext(ctx context.Context) BudgetFilterExpressionNotAndCostCategoriesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetFilterExpressionNotAndCostCategoriesOutput)
+}
+
+func (i BudgetFilterExpressionNotAndCostCategoriesArgs) ToBudgetFilterExpressionNotAndCostCategoriesPtrOutput() BudgetFilterExpressionNotAndCostCategoriesPtrOutput {
+	return i.ToBudgetFilterExpressionNotAndCostCategoriesPtrOutputWithContext(context.Background())
+}
+
+func (i BudgetFilterExpressionNotAndCostCategoriesArgs) ToBudgetFilterExpressionNotAndCostCategoriesPtrOutputWithContext(ctx context.Context) BudgetFilterExpressionNotAndCostCategoriesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetFilterExpressionNotAndCostCategoriesOutput).ToBudgetFilterExpressionNotAndCostCategoriesPtrOutputWithContext(ctx)
+}
+
+// BudgetFilterExpressionNotAndCostCategoriesPtrInput is an input type that accepts BudgetFilterExpressionNotAndCostCategoriesArgs, BudgetFilterExpressionNotAndCostCategoriesPtr and BudgetFilterExpressionNotAndCostCategoriesPtrOutput values.
+// You can construct a concrete instance of `BudgetFilterExpressionNotAndCostCategoriesPtrInput` via:
+//
+//	        BudgetFilterExpressionNotAndCostCategoriesArgs{...}
+//
+//	or:
+//
+//	        nil
+type BudgetFilterExpressionNotAndCostCategoriesPtrInput interface {
+	pulumi.Input
+
+	ToBudgetFilterExpressionNotAndCostCategoriesPtrOutput() BudgetFilterExpressionNotAndCostCategoriesPtrOutput
+	ToBudgetFilterExpressionNotAndCostCategoriesPtrOutputWithContext(context.Context) BudgetFilterExpressionNotAndCostCategoriesPtrOutput
+}
+
+type budgetFilterExpressionNotAndCostCategoriesPtrType BudgetFilterExpressionNotAndCostCategoriesArgs
+
+func BudgetFilterExpressionNotAndCostCategoriesPtr(v *BudgetFilterExpressionNotAndCostCategoriesArgs) BudgetFilterExpressionNotAndCostCategoriesPtrInput {
+	return (*budgetFilterExpressionNotAndCostCategoriesPtrType)(v)
+}
+
+func (*budgetFilterExpressionNotAndCostCategoriesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BudgetFilterExpressionNotAndCostCategories)(nil)).Elem()
+}
+
+func (i *budgetFilterExpressionNotAndCostCategoriesPtrType) ToBudgetFilterExpressionNotAndCostCategoriesPtrOutput() BudgetFilterExpressionNotAndCostCategoriesPtrOutput {
+	return i.ToBudgetFilterExpressionNotAndCostCategoriesPtrOutputWithContext(context.Background())
+}
+
+func (i *budgetFilterExpressionNotAndCostCategoriesPtrType) ToBudgetFilterExpressionNotAndCostCategoriesPtrOutputWithContext(ctx context.Context) BudgetFilterExpressionNotAndCostCategoriesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetFilterExpressionNotAndCostCategoriesPtrOutput)
+}
+
+type BudgetFilterExpressionNotAndCostCategoriesOutput struct{ *pulumi.OutputState }
+
+func (BudgetFilterExpressionNotAndCostCategoriesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BudgetFilterExpressionNotAndCostCategories)(nil)).Elem()
+}
+
+func (o BudgetFilterExpressionNotAndCostCategoriesOutput) ToBudgetFilterExpressionNotAndCostCategoriesOutput() BudgetFilterExpressionNotAndCostCategoriesOutput {
+	return o
+}
+
+func (o BudgetFilterExpressionNotAndCostCategoriesOutput) ToBudgetFilterExpressionNotAndCostCategoriesOutputWithContext(ctx context.Context) BudgetFilterExpressionNotAndCostCategoriesOutput {
+	return o
+}
+
+func (o BudgetFilterExpressionNotAndCostCategoriesOutput) ToBudgetFilterExpressionNotAndCostCategoriesPtrOutput() BudgetFilterExpressionNotAndCostCategoriesPtrOutput {
+	return o.ToBudgetFilterExpressionNotAndCostCategoriesPtrOutputWithContext(context.Background())
+}
+
+func (o BudgetFilterExpressionNotAndCostCategoriesOutput) ToBudgetFilterExpressionNotAndCostCategoriesPtrOutputWithContext(ctx context.Context) BudgetFilterExpressionNotAndCostCategoriesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BudgetFilterExpressionNotAndCostCategories) *BudgetFilterExpressionNotAndCostCategories {
+		return &v
+	}).(BudgetFilterExpressionNotAndCostCategoriesPtrOutput)
+}
+
+// (Optional) The cost category key to filter on.
+func (o BudgetFilterExpressionNotAndCostCategoriesOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BudgetFilterExpressionNotAndCostCategories) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+func (o BudgetFilterExpressionNotAndCostCategoriesOutput) MatchOptions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v BudgetFilterExpressionNotAndCostCategories) []string { return v.MatchOptions }).(pulumi.StringArrayOutput)
+}
+
+// (Optional) A list of cost category values to match. At least one value is required.
+func (o BudgetFilterExpressionNotAndCostCategoriesOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v BudgetFilterExpressionNotAndCostCategories) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type BudgetFilterExpressionNotAndCostCategoriesPtrOutput struct{ *pulumi.OutputState }
+
+func (BudgetFilterExpressionNotAndCostCategoriesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BudgetFilterExpressionNotAndCostCategories)(nil)).Elem()
+}
+
+func (o BudgetFilterExpressionNotAndCostCategoriesPtrOutput) ToBudgetFilterExpressionNotAndCostCategoriesPtrOutput() BudgetFilterExpressionNotAndCostCategoriesPtrOutput {
+	return o
+}
+
+func (o BudgetFilterExpressionNotAndCostCategoriesPtrOutput) ToBudgetFilterExpressionNotAndCostCategoriesPtrOutputWithContext(ctx context.Context) BudgetFilterExpressionNotAndCostCategoriesPtrOutput {
+	return o
+}
+
+func (o BudgetFilterExpressionNotAndCostCategoriesPtrOutput) Elem() BudgetFilterExpressionNotAndCostCategoriesOutput {
+	return o.ApplyT(func(v *BudgetFilterExpressionNotAndCostCategories) BudgetFilterExpressionNotAndCostCategories {
+		if v != nil {
+			return *v
+		}
+		var ret BudgetFilterExpressionNotAndCostCategories
+		return ret
+	}).(BudgetFilterExpressionNotAndCostCategoriesOutput)
+}
+
+// (Optional) The cost category key to filter on.
+func (o BudgetFilterExpressionNotAndCostCategoriesPtrOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BudgetFilterExpressionNotAndCostCategories) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Key
+	}).(pulumi.StringPtrOutput)
+}
+
+// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+func (o BudgetFilterExpressionNotAndCostCategoriesPtrOutput) MatchOptions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *BudgetFilterExpressionNotAndCostCategories) []string {
+		if v == nil {
+			return nil
+		}
+		return v.MatchOptions
+	}).(pulumi.StringArrayOutput)
+}
+
+// (Optional) A list of cost category values to match. At least one value is required.
+func (o BudgetFilterExpressionNotAndCostCategoriesPtrOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *BudgetFilterExpressionNotAndCostCategories) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Values
+	}).(pulumi.StringArrayOutput)
+}
+
+type BudgetFilterExpressionNotAndDimensions struct {
+	// (Optional) The cost category key to filter on.
+	Key string `pulumi:"key"`
+	// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+	MatchOptions []string `pulumi:"matchOptions"`
+	// (Optional) A list of cost category values to match. At least one value is required.
+	Values []string `pulumi:"values"`
+}
+
+// BudgetFilterExpressionNotAndDimensionsInput is an input type that accepts BudgetFilterExpressionNotAndDimensionsArgs and BudgetFilterExpressionNotAndDimensionsOutput values.
+// You can construct a concrete instance of `BudgetFilterExpressionNotAndDimensionsInput` via:
+//
+//	BudgetFilterExpressionNotAndDimensionsArgs{...}
+type BudgetFilterExpressionNotAndDimensionsInput interface {
+	pulumi.Input
+
+	ToBudgetFilterExpressionNotAndDimensionsOutput() BudgetFilterExpressionNotAndDimensionsOutput
+	ToBudgetFilterExpressionNotAndDimensionsOutputWithContext(context.Context) BudgetFilterExpressionNotAndDimensionsOutput
+}
+
+type BudgetFilterExpressionNotAndDimensionsArgs struct {
+	// (Optional) The cost category key to filter on.
+	Key pulumi.StringInput `pulumi:"key"`
+	// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+	MatchOptions pulumi.StringArrayInput `pulumi:"matchOptions"`
+	// (Optional) A list of cost category values to match. At least one value is required.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (BudgetFilterExpressionNotAndDimensionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BudgetFilterExpressionNotAndDimensions)(nil)).Elem()
+}
+
+func (i BudgetFilterExpressionNotAndDimensionsArgs) ToBudgetFilterExpressionNotAndDimensionsOutput() BudgetFilterExpressionNotAndDimensionsOutput {
+	return i.ToBudgetFilterExpressionNotAndDimensionsOutputWithContext(context.Background())
+}
+
+func (i BudgetFilterExpressionNotAndDimensionsArgs) ToBudgetFilterExpressionNotAndDimensionsOutputWithContext(ctx context.Context) BudgetFilterExpressionNotAndDimensionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetFilterExpressionNotAndDimensionsOutput)
+}
+
+func (i BudgetFilterExpressionNotAndDimensionsArgs) ToBudgetFilterExpressionNotAndDimensionsPtrOutput() BudgetFilterExpressionNotAndDimensionsPtrOutput {
+	return i.ToBudgetFilterExpressionNotAndDimensionsPtrOutputWithContext(context.Background())
+}
+
+func (i BudgetFilterExpressionNotAndDimensionsArgs) ToBudgetFilterExpressionNotAndDimensionsPtrOutputWithContext(ctx context.Context) BudgetFilterExpressionNotAndDimensionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetFilterExpressionNotAndDimensionsOutput).ToBudgetFilterExpressionNotAndDimensionsPtrOutputWithContext(ctx)
+}
+
+// BudgetFilterExpressionNotAndDimensionsPtrInput is an input type that accepts BudgetFilterExpressionNotAndDimensionsArgs, BudgetFilterExpressionNotAndDimensionsPtr and BudgetFilterExpressionNotAndDimensionsPtrOutput values.
+// You can construct a concrete instance of `BudgetFilterExpressionNotAndDimensionsPtrInput` via:
+//
+//	        BudgetFilterExpressionNotAndDimensionsArgs{...}
+//
+//	or:
+//
+//	        nil
+type BudgetFilterExpressionNotAndDimensionsPtrInput interface {
+	pulumi.Input
+
+	ToBudgetFilterExpressionNotAndDimensionsPtrOutput() BudgetFilterExpressionNotAndDimensionsPtrOutput
+	ToBudgetFilterExpressionNotAndDimensionsPtrOutputWithContext(context.Context) BudgetFilterExpressionNotAndDimensionsPtrOutput
+}
+
+type budgetFilterExpressionNotAndDimensionsPtrType BudgetFilterExpressionNotAndDimensionsArgs
+
+func BudgetFilterExpressionNotAndDimensionsPtr(v *BudgetFilterExpressionNotAndDimensionsArgs) BudgetFilterExpressionNotAndDimensionsPtrInput {
+	return (*budgetFilterExpressionNotAndDimensionsPtrType)(v)
+}
+
+func (*budgetFilterExpressionNotAndDimensionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BudgetFilterExpressionNotAndDimensions)(nil)).Elem()
+}
+
+func (i *budgetFilterExpressionNotAndDimensionsPtrType) ToBudgetFilterExpressionNotAndDimensionsPtrOutput() BudgetFilterExpressionNotAndDimensionsPtrOutput {
+	return i.ToBudgetFilterExpressionNotAndDimensionsPtrOutputWithContext(context.Background())
+}
+
+func (i *budgetFilterExpressionNotAndDimensionsPtrType) ToBudgetFilterExpressionNotAndDimensionsPtrOutputWithContext(ctx context.Context) BudgetFilterExpressionNotAndDimensionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetFilterExpressionNotAndDimensionsPtrOutput)
+}
+
+type BudgetFilterExpressionNotAndDimensionsOutput struct{ *pulumi.OutputState }
+
+func (BudgetFilterExpressionNotAndDimensionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BudgetFilterExpressionNotAndDimensions)(nil)).Elem()
+}
+
+func (o BudgetFilterExpressionNotAndDimensionsOutput) ToBudgetFilterExpressionNotAndDimensionsOutput() BudgetFilterExpressionNotAndDimensionsOutput {
+	return o
+}
+
+func (o BudgetFilterExpressionNotAndDimensionsOutput) ToBudgetFilterExpressionNotAndDimensionsOutputWithContext(ctx context.Context) BudgetFilterExpressionNotAndDimensionsOutput {
+	return o
+}
+
+func (o BudgetFilterExpressionNotAndDimensionsOutput) ToBudgetFilterExpressionNotAndDimensionsPtrOutput() BudgetFilterExpressionNotAndDimensionsPtrOutput {
+	return o.ToBudgetFilterExpressionNotAndDimensionsPtrOutputWithContext(context.Background())
+}
+
+func (o BudgetFilterExpressionNotAndDimensionsOutput) ToBudgetFilterExpressionNotAndDimensionsPtrOutputWithContext(ctx context.Context) BudgetFilterExpressionNotAndDimensionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BudgetFilterExpressionNotAndDimensions) *BudgetFilterExpressionNotAndDimensions {
+		return &v
+	}).(BudgetFilterExpressionNotAndDimensionsPtrOutput)
+}
+
+// (Optional) The cost category key to filter on.
+func (o BudgetFilterExpressionNotAndDimensionsOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v BudgetFilterExpressionNotAndDimensions) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+func (o BudgetFilterExpressionNotAndDimensionsOutput) MatchOptions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v BudgetFilterExpressionNotAndDimensions) []string { return v.MatchOptions }).(pulumi.StringArrayOutput)
+}
+
+// (Optional) A list of cost category values to match. At least one value is required.
+func (o BudgetFilterExpressionNotAndDimensionsOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v BudgetFilterExpressionNotAndDimensions) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type BudgetFilterExpressionNotAndDimensionsPtrOutput struct{ *pulumi.OutputState }
+
+func (BudgetFilterExpressionNotAndDimensionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BudgetFilterExpressionNotAndDimensions)(nil)).Elem()
+}
+
+func (o BudgetFilterExpressionNotAndDimensionsPtrOutput) ToBudgetFilterExpressionNotAndDimensionsPtrOutput() BudgetFilterExpressionNotAndDimensionsPtrOutput {
+	return o
+}
+
+func (o BudgetFilterExpressionNotAndDimensionsPtrOutput) ToBudgetFilterExpressionNotAndDimensionsPtrOutputWithContext(ctx context.Context) BudgetFilterExpressionNotAndDimensionsPtrOutput {
+	return o
+}
+
+func (o BudgetFilterExpressionNotAndDimensionsPtrOutput) Elem() BudgetFilterExpressionNotAndDimensionsOutput {
+	return o.ApplyT(func(v *BudgetFilterExpressionNotAndDimensions) BudgetFilterExpressionNotAndDimensions {
+		if v != nil {
+			return *v
+		}
+		var ret BudgetFilterExpressionNotAndDimensions
+		return ret
+	}).(BudgetFilterExpressionNotAndDimensionsOutput)
+}
+
+// (Optional) The cost category key to filter on.
+func (o BudgetFilterExpressionNotAndDimensionsPtrOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BudgetFilterExpressionNotAndDimensions) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Key
+	}).(pulumi.StringPtrOutput)
+}
+
+// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+func (o BudgetFilterExpressionNotAndDimensionsPtrOutput) MatchOptions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *BudgetFilterExpressionNotAndDimensions) []string {
+		if v == nil {
+			return nil
+		}
+		return v.MatchOptions
+	}).(pulumi.StringArrayOutput)
+}
+
+// (Optional) A list of cost category values to match. At least one value is required.
+func (o BudgetFilterExpressionNotAndDimensionsPtrOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *BudgetFilterExpressionNotAndDimensions) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Values
+	}).(pulumi.StringArrayOutput)
+}
+
+type BudgetFilterExpressionNotAndTags struct {
+	// (Optional) The cost category key to filter on.
+	Key *string `pulumi:"key"`
+	// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+	MatchOptions []string `pulumi:"matchOptions"`
+	// (Optional) A list of cost category values to match. At least one value is required.
+	Values []string `pulumi:"values"`
+}
+
+// BudgetFilterExpressionNotAndTagsInput is an input type that accepts BudgetFilterExpressionNotAndTagsArgs and BudgetFilterExpressionNotAndTagsOutput values.
+// You can construct a concrete instance of `BudgetFilterExpressionNotAndTagsInput` via:
+//
+//	BudgetFilterExpressionNotAndTagsArgs{...}
+type BudgetFilterExpressionNotAndTagsInput interface {
+	pulumi.Input
+
+	ToBudgetFilterExpressionNotAndTagsOutput() BudgetFilterExpressionNotAndTagsOutput
+	ToBudgetFilterExpressionNotAndTagsOutputWithContext(context.Context) BudgetFilterExpressionNotAndTagsOutput
+}
+
+type BudgetFilterExpressionNotAndTagsArgs struct {
+	// (Optional) The cost category key to filter on.
+	Key pulumi.StringPtrInput `pulumi:"key"`
+	// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+	MatchOptions pulumi.StringArrayInput `pulumi:"matchOptions"`
+	// (Optional) A list of cost category values to match. At least one value is required.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (BudgetFilterExpressionNotAndTagsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BudgetFilterExpressionNotAndTags)(nil)).Elem()
+}
+
+func (i BudgetFilterExpressionNotAndTagsArgs) ToBudgetFilterExpressionNotAndTagsOutput() BudgetFilterExpressionNotAndTagsOutput {
+	return i.ToBudgetFilterExpressionNotAndTagsOutputWithContext(context.Background())
+}
+
+func (i BudgetFilterExpressionNotAndTagsArgs) ToBudgetFilterExpressionNotAndTagsOutputWithContext(ctx context.Context) BudgetFilterExpressionNotAndTagsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetFilterExpressionNotAndTagsOutput)
+}
+
+func (i BudgetFilterExpressionNotAndTagsArgs) ToBudgetFilterExpressionNotAndTagsPtrOutput() BudgetFilterExpressionNotAndTagsPtrOutput {
+	return i.ToBudgetFilterExpressionNotAndTagsPtrOutputWithContext(context.Background())
+}
+
+func (i BudgetFilterExpressionNotAndTagsArgs) ToBudgetFilterExpressionNotAndTagsPtrOutputWithContext(ctx context.Context) BudgetFilterExpressionNotAndTagsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetFilterExpressionNotAndTagsOutput).ToBudgetFilterExpressionNotAndTagsPtrOutputWithContext(ctx)
+}
+
+// BudgetFilterExpressionNotAndTagsPtrInput is an input type that accepts BudgetFilterExpressionNotAndTagsArgs, BudgetFilterExpressionNotAndTagsPtr and BudgetFilterExpressionNotAndTagsPtrOutput values.
+// You can construct a concrete instance of `BudgetFilterExpressionNotAndTagsPtrInput` via:
+//
+//	        BudgetFilterExpressionNotAndTagsArgs{...}
+//
+//	or:
+//
+//	        nil
+type BudgetFilterExpressionNotAndTagsPtrInput interface {
+	pulumi.Input
+
+	ToBudgetFilterExpressionNotAndTagsPtrOutput() BudgetFilterExpressionNotAndTagsPtrOutput
+	ToBudgetFilterExpressionNotAndTagsPtrOutputWithContext(context.Context) BudgetFilterExpressionNotAndTagsPtrOutput
+}
+
+type budgetFilterExpressionNotAndTagsPtrType BudgetFilterExpressionNotAndTagsArgs
+
+func BudgetFilterExpressionNotAndTagsPtr(v *BudgetFilterExpressionNotAndTagsArgs) BudgetFilterExpressionNotAndTagsPtrInput {
+	return (*budgetFilterExpressionNotAndTagsPtrType)(v)
+}
+
+func (*budgetFilterExpressionNotAndTagsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BudgetFilterExpressionNotAndTags)(nil)).Elem()
+}
+
+func (i *budgetFilterExpressionNotAndTagsPtrType) ToBudgetFilterExpressionNotAndTagsPtrOutput() BudgetFilterExpressionNotAndTagsPtrOutput {
+	return i.ToBudgetFilterExpressionNotAndTagsPtrOutputWithContext(context.Background())
+}
+
+func (i *budgetFilterExpressionNotAndTagsPtrType) ToBudgetFilterExpressionNotAndTagsPtrOutputWithContext(ctx context.Context) BudgetFilterExpressionNotAndTagsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetFilterExpressionNotAndTagsPtrOutput)
+}
+
+type BudgetFilterExpressionNotAndTagsOutput struct{ *pulumi.OutputState }
+
+func (BudgetFilterExpressionNotAndTagsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BudgetFilterExpressionNotAndTags)(nil)).Elem()
+}
+
+func (o BudgetFilterExpressionNotAndTagsOutput) ToBudgetFilterExpressionNotAndTagsOutput() BudgetFilterExpressionNotAndTagsOutput {
+	return o
+}
+
+func (o BudgetFilterExpressionNotAndTagsOutput) ToBudgetFilterExpressionNotAndTagsOutputWithContext(ctx context.Context) BudgetFilterExpressionNotAndTagsOutput {
+	return o
+}
+
+func (o BudgetFilterExpressionNotAndTagsOutput) ToBudgetFilterExpressionNotAndTagsPtrOutput() BudgetFilterExpressionNotAndTagsPtrOutput {
+	return o.ToBudgetFilterExpressionNotAndTagsPtrOutputWithContext(context.Background())
+}
+
+func (o BudgetFilterExpressionNotAndTagsOutput) ToBudgetFilterExpressionNotAndTagsPtrOutputWithContext(ctx context.Context) BudgetFilterExpressionNotAndTagsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BudgetFilterExpressionNotAndTags) *BudgetFilterExpressionNotAndTags {
+		return &v
+	}).(BudgetFilterExpressionNotAndTagsPtrOutput)
+}
+
+// (Optional) The cost category key to filter on.
+func (o BudgetFilterExpressionNotAndTagsOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BudgetFilterExpressionNotAndTags) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+func (o BudgetFilterExpressionNotAndTagsOutput) MatchOptions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v BudgetFilterExpressionNotAndTags) []string { return v.MatchOptions }).(pulumi.StringArrayOutput)
+}
+
+// (Optional) A list of cost category values to match. At least one value is required.
+func (o BudgetFilterExpressionNotAndTagsOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v BudgetFilterExpressionNotAndTags) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type BudgetFilterExpressionNotAndTagsPtrOutput struct{ *pulumi.OutputState }
+
+func (BudgetFilterExpressionNotAndTagsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BudgetFilterExpressionNotAndTags)(nil)).Elem()
+}
+
+func (o BudgetFilterExpressionNotAndTagsPtrOutput) ToBudgetFilterExpressionNotAndTagsPtrOutput() BudgetFilterExpressionNotAndTagsPtrOutput {
+	return o
+}
+
+func (o BudgetFilterExpressionNotAndTagsPtrOutput) ToBudgetFilterExpressionNotAndTagsPtrOutputWithContext(ctx context.Context) BudgetFilterExpressionNotAndTagsPtrOutput {
+	return o
+}
+
+func (o BudgetFilterExpressionNotAndTagsPtrOutput) Elem() BudgetFilterExpressionNotAndTagsOutput {
+	return o.ApplyT(func(v *BudgetFilterExpressionNotAndTags) BudgetFilterExpressionNotAndTags {
+		if v != nil {
+			return *v
+		}
+		var ret BudgetFilterExpressionNotAndTags
+		return ret
+	}).(BudgetFilterExpressionNotAndTagsOutput)
+}
+
+// (Optional) The cost category key to filter on.
+func (o BudgetFilterExpressionNotAndTagsPtrOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BudgetFilterExpressionNotAndTags) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Key
+	}).(pulumi.StringPtrOutput)
+}
+
+// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+func (o BudgetFilterExpressionNotAndTagsPtrOutput) MatchOptions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *BudgetFilterExpressionNotAndTags) []string {
+		if v == nil {
+			return nil
+		}
+		return v.MatchOptions
+	}).(pulumi.StringArrayOutput)
+}
+
+// (Optional) A list of cost category values to match. At least one value is required.
+func (o BudgetFilterExpressionNotAndTagsPtrOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *BudgetFilterExpressionNotAndTags) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Values
+	}).(pulumi.StringArrayOutput)
+}
+
+type BudgetFilterExpressionNotCostCategories struct {
+	// (Optional) The cost category key to filter on.
+	Key *string `pulumi:"key"`
+	// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+	MatchOptions []string `pulumi:"matchOptions"`
+	// (Optional) A list of cost category values to match. At least one value is required.
+	Values []string `pulumi:"values"`
+}
+
+// BudgetFilterExpressionNotCostCategoriesInput is an input type that accepts BudgetFilterExpressionNotCostCategoriesArgs and BudgetFilterExpressionNotCostCategoriesOutput values.
+// You can construct a concrete instance of `BudgetFilterExpressionNotCostCategoriesInput` via:
+//
+//	BudgetFilterExpressionNotCostCategoriesArgs{...}
+type BudgetFilterExpressionNotCostCategoriesInput interface {
+	pulumi.Input
+
+	ToBudgetFilterExpressionNotCostCategoriesOutput() BudgetFilterExpressionNotCostCategoriesOutput
+	ToBudgetFilterExpressionNotCostCategoriesOutputWithContext(context.Context) BudgetFilterExpressionNotCostCategoriesOutput
+}
+
+type BudgetFilterExpressionNotCostCategoriesArgs struct {
+	// (Optional) The cost category key to filter on.
+	Key pulumi.StringPtrInput `pulumi:"key"`
+	// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+	MatchOptions pulumi.StringArrayInput `pulumi:"matchOptions"`
+	// (Optional) A list of cost category values to match. At least one value is required.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (BudgetFilterExpressionNotCostCategoriesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BudgetFilterExpressionNotCostCategories)(nil)).Elem()
+}
+
+func (i BudgetFilterExpressionNotCostCategoriesArgs) ToBudgetFilterExpressionNotCostCategoriesOutput() BudgetFilterExpressionNotCostCategoriesOutput {
+	return i.ToBudgetFilterExpressionNotCostCategoriesOutputWithContext(context.Background())
+}
+
+func (i BudgetFilterExpressionNotCostCategoriesArgs) ToBudgetFilterExpressionNotCostCategoriesOutputWithContext(ctx context.Context) BudgetFilterExpressionNotCostCategoriesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetFilterExpressionNotCostCategoriesOutput)
+}
+
+func (i BudgetFilterExpressionNotCostCategoriesArgs) ToBudgetFilterExpressionNotCostCategoriesPtrOutput() BudgetFilterExpressionNotCostCategoriesPtrOutput {
+	return i.ToBudgetFilterExpressionNotCostCategoriesPtrOutputWithContext(context.Background())
+}
+
+func (i BudgetFilterExpressionNotCostCategoriesArgs) ToBudgetFilterExpressionNotCostCategoriesPtrOutputWithContext(ctx context.Context) BudgetFilterExpressionNotCostCategoriesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetFilterExpressionNotCostCategoriesOutput).ToBudgetFilterExpressionNotCostCategoriesPtrOutputWithContext(ctx)
+}
+
+// BudgetFilterExpressionNotCostCategoriesPtrInput is an input type that accepts BudgetFilterExpressionNotCostCategoriesArgs, BudgetFilterExpressionNotCostCategoriesPtr and BudgetFilterExpressionNotCostCategoriesPtrOutput values.
+// You can construct a concrete instance of `BudgetFilterExpressionNotCostCategoriesPtrInput` via:
+//
+//	        BudgetFilterExpressionNotCostCategoriesArgs{...}
+//
+//	or:
+//
+//	        nil
+type BudgetFilterExpressionNotCostCategoriesPtrInput interface {
+	pulumi.Input
+
+	ToBudgetFilterExpressionNotCostCategoriesPtrOutput() BudgetFilterExpressionNotCostCategoriesPtrOutput
+	ToBudgetFilterExpressionNotCostCategoriesPtrOutputWithContext(context.Context) BudgetFilterExpressionNotCostCategoriesPtrOutput
+}
+
+type budgetFilterExpressionNotCostCategoriesPtrType BudgetFilterExpressionNotCostCategoriesArgs
+
+func BudgetFilterExpressionNotCostCategoriesPtr(v *BudgetFilterExpressionNotCostCategoriesArgs) BudgetFilterExpressionNotCostCategoriesPtrInput {
+	return (*budgetFilterExpressionNotCostCategoriesPtrType)(v)
+}
+
+func (*budgetFilterExpressionNotCostCategoriesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BudgetFilterExpressionNotCostCategories)(nil)).Elem()
+}
+
+func (i *budgetFilterExpressionNotCostCategoriesPtrType) ToBudgetFilterExpressionNotCostCategoriesPtrOutput() BudgetFilterExpressionNotCostCategoriesPtrOutput {
+	return i.ToBudgetFilterExpressionNotCostCategoriesPtrOutputWithContext(context.Background())
+}
+
+func (i *budgetFilterExpressionNotCostCategoriesPtrType) ToBudgetFilterExpressionNotCostCategoriesPtrOutputWithContext(ctx context.Context) BudgetFilterExpressionNotCostCategoriesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetFilterExpressionNotCostCategoriesPtrOutput)
+}
+
+type BudgetFilterExpressionNotCostCategoriesOutput struct{ *pulumi.OutputState }
+
+func (BudgetFilterExpressionNotCostCategoriesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BudgetFilterExpressionNotCostCategories)(nil)).Elem()
+}
+
+func (o BudgetFilterExpressionNotCostCategoriesOutput) ToBudgetFilterExpressionNotCostCategoriesOutput() BudgetFilterExpressionNotCostCategoriesOutput {
+	return o
+}
+
+func (o BudgetFilterExpressionNotCostCategoriesOutput) ToBudgetFilterExpressionNotCostCategoriesOutputWithContext(ctx context.Context) BudgetFilterExpressionNotCostCategoriesOutput {
+	return o
+}
+
+func (o BudgetFilterExpressionNotCostCategoriesOutput) ToBudgetFilterExpressionNotCostCategoriesPtrOutput() BudgetFilterExpressionNotCostCategoriesPtrOutput {
+	return o.ToBudgetFilterExpressionNotCostCategoriesPtrOutputWithContext(context.Background())
+}
+
+func (o BudgetFilterExpressionNotCostCategoriesOutput) ToBudgetFilterExpressionNotCostCategoriesPtrOutputWithContext(ctx context.Context) BudgetFilterExpressionNotCostCategoriesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BudgetFilterExpressionNotCostCategories) *BudgetFilterExpressionNotCostCategories {
+		return &v
+	}).(BudgetFilterExpressionNotCostCategoriesPtrOutput)
+}
+
+// (Optional) The cost category key to filter on.
+func (o BudgetFilterExpressionNotCostCategoriesOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BudgetFilterExpressionNotCostCategories) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+func (o BudgetFilterExpressionNotCostCategoriesOutput) MatchOptions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v BudgetFilterExpressionNotCostCategories) []string { return v.MatchOptions }).(pulumi.StringArrayOutput)
+}
+
+// (Optional) A list of cost category values to match. At least one value is required.
+func (o BudgetFilterExpressionNotCostCategoriesOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v BudgetFilterExpressionNotCostCategories) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type BudgetFilterExpressionNotCostCategoriesPtrOutput struct{ *pulumi.OutputState }
+
+func (BudgetFilterExpressionNotCostCategoriesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BudgetFilterExpressionNotCostCategories)(nil)).Elem()
+}
+
+func (o BudgetFilterExpressionNotCostCategoriesPtrOutput) ToBudgetFilterExpressionNotCostCategoriesPtrOutput() BudgetFilterExpressionNotCostCategoriesPtrOutput {
+	return o
+}
+
+func (o BudgetFilterExpressionNotCostCategoriesPtrOutput) ToBudgetFilterExpressionNotCostCategoriesPtrOutputWithContext(ctx context.Context) BudgetFilterExpressionNotCostCategoriesPtrOutput {
+	return o
+}
+
+func (o BudgetFilterExpressionNotCostCategoriesPtrOutput) Elem() BudgetFilterExpressionNotCostCategoriesOutput {
+	return o.ApplyT(func(v *BudgetFilterExpressionNotCostCategories) BudgetFilterExpressionNotCostCategories {
+		if v != nil {
+			return *v
+		}
+		var ret BudgetFilterExpressionNotCostCategories
+		return ret
+	}).(BudgetFilterExpressionNotCostCategoriesOutput)
+}
+
+// (Optional) The cost category key to filter on.
+func (o BudgetFilterExpressionNotCostCategoriesPtrOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BudgetFilterExpressionNotCostCategories) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Key
+	}).(pulumi.StringPtrOutput)
+}
+
+// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+func (o BudgetFilterExpressionNotCostCategoriesPtrOutput) MatchOptions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *BudgetFilterExpressionNotCostCategories) []string {
+		if v == nil {
+			return nil
+		}
+		return v.MatchOptions
+	}).(pulumi.StringArrayOutput)
+}
+
+// (Optional) A list of cost category values to match. At least one value is required.
+func (o BudgetFilterExpressionNotCostCategoriesPtrOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *BudgetFilterExpressionNotCostCategories) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Values
+	}).(pulumi.StringArrayOutput)
+}
+
+type BudgetFilterExpressionNotDimensions struct {
+	// (Optional) The cost category key to filter on.
+	Key string `pulumi:"key"`
+	// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+	MatchOptions []string `pulumi:"matchOptions"`
+	// (Optional) A list of cost category values to match. At least one value is required.
+	Values []string `pulumi:"values"`
+}
+
+// BudgetFilterExpressionNotDimensionsInput is an input type that accepts BudgetFilterExpressionNotDimensionsArgs and BudgetFilterExpressionNotDimensionsOutput values.
+// You can construct a concrete instance of `BudgetFilterExpressionNotDimensionsInput` via:
+//
+//	BudgetFilterExpressionNotDimensionsArgs{...}
+type BudgetFilterExpressionNotDimensionsInput interface {
+	pulumi.Input
+
+	ToBudgetFilterExpressionNotDimensionsOutput() BudgetFilterExpressionNotDimensionsOutput
+	ToBudgetFilterExpressionNotDimensionsOutputWithContext(context.Context) BudgetFilterExpressionNotDimensionsOutput
+}
+
+type BudgetFilterExpressionNotDimensionsArgs struct {
+	// (Optional) The cost category key to filter on.
+	Key pulumi.StringInput `pulumi:"key"`
+	// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+	MatchOptions pulumi.StringArrayInput `pulumi:"matchOptions"`
+	// (Optional) A list of cost category values to match. At least one value is required.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (BudgetFilterExpressionNotDimensionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BudgetFilterExpressionNotDimensions)(nil)).Elem()
+}
+
+func (i BudgetFilterExpressionNotDimensionsArgs) ToBudgetFilterExpressionNotDimensionsOutput() BudgetFilterExpressionNotDimensionsOutput {
+	return i.ToBudgetFilterExpressionNotDimensionsOutputWithContext(context.Background())
+}
+
+func (i BudgetFilterExpressionNotDimensionsArgs) ToBudgetFilterExpressionNotDimensionsOutputWithContext(ctx context.Context) BudgetFilterExpressionNotDimensionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetFilterExpressionNotDimensionsOutput)
+}
+
+func (i BudgetFilterExpressionNotDimensionsArgs) ToBudgetFilterExpressionNotDimensionsPtrOutput() BudgetFilterExpressionNotDimensionsPtrOutput {
+	return i.ToBudgetFilterExpressionNotDimensionsPtrOutputWithContext(context.Background())
+}
+
+func (i BudgetFilterExpressionNotDimensionsArgs) ToBudgetFilterExpressionNotDimensionsPtrOutputWithContext(ctx context.Context) BudgetFilterExpressionNotDimensionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetFilterExpressionNotDimensionsOutput).ToBudgetFilterExpressionNotDimensionsPtrOutputWithContext(ctx)
+}
+
+// BudgetFilterExpressionNotDimensionsPtrInput is an input type that accepts BudgetFilterExpressionNotDimensionsArgs, BudgetFilterExpressionNotDimensionsPtr and BudgetFilterExpressionNotDimensionsPtrOutput values.
+// You can construct a concrete instance of `BudgetFilterExpressionNotDimensionsPtrInput` via:
+//
+//	        BudgetFilterExpressionNotDimensionsArgs{...}
+//
+//	or:
+//
+//	        nil
+type BudgetFilterExpressionNotDimensionsPtrInput interface {
+	pulumi.Input
+
+	ToBudgetFilterExpressionNotDimensionsPtrOutput() BudgetFilterExpressionNotDimensionsPtrOutput
+	ToBudgetFilterExpressionNotDimensionsPtrOutputWithContext(context.Context) BudgetFilterExpressionNotDimensionsPtrOutput
+}
+
+type budgetFilterExpressionNotDimensionsPtrType BudgetFilterExpressionNotDimensionsArgs
+
+func BudgetFilterExpressionNotDimensionsPtr(v *BudgetFilterExpressionNotDimensionsArgs) BudgetFilterExpressionNotDimensionsPtrInput {
+	return (*budgetFilterExpressionNotDimensionsPtrType)(v)
+}
+
+func (*budgetFilterExpressionNotDimensionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BudgetFilterExpressionNotDimensions)(nil)).Elem()
+}
+
+func (i *budgetFilterExpressionNotDimensionsPtrType) ToBudgetFilterExpressionNotDimensionsPtrOutput() BudgetFilterExpressionNotDimensionsPtrOutput {
+	return i.ToBudgetFilterExpressionNotDimensionsPtrOutputWithContext(context.Background())
+}
+
+func (i *budgetFilterExpressionNotDimensionsPtrType) ToBudgetFilterExpressionNotDimensionsPtrOutputWithContext(ctx context.Context) BudgetFilterExpressionNotDimensionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetFilterExpressionNotDimensionsPtrOutput)
+}
+
+type BudgetFilterExpressionNotDimensionsOutput struct{ *pulumi.OutputState }
+
+func (BudgetFilterExpressionNotDimensionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BudgetFilterExpressionNotDimensions)(nil)).Elem()
+}
+
+func (o BudgetFilterExpressionNotDimensionsOutput) ToBudgetFilterExpressionNotDimensionsOutput() BudgetFilterExpressionNotDimensionsOutput {
+	return o
+}
+
+func (o BudgetFilterExpressionNotDimensionsOutput) ToBudgetFilterExpressionNotDimensionsOutputWithContext(ctx context.Context) BudgetFilterExpressionNotDimensionsOutput {
+	return o
+}
+
+func (o BudgetFilterExpressionNotDimensionsOutput) ToBudgetFilterExpressionNotDimensionsPtrOutput() BudgetFilterExpressionNotDimensionsPtrOutput {
+	return o.ToBudgetFilterExpressionNotDimensionsPtrOutputWithContext(context.Background())
+}
+
+func (o BudgetFilterExpressionNotDimensionsOutput) ToBudgetFilterExpressionNotDimensionsPtrOutputWithContext(ctx context.Context) BudgetFilterExpressionNotDimensionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BudgetFilterExpressionNotDimensions) *BudgetFilterExpressionNotDimensions {
+		return &v
+	}).(BudgetFilterExpressionNotDimensionsPtrOutput)
+}
+
+// (Optional) The cost category key to filter on.
+func (o BudgetFilterExpressionNotDimensionsOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v BudgetFilterExpressionNotDimensions) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+func (o BudgetFilterExpressionNotDimensionsOutput) MatchOptions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v BudgetFilterExpressionNotDimensions) []string { return v.MatchOptions }).(pulumi.StringArrayOutput)
+}
+
+// (Optional) A list of cost category values to match. At least one value is required.
+func (o BudgetFilterExpressionNotDimensionsOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v BudgetFilterExpressionNotDimensions) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type BudgetFilterExpressionNotDimensionsPtrOutput struct{ *pulumi.OutputState }
+
+func (BudgetFilterExpressionNotDimensionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BudgetFilterExpressionNotDimensions)(nil)).Elem()
+}
+
+func (o BudgetFilterExpressionNotDimensionsPtrOutput) ToBudgetFilterExpressionNotDimensionsPtrOutput() BudgetFilterExpressionNotDimensionsPtrOutput {
+	return o
+}
+
+func (o BudgetFilterExpressionNotDimensionsPtrOutput) ToBudgetFilterExpressionNotDimensionsPtrOutputWithContext(ctx context.Context) BudgetFilterExpressionNotDimensionsPtrOutput {
+	return o
+}
+
+func (o BudgetFilterExpressionNotDimensionsPtrOutput) Elem() BudgetFilterExpressionNotDimensionsOutput {
+	return o.ApplyT(func(v *BudgetFilterExpressionNotDimensions) BudgetFilterExpressionNotDimensions {
+		if v != nil {
+			return *v
+		}
+		var ret BudgetFilterExpressionNotDimensions
+		return ret
+	}).(BudgetFilterExpressionNotDimensionsOutput)
+}
+
+// (Optional) The cost category key to filter on.
+func (o BudgetFilterExpressionNotDimensionsPtrOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BudgetFilterExpressionNotDimensions) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Key
+	}).(pulumi.StringPtrOutput)
+}
+
+// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+func (o BudgetFilterExpressionNotDimensionsPtrOutput) MatchOptions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *BudgetFilterExpressionNotDimensions) []string {
+		if v == nil {
+			return nil
+		}
+		return v.MatchOptions
+	}).(pulumi.StringArrayOutput)
+}
+
+// (Optional) A list of cost category values to match. At least one value is required.
+func (o BudgetFilterExpressionNotDimensionsPtrOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *BudgetFilterExpressionNotDimensions) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Values
+	}).(pulumi.StringArrayOutput)
+}
+
+type BudgetFilterExpressionNotNot struct {
+	// (Optional) A Cost Category Filter block.
+	CostCategories *BudgetFilterExpressionNotNotCostCategories `pulumi:"costCategories"`
+	// (Optional) A Dimension Filter block.
+	Dimensions *BudgetFilterExpressionNotNotDimensions `pulumi:"dimensions"`
+	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags *BudgetFilterExpressionNotNotTags `pulumi:"tags"`
+}
+
+// BudgetFilterExpressionNotNotInput is an input type that accepts BudgetFilterExpressionNotNotArgs and BudgetFilterExpressionNotNotOutput values.
+// You can construct a concrete instance of `BudgetFilterExpressionNotNotInput` via:
+//
+//	BudgetFilterExpressionNotNotArgs{...}
+type BudgetFilterExpressionNotNotInput interface {
+	pulumi.Input
+
+	ToBudgetFilterExpressionNotNotOutput() BudgetFilterExpressionNotNotOutput
+	ToBudgetFilterExpressionNotNotOutputWithContext(context.Context) BudgetFilterExpressionNotNotOutput
+}
+
+type BudgetFilterExpressionNotNotArgs struct {
+	// (Optional) A Cost Category Filter block.
+	CostCategories BudgetFilterExpressionNotNotCostCategoriesPtrInput `pulumi:"costCategories"`
+	// (Optional) A Dimension Filter block.
+	Dimensions BudgetFilterExpressionNotNotDimensionsPtrInput `pulumi:"dimensions"`
+	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags BudgetFilterExpressionNotNotTagsPtrInput `pulumi:"tags"`
+}
+
+func (BudgetFilterExpressionNotNotArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BudgetFilterExpressionNotNot)(nil)).Elem()
+}
+
+func (i BudgetFilterExpressionNotNotArgs) ToBudgetFilterExpressionNotNotOutput() BudgetFilterExpressionNotNotOutput {
+	return i.ToBudgetFilterExpressionNotNotOutputWithContext(context.Background())
+}
+
+func (i BudgetFilterExpressionNotNotArgs) ToBudgetFilterExpressionNotNotOutputWithContext(ctx context.Context) BudgetFilterExpressionNotNotOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetFilterExpressionNotNotOutput)
+}
+
+func (i BudgetFilterExpressionNotNotArgs) ToBudgetFilterExpressionNotNotPtrOutput() BudgetFilterExpressionNotNotPtrOutput {
+	return i.ToBudgetFilterExpressionNotNotPtrOutputWithContext(context.Background())
+}
+
+func (i BudgetFilterExpressionNotNotArgs) ToBudgetFilterExpressionNotNotPtrOutputWithContext(ctx context.Context) BudgetFilterExpressionNotNotPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetFilterExpressionNotNotOutput).ToBudgetFilterExpressionNotNotPtrOutputWithContext(ctx)
+}
+
+// BudgetFilterExpressionNotNotPtrInput is an input type that accepts BudgetFilterExpressionNotNotArgs, BudgetFilterExpressionNotNotPtr and BudgetFilterExpressionNotNotPtrOutput values.
+// You can construct a concrete instance of `BudgetFilterExpressionNotNotPtrInput` via:
+//
+//	        BudgetFilterExpressionNotNotArgs{...}
+//
+//	or:
+//
+//	        nil
+type BudgetFilterExpressionNotNotPtrInput interface {
+	pulumi.Input
+
+	ToBudgetFilterExpressionNotNotPtrOutput() BudgetFilterExpressionNotNotPtrOutput
+	ToBudgetFilterExpressionNotNotPtrOutputWithContext(context.Context) BudgetFilterExpressionNotNotPtrOutput
+}
+
+type budgetFilterExpressionNotNotPtrType BudgetFilterExpressionNotNotArgs
+
+func BudgetFilterExpressionNotNotPtr(v *BudgetFilterExpressionNotNotArgs) BudgetFilterExpressionNotNotPtrInput {
+	return (*budgetFilterExpressionNotNotPtrType)(v)
+}
+
+func (*budgetFilterExpressionNotNotPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BudgetFilterExpressionNotNot)(nil)).Elem()
+}
+
+func (i *budgetFilterExpressionNotNotPtrType) ToBudgetFilterExpressionNotNotPtrOutput() BudgetFilterExpressionNotNotPtrOutput {
+	return i.ToBudgetFilterExpressionNotNotPtrOutputWithContext(context.Background())
+}
+
+func (i *budgetFilterExpressionNotNotPtrType) ToBudgetFilterExpressionNotNotPtrOutputWithContext(ctx context.Context) BudgetFilterExpressionNotNotPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetFilterExpressionNotNotPtrOutput)
+}
+
+type BudgetFilterExpressionNotNotOutput struct{ *pulumi.OutputState }
+
+func (BudgetFilterExpressionNotNotOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BudgetFilterExpressionNotNot)(nil)).Elem()
+}
+
+func (o BudgetFilterExpressionNotNotOutput) ToBudgetFilterExpressionNotNotOutput() BudgetFilterExpressionNotNotOutput {
+	return o
+}
+
+func (o BudgetFilterExpressionNotNotOutput) ToBudgetFilterExpressionNotNotOutputWithContext(ctx context.Context) BudgetFilterExpressionNotNotOutput {
+	return o
+}
+
+func (o BudgetFilterExpressionNotNotOutput) ToBudgetFilterExpressionNotNotPtrOutput() BudgetFilterExpressionNotNotPtrOutput {
+	return o.ToBudgetFilterExpressionNotNotPtrOutputWithContext(context.Background())
+}
+
+func (o BudgetFilterExpressionNotNotOutput) ToBudgetFilterExpressionNotNotPtrOutputWithContext(ctx context.Context) BudgetFilterExpressionNotNotPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BudgetFilterExpressionNotNot) *BudgetFilterExpressionNotNot {
+		return &v
+	}).(BudgetFilterExpressionNotNotPtrOutput)
+}
+
+// (Optional) A Cost Category Filter block.
+func (o BudgetFilterExpressionNotNotOutput) CostCategories() BudgetFilterExpressionNotNotCostCategoriesPtrOutput {
+	return o.ApplyT(func(v BudgetFilterExpressionNotNot) *BudgetFilterExpressionNotNotCostCategories {
+		return v.CostCategories
+	}).(BudgetFilterExpressionNotNotCostCategoriesPtrOutput)
+}
+
+// (Optional) A Dimension Filter block.
+func (o BudgetFilterExpressionNotNotOutput) Dimensions() BudgetFilterExpressionNotNotDimensionsPtrOutput {
+	return o.ApplyT(func(v BudgetFilterExpressionNotNot) *BudgetFilterExpressionNotNotDimensions { return v.Dimensions }).(BudgetFilterExpressionNotNotDimensionsPtrOutput)
+}
+
+// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+func (o BudgetFilterExpressionNotNotOutput) Tags() BudgetFilterExpressionNotNotTagsPtrOutput {
+	return o.ApplyT(func(v BudgetFilterExpressionNotNot) *BudgetFilterExpressionNotNotTags { return v.Tags }).(BudgetFilterExpressionNotNotTagsPtrOutput)
+}
+
+type BudgetFilterExpressionNotNotPtrOutput struct{ *pulumi.OutputState }
+
+func (BudgetFilterExpressionNotNotPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BudgetFilterExpressionNotNot)(nil)).Elem()
+}
+
+func (o BudgetFilterExpressionNotNotPtrOutput) ToBudgetFilterExpressionNotNotPtrOutput() BudgetFilterExpressionNotNotPtrOutput {
+	return o
+}
+
+func (o BudgetFilterExpressionNotNotPtrOutput) ToBudgetFilterExpressionNotNotPtrOutputWithContext(ctx context.Context) BudgetFilterExpressionNotNotPtrOutput {
+	return o
+}
+
+func (o BudgetFilterExpressionNotNotPtrOutput) Elem() BudgetFilterExpressionNotNotOutput {
+	return o.ApplyT(func(v *BudgetFilterExpressionNotNot) BudgetFilterExpressionNotNot {
+		if v != nil {
+			return *v
+		}
+		var ret BudgetFilterExpressionNotNot
+		return ret
+	}).(BudgetFilterExpressionNotNotOutput)
+}
+
+// (Optional) A Cost Category Filter block.
+func (o BudgetFilterExpressionNotNotPtrOutput) CostCategories() BudgetFilterExpressionNotNotCostCategoriesPtrOutput {
+	return o.ApplyT(func(v *BudgetFilterExpressionNotNot) *BudgetFilterExpressionNotNotCostCategories {
+		if v == nil {
+			return nil
+		}
+		return v.CostCategories
+	}).(BudgetFilterExpressionNotNotCostCategoriesPtrOutput)
+}
+
+// (Optional) A Dimension Filter block.
+func (o BudgetFilterExpressionNotNotPtrOutput) Dimensions() BudgetFilterExpressionNotNotDimensionsPtrOutput {
+	return o.ApplyT(func(v *BudgetFilterExpressionNotNot) *BudgetFilterExpressionNotNotDimensions {
+		if v == nil {
+			return nil
+		}
+		return v.Dimensions
+	}).(BudgetFilterExpressionNotNotDimensionsPtrOutput)
+}
+
+// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+func (o BudgetFilterExpressionNotNotPtrOutput) Tags() BudgetFilterExpressionNotNotTagsPtrOutput {
+	return o.ApplyT(func(v *BudgetFilterExpressionNotNot) *BudgetFilterExpressionNotNotTags {
+		if v == nil {
+			return nil
+		}
+		return v.Tags
+	}).(BudgetFilterExpressionNotNotTagsPtrOutput)
+}
+
+type BudgetFilterExpressionNotNotCostCategories struct {
+	// (Optional) The cost category key to filter on.
+	Key *string `pulumi:"key"`
+	// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+	MatchOptions []string `pulumi:"matchOptions"`
+	// (Optional) A list of cost category values to match. At least one value is required.
+	Values []string `pulumi:"values"`
+}
+
+// BudgetFilterExpressionNotNotCostCategoriesInput is an input type that accepts BudgetFilterExpressionNotNotCostCategoriesArgs and BudgetFilterExpressionNotNotCostCategoriesOutput values.
+// You can construct a concrete instance of `BudgetFilterExpressionNotNotCostCategoriesInput` via:
+//
+//	BudgetFilterExpressionNotNotCostCategoriesArgs{...}
+type BudgetFilterExpressionNotNotCostCategoriesInput interface {
+	pulumi.Input
+
+	ToBudgetFilterExpressionNotNotCostCategoriesOutput() BudgetFilterExpressionNotNotCostCategoriesOutput
+	ToBudgetFilterExpressionNotNotCostCategoriesOutputWithContext(context.Context) BudgetFilterExpressionNotNotCostCategoriesOutput
+}
+
+type BudgetFilterExpressionNotNotCostCategoriesArgs struct {
+	// (Optional) The cost category key to filter on.
+	Key pulumi.StringPtrInput `pulumi:"key"`
+	// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+	MatchOptions pulumi.StringArrayInput `pulumi:"matchOptions"`
+	// (Optional) A list of cost category values to match. At least one value is required.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (BudgetFilterExpressionNotNotCostCategoriesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BudgetFilterExpressionNotNotCostCategories)(nil)).Elem()
+}
+
+func (i BudgetFilterExpressionNotNotCostCategoriesArgs) ToBudgetFilterExpressionNotNotCostCategoriesOutput() BudgetFilterExpressionNotNotCostCategoriesOutput {
+	return i.ToBudgetFilterExpressionNotNotCostCategoriesOutputWithContext(context.Background())
+}
+
+func (i BudgetFilterExpressionNotNotCostCategoriesArgs) ToBudgetFilterExpressionNotNotCostCategoriesOutputWithContext(ctx context.Context) BudgetFilterExpressionNotNotCostCategoriesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetFilterExpressionNotNotCostCategoriesOutput)
+}
+
+func (i BudgetFilterExpressionNotNotCostCategoriesArgs) ToBudgetFilterExpressionNotNotCostCategoriesPtrOutput() BudgetFilterExpressionNotNotCostCategoriesPtrOutput {
+	return i.ToBudgetFilterExpressionNotNotCostCategoriesPtrOutputWithContext(context.Background())
+}
+
+func (i BudgetFilterExpressionNotNotCostCategoriesArgs) ToBudgetFilterExpressionNotNotCostCategoriesPtrOutputWithContext(ctx context.Context) BudgetFilterExpressionNotNotCostCategoriesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetFilterExpressionNotNotCostCategoriesOutput).ToBudgetFilterExpressionNotNotCostCategoriesPtrOutputWithContext(ctx)
+}
+
+// BudgetFilterExpressionNotNotCostCategoriesPtrInput is an input type that accepts BudgetFilterExpressionNotNotCostCategoriesArgs, BudgetFilterExpressionNotNotCostCategoriesPtr and BudgetFilterExpressionNotNotCostCategoriesPtrOutput values.
+// You can construct a concrete instance of `BudgetFilterExpressionNotNotCostCategoriesPtrInput` via:
+//
+//	        BudgetFilterExpressionNotNotCostCategoriesArgs{...}
+//
+//	or:
+//
+//	        nil
+type BudgetFilterExpressionNotNotCostCategoriesPtrInput interface {
+	pulumi.Input
+
+	ToBudgetFilterExpressionNotNotCostCategoriesPtrOutput() BudgetFilterExpressionNotNotCostCategoriesPtrOutput
+	ToBudgetFilterExpressionNotNotCostCategoriesPtrOutputWithContext(context.Context) BudgetFilterExpressionNotNotCostCategoriesPtrOutput
+}
+
+type budgetFilterExpressionNotNotCostCategoriesPtrType BudgetFilterExpressionNotNotCostCategoriesArgs
+
+func BudgetFilterExpressionNotNotCostCategoriesPtr(v *BudgetFilterExpressionNotNotCostCategoriesArgs) BudgetFilterExpressionNotNotCostCategoriesPtrInput {
+	return (*budgetFilterExpressionNotNotCostCategoriesPtrType)(v)
+}
+
+func (*budgetFilterExpressionNotNotCostCategoriesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BudgetFilterExpressionNotNotCostCategories)(nil)).Elem()
+}
+
+func (i *budgetFilterExpressionNotNotCostCategoriesPtrType) ToBudgetFilterExpressionNotNotCostCategoriesPtrOutput() BudgetFilterExpressionNotNotCostCategoriesPtrOutput {
+	return i.ToBudgetFilterExpressionNotNotCostCategoriesPtrOutputWithContext(context.Background())
+}
+
+func (i *budgetFilterExpressionNotNotCostCategoriesPtrType) ToBudgetFilterExpressionNotNotCostCategoriesPtrOutputWithContext(ctx context.Context) BudgetFilterExpressionNotNotCostCategoriesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetFilterExpressionNotNotCostCategoriesPtrOutput)
+}
+
+type BudgetFilterExpressionNotNotCostCategoriesOutput struct{ *pulumi.OutputState }
+
+func (BudgetFilterExpressionNotNotCostCategoriesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BudgetFilterExpressionNotNotCostCategories)(nil)).Elem()
+}
+
+func (o BudgetFilterExpressionNotNotCostCategoriesOutput) ToBudgetFilterExpressionNotNotCostCategoriesOutput() BudgetFilterExpressionNotNotCostCategoriesOutput {
+	return o
+}
+
+func (o BudgetFilterExpressionNotNotCostCategoriesOutput) ToBudgetFilterExpressionNotNotCostCategoriesOutputWithContext(ctx context.Context) BudgetFilterExpressionNotNotCostCategoriesOutput {
+	return o
+}
+
+func (o BudgetFilterExpressionNotNotCostCategoriesOutput) ToBudgetFilterExpressionNotNotCostCategoriesPtrOutput() BudgetFilterExpressionNotNotCostCategoriesPtrOutput {
+	return o.ToBudgetFilterExpressionNotNotCostCategoriesPtrOutputWithContext(context.Background())
+}
+
+func (o BudgetFilterExpressionNotNotCostCategoriesOutput) ToBudgetFilterExpressionNotNotCostCategoriesPtrOutputWithContext(ctx context.Context) BudgetFilterExpressionNotNotCostCategoriesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BudgetFilterExpressionNotNotCostCategories) *BudgetFilterExpressionNotNotCostCategories {
+		return &v
+	}).(BudgetFilterExpressionNotNotCostCategoriesPtrOutput)
+}
+
+// (Optional) The cost category key to filter on.
+func (o BudgetFilterExpressionNotNotCostCategoriesOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BudgetFilterExpressionNotNotCostCategories) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+func (o BudgetFilterExpressionNotNotCostCategoriesOutput) MatchOptions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v BudgetFilterExpressionNotNotCostCategories) []string { return v.MatchOptions }).(pulumi.StringArrayOutput)
+}
+
+// (Optional) A list of cost category values to match. At least one value is required.
+func (o BudgetFilterExpressionNotNotCostCategoriesOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v BudgetFilterExpressionNotNotCostCategories) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type BudgetFilterExpressionNotNotCostCategoriesPtrOutput struct{ *pulumi.OutputState }
+
+func (BudgetFilterExpressionNotNotCostCategoriesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BudgetFilterExpressionNotNotCostCategories)(nil)).Elem()
+}
+
+func (o BudgetFilterExpressionNotNotCostCategoriesPtrOutput) ToBudgetFilterExpressionNotNotCostCategoriesPtrOutput() BudgetFilterExpressionNotNotCostCategoriesPtrOutput {
+	return o
+}
+
+func (o BudgetFilterExpressionNotNotCostCategoriesPtrOutput) ToBudgetFilterExpressionNotNotCostCategoriesPtrOutputWithContext(ctx context.Context) BudgetFilterExpressionNotNotCostCategoriesPtrOutput {
+	return o
+}
+
+func (o BudgetFilterExpressionNotNotCostCategoriesPtrOutput) Elem() BudgetFilterExpressionNotNotCostCategoriesOutput {
+	return o.ApplyT(func(v *BudgetFilterExpressionNotNotCostCategories) BudgetFilterExpressionNotNotCostCategories {
+		if v != nil {
+			return *v
+		}
+		var ret BudgetFilterExpressionNotNotCostCategories
+		return ret
+	}).(BudgetFilterExpressionNotNotCostCategoriesOutput)
+}
+
+// (Optional) The cost category key to filter on.
+func (o BudgetFilterExpressionNotNotCostCategoriesPtrOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BudgetFilterExpressionNotNotCostCategories) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Key
+	}).(pulumi.StringPtrOutput)
+}
+
+// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+func (o BudgetFilterExpressionNotNotCostCategoriesPtrOutput) MatchOptions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *BudgetFilterExpressionNotNotCostCategories) []string {
+		if v == nil {
+			return nil
+		}
+		return v.MatchOptions
+	}).(pulumi.StringArrayOutput)
+}
+
+// (Optional) A list of cost category values to match. At least one value is required.
+func (o BudgetFilterExpressionNotNotCostCategoriesPtrOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *BudgetFilterExpressionNotNotCostCategories) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Values
+	}).(pulumi.StringArrayOutput)
+}
+
+type BudgetFilterExpressionNotNotDimensions struct {
+	// (Optional) The cost category key to filter on.
+	Key string `pulumi:"key"`
+	// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+	MatchOptions []string `pulumi:"matchOptions"`
+	// (Optional) A list of cost category values to match. At least one value is required.
+	Values []string `pulumi:"values"`
+}
+
+// BudgetFilterExpressionNotNotDimensionsInput is an input type that accepts BudgetFilterExpressionNotNotDimensionsArgs and BudgetFilterExpressionNotNotDimensionsOutput values.
+// You can construct a concrete instance of `BudgetFilterExpressionNotNotDimensionsInput` via:
+//
+//	BudgetFilterExpressionNotNotDimensionsArgs{...}
+type BudgetFilterExpressionNotNotDimensionsInput interface {
+	pulumi.Input
+
+	ToBudgetFilterExpressionNotNotDimensionsOutput() BudgetFilterExpressionNotNotDimensionsOutput
+	ToBudgetFilterExpressionNotNotDimensionsOutputWithContext(context.Context) BudgetFilterExpressionNotNotDimensionsOutput
+}
+
+type BudgetFilterExpressionNotNotDimensionsArgs struct {
+	// (Optional) The cost category key to filter on.
+	Key pulumi.StringInput `pulumi:"key"`
+	// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+	MatchOptions pulumi.StringArrayInput `pulumi:"matchOptions"`
+	// (Optional) A list of cost category values to match. At least one value is required.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (BudgetFilterExpressionNotNotDimensionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BudgetFilterExpressionNotNotDimensions)(nil)).Elem()
+}
+
+func (i BudgetFilterExpressionNotNotDimensionsArgs) ToBudgetFilterExpressionNotNotDimensionsOutput() BudgetFilterExpressionNotNotDimensionsOutput {
+	return i.ToBudgetFilterExpressionNotNotDimensionsOutputWithContext(context.Background())
+}
+
+func (i BudgetFilterExpressionNotNotDimensionsArgs) ToBudgetFilterExpressionNotNotDimensionsOutputWithContext(ctx context.Context) BudgetFilterExpressionNotNotDimensionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetFilterExpressionNotNotDimensionsOutput)
+}
+
+func (i BudgetFilterExpressionNotNotDimensionsArgs) ToBudgetFilterExpressionNotNotDimensionsPtrOutput() BudgetFilterExpressionNotNotDimensionsPtrOutput {
+	return i.ToBudgetFilterExpressionNotNotDimensionsPtrOutputWithContext(context.Background())
+}
+
+func (i BudgetFilterExpressionNotNotDimensionsArgs) ToBudgetFilterExpressionNotNotDimensionsPtrOutputWithContext(ctx context.Context) BudgetFilterExpressionNotNotDimensionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetFilterExpressionNotNotDimensionsOutput).ToBudgetFilterExpressionNotNotDimensionsPtrOutputWithContext(ctx)
+}
+
+// BudgetFilterExpressionNotNotDimensionsPtrInput is an input type that accepts BudgetFilterExpressionNotNotDimensionsArgs, BudgetFilterExpressionNotNotDimensionsPtr and BudgetFilterExpressionNotNotDimensionsPtrOutput values.
+// You can construct a concrete instance of `BudgetFilterExpressionNotNotDimensionsPtrInput` via:
+//
+//	        BudgetFilterExpressionNotNotDimensionsArgs{...}
+//
+//	or:
+//
+//	        nil
+type BudgetFilterExpressionNotNotDimensionsPtrInput interface {
+	pulumi.Input
+
+	ToBudgetFilterExpressionNotNotDimensionsPtrOutput() BudgetFilterExpressionNotNotDimensionsPtrOutput
+	ToBudgetFilterExpressionNotNotDimensionsPtrOutputWithContext(context.Context) BudgetFilterExpressionNotNotDimensionsPtrOutput
+}
+
+type budgetFilterExpressionNotNotDimensionsPtrType BudgetFilterExpressionNotNotDimensionsArgs
+
+func BudgetFilterExpressionNotNotDimensionsPtr(v *BudgetFilterExpressionNotNotDimensionsArgs) BudgetFilterExpressionNotNotDimensionsPtrInput {
+	return (*budgetFilterExpressionNotNotDimensionsPtrType)(v)
+}
+
+func (*budgetFilterExpressionNotNotDimensionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BudgetFilterExpressionNotNotDimensions)(nil)).Elem()
+}
+
+func (i *budgetFilterExpressionNotNotDimensionsPtrType) ToBudgetFilterExpressionNotNotDimensionsPtrOutput() BudgetFilterExpressionNotNotDimensionsPtrOutput {
+	return i.ToBudgetFilterExpressionNotNotDimensionsPtrOutputWithContext(context.Background())
+}
+
+func (i *budgetFilterExpressionNotNotDimensionsPtrType) ToBudgetFilterExpressionNotNotDimensionsPtrOutputWithContext(ctx context.Context) BudgetFilterExpressionNotNotDimensionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetFilterExpressionNotNotDimensionsPtrOutput)
+}
+
+type BudgetFilterExpressionNotNotDimensionsOutput struct{ *pulumi.OutputState }
+
+func (BudgetFilterExpressionNotNotDimensionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BudgetFilterExpressionNotNotDimensions)(nil)).Elem()
+}
+
+func (o BudgetFilterExpressionNotNotDimensionsOutput) ToBudgetFilterExpressionNotNotDimensionsOutput() BudgetFilterExpressionNotNotDimensionsOutput {
+	return o
+}
+
+func (o BudgetFilterExpressionNotNotDimensionsOutput) ToBudgetFilterExpressionNotNotDimensionsOutputWithContext(ctx context.Context) BudgetFilterExpressionNotNotDimensionsOutput {
+	return o
+}
+
+func (o BudgetFilterExpressionNotNotDimensionsOutput) ToBudgetFilterExpressionNotNotDimensionsPtrOutput() BudgetFilterExpressionNotNotDimensionsPtrOutput {
+	return o.ToBudgetFilterExpressionNotNotDimensionsPtrOutputWithContext(context.Background())
+}
+
+func (o BudgetFilterExpressionNotNotDimensionsOutput) ToBudgetFilterExpressionNotNotDimensionsPtrOutputWithContext(ctx context.Context) BudgetFilterExpressionNotNotDimensionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BudgetFilterExpressionNotNotDimensions) *BudgetFilterExpressionNotNotDimensions {
+		return &v
+	}).(BudgetFilterExpressionNotNotDimensionsPtrOutput)
+}
+
+// (Optional) The cost category key to filter on.
+func (o BudgetFilterExpressionNotNotDimensionsOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v BudgetFilterExpressionNotNotDimensions) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+func (o BudgetFilterExpressionNotNotDimensionsOutput) MatchOptions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v BudgetFilterExpressionNotNotDimensions) []string { return v.MatchOptions }).(pulumi.StringArrayOutput)
+}
+
+// (Optional) A list of cost category values to match. At least one value is required.
+func (o BudgetFilterExpressionNotNotDimensionsOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v BudgetFilterExpressionNotNotDimensions) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type BudgetFilterExpressionNotNotDimensionsPtrOutput struct{ *pulumi.OutputState }
+
+func (BudgetFilterExpressionNotNotDimensionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BudgetFilterExpressionNotNotDimensions)(nil)).Elem()
+}
+
+func (o BudgetFilterExpressionNotNotDimensionsPtrOutput) ToBudgetFilterExpressionNotNotDimensionsPtrOutput() BudgetFilterExpressionNotNotDimensionsPtrOutput {
+	return o
+}
+
+func (o BudgetFilterExpressionNotNotDimensionsPtrOutput) ToBudgetFilterExpressionNotNotDimensionsPtrOutputWithContext(ctx context.Context) BudgetFilterExpressionNotNotDimensionsPtrOutput {
+	return o
+}
+
+func (o BudgetFilterExpressionNotNotDimensionsPtrOutput) Elem() BudgetFilterExpressionNotNotDimensionsOutput {
+	return o.ApplyT(func(v *BudgetFilterExpressionNotNotDimensions) BudgetFilterExpressionNotNotDimensions {
+		if v != nil {
+			return *v
+		}
+		var ret BudgetFilterExpressionNotNotDimensions
+		return ret
+	}).(BudgetFilterExpressionNotNotDimensionsOutput)
+}
+
+// (Optional) The cost category key to filter on.
+func (o BudgetFilterExpressionNotNotDimensionsPtrOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BudgetFilterExpressionNotNotDimensions) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Key
+	}).(pulumi.StringPtrOutput)
+}
+
+// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+func (o BudgetFilterExpressionNotNotDimensionsPtrOutput) MatchOptions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *BudgetFilterExpressionNotNotDimensions) []string {
+		if v == nil {
+			return nil
+		}
+		return v.MatchOptions
+	}).(pulumi.StringArrayOutput)
+}
+
+// (Optional) A list of cost category values to match. At least one value is required.
+func (o BudgetFilterExpressionNotNotDimensionsPtrOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *BudgetFilterExpressionNotNotDimensions) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Values
+	}).(pulumi.StringArrayOutput)
+}
+
+type BudgetFilterExpressionNotNotTags struct {
+	// (Optional) The cost category key to filter on.
+	Key *string `pulumi:"key"`
+	// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+	MatchOptions []string `pulumi:"matchOptions"`
+	// (Optional) A list of cost category values to match. At least one value is required.
+	Values []string `pulumi:"values"`
+}
+
+// BudgetFilterExpressionNotNotTagsInput is an input type that accepts BudgetFilterExpressionNotNotTagsArgs and BudgetFilterExpressionNotNotTagsOutput values.
+// You can construct a concrete instance of `BudgetFilterExpressionNotNotTagsInput` via:
+//
+//	BudgetFilterExpressionNotNotTagsArgs{...}
+type BudgetFilterExpressionNotNotTagsInput interface {
+	pulumi.Input
+
+	ToBudgetFilterExpressionNotNotTagsOutput() BudgetFilterExpressionNotNotTagsOutput
+	ToBudgetFilterExpressionNotNotTagsOutputWithContext(context.Context) BudgetFilterExpressionNotNotTagsOutput
+}
+
+type BudgetFilterExpressionNotNotTagsArgs struct {
+	// (Optional) The cost category key to filter on.
+	Key pulumi.StringPtrInput `pulumi:"key"`
+	// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+	MatchOptions pulumi.StringArrayInput `pulumi:"matchOptions"`
+	// (Optional) A list of cost category values to match. At least one value is required.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (BudgetFilterExpressionNotNotTagsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BudgetFilterExpressionNotNotTags)(nil)).Elem()
+}
+
+func (i BudgetFilterExpressionNotNotTagsArgs) ToBudgetFilterExpressionNotNotTagsOutput() BudgetFilterExpressionNotNotTagsOutput {
+	return i.ToBudgetFilterExpressionNotNotTagsOutputWithContext(context.Background())
+}
+
+func (i BudgetFilterExpressionNotNotTagsArgs) ToBudgetFilterExpressionNotNotTagsOutputWithContext(ctx context.Context) BudgetFilterExpressionNotNotTagsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetFilterExpressionNotNotTagsOutput)
+}
+
+func (i BudgetFilterExpressionNotNotTagsArgs) ToBudgetFilterExpressionNotNotTagsPtrOutput() BudgetFilterExpressionNotNotTagsPtrOutput {
+	return i.ToBudgetFilterExpressionNotNotTagsPtrOutputWithContext(context.Background())
+}
+
+func (i BudgetFilterExpressionNotNotTagsArgs) ToBudgetFilterExpressionNotNotTagsPtrOutputWithContext(ctx context.Context) BudgetFilterExpressionNotNotTagsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetFilterExpressionNotNotTagsOutput).ToBudgetFilterExpressionNotNotTagsPtrOutputWithContext(ctx)
+}
+
+// BudgetFilterExpressionNotNotTagsPtrInput is an input type that accepts BudgetFilterExpressionNotNotTagsArgs, BudgetFilterExpressionNotNotTagsPtr and BudgetFilterExpressionNotNotTagsPtrOutput values.
+// You can construct a concrete instance of `BudgetFilterExpressionNotNotTagsPtrInput` via:
+//
+//	        BudgetFilterExpressionNotNotTagsArgs{...}
+//
+//	or:
+//
+//	        nil
+type BudgetFilterExpressionNotNotTagsPtrInput interface {
+	pulumi.Input
+
+	ToBudgetFilterExpressionNotNotTagsPtrOutput() BudgetFilterExpressionNotNotTagsPtrOutput
+	ToBudgetFilterExpressionNotNotTagsPtrOutputWithContext(context.Context) BudgetFilterExpressionNotNotTagsPtrOutput
+}
+
+type budgetFilterExpressionNotNotTagsPtrType BudgetFilterExpressionNotNotTagsArgs
+
+func BudgetFilterExpressionNotNotTagsPtr(v *BudgetFilterExpressionNotNotTagsArgs) BudgetFilterExpressionNotNotTagsPtrInput {
+	return (*budgetFilterExpressionNotNotTagsPtrType)(v)
+}
+
+func (*budgetFilterExpressionNotNotTagsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BudgetFilterExpressionNotNotTags)(nil)).Elem()
+}
+
+func (i *budgetFilterExpressionNotNotTagsPtrType) ToBudgetFilterExpressionNotNotTagsPtrOutput() BudgetFilterExpressionNotNotTagsPtrOutput {
+	return i.ToBudgetFilterExpressionNotNotTagsPtrOutputWithContext(context.Background())
+}
+
+func (i *budgetFilterExpressionNotNotTagsPtrType) ToBudgetFilterExpressionNotNotTagsPtrOutputWithContext(ctx context.Context) BudgetFilterExpressionNotNotTagsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetFilterExpressionNotNotTagsPtrOutput)
+}
+
+type BudgetFilterExpressionNotNotTagsOutput struct{ *pulumi.OutputState }
+
+func (BudgetFilterExpressionNotNotTagsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BudgetFilterExpressionNotNotTags)(nil)).Elem()
+}
+
+func (o BudgetFilterExpressionNotNotTagsOutput) ToBudgetFilterExpressionNotNotTagsOutput() BudgetFilterExpressionNotNotTagsOutput {
+	return o
+}
+
+func (o BudgetFilterExpressionNotNotTagsOutput) ToBudgetFilterExpressionNotNotTagsOutputWithContext(ctx context.Context) BudgetFilterExpressionNotNotTagsOutput {
+	return o
+}
+
+func (o BudgetFilterExpressionNotNotTagsOutput) ToBudgetFilterExpressionNotNotTagsPtrOutput() BudgetFilterExpressionNotNotTagsPtrOutput {
+	return o.ToBudgetFilterExpressionNotNotTagsPtrOutputWithContext(context.Background())
+}
+
+func (o BudgetFilterExpressionNotNotTagsOutput) ToBudgetFilterExpressionNotNotTagsPtrOutputWithContext(ctx context.Context) BudgetFilterExpressionNotNotTagsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BudgetFilterExpressionNotNotTags) *BudgetFilterExpressionNotNotTags {
+		return &v
+	}).(BudgetFilterExpressionNotNotTagsPtrOutput)
+}
+
+// (Optional) The cost category key to filter on.
+func (o BudgetFilterExpressionNotNotTagsOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BudgetFilterExpressionNotNotTags) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+func (o BudgetFilterExpressionNotNotTagsOutput) MatchOptions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v BudgetFilterExpressionNotNotTags) []string { return v.MatchOptions }).(pulumi.StringArrayOutput)
+}
+
+// (Optional) A list of cost category values to match. At least one value is required.
+func (o BudgetFilterExpressionNotNotTagsOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v BudgetFilterExpressionNotNotTags) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type BudgetFilterExpressionNotNotTagsPtrOutput struct{ *pulumi.OutputState }
+
+func (BudgetFilterExpressionNotNotTagsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BudgetFilterExpressionNotNotTags)(nil)).Elem()
+}
+
+func (o BudgetFilterExpressionNotNotTagsPtrOutput) ToBudgetFilterExpressionNotNotTagsPtrOutput() BudgetFilterExpressionNotNotTagsPtrOutput {
+	return o
+}
+
+func (o BudgetFilterExpressionNotNotTagsPtrOutput) ToBudgetFilterExpressionNotNotTagsPtrOutputWithContext(ctx context.Context) BudgetFilterExpressionNotNotTagsPtrOutput {
+	return o
+}
+
+func (o BudgetFilterExpressionNotNotTagsPtrOutput) Elem() BudgetFilterExpressionNotNotTagsOutput {
+	return o.ApplyT(func(v *BudgetFilterExpressionNotNotTags) BudgetFilterExpressionNotNotTags {
+		if v != nil {
+			return *v
+		}
+		var ret BudgetFilterExpressionNotNotTags
+		return ret
+	}).(BudgetFilterExpressionNotNotTagsOutput)
+}
+
+// (Optional) The cost category key to filter on.
+func (o BudgetFilterExpressionNotNotTagsPtrOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BudgetFilterExpressionNotNotTags) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Key
+	}).(pulumi.StringPtrOutput)
+}
+
+// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+func (o BudgetFilterExpressionNotNotTagsPtrOutput) MatchOptions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *BudgetFilterExpressionNotNotTags) []string {
+		if v == nil {
+			return nil
+		}
+		return v.MatchOptions
+	}).(pulumi.StringArrayOutput)
+}
+
+// (Optional) A list of cost category values to match. At least one value is required.
+func (o BudgetFilterExpressionNotNotTagsPtrOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *BudgetFilterExpressionNotNotTags) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Values
+	}).(pulumi.StringArrayOutput)
+}
+
+type BudgetFilterExpressionNotOr struct {
+	// (Optional) A Cost Category Filter block.
+	CostCategories *BudgetFilterExpressionNotOrCostCategories `pulumi:"costCategories"`
+	// (Optional) A Dimension Filter block.
+	Dimensions *BudgetFilterExpressionNotOrDimensions `pulumi:"dimensions"`
+	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags *BudgetFilterExpressionNotOrTags `pulumi:"tags"`
+}
+
+// BudgetFilterExpressionNotOrInput is an input type that accepts BudgetFilterExpressionNotOrArgs and BudgetFilterExpressionNotOrOutput values.
+// You can construct a concrete instance of `BudgetFilterExpressionNotOrInput` via:
+//
+//	BudgetFilterExpressionNotOrArgs{...}
+type BudgetFilterExpressionNotOrInput interface {
+	pulumi.Input
+
+	ToBudgetFilterExpressionNotOrOutput() BudgetFilterExpressionNotOrOutput
+	ToBudgetFilterExpressionNotOrOutputWithContext(context.Context) BudgetFilterExpressionNotOrOutput
+}
+
+type BudgetFilterExpressionNotOrArgs struct {
+	// (Optional) A Cost Category Filter block.
+	CostCategories BudgetFilterExpressionNotOrCostCategoriesPtrInput `pulumi:"costCategories"`
+	// (Optional) A Dimension Filter block.
+	Dimensions BudgetFilterExpressionNotOrDimensionsPtrInput `pulumi:"dimensions"`
+	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags BudgetFilterExpressionNotOrTagsPtrInput `pulumi:"tags"`
+}
+
+func (BudgetFilterExpressionNotOrArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BudgetFilterExpressionNotOr)(nil)).Elem()
+}
+
+func (i BudgetFilterExpressionNotOrArgs) ToBudgetFilterExpressionNotOrOutput() BudgetFilterExpressionNotOrOutput {
+	return i.ToBudgetFilterExpressionNotOrOutputWithContext(context.Background())
+}
+
+func (i BudgetFilterExpressionNotOrArgs) ToBudgetFilterExpressionNotOrOutputWithContext(ctx context.Context) BudgetFilterExpressionNotOrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetFilterExpressionNotOrOutput)
+}
+
+// BudgetFilterExpressionNotOrArrayInput is an input type that accepts BudgetFilterExpressionNotOrArray and BudgetFilterExpressionNotOrArrayOutput values.
+// You can construct a concrete instance of `BudgetFilterExpressionNotOrArrayInput` via:
+//
+//	BudgetFilterExpressionNotOrArray{ BudgetFilterExpressionNotOrArgs{...} }
+type BudgetFilterExpressionNotOrArrayInput interface {
+	pulumi.Input
+
+	ToBudgetFilterExpressionNotOrArrayOutput() BudgetFilterExpressionNotOrArrayOutput
+	ToBudgetFilterExpressionNotOrArrayOutputWithContext(context.Context) BudgetFilterExpressionNotOrArrayOutput
+}
+
+type BudgetFilterExpressionNotOrArray []BudgetFilterExpressionNotOrInput
+
+func (BudgetFilterExpressionNotOrArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BudgetFilterExpressionNotOr)(nil)).Elem()
+}
+
+func (i BudgetFilterExpressionNotOrArray) ToBudgetFilterExpressionNotOrArrayOutput() BudgetFilterExpressionNotOrArrayOutput {
+	return i.ToBudgetFilterExpressionNotOrArrayOutputWithContext(context.Background())
+}
+
+func (i BudgetFilterExpressionNotOrArray) ToBudgetFilterExpressionNotOrArrayOutputWithContext(ctx context.Context) BudgetFilterExpressionNotOrArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetFilterExpressionNotOrArrayOutput)
+}
+
+type BudgetFilterExpressionNotOrOutput struct{ *pulumi.OutputState }
+
+func (BudgetFilterExpressionNotOrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BudgetFilterExpressionNotOr)(nil)).Elem()
+}
+
+func (o BudgetFilterExpressionNotOrOutput) ToBudgetFilterExpressionNotOrOutput() BudgetFilterExpressionNotOrOutput {
+	return o
+}
+
+func (o BudgetFilterExpressionNotOrOutput) ToBudgetFilterExpressionNotOrOutputWithContext(ctx context.Context) BudgetFilterExpressionNotOrOutput {
+	return o
+}
+
+// (Optional) A Cost Category Filter block.
+func (o BudgetFilterExpressionNotOrOutput) CostCategories() BudgetFilterExpressionNotOrCostCategoriesPtrOutput {
+	return o.ApplyT(func(v BudgetFilterExpressionNotOr) *BudgetFilterExpressionNotOrCostCategories {
+		return v.CostCategories
+	}).(BudgetFilterExpressionNotOrCostCategoriesPtrOutput)
+}
+
+// (Optional) A Dimension Filter block.
+func (o BudgetFilterExpressionNotOrOutput) Dimensions() BudgetFilterExpressionNotOrDimensionsPtrOutput {
+	return o.ApplyT(func(v BudgetFilterExpressionNotOr) *BudgetFilterExpressionNotOrDimensions { return v.Dimensions }).(BudgetFilterExpressionNotOrDimensionsPtrOutput)
+}
+
+// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+func (o BudgetFilterExpressionNotOrOutput) Tags() BudgetFilterExpressionNotOrTagsPtrOutput {
+	return o.ApplyT(func(v BudgetFilterExpressionNotOr) *BudgetFilterExpressionNotOrTags { return v.Tags }).(BudgetFilterExpressionNotOrTagsPtrOutput)
+}
+
+type BudgetFilterExpressionNotOrArrayOutput struct{ *pulumi.OutputState }
+
+func (BudgetFilterExpressionNotOrArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BudgetFilterExpressionNotOr)(nil)).Elem()
+}
+
+func (o BudgetFilterExpressionNotOrArrayOutput) ToBudgetFilterExpressionNotOrArrayOutput() BudgetFilterExpressionNotOrArrayOutput {
+	return o
+}
+
+func (o BudgetFilterExpressionNotOrArrayOutput) ToBudgetFilterExpressionNotOrArrayOutputWithContext(ctx context.Context) BudgetFilterExpressionNotOrArrayOutput {
+	return o
+}
+
+func (o BudgetFilterExpressionNotOrArrayOutput) Index(i pulumi.IntInput) BudgetFilterExpressionNotOrOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BudgetFilterExpressionNotOr {
+		return vs[0].([]BudgetFilterExpressionNotOr)[vs[1].(int)]
+	}).(BudgetFilterExpressionNotOrOutput)
+}
+
+type BudgetFilterExpressionNotOrCostCategories struct {
+	// (Optional) The cost category key to filter on.
+	Key *string `pulumi:"key"`
+	// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+	MatchOptions []string `pulumi:"matchOptions"`
+	// (Optional) A list of cost category values to match. At least one value is required.
+	Values []string `pulumi:"values"`
+}
+
+// BudgetFilterExpressionNotOrCostCategoriesInput is an input type that accepts BudgetFilterExpressionNotOrCostCategoriesArgs and BudgetFilterExpressionNotOrCostCategoriesOutput values.
+// You can construct a concrete instance of `BudgetFilterExpressionNotOrCostCategoriesInput` via:
+//
+//	BudgetFilterExpressionNotOrCostCategoriesArgs{...}
+type BudgetFilterExpressionNotOrCostCategoriesInput interface {
+	pulumi.Input
+
+	ToBudgetFilterExpressionNotOrCostCategoriesOutput() BudgetFilterExpressionNotOrCostCategoriesOutput
+	ToBudgetFilterExpressionNotOrCostCategoriesOutputWithContext(context.Context) BudgetFilterExpressionNotOrCostCategoriesOutput
+}
+
+type BudgetFilterExpressionNotOrCostCategoriesArgs struct {
+	// (Optional) The cost category key to filter on.
+	Key pulumi.StringPtrInput `pulumi:"key"`
+	// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+	MatchOptions pulumi.StringArrayInput `pulumi:"matchOptions"`
+	// (Optional) A list of cost category values to match. At least one value is required.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (BudgetFilterExpressionNotOrCostCategoriesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BudgetFilterExpressionNotOrCostCategories)(nil)).Elem()
+}
+
+func (i BudgetFilterExpressionNotOrCostCategoriesArgs) ToBudgetFilterExpressionNotOrCostCategoriesOutput() BudgetFilterExpressionNotOrCostCategoriesOutput {
+	return i.ToBudgetFilterExpressionNotOrCostCategoriesOutputWithContext(context.Background())
+}
+
+func (i BudgetFilterExpressionNotOrCostCategoriesArgs) ToBudgetFilterExpressionNotOrCostCategoriesOutputWithContext(ctx context.Context) BudgetFilterExpressionNotOrCostCategoriesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetFilterExpressionNotOrCostCategoriesOutput)
+}
+
+func (i BudgetFilterExpressionNotOrCostCategoriesArgs) ToBudgetFilterExpressionNotOrCostCategoriesPtrOutput() BudgetFilterExpressionNotOrCostCategoriesPtrOutput {
+	return i.ToBudgetFilterExpressionNotOrCostCategoriesPtrOutputWithContext(context.Background())
+}
+
+func (i BudgetFilterExpressionNotOrCostCategoriesArgs) ToBudgetFilterExpressionNotOrCostCategoriesPtrOutputWithContext(ctx context.Context) BudgetFilterExpressionNotOrCostCategoriesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetFilterExpressionNotOrCostCategoriesOutput).ToBudgetFilterExpressionNotOrCostCategoriesPtrOutputWithContext(ctx)
+}
+
+// BudgetFilterExpressionNotOrCostCategoriesPtrInput is an input type that accepts BudgetFilterExpressionNotOrCostCategoriesArgs, BudgetFilterExpressionNotOrCostCategoriesPtr and BudgetFilterExpressionNotOrCostCategoriesPtrOutput values.
+// You can construct a concrete instance of `BudgetFilterExpressionNotOrCostCategoriesPtrInput` via:
+//
+//	        BudgetFilterExpressionNotOrCostCategoriesArgs{...}
+//
+//	or:
+//
+//	        nil
+type BudgetFilterExpressionNotOrCostCategoriesPtrInput interface {
+	pulumi.Input
+
+	ToBudgetFilterExpressionNotOrCostCategoriesPtrOutput() BudgetFilterExpressionNotOrCostCategoriesPtrOutput
+	ToBudgetFilterExpressionNotOrCostCategoriesPtrOutputWithContext(context.Context) BudgetFilterExpressionNotOrCostCategoriesPtrOutput
+}
+
+type budgetFilterExpressionNotOrCostCategoriesPtrType BudgetFilterExpressionNotOrCostCategoriesArgs
+
+func BudgetFilterExpressionNotOrCostCategoriesPtr(v *BudgetFilterExpressionNotOrCostCategoriesArgs) BudgetFilterExpressionNotOrCostCategoriesPtrInput {
+	return (*budgetFilterExpressionNotOrCostCategoriesPtrType)(v)
+}
+
+func (*budgetFilterExpressionNotOrCostCategoriesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BudgetFilterExpressionNotOrCostCategories)(nil)).Elem()
+}
+
+func (i *budgetFilterExpressionNotOrCostCategoriesPtrType) ToBudgetFilterExpressionNotOrCostCategoriesPtrOutput() BudgetFilterExpressionNotOrCostCategoriesPtrOutput {
+	return i.ToBudgetFilterExpressionNotOrCostCategoriesPtrOutputWithContext(context.Background())
+}
+
+func (i *budgetFilterExpressionNotOrCostCategoriesPtrType) ToBudgetFilterExpressionNotOrCostCategoriesPtrOutputWithContext(ctx context.Context) BudgetFilterExpressionNotOrCostCategoriesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetFilterExpressionNotOrCostCategoriesPtrOutput)
+}
+
+type BudgetFilterExpressionNotOrCostCategoriesOutput struct{ *pulumi.OutputState }
+
+func (BudgetFilterExpressionNotOrCostCategoriesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BudgetFilterExpressionNotOrCostCategories)(nil)).Elem()
+}
+
+func (o BudgetFilterExpressionNotOrCostCategoriesOutput) ToBudgetFilterExpressionNotOrCostCategoriesOutput() BudgetFilterExpressionNotOrCostCategoriesOutput {
+	return o
+}
+
+func (o BudgetFilterExpressionNotOrCostCategoriesOutput) ToBudgetFilterExpressionNotOrCostCategoriesOutputWithContext(ctx context.Context) BudgetFilterExpressionNotOrCostCategoriesOutput {
+	return o
+}
+
+func (o BudgetFilterExpressionNotOrCostCategoriesOutput) ToBudgetFilterExpressionNotOrCostCategoriesPtrOutput() BudgetFilterExpressionNotOrCostCategoriesPtrOutput {
+	return o.ToBudgetFilterExpressionNotOrCostCategoriesPtrOutputWithContext(context.Background())
+}
+
+func (o BudgetFilterExpressionNotOrCostCategoriesOutput) ToBudgetFilterExpressionNotOrCostCategoriesPtrOutputWithContext(ctx context.Context) BudgetFilterExpressionNotOrCostCategoriesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BudgetFilterExpressionNotOrCostCategories) *BudgetFilterExpressionNotOrCostCategories {
+		return &v
+	}).(BudgetFilterExpressionNotOrCostCategoriesPtrOutput)
+}
+
+// (Optional) The cost category key to filter on.
+func (o BudgetFilterExpressionNotOrCostCategoriesOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BudgetFilterExpressionNotOrCostCategories) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+func (o BudgetFilterExpressionNotOrCostCategoriesOutput) MatchOptions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v BudgetFilterExpressionNotOrCostCategories) []string { return v.MatchOptions }).(pulumi.StringArrayOutput)
+}
+
+// (Optional) A list of cost category values to match. At least one value is required.
+func (o BudgetFilterExpressionNotOrCostCategoriesOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v BudgetFilterExpressionNotOrCostCategories) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type BudgetFilterExpressionNotOrCostCategoriesPtrOutput struct{ *pulumi.OutputState }
+
+func (BudgetFilterExpressionNotOrCostCategoriesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BudgetFilterExpressionNotOrCostCategories)(nil)).Elem()
+}
+
+func (o BudgetFilterExpressionNotOrCostCategoriesPtrOutput) ToBudgetFilterExpressionNotOrCostCategoriesPtrOutput() BudgetFilterExpressionNotOrCostCategoriesPtrOutput {
+	return o
+}
+
+func (o BudgetFilterExpressionNotOrCostCategoriesPtrOutput) ToBudgetFilterExpressionNotOrCostCategoriesPtrOutputWithContext(ctx context.Context) BudgetFilterExpressionNotOrCostCategoriesPtrOutput {
+	return o
+}
+
+func (o BudgetFilterExpressionNotOrCostCategoriesPtrOutput) Elem() BudgetFilterExpressionNotOrCostCategoriesOutput {
+	return o.ApplyT(func(v *BudgetFilterExpressionNotOrCostCategories) BudgetFilterExpressionNotOrCostCategories {
+		if v != nil {
+			return *v
+		}
+		var ret BudgetFilterExpressionNotOrCostCategories
+		return ret
+	}).(BudgetFilterExpressionNotOrCostCategoriesOutput)
+}
+
+// (Optional) The cost category key to filter on.
+func (o BudgetFilterExpressionNotOrCostCategoriesPtrOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BudgetFilterExpressionNotOrCostCategories) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Key
+	}).(pulumi.StringPtrOutput)
+}
+
+// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+func (o BudgetFilterExpressionNotOrCostCategoriesPtrOutput) MatchOptions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *BudgetFilterExpressionNotOrCostCategories) []string {
+		if v == nil {
+			return nil
+		}
+		return v.MatchOptions
+	}).(pulumi.StringArrayOutput)
+}
+
+// (Optional) A list of cost category values to match. At least one value is required.
+func (o BudgetFilterExpressionNotOrCostCategoriesPtrOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *BudgetFilterExpressionNotOrCostCategories) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Values
+	}).(pulumi.StringArrayOutput)
+}
+
+type BudgetFilterExpressionNotOrDimensions struct {
+	// (Optional) The cost category key to filter on.
+	Key string `pulumi:"key"`
+	// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+	MatchOptions []string `pulumi:"matchOptions"`
+	// (Optional) A list of cost category values to match. At least one value is required.
+	Values []string `pulumi:"values"`
+}
+
+// BudgetFilterExpressionNotOrDimensionsInput is an input type that accepts BudgetFilterExpressionNotOrDimensionsArgs and BudgetFilterExpressionNotOrDimensionsOutput values.
+// You can construct a concrete instance of `BudgetFilterExpressionNotOrDimensionsInput` via:
+//
+//	BudgetFilterExpressionNotOrDimensionsArgs{...}
+type BudgetFilterExpressionNotOrDimensionsInput interface {
+	pulumi.Input
+
+	ToBudgetFilterExpressionNotOrDimensionsOutput() BudgetFilterExpressionNotOrDimensionsOutput
+	ToBudgetFilterExpressionNotOrDimensionsOutputWithContext(context.Context) BudgetFilterExpressionNotOrDimensionsOutput
+}
+
+type BudgetFilterExpressionNotOrDimensionsArgs struct {
+	// (Optional) The cost category key to filter on.
+	Key pulumi.StringInput `pulumi:"key"`
+	// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+	MatchOptions pulumi.StringArrayInput `pulumi:"matchOptions"`
+	// (Optional) A list of cost category values to match. At least one value is required.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (BudgetFilterExpressionNotOrDimensionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BudgetFilterExpressionNotOrDimensions)(nil)).Elem()
+}
+
+func (i BudgetFilterExpressionNotOrDimensionsArgs) ToBudgetFilterExpressionNotOrDimensionsOutput() BudgetFilterExpressionNotOrDimensionsOutput {
+	return i.ToBudgetFilterExpressionNotOrDimensionsOutputWithContext(context.Background())
+}
+
+func (i BudgetFilterExpressionNotOrDimensionsArgs) ToBudgetFilterExpressionNotOrDimensionsOutputWithContext(ctx context.Context) BudgetFilterExpressionNotOrDimensionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetFilterExpressionNotOrDimensionsOutput)
+}
+
+func (i BudgetFilterExpressionNotOrDimensionsArgs) ToBudgetFilterExpressionNotOrDimensionsPtrOutput() BudgetFilterExpressionNotOrDimensionsPtrOutput {
+	return i.ToBudgetFilterExpressionNotOrDimensionsPtrOutputWithContext(context.Background())
+}
+
+func (i BudgetFilterExpressionNotOrDimensionsArgs) ToBudgetFilterExpressionNotOrDimensionsPtrOutputWithContext(ctx context.Context) BudgetFilterExpressionNotOrDimensionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetFilterExpressionNotOrDimensionsOutput).ToBudgetFilterExpressionNotOrDimensionsPtrOutputWithContext(ctx)
+}
+
+// BudgetFilterExpressionNotOrDimensionsPtrInput is an input type that accepts BudgetFilterExpressionNotOrDimensionsArgs, BudgetFilterExpressionNotOrDimensionsPtr and BudgetFilterExpressionNotOrDimensionsPtrOutput values.
+// You can construct a concrete instance of `BudgetFilterExpressionNotOrDimensionsPtrInput` via:
+//
+//	        BudgetFilterExpressionNotOrDimensionsArgs{...}
+//
+//	or:
+//
+//	        nil
+type BudgetFilterExpressionNotOrDimensionsPtrInput interface {
+	pulumi.Input
+
+	ToBudgetFilterExpressionNotOrDimensionsPtrOutput() BudgetFilterExpressionNotOrDimensionsPtrOutput
+	ToBudgetFilterExpressionNotOrDimensionsPtrOutputWithContext(context.Context) BudgetFilterExpressionNotOrDimensionsPtrOutput
+}
+
+type budgetFilterExpressionNotOrDimensionsPtrType BudgetFilterExpressionNotOrDimensionsArgs
+
+func BudgetFilterExpressionNotOrDimensionsPtr(v *BudgetFilterExpressionNotOrDimensionsArgs) BudgetFilterExpressionNotOrDimensionsPtrInput {
+	return (*budgetFilterExpressionNotOrDimensionsPtrType)(v)
+}
+
+func (*budgetFilterExpressionNotOrDimensionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BudgetFilterExpressionNotOrDimensions)(nil)).Elem()
+}
+
+func (i *budgetFilterExpressionNotOrDimensionsPtrType) ToBudgetFilterExpressionNotOrDimensionsPtrOutput() BudgetFilterExpressionNotOrDimensionsPtrOutput {
+	return i.ToBudgetFilterExpressionNotOrDimensionsPtrOutputWithContext(context.Background())
+}
+
+func (i *budgetFilterExpressionNotOrDimensionsPtrType) ToBudgetFilterExpressionNotOrDimensionsPtrOutputWithContext(ctx context.Context) BudgetFilterExpressionNotOrDimensionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetFilterExpressionNotOrDimensionsPtrOutput)
+}
+
+type BudgetFilterExpressionNotOrDimensionsOutput struct{ *pulumi.OutputState }
+
+func (BudgetFilterExpressionNotOrDimensionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BudgetFilterExpressionNotOrDimensions)(nil)).Elem()
+}
+
+func (o BudgetFilterExpressionNotOrDimensionsOutput) ToBudgetFilterExpressionNotOrDimensionsOutput() BudgetFilterExpressionNotOrDimensionsOutput {
+	return o
+}
+
+func (o BudgetFilterExpressionNotOrDimensionsOutput) ToBudgetFilterExpressionNotOrDimensionsOutputWithContext(ctx context.Context) BudgetFilterExpressionNotOrDimensionsOutput {
+	return o
+}
+
+func (o BudgetFilterExpressionNotOrDimensionsOutput) ToBudgetFilterExpressionNotOrDimensionsPtrOutput() BudgetFilterExpressionNotOrDimensionsPtrOutput {
+	return o.ToBudgetFilterExpressionNotOrDimensionsPtrOutputWithContext(context.Background())
+}
+
+func (o BudgetFilterExpressionNotOrDimensionsOutput) ToBudgetFilterExpressionNotOrDimensionsPtrOutputWithContext(ctx context.Context) BudgetFilterExpressionNotOrDimensionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BudgetFilterExpressionNotOrDimensions) *BudgetFilterExpressionNotOrDimensions {
+		return &v
+	}).(BudgetFilterExpressionNotOrDimensionsPtrOutput)
+}
+
+// (Optional) The cost category key to filter on.
+func (o BudgetFilterExpressionNotOrDimensionsOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v BudgetFilterExpressionNotOrDimensions) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+func (o BudgetFilterExpressionNotOrDimensionsOutput) MatchOptions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v BudgetFilterExpressionNotOrDimensions) []string { return v.MatchOptions }).(pulumi.StringArrayOutput)
+}
+
+// (Optional) A list of cost category values to match. At least one value is required.
+func (o BudgetFilterExpressionNotOrDimensionsOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v BudgetFilterExpressionNotOrDimensions) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type BudgetFilterExpressionNotOrDimensionsPtrOutput struct{ *pulumi.OutputState }
+
+func (BudgetFilterExpressionNotOrDimensionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BudgetFilterExpressionNotOrDimensions)(nil)).Elem()
+}
+
+func (o BudgetFilterExpressionNotOrDimensionsPtrOutput) ToBudgetFilterExpressionNotOrDimensionsPtrOutput() BudgetFilterExpressionNotOrDimensionsPtrOutput {
+	return o
+}
+
+func (o BudgetFilterExpressionNotOrDimensionsPtrOutput) ToBudgetFilterExpressionNotOrDimensionsPtrOutputWithContext(ctx context.Context) BudgetFilterExpressionNotOrDimensionsPtrOutput {
+	return o
+}
+
+func (o BudgetFilterExpressionNotOrDimensionsPtrOutput) Elem() BudgetFilterExpressionNotOrDimensionsOutput {
+	return o.ApplyT(func(v *BudgetFilterExpressionNotOrDimensions) BudgetFilterExpressionNotOrDimensions {
+		if v != nil {
+			return *v
+		}
+		var ret BudgetFilterExpressionNotOrDimensions
+		return ret
+	}).(BudgetFilterExpressionNotOrDimensionsOutput)
+}
+
+// (Optional) The cost category key to filter on.
+func (o BudgetFilterExpressionNotOrDimensionsPtrOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BudgetFilterExpressionNotOrDimensions) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Key
+	}).(pulumi.StringPtrOutput)
+}
+
+// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+func (o BudgetFilterExpressionNotOrDimensionsPtrOutput) MatchOptions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *BudgetFilterExpressionNotOrDimensions) []string {
+		if v == nil {
+			return nil
+		}
+		return v.MatchOptions
+	}).(pulumi.StringArrayOutput)
+}
+
+// (Optional) A list of cost category values to match. At least one value is required.
+func (o BudgetFilterExpressionNotOrDimensionsPtrOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *BudgetFilterExpressionNotOrDimensions) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Values
+	}).(pulumi.StringArrayOutput)
+}
+
+type BudgetFilterExpressionNotOrTags struct {
+	// (Optional) The cost category key to filter on.
+	Key *string `pulumi:"key"`
+	// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+	MatchOptions []string `pulumi:"matchOptions"`
+	// (Optional) A list of cost category values to match. At least one value is required.
+	Values []string `pulumi:"values"`
+}
+
+// BudgetFilterExpressionNotOrTagsInput is an input type that accepts BudgetFilterExpressionNotOrTagsArgs and BudgetFilterExpressionNotOrTagsOutput values.
+// You can construct a concrete instance of `BudgetFilterExpressionNotOrTagsInput` via:
+//
+//	BudgetFilterExpressionNotOrTagsArgs{...}
+type BudgetFilterExpressionNotOrTagsInput interface {
+	pulumi.Input
+
+	ToBudgetFilterExpressionNotOrTagsOutput() BudgetFilterExpressionNotOrTagsOutput
+	ToBudgetFilterExpressionNotOrTagsOutputWithContext(context.Context) BudgetFilterExpressionNotOrTagsOutput
+}
+
+type BudgetFilterExpressionNotOrTagsArgs struct {
+	// (Optional) The cost category key to filter on.
+	Key pulumi.StringPtrInput `pulumi:"key"`
+	// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+	MatchOptions pulumi.StringArrayInput `pulumi:"matchOptions"`
+	// (Optional) A list of cost category values to match. At least one value is required.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (BudgetFilterExpressionNotOrTagsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BudgetFilterExpressionNotOrTags)(nil)).Elem()
+}
+
+func (i BudgetFilterExpressionNotOrTagsArgs) ToBudgetFilterExpressionNotOrTagsOutput() BudgetFilterExpressionNotOrTagsOutput {
+	return i.ToBudgetFilterExpressionNotOrTagsOutputWithContext(context.Background())
+}
+
+func (i BudgetFilterExpressionNotOrTagsArgs) ToBudgetFilterExpressionNotOrTagsOutputWithContext(ctx context.Context) BudgetFilterExpressionNotOrTagsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetFilterExpressionNotOrTagsOutput)
+}
+
+func (i BudgetFilterExpressionNotOrTagsArgs) ToBudgetFilterExpressionNotOrTagsPtrOutput() BudgetFilterExpressionNotOrTagsPtrOutput {
+	return i.ToBudgetFilterExpressionNotOrTagsPtrOutputWithContext(context.Background())
+}
+
+func (i BudgetFilterExpressionNotOrTagsArgs) ToBudgetFilterExpressionNotOrTagsPtrOutputWithContext(ctx context.Context) BudgetFilterExpressionNotOrTagsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetFilterExpressionNotOrTagsOutput).ToBudgetFilterExpressionNotOrTagsPtrOutputWithContext(ctx)
+}
+
+// BudgetFilterExpressionNotOrTagsPtrInput is an input type that accepts BudgetFilterExpressionNotOrTagsArgs, BudgetFilterExpressionNotOrTagsPtr and BudgetFilterExpressionNotOrTagsPtrOutput values.
+// You can construct a concrete instance of `BudgetFilterExpressionNotOrTagsPtrInput` via:
+//
+//	        BudgetFilterExpressionNotOrTagsArgs{...}
+//
+//	or:
+//
+//	        nil
+type BudgetFilterExpressionNotOrTagsPtrInput interface {
+	pulumi.Input
+
+	ToBudgetFilterExpressionNotOrTagsPtrOutput() BudgetFilterExpressionNotOrTagsPtrOutput
+	ToBudgetFilterExpressionNotOrTagsPtrOutputWithContext(context.Context) BudgetFilterExpressionNotOrTagsPtrOutput
+}
+
+type budgetFilterExpressionNotOrTagsPtrType BudgetFilterExpressionNotOrTagsArgs
+
+func BudgetFilterExpressionNotOrTagsPtr(v *BudgetFilterExpressionNotOrTagsArgs) BudgetFilterExpressionNotOrTagsPtrInput {
+	return (*budgetFilterExpressionNotOrTagsPtrType)(v)
+}
+
+func (*budgetFilterExpressionNotOrTagsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BudgetFilterExpressionNotOrTags)(nil)).Elem()
+}
+
+func (i *budgetFilterExpressionNotOrTagsPtrType) ToBudgetFilterExpressionNotOrTagsPtrOutput() BudgetFilterExpressionNotOrTagsPtrOutput {
+	return i.ToBudgetFilterExpressionNotOrTagsPtrOutputWithContext(context.Background())
+}
+
+func (i *budgetFilterExpressionNotOrTagsPtrType) ToBudgetFilterExpressionNotOrTagsPtrOutputWithContext(ctx context.Context) BudgetFilterExpressionNotOrTagsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetFilterExpressionNotOrTagsPtrOutput)
+}
+
+type BudgetFilterExpressionNotOrTagsOutput struct{ *pulumi.OutputState }
+
+func (BudgetFilterExpressionNotOrTagsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BudgetFilterExpressionNotOrTags)(nil)).Elem()
+}
+
+func (o BudgetFilterExpressionNotOrTagsOutput) ToBudgetFilterExpressionNotOrTagsOutput() BudgetFilterExpressionNotOrTagsOutput {
+	return o
+}
+
+func (o BudgetFilterExpressionNotOrTagsOutput) ToBudgetFilterExpressionNotOrTagsOutputWithContext(ctx context.Context) BudgetFilterExpressionNotOrTagsOutput {
+	return o
+}
+
+func (o BudgetFilterExpressionNotOrTagsOutput) ToBudgetFilterExpressionNotOrTagsPtrOutput() BudgetFilterExpressionNotOrTagsPtrOutput {
+	return o.ToBudgetFilterExpressionNotOrTagsPtrOutputWithContext(context.Background())
+}
+
+func (o BudgetFilterExpressionNotOrTagsOutput) ToBudgetFilterExpressionNotOrTagsPtrOutputWithContext(ctx context.Context) BudgetFilterExpressionNotOrTagsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BudgetFilterExpressionNotOrTags) *BudgetFilterExpressionNotOrTags {
+		return &v
+	}).(BudgetFilterExpressionNotOrTagsPtrOutput)
+}
+
+// (Optional) The cost category key to filter on.
+func (o BudgetFilterExpressionNotOrTagsOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BudgetFilterExpressionNotOrTags) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+func (o BudgetFilterExpressionNotOrTagsOutput) MatchOptions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v BudgetFilterExpressionNotOrTags) []string { return v.MatchOptions }).(pulumi.StringArrayOutput)
+}
+
+// (Optional) A list of cost category values to match. At least one value is required.
+func (o BudgetFilterExpressionNotOrTagsOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v BudgetFilterExpressionNotOrTags) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type BudgetFilterExpressionNotOrTagsPtrOutput struct{ *pulumi.OutputState }
+
+func (BudgetFilterExpressionNotOrTagsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BudgetFilterExpressionNotOrTags)(nil)).Elem()
+}
+
+func (o BudgetFilterExpressionNotOrTagsPtrOutput) ToBudgetFilterExpressionNotOrTagsPtrOutput() BudgetFilterExpressionNotOrTagsPtrOutput {
+	return o
+}
+
+func (o BudgetFilterExpressionNotOrTagsPtrOutput) ToBudgetFilterExpressionNotOrTagsPtrOutputWithContext(ctx context.Context) BudgetFilterExpressionNotOrTagsPtrOutput {
+	return o
+}
+
+func (o BudgetFilterExpressionNotOrTagsPtrOutput) Elem() BudgetFilterExpressionNotOrTagsOutput {
+	return o.ApplyT(func(v *BudgetFilterExpressionNotOrTags) BudgetFilterExpressionNotOrTags {
+		if v != nil {
+			return *v
+		}
+		var ret BudgetFilterExpressionNotOrTags
+		return ret
+	}).(BudgetFilterExpressionNotOrTagsOutput)
+}
+
+// (Optional) The cost category key to filter on.
+func (o BudgetFilterExpressionNotOrTagsPtrOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BudgetFilterExpressionNotOrTags) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Key
+	}).(pulumi.StringPtrOutput)
+}
+
+// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+func (o BudgetFilterExpressionNotOrTagsPtrOutput) MatchOptions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *BudgetFilterExpressionNotOrTags) []string {
+		if v == nil {
+			return nil
+		}
+		return v.MatchOptions
+	}).(pulumi.StringArrayOutput)
+}
+
+// (Optional) A list of cost category values to match. At least one value is required.
+func (o BudgetFilterExpressionNotOrTagsPtrOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *BudgetFilterExpressionNotOrTags) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Values
+	}).(pulumi.StringArrayOutput)
+}
+
+type BudgetFilterExpressionNotTags struct {
+	// (Optional) The cost category key to filter on.
+	Key *string `pulumi:"key"`
+	// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+	MatchOptions []string `pulumi:"matchOptions"`
+	// (Optional) A list of cost category values to match. At least one value is required.
+	Values []string `pulumi:"values"`
+}
+
+// BudgetFilterExpressionNotTagsInput is an input type that accepts BudgetFilterExpressionNotTagsArgs and BudgetFilterExpressionNotTagsOutput values.
+// You can construct a concrete instance of `BudgetFilterExpressionNotTagsInput` via:
+//
+//	BudgetFilterExpressionNotTagsArgs{...}
+type BudgetFilterExpressionNotTagsInput interface {
+	pulumi.Input
+
+	ToBudgetFilterExpressionNotTagsOutput() BudgetFilterExpressionNotTagsOutput
+	ToBudgetFilterExpressionNotTagsOutputWithContext(context.Context) BudgetFilterExpressionNotTagsOutput
+}
+
+type BudgetFilterExpressionNotTagsArgs struct {
+	// (Optional) The cost category key to filter on.
+	Key pulumi.StringPtrInput `pulumi:"key"`
+	// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+	MatchOptions pulumi.StringArrayInput `pulumi:"matchOptions"`
+	// (Optional) A list of cost category values to match. At least one value is required.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (BudgetFilterExpressionNotTagsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BudgetFilterExpressionNotTags)(nil)).Elem()
+}
+
+func (i BudgetFilterExpressionNotTagsArgs) ToBudgetFilterExpressionNotTagsOutput() BudgetFilterExpressionNotTagsOutput {
+	return i.ToBudgetFilterExpressionNotTagsOutputWithContext(context.Background())
+}
+
+func (i BudgetFilterExpressionNotTagsArgs) ToBudgetFilterExpressionNotTagsOutputWithContext(ctx context.Context) BudgetFilterExpressionNotTagsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetFilterExpressionNotTagsOutput)
+}
+
+func (i BudgetFilterExpressionNotTagsArgs) ToBudgetFilterExpressionNotTagsPtrOutput() BudgetFilterExpressionNotTagsPtrOutput {
+	return i.ToBudgetFilterExpressionNotTagsPtrOutputWithContext(context.Background())
+}
+
+func (i BudgetFilterExpressionNotTagsArgs) ToBudgetFilterExpressionNotTagsPtrOutputWithContext(ctx context.Context) BudgetFilterExpressionNotTagsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetFilterExpressionNotTagsOutput).ToBudgetFilterExpressionNotTagsPtrOutputWithContext(ctx)
+}
+
+// BudgetFilterExpressionNotTagsPtrInput is an input type that accepts BudgetFilterExpressionNotTagsArgs, BudgetFilterExpressionNotTagsPtr and BudgetFilterExpressionNotTagsPtrOutput values.
+// You can construct a concrete instance of `BudgetFilterExpressionNotTagsPtrInput` via:
+//
+//	        BudgetFilterExpressionNotTagsArgs{...}
+//
+//	or:
+//
+//	        nil
+type BudgetFilterExpressionNotTagsPtrInput interface {
+	pulumi.Input
+
+	ToBudgetFilterExpressionNotTagsPtrOutput() BudgetFilterExpressionNotTagsPtrOutput
+	ToBudgetFilterExpressionNotTagsPtrOutputWithContext(context.Context) BudgetFilterExpressionNotTagsPtrOutput
+}
+
+type budgetFilterExpressionNotTagsPtrType BudgetFilterExpressionNotTagsArgs
+
+func BudgetFilterExpressionNotTagsPtr(v *BudgetFilterExpressionNotTagsArgs) BudgetFilterExpressionNotTagsPtrInput {
+	return (*budgetFilterExpressionNotTagsPtrType)(v)
+}
+
+func (*budgetFilterExpressionNotTagsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BudgetFilterExpressionNotTags)(nil)).Elem()
+}
+
+func (i *budgetFilterExpressionNotTagsPtrType) ToBudgetFilterExpressionNotTagsPtrOutput() BudgetFilterExpressionNotTagsPtrOutput {
+	return i.ToBudgetFilterExpressionNotTagsPtrOutputWithContext(context.Background())
+}
+
+func (i *budgetFilterExpressionNotTagsPtrType) ToBudgetFilterExpressionNotTagsPtrOutputWithContext(ctx context.Context) BudgetFilterExpressionNotTagsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetFilterExpressionNotTagsPtrOutput)
+}
+
+type BudgetFilterExpressionNotTagsOutput struct{ *pulumi.OutputState }
+
+func (BudgetFilterExpressionNotTagsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BudgetFilterExpressionNotTags)(nil)).Elem()
+}
+
+func (o BudgetFilterExpressionNotTagsOutput) ToBudgetFilterExpressionNotTagsOutput() BudgetFilterExpressionNotTagsOutput {
+	return o
+}
+
+func (o BudgetFilterExpressionNotTagsOutput) ToBudgetFilterExpressionNotTagsOutputWithContext(ctx context.Context) BudgetFilterExpressionNotTagsOutput {
+	return o
+}
+
+func (o BudgetFilterExpressionNotTagsOutput) ToBudgetFilterExpressionNotTagsPtrOutput() BudgetFilterExpressionNotTagsPtrOutput {
+	return o.ToBudgetFilterExpressionNotTagsPtrOutputWithContext(context.Background())
+}
+
+func (o BudgetFilterExpressionNotTagsOutput) ToBudgetFilterExpressionNotTagsPtrOutputWithContext(ctx context.Context) BudgetFilterExpressionNotTagsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BudgetFilterExpressionNotTags) *BudgetFilterExpressionNotTags {
+		return &v
+	}).(BudgetFilterExpressionNotTagsPtrOutput)
+}
+
+// (Optional) The cost category key to filter on.
+func (o BudgetFilterExpressionNotTagsOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BudgetFilterExpressionNotTags) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+func (o BudgetFilterExpressionNotTagsOutput) MatchOptions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v BudgetFilterExpressionNotTags) []string { return v.MatchOptions }).(pulumi.StringArrayOutput)
+}
+
+// (Optional) A list of cost category values to match. At least one value is required.
+func (o BudgetFilterExpressionNotTagsOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v BudgetFilterExpressionNotTags) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type BudgetFilterExpressionNotTagsPtrOutput struct{ *pulumi.OutputState }
+
+func (BudgetFilterExpressionNotTagsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BudgetFilterExpressionNotTags)(nil)).Elem()
+}
+
+func (o BudgetFilterExpressionNotTagsPtrOutput) ToBudgetFilterExpressionNotTagsPtrOutput() BudgetFilterExpressionNotTagsPtrOutput {
+	return o
+}
+
+func (o BudgetFilterExpressionNotTagsPtrOutput) ToBudgetFilterExpressionNotTagsPtrOutputWithContext(ctx context.Context) BudgetFilterExpressionNotTagsPtrOutput {
+	return o
+}
+
+func (o BudgetFilterExpressionNotTagsPtrOutput) Elem() BudgetFilterExpressionNotTagsOutput {
+	return o.ApplyT(func(v *BudgetFilterExpressionNotTags) BudgetFilterExpressionNotTags {
+		if v != nil {
+			return *v
+		}
+		var ret BudgetFilterExpressionNotTags
+		return ret
+	}).(BudgetFilterExpressionNotTagsOutput)
+}
+
+// (Optional) The cost category key to filter on.
+func (o BudgetFilterExpressionNotTagsPtrOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BudgetFilterExpressionNotTags) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Key
+	}).(pulumi.StringPtrOutput)
+}
+
+// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+func (o BudgetFilterExpressionNotTagsPtrOutput) MatchOptions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *BudgetFilterExpressionNotTags) []string {
+		if v == nil {
+			return nil
+		}
+		return v.MatchOptions
+	}).(pulumi.StringArrayOutput)
+}
+
+// (Optional) A list of cost category values to match. At least one value is required.
+func (o BudgetFilterExpressionNotTagsPtrOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *BudgetFilterExpressionNotTags) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Values
+	}).(pulumi.StringArrayOutput)
+}
+
+type BudgetFilterExpressionOr struct {
+	// (Optional) A list of filter expressions to combine with AND logic. Each `and` block is one operand and must itself contain exactly one root.
+	Ands []BudgetFilterExpressionOrAnd `pulumi:"ands"`
+	// (Optional) A Cost Category Filter block.
+	CostCategories *BudgetFilterExpressionOrCostCategories `pulumi:"costCategories"`
+	// (Optional) A Dimension Filter block.
+	Dimensions *BudgetFilterExpressionOrDimensions `pulumi:"dimensions"`
+	// (Optional) A single filter expression to negate. Must contain exactly one root.
+	Not *BudgetFilterExpressionOrNot `pulumi:"not"`
+	// (Optional) A list of filter expressions to combine with OR logic. Each `or` block is one operand and must itself contain exactly one root.
+	Ors []BudgetFilterExpressionOrOr `pulumi:"ors"`
+	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags *BudgetFilterExpressionOrTags `pulumi:"tags"`
+}
+
+// BudgetFilterExpressionOrInput is an input type that accepts BudgetFilterExpressionOrArgs and BudgetFilterExpressionOrOutput values.
+// You can construct a concrete instance of `BudgetFilterExpressionOrInput` via:
+//
+//	BudgetFilterExpressionOrArgs{...}
+type BudgetFilterExpressionOrInput interface {
+	pulumi.Input
+
+	ToBudgetFilterExpressionOrOutput() BudgetFilterExpressionOrOutput
+	ToBudgetFilterExpressionOrOutputWithContext(context.Context) BudgetFilterExpressionOrOutput
+}
+
+type BudgetFilterExpressionOrArgs struct {
+	// (Optional) A list of filter expressions to combine with AND logic. Each `and` block is one operand and must itself contain exactly one root.
+	Ands BudgetFilterExpressionOrAndArrayInput `pulumi:"ands"`
+	// (Optional) A Cost Category Filter block.
+	CostCategories BudgetFilterExpressionOrCostCategoriesPtrInput `pulumi:"costCategories"`
+	// (Optional) A Dimension Filter block.
+	Dimensions BudgetFilterExpressionOrDimensionsPtrInput `pulumi:"dimensions"`
+	// (Optional) A single filter expression to negate. Must contain exactly one root.
+	Not BudgetFilterExpressionOrNotPtrInput `pulumi:"not"`
+	// (Optional) A list of filter expressions to combine with OR logic. Each `or` block is one operand and must itself contain exactly one root.
+	Ors BudgetFilterExpressionOrOrArrayInput `pulumi:"ors"`
+	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags BudgetFilterExpressionOrTagsPtrInput `pulumi:"tags"`
+}
+
+func (BudgetFilterExpressionOrArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BudgetFilterExpressionOr)(nil)).Elem()
+}
+
+func (i BudgetFilterExpressionOrArgs) ToBudgetFilterExpressionOrOutput() BudgetFilterExpressionOrOutput {
+	return i.ToBudgetFilterExpressionOrOutputWithContext(context.Background())
+}
+
+func (i BudgetFilterExpressionOrArgs) ToBudgetFilterExpressionOrOutputWithContext(ctx context.Context) BudgetFilterExpressionOrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetFilterExpressionOrOutput)
+}
+
+// BudgetFilterExpressionOrArrayInput is an input type that accepts BudgetFilterExpressionOrArray and BudgetFilterExpressionOrArrayOutput values.
+// You can construct a concrete instance of `BudgetFilterExpressionOrArrayInput` via:
+//
+//	BudgetFilterExpressionOrArray{ BudgetFilterExpressionOrArgs{...} }
+type BudgetFilterExpressionOrArrayInput interface {
+	pulumi.Input
+
+	ToBudgetFilterExpressionOrArrayOutput() BudgetFilterExpressionOrArrayOutput
+	ToBudgetFilterExpressionOrArrayOutputWithContext(context.Context) BudgetFilterExpressionOrArrayOutput
+}
+
+type BudgetFilterExpressionOrArray []BudgetFilterExpressionOrInput
+
+func (BudgetFilterExpressionOrArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BudgetFilterExpressionOr)(nil)).Elem()
+}
+
+func (i BudgetFilterExpressionOrArray) ToBudgetFilterExpressionOrArrayOutput() BudgetFilterExpressionOrArrayOutput {
+	return i.ToBudgetFilterExpressionOrArrayOutputWithContext(context.Background())
+}
+
+func (i BudgetFilterExpressionOrArray) ToBudgetFilterExpressionOrArrayOutputWithContext(ctx context.Context) BudgetFilterExpressionOrArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetFilterExpressionOrArrayOutput)
+}
+
+type BudgetFilterExpressionOrOutput struct{ *pulumi.OutputState }
+
+func (BudgetFilterExpressionOrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BudgetFilterExpressionOr)(nil)).Elem()
+}
+
+func (o BudgetFilterExpressionOrOutput) ToBudgetFilterExpressionOrOutput() BudgetFilterExpressionOrOutput {
+	return o
+}
+
+func (o BudgetFilterExpressionOrOutput) ToBudgetFilterExpressionOrOutputWithContext(ctx context.Context) BudgetFilterExpressionOrOutput {
+	return o
+}
+
+// (Optional) A list of filter expressions to combine with AND logic. Each `and` block is one operand and must itself contain exactly one root.
+func (o BudgetFilterExpressionOrOutput) Ands() BudgetFilterExpressionOrAndArrayOutput {
+	return o.ApplyT(func(v BudgetFilterExpressionOr) []BudgetFilterExpressionOrAnd { return v.Ands }).(BudgetFilterExpressionOrAndArrayOutput)
+}
+
+// (Optional) A Cost Category Filter block.
+func (o BudgetFilterExpressionOrOutput) CostCategories() BudgetFilterExpressionOrCostCategoriesPtrOutput {
+	return o.ApplyT(func(v BudgetFilterExpressionOr) *BudgetFilterExpressionOrCostCategories { return v.CostCategories }).(BudgetFilterExpressionOrCostCategoriesPtrOutput)
+}
+
+// (Optional) A Dimension Filter block.
+func (o BudgetFilterExpressionOrOutput) Dimensions() BudgetFilterExpressionOrDimensionsPtrOutput {
+	return o.ApplyT(func(v BudgetFilterExpressionOr) *BudgetFilterExpressionOrDimensions { return v.Dimensions }).(BudgetFilterExpressionOrDimensionsPtrOutput)
+}
+
+// (Optional) A single filter expression to negate. Must contain exactly one root.
+func (o BudgetFilterExpressionOrOutput) Not() BudgetFilterExpressionOrNotPtrOutput {
+	return o.ApplyT(func(v BudgetFilterExpressionOr) *BudgetFilterExpressionOrNot { return v.Not }).(BudgetFilterExpressionOrNotPtrOutput)
+}
+
+// (Optional) A list of filter expressions to combine with OR logic. Each `or` block is one operand and must itself contain exactly one root.
+func (o BudgetFilterExpressionOrOutput) Ors() BudgetFilterExpressionOrOrArrayOutput {
+	return o.ApplyT(func(v BudgetFilterExpressionOr) []BudgetFilterExpressionOrOr { return v.Ors }).(BudgetFilterExpressionOrOrArrayOutput)
+}
+
+// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+func (o BudgetFilterExpressionOrOutput) Tags() BudgetFilterExpressionOrTagsPtrOutput {
+	return o.ApplyT(func(v BudgetFilterExpressionOr) *BudgetFilterExpressionOrTags { return v.Tags }).(BudgetFilterExpressionOrTagsPtrOutput)
+}
+
+type BudgetFilterExpressionOrArrayOutput struct{ *pulumi.OutputState }
+
+func (BudgetFilterExpressionOrArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BudgetFilterExpressionOr)(nil)).Elem()
+}
+
+func (o BudgetFilterExpressionOrArrayOutput) ToBudgetFilterExpressionOrArrayOutput() BudgetFilterExpressionOrArrayOutput {
+	return o
+}
+
+func (o BudgetFilterExpressionOrArrayOutput) ToBudgetFilterExpressionOrArrayOutputWithContext(ctx context.Context) BudgetFilterExpressionOrArrayOutput {
+	return o
+}
+
+func (o BudgetFilterExpressionOrArrayOutput) Index(i pulumi.IntInput) BudgetFilterExpressionOrOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BudgetFilterExpressionOr {
+		return vs[0].([]BudgetFilterExpressionOr)[vs[1].(int)]
+	}).(BudgetFilterExpressionOrOutput)
+}
+
+type BudgetFilterExpressionOrAnd struct {
+	// (Optional) A Cost Category Filter block.
+	CostCategories *BudgetFilterExpressionOrAndCostCategories `pulumi:"costCategories"`
+	// (Optional) A Dimension Filter block.
+	Dimensions *BudgetFilterExpressionOrAndDimensions `pulumi:"dimensions"`
+	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags *BudgetFilterExpressionOrAndTags `pulumi:"tags"`
+}
+
+// BudgetFilterExpressionOrAndInput is an input type that accepts BudgetFilterExpressionOrAndArgs and BudgetFilterExpressionOrAndOutput values.
+// You can construct a concrete instance of `BudgetFilterExpressionOrAndInput` via:
+//
+//	BudgetFilterExpressionOrAndArgs{...}
+type BudgetFilterExpressionOrAndInput interface {
+	pulumi.Input
+
+	ToBudgetFilterExpressionOrAndOutput() BudgetFilterExpressionOrAndOutput
+	ToBudgetFilterExpressionOrAndOutputWithContext(context.Context) BudgetFilterExpressionOrAndOutput
+}
+
+type BudgetFilterExpressionOrAndArgs struct {
+	// (Optional) A Cost Category Filter block.
+	CostCategories BudgetFilterExpressionOrAndCostCategoriesPtrInput `pulumi:"costCategories"`
+	// (Optional) A Dimension Filter block.
+	Dimensions BudgetFilterExpressionOrAndDimensionsPtrInput `pulumi:"dimensions"`
+	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags BudgetFilterExpressionOrAndTagsPtrInput `pulumi:"tags"`
+}
+
+func (BudgetFilterExpressionOrAndArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BudgetFilterExpressionOrAnd)(nil)).Elem()
+}
+
+func (i BudgetFilterExpressionOrAndArgs) ToBudgetFilterExpressionOrAndOutput() BudgetFilterExpressionOrAndOutput {
+	return i.ToBudgetFilterExpressionOrAndOutputWithContext(context.Background())
+}
+
+func (i BudgetFilterExpressionOrAndArgs) ToBudgetFilterExpressionOrAndOutputWithContext(ctx context.Context) BudgetFilterExpressionOrAndOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetFilterExpressionOrAndOutput)
+}
+
+// BudgetFilterExpressionOrAndArrayInput is an input type that accepts BudgetFilterExpressionOrAndArray and BudgetFilterExpressionOrAndArrayOutput values.
+// You can construct a concrete instance of `BudgetFilterExpressionOrAndArrayInput` via:
+//
+//	BudgetFilterExpressionOrAndArray{ BudgetFilterExpressionOrAndArgs{...} }
+type BudgetFilterExpressionOrAndArrayInput interface {
+	pulumi.Input
+
+	ToBudgetFilterExpressionOrAndArrayOutput() BudgetFilterExpressionOrAndArrayOutput
+	ToBudgetFilterExpressionOrAndArrayOutputWithContext(context.Context) BudgetFilterExpressionOrAndArrayOutput
+}
+
+type BudgetFilterExpressionOrAndArray []BudgetFilterExpressionOrAndInput
+
+func (BudgetFilterExpressionOrAndArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BudgetFilterExpressionOrAnd)(nil)).Elem()
+}
+
+func (i BudgetFilterExpressionOrAndArray) ToBudgetFilterExpressionOrAndArrayOutput() BudgetFilterExpressionOrAndArrayOutput {
+	return i.ToBudgetFilterExpressionOrAndArrayOutputWithContext(context.Background())
+}
+
+func (i BudgetFilterExpressionOrAndArray) ToBudgetFilterExpressionOrAndArrayOutputWithContext(ctx context.Context) BudgetFilterExpressionOrAndArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetFilterExpressionOrAndArrayOutput)
+}
+
+type BudgetFilterExpressionOrAndOutput struct{ *pulumi.OutputState }
+
+func (BudgetFilterExpressionOrAndOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BudgetFilterExpressionOrAnd)(nil)).Elem()
+}
+
+func (o BudgetFilterExpressionOrAndOutput) ToBudgetFilterExpressionOrAndOutput() BudgetFilterExpressionOrAndOutput {
+	return o
+}
+
+func (o BudgetFilterExpressionOrAndOutput) ToBudgetFilterExpressionOrAndOutputWithContext(ctx context.Context) BudgetFilterExpressionOrAndOutput {
+	return o
+}
+
+// (Optional) A Cost Category Filter block.
+func (o BudgetFilterExpressionOrAndOutput) CostCategories() BudgetFilterExpressionOrAndCostCategoriesPtrOutput {
+	return o.ApplyT(func(v BudgetFilterExpressionOrAnd) *BudgetFilterExpressionOrAndCostCategories {
+		return v.CostCategories
+	}).(BudgetFilterExpressionOrAndCostCategoriesPtrOutput)
+}
+
+// (Optional) A Dimension Filter block.
+func (o BudgetFilterExpressionOrAndOutput) Dimensions() BudgetFilterExpressionOrAndDimensionsPtrOutput {
+	return o.ApplyT(func(v BudgetFilterExpressionOrAnd) *BudgetFilterExpressionOrAndDimensions { return v.Dimensions }).(BudgetFilterExpressionOrAndDimensionsPtrOutput)
+}
+
+// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+func (o BudgetFilterExpressionOrAndOutput) Tags() BudgetFilterExpressionOrAndTagsPtrOutput {
+	return o.ApplyT(func(v BudgetFilterExpressionOrAnd) *BudgetFilterExpressionOrAndTags { return v.Tags }).(BudgetFilterExpressionOrAndTagsPtrOutput)
+}
+
+type BudgetFilterExpressionOrAndArrayOutput struct{ *pulumi.OutputState }
+
+func (BudgetFilterExpressionOrAndArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BudgetFilterExpressionOrAnd)(nil)).Elem()
+}
+
+func (o BudgetFilterExpressionOrAndArrayOutput) ToBudgetFilterExpressionOrAndArrayOutput() BudgetFilterExpressionOrAndArrayOutput {
+	return o
+}
+
+func (o BudgetFilterExpressionOrAndArrayOutput) ToBudgetFilterExpressionOrAndArrayOutputWithContext(ctx context.Context) BudgetFilterExpressionOrAndArrayOutput {
+	return o
+}
+
+func (o BudgetFilterExpressionOrAndArrayOutput) Index(i pulumi.IntInput) BudgetFilterExpressionOrAndOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BudgetFilterExpressionOrAnd {
+		return vs[0].([]BudgetFilterExpressionOrAnd)[vs[1].(int)]
+	}).(BudgetFilterExpressionOrAndOutput)
+}
+
+type BudgetFilterExpressionOrAndCostCategories struct {
+	// (Optional) The cost category key to filter on.
+	Key *string `pulumi:"key"`
+	// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+	MatchOptions []string `pulumi:"matchOptions"`
+	// (Optional) A list of cost category values to match. At least one value is required.
+	Values []string `pulumi:"values"`
+}
+
+// BudgetFilterExpressionOrAndCostCategoriesInput is an input type that accepts BudgetFilterExpressionOrAndCostCategoriesArgs and BudgetFilterExpressionOrAndCostCategoriesOutput values.
+// You can construct a concrete instance of `BudgetFilterExpressionOrAndCostCategoriesInput` via:
+//
+//	BudgetFilterExpressionOrAndCostCategoriesArgs{...}
+type BudgetFilterExpressionOrAndCostCategoriesInput interface {
+	pulumi.Input
+
+	ToBudgetFilterExpressionOrAndCostCategoriesOutput() BudgetFilterExpressionOrAndCostCategoriesOutput
+	ToBudgetFilterExpressionOrAndCostCategoriesOutputWithContext(context.Context) BudgetFilterExpressionOrAndCostCategoriesOutput
+}
+
+type BudgetFilterExpressionOrAndCostCategoriesArgs struct {
+	// (Optional) The cost category key to filter on.
+	Key pulumi.StringPtrInput `pulumi:"key"`
+	// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+	MatchOptions pulumi.StringArrayInput `pulumi:"matchOptions"`
+	// (Optional) A list of cost category values to match. At least one value is required.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (BudgetFilterExpressionOrAndCostCategoriesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BudgetFilterExpressionOrAndCostCategories)(nil)).Elem()
+}
+
+func (i BudgetFilterExpressionOrAndCostCategoriesArgs) ToBudgetFilterExpressionOrAndCostCategoriesOutput() BudgetFilterExpressionOrAndCostCategoriesOutput {
+	return i.ToBudgetFilterExpressionOrAndCostCategoriesOutputWithContext(context.Background())
+}
+
+func (i BudgetFilterExpressionOrAndCostCategoriesArgs) ToBudgetFilterExpressionOrAndCostCategoriesOutputWithContext(ctx context.Context) BudgetFilterExpressionOrAndCostCategoriesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetFilterExpressionOrAndCostCategoriesOutput)
+}
+
+func (i BudgetFilterExpressionOrAndCostCategoriesArgs) ToBudgetFilterExpressionOrAndCostCategoriesPtrOutput() BudgetFilterExpressionOrAndCostCategoriesPtrOutput {
+	return i.ToBudgetFilterExpressionOrAndCostCategoriesPtrOutputWithContext(context.Background())
+}
+
+func (i BudgetFilterExpressionOrAndCostCategoriesArgs) ToBudgetFilterExpressionOrAndCostCategoriesPtrOutputWithContext(ctx context.Context) BudgetFilterExpressionOrAndCostCategoriesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetFilterExpressionOrAndCostCategoriesOutput).ToBudgetFilterExpressionOrAndCostCategoriesPtrOutputWithContext(ctx)
+}
+
+// BudgetFilterExpressionOrAndCostCategoriesPtrInput is an input type that accepts BudgetFilterExpressionOrAndCostCategoriesArgs, BudgetFilterExpressionOrAndCostCategoriesPtr and BudgetFilterExpressionOrAndCostCategoriesPtrOutput values.
+// You can construct a concrete instance of `BudgetFilterExpressionOrAndCostCategoriesPtrInput` via:
+//
+//	        BudgetFilterExpressionOrAndCostCategoriesArgs{...}
+//
+//	or:
+//
+//	        nil
+type BudgetFilterExpressionOrAndCostCategoriesPtrInput interface {
+	pulumi.Input
+
+	ToBudgetFilterExpressionOrAndCostCategoriesPtrOutput() BudgetFilterExpressionOrAndCostCategoriesPtrOutput
+	ToBudgetFilterExpressionOrAndCostCategoriesPtrOutputWithContext(context.Context) BudgetFilterExpressionOrAndCostCategoriesPtrOutput
+}
+
+type budgetFilterExpressionOrAndCostCategoriesPtrType BudgetFilterExpressionOrAndCostCategoriesArgs
+
+func BudgetFilterExpressionOrAndCostCategoriesPtr(v *BudgetFilterExpressionOrAndCostCategoriesArgs) BudgetFilterExpressionOrAndCostCategoriesPtrInput {
+	return (*budgetFilterExpressionOrAndCostCategoriesPtrType)(v)
+}
+
+func (*budgetFilterExpressionOrAndCostCategoriesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BudgetFilterExpressionOrAndCostCategories)(nil)).Elem()
+}
+
+func (i *budgetFilterExpressionOrAndCostCategoriesPtrType) ToBudgetFilterExpressionOrAndCostCategoriesPtrOutput() BudgetFilterExpressionOrAndCostCategoriesPtrOutput {
+	return i.ToBudgetFilterExpressionOrAndCostCategoriesPtrOutputWithContext(context.Background())
+}
+
+func (i *budgetFilterExpressionOrAndCostCategoriesPtrType) ToBudgetFilterExpressionOrAndCostCategoriesPtrOutputWithContext(ctx context.Context) BudgetFilterExpressionOrAndCostCategoriesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetFilterExpressionOrAndCostCategoriesPtrOutput)
+}
+
+type BudgetFilterExpressionOrAndCostCategoriesOutput struct{ *pulumi.OutputState }
+
+func (BudgetFilterExpressionOrAndCostCategoriesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BudgetFilterExpressionOrAndCostCategories)(nil)).Elem()
+}
+
+func (o BudgetFilterExpressionOrAndCostCategoriesOutput) ToBudgetFilterExpressionOrAndCostCategoriesOutput() BudgetFilterExpressionOrAndCostCategoriesOutput {
+	return o
+}
+
+func (o BudgetFilterExpressionOrAndCostCategoriesOutput) ToBudgetFilterExpressionOrAndCostCategoriesOutputWithContext(ctx context.Context) BudgetFilterExpressionOrAndCostCategoriesOutput {
+	return o
+}
+
+func (o BudgetFilterExpressionOrAndCostCategoriesOutput) ToBudgetFilterExpressionOrAndCostCategoriesPtrOutput() BudgetFilterExpressionOrAndCostCategoriesPtrOutput {
+	return o.ToBudgetFilterExpressionOrAndCostCategoriesPtrOutputWithContext(context.Background())
+}
+
+func (o BudgetFilterExpressionOrAndCostCategoriesOutput) ToBudgetFilterExpressionOrAndCostCategoriesPtrOutputWithContext(ctx context.Context) BudgetFilterExpressionOrAndCostCategoriesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BudgetFilterExpressionOrAndCostCategories) *BudgetFilterExpressionOrAndCostCategories {
+		return &v
+	}).(BudgetFilterExpressionOrAndCostCategoriesPtrOutput)
+}
+
+// (Optional) The cost category key to filter on.
+func (o BudgetFilterExpressionOrAndCostCategoriesOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BudgetFilterExpressionOrAndCostCategories) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+func (o BudgetFilterExpressionOrAndCostCategoriesOutput) MatchOptions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v BudgetFilterExpressionOrAndCostCategories) []string { return v.MatchOptions }).(pulumi.StringArrayOutput)
+}
+
+// (Optional) A list of cost category values to match. At least one value is required.
+func (o BudgetFilterExpressionOrAndCostCategoriesOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v BudgetFilterExpressionOrAndCostCategories) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type BudgetFilterExpressionOrAndCostCategoriesPtrOutput struct{ *pulumi.OutputState }
+
+func (BudgetFilterExpressionOrAndCostCategoriesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BudgetFilterExpressionOrAndCostCategories)(nil)).Elem()
+}
+
+func (o BudgetFilterExpressionOrAndCostCategoriesPtrOutput) ToBudgetFilterExpressionOrAndCostCategoriesPtrOutput() BudgetFilterExpressionOrAndCostCategoriesPtrOutput {
+	return o
+}
+
+func (o BudgetFilterExpressionOrAndCostCategoriesPtrOutput) ToBudgetFilterExpressionOrAndCostCategoriesPtrOutputWithContext(ctx context.Context) BudgetFilterExpressionOrAndCostCategoriesPtrOutput {
+	return o
+}
+
+func (o BudgetFilterExpressionOrAndCostCategoriesPtrOutput) Elem() BudgetFilterExpressionOrAndCostCategoriesOutput {
+	return o.ApplyT(func(v *BudgetFilterExpressionOrAndCostCategories) BudgetFilterExpressionOrAndCostCategories {
+		if v != nil {
+			return *v
+		}
+		var ret BudgetFilterExpressionOrAndCostCategories
+		return ret
+	}).(BudgetFilterExpressionOrAndCostCategoriesOutput)
+}
+
+// (Optional) The cost category key to filter on.
+func (o BudgetFilterExpressionOrAndCostCategoriesPtrOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BudgetFilterExpressionOrAndCostCategories) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Key
+	}).(pulumi.StringPtrOutput)
+}
+
+// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+func (o BudgetFilterExpressionOrAndCostCategoriesPtrOutput) MatchOptions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *BudgetFilterExpressionOrAndCostCategories) []string {
+		if v == nil {
+			return nil
+		}
+		return v.MatchOptions
+	}).(pulumi.StringArrayOutput)
+}
+
+// (Optional) A list of cost category values to match. At least one value is required.
+func (o BudgetFilterExpressionOrAndCostCategoriesPtrOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *BudgetFilterExpressionOrAndCostCategories) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Values
+	}).(pulumi.StringArrayOutput)
+}
+
+type BudgetFilterExpressionOrAndDimensions struct {
+	// (Optional) The cost category key to filter on.
+	Key string `pulumi:"key"`
+	// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+	MatchOptions []string `pulumi:"matchOptions"`
+	// (Optional) A list of cost category values to match. At least one value is required.
+	Values []string `pulumi:"values"`
+}
+
+// BudgetFilterExpressionOrAndDimensionsInput is an input type that accepts BudgetFilterExpressionOrAndDimensionsArgs and BudgetFilterExpressionOrAndDimensionsOutput values.
+// You can construct a concrete instance of `BudgetFilterExpressionOrAndDimensionsInput` via:
+//
+//	BudgetFilterExpressionOrAndDimensionsArgs{...}
+type BudgetFilterExpressionOrAndDimensionsInput interface {
+	pulumi.Input
+
+	ToBudgetFilterExpressionOrAndDimensionsOutput() BudgetFilterExpressionOrAndDimensionsOutput
+	ToBudgetFilterExpressionOrAndDimensionsOutputWithContext(context.Context) BudgetFilterExpressionOrAndDimensionsOutput
+}
+
+type BudgetFilterExpressionOrAndDimensionsArgs struct {
+	// (Optional) The cost category key to filter on.
+	Key pulumi.StringInput `pulumi:"key"`
+	// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+	MatchOptions pulumi.StringArrayInput `pulumi:"matchOptions"`
+	// (Optional) A list of cost category values to match. At least one value is required.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (BudgetFilterExpressionOrAndDimensionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BudgetFilterExpressionOrAndDimensions)(nil)).Elem()
+}
+
+func (i BudgetFilterExpressionOrAndDimensionsArgs) ToBudgetFilterExpressionOrAndDimensionsOutput() BudgetFilterExpressionOrAndDimensionsOutput {
+	return i.ToBudgetFilterExpressionOrAndDimensionsOutputWithContext(context.Background())
+}
+
+func (i BudgetFilterExpressionOrAndDimensionsArgs) ToBudgetFilterExpressionOrAndDimensionsOutputWithContext(ctx context.Context) BudgetFilterExpressionOrAndDimensionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetFilterExpressionOrAndDimensionsOutput)
+}
+
+func (i BudgetFilterExpressionOrAndDimensionsArgs) ToBudgetFilterExpressionOrAndDimensionsPtrOutput() BudgetFilterExpressionOrAndDimensionsPtrOutput {
+	return i.ToBudgetFilterExpressionOrAndDimensionsPtrOutputWithContext(context.Background())
+}
+
+func (i BudgetFilterExpressionOrAndDimensionsArgs) ToBudgetFilterExpressionOrAndDimensionsPtrOutputWithContext(ctx context.Context) BudgetFilterExpressionOrAndDimensionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetFilterExpressionOrAndDimensionsOutput).ToBudgetFilterExpressionOrAndDimensionsPtrOutputWithContext(ctx)
+}
+
+// BudgetFilterExpressionOrAndDimensionsPtrInput is an input type that accepts BudgetFilterExpressionOrAndDimensionsArgs, BudgetFilterExpressionOrAndDimensionsPtr and BudgetFilterExpressionOrAndDimensionsPtrOutput values.
+// You can construct a concrete instance of `BudgetFilterExpressionOrAndDimensionsPtrInput` via:
+//
+//	        BudgetFilterExpressionOrAndDimensionsArgs{...}
+//
+//	or:
+//
+//	        nil
+type BudgetFilterExpressionOrAndDimensionsPtrInput interface {
+	pulumi.Input
+
+	ToBudgetFilterExpressionOrAndDimensionsPtrOutput() BudgetFilterExpressionOrAndDimensionsPtrOutput
+	ToBudgetFilterExpressionOrAndDimensionsPtrOutputWithContext(context.Context) BudgetFilterExpressionOrAndDimensionsPtrOutput
+}
+
+type budgetFilterExpressionOrAndDimensionsPtrType BudgetFilterExpressionOrAndDimensionsArgs
+
+func BudgetFilterExpressionOrAndDimensionsPtr(v *BudgetFilterExpressionOrAndDimensionsArgs) BudgetFilterExpressionOrAndDimensionsPtrInput {
+	return (*budgetFilterExpressionOrAndDimensionsPtrType)(v)
+}
+
+func (*budgetFilterExpressionOrAndDimensionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BudgetFilterExpressionOrAndDimensions)(nil)).Elem()
+}
+
+func (i *budgetFilterExpressionOrAndDimensionsPtrType) ToBudgetFilterExpressionOrAndDimensionsPtrOutput() BudgetFilterExpressionOrAndDimensionsPtrOutput {
+	return i.ToBudgetFilterExpressionOrAndDimensionsPtrOutputWithContext(context.Background())
+}
+
+func (i *budgetFilterExpressionOrAndDimensionsPtrType) ToBudgetFilterExpressionOrAndDimensionsPtrOutputWithContext(ctx context.Context) BudgetFilterExpressionOrAndDimensionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetFilterExpressionOrAndDimensionsPtrOutput)
+}
+
+type BudgetFilterExpressionOrAndDimensionsOutput struct{ *pulumi.OutputState }
+
+func (BudgetFilterExpressionOrAndDimensionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BudgetFilterExpressionOrAndDimensions)(nil)).Elem()
+}
+
+func (o BudgetFilterExpressionOrAndDimensionsOutput) ToBudgetFilterExpressionOrAndDimensionsOutput() BudgetFilterExpressionOrAndDimensionsOutput {
+	return o
+}
+
+func (o BudgetFilterExpressionOrAndDimensionsOutput) ToBudgetFilterExpressionOrAndDimensionsOutputWithContext(ctx context.Context) BudgetFilterExpressionOrAndDimensionsOutput {
+	return o
+}
+
+func (o BudgetFilterExpressionOrAndDimensionsOutput) ToBudgetFilterExpressionOrAndDimensionsPtrOutput() BudgetFilterExpressionOrAndDimensionsPtrOutput {
+	return o.ToBudgetFilterExpressionOrAndDimensionsPtrOutputWithContext(context.Background())
+}
+
+func (o BudgetFilterExpressionOrAndDimensionsOutput) ToBudgetFilterExpressionOrAndDimensionsPtrOutputWithContext(ctx context.Context) BudgetFilterExpressionOrAndDimensionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BudgetFilterExpressionOrAndDimensions) *BudgetFilterExpressionOrAndDimensions {
+		return &v
+	}).(BudgetFilterExpressionOrAndDimensionsPtrOutput)
+}
+
+// (Optional) The cost category key to filter on.
+func (o BudgetFilterExpressionOrAndDimensionsOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v BudgetFilterExpressionOrAndDimensions) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+func (o BudgetFilterExpressionOrAndDimensionsOutput) MatchOptions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v BudgetFilterExpressionOrAndDimensions) []string { return v.MatchOptions }).(pulumi.StringArrayOutput)
+}
+
+// (Optional) A list of cost category values to match. At least one value is required.
+func (o BudgetFilterExpressionOrAndDimensionsOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v BudgetFilterExpressionOrAndDimensions) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type BudgetFilterExpressionOrAndDimensionsPtrOutput struct{ *pulumi.OutputState }
+
+func (BudgetFilterExpressionOrAndDimensionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BudgetFilterExpressionOrAndDimensions)(nil)).Elem()
+}
+
+func (o BudgetFilterExpressionOrAndDimensionsPtrOutput) ToBudgetFilterExpressionOrAndDimensionsPtrOutput() BudgetFilterExpressionOrAndDimensionsPtrOutput {
+	return o
+}
+
+func (o BudgetFilterExpressionOrAndDimensionsPtrOutput) ToBudgetFilterExpressionOrAndDimensionsPtrOutputWithContext(ctx context.Context) BudgetFilterExpressionOrAndDimensionsPtrOutput {
+	return o
+}
+
+func (o BudgetFilterExpressionOrAndDimensionsPtrOutput) Elem() BudgetFilterExpressionOrAndDimensionsOutput {
+	return o.ApplyT(func(v *BudgetFilterExpressionOrAndDimensions) BudgetFilterExpressionOrAndDimensions {
+		if v != nil {
+			return *v
+		}
+		var ret BudgetFilterExpressionOrAndDimensions
+		return ret
+	}).(BudgetFilterExpressionOrAndDimensionsOutput)
+}
+
+// (Optional) The cost category key to filter on.
+func (o BudgetFilterExpressionOrAndDimensionsPtrOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BudgetFilterExpressionOrAndDimensions) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Key
+	}).(pulumi.StringPtrOutput)
+}
+
+// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+func (o BudgetFilterExpressionOrAndDimensionsPtrOutput) MatchOptions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *BudgetFilterExpressionOrAndDimensions) []string {
+		if v == nil {
+			return nil
+		}
+		return v.MatchOptions
+	}).(pulumi.StringArrayOutput)
+}
+
+// (Optional) A list of cost category values to match. At least one value is required.
+func (o BudgetFilterExpressionOrAndDimensionsPtrOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *BudgetFilterExpressionOrAndDimensions) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Values
+	}).(pulumi.StringArrayOutput)
+}
+
+type BudgetFilterExpressionOrAndTags struct {
+	// (Optional) The cost category key to filter on.
+	Key *string `pulumi:"key"`
+	// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+	MatchOptions []string `pulumi:"matchOptions"`
+	// (Optional) A list of cost category values to match. At least one value is required.
+	Values []string `pulumi:"values"`
+}
+
+// BudgetFilterExpressionOrAndTagsInput is an input type that accepts BudgetFilterExpressionOrAndTagsArgs and BudgetFilterExpressionOrAndTagsOutput values.
+// You can construct a concrete instance of `BudgetFilterExpressionOrAndTagsInput` via:
+//
+//	BudgetFilterExpressionOrAndTagsArgs{...}
+type BudgetFilterExpressionOrAndTagsInput interface {
+	pulumi.Input
+
+	ToBudgetFilterExpressionOrAndTagsOutput() BudgetFilterExpressionOrAndTagsOutput
+	ToBudgetFilterExpressionOrAndTagsOutputWithContext(context.Context) BudgetFilterExpressionOrAndTagsOutput
+}
+
+type BudgetFilterExpressionOrAndTagsArgs struct {
+	// (Optional) The cost category key to filter on.
+	Key pulumi.StringPtrInput `pulumi:"key"`
+	// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+	MatchOptions pulumi.StringArrayInput `pulumi:"matchOptions"`
+	// (Optional) A list of cost category values to match. At least one value is required.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (BudgetFilterExpressionOrAndTagsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BudgetFilterExpressionOrAndTags)(nil)).Elem()
+}
+
+func (i BudgetFilterExpressionOrAndTagsArgs) ToBudgetFilterExpressionOrAndTagsOutput() BudgetFilterExpressionOrAndTagsOutput {
+	return i.ToBudgetFilterExpressionOrAndTagsOutputWithContext(context.Background())
+}
+
+func (i BudgetFilterExpressionOrAndTagsArgs) ToBudgetFilterExpressionOrAndTagsOutputWithContext(ctx context.Context) BudgetFilterExpressionOrAndTagsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetFilterExpressionOrAndTagsOutput)
+}
+
+func (i BudgetFilterExpressionOrAndTagsArgs) ToBudgetFilterExpressionOrAndTagsPtrOutput() BudgetFilterExpressionOrAndTagsPtrOutput {
+	return i.ToBudgetFilterExpressionOrAndTagsPtrOutputWithContext(context.Background())
+}
+
+func (i BudgetFilterExpressionOrAndTagsArgs) ToBudgetFilterExpressionOrAndTagsPtrOutputWithContext(ctx context.Context) BudgetFilterExpressionOrAndTagsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetFilterExpressionOrAndTagsOutput).ToBudgetFilterExpressionOrAndTagsPtrOutputWithContext(ctx)
+}
+
+// BudgetFilterExpressionOrAndTagsPtrInput is an input type that accepts BudgetFilterExpressionOrAndTagsArgs, BudgetFilterExpressionOrAndTagsPtr and BudgetFilterExpressionOrAndTagsPtrOutput values.
+// You can construct a concrete instance of `BudgetFilterExpressionOrAndTagsPtrInput` via:
+//
+//	        BudgetFilterExpressionOrAndTagsArgs{...}
+//
+//	or:
+//
+//	        nil
+type BudgetFilterExpressionOrAndTagsPtrInput interface {
+	pulumi.Input
+
+	ToBudgetFilterExpressionOrAndTagsPtrOutput() BudgetFilterExpressionOrAndTagsPtrOutput
+	ToBudgetFilterExpressionOrAndTagsPtrOutputWithContext(context.Context) BudgetFilterExpressionOrAndTagsPtrOutput
+}
+
+type budgetFilterExpressionOrAndTagsPtrType BudgetFilterExpressionOrAndTagsArgs
+
+func BudgetFilterExpressionOrAndTagsPtr(v *BudgetFilterExpressionOrAndTagsArgs) BudgetFilterExpressionOrAndTagsPtrInput {
+	return (*budgetFilterExpressionOrAndTagsPtrType)(v)
+}
+
+func (*budgetFilterExpressionOrAndTagsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BudgetFilterExpressionOrAndTags)(nil)).Elem()
+}
+
+func (i *budgetFilterExpressionOrAndTagsPtrType) ToBudgetFilterExpressionOrAndTagsPtrOutput() BudgetFilterExpressionOrAndTagsPtrOutput {
+	return i.ToBudgetFilterExpressionOrAndTagsPtrOutputWithContext(context.Background())
+}
+
+func (i *budgetFilterExpressionOrAndTagsPtrType) ToBudgetFilterExpressionOrAndTagsPtrOutputWithContext(ctx context.Context) BudgetFilterExpressionOrAndTagsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetFilterExpressionOrAndTagsPtrOutput)
+}
+
+type BudgetFilterExpressionOrAndTagsOutput struct{ *pulumi.OutputState }
+
+func (BudgetFilterExpressionOrAndTagsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BudgetFilterExpressionOrAndTags)(nil)).Elem()
+}
+
+func (o BudgetFilterExpressionOrAndTagsOutput) ToBudgetFilterExpressionOrAndTagsOutput() BudgetFilterExpressionOrAndTagsOutput {
+	return o
+}
+
+func (o BudgetFilterExpressionOrAndTagsOutput) ToBudgetFilterExpressionOrAndTagsOutputWithContext(ctx context.Context) BudgetFilterExpressionOrAndTagsOutput {
+	return o
+}
+
+func (o BudgetFilterExpressionOrAndTagsOutput) ToBudgetFilterExpressionOrAndTagsPtrOutput() BudgetFilterExpressionOrAndTagsPtrOutput {
+	return o.ToBudgetFilterExpressionOrAndTagsPtrOutputWithContext(context.Background())
+}
+
+func (o BudgetFilterExpressionOrAndTagsOutput) ToBudgetFilterExpressionOrAndTagsPtrOutputWithContext(ctx context.Context) BudgetFilterExpressionOrAndTagsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BudgetFilterExpressionOrAndTags) *BudgetFilterExpressionOrAndTags {
+		return &v
+	}).(BudgetFilterExpressionOrAndTagsPtrOutput)
+}
+
+// (Optional) The cost category key to filter on.
+func (o BudgetFilterExpressionOrAndTagsOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BudgetFilterExpressionOrAndTags) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+func (o BudgetFilterExpressionOrAndTagsOutput) MatchOptions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v BudgetFilterExpressionOrAndTags) []string { return v.MatchOptions }).(pulumi.StringArrayOutput)
+}
+
+// (Optional) A list of cost category values to match. At least one value is required.
+func (o BudgetFilterExpressionOrAndTagsOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v BudgetFilterExpressionOrAndTags) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type BudgetFilterExpressionOrAndTagsPtrOutput struct{ *pulumi.OutputState }
+
+func (BudgetFilterExpressionOrAndTagsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BudgetFilterExpressionOrAndTags)(nil)).Elem()
+}
+
+func (o BudgetFilterExpressionOrAndTagsPtrOutput) ToBudgetFilterExpressionOrAndTagsPtrOutput() BudgetFilterExpressionOrAndTagsPtrOutput {
+	return o
+}
+
+func (o BudgetFilterExpressionOrAndTagsPtrOutput) ToBudgetFilterExpressionOrAndTagsPtrOutputWithContext(ctx context.Context) BudgetFilterExpressionOrAndTagsPtrOutput {
+	return o
+}
+
+func (o BudgetFilterExpressionOrAndTagsPtrOutput) Elem() BudgetFilterExpressionOrAndTagsOutput {
+	return o.ApplyT(func(v *BudgetFilterExpressionOrAndTags) BudgetFilterExpressionOrAndTags {
+		if v != nil {
+			return *v
+		}
+		var ret BudgetFilterExpressionOrAndTags
+		return ret
+	}).(BudgetFilterExpressionOrAndTagsOutput)
+}
+
+// (Optional) The cost category key to filter on.
+func (o BudgetFilterExpressionOrAndTagsPtrOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BudgetFilterExpressionOrAndTags) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Key
+	}).(pulumi.StringPtrOutput)
+}
+
+// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+func (o BudgetFilterExpressionOrAndTagsPtrOutput) MatchOptions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *BudgetFilterExpressionOrAndTags) []string {
+		if v == nil {
+			return nil
+		}
+		return v.MatchOptions
+	}).(pulumi.StringArrayOutput)
+}
+
+// (Optional) A list of cost category values to match. At least one value is required.
+func (o BudgetFilterExpressionOrAndTagsPtrOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *BudgetFilterExpressionOrAndTags) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Values
+	}).(pulumi.StringArrayOutput)
+}
+
+type BudgetFilterExpressionOrCostCategories struct {
+	// (Optional) The cost category key to filter on.
+	Key *string `pulumi:"key"`
+	// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+	MatchOptions []string `pulumi:"matchOptions"`
+	// (Optional) A list of cost category values to match. At least one value is required.
+	Values []string `pulumi:"values"`
+}
+
+// BudgetFilterExpressionOrCostCategoriesInput is an input type that accepts BudgetFilterExpressionOrCostCategoriesArgs and BudgetFilterExpressionOrCostCategoriesOutput values.
+// You can construct a concrete instance of `BudgetFilterExpressionOrCostCategoriesInput` via:
+//
+//	BudgetFilterExpressionOrCostCategoriesArgs{...}
+type BudgetFilterExpressionOrCostCategoriesInput interface {
+	pulumi.Input
+
+	ToBudgetFilterExpressionOrCostCategoriesOutput() BudgetFilterExpressionOrCostCategoriesOutput
+	ToBudgetFilterExpressionOrCostCategoriesOutputWithContext(context.Context) BudgetFilterExpressionOrCostCategoriesOutput
+}
+
+type BudgetFilterExpressionOrCostCategoriesArgs struct {
+	// (Optional) The cost category key to filter on.
+	Key pulumi.StringPtrInput `pulumi:"key"`
+	// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+	MatchOptions pulumi.StringArrayInput `pulumi:"matchOptions"`
+	// (Optional) A list of cost category values to match. At least one value is required.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (BudgetFilterExpressionOrCostCategoriesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BudgetFilterExpressionOrCostCategories)(nil)).Elem()
+}
+
+func (i BudgetFilterExpressionOrCostCategoriesArgs) ToBudgetFilterExpressionOrCostCategoriesOutput() BudgetFilterExpressionOrCostCategoriesOutput {
+	return i.ToBudgetFilterExpressionOrCostCategoriesOutputWithContext(context.Background())
+}
+
+func (i BudgetFilterExpressionOrCostCategoriesArgs) ToBudgetFilterExpressionOrCostCategoriesOutputWithContext(ctx context.Context) BudgetFilterExpressionOrCostCategoriesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetFilterExpressionOrCostCategoriesOutput)
+}
+
+func (i BudgetFilterExpressionOrCostCategoriesArgs) ToBudgetFilterExpressionOrCostCategoriesPtrOutput() BudgetFilterExpressionOrCostCategoriesPtrOutput {
+	return i.ToBudgetFilterExpressionOrCostCategoriesPtrOutputWithContext(context.Background())
+}
+
+func (i BudgetFilterExpressionOrCostCategoriesArgs) ToBudgetFilterExpressionOrCostCategoriesPtrOutputWithContext(ctx context.Context) BudgetFilterExpressionOrCostCategoriesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetFilterExpressionOrCostCategoriesOutput).ToBudgetFilterExpressionOrCostCategoriesPtrOutputWithContext(ctx)
+}
+
+// BudgetFilterExpressionOrCostCategoriesPtrInput is an input type that accepts BudgetFilterExpressionOrCostCategoriesArgs, BudgetFilterExpressionOrCostCategoriesPtr and BudgetFilterExpressionOrCostCategoriesPtrOutput values.
+// You can construct a concrete instance of `BudgetFilterExpressionOrCostCategoriesPtrInput` via:
+//
+//	        BudgetFilterExpressionOrCostCategoriesArgs{...}
+//
+//	or:
+//
+//	        nil
+type BudgetFilterExpressionOrCostCategoriesPtrInput interface {
+	pulumi.Input
+
+	ToBudgetFilterExpressionOrCostCategoriesPtrOutput() BudgetFilterExpressionOrCostCategoriesPtrOutput
+	ToBudgetFilterExpressionOrCostCategoriesPtrOutputWithContext(context.Context) BudgetFilterExpressionOrCostCategoriesPtrOutput
+}
+
+type budgetFilterExpressionOrCostCategoriesPtrType BudgetFilterExpressionOrCostCategoriesArgs
+
+func BudgetFilterExpressionOrCostCategoriesPtr(v *BudgetFilterExpressionOrCostCategoriesArgs) BudgetFilterExpressionOrCostCategoriesPtrInput {
+	return (*budgetFilterExpressionOrCostCategoriesPtrType)(v)
+}
+
+func (*budgetFilterExpressionOrCostCategoriesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BudgetFilterExpressionOrCostCategories)(nil)).Elem()
+}
+
+func (i *budgetFilterExpressionOrCostCategoriesPtrType) ToBudgetFilterExpressionOrCostCategoriesPtrOutput() BudgetFilterExpressionOrCostCategoriesPtrOutput {
+	return i.ToBudgetFilterExpressionOrCostCategoriesPtrOutputWithContext(context.Background())
+}
+
+func (i *budgetFilterExpressionOrCostCategoriesPtrType) ToBudgetFilterExpressionOrCostCategoriesPtrOutputWithContext(ctx context.Context) BudgetFilterExpressionOrCostCategoriesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetFilterExpressionOrCostCategoriesPtrOutput)
+}
+
+type BudgetFilterExpressionOrCostCategoriesOutput struct{ *pulumi.OutputState }
+
+func (BudgetFilterExpressionOrCostCategoriesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BudgetFilterExpressionOrCostCategories)(nil)).Elem()
+}
+
+func (o BudgetFilterExpressionOrCostCategoriesOutput) ToBudgetFilterExpressionOrCostCategoriesOutput() BudgetFilterExpressionOrCostCategoriesOutput {
+	return o
+}
+
+func (o BudgetFilterExpressionOrCostCategoriesOutput) ToBudgetFilterExpressionOrCostCategoriesOutputWithContext(ctx context.Context) BudgetFilterExpressionOrCostCategoriesOutput {
+	return o
+}
+
+func (o BudgetFilterExpressionOrCostCategoriesOutput) ToBudgetFilterExpressionOrCostCategoriesPtrOutput() BudgetFilterExpressionOrCostCategoriesPtrOutput {
+	return o.ToBudgetFilterExpressionOrCostCategoriesPtrOutputWithContext(context.Background())
+}
+
+func (o BudgetFilterExpressionOrCostCategoriesOutput) ToBudgetFilterExpressionOrCostCategoriesPtrOutputWithContext(ctx context.Context) BudgetFilterExpressionOrCostCategoriesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BudgetFilterExpressionOrCostCategories) *BudgetFilterExpressionOrCostCategories {
+		return &v
+	}).(BudgetFilterExpressionOrCostCategoriesPtrOutput)
+}
+
+// (Optional) The cost category key to filter on.
+func (o BudgetFilterExpressionOrCostCategoriesOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BudgetFilterExpressionOrCostCategories) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+func (o BudgetFilterExpressionOrCostCategoriesOutput) MatchOptions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v BudgetFilterExpressionOrCostCategories) []string { return v.MatchOptions }).(pulumi.StringArrayOutput)
+}
+
+// (Optional) A list of cost category values to match. At least one value is required.
+func (o BudgetFilterExpressionOrCostCategoriesOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v BudgetFilterExpressionOrCostCategories) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type BudgetFilterExpressionOrCostCategoriesPtrOutput struct{ *pulumi.OutputState }
+
+func (BudgetFilterExpressionOrCostCategoriesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BudgetFilterExpressionOrCostCategories)(nil)).Elem()
+}
+
+func (o BudgetFilterExpressionOrCostCategoriesPtrOutput) ToBudgetFilterExpressionOrCostCategoriesPtrOutput() BudgetFilterExpressionOrCostCategoriesPtrOutput {
+	return o
+}
+
+func (o BudgetFilterExpressionOrCostCategoriesPtrOutput) ToBudgetFilterExpressionOrCostCategoriesPtrOutputWithContext(ctx context.Context) BudgetFilterExpressionOrCostCategoriesPtrOutput {
+	return o
+}
+
+func (o BudgetFilterExpressionOrCostCategoriesPtrOutput) Elem() BudgetFilterExpressionOrCostCategoriesOutput {
+	return o.ApplyT(func(v *BudgetFilterExpressionOrCostCategories) BudgetFilterExpressionOrCostCategories {
+		if v != nil {
+			return *v
+		}
+		var ret BudgetFilterExpressionOrCostCategories
+		return ret
+	}).(BudgetFilterExpressionOrCostCategoriesOutput)
+}
+
+// (Optional) The cost category key to filter on.
+func (o BudgetFilterExpressionOrCostCategoriesPtrOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BudgetFilterExpressionOrCostCategories) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Key
+	}).(pulumi.StringPtrOutput)
+}
+
+// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+func (o BudgetFilterExpressionOrCostCategoriesPtrOutput) MatchOptions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *BudgetFilterExpressionOrCostCategories) []string {
+		if v == nil {
+			return nil
+		}
+		return v.MatchOptions
+	}).(pulumi.StringArrayOutput)
+}
+
+// (Optional) A list of cost category values to match. At least one value is required.
+func (o BudgetFilterExpressionOrCostCategoriesPtrOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *BudgetFilterExpressionOrCostCategories) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Values
+	}).(pulumi.StringArrayOutput)
+}
+
+type BudgetFilterExpressionOrDimensions struct {
+	// (Optional) The cost category key to filter on.
+	Key string `pulumi:"key"`
+	// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+	MatchOptions []string `pulumi:"matchOptions"`
+	// (Optional) A list of cost category values to match. At least one value is required.
+	Values []string `pulumi:"values"`
+}
+
+// BudgetFilterExpressionOrDimensionsInput is an input type that accepts BudgetFilterExpressionOrDimensionsArgs and BudgetFilterExpressionOrDimensionsOutput values.
+// You can construct a concrete instance of `BudgetFilterExpressionOrDimensionsInput` via:
+//
+//	BudgetFilterExpressionOrDimensionsArgs{...}
+type BudgetFilterExpressionOrDimensionsInput interface {
+	pulumi.Input
+
+	ToBudgetFilterExpressionOrDimensionsOutput() BudgetFilterExpressionOrDimensionsOutput
+	ToBudgetFilterExpressionOrDimensionsOutputWithContext(context.Context) BudgetFilterExpressionOrDimensionsOutput
+}
+
+type BudgetFilterExpressionOrDimensionsArgs struct {
+	// (Optional) The cost category key to filter on.
+	Key pulumi.StringInput `pulumi:"key"`
+	// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+	MatchOptions pulumi.StringArrayInput `pulumi:"matchOptions"`
+	// (Optional) A list of cost category values to match. At least one value is required.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (BudgetFilterExpressionOrDimensionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BudgetFilterExpressionOrDimensions)(nil)).Elem()
+}
+
+func (i BudgetFilterExpressionOrDimensionsArgs) ToBudgetFilterExpressionOrDimensionsOutput() BudgetFilterExpressionOrDimensionsOutput {
+	return i.ToBudgetFilterExpressionOrDimensionsOutputWithContext(context.Background())
+}
+
+func (i BudgetFilterExpressionOrDimensionsArgs) ToBudgetFilterExpressionOrDimensionsOutputWithContext(ctx context.Context) BudgetFilterExpressionOrDimensionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetFilterExpressionOrDimensionsOutput)
+}
+
+func (i BudgetFilterExpressionOrDimensionsArgs) ToBudgetFilterExpressionOrDimensionsPtrOutput() BudgetFilterExpressionOrDimensionsPtrOutput {
+	return i.ToBudgetFilterExpressionOrDimensionsPtrOutputWithContext(context.Background())
+}
+
+func (i BudgetFilterExpressionOrDimensionsArgs) ToBudgetFilterExpressionOrDimensionsPtrOutputWithContext(ctx context.Context) BudgetFilterExpressionOrDimensionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetFilterExpressionOrDimensionsOutput).ToBudgetFilterExpressionOrDimensionsPtrOutputWithContext(ctx)
+}
+
+// BudgetFilterExpressionOrDimensionsPtrInput is an input type that accepts BudgetFilterExpressionOrDimensionsArgs, BudgetFilterExpressionOrDimensionsPtr and BudgetFilterExpressionOrDimensionsPtrOutput values.
+// You can construct a concrete instance of `BudgetFilterExpressionOrDimensionsPtrInput` via:
+//
+//	        BudgetFilterExpressionOrDimensionsArgs{...}
+//
+//	or:
+//
+//	        nil
+type BudgetFilterExpressionOrDimensionsPtrInput interface {
+	pulumi.Input
+
+	ToBudgetFilterExpressionOrDimensionsPtrOutput() BudgetFilterExpressionOrDimensionsPtrOutput
+	ToBudgetFilterExpressionOrDimensionsPtrOutputWithContext(context.Context) BudgetFilterExpressionOrDimensionsPtrOutput
+}
+
+type budgetFilterExpressionOrDimensionsPtrType BudgetFilterExpressionOrDimensionsArgs
+
+func BudgetFilterExpressionOrDimensionsPtr(v *BudgetFilterExpressionOrDimensionsArgs) BudgetFilterExpressionOrDimensionsPtrInput {
+	return (*budgetFilterExpressionOrDimensionsPtrType)(v)
+}
+
+func (*budgetFilterExpressionOrDimensionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BudgetFilterExpressionOrDimensions)(nil)).Elem()
+}
+
+func (i *budgetFilterExpressionOrDimensionsPtrType) ToBudgetFilterExpressionOrDimensionsPtrOutput() BudgetFilterExpressionOrDimensionsPtrOutput {
+	return i.ToBudgetFilterExpressionOrDimensionsPtrOutputWithContext(context.Background())
+}
+
+func (i *budgetFilterExpressionOrDimensionsPtrType) ToBudgetFilterExpressionOrDimensionsPtrOutputWithContext(ctx context.Context) BudgetFilterExpressionOrDimensionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetFilterExpressionOrDimensionsPtrOutput)
+}
+
+type BudgetFilterExpressionOrDimensionsOutput struct{ *pulumi.OutputState }
+
+func (BudgetFilterExpressionOrDimensionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BudgetFilterExpressionOrDimensions)(nil)).Elem()
+}
+
+func (o BudgetFilterExpressionOrDimensionsOutput) ToBudgetFilterExpressionOrDimensionsOutput() BudgetFilterExpressionOrDimensionsOutput {
+	return o
+}
+
+func (o BudgetFilterExpressionOrDimensionsOutput) ToBudgetFilterExpressionOrDimensionsOutputWithContext(ctx context.Context) BudgetFilterExpressionOrDimensionsOutput {
+	return o
+}
+
+func (o BudgetFilterExpressionOrDimensionsOutput) ToBudgetFilterExpressionOrDimensionsPtrOutput() BudgetFilterExpressionOrDimensionsPtrOutput {
+	return o.ToBudgetFilterExpressionOrDimensionsPtrOutputWithContext(context.Background())
+}
+
+func (o BudgetFilterExpressionOrDimensionsOutput) ToBudgetFilterExpressionOrDimensionsPtrOutputWithContext(ctx context.Context) BudgetFilterExpressionOrDimensionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BudgetFilterExpressionOrDimensions) *BudgetFilterExpressionOrDimensions {
+		return &v
+	}).(BudgetFilterExpressionOrDimensionsPtrOutput)
+}
+
+// (Optional) The cost category key to filter on.
+func (o BudgetFilterExpressionOrDimensionsOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v BudgetFilterExpressionOrDimensions) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+func (o BudgetFilterExpressionOrDimensionsOutput) MatchOptions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v BudgetFilterExpressionOrDimensions) []string { return v.MatchOptions }).(pulumi.StringArrayOutput)
+}
+
+// (Optional) A list of cost category values to match. At least one value is required.
+func (o BudgetFilterExpressionOrDimensionsOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v BudgetFilterExpressionOrDimensions) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type BudgetFilterExpressionOrDimensionsPtrOutput struct{ *pulumi.OutputState }
+
+func (BudgetFilterExpressionOrDimensionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BudgetFilterExpressionOrDimensions)(nil)).Elem()
+}
+
+func (o BudgetFilterExpressionOrDimensionsPtrOutput) ToBudgetFilterExpressionOrDimensionsPtrOutput() BudgetFilterExpressionOrDimensionsPtrOutput {
+	return o
+}
+
+func (o BudgetFilterExpressionOrDimensionsPtrOutput) ToBudgetFilterExpressionOrDimensionsPtrOutputWithContext(ctx context.Context) BudgetFilterExpressionOrDimensionsPtrOutput {
+	return o
+}
+
+func (o BudgetFilterExpressionOrDimensionsPtrOutput) Elem() BudgetFilterExpressionOrDimensionsOutput {
+	return o.ApplyT(func(v *BudgetFilterExpressionOrDimensions) BudgetFilterExpressionOrDimensions {
+		if v != nil {
+			return *v
+		}
+		var ret BudgetFilterExpressionOrDimensions
+		return ret
+	}).(BudgetFilterExpressionOrDimensionsOutput)
+}
+
+// (Optional) The cost category key to filter on.
+func (o BudgetFilterExpressionOrDimensionsPtrOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BudgetFilterExpressionOrDimensions) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Key
+	}).(pulumi.StringPtrOutput)
+}
+
+// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+func (o BudgetFilterExpressionOrDimensionsPtrOutput) MatchOptions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *BudgetFilterExpressionOrDimensions) []string {
+		if v == nil {
+			return nil
+		}
+		return v.MatchOptions
+	}).(pulumi.StringArrayOutput)
+}
+
+// (Optional) A list of cost category values to match. At least one value is required.
+func (o BudgetFilterExpressionOrDimensionsPtrOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *BudgetFilterExpressionOrDimensions) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Values
+	}).(pulumi.StringArrayOutput)
+}
+
+type BudgetFilterExpressionOrNot struct {
+	// (Optional) A Cost Category Filter block.
+	CostCategories *BudgetFilterExpressionOrNotCostCategories `pulumi:"costCategories"`
+	// (Optional) A Dimension Filter block.
+	Dimensions *BudgetFilterExpressionOrNotDimensions `pulumi:"dimensions"`
+	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags *BudgetFilterExpressionOrNotTags `pulumi:"tags"`
+}
+
+// BudgetFilterExpressionOrNotInput is an input type that accepts BudgetFilterExpressionOrNotArgs and BudgetFilterExpressionOrNotOutput values.
+// You can construct a concrete instance of `BudgetFilterExpressionOrNotInput` via:
+//
+//	BudgetFilterExpressionOrNotArgs{...}
+type BudgetFilterExpressionOrNotInput interface {
+	pulumi.Input
+
+	ToBudgetFilterExpressionOrNotOutput() BudgetFilterExpressionOrNotOutput
+	ToBudgetFilterExpressionOrNotOutputWithContext(context.Context) BudgetFilterExpressionOrNotOutput
+}
+
+type BudgetFilterExpressionOrNotArgs struct {
+	// (Optional) A Cost Category Filter block.
+	CostCategories BudgetFilterExpressionOrNotCostCategoriesPtrInput `pulumi:"costCategories"`
+	// (Optional) A Dimension Filter block.
+	Dimensions BudgetFilterExpressionOrNotDimensionsPtrInput `pulumi:"dimensions"`
+	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags BudgetFilterExpressionOrNotTagsPtrInput `pulumi:"tags"`
+}
+
+func (BudgetFilterExpressionOrNotArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BudgetFilterExpressionOrNot)(nil)).Elem()
+}
+
+func (i BudgetFilterExpressionOrNotArgs) ToBudgetFilterExpressionOrNotOutput() BudgetFilterExpressionOrNotOutput {
+	return i.ToBudgetFilterExpressionOrNotOutputWithContext(context.Background())
+}
+
+func (i BudgetFilterExpressionOrNotArgs) ToBudgetFilterExpressionOrNotOutputWithContext(ctx context.Context) BudgetFilterExpressionOrNotOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetFilterExpressionOrNotOutput)
+}
+
+func (i BudgetFilterExpressionOrNotArgs) ToBudgetFilterExpressionOrNotPtrOutput() BudgetFilterExpressionOrNotPtrOutput {
+	return i.ToBudgetFilterExpressionOrNotPtrOutputWithContext(context.Background())
+}
+
+func (i BudgetFilterExpressionOrNotArgs) ToBudgetFilterExpressionOrNotPtrOutputWithContext(ctx context.Context) BudgetFilterExpressionOrNotPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetFilterExpressionOrNotOutput).ToBudgetFilterExpressionOrNotPtrOutputWithContext(ctx)
+}
+
+// BudgetFilterExpressionOrNotPtrInput is an input type that accepts BudgetFilterExpressionOrNotArgs, BudgetFilterExpressionOrNotPtr and BudgetFilterExpressionOrNotPtrOutput values.
+// You can construct a concrete instance of `BudgetFilterExpressionOrNotPtrInput` via:
+//
+//	        BudgetFilterExpressionOrNotArgs{...}
+//
+//	or:
+//
+//	        nil
+type BudgetFilterExpressionOrNotPtrInput interface {
+	pulumi.Input
+
+	ToBudgetFilterExpressionOrNotPtrOutput() BudgetFilterExpressionOrNotPtrOutput
+	ToBudgetFilterExpressionOrNotPtrOutputWithContext(context.Context) BudgetFilterExpressionOrNotPtrOutput
+}
+
+type budgetFilterExpressionOrNotPtrType BudgetFilterExpressionOrNotArgs
+
+func BudgetFilterExpressionOrNotPtr(v *BudgetFilterExpressionOrNotArgs) BudgetFilterExpressionOrNotPtrInput {
+	return (*budgetFilterExpressionOrNotPtrType)(v)
+}
+
+func (*budgetFilterExpressionOrNotPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BudgetFilterExpressionOrNot)(nil)).Elem()
+}
+
+func (i *budgetFilterExpressionOrNotPtrType) ToBudgetFilterExpressionOrNotPtrOutput() BudgetFilterExpressionOrNotPtrOutput {
+	return i.ToBudgetFilterExpressionOrNotPtrOutputWithContext(context.Background())
+}
+
+func (i *budgetFilterExpressionOrNotPtrType) ToBudgetFilterExpressionOrNotPtrOutputWithContext(ctx context.Context) BudgetFilterExpressionOrNotPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetFilterExpressionOrNotPtrOutput)
+}
+
+type BudgetFilterExpressionOrNotOutput struct{ *pulumi.OutputState }
+
+func (BudgetFilterExpressionOrNotOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BudgetFilterExpressionOrNot)(nil)).Elem()
+}
+
+func (o BudgetFilterExpressionOrNotOutput) ToBudgetFilterExpressionOrNotOutput() BudgetFilterExpressionOrNotOutput {
+	return o
+}
+
+func (o BudgetFilterExpressionOrNotOutput) ToBudgetFilterExpressionOrNotOutputWithContext(ctx context.Context) BudgetFilterExpressionOrNotOutput {
+	return o
+}
+
+func (o BudgetFilterExpressionOrNotOutput) ToBudgetFilterExpressionOrNotPtrOutput() BudgetFilterExpressionOrNotPtrOutput {
+	return o.ToBudgetFilterExpressionOrNotPtrOutputWithContext(context.Background())
+}
+
+func (o BudgetFilterExpressionOrNotOutput) ToBudgetFilterExpressionOrNotPtrOutputWithContext(ctx context.Context) BudgetFilterExpressionOrNotPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BudgetFilterExpressionOrNot) *BudgetFilterExpressionOrNot {
+		return &v
+	}).(BudgetFilterExpressionOrNotPtrOutput)
+}
+
+// (Optional) A Cost Category Filter block.
+func (o BudgetFilterExpressionOrNotOutput) CostCategories() BudgetFilterExpressionOrNotCostCategoriesPtrOutput {
+	return o.ApplyT(func(v BudgetFilterExpressionOrNot) *BudgetFilterExpressionOrNotCostCategories {
+		return v.CostCategories
+	}).(BudgetFilterExpressionOrNotCostCategoriesPtrOutput)
+}
+
+// (Optional) A Dimension Filter block.
+func (o BudgetFilterExpressionOrNotOutput) Dimensions() BudgetFilterExpressionOrNotDimensionsPtrOutput {
+	return o.ApplyT(func(v BudgetFilterExpressionOrNot) *BudgetFilterExpressionOrNotDimensions { return v.Dimensions }).(BudgetFilterExpressionOrNotDimensionsPtrOutput)
+}
+
+// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+func (o BudgetFilterExpressionOrNotOutput) Tags() BudgetFilterExpressionOrNotTagsPtrOutput {
+	return o.ApplyT(func(v BudgetFilterExpressionOrNot) *BudgetFilterExpressionOrNotTags { return v.Tags }).(BudgetFilterExpressionOrNotTagsPtrOutput)
+}
+
+type BudgetFilterExpressionOrNotPtrOutput struct{ *pulumi.OutputState }
+
+func (BudgetFilterExpressionOrNotPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BudgetFilterExpressionOrNot)(nil)).Elem()
+}
+
+func (o BudgetFilterExpressionOrNotPtrOutput) ToBudgetFilterExpressionOrNotPtrOutput() BudgetFilterExpressionOrNotPtrOutput {
+	return o
+}
+
+func (o BudgetFilterExpressionOrNotPtrOutput) ToBudgetFilterExpressionOrNotPtrOutputWithContext(ctx context.Context) BudgetFilterExpressionOrNotPtrOutput {
+	return o
+}
+
+func (o BudgetFilterExpressionOrNotPtrOutput) Elem() BudgetFilterExpressionOrNotOutput {
+	return o.ApplyT(func(v *BudgetFilterExpressionOrNot) BudgetFilterExpressionOrNot {
+		if v != nil {
+			return *v
+		}
+		var ret BudgetFilterExpressionOrNot
+		return ret
+	}).(BudgetFilterExpressionOrNotOutput)
+}
+
+// (Optional) A Cost Category Filter block.
+func (o BudgetFilterExpressionOrNotPtrOutput) CostCategories() BudgetFilterExpressionOrNotCostCategoriesPtrOutput {
+	return o.ApplyT(func(v *BudgetFilterExpressionOrNot) *BudgetFilterExpressionOrNotCostCategories {
+		if v == nil {
+			return nil
+		}
+		return v.CostCategories
+	}).(BudgetFilterExpressionOrNotCostCategoriesPtrOutput)
+}
+
+// (Optional) A Dimension Filter block.
+func (o BudgetFilterExpressionOrNotPtrOutput) Dimensions() BudgetFilterExpressionOrNotDimensionsPtrOutput {
+	return o.ApplyT(func(v *BudgetFilterExpressionOrNot) *BudgetFilterExpressionOrNotDimensions {
+		if v == nil {
+			return nil
+		}
+		return v.Dimensions
+	}).(BudgetFilterExpressionOrNotDimensionsPtrOutput)
+}
+
+// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+func (o BudgetFilterExpressionOrNotPtrOutput) Tags() BudgetFilterExpressionOrNotTagsPtrOutput {
+	return o.ApplyT(func(v *BudgetFilterExpressionOrNot) *BudgetFilterExpressionOrNotTags {
+		if v == nil {
+			return nil
+		}
+		return v.Tags
+	}).(BudgetFilterExpressionOrNotTagsPtrOutput)
+}
+
+type BudgetFilterExpressionOrNotCostCategories struct {
+	// (Optional) The cost category key to filter on.
+	Key *string `pulumi:"key"`
+	// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+	MatchOptions []string `pulumi:"matchOptions"`
+	// (Optional) A list of cost category values to match. At least one value is required.
+	Values []string `pulumi:"values"`
+}
+
+// BudgetFilterExpressionOrNotCostCategoriesInput is an input type that accepts BudgetFilterExpressionOrNotCostCategoriesArgs and BudgetFilterExpressionOrNotCostCategoriesOutput values.
+// You can construct a concrete instance of `BudgetFilterExpressionOrNotCostCategoriesInput` via:
+//
+//	BudgetFilterExpressionOrNotCostCategoriesArgs{...}
+type BudgetFilterExpressionOrNotCostCategoriesInput interface {
+	pulumi.Input
+
+	ToBudgetFilterExpressionOrNotCostCategoriesOutput() BudgetFilterExpressionOrNotCostCategoriesOutput
+	ToBudgetFilterExpressionOrNotCostCategoriesOutputWithContext(context.Context) BudgetFilterExpressionOrNotCostCategoriesOutput
+}
+
+type BudgetFilterExpressionOrNotCostCategoriesArgs struct {
+	// (Optional) The cost category key to filter on.
+	Key pulumi.StringPtrInput `pulumi:"key"`
+	// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+	MatchOptions pulumi.StringArrayInput `pulumi:"matchOptions"`
+	// (Optional) A list of cost category values to match. At least one value is required.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (BudgetFilterExpressionOrNotCostCategoriesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BudgetFilterExpressionOrNotCostCategories)(nil)).Elem()
+}
+
+func (i BudgetFilterExpressionOrNotCostCategoriesArgs) ToBudgetFilterExpressionOrNotCostCategoriesOutput() BudgetFilterExpressionOrNotCostCategoriesOutput {
+	return i.ToBudgetFilterExpressionOrNotCostCategoriesOutputWithContext(context.Background())
+}
+
+func (i BudgetFilterExpressionOrNotCostCategoriesArgs) ToBudgetFilterExpressionOrNotCostCategoriesOutputWithContext(ctx context.Context) BudgetFilterExpressionOrNotCostCategoriesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetFilterExpressionOrNotCostCategoriesOutput)
+}
+
+func (i BudgetFilterExpressionOrNotCostCategoriesArgs) ToBudgetFilterExpressionOrNotCostCategoriesPtrOutput() BudgetFilterExpressionOrNotCostCategoriesPtrOutput {
+	return i.ToBudgetFilterExpressionOrNotCostCategoriesPtrOutputWithContext(context.Background())
+}
+
+func (i BudgetFilterExpressionOrNotCostCategoriesArgs) ToBudgetFilterExpressionOrNotCostCategoriesPtrOutputWithContext(ctx context.Context) BudgetFilterExpressionOrNotCostCategoriesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetFilterExpressionOrNotCostCategoriesOutput).ToBudgetFilterExpressionOrNotCostCategoriesPtrOutputWithContext(ctx)
+}
+
+// BudgetFilterExpressionOrNotCostCategoriesPtrInput is an input type that accepts BudgetFilterExpressionOrNotCostCategoriesArgs, BudgetFilterExpressionOrNotCostCategoriesPtr and BudgetFilterExpressionOrNotCostCategoriesPtrOutput values.
+// You can construct a concrete instance of `BudgetFilterExpressionOrNotCostCategoriesPtrInput` via:
+//
+//	        BudgetFilterExpressionOrNotCostCategoriesArgs{...}
+//
+//	or:
+//
+//	        nil
+type BudgetFilterExpressionOrNotCostCategoriesPtrInput interface {
+	pulumi.Input
+
+	ToBudgetFilterExpressionOrNotCostCategoriesPtrOutput() BudgetFilterExpressionOrNotCostCategoriesPtrOutput
+	ToBudgetFilterExpressionOrNotCostCategoriesPtrOutputWithContext(context.Context) BudgetFilterExpressionOrNotCostCategoriesPtrOutput
+}
+
+type budgetFilterExpressionOrNotCostCategoriesPtrType BudgetFilterExpressionOrNotCostCategoriesArgs
+
+func BudgetFilterExpressionOrNotCostCategoriesPtr(v *BudgetFilterExpressionOrNotCostCategoriesArgs) BudgetFilterExpressionOrNotCostCategoriesPtrInput {
+	return (*budgetFilterExpressionOrNotCostCategoriesPtrType)(v)
+}
+
+func (*budgetFilterExpressionOrNotCostCategoriesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BudgetFilterExpressionOrNotCostCategories)(nil)).Elem()
+}
+
+func (i *budgetFilterExpressionOrNotCostCategoriesPtrType) ToBudgetFilterExpressionOrNotCostCategoriesPtrOutput() BudgetFilterExpressionOrNotCostCategoriesPtrOutput {
+	return i.ToBudgetFilterExpressionOrNotCostCategoriesPtrOutputWithContext(context.Background())
+}
+
+func (i *budgetFilterExpressionOrNotCostCategoriesPtrType) ToBudgetFilterExpressionOrNotCostCategoriesPtrOutputWithContext(ctx context.Context) BudgetFilterExpressionOrNotCostCategoriesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetFilterExpressionOrNotCostCategoriesPtrOutput)
+}
+
+type BudgetFilterExpressionOrNotCostCategoriesOutput struct{ *pulumi.OutputState }
+
+func (BudgetFilterExpressionOrNotCostCategoriesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BudgetFilterExpressionOrNotCostCategories)(nil)).Elem()
+}
+
+func (o BudgetFilterExpressionOrNotCostCategoriesOutput) ToBudgetFilterExpressionOrNotCostCategoriesOutput() BudgetFilterExpressionOrNotCostCategoriesOutput {
+	return o
+}
+
+func (o BudgetFilterExpressionOrNotCostCategoriesOutput) ToBudgetFilterExpressionOrNotCostCategoriesOutputWithContext(ctx context.Context) BudgetFilterExpressionOrNotCostCategoriesOutput {
+	return o
+}
+
+func (o BudgetFilterExpressionOrNotCostCategoriesOutput) ToBudgetFilterExpressionOrNotCostCategoriesPtrOutput() BudgetFilterExpressionOrNotCostCategoriesPtrOutput {
+	return o.ToBudgetFilterExpressionOrNotCostCategoriesPtrOutputWithContext(context.Background())
+}
+
+func (o BudgetFilterExpressionOrNotCostCategoriesOutput) ToBudgetFilterExpressionOrNotCostCategoriesPtrOutputWithContext(ctx context.Context) BudgetFilterExpressionOrNotCostCategoriesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BudgetFilterExpressionOrNotCostCategories) *BudgetFilterExpressionOrNotCostCategories {
+		return &v
+	}).(BudgetFilterExpressionOrNotCostCategoriesPtrOutput)
+}
+
+// (Optional) The cost category key to filter on.
+func (o BudgetFilterExpressionOrNotCostCategoriesOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BudgetFilterExpressionOrNotCostCategories) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+func (o BudgetFilterExpressionOrNotCostCategoriesOutput) MatchOptions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v BudgetFilterExpressionOrNotCostCategories) []string { return v.MatchOptions }).(pulumi.StringArrayOutput)
+}
+
+// (Optional) A list of cost category values to match. At least one value is required.
+func (o BudgetFilterExpressionOrNotCostCategoriesOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v BudgetFilterExpressionOrNotCostCategories) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type BudgetFilterExpressionOrNotCostCategoriesPtrOutput struct{ *pulumi.OutputState }
+
+func (BudgetFilterExpressionOrNotCostCategoriesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BudgetFilterExpressionOrNotCostCategories)(nil)).Elem()
+}
+
+func (o BudgetFilterExpressionOrNotCostCategoriesPtrOutput) ToBudgetFilterExpressionOrNotCostCategoriesPtrOutput() BudgetFilterExpressionOrNotCostCategoriesPtrOutput {
+	return o
+}
+
+func (o BudgetFilterExpressionOrNotCostCategoriesPtrOutput) ToBudgetFilterExpressionOrNotCostCategoriesPtrOutputWithContext(ctx context.Context) BudgetFilterExpressionOrNotCostCategoriesPtrOutput {
+	return o
+}
+
+func (o BudgetFilterExpressionOrNotCostCategoriesPtrOutput) Elem() BudgetFilterExpressionOrNotCostCategoriesOutput {
+	return o.ApplyT(func(v *BudgetFilterExpressionOrNotCostCategories) BudgetFilterExpressionOrNotCostCategories {
+		if v != nil {
+			return *v
+		}
+		var ret BudgetFilterExpressionOrNotCostCategories
+		return ret
+	}).(BudgetFilterExpressionOrNotCostCategoriesOutput)
+}
+
+// (Optional) The cost category key to filter on.
+func (o BudgetFilterExpressionOrNotCostCategoriesPtrOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BudgetFilterExpressionOrNotCostCategories) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Key
+	}).(pulumi.StringPtrOutput)
+}
+
+// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+func (o BudgetFilterExpressionOrNotCostCategoriesPtrOutput) MatchOptions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *BudgetFilterExpressionOrNotCostCategories) []string {
+		if v == nil {
+			return nil
+		}
+		return v.MatchOptions
+	}).(pulumi.StringArrayOutput)
+}
+
+// (Optional) A list of cost category values to match. At least one value is required.
+func (o BudgetFilterExpressionOrNotCostCategoriesPtrOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *BudgetFilterExpressionOrNotCostCategories) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Values
+	}).(pulumi.StringArrayOutput)
+}
+
+type BudgetFilterExpressionOrNotDimensions struct {
+	// (Optional) The cost category key to filter on.
+	Key string `pulumi:"key"`
+	// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+	MatchOptions []string `pulumi:"matchOptions"`
+	// (Optional) A list of cost category values to match. At least one value is required.
+	Values []string `pulumi:"values"`
+}
+
+// BudgetFilterExpressionOrNotDimensionsInput is an input type that accepts BudgetFilterExpressionOrNotDimensionsArgs and BudgetFilterExpressionOrNotDimensionsOutput values.
+// You can construct a concrete instance of `BudgetFilterExpressionOrNotDimensionsInput` via:
+//
+//	BudgetFilterExpressionOrNotDimensionsArgs{...}
+type BudgetFilterExpressionOrNotDimensionsInput interface {
+	pulumi.Input
+
+	ToBudgetFilterExpressionOrNotDimensionsOutput() BudgetFilterExpressionOrNotDimensionsOutput
+	ToBudgetFilterExpressionOrNotDimensionsOutputWithContext(context.Context) BudgetFilterExpressionOrNotDimensionsOutput
+}
+
+type BudgetFilterExpressionOrNotDimensionsArgs struct {
+	// (Optional) The cost category key to filter on.
+	Key pulumi.StringInput `pulumi:"key"`
+	// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+	MatchOptions pulumi.StringArrayInput `pulumi:"matchOptions"`
+	// (Optional) A list of cost category values to match. At least one value is required.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (BudgetFilterExpressionOrNotDimensionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BudgetFilterExpressionOrNotDimensions)(nil)).Elem()
+}
+
+func (i BudgetFilterExpressionOrNotDimensionsArgs) ToBudgetFilterExpressionOrNotDimensionsOutput() BudgetFilterExpressionOrNotDimensionsOutput {
+	return i.ToBudgetFilterExpressionOrNotDimensionsOutputWithContext(context.Background())
+}
+
+func (i BudgetFilterExpressionOrNotDimensionsArgs) ToBudgetFilterExpressionOrNotDimensionsOutputWithContext(ctx context.Context) BudgetFilterExpressionOrNotDimensionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetFilterExpressionOrNotDimensionsOutput)
+}
+
+func (i BudgetFilterExpressionOrNotDimensionsArgs) ToBudgetFilterExpressionOrNotDimensionsPtrOutput() BudgetFilterExpressionOrNotDimensionsPtrOutput {
+	return i.ToBudgetFilterExpressionOrNotDimensionsPtrOutputWithContext(context.Background())
+}
+
+func (i BudgetFilterExpressionOrNotDimensionsArgs) ToBudgetFilterExpressionOrNotDimensionsPtrOutputWithContext(ctx context.Context) BudgetFilterExpressionOrNotDimensionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetFilterExpressionOrNotDimensionsOutput).ToBudgetFilterExpressionOrNotDimensionsPtrOutputWithContext(ctx)
+}
+
+// BudgetFilterExpressionOrNotDimensionsPtrInput is an input type that accepts BudgetFilterExpressionOrNotDimensionsArgs, BudgetFilterExpressionOrNotDimensionsPtr and BudgetFilterExpressionOrNotDimensionsPtrOutput values.
+// You can construct a concrete instance of `BudgetFilterExpressionOrNotDimensionsPtrInput` via:
+//
+//	        BudgetFilterExpressionOrNotDimensionsArgs{...}
+//
+//	or:
+//
+//	        nil
+type BudgetFilterExpressionOrNotDimensionsPtrInput interface {
+	pulumi.Input
+
+	ToBudgetFilterExpressionOrNotDimensionsPtrOutput() BudgetFilterExpressionOrNotDimensionsPtrOutput
+	ToBudgetFilterExpressionOrNotDimensionsPtrOutputWithContext(context.Context) BudgetFilterExpressionOrNotDimensionsPtrOutput
+}
+
+type budgetFilterExpressionOrNotDimensionsPtrType BudgetFilterExpressionOrNotDimensionsArgs
+
+func BudgetFilterExpressionOrNotDimensionsPtr(v *BudgetFilterExpressionOrNotDimensionsArgs) BudgetFilterExpressionOrNotDimensionsPtrInput {
+	return (*budgetFilterExpressionOrNotDimensionsPtrType)(v)
+}
+
+func (*budgetFilterExpressionOrNotDimensionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BudgetFilterExpressionOrNotDimensions)(nil)).Elem()
+}
+
+func (i *budgetFilterExpressionOrNotDimensionsPtrType) ToBudgetFilterExpressionOrNotDimensionsPtrOutput() BudgetFilterExpressionOrNotDimensionsPtrOutput {
+	return i.ToBudgetFilterExpressionOrNotDimensionsPtrOutputWithContext(context.Background())
+}
+
+func (i *budgetFilterExpressionOrNotDimensionsPtrType) ToBudgetFilterExpressionOrNotDimensionsPtrOutputWithContext(ctx context.Context) BudgetFilterExpressionOrNotDimensionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetFilterExpressionOrNotDimensionsPtrOutput)
+}
+
+type BudgetFilterExpressionOrNotDimensionsOutput struct{ *pulumi.OutputState }
+
+func (BudgetFilterExpressionOrNotDimensionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BudgetFilterExpressionOrNotDimensions)(nil)).Elem()
+}
+
+func (o BudgetFilterExpressionOrNotDimensionsOutput) ToBudgetFilterExpressionOrNotDimensionsOutput() BudgetFilterExpressionOrNotDimensionsOutput {
+	return o
+}
+
+func (o BudgetFilterExpressionOrNotDimensionsOutput) ToBudgetFilterExpressionOrNotDimensionsOutputWithContext(ctx context.Context) BudgetFilterExpressionOrNotDimensionsOutput {
+	return o
+}
+
+func (o BudgetFilterExpressionOrNotDimensionsOutput) ToBudgetFilterExpressionOrNotDimensionsPtrOutput() BudgetFilterExpressionOrNotDimensionsPtrOutput {
+	return o.ToBudgetFilterExpressionOrNotDimensionsPtrOutputWithContext(context.Background())
+}
+
+func (o BudgetFilterExpressionOrNotDimensionsOutput) ToBudgetFilterExpressionOrNotDimensionsPtrOutputWithContext(ctx context.Context) BudgetFilterExpressionOrNotDimensionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BudgetFilterExpressionOrNotDimensions) *BudgetFilterExpressionOrNotDimensions {
+		return &v
+	}).(BudgetFilterExpressionOrNotDimensionsPtrOutput)
+}
+
+// (Optional) The cost category key to filter on.
+func (o BudgetFilterExpressionOrNotDimensionsOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v BudgetFilterExpressionOrNotDimensions) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+func (o BudgetFilterExpressionOrNotDimensionsOutput) MatchOptions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v BudgetFilterExpressionOrNotDimensions) []string { return v.MatchOptions }).(pulumi.StringArrayOutput)
+}
+
+// (Optional) A list of cost category values to match. At least one value is required.
+func (o BudgetFilterExpressionOrNotDimensionsOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v BudgetFilterExpressionOrNotDimensions) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type BudgetFilterExpressionOrNotDimensionsPtrOutput struct{ *pulumi.OutputState }
+
+func (BudgetFilterExpressionOrNotDimensionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BudgetFilterExpressionOrNotDimensions)(nil)).Elem()
+}
+
+func (o BudgetFilterExpressionOrNotDimensionsPtrOutput) ToBudgetFilterExpressionOrNotDimensionsPtrOutput() BudgetFilterExpressionOrNotDimensionsPtrOutput {
+	return o
+}
+
+func (o BudgetFilterExpressionOrNotDimensionsPtrOutput) ToBudgetFilterExpressionOrNotDimensionsPtrOutputWithContext(ctx context.Context) BudgetFilterExpressionOrNotDimensionsPtrOutput {
+	return o
+}
+
+func (o BudgetFilterExpressionOrNotDimensionsPtrOutput) Elem() BudgetFilterExpressionOrNotDimensionsOutput {
+	return o.ApplyT(func(v *BudgetFilterExpressionOrNotDimensions) BudgetFilterExpressionOrNotDimensions {
+		if v != nil {
+			return *v
+		}
+		var ret BudgetFilterExpressionOrNotDimensions
+		return ret
+	}).(BudgetFilterExpressionOrNotDimensionsOutput)
+}
+
+// (Optional) The cost category key to filter on.
+func (o BudgetFilterExpressionOrNotDimensionsPtrOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BudgetFilterExpressionOrNotDimensions) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Key
+	}).(pulumi.StringPtrOutput)
+}
+
+// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+func (o BudgetFilterExpressionOrNotDimensionsPtrOutput) MatchOptions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *BudgetFilterExpressionOrNotDimensions) []string {
+		if v == nil {
+			return nil
+		}
+		return v.MatchOptions
+	}).(pulumi.StringArrayOutput)
+}
+
+// (Optional) A list of cost category values to match. At least one value is required.
+func (o BudgetFilterExpressionOrNotDimensionsPtrOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *BudgetFilterExpressionOrNotDimensions) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Values
+	}).(pulumi.StringArrayOutput)
+}
+
+type BudgetFilterExpressionOrNotTags struct {
+	// (Optional) The cost category key to filter on.
+	Key *string `pulumi:"key"`
+	// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+	MatchOptions []string `pulumi:"matchOptions"`
+	// (Optional) A list of cost category values to match. At least one value is required.
+	Values []string `pulumi:"values"`
+}
+
+// BudgetFilterExpressionOrNotTagsInput is an input type that accepts BudgetFilterExpressionOrNotTagsArgs and BudgetFilterExpressionOrNotTagsOutput values.
+// You can construct a concrete instance of `BudgetFilterExpressionOrNotTagsInput` via:
+//
+//	BudgetFilterExpressionOrNotTagsArgs{...}
+type BudgetFilterExpressionOrNotTagsInput interface {
+	pulumi.Input
+
+	ToBudgetFilterExpressionOrNotTagsOutput() BudgetFilterExpressionOrNotTagsOutput
+	ToBudgetFilterExpressionOrNotTagsOutputWithContext(context.Context) BudgetFilterExpressionOrNotTagsOutput
+}
+
+type BudgetFilterExpressionOrNotTagsArgs struct {
+	// (Optional) The cost category key to filter on.
+	Key pulumi.StringPtrInput `pulumi:"key"`
+	// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+	MatchOptions pulumi.StringArrayInput `pulumi:"matchOptions"`
+	// (Optional) A list of cost category values to match. At least one value is required.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (BudgetFilterExpressionOrNotTagsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BudgetFilterExpressionOrNotTags)(nil)).Elem()
+}
+
+func (i BudgetFilterExpressionOrNotTagsArgs) ToBudgetFilterExpressionOrNotTagsOutput() BudgetFilterExpressionOrNotTagsOutput {
+	return i.ToBudgetFilterExpressionOrNotTagsOutputWithContext(context.Background())
+}
+
+func (i BudgetFilterExpressionOrNotTagsArgs) ToBudgetFilterExpressionOrNotTagsOutputWithContext(ctx context.Context) BudgetFilterExpressionOrNotTagsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetFilterExpressionOrNotTagsOutput)
+}
+
+func (i BudgetFilterExpressionOrNotTagsArgs) ToBudgetFilterExpressionOrNotTagsPtrOutput() BudgetFilterExpressionOrNotTagsPtrOutput {
+	return i.ToBudgetFilterExpressionOrNotTagsPtrOutputWithContext(context.Background())
+}
+
+func (i BudgetFilterExpressionOrNotTagsArgs) ToBudgetFilterExpressionOrNotTagsPtrOutputWithContext(ctx context.Context) BudgetFilterExpressionOrNotTagsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetFilterExpressionOrNotTagsOutput).ToBudgetFilterExpressionOrNotTagsPtrOutputWithContext(ctx)
+}
+
+// BudgetFilterExpressionOrNotTagsPtrInput is an input type that accepts BudgetFilterExpressionOrNotTagsArgs, BudgetFilterExpressionOrNotTagsPtr and BudgetFilterExpressionOrNotTagsPtrOutput values.
+// You can construct a concrete instance of `BudgetFilterExpressionOrNotTagsPtrInput` via:
+//
+//	        BudgetFilterExpressionOrNotTagsArgs{...}
+//
+//	or:
+//
+//	        nil
+type BudgetFilterExpressionOrNotTagsPtrInput interface {
+	pulumi.Input
+
+	ToBudgetFilterExpressionOrNotTagsPtrOutput() BudgetFilterExpressionOrNotTagsPtrOutput
+	ToBudgetFilterExpressionOrNotTagsPtrOutputWithContext(context.Context) BudgetFilterExpressionOrNotTagsPtrOutput
+}
+
+type budgetFilterExpressionOrNotTagsPtrType BudgetFilterExpressionOrNotTagsArgs
+
+func BudgetFilterExpressionOrNotTagsPtr(v *BudgetFilterExpressionOrNotTagsArgs) BudgetFilterExpressionOrNotTagsPtrInput {
+	return (*budgetFilterExpressionOrNotTagsPtrType)(v)
+}
+
+func (*budgetFilterExpressionOrNotTagsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BudgetFilterExpressionOrNotTags)(nil)).Elem()
+}
+
+func (i *budgetFilterExpressionOrNotTagsPtrType) ToBudgetFilterExpressionOrNotTagsPtrOutput() BudgetFilterExpressionOrNotTagsPtrOutput {
+	return i.ToBudgetFilterExpressionOrNotTagsPtrOutputWithContext(context.Background())
+}
+
+func (i *budgetFilterExpressionOrNotTagsPtrType) ToBudgetFilterExpressionOrNotTagsPtrOutputWithContext(ctx context.Context) BudgetFilterExpressionOrNotTagsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetFilterExpressionOrNotTagsPtrOutput)
+}
+
+type BudgetFilterExpressionOrNotTagsOutput struct{ *pulumi.OutputState }
+
+func (BudgetFilterExpressionOrNotTagsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BudgetFilterExpressionOrNotTags)(nil)).Elem()
+}
+
+func (o BudgetFilterExpressionOrNotTagsOutput) ToBudgetFilterExpressionOrNotTagsOutput() BudgetFilterExpressionOrNotTagsOutput {
+	return o
+}
+
+func (o BudgetFilterExpressionOrNotTagsOutput) ToBudgetFilterExpressionOrNotTagsOutputWithContext(ctx context.Context) BudgetFilterExpressionOrNotTagsOutput {
+	return o
+}
+
+func (o BudgetFilterExpressionOrNotTagsOutput) ToBudgetFilterExpressionOrNotTagsPtrOutput() BudgetFilterExpressionOrNotTagsPtrOutput {
+	return o.ToBudgetFilterExpressionOrNotTagsPtrOutputWithContext(context.Background())
+}
+
+func (o BudgetFilterExpressionOrNotTagsOutput) ToBudgetFilterExpressionOrNotTagsPtrOutputWithContext(ctx context.Context) BudgetFilterExpressionOrNotTagsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BudgetFilterExpressionOrNotTags) *BudgetFilterExpressionOrNotTags {
+		return &v
+	}).(BudgetFilterExpressionOrNotTagsPtrOutput)
+}
+
+// (Optional) The cost category key to filter on.
+func (o BudgetFilterExpressionOrNotTagsOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BudgetFilterExpressionOrNotTags) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+func (o BudgetFilterExpressionOrNotTagsOutput) MatchOptions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v BudgetFilterExpressionOrNotTags) []string { return v.MatchOptions }).(pulumi.StringArrayOutput)
+}
+
+// (Optional) A list of cost category values to match. At least one value is required.
+func (o BudgetFilterExpressionOrNotTagsOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v BudgetFilterExpressionOrNotTags) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type BudgetFilterExpressionOrNotTagsPtrOutput struct{ *pulumi.OutputState }
+
+func (BudgetFilterExpressionOrNotTagsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BudgetFilterExpressionOrNotTags)(nil)).Elem()
+}
+
+func (o BudgetFilterExpressionOrNotTagsPtrOutput) ToBudgetFilterExpressionOrNotTagsPtrOutput() BudgetFilterExpressionOrNotTagsPtrOutput {
+	return o
+}
+
+func (o BudgetFilterExpressionOrNotTagsPtrOutput) ToBudgetFilterExpressionOrNotTagsPtrOutputWithContext(ctx context.Context) BudgetFilterExpressionOrNotTagsPtrOutput {
+	return o
+}
+
+func (o BudgetFilterExpressionOrNotTagsPtrOutput) Elem() BudgetFilterExpressionOrNotTagsOutput {
+	return o.ApplyT(func(v *BudgetFilterExpressionOrNotTags) BudgetFilterExpressionOrNotTags {
+		if v != nil {
+			return *v
+		}
+		var ret BudgetFilterExpressionOrNotTags
+		return ret
+	}).(BudgetFilterExpressionOrNotTagsOutput)
+}
+
+// (Optional) The cost category key to filter on.
+func (o BudgetFilterExpressionOrNotTagsPtrOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BudgetFilterExpressionOrNotTags) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Key
+	}).(pulumi.StringPtrOutput)
+}
+
+// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+func (o BudgetFilterExpressionOrNotTagsPtrOutput) MatchOptions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *BudgetFilterExpressionOrNotTags) []string {
+		if v == nil {
+			return nil
+		}
+		return v.MatchOptions
+	}).(pulumi.StringArrayOutput)
+}
+
+// (Optional) A list of cost category values to match. At least one value is required.
+func (o BudgetFilterExpressionOrNotTagsPtrOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *BudgetFilterExpressionOrNotTags) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Values
+	}).(pulumi.StringArrayOutput)
+}
+
+type BudgetFilterExpressionOrOr struct {
+	// (Optional) A Cost Category Filter block.
+	CostCategories *BudgetFilterExpressionOrOrCostCategories `pulumi:"costCategories"`
+	// (Optional) A Dimension Filter block.
+	Dimensions *BudgetFilterExpressionOrOrDimensions `pulumi:"dimensions"`
+	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags *BudgetFilterExpressionOrOrTags `pulumi:"tags"`
+}
+
+// BudgetFilterExpressionOrOrInput is an input type that accepts BudgetFilterExpressionOrOrArgs and BudgetFilterExpressionOrOrOutput values.
+// You can construct a concrete instance of `BudgetFilterExpressionOrOrInput` via:
+//
+//	BudgetFilterExpressionOrOrArgs{...}
+type BudgetFilterExpressionOrOrInput interface {
+	pulumi.Input
+
+	ToBudgetFilterExpressionOrOrOutput() BudgetFilterExpressionOrOrOutput
+	ToBudgetFilterExpressionOrOrOutputWithContext(context.Context) BudgetFilterExpressionOrOrOutput
+}
+
+type BudgetFilterExpressionOrOrArgs struct {
+	// (Optional) A Cost Category Filter block.
+	CostCategories BudgetFilterExpressionOrOrCostCategoriesPtrInput `pulumi:"costCategories"`
+	// (Optional) A Dimension Filter block.
+	Dimensions BudgetFilterExpressionOrOrDimensionsPtrInput `pulumi:"dimensions"`
+	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	Tags BudgetFilterExpressionOrOrTagsPtrInput `pulumi:"tags"`
+}
+
+func (BudgetFilterExpressionOrOrArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BudgetFilterExpressionOrOr)(nil)).Elem()
+}
+
+func (i BudgetFilterExpressionOrOrArgs) ToBudgetFilterExpressionOrOrOutput() BudgetFilterExpressionOrOrOutput {
+	return i.ToBudgetFilterExpressionOrOrOutputWithContext(context.Background())
+}
+
+func (i BudgetFilterExpressionOrOrArgs) ToBudgetFilterExpressionOrOrOutputWithContext(ctx context.Context) BudgetFilterExpressionOrOrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetFilterExpressionOrOrOutput)
+}
+
+// BudgetFilterExpressionOrOrArrayInput is an input type that accepts BudgetFilterExpressionOrOrArray and BudgetFilterExpressionOrOrArrayOutput values.
+// You can construct a concrete instance of `BudgetFilterExpressionOrOrArrayInput` via:
+//
+//	BudgetFilterExpressionOrOrArray{ BudgetFilterExpressionOrOrArgs{...} }
+type BudgetFilterExpressionOrOrArrayInput interface {
+	pulumi.Input
+
+	ToBudgetFilterExpressionOrOrArrayOutput() BudgetFilterExpressionOrOrArrayOutput
+	ToBudgetFilterExpressionOrOrArrayOutputWithContext(context.Context) BudgetFilterExpressionOrOrArrayOutput
+}
+
+type BudgetFilterExpressionOrOrArray []BudgetFilterExpressionOrOrInput
+
+func (BudgetFilterExpressionOrOrArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BudgetFilterExpressionOrOr)(nil)).Elem()
+}
+
+func (i BudgetFilterExpressionOrOrArray) ToBudgetFilterExpressionOrOrArrayOutput() BudgetFilterExpressionOrOrArrayOutput {
+	return i.ToBudgetFilterExpressionOrOrArrayOutputWithContext(context.Background())
+}
+
+func (i BudgetFilterExpressionOrOrArray) ToBudgetFilterExpressionOrOrArrayOutputWithContext(ctx context.Context) BudgetFilterExpressionOrOrArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetFilterExpressionOrOrArrayOutput)
+}
+
+type BudgetFilterExpressionOrOrOutput struct{ *pulumi.OutputState }
+
+func (BudgetFilterExpressionOrOrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BudgetFilterExpressionOrOr)(nil)).Elem()
+}
+
+func (o BudgetFilterExpressionOrOrOutput) ToBudgetFilterExpressionOrOrOutput() BudgetFilterExpressionOrOrOutput {
+	return o
+}
+
+func (o BudgetFilterExpressionOrOrOutput) ToBudgetFilterExpressionOrOrOutputWithContext(ctx context.Context) BudgetFilterExpressionOrOrOutput {
+	return o
+}
+
+// (Optional) A Cost Category Filter block.
+func (o BudgetFilterExpressionOrOrOutput) CostCategories() BudgetFilterExpressionOrOrCostCategoriesPtrOutput {
+	return o.ApplyT(func(v BudgetFilterExpressionOrOr) *BudgetFilterExpressionOrOrCostCategories { return v.CostCategories }).(BudgetFilterExpressionOrOrCostCategoriesPtrOutput)
+}
+
+// (Optional) A Dimension Filter block.
+func (o BudgetFilterExpressionOrOrOutput) Dimensions() BudgetFilterExpressionOrOrDimensionsPtrOutput {
+	return o.ApplyT(func(v BudgetFilterExpressionOrOr) *BudgetFilterExpressionOrOrDimensions { return v.Dimensions }).(BudgetFilterExpressionOrOrDimensionsPtrOutput)
+}
+
+// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+func (o BudgetFilterExpressionOrOrOutput) Tags() BudgetFilterExpressionOrOrTagsPtrOutput {
+	return o.ApplyT(func(v BudgetFilterExpressionOrOr) *BudgetFilterExpressionOrOrTags { return v.Tags }).(BudgetFilterExpressionOrOrTagsPtrOutput)
+}
+
+type BudgetFilterExpressionOrOrArrayOutput struct{ *pulumi.OutputState }
+
+func (BudgetFilterExpressionOrOrArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BudgetFilterExpressionOrOr)(nil)).Elem()
+}
+
+func (o BudgetFilterExpressionOrOrArrayOutput) ToBudgetFilterExpressionOrOrArrayOutput() BudgetFilterExpressionOrOrArrayOutput {
+	return o
+}
+
+func (o BudgetFilterExpressionOrOrArrayOutput) ToBudgetFilterExpressionOrOrArrayOutputWithContext(ctx context.Context) BudgetFilterExpressionOrOrArrayOutput {
+	return o
+}
+
+func (o BudgetFilterExpressionOrOrArrayOutput) Index(i pulumi.IntInput) BudgetFilterExpressionOrOrOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BudgetFilterExpressionOrOr {
+		return vs[0].([]BudgetFilterExpressionOrOr)[vs[1].(int)]
+	}).(BudgetFilterExpressionOrOrOutput)
+}
+
+type BudgetFilterExpressionOrOrCostCategories struct {
+	// (Optional) The cost category key to filter on.
+	Key *string `pulumi:"key"`
+	// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+	MatchOptions []string `pulumi:"matchOptions"`
+	// (Optional) A list of cost category values to match. At least one value is required.
+	Values []string `pulumi:"values"`
+}
+
+// BudgetFilterExpressionOrOrCostCategoriesInput is an input type that accepts BudgetFilterExpressionOrOrCostCategoriesArgs and BudgetFilterExpressionOrOrCostCategoriesOutput values.
+// You can construct a concrete instance of `BudgetFilterExpressionOrOrCostCategoriesInput` via:
+//
+//	BudgetFilterExpressionOrOrCostCategoriesArgs{...}
+type BudgetFilterExpressionOrOrCostCategoriesInput interface {
+	pulumi.Input
+
+	ToBudgetFilterExpressionOrOrCostCategoriesOutput() BudgetFilterExpressionOrOrCostCategoriesOutput
+	ToBudgetFilterExpressionOrOrCostCategoriesOutputWithContext(context.Context) BudgetFilterExpressionOrOrCostCategoriesOutput
+}
+
+type BudgetFilterExpressionOrOrCostCategoriesArgs struct {
+	// (Optional) The cost category key to filter on.
+	Key pulumi.StringPtrInput `pulumi:"key"`
+	// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+	MatchOptions pulumi.StringArrayInput `pulumi:"matchOptions"`
+	// (Optional) A list of cost category values to match. At least one value is required.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (BudgetFilterExpressionOrOrCostCategoriesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BudgetFilterExpressionOrOrCostCategories)(nil)).Elem()
+}
+
+func (i BudgetFilterExpressionOrOrCostCategoriesArgs) ToBudgetFilterExpressionOrOrCostCategoriesOutput() BudgetFilterExpressionOrOrCostCategoriesOutput {
+	return i.ToBudgetFilterExpressionOrOrCostCategoriesOutputWithContext(context.Background())
+}
+
+func (i BudgetFilterExpressionOrOrCostCategoriesArgs) ToBudgetFilterExpressionOrOrCostCategoriesOutputWithContext(ctx context.Context) BudgetFilterExpressionOrOrCostCategoriesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetFilterExpressionOrOrCostCategoriesOutput)
+}
+
+func (i BudgetFilterExpressionOrOrCostCategoriesArgs) ToBudgetFilterExpressionOrOrCostCategoriesPtrOutput() BudgetFilterExpressionOrOrCostCategoriesPtrOutput {
+	return i.ToBudgetFilterExpressionOrOrCostCategoriesPtrOutputWithContext(context.Background())
+}
+
+func (i BudgetFilterExpressionOrOrCostCategoriesArgs) ToBudgetFilterExpressionOrOrCostCategoriesPtrOutputWithContext(ctx context.Context) BudgetFilterExpressionOrOrCostCategoriesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetFilterExpressionOrOrCostCategoriesOutput).ToBudgetFilterExpressionOrOrCostCategoriesPtrOutputWithContext(ctx)
+}
+
+// BudgetFilterExpressionOrOrCostCategoriesPtrInput is an input type that accepts BudgetFilterExpressionOrOrCostCategoriesArgs, BudgetFilterExpressionOrOrCostCategoriesPtr and BudgetFilterExpressionOrOrCostCategoriesPtrOutput values.
+// You can construct a concrete instance of `BudgetFilterExpressionOrOrCostCategoriesPtrInput` via:
+//
+//	        BudgetFilterExpressionOrOrCostCategoriesArgs{...}
+//
+//	or:
+//
+//	        nil
+type BudgetFilterExpressionOrOrCostCategoriesPtrInput interface {
+	pulumi.Input
+
+	ToBudgetFilterExpressionOrOrCostCategoriesPtrOutput() BudgetFilterExpressionOrOrCostCategoriesPtrOutput
+	ToBudgetFilterExpressionOrOrCostCategoriesPtrOutputWithContext(context.Context) BudgetFilterExpressionOrOrCostCategoriesPtrOutput
+}
+
+type budgetFilterExpressionOrOrCostCategoriesPtrType BudgetFilterExpressionOrOrCostCategoriesArgs
+
+func BudgetFilterExpressionOrOrCostCategoriesPtr(v *BudgetFilterExpressionOrOrCostCategoriesArgs) BudgetFilterExpressionOrOrCostCategoriesPtrInput {
+	return (*budgetFilterExpressionOrOrCostCategoriesPtrType)(v)
+}
+
+func (*budgetFilterExpressionOrOrCostCategoriesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BudgetFilterExpressionOrOrCostCategories)(nil)).Elem()
+}
+
+func (i *budgetFilterExpressionOrOrCostCategoriesPtrType) ToBudgetFilterExpressionOrOrCostCategoriesPtrOutput() BudgetFilterExpressionOrOrCostCategoriesPtrOutput {
+	return i.ToBudgetFilterExpressionOrOrCostCategoriesPtrOutputWithContext(context.Background())
+}
+
+func (i *budgetFilterExpressionOrOrCostCategoriesPtrType) ToBudgetFilterExpressionOrOrCostCategoriesPtrOutputWithContext(ctx context.Context) BudgetFilterExpressionOrOrCostCategoriesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetFilterExpressionOrOrCostCategoriesPtrOutput)
+}
+
+type BudgetFilterExpressionOrOrCostCategoriesOutput struct{ *pulumi.OutputState }
+
+func (BudgetFilterExpressionOrOrCostCategoriesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BudgetFilterExpressionOrOrCostCategories)(nil)).Elem()
+}
+
+func (o BudgetFilterExpressionOrOrCostCategoriesOutput) ToBudgetFilterExpressionOrOrCostCategoriesOutput() BudgetFilterExpressionOrOrCostCategoriesOutput {
+	return o
+}
+
+func (o BudgetFilterExpressionOrOrCostCategoriesOutput) ToBudgetFilterExpressionOrOrCostCategoriesOutputWithContext(ctx context.Context) BudgetFilterExpressionOrOrCostCategoriesOutput {
+	return o
+}
+
+func (o BudgetFilterExpressionOrOrCostCategoriesOutput) ToBudgetFilterExpressionOrOrCostCategoriesPtrOutput() BudgetFilterExpressionOrOrCostCategoriesPtrOutput {
+	return o.ToBudgetFilterExpressionOrOrCostCategoriesPtrOutputWithContext(context.Background())
+}
+
+func (o BudgetFilterExpressionOrOrCostCategoriesOutput) ToBudgetFilterExpressionOrOrCostCategoriesPtrOutputWithContext(ctx context.Context) BudgetFilterExpressionOrOrCostCategoriesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BudgetFilterExpressionOrOrCostCategories) *BudgetFilterExpressionOrOrCostCategories {
+		return &v
+	}).(BudgetFilterExpressionOrOrCostCategoriesPtrOutput)
+}
+
+// (Optional) The cost category key to filter on.
+func (o BudgetFilterExpressionOrOrCostCategoriesOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BudgetFilterExpressionOrOrCostCategories) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+func (o BudgetFilterExpressionOrOrCostCategoriesOutput) MatchOptions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v BudgetFilterExpressionOrOrCostCategories) []string { return v.MatchOptions }).(pulumi.StringArrayOutput)
+}
+
+// (Optional) A list of cost category values to match. At least one value is required.
+func (o BudgetFilterExpressionOrOrCostCategoriesOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v BudgetFilterExpressionOrOrCostCategories) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type BudgetFilterExpressionOrOrCostCategoriesPtrOutput struct{ *pulumi.OutputState }
+
+func (BudgetFilterExpressionOrOrCostCategoriesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BudgetFilterExpressionOrOrCostCategories)(nil)).Elem()
+}
+
+func (o BudgetFilterExpressionOrOrCostCategoriesPtrOutput) ToBudgetFilterExpressionOrOrCostCategoriesPtrOutput() BudgetFilterExpressionOrOrCostCategoriesPtrOutput {
+	return o
+}
+
+func (o BudgetFilterExpressionOrOrCostCategoriesPtrOutput) ToBudgetFilterExpressionOrOrCostCategoriesPtrOutputWithContext(ctx context.Context) BudgetFilterExpressionOrOrCostCategoriesPtrOutput {
+	return o
+}
+
+func (o BudgetFilterExpressionOrOrCostCategoriesPtrOutput) Elem() BudgetFilterExpressionOrOrCostCategoriesOutput {
+	return o.ApplyT(func(v *BudgetFilterExpressionOrOrCostCategories) BudgetFilterExpressionOrOrCostCategories {
+		if v != nil {
+			return *v
+		}
+		var ret BudgetFilterExpressionOrOrCostCategories
+		return ret
+	}).(BudgetFilterExpressionOrOrCostCategoriesOutput)
+}
+
+// (Optional) The cost category key to filter on.
+func (o BudgetFilterExpressionOrOrCostCategoriesPtrOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BudgetFilterExpressionOrOrCostCategories) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Key
+	}).(pulumi.StringPtrOutput)
+}
+
+// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+func (o BudgetFilterExpressionOrOrCostCategoriesPtrOutput) MatchOptions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *BudgetFilterExpressionOrOrCostCategories) []string {
+		if v == nil {
+			return nil
+		}
+		return v.MatchOptions
+	}).(pulumi.StringArrayOutput)
+}
+
+// (Optional) A list of cost category values to match. At least one value is required.
+func (o BudgetFilterExpressionOrOrCostCategoriesPtrOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *BudgetFilterExpressionOrOrCostCategories) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Values
+	}).(pulumi.StringArrayOutput)
+}
+
+type BudgetFilterExpressionOrOrDimensions struct {
+	// (Optional) The cost category key to filter on.
+	Key string `pulumi:"key"`
+	// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+	MatchOptions []string `pulumi:"matchOptions"`
+	// (Optional) A list of cost category values to match. At least one value is required.
+	Values []string `pulumi:"values"`
+}
+
+// BudgetFilterExpressionOrOrDimensionsInput is an input type that accepts BudgetFilterExpressionOrOrDimensionsArgs and BudgetFilterExpressionOrOrDimensionsOutput values.
+// You can construct a concrete instance of `BudgetFilterExpressionOrOrDimensionsInput` via:
+//
+//	BudgetFilterExpressionOrOrDimensionsArgs{...}
+type BudgetFilterExpressionOrOrDimensionsInput interface {
+	pulumi.Input
+
+	ToBudgetFilterExpressionOrOrDimensionsOutput() BudgetFilterExpressionOrOrDimensionsOutput
+	ToBudgetFilterExpressionOrOrDimensionsOutputWithContext(context.Context) BudgetFilterExpressionOrOrDimensionsOutput
+}
+
+type BudgetFilterExpressionOrOrDimensionsArgs struct {
+	// (Optional) The cost category key to filter on.
+	Key pulumi.StringInput `pulumi:"key"`
+	// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+	MatchOptions pulumi.StringArrayInput `pulumi:"matchOptions"`
+	// (Optional) A list of cost category values to match. At least one value is required.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (BudgetFilterExpressionOrOrDimensionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BudgetFilterExpressionOrOrDimensions)(nil)).Elem()
+}
+
+func (i BudgetFilterExpressionOrOrDimensionsArgs) ToBudgetFilterExpressionOrOrDimensionsOutput() BudgetFilterExpressionOrOrDimensionsOutput {
+	return i.ToBudgetFilterExpressionOrOrDimensionsOutputWithContext(context.Background())
+}
+
+func (i BudgetFilterExpressionOrOrDimensionsArgs) ToBudgetFilterExpressionOrOrDimensionsOutputWithContext(ctx context.Context) BudgetFilterExpressionOrOrDimensionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetFilterExpressionOrOrDimensionsOutput)
+}
+
+func (i BudgetFilterExpressionOrOrDimensionsArgs) ToBudgetFilterExpressionOrOrDimensionsPtrOutput() BudgetFilterExpressionOrOrDimensionsPtrOutput {
+	return i.ToBudgetFilterExpressionOrOrDimensionsPtrOutputWithContext(context.Background())
+}
+
+func (i BudgetFilterExpressionOrOrDimensionsArgs) ToBudgetFilterExpressionOrOrDimensionsPtrOutputWithContext(ctx context.Context) BudgetFilterExpressionOrOrDimensionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetFilterExpressionOrOrDimensionsOutput).ToBudgetFilterExpressionOrOrDimensionsPtrOutputWithContext(ctx)
+}
+
+// BudgetFilterExpressionOrOrDimensionsPtrInput is an input type that accepts BudgetFilterExpressionOrOrDimensionsArgs, BudgetFilterExpressionOrOrDimensionsPtr and BudgetFilterExpressionOrOrDimensionsPtrOutput values.
+// You can construct a concrete instance of `BudgetFilterExpressionOrOrDimensionsPtrInput` via:
+//
+//	        BudgetFilterExpressionOrOrDimensionsArgs{...}
+//
+//	or:
+//
+//	        nil
+type BudgetFilterExpressionOrOrDimensionsPtrInput interface {
+	pulumi.Input
+
+	ToBudgetFilterExpressionOrOrDimensionsPtrOutput() BudgetFilterExpressionOrOrDimensionsPtrOutput
+	ToBudgetFilterExpressionOrOrDimensionsPtrOutputWithContext(context.Context) BudgetFilterExpressionOrOrDimensionsPtrOutput
+}
+
+type budgetFilterExpressionOrOrDimensionsPtrType BudgetFilterExpressionOrOrDimensionsArgs
+
+func BudgetFilterExpressionOrOrDimensionsPtr(v *BudgetFilterExpressionOrOrDimensionsArgs) BudgetFilterExpressionOrOrDimensionsPtrInput {
+	return (*budgetFilterExpressionOrOrDimensionsPtrType)(v)
+}
+
+func (*budgetFilterExpressionOrOrDimensionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BudgetFilterExpressionOrOrDimensions)(nil)).Elem()
+}
+
+func (i *budgetFilterExpressionOrOrDimensionsPtrType) ToBudgetFilterExpressionOrOrDimensionsPtrOutput() BudgetFilterExpressionOrOrDimensionsPtrOutput {
+	return i.ToBudgetFilterExpressionOrOrDimensionsPtrOutputWithContext(context.Background())
+}
+
+func (i *budgetFilterExpressionOrOrDimensionsPtrType) ToBudgetFilterExpressionOrOrDimensionsPtrOutputWithContext(ctx context.Context) BudgetFilterExpressionOrOrDimensionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetFilterExpressionOrOrDimensionsPtrOutput)
+}
+
+type BudgetFilterExpressionOrOrDimensionsOutput struct{ *pulumi.OutputState }
+
+func (BudgetFilterExpressionOrOrDimensionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BudgetFilterExpressionOrOrDimensions)(nil)).Elem()
+}
+
+func (o BudgetFilterExpressionOrOrDimensionsOutput) ToBudgetFilterExpressionOrOrDimensionsOutput() BudgetFilterExpressionOrOrDimensionsOutput {
+	return o
+}
+
+func (o BudgetFilterExpressionOrOrDimensionsOutput) ToBudgetFilterExpressionOrOrDimensionsOutputWithContext(ctx context.Context) BudgetFilterExpressionOrOrDimensionsOutput {
+	return o
+}
+
+func (o BudgetFilterExpressionOrOrDimensionsOutput) ToBudgetFilterExpressionOrOrDimensionsPtrOutput() BudgetFilterExpressionOrOrDimensionsPtrOutput {
+	return o.ToBudgetFilterExpressionOrOrDimensionsPtrOutputWithContext(context.Background())
+}
+
+func (o BudgetFilterExpressionOrOrDimensionsOutput) ToBudgetFilterExpressionOrOrDimensionsPtrOutputWithContext(ctx context.Context) BudgetFilterExpressionOrOrDimensionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BudgetFilterExpressionOrOrDimensions) *BudgetFilterExpressionOrOrDimensions {
+		return &v
+	}).(BudgetFilterExpressionOrOrDimensionsPtrOutput)
+}
+
+// (Optional) The cost category key to filter on.
+func (o BudgetFilterExpressionOrOrDimensionsOutput) Key() pulumi.StringOutput {
+	return o.ApplyT(func(v BudgetFilterExpressionOrOrDimensions) string { return v.Key }).(pulumi.StringOutput)
+}
+
+// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+func (o BudgetFilterExpressionOrOrDimensionsOutput) MatchOptions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v BudgetFilterExpressionOrOrDimensions) []string { return v.MatchOptions }).(pulumi.StringArrayOutput)
+}
+
+// (Optional) A list of cost category values to match. At least one value is required.
+func (o BudgetFilterExpressionOrOrDimensionsOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v BudgetFilterExpressionOrOrDimensions) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type BudgetFilterExpressionOrOrDimensionsPtrOutput struct{ *pulumi.OutputState }
+
+func (BudgetFilterExpressionOrOrDimensionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BudgetFilterExpressionOrOrDimensions)(nil)).Elem()
+}
+
+func (o BudgetFilterExpressionOrOrDimensionsPtrOutput) ToBudgetFilterExpressionOrOrDimensionsPtrOutput() BudgetFilterExpressionOrOrDimensionsPtrOutput {
+	return o
+}
+
+func (o BudgetFilterExpressionOrOrDimensionsPtrOutput) ToBudgetFilterExpressionOrOrDimensionsPtrOutputWithContext(ctx context.Context) BudgetFilterExpressionOrOrDimensionsPtrOutput {
+	return o
+}
+
+func (o BudgetFilterExpressionOrOrDimensionsPtrOutput) Elem() BudgetFilterExpressionOrOrDimensionsOutput {
+	return o.ApplyT(func(v *BudgetFilterExpressionOrOrDimensions) BudgetFilterExpressionOrOrDimensions {
+		if v != nil {
+			return *v
+		}
+		var ret BudgetFilterExpressionOrOrDimensions
+		return ret
+	}).(BudgetFilterExpressionOrOrDimensionsOutput)
+}
+
+// (Optional) The cost category key to filter on.
+func (o BudgetFilterExpressionOrOrDimensionsPtrOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BudgetFilterExpressionOrOrDimensions) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Key
+	}).(pulumi.StringPtrOutput)
+}
+
+// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+func (o BudgetFilterExpressionOrOrDimensionsPtrOutput) MatchOptions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *BudgetFilterExpressionOrOrDimensions) []string {
+		if v == nil {
+			return nil
+		}
+		return v.MatchOptions
+	}).(pulumi.StringArrayOutput)
+}
+
+// (Optional) A list of cost category values to match. At least one value is required.
+func (o BudgetFilterExpressionOrOrDimensionsPtrOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *BudgetFilterExpressionOrOrDimensions) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Values
+	}).(pulumi.StringArrayOutput)
+}
+
+type BudgetFilterExpressionOrOrTags struct {
+	// (Optional) The cost category key to filter on.
+	Key *string `pulumi:"key"`
+	// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+	MatchOptions []string `pulumi:"matchOptions"`
+	// (Optional) A list of cost category values to match. At least one value is required.
+	Values []string `pulumi:"values"`
+}
+
+// BudgetFilterExpressionOrOrTagsInput is an input type that accepts BudgetFilterExpressionOrOrTagsArgs and BudgetFilterExpressionOrOrTagsOutput values.
+// You can construct a concrete instance of `BudgetFilterExpressionOrOrTagsInput` via:
+//
+//	BudgetFilterExpressionOrOrTagsArgs{...}
+type BudgetFilterExpressionOrOrTagsInput interface {
+	pulumi.Input
+
+	ToBudgetFilterExpressionOrOrTagsOutput() BudgetFilterExpressionOrOrTagsOutput
+	ToBudgetFilterExpressionOrOrTagsOutputWithContext(context.Context) BudgetFilterExpressionOrOrTagsOutput
+}
+
+type BudgetFilterExpressionOrOrTagsArgs struct {
+	// (Optional) The cost category key to filter on.
+	Key pulumi.StringPtrInput `pulumi:"key"`
+	// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+	MatchOptions pulumi.StringArrayInput `pulumi:"matchOptions"`
+	// (Optional) A list of cost category values to match. At least one value is required.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (BudgetFilterExpressionOrOrTagsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BudgetFilterExpressionOrOrTags)(nil)).Elem()
+}
+
+func (i BudgetFilterExpressionOrOrTagsArgs) ToBudgetFilterExpressionOrOrTagsOutput() BudgetFilterExpressionOrOrTagsOutput {
+	return i.ToBudgetFilterExpressionOrOrTagsOutputWithContext(context.Background())
+}
+
+func (i BudgetFilterExpressionOrOrTagsArgs) ToBudgetFilterExpressionOrOrTagsOutputWithContext(ctx context.Context) BudgetFilterExpressionOrOrTagsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetFilterExpressionOrOrTagsOutput)
+}
+
+func (i BudgetFilterExpressionOrOrTagsArgs) ToBudgetFilterExpressionOrOrTagsPtrOutput() BudgetFilterExpressionOrOrTagsPtrOutput {
+	return i.ToBudgetFilterExpressionOrOrTagsPtrOutputWithContext(context.Background())
+}
+
+func (i BudgetFilterExpressionOrOrTagsArgs) ToBudgetFilterExpressionOrOrTagsPtrOutputWithContext(ctx context.Context) BudgetFilterExpressionOrOrTagsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetFilterExpressionOrOrTagsOutput).ToBudgetFilterExpressionOrOrTagsPtrOutputWithContext(ctx)
+}
+
+// BudgetFilterExpressionOrOrTagsPtrInput is an input type that accepts BudgetFilterExpressionOrOrTagsArgs, BudgetFilterExpressionOrOrTagsPtr and BudgetFilterExpressionOrOrTagsPtrOutput values.
+// You can construct a concrete instance of `BudgetFilterExpressionOrOrTagsPtrInput` via:
+//
+//	        BudgetFilterExpressionOrOrTagsArgs{...}
+//
+//	or:
+//
+//	        nil
+type BudgetFilterExpressionOrOrTagsPtrInput interface {
+	pulumi.Input
+
+	ToBudgetFilterExpressionOrOrTagsPtrOutput() BudgetFilterExpressionOrOrTagsPtrOutput
+	ToBudgetFilterExpressionOrOrTagsPtrOutputWithContext(context.Context) BudgetFilterExpressionOrOrTagsPtrOutput
+}
+
+type budgetFilterExpressionOrOrTagsPtrType BudgetFilterExpressionOrOrTagsArgs
+
+func BudgetFilterExpressionOrOrTagsPtr(v *BudgetFilterExpressionOrOrTagsArgs) BudgetFilterExpressionOrOrTagsPtrInput {
+	return (*budgetFilterExpressionOrOrTagsPtrType)(v)
+}
+
+func (*budgetFilterExpressionOrOrTagsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BudgetFilterExpressionOrOrTags)(nil)).Elem()
+}
+
+func (i *budgetFilterExpressionOrOrTagsPtrType) ToBudgetFilterExpressionOrOrTagsPtrOutput() BudgetFilterExpressionOrOrTagsPtrOutput {
+	return i.ToBudgetFilterExpressionOrOrTagsPtrOutputWithContext(context.Background())
+}
+
+func (i *budgetFilterExpressionOrOrTagsPtrType) ToBudgetFilterExpressionOrOrTagsPtrOutputWithContext(ctx context.Context) BudgetFilterExpressionOrOrTagsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetFilterExpressionOrOrTagsPtrOutput)
+}
+
+type BudgetFilterExpressionOrOrTagsOutput struct{ *pulumi.OutputState }
+
+func (BudgetFilterExpressionOrOrTagsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BudgetFilterExpressionOrOrTags)(nil)).Elem()
+}
+
+func (o BudgetFilterExpressionOrOrTagsOutput) ToBudgetFilterExpressionOrOrTagsOutput() BudgetFilterExpressionOrOrTagsOutput {
+	return o
+}
+
+func (o BudgetFilterExpressionOrOrTagsOutput) ToBudgetFilterExpressionOrOrTagsOutputWithContext(ctx context.Context) BudgetFilterExpressionOrOrTagsOutput {
+	return o
+}
+
+func (o BudgetFilterExpressionOrOrTagsOutput) ToBudgetFilterExpressionOrOrTagsPtrOutput() BudgetFilterExpressionOrOrTagsPtrOutput {
+	return o.ToBudgetFilterExpressionOrOrTagsPtrOutputWithContext(context.Background())
+}
+
+func (o BudgetFilterExpressionOrOrTagsOutput) ToBudgetFilterExpressionOrOrTagsPtrOutputWithContext(ctx context.Context) BudgetFilterExpressionOrOrTagsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BudgetFilterExpressionOrOrTags) *BudgetFilterExpressionOrOrTags {
+		return &v
+	}).(BudgetFilterExpressionOrOrTagsPtrOutput)
+}
+
+// (Optional) The cost category key to filter on.
+func (o BudgetFilterExpressionOrOrTagsOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BudgetFilterExpressionOrOrTags) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+func (o BudgetFilterExpressionOrOrTagsOutput) MatchOptions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v BudgetFilterExpressionOrOrTags) []string { return v.MatchOptions }).(pulumi.StringArrayOutput)
+}
+
+// (Optional) A list of cost category values to match. At least one value is required.
+func (o BudgetFilterExpressionOrOrTagsOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v BudgetFilterExpressionOrOrTags) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type BudgetFilterExpressionOrOrTagsPtrOutput struct{ *pulumi.OutputState }
+
+func (BudgetFilterExpressionOrOrTagsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BudgetFilterExpressionOrOrTags)(nil)).Elem()
+}
+
+func (o BudgetFilterExpressionOrOrTagsPtrOutput) ToBudgetFilterExpressionOrOrTagsPtrOutput() BudgetFilterExpressionOrOrTagsPtrOutput {
+	return o
+}
+
+func (o BudgetFilterExpressionOrOrTagsPtrOutput) ToBudgetFilterExpressionOrOrTagsPtrOutputWithContext(ctx context.Context) BudgetFilterExpressionOrOrTagsPtrOutput {
+	return o
+}
+
+func (o BudgetFilterExpressionOrOrTagsPtrOutput) Elem() BudgetFilterExpressionOrOrTagsOutput {
+	return o.ApplyT(func(v *BudgetFilterExpressionOrOrTags) BudgetFilterExpressionOrOrTags {
+		if v != nil {
+			return *v
+		}
+		var ret BudgetFilterExpressionOrOrTags
+		return ret
+	}).(BudgetFilterExpressionOrOrTagsOutput)
+}
+
+// (Optional) The cost category key to filter on.
+func (o BudgetFilterExpressionOrOrTagsPtrOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BudgetFilterExpressionOrOrTags) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Key
+	}).(pulumi.StringPtrOutput)
+}
+
+// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+func (o BudgetFilterExpressionOrOrTagsPtrOutput) MatchOptions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *BudgetFilterExpressionOrOrTags) []string {
+		if v == nil {
+			return nil
+		}
+		return v.MatchOptions
+	}).(pulumi.StringArrayOutput)
+}
+
+// (Optional) A list of cost category values to match. At least one value is required.
+func (o BudgetFilterExpressionOrOrTagsPtrOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *BudgetFilterExpressionOrOrTags) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Values
+	}).(pulumi.StringArrayOutput)
+}
+
+type BudgetFilterExpressionOrTags struct {
+	// (Optional) The cost category key to filter on.
+	Key *string `pulumi:"key"`
+	// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+	MatchOptions []string `pulumi:"matchOptions"`
+	// (Optional) A list of cost category values to match. At least one value is required.
+	Values []string `pulumi:"values"`
+}
+
+// BudgetFilterExpressionOrTagsInput is an input type that accepts BudgetFilterExpressionOrTagsArgs and BudgetFilterExpressionOrTagsOutput values.
+// You can construct a concrete instance of `BudgetFilterExpressionOrTagsInput` via:
+//
+//	BudgetFilterExpressionOrTagsArgs{...}
+type BudgetFilterExpressionOrTagsInput interface {
+	pulumi.Input
+
+	ToBudgetFilterExpressionOrTagsOutput() BudgetFilterExpressionOrTagsOutput
+	ToBudgetFilterExpressionOrTagsOutputWithContext(context.Context) BudgetFilterExpressionOrTagsOutput
+}
+
+type BudgetFilterExpressionOrTagsArgs struct {
+	// (Optional) The cost category key to filter on.
+	Key pulumi.StringPtrInput `pulumi:"key"`
+	// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+	MatchOptions pulumi.StringArrayInput `pulumi:"matchOptions"`
+	// (Optional) A list of cost category values to match. At least one value is required.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (BudgetFilterExpressionOrTagsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BudgetFilterExpressionOrTags)(nil)).Elem()
+}
+
+func (i BudgetFilterExpressionOrTagsArgs) ToBudgetFilterExpressionOrTagsOutput() BudgetFilterExpressionOrTagsOutput {
+	return i.ToBudgetFilterExpressionOrTagsOutputWithContext(context.Background())
+}
+
+func (i BudgetFilterExpressionOrTagsArgs) ToBudgetFilterExpressionOrTagsOutputWithContext(ctx context.Context) BudgetFilterExpressionOrTagsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetFilterExpressionOrTagsOutput)
+}
+
+func (i BudgetFilterExpressionOrTagsArgs) ToBudgetFilterExpressionOrTagsPtrOutput() BudgetFilterExpressionOrTagsPtrOutput {
+	return i.ToBudgetFilterExpressionOrTagsPtrOutputWithContext(context.Background())
+}
+
+func (i BudgetFilterExpressionOrTagsArgs) ToBudgetFilterExpressionOrTagsPtrOutputWithContext(ctx context.Context) BudgetFilterExpressionOrTagsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetFilterExpressionOrTagsOutput).ToBudgetFilterExpressionOrTagsPtrOutputWithContext(ctx)
+}
+
+// BudgetFilterExpressionOrTagsPtrInput is an input type that accepts BudgetFilterExpressionOrTagsArgs, BudgetFilterExpressionOrTagsPtr and BudgetFilterExpressionOrTagsPtrOutput values.
+// You can construct a concrete instance of `BudgetFilterExpressionOrTagsPtrInput` via:
+//
+//	        BudgetFilterExpressionOrTagsArgs{...}
+//
+//	or:
+//
+//	        nil
+type BudgetFilterExpressionOrTagsPtrInput interface {
+	pulumi.Input
+
+	ToBudgetFilterExpressionOrTagsPtrOutput() BudgetFilterExpressionOrTagsPtrOutput
+	ToBudgetFilterExpressionOrTagsPtrOutputWithContext(context.Context) BudgetFilterExpressionOrTagsPtrOutput
+}
+
+type budgetFilterExpressionOrTagsPtrType BudgetFilterExpressionOrTagsArgs
+
+func BudgetFilterExpressionOrTagsPtr(v *BudgetFilterExpressionOrTagsArgs) BudgetFilterExpressionOrTagsPtrInput {
+	return (*budgetFilterExpressionOrTagsPtrType)(v)
+}
+
+func (*budgetFilterExpressionOrTagsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BudgetFilterExpressionOrTags)(nil)).Elem()
+}
+
+func (i *budgetFilterExpressionOrTagsPtrType) ToBudgetFilterExpressionOrTagsPtrOutput() BudgetFilterExpressionOrTagsPtrOutput {
+	return i.ToBudgetFilterExpressionOrTagsPtrOutputWithContext(context.Background())
+}
+
+func (i *budgetFilterExpressionOrTagsPtrType) ToBudgetFilterExpressionOrTagsPtrOutputWithContext(ctx context.Context) BudgetFilterExpressionOrTagsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetFilterExpressionOrTagsPtrOutput)
+}
+
+type BudgetFilterExpressionOrTagsOutput struct{ *pulumi.OutputState }
+
+func (BudgetFilterExpressionOrTagsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BudgetFilterExpressionOrTags)(nil)).Elem()
+}
+
+func (o BudgetFilterExpressionOrTagsOutput) ToBudgetFilterExpressionOrTagsOutput() BudgetFilterExpressionOrTagsOutput {
+	return o
+}
+
+func (o BudgetFilterExpressionOrTagsOutput) ToBudgetFilterExpressionOrTagsOutputWithContext(ctx context.Context) BudgetFilterExpressionOrTagsOutput {
+	return o
+}
+
+func (o BudgetFilterExpressionOrTagsOutput) ToBudgetFilterExpressionOrTagsPtrOutput() BudgetFilterExpressionOrTagsPtrOutput {
+	return o.ToBudgetFilterExpressionOrTagsPtrOutputWithContext(context.Background())
+}
+
+func (o BudgetFilterExpressionOrTagsOutput) ToBudgetFilterExpressionOrTagsPtrOutputWithContext(ctx context.Context) BudgetFilterExpressionOrTagsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BudgetFilterExpressionOrTags) *BudgetFilterExpressionOrTags {
+		return &v
+	}).(BudgetFilterExpressionOrTagsPtrOutput)
+}
+
+// (Optional) The cost category key to filter on.
+func (o BudgetFilterExpressionOrTagsOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BudgetFilterExpressionOrTags) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+func (o BudgetFilterExpressionOrTagsOutput) MatchOptions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v BudgetFilterExpressionOrTags) []string { return v.MatchOptions }).(pulumi.StringArrayOutput)
+}
+
+// (Optional) A list of cost category values to match. At least one value is required.
+func (o BudgetFilterExpressionOrTagsOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v BudgetFilterExpressionOrTags) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type BudgetFilterExpressionOrTagsPtrOutput struct{ *pulumi.OutputState }
+
+func (BudgetFilterExpressionOrTagsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BudgetFilterExpressionOrTags)(nil)).Elem()
+}
+
+func (o BudgetFilterExpressionOrTagsPtrOutput) ToBudgetFilterExpressionOrTagsPtrOutput() BudgetFilterExpressionOrTagsPtrOutput {
+	return o
+}
+
+func (o BudgetFilterExpressionOrTagsPtrOutput) ToBudgetFilterExpressionOrTagsPtrOutputWithContext(ctx context.Context) BudgetFilterExpressionOrTagsPtrOutput {
+	return o
+}
+
+func (o BudgetFilterExpressionOrTagsPtrOutput) Elem() BudgetFilterExpressionOrTagsOutput {
+	return o.ApplyT(func(v *BudgetFilterExpressionOrTags) BudgetFilterExpressionOrTags {
+		if v != nil {
+			return *v
+		}
+		var ret BudgetFilterExpressionOrTags
+		return ret
+	}).(BudgetFilterExpressionOrTagsOutput)
+}
+
+// (Optional) The cost category key to filter on.
+func (o BudgetFilterExpressionOrTagsPtrOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BudgetFilterExpressionOrTags) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Key
+	}).(pulumi.StringPtrOutput)
+}
+
+// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+func (o BudgetFilterExpressionOrTagsPtrOutput) MatchOptions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *BudgetFilterExpressionOrTags) []string {
+		if v == nil {
+			return nil
+		}
+		return v.MatchOptions
+	}).(pulumi.StringArrayOutput)
+}
+
+// (Optional) A list of cost category values to match. At least one value is required.
+func (o BudgetFilterExpressionOrTagsPtrOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *BudgetFilterExpressionOrTags) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Values
+	}).(pulumi.StringArrayOutput)
+}
+
+type BudgetFilterExpressionTags struct {
+	// (Optional) The cost category key to filter on.
+	Key *string `pulumi:"key"`
+	// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+	MatchOptions []string `pulumi:"matchOptions"`
+	// (Optional) A list of cost category values to match. At least one value is required.
+	Values []string `pulumi:"values"`
+}
+
+// BudgetFilterExpressionTagsInput is an input type that accepts BudgetFilterExpressionTagsArgs and BudgetFilterExpressionTagsOutput values.
+// You can construct a concrete instance of `BudgetFilterExpressionTagsInput` via:
+//
+//	BudgetFilterExpressionTagsArgs{...}
+type BudgetFilterExpressionTagsInput interface {
+	pulumi.Input
+
+	ToBudgetFilterExpressionTagsOutput() BudgetFilterExpressionTagsOutput
+	ToBudgetFilterExpressionTagsOutputWithContext(context.Context) BudgetFilterExpressionTagsOutput
+}
+
+type BudgetFilterExpressionTagsArgs struct {
+	// (Optional) The cost category key to filter on.
+	Key pulumi.StringPtrInput `pulumi:"key"`
+	// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+	MatchOptions pulumi.StringArrayInput `pulumi:"matchOptions"`
+	// (Optional) A list of cost category values to match. At least one value is required.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (BudgetFilterExpressionTagsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BudgetFilterExpressionTags)(nil)).Elem()
+}
+
+func (i BudgetFilterExpressionTagsArgs) ToBudgetFilterExpressionTagsOutput() BudgetFilterExpressionTagsOutput {
+	return i.ToBudgetFilterExpressionTagsOutputWithContext(context.Background())
+}
+
+func (i BudgetFilterExpressionTagsArgs) ToBudgetFilterExpressionTagsOutputWithContext(ctx context.Context) BudgetFilterExpressionTagsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetFilterExpressionTagsOutput)
+}
+
+func (i BudgetFilterExpressionTagsArgs) ToBudgetFilterExpressionTagsPtrOutput() BudgetFilterExpressionTagsPtrOutput {
+	return i.ToBudgetFilterExpressionTagsPtrOutputWithContext(context.Background())
+}
+
+func (i BudgetFilterExpressionTagsArgs) ToBudgetFilterExpressionTagsPtrOutputWithContext(ctx context.Context) BudgetFilterExpressionTagsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetFilterExpressionTagsOutput).ToBudgetFilterExpressionTagsPtrOutputWithContext(ctx)
+}
+
+// BudgetFilterExpressionTagsPtrInput is an input type that accepts BudgetFilterExpressionTagsArgs, BudgetFilterExpressionTagsPtr and BudgetFilterExpressionTagsPtrOutput values.
+// You can construct a concrete instance of `BudgetFilterExpressionTagsPtrInput` via:
+//
+//	        BudgetFilterExpressionTagsArgs{...}
+//
+//	or:
+//
+//	        nil
+type BudgetFilterExpressionTagsPtrInput interface {
+	pulumi.Input
+
+	ToBudgetFilterExpressionTagsPtrOutput() BudgetFilterExpressionTagsPtrOutput
+	ToBudgetFilterExpressionTagsPtrOutputWithContext(context.Context) BudgetFilterExpressionTagsPtrOutput
+}
+
+type budgetFilterExpressionTagsPtrType BudgetFilterExpressionTagsArgs
+
+func BudgetFilterExpressionTagsPtr(v *BudgetFilterExpressionTagsArgs) BudgetFilterExpressionTagsPtrInput {
+	return (*budgetFilterExpressionTagsPtrType)(v)
+}
+
+func (*budgetFilterExpressionTagsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BudgetFilterExpressionTags)(nil)).Elem()
+}
+
+func (i *budgetFilterExpressionTagsPtrType) ToBudgetFilterExpressionTagsPtrOutput() BudgetFilterExpressionTagsPtrOutput {
+	return i.ToBudgetFilterExpressionTagsPtrOutputWithContext(context.Background())
+}
+
+func (i *budgetFilterExpressionTagsPtrType) ToBudgetFilterExpressionTagsPtrOutputWithContext(ctx context.Context) BudgetFilterExpressionTagsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BudgetFilterExpressionTagsPtrOutput)
+}
+
+type BudgetFilterExpressionTagsOutput struct{ *pulumi.OutputState }
+
+func (BudgetFilterExpressionTagsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BudgetFilterExpressionTags)(nil)).Elem()
+}
+
+func (o BudgetFilterExpressionTagsOutput) ToBudgetFilterExpressionTagsOutput() BudgetFilterExpressionTagsOutput {
+	return o
+}
+
+func (o BudgetFilterExpressionTagsOutput) ToBudgetFilterExpressionTagsOutputWithContext(ctx context.Context) BudgetFilterExpressionTagsOutput {
+	return o
+}
+
+func (o BudgetFilterExpressionTagsOutput) ToBudgetFilterExpressionTagsPtrOutput() BudgetFilterExpressionTagsPtrOutput {
+	return o.ToBudgetFilterExpressionTagsPtrOutputWithContext(context.Background())
+}
+
+func (o BudgetFilterExpressionTagsOutput) ToBudgetFilterExpressionTagsPtrOutputWithContext(ctx context.Context) BudgetFilterExpressionTagsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BudgetFilterExpressionTags) *BudgetFilterExpressionTags {
+		return &v
+	}).(BudgetFilterExpressionTagsPtrOutput)
+}
+
+// (Optional) The cost category key to filter on.
+func (o BudgetFilterExpressionTagsOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BudgetFilterExpressionTags) *string { return v.Key }).(pulumi.StringPtrOutput)
+}
+
+// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+func (o BudgetFilterExpressionTagsOutput) MatchOptions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v BudgetFilterExpressionTags) []string { return v.MatchOptions }).(pulumi.StringArrayOutput)
+}
+
+// (Optional) A list of cost category values to match. At least one value is required.
+func (o BudgetFilterExpressionTagsOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v BudgetFilterExpressionTags) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type BudgetFilterExpressionTagsPtrOutput struct{ *pulumi.OutputState }
+
+func (BudgetFilterExpressionTagsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BudgetFilterExpressionTags)(nil)).Elem()
+}
+
+func (o BudgetFilterExpressionTagsPtrOutput) ToBudgetFilterExpressionTagsPtrOutput() BudgetFilterExpressionTagsPtrOutput {
+	return o
+}
+
+func (o BudgetFilterExpressionTagsPtrOutput) ToBudgetFilterExpressionTagsPtrOutputWithContext(ctx context.Context) BudgetFilterExpressionTagsPtrOutput {
+	return o
+}
+
+func (o BudgetFilterExpressionTagsPtrOutput) Elem() BudgetFilterExpressionTagsOutput {
+	return o.ApplyT(func(v *BudgetFilterExpressionTags) BudgetFilterExpressionTags {
+		if v != nil {
+			return *v
+		}
+		var ret BudgetFilterExpressionTags
+		return ret
+	}).(BudgetFilterExpressionTagsOutput)
+}
+
+// (Optional) The cost category key to filter on.
+func (o BudgetFilterExpressionTagsPtrOutput) Key() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BudgetFilterExpressionTags) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Key
+	}).(pulumi.StringPtrOutput)
+}
+
+// (Optional) The match options for the cost category filter. Valid values are `EQUALS`, `STARTS_WITH`, `ENDS_WITH`, `CONTAINS`, `GREATER_THAN_OR_EQUAL`, `CASE_SENSITIVE`, `CASE_INSENSITIVE`. Note: `ABSENT` is not supported due to AWS API contradictions (it requires values to be absent but also cannot have values set).
+func (o BudgetFilterExpressionTagsPtrOutput) MatchOptions() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *BudgetFilterExpressionTags) []string {
+		if v == nil {
+			return nil
+		}
+		return v.MatchOptions
+	}).(pulumi.StringArrayOutput)
+}
+
+// (Optional) A list of cost category values to match. At least one value is required.
+func (o BudgetFilterExpressionTagsPtrOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *BudgetFilterExpressionTags) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Values
+	}).(pulumi.StringArrayOutput)
 }
 
 type BudgetNotification struct {
@@ -3100,6 +11907,110 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*BudgetCostFilterArrayInput)(nil)).Elem(), BudgetCostFilterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BudgetCostTypesInput)(nil)).Elem(), BudgetCostTypesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BudgetCostTypesPtrInput)(nil)).Elem(), BudgetCostTypesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BudgetFilterExpressionInput)(nil)).Elem(), BudgetFilterExpressionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BudgetFilterExpressionPtrInput)(nil)).Elem(), BudgetFilterExpressionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BudgetFilterExpressionAndInput)(nil)).Elem(), BudgetFilterExpressionAndArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BudgetFilterExpressionAndArrayInput)(nil)).Elem(), BudgetFilterExpressionAndArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BudgetFilterExpressionAndAndInput)(nil)).Elem(), BudgetFilterExpressionAndAndArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BudgetFilterExpressionAndAndArrayInput)(nil)).Elem(), BudgetFilterExpressionAndAndArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BudgetFilterExpressionAndAndCostCategoriesInput)(nil)).Elem(), BudgetFilterExpressionAndAndCostCategoriesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BudgetFilterExpressionAndAndCostCategoriesPtrInput)(nil)).Elem(), BudgetFilterExpressionAndAndCostCategoriesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BudgetFilterExpressionAndAndDimensionsInput)(nil)).Elem(), BudgetFilterExpressionAndAndDimensionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BudgetFilterExpressionAndAndDimensionsPtrInput)(nil)).Elem(), BudgetFilterExpressionAndAndDimensionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BudgetFilterExpressionAndAndTagsInput)(nil)).Elem(), BudgetFilterExpressionAndAndTagsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BudgetFilterExpressionAndAndTagsPtrInput)(nil)).Elem(), BudgetFilterExpressionAndAndTagsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BudgetFilterExpressionAndCostCategoriesInput)(nil)).Elem(), BudgetFilterExpressionAndCostCategoriesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BudgetFilterExpressionAndCostCategoriesPtrInput)(nil)).Elem(), BudgetFilterExpressionAndCostCategoriesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BudgetFilterExpressionAndDimensionsInput)(nil)).Elem(), BudgetFilterExpressionAndDimensionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BudgetFilterExpressionAndDimensionsPtrInput)(nil)).Elem(), BudgetFilterExpressionAndDimensionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BudgetFilterExpressionAndNotInput)(nil)).Elem(), BudgetFilterExpressionAndNotArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BudgetFilterExpressionAndNotPtrInput)(nil)).Elem(), BudgetFilterExpressionAndNotArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BudgetFilterExpressionAndNotCostCategoriesInput)(nil)).Elem(), BudgetFilterExpressionAndNotCostCategoriesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BudgetFilterExpressionAndNotCostCategoriesPtrInput)(nil)).Elem(), BudgetFilterExpressionAndNotCostCategoriesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BudgetFilterExpressionAndNotDimensionsInput)(nil)).Elem(), BudgetFilterExpressionAndNotDimensionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BudgetFilterExpressionAndNotDimensionsPtrInput)(nil)).Elem(), BudgetFilterExpressionAndNotDimensionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BudgetFilterExpressionAndNotTagsInput)(nil)).Elem(), BudgetFilterExpressionAndNotTagsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BudgetFilterExpressionAndNotTagsPtrInput)(nil)).Elem(), BudgetFilterExpressionAndNotTagsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BudgetFilterExpressionAndOrInput)(nil)).Elem(), BudgetFilterExpressionAndOrArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BudgetFilterExpressionAndOrArrayInput)(nil)).Elem(), BudgetFilterExpressionAndOrArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BudgetFilterExpressionAndOrCostCategoriesInput)(nil)).Elem(), BudgetFilterExpressionAndOrCostCategoriesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BudgetFilterExpressionAndOrCostCategoriesPtrInput)(nil)).Elem(), BudgetFilterExpressionAndOrCostCategoriesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BudgetFilterExpressionAndOrDimensionsInput)(nil)).Elem(), BudgetFilterExpressionAndOrDimensionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BudgetFilterExpressionAndOrDimensionsPtrInput)(nil)).Elem(), BudgetFilterExpressionAndOrDimensionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BudgetFilterExpressionAndOrTagsInput)(nil)).Elem(), BudgetFilterExpressionAndOrTagsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BudgetFilterExpressionAndOrTagsPtrInput)(nil)).Elem(), BudgetFilterExpressionAndOrTagsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BudgetFilterExpressionAndTagsInput)(nil)).Elem(), BudgetFilterExpressionAndTagsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BudgetFilterExpressionAndTagsPtrInput)(nil)).Elem(), BudgetFilterExpressionAndTagsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BudgetFilterExpressionCostCategoriesInput)(nil)).Elem(), BudgetFilterExpressionCostCategoriesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BudgetFilterExpressionCostCategoriesPtrInput)(nil)).Elem(), BudgetFilterExpressionCostCategoriesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BudgetFilterExpressionDimensionsInput)(nil)).Elem(), BudgetFilterExpressionDimensionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BudgetFilterExpressionDimensionsPtrInput)(nil)).Elem(), BudgetFilterExpressionDimensionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BudgetFilterExpressionNotInput)(nil)).Elem(), BudgetFilterExpressionNotArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BudgetFilterExpressionNotPtrInput)(nil)).Elem(), BudgetFilterExpressionNotArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BudgetFilterExpressionNotAndInput)(nil)).Elem(), BudgetFilterExpressionNotAndArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BudgetFilterExpressionNotAndArrayInput)(nil)).Elem(), BudgetFilterExpressionNotAndArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BudgetFilterExpressionNotAndCostCategoriesInput)(nil)).Elem(), BudgetFilterExpressionNotAndCostCategoriesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BudgetFilterExpressionNotAndCostCategoriesPtrInput)(nil)).Elem(), BudgetFilterExpressionNotAndCostCategoriesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BudgetFilterExpressionNotAndDimensionsInput)(nil)).Elem(), BudgetFilterExpressionNotAndDimensionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BudgetFilterExpressionNotAndDimensionsPtrInput)(nil)).Elem(), BudgetFilterExpressionNotAndDimensionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BudgetFilterExpressionNotAndTagsInput)(nil)).Elem(), BudgetFilterExpressionNotAndTagsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BudgetFilterExpressionNotAndTagsPtrInput)(nil)).Elem(), BudgetFilterExpressionNotAndTagsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BudgetFilterExpressionNotCostCategoriesInput)(nil)).Elem(), BudgetFilterExpressionNotCostCategoriesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BudgetFilterExpressionNotCostCategoriesPtrInput)(nil)).Elem(), BudgetFilterExpressionNotCostCategoriesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BudgetFilterExpressionNotDimensionsInput)(nil)).Elem(), BudgetFilterExpressionNotDimensionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BudgetFilterExpressionNotDimensionsPtrInput)(nil)).Elem(), BudgetFilterExpressionNotDimensionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BudgetFilterExpressionNotNotInput)(nil)).Elem(), BudgetFilterExpressionNotNotArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BudgetFilterExpressionNotNotPtrInput)(nil)).Elem(), BudgetFilterExpressionNotNotArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BudgetFilterExpressionNotNotCostCategoriesInput)(nil)).Elem(), BudgetFilterExpressionNotNotCostCategoriesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BudgetFilterExpressionNotNotCostCategoriesPtrInput)(nil)).Elem(), BudgetFilterExpressionNotNotCostCategoriesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BudgetFilterExpressionNotNotDimensionsInput)(nil)).Elem(), BudgetFilterExpressionNotNotDimensionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BudgetFilterExpressionNotNotDimensionsPtrInput)(nil)).Elem(), BudgetFilterExpressionNotNotDimensionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BudgetFilterExpressionNotNotTagsInput)(nil)).Elem(), BudgetFilterExpressionNotNotTagsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BudgetFilterExpressionNotNotTagsPtrInput)(nil)).Elem(), BudgetFilterExpressionNotNotTagsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BudgetFilterExpressionNotOrInput)(nil)).Elem(), BudgetFilterExpressionNotOrArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BudgetFilterExpressionNotOrArrayInput)(nil)).Elem(), BudgetFilterExpressionNotOrArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BudgetFilterExpressionNotOrCostCategoriesInput)(nil)).Elem(), BudgetFilterExpressionNotOrCostCategoriesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BudgetFilterExpressionNotOrCostCategoriesPtrInput)(nil)).Elem(), BudgetFilterExpressionNotOrCostCategoriesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BudgetFilterExpressionNotOrDimensionsInput)(nil)).Elem(), BudgetFilterExpressionNotOrDimensionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BudgetFilterExpressionNotOrDimensionsPtrInput)(nil)).Elem(), BudgetFilterExpressionNotOrDimensionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BudgetFilterExpressionNotOrTagsInput)(nil)).Elem(), BudgetFilterExpressionNotOrTagsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BudgetFilterExpressionNotOrTagsPtrInput)(nil)).Elem(), BudgetFilterExpressionNotOrTagsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BudgetFilterExpressionNotTagsInput)(nil)).Elem(), BudgetFilterExpressionNotTagsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BudgetFilterExpressionNotTagsPtrInput)(nil)).Elem(), BudgetFilterExpressionNotTagsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BudgetFilterExpressionOrInput)(nil)).Elem(), BudgetFilterExpressionOrArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BudgetFilterExpressionOrArrayInput)(nil)).Elem(), BudgetFilterExpressionOrArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BudgetFilterExpressionOrAndInput)(nil)).Elem(), BudgetFilterExpressionOrAndArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BudgetFilterExpressionOrAndArrayInput)(nil)).Elem(), BudgetFilterExpressionOrAndArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BudgetFilterExpressionOrAndCostCategoriesInput)(nil)).Elem(), BudgetFilterExpressionOrAndCostCategoriesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BudgetFilterExpressionOrAndCostCategoriesPtrInput)(nil)).Elem(), BudgetFilterExpressionOrAndCostCategoriesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BudgetFilterExpressionOrAndDimensionsInput)(nil)).Elem(), BudgetFilterExpressionOrAndDimensionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BudgetFilterExpressionOrAndDimensionsPtrInput)(nil)).Elem(), BudgetFilterExpressionOrAndDimensionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BudgetFilterExpressionOrAndTagsInput)(nil)).Elem(), BudgetFilterExpressionOrAndTagsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BudgetFilterExpressionOrAndTagsPtrInput)(nil)).Elem(), BudgetFilterExpressionOrAndTagsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BudgetFilterExpressionOrCostCategoriesInput)(nil)).Elem(), BudgetFilterExpressionOrCostCategoriesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BudgetFilterExpressionOrCostCategoriesPtrInput)(nil)).Elem(), BudgetFilterExpressionOrCostCategoriesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BudgetFilterExpressionOrDimensionsInput)(nil)).Elem(), BudgetFilterExpressionOrDimensionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BudgetFilterExpressionOrDimensionsPtrInput)(nil)).Elem(), BudgetFilterExpressionOrDimensionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BudgetFilterExpressionOrNotInput)(nil)).Elem(), BudgetFilterExpressionOrNotArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BudgetFilterExpressionOrNotPtrInput)(nil)).Elem(), BudgetFilterExpressionOrNotArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BudgetFilterExpressionOrNotCostCategoriesInput)(nil)).Elem(), BudgetFilterExpressionOrNotCostCategoriesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BudgetFilterExpressionOrNotCostCategoriesPtrInput)(nil)).Elem(), BudgetFilterExpressionOrNotCostCategoriesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BudgetFilterExpressionOrNotDimensionsInput)(nil)).Elem(), BudgetFilterExpressionOrNotDimensionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BudgetFilterExpressionOrNotDimensionsPtrInput)(nil)).Elem(), BudgetFilterExpressionOrNotDimensionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BudgetFilterExpressionOrNotTagsInput)(nil)).Elem(), BudgetFilterExpressionOrNotTagsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BudgetFilterExpressionOrNotTagsPtrInput)(nil)).Elem(), BudgetFilterExpressionOrNotTagsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BudgetFilterExpressionOrOrInput)(nil)).Elem(), BudgetFilterExpressionOrOrArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BudgetFilterExpressionOrOrArrayInput)(nil)).Elem(), BudgetFilterExpressionOrOrArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BudgetFilterExpressionOrOrCostCategoriesInput)(nil)).Elem(), BudgetFilterExpressionOrOrCostCategoriesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BudgetFilterExpressionOrOrCostCategoriesPtrInput)(nil)).Elem(), BudgetFilterExpressionOrOrCostCategoriesArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BudgetFilterExpressionOrOrDimensionsInput)(nil)).Elem(), BudgetFilterExpressionOrOrDimensionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BudgetFilterExpressionOrOrDimensionsPtrInput)(nil)).Elem(), BudgetFilterExpressionOrOrDimensionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BudgetFilterExpressionOrOrTagsInput)(nil)).Elem(), BudgetFilterExpressionOrOrTagsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BudgetFilterExpressionOrOrTagsPtrInput)(nil)).Elem(), BudgetFilterExpressionOrOrTagsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BudgetFilterExpressionOrTagsInput)(nil)).Elem(), BudgetFilterExpressionOrTagsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BudgetFilterExpressionOrTagsPtrInput)(nil)).Elem(), BudgetFilterExpressionOrTagsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BudgetFilterExpressionTagsInput)(nil)).Elem(), BudgetFilterExpressionTagsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BudgetFilterExpressionTagsPtrInput)(nil)).Elem(), BudgetFilterExpressionTagsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BudgetNotificationInput)(nil)).Elem(), BudgetNotificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BudgetNotificationArrayInput)(nil)).Elem(), BudgetNotificationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BudgetPlannedLimitInput)(nil)).Elem(), BudgetPlannedLimitArgs{})
@@ -3142,6 +12053,110 @@ func init() {
 	pulumi.RegisterOutputType(BudgetCostFilterArrayOutput{})
 	pulumi.RegisterOutputType(BudgetCostTypesOutput{})
 	pulumi.RegisterOutputType(BudgetCostTypesPtrOutput{})
+	pulumi.RegisterOutputType(BudgetFilterExpressionOutput{})
+	pulumi.RegisterOutputType(BudgetFilterExpressionPtrOutput{})
+	pulumi.RegisterOutputType(BudgetFilterExpressionAndOutput{})
+	pulumi.RegisterOutputType(BudgetFilterExpressionAndArrayOutput{})
+	pulumi.RegisterOutputType(BudgetFilterExpressionAndAndOutput{})
+	pulumi.RegisterOutputType(BudgetFilterExpressionAndAndArrayOutput{})
+	pulumi.RegisterOutputType(BudgetFilterExpressionAndAndCostCategoriesOutput{})
+	pulumi.RegisterOutputType(BudgetFilterExpressionAndAndCostCategoriesPtrOutput{})
+	pulumi.RegisterOutputType(BudgetFilterExpressionAndAndDimensionsOutput{})
+	pulumi.RegisterOutputType(BudgetFilterExpressionAndAndDimensionsPtrOutput{})
+	pulumi.RegisterOutputType(BudgetFilterExpressionAndAndTagsOutput{})
+	pulumi.RegisterOutputType(BudgetFilterExpressionAndAndTagsPtrOutput{})
+	pulumi.RegisterOutputType(BudgetFilterExpressionAndCostCategoriesOutput{})
+	pulumi.RegisterOutputType(BudgetFilterExpressionAndCostCategoriesPtrOutput{})
+	pulumi.RegisterOutputType(BudgetFilterExpressionAndDimensionsOutput{})
+	pulumi.RegisterOutputType(BudgetFilterExpressionAndDimensionsPtrOutput{})
+	pulumi.RegisterOutputType(BudgetFilterExpressionAndNotOutput{})
+	pulumi.RegisterOutputType(BudgetFilterExpressionAndNotPtrOutput{})
+	pulumi.RegisterOutputType(BudgetFilterExpressionAndNotCostCategoriesOutput{})
+	pulumi.RegisterOutputType(BudgetFilterExpressionAndNotCostCategoriesPtrOutput{})
+	pulumi.RegisterOutputType(BudgetFilterExpressionAndNotDimensionsOutput{})
+	pulumi.RegisterOutputType(BudgetFilterExpressionAndNotDimensionsPtrOutput{})
+	pulumi.RegisterOutputType(BudgetFilterExpressionAndNotTagsOutput{})
+	pulumi.RegisterOutputType(BudgetFilterExpressionAndNotTagsPtrOutput{})
+	pulumi.RegisterOutputType(BudgetFilterExpressionAndOrOutput{})
+	pulumi.RegisterOutputType(BudgetFilterExpressionAndOrArrayOutput{})
+	pulumi.RegisterOutputType(BudgetFilterExpressionAndOrCostCategoriesOutput{})
+	pulumi.RegisterOutputType(BudgetFilterExpressionAndOrCostCategoriesPtrOutput{})
+	pulumi.RegisterOutputType(BudgetFilterExpressionAndOrDimensionsOutput{})
+	pulumi.RegisterOutputType(BudgetFilterExpressionAndOrDimensionsPtrOutput{})
+	pulumi.RegisterOutputType(BudgetFilterExpressionAndOrTagsOutput{})
+	pulumi.RegisterOutputType(BudgetFilterExpressionAndOrTagsPtrOutput{})
+	pulumi.RegisterOutputType(BudgetFilterExpressionAndTagsOutput{})
+	pulumi.RegisterOutputType(BudgetFilterExpressionAndTagsPtrOutput{})
+	pulumi.RegisterOutputType(BudgetFilterExpressionCostCategoriesOutput{})
+	pulumi.RegisterOutputType(BudgetFilterExpressionCostCategoriesPtrOutput{})
+	pulumi.RegisterOutputType(BudgetFilterExpressionDimensionsOutput{})
+	pulumi.RegisterOutputType(BudgetFilterExpressionDimensionsPtrOutput{})
+	pulumi.RegisterOutputType(BudgetFilterExpressionNotOutput{})
+	pulumi.RegisterOutputType(BudgetFilterExpressionNotPtrOutput{})
+	pulumi.RegisterOutputType(BudgetFilterExpressionNotAndOutput{})
+	pulumi.RegisterOutputType(BudgetFilterExpressionNotAndArrayOutput{})
+	pulumi.RegisterOutputType(BudgetFilterExpressionNotAndCostCategoriesOutput{})
+	pulumi.RegisterOutputType(BudgetFilterExpressionNotAndCostCategoriesPtrOutput{})
+	pulumi.RegisterOutputType(BudgetFilterExpressionNotAndDimensionsOutput{})
+	pulumi.RegisterOutputType(BudgetFilterExpressionNotAndDimensionsPtrOutput{})
+	pulumi.RegisterOutputType(BudgetFilterExpressionNotAndTagsOutput{})
+	pulumi.RegisterOutputType(BudgetFilterExpressionNotAndTagsPtrOutput{})
+	pulumi.RegisterOutputType(BudgetFilterExpressionNotCostCategoriesOutput{})
+	pulumi.RegisterOutputType(BudgetFilterExpressionNotCostCategoriesPtrOutput{})
+	pulumi.RegisterOutputType(BudgetFilterExpressionNotDimensionsOutput{})
+	pulumi.RegisterOutputType(BudgetFilterExpressionNotDimensionsPtrOutput{})
+	pulumi.RegisterOutputType(BudgetFilterExpressionNotNotOutput{})
+	pulumi.RegisterOutputType(BudgetFilterExpressionNotNotPtrOutput{})
+	pulumi.RegisterOutputType(BudgetFilterExpressionNotNotCostCategoriesOutput{})
+	pulumi.RegisterOutputType(BudgetFilterExpressionNotNotCostCategoriesPtrOutput{})
+	pulumi.RegisterOutputType(BudgetFilterExpressionNotNotDimensionsOutput{})
+	pulumi.RegisterOutputType(BudgetFilterExpressionNotNotDimensionsPtrOutput{})
+	pulumi.RegisterOutputType(BudgetFilterExpressionNotNotTagsOutput{})
+	pulumi.RegisterOutputType(BudgetFilterExpressionNotNotTagsPtrOutput{})
+	pulumi.RegisterOutputType(BudgetFilterExpressionNotOrOutput{})
+	pulumi.RegisterOutputType(BudgetFilterExpressionNotOrArrayOutput{})
+	pulumi.RegisterOutputType(BudgetFilterExpressionNotOrCostCategoriesOutput{})
+	pulumi.RegisterOutputType(BudgetFilterExpressionNotOrCostCategoriesPtrOutput{})
+	pulumi.RegisterOutputType(BudgetFilterExpressionNotOrDimensionsOutput{})
+	pulumi.RegisterOutputType(BudgetFilterExpressionNotOrDimensionsPtrOutput{})
+	pulumi.RegisterOutputType(BudgetFilterExpressionNotOrTagsOutput{})
+	pulumi.RegisterOutputType(BudgetFilterExpressionNotOrTagsPtrOutput{})
+	pulumi.RegisterOutputType(BudgetFilterExpressionNotTagsOutput{})
+	pulumi.RegisterOutputType(BudgetFilterExpressionNotTagsPtrOutput{})
+	pulumi.RegisterOutputType(BudgetFilterExpressionOrOutput{})
+	pulumi.RegisterOutputType(BudgetFilterExpressionOrArrayOutput{})
+	pulumi.RegisterOutputType(BudgetFilterExpressionOrAndOutput{})
+	pulumi.RegisterOutputType(BudgetFilterExpressionOrAndArrayOutput{})
+	pulumi.RegisterOutputType(BudgetFilterExpressionOrAndCostCategoriesOutput{})
+	pulumi.RegisterOutputType(BudgetFilterExpressionOrAndCostCategoriesPtrOutput{})
+	pulumi.RegisterOutputType(BudgetFilterExpressionOrAndDimensionsOutput{})
+	pulumi.RegisterOutputType(BudgetFilterExpressionOrAndDimensionsPtrOutput{})
+	pulumi.RegisterOutputType(BudgetFilterExpressionOrAndTagsOutput{})
+	pulumi.RegisterOutputType(BudgetFilterExpressionOrAndTagsPtrOutput{})
+	pulumi.RegisterOutputType(BudgetFilterExpressionOrCostCategoriesOutput{})
+	pulumi.RegisterOutputType(BudgetFilterExpressionOrCostCategoriesPtrOutput{})
+	pulumi.RegisterOutputType(BudgetFilterExpressionOrDimensionsOutput{})
+	pulumi.RegisterOutputType(BudgetFilterExpressionOrDimensionsPtrOutput{})
+	pulumi.RegisterOutputType(BudgetFilterExpressionOrNotOutput{})
+	pulumi.RegisterOutputType(BudgetFilterExpressionOrNotPtrOutput{})
+	pulumi.RegisterOutputType(BudgetFilterExpressionOrNotCostCategoriesOutput{})
+	pulumi.RegisterOutputType(BudgetFilterExpressionOrNotCostCategoriesPtrOutput{})
+	pulumi.RegisterOutputType(BudgetFilterExpressionOrNotDimensionsOutput{})
+	pulumi.RegisterOutputType(BudgetFilterExpressionOrNotDimensionsPtrOutput{})
+	pulumi.RegisterOutputType(BudgetFilterExpressionOrNotTagsOutput{})
+	pulumi.RegisterOutputType(BudgetFilterExpressionOrNotTagsPtrOutput{})
+	pulumi.RegisterOutputType(BudgetFilterExpressionOrOrOutput{})
+	pulumi.RegisterOutputType(BudgetFilterExpressionOrOrArrayOutput{})
+	pulumi.RegisterOutputType(BudgetFilterExpressionOrOrCostCategoriesOutput{})
+	pulumi.RegisterOutputType(BudgetFilterExpressionOrOrCostCategoriesPtrOutput{})
+	pulumi.RegisterOutputType(BudgetFilterExpressionOrOrDimensionsOutput{})
+	pulumi.RegisterOutputType(BudgetFilterExpressionOrOrDimensionsPtrOutput{})
+	pulumi.RegisterOutputType(BudgetFilterExpressionOrOrTagsOutput{})
+	pulumi.RegisterOutputType(BudgetFilterExpressionOrOrTagsPtrOutput{})
+	pulumi.RegisterOutputType(BudgetFilterExpressionOrTagsOutput{})
+	pulumi.RegisterOutputType(BudgetFilterExpressionOrTagsPtrOutput{})
+	pulumi.RegisterOutputType(BudgetFilterExpressionTagsOutput{})
+	pulumi.RegisterOutputType(BudgetFilterExpressionTagsPtrOutput{})
 	pulumi.RegisterOutputType(BudgetNotificationOutput{})
 	pulumi.RegisterOutputType(BudgetNotificationArrayOutput{})
 	pulumi.RegisterOutputType(BudgetPlannedLimitOutput{})
